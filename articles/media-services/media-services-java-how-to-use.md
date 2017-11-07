@@ -1,55 +1,77 @@
 ---
-title: "Java kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Belgeleri"
+title: "Azure Media Services için Java SDK’sı kullanmaya başlama | Microsoft Docs"
 description: "Bu öğretici, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar."
 services: media-services
 documentationcenter: java
 author: juliako
 manager: cfowler
-editor: 
+editor: johndeu
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 01/10/2017
+ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: 2294f3de094389f8aa500c75472e753339b18358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad022eb8d3a0a22e679962d75c05eed799976ece
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-java"></a>Java kullanarak isteğe bağlı içerik göndermeye başlama
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Azure Media Services için Java istemci SDK’sı kullanmaya başlama
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Bu öğretici, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar.
+Bu öğretici, Java istemci SDK’sı kullanarak Azure Media Services ile basit bir video içerik teslim hizmeti uygulama adımlarında size kılavuzluk eder.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
+Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
-* Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
+* Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
-* [Azure Java Geliştirici Merkezi][Azure Java Developer Center]’nden yüklenebilecek olan Java için Azure Kitaplıkları.
+* Geçerli [Azure Media Services Java SDK'sı](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)
 
-## <a name="how-to-use-media-services-with-java"></a>Nasıl yapılır: Java ile Media Services’i kullanma
+## <a name="how-to-import-the-azure-media-services-java-client-sdk-package"></a>Nasıl yapılır: Azure Media Services Java istemci SDK paketini içeri aktarma
+
+Java için Media Services SDK’sını kullanmaya başlamak üzere [Azure Media Services Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest)’sından `azure-media` paketinin geçerli sürümüne (0.9.8) ait bir başvuru ekleyin
+
+Örneğin, derleme aracınız `gradle` ise `build.gradle` dosyasına aşağıdaki bağımlılığı ekleyin:
+
+    compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
+
+>[!IMPORTANT]
+>`azure-media` paket sürümü `0.9.8` itibariyle SDK, Azure Active Directory (AAD) kimlik doğrulaması desteği eklemiş ve Azure Access Control Service (ACS) kimlik doğrulaması desteğini kaldırmıştır. ACS hizmetleri 1 Haziran 2018’de kullanım dışı kalacaktır. Azure AD kimlik doğrulaması modeline mümkün olan en kısa sürede geçiş yapmanız önerilir. Geçiş hakkında daha fazla bilgi için [Azure AD kimlik doğrulaması ile Azure Media Services API’sine erişim](media-services-use-aad-auth-to-access-ams-api.md) makalesini okuyun.
 
 >[!NOTE]
->AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+>Azure Media Services Java SDK'sının kaynak kodunu [GitHub depomuzda](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media) bulabilirsiniz. Ana dal yerine 0,9 dalına geçiş yaptığınızdan emin olun. 
+
+## <a name="how-to-use-azure-media-services-with-java"></a>Nasıl Yapılır: Java ile Azure Media Services’i Kullanma
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+>Media Services hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir.
 
 Aşağıdaki kod bir varlık oluşturma, varlığa bir medya dosyası yükleme, varlığı dönüştürecek bir göreve sahip olan bir işi çalıştırma ve videonuzu akışla aktarmak için bir bulucu oluşturma işlemlerinin nasıl gerçekleştirileceğini gösterir.
 
-Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap ayarlama hakkında daha fazla bilgi için bkz. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md).
+Bu kodu kullanmadan önce bir Media Services hesabı ayarlayın. Hesap ayarlama hakkında daha fazla bilgi için bkz. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md).
 
-'clientId' ve 'clientSecret' değişkenlerini kendi değerlerinizle değiştirin. Kod ayrıca, yerel olarak saklanan bir dosyaya da dayanır. Kullanılmak üzere kendi dosyanızı sağlamanız gerekir.
+Kod, Azure AD hizmet sorumlusu kimlik doğrulamasını kullanarak Azure Media Services API’sine bağlanır. Bir Azure AD uygulaması oluşturun ve kodda aşağıdaki değişkenlerin değerlerini belirtin:
+* `tenant`: Azure AD uygulamasının bulunduğu Azure AD kiracı etki alanı
+* `clientId`: Azure AD uygulamasının istemci kimliği
+* `clientKey`: Azure AD uygulamasının istemci anahtarı
+* `restApiEndpoint`: Azure Media Services hesabının REST API uç noktası
+
+Bir Azure AD uygulaması oluşturabilir ve Azure portalından önceki yapılandırma değerlerini alabilirsiniz. Daha fazla bilgi için [Azure portalı ile Azure AD kimlik doğrulamasını kullanmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) makalesinin **Hizmet sorumlusu kimlik doğrulaması** bölümüne bakın.
+
+Kod ayrıca yerel olarak saklanan bir video dosyası kullanır. Karşıya yüklemek için kendi yerel dosyanızı sağlamak üzere kodu düzenlemeniz gerekir.
 
     import java.io.*;
+    import java.net.URI;
     import java.security.NoSuchAlgorithmException;
     import java.util.EnumSet;
+    import java.util.concurrent.ExecutorService;
+    import java.util.concurrent.Executors;
 
     import com.microsoft.windowsazure.Configuration;
     import com.microsoft.windowsazure.exception.ServiceException;
@@ -57,6 +79,10 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
     import com.microsoft.windowsazure.services.media.MediaContract;
     import com.microsoft.windowsazure.services.media.MediaService;
     import com.microsoft.windowsazure.services.media.WritableBlobContainerContract;
+    import com.microsoft.windowsazure.services.media.authentication.AzureAdClientSymmetricKey;
+    import com.microsoft.windowsazure.services.media.authentication.AzureAdTokenCredentials;
+    import com.microsoft.windowsazure.services.media.authentication.AzureAdTokenProvider;
+    import com.microsoft.windowsazure.services.media.authentication.AzureEnvironments;
     import com.microsoft.windowsazure.services.media.models.AccessPolicy;
     import com.microsoft.windowsazure.services.media.models.AccessPolicyInfo;
     import com.microsoft.windowsazure.services.media.models.AccessPolicyPermission;
@@ -75,34 +101,48 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
     import com.microsoft.windowsazure.services.media.models.MediaProcessorInfo;
     import com.microsoft.windowsazure.services.media.models.Task;
 
-    public class HelloMediaServices
+    public class Program
     {
         // Media Services account credentials configuration
-        private static String mediaServiceUri = "https://media.windows.net/API/";
-        private static String oAuthUri = "https://wamsprodglobal001acs.accesscontrol.windows.net/v2/OAuth2-13";
-        private static String clientId = "account name";
-        private static String clientSecret = "account key";
-        private static String scope = "urn:WindowsAzureMediaServices";
+        private static String tenant = "tenant.domain.com";
+        private static String clientId = "<client id>";
+        private static String clientKey = "<client key>";
+        private static String restApiEndpoint = "https://account_name.restv2.region_name.media.azure.net/api/";
+
+        // Media Services API
         private static MediaContract mediaService;
 
         // Encoder configuration
+        // This is using the default Adaptive Streaming encoding preset. 
+        // You can choose to use a custom preset, or any other sample defined preset. 
+        // In addition you can use other processors, like Speech Analyzer, or Redactor if desired.
         private static String preferedEncoder = "Media Encoder Standard";
         private static String encodingPreset = "Adaptive Streaming";
 
         public static void main(String[] args)
         {
+            ExecutorService executorService = Executors.newFixedThreadPool(1);
 
             try {
-                // Set up the MediaContract object to call into the Media Services account
-                Configuration configuration = MediaConfiguration.configureWithOAuthAuthentication(
-                mediaServiceUri, oAuthUri, clientId, clientSecret, scope);
+                // Setup Azure AD Service Principal Symmetric Key Credentials
+                AzureAdTokenCredentials credentials = new AzureAdTokenCredentials(
+                        tenant,
+                        new AzureAdClientSymmetricKey(clientId, clientKey),
+                        AzureEnvironments.AZURE_CLOUD_ENVIRONMENT);
+
+                AzureAdTokenProvider provider = new AzureAdTokenProvider(credentials, executorService);
+
+                // Create a new configuration with the credentials
+                Configuration configuration = MediaConfiguration.configureWithAzureAdTokenProvider(
+                        new URI(restApiEndpoint),
+                        provider);
+
+                // Create the media service provisioned with the new configuration
                 mediaService = MediaService.create(configuration);
 
-
                 // Upload a local file to an Asset
-                AssetInfo uploadAsset = uploadFileAndCreateAsset("BigBuckBunny.mp4");
+                AssetInfo uploadAsset = uploadFileAndCreateAsset("Video Name", "C:/path/to/video.mp4");
                 System.out.println("Uploaded Asset Id: " + uploadAsset.getId());
-
 
                 // Transform the Asset
                 AssetInfo encodedAsset = encode(uploadAsset);
@@ -120,11 +160,12 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
             } catch (Exception e) {
                 System.out.println("Exception encountered.");
                 System.out.println(e.toString());
+            } finally {
+                executorService.shutdown();
             }
-
         }
 
-        private static AssetInfo uploadFileAndCreateAsset(String fileName)
+        private static AssetInfo uploadFileAndCreateAsset(String assetName, String fileName)
             throws ServiceException, FileNotFoundException, NoSuchAlgorithmException {
 
             WritableBlobContainerContract uploader;
@@ -133,7 +174,7 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
             LocatorInfo uploadLocator = null;
 
             // Create an Asset
-            resultAsset = mediaService.create(Asset.create().setName(fileName).setAlternateId("altId"));
+            resultAsset = mediaService.create(Asset.create().setName(assetName).setAlternateId("altId"));
             System.out.println("Created Asset " + fileName);
 
             // Create an AccessPolicy that provides Write access for 15 minutes
@@ -147,15 +188,15 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
             // Create the Blob Writer using the Locator
             uploader = mediaService.createBlobWriter(uploadLocator);
 
-            File file = new File("BigBuckBunny.mp4"); 
+            File file = new File(fileName);
 
             // The local file that will be uploaded to your Media Services account
             InputStream input = new FileInputStream(file);
 
             System.out.println("Uploading " + fileName);
 
-            // Upload the local file to the asset
-            uploader.createBlockBlob(fileName, input);
+            // Upload the local file to the media asset
+            uploader.createBlockBlob(file.getName(), input);
 
             // Inform Media Services about the uploaded files
             mediaService.action(AssetFile.createFileInfos(resultAsset.getId()));
@@ -227,7 +268,7 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
             AccessPolicyInfo originAccessPolicy;
             LocatorInfo originLocator = null;
 
-            // Create a 30-day readonly AccessPolicy
+            // Create a 30-day read only AccessPolicy
             double durationInMinutes = 60 * 24 * 30;
             originAccessPolicy = mediaService.create(
                     AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
@@ -256,7 +297,6 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
                 }
             }
         }
-
     }
 
 
@@ -267,10 +307,15 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
-Media Services Javadoc belgeleri için bkz. [Java için Azure Kitaplıkları belgeleri][Azure Libraries for Java documentation].
+Azure’da Java uygulamaları geliştirme hakkında daha fazla bilgi için [Azure Java Geliştirici Merkezi][Azure Java Developer Center] ve [Java geliştiricileri için Azure][Azure for Java developers] konularını inceleyin.
+
+
+Media Services Javadoc belgeleri için [Java için Azure Kitaplıkları belgeleri][Java için Azure Kitaplıkları belgeleri] konularını inceleyin.
 
 <!-- URLs. -->
 
+[Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
 [Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
-[Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
+[Azure for Java developers]: https://docs.microsoft.com/java/azure/
 [Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+

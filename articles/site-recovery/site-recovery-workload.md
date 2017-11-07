@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?"
-description: "Azure Site Recovery, şirket içi sanal makinelerin ve fiziksel sunucuların Azure'a veya ikincil bir şirket içi siteye yönelik çoğaltma, yük devretme ve kurtarma işlemlerini koordine ederek iş yüklerinizi ve uygulamalarınızı korur."
+title: "Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz? | Microsoft Belgeleri"
+description: "Azure Site Recovery hizmeti ile olağanüstü durum kurtarma kullanılarak korunabilen iş yüklerini açıklar."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
-Bu makalede, Azure Site Recovery hizmetiyle çoğaltabileceğiniz iş yükleri ve uygulamalar açıklanmıştır.
 
-Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
+Bu makalede, [Azure Site Recovery](site-recovery-overview.md) hizmetiyle çoğaltabileceğiniz iş yükleri ve uygulamalar açıklanmıştır.
+
+
 
 ## <a name="overview"></a>Genel Bakış
+
 Kuruluşlar; uygulamaları, iş yüklerini ve verileri planlanmış ve planlanmamış kesinti süreleri içinde güvenli ve kullanılabilir durumda tutan ve mümkün olan en kısa zamanda normal çalışma koşullarına dönmelerini sağlayan bir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejisine ihtiyaç duyar.
 
 Site Recovery, BCDR stratejinize katkıda bulunan bir Azure hizmetidir. Site Recovery’yi kullanarak, buluta veya ikincil bir siteye uygulamayla tutarlı çoğaltma dağıtabilir. Uygulamalarınızın Windows tabanlı veya Linux tabanlı olmasına ya da fiziksel sunucularda, VMware'de ya da Hyper-V’de çalışıyor olmasına bakılmaksızın, çoğaltmayı düzenleme, olağanüstü durum kurtarma testi yapma, yük devretme ve yeniden çalışma gibi işlemler için Site Recovery'yi kullanabilirsiniz.
@@ -33,6 +35,7 @@ Site Recovery, BCDR stratejinize katkıda bulunan bir Azure hizmetidir. Site Rec
 Site Recovery; SharePoint, Exchange, Dynamics, SQL Server ve Active Directory dahil olmak üzere Microsoft uygulamalarıyla tümleşik bir şekilde çalışır. Microsoft; Oracle, SAP ve Red Hat gibi önde gelen satıcılarla da yakın bir şekilde çalışır. Çoğaltma çözümlerini her uygulama için ayrı olarak özelleştirebilirsiniz.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Uygulama çoğaltma için neden Site Recovery'yi kullanmam gerekir?
+
 Site Recovery, uygulama düzeyinde koruma ve kurtarmaya şu yollarla katkıda bulunur:
 
 * Desteklenen makinede çalışan iş yükleri için uygulaması belirsiz çoğaltma.
@@ -157,4 +160,5 @@ Azure’da istemci/sunucu masaüstlerini lisanslama hakkında [daha fazla bilgi 
 Citrix XenApp ve XenDesktop dağıtımlarını koruma hakkında [daha fazla bilgi edinin](site-recovery-citrix-xenapp-and-xendesktop.md). Alternatif olarak, aynı konuyla ilgili ayrıntılı bilgilerin sunulduğu [Citrix teknik incelemesine](https://aka.ms/citrix-xenapp-xendesktop-with-asr) başvurabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Önkoşulları denetleme](site-recovery-prereq.md)
+
+Azure VM çoğaltma ile [çalışmaya başlayın](azure-to-azure-quickstart.md).

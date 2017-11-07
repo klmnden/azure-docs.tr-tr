@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB: Tablo API’sine Giriş
 
@@ -38,10 +38,10 @@ Aravind Ramachandran'ın Azure Cosmos DB için Tablo API'si ile çalışmaya ba�
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>Premium ve standart Tablo API’leri
-Şu anda Tablo depolamayı kullanıyorsanız, Azure Cosmos DB'nin "premium tablo" önizlemesine geçerek aşağıdaki avantajlara sahip olabilirsiniz:
+## <a name="table-offerings"></a>Tablo teklifleri
+Şu anda Azure Tablo Depolama hizmetini kullanıyorsanız, Azure Cosmos DB Tablo API’sine (önizleme) geçerek aşağıdaki avantajlara sahip olabilirsiniz:
 
-| | Azure Tablo depolama | Azure Cosmos DB: Tablo depolama (önizleme) |
+| | Azure Table Storage | Azure Cosmos DB Tablo API’si (önizleme) |
 | --- | --- | --- |
 | Gecikme süresi | Hızlıdır, ancak gecikme süresi için üst sınır yoktur. | Herhangi bir ölçekte, dünyanın her yerinde okuma ve yazma işlemleri için tek haneli milisaniyelik gecikme (99. yüzdebirlik dilimde okumalar için 10 ms'den az, yazma için 15 ms'den az gecikme süresiyle desteklenir). |
 | Aktarım hızı | Değişken aktarım hızı modeli. Tabloların 20.000 işlem/sn'lik bir ölçeklenebilirlik sınırı vardır. | SLA'lar ile desteklenen [tablo başına adanmış, ayrılmış aktarım hızı](request-units.md) ile yüksek düzeyde ölçeklenebilir. Hesapların aktarım hızı açısından üst sınırı yoktur ve tablo başına saniyede 10 milyondan fazla işlem desteklenir. |

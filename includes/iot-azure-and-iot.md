@@ -1,19 +1,14 @@
 
-# <a name="azure-and-internet-of-things"></a>Azure ve Nesnelerin İnterneti
+# <a name="azure-and-the-internet-of-things"></a>Azure ve Nesnelerin İnterneti
 
-Microsoft Azure’a ve Nesnelerin İnterneti’ne (IOT) Hoş Geldiniz. Bu makalede, Azure hizmetlerini kullanarak dağıtabileceğiniz bir IoT çözümünün genel özellikleri anlatılır. IoT çözümleri, çok sayıda cihaz ve çözüm arka ucu arasında güvenli, çift yönlü iletişim gerektirir. Çözüm arka ucu, cihazdan buluta olay akışınızdan bilgileri açığa çıkarmak için otomatik, tahmine dayalı analizleri kullanabilir.
-
-[Azure IoT Hub][lnk-iot-hub], Azure hizmetlerini kullanan tüm IoT çözümlerinin temel bir yapı taşıdır. IoT Hub, milyonlarca IoT cihazı ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. 
-
-[Azure IoT Paketi][lnk-iot-suite], belirli IoT senaryoları için bu mimarinin eksiksiz, uçtan uca uygulamalarını sağlar. Örneğin:
-
-* *Uzaktan izleme* çözümü, satış makineleri gibi cihazların durumunu takip etmeniz sağlar.
-* *Tahmine dayalı bakım* çözümü, uzak pompa istasyonlarındaki pompalar gibi cihazların bakım gereksinimlerini tahmin etmenize ve plansız zaman kayıplarından kaçınmanıza yardımcı olur.
-* *Bağlı fabrika* çözümü sektörel cihazlarınızı bağlamanıza ve izlemenize yardımcı olur.
+Microsoft Azure’a ve Nesnelerin İnterneti’ne (IOT) Hoş Geldiniz. Bu makale, bulutta IoT çözümünün genel özelliklerini açıklar. IoT çözümleri, sayıları milyonları bulabilecek cihazlar arasında güvenli, çift yönlü iletişim ve çözüm arka ucu gerektirir. Örneğin, bir çözüm cihazdan buluta olay akışınızdan bilgileri açığa çıkarmak için otomatik, tahmine dayalı analizleri kullanabilir.
 
 ## <a name="iot-solution-architecture"></a>IOT çözüm mimarisi
 
-Aşağıdaki diyagram tipik bir IoT çözüm mimarisini göstermektedir. Belirli Azure hizmetlerinin adları görülemese de, genel IoT çözüm mimarisinin önemli öğelerini açıklamaktadır. Bu mimaride, IoT cihazları bulut ağ geçidine gönderdikleri verileri toplar. Bulut ağ geçidi, verileri diğer arka uç hizmetleri tarafından işlenebilir hale getirir. Çözüm arka ucu, bir pano veya rapor aracılığıyla verileri iş kolu uygulamalarına veya insan kullanıcılara sunar.
+Aşağıdaki diyagram tipik bir IoT çözüm mimarisinin temel öğelerini göstermektedir. Diyagram, kullanılan Azure hizmetleri ve cihaz işletim sistemleri gibi belirli uygulama ayrıntılarından bağımsızdır. Bu mimaride, IoT cihazları bulut ağ geçidine gönderdikleri verileri toplar. Bulut ağ geçidi, verileri diğer arka uç hizmetleri tarafından işlenebilir hale getirir. Bu arka uç hizmetleri şuralara veri iletebilir:
+
+* Diğer iş kolu uygulamaları.
+* Pano veya başka bir sunu cihazı üzerinden insan kullanıcılar.
 
 ![IOT çözüm mimarisi][img-solution-architecture]
 
@@ -22,11 +17,11 @@ Aşağıdaki diyagram tipik bir IoT çözüm mimarisini göstermektedir. Belirli
 
 ### <a name="device-connectivity"></a>Cihaz bağlantısı
 
-Bu IoT çözümünde, cihazlar pompa istasyonuna ait sensör okumaları gibi telemetriyi depolanması ve işlenmesi amacıyla bulut uç noktasına gönderir. Tahmine dayalı bakım senaryosunda çözüm arka ucu, belirli bir pompanın ne zaman bakıma gerek duyacağını saptamak için sensör verilerinin akışını kullanabilir. Cihazlar, bulut uç noktasına ait iletileri okuyarak buluttan cihaza iletileri de alıp yanıtlayabilir. Örneğin, tahmine dayalı bakım senaryosunda çözüm arka ucu, bakımın başlamasından hemen önce akışların yeniden yönlendirilmesini başlatmak amacıyla pompa istasyonundaki diğer pompalara da ileti gönderebilir. Bu yordam, bakım mühendisinin sorunu düzeltmeye hemen başlayabilmesini sağlar.
+Bir IoT çözüm mimarisinde cihazlar genellikle depolama ve işleme amacıyla buluta telemetri gönderir. Örneğin, Tahmine dayalı bakım senaryosunda çözüm arka ucu, belirli bir pompanın ne zaman bakıma gerek duyacağını saptamak için sensör verilerinin akışını kullanabilir. Cihazlar, bulut uç noktasına ait iletileri okuyarak buluttan cihaza iletileri de alıp yanıtlayabilir. Aynı örnekte çözüm arka ucu, bakımın başlamasından hemen önce akışların yeniden yönlendirilmesini başlatmak amacıyla pompa istasyonundaki diğer pompalara da ileti gönderebilir. Bu yordam, bakım mühendisinin ulaşır ulaşmaz işe başlamasını sağlar.
 
-IoT projelerinin karşılaştığı en büyük zorluklardan biri de, cihazların güvenle ve güvenilir olarak çözüm arka uçlarına nasıl bağlanacaklarıdır. IoT cihazlarında, tarayıcılar ve mobil uygulamalar gibi diğer istemcilerle karşılaştırıldığında farklı özellikler bulunur. IoT cihazları:
+IoT çözümlerinde görülen en büyük zorluk genellikle cihazları güvenli ve güvenilir bir şekilde bağlamaktır. Bunun nedeni, tarayıcılar ve mobil uygulamalar gibi diğer istemcilerle karşılaştırıldığında IoT cihazlarında farklı özelliklerin bulunmasıdır. IoT cihazları şu özelliklere sahiptir:
 
-* İnsan olan bir operatörü bulunmayan ve genellikle katıştırılmış sistemlerdir.
+* Genellikle insan kullanıcısı bulunmayan katıştırılmış sistemlerdir (bir telefonun aksine).
 * Fiziksel erişimin pahalı olduğu uzak konumlarda dağıtılabilir.
 * Yalnızca çözüm arka ucu aracılığıyla erişilebilir. Cihazla etkileşime geçmek için başka bir yol yoktur.
 * Sınırlı güç ve işleme kaynaklarına sahip olabilir.
@@ -34,28 +29,36 @@ IoT projelerinin karşılaştığı en büyük zorluklardan biri de, cihazların
 * Mülkiyete ait, özel veya sektöre özgü uygulama protokolleri kullanması gerekebilir.
 * Büyük bir popüler donanım ve yazılım platformu kümesi kullanılarak oluşturulabilir.
 
-Yukarıdaki gereksinimlere ek olarak, tüm IoT çözümlerinin ölçek, güvenlik ve güvenilirlik de sunması gerekir. Elde edilen bağlantı gereksinimleri kümesi, web kapsayıcıları ve mesajlaşma aracıları gibi geleneksel teknolojiler kullanıldığında uygulaması zor ve zaman alıcı olabilir. Azure IoT Hub ve IoT cihaz SDK'ları bu gereksinimleri karşılayan çözümlerin uygulanmasını kolaylaştırır.
+Önceki kısıtlamalara ek olarak, tüm IoT çözümlerinin aynı zamanda ölçeklenebilir, güvenli ve güvenilir olması gerekir.
 
-Cihaz doğrudan bir bulut ağ geçidi uç noktasıyla iletişim kurabilir. Cihaz bulut ağ geçidinin desteklediği iletişim protokollerinin hiçbirini kullanamıyorsa, bir ara ağ geçidi üzerinden bağlanabilir. Örneğin, cihazlar IoT Hub'ın desteklediği protokollerden herhangi birini kullanamıyorsa [Azure IoT protokol ağ geçidi][lnk-protocol-gateway] tarafından protokol çevirisi gerçekleştirilebilir.
+İletişim protokolüne ve ağ kullanılabilirliğine bağlı olarak, bir cihaz doğrudan veya bir ara ağ geçidi üzerinden bulutla iletişim kurabilir. IoT mimarileri genellikle bu iki iletişim deseninin bir karışımını kullanır.
 
 ### <a name="data-processing-and-analytics"></a>Veri işleme ve analizi
 
-Bulutta, verilerin büyük bir bölümü bir IoT çözümü arka ucunda işlenir. IoT çözüm arka ucu:
+Modern IoT çözümlerinde veri işleme, bulutta veya cihaz tarafında gerçekleşebilir. Cihaz tarafında işleme, *Uç bilgi işlem* olarak adlandırılır. Verilerin işleneceği yerle ilgili seçim aşağıdaki gibi etkenlere bağlıdır:
 
-* Telemetriyi cihazlarınızdan ölçekli alır ve bu verilerin nasıl işleneceğini ve depolanacağını saptar. 
-* Komutları buluttan belirli cihazlara göndermenizi sağlayabilir.
-* Cihaz sağlamanıza ve hangi cihazların altyapıya bağlanabileceğini denetlemenize olanak tanıyan cihaz kaydı becerileri sağlar.
-* Cihazlarınızın durumunu izlemenizi ve etkinliklerini takip etmenizi sağlar.
+* Ağ kısıtlamaları. Cihazlar ile bulut arasındaki bant genişliği sınırlı ise, daha fazla uç işleme yapmak için teşvik vardır.
+* Yanıt süresi. Neredeyse gerçek zamanlı olarak cihaz üzerinde işlem yapma gereksinimi varsa, yanıtı cihazın içinde işlemek daha iyi olabilir. Örneğin, acil durumda durdurulması gereken bir robot kolu.
+* Yasal ortam. Bazı veriler buluta gönderilemez.
 
-Tahmine dayalı bakım senaryosunda, çözüm arka ucu geçmiş telemetri verilerini depolar. Çözüm arka ucu, bu verileri belirli bir pompanın bakım zamanının geldiğini belirten desenleri görmek amacıyla kullanabilir.
+Genel olarak, hem uç hem de bulutta veri işleme aşağıdaki özelliklerin bir birleşimidir:
 
-IOT çözümlerinde otomatik geri bildirim döngüleri bulunabilir. Örneğin, çözüm arka ucundaki analitik bir modül, belirli bir cihazdaki sıcaklığın normal çalışma seviyesinin üzerinde olduğunu telemetriden tanımlayabilir. Ardından çözüm cihaza, doğru işlemi yapması için talimat veren bir komut gönderebilir.
+* Telemetriyi cihazlarınızdan ölçekli alma ve bu verilerin nasıl işleneceğini ve depolanacağını saptama.
+* Gerçek zamanlı veya olaydan sonra olmasına bakılmaksızın öngörüler sağlamak için telemetriyi analiz etme.
+* Buluttan veya bir ağ geçidi cihazından belirli bir cihaza komut gönderme.
+
+Ayrıca, bir IoT bulut arka ucu şunları sağlamalıdır:
+
+* Aşağıdakileri yapmanıza olanak tanıyan cihaz kayıt özellikleri:
+    * Cihaz sağlama.
+    * Altyapınıza bağlanmasına izin verilen cihazları denetleme.
+* Cihazlarınızın durumunu denetlemeye ve etkinliklerini izlemenize yönelik cihaz yönetimi.
+
+Örneğin, tahmine dayalı bakım senaryosunda bulut arka ucu geçmiş telemetri verilerini depolar. Çözüm, bu verileri kullanarak belirli pompalardaki anormal davranışları gerçek bir soruna neden olmadan önce tanımlar. Veri analizi kullanarak, önleyici çözümün düzeltici bir eylem gerçekleştirmek için cihaza yeniden komut göndermek olduğunu belirleyebilir. Bu işlem, cihaz ile bulut arasında çözüm verimliliğini önemli ölçüde artıran otomatik bir geri bildirim döngüsü oluşturur.
 
 ### <a name="presentation-and-business-connectivity"></a>Sunu ve iş bağlantısı
 
-Sunu ve iş bağlantı katmanı son kullanıcıların IoT çözümü ve cihazlarla etkileşime geçmesini sağlar. Kullanıcıların kendi cihazlarından toplanan verileri görüntülemelerini ve çözümlemelerini sağlar. Bu görünümler, hem geçmiş verileri hem de yakın gerçek zamanlı verileri görüntüleyebilen panolar veya raporlar biçiminde olabilir. Örneğin, bir kullanıcı belirli bir pompa istasyonunun durumunu denetleyebilir ve sistem tarafından gerçekleştirilen tüm uyarıları görebilir. Bu katman, kurumsal iş süreçlerine veya iş akışlarına bağlanmak üzere var olan iş kolu uygulamalarına sahip IoT çözüm arka ucunun tümleştirilmesini de sağlar. Örneğin, tahmine dayalı bakım çözümü bir zamanlama sistemiyle tümleştirilebilir. Çözüm bakım yapılması gereken bir pompa olduğunu belirlediğinde, zamanlama sistemi pompa istasyonunu ziyaret etmesi için bir mühendis ayırır.
-
-![IoT çözüm panosu][img-dashboard]
+Sunu ve iş bağlantı katmanı son kullanıcıların IoT çözümü ve cihazlarla etkileşime geçmesini sağlar. Kullanıcıların kendi cihazlarından toplanan verileri görüntülemelerini ve çözümlemelerini sağlar. Bu görünümler panolar veya hem geçmiş verileri, hem de yakın gerçek zamanlı verileri görüntüleyebilen BI raporu biçiminde olabilir. Örneğin, bir kullanıcı belirli bir pompa istasyonunun durumunu denetleyebilir ve sistem tarafından gerçekleştirilen tüm uyarıları görebilir. Bu katman, kurumsal iş süreçlerine veya iş akışlarına bağlanmak üzere var olan iş kolu uygulamalarına sahip IoT çözüm arka ucunun tümleştirilmesini de sağlar. Örneğin, tahmine dayalı bakım bir çözümü bir pompaya bakım gerektiğini tanımladığında mühendisin pompayı ziyaretini ayarlayan zamanlama sistemiyle tümleştirilebilir.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png

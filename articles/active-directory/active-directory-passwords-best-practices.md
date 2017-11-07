@@ -13,31 +13,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4cfc1652377f0cfd059e336aec6994b40d32c559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="roll-out-password-reset-for-users"></a>Kullanıcılar için parola sıfırlamayı kullanıma sunma
+# <a name="how-to-successfully-rollout-self-service-password-reset"></a>Self servis parola sıfırlamayı başarıyla kullanıma sunma
 
-Çoğu müşteri, SSPR işlevini sorunsuzca kullanıma sunmak için aşağıdaki adımları izlemelidir.
+Çoğu müşteri, SSPR işlevini sorunsuzca kullanıma sunmak için aşağıdaki adımları izler.
 
-1. [Dizininizde parola sıfırlamayı etkinleştirin](active-directory-passwords-getting-started.md)
-2. [Parola geri yazma için şirket içi AD izinlerini yapılandırın](active-directory-passwords-how-it-works.md#active-directory-permissions)
-3. Azure AD'deki izinleri şirket içi dizininize geri yazmak için [parola geri yazmayı yapılandırın](active-directory-passwords-writeback.md#configuring-password-writeback)
-4. [Gerekli lisansları atayıp doğrulayın](active-directory-passwords-licensing.md)
-5. Kademeli olarak kullanıma sunmak istiyorsanız, parola sıfırlama özelliğini bir kullanıcı grubuyla sınırlamayı seçerek özelliği zaman içinde kullanıma sunabilirsiniz. Bunu yapmak için **Self Servis Parola Sıfırlama Etkinleştirildi** için **Herkes** olan ayarı **Bir grup** olarak değiştirin ve parola sıfırlama özelliğinin etkinleştirileceği güvenlik grubunu seçin. Bu grubun tüm üyelerine lisans atanmış olmalıdır. Bu, [Grup Tabanlı Lisanslama](active-directory-passwords-licensing.md#enable-group-or-user-based-licensing) için ideal bir yoldur.
-6. İlkenize göre en küçük [Kimlik Doğrulama Verileri](active-directory-passwords-data.md) kümesini doldurun.
-7. Kullanıcılarınıza kaydolma ve sıfırlama yönergeleri göndererek SSPR kullanmayı öğretin.
-    > [!NOTE]
+1. [Dizininizde parola sıfırlamayı etkinleştirme](active-directory-passwords-getting-started.md).
+2. [Parola geri yazma için şirket içi AD izinlerini yapılandırma](active-directory-passwords-writeback.md#active-directory-permissions).
+3. Azure AD'deki izinleri şirket içi dizininize geri yazmak için [parola geri yazmayı yapılandırın](active-directory-passwords-writeback.md#configuring-password-writeback).
+4. [Gerekli lisansları atayıp doğrulama](active-directory-passwords-licensing.md).
+5. SSPR’yi kademeli olarak kullanıma sunmak istiyorsanız, belirli bir grup ile deneyebilmek için erişimi bir kullanıcı grubu ile sınırlayabilirsiniz. Bunu yapmak için **Self Servis Parola Sıfırlama Etkinleştirildi** ayarını **Seçili** olarak değiştirin ve parola sıfırlama özelliğinin etkinleştirileceği güvenlik grubunu seçin. 
+6. Kullanıcılarınız için [Kimlik Doğrulama Verileri](active-directory-passwords-data.md) alanını ofis telefonu, cep telefonu ve alternatif e-posta adresi gibi bir değerle doldurun.
+7. [Azure AD oturum açma deneyimini şirket markanızı içerecek şekilde özelleştirin. ](active-directory-passwords-customize.md).
+8. Kullanıcılarınıza kaydolma ve sıfırlama yönergeleri göndererek SSPR kullanmayı öğretin.
+9. Herhangi bir noktada kayıt yapılmasını zorunlu hale getirebilir ve kullanıcıların belirli bir süre sonra kimlik doğrulama bilgilerini yeniden onaylamasını isteyebilirsiniz.
+10. Zaman geçtikçe, [Azure AD tarafından sağlanan raporları](active-directory-passwords-reporting.md) görüntüleyerek kullanıcılarınızın kayıt işlemlerini ve kullanımını gözden geçirin.
+11. Hazır olduğunuzda, tüm kullanıcılar için parola sıfırlamayı etkinleştirin ve **Self Servis Parola Sıfırlama Etkin** ayarını **Tümü** olarak değiştirin. 
+
+    > [!IMPORTANT]
     > Microsoft, Azure yönetici hesapları için güçlü kimlik doğrulama gereksinimleri uyguladığından, SSPR özelliğini yönetici olmayan bir kullanıcıyla test edin. Yönetici parolası ilkesiyle ilgili daha fazla bilgi için [ayrıntılı makalemize](active-directory-passwords-how-it-works.md) bakın.
-
-8. Herhangi bir noktada kayıt yapılmasını zorunlu hale getirebilir ve kullanıcıların belirli bir süre sonra kimlik doğrulama bilgilerini yeniden onaylamasını isteyebilirsiniz. Kullanıcılarınız için kaydolmayı zorunlu tutmak istemiyorsanız, [son kullanıcı kaydı istemeden parola sıfırlamayı dağıtabilirsiniz](active-directory-passwords-data.md).
-9. Zaman geçtikçe, [Azure AD tarafından sağlanan raporları](active-directory-passwords-reporting.md) görüntüleyerek kullanıcılarınızın kayıt işlemlerini ve kullanımını gözden geçirin.
 
 ## <a name="email-based-rollout"></a>E-posta tabanlı kullanıma sunma
 
@@ -47,13 +49,17 @@ Birçok müşteri için kullanıcılarının SSPR kullanmaya başlamasının en 
 * **Şimdi Kullanılabilir** e-posta şablonu, kullanıcıları gerektiğinde SSPR kullanabilmek için kaydolmaya ve kimlik doğrulama verilerini onaylamaya yönlendirmek üzere kullanıma sunma gününde kullanılır.
 * **Kaydolma Anımsatıcısı** e-posta şablonu, kullanıcılara kaydolmayı ve kimlik doğrulama verilerini onaylamayı anımsatmak üzere dağıtımdan sonraki birkaç gün veya hafta sonra gönderilir.
 
+![E-posta][Email]
+
 ## <a name="creating-your-own-password-portal"></a>Kendi parola portalınızı oluşturma
 
 Büyük müşterilerimizin birçoğu web sayfası barındırmayı ve https://passwords.contoso.com gibi bir kök DNS girişi oluşturmayı seçer. Bu sayfayı Azure AD parola sıfırlama bağlantıları, parolama sıfırlama kaydı, parola değiştirme portalları ve kuruluşa özel diğer bilgilerle doldurur. Bu sayede, gönderdiğiniz herhangi bir e-posta yazışmasına veya ilanlara kullanıcıların hizmetleri kullanmak gerektiğinde gidebileceği işaretli ve akılda kalıcı bir URL ekleyebilirsiniz.
 
-* Parola sıfırlama portalı - https://passwordreset.microsoftonline.com/
+* Parola sıfırlama portalı - https://aka.ms/sspr
 * Parola sıfırlama kayıt portalı - http://aka.ms/ssprsetup
 * Parola değiştirme portalı - https://account.activedirectory.windowsazure.com/ChangePassword.aspx
+
+Yararlanmanız için, [GitHub](https://github.com/ajamess/password-reset-page)’dan indirilebilen ve kuruluşunuzun gereksinimlerine uygun olarak kullanıp özelleştirebileceğiniz örnek bir sayfa oluşturduk.
 
 ## <a name="using-enforced-registration"></a>Zorunlu kayıt kullanma
 
@@ -73,15 +79,15 @@ Self servis parola sıfırlama özelliğini devre dışı bırakmak için Azure 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
+* [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md).
+* [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md).
+* [Lisans ile ilgili sorunuz mu var?](active-directory-passwords-licensing.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
+* [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)
+* [Parola geri yazma nedir ve neden önemlidir?](active-directory-passwords-writeback.md)
+* [SSPR’de etkinliği nasıl bildirebilirim?](active-directory-passwords-reporting.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
+* [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
+* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
 
-* [**Hızlı Başlangıç**](active-directory-passwords-getting-started.md) - Azure AD self servis parola yönetimi ile çalışmaya hazırlanın 
-* [**Lisanslama**](active-directory-passwords-licensing.md) - Azure AD Lisanslarınızı yapılandırın
-* [**Veri**](active-directory-passwords-data.md) - Gerekli olan verileri ve parola yönetimi için nasıl kullanıldığını anlayın
-* [**Özelleştirme**](active-directory-passwords-customize.md) - SSPR deneyiminin görünümünü şirketiniz için özelleştirin.
-* [**İlke**](active-directory-passwords-policy.md) - Azure AD parola ilkelerini anlayın ve ayarlayın
-* [**Parola Geri Yazma**](active-directory-passwords-writeback.md) - Şirket içi dizininizde parola geri yazma özelliğinin nasıl çalıştığını anlayın
-* [**Raporlama**](active-directory-passwords-reporting.md) - Kullanıcılarınızın SSPR işlevine erişip erişmediğini, ne zaman ve nerede eriştiğini öğrenin
-* [**Teknik Ayrıntı**](active-directory-passwords-how-it-works.md) - Nasıl çalıştığını anlamak için perde arkasına gidin
-* [**Sık Sorulan Sorular**](active-directory-passwords-faq.md) - Nasıl? Neden? Ne? Nerede? Kim? Ne zaman? - Her zaman sormak istediğiniz soruların yanıtları
-* [**Sorun giderme**](active-directory-passwords-troubleshoot.md) - SSPR ile yaygın olarak karşılaştığımız sorunların çözümü hakkında bilgi alın
+[Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Bu e-posta şablonlarını kuruluşunuzun gereksinimlerine uyacak şekilde özelleştirin"

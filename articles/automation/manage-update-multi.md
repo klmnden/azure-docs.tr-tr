@@ -1,24 +1,24 @@
 ---
 title: "Birden fazla Azure sanal makinesi için güncelleştirmeleri yönetme | Microsoft Docs"
-description: "Güncelleştirmeleri yönetmek için Azure sanal makineleri ekleyin."
-services: operations-management-suite
+description: "Bu konuda, Azure sanal makineleri için güncelleştirmelerin nasıl yönetileceği açıklanmaktadır."
+services: automation
 documentationcenter: 
 author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 89bf87f27fdf276068cba261fc6ae1660307e0b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/31/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Birden fazla Azure sanal makinesi için güncelleştirmeleri yönetme
 
@@ -27,10 +27,46 @@ Güncelleştirme yönetimi, Azure sanal makineleriniz için güncelleştirme ve 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kılavuzdaki adımları tamamlamak için şunlar gerekir:
+Güncelleştirme yönetimini kullanmak için şunlar gerekir:
 
-* Azure Otomasyonu hesabı. Bir Azure Otomasyonu Garklı Çalıştır hesabı oluşturma yönergeleri için bkz. [Azure Farklı Çalıştır Hesabı](automation-sec-configure-azure-runas-account.md).
-* Azure Resource Manager sanal makinesi (Klasik değil). VM oluşturma yönergeleri için bkz. [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* Azure Otomasyonu hesabı. Bir Azure Otomasyonu Farklı Çalıştır hesabı oluşturma yönergeleri için [Azure Otomasyonu ile Çalışmaya Başlama](automation-offering-get-started.md) konusunu inceleyin.
+
+* Desteklenen işletim sistemlerinden birinin yüklü olduğu bir sanal makine veya bilgisayar.
+
+## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
+
+Güncelleştirme yönetimi aşağıdaki işletim sistemlerinde desteklenir.
+
+### <a name="windows"></a>Windows
+
+* Windows Server 2008 ve üzeri ile Windows Server 2008 R2 SP1 ve üzerine göre güncelleştirme dağıtımları.  Sunucu Çekirdeği ve Nano Sunucu yükleme seçenekleri desteklenmez.
+
+    > [!NOTE]
+    > Windows Server 2008 R2 SP1'e yönelik güncelleştirme dağıtımı desteği için .NET Framework 4.5 ve WMF 5.0 veya sonraki bir sürümü gerekir.
+    > 
+* Windows istemci işletim sistemleri desteklenmez.
+
+Windows aracıları Windows Server Update Services (WSUS) sunucusuyla iletişim kuracak veya Microsoft Update’e erişecek şekilde yapılandırılmış olmalıdır.
+
+> [!NOTE]
+> Windows aracısı System Center Configuration Manager tarafından eşzamanlı olarak yönetilemez.
+>
+
+### <a name="linux"></a>Linux
+
+* CentOS 6 (x86/x64) ve 7 (x64)  
+* Red Hat Enterprise 6 (x86/x64) ve 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)  
+* Ubuntu 12.04 LTS ve daha yeni x86/x64   
+
+> [!NOTE]  
+> Güncelleştirmelerin Ubuntu'daki bakım penceresinin dışında uygulanmasının önüne geçmek için Katılımsız Yükseltme paketini otomatik güncelleştirmeler devre dışı bırakılacak şekilden yeniden yapılandırın. Bahsedilen yapılandırma işlemiyle ilgili bilgi için bkz. [Ubuntu Server Kılavuzu'ndaki Otomatik Güncelleştirmeler konu başlığı](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
+Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.
+
+> [!NOTE]
+> Birden çok OMS çalışma alanına raporlayacak şekilde yapılandırılmış bir Linux için OMS Aracısı, bu çözümde desteklenmez.  
+>
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Azure sanal makineleri için güncelleştirme yönetimini etkinleştirme
 
@@ -45,9 +81,36 @@ Bu kılavuzdaki adımları tamamlamak için şunlar gerekir:
 
 Güncelleştirme yönetimi, sanal makineniz için etkinleştirilir.
 
+## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Azure olmayan sanal makineler ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme
+
+Azure olmayan Windows sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında yönergeler için [Azure’da Windows bilgisayarlarını Log Analytics hizmetine bağlama](../log-analytics/log-analytics-windows-agents.md) konusunu inceleyin.
+
+Azure olmayan Linux sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında yönergeler için [Azure’da Linux bilgisayarlarını Operations Management Suite’e (OMS) bağlama](../log-analytics/log-analytics-agent-linux.md) konusunu inceleyin.
+
 ## <a name="view-update-assessment"></a>Güncelleştirme değerlendirmesini görüntüleme
 
 **Güncelleştirme yönetimi** etkinleştirildikten sonra **Güncelleştirme yönetimi** ekranı görünür. **Eksik güncelleştirmeler** sekmesinde eksik güncelleştirmelerin bir listesini görebilirsiniz.
+
+## <a name="data-collection"></a>Veri toplama
+
+Sanal makine ve bilgisayarlarda yüklü aracılar, güncelleştirmelerle ilgili verileri toplar ve Azure güncelleştirme yönetimine gönderir.
+
+### <a name="supported-agents"></a>Desteklenen aracılar
+
+Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açıklanmaktadır.
+
+| Bağlı Kaynak | Destekleniyor | Açıklama |
+| --- | --- | --- |
+| Windows aracıları |Evet |Güncelleştirme yönetimi, Windows aracılarından sistem güncelleştirme bilgilerini toplar ve gerekli güncelleştirmelerin yüklemesini başlatır. |
+| Linux aracıları |Evet |Güncelleştirme yönetimi, Linux aracılarından sistem güncelleştirme bilgilerini toplar ve desteklenen dağıtımlarda gerekli güncelleştirmelerin yüklemesini başlatır. |
+| Operations Manager yönetim grubu |Evet |Güncelleştirme yönetimi, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar. |
+| Azure depolama hesabı |Hayır |Azure Storage, sistem güncelleştirmeleri hakkında bilgi içermez. |
+
+### <a name="collection-frequency"></a>Toplama sıklığı
+
+Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API’si çağrılarak son güncelleştirme zamanı sorgulanır; böylelikle durumun değişip değişmediği saptanır ve değişmişse bir uyumluluk taraması başlatılır.  Yönetilen her Linux bilgisayarı için 3 saatte bir tarama gerçekleştirilir.
+
+Yönetilen bilgisayarlardan gelen güncelleştirilmiş verilerin panoda görüntülenmesi 30 dakika ile 6 saat arasında bir zaman alabilir.
 
 ## <a name="schedule-an-update-deployment"></a>Güncelleştirme dağıtımı zamanlama
 
@@ -106,6 +169,8 @@ Dağıtımın oluşturduğu tüm günlük girişlerini görmek için **Tüm gün
 Hedef sanal makinede güncelleştirme dağıtımını yönetmekten sorumlu runbook’un iş akışını görmek için **Çıktı** kutucuğuna tıklayın.
 
 Dağıtımla ilgili her türlü hata hakkında ayrıntılı bilgi için **Hatalar**’a tıklayın.
+
+Günlükler, çıktı ve hata bilgileri hakkında ayrıntılı bilgi için [Güncelleştirme Yönetimi](../operations-management-suite/oms-solution-update-management.md) konusunu inceleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

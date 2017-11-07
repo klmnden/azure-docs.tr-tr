@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT önceden yapılandırılmış çözümleri | Microsoft Docs"
-description: "Azure IoT önceden yapılandırılmış çözümlerin ve ek kaynaklara bağlantısı olan mimarisinin bir açıklaması."
+title: "Önceden yapılandırılmış Azure IoT Paketi çözümlerine genel bakış | Microsoft Docs"
+description: "Önceden yapılandırılmış Azure IoT Paketi çözümlerinin ve mimarisinin ek kaynak bağlantılarıyla birlikte açıklaması."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,33 +15,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: e0e79cb3b4c71c5d424f3b46af72fcb8b2f63ead
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?
+# <a name="what-is-azure-iot-suite"></a>Azure IoT Paketi nedir?
 
-Azure IoT Paketi önceden yapılandırılmış çözümleri, aboneliği kullanarak Azure’e dağıtabildiğiniz yaygın IoT çözüm modellerinin uygulamalarıdır. Önceden yapılandırılmış çözümleri kullanabilirsiniz:
+Azure IoT Paketi, aşağıdaki özelliklere sahip olan *önceden yapılandırılmış çözümler* kümesidir:
 
-* Kendi IoT çözümleriniz için bir başlangıç noktası olarak.
-* IoT çözüm tasarımı ve geliştirmesinde ortak yaklaşımlar hakkında bilgi edinmek için.
+* Dakikalar içinde dağıtım
+* Hızlıca kullanmaya başlama
+* Gereksinimlerinizi karşılayacak şekilde özelleştirebilirsiniz
 
-Önceden yapılandırılmış her çözüm, telemetri oluşturmak için tam, uçtan uca sanal cihazları kullanan bir uygulamadır.
+Önceden yapılandırılmış *IoT Paketi* çözümlerinin tümü aynı ilke ve hedeflere göre tasarlanmıştır.
 
-Kendi özel IoT gereksinimlerinizi karşılayacak şekilde çözümü özelleştirmek ve genişletmek için tam kaynak kodunu indirebilirsiniz.
+## <a name="preconfigured-solutions-overview"></a>Önceden yapılandırılmış çözümlere genel bakış
 
-> [!NOTE]
-> Önceden yapılandırılmış çözümlerden birini dağıtmak için [Microsoft Azure IoT Paketi][lnk-azureiotsuite] sayfasını ziyaret edin. [IoT önceden yapılandırılmış çözümlerine giriş][lnk-getstarted-preconfigured] makalesi çözümlerden birinin dağıtılması ve çalıştırılması hakkında daha fazla bilgi sağlamaktadır.
+Önceden yapılandırılmış çözüm, aboneliği kullanarak Azure’e dağıtabildiğiniz yaygın IoT çözüm modellerinin açık kaynak uygulamasıdır. Önceden yapılandırılmış her çözüm, belirli bir IoT senaryosu veya senaryolarını uygulamak için özel kod ile Azure hizmetlerini birleştirir. Senaryoların herhangi birini gereksinimlerinizi karşılayacak şekilde özelleştirebilirsiniz. Bu senaryolar şunlardır:
+
+* Ayrıntılı öngörüler ve çözüm durumu için zengin bir pano üzerinde verileri görselleştirme.
+* Dinamik IoT cihaz telemetrisi üzerinde kurallar ve alarmlar yapılandırma.
+* Yazılım güncelleştirmeleri ve yapılandırma gibi cihaz yönetimi işlerini zamanlama.
+* Kendi özel fiziksel veya sanal cihazlarınızı sağlama.
+* IoT cihaz gruplarınızın içindeki sorunları giderme ve düzeltme.
+
+Önceden yapılandırılmış her çözüm, telemetri oluşturmak için tam, uçtan uca sanal veya fiziksel cihazları kullanabilen bir uygulamadır. Aşağıdaki işlemleri yapmak için çözüm hızlandırıcıları olarak önceden yapılandırılmış çözümleri kullanabilirsiniz:
+
+* Kendi IoT çözümleriniz için bir başlangıç noktası sağlama.
+* IoT çözüm tasarımı ve geliştirmesinde ortak yaklaşımlar hakkında bilgi edinme.
+
+Günümüzde üç adet önceden yapılandırılmış çözüm mevcuttur:
+
+* [Uzaktan izleme](iot-suite-remote-monitoring-explore.md)
+* [Tahmine dayalı bakım](iot-suite-predictive-overview.md)
+* [Bağlı fabrika](iot-suite-connected-factory-overview.md)
 
 Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşıladığı gösterilmektedir:
 
-| Çözüm | Veri alımı | Cihaz kimliği | Cihaz yönetimi | Komut ve denetim | Kurallar ve eylemler | Tahmine dayalı analiz |
-| --- | --- | --- | --- | --- | --- | --- |
-| [Uzaktan izleme][lnk-getstarted-preconfigured] |Evet |Evet |Evet |Evet |Evet |- |
-| [Tahmine dayalı bakım][lnk-predictive-maintenance] |Evet |Evet |- |Evet |Evet |Evet |
-| [Bağlı fabrika][lnk-getstarted-factory] |Evet |Evet |Evet |Evet |Evet |- |
+| Çözüm | Veri alımı | Cihaz kimliği | Cihaz yönetimi | Uç işleme | Komut ve denetim | Kurallar ve eylemler | Tahmine dayalı analiz |
+| ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
+| [Uzaktan izleme](iot-suite-remote-monitoring-explore.md)  |Evet |Evet |Evet |-   |Evet |Evet |-   |
+| [Tahmine dayalı bakım](iot-suite-predictive-overview.md)   |Evet |Evet |-   |-   |Evet |Evet |Evet |
+| [Bağlı fabrika](iot-suite-connected-factory-overview.md) |Evet |Evet |Evet |Evet |Evet |Evet |-   |
 
 * *Veri alımı*: Bulut ölçeğinde veri girişi.
 * *Cihaz kimliği*: Benzersiz cihaz kimliklerini yönetin ve çözüme cihaz erişimini denetleyin.
@@ -50,128 +67,84 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 * *Kurallar ve eylemler*: Çözüm, belirli bir cihazdan buluta verilerde işlem yapmak için arka uç kuralları kullanır.
 * *Tahmine dayalı analiz*: Çözüm arka ucu, belirli işlemlerin ne zaman gerçekleştirileceğini tahmin etmek için cihazdan buluta verileri analiz eder. Örneğin, motor bakımının ne zaman olacağını saptamak için uçak motoru telemetrisinin analiz edilmesi.
 
-## <a name="remote-monitoring-preconfigured-solution-overview"></a>Önceden yapılandırılmış Uzaktan İzleme çözümüne genel bakış
+> [!NOTE]
+> Önceden yapılandırılmış bir çözümü dağıtmak ve nasıl özelleştirildiği hakkında daha fazla bilgi edinmek için [Microsoft Azure IoT Paketi](https://www.azureiotsuite.com/) sayfasını ziyaret edin.
 
-Diğer çözümlerin de paylaştığı çok sayıda ortak tasarım öğesi gösterdiğinden, bu makalede önceden yapılandırılmış uzaktan izleme çözümünü seçtik.
+## <a name="azure-services"></a>Azure hizmetleri
 
-Aşağıdaki diyagram uzaktan izleme çözümünün önemli öğelerin göstermektedir. Aşağıdaki bölümlerde bu öğeler hakkında daha fazla bilgi verilmektedir.
+Önceden yapılandırılmış bir çözümü dağıttığınızda, sağlama işlemi birkaç Azure hizmetini yapılandırır. Aşağıdaki tabloda önceden yapılandırılmış çözümlerde kullanılan hizmetler gösterilmektedir:
 
-![Önceden yapılandırılmış Uzaktan İzleme çözümü mimarisi][img-remote-monitoring-arch]
+|                      | Uzaktan izleme  | Tahmine dayalı bakım | Bağlı fabrika |
+| -------------------- | ------------------ | ---------------------- | ----------------- |
+| IoT Hub’ı              | Evet                |                        | Evet               |
+| Event Hubs           |                    | Evet                    |                   |
+| Zaman Serisi Öngörüleri |                    |                        | Evet               |
+| Kapsayıcı Hizmetleri   | Evet                |                        | Evet               |
+| Akış Analizi     |                    | Evet                    |                   |
+| Web Apps             | Evet                | Evet                    | Evet               |
+| Cosmos DB            | Evet                | Evet                    | Evet               |
+| Azure Tabloları         |                    | Evet                    | Evet               |
 
-## <a name="devices"></a>Cihazlar
+* [Azure IoT Hub](../iot-hub/index.md). Bu hizmet cihaz-bulut arası ve bulut-cihaz arası ileti gönderme özellikleri sağlar ve buluta ve diğer temel IoT Paketi hizmetlerine ağ geçidi görevi görür. Hizmet cihazınızdan ölçekte mesajlar almanızı ve cihazlarınıza komutlar göndermenizi sağlar. Hizmet ayrıca [cihazlarınızı yönetmenizi](../iot-hub/iot-hub-device-management-overview.md) sağlar. Örneğin hub'a bağlı bir veya daha fazla cihazı yapılandırabilir, yeniden başlatabilir veya fabrika ayarlarına döndürebilirsiniz.
+* [Azure Event Hubs](../event-hubs/index.md). Bu hizmet, bulutta yüksek hacimli olay alımı sağlar. Şu konuyu inceleyin: [Azure IoT Hub ile Azure Event Hubs Karşılaştırması](../iot-hub/iot-hub-compare-event-hubs.md).
+* [Azure Time Series Insights](../time-series-insights/index.md). Önceden yapılandırılmış çözümler, cihazlarınızın telemetri verilerini görüntülemek için bu hizmeti kullanır.
+* [Azure Container Service](../container-service/index.yml). Bu hizmet, önceden yapılandırılmış çözümlerde mikro hizmetleri barındırır ve yönetir.
+* Veri depolama için [Azure Cosmos DB](../cosmos-db/index.yml) ve [Azure Depolama](../storage/index.yml).
+* [Azure Stream Analytics](../stream-analytics/index.md). Tahmin dayalı bakım önceden yapılandırılmış çözümü, gelen telemetri işlemek, toplama gerçekleştirmek ve olayları algılamak için bu hizmeti kullanır. Önceden yapılandırılmış bu çözüm, meta veriler ya da cihazlardan alınan komut yanıtları gibi verileri içeren bilgi iletilerini işlemek için de akış analizini kullanır.
+* [Azure Web Apps](../app-service/index.yml) önceden yapılandırılmış çözümlerde özel uygulama kodunu barındırır.
 
-Önceden yapılandırılmış uzaktan izleme çözümünü dağıttığınızda, dört sanal cihaz bir soğutma cihazının benzetimini yapan çözümde önceden hazırlanır. Bu sanal cihazlarda telemetri yayan yerleşik bir sıcaklık ve nem modeline bulunur. Bu sanal cihazlar aşağıdaki amaçlar için dahil edilir:
+Tipik bir IoT çözüm mimarisine genel bakış için [Microsoft Azure ve Nesnelerin İnterneti (IoT)](iot-suite-what-is-azure-iot.md) konusunu inceleyin.
 
-- Verilerin çözümde uçtan uca akışını göstermek.
-- Kullanışlı bir telemetri kaynağı sağlamak.
-- Çözümü özel bir uygulama için başlangıç noktası olarak kullanan bir arka uç geliştiriciyseniz, yöntemler veya komutlar için bir hedef sağlayın.
+## <a name="whats-new-in-preconfigured-solutions"></a>Önceden yapılandırılmış çözümlerdeki yenilikler nelerdir?
 
-Çözümdeki sanal cihazlar aşağıdaki buluttan cihaza iletişimlere yanıt verebilir:
+Microsoft önceden yapılandırılmış çözümleri yeni bir mikro hizmet tabanlı mimariye güncelleştirmektedir. Aşağıdaki tabloda önceden yapılandırılmış çözümlerin geçerli durumu gösterilmektedir:
 
-- *Yöntemler ([doğrudan yöntemler][lnk-direct-methods])*: Bağlı bir cihazın hemen yanıt vermesinin beklendiği iki yönlü bir iletişim yöntemi.
-- *Komutlar (buluttan cihaza iletiler)*: Bir cihazın dayanıklı bir kuyruktan komut aldığı tek yönlü bir iletişim yöntemi.
+| Önceden yapılandırılmış çözüm | Mimari  | Diller     |
+| ---------------------- | ------------- | ------------- |
+| Uzaktan izleme      | Mikro hizmetler | Java ve .NET |
+| Tahmine dayalı bakım | MVC           | .NET          |
+| Bağlı fabrika      | MVC           | .NET          |
 
-Bu farklı yaklaşımların bir karşılaştırması için bkz. [Buluttan cihaza iletişim kılavuzu][lnk-c2d-guidance].
+Aşağıdaki bölümlerde, mikro hizmet tabanlı önceden yapılandırılmış çözümlerdeki yenilikler açıklanmaktadır:
 
-Cihaz önceden yapılandırılmış çözümde IoT Hub’a ilk kez bağlandığında hub’a bir cihaz bilgi iletisi gönderir. Bu ileti, cihazın karşılık verebildiği metotların listesini oluşturur. Önceden yapılandırılmış uzaktan izleme çözümünde, sanal cihazlar şu yöntemleri destekler:
+### <a name="microservices"></a>Mikro hizmetler
 
-* *Üretici Yazılımı Güncelleştirmelerini Başlatma*: bu yöntem cihaz üzerinde bir üretici yazılımı güncelleştirmesi gerçekleştirmek üzere zaman uyumsuz bir görev başlatır. Zaman uyumsuz görev, çözüm panosuna durum güncelleştirmelerini iletmek üzere bildirilen özellikleri kullanır.
-* *Yeniden başlatma*: bu yöntem sanal cihazın yeniden başlatılmasına neden olur.
-* *FactoryReset*: bu yöntem sanal cihaz üzerinde bir fabrika sıfırlaması tetikler.
+Uzaktan izleme önceden yapılandırılmış çözümünün yeni sürümü bir mikro hizmet mimarisi kullanır. Önceden yapılandırılmış bu çözüm, *IoT Hub yöneticisi* ve *Depolama yöneticisi* gibi birden fazla mikro hizmetten oluşur. İlgili geliştirici belgeleriyle birlikte her bir mikro hizmetin Java ve .NET sürümleri indirilebilir. Mikro hizmetler hakkında daha fazla bilgi için [Uzaktan izleme mimarisi](iot-suite-remote-monitoring-sample-walkthrough.md) konusunu inceleyin.
 
-Cihaz önceden yapılandırılmış çözümde IoT Hub’a ilk kez bağlandığında hub’a bir cihaz bilgi iletisi gönderir. Bu ileti cihazın karşılık verebildiği komutların listesini oluşturur. Önceden yapılandırılmış uzaktan izleme çözümünde, sanal cihazlar şu komutları destekler:
+Bu mikro hizmet mimarisi, bulut çözümleri için aşağıdaki özelliklere sahip olduğu kanıtlanmış bir düzendir:
 
-* *Cihaza Ping Yap*: Cihaz bu komutu bir bildirimle yanıtlar. Bu komut, cihazın halen etkin ve dinleniyor olduğunu denetlemek için yararlıdır.
-* *Telemetriyi Başlat*: Cihaza telemetri göndermeye başlaması talimatı verir.
-* *Telemetriyi Durdur*: Cihaza telemetri göndermeyi durdurması talimatı verir.
-* *Sıcaklık Ayar Noktasını Değiştir*: Cihazın gönderdiği benzetimli sıcaklık telemetri değerlerini denetler. Bu komut, arka uç mantığının test edilmesi için yararlıdır.
-* *Telemetriyi Tanıla*: Cihazın dış sıcaklığı telemetri olarak gönderip göndermediğini denetler.
-* *Cihaz Durumunu Değiştir*: Cihaz durumu meta veri özelliğini cihaz raporlarına ait olarak ayarlar. Bu komut, arka uç mantığının test edilmesi için yararlıdır.
+* Ölçeklenebilir.
+* Genişletilebilirlik sağlar.
+* Anlaşılması kolaydır.
+* Alternatifleri için hizmetlerin tek tek takas edilmesini sağlar.
 
-Aynı telemetriyi yayan ve aynı yöntem ile komutu yanıtlayan çözüme daha fazla sanal cihaz ekleyebilirsiniz.
+> [!TIP]
+> Mikro hizmet mimarisi hakkında daha fazla bilgi için [.NET Uygulama Mimarisi](https://www.microsoft.com/net/learn/architecture) ve [Mikro hizmetler: Bulut tarafından desteklenen bir uygulama devrimi](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) konusunu inceleyin.
 
-Çözüm, komut ve yöntemleri yanıtlamaya ek olarak [cihaz ikizlerini][lnk-device-twin] kullanır. Cihazlar çözüm arka ucuna özellik değerlerini bildirmek için cihaz ikizlerini kullanır. Çözüm panosu, cihazlar üzerinde istenen yeni özellik değerlerini ayarlamak için cihaz ikizlerini kullanır. Örneğin, üretici yazılımı güncelleştirme işlemi sırasında sanal cihaz, bildirilen özellikleri kullanarak güncelleştirmenin durumunu bildirir.
+Uzaktan izlemenin yeni sürümünü dağıttığınızda, aşağıdaki dağıtım seçeneklerinden birini belirlemeniz gerekir:
 
-## <a name="iot-hub"></a>IoT Hub’ı
+* **Temel:** Tanıtım için veya bir dağıtımı test etmek için daha düşük maliyetli sürüm. Tüm mikro hizmetler tek bir Azure sanal makinesine dağıtılır.
+* **Kurumsal:** Bir üretim dağıtımı geliştirmek için genişletilmiş altyapı dağıtımı. Azure Container Service, mikro hizmetleri birden fazla Azure sanal makinesine dağıtır. Kubernetes mikro hizmetleri tek tek barındıran Docker kapsayıcılarını düzenler.
 
-Önceden yapılandırılmış bu çözümde, IoT Hub'ı örneği tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] *Bulut Ağ Geçidi*'ne karşılık gelir.
+### <a name="language-choices-java-and-net"></a>Dil seçimleri: Java ve .NET
 
-IoT hub’ı telemetriyi tek uç noktada yer alan cihazlardan alır. IoT hub'ı, her cihazın kendisine gönderilen komutları alabildiği cihaza özel uç noktaları da korur.
+Mikro hizmetlerin her birinin uygulamaları hem Java hem de .NET ile kullanılabilir. .NET kodu gibi Java kaynak kodu da açık bir kaynaktır ve belirli gereksinimlerinize göre özelleştirmek için kullanılabilir:
 
-IoT hub’ı, sunucu tarafı telemetri okuma uç noktasında alınan telemetriyi kullanılabilir hale getirir.
+* [Uzaktan izleme .NET GitHub deposu](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Uzaktan izleme Java GitHub deposu](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
-IoT Hub’ının cihaz yönetimi özelliği, cihaz özelliklerini çözüm portalından yönetmenize ve aşağıdaki gibi işlemleri gerçekleştiren işleri zamanlamanıza olanak tanır:
+Diğer dil uygulamalarını görmek isterseniz, [Azure IoT user voice](https://feedback.azure.com/forums/321918-azure-iot)’a bir istek ekleyin.
 
-- Cihazları yeniden başlatma
-- Cihaz durumlarını değiştirme
-- Üretici yazılımı güncelleştirmeleri
+### <a name="react-user-interface-framework"></a>React kullanıcı arabirimi çerçevesi
 
-## <a name="azure-stream-analytics"></a>Azure Stream Analytics
-
-Önceden yapılandırılmış çözüm, cihazlara ait telemetri akışına filtre uygulamak için üç [Azure Akış Analizi][lnk-asa] (ASA) işini kullanır:
-
-* *DeviceInfo işi* - cihaz kaydına özel iletileri çözüm cihaz kayıt defterine yönlendiren Olay hub’ına verileri çıkarır. Bu cihaz kayıt defteri bir Azure Cosmos DB veritabanıdır. Bir cihaz ilk kez bağlandığında veya **Cihaz durumunu değiştir** komutuna yanıt olarak bu iletiler gönderilir.
-* *Telemetry işi* - ham telemetrenin tümünü soğuk depolama için Azure blob depolamaya gönderir ve çözüm panosunda görüntülenen telemetri toplamalarını hesaplar.
-* *Rules işi* - kural eşiklerini aşan değerlerle ilgili telemetri akışına filtre uygular ve verilerin çıktısını bir Olay hub’ına alır. Bir kural başlatıldığında, çözüm portalı pano görünümünde bu olay, alarm geçmişi tablosundaki yeni bir satır olarak gösterilir. Bu kurallar ayrıca çözüm portalındaki **Kurallar** ve **Eylemler** görünümlerinde tanımlanan ayarları temel alarak bir eylemi tetikleyebilir.
-
-Önceden yapılandırılmış bu çözümde, ASA işleri tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını oluşturur.
-
-## <a name="event-processor"></a>Olay işlemcisi
-
-Önceden yapılandırılmış bu çözümde, olay işlemcisi tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını oluşturur.
-
-**DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]'da çalışan bir [EventProcessorHost][lnk-event-processor] örneğini kullanır. **EventProcessorHost** şunları kullanır:
-- Cosmos DB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verileri.
-- Mantıksal uygulamayı çağırmak ve çözüm portalındaki uyarı görüntüsünü güncelleştirmek için **Kural** verileri.
-
-## <a name="device-identity-registry-device-twin-and-cosmos-db"></a>Cihaz kimliği kayıt defteri, cihaz ikizi ve Cosmos DB
-
-Her IoT hub'ında cihaz anahtarlarını depolayan bir [cihaz kimliği kayıt defteri][lnk-identity-registry] vardır. IoT hub'ı bu bilgileri cihazların kimliğini doğrulamak için kullanır - hub’a bağlanmadan önce cihazların kayıtlı ve geçerli bir anahtara sahip olması gerekir.
-
-[Cihaz ikizi][lnk-device-twin], IoT Hub tarafından yönetilen bir JSON belgesidir. Bir cihazın cihaz ikizi şunları içerir:
-
-- Cihaz tarafından hub’a gönderilen bildirilen özellikler. Bu özellikleri çözüm portalında görüntüleyebilirsiniz.
-- Cihaza göndermek istediğiniz, istenen özellikler. Bu özellikleri çözüm portalında ayarlayabilirsiniz.
-- Yalnızca cihaz ikizinde bulunan ve cihazda mevcut olmayan etiketler. Bu etiketleri kullanarak çözüm portalındaki cihaz listesini filtreleyebilirsiniz.
-
-Bu çözümde cihaz meta verilerini yönetmek için cihaz ikizleri kullanılır. Çözümde ayrıca her bir cihaz tarafından desteklenen komutlar ve komut geçmişi gibi çözüme özel ek cihaz verilerini depolamak için Cosmos DB veritabanı kullanılır.
-
-Çözüm bu bilgileri, Cosmos DB veritabanı içeriğiyle eşitlenmiş cihaz kimliği kayıt defterinde tutmalıdır. **EventProcessorHost**, eşitlemeyi yönetmek için **DeviceInfo** akış analizi işine ait verileri kullanır.
-
-## <a name="solution-portal"></a>Çözüm portalı
-
-![çözüm portalı][img-dashboard]
-
-Çözüm portalı, önceden yapılandırılmış çözümün bir parçası olarak buluta dağıtılan web tabanlı bir UI’dir. Şunları yapmanızı sağlar:
-
-* Bir panoda telemetri ve uyarı geçmişini görüntüleme.
-* Yeni cihazları hazırlama.
-* Cihazları yönetme ve izleme.
-* Komutları belirli cihazlara gönderme.
-* Belirli cihazlarda yöntemleri çağırın.
-* Kuralları ve eylemleri yönetme.
-* Bir veya daha fazla cihazda çalıştırılacak işleri zamanlayın.
-
-Önceden yapılandırılmış bu çözümde, çözüm portalı tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını ve **İşleme ve iş bağlantısının** bir parçasını oluşturur.
+Kullanıcı arabirimi, [React](https://facebook.github.io/react/) javascript kitaplığı kullanılarak derlenir. Kaynak kodu açık kaynaktır ve indirilip özelleştirilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure IoT hizmetleri: Başvuru Mimarisi][lnk-refarch].
+Önceden yapılandırılmış IoT Paketi çözümlerine genel bir bakış gördüğünüze göre, önceden yapılandırılmış her bir çözüm için önerilen sonraki adımlara bakabilirsiniz:
 
-Önceden yapılandırılmış bir çözümün ne olduğunu öğrendiğinize göre önceden yapılandırılmış *uzaktan izleme* çözümünü dağıtarak başlayabilirsiniz: [Önceden yapılandırılmış çözümleri kullanmaya başlama][lnk-getstarted-preconfigured].
+* [Azure IoT Paketi uzaktan izleme çözümü Kaynak Yöneticisi dağıtım modelini keşfedin](iot-suite-remote-monitoring-explore.md).
+* [Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış](iot-suite-predictive-overview.md).
+* [Önceden yapılandırılmış bağlı fabrika çözümlerini kullanmaya başlama](iot-suite-connected-factory-overview.md).
 
-[img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
-[img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
-[lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
-[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
-[lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+IoT çözüm mimarileri hakkında daha fazla bilgi için [Microsoft Azure IoT hizmetleri: Başvuru Mimarisi](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf) konusunu inceleyin.

@@ -1,6 +1,6 @@
 ---
 title: "Azure AD erişim gözden geçirmeleri| Microsoft Docs"
-description: "Azure Active Directory erişim gözden geçirmelerinden yararlanarak kuruluşunuzda yönetim, risk yönetimi ve uyumluluk girişimlerini karşılamak için grup üyeliği ve uygulama erişimini denetleyebilirsiniz."
+description: "Azure Active Directory erişim gözden geçirmelerini kullanarak kuruluşunuzda yönetim, risk yönetimi ve uyumluluk girişimlerini karşılamak için grup üyeliği ve uygulama erişimini denetleyebilirsiniz."
 services: active-directory
 documentationcenter: 
 author: markwahl-msft
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebeff09a16ca7ecb4214cbccb31ffcfb2c512f7c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
-# <a name="azure-ad-access-reviews-preview"></a>Azure AD erişim gözden geçirmeleri (Önizleme)
+# <a name="azure-ad-access-reviews-preview"></a>Azure AD erişim gözden geçirmeleri (önizleme)
 
-Erişim incelemeleri, kuruluşların grup üyeliklerini ve kurumsal uygulamalara erişimi etkili bir şekilde yönetmesine olanak sağlar. 
+Azure Active Directory (Azure AD) erişim gözden geçirmeleri, kuruluşların grup üyeliklerini ve kurumsal uygulamalara erişimi etkili bir şekilde yönetmesine olanak sağlar. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>Erişim gözden geçirmeleri ile yapabilecekleriniz
    
-- Gözden geçirenlerin konuk kullanıcıların erişim sahibi olmaya devam etmesi gerekip gerekmediğine etkili bir şekilde karar vermesini olanak sağlayan bilgilerden yararlanıp konukların uygulama erişimi ve grup üyeliklerine yönelik erişim gözden geçirmelerini kullanarak konuk kullanıcıların erişimini yeniden onaylayabilirsiniz.
+- Konuk kullanıcıların uygulamalara ve grup üyeliklerine erişimlerine ait erişim gözden geçirmelerini kullanarak bu kullanıcıların erişimini yeniden onaylayabilirsiniz. Gözden geçirenler, konukların erişimini devam ettirmeye verimli bir şekilde karar vermek için sağlanan bilgileri kullanabilir.
       
 - Erişim gözden geçirmeleri ile çalışanların uygulamalara erişimini ve grup üyeliklerini yeniden onaylayabilirsiniz.
    

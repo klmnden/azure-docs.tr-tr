@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c90c3d3c0effd68a4a5962d4d097fccbdc3fee56
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolama alanından veri yükleme
 Bu konu, Hive tabloları oluşturma ve Azure blob depolama alanından veri yükleme genel Hive sorguları gösterir. Hive tablolarını bölümlendirme ve en iyi duruma getirilmiş satır sütunlu (sorgu performansını artırmak için biçimlendirme ORC) kullanarak bu bazı yönergeler de sağlanır.
@@ -120,7 +120,7 @@ Azure Depolama Gezgini'ni kullanarak Hadoop kümenin varsayılan kapsayıcı aç
 Bir URL biçiminde girerek (Düzenleyicisi Hive) sorgu konsolunu da kullanabilirsiniz *https://&#60; Hadoop küme adı >.azurehdinsight.net/Home/HiveEditor* bir web tarayıcısı içine. Olması gerekir bu konsolu bakın oturum ve gereken şekilde, Hadoop küme kimlik.
 
 ### <a name="ps"></a> 3. Azure PowerShell komutlarıyla Hive sorguları gönderme
-Hive sorguları göndermek için PowerShell de kullanabilirsiniz. Yönergeler için bkz: [gönderme Hive işleri PowerShell kullanarak](../../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
+Hive sorguları göndermek için PowerShell de kullanabilirsiniz. Yönergeler için bkz: [gönderme Hive işleri PowerShell kullanarak](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Hive veritabanı ve tablo oluşturma
 Hive sorgularını paylaşılan [GitHub deposunu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) ve buradan yüklenebilir.
@@ -142,7 +142,7 @@ Bir Hive tablosu oluşturur Hive sorgusu aşağıdadır.
 
 Takılır gereken alanlarının açıklamaları ve diğer yapılandırmalar şunlardır:
 
-* **&#60; veritabanı adı >**: oluşturmak istediğiniz veritabanının adı. Varsayılan veritabanı sorgu kullanmak istiyorsanız, *veritabanı oluştur...*  atlanabilir.
+* **&#60; veritabanı adı >**: oluşturmak istediğiniz veritabanının adı. Varsayılan veritabanı sorgu kullanmak istiyorsanız, *veritabanı oluştur...* atlanabilir.
 * **&#60; tablo adı >**: Belirtilen veritabanı içinde oluşturmak istediğiniz tablonun adı. Varsayılan veritabanı kullanmak istiyorsanız, tablonun doğrudan göre başvurulabilen *&#60; tablo adı >* olmadan &#60; veritabanı adı >.
 * **&#60; alan ayırıcı >**: Hive tablosu karşıya yüklenecek veri dosyasındaki alanlar sınırlandıran ayırıcı.
 * **&#60; satır ayırıcı >**: veri dosyasındaki satır sınırlandıran ayırıcı.

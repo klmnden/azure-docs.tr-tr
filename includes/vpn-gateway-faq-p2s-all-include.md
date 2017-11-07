@@ -8,6 +8,7 @@ Aşağıdaki istemci işletim sistemleri desteklenmektedir:
 * Windows 8.1 (32 bit ve 64 bit)
 * Windows Server 2012 (yalnızca 64 bit)
 * Windows Server 2012 R2 (yalnızca 64 bit)
+* Windows Server 2016 (yalnızca 64 bit)
 * Windows 10
 * Mac için OSX sürüm 10.11 (El Capitan)
 * Mac için macOS sürüm 10.12 (Sierra)

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 048d734277f855086a48ad00a52b873adbf419b4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Iris sınıflandırma bölüm 3: Model dağıtma
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
@@ -85,15 +85,15 @@ Web hizmetini model dosyasıyla birlikte dağıtmak için puanlama betiğine ve 
 
    ![Puanlama Dosyası](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. Şema dosyasını almak için betiği çalıştırın. Komut çubuğundan **yerel** ortamı ve **iris_score.py** betiğini seçip **Çalıştır** düğmesine tıklayın. 
+4. Şema dosyasını almak için betiği çalıştırın. Komut çubuğundan **yerel** ortamı ve **iris-score.py** betiğini seçip **Çalıştır** düğmesine tıklayın. 
 
 5. Bu betik modelin ihtiyaç duyduğu giriş verileri şemasını alan **çıktılar** klasöründe bir JSON dosyası oluşturur.
 
-6. Machine Learning Workbench penceresinin sağ tarafındaki İşler bölmesine dikkat edin. En son **iris\_score.py** işinin yeşil **Tamamlandı** durumunu göstermesini bekleyin. Sonra **iris_score.py** çalıştırmasıyla ilgili çalıştırma ayrıntılarını görmek için en son iş çalıştırmasına ait **iris\_score.py [1]** bağlantısına tıklayın. 
+6. Machine Learning Workbench penceresinin sağ tarafındaki İşler bölmesine dikkat edin. En son **iris-score.py** işinin yeşil **Tamamlandı** durumunu göstermesini bekleyin. Ardından **iris-score.py** çalıştırmasıyla ilgili çalıştırma ayrıntılarını görmek için en son iş çalıştırmasına ait **iris-score.py [1]** bağlantısına tıklayın. 
 
 7. Çalıştırma Özellikleri sayfasının **Çıktılar** bölümünde yeni oluşturulan **service_schema.json** dosyasını seçin. Dosyayı **işaretleyin** ve **İndir**’e tıklayın. Dosyayı projenizin kök klasörüne tıklayın.
 
-8. **iris_score.py** betiğini açtığınız önceki sekmeye dönün. 
+8. **iris-score.py** betiğini açtığınız önceki sekmeye dönün. 
 
    Web hizmetinden model girişlerini ve tahminlerini almanızı sağlayan veri koleksiyonuna dikkat edin. Aşağıdaki noktalar veri koleksiyonuyla yakından ilgilidir:
 
@@ -120,6 +120,9 @@ Web hizmetini model dosyasıyla birlikte dağıtmak için puanlama betiğine ve 
    ```
 
 Artık ortamınızı modeli kullanıma hazır hale getirmeye hazırsınız.
+
+>[!NOTE]
+>Modelleri dağıtmak için bir Azure aboneliğine sahip erişiminiz olması gerekir.
 
 ## <a name="prepare-to-operationalize-locally"></a>Yerel olarak kullanıma hazır hale getirme
 Yerel bilgisayarınızdaki Docker kapsayıcılarında çalıştırmak için _yerel mod_ dağıtımını kullanın.
@@ -201,7 +204,7 @@ Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak hazır hale getirme
 1. Gerçek zamanlı bir web hizmeti oluşturmak için aşağıdaki komutu kullanın:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    Bu komut daha sonra kullanabileceğiniz bir web hizmeti kimliği oluşturur.
 
@@ -241,7 +244,7 @@ Yukarıda gösterilen **az ml service create realtime** komutunun bir alternatif
    Bildirim oluşturmak için bu komutu kullanın ve önceki adımdan gelen model kimliği çıktısını sağlayın:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    Bu komut bir bildirim kimliği oluşturur.
 
