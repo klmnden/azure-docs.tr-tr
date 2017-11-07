@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/06/2017
-ms.openlocfilehash: 09b8634160c35f3c6a48812358ec872e52d8b21c
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure veritabanı PostgreSQL sunucuları için
-Bu konu, PostgreSQL sunucuları için Azure veritabanı ile çalışmak için önemli noktalar ve yönergeler sağlar.
+Bu makale, PostgreSQL sunucuları için Azure veritabanı ile çalışmak için önemli noktalar ve yönergeler sağlar.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Azure veritabanı PostgreSQL sunucu için nedir?
 Bir Azure PostgreSQL sunucusu için birden fazla veritabanı için merkezi bir yönetim noktası veritabanıdır. Bu, şirket içi dünyada tanıyor olabileceği aynı PostgreSQL sunucu yapıdır. Özel olarak, PostgreSQL hizmeti yönetilen, performans garantileri sağlar, erişimi ve sunucu düzeyinde özellikler sunar.
@@ -33,7 +33,7 @@ Azure veritabanı PostgreSQL sunucu için:
 - Birden çok sürümlerinde kullanılabilir. Daha fazla bilgi için bkz: [desteklenen PostgreSQL veritabanı sürümleri](concepts-supported-versions.md).
 - Kullanıcılar tarafından genişletilebilirdir. Daha fazla bilgi için bkz: [PostgreSQL uzantıları](concepts-extensions.md).
 
-Bir Azure veritabanı içinde PostgreSQL sunucu için bir veya birden çok veritabanı oluşturabilirsiniz. Tüm kaynakları kullanmak için sunucu başına tek bir veritabanı oluşturmayı veya kaynakları paylaşmak için birden çok veritabanı oluşturmayı seçebilirsiniz. Fiyatlandırma yapılandırılmış başına-fiyatlandırma katmanı, işlem birimleri ve depolama (GB) yapılandırmasını temel alarak, sunucusudur. Daha fazla ayrıntı için bkz: [fiyatlandırma katmanlarına](./concepts-service-tiers.md).
+Bir Azure veritabanı içinde PostgreSQL sunucu için bir veya birden çok veritabanı oluşturabilirsiniz. Tüm kaynakları kullanmak için sunucu başına tek bir veritabanı oluşturmayı veya kaynakları paylaşmak için birden çok veritabanı oluşturmayı seçebilirsiniz. Fiyatlandırma yapılandırılmış başına-fiyatlandırma katmanı, işlem birimleri ve depolama (GB) yapılandırmasını temel alarak, sunucusudur. Daha fazla bilgi için bkz: [fiyatlandırma katmanlarına](./concepts-service-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Nasıl bağlanmak ve PostgreSQL sunucu için bir Azure veritabanı kimlik doğrulaması?
 Aşağıdaki öğeler için veritabanınızda güvenli erişim sağlamaya yardımcı olur.
@@ -43,7 +43,7 @@ Aşağıdaki öğeler için veritabanınızda güvenli erişim sağlamaya yardı
 | **Kimlik doğrulama ve yetkilendirme** | Azure veritabanı PostgreSQL sunucu için yerel PostgreSQL kimlik doğrulamasını destekler. Bağlanabilir ve sunucunun yönetici oturum açma ile sunucusuna kimlik doğrulaması. |
 | **Protokol** | Hizmet PostgreSQL tarafından kullanılan bir ileti tabanlı iletişim kuralı destekler. |
 | **TCP/IP'Yİ** | Protokol UNIX etki alanı Yuva üzerinden ve TCP/IP üzerinden desteklenir. |
-| **Güvenlik duvarı** | İznine sahip olan bilgisayarları belirtmediğiniz sürece, verilerinizin korunmasına yardımcı olmak için bir güvenlik duvarı kuralı tüm erişim veritabanı sunucunuz ve veritabanlarını engeller. Bkz: [Azure veritabanı PostgreSQL sunucunun güvenlik duvarı kuralları için](concepts-firewall-rules.md). |
+| **Güvenlik duvarı** | İznine sahip olan bilgisayarları belirttiğiniz kadar verilerinizin korunmasına yardımcı olmak için bir güvenlik duvarı kuralı tüm erişim sunucunuz ve veritabanlarını engeller. Bkz: [Azure veritabanı PostgreSQL sunucunun güvenlik duvarı kuralları için](concepts-firewall-rules.md). |
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Bir sunucu nasıl yönetebilirim?

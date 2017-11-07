@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 83cbc622975344ec2a5700d2e10a5c77371e9899
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB birimlerinde isteği
 Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Daha fazla bilgi edinin [, üretilen iş gerektiğini tahmin etme](request-units.md#estimating-throughput-needs).
@@ -26,7 +26,7 @@ Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www
 ![Üretilen iş hesaplayıcısı][5]
 
 ## <a name="introduction"></a>Giriş
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft'un Genel dağıtılmış birden çok model veritabanıdır. Azure Cosmos DB ile sanal makineleri kiralamak, yazılım dağıtma veya veritabanlarını izleme gerekmez. Azure Cosmos DB işletilen ve sürekli olarak world sınıfı kullanılabilirliği, performansı ve veri koruma sağlamak üzere Microsoft üst mühendisleri tarafından izlenir. Tercih ettiğiniz API'lerini kullanarak verilerinize erişebilir [DocumentDB SQL](documentdb-sql-query.md) (belge), MongoDB (belge) [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (anahtar-değer) ve [Gremlin](https://tinkerpop.apache.org/gremlin.html) (tüm grafik) yerel olarak desteklenir. Azure Cosmos DB para istek birimi (RU) birimidir. RUs ile okuma/yazma kapasiteleri veya sağlama CPU, bellek ve IOPS ayırmak gerekmez.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft'un Genel dağıtılmış birden çok model veritabanıdır. Azure Cosmos DB ile sanal makineleri kiralamak, yazılım dağıtma veya veritabanlarını izleme gerekmez. Azure Cosmos DB işletilen ve sürekli olarak world sınıfı kullanılabilirliği, performansı ve veri koruma sağlamak üzere Microsoft üst mühendisleri tarafından izlenir. SQL gibi tercih ettiğiniz API'lerini kullanarak verilerinize erişebilir [DocumentDB API](documentdb-introduction.md), MongoDB API'leri [tablo API](table-introduction.md)ve Gremlin aracılığıyla [grafik API'si](graph-introduction.md) -tümü yerel desteklenir. Azure Cosmos DB para istek birimi (RU) birimidir. RUs ile okuma/yazma kapasiteleri veya sağlama CPU, bellek ve IOPS ayırmak gerekmez.
 
 Azure Cosmos DB Basit okuma arasında değişen farklı işlemlerle API'lerini destekler ve karmaşık grafik sorguları yazar. Tüm istekleri eşit olduğundan, normalleştirilmiş bir miktar atanan **istek birimleri** isteğe hizmet vermek için gerekli hesaplama miktarına göre. Bir işlem için istek birim sayısı belirleyici ve bir yanıt üstbilgisi aracılığıyla Azure Cosmos veritabanı herhangi bir işlem tarafından kullanılan istek birim sayısını izleyebilirsiniz. 
 
@@ -39,12 +39,12 @@ Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacakt
 * My uygulamanın istek birimi gereken nasıl tahmin?
 * Bir koleksiyon için istek birim kapasitesi aşmanız durumunda ne olur?
 
-Azure Cosmos DB çok model veritabanı olduğundan, biz koleksiyonu/belge belge API, grafik API'si için bir grafik/düğümü ve tablo/varlık tablo API için başvurur dikkate almak önemlidir. Bu belge boyunca biz kapsayıcı/öğe kavramlarını genelleştirin.
+Azure Cosmos DB çok model veritabanı olduğundan, bu makale için bir belge API, grafik API'si için bir grafik/düğümü ve tablo API için bir tablo/varlık koleksiyonu/belgeye başvuruyor dikkate almak önemlidir. Bu makale koleksiyonu, grafik veya tablo bir kapsayıcı olarak kavramı başvuruyor ve bir belge, düğüm veya varlık öğe olarak.
 
 ## <a name="request-units-and-request-charges"></a>İstek birimleri ve istek ücretleri
 Azure Cosmos DB tarafından hızlı ve tahmin edilebilir performans sunar *ayırma* uygulamanızın verimlilik gereken karşılamak için kaynakları.  Uygulama yüklemek ve zaman içinde desenleri değişiklik erişmek için Azure Cosmos DB kolayca artırın veya uygulamanız için kullanılabilir ayrılmış işleme miktarını azaltmak sağlar.
 
-Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsinden belirtilir. İstek birimleri yapabildiği verimlilik para birimi olarak düşünebilirsiniz, *yedek* garantili istek birimleri uygulamanıza kullanılabilir miktardaki saniye başına temelinde.  Azure Cosmos - bir belge yazma, bir belge güncelleştirme bir sorgu gerçekleştirme - DB her bir işlemin CPU, bellek ve IOPS tüketir.  Diğer bir deyişle, her işlemi uygulanan bir *isteği ücret*, içinde ifade *istek birimleri*.  İstek birimi ücretleri, uygulamanızın işleme gereksinimleri etkileyen faktörler anlama, uygulamanızı maliyeti etkili bir şekilde olabildiğince olarak çalıştırmanızı sağlar. Sorgu Gezgini ayrıca bir sorgu çekirdek test etmek için bir harika aracıdır.
+Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsinden belirtilir. İstek birimleri yapabildiği verimlilik para birimi olarak düşünebilirsiniz, *yedek* garantili istek birimleri uygulamanıza kullanılabilir miktardaki saniye başına temelinde.  Azure Cosmos - bir belge yazma, bir belge güncelleştirme bir sorgu gerçekleştirme - DB her bir işlemin CPU, bellek ve IOPS tüketir.  Diğer bir deyişle, her işlemi uygulanan bir *isteği ücret*, içinde ifade *istek birimleri*.  İstek birimi ücretleri, uygulamanızın işleme gereksinimleri etkileyen faktörler anlama, uygulamanızın maliyeti etkili bir şekilde olabildiğince olarak çalıştırmak sağlar. Sorgu Gezgini ayrıca bir sorgu çekirdek test etmek için bir harika aracıdır.
 
 İstek birimleri ve Azure Cosmos DB tahmin edilebilir performansla Aravind Ramachandran burada açıklanmaktadır aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz.
 
@@ -55,7 +55,7 @@ Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsi
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>İstek birimi kapasite Azure Cosmos DB'de belirtme
 Yeni koleksiyon, tablo veya grafik başlatırken numarası belirtin (RU saniye başına) saniyede istek birimlerinin ayrılmış istiyor. Üzerinde sağlanan işleme bağlı olarak, Azure Cosmos DB koleksiyonunuzu barındırmak için fiziksel bölümleri ayırır ve bölmelerini/veri bölümler, büyüdükçe rebalances.
 
-Azure Cosmos DB koleksiyonu 2.500 istek birimleri ile sağlanan ya da daha yüksek olduğunda belirtilmesi için bir bölüm anahtarı gerektirir. Bölüm anahtarı koleksiyonunuzun işleme 2.500 istek birimleri ötesinde gelecekte ölçeklendirmek için de gereklidir. Bu nedenle, yüksek oranda yapılandırmak için önerilir bir [bölüm anahtarı](partition-data.md) ilk işleme bakılmaksızın bir kapsayıcı oluştururken. Verilerinizin birden çok bölüm arasında bölünmesi gerekebilir olduğundan, yüksek kardinalite (100 farklı değerleri milyonlarca) vardır ve böylece tablo/koleksiyonu/grafik ve istekleri Azure Cosmos DB tarafından hep genişletilebilir bir bölüm anahtarı almak gereklidir. 
+Azure Cosmos DB koleksiyonu 2.500 istek birimleri ile sağlanan ya da daha yüksek olduğunda belirtilmesi için bir bölüm anahtarı gerektirir. Bölüm anahtarı koleksiyonunuzun işleme 2.500 istek birimleri ötesinde gelecekte ölçeklendirmek için de gereklidir. Bu nedenle, yüksek oranda yapılandırmak için önerilir bir [bölüm anahtarı](partition-data.md) ilk işleme bakılmaksızın bir kapsayıcı oluştururken. Verilerinizin birden çok bölüm arasında bölünmesi gerekebilir olduğundan, yüksek kardinalite (100 farklı değerleri milyonlarca) sahip bir bölüm anahtarı almak gereklidir. Birçok farklı değerlere sahip bir bölüm anahtarı seçerek tablo/koleksiyonu/grafik ve istekleri hep Azure Cosmos DB tarafından Genişletilebilir emin olun. 
 
 > [!NOTE]
 > Bölüm anahtarı mantıksal bir sınır ve fiziksel bir tane ' dir. Bu nedenle, farklı bölüm anahtar değerlerin sayısını sınırlamak gerekmez. Aslında, daha fazla yük dengeleme seçeneklerini Azure Cosmos DB sahip daha farklı bölüm anahtarı değerden daha az olması iyidir.
@@ -96,11 +96,11 @@ await client.ReplaceOfferAsync(offer);
 ## <a name="request-unit-considerations"></a>İstek birimi konuları
 Azure Cosmos DB kapsayıcısı için ayrılacak isteği birim sayısını tahmin yaparken, aşağıdaki değişkenleri dikkate önemlidir:
 
-* **Öğe boyutunu**. Boyutu okumak veya verileri de artıracaktır yazmak için kullanılan birimleri arttıkça.
-* **Madde özellik sayısı**. Tüm özellikleri, bir belge/düğümü/ntity yazmak için kullanılan birimleri olduğunu varsayarak varsayılan dizin özellik sayısı arttıkça artmasına neden olur.
+* **Öğe boyutunu**. Boyutu okumak veya veri da artırır yazmak için kullanılan birimleri arttıkça.
+* **Madde özellik sayısı**. Tüm özelliklerin, bir belge/varlık başına düğüm artış özellik sayısı arttıkça yazmak için kullanılan birimleri varsayılan dizin varsayılır.
 * **Veri tutarlılığı**. Veri tutarlılık düzeylerini güçlü veya sınırlanmış eskime durumu kullanırken, ek birimler öğeleri okumak için kullanılır.
 * **Dizin oluşturulmuş özellikleri**. Bir dizin İlkesi her kapsayıcısı üzerinde varsayılan olarak hangi özellikleri dizinlenir belirler. Dizinli Özellikler sayısını sınırlayarak veya yavaş dizin etkinleştirerek, istek birimi tüketimini azaltabilirsiniz.
-* **Belge dizine**. Bazı öğelerinizi dizin kullanılamıyor seçerseniz, her bir öğeyi otomatik olarak dizine varsayılan olarak, daha az istek birimleri tüketir.
+* **Belge dizine**. Varsayılan olarak, her bir öğeyi otomatik olarak dizine alınır. Bazı öğelerinizi dizin kullanılamıyor seçerseniz daha az istek birimi kullanabilir.
 * **Sorgu desenleri**. Kaç tane istek birimlerine bir işlem için kullanılan bir sorgu karmaşıklığını etkiler. Koşulları sayısı, koşulları, projeksiyonları, UDF'ler sayısı ve tüm kaynak veri kümesi boyutunu yapısını sorgu işlemlerinin maliyetini etkiler.
 * **Komut dosyası kullanımı**.  Sorguları olarak gerçekleştirilen işlemler kapsamına bağlı istek birimleri saklı yordamları ve Tetikleyicileri tüketir. Uygulamanızı geliştirirken, her işlem isteği birim kapasitesi nasıl tüketen daha iyi anlamak için istek ücret üstbilgisi inceleyin.
 
@@ -108,7 +108,7 @@ Azure Cosmos DB kapsayıcısı için ayrılacak isteği birim sayısını tahmin
 Bir istek birimi istek maliyet işleme normalleştirilmiş ölçüsüdür. Bir tek istek birimi (kendi bağlantısını veya kimliği) öğesi 10 benzersiz özellik değerlerini (Sistem özellikleri dışında) oluşan tek 1 bb okumak için gereken işlem kapasitesi temsil eder. Daha fazla hizmet ve böylece işleme daha fazla istek birimi (Ekle) oluşturmak, değiştirmek veya aynı öğeyi silmek için bir istek tüketir.   
 
 > [!NOTE]
-> 1 istek birimi bir 1KB için temel kendi bağlantısını veya öğenin kimliği için basit bir GET öğesi karşılık gelir.
+> 1 istek birimi bir 1 KB öğesi için taban çizgisi için basit bir GET kendi bağlantısını veya öğenin kimliği tarafından karşılık gelir.
 > 
 > 
 
@@ -162,7 +162,7 @@ Bir istek birimi istek maliyet işleme normalleştirilmiş ölçüsüdür. Bir t
 </table>
 
 ### <a name="use-the-request-unit-calculator"></a>İstek birimi hesaplayıcı kullanın
-İnce müşterilere yardımcı olmak için kendi verimlilik tahminler ince ayar, bir web tabanlı [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner) genel işlemler de dahil olmak üzere, istek birimi gereksinimlerini tahmin etmeye yardımcı olması için:
+Kendi işleme tahminler ince ayar müşterilere yardımcı olmak için olduğundan web tabanlı [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner) genel işlemler de dahil olmak üzere, istek birimi gereksinimlerini tahmin etmeye yardımcı olması için:
 
 * (Yazar) öğesi oluşturur
 * Öğe okur
@@ -197,7 +197,7 @@ Her yanıt Azure Cosmos DB hizmetinden bir özel üst bilgi içeriyor (`x-ms-req
 Bu durum dikkate alınarak, uygulamanızın gerektirdiği ayrılmış işleme miktarı tahmin etmek için bir yöntem, uygulamanız tarafından kullanılan ve ardından tahmin etme temsili bir öğe karşı çalışan tipik işlemlerle ilişkili istek birimi ücret kaydetmektir saniyede gerçekleştirme düşündüğünüz işlemlerinin sayısı.  Ölçmek ve tipik sorgular ve Azure Cosmos DB komut dosyası kullanımı da dahil emin olun.
 
 > [!NOTE]
-> Hangi boyutu ve Dizinli Özellikler sayısı bakımından önemli ölçüde farklılık gösterecektir öğesi türleriniz varsa, her ilişkilendirilmiş geçerli işlem istek birimi ücret kayıt *türü* tipik öğesi.
+> Önemli ölçüde boyutu ve Dizinli Özellikler sayısı bakımından farklılık gösterir öğesi türleriniz varsa, her ilişkilendirilmiş geçerli işlem istek birimi ücret kayıt *türü* tipik öğesi.
 > 
 > 
 
@@ -322,7 +322,7 @@ Ayrıca, bu tabloda yaklaşık istek birimi ücretleri uygulamada kullanılan ti
 > 
 > 
 
-Bu bilgi ile biz işlemler ve saniye başına bekliyoruz sorguları sayısı verilen bu uygulama için RU gereksinimlerini tahmin edebilirsiniz:
+Bu bilgi ile operations ve saniye başına beklediğiniz sorguları sayısını verilen bu uygulama için RU gereksinimlerini tahmin edebilirsiniz:
 
 | İşlem/sorgu | Saniye başına tahmini sayısı | Gerekli RUs |
 | --- | --- | --- |
@@ -332,10 +332,10 @@ Bu bilgi ile biz işlemler ve saniye başına bekliyoruz sorguları sayısı ver
 | Yemek gruplandırma ölçütü seçin |10 |700 |
 | İlk 10 seçin |15 |150 toplam |
 
-Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekliyoruz.  Yuvarlama kadar yakın 100, biz bu uygulamanın koleksiyon için 1300 RU/s sağlamak.
+Bu durumda, bir ortalama verimi gereksinimi 1,275 RU/s bekler.  Yuvarlama kadar yakın 100, bu uygulamanın koleksiyon için 1300 RU/s sağlamak.
 
 ## <a id="RequestRateTooLarge"></a>Azure Cosmos DB aşan ayrılmış işleme sınırları
-İstek birimi tüketim bütçe boşsa, saniye başına oranı olarak değerlendirilir, geri çağırma. Hızı ayrılmış düzeyin altına düşene kadar kapsayıcı için sağlanan istek birimi hızı aşan uygulamalar için o koleksiyona istekleri kısıtlanacak. Bir kısıtlama oluştuğunda sunucusu erken önlem isteği RequestRateTooLargeException (HTTP durum kodu 429) ile bitmelidir ve kullanıcı reattempting önce beklemesi gereken milisaniye cinsinden süreyi belirten x-ms-yeniden deneme-sonra-ms üstbilgisi döndürme İstek.
+İstek birimi tüketim bütçe boşsa, saniye başına oranı olarak değerlendirilir, geri çağırma. Hızı ayrılmış düzeyin altına düşene kadar kapsayıcı için sağlanan istek birimi hızı aşan uygulamalar için o koleksiyona istekleri kısıtlanan. Bir kısıtlama oluştuğunda sunucunun erken önlem RequestRateTooLargeException (HTTP durum kodu 429) istekle sona erer ve kullanıcı reattempting önce beklemesi gereken milisaniye cinsinden süreyi belirten x-ms-yeniden deneme-sonra-ms üstbilgi döndürür İstek.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge

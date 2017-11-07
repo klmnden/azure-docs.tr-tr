@@ -14,14 +14,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 11/06/2017
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: ffe737052022ee34f74131591521cfb07d7b4e60
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04f76d15f12b52d7b47011010a5ce20cc45174ee
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro Library Hadoop'ta verileri seri hale
 

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88a5fe33d048814d956a1221802f059cfbcccb0a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Rol tabanlı erişim denetimini Azure komut satırı arabirimi ile yönetme
 > [!div class="op_single_selector"]
@@ -150,7 +150,7 @@ Aşağıdaki örnek kaldırır *sanal makine Katılımcısı* gelen rol ataması
 ## <a name="create-a-custom-role"></a>Özel bir rol oluşturun
 Özel bir rol oluşturmak için kullanın:
 
-    azure role definition create --role-definition <file path>
+    azure role create --inputfile <file path>
 
 Aşağıdaki örnek adlı özel bir rol oluşturur *sanal makine işleci*. Bu özel rolü tüm okuma işlemlerini erişim veren *Microsoft.Compute*, *Microsoft.Storage*, ve *Microsoft.Network* kaynak sağlayıcıları ve verir erişmek için Başlat, yeniden başlatın ve sanal makineleri izleyin. Bu özel rolü iki Aboneliklerde kullanılabilir. Bu örnek bir JSON dosyası bir giriş olarak kullanır.
 
@@ -159,9 +159,9 @@ Aşağıdaki örnek adlı özel bir rol oluşturur *sanal makine işleci*. Bu ö
 ![RBAC Azure komut satırı - azure rol oluşturma - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>Özel bir rol değiştirme
-Özel bir rol değiştirmek için önce kullanın `azure role definition list` rol tanımı almak için komutu. İkinci olarak, rol tanımı dosyasına istediğiniz değişiklikleri yapın. Son olarak, `azure role definition update` değiştirilmiş rol tanımı kaydetmek için.
+Özel bir rol değiştirmek için önce kullanın `azure role list` rol tanımı almak için komutu. İkinci olarak, rol tanımı dosyasına istediğiniz değişiklikleri yapın. Son olarak, `azure role set` değiştirilmiş rol tanımı kaydetmek için.
 
-    azure role definition update --role-definition <file path>
+    azure role set --inputfile <file path>
 
 Aşağıdaki örnek, *Microsoft.Insights/diagnosticSettings/* işlemi için **Eylemler**ve bir Azure aboneliğine **AssignableScopes** , Sanal makine işletmeni özel rolü.
 
@@ -170,7 +170,7 @@ Aşağıdaki örnek, *Microsoft.Insights/diagnosticSettings/* işlemi için **Ey
 ![RBAC Azure komut satırı - azure rol set - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>Bir özel rolü silmeyi
-Bir özel rolü silmek için önce kullanın `azure role definition list` belirlemek için komut **kimliği** rolünün. Ardından, `azure role definition delete` belirterek bu rolü silmek için komutu **kimliği**.
+Bir özel rolü silmek için önce kullanın `azure role list` belirlemek için komut **kimliği** rolünün. Ardından, `azure role delete` belirterek bu rolü silmek için komutu **kimliği**.
 
 Aşağıdaki örnek kaldırır *sanal makine işleci* özel rol.
 
@@ -182,7 +182,7 @@ Bir kapsamda atama için kullanılabilen rolleri listelemek için kullanın `azu
 Aşağıdaki komut, seçili Abonelikteki ataması için kullanılabilen tüm rolleri listeler.
 
 ```
-azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![RBAC Azure komut satırı - azure rol listesi - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -190,7 +190,7 @@ azure role definition list --json | jq '.[] | {"name":.properties.roleName, type
 Aşağıdaki örnekte, *sanal makine işleci* de özel rol kullanılamaz *Production4* abonelik bu aboneliği değil çünkü **AssignableScopes** rolünün.
 
 ```
-azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![RBAC Azure komut satırı - özel roller için azure rol listesi - ekran görüntüsü](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)

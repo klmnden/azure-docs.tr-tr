@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/10/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 9d4d8e16b69ca5b4cd5c042aec54b07ae01c5706
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f35c50a3b05bfeb06556f5eb9ba70e24b80de6e9
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API'sini kullanarak Hadoop kümeleri oluşturma
 
@@ -130,7 +130,7 @@ Bir birleşme şablonu ve parametre dosyalarının aşağıdaki JSON belgedir [h
 
                    },
                    "properties": {
-                       "clusterVersion": "3.5",
+                       "clusterVersion": "3.6",
                        "osType": "Linux",
                        "clusterDefinition": {
                            "kind": "[parameters('clusterType')]",

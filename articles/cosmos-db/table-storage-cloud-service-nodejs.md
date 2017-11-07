@@ -1,5 +1,5 @@
 ---
-title: "Tablo depolama (Node.js) ile Web uygulaması | Microsoft Docs"
+title: "Azure Table storage: bir Node.js web uygulaması oluşturma | Microsoft Docs"
 description: "Azure Storage Hizmetleri ve Azure modülü ekleyerek Express öğretici Web uygulamasıyla derlemeler Öğreticisi."
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,15 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Depolama kullanarak node.js Web uygulaması
+# <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: Node.js Web uygulaması
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>Genel Bakış
 Bu öğreticide, uygulamayı oluşturduğunuz [Express kullanarak Node.js Web uygulaması] Öğreticisi, Node.js için Microsoft Azure istemci kitaplıkları veri Yönetim Hizmetleri ile birlikte çalışmak üzere kullanımı genişletilir. Uygulamanız için Azure dağıtabileceğiniz bir web tabanlı görev listesi uygulama oluşturarak genişletir. Görev listesi, kullanıcının görevleri almak, yeni görevler ekleyin ve Görevler tamamlandı olarak işaretle izin verir.
 

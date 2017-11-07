@@ -12,18 +12,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/02/2017
 ms.author: juluk
-ms.openlocfilehash: 7f5c034df3410fc5563a5ed657f7c1aa0f4135ec
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3acea56ea414f0c43333a02274e91226db29d454
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Azure bulut Kabuğu (Önizleme) genel bakış
 Azure bulut Kabuk Azure kaynaklarını yönetmek için etkileşimli, tarayıcı erişilebilir bir kabuk ' dir.
 Bu çalışma şeklinize uygun kabuk deneyimi seçme esnekliğini size verir.
 Linux kullanıcıları Bash deneyimini, Windows kullanıcıları ise PowerShell’i tercih edebilir.
+
+Bulut Kabuk simgesinden Azure portalı üzerinden başlatın:
+
+![Portal başlatma](media/overview/portal-launch-icon.png)
+
+Bash veya PowerShell Kabuk Seçici açılan listeden yararlanan:
 
 ![Bulut Kabuğu'nda bash](media/overview/overview-bash-pic.png)
 
@@ -44,16 +50,16 @@ Bulut Kabuk popüler komut satırı araçları ile önceden yüklü olarak gelen
 Tam araç listesini görüntülemek [Bash deneyimi](features.md#tools) ve [PowerShell deneyimi.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Otomatik kimlik doğrulama
-Bulut Kabuğu güvenli bir şekilde otomatik olarak her oturum için anlık kaynaklarınıza erişmek için PowerShell cmdlet'leri ve Azure CLI 2.0 aracılığıyla üzerinde kimliğini doğrular.
+Bulut Kabuğu güvenli bir şekilde otomatik olarak her oturum için anlık kaynaklarınıza erişmek için Azure CLI 2.0 veya Azure PowerShell cmdlet'leri aracılığıyla üzerinde kimliğini doğrular.
 
 ### <a name="connect-your-azure-file-storage"></a>Azure dosya depolama birimini bağlayın
-Bulut Kabuk makine geçicidir ve sonuç olarak Azure dosya paylaşımının olarak bağlanmasını gerektiren `clouddrive` $Home dizininize kalıcı hale getirmek için.
+Bulut Kabuk makine geçicidir ve sonuç olarak bir Azure dosyaları paylaşımı olarak bağlanmasını gerektiren `clouddrive` $Home dizininize kalıcı hale getirmek için.
 Bir kaynak oluşturmak için bulut Kabuk ister üzerinde ilk kez başlatıldığında, sizin adınıza grup, depolama hesabı ve dosya paylaşımı. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. Tek bir dosya paylaşımı eşlenebilir ve Bash ve bulut kabuğunda PowerShell tarafından kullanılır.
 
 #### <a name="create-new-storage"></a>Yeni depolama alanı oluşturma
 ![](media/overview/basic-storage.png)
 
-Yerel olarak yedekli depolama (LRS) hesabı ve Azure dosya paylaşımı sizin adınıza oluşturulabilir. Her ikisi de kullanmayı seçerseniz Azure dosya paylaşımı Bash ve PowerShell ortamları için kullanılır. Normal depolama ücretleri.
+Bir yerel olarak yedekli depolama (LRS) hesabı ve Azure dosya paylaşımı sizin adınıza oluşturulabilir. Her ikisi de kullanmayı seçerseniz Azure dosya paylaşımı Bash ve PowerShell ortamları için kullanılır. Normal depolama ücretleri.
 
 Üç kaynakları sizin adınıza oluşturulacak:
 1. Kaynak grubu adı:`cloud-shell-storage-<region>`

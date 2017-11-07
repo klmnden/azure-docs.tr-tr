@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyonu
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ Template.json dosyasını açıklandığı şekilde değiştirdikten sonra Resou
 
 Service Fabric 5.4 sürümünden itibaren sistem durumu ve yük ölçüm olayları koleksiyonu için kullanılabilir. Bu olaylar Sistem kullanarak sistem veya kodunuzu tarafından oluşturulan olayları yansıtmak veya Raporlama API'leri gibi yük [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) veya [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Bu, toplama ve zaman içinde sistem durumu görüntüleme ve sistem durumu veya yük olaylara dayanarak uyarı verme sağlar. Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000008" ETW sağlayıcılar listesi.
 
-Olaylarını toplamak için dahil etmek için Resource Manager şablonu değiştirin.
+Kümenizdeki olaylarını toplamak için değiştirme `scheduledTransferKeywordFilter` Resource Manager şablonu WadCfg içinde `4611686018427387912`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ Olaylarını toplamak için dahil etmek için Resource Manager şablonu değişt
 
 ## <a name="collect-reverse-proxy-events"></a>Ters proxy olaylarını Topla
 
-Service Fabric 5.7 sürümünden başlayarak [ters proxy](service-fabric-reverseproxy.md) olayları koleksiyonu için kullanılabilir.
-Ters proxy olayları bir istek hataları ve tüm istekler hakkında ayrıntılı olayları içeren başka bir işleme yansıtarak içeren hata olayları ters proxy işlenen iki kanalı halinde yayar. 
+Service Fabric 5.7 sürümünden başlayarak [ters proxy](service-fabric-reverseproxy.md) olayları veri & ileti kanalları üzerinden koleksiyonu için kullanılabilir. 
 
-1. Hatası olaylarını Topla: görüntülemek için bu olayları Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde Ekle "Microsoft-ServiceFabric:4:0x4000000000000010" ETW sağlayıcılar listesi.
-Azure kümelerdeki olaylarını toplamak için dahil etmek için Resource Manager şablonu değiştirin
+Ters proxy istek hataları ve kritik sorunları işleme yansıtarak ana veri & Mesajlaşma kanalı üzerinden - yalnızca hata olayları iter. Ayrıntılı kanal ters proxy tarafından işlenen tüm istekler hakkında ayrıntılı olayları içerir. 
+
+Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde hata olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000010" ETW sağlayıcılar listesi. Tüm istek telemetri için ETW sağlayıcı listesine Microsoft ServiceFabric girişi güncelleştirme "Microsoft-ServiceFabric:4:0x4000000000000020".
+
+Azure'da çalışan kümeler için:
+
+Ana veri & ileti kanal izlemeleri seçmek için değiştirme `scheduledTransferKeywordFilter` Resource Manager şablonu WadCfg değerinde `4611686018427387920`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ Azure kümelerdeki olaylarını toplamak için dahil etmek için Resource Manage
     }
 ```
 
-2. Toplama tüm olayları işlemeyi istek: içinde Visual Studio'nun Tanılama Olay Görüntüleyicisi'ni ETW sağlayıcı listesine güncelleştirme Microsoft ServiceFabric girişinde "Microsoft-ServiceFabric:4:0x4000000000000020".
-Azure Service Fabric kümeleri için dahil etmek için resource manager şablonu değiştirme
+Tüm istek işleme olaylarını toplamak için veri & ileti - kapatma kanal değiştirerek ayrıntılı `scheduledTransferKeywordFilter` Resource Manager şablonu WadCfg değerinde `4611686018427387936`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ Azure Service Fabric kümeleri için dahil etmek için resource manager şablonu
       }
     }
 ```
-> Bu ters proxy aracılığıyla tüm trafiği toplar ve depolama kapasitesini hızlıca tüketebileceği gibi bu kanal toplama olaylarından dikkatli etkinleştirilmesi önerilir.
 
-Azure Service Fabric kümeleri için tüm düğümler olaylardan toplanır ve SystemEventTable bir araya getirilir.
+Bu toplama olayları etkinleştirme çok hızlı bir şekilde oluşturulmakta izlemeleri kanal sonuçlarında ayrıntılı ve depolama kapasitesini kullanmasını sağlayabilirsiniz. Yalnızca bu kesinlikle gerekli olduğunda etkinleştirin.
 Ayrıntılı ters proxy olaylarını sorun giderme için başvuruda [ters proxy tanılama Kılavuzu](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Yeni EventSource kanaldan Topla

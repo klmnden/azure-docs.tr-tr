@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: jingwang
-ms.openlocfilehash: 97ce45f93964ac6759a40f4496256167d99190d4
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri veya Azure dosya depolama alanına kopyalayın
 
@@ -26,7 +26,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de ilk ve son Azure File Storage
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
-## <a name="supported-scenarios"></a>Desteklenen senaryolar
+## <a name="supported-capabilities"></a>Desteklenen özellikler
 
 Verileri Azure dosya depolama biriminden tüm desteklenen havuz veri deposuna kopyalamak ya da veri tüm desteklenen kaynak veri deposundan Azure dosya depolama alanına kopyalayın. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
@@ -48,7 +48,11 @@ Aşağıdaki özellikler, Azure dosya depolama bağlantılı hizmeti için deste
 | ana bilgisayar | Azure File Storage uç noktası olarak belirtir `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Evet |
 | Kullanıcı Kimliği | Azure File Storage olarak erişmek için kullanıcı belirtin `"userid": "AZURE\\<storage name>"`. | Evet |
 | password | Depolama erişim anahtarı belirtin. Bu alan SecureString işaretleyin.<br/> | Evet |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+
+>[!TIP]
+> - Azure tümleştirmesi çalışma zamanı, açıkça kullanarak Azure File Storage için kopyalamak için [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) aşağıdaki örnekteki gibi dosya depolama ve ilişkilendirme bağlantılı hizmet konumu ile.
+> - / Self-hosted tümleştirme çalışma zamanı Azure dışında kullanarak Azure File Storage kopyalamak için yerel ağınızda giden TCP bağlantı noktası 445'i açmak unutmayın.
 
 **Örnek:**
 
@@ -72,9 +76,6 @@ Aşağıdaki özellikler, Azure dosya depolama bağlantılı hizmeti için deste
     }
 }
 ```
-
-> [!TIP]
-> Azure dışında Self-Hosted tümleştirmesi çalışma zamanı, başlangıç/bitiş Azure File Storage veri kopyalamak için kullanılırken, yerel ağınızda giden TCP bağlantı noktası 445'i açmak unutmayın.
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 

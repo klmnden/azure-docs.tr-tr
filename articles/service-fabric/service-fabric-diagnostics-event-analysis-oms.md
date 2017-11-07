@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f0cefab15a115719ea9c378546a7e6004bd06187
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Olay çözümleme ve OMS Görselleştirme
 
@@ -37,52 +37,13 @@ Service Fabric çözüm OMS çalışma alanınızda dahil - platform ve uygulama
 
 ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
-Sağlamak ve Resource Manager şablonu üzerinden veya doğrudan Azure Marketi'nden bir OMS çalışma yapılandırmak için iki yolu vardır. Eski bir küme dağıtımı ve Tanılama ile dağıtılan bir küme zaten varsa ikinci etkin olduğunda kullanın.
-
-### <a name="deploying-oms-using-a-resource-management-template"></a>Kaynak Yönetimi şablonunu kullanarak OMS dağıtma
-
-Resource Manager şablonu kullanarak bir küme dağıtımı sırasında şablonun yeni bir OMS çalışma alanı oluşturabilirsiniz hizmeti yapı çözümü için ekleyip uygun depolama tablolarından verileri okumak için yapılandırabilirsiniz.
-
->[!NOTE]
->Bunun çalışması için tanılama olması için OMS mevcut için Azure depolama tabloları için etkinleştirilmesi gerekir / günlük analizi'nın gelen bilgileri okuyun.
-
-[Burada](https://azure.microsoft.com/resources/templates/service-fabric-oms/) eylemleri gerçekleştirir gereksinime uygun şekilde değiştirin ve kullanan bir örnek şablonudur. Daha fazla isteğe bağlı olma istediğinizden, burada işleminde bir OMS çalışma ayarını olabilir bağlı olarak farklı seçenekler size birkaç daha fazla şablon vardır - konumunda bulunabilir durumda [Service Fabric ve OMS şablonları](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
-
-### <a name="deploying-oms-using-through-azure-marketplace"></a>Azure Marketi'nde OMS kullanarak dağıtma
-
-Bir küme dağıttıktan sonra bir OMS çalışma eklemek isterseniz, Azure Marketi head üzerinden ve Ara *"Service Fabric Analytics"*.
-
-![OMS BT analizi pazarında](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
-
-* Tıklayın **oluşturma**
-* Service Fabric Analytics oluşturma penceresinde **bir çalışma alanı seçin** için *OMS çalışma* alan ve ardından **yeni bir çalışma alanı oluşturma**. Gerekli girişleri doldurun - burada tek gereksinim abonelik Service Fabric kümesi ve OMS çalışma alanı için aynı olmalıdır. Girişlerinizi doğruladıktan sonra OMS çalışma dağıtmaya başlar. Bu, yalnızca birkaç dakika sürer.
-* Tamamlandığında tıklatarak **oluşturma** Service Fabric Analytics oluşturma penceresinin altındaki yeniden. Yeni bir çalışma alanı altında gösterildiğini doğrulayın *OMS çalışma*. Bu çözüm, yeni oluşturduğunuz çalışma alanına ekleyin.
-
-
-Bu çözüm için çalışma alanına ekler de, çalışma alanı hala kümenizden gelen tanılama verilerini bağlı olması gerekir. Service Fabric Analytics çözümde oluşturduğunuz kaynak grubuna gidin. Görmeniz gerekir bir *ServiceFabric (\<nameOfOMSWorkspace\>)*.
-
-* Burada çözüm ayarları, çalışma alanı ayarları değiştirin ve OMS Portalı'na gidin, genel bakış sayfasına gitmek için çözüm tıklayın.
-* Sol gezinti menüsünde tıklatın **depolama hesapları günlükleri**altında *çalışma veri kaynakları*.
-
-    ![Service Fabric analiz çözümü portalında](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-portal.png)
-
-* Üzerinde *depolama hesabı günlüklerine* sayfasında, **Ekle** kümenizin günlükleri için çalışma alanına eklemek için üst.
-* İçine tıklatın **depolama hesabı** kümenizdeki oluşturulan uygun hesap eklemek için. Varsayılan ad kullandıysanız, depolama hesabı adı *sfdg\<resourceGroupName\>*. Kümeniz için kullanılan değer denetleyerek dağıtmak için kullanılan Azure Resource Manager şablonu denetleyerek bu de onaylayabilirsiniz `applicationDiagnosticsStorageAccountName`. Aşağı kaydırın ve da sahip olabilirsiniz **daha fazla yük** hesap adı görünmüyor durumunda. Seçmek için gösteriliyorsa doğru depolama hesabı adına tıklayın.
-* Ardından, belirtmeniz gerekecektir *veri türü*, gereken **Service Fabric olayları**.
-* *Kaynak* otomatik olarak ayarlanması gerektiğini *WADServiceFabric\*EventTable*.
-* Tıklatın **Tamam** çalışma alanınızı kümenizin günlüklerine bağlanmak için.
-
-    ![Depolama hesabı günlükleri için OMS ekleme](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
-
-* Hesap artık bir parçası olarak gösterilmesi gerekir, *depolama hesabı günlüklerine* alanınıza ait veri kaynaklarında.
-
-Bu, artık Service Fabric analiz çözümü artık doğru kümenizin platform ve uygulama günlüğü tablosu bağlanmış bir OMS günlük analizi çalışma alanındaki eklediniz. Ek kaynaklar aynı şekilde çalışma alanına ekleyebilirsiniz.
+Bkz: [OMS günlük analizi ayarlamak](service-fabric-diagnostics-oms-setup.md) bu kümeniz için başlamak için.
 
 ## <a name="using-the-oms-agent"></a>OMS Aracısı'nı kullanma
 
-Tanılama daha modüler bir yaklaşım için izin vermek için EventFlow ve WAD toplama çözümler olarak kullanmak için önerilen ve izleme. Örneğin, EventFlow, çıkışları değiştirmek istiyorsanız, hiçbir değişiklik, gerçek araçları yalnızca basit bir değişiklikle config dosyasına gerektirir. Ancak, OMS kullanarak yatırım karar ve olay çözümleme için kullanmaya devam etmeye hazır olduğunuz, (yalnızca olmak zorunda değildir platform kullanın, ancak bu BT platformları en az biri yerine görüntülenir), yedekleme ayarı keşfedin öneririz [OMS ag ent](../log-analytics/log-analytics-windows-agents.md). Ayrıca OMS Aracısı kapsayıcıları, kümeniz için dağıtırken aşağıda açıklandığı gibi kullanmanız gerekir.
+Tanılama daha modüler bir yaklaşım için izin vermek için EventFlow ve WAD toplama çözümler olarak kullanmak için önerilen ve izleme. Örneğin, EventFlow, çıkışları değiştirmek istiyorsanız, hiçbir değişiklik, gerçek araçları yalnızca basit bir değişiklikle config dosyasına gerektirir. Ancak, OMS günlük analizi kullanarak yatırım karar verirseniz, ayarladığınız [OMS Aracısı](../log-analytics/log-analytics-windows-agents.md). Ayrıca OMS Aracısı kapsayıcıları, kümeniz için dağıtırken aşağıda açıklandığı gibi kullanmanız gerekir. 
 
-Yalnızca bir sanal makine ölçek uzantısı, Resource Manager şablonu için ayarladığınız gibi aracısı eklemek, her düğümleriniz yüklenmesini sağlayarak sahip olduğundan işlem bunu yapmak için oldukça kolaydır. Service Fabric çözümü (yukarıdaki gibi) ile OMS çalışma dağıtan ve aracı, düğüm ekler örnek Resource Manager şablonu çalıştıran kümeler için bulunabilir [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) veya [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Üzerinden baş [OMS Aracısı bir kümeye ekleme](service-fabric-diagnostics-oms-agent.md) bu adımları için.
 
 Bu avantajları şunlardır:
 
@@ -107,16 +68,7 @@ Aracı OMS sorgulanan veya görselleştirilmiş performans göstergeleri için k
 * ContainerServiceLog: çalıştırılmış docker arka plan programı komutları
 * Perf: kapsayıcı dahil olmak üzere performans sayaçlarını cpu, bellek, ağ trafiğini, disk g/ç ve ana bilgisayar makinelerden özel ölçümleri
 
-Bu makalede, kümeniz için kapsayıcı izleme ayarlamak için gerekli adımlar kapsanmaktadır. OMS'ın kapsayıcıları çözüm hakkında daha fazla bilgi için kullanıma kendi [belgelerine](../log-analytics/log-analytics-containers.md).
-
-Çalışma alanınızda kapsayıcı çözümünü kurmak için yukarıdaki adımları izleyerek, küme düğümlerinde dağıtılan OMS Aracısı sahip emin olun. Küme hazır olduktan sonra bir kapsayıcı dağıtma. Bir küme için bir kapsayıcı görüntüsü dağıtılan ilk kez, görüntünün boyutuna bağlı olarak yüklemek için birkaç dakika sürer aklınızda size aittir.
-
-Azure Marketi'nde aramak *kapsayıcı izlemesi çözümü* ve oluşturma **kapsayıcı izlemesi çözümü** , alınması gereken izleme + Yönetimi altında sonuç kategorisi.
-
-![Kapsayıcıları çözüm ekleme](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
-
-Oluşturma adımda bir OMS çalışma ister. Yukarıdaki dağıtımı ile oluşturulmuş bir tanesini seçin. Bu adım, OMS çalışma kapsayıcıları çözümünüzde ekler ve şablon tarafından dağıtılan OMS aracısı tarafından otomatik olarak algılanır. Aracı, küme ve 15 dakikadan kısa kapsayıcıları işlemler üzerinde veri toplamayı başlayacaktır veya bu nedenle, yukarıdaki Pano görüntüsü olduğu gibi verilerle yukarı hafif çözüm görmeniz gerekir.
-
+[İzleme OMS günlük analizi ile kapsayıcıları](service-fabric-diagnostics-oms-containers.md) kapsayıcı kümeniz için izlemeyi ayarlamak için gerekli adımlar kapsanmaktadır. OMS'ın kapsayıcıları çözüm hakkında daha fazla bilgi için kullanıma kendi [belgelerine](../log-analytics/log-analytics-containers.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

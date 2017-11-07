@@ -44,8 +44,8 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry coğrafi çoğaltma (önizleme)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure Container Instances’a sahip Container Registry</a>
-          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Azure Container Service’e sahip Container Registry</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure Container Instances ile Container Registry</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Azure Container Service (AKS) ile Container Registry</a>
           - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Service Fabric ile Container Registry</a>
   - title: Başvuru
     items:

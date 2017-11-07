@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 0cfce63b1523f939dc2d706dba771e56ce9ccd6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Yedekleme ve Azure CLI kullanarak PostgreSQL için Azure veritabanı bir sunucuya geri yükleme
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Yedekleme ve Azure CLI kullanarak PostgreSQL için Azure veritabanı bir sunucuya geri yükleme
 
 Azure veritabanı PostgreSQL için bir sunucu veritabanı 7'den 35 güne yayılmış önceki bir tarihe geri yüklemek için kullanın.
 
@@ -31,7 +31,7 @@ Nasıl yapılır bu kılavuzu tamamlamak için gerekir:
 > [!IMPORTANT]
 > Yükleyin ve Azure CLI yerel olarak kullanırsanız, bu yapılır Kılavuzu Azure CLI Sürüm 2.0 veya üstü kullanmanızı gerektirir. Azure CLI komut isteminde sürümünü onaylamak için girin `az --version`. Yüklemek veya yükseltmek için bkz: [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="back-up-happens-automatically"></a>Yedekleme otomatik olarak gerçekleşir
+## <a name="backup-happens-automatically"></a>Yedekleme otomatik olarak gerçekleşir
 Azure veritabanı için PostgreSQL kullandığınızda, veritabanı hizmeti yedekleme hizmetinin her 5 dakikada bir otomatik olarak yapar. 
 
 Temel katman için yedeklemeler 7 gün için kullanılabilir. Standart katmanı için yedeklemeleri 35 gün için kullanılabilir. Daha fazla bilgi için bkz: [Azure veritabanı fiyatlandırma katmanlarına PostgreSQL için](concepts-service-tiers.md).
@@ -56,7 +56,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 | --- | --- | --- |
 | kaynak grubu |  myResourceGroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
 | ad | mypgserver geri | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adıdır. |
-| zaman içinde geri yükleme noktası | 2017-04-13T13:59:00Z | Geri yüklemek için zaman içinde bir nokta seçin. Bu tarih ve saat, kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, kendi yerel saat dilimi gibi kullanabilir `2017-04-13T05:59:00-08:00`. Örneğin, UTC Zulu dili biçimini kullanabilirsiniz `2017-04-13T13:59:00Z`. |
+| zaman içinde geri yükleme noktası | 2017-04-13T13:59:00Z | Geri yüklemek için zaman içinde bir nokta seçin. Bu tarih ve saat kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, kendi yerel saat dilimi gibi kullanabilir `2017-04-13T05:59:00-08:00`. Örneğin, UTC Zulu dili biçimini kullanabilirsiniz `2017-04-13T13:59:00Z`. |
 | Kaynak sunucusu | mypgserver 20170401 | Adı veya geri yüklemek için kaynak sunucunun kimliği. |
 
 Yeni bir sunucu, bir sunucu zaman içinde önceki bir noktaya geri yüklediğinizde oluşturulur. Özgün sunucunun ve zaman içinde belirtilen noktasından veritabanlarını yeni sunucuya kopyalanır.

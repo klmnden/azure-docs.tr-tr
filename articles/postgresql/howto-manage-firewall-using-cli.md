@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 05e645ebafd8c8b9f3078524b76732b3e1be05f8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/03/2017
+ms.openlocfilehash: ec362cec28160b5c4827f6e47614661319ba4039
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Oluşturma ve Azure veritabanı PostgreSQL güvenlik duvarı kuralları için Azure CLI kullanarak yönetme
 Bir Azure veritabanına PostgreSQL sunucusu için belirli bir IP adresi veya IP adresi aralığı erişimi yönetmek üzere yöneticiler sunucu düzeyinde güvenlik duvarı kuralları etkinleştirin. Uygun Azure CLI komutları kullanarak, oluşturabilir, güncelleştirme, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kuralları gösterir. Genel Bakış Azure veritabanı için PostgreSQL güvenlik duvarı kuralları için bkz: [PostgreSQL sunucunun güvenlik duvarı kuralları için Azure veritabanı](concepts-firewall-rules.md)
@@ -39,7 +39,7 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server 
 ## <a name="create-firewall-rule"></a>Güvenlik duvarı kuralı oluşturma
 Sunucu üzerinde yeni bir güvenlik duvarı kuralı oluşturmak için çalıştırın [az postgres sunucu güvenlik duvarı kuralı oluşturmak](/cli/azure/postgres/server/firewall-rule#create) komutu. 
 
-0.0.0.0 olarak belirterek `--start-ip-address` ve 255.255.255.255 olarak `--end-ip-address` aralığı, örnek sağlar sunucuya erişmek tüm IP adresleri **mypgserver 20170401.postgres.database.azure.com**
+0.0.0.0 olarak belirterek `--start-ip-address` ve 255.255.255.255 olarak `--end-ip-address` aralığı, aşağıdaki örnekte sağlar sunucuya erişmek tüm IP adresleri **mypgserver 20170401.postgres.database.azure.com**
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup  --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```

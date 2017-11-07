@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
-ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Azure portalında bir Azure veritabanı PostgreSQL sunucu için oluşturma
 
@@ -124,7 +124,7 @@ PostgreSQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanara
 
     psql parametresi |Önerilen değer|Açıklama
     ---|---|---
-    --host | Sunucu adı | Daha önce PostgreSQL sunucu için Azure veritabanı oluştururken kullandığınız sunucu adı değeri. Gösterilen bizim örnek sunucu **mypgserver 20170401.postgres.database.azure.com.** Tam etki alanı adını kullanın (**\*. postgres.database.azure.com**) örnekte gösterildiği gibi. Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. 
+    --host | Sunucu adı | Daha önce PostgreSQL sunucu için Azure veritabanı oluştururken kullandığınız sunucu adı değeri. Gösterilen örnek sunucu **mypgserver 20170401.postgres.database.azure.com.** Tam etki alanı adını kullanın (**\*. postgres.database.azure.com**) örnekte gösterildiği gibi. Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. 
     --port | 5432 | PostgreSQL server için Azure veritabanına bağlanırken kullanılacak bağlantı noktası. 
     --username | Sunucu yönetici oturum açma adı |Daha önce PostgreSQL sunucu için Azure veritabanı oluşturduğunuzda, sağladığınız sunucu yönetici oturum açma kullanıcı adı. Kullanıcı adınızı hatırlamıyorsanız bağlantı bilgilerini almak için önceki bölümdeki adımları izleyin. Biçim şöyledir: *username@servername*.
     --dbname | *postgres* | Varsayılan, ilk bağlantı için oluşturulmuş sistem tarafından oluşturulan veritabanı adı. Daha sonra kendi veritabanı oluşturun.
@@ -199,13 +199,13 @@ GUI aracı pgAdmin kullanarak Azure PostgreSQL sunucuya bağlanmak için:
 
 6. İçinde **tarayıcı** sol bölmesinde **sunucuları** düğümü. Örneğin, sunucunuzun seçin **Azure PostgreSQL sunucusu**. Bağlanmak için tıklatın.
 
-7. Sunucu düğümünü ve ardından onun altındaki **Veritabanları**’nı genişletin. Var olan içermelidir *postgres* veritabanı ve herhangi bir yeni oluşturulan kullanıcı veritabanı gibi **mypgsqldb**, önceki bölümde oluşturduğumuz. Sunucu başına birden çok veritabanı için PostgreSQL Azure veritabanı oluşturabilirsiniz dikkat edin.
+7. Sunucu düğümünü ve ardından onun altındaki **Veritabanları**’nı genişletin. Varolan içermelidir *postgres* veritabanı ve herhangi bir yeni oluşturulan kullanıcı veritabanı gibi **mypgsqldb**, önceki bölümde oluşturuldu. Sunucu başına birden çok veritabanı için PostgreSQL Azure veritabanı oluşturabilirsiniz dikkat edin.
 
 8. Sağ **veritabanları**, seçin **oluşturma** menüsüne ve ardından **veritabanı**.
 
 9. Tercih ettiğiniz bir veritabanı adı yazın **veritabanı** gibi alan **mypgsqldb**, örnekte gösterildiği gibi.
 
-10. Seçin **sahibi** liste kutusundan veritabanı için. Bizim örneğimizde gibi yönetici oturum açma adı sunucunuzu seçin **mylogin**.
+10. Seçin **sahibi** liste kutusundan veritabanı için. Örnek gibi yönetici oturum açma adı sunucunuzu seçin **mylogin**.
 
 11. Seçin **kaydetmek** yeni bir boş veritabanı oluşturmak için.
 
@@ -221,9 +221,9 @@ Hızlı Başlangıç iki yoldan biriyle oluşturduğunuz kaynakları temizleyebi
 > Bu koleksiyondaki diğer Hızlı Başlangıçlar, bu Hızlı Başlangıcı temel alır. Hızlı başlangıçlarla çalışmaya devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmek düşünmüyorsanız bu hızlı başlangıç portalında tarafından oluşturulan kaynakları silmek için aşağıdaki adımları izleyin.
 
 Yeni oluşturulan server dahil olmak üzere tüm kaynak grubunu silmek için:
-1. Kaynak grubunuzun portalda bulun. Sol taraftaki menüden seçin **kaynak grupları**. Bizim örneğimizde gibi kaynak grubunuzun adını seçip **myresourcegroup**.
+1. Kaynak grubunuzun portalda bulun. Sol taraftaki menüden seçin **kaynak grupları**. Örnek gibi kaynak grubunuzun adını seçip **myresourcegroup**.
 
-2. Kaynak grubunuzun sayfasında **Sil**’i seçin. Bizim örneğimizde gibi kaynak grubunuzun adını yazın **myresourcegroup**, silmeyi onaylamak için metin kutusundaki. **Sil**’i seçin.
+2. Kaynak grubunuzun sayfasında **Sil**’i seçin. Örnek gibi kaynak grubunuzun adını yazın **myresourcegroup**, silmeyi onaylamak için metin kutusundaki. **Sil**’i seçin.
 
 Yalnızca yeni oluşturulan sunucusunu silmek için:
 1. Açık sahip değilseniz, sunucunuzun Portalı'nda bulun. Sol taraftaki menüden seçin **tüm kaynakları**. Ardından, oluşturduğunuz sunucuyu arayın.
@@ -232,7 +232,7 @@ Yalnızca yeni oluşturulan sunucusunu silmek için:
 
     !["Sil" düğmesini](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Silmek istediğiniz sunucu adını doğrulayın ve altındaki etkilenen veritabanlarını görüntüleyin. Bizim örneğimizde gibi metin kutusuna sunucunuzun adını yazın **mypgserver 20170401**. **Sil**’i seçin.
+3. Silmek istediğiniz sunucu adını doğrulayın ve altındaki etkilenen veritabanlarını görüntüleyin. Örnek gibi metin kutusuna sunucunuzun adını yazın **mypgserver 20170401**. **Sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]

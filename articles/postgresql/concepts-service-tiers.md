@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/31/2017
-ms.openlocfilehash: 0ebdced6ac748245faed90949fd0e76c0eacb2d3
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 2c0ed6b58fe3e354da3cf58cd0c504d72bb0f421
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Azure veritabanı PostgreSQL seçenekleri ve performans: her fiyatlandırma katmanında nelerin kullanılabildiğini anlama
 PostgreSQL sunucu için bir Azure veritabanı oluşturduğunuzda, bu sunucu için ayrılan kaynaklar yapılandırmak için üç ana seçeneğiniz bağlı karar verin. Bu seçenek, performansı ve sunucunun ölçeği etkileyebilir.
@@ -53,7 +53,7 @@ Fiyatlandırma katmanı olarak karar vermek için önce İş yükünüzün bir I
 Sunucu oluşturulduktan sonra Önizleme çerçevesine fiyatlandırma katmanı değiştirilemiyor. Gelecekte, yükseltme veya indirgeme bir fiyatlandırma katmanı bir sunucudan başka bir katmana mümkün olacaktır.
 
 ## <a name="understand-the-price"></a>Fiyat anlama
-İçinde PostgreSQL için yeni bir Azure veritabanı oluşturduğunuzda [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), tıklatın **fiyatlandırma katmanı** dikey penceresinde ve aylık maliyeti gösterilecek tabanlı seçtiğiniz seçenekleri. Bir Azure aboneliğiniz yoksa, Azure fiyatlandırma hesaplayıcısı tahmini fiyatı almak için kullanın. Ziyaret [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) Web sitesi, ardından **Öğe Ekle**, genişletin **veritabanları** kategorisi ve seçin **Azure veritabanı PostgreSQL için** seçenekleri özelleştirmek için.
+İçinde PostgreSQL için yeni bir Azure veritabanı oluşturduğunuzda [Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer), tıklatın **fiyatlandırma katmanı** sayfası ve aylık maliyeti gösterilir tabanlı seçtiğiniz seçenekleri. Bir Azure aboneliğiniz yoksa, Azure fiyatlandırma hesaplayıcısı tahmini fiyatı almak için kullanın. Ziyaret [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) Web sitesi, ardından **Öğe Ekle**, genişletin **veritabanları** kategorisi ve seçin **Azure veritabanı PostgreSQL için** seçenekleri özelleştirmek için.
 
 ## <a name="choose-a-performance-level-compute-units"></a>Bir performans düzeyine (işlem birimleri) seçin
 Azure veritabanınızın PostgreSQL sunucusunun fiyatlandırma katmanı belirledikten sonra işlem gerekli birim sayısını seçerek performans düzeyini belirlemek hazırsınız. İyi bir başlangıç noktası 200 veya 400 işlem kendi web veya analitik iş yükleri için yüksek kullanıcı eşzamanlılık gerektiren ve gerektiği gibi artırarak Ayarla uygulamaları birimidir. 
@@ -85,7 +85,7 @@ Depolama yapılandırması kullanılabilir depolama kapasitesi miktarını Postg
 
 Bazı depolama kapasitesi "Eklenen depolama boyutu." olarak önceki tabloda belirtildiği her fiyatlandırma katmanının ile en az bulunur Sunucu oluşturulduğunda izin verilen maksimum depolama kadar 125 GB artışlarla ek depolama kapasitesi eklenebilir. Ek depolama kapasitesi işlem birimleri yapılandırma bağımsız olarak yapılandırılabilir. Seçili depolama alanı miktarına göre fiyat değişiklikleri.
 
-Her performans düzeyi IOPS yapılandırmasında fiyatlandırma katmanı ve seçilen depolama boyutu ilgilidir. Temel katman bir IOPS garanti sağlamaz. Standart fiyatlandırma katmanı içinde IOPS için bir sabit 3:1 oranında en fazla depolama boyutunu orantılı olarak ölçeklendirilir. Her bir g/ç boyutu en fazla 256 KB ile 375 sağlanan IOPS için 125 GB dahil depolama güvence altına alır. Ek depolama alanı 1 TB en fazla 3000 sağlanan IOPS güvence altına almak için seçebileceğiniz.
+Her performans düzeyi IOPS yapılandırmasında fiyatlandırma katmanı ve seçilen depolama boyutu ilgilidir. Temel katman bir IOPS garanti sağlamaz. Standart fiyatlandırma katmanı içinde IOPS için bir sabit 3:1 oranında en fazla depolama boyutunu orantılı olarak ölçeklendirilir. 375 125 GB garantiler dahil depolanmasını IOPS, her bir g/ç boyutu en fazla 256 KB ile sağlandı. Ek depolama alanı 1 TB en fazla 3000 sağlanan IOPS güvence altına almak için seçebileceğiniz.
 
 Azure portalında ölçümleri grafiği izlemek veya depolama ve IOP tüketiminin ölçmek için Azure CLI komutları yazın. İzlemek için ilgili depolama sınırı, depolama yüzdesi, kullanılan depolama alanı ve g/ç yüzdesi ölçümleridir.
 
@@ -93,11 +93,11 @@ Azure portalında ölçümleri grafiği izlemek veya depolama ve IOP tüketimini
 > Önizleme sırasında depolama alanı miktarını sunucu oluşturulduğunda aynı anda seçin. Varolan sunucuda depolama boyutunu değiştirme henüz desteklenmiyor. 
 
 ## <a name="scaling-a-server-up-or-down"></a>Bir sunucu yukarı veya aşağı Ölçeklendirmesi
-Azure veritabanınız için PostgreSQL oluşturduğunuzda, başlangıçta fiyatlandırma katmanını ve performans düzeyini seçin. Daha sonra işlem birimleri ölçeklendirebilirsiniz yukarı veya dinamik olarak aynı fiyatlandırma katmanı aralık içinde aşağı. Azure portalında işlem birimleri sunucusunun fiyatlandırma katmanı dikey penceresinde kaydırın veya bu örnek izleyerek betiği: [İzleyici ve ölçek Azure CLI kullanarak tek bir PostgreSQL sunucu](scripts/sample-scale-server-up-or-down.md)
+Azure veritabanınız için PostgreSQL oluşturduğunuzda, başlangıçta fiyatlandırma katmanını ve performans düzeyini seçin. Daha sonra işlem birimleri ölçeklendirebilirsiniz yukarı veya dinamik olarak aynı fiyatlandırma katmanı aralık içinde aşağı. Azure portalında işlem birimleri sunucusunun fiyatlandırma katmanı sayfasında kaydırın veya bu örnek izleyerek betiği: [İzleyici ve ölçek Azure CLI kullanarak tek bir PostgreSQL sunucu](scripts/sample-scale-server-up-or-down.md)
 
 İşlem birimleri ölçeklendirme seçmiş olduğunuz en fazla depolama boyutunu bağımsız olarak gerçekleştirilir.
 
-Arka planda bir veritabanı performans düzeyini değiştirme, yeni performans düzeyinde özgün veritabanının bir kopyasını oluşturur ve sonra çoğaltma bağlantıları geçer. Hiçbir veri bu işlem sırasında kaybolur. Yürütülen bazı işlemler geri alınamaz böylece biz çoğaltmaya zaman geçiş kısa süre sırasında veritabanı bağlantılarını, devre dışı bırakılır. Bu pencereyi değişir, ancak ortalama altında 4 saniye ve birden fazla %99 örneklerinin 30 saniyeden az durumunda. Bağlantıların devre dışı bırakıldığı sırasında uçuşta çok fazla işlem varsa, bu süre uzayabilir.
+Arka planda bir veritabanı performans düzeyini değiştirme, yeni performans düzeyinde özgün sunucunun bir kopyasını oluşturur ve ardından kopyalanan sunucuya bağlantıları geçer. Hiçbir veri bu işlem sırasında kaybolur. Yürütülen bazı işlemler geri alınamaz böylece sunucunun yeni kopya için ne zaman sistem geçer kısa süre sırasında veritabanı bağlantılarını, devre dışı bırakılır. Bu pencereyi değişir, ancak ortalama altında 4 saniye ve birden fazla %99 örneklerinin 30 saniyeden az durumunda. Bağlantıların devre dışı bırakıldığı sırasında uçuşta çok fazla işlem varsa, bu süre uzayabilir.
 
 Hem boyutu hem de önce ve fiyatlandırma katmanı sunucusunun değişiklikten sonra tüm ölçek işleminin süresi bağlıdır. Örneğin, işlem birimleri standart fiyatlandırma katmanı içinde değiştiriyor. bir sunucu tamamlamanız gereken birkaç dakika içinde. Sunucu için yeni özellikleri değişiklikler tamamlanana kadar uygulanmaz.
 

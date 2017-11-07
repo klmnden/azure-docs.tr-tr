@@ -13,17 +13,17 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/01/2017
+ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 7bb9939df413bfea2b3b8545c29a20feb623f94e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden (Önizleme) hdınsight'ta Kafka bağlanma
 
-Azure sanal ağları kullanarak hdınsight'ta Kafka doğrudan bağlanmak öğrenin. Bu belge için Kafka bağlanma aşağıdaki yapılandırmaları kullanma bilgileri verilmiştir:
+Bir Azure sanal ağı üzerinden hdınsight'ta Kafka doğrudan bağlanmak öğrenin. Bu belge için Kafka bağlanma aşağıdaki yapılandırmaları kullanma bilgileri verilmiştir:
 
 * Bir şirket ağında kaynaklardan. Bu bağlantı, yerel ağınızda bir VPN cihazı (yazılım veya donanım) kullanılarak oluşturulur.
 * Geliştirme ortamından bir VPN yazılımı istemcisi kullanarak.
@@ -58,7 +58,7 @@ Hdınsight genel internet üzerinden doğrudan bağlantı Kafka izin vermiyor. B
     > Bu yapılandırma, yalnızca Geliştirme amaçlı aşağıdaki sınırlamalar nedeniyle önerilir:
     >
     > * Her bir istemci bir VPN yazılımı istemcisi kullanarak bağlanmanız gerekir. Azure yalnızca Windows tabanlı bir istemci sağlar.
-    > * IP adresi Kafka ile iletişim kurmak için kullanmanız gerekir böylece istemci sanal ağa ad çözümleme isteklerinin geçmez. IP iletişimi Kafka küme üzerinde ek yapılandırma gerektirir.
+    > * IP adresi Kafka ile iletişim kurmak için kullanmalısınız VPN istemcisi sanal ağa ad çözümleme isteklerinin geçmez. IP iletişimi Kafka küme üzerinde ek yapılandırma gerektirir.
 
 Sanal bir ağa Hdınsight kullanma hakkında daha fazla bilgi için bkz: [genişletmek Azure sanal ağları kullanarak Hdınsight](../hdinsight-extend-hadoop-virtual-network.md).
 
@@ -74,7 +74,7 @@ Aşağıdaki yapılandırma adımları oluşturun:
 * Azure Sanal Ağ
 * Siteden siteye VPN ağ geçidi
 * Azure depolama hesabı (Hdınsight tarafından kullanılır)
-* Hdınsight üzerinde Kafka
+* HDInsight üzerinde Kafka
 
 Şirket içi Kafka istemci kümeye bağlanabildiğini doğrulamak için içindeki adımları kullanın [örnek: Python istemci](#python-client) bölümü.
 
@@ -85,7 +85,7 @@ Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanı
 * Azure Sanal Ağ
 * Noktadan siteye VPN ağ geçidi
 * Azure depolama hesabı (Hdınsight tarafından kullanılır)
-* Hdınsight üzerinde Kafka
+* HDInsight üzerinde Kafka
 
 1. Adımları [noktadan siteye bağlantıları için otomatik olarak imzalanan sertifikalar ile çalışma](../../vpn-gateway/vpn-gateway-certificates-point-to-site.md) belge. Bu belge ağ geçidi için gerekli sertifikaları oluşturur.
 
@@ -130,7 +130,7 @@ Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanı
 
     # HDInsight settings
     $HdiWorkerNodes = 4
-    $hdiVersion = "3.5"
+    $hdiVersion = "3.6"
     $hdiType = "Kafka"
     ```
 
@@ -237,7 +237,7 @@ Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanı
     ```
 
   > [!WARNING]
-  > Bu işlemi tamamlamak için yaklaşık 20 dakika sürer.
+  > Bu işlemi tamamlamak için yaklaşık 15 dakika sürer.
 
 8. Sanal ağ için Windows VPN istemcisi URL'sini almak için aşağıdaki cmdlet'i kullanın:
 

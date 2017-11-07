@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, engellemenize, algılamanıza ve Artırılmış görünürlük aracılığıyla tehditleri Microsoft Azure kaynaklarınızın güvenliğini denetlemenize yanıtlamanıza yardımcı olan bir hizmeti ile ilgili sorular yanıtlanmaktadır.
@@ -127,6 +127,15 @@ Azure Güvenlik Merkezi Azure uzantılar kötü amaçlı yazılımdan koruma gö
 
 ### <a name="why-do-i-get-the-message-missing-scan-data-for-my-vm"></a>Neden ileti "Tarama verileri eksik" Benim VM için sağlarım?
 Bir VM için tarama veri olduğunda bu ileti görüntülenir. Süre (bir saatten az) için veri toplamayı Azure Güvenlik Merkezi'nde etkinleştirildikten sonra doldurmak tarama verileri alabilir. Tarama verileri ilk popülasyonunu sonra tarama verisi yok hiç veya son tarama veri olduğundan, bu iletiyi alabilirsiniz. Taramaları durdurulmuş bir durumda, bir VM için doldurmayın. Tarama verileri yakın zamanda (uygun olarak 30 gün varsayılan değeri olan Windows aracısı için bekletme ilkesi) doldurulmuş değil, bu iletiyi de görüntülenebilir.
+
+### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Güvenlik Merkezi, işletim sistemi güvenlik açıkları, sistem güncelleştirmeleri ve uç nokta koruma sorunları için ne sıklıkta tarama?
+Gecikme Güvenlik Merkezi'nde güvenlik açıkları için güncelleştirmeleri tarar ve sorunları alır:
+
+- İşletim sistemi güvenlik açıkları (Microsoft tarafından) – verileri 48 saat içinde güncelleştirilir
+- Sistem güncelleştirmeleri – veri 24 saat içinde güncelleştirildi
+- Endpoint Protection sorunlarını – 8 saat içinde güncelleştirilmiş verileri
+
+Güvenlik Merkezi, genellikle her saat yeni veriler için tarar. Gecikme yukarıdaki son tarama değil veya bir tarama başarısız olduğu en kötü bir durum senaryosu değerlerdir.
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>İleti "VM Aracısı eksik mi?" neden alıyorum
 Veri toplamayı etkinleştirmek için sanal makinelerin VM Aracısı'nın yüklü olması gerekir. VM Aracısı, Azure Marketi’nden dağıtılan VM’ler için varsayılan olarak yüklüdür. Diğer Vm'lerde VM Aracısı'nı yükleme hakkında daha fazla bilgi için blog gönderisine bakın [VM aracısı ve Uzantılar](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark; nini
-ms.date: 10/25/2017
+ms.date: 11/06/2017
 ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: 82721fe984ff7b3c7440b11d7526a9413b0770de
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="what-is-azure-policy"></a>Azure ilke nedir?
 
@@ -55,7 +55,7 @@ Azure portal, PowerShell veya Azure CLI aracılığıyla bu ilkeleri atayabilirs
 
 ## <a name="policy-assignment"></a>İlke ataması
 
-Bir ilke atamasını belirli bir kapsamda gerçekleşmesi için atanmış bir ilke tanımı ' dir. Bu kapsam bir yönetim grubundan bir kaynak grubuna çeşitli işlemleri ifade edebilir. İlke atamalarını tüm alt kaynaklar tarafından devralınır. Bu nedenle, bir kaynak grubu için bir ilke uygulandığında, bu kaynak grubundaki tüm kaynaklara uygulanır. Terim *kapsam* tüm kaynak grupları, abonelikleri veya ilke tanımı atanan yönetim gruplarını başvuruyor.
+Bir ilke atamasını belirli bir kapsamda gerçekleşmesi için atanmış bir ilke tanımı ' dir. Bu kapsam bir yönetim grubundan bir kaynak grubuna çeşitli işlemleri ifade edebilir. Terim *kapsam* tüm kaynak grupları, abonelikleri veya ilke tanımı atanan yönetim gruplarını başvuruyor. İlke atamalarını tüm alt kaynaklar tarafından devralınır. Bu nedenle, bir kaynak grubu için bir ilke uygulandığında, bu kaynak grubundaki tüm kaynaklara uygulanır. Ancak, bir subscope ilke atama dışarıda bırakabilirsiniz. Örneğin, abonelik kapsamında ağ kaynaklarını oluşturulmasını önleyen bir ilke atayabilirsiniz. Ancak, bir kaynak grubu için ağ altyapısı hedeflenen abonelik içindeki dışlayın. Bu ağ kaynak grubu, ağ kaynaklarını oluşturma konusunda güvendiğiniz kullanıcılara erişim hakkı.
 
 Ayar ilke tanımları ve atamaları hakkında daha fazla bilgi için bkz: [Azure ortamınızda uyumlu olmayan kaynakları tanımlamak için bir ilke atamasını oluşturma](assign-policy-definition.md).
 

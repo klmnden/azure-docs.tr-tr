@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Sanal Dizini sistem gereksinimleri
 ## <a name="overview"></a>Genel Bakış
@@ -50,7 +50,7 @@ Yazılım gereksinimleri, desteklenen web tarayıcıları, SMB sürümleri, sana
 | Minimum bellek (RAM) |8 GB <br> Bir dosya sunucusu, 8 GB 2 milyondan az dosyaları için ve 2-4 milyon dosyaları için 16 GB|
 | Disk alanı<sup>1</sup> |İşletim sistemi diski - 80 GB <br></br>Veri diski - 8 TB 500 GB |
 | Ağ arabirimi en az durum sayısı |1 |
-| En düşük Internet bant genişliği<sup>2</sup> |5 MB/sn |
+| Internet bant genişliği<sup>2</sup> |Gereken en düşük bant genişliği: 5 MB/sn <br> Bant genişliği önerilir: 100 MB/sn <br> Internet bant genişliği ile veri aktarımı ölçekler hızı. Örneğin, 100 GB veriden günlük yedeklemeler, bir gün içinde tamamlamak istemeyen olduğundan, yedekleme hatalarına neden 5 MB/sn hızında aktarmak için 2 gün sürer. 100 MB/sn bant ile 100 GB veriden 2,5 saat içinde aktarılabilir.   |
 
 <sup>1</sup> - ince sağlanan
 
@@ -113,7 +113,7 @@ Ağ yöneticileri genellikle gelen filtrelemek için URL desenlerini ve giden tr
 > [!NOTE]
 > 
 > * (Kaynak) IP'leri cihaz için tüm bulut etkin ağ arabirimlerinin her zaman ayarlanması gerekir. 
-> * IP'leri ayarlanmalıdır hedef [Azure veri merkezi IP aralıkları](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> * IP'leri ayarlanmalıdır hedef [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
@@ -128,6 +128,5 @@ Ağ yöneticileri genellikle gelen filtrelemek için URL desenlerini ve giden tr
 | `https://*.partners.extranet.microsoft.com/*` |Destek Paketi |
 | `http://*.data.microsoft.com ` |Windows, telemetri hizmetinde bkz [müşteri deneyimi ve tanılama telemetri güncelleştirmesi](https://support.microsoft.com/en-us/kb/3068708) |
 
-## <a name="next-step"></a>Sonraki adım
+## <a name="next-steps"></a>Sonraki adımlar
 * [StorSimple sanal dizinizi dağıtmak için portal hazırlama](storsimple-virtual-array-deploy1-portal-prep.md)
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31f80e93dc741d41a00826c9c8b7ab061c0ca414
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market bir sanal makine görüntüsü oluşturmak için kılavuz
 Bu makalede **2. adım**, sanal sabit Azure Marketi dağıtacağınız diskleri (VHD) hazırlama size yol gösterir. Vhd'lerinizi, sku'sunun temelidir. İşlem, bir Windows tabanlı veya Linux tabanlı SKU olup sağlanmaktadır bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu ele alınmaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -289,6 +289,8 @@ Soru tamamladıktan sonra görüntü ve başarısız tüm değerlendirmeleri iç
 Yayımlama işlemi sırasında her bir SKU için oluşturduğunuz VHD'leri sağlama Tekdüzen Kaynak Tanımlayıcıları (URI'ler) belirtin. Sertifika işlemi sırasında Microsoft'un bu VHD'lere erişmesi gerekir. Bu nedenle, her VHD için bir paylaşılan erişim imzası URI oluşturmanız gerekir. İçinde girilmelidir URI budur **görüntüleri** yayımlama portalında sekmesindedir.
 
 Oluşturulan URI paylaşılan erişim imzası aşağıdaki gereksinimlere uyması:
+
+Not: Aşağıdaki yönergelerde desteklenen tek tür olan yönetilmeyen diskler için geçerlidir.
 
 * Paylaşılan erişim imzası URI'ler Vhd'lerinizi için oluştururken, liste ve Okuma izinleri yeterlidir. Yazma veya Silme erişimi sağlamayın.
 * Paylaşılan erişim imzası URI oluşturulduğunda süresi erişim için üç (3) hafta ila en az olmalıdır.

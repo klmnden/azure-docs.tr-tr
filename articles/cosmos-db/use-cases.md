@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
-ms.openlocfilehash: edbed5654a4df8a28b43f03ffd0ac204e0d7f8b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Ortak Azure Cosmos DB kullanım durumları
 Bu makalede Azure Cosmos DB için birkaç ortak kullanım durumları genel bir bakış sağlar.  Bu makalede önerileri Cosmos DB ile Uygulamanızı geliştirirken bir başlangıç noktası olarak hizmet.   
@@ -35,7 +35,7 @@ Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacakt
 
 Azure Cosmos DB proje 2011 içinde "proje Floransa" adresi Geliştirici-Microsoft içindeki büyük Internet ölçekli uygulamalar tarafından karşılaştığı kalınan başladı. Bu sorunları Microsoft'un uygulamalara benzersiz olmayan Gözlemleme, Azure Cosmos DB genellikle dış geliştiricilerine biçiminde 2015'te kullanılabilmesi karar [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). Hizmet ubiquitously içinde Microsoft dahili olarak kullanılır ve harici olarak Azure geliştiriciler tarafından kullanılan hızlı büyüyen hizmetlerden biridir. 
 
-Azure Cosmos DB çok çeşitli uygulamalar ve kullanım örnekleri içinde kullanılan genel bir dağıtılmış, birden çok model veri tabanıdır. Herhangi bir için iyi bir seçimdir olan [sunucusuz](http://azure.com/serverless) düşük milisaniyelik sipariş yanıt sürelerini gerekir ve hızlı bir şekilde ve genel olarak ölçeklendirmek gereken uygulama. Birden çok veri modelleri destekler (anahtar-değer, belgeler, grafikler ve sütun) ve veriler için birçok API'lere erişim dahil olmak üzere [MongoDB](mongodb-introduction.md), [DocumentDB SQL](documentdb-introduction.md), [Gremlin](graph-introduction.md)ve [ Azure tabloları](table-introduction.md) yerel olarak ve Genişletilebilir bir biçimde. 
+Azure Cosmos DB çok çeşitli uygulamalar ve kullanım örnekleri içinde kullanılan genel bir dağıtılmış, birden çok model veri tabanıdır. Herhangi bir için iyi bir seçimdir olan [sunucusuz](http://azure.com/serverless) düşük milisaniyelik sipariş yanıt sürelerini gerekir ve hızlı bir şekilde ve genel olarak ölçeklendirmek gereken uygulama. Birden çok veri modelleri destekler (anahtar-değer, belgeler, grafikler ve sütun) ve veriler için birçok API'lere erişim dahil olmak üzere [MongoDB API](mongodb-introduction.md), [DocumentDB API (SQL)](documentdb-introduction.md), [grafik API'si (Gremlin)](graph-introduction.md), ve [tabloları API](table-introduction.md) yerel olarak ve Genişletilebilir bir biçimde. 
 
 Aşağıdaki genel ambition ile yüksek performanslı uygulamalar için oldukça uygun hale bazı Azure Cosmos DB öznitelikleridir.
 

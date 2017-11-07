@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>StorSimple sanal dizi için uyarıları yönetmek için StorSimple cihaz Yöneticisi'ni kullanın
 
@@ -146,6 +146,11 @@ Aşağıdaki tablolarda, ek bilgi ve öneriler yanı sıra kullanılabiliyorsa k
 |:--- |:--- |:--- |
 | Yedeklemeyi <*aygıt adı*> işlemi tamamlanamadı. |Yedekleme iş başarısız oldu. |Bir yedekleme oluşturulamadı. Aşağıdakilerden birini göz önünde bulundurun:<ul><li>Bağlantı sorunları, yedekleme işlemi başarıyla tamamlanmasını engelliyor. Bağlantı sorunu olmadığından emin olun. Bağlantı sorunlarını giderme hakkında daha fazla bilgi için Git [yerel web kullanıcı Arabirimi](storsimple-ova-web-ui-admin.md) sanal cihazınız için.</li><li>Kullanılabilir depolama sınırına ulaştınız. Alan boşaltmak için artık gerekli olmayan tüm yedeklemelerinin silme göz önünde bulundurun.</li></ul> Sorunları gidermek, uyarı işaretini kaldırın ve işlemi yeniden deneyin. |
 | Kopyalama <*aygıt adı*> işlemi tamamlanamadı. |İş hatası kopyalayın. |Bir kopya oluşturulamadı. Aşağıdakilerden birini göz önünde bulundurun:<ul><li>Yedekleme listenizin geçerli olmayabilir. Hala geçerli olduğunu doğrulamanız için listeyi yenileyin.</li><li>Bağlantı sorunları kopyalama işlemi başarıyla tamamlanmasını engelliyor. Bağlantı sorunu olmadığından emin olun.</li><li>Kullanılabilir depolama sınırına ulaştınız. Alan boşaltmak için artık gerekli olmayan tüm yedeklemelerinin silme göz önünde bulundurun.</li></ul>Sorunları gidermek, uyarı işaretini kaldırın ve işlemi yeniden deneyin. |
+
+### <a name="networking-alerts"></a>Ağ uyarıları
+| Uyarı metni | Olay | Daha fazla bilgi / önerilen eylemleri |
+|:--- |:--- |:--- |
+| Kimlik doğrulama hizmetine bağlanamadı. |DataPath hata |Kimlik doğrulaması için kullanılan URL erişilebilir değil. Güvenlik Duvarı kurallarınız StorSimple cihaz için belirtilen URL desenlerini eklediğinizden emin olun. Azure portalında URL desenlerini hakkında daha fazla bilgi için Git [StorSimple sanal ağ gereksinimleri dizi](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
 ### <a name="performance-alerts"></a>Performans uyarıları
 

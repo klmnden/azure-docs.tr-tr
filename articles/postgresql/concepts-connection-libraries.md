@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 7d6f13336b3913299433e25c69a41f8c94f598b2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f371d5cd4e20096d5101fadf9066e3a135218d0b
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Azure veritabanı PostgreSQL için için bağlantı kitaplıkları
-Bu konuda kitaplıkları ve geliştiricilerin kullanabileceği sürücüleri listeler bağlanmak ve PostgreSQL için Azure veritabanını sorgulamak için program uygulamaları için.
+Bu makalede, kitaplıklar ve geliştiriciler bağlanmak ve PostgreSQL için Azure veritabanını sorgulamak için uygulamaları geliştirmek için kullanabilir sürücüleri listeler.
 
 ## <a name="client-interfaces"></a>İstemci arabirimleri
-Çoğu dil istemci kitaplıkları PostgreSQL sunucusuna bağlanmak için kullanılan dış projeler ve bağımsız olarak dağıtılır. Bunlar, Windows, Linux ve Mac platformlarında desteklenir. Bazı yaygın istemci sürücüleri aşağıdaki tabloda listelenmiştir:
+Çoğu dil istemci kitaplıkları PostgreSQL sunucusuna bağlanmak için kullanılan dış projeler ve bağımsız olarak dağıtılır. Listelenen kitaplıkları için PostgreSQL Azure veritabanına bağlanmak için Windows, Linux ve Mac platformları üzerinde desteklenir. Birkaç Hızlı Başlangıç örnekleri sonraki adımlar bölümünde listelenir.
 
 | **Dil** | **İstemci arabirimi** | **Ek bilgi** | **İndir** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|

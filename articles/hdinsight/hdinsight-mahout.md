@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 8f40beb4e3eb8020a65eac6e43ffefe4fedfcee2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a0dd7388b3fa7517b97f4dd66eb121ebfd98d4a4
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>(PowerShell) hdınsight'ta Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
 
@@ -32,8 +32,8 @@ Nasıl kullanacağınızı öğrenin [Apache Mahout](http://mahout.apache.org) m
 
 * Linux tabanlı Hdınsight kümesi. Bir oluşturma hakkında daha fazla bilgi için bkz: [Hdınsight'ta Linux tabanlı Hadoop ile çalışmaya başlamak][getstarted].
 
-> [!IMPORTANT]
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+    > [!IMPORTANT]
+    > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Azure PowerShell](/powershell/azure/overview)
 
@@ -64,8 +64,8 @@ Kullanıcı-ratings.txt bulunan verileri yapısını sahip `userID`, `movieID`, 
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ### <a name="run-the-job"></a>İşi çalıştır

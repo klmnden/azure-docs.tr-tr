@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 43e5cf1ab3bc3121d7e3915ea0785998e0ee2fc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a38c792decdc571421c6bed7d2edc5f442591ca
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Uzak Masaüstü hizmetini veya Windows Klasik dağıtım modeli kullanılarak oluşturulan bir VM'de oturum açma parolasını sıfırlama
 > [!IMPORTANT]
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Ayrıca [Resource Manager dağıtım modeliyle oluşturulan VM'ler için bu adımları uygulamadan](../reset-rdp.md).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Bir Windows sanal makine (VM) bağlanamıyorsanız, yerel yönetici parolasını sıfırlama veya Uzak Masaüstü hizmet yapılandırmasını sıfırlayın. Parola sıfırlama için Azure PowerShell'de Azure portalından veya VM erişim uzantısı kullanabilirsiniz.
 

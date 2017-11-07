@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/03/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET API tabloda geliştirin
 
@@ -41,29 +41,11 @@ Bu öğretici, aşağıdaki görevleri içerir:
  
 ## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB tablolarında 
 
-Azure Cosmos DB sağlar [tablo API](table-introduction.md) (Önizleme) bir anahtar-değer deposu Şeması daha az bir tasarım gereken uygulamalar için. Azure Cosmos DB ile çalışmak için [Azure Tablo depolama](../storage/common/storage-introduction.md) SDK’ları ve REST API’ler kullanılabilir. Azure Cosmos DB’yi kullanarak yüksek aktarım hızı gereksinimleri olan tablolar oluşturabilirsiniz. Azure Cosmos DB, şu anda genel önizlemede olan, aktarım hızı açısından iyileştirilmiş tabloları (resmi olmayan adı "premium tablolar"dır) destekler. 
+Azure Cosmos DB sağlar [tablo API](table-introduction.md) (Önizleme) bir anahtar-değer ihtiyaç duyan uygulamalar şema daha az tasarımıyla depolamak ve yüksek througput gereksinimleri vardır. [Azure Table storage](../storage/common/storage-introduction.md) Azure Cosmos DB tablolarda çalışmak için SDK'ları ve REST API'lerinin kullanılabilir.   
 
-Yüksek depolama, düşük aktarım hızı gereksinimleri olan tablolar için Azure Tablo depolamayı kullanmaya devam edebilirsiniz.
+Bu öğretici, Azure Table storage'ı SDK bilgi sahibiyseniz ve kullanılabilir premium özellikleri Azure Cosmos DB ile kullanmak istediğiniz geliştiriciler içindir. Bağlı olduğu [.NET kullanarak Azure Table storage ile çalışmaya başlama](table-storage-how-to-use-dotnet.md) ve ikincil dizinler, sağlanan işleme ve birden çok giriş gibi ek özellikler yararlanmak nasıl gösterir. Bu öğretici Azure portalında bir Azure Cosmos DB hesabı oluşturun ve ardından derleme ve bir tablo API uygulamasını dağıtmak için nasıl kullanılacağını açıklar. Biz de .NET örnekleri oluşturma ve tablo, silme ve ekleme, güncelleştirme, silme ve tablo verileri Sorgulama yol. 
 
-Şu anda Azure Table depolama kullanırsanız, "premium tablo" Önizleme ile aşağıdaki avantajlara sahip olursunuz:
-
-- Anahtar teslim [genel dağıtım](distribute-data-globally.md) birden çok giriş ile ve [otomatik ve el ile yük devretme](regional-failover.md)
-- Otomatik şema tüm özelliklerini ("ikincil dizinler") ve hızlı sorguları karşı dizin belirsiz desteği 
-- Desteği [depolama ve işleme bağımsız ölçeklendirme](partition-data.md), herhangi bir sayıda bölgeler arasında
-- Desteği [tablo başına ayrılmış işleme](request-units.md) , ölçeklendirilmiş istekleri saniye başına milyonlarca yüzlerce gelen
-- Desteği [beş ince ayarlanabilir tutarlılık düzeyleri](consistency-levels.md) kullanılabilirlik, gecikme ve uygulamanıza dayalı tutarlılık kapalı ticari gerekiyor
-- tek bölge ve yüksek kullanılabilirlik için daha fazla bölgeler ekleme yeteneği içinde % 99,99 kullanılabilirlik ve [endüstri lideri kapsamlı SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) genel kullanılabilirliğine
-- Var olan Azure depolama .NET SDK'sı ile çalışma ve uygulamanız için hiçbir kod değişiklikleri
-
-Önizleme sırasında Azure Cosmos DB .NET SDK kullanarak tablo API destekler. İndirebilirsiniz [Azure depolama Preview SDK](https://aka.ms/premiumtablenuget) Nuget'ten, sahip aynı sınıfları ve yöntem imzaları olarak [Azure depolama SDK'sı](https://www.nuget.org/packages/WindowsAzure.Storage), ancak tablo API kullanarak Azure Cosmos DB hesaplarına da bağlanabilirsiniz.
-
-Karmaşık Azure Table depolama görevleri hakkında daha fazla bilgi için bkz:
-
-* [Azure Cosmos DB giriş: Tablo API](table-introduction.md)
-* Kullanılabilir API'ler ile ilgili tam Ayrıntılar için tablo hizmeti başvuru belgelerini [.NET başvurusu için depolama istemci kitaplığı](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-
-### <a name="about-this-tutorial"></a>Bu öğretici hakkında
-Bu öğretici Azure Table storage'ı SDK bilgi sahibiyseniz ve kullanılabilir premium özellikleri kullanmak istediğiniz geliştiriciler için Azure Cosmos DB kullanıyor. Bağlı olduğu [.NET kullanarak Azure Table storage ile çalışmaya başlama](table-storage-how-to-use-dotnet.md) ve ikincil dizinler, sağlanan işleme ve birden çok giriş gibi ek özellikler yararlanmak nasıl gösterir. Size bir Azure Cosmos DB hesabı oluşturun ve ardından derleme ve tablo uygulamayı dağıtmak için Azure portalını kullanmayı kapsar. Biz de .NET örnekleri oluşturma ve tablo, silme ve ekleme, güncelleştirme, silme ve tablo verileri Sorgulama yol. 
+## <a name="prerequisites"></a>Ön koşullar
 
 Visual Studio yüklü 2017 yoksa kullanın karşıdan yükleyip **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
 
@@ -72,14 +54,6 @@ Visual Studio yüklü 2017 yoksa kullanın karşıdan yükleyip **ücretsiz** [V
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
 Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.  
-
-> [!TIP]
-> * Zaten Azure Cosmos DB hesabınız var mı? Bu durumda, İleri için atlayabilirsiniz [, Visual Studio çözümü ayarlama](#SetupVS).
-> * Bir Azure DocumentDB hesabına sahip miydiniz? Bu nedenle, hesabınızı şimdi bir Azure Cosmos DB hesabı ise ve size atlayabilirsiniz [, Visual Studio çözümü ayarlama](#SetupVS).  
-> * Azure Cosmos DB öykünücüsü kullanıyorsanız, lütfen bölümündeki adımları izleyin [Azure Cosmos DB öykünücüsü](local-emulator.md) öykünücü kurulması ve için İleri atlayabilirsiniz [, Visual Studio çözümünü kurmak](#SetupVS).
-<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
->
->
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -112,7 +86,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 ```
 
 > [!NOTE]
-> Bu uygulamayı standart Azure Table Storage'ı kullanmak için bağlantı dizesinde değiştirmeniz gerekir `app.config file`. Hesap adı, Azure depolama birincil anahtarı olarak tablo hesap adı ve anahtar kullanın. <br>
+> Azure Table storage'ı bu uygulamayı kullanmak için bağlantı dizesinde değiştirmeniz gerekir `app.config file`. Hesap adı, Azure depolama birincil anahtarı olarak tablo hesap adı ve anahtar kullanın. <br>
 >`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
 > 
 >
@@ -135,7 +109,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 >
 
 ## <a name="azure-cosmos-db-capabilities"></a>Azure Cosmos DB özellikleri
-Azure Cosmos DB Azure Table storage ' API kullanılamaz özelliklerini destekler. Yeni işlevselliği aşağıdaki aracılığıyla etkinleştirilebilir `appSettings` yapılandırma değerlerini. Biz herhangi bir yeni imzalar veya Azure depolama SDK'sını Önizleme için aşırı tanıtmak değil. Bu, standart ve premium tablolara bağlanmak ve Bloblar ve kuyruklarda olduğu gibi diğer Azure Storage Hizmetleri ile çalışmanıza olanak sağlar. 
+Azure Cosmos DB tablo API Azure Table storage ' kullanılabilir değil özellikleri destekler. Yeni işlevselliği aşağıdaki aracılığıyla etkinleştirilebilir `appSettings` yapılandırma değerlerini. Herhangi bir yeni imzalar veya aşırı içinde doğru tablo API eklenmiş Azure depolama SDK'sı. Bu, Azure Table depolama ve Azure Cosmos DB tablolarda bağlanmak ve Bloblar ve kuyruklarda olduğu gibi diğer Azure Storage Hizmetleri ile çalışmanıza olanak sağlar. 
 
 
 | Anahtar | Açıklama |

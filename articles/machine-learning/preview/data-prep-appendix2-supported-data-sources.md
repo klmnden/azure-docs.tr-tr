@@ -1,6 +1,6 @@
 ---
-title: "Veri kaynakları kullanılabilir Azure Machine Learning veri hazırlığı ile desteklenen | Microsoft Docs"
-description: "Bu belge desteklenen veri kaynaklarının tam listesi için Azure Machine Learning veri hazırlığı sağlar."
+title: "Veri kaynakları ile Azure Machine Learning veri hazırlığı kullanılabilir desteklenen | Microsoft Docs"
+description: "Bu belgede Azure Machine Learning veri hazırlığı kullanılabilir desteklenen veri kaynaklarının tam bir listesi sağlanmaktadır."
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,29 +12,31 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 1ef4c5c33d98cfeb566e8fe23bda9e0d3f041781
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="supported-data-sources-for-this-release"></a>Bu sürüm için desteklenen veri kaynakları 
-Aşağıdaki belge Azure Machine Learning veri hazırlık şu anda desteklenen veri kaynaklarının listesini özetler.
+# <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Azure Machine Learning veri hazırlığı için desteklenen veri kaynakları 
+Bu makalede, Azure Machine Learning veri hazırlığı için şu anda desteklenen veri kaynakları özetlenmektedir.
 
 Bu sürüm için desteklenen veri kaynakları aşağıda gösterilmektedir.
 
 ## <a name="types"></a>Türler 
-### <a name="directory-versus-file"></a>Dosya ve dizin
-*Dosya veya dizinlerin*: tek bir dosya seçin ve veri hazırlığı okuyun. Sonraki ekranda dosya bağlantı için varsayılan parametreleri belirlemek için dosya türü ayrıştırılır. Bir dizin veya dosyaları (dosya seçiciyi çoklu) bir dizin içinde kümesini seçin. Her iki yaklaşım sonuçları tek bir veri akışı birbirlerine (gerekirse çıkarılır üstbilgiler ile) eklenen dosyalarla okunan dosyalarında.
+### <a name="directory-vs-file"></a>Dosya ve dizin
+Tek bir dosya seçin ve veri hazırlığı okuyun. Sonraki ekranda gösterilen dosya bağlantı için varsayılan parametreleri belirlemek için dosya türü ayrıştırılır.
 
-Dosya türleri aşağıdaki gibidir:
-- Ayrılmış (.csv, .tsv, .txt vb.) 
+Bir dizin veya dosyaları (dosya seçiciyi çoklu) bir dizin içinde kümesini seçin. Her iki yaklaşım ile dosyalar tek bir veri akış içinde okuyun ve birbirlerine gerekirse çıkarılır üstbilgileri ile eklenir.
+
+Desteklenen dosya türleri şunlardır:
+- Ayrılmış (.csv, .tsv, .txt, vb.)
 - Sabit Genişlik
 - Düz metin
 - JSON dosyası
 
 ### <a name="csv-file"></a>CSV dosyası
-Bir CSV dosyası depolama biriminden okur.
+Bir virgülle ayrılmış değer dosyası depolama alanından okuyun.
 
 #### <a name="options"></a>Seçenekler
 - ayırıcı
@@ -45,7 +47,7 @@ Bir CSV dosyası depolama biriminden okur.
 - Atlanacak satır
 
 ### <a name="tsv-file"></a>TSV dosyası
-Depolama biriminden bir TSV değer dosyasını okur.
+Sekme ayrılmış değer dosyası depolama alanından okuyun.
 
 #### <a name="options"></a>Seçenekler
 - Açıklama
@@ -54,39 +56,39 @@ Depolama biriminden bir TSV değer dosyasını okur.
 - Atlanacak satır
 
 ### <a name="excel-xlsxlsx"></a>Excel (.xls/.xlsx)
-Sayfa adı veya numarası belirterek, her seferinde bir sayfa bir Excel dosyasını okur.
+Bir Excel dosyası bir sayfa, sayfa adı veya numarası belirterek aynı anda okuyun.
 
 #### <a name="options"></a>Seçenekler
-- Sayfa adı/numarası
+- Sayfa adı veya numarası
 - Üstbilgileri
 - Atlanacak satır
 
 ### <a name="json-file"></a>JSON dosyası
-Bir JSON dosyası depolama alanından okuyun. Dosyanın "düzleştirilmiş," okuma unutmayın.
+Bir JSON dosyası depolama alanından okuyun. Dosyanın "üzerinde okuma düzleştirilmiş".
 
 #### <a name="options"></a>Seçenekler
-None
+- None
 
 ### <a name="parquet"></a>Parquet
-Parquet dataset ya da tek bir dosya veya klasör okuyun.
+Bir Parquet veri kümesi ya da tek bir dosya veya klasör okuyun.
 
-Parquet gibi bir biçim çeşitli depolama biçimlerde olabilir. Daha küçük veri kümeleri için tek .parquet dosyası bazen kullanılır. Çeşitli Python kitaplıkları okuma veya tek .parquet dosyasına yazmayı destekler. Şu anda, Azure Machine Learning çalışma sırasında yerel etkileşimli kullanım Parquet okumak için PyArrow Python kitaplığı kullanır. (Bunlar, bu nedenle daha büyük bir veri kümesinin bir parçası değil yazılmış sürece) tek .parquet dosyalarını destekler. Ayrıca, Parquet veri kümelerini destekler. 
+Parquet gibi bir biçim çeşitli depolama biçimlerde olabilir. Daha küçük veri kümeleri için tek .parquet dosyası bazen kullanılır. Çeşitli Python kitaplıkları okunurken veya yazılırken tek .parquet dosyalarını destekler. Şu anda, Azure Machine Learning veri hazırlığı sırasında yerel etkileşimli kullanım Parquet okumak için PyArrow Python kitaplığı kullanır. Tek .parquet dosyaları (büyük veri kümesinin bir parçası olarak değil de, örneğin olarak yazılmış sürece), destekler Parquet veri kümelerini yanı sıra.
 
-Parquet veri kümesi, her biri daha büyük bir veri kümesi daha küçük bir bölümünü temsil eder, birden fazla .parquet dosya koleksiyonudur. Veri kümeleri, genellikle bir klasörde yer alır. Spark ve Hive gibi ortak platformlar için varsayılan Parquet çıktı biçimi oldukları.
+Parquet veri kümesi, her biri daha büyük bir veri kümesi daha küçük bir bölümünü temsil eder, birden fazla .parquet dosya koleksiyonudur. Veri kümeleri, genellikle bir klasörde yer alan ve Spark ve Hive gibi platformlar için varsayılan parquet çıktı biçimi.
 
 >[!NOTE]
->Bir klasördeki birden çok .parquet dosyalarla Parquet verileri okurken okuma ve değer için dizini seçmek en güvenli olanıdır **Parquet Dataset** seçeneği. Bu, tek tek dosyalar yerine tüm klasörü okumak PyArrow hale getirir. Bu Parquet (örneğin, klasör bölümlendirme.) disk depolama, daha karmaşık yolları okuma desteği sağlar
+>Bir klasördeki birden çok .parquet dosyalarla Parquet verileri okurken, okuma, dizin seçmek en güvenli ve **Parquet veri kümesi** seçeneği. Bu, tek tek dosyalar yerine tüm klasörü okumak PyArrow hale getirir. Bu diskte klasör bölümlendirme gibi Parquet depolama daha karmaşık yolları okumak için destek sağlar.
 
-Genişleme yürütme üzerinde Spark'ın Parquet özellikleri okuma güvenir ve klasörleri yanı sıra tek dosyalarını destekler.
+Genişleme yürütme üzerinde Spark'ın Parquet özellikleri okuma güvenir ve klasörler, yerel etkileşimli kullanım için benzer yanı sıra tek dosyalarını destekler.
 
 #### <a name="options"></a>Seçenekler
-*Veri kümesi parquet*: Bu seçenek, Azure Machine Learning çalışma ekranı unticked modu veya ticked modu kullanıp kullanmadığını belirler. Unticked modu belirli bir dizin genişletir ve tek tek her dosyada okumaya çalışır. Ticked modu dizin tam veri kümesi olarak değerlendirir ve PyArrow olanak tanır dosyaları yorumlamak için en iyi şekilde şekil.
+- Veri kümesi parquet. Bu seçenek Azure Machine Learning veri hazırlığı belirli bir dizin genişletir ve tek tek her dosyasını okumaya çalışır belirler (seçili olmayan mod) veya olup dizini tam veri kümesi (Seçilen modu) olarak işler. Seçili moduyla PyArrow dosyaları yorumlamak için en iyi yolu seçer.
 
 
 ## <a name="locations"></a>Konumlar
 ### <a name="local"></a>Yerel
-Yerel sabit diske veya eşlenen ağ depolama konumu.
+Yerel sabit diske veya bir eşlenen ağ depolama konumu.
 
 ### <a name="azure-blob-storage"></a>Azure Blob depolama
-Bir Azure aboneliği gerektirir.
+Bir Azure aboneliği gerektirir azure Blob Depolama birimi.
 

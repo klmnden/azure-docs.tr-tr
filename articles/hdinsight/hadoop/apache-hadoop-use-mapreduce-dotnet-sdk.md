@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 5f32f716fa5ac8faa32bc8ef8117f13e1c30b669
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3028edde4c2c4f3bc268ad9103e3a600379ec295
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Hdınsight .NET SDK kullanarak MapReduce işleri çalıştırma
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

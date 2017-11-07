@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 1422dfb616c1b2d533fcbf1f6377db8c391f7dd8
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>İlk ve son Azure Data Factory kullanarak ODBC veri depolarını veri Kopyala
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de verileri ilk ve son bir ODBC 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 ODBC Bağlayıcısı](v1/data-factory-odata-connector.md).
 
-## <a name="supported-scenarios"></a>Desteklenen senaryolar
+## <a name="supported-capabilities"></a>Desteklenen özellikler
 
 Tüm desteklenen havuz veri deposuna ODBC kaynağından veri kopyalama veya ODBC havuz için tüm desteklenen kaynak veri deposundan kopyalayın. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 

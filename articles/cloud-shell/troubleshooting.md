@@ -12,27 +12,29 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 4c99ae37b66200244514ee554c9696cf18c1b800
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 1bf0acdfad04a55d5b85aabee150526836062002
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure bulut Kabuk sorunlarını giderme
 
 Bilinen çözümler için Azure bulut Kabuğu sorunları şunları içerir:
 
-## <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Depolama iletişim kutusu - hata: 403 RequestDisallowedByPolicy
+## <a name="general-resolutions"></a>Genel çözümleri
+
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Depolama iletişim kutusu - hata: 403 RequestDisallowedByPolicy
 - **Ayrıntılar**: Bulut Kabuk üzerinden depolama hesabı oluştururken, yöneticiniz tarafından yerleştirilen bir Azure ilkesi nedeniyle başarısız olur Hata iletisi içerir:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Çözümleme**: kaldırın veya depolama oluşturma reddetme Azure ilke güncelleştirmek için Azure yöneticinize başvurun.
 
-## <a name="storage-dialog---error-400-disallowedoperation"></a>Depolama iletişim kutusu - hata: 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>Depolama iletişim kutusu - hata: 400 DisallowedOperation
  - **Ayrıntılar**: Azure Active Directory abonelik kullanırken, depolama oluşturulamıyor.
  - **Çözümleme**: depolama kaynaklarını oluşturabileceğinden Azure aboneliği kullanın. Azure AD aboneliklerini Azure kaynaklarını oluşturmak mümkün değildir.
 
-## <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Çıktı - terminal hata: terminal bağlanılamadı: websocket kurulamıyor. Tuşuna `Enter` bağlanmayı.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Çıktı - terminal hata: terminal bağlanılamadı: websocket kurulamıyor. Tuşuna `Enter` bağlanmayı.
  - **Ayrıntılar**: Bulut Kabuk bulut Kabuk altyapı websocket bağlantı olanağı gerektirir.
  - **Çözümleme**: gönderme https isteklerini ve yanıtlarını websocket etki alanlarına sağlamak için ağ ayarlarınızı yapılandırdığınız denetleyin *. console.azure.com.
 

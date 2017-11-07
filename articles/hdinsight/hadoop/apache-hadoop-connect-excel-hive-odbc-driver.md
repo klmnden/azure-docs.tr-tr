@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/22/2017
+ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 2ce878c648fcf2842e6f0a36fa018f706289da39
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7d775da82cb2dcdc02337cd19f0ef02e6562e41a
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Excel'i Microsoft Hive ODBC sürücüsü ile Azure Hdınsight hadoop bağlama
 

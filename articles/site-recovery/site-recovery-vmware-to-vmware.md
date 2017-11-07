@@ -1,9 +1,9 @@
 ---
-title: "VMware Vm'lerini veya fiziksel sunucular (Klasik Azure portalı) başka bir siteye çoğaltma | Microsoft Docs"
-description: "Azure Site Recovery ile ikincil siteye VMware Vm'leri veya Windows/Linux fiziksel sunucuları çoğaltmak için bu makaleyi kullanın."
+title: "Olağanüstü durum kurtarma VMware Vm'lerini veya fiziksel sunucuları ikincil bir siteye ayarlama | Microsoft Docs"
+description: "Bu makalede, Azure Site Recovery hizmeti ile ikincil bir siteye şirket içi VMware Vm'leri veya Windows/Linux fiziksel sunucuları çoğaltmak açıklanmaktadır."
 services: site-recovery
 documentationcenter: 
-author: nsoneji
+author: rayne-wiselman
 manager: jwhit
 editor: 
 ms.assetid: b2cba944-d3b4-473c-8d97-9945c7eabf63
@@ -12,33 +12,33 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: nisoneji
-ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/05/2017
+ms.author: raynew
+ms.openlocfilehash: 8cfaa56735c1f4e2e01b58fdde2ad0e77b388762
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>Şirket içi VMware sanal makineleri veya fiziksel sunucuları ikincil bir siteye Klasik Azure portalında Çoğalt
+# <a name="set-up-disaster-recovery-of-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Olağanüstü durum kurtarma VMware sanal makineleri veya fiziksel sunucuları ikincil bir siteye ayarlama
 
-## <a name="overview"></a>Genel Bakış
-Azure Site kurtarma Inmage Scout şirket içi VMware siteler arasında gerçek zamanlı çoğaltma sağlar. Inmage Scout Azure Site Recovery hizmeti Aboneliklerde dahil edilir. 
 
-## <a name="prerequisites"></a>Ön koşullar
-**Azure hesabı**: ihtiyacınız vardır bir [Microsoft Azure](https://azure.microsoft.com/) hesabı. [Ücretsiz deneme sürümüyle](https://azure.microsoft.com/pricing/free-trial/) başlayabilirsiniz. Site Recovery fiyatlandırması hakkında [daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/site-recovery/).
+Azure Site kurtarma Inmage Scout şirket içi VMware siteler arasında gerçek zamanlı çoğaltma sağlar. Inmage Scout Azure Site Recovery hizmeti Aboneliklerde dahil edilir.
 
-## <a name="step-1-create-a-vault"></a>1. adım: bir kasa oluşturma
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+Bir Azure aboneliğiniz yoksa [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/pricing/free-trial/) başlamadan önce.
+
+
+## <a name="create-a-vault"></a>Bir kasa oluşturun
+1. [Azure Portal](https://portal.azure.com/) > **Kurtarma Hizmetleri**’nde oturum açın.
 2. Yeni tıklayın > Yönetim > Yedekleme ve Site Kurtarma (OMS). Alternatif olarak, Gözat'ı tıklatabilirsiniz > Kurtarma Hizmetleri kasası > Ekle.
 3. **Ad** alanında, kasayı tanımlamak için bir kolay ad belirleyin. Birden fazla aboneliğiniz varsa bunlardan birini seçin.
 4. İçinde **kaynak grubu** yeni bir kaynak grubu oluşturun veya varolan bir tanesini seçin. Gerekli alanları doldurun yapılacak Azure bölgesini belirtin.
 5. İçinde **konumu**, kasa için coğrafi bölgeyi seçin. Desteklenen bölgeleri kontrol etmek için bkz: [Azure Site Recovery fiyatlandırma](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. Hızlı bir şekilde erişmek istiyorsanız Pano kasadan panoya PIN'ı tıklatın ve Oluştur'u tıklatın.
-7. Yeni kasa panosunda görünür > tüm kaynakları ve dikey ana kurtarma Hizmetleri kasaları.
+7. Yeni kasa panosunda görünür > tüm kaynakları ve ana kurtarma Hizmetleri kasaları sayfası.
 
-## <a name="step-2-configure-the-vault-and-download-inmage-scout-components"></a>2. adım: kasa yapılandırmak ve Inmage Scout bileşenlerini yükle
-1. Kurtarma Hizmetleri kasaları dikey penceresinde kasanızı seçin ve Ayarlar'ı tıklatın.
+## <a name="configure-the-vault-and-download-inmage-scout-components"></a>Kasa yapılandırmak ve Inmage Scout bileşenlerini yükle
+1. Kurtarma Hizmetleri kasaları sayfasında kasanızı seçin ve tıklayın **ayarları**.
 2. İçinde **ayarları** > **Başlarken** tıklatın **Site Recovery** > 1. adım: **altyapıyı hazırlama**  >  **Koruma hedefi**.
 3. İçinde **koruma hedefi** kurtarma sitesini seçin ve VMware vSphere hiper yönetici Evet'i seçin. Daha sonra Tamam'a tıklayın.
 4. İçinde **Scout Kurulum**, karşıdan yüklemeyi Inmage Scout 8.0.1 GA yazılım ve kayıt anahtar'ı tıklatın. İndirilen .zip dosyasında gerekli tüm bileşenleri için Kurulum dosyalarıdır.
@@ -46,7 +46,7 @@ Azure Site kurtarma Inmage Scout şirket içi VMware siteler arasında gerçek z
 ## <a name="step-3-install-component-updates"></a>3. adım: bileşen güncelleştirmeleri yükleme
 Hakkında en son okuma [güncelleştirmeleri](#updates). Güncelleştirme dosyaları sunucularda aşağıdaki sırayla yükleyeceksiniz:
 
-1. Varsa RX sunucu
+1. RX sunucu varsa
 2. Yapılandırma sunucuları
 3. İşlem sunucuları
 4. Ana hedef sunucusu
@@ -69,7 +69,7 @@ Güncelleştirmeleri gibi yükleyin:
 5. **Windows ana hedef sunucusu için**: Birleşik aracısını güncelleştirmek için kopyalama **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** ana hedef sunucusu için. Çalıştırmak için çift tıklayın. Kaynak Update4 güncelleştirilmezse birleşik aracı da kaynak sunucu için geçerli olduğunu unutmayın. Bu yanı, kaynak sunucuda daha sonra bu listede belirtildiği gibi yüklemeniz gerekir.<br>
 6. **VContinuum sunucusu**: kopyalama **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** vContinuum sunucusu için.  VContinuum Sihirbazı'nı kapattığınız emin olun. Çalıştırmak için dosyaya çift tıklayın.<br>
 7. **Linux ana hedef sunucusu için**: Birleşik aracısını güncelleştirmek için kopyalama **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** ana hedef sunucusunda ve ayıklayın. Ayıklanan klasöründe Çalıştır **/yüklemesi**.<br>
-8. **Windows kaynak sunucu için**: kimlikleri update4 üzerinde ise güncelleştirme 5 Aracısı kaynağında yüklemeniz gerekmez. Update4 küçüktür, güncelleştirme 5 Aracısı uygulanır.
+8. **Windows kaynak sunucu için**: güncelleştirme 4 zaten çalışıyorsa ve kaynak güncelleştirme 5 aracısı yüklemeniz gerekmez. Güncelleştirme 4 değerinden çalışıyorsa, güncelleştirme 5 Aracısı uygulayın.
 Birleşik aracısını güncelleştirmek için kopyalama **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** kaynak sunucuda. Çalıştırmak için çift tıklayın. <br>
 9. **Linux kaynak sunucu için**: Birleşik aracısını güncelleştirmek için karşılık gelen sürüm UA dosyasının Linux sunucuya kopyalayın ve ayıklayın. Ayıklanan klasöründe Çalıştır **/yüklemesi**.  Örnek: RHEL 6,7 64 bit sunucu için kopyalama **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/yüklemesi**.
 
@@ -86,7 +86,7 @@ Birleşik aracısını güncelleştirmek için kopyalama **UA_Windows_8.0.5.0_GA
 ## <a name="updates"></a>Güncelleştirmeler
 ### <a name="azure-site-recovery-scout-801-update-5"></a>Azure Site Recovery Scout 8.0.1 güncelleştirme 5
 Scout güncelleştirme 5 birikmeli bir güncelleştirmedir. Update1 update4 ve aşağıdaki yeni hata düzeltmeleri ve geliştirmeleri kasa tüm düzeltmelerini sahiptir.
-ASR Scout update4 update5 için eklenen düzeltmeleri ana hedef ve vContinuum bileşenleri için özeldir. Tüm kaynak sunucularınız, ana hedef, yapılandırma sunucusu, işlem sunucusu ve RX ASR Scout update4 üzerinde zaten varsa yalnızca ana hedef sunucusunda güncelleştirme 5 uygulanması gerekiyor. 
+Site Recovery Scout update4 update5 için eklenen düzeltmeleri ana hedef ve vContinuum bileşenleri için özeldir. Tüm kaynak sunucularınız, ana hedef, yapılandırma sunucusu, işlem sunucusu ve RX Site Recovery Scout update4 üzerinde zaten varsa yalnızca ana hedef sunucusunda güncelleştirme 5 uygulanması gerekiyor. 
 
 **Yeni platform desteği**
 * SUSE Linux Enterprise Server 11 hizmet paketi 4(SP4)
@@ -109,11 +109,11 @@ ASR Scout update4 update5 için eklenen düzeltmeleri ana hedef ve vContinuum bi
 
 > [!NOTE]
 > 
-> * P2V küme düzeltmeleri istemcinin ASR Scout update5 ile korunan yalnızca bu fiziksel MSCS küme için geçerlidir. Eski güncelleştirmeleriyle zaten korumalı P2V MSCS kümesindeki Küme kullanılabilir kredi yönelik düzeltmeleri, 12 bölümünde açıklanan yükseltme adımları izlemeniz gerekir, yükseltme korumalı Scout Update5 P2V MSCS kümeye [ASR Scout sürüm notları](https://aka.ms/asr-scout-release-notes).
+> * P2V küme düzeltmeleri, istemcinin Site Recovery Scout update5 ile korunan yalnızca bu fiziksel MSCS kümeler için geçerlidir. Eski güncelleştirmeleriyle zaten korumalı P2V MSCS kümesindeki Küme kullanılabilir kredi yönelik düzeltmeleri, 12 bölümünde açıklanan yükseltme adımları izlemeniz gerekir, yükseltme korumalı Scout güncelleştirme 5 P2V MSCS kümelerine [sürüm notları](https://aka.ms/asr-scout-release-notes) .
 > 
-> * Zamanında yeniden koruma varsa, disklerin aynı kümesini yalnızca her küme düğümleri üzerinde etkin başlangıçta korumalı oldukları gibi yeniden koruma fiziksel MSCS kümesindeki var olan hedef disklerin yeniden kullanabilirsiniz. Değilse, ardından olup olmadığını el ile yapılacak adımlar, 12 bölümünde belirtildiği gibi [ASR Scout sürüm notları](https://aka.ms/asr-scout-release-notes) hedef tarafı disklerin yeniden yeniden koruma sırasında kullanmak için doğru veri deposu yolu taşımak için. Yükseltme adımlarını uymadan P2V modunda MSCS küme koruyun, bunu yeni bir disk hedef ESXi sunucusunda oluşturur. Eski diskleri deposundan el ile silmeniz gerekiyor.
+> * Zamanında yeniden koruma varsa, disklerin aynı kümesini yalnızca her küme düğümleri üzerinde etkin başlangıçta korumalı oldukları gibi yeniden koruma fiziksel MSCS kümesindeki var olan hedef disklerin yeniden kullanabilirsiniz. Değil, daha sonra el ile adımlar varsa, 12 bölümünde belirtildiği gibi [sürüm notları](https://aka.ms/asr-scout-release-notes) hedef tarafı disklerin yeniden yeniden koruma sırasında kullanmak için doğru veri deposu yolu taşımak için. Yükseltme adımlarını uymadan P2V modunda MSCS küme koruyun, bunu yeni bir disk hedef ESXi sunucusunda oluşturur. Eski diskleri deposundan el ile silmeniz gerekiyor.
 > 
-> * SLES11 zaman kaynağı veya herhangi bir hizmet paketi sunucu SLES11 düzgün biçimde yeniden ardından biri el ile işaretleme **kök** CX kullanıcı Arabiriminde bildirilmez gibi yeniden eşitlemek için çoğaltma çiftleri disk. Bunu yapmazsanız ' yeniden eşitleme için kök disk işaretlemek için veri bütünlüğü (dı) sorunları görebilirsiniz.
+> * SLES11 zaman kaynağı veya herhangi bir hizmet paketi sunucu SLES11 düzgün biçimde yeniden ardından biri el ile işaretleme **kök** CX kullanıcı Arabiriminde bildirilmez gibi yeniden eşitlemek için çoğaltma çiftleri disk. Yeniden eşitleme için kök disk işaretlemeyin veri bütünlüğü (dı) sorunları görebilirsiniz.
 > 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 güncelleştirme 4
@@ -144,7 +144,7 @@ Scout güncelleştirme 4 birikmeli bir güncelleştirmedir. Update1 update3 ve a
 * VMware vCLI 6.0 indirme bağlantısı Windows ana hedef temel yükleyici eklenir.
 * Daha fazla denetim ve ağ yapılandırmaları değişiklikleri günlüklerinde yük devretme ve DR ayrıntısına sırasında eklendi.
 * Süre bekletme bilgileri CX bildirilmedi.  
-* Kaynak birim küçültme oluştuğunda fiziksel küme için birim vContinuum Sihirbazı aracılığıyla yeniden boyutlandır işlemi başarısız oluyor.
+* Kaynak birim küçültme oluştuğunda fiziksel küme için birim vContinuum Sihirbazı aracılığıyla yeniden boyutlandır işlemi başarısız olur.
 * Küme koruma şu hatayla başarısız oldu "disk imzası bulmak başarısız oldu" Küme diski PRDM disk olduğunda.
 * cxps aralık dışı özel durum nedeniyle sunucu kilitlenme taşıma.
 * Sunucu adı ve IP sütunları şimdi anında yükleme sihirbazının sayfasında vContinuum yeniden boyutlandırılabilir.
@@ -164,7 +164,7 @@ Scout güncelleştirme 4 birikmeli bir güncelleştirmedir. Update1 update3 ve a
 Güncelleştirme 3, aşağıdaki hata düzeltmeleri ve geliştirmeleri içerir:
 
 * Yapılandırma sunucusu ve RX proxy'nin arkasında olduğunuzda Site Recovery Kasası'na kaydetmek başarısız.
-* Kurtarma noktası hedefi (RPO) karşılanmadı saat sayısını sistem durumu raporu güncelleştirilmiyor.
+* Kurtarma noktası hedefi (RPO) karşılanır kurmadı saat sayısını sistem durumu raporu güncelleştirilmez.
 * Ağ ayrıntıları veya ESX donanım ayrıntıları tüm UTF-8 karakterler içeriyorsa yapılandırma sunucusu ile RX eşitlemiyor.
 * Kurtarma sonrasında önyükleme yapmak Windows Server 2008 R2 etki alanı denetleyicileri başarısız.
 * Çevrimdışı eşitleme beklendiği gibi çalışmıyor.

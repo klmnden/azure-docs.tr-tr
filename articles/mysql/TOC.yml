@@ -79,8 +79,8 @@
       href: concepts-monitoring.md
     - name: Geliştirme
       items:
-        - name: Bağlantı kitaplıkları
-          href: concepts-connection-libraries.md
+        - name: Sürücü ve araç uyumluluğu
+          href: concepts-compatibility.md
         - name: Uygulama geliştirme
           href: concepts-database-application-development.md
     - name: Veritabanınızın geçişini yapma

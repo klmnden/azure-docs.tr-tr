@@ -10,19 +10,19 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 08/29/2017
-ms.openlocfilehash: 558e7d4ee96a3424a777f9f57679da25f2306efd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 286b16148d28509714862714dcc5986496d9af44
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI kullanarak MySQL sunucusu için bir Azure veritabanı'nın listesi ve güncelleştirme yapılandırmaları
 Bu örnek CLI komut dosyası izin verilen değerleri yanı sıra tüm kullanılabilir yapılandırma parametreleri Azure veritabanı için MySQL sunucusu için listelenir ve ayarlar *innodb_lock_wait_timeout* varsayılan dışında olan bir değer.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu makalede, Azure CLI Sürüm 2.0 veya sonraki sürümünü çalıştırdığınızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 Bu örnek betik yönetici kullanıcı adı ve parola özelleştirmek için vurgulanan satırları değiştirin.

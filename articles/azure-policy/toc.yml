@@ -15,6 +15,14 @@
   items:
     - name: Azure İlkesi oluşturma ve yönetme
       href: create-manage-policy.md
+- name: Örnekler
+  items:
+    - name: İlke şablonları
+      href: json-samples.md
+- name: Kavramlar
+  items:
+    - name: Azure İlkesi tanım yapısı
+      href: policy-definition.md
 - name: Başvuru
   items:
     - name: Azure CLI

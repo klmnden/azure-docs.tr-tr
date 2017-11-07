@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java için Application Insights Sorun Giderme, Soru ve Yanıt
 Sorular veya sorunlar [Java'da Azure Application Insights][java]? Burada, bazı ipuçları verilmektedir.
@@ -124,6 +124,13 @@ Güvenlik Duvarı'nda 80 ve 443 dc.services.visualstudio.com ve f5.services.visu
 **Ne kadar süreyle verileri portalda Tutuluyor? Güvenli mi?**
 
 Bkz: [veri saklama ve gizlilik][data].
+
+## <a name="debug-logging"></a>Hata ayıklama günlüğü
+Application Insights kullanan `org.apache.http`. Bu ad alanı altındaki Application Insights çekirdek Kavanoz içinde yeniden konumlandırılmasını `com.microsoft.applicationinsights.core.dependencies.http`. Bu senaryolar farklı yerlerde işlemek Application Insights sağlar aynı sürümlerini `org.apache.http` temel bir kod içinde yok. 
+
+>[!NOTE]
+>Uygulamadaki tüm ad alanları için hata ayıklama düzeyi günlüğe yazmayı etkinleştirirseniz, bu da dahil olmak üzere tüm yürütülen modülleri tarafından kullanılacaktır `org.apache.http` olarak yeniden adlandırıldı `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights günlük çağrısı Apache kitaplığı tarafından yapıldığı için bu çağrıları için filtreleme uygulayabilmek için olmaz. Hata ayıklama düzeyinde günlüğe kaydetme günlük verilerini önemli miktarda oluşturabilir ve canlı üretim örnekleri için önerilmez.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 **Java sunucu Uygulamam için Application Insights'ı ayarlarım. Başka ne yapabilirim?**
