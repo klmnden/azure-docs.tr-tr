@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: c05cfec995538a95d99451155cf269d33e2716d0
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyonu
 > [!div class="op_single_selector"]
@@ -254,27 +254,9 @@ Performans sayaçlarını veya olayları toplamak için Resource Manager şablon
 
 ## <a name="collect-performance-counters"></a>Performans sayaçlarını Topla
 
-Kümenizden performans ölçümlerini derleme için "WadCfg > DiagnosticMonitorConfiguration" kümeniz için Resource Manager şablonunda performans sayaçları ekleyin. Bkz: [Service Fabric performans sayaçları](service-fabric-diagnostics-event-generation-perf.md) performans sayaçları için toplama öneririz.
-
-Örneğin, burada örneklenen 15 dakikada bir performans sayacı ayarlarız (Bu değiştirilebilir ve biçimi izler "PT\<zaman >\<birim >", örneğin, PT3M üç dakikalık aralıklarla örnek) ve aktarılan için uygun depolama tablo her bir dakika.
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+Kümenizden performans ölçümlerini derleme için "WadCfg > DiagnosticMonitorConfiguration" kümeniz için Resource Manager şablonunda performans sayaçları ekleyin. Bkz: [WAD ile performans izleme](service-fabric-diagnostics-perf-wad.md) değiştirme adımları için `WadCfg` belirli performans sayaçları toplanamadı. Başvuru [Service Fabric performans sayaçları](service-fabric-diagnostics-event-generation-perf.md) listesini performans sayaçları için toplama öneririz.
   
-Aşağıdaki bölümde açıklandığı gibi bir Application Insights havuz kullanıyorsanız ve bu ölçümleri Application Insights'ta gösterilmesini istiyorsanız sonra yukarıda gösterildiği gibi "havuzlarını" bölümünde havuz adı eklediğinizden emin olun. Ayrıca, bunlar etkinleştirdiğiniz diğer günlük kanaldan gelen veriler kullanıma yönelik kitle olmayan şekilde, performans sayaçları için göndermek için ayrı bir tablo oluşturmayı düşünün.
+Aşağıdaki bölümde açıklandığı gibi bir Application Insights havuz kullanıyorsanız ve bu ölçümleri Application Insights'ta gösterilmesini istiyorsanız sonra yukarıda gösterildiği gibi "havuzlarını" bölümünde havuz adı eklediğinizden emin olun. Bu işlem, ayrı ayrı yapılandırılır performans sayaçlarını Application Insights kaynağınıza otomatik olarak gönderir.
 
 
 ## <a name="send-logs-to-application-insights"></a>Günlükleri Application Insights'a gönderme

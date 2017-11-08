@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031aff9d4797e99e6523a65ded7495c88aff282
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>StorSimple Cihazınızda güç ve soğutma modülü değiştirin
+> [!NOTE]
+> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Bu makalede yeni Azure portalına için sürümünü görüntülemek için şu adrese gidin [güç ve soğutma modülü StorSimple Cihazınızda Değiştir](storsimple-8000-power-cooling-module-replacement.md). Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Genel Bakış
 Güç ve soğutma Modülü (PCM) Microsoft Azure StorSimple Cihazınızı içinde oluşan bir güç ve soğutma fanları birincil ve EBOD kutularının denetlenir. Her kasa için sertifikalı PCM, yalnızca bir model yok. Birincil muhafaza 764 W PCM için sertifikalı ve EBOD muhafazası 580 W PCM için sertifikalıdır. Birincil muhafaza ve EBOD muhafazası PCMs farklı olmasına rağmen değiştirme yordamı aynıdır.
 

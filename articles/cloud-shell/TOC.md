@@ -8,7 +8,6 @@
 ## [Bash ile sunulan özellikler ve araçlar](features.md)
 ## [PowerShell ile sunulan özellikler ve araçlar](features-powershell.md)
 ## [Sınırlamalar](limitations.md)
-## [Sorun giderme](troubleshooting.md)
 
 # Nasıl yapılır
 ## [Bash’te kalıcı depolama](persisting-shell-storage.md)
@@ -16,6 +15,8 @@
 ## [Pencereyi kullanma](using-the-shell-window.md)
 
 # [Fiyatlandırma](pricing.md)
+
+# [Sorun giderme](troubleshooting.md)
 
 # Başvuru
 ## [Azure CLI](/cli/azure)

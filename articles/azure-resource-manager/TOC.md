@@ -71,7 +71,6 @@
 
 ## Kaynak ilkeleri ayarlama
 ### [Kaynak ilkeleri nelerdir?](resource-manager-policy.md)
-### [İlke atamak için betikleri kullanma](resource-manager-policy-create-assign.md)
 ### Örnekler
 #### [Etiketler](resource-manager-policy-tags.md)
 #### [Adlandırma kuralları](resource-manager-policy-naming-convention.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: fec64b3c499577af6b1d6eddb1c761ee0af73772
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: cf9a624574cc5d63e17537d07d23bf38cc9d442a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Windows sanal makineler için planlı işleme bakım bildirimleri
 
@@ -72,7 +72,7 @@ Aşağıdaki özellikleri altında MaintenanceRedeployStatus döndürülür:
 Ayrıca bakım durumu için bir kaynak grubundaki tüm sanal makineleri kullanarak elde edebilirsiniz [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) ve bir VM belirterek değil.
  
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName --Status
+Get-AzureRmVM -ResourceGroupName rgName -Status
 ```
 
 Aşağıdaki PowerShell işlev abonelik Kimliğinizi alır ve bakım için zamanlanmış VM'ler listesini yazdırır.

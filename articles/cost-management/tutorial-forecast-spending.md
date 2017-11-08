@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e0b4bc196786ca4dfa3d57f3e89dd36ddc32acbc
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: d8b0cd2a3e5f9829f0844783aad22d375eb9d7a8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="forecast-future-spending"></a>Gelecekteki Harcamaları tahmin etmenize
 
@@ -57,7 +57,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Gelecekteki Harcamaları tahmin etmenize
 
 
-Daha fazla bilgi edinmek için Cloudyn belgelerine öncelikli Cloudyn ile çalışmaya başlama hakkında ve özelliklerini kullanma.
+Maliyet ayırma ve giderleri raporlarla maliyetlerini yönetme konusunda bilgi almak için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Cloudyn belgeleri](https://support.cloudyn.com/hc/)
+> [Maliyet ayırma ve giderleri raporlarla maliyetlerini yönetme](tutorial-manage-costs.md)

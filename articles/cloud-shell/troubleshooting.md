@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 1bf0acdfad04a55d5b85aabee150526836062002
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 89d5d8df9327c6136fbd00078f6a34f78d85032e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure bulut Kabuk sorunlarını giderme
 
@@ -37,6 +37,18 @@ Bilinen çözümler için Azure bulut Kabuğu sorunları şunları içerir:
 ### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Çıktı - terminal hata: terminal bağlanılamadı: websocket kurulamıyor. Tuşuna `Enter` bağlanmayı.
  - **Ayrıntılar**: Bulut Kabuk bulut Kabuk altyapı websocket bağlantı olanağı gerektirir.
  - **Çözümleme**: gönderme https isteklerini ve yanıtlarını websocket etki alanlarına sağlamak için ağ ayarlarınızı yapılandırdığınız denetleyin *. console.azure.com.
+
+## <a name="bash-resolutions"></a>Bash çözümleri
+
+### <a name="cannot-run-az-login"></a>Az oturum açma çalıştırılamıyor
+
+- **Ayrıntılar**: çalışan `az login` bulut kabuğundan ya da Azure portalına imzalamak için kullanılan hesabı altında önceden doğrulanmış gibi çalışmayacaktır.
+- **Çözümleme**: oturum açma veya oturumu kapatın ve hedeflenen Azure hesabınızla sağlamalarını kullanılan hesabınızı kullanma.
+
+### <a name="cannot-run-the-docker-daemon"></a>Docker arka plan programı çalıştırılamıyor
+
+- **Ayrıntılar**: Bulut Kabuk Kabuk ortamınızı barındırmak için bir kapsayıcı kullanır, sonuç olarak arka plan programı çalışıyor izin verilmiyor.
+- **Çözümleme**: kullanan [docker makine](https://docs.docker.com/machine/overview/), docker kapsayıcıları bir uzak Docker ana bilgisayardan yönetmek için varsayılan olarak yüklü.
 
 ## <a name="powershell-resolutions"></a>PowerShell çözümleri
 

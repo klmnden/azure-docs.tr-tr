@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: 92c8e4c205043f6c5c2925d9197270fb720969a3
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 66f07481d6e62b4375dd2752c5e7d6f8e02d4a3c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure bulut Kabuk sınırlamaları
 
@@ -75,6 +75,9 @@ Azure bulut Kabuk PowerShell'de Önizleme sırasında başlatmak için 60 saniye
 ### <a name="no-home-directory-persistence"></a>No $Home dizin kalıcılığı
 
 Yazılan veri `$Home` herhangi bir uygulama tarafından (gibi: git, VIM ve diğerleri) PowerShell oturumlarında devam etmez. Geçici bir çözüm için [Burada gördüğünüz](troubleshooting.md#powershell-resolutions).
+
+### <a name="default-file-location-when-created-from-azure-drive"></a>Azure sürücüsünden oluşturduğunuzda varsayılan dosya konumu:
+PowerShell cmdlet'lerini kullanarak, kullanıcılar dosyaları Azure sürücüsü altında oluşturulamıyor. Kullanıcıların yeni dosyaları VIM veya nano, gibi diğer araçları kullanarak oluşturduğunuzda dosyalar varsayılan olarak C:\Users klasörüne kaydedilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

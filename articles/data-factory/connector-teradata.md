@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: e3c049d44fbb70584b53d0b6dda33170ade3b56f
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Azure Data Factory kullanarak Teradata verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,8 +103,7 @@ Teradata verileri kopyalamak için kümesine tür özelliği ayarlamak **Relatio
 ```json
 {
     "name": "TeradataDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<Teradata linked service name>",

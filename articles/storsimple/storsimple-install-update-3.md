@@ -12,29 +12,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72b004a6c2604e0fc20b71b4b69217622f8f9ea0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b99b9cd52dd28f7f62b5d8d5ffe32339a67f82a
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-update-3-on-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi aygıtınızda güncelleştirme 3'ü yükleme
+
+> [!NOTE]
+> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Genel Bakış
 
 Bu öğretici, Klasik Azure portalı önceki yazılım sürümleri çalıştıran ve düzeltme yöntemini kullanarak bir StorSimple cihazında güncelleştirme 3'ü yüklemek açıklanmaktadır. Düzeltme yöntemi, bir ağ arabiriminde StorSimple cihaz veri 0 dışında bir ağ geçidi yapılandırıldığında ve bir güncelleştirme öncesi 1 yazılımı sürümü güncelleştirmeye çalıştığınız kullanılır.
 
-Güncelleştirme 3 aygıt yazılımı, LSI sürücü ve bellenim, Storport içerir ve Spaceport güncelleştirir. Güncelleştirme 2 veya daha önceki bir sürümünden güncelleştirme, ayrıca iSCSI, WMI, uygulamak ve bellenim güncelleştirmeleri belirli durumlarda, disk için gerekli olacaktır. Aygıt yazılımı, WMI, iSCSI, LSI sürücü, Spaceport ve Storport düzeltmeleri benzer güncelleştirmeleri ve klasik Azure portalı uygulanabilir. Disk Bellenim güncelleştirmeleri kesintiye uğratan güncelleştirmelerin ve yalnızca aygıt Windows PowerShell arabirimi uygulanabilir. 
+Güncelleştirme 3 aygıt yazılımı, LSI sürücü ve bellenim, Storport içerir ve Spaceport güncelleştirir. Güncelleştirme 2 veya daha önceki bir sürümünden güncelleştirme, iSCSI, WMI, uygulamak ve bellenim güncelleştirmeleri belirli durumlarda, disk için gereklidir. Aygıt yazılımı, WMI, iSCSI, LSI sürücü, Spaceport ve Storport düzeltmeler benzer güncelleştirmeleri edinilebilir. Bu güncelleştirmeler, Klasik Azure portalı uygulanabilir. Disk Bellenim güncelleştirmeleri kesintiye uğratan güncelleştirmelerin ve yalnızca aygıt Windows PowerShell arabirimi uygulanabilir.
 
 > [!IMPORTANT]
 > * Elle ve otomatik ön denetimleri kümesini donanım durumu ve ağ bağlantısı bakımından cihaz durumunu belirlemek için yükleme öncesinde gerçekleştirilir. Klasik Azure portalından güncelleştirmeleri uygularsanız, bu ön denetimleri gerçekleştirilir.
-> * Klasik Azure Portalı aracılığıyla yazılım ve sürücü güncelleştirmelerini yüklemenizi öneririz. Portalda güncelleştirme öncesi ağ geçidi denetimi başarısız olursa (güncelleştirmeleri yüklemek için) cihazın Windows PowerShell arabirimine yalnızca gitmeniz gerekir. Güncelleştirmekte olduğunuz sürümüne bağlı olarak, güncelleştirmeleri yüklemek için 1.5-2.5 saat sürebilir. Bakım modu güncelleştirmeleri aygıtı Windows PowerShell arabirimi yüklenmesi gerekir. Bakım modu kesintiye uğratan güncelleştirmelerdir gibi bunlar, cihazınız için aşağı zaman neden olur.
+> * Klasik Azure Portalı aracılığıyla yazılım ve sürücü güncelleştirmelerini yüklemenizi öneririz. Güncelleştirme öncesi ağ geçidi onay portalda yalnızca başarısız olursa (güncelleştirmeleri yüklemek için) cihazın Windows PowerShell arabirimine gidin. Güncelleştirmekte olduğunuz sürümüne bağlı olarak, güncelleştirmeleri yüklemek için 1.5-2.5 saat sürebilir. Bakım modu güncelleştirmeleri aygıtı Windows PowerShell arabirimi yüklenmesi gerekir. Bakım modu kesintiye uğratan güncelleştirmelerdir gibi Cihazınızı kapalı kalma süresi karşılaşır.
 > * İsteğe bağlı StorSimple Snapshot Manager çalışıyorsa, anlık görüntü Yöneticisi'ni sürümü güncelleştirme 2'ye aygıtı güncelleştirme önce yükselttikten emin olun.
-> 
-> 
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
@@ -42,15 +44,14 @@ Güncelleştirme 3 aygıt yazılımı, LSI sürücü ve bellenim, Storport içer
 İçin Cihazınızı güncelleştirmek için aşağıdaki adımları gerçekleştirin [güncelleştirme 3](storsimple-update3-release-notes.md).
 
 > [!NOTE]
-> Daha sonra (de dahil olmak üzere güncelleştirme 2.1) veya güncelleştirme 2 uyguluyorsanız Microsoft aygıttan ek tanılama bilgilerini mümkün olacaktır. Sorunlarınız aygıtları operations ekibimiz belirlediğinde, sonuç olarak, daha iyi aygıttan bilgi toplamak ve sorunları tanılamak donanımlı duyuyoruz. Güncelleştirme 2 veya sonrası kabul ederek, bize bu öngörülü desteği sağlamak izin verir.
-> 
-> 
+> Daha sonra (de dahil olmak üzere güncelleştirme 2.1) veya güncelleştirme 2 uyguluyorsanız Microsoft aygıttan ek tanılama bilgilerini mümkün olacaktır. Bu veriler sorunları ve sorunlarını tanılama yardımları yaşıyor StorSimple cihazları tanımlamaya yardımcı olur. Güncelleştirme 2 veya sonrası kabul ederek, bize bu öngörülü desteği sağlamak izin verir.
+
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-Cihazınızı çalıştığından emin olun **StorSimple 8000 serisi güncelleştirme 3'ü (6.3.9600.17759)**. **Son tarih güncelleştirme** değiştirilmeleri. 
-   - Güncelleştirme 2 önce bir sürümünden güncelleştiriyorsanız, ayrıca Bakım modu güncelleştirmelerinin kullanılabilir olduğunu göreceksiniz (Bu ileti 24 güncelleştirmeleri yükledikten sonra saate kadar gösterilmeye devam).
-     Bakım modu aygıt kapalı kalma sürelerine neden ve Cihazınızı Windows PowerShell arabirimi yalnızca uygulanabilir kesintiye uğratan güncelleştirmelerdir. Bazı durumlarda Güncelleştirme 1.2 çalıştırırken, disk bellenim zaten güncel herhangi bir Bakım modu güncelleştirme yüklemeniz gerekmez; bu durumda olabilir.
+Cihazınızı çalıştığından emin olun **StorSimple 8000 serisi güncelleştirme 3'ü (6.3.9600.17759)**. **Son tarih güncelleştirme** değiştirilir. 
+   - Güncelleştirme 2 önce bir sürümünden güncelleştiriyorsanız, Bakım modu güncelleştirmelerin kullanılabilir olduğunu görürsünüz. Bu ileti, güncelleştirmeleri yükledikten sonra en fazla 24 saat için görüntülenecek devam edebilir.
+     Bakım modu, aygıt kapalı kalma sürelerine neden kesintiye uğratan güncelleştirmelerdir. Bu güncelleştirmeler, yalnızca cihazınız Windows PowerShell arabirimi uygulanabilir. Bazı durumlarda Güncelleştirme 1.2 çalıştırırken, disk bellenim zaten güncel olabilir ve herhangi bir Bakım modu güncelleştirme yüklemeniz gerekmez.
    - Güncelleştirme güncelleştirme 2 veya sonrası, cihazınız artık güncel olması gerekir. Sonraki adıma atlayabilirsiniz.
 
 Bakım modu listelenen adımları kullanarak güncelleştirmeler [düzeltmeleri indirmek için](#to-download-hotfixes) aramak ve KB3121899, (diğer güncelleştirmeleri zaten yüklenmesi gerekir artık) hangi yükler disk Bellenim güncelleştirmeleri karşıdan yüklemek için. Listelenen adımları izleyin [yükleme ve Bakım modu düzeltmeleri doğrulama](#to-install-and-verify-maintenance-mode-hotfixes) Bakım modu yüklemek için güncelleştirir. 

@@ -1,6 +1,5 @@
 # Genel Bakış
 ## [Azure Güvenlik Merkezi nedir?](security-center-intro.md)
-## [Power BI ile öngörüler elde edin](security-center-powerbi.md)
 ## [Veri güvenliği](security-center-data-security.md)
 ## Senaryolar
 ### [Olay yanıtı](security-center-incident-response.md)

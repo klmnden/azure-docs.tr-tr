@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2e0d2e9830639209a22e9b62b0679d31854150e4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6faa8b4d259eddb1b26345d8900e829f6ca4dba8
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="resource-policy-overview"></a>Kaynak ilkesine genel bakış
 Kaynak ilkeleri, kuruluşunuzdaki kaynakların kuralları oluşturmak etkinleştirin. Kuralları tanımlayarak, daha kolay kaynaklarınızı yönetmek ve maliyetleri denetleyebilirsiniz. Örneğin, sanal makineler yalnızca belirli türdeki izin verildiğini belirtebilirsiniz. Veya, tüm kaynakların belirli bir etikete sahip olması gerekir. İlkeler tüm alt kaynaklar tarafından devralınır. Bu nedenle, bir kaynak grubu için bir ilke uygulandığında, bu kaynak grubundaki tüm kaynaklar için geçerlidir.
@@ -55,8 +55,6 @@ Azure tanımlamak zorunda ilkeleri sayısını azaltabilir bazı yerleşik ilke 
 * Kaynak türleri izin verilmiyor
 * SQL Server sürüm 12.0 gerektirir
 * Depolama hesabı şifreleme iste
-
-Herhangi bir aracılığıyla bu ilkeleri atayabilirsiniz [portal](resource-manager-policy-portal.md), [PowerShell](resource-manager-policy-create-assign.md#powershell), veya [Azure CLI](resource-manager-policy-create-assign.md#azure-cli).
 
 ## <a name="policy-definition-structure"></a>İlke tanımı yapısı
 Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğeleri içerir:

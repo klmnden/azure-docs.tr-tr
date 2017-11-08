@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi sık sorulan sorular
 
@@ -176,6 +176,11 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
   > **Y:** parola sıfırlama için oturum yaşam süresi 15 dakikadır. Parola sıfırlama işlemini baştan kullanıcının parolasını sıfırlamak için 15 dakika vardır. Bu süre dolduktan sonra e-posta ve SMS bir kerelik geçiş kodu geçersiz.
   >
   >
+* **S:, parola sıfırlama kullanıcıların engellemek?**
+
+  > **Y:** Self Servis parola sıfırlamayı etkinleştirmek için bir grubu kullanıyorsanız, Evet, bunları bu yeteneği sağlar grubundan kaldırabilirsiniz.
+  >
+  >
 
 ## <a name="password-change"></a>Parola değiştirme
 
@@ -187,6 +192,11 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
 * **S: şirket içi parolalarını sona erdiğinde Kullanıcılarım Office Portalı'nda bildirilir?**
 
   > **Y:** Buradaki yönergeleri izleyerek ADFS kullanıyorsanız, bu bugün mümkündür: [ADFS ile parola ilkesi talep gönderme](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Parola karma eşitlemesi kullanıyorsanız, bu bugün mümkün değildir. Bu durum, bize deneyimleri bulut için süre sonu bildirimleri göndermek mümkün değildir biz parola ilkeleri şirket içi, eşitleme değil çünkü. Her iki durumda da için mümkündür [parolaları PowerShell kullanarak dolmak üzere kullanıcıları bildir](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **S: kullanıcıların parolalarını değiştirmeden kullanıcıların engellemek?**
+
+  > **Y:** bu olamaz engellenmesi yalnızca bulut kullanıcıları için. Şirket içi kullanıcılar için belirlediğiniz `User cannot change password` denetlenir ve bu kullanıcıların parolalarını değiştirmesi mümkün olmayacaktır.
   >
   >
 
@@ -263,14 +273,14 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [SSPR başarılı bir sunum nasıl tamamlamak?](active-directory-passwords-best-practices.md)
-* [Sıfırlama veya parolanızı değiştirme](active-directory-passwords-update-your-own-password.md).
-* [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
-* [Bir lisans soru var mı?](active-directory-passwords-licensing.md)
-* [Hangi verilerin SSPR tarafından kullanılır ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](active-directory-passwords-data.md)
-* [Hangi kimlik doğrulama yöntemlerinin kullanıcıların var mı?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [SSPR ile ilkesi seçenekleri nelerdir?](active-directory-passwords-policy.md)
-* [Parola geri yazma nedir ve neden t hakkında önemli?](active-directory-passwords-writeback.md)
-* [SSPR etkinliğinde üzerinde nasıl rapor edebilirim?](active-directory-passwords-reporting.md)
-* [Tüm SSPR seçeneklerinde nedir ve ne anlama geldiklerini?](active-directory-passwords-how-it-works.md)
-* [Bir şey bozuk düşünüyorum. SSPR nasıl sorun giderme?](active-directory-passwords-troubleshoot.md)
+* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
+* [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md).
+* [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md).
+* [Lisans ile ilgili sorunuz mu var?](active-directory-passwords-licensing.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
+* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)
+* [Parola geri yazma nedir ve neden önemlidir?](active-directory-passwords-writeback.md)
+* [SSPR’de etkinliği nasıl bildirebilirim?](active-directory-passwords-reporting.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
+* [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)

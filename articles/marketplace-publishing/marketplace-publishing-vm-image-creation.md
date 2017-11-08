@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 31f80e93dc741d41a00826c9c8b7ab061c0ca414
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market bir sanal makine görüntüsü oluşturmak için kılavuz
 Bu makalede **2. adım**, sanal sabit Azure Marketi dağıtacağınız diskleri (VHD) hazırlama size yol gösterir. Vhd'lerinizi, sku'sunun temelidir. İşlem, bir Windows tabanlı veya Linux tabanlı SKU olup sağlanmaktadır bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu ele alınmaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -432,7 +432,7 @@ Azure CLI kullanarak SAS URL oluşturmak için adımlar aşağıda verilmiştir
 
 2.  Bir kez yüklenir, lütfen yükleyin
 
-3.  Aşağıdaki kod ile bir PowerShell dosyası oluşturun ve yerel Kaydet
+3.  Oluşturma bir PowerShell (veya başka bir komut dosyası yürütülebilir dosyayı) dosya aşağıdaki kod ile ve yerel olarak Kaydet
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -444,9 +444,9 @@ Azure CLI kullanarak SAS URL oluşturmak için adımlar aşağıda verilmiştir
 
     b. **`<Storage Account Key>`**: Depolama hesabı anahtarınızı verin
 
-    c. **`<Permission Start Date>`**: UTC saati için korumak için geçerli tarihten önce gün seçin. Örneğin, geçerli tarih 26 Ekim 2016 ise ardından değeri olmalıdır 25/10/2016
+    c. **`<Permission Start Date>`**: UTC saati için korumak için geçerli tarihten önce gün seçin. Örneğin, geçerli tarih 26 Ekim 2016 ise ardından değeri olmalıdır 25/10/2016. Azure CLI 2.0 (az komutu) kullanıyorsanız, tarih ve saati başlangıç ve bitiş tarihleri, örneğin sağlar: 10-25-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: En az 3 hafta sonra olan bir tarih seçin **başlangıç tarihi**. Değerin olması **02/11/2016**.
+    d. **`<Permission End Date>`**: En az 3 hafta sonra olan bir tarih seçin **başlangıç tarihi**. Bu değer olmalıdır **02/11/2016**. Azure CLI 2.0 (az komutu) kullanıyorsanız, tarih ve saati başlangıç ve bitiş tarihleri, örneğin sağlar: 11-02-2016T00:00:00Z.
 
     Uygun parametreleri güncelleştirdikten sonra örnek kod aşağıda verilmiştir
 
@@ -454,7 +454,7 @@ Azure CLI kullanarak SAS URL oluşturmak için adımlar aşağıda verilmiştir
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.  "Yönetici olarak çalıştır" moduyla PowerShell Düzenleyicisi'ni açın ve #3. adımda dosyasını açın.
+4.  "Yönetici olarak çalıştır" moduyla PowerShell Düzenleyicisi'ni açın ve #3. adımda dosyasını açın. İşletim sisteminde kullanılabilir herhangi bir komut dosyası düzenleyicisi kullanabilirsiniz.
 
 5.  Komut dosyasını çalıştırmak ve onu, SAS URL'si için kapsayıcı düzeyinde erişimi sağlar
 
@@ -517,7 +517,7 @@ Teklif ve SKU oluşturduktan sonra SKU ile ilişkili görüntü ayrıntıları g
 |Görüntüleri - "sp rl SAS url değil =" kopyalama hatası|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek için|SAS Url "listeyi ve"Okuma"ayarlanmış olan izinleri ile güncelleştirme|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Görüntüleri - SAS url kopyalama hatası vhd adlarında boşluk sahip|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek erişilemiyor.|Güncelleştirme boşluk olmadan SAS URL'si|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Görüntüleri – SAS Url yetkilendirmesi hata kopyalama hatası|Hata: Görüntüleri kopyalama. Yetkilendirme hatası nedeniyle blob indirmek için|SAS Url yeniden oluştur|[https://Azure.microsoft.com/en-us/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-
+|Görüntüleri – SAS Url "st" ve "se" parametreleri kopyalama hatası tam tarih-saat belirtimi sahip değil|Hata: Görüntüleri kopyalama. Yanlış SAS Url nedeniyle blob indirmek için |SAS Url başlangıç ve bitiş tarihi parametreleri ("st", "se") 11 gibi tam tarih-saat belirtimi için gerekli-02-2017T00:00:00Z ve yalnızca tarih veya saat için kısaltılmış sürümleri. Azure CLI 2.0 (az komutu) kullanarak bu senaryoyu karşılaştığınız mümkündür. Tam tarih-saat belirtimi sağlamak ve SAS Url yeniden emin olun.|[https://Azure.microsoft.com/documentation/articles/Storage-dotnet-Shared-Access-Signature-Part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Sonraki adım
 SKU ayrıntılarla tamamladıktan sonra İleri taşıyabilirsiniz [Azure Marketi pazarlama içerik Kılavuzu][link-pushstaging]. Yayımlama işleminin bu adımında pazarlama içeriği, fiyatlandırma ve öncesinde gerekli diğer bilgileri sağladığınız **adım 3: VM sınama teklif hazırlamada**, burada dağıtmadan önce çeşitli kullanım örneği senaryolarını test Genel görünürlük ve satın alma için Azure Marketi sunar.  

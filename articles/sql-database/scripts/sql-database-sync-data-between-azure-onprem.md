@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 8d5888904aa7c690e2ee3a2f54e96e663fd96840
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0c4efa0b0a25a61bec37a5176195b4cd237cb90e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>Bir Azure SQL Database ve SQL Server içi veritabanı arasında eşitlemek için PowerShell kullanma
 
@@ -187,11 +187,11 @@ $timer=0
 $timeout=90
 # Check the log and see if refresh has gone through
 Write-Host "Check for successful refresh"
-$IsSucceeded = "false"
-While ($IsSucceeded -eq "False")
+$IsSucceeded = $false
+While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
-    $timer=$timer+1
+    $timer=$timer+10
     $Details = Get-AzureRmSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
     if ($Details.LastUpdateTime -gt $StartTime)
       {

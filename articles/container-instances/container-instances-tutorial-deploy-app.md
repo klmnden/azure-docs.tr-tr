@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 2858f20cd9da469d5983e2bef9176f5922349196
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Azure kapsayıcı örnekleri bir kapsayıcı dağıtma
 
@@ -56,31 +56,31 @@ Kapsayıcı kayıt defteri parola:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Kapsayıcı görüntünüzü 1 CPU çekirdek kaynak isteği ve 1 GB bellek ile kapsayıcı kayıt defterinden dağıtmak için aşağıdaki komutu çalıştırın:
+Kapsayıcı görüntünüzü 1 CPU çekirdek kaynak isteği ve 1 GB bellek ile kapsayıcı kayıt defterinden dağıtmak için aşağıdaki komutu çalıştırın. Değiştir `<acrLoginServer>` ve `<acrPassword>` önceki iki komutlarından elde edilen değerleri ile.
 
 ```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Birkaç saniye içinde Azure Kaynak Yöneticisi'nden bir ilk yanıt almanız gerekir. Dağıtım durumunu görüntülemek için kullanın:
+Birkaç saniye içinde Azure Kaynak Yöneticisi'nden bir ilk yanıt almanız gerekir. Dağıtım durumunu görüntülemek için kullanın [az kapsayıcı Göster](/cli/azure/container#az_container_show):
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
 ```
 
-Biz durumu değişiklikleri kadar bu komut çalışmaya devam *bekleyen* için *çalıştıran*. Ardından biz geçebilirsiniz.
+Yineleme `az container show` durumu değişiklikleri kadar komut *bekleyen* için *çalıştıran*, altında bir dakika almalıdır. Kapsayıcı olduğunda *çalıştıran*, sonraki adıma geçebilirsiniz.
 
 ## <a name="view-the-application-and-container-logs"></a>Uygulama ve kapsayıcı günlükleri görüntüleme
 
-Dağıtım başarılı olduktan sonra aşağıdaki komutu çıktıda gösterilen IP adresi için tarayıcınızı açın:
+Dağıtım başarılı olduktan sonra kapsayıcının ortak IP adresiyle görüntülemek [az kapsayıcı Göster](/cli/azure/container#az_container_show) komutu:
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
 ```
 
-```json
-"13.88.176.27"
-```
+Örnek çıktı:`"13.88.176.27"`
+
+Çalışan uygulama görmek için en sevdiğiniz tarayıcınızda ortak IP adresine gidin.
 
 ![Hello world uygulamayı tarayıcıda][aci-app-browser]
 
@@ -96,6 +96,14 @@ az container logs --name aci-tutorial-app -g myResourceGroup
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+```
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bu öğretici serisinde oluşturduğunuz kaynaklardan herhangi birini artık ihtiyacınız varsa, yürütebilir [az grubu Sil](/cli/azure/group#delete) kaynak grubu ve içerdiği tüm kaynaklar kaldırmak için komutu. Bu komut, oluşturduğunuz kapsayıcı kayıt defteri yanı sıra çalışan kapsayıcısı ve tüm ilişkili kaynakları siler.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

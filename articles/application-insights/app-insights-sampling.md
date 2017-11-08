@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -57,7 +57,7 @@ Bu tür örnekleme uygulamanızı genellikle aylık kotasına gider ve örneklem
 
 Örnekleme tarafından atılan veri noktaları kullanılamıyor herhangi bir Application Insights özellik gibi [sürekli verme](app-insights-export-telemetry.md).
 
-SDK tabanlı uyarlamalı veya sabit oranı örnekleme çalışıyorken alım örnekleme çalışmaz. SDK örnekleme hızı % 100'den az ise, ayarladığınız alım örnekleme oranını göz ardı edilir.
+SDK tabanlı uyarlamalı veya sabit oranı örnekleme çalışıyorken alım örnekleme çalışmaz. ASP.NET SDK, Visual Studio veya Durum İzleyicisi'ni kullanarak etkin olduğunda ve alım örnekleme devre dışı Uyarlamalı örnekleme varsayılan olarak etkin olduğunu unutmayın. SDK örnekleme hızı % 100'den az ise, ayarladığınız alım örnekleme oranını göz ardı edilir.
 
 > [!WARNING]
 > Kutucuğu gösterilen değer alım örnekleme için belirlediğiniz değeri gösterir. SDK örnekleme işlemiyse gerçek örnekleme oranını temsil etmez.

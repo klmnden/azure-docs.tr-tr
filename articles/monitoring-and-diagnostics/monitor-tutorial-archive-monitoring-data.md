@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Arşiv Azure izleme verileri
 
 Azure ortamınıza birkaç katmandan günlük ve bir Azure depolama hesabı arşivlenebilir ölçüm veri üretir. Bir geçmiş verilerin günlük analizi ya da Azure İzleyicisi, saklama süresi geçtikten sonra zaman içinde bir uygun maliyetli, aranabilir olmayan depolama alanına izleme verilerini korumak için bunu isteyebilirsiniz. Bu öğretici adım adım bir depolama hesabına verileri arşivlemek üzere Azure ortamınızı yapılandırma sürecinde.
+
+> [!div class="checklist"]
+> * İzleme verileri tutmak için depolama hesabı oluşturma
+> * Abonelik günlüklerini ona yönlendirme 
+> * Rota kaynak veri 
+> * Sanal makine (konuk işletim sistemi) veri ona yönlendirme 
+> * İzleme verilerini görüntüleme 
+> * Kaynaklarınızı temizleme 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -158,7 +166,18 @@ Yukarıdaki adımları izlediyseniz, veri depolama hesabınıza akan başladı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure ortamınıza (abonelik, kaynak ve konuk işletim sistemi) bir depolama hesabına arşivlenecek verilerden izleme işlevini ayarlama öğrendiniz. Verilerinizi dışında daha anlamlı yapmak ve Öngörüler türetilmesi için günlük analizi de verilerinizi gönderme deneyin.
+Bu öğreticide, Azure ortamınıza (abonelik, kaynak ve konuk işletim sistemi) bir depolama hesabına arşivlenecek verilerden izleme işlevini ayarlama öğrendiniz. 
+
+
+> [!div class="checklist"]
+> * İzleme verileri tutmak için depolama hesabı oluşturma
+> * Abonelik günlüklerini ona yönlendirme 
+> * Rota kaynak veri 
+> * Sanal makine (konuk işletim sistemi) veri ona yönlendirme 
+> * İzleme verilerini görüntüleme 
+> * Kaynaklarınızı temizleme 
+
+Dışında verilerinizi daha fazla almak ve ek Öngörüler türetilmesi için de verilerinizi günlük analizi gönderir.
 
 > [!div class="nextstepaction"]
 > [Günlük Analytics ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md)

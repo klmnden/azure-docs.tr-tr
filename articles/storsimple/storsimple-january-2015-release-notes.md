@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/16/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2fc50f7faddb4b61ea5e7d328469fc3cc0eb6f3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2b147f32f10208b8daa391095a7d0094a0c2c09
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-update-02-release-notes---january-2015"></a>StorSimple 8000 serisi güncelleştirme 0.2 sürüm notları - Ocak 2015
+> [!NOTE]
+> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Genel Bakış
 Aşağıdaki sürüm notları Microsoft Azure StorSimple Ocak 2015 sürümünde kritik açık sorunları tanımlayın. Bu sürümde bulunan StorSimple yazılımını ve bellenimini güncelleştirmeler listesini de içerir. StorSimple 8000 serisi yayın sürümü Temmuz 2014'te genel olarak kullanılabilir yaptıktan sonra bu ikinci bir sürümüdür.
 

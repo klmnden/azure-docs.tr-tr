@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e7582a31cb3e74fd8c3cd0dd54961392d9c53bb
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Azure Linux VM'ler MySQL performansı en iyi duruma getirme
 Hem sanal donanım seçimi ve yazılım yapılandırmasını Azure üzerinde MySQL performansı etkileyen pek çok etken vardır. Bu makalede, depolama, sistem ve veritabanı yapılandırmalarını en iyi duruma getirme performans odaklanır.
 
 > [!IMPORTANT]
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Azure Resource Manager](../../../resource-manager-deployment-model.md) ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager modeli ile Linux VM en iyi duruma getirme hakkında daha fazla bilgi için bkz: [Linux VM'NİZDE Azure ile ilgili en iyi duruma getirme](../optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="utilize-raid-on-an-azure-virtual-machine"></a>Bir Azure sanal makinesi üzerinde RAID kullanma
 Depolama bulut ortamlarında veritabanı performansını etkileyen önemli bir faktördür. Tek bir diske ile karşılaştırıldığında, RAID eşzamanlılık üzerinden daha hızlı erişim sağlar. Daha fazla bilgi için bkz: [standart RAID düzeyleri](http://en.wikipedia.org/wiki/Standard_RAID_levels).   

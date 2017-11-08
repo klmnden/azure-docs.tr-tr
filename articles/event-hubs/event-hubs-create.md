@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e444c4505d4744c95e08c4ef0d33566356785c81
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Bir olay hub'ları ad alanı ve Azure portalını kullanarak bir event hub oluşturma
 
 ## <a name="create-an-event-hubs-namespace"></a>Bir olay hub'ları ad alanı oluşturma
-1. [Azure portalında][Azure portal] oturum açın ve ekranın sol üst köşesindeki **Yeni**'ye tıklayın.
+1. Oturum [Azure portal][Azure portal], tıklatıp **kaynak oluşturma** en üst ekranın sol.
 1. Tıklatın **nesnelerin interneti**ve ardından **olay hub'ları**.
    
     ![](./media/event-hubs-create/create-event-hub9.png)
-1. **Ad alanı oluştur** dikey penceresine bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
+1. İçinde **ad alanı oluşturma**, bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel veya Standart) seçin. Ayrıca, bir Azure aboneliği, kaynak grubu ve kaynağın oluşturulacağı konumu seçin. 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 2d033e5af13660c99aba813c58b743bf94a6b95a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>İzleme ve sanal makineleri ve fiziksel sunucuları için koruması sorunlarını giderme
 Bu izleme ve sorun giderme kılavuzu, çoğaltma durumunu izlemek ve Azure Site Recovery için sorun giderme teknikleri hakkında bilgi edinin yardımcı olur.
 
 ## <a name="understand-the-components"></a>Bileşenlerini anlama
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>VMware sanal makine ya da şirket içi ve Azure arasında çoğaltma için fiziksel sunucu sitesi dağıtımı
-Bir şirket içi VMware sanal makinesi veya fiziksel sunucu ve Azure arasında veritabanı kurtarma ayarlamak için yapılandırma sunucusu, ana hedef sunucusu ve işlem sunucusu bileşenleri sanal makinede veya sunucu ayarlamanız gerekir. Kaynak sunucu için korumayı etkinleştirdiğinizde, Azure Site Recovery Microsoft Azure App Service Mobile Apps özelliğini yükler. Şirket içi kesinti ve sonra kaynak sunucu üzerinden Azure, Azure işlem sunucusu ve bir ana hedef sunucusu şirket içinde şirket içi kaynak sunucusunu yeniden oluşturmak için ayarlamak için müşterinin ihtiyaç duyduğu başarısız olur.
+Bir şirket içi VMware sanal makinesi veya fiziksel sunucu ve Azure arasında veritabanı kurtarma ayarlamak için yapılandırma sunucusu, ana hedef sunucusu ve işlem sunucusu bileşenleri sanal makinede veya sunucu ayarlamanız gerekir. Kaynak sunucu için korumayı etkinleştirdiğinizde, Azure Site Recovery Mobility hizmetinin güncel bir sürüm zaten dağıtılmamış olsa seçilen işlem sunucusundan yükler. Şirket içi kesinti ve sonra kaynak sunucu üzerinden Azure, Azure işlem sunucusu ve bir ana hedef sunucusu şirket içinde şirket içi kaynak sunucusunu yeniden oluşturmak için ayarlamak için müşterinin ihtiyaç duyduğu başarısız olur.
 
 ![Şirket içi ve Azure arasında çoğaltma için VMware/fiziksel sitesi dağıtımı](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 

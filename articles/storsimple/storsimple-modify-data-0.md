@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 089988354c5e1ca2e8d5d1554084062a655e43da
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>StorSimple Cihazınızı veri 0 ağ arabirimi ayarlarını değiştirme
+> [!NOTE]
+> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Bu makalede yeni Azure portalına için sürümünü görüntülemek için şu adrese gidin [veri 0 ağ arabirimi ayarları, StorSimple Cihazınızda değişiklik](storsimple-8000-modify-data-0.md). Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Genel Bakış
 Microsoft Azure StorSimple Cihazınızı veri 5 0 verilerden altı ağ arabirimi bulunur. DATA 0 arabirimi her zaman Windows PowerShell arabirimi veya seri Konsolu yapılandırılır ve otomatik olarak bulut etkindir. Klasik Azure Portalı aracılığıyla DATA 0 ağ arabirimindeki yapılandıramayacağınızı unutmayın. 
 

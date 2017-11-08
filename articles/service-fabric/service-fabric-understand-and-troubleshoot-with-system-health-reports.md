@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Sorun gidermek için sistem durum raporlarını kullanma
 Azure Service Fabric bileşenleri kutunun sağ dışında kümedeki tüm varlıklar üzerinde sistem durumu raporları sağlar. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) oluşturur ve sistem raporlarına dayalı varlıklar siler. Bu da onları varlık etkileşimleri yakalayan bir hiyerarşide düzenler.
@@ -55,6 +55,18 @@ Rapor kira genel zaman aşımı yaşam süresi (TTL) belirtir. Koşul etkin kald
 * **SourceId**: System.Federation
 * **Özellik**: ile başlayan **Komşuları** ve düğüm bilgiler yer almaktadır.
 * **Sonraki adımlar**: neden Komşuları örneğin çalındığında araştırmak, küme düğümleri arasındaki iletişimi denetleyin.
+
+### <a name="rebuild"></a>Yeniden oluşturma
+
+**Yük Devretme Yöneticisi** hizmet (**FM**) küme düğümleri hakkında bilgi yönetir. FM verilerini kaybeder ve veri kaybı, garanti edemez gider, küme düğümleri hakkında en güncel bilgileri içeriyor. Bu durumda, sistem geçtiği bir **yeniden**, ve **System.FM** durumunu yeniden oluşturmak için kümedeki tüm düğümlerden verileri toplar. Bazı durumlarda, ağ veya düğüm sorunlar nedeniyle yeniden takılmış durduruldu veya. Aynı ile oluşabilir **Yük Devretme Yöneticisi ana** hizmet (**FMM**). **FMM** where ve durum bilgisiz sistem hizmeti tüm **FMs** kümedeki. **FMMs** her zaman 0 olarak en yakın kimlikli birincil düğümdür. Bu düğüm bırakılan, bir **yeniden** tetiklenir.
+Önceki koşullardan biri oluştuğunda **System.FM** veya **System.FMM** bir hata raporu bayrak. Rebuild iki aşamaya birinde takılmış:
+
+* Yayın için bekleniyor: **FM/FMM** diğer düğümlerin yayın iletisi yanıtı bekler. **Sonraki adımlar:** düğümler arasında ağ bağlantısı sorunu olup olmadığını araştırın.   
+* Düğümleri için bekleniyor: **FM/FMM** zaten yayın yanıt diğer düğümlerden alınan ve belirli düğümler cevabı bekliyor. Sistem Durumu raporu düğümleri için listeler **FM/FMM** bir yanıtı bekleniyor. **Sonraki adımlar:** arasında ağ bağlantısı araştırmak **FM/FMM** ve listelenen düğümleri. Listelenen her düğüm için diğer olası sorunları araştırın.
+
+* **SourceId**: System.FM veya System.FMM
+* **Özellik**: yeniden oluşturun.
+* **Sonraki adımlar**: sistem durumu raporu açıklaması listelenen herhangi belirli düğümlerin durumunun yanı sıra, düğümler arasındaki ağ bağlantısını inceleyin.
 
 ## <a name="node-system-health-reports"></a>Düğüm sistem durumu raporları
 **System.FM**, Yük Devretme Yöneticisi hizmeti temsil eden durumda küme düğümleri hakkında bilgi yönetir yetkilidir. Her düğüm System.FM durumunu gösteren bir raporu olması gerekir. Düğümün varlık, düğüm durumu kaldırıldığında kaldırılır. Daha fazla bilgi için bkz: [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).

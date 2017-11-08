@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure olay kılavuzuna giriş
 
@@ -50,6 +50,8 @@ Azure olay kılavuz önemli özelliklerinden bazıları şunlardır:
 * **Yüksek verimlilik** -yapı yüksek hacimli iş yükleri üzerinde olay kılavuz saniye başına milyonlarca olayı desteği.
 * **Yerleşik olayları** - hale getirmek ve hızlı bir şekilde kaynak tanımlanan yerleşik olaylar ile çalışıyor.
 * **Özel olaylar** -olay kılavuz rota, filtre ve güvenilir bir şekilde teslim özel olaylar uygulamanızda kullanın.
+
+Olay kılavuz, olay hub'ları ve Service Bus karşılaştırması için bkz: [iletileri teslim Azure hizmetleri arasında seçim yapma](compare-messaging-services.md).
 
 ## <a name="built-in-publisher-and-handler-integration"></a>Yerleşik yayımcı ve işleyici ile tümleştirme
 
@@ -100,14 +102,6 @@ Event Grid, otomasyonu hızlandırmanızı ve ilke uygulamayı basitleştirmeniz
 ![Uygulama tümleştirme](./media/overview/app_integration.png)
 
 Event Grid, uygulamanızı diğer hizmetlerle bağlar. Örneğin, olay kılavuza uygulamanızın olay verileri göndermek ve yönlendirme, Gelişmiş, güvenilir teslim yararlanmak için özel bir konu oluşturun ve Azure ile tümleştirme doğrudan. Ayrıca Event Grid’i Logic Apps ile birlikte kullanarak kod yazmadan her yerden veri işleyebilirsiniz. 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>Olay kılavuz Azure tümleştirme hizmetlerinden farklı mı?
-
-Olay kılavuz olay denetimli, geriye dönük programlama sağlayan bir olay devre kartı ' dir. Azure Hizmetleri ile son derece tümleşiktir ve üçüncü taraf hizmetleri ile tümleştirilebilir. Olay iletisi hizmetler ve uygulamalar değişikliklere tepki vermek için gereken bilgileri içerir. Olay kılavuz veri ardışık değil ve güncelleştirildi gerçek nesne dağıtmaz.
-
-Hizmet veri yolu işlemleri, sıralama, yinelenen algılama ve anlık tutarlılığı gerektiren geleneksel kurumsal uygulamalar için uygundur. Olay kılavuz hızı, Ölçek, tekliflerden için tasarlanmış ve düşük maliyetli bir reaktif modeldeki ' dir. Bunu sunucusuz mimarisi için uygundur.
-
-Olay kılavuz Logic Apps ve Event Hubs gibi diğer Azure hizmetleriyle tamamlar. Olay kılavuz kendi iş akışını başlatmak için mantıksal uygulama tetikler. Olay hub'ları, hub olayı yakalamak olaylarına tepki vermek ve veri giriş ve dönüşüm işlem hatlarını oluşturmak etkinleştirerek olay kılavuzla çalışır.
 
 ## <a name="how-much-does-event-grid-cost"></a>Nasıl olay kılavuz maliyeti nedir?
 

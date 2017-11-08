@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self Servis parola sıfırlama Azure AD derin Dalış
 
@@ -88,6 +88,23 @@ Bu seçenek kullanılabilen kimlik doğrulama yöntemleri veya bir kullanıcı s
 Kullanıcılar, yönetici tarafından etkinleştirilmişse daha fazla kimlik doğrulama yöntemleri sağlamak seçebilirsiniz.
 
 Bir kullanıcıya kayıtlı gerekli en düşük yöntemleri yoksa, parolasını sıfırlamak için yönetici istemek için yönlendirmez bir hata sayfası görürler.
+
+#### <a name="changing-authentication-methods"></a>Kimlik doğrulama yöntemlerini değiştirme
+
+İle başlatırsanız, sıfırlama veya kilidini açmak için gereken yalnızca bir kimlik doğrulama yöntemi olan bir ilke kayıtlı ve iki neler olduğunu değiştirmek mi?
+
+| Kayıtlı yöntemleri sayısı | Gerekli yöntemleri sayısı | Sonuç |
+| :---: | :---: | :---: |
+| 1 veya daha fazla | 1 | **Mümkün** sıfırlamak veya kilidini açmak için |
+| 1 | 2 | **%S** sıfırlamak veya kilidini açmak için |
+| 2 veya daha fazla | 2 | **Mümkün** sıfırlamak veya kilidini açmak için |
+
+Değiştirirseniz, kullanabileceğiniz bir kullanıcı kimlik doğrulama yöntemlerinin türleri kullanılabilir veri miktarına yoksa SSPR kullanabilmek için kullanıcıların yanlışlıkla vermeyebilir.
+
+Örnek: 
+1. Yalnızca office telefon ve güvenlik soruları kullanarak gereken 2 kimlik doğrulama yöntemleri ile yapılandırılmış özgün ilkesi. 
+2. Yönetici artık güvenlik soruları kullanın, ancak cep telefonu ve alternatif e-posta kullanımına izin vermek için ilke değiştirir.
+3. Cep telefonu ve alternatif e-posta alanları doldurulmuş olmayan kullanıcıların parolalarını sıfırlayamazsınız.
 
 ### <a name="how-secure-are-my-security-questions"></a>My güvenlik soruları ne kadar güvenli mi
 
@@ -169,6 +186,7 @@ Bu devre dışı bırakıldığında kullanıcılar yine de el ile kişi bilgile
 > [!NOTE]
 > Kullanıcıları parola sıfırlama kayıt Portalı'nı İptal'i tıklatarak veya pencereyi sayabilirsiniz ancak kayıt tamamlanana kadar kullanıcılar oturum açma her zaman istenir.
 >
+> Oturum eşlenmeye olmaları durumunda bu kullanıcının bağlantısı kesilir değil.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Kullanıcıların kimlik doğrulaması bilgilerini yeniden onaylamasını istemeden önce geçen gün sayısı
 
@@ -190,7 +208,7 @@ Bu seçenek Evet olarak ayarlarsanız, ardından **tüm yöneticiler** başka bi
 
 ## <a name="on-premises-integration"></a>Şirket içi tümleştirme
 
-Yükledikten, yapılandırılmış ve Azure AD Connect etkin değilse, şirket içi tümleştirmeler için aşağıdaki ek seçenekler gerekir.
+Yükledikten, yapılandırılmış ve Azure AD Connect etkin değilse, şirket içi tümleştirmeler için aşağıdaki ek seçenekler gerekir. Bu seçenekler gri geri yazma düzgün yapılandırılmamış sonra kullanıma olup [parola geri yazma yapılandırma](active-directory-passwords-writeback.md#configuring-password-writeback) daha fazla bilgi için.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Şirket içi dizininize parolaları geri Yaz
 
@@ -215,21 +233,24 @@ Parola sıfırlama ve değişiklik tüm B2B yapılandırmaları ile tam olarak d
 
 Bu senaryoyu test etmek için bu iş ortağı kullanıcılar biriyle http://passwordreset.microsoftonline.com gidin. Bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta sahip oldukları sürece, parola beklendiği gibi çalıştığını sıfırlayın.
 
+> [!NOTE]
+> Konuk erişimi için Azure AD verildi Microsoft hesapları Kiracı Outlook.com, Hotmail.com'den olanlar gibi veya diğer kişisel e-posta adreslerini Azure AD SSPR'yi kullanmanız mümkün değildir ve bulunan bilgileri kullanarak parolalarını sıfırlamak gerekir makale [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
 
-* [SSPR başarılı bir sunum nasıl tamamlamak?](active-directory-passwords-best-practices.md)
-* [Sıfırlama veya parolanızı değiştirme](active-directory-passwords-update-your-own-password.md).
-* [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
-* [Bir lisans soru var mı?](active-directory-passwords-licensing.md)
-* [Hangi verilerin SSPR tarafından kullanılır ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](active-directory-passwords-data.md)
-* [Hangi kimlik doğrulama yöntemlerinin kullanıcıların var mı?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [SSPR ile ilkesi seçenekleri nelerdir?](active-directory-passwords-policy.md)
-* [Parola geri yazma nedir ve neden t hakkında önemli?](active-directory-passwords-writeback.md)
-* [SSPR etkinliğinde üzerinde nasıl rapor edebilirim?](active-directory-passwords-reporting.md)
-* [Tüm SSPR seçeneklerinde nedir ve ne anlama geldiklerini?](active-directory-passwords-how-it-works.md)
-* [Bir şey bozuk düşünüyorum. SSPR nasıl sorun giderme?](active-directory-passwords-troubleshoot.md)
-* [Herhangi bir yerde else kapsanmayan bir soru sahip](active-directory-passwords-faq.md)
+* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
+* [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md).
+* [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md).
+* [Lisans ile ilgili sorunuz mu var?](active-directory-passwords-licensing.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
+* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)
+* [Parola geri yazma nedir ve neden önemlidir?](active-directory-passwords-writeback.md)
+* [SSPR’de etkinliği nasıl bildirebilirim?](active-directory-passwords-reporting.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
+* [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
+* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Azure AD kimlik doğrulama yöntemleri ve gerekli miktar"
+[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Kullanılabilir Azure AD kimlik doğrulama yöntemleri ve gereken miktar"

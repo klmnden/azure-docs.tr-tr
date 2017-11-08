@@ -11,13 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure işlevleri Java Geliştirici Kılavuzu
 > [!div class="op_single_selector"]
@@ -164,10 +164,11 @@ Azure işlevlerinin iki kategoriye giriş bölünen: Tetikleyici giriş biridir 
 package com.example;
 
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import java.util.Optional;
 
 public class MyClass {
-    public static String echo(String in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
     }
 
     private static class MyObject {
@@ -210,7 +211,7 @@ public class MyClass {
 }
 ```
 
-Bu nedenle bu işlev çağrıldığında, HTTP istek yükü geçişleri bir `String` bağımsız değişkeni için `in` ve bir Azure Table Storage `MyObject` türü geçirilen bağımsız değişken `obj`.
+Bu işlev çağrıldığında, HTTP isteği yükü isteğe başarılı şekilde `String` bağımsız değişkeni için `in` ve bir Azure Table Storage `MyObject` türü geçirilen bağımsız değişken `obj`. Kullanım `Optional<T>` null olabilir işlevlerinizi girişleri işlemek için türü.
 
 ## <a name="outputs"></a>Çıkışları
 
@@ -271,11 +272,34 @@ Bazen bir işlev girişleri ve çıkışları üzerinde denetim ayrıntılı olm
 
 | Özel tür      |       Hedef        | Tipik kullanım                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    HTTP tetikleyici     | Yöntemi, üstbilgileri veya sorguları Al |
-| `HttpResponseMessage` | HTTP bağlama çıktı | Dönüş durumu 200 dışında   |
+| `HttpRequestMessage<T>`  |    HTTP tetikleyici     | Yöntemi, üstbilgileri veya sorguları Al |
+| `HttpResponseMessage<T>` | HTTP bağlama çıktı | Dönüş durumu 200 dışında   |
 
 > [!NOTE] 
 > Aynı zamanda `@BindingName` HTTP üstbilgilerine ve sorguları almak için ek açıklama. Örneğin, `@Bind("name") String query` sorgular ve HTTP istek üstbilgilerinin tekrarlanan ve bu değeri yönteme geçirin. Örneğin, `query` olacaktır `"test"` istek URL'si ise `http://example.org/api/echo?name=test`.
+
+### <a name="metadata"></a>Meta Veriler
+
+Meta veri gelen HTTP üstbilgileri, HTTP sorguları gibi farklı kaynaklardan ve [meta verileri tetiklemek](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Kullanım `@BindingName` değerini almak için meta veri adı ile birlikte ek açıklama.
+
+Örneğin, `queryValue` aşağıdaki kod parçacığını olacaktır `"test"` istenen URL ise `http://{example.host}/api/metadata?name=test`.
+
+```Java
+package com.example;
+
+import java.util.Optional;
+import com.microsoft.azure.serverless.functions.annotation.*;
+
+public class MyClass {
+    @FunctionName("metadata")
+    public static String metadata(
+        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @BindingName("name") String queryValue
+    ) {
+        return body.orElse(queryValue);
+    }
+}
+```
 
 ## <a name="functions-execution-context"></a>İşlevler yürütme bağlamı
 
@@ -294,7 +318,7 @@ import com.microsoft.azure.serverless.functions.ExecutionContext;
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
-            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+            context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
         return String.format(req);
     }

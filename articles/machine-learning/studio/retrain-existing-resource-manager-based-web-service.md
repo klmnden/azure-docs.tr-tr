@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Var olan bir Tahmine dayalı web hizmetini yeniden eğitme
 Bu belge aşağıdaki senaryoyu yeniden eğitme işlemini açıklar:
@@ -86,9 +86,10 @@ Bulun **apikey ile yapılan** bildirimi:
 ### <a name="update-the-azure-storage-information"></a>Azure depolama bilgilerini güncelleştir
 BES örnek kod, yerel bir sürücüden (örneğin, "C:\temp\CensusIpnput.csv") bir dosyayı Azure Storage'a yükler, işler ve sonuçları Azure depolama birimine geri yazar.  
 
-Azure depolama bilgilerini güncelleştirmek için depolama hesabı adı, anahtar ve kapsayıcı bilgileri depolama hesabınızın Azure Klasik portalından almanız gerekir ve ardından güncelleştirme correspondi elde edilen iş akışı denemenizi çalıştırdıktan sonra aşağıdakine benzer olmalıdır:
+Azure depolama bilgilerini güncelleştirmek için Azure Klasik portalından depolama hesabınız için depolama hesabı adı, anahtar ve kapsayıcı bilgilerini almak ve karşılık gelen değerler kodunda güncelleştirme gerekir.
+Denemenizi çalıştırdıktan sonra sonuçta elde edilen iş akışı aşağıdakine benzer olmalıdır:
 
-![Çalıştırdıktan sonra elde edilen iş akışı][4]kodda NG değerleri.
+![Çalıştırdıktan sonra elde edilen iş akışı][4]
 
 1. Klasik Azure portalında oturum açın.
 2. Sol gezinti sütununda tıklatın **depolama**.
@@ -119,7 +120,9 @@ Ayrıca, girdi dosyası kodda belirttiğiniz konumda kullanılabilir olduğundan
             }
         },
 
-Yeniden eğitme çıktısı örneği aşağıda verilmiştir: ![çıkış yeniden eğitme][6]
+Yeniden eğitme çıktısı örneği verilmiştir:
+
+![Çıktı yeniden eğitme][6]
 
 ## <a name="evaluate-the-retraining-results"></a>Yeniden eğitme sonuçları değerlendirin
 Uygulamayı çalıştırdığınızda, çıktı URL ve değerlendirme sonuçlarını erişmek için gerekli olan paylaşılan erişim imzaları belirteci içerir.
