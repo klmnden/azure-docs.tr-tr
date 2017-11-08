@@ -16,11 +16,11 @@ ms.date: 11/01/2017
 ms.author: joflore
 ms.reviewer: sahenry
 ms.custom: it-pro
-ms.openlocfilehash: 3dede0f026ab38bae64df664d190b47937416d2d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: bea082081e3f3f52ba78188903a9536fe9de9392
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Azure Active Directory'de bir kullanıcı parolasını sıfırlama
 
@@ -37,6 +37,9 @@ Yöneticiler burada bunlar unuttunuz, durumlarda bir kullanıcının parolasın�
     
 6. Üzerinde **parola sıfırlama**seçin **parola sıfırlama**.
 7. Geçici bir parola kullanıcıya sonra sağlayabilir görüntülenir. Kullanıcı daha sonra kullanıcılar oturum açtığında, parolalarını değiştirip istenir. 
+
+   > [!NOTE]
+   > Bu geçici parolayı değil sahip bir sona erme zamanı oturum kadar geçerli olmayacaktır ve olan sonra olan zorla değiştirmek için. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Kullanıcı ekleme](active-directory-users-create-azure-portal.md)

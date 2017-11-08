@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: d8e2f8fc19ff879e6a7b632f033fd0ed9d77392a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca5105ff8ec45e703a3fb8e0cbb8666eb0b2c38e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory AppSource sertifikalı alma
 [Microsoft AppSource](https://appsource.microsoft.com/) bulmak, deneyin ve iş kolu satır SaaS uygulamaları (tek başına SaaS ve var olan Microsoft SaaS ürünlerinde eklentiye) yönetmek İşletme kullanıcıları için bir hedef.
@@ -108,9 +108,9 @@ AppSource deneme sürümü deneyimi hakkında daha fazla bilgi için bkz: [bu vi
 
 
 ## <a name="get-support"></a>Destek alın
-Azure Active Directory tümleştirme için kullandığımız [yığın taşması](http://stackoverflow.com/questions/tagged/azure-active-directory) desteği sağlamak üzere topluluğuyla. 
+Azure Active Directory tümleştirme için kullandığımız [yığın taşması](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) desteği sağlamak üzere topluluğuyla. 
 
-Yığın taşması sorularınızı ilk isteyin ve birisi sorunuzu önce sorup sormadığını görmek için mevcut sorunlar Gözat önerilir. Sorularınızı ve yorumlarınızı ile etiketlenir emin `[azure-active-directory]`.
+Yığın taşması sorularınızı ilk isteyin ve birisi sorunuzu önce sorup sormadığını görmek için mevcut sorunlar Gözat önerilir. Sorularınızı ve yorumlarınızı ile etiketlenir emin olun [ `[azure-active-directory]` ve `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
 
