@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 96e429ae0e9462e6046a4aaabc5ab9281f2e67ce
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N-serisi Vm'lerinde NVIDIA GPU sürücüleri yükleyin
 
@@ -205,13 +205,13 @@ Bu dosya önyüklemede kök olarak içinde için bir giriş oluşturarak çağr�
 
 ## <a name="install-cuda-drivers-for-nc-vms"></a>NC VM'ler için CUDA sürücüleri yükleyin
 
-Linux NC NVIDIA CUDA Araç Seti 8.0 Vm'lerden NVIDIA sürücülerini yüklemek için adımlar şunlardır. 
+Linux NC VM'ler NVIDIA CUDA araç setinden NVIDIA sürücülerini yüklemek için adımlar şunlardır. 
 
 C ve C++ geliştiriciler GPU hızlandırılmış uygulamaları oluşturmak için tam Araç Seti isteğe bağlı olarak yükleyebilirsiniz. Daha fazla bilgi için bkz: [CUDA Yükleme Kılavuzu'na](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> CUDA sürücü yükleme bağlantıları burada geçerli yayın zamanında sağlanır. En son CUDA sürücüleri için ziyaret [NVIDIA](http://www.nvidia.com/) Web sitesi.
+> CUDA sürücü yükleme bağlantıları burada geçerli yayın zamanında sağlanır. En son CUDA sürücüleri için ziyaret [NVIDIA](https://developer.nvidia.com/cuda-zone) Web sitesi.
 >
 
 CUDA Araç Seti yüklemek için her VM için bir SSH bağlantısı oluşturun. Sistem CUDA özellikli GPU sahip olduğunu doğrulamak için aşağıdaki komutu çalıştırın:
@@ -273,20 +273,16 @@ sudo reboot
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS tabanlı 7.3 veya Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Çalıştırmayan `sudo yum update` CentOS 7.3 veya Red Hat Enterprise Linux 7.3 Çekirdek sürümüne güncelleştirmek için. Çekirdek güncel değilse, sürücü yükleme ve güncelleştirmeleri şu anda çalışmıyor.
->
-
 1. Hyper-V için en son Linux Tümleştirme hizmetlerini yükleyin.
 
   > [!IMPORTANT]
-  > CentOS tabanlı HPC görüntü NC24r VM üzerinde yüklü değilse, adım 3'e geçin. Azure RDMA sürücüleri ve Linux Tümleştirme hizmetleri görüntüde önceden yüklenmiş olduğundan, LIS yükseltilmez ve çekirdek güncelleştirmeler varsayılan olarak devre dışıdır.
+  > CentOS tabanlı HPC görüntü NC24r VM üzerinde yüklü değilse, adım 3'e geçin. Azure RDMA sürücüleri ve Linux Tümleştirme hizmetleri HPC görüntüde önceden yüklenmiş olduğundan, LIS yükseltilmez ve çekirdek güncelleştirmeler varsayılan olarak devre dışıdır.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
  
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-1.tar.gz
  
   cd LISISO
  
@@ -304,7 +300,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 

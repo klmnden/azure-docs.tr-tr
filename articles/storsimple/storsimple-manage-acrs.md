@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: a87624b5706c1d9b8c2b9926e5580996a89ce984
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 320569e302d145d695f3be9684e97786fa82e80b
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Erişim denetimi kayıtları yönetmek için StorSimple Yöneticisi hizmetini kullanma
+> [!NOTE]
+> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Bu makalede yeni Azure portalına için sürümünü görüntülemek için şu adrese gidin [erişim denetimi kayıtları yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-8000-manage-acrs.md). Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Genel Bakış
 Erişim denetimi kayıtları (ACRs), StorSimple cihaz üzerindeki bir birimi hangi ana bilgisayarların bağlanabileceği belirtmenize olanak verir. ACRs belirli bir birimi ayarlayın ve ana bilgisayarların iSCSI nitelikli adlar (IQN'ler) içerir. Bir ana bilgisayara bir birime bağlanmaya çalıştığında, cihaz IQN adının bu birimde ACR ilişkili ve bir eşleşme varsa, ardından bağlantı kurulur denetler. Erişim denetimi kayıtları bölüm üzerinde **yapılandırma** sayfası konak karşılık gelen IQN'ler ile tüm erişim denetimi kayıtları görüntüler.
 

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/30/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 7dc2f29db64218b9db17eaf555c43a7ad282ea07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a771040c650dd05fc7b523931202a67693d4842
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>StorSimple Cihazınızda güncelleştirme 4'ü yükleyin
+> [!NOTE]
+> StorSimple için Klasik portalı kullanım dışıdır. StorSimple cihaz yöneticileri yeni Azure portalına kullanımdan zamanlamaya göre otomatik olarak taşır. Bir e-posta ve bu taşıma için portal bir bildirim alırsınız. Bu belgede ayrıca yakında kullanımdan kaldırılacaktır. Bu makalede yeni Azure portalına için sürümünü görüntülemek için şu adrese gidin [yükleme güncelleştirme 4, StorSimple Cihazınızda](storsimple-8000-install-update-4.md). Taşıma hakkında herhangi bir sorunuz için bkz: [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 
 ## <a name="overview"></a>Genel Bakış
 
