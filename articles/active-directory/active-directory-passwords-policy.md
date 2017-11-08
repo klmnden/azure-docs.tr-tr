@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -94,7 +94,7 @@ Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesapla
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Parola süre sonu ilkeleri Azure Active Directory'de ayarlayın.
 
-Bir Microsoft bulut hizmeti için genel yönetici kullanıcı parolaları değil süresi dolacak şekilde ayarlamak için Microsoft Azure Active Directory için Windows PowerShell modülü kullanabilirsiniz. Kaldırmak için Windows PowerShell cmdlet'lerini kullanabilirsiniz-yapılandırma süresi asla ya da kullanıcı görmek için parolalar değil ayarlanır süresi dolacak. Bu kılavuz, ayrıca kimlik ve Dizin Hizmetleri için Microsoft Azure Active Directory'ye bağlı Microsoft Intune ve Office 365 gibi diğer sağlayıcıları uygular.
+Bir Microsoft bulut hizmeti için genel yönetici kullanıcı parolaları değil süresi dolacak şekilde ayarlamak için Microsoft Azure Active Directory için Windows PowerShell modülü kullanabilirsiniz. Kaldırmak için Windows PowerShell cmdlet'lerini kullanabilirsiniz-yapılandırma süresi asla ya da kullanıcı görmek için parolalar değil ayarlanır süresi dolacak. Bu kılavuz, ayrıca kimlik ve Dizin Hizmetleri için Microsoft Azure Active Directory'ye bağlı Microsoft Intune ve Office 365 gibi diğer sağlayıcıları uygular. Bu, değiştirilebilir ilkenin yalnızca bölümüdür.
 
 > [!NOTE]
 > Dizin Eşitleme ile eşitlenmemiş kullanıcı hesapları için yalnızca parola son kullanma tarihi için yapılandırılabilir. Dizin eşitleme hakkında daha fazla bilgi için bkz:[Bağlan Azure AD ile](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -128,18 +128,21 @@ Başlamak için yapmanız [Azure AD PowerShell modülü yükleyip](https://docs.
    * Süresi dolmayacak bir kullanıcının parolasını ayarlamak için kullanıcı asıl adı (UPN) kullanarak aşağıdaki cmdlet'i çalıştırın ya da kullanıcının kullanıcı kimliği:`Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Tüm kullanıcıların parolalarının süresi dolmayacak kuruluştaki ayarlamak için aşağıdaki cmdlet'i çalıştırın:`Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
 
+   > [!WARNING]
+   > Ayarlarsanız `-PasswordNeverExpires $true` parola hala yaş temel alarak `pwdLastSet` özniteliği. Bu, parolaların süresi dolmayacak ayarlayın ve sonra 90 gün temel alınarak anlamına gelir `pwdLastSet` ve değiştirirseniz `-PasswordNeverExpires $false` sahip tüm parolaları bir `pwdLastSet` 90 gün sonraki oturum açılışında değiştirmeniz gerekecektir daha eski. Bu değişiklik, çok sayıda kullanıcı etkileyebilir. 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
 
-* [SSPR başarılı bir sunum nasıl tamamlamak?](active-directory-passwords-best-practices.md)
-* [Sıfırlama veya parolanızı değiştirme](active-directory-passwords-update-your-own-password.md).
-* [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
-* [Bir lisans soru var mı?](active-directory-passwords-licensing.md)
-* [Hangi verilerin SSPR tarafından kullanılır ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](active-directory-passwords-data.md)
-* [Hangi kimlik doğrulama yöntemlerinin kullanıcıların var mı?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [Parola geri yazma nedir ve neden t hakkında önemli?](active-directory-passwords-writeback.md)
-* [SSPR etkinliğinde üzerinde nasıl rapor edebilirim?](active-directory-passwords-reporting.md)
-* [Tüm SSPR seçeneklerinde nedir ve ne anlama geldiklerini?](active-directory-passwords-how-it-works.md)
-* [Bir şey bozuk düşünüyorum. SSPR nasıl sorun giderme?](active-directory-passwords-troubleshoot.md)
-* [Herhangi bir yerde else kapsanmayan bir soru sahip](active-directory-passwords-faq.md)
+* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
+* [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md).
+* [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md).
+* [Lisans ile ilgili sorunuz mu var?](active-directory-passwords-licensing.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
+* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Parola geri yazma nedir ve neden önemlidir?](active-directory-passwords-writeback.md)
+* [SSPR’de etkinliği nasıl bildirebilirim?](active-directory-passwords-reporting.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
+* [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
+* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)

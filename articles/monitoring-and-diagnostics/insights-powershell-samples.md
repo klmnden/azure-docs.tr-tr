@@ -1,8 +1,8 @@
 ---
 title: "Azure İzleyici PowerShell hızlı başlangıç örnekleri. | Microsoft Belgeleri"
 description: "Otomatik ölçeklendirme, uyarılar, Web kancalarını ve etkinlik günlükleri arama gibi Azure İzleyicisi özelliklerine erişmek için PowerShell kullanın."
-author: kamathashwin
-manager: orenr
+author: rboucher
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: ashwink
-ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: robb
+ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure İzleyici PowerShell hızlı başlangıç örnekleri
-Bu makale Azure İzleyicisi özelliklerine erişmenize yardımcı olması için PowerShell komutlarını örnek gösterir. Azure İzleyici otomatik ölçeklendirme bulut Hizmetleri, sanal makineleri ve Web uygulamaları ve uyarı bildirimleri gönderebilir veya web URL'leri yapılandırılmış telemetri verilerini değerlerine göre arama için sağlar.
+Bu makale Azure İzleyicisi özelliklerine erişmenize yardımcı olması için PowerShell komutlarını örnek gösterir. Azure İzleyici otomatik ölçeklendirme bulut Hizmetleri, sanal makineler ve Web uygulamaları sağlar. Ayrıca, web URL'leri yapılandırılmış telemetri verilerini değerlerine göre arayın veya uyarı bildirimleri göndermek sağlar.
 
 > [!NOTE]
-> Azure İzleyicisi "Azure Öngörüler" olarak adlandırılmıştı için yeni 25 Eylül 2016'ya kadar adıdır. Bununla birlikte, ad alanları ve bu nedenle aşağıdaki komutları yine "ınsights" içerir.
+> Azure İzleyicisi "Azure Öngörüler" olarak adlandırılmıştı için yeni 25 Eylül 2016'ya kadar adıdır. Ancak, ad alanları ve bu nedenle aşağıdaki komutları yine içeren word "Öngörüler."
 > 
 > 
 
@@ -41,13 +41,13 @@ Makaledeki örneklerde Azure İzleyici cmdlet'lerini nasıl kullanabileceğinizi
 Login-AzureRmAccount
 ```
 
-Bu oturum açmanızı gerektirir. Hesabınızı yaptıktan sonra Tenantıd ve varsayılan abonelik kimliği görüntülenir. Tüm Azure cmdlet'lerini varsayılan aboneliğinizin bağlamında çalışır. Erişiminiz Aboneliklerin listesini görüntülemek için aşağıdaki komutu kullanın.
+Bir oturum açma ekranı görürsünüz. Hesabınızda Tenantıd, bir kez oturum açın ve varsayılan abonelik kimliği görüntülenir. Tüm Azure cmdlet'lerini varsayılan aboneliğinizin bağlamında çalışır. Erişiminiz Aboneliklerin listesini görüntülemek için aşağıdaki komutu kullanın:
 
 ```PowerShell
 Get-AzureRmSubscription
 ```
 
-Farklı bir aboneliğe çalışma içeriğiniz değiştirmek için aşağıdaki komutu kullanın.
+Farklı bir aboneliğe çalışma içeriğiniz değiştirmek için aşağıdaki komutu kullanın:
 
 ```PowerShell
 Set-AzureRmContext -SubscriptionId <subscriptionid>
@@ -139,9 +139,9 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 `Get-AzureRmAlertRule`diğer parametreleri destekler. Bkz: [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) daha fazla bilgi için.
 
 ## <a name="create-metric-alerts"></a>Ölçüm uyarı oluşturma
-Kullanabileceğiniz `Add-AlertRule` cmdlet'ini oluşturmak, güncelleştirmek veya bir uyarı kuralı devre dışı bırakın.
+Kullanabileceğiniz `Add-AlertRule` cmdlet'ini oluşturmak, güncelleştirmek ya da bir uyarı kuralı devre dışı bırakın.
 
-Kullanarak e-posta ve Web kancası özellikleri oluşturabilirsiniz `New-AzureRmAlertRuleEmail` ve `New-AzureRmAlertRuleWebhook`sırasıyla. Uyarı kuralı cmdlet eylemlerini olarak atamak **Eylemler** uyarı kuralı özelliği.
+Kullanarak e-posta ve Web kancası özellikleri oluşturabilirsiniz `New-AzureRmAlertRuleEmail` ve `New-AzureRmAlertRuleWebhook`sırasıyla. Uyarı kuralı cmdlet eylemleri olarak bu özellikleri atayın **Eylemler** uyarı kuralı özelliği.
 
 Aşağıdaki tabloda, parametreler ve bir ölçüm kullanarak bir uyarı oluşturmak için kullanılan değerleri açıklanmaktadır.
 
@@ -201,10 +201,10 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 Tam listesi için kullanılabilir seçenekleri `Get-AzureRmMetricDefinition` şu adresten edinilebilir [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
 ## <a name="create-and-manage-autoscale-settings"></a>Otomatik ölçeklendirme ayarlarını oluşturun ve yönetin
-VM, bulut hizmet veya sanal makine ölçek kümesi, bir Web uygulaması gibi bir kaynak için yapılandırılmış tek otomatik ölçeklendirme ayarı olabilir.
+Bir kaynak (bir Web uygulaması, VM, bulut hizmeti veya sanal makine ölçek kümesi) yalnızca bir otomatik ölçeklendirme ayarı için yapılandırılmış olabilir.
 Bununla birlikte, her otomatik ölçeklendirme ayarında birden çok profil olabilir. Örneğin, bir performans tabanlı ölçek profili ve ikinci bir zamanlama tabanlı profil için. Her profil yapılandırılmış birden çok kural bulunabilir. Otomatik ölçeklendirme hakkında daha fazla bilgi için bkz: [otomatik ölçeklendirme bir uygulamanın nasıl](../cloud-services/cloud-services-how-to-scale.md).
 
-Kullanacağız adımlar şunlardır:
+Kullanmak için adımlar şunlardır:
 
 1. Kuralları oluşturun.
 2. Profillere daha önce oluşturduğunuz kurallar eşleme profillerini oluşturun.
@@ -213,13 +213,13 @@ Kullanacağız adımlar şunlardır:
 
 Aşağıdaki örnekler, bir sanal makine ölçek kümesi CPU kullanımı ölçümü kullanarak temel Windows işletim sistemi için otomatik ölçeklendirme ayarının nasıl oluşturabileceğinizi gösterir.
 
-İlk olarak, bir kural oluşturun örnek sayısı artan ölçek dışı.
+İlk olarak, örnek sayısı artışı ile genişletilecek bir kural oluşturun.
 
 ```PowerShell
 $rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionValue 1
 ```        
 
-Ardından, bir kural oluşturun ölçek bileşeniyle, bir örnek sayısını azaltın.
+Ardından, bir örnek sayısı azaltma ile ölçeklendirmek için bir kural oluşturun.
 
 ```PowerShell
 $rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionValue 1
@@ -243,7 +243,7 @@ Bildirim özelliği otomatik ölçeklendirme ayarının, e-posta ve daha önce o
 $notification1= New-AzureRmAutoscaleNotification -CustomEmails ashwink@microsoft.com -SendEmailToSubscriptionAdministrators SendEmailToSubscriptionCoAdministrators -Webhooks $webhook_scale
 ```
 
-Son olarak, yukarıda oluşturduğunuz profili eklemek için otomatik ölçeklendirme ayarı oluşturun.
+Son olarak, daha önce oluşturduğunuz profili eklemek için otomatik ölçeklendirme ayarı oluşturun. 
 
 ```PowerShell
 Add-AzureRmAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
@@ -289,7 +289,7 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## <a name="manage-log-profiles-for-activity-log"></a>Etkinlik günlüğü için günlük profilleri Yönet
-Oluşturabileceğiniz bir *oturum profili* ve etkinlik günlüğü verileri dışa bir depolama hesabı ve veri saklama için yapılandırabilirsiniz. İsteğe bağlı olarak, olay Hub'ınıza ayrıca veri akışını sağlayabilirsiniz. Bu özellik şu anda Önizleme ve, olduğuna dikkat edin, yalnızca abonelik başına bir günlük profili oluşturabilirsiniz. Günlük profilleri oluşturmak ve yönetmek için geçerli aboneliğiniz ile aşağıdaki cmdlet'leri kullanın. Belirli bir abonelik de seçebilirsiniz. Geçerli abonelik PowerShell Varsayılanları olsalar bile, her zaman bu kullanarak değiştirebilirsiniz `Set-AzureRmContext`. Etkinlik günlüğü herhangi bir depolama hesabı veya olay hub'ın bu abonelik içindeki rota verileri için yapılandırabilirsiniz. Veriler JSON biçiminde blob dosyaları olarak yazılır.
+Oluşturabileceğiniz bir *oturum profili* ve etkinlik günlüğü verileri dışa bir depolama hesabı ve veri saklama için yapılandırabilirsiniz. İsteğe bağlı olarak, olay Hub'ınıza ayrıca veri akışını sağlayabilirsiniz. Bu özellik şu anda önizlemede değil ve yalnızca abonelik başına bir günlük profili oluşturabilirsiniz. Günlük profilleri oluşturmak ve yönetmek için geçerli aboneliğiniz ile aşağıdaki cmdlet'leri kullanın. Belirli bir abonelik de seçebilirsiniz. Geçerli abonelik PowerShell Varsayılanları olsalar bile, her zaman bu kullanarak değiştirebilirsiniz `Set-AzureRmContext`. Etkinlik günlüğü herhangi bir depolama hesabı veya olay hub'ın bu abonelik içindeki rota verileri için yapılandırabilirsiniz. Veriler JSON biçiminde blob dosyaları olarak yazılır.
 
 ### <a name="get-a-log-profile"></a>Günlük profilini Al
 Var olan günlük profillerinizi getirmek için kullanmak `Get-AzureRmLogProfile` cmdlet'i.
@@ -312,14 +312,19 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ### <a name="add-log-profile-with-retention-and-eventhub"></a>Günlük profiliyle saklama ve EventHub ekleyin
-Depolama hesabına verilerinizi yönlendirmenin yanı sıra, ayrıca, bir olay Hub'ına akışını sağlayabilirsiniz. Bu önizleme sürümü ve depolama hesabı yapılandırması zorunludur ancak olay hub'ı yapılandırma isteğe bağlı olduğunu unutmayın.
+Depolama hesabına verilerinizi yönlendirmenin yanı sıra, ayrıca, bir olay Hub'ına akışını sağlayabilirsiniz. Bu önizleme sürümünde depolama hesabı yapılandırması zorunludur ancak olay hub'ı yapılandırma isteğe bağlıdır.
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Tanılama günlüklerini yapılandırma
-Çoğu Azure hizmeti ek günlükleri ve yapılandırılan Azure depolama hesabınızdaki veri kaydetmek için Event Hubs'a gönderme ve/veya bir OMS günlük analizi çalışma alanına gönderilen telemetriyi sağlar. Bu işlem yalnızca bir kaynak düzeyinde gerçekleştirilebilir ve depolama hesabı veya olay hub'ı tanılama ayarını yapılandırıldığı aynı bölgede hedef kaynak olarak mevcut olmalıdır.
+Çoğu Azure hizmeti ek günlükleri ve aşağıdakilerden birini veya birkaçını yapabilirsiniz telemetri sağlar: 
+ - Azure depolama hesabınızdaki verileri kaydetmek için yapılandırılması
+ - Event Hubs'a gönderilen
+ - bir OMS günlük analizi çalışma alanına gönderilir. 
+
+İşlemi yalnızca bir kaynak düzeyinde gerçekleştirilebilir. Depolama hesabı veya olay hub'ı tanılama ayarını yapılandırıldığı aynı bölgede hedef kaynak olarak mevcut olmalıdır.
 
 ### <a name="get-diagnostic-setting"></a>Tanılama ayarını alma
 ```PowerShell

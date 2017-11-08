@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 10/20/2017
-ms.openlocfilehash: 5b5da758e966cc5ca536d7b291be74409f02ca73
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9aa24dd10ef29c716c05cafeb84e0beb23d50628
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Azure veritabanı PostgreSQL için nedir?
 
@@ -39,7 +39,7 @@ Azure CLI örnekler kümesi için bkz:
 - [Azure veritabanı PostgreSQL için Azure CLI örnekleri](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Performansı ve ölçeği saniye içinde ayarlama
-Önizleme'de, iki hizmet katmanları Azure veritabanı için MySQL hizmeti sunar: temel ve standart. Her katman farklı performans ve ağır veritabanı iş yükleri için basit desteklemek için özellikleri sunar. Ayda birkaç Doları küçük bir veritabanı üzerinde ilk uygulamanızı oluşturun ve sonra çözümünüzü ihtiyaçlarını karşılamak üzere ölçeği ayarlayın. Kaynak gereksinimleri hızla değişen şeffaf bir şekilde yanıt vermesi veritabanınızı dinamik ölçeklenebilirlik sağlar. Yalnızca kaynaklar için gerek ve yalnızca ücret ödersiniz gereksinim duyarsınız. Bkz: [fiyatlandırma katmanlarına](concepts-service-tiers.md) Ayrıntılar için.
+Önizleme'de, Azure veritabanı PostgreSQL hizmet için iki hizmet katmanları sunar: temel ve standart. Her katman farklı performans ve ağır veritabanı iş yükleri için basit desteklemek için özellikleri sunar. Ayda birkaç Doları küçük bir veritabanı üzerinde ilk uygulamanızı oluşturun ve sonra çözümünüzü ihtiyaçlarını karşılamak üzere ölçeği ayarlayın. Kaynak gereksinimleri hızla değişen şeffaf bir şekilde yanıt vermesi veritabanınızı dinamik ölçeklenebilirlik sağlar. Yalnızca kaynaklar için gerek ve yalnızca ücret ödersiniz gereksinim duyarsınız. Bkz: [fiyatlandırma katmanlarına](concepts-service-tiers.md) Ayrıntılar için.
 
 ## <a name="monitoring-and-alerting"></a>İzleme ve uyarı
 Nasıl yukarı ve aşağı çevirmek ne zaman karar? Yerleşik performans izleme ve uyarı özellikleri, işlem birimleri temel performans değerlendirmeleri birlikte kullanın. İşlem birimleri ölçeklendirmeyi etkisini hızlı bir şekilde değerlendirmek bu Araçları'nı kullanarak veya aşağı geçerli veya tahmini performans gereksinimlerinize göre. Bkz: [uyarıları](howto-alert-on-metric.md) Ayrıntılar için.

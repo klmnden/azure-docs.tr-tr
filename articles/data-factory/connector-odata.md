@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: d4ec47cbe9eb0f6b524e184613cafb0166b66ad0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: d26adec8c273d015a671c745f2136fc6251fd291
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Azure Data Factory kullanarak OData kaynağından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,11 +61,9 @@ Aşağıdaki özellikleri, bağlantılı OData hizmeti için desteklenir:
 ```json
 {
     "name": "ODataLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "OData",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url": "http://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         },
@@ -82,11 +80,9 @@ Aşağıdaki özellikleri, bağlantılı OData hizmeti için desteklenir:
 ```json
 {
     "name": "ODataLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "OData",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url": "<endpoint of OData source>",
             "authenticationType": "Basic",
             "userName": "<username>",
@@ -108,11 +104,9 @@ Aşağıdaki özellikleri, bağlantılı OData hizmeti için desteklenir:
 ```json
 {
     "name": "ODataLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "OData",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url": "<endpoint of on-premises OData source>",
             "authenticationType": "Windows",
             "userName": "<domain>\\<user>",

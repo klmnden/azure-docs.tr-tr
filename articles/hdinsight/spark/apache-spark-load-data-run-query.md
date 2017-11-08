@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: nitinme
-ms.openlocfilehash: ef9154b0d400ff23c53460454c886ab90e290f0c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0d93e261121f11d2a1082b9672e6d979955d3bee
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Bir Hdınsight Spark kümesinde etkileşimli sorgular gerçekleştirme
 
@@ -34,10 +34,12 @@ Bu öğretici için kullandığınız **PySpark** çekirdek etkileşimli bir Spa
 
 ## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Etkileşimli sorgular gerçekleştirmek üzere Jupyter not defteri oluşturma
 
-Sorguları çalıştırmak için varsayılan kümeyle ilişkili depolama alanında kullanılabilir olan örnek veri kullanırız. Ancak, öncelikle bu veri Spark dataframe yüklemeniz gerekir. Dataframe sahip olduğunda, sorguları Jupyter Not Defteri kullanarak çalıştırabilirsiniz. Bu bölümde, nasıl bakın:
+Sorguları çalıştırmak için varsayılan kümeyle ilişkili depolama alanında kullanılabilir olan örnek veri kullanırız. Ancak, öncelikle bu veri Spark dataframe yüklemeniz gerekir. Dataframe sahip olduğunda, sorguları Jupyter Not Defteri kullanarak çalıştırabilirsiniz. Bu makalede, nasıl bakın:
 
 * Bir örnek veri kümesi Spark dataframe kaydedin.
 * Sorgular dataframe üzerinde çalışır.
+
+Haydi başlayalım.
 
 1. [Azure portalı](https://portal.azure.com/) açın. Kümeyi panoya sabitlemeyi seçtiyseniz, küme dikey penceresini başlatmak için panodan küme kutucuğuna tıklayın.
 
@@ -78,7 +80,7 @@ Sorguları çalıştırmak için varsayılan kümeyle ilişkili depolama alanın
 
     ![Etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsünü](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "etkileşimli Spark SQL sorgusu için verilerin anlık görüntüsünü")
 
-6. Bir dataframe ve geçici bir tablo oluşturma (**hvac**) aşağıdaki kodu çalıştırarak. Bu öğretici için tüm sütunları ham CSV veri sütunları karşılaştırıldığında geçici tablodaki oluşturuyoruz değil. 
+6. Bir dataframe ve geçici bir tablo oluşturma (**hvac**) aşağıdaki kodu çalıştırarak. Bu öğretici için kullanılabilen tüm sütunları CSV dosyasında oluşturuyoruz değil. 
 
         # Create an RDD from sample data
         hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -96,7 +98,7 @@ Sorguları çalıştırmak için varsayılan kümeyle ilişkili depolama alanın
         dfw = DataFrameWriter(hvacTable)
         dfw.saveAsTable('hvac')
 
-7. Verileri, etkileşimli sorgusu tablo oluşturulduktan sonra aşağıdaki kodu kullanın.
+7. Verileri, etkileşimli bir sorguyu çalıştırmak tablo oluşturulduktan sonra aşağıdaki kodu kullanın.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -107,11 +109,13 @@ Sorguları çalıştırmak için varsayılan kümeyle ilişkili depolama alanın
 
      ![Etkileşimli Spark sorgu sonucunun tablo çıktısı](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Table output of interactive Spark query result")
 
-    Sonuçları diğer görselleştirmelerde de görebilirsiniz. Örneğin, aynı çıktı için bir alan grafiği aşağıdaki gibi görünür.
+9. Sonuçları diğer görselleştirmelerde de görebilirsiniz. Aynı çıktı için bir alan grafiği görmek için seçin **alanı** sonra diğer değerleri gösterilen şekilde ayarlayın.
 
     ![Etkileşimli Spark sorgu sonucunun alan grafiği](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Area graph of interactive Spark query result")
 
-9. Uygulamayı çalıştırmayı tamamladıktan sonra not defterini kapatarak küme kaynaklarını serbest bırakabilirsiniz. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın.
+10. Gelen **dosya** dizüstü menüsünde **Kaydet ve denetim noktası**. 
+
+11. Başlatıyorsanız [sonraki öğretici](apache-spark-use-bi-tools.md) şimdi, dizüstü bilgisayar açık bırakın. Aksi takdirde, küme kaynakları serbest bırakmak için Not Defteri kapatın: gelen **dosya** dizüstü menüsünde **Kapat ve Durdur**.
 
 ## <a name="next-step"></a>Sonraki adım
 

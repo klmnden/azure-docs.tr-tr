@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL veritabanı günlük analizi Azure SQL analizi (Önizleme) kullanarak izleme
 
@@ -102,7 +102,16 @@ Döşeme birini seçerek, belirli bir perspektife ayrıntıya rapor açılır. P
 
 Her bir perspektif abonelik, sunucu, esnek havuz ve veritabanı düzeyi özetleri sağlar. Ayrıca, her bir perspektif sağ tarafta perspektif belirli rapor gösterir. Abonelik, sunucu, havuzu veya veritabanı listeden seçerek aşağı ayrıntıya devam eder.
 
-| Perspektif | Açıklama || Kaynak türü tarafından | İzlenen tüm kaynakları sayar perspektif. Ayrıntıya DTU ve GB ölçümleri özetini sağlar. | | Insights | Hiyerarşik ayrıntıya akıllı fikir sağlar. Akıllı ınsights hakkında daha fazla bilgi edinin. | | Hataları | Veritabanlarına oldu SQL hataları içine hiyerarşik ayrıntıya sağlar. | | Zaman aşımları | Veritabanlarına oldu SQL zaman aşımları içine hiyerarşik ayrıntıya sağlar. | | Blockings | Veritabanlarına oldu SQL blockings içine hiyerarşik ayrıntıya sağlar. | | Veritabanı bekler | SQL bekleme istatistikleri veritabanı düzeyinde içine hiyerarşik ayrıntıya sağlar. Toplam bekleme süresi ve bekleme tür başına bekleme süresi özetlerini içerir. | | Sorgu süresi | Sorgu süresi, CPU kullanımı, veri g/ç kullanımı, günlük GÇ kullanım gibi sorgu yürütme istatistikleri içine hiyerarşik ayrıntıya sağlar. | | Sorgu bekler | Hiyerarşik ayrıntıya bekleme kategoriye göre sorgu bekleme istatistikler sağlar. |
+| Perspektifi | Açıklama |
+| --- | --- |
+| Kaynak türüne göre | İzlenen tüm kaynakları sayar perspektif. Ayrıntıya DTU ve GB ölçümleri özetini sağlar. |
+| Insights | Hiyerarşik ayrıntıya akıllı fikir sağlar. Akıllı ınsights hakkında daha fazla bilgi edinin. |
+| Hatalar | Veritabanlarına oldu SQL hataları içine hiyerarşik ayrıntıya sağlar. |
+| Zaman aşımları | Veritabanlarına oldu SQL zaman aşımları içine hiyerarşik ayrıntıya sağlar. |
+| Blockings | Veritabanlarına oldu SQL blockings içine hiyerarşik ayrıntıya sağlar. |
+| Veritabanı bekler | SQL bekleme istatistikleri veritabanı düzeyinde içine hiyerarşik ayrıntıya sağlar. Toplam bekleme süresi ve bekleme tür başına bekleme süresi özetlerini içerir. |
+| Sorgu süresi | Sorgu süresi, CPU kullanımı, veri g/ç kullanımı, günlük GÇ kullanım gibi sorgu yürütme istatistikleri içine hiyerarşik ayrıntıya sağlar. |
+| Sorgu bekler | Hiyerarşik ayrıntıya bekleme kategoriye göre sorgu bekleme istatistikler sağlar. |
 
 ### <a name="intelligent-insights-report"></a>Akıllı Öngörüler raporu
 

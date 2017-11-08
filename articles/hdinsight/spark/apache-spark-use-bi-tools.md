@@ -15,151 +15,152 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 10/24/2017
 ms.author: nitinme
-ms.openlocfilehash: d1d5405a635b9f990f53b2bf32c8270a71a0f344
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 3886923639be8a7bd8167f10db503d7ebf8c1657
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark Azure Hdınsight ile verileri görselleştirme araçlarını kullanarak BI
 
-Hdınsight kümelerinde Apache Spark BI'ı kullanarak bir ham örnek veri kümesi analiz etmek için Power BI ve Tableau gibi veri görselleştirme araçlarını kullanmayı öğrenin.
-
-> [!NOTE]
-> Bu makalede açıklanan BI araçları ile bağlantı Spark 2.1 Azure Hdınsight 3.6 Önizleme üzerinde desteklenmiyor. Yalnızca Spark sürüm 1.6 ve 2.0 (Hdınsight 3.4, 3.5 sırasıyla) desteklenir.
->
-
-Bu öğretici, bir Hdınsight Spark kümesinde Jupyter not defteri olarak da kullanılabilir. Not Defteri deneyimi Python parçacıkları dizüstü çalıştırmadan olanak sağlar. Gelen öğretici bir not defteri içinde gerçekleştirmek için bir Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve ardından not defteri çalıştırın **HDInsight.ipynb Apache Spark kullanım BI araçlarıyla** altında **Python** klasör.
+Azure hdınsight'ta Apache Spark kümesinde verileri görselleştirmek için Power BI ve Tableau kullanmayı öğrenin.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 * Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
+* Örnek veri kümesi. Yönergeler için bkz: [bir Hdınsight Spark kümesinde etkileşimli sorgular gerçekleştirme](apache-spark-load-data-run-query.md).
+* Power BI: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) ve [Power BI deneme aboneliği](https://app.powerbi.com/signupredirect?pbi_source=web) (isteğe bağlı).
+* Tableau: [Tableau Masaüstü](http://www.tableau.com/products/desktop) ve [Microsoft Spark ODBC sürücüsü](http://go.microsoft.com/fwlink/?LinkId=616229).
 
 
-## <a name="hivetable"></a>Spark veri görselleştirme için verileri hazırlama
+## <a name="hivetable"></a>Örnek verileri gözden geçirin
 
-Bu bölümde, kullanırız [Jupyter](https://jupyter.org) ham örnek verileri işlemek ve bir tablo olarak kaydetmek işlerini çalıştırmak için Hdınsight Spark kümesinde dizüstü bilgisayarınızı. Örnek, bir .csv dosyası (hvac.csv) kullanılabilir varsayılan olarak tüm kümelerde verilerdir. Verilerinizi bir tablo olarak kaydedildikten sonra sonraki bölümde BI araçları tabloya bağlanmak ve veri görselleştirmeleri gerçekleştirmek için kullanırız.
+Oluşturduğunuz Jupyter not defteri [önceki öğretici](apache-spark-load-data-run-query.md) oluşturmak için kodu içeren bir `hvac` tablo. Bu tablo, tüm Hdınsight Spark kümeleri, CSV dosyası dayalı **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Şimdi Spark kümesinde veri görselleştirmeleri oluşturmadan önce gözden geçirin.
 
-> [!NOTE]
-> Adımları bu makaledeki yönergeleri tamamladıktan sonra gerçekleştirdiğiniz varsa [bir Hdınsight Spark kümesinde etkileşimli sorgular gerçekleştirme](apache-spark-load-data-run-query.md), aşağıdaki adım 8'e atlayabilirsiniz.
->
-
-1. [Azure portalındaki](https://portal.azure.com/) başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
-
-2. Spark kümesi dikey penceresinden **Küme Panosu**’na ve ardından **Jupyter Notebook**’a tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
-
-   > [!NOTE]
-   > Aşağıdaki URL’yi tarayıcınızda açarak da Jupyter Notebook’a ulaşabilirsiniz. **CLUSTERNAME** değerini kümenizin adıyla değiştirin:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-
-3. Bir not defteri oluşturun. **Yeni** ve ardından **PySpark** seçeneğine tıklayın.
-
-    ![Apache Spark BI için bir Jupyter not defteri oluşturma](./media/apache-spark-use-bi-tools/create-jupyter-notebook-for-spark-bi.png "için Apache Spark BI Jupyter not defteri oluşturma")
-
-4. Yeni bir not defteri oluşturulur ve Untitled.pynb adı ile açılır. Üstteki not defteri adına tıklayın ve kolay bir ad girin.
-
-    ![Apache Spark BI için not defteri için ad](./media/apache-spark-use-bi-tools/jupyter-notebook-name-for-spark-bi.png "için Apache Spark BI dizüstü bilgisayar için bir ad sağlayın")
-
-5. PySpark çekirdeği kullanarak bir not defteri oluşturduğunuz için açıkça bir bağlam oluşturmanız gerekmez. Birinci kod hücresini çalıştırdığınızda Spark ve Hive bağlamları sizin için otomatik olarak oluşturulur. Bu senaryo için gereken türleri içeri aktararak işleme başlayabilirsiniz. Bunu yapmak için imleci hücre ve tuşuna koyun **SHIFT + ENTER**.
-
-        from pyspark.sql import *
-
-6. Örnek verilerini geçici bir tabloya yükleyin. HDInsight’ta bir Spark kümesi oluşturduğunuzda **hvac.csv** örnek veri dosyası, **\HdiSamples\HdiSamples\SensorSampleData\hvac** altındaki ilişkili depolama hesabına kopyalanır.
-
-    Aşağıdaki kod parçacığında ve tuşuna boş bir hücreye yapıştırın **SHIFT + ENTER**. Bu kod parçacığında veriler adı verilen bir tabloya kaydeder **hvac**.
-
-        # Create an RDD from sample data
-        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-
-        # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
-
-        # Parse the data and create a schema
-        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-
-        # Infer the schema and create a table       
-        hvacTable = sqlContext.createDataFrame(hvac)
-        hvacTable.registerTempTable('hvactemptable')
-        dfw = DataFrameWriter(hvacTable)
-        dfw.saveAsTable('hvac')
-
-7. Tablo başarıyla oluşturulduğunu doğrulayın. Kullanabileceğiniz `%%sql` Hive çalıştırmak için Sihirli sorgular doğrudan. `%%sql` sihrinin yanı sıra PySpark çekirdeği kullanılabilen diğer sihirler hakkında daha fazla bilgi için bkz. [Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+1. Beklenen tablolar var olduğunu doğrulayın. Not defterindeki boş hücreye aşağıdaki kod parçacığında ve tuşuna kopyalama **SHIFT + ENTER**.
 
         %%sql
         SHOW TABLES
 
-    Aşağıda gösterildiği gibi bir çıktı bakın:
+    Aşağıda gösterilene benzer bir çıktı görürsünüz:
 
-        +---------------+-------------+
-        |tableName      |isTemporary  |
-        +---------------+-------------+
-        |hvactemptable  |true        |
-        |hivesampletable|false        |
-        |hvac           |false        |
-        +---------------+-------------+
+    ![Tabloları Spark Göster](./media/apache-spark-use-bi-tools/show-tables.png)
 
-    False altında olan tabloları **isTemporary** sütun olacak şekilde meta depo içinde saklanan ve BI Araçları'ndan erişilebilen hive tablosu. Bu öğreticide, biz bağlanmak **hvac** oluşturduğumuz tablo.
+    Bu öğreticiye başlamadan önce dizüstü bilgisayar kapalı `hvactemptable` , çıktıda dahil edilmeyen şekilde temizlendi.
+    Yalnızca meta depo içinde depolanan tabloları hive (belirttiği **False** altında **isTemporary** sütun) BI Araçları'ndan erişilebilir. Bu öğreticide, biz bağlanmak **hvac** oluşturduğumuz tablo.
 
-8. Tablo hedeflenen verileri içerdiğini doğrulayın. Not defterindeki boş hücreye aşağıdaki kod parçacığında ve tuşuna kopyalama **SHIFT + ENTER**.
+2. Tablo beklenen verileri içerdiğini doğrulayın. Not defterindeki boş hücreye aşağıdaki kod parçacığında ve tuşuna kopyalama **SHIFT + ENTER**.
 
         %%sql
         SELECT * FROM hvac LIMIT 10
 
-9. Kaynakları serbest bırakmak için Not Defteri kapatın. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın.
+    Aşağıda gösterilene benzer bir çıktı görürsünüz:
+
+    ![Spark hvac tablodaki Göster](./media/apache-spark-use-bi-tools/select-limit.png)
+
+3. Kaynakları serbest bırakmak için Not Defteri kapatın. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın.
 
 ## <a name="powerbi"></a>Power BI için Spark veri görselleştirme kullanın
 
+Beklenen verilerin var olduğunu doğruladıktan, Power BI görselleştirmeleri, raporlar ve panolar bu verileri oluşturmak için kullanabilirsiniz. Bu makalede, biz statik verilerle basit bir örnek gösterir, ancak daha karmaşık akış örnekler görmek istiyorsanız lütfen açıklamaları bilgilendirin.
+
+### <a name="create-a-report-in-power-bi-desktop"></a>Power BI Desktop'ta rapor oluşturma
+Power BI Desktop'ta kümeye bağlanmak, kümeden veri yüklemek ve verilere dayanan bir temel görselleştirme oluşturmak için Spark ile çalışırken ilk adım değildir.
+
 > [!NOTE]
-> Bu bölüm, yalnızca Hdınsight 3.4 üzerinde Spark 1.6 ve Hdınsight 3.5 Spark 2.0 için geçerlidir.
->
->
+> Bu makalede gösterilen bağlayıcı şu anda önizlemede değil, ancak bunu kullanın ve elinizde aracılığıyla geribildirim sağlamak için öneririz [Power BI topluluk](https://community.powerbi.com/) site veya [Power BI fikirleri](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
-Verileri tablo olarak kaydettikten sonra veri bağlanmak ve raporlar, panolar vb. oluşturmak üzere görselleştirmek için Power BI'ı kullanabilirsiniz.
+1. Power BI Desktop'ta üzerinde **giriş** sekmesini tıklatın, **Veri Al**, ardından **daha fazla**.
 
-1. Power BI erişebildiğinizden emin olun. Power BI'dan, ücretsiz önizlemeye aboneliği alabilirsiniz [http://www.powerbi.com/](http://www.powerbi.com/).
+2. Arama `Spark`seçin **Azure Hdınsight Spark**, ardından **Bağlan**.
 
-2. Oturum [Power BI](http://www.powerbi.com/).
+    ![Apache Spark BI'dan Power BI Veri Al](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "veri alma Power BI'a Apache Spark BI'dan")
 
-3. Sol bölmede aşağıdan tıklatın **Veri Al**.
-
-4. Üzerinde **Veri Al** sayfasında **alma veya verilere bağlanın**, için **veritabanları**, tıklatın **almak**.
-
-    ![Apache Spark BI için Power BI Veri Al](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "veri alma Power BI için Apache Spark BI")
-
-5. Sonraki ekranda, tıklatın **Azure hdınsight'ta Spark** ve ardından **Bağlan**. İstendiğinde, kümesi URL'sini girin (`mysparkcluster.azurehdinsight.net`) ve kümeye bağlanmak için kimlik bilgileri.
+3. Küme URL'nizi girin (biçiminde `mysparkcluster.azurehdinsight.net`), select **DirectQuery**, ardından **Tamam**.
 
     ![Apache Spark BI bağlanmak](./media/apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "Apache Spark BI Bağlan")
 
-    Bağlantı kurulduktan sonra Power BI veri hdınsight'ta Spark kümesinde alma başlatır.
+    > [!NOTE]
+    > Spark ile ya da bağlantı modunu kullanabilirsiniz. DirectQuery kullanırsanız, değişiklikler tüm veri kümesinin yenileme olmadan raporlarında yansıtılır. Veri içe aktarırsanız, değişiklikleri görmek için bu veri kümesi yenilemeniz gerekir. Hakkında daha fazla bilgi ve DirectQuery kullanıldığı durumlar için bkz: [kullanarak DirectQuery Power bı'da](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/). 
 
-6. Power BI verileri alır ve ekler bir **Spark** veri kümesi altında **veri kümeleri** başlığı. Verileri görselleştirmek için yeni bir çalışma sayfasını açmak için bu veri kümesi'ı tıklatın. Bu gibi durumlarda, çalışma sayfası aynı zamanda bir rapor olarak kaydedebilirsiniz. Bir çalışma alanından kaydetmek için **dosya** menüsünde tıklatın **kaydetmek**.
+4. Hdınsight oturum açma hesabı bilgilerini girin **kullanıcı adı** ve **parola** (varsayılan hesaptır `admin`), ardından **Bağlan**.
 
-    ![Power BI panosundaki Apache Spark BI bölümünden](./media/apache-spark-use-bi-tools/apache-spark-bi-tile-dashboard.png "Power BI panosuna Apache Spark BI kutucuğu")
-7. Dikkat **alanları** sağ listeleri listesinde **hvac** daha önce oluşturduğunuz tablo. Not defterinde daha önce tanımlanan tablo alanları görmek için tabloyu genişletin.
+    ![Spark küme kullanıcı adı ve parola](./media/apache-spark-use-bi-tools/user-password.png "Spark küme kullanıcı adı ve parola")
 
-      ![Apache Spark BI Panoda Tabloları Listele](./media/apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "Apache Spark BI Panoda Tabloları Listele")
+5. Seçin `hvac` tablo ve verilerin önizlemesini görmek için bekleyin. Ardından **yük**.
 
-8. Hedef sıcaklık ve her derleme için gerçek sıcaklık arasındaki fark göstermek için bir görsel öğe oluşturun. Verilerinizi görselleştirmek için seçin **alan grafiği** (kırmızı kutu içinde gösterilmiştir). Sürükle ve bırak ekseni tanımlamak için **BuildingID** altında **eksen**, ve **ActualTemp**/**TargetTemp** alanları altında **değeri**.
+    ![Spark küme kullanıcı adı ve parola](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark küme kullanıcı adı ve parola")
 
-    ![Apache Spark BI kullanarak veri görselleştirmeleri Spark oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "oluşturma Spark veri görselleştirmeleri Apache Spark BI kullanma")
+    Power BI Desktop şimdi Spark küme ve yük verileri bağlanmak için gerekli tüm bilgilere sahip `hvac` tablo. Tablo ve sütunlarını görüntülenen **alanları** bölmesi.
 
-9. Varsayılan olarak görselleştirme için toplam gösterir **ActualTemp** ve **TargetTemp**. Her iki alanlardan, açılan seçin **ortalama** gerçek ortalama ve hedef etme için iki bina almak için.
+    ![Apache Spark BI Panoda Tabloları Listele](./media/apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "Apache Spark BI Panoda Tabloları Listele")
 
-    ![Apache Spark BI kullanarak veri görselleştirmeleri Spark oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "oluşturma Spark veri görselleştirmeleri Apache Spark BI kullanma")
+7. Hedef sıcaklık ve her derleme için gerçek sıcaklık arasındaki fark göstermek için bir görsel öğe oluşturun: 
 
-10. Veri görselleştirme benzer ekran görüntüsü olması gerekir. Araç ipuçları ile ilgili verileri almak için görselleştirme üzerinden imlecinizi taşıyın.
+    1. İçinde **GÖRSELLEŞTİRMELERİ** bölmesinde, **alan grafiği**. Sürükleme **BuildingID** alanı **eksen**, sürükleyin **ActualTemp** ve **TargetTemp** alanları **değeri**.
 
-    ![Apache Spark BI kullanarak veri görselleştirmeleri Spark oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "oluşturma Spark veri görselleştirmeleri Apache Spark BI kullanma")
+        ![Apache Spark BI kullanarak veri görselleştirmeleri Spark oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "oluşturma Spark veri görselleştirmeleri Apache Spark BI kullanma")
 
-11. Tıklatın **kaydetmek** üstteki menüden ve bir rapor adı sağlayın. Ayrıca visual sabitleyebilirsiniz. Bir görsel öğe PIN, böylece bir bakışta son değer izleyebilirsiniz Panonuzda depolanır.
+    2. Varsayılan olarak görselleştirme için toplam gösterir **ActualTemp** ve **TargetTemp**. Alanlardan açılan her ikisini de seçin **ortalama** gerçek ortalama ve hedef etme için her bir yapı almak için.
 
-   Aynı veri kümesi için istediğiniz ve bunları, verilerin bir anlık görüntüsünü panoya Sabitle sayıda görsel öğeleri ekleyebilirsiniz. Ayrıca, hdınsight'ta Spark kümeleri için Power BI ile doğrudan bağlı bağlanın. Bu veri kümesi için yenileme zamanlamanız gerekmez için Power BI her zaman en güncel verileri kümenizi sahip olmasını sağlar.
+        ![Apache Spark BI kullanarak veri görselleştirmeleri Spark oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "oluşturma Spark veri görselleştirmeleri Apache Spark BI kullanma")
+
+    3. Veri görselleştirme benzer ekran görüntüsü olması gerekir. Araç ipuçları ile ilgili verileri almak için görselleştirme üzerinden imlecinizi taşıyın.
+
+        ![Apache Spark BI kullanarak veri görselleştirmeleri Spark oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "oluşturma Spark veri görselleştirmeleri Apache Spark BI kullanma")
+
+11. Tıklatın **dosya** sonra **kaydetmek**ve bir ad girin `spark.pbix` dosyası için. 
+
+### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Rapor Power BI hizmetine (isteğe bağlı) yayımlayın
+Power BI Desktop'ta artık tam olarak işlevsel bir rapora sahipsiniz ve orada durdurabilirsiniz, ancak çoğu kişi, raporlar ve panolar, kuruluşunuz genelindeki paylaşmak kolaylaştırır Power BI hizmetinde yararlanmak istiyor. 
+
+Bu bölümde, veri kümesi ve oluşturduğunuz Power BI Desktop dosyasında yer alan rapor yayımlayın. Ardından, raporundan görselleştirme bir Panoda de sabitleyin. Panolar, genellikle bir rapordaki verilerin bir alt kümesini odaklanmak için kullanılır; Raporunuzda yalnızca bir görselleştirme sahip ancak adımları gitmek hala faydalıdır.
+
+1. Power BI Desktop'ta üzerinde **giriş** sekmesini tıklatın, **Yayımla**.
+
+    ![Power BI masaüstünden yayımlama](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Power BI masaüstünden yayımlama")
+
+2. Veri kümenizi yayımlamak için bir çalışma alanı seçin ve ardından rapor **seçin**. Aşağıdaki görüntüde, varsayılan **çalışma Alanım** seçilir.
+
+    ![Veri kümesini yayımlamak ve rapor için çalışma alanı seçin](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "veri kümesini yayımlamak ve rapor için Select çalışma") 
+
+3. Power BI Desktop ile bir başarı iletisi döndükten sonra tıklatın **'spark.pbix' Power BI'da Aç**.
+
+    ![Başarı yayımlama, kimlik bilgilerini girmek için tıklatın](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "başarı yayımlama, kimlik bilgilerini girmek için tıklatın") 
+
+4. Power BI hizmetinde tıklatın **kimlik bilgilerini girin**.
+
+    ![Power BI hizmetinde kimlik bilgilerini girin](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Power BI hizmetinde kimlik bilgilerini girin")
+
+5. Tıklatın **kimlik bilgilerini Düzenle**.
+
+    ![Power BI hizmetinde kimlik bilgilerini Düzenle](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Power BI hizmetinde kimlik bilgilerini Düzenle")
+
+6. Hdınsight oturum açma hesabı bilgilerini girin (genellikle varsayılan `admin` Power BI Desktop'ta kullanılan hesabı), ardından **oturum**.
+
+    ![Spark kümesi oturum](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Spark küme için oturum açın")
+
+7. Sol bölmede, Git **çalışma alanları** > **çalışma Alanım** > **RAPORLARI**, ardından **spark**.
+
+    ![Raporu rapor sol bölmede altında listelenen](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "raporları sol bölmede altında listelenen raporu")
+
+    Ayrıca görmelisiniz **spark** altında listelenen **veri KÜMELERİ** sol bölmede.
+
+8. Power BI Desktop'ta oluşturulan visual hizmetinde kullanıma sunulmuştur. Bu görsel bir panoya sabitlemek için görsel getirin ve sabitleme simgesine tıklayın.
+
+    ![Power BI hizmetinde raporda](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Power BI hizmetindeki raporu")
+
+9. "Yeni Pano" seçin, bir ad girin `SparkDemo`, ardından **PIN**.
+
+    ![Yeni panoya Sabitle](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "yeni panoya Sabitle")
+
+10. Rapora tıklayın **panoya gitmek**. 
+
+    ![Pano gidin](./media/apache-spark-use-bi-tools/apache-spark-bi-open-dashboard.png "panoya gidin")
+
+Visual panosuna sabitlediğiniz - diğer görsellerin rapora ekleyin ve bunları aynı panoya Sabitle. Raporlar ve panolar hakkında daha fazla bilgi için bkz: [Power BI raporlarınız](https://powerbi.microsoft.com/documentation/powerbi-service-reports/)ve [Power BI panoları](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## <a name="tableau"></a>Spark veri görselleştirme için Tableau Masaüstü'nü kullanın
 

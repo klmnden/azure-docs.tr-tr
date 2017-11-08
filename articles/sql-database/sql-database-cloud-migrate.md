@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 02/08/2017
+ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>SQL Server veritabanını buluttaki SQL Veritabanına taşıma
 Bu makalede SQL Server 2005 veya sonraki bir veritabanını Azure SQL Veritabanına geçirmeye yönelik iki birincil yöntem hakkında bilgi verilmektedir. İlk yöntem basittir, ancak geçiş sırasında önemli olabilecek bazı kapalı kalma sürelerine neden olabilir. İkinci yöntem daha karmaşık olmasına karşın, geçiş sırasında kapalı kalma süresini önemli ölçüde ortadan kaldırır.
@@ -28,7 +28,7 @@ Bu makalede SQL Server 2005 veya sonraki bir veritabanını Azure SQL Veritaban�
 Kaynak veritabanı Azure SQL veritabanı kullanarak ile uyumlu olduğundan emin olmak gereken her iki durumda da [veri geçiş Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 yaklaşan [özellik eşliği](sql-database-features.md) sunucu düzeyinde ve veritabanları arası işlemleriyle ilgili sorunlar dışında SQL Server ile. [Kısmen desteklenen veya desteklenmeyen işlevleri](sql-database-transact-sql-information.md) kullanan veritabanları ve uygulamalar için SQL Server veritabanının geçirilebilmesi için [bu uyumsuzlukların giderilmesi amacıyla yeniden mühendislik](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) işlemlerinin yapılması gerekir.
 
 > [!NOTE]
-> Microsoft Access, Sybase, MySQL Oracle ve DB2 olmak üzere SQL Server harici veritabanlarını Azure SQL Veritabanına geçirmek için bkz. [SQL Server Geçiş Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
+> Microsoft Access, Sybase, MySQL Oracle ve DB2 olmak üzere SQL Server harici veritabanlarını Azure SQL Veritabanına geçirmek için bkz. [SQL Server Geçiş Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 > 
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Yöntem 1: Geçiş sırasında kapalı kalma süresi ile geçiş
@@ -39,12 +39,11 @@ Aşağıdaki liste, bu yöntem kullanılarak gerçekleştirilen bir SQL Server v
 
   ![VSSSDT geçiş şeması](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Veri Geçişi Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) aracının son sürümünü kullanarak veritabanının uyumluluğunu değerlendirin.
+1. [Değerlendirme](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) veritabanı için en son sürümünü kullanarak Uyumluluk [veri geçiş Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Transact-SQL betikleri halinde tüm gerekli düzeltmeleri hazırlayın.
-3. Geçirilmekte olan kaynak veritabanının işlemsel açıdan tutarlı bir kopyasını oluşturun ve kaynak veritabanında başka bir değişiklik yapılmadığından emin olun (bu tür değişiklikleri geçiş tamamlandıktan sonra el ile de uygulayabilirsiniz). Bir veritabanını yavaşça çevrimdışına geçirmek için kullanabileceğiniz istemci bağlantısını devre dışı bırakmaktan [veritabanı anlık görüntüsü](https://msdn.microsoft.com/library/ms175876.aspx) oluşturmaya kadar birçok yöntem vardır.
+3. Kaynak veritabanı işlemsel olarak tutarlı bir kopyasını geçirilmekte - ve olun kaynak veritabanına daha fazla değişiklik yapılan (veya geçiş tamamlandıktan sonra bu değişiklikleri el ile uygulayabilirsiniz). Bir veritabanını yavaşça çevrimdışına geçirmek için kullanabileceğiniz istemci bağlantısını devre dışı bırakmaktan [veritabanı anlık görüntüsü](https://msdn.microsoft.com/library/ms175876.aspx) oluşturmaya kadar birçok yöntem vardır.
 4. Düzeltmeleri veritabanı kopyasına uygulamak için Transact-SQL betiklerini dağıtın.
-5. [Dışarı aktarma](sql-database-export.md) yerel diskte BACPAC dosyaya veritabanı kopyası.
-6. [Alma](sql-database-import.md) BACPAC dosyası birkaç BACPAC birini kullanarak yeni bir Azure SQL veritabanı olarak en iyi performans için önerilen aracı olan SQLPackage.exe ile araçları alma.
+5. [Geçiş](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) veri geçiş Yardımcısı'nı kullanarak yeni bir Azure SQL veritabanı için veritabanı kopyası.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Geçiş sırasında veri aktarımı performansını en iyi duruma getirme 
 
@@ -94,7 +93,7 @@ Bu çözümü kullanmak için, Azure SQL Veritabanınızı, geçirmek istediğin
 ### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>SQL veritabanına geçiş için bazı ipuçları ve farklılıklar
 
 1. Yerel dağıtıcı kullanma 
-   - Bu durum sunucuda performans düşüşüne neden olur. 
+   - Bunun yapılması sunucuda bir performans etkisi neden olur. 
    - Performans etkisi kabul edilemez boyuttaysa başka bir sunucu kullanabilirsiniz, ancak bunun yapılması yönetimi daha karmaşık hale getirir.
 2. Bir anlık görüntü klasörü seçerken, seçtiğiniz klasörün çoğaltmak istediğiniz her tabloya ait BCP’yi saklayacak kadar büyük olduğundan emin olun. 
 3. Anlık görüntü oluşturma işlemi tamamlanana kadar ilişkili tabloları kilitler, bu nedenle anlık görüntünüzü uygun şekilde zamanlayın. 

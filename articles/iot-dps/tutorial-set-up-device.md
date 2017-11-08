@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama hizmeti ile sağlamak için bir aygıtı ayarlama
 
@@ -35,7 +35,7 @@ Devam etmeden önce aygıtı sağlama hizmeti örneğinizi ve öğreticide belir
 
 ## <a name="select-a-hardware-security-module"></a>Bir donanım güvenlik modülü seçin
 
-[Aygıtı sağlama hizmeti istemci SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) veya donanım güvenlik modülleri (HSM'ler) iki türleri için destek sağlar: 
+[Aygıtı sağlama hizmeti istemci SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) veya donanım güvenlik modülleri (HSM'ler) iki türleri için destek sağlar: 
 
 - [Güvenilir Platform Modülü (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - TPM, birkaç Linux/Ubuntu tabanlı aygıtların yanı sıra, çoğu Windows tabanlı cihaz platformları için kurulmuş bir standarttır. Bir aygıt üreticisi ya da bu işletim sistemleri çalıştıran, cihazlarda varsa ve HSM'ler için belirli bir standardı için arıyorsanız bu HSM tercih edebilirsiniz. TPM yongaları ile yalnızca aygıt hizmeti sağlama ayrı ayrı her cihazı kaydedebilir. Geliştirme amaçlarıyla Windows veya Linux geliştirme makinenizde TPM simulator kullanabilirsiniz.

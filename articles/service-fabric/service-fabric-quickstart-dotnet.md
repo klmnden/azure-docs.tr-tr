@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/02/2017
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdb5fdb094a185db12ee08969a12e556dab96389
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>.NET Service Fabric uygulaması oluşturma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -57,12 +57,14 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ## <a name="run-the-application-locally"></a>Uygulamayı yerel olarak çalıştırma
 Başlat menüsü Visual Studio simgesini sağ tıklatın ve seçin **yönetici olarak çalıştır**. Hata ayıklayıcı hizmetlerinize iliştirmek için Visual Studio'yu yönetici olarak çalıştırmanız gerekir.
 
-Açık **Voting.sln** kopyaladığınız deponun Visual Studio çözümü.
+Açık **Voting.sln** kopyaladığınız deponun Visual Studio çözümü.  
+
+Varsayılan olarak, oylama uygulaması, 8080 bağlantı noktasında dinleyecek şekilde ayarlanır.  Uygulama bağlantı noktası kümesinde */VotingWeb/PackageRoot/ServiceManifest.xml* dosya.  Güncelleştirerek uygulama bağlantı noktasını değiştirebilirsiniz **bağlantı noktası** özniteliği **Endpoint** öğesi.  Dağıtma ve uygulama yerel olarak çalıştırmak için uygulama bağlantı noktası açık ve bilgisayarınızdaki kullanılabilir olması gerekir.  Uygulama bağlantı noktasını değiştirirseniz, bu makale boyunca "8080" için yeni uygulama bağlantı noktası değeri değiştirin.
 
 Uygulamayı dağıtmak için basın **F5**.
 
 > [!NOTE]
-> İlk kez çalıştırın ve uygulama dağıtma, Visual Studio hata ayıklama için yerel bir küme oluşturur. Bu işlem biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.
+> İlk kez çalıştırın ve uygulama dağıtma, Visual Studio hata ayıklama için yerel bir küme oluşturur. Bu işlem biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.  Çıktıda "Uygulama URL'si ayarlanmadı veya tarayıcı uygulamaya açılmaz için bir HTTP/HTTPS URL'si değil." iletisini görürsünüz  Bir tarayıcı olmayan otomatik başlatılan ancak bu bu iletiyi bir hata olduğunu göstermez.
 
 Dağıtım tamamlandığında, bir tarayıcı başlatmak ve bu sayfayı açın: `http://localhost:8080` -uygulamanın ön uç web.
 
@@ -114,14 +116,15 @@ Kod içinde neler aramak için aşağıdaki adımları tamamlayın:
 Hata ayıklama oturumu durdurmak için basın **Shift + F5**.
 
 ## <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure’a dağıtma
-Bir kümede Azure uygulamayı dağıtmak için ya da kendi küme oluşturun veya bir taraf kümesi kullanmayı seçebilirsiniz.
+Uygulamayı Azure'a dağıtmak için uygulama çalışan bir Service Fabric kümesi gerekir. 
 
-Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
+### <a name="join-a-party-cluster"></a>Taraf kümeye Katıl
+Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. 
 
-Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da ilk Service Fabric kümenizi oluşturma](service-fabric-get-started-azure-cluster.md).
+Oturum açın ve [Windows kümeye](http://aka.ms/tryservicefabric). Unutmayın **bağlantı uç noktasının** adımları izleyerek kullanılan değer.
 
 > [!Note]
-> Web ön uç hizmeti 8080 bağlantı noktasından gelen trafiği dinleyecek şekilde yapılandırılır. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. Taraf küme kullanıyorsanız, bu bağlantı noktasının açık olduğundan.
+> Varsayılan olarak, web ön uç hizmeti 8080 bağlantı noktasından gelen trafiği dinleyecek şekilde yapılandırılır. Bağlantı noktası 8080 taraf kümede açıktır.  Uygulama bağlantı noktasını değiştirmeniz gerekirse, bir taraf kümede açık bağlantı noktalarını değiştirin.
 >
 
 ### <a name="deploy-the-application-using-visual-studio"></a>Visual Studio kullanarak uygulamayı dağıtın
@@ -131,7 +134,9 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıt
 
     ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Kümenin Bağlantı Uç Noktasını **Bağlantı Uç Noktası** alanına girin ve **Yayımla**’ya tıklayın. Taraf küme için kaydolduğunuzda bağlantı uç noktasının tarayıcıda sağlanır. -Örneğin, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Kopya **bağlantı uç noktasının** taraf küme sayfasından **bağlantı uç noktasının** alanına gelin ve **Yayımla**. Örneğin, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+
+    Kümedeki her bir uygulama benzersiz bir ad olmalıdır.  Ancak bir ortak, paylaşılan ortamı parti kümeleri olan ve var olan bir uygulama ile bir çakışma olabilir.  Bir ad çakışması varsa, Visual Studio projesi yeniden adlandırın ve yeniden dağıtın.
 
 3. Bir tarayıcı tarafından küme adresi foolowed içinde açıp ': 8080 kümedeki - Örneğin, uygulama almak için ' `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Artık Azure kümede çalışan uygulama görmeniz gerekir.
 

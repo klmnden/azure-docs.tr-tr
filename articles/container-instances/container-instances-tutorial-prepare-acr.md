@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
+editor: mmacy
 tags: acs, azure-container-service
 keywords: "Docker, Container’lar, Mikro hizmetler, Kumernetes, DC/OS, Azure"
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 848f6cbde49efdcfe96fc58ebc4160e0ea39f3f2
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Dağıtma ve Azure kapsayıcı kayıt defteri kullanma
 
@@ -54,13 +54,19 @@ Azure kapsayıcı kayıt defteri dağıtırken, önce bir kaynak grubu gerekir. 
 az group create --name myResourceGroup --location eastus
 ```
 
-Azure kapsayıcı kayıt defteri ile oluşturma [az acr oluşturmak](/cli/azure/acr#create) komutu. Bir kapsayıcı kayıt defteri adını **benzersiz olmalıdır**. Aşağıdaki örnekte, kullanırız adı *mycontainerregistry082*.
+Azure kapsayıcı kayıt defteri ile oluşturma [az acr oluşturmak](/cli/azure/acr#create) komutu. Kapsayıcı kayıt defteri adı **benzersiz olmalıdır** , azure'daki ve 5-50 alfasayısal karakterler içermelidir. Değiştir `<acrName>` kayıt için benzersiz bir ad ile:
+
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
+```
+
+Örneğin, bir Azure kapsayıcı kayıt oluşturmak üzere adlı *mycontainerregistry082*:
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic --admin-enabled true
 ```
 
-Bu öğreticinin geri kalanını, kullandığımız `<acrname>` seçtiğiniz kapsayıcı kayıt defteri adı için bir yer tutucu olarak.
+Bu öğreticinin geri kalanını, kullandığımız `<acrName>` seçtiğiniz kapsayıcı kayıt defteri adı için bir yer tutucu olarak.
 
 ## <a name="container-registry-login"></a>Kapsayıcı kayıt defteri oturum açma
 
@@ -70,7 +76,7 @@ ACR örneğinizi görüntüleri göndermeden önce oturum gerekir. Kullanım [az
 az acr login --name <acrName>
 ```
 
-Komut tamamlandıktan sonra 'Başarılı oturum açma' iletisi döndürür.
+Komut döndürür bir `Login Succeeded` tamamlandıktan sonra ileti.
 
 ## <a name="tag-container-image"></a>Etiket kapsayıcı görüntüsü
 
@@ -89,13 +95,21 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-LoginServer adını almak için aşağıdaki komutu çalıştırın:
+LoginServer adını almak için aşağıdaki komutu çalıştırın. Değiştir `<acrName>` kapsayıcı kayıt adı.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Etiket *aci öğretici uygulama* kapsayıcı kayıt defteri loginServer görüntüsüyle. Ayrıca, ekleme `:v1` sonuna kadar görüntü adı. Bu etiket görüntü sürüm numarasını gösterir.
+Örnek çıktı:
+
+```
+Result
+------------------------
+mycontainerregistry082.azurecr.io
+```
+
+Etiket *aci öğretici uygulama* kapsayıcı kaydınız loginServer görüntüsüyle. Ayrıca, ekleme `:v1` sonuna kadar görüntü adı. Bu etiket görüntü sürüm numarasını gösterir. Değiştir `<acrLoginServer>` sonucu ile `az acr show` yalnızca yürütülen komutu.
 
 ```bash
 docker tag aci-tutorial-app <acrLoginServer>/aci-tutorial-app:v1
@@ -117,12 +131,23 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app        v1                  a9
 
 ## <a name="push-image-to-azure-container-registry"></a>Azure kapsayıcı kayıt defterine görüntü gönderme
 
-Anında *aci öğretici uygulama* kayıt defterine görüntü.
-
-Aşağıdaki örneği kullanarak, ortamınızdan loginServer kapsayıcı kayıt defteri loginServer adını değiştirin.
+Anında *aci öğretici uygulama* kayıt defteri ile görüntüye `docker push` komutu. Değiştir `<acrLoginServer>` tam oturum açma sunucu adıyla önceki adımda elde.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
+```
+
+`push` İşlemi birkaç saniye Internet bağlantınızı bağlı olarak birkaç dakika ile almalıdır ve çıktı aşağıdakine benzer:
+
+```bash
+The push refers to a repository [mycontainerregistry082.azurecr.io/aci-tutorial-app]
+3db9cac20d49: Pushed
+13f653351004: Pushed
+4cd158165f4d: Pushed
+d8fbd47558a8: Pushed
+44ab46125c35: Pushed
+5bef08742407: Pushed
+v1: digest: sha256:ed67fff971da47175856505585dcd92d1270c3b37543e8afd46014d328f05715 size: 1576
 ```
 
 ## <a name="list-images-in-azure-container-registry"></a>Azure kapsayıcı kayıt defterinde listesi görüntüler

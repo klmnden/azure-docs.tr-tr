@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 8b2f806b81bbc6d9328ab179644b79b97d68e7b9
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="consuming-web-services"></a>Web Hizmetleri kullanma
 Model bir gerçek zamanlı web hizmeti olarak dağıtma sonra veri göndermek ve çeşitli platformlar ve uygulamaları Öngörüler alın. Gerçek zamanlı web hizmetini Öngörüler almak için bir REST API gösterir. Web hizmeti zaman, bir veya daha fazla Öngörüler almak için tek veya birden çok satır biçiminde veri gönderebilir.
 
-Azure Machine Learning Web hizmeti ile bir harici Web uygulaması ile Tahmine dayalı bir model zaman uyumlu olarak HTTP POST hizmet URL'si için arama yaparak iletişim kurar. Bir web hizmeti çağrısı yapmak için tahmin dağıtmak ve istek verileri POST istek gövdesi yerleştirin, oluşturduğunuz API anahtarını belirtmek istemci uygulaması gerekir.
+İle [Azure Machine Learning Web hizmeti](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy), bir dış uygulama zaman uyumlu olarak Tahmine dayalı modelle hizmet URL'si için HTTP POST çağrısı yaparak iletişim kurar. Bir web hizmeti çağrısı yapmak için tahmin dağıtmak ve istek verileri POST istek gövdesi yerleştirin, oluşturduğunuz API anahtarını belirtmek istemci uygulaması gerekir.
 
 API anahtarları yalnızca küme dağıtım modunda kullanılabilir olduğunu unutmayın. Yerel web hizmetleri anahtarlara sahip değil.
 

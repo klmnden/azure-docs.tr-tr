@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 00f9f38fbae028486270053dedb4df580a3f1a44
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bea3b56cea81362b25e696a672bf2a00e26d3ef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus kuyrukları, konu başlıkları ve abonelikleri
 
-Microsoft Azure Service Bus güvenilir message queuing bulut tabanlı, ileti odaklı Ara teknolojilerini ve dayanıklı yayımlama/Mesajlaşma abonelik, bir kümesini destekler. Bu "aracılı" Mesajlaşma işlevleri, ardından destek yayımlama-abone olma Mesajlaşma özellikleri, zamana bağlı ayırma ve Yük Dengeleme Service Bus doku Mesajlaşma kullanarak ayrılmış olarak düşünülebilir. Ayrılmış iletişim birçok avantaj sunar. Örneğin, sunucular ve istemciler gerektiğinde bağlantı kurabilir ve kendi işlemlerini zaman uyumsuz olarak gerçekleştirebilir.
+Microsoft Azure Service Bus güvenilir message queuing bulut tabanlı, ileti odaklı Ara teknolojilerini ve dayanıklı yayımlama/Mesajlaşma abonelik, bir kümesini destekler. Bu "aracılı" Mesajlaşma işlevleri, ardından destek yayımlama-abone olma Mesajlaşma özellikleri, zamana bağlı ayırma ve Yük Dengeleme Service Bus Mesajlaşma iş yükü kullanarak ayrılmış olarak düşünülebilir. Ayrılmış iletişim birçok avantaj sunar. Örneğin, sunucular ve istemciler gerektiğinde bağlantı kurabilir ve kendi işlemlerini zaman uyumsuz olarak gerçekleştirebilir.
 
 Hizmet veri yolundaki özünü Mesajlaşma özelliklerini Mesajlaşma varlıkları kuyruklar, konuları ve abonelikleri ve kuralları/eylemleri ' dir.
 
@@ -30,7 +30,7 @@ Hizmet veri yolundaki özünü Mesajlaşma özelliklerini Mesajlaşma varlıklar
 
 Kuyruklar teklif *ilk gelen, giden ilk* (FIFO yöntemine göre) ileti teslimi bir veya birden çok rakip tüketiciye. Diğer bir deyişle, iletiler genellikle alınan ve hangi kuyruğa eklendikleri ve her ileti alındı ve yalnızca bir ileti tüketicisi tarafından işlenen bir düzende alıcılar tarafından işlenen beklenir. Kuyrukları kullanmanın önemli bir avantajı "zamana bağlı ayırma" uygulama bileşenlerinin elde etmektir. İletileri işlemi kuyrukta depolandığından diğer bir deyişle, üreticiler (göndericiler) ve tüketicilerin (Alıcılar) aynı anda ileti alma ve gönderme gerekmez. Ayrıca, üretici işlemek ve iletileri göndermek devam etmek için bir yanıt beklerken yok.
 
-", Üreticilerin ve tüketicilerin iletileri farklı hızlarda gönderip almasına sağlayan Yük Dengeleme" bir avantaj ise. Birçok uygulamada, sistem yükünün zaman içinde değişir; Bununla birlikte, her iş birimi için gereken işleme süresi genellikle sabittir. Aracılığıyla ileti üreticileri ve tüketicileri bir kuyruk, kullanıcı uygulamanın yalnızca ortalama yük yoğun yük yerine işlemek için kullanılacak olduğunu anlamına gelir. Gelen yük hacmi değiştikçe kuyruğun derinliği artar ve daralır. Bu, doğrudan para uygulama yükünü sunmak için gereken altyapı miktarı ile kaydeder. Yük arttıkça kuyruktan okunmak üzere daha fazla çalışan işlemi eklenebilir. Her ileti yalnızca bir çalışan işlemi tarafından işlenir. Ayrıca, çalışan bilgisayarlar işleme gücünü göre farklılık gösterse bile iletileri kendi maksimum hızında çeker olarak çalışan bilgisayarlar için en iyi kullanımı bu çekme tabanlı yük dengeleme sağlar. Bu desen genellikle "tüketici rekabet" düzeni olarak adlandırılır.
+", Üreticilerin ve tüketicilerin iletileri farklı hızlarda gönderip almasına sağlayan Yük Dengeleme" bir avantaj ise. Birçok uygulamada, sistem yükünün zaman içinde değişir; Bununla birlikte, her iş birimi için gereken işleme süresi genellikle sabittir. Aracılığıyla ileti üreticileri ve tüketicileri bir kuyruk, kullanıcı uygulamanın yalnızca ortalama yük yoğun yük yerine işlemek için kullanılacak olduğunu anlamına gelir. Gelen yük hacmi değiştikçe kuyruğun derinliği artar ve daralır. Bu, doğrudan para uygulama yükünü sunmak için gereken altyapı miktarı ile kaydeder. Yük arttıkça kuyruktan okunmak üzere daha fazla çalışan işlemi eklenebilir. Her ileti yalnızca bir çalışan işlemi tarafından işlenir. Ayrıca, çalışan bilgisayarlar işleme gücünü göre farklılık gösterse bile bunların iletileri kendi maksimum hızında çekme olarak çalışan bilgisayarlar için en iyi kullanımı bu çekme tabanlı yük dengeleme sağlar. Bu desen genellikle "tüketici rekabet" düzeni olarak adlandırılır.
 
 İleti üreticileri ve tüketicileri arasında ara için kuyrukları kullanma bileşenleri arasındaki yapısında bir gevşek bağlantı sağlar. Üreticileri ve tüketicileri birbirinden farkında değildir çünkü bir tüketici üretici üzerinde hiçbir etkisi olmadan yükseltilebilir.
 
@@ -52,7 +52,7 @@ MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateS
 QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 ```
 
-Sonra iletileri kuyruğa gönderebilirsiniz. Örneğin, adında aracılı iletilerin listesini varsa `MessageList`, kodu aşağıdakine benzer görünür:
+Sonra iletileri kuyruğa gönderebilirsiniz. Örneğin, adında aracılı iletilerin listesini varsa `MessageList`, kodu aşağıdaki örneğe benzer görünür:
 
 ```csharp
 for (int count = 0; count < 6; count++)
@@ -82,7 +82,7 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
 
 Uygulama herhangi bir nedenden dolayı iletisi işleyemedi ise çağırabilirsiniz [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) alınan iletide yöntemi (yerine [tam](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)). Bu iletinin kilidini açmak ve aynı tüketici veya başka bir rakip tüketici tarafından tekrar alınabilir kullanılabilir hale getirmek hizmet veri yolu sağlar. İkincisi, kilidi ile ilişkili bir zaman aşımı yoktur ve (örneğin, uygulama çökerse) Service Bus iletinin kilidini açar ve kolaylaştırır kilit zaman aşımı dolmadan önce iletiyi işlemek uygulama başarısız olursa kullanılabilir olması yeniden alınan) temelde gerçekleştiren bir [Abandon](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon) işlemi varsayılan olarak).
 
-Uygulama ileti, ancak önce çökmesi durumunda, unutmayın **tam** isteği bildirilmeden, yeniden başlatıldığında ileti uygulamaya tekrar teslim. Bu genellikle adlandırılır *en az bir kez* işleme; diğer bir deyişle, her ileti en az bir kez işlenir. Ancak, belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi genişliğinin kullanılmasını sonra ek mantık göre elde edilebilir yinelemeleri algılamak için uygulamada gereklidir **MessageID** boyunca sabit kalır iletinin özelliği Teslim girişimleri. Bu olarak bilinir *tam olarak bir kez* işleme.
+Uygulama ileti, ancak önce çökmesi durumunda, unutmayın **tam** isteği bildirilmeden, yeniden başlatıldığında ileti uygulamaya tekrar teslim. Bu genellikle adlandırılır *en az bir kez* işleme; diğer bir deyişle, her ileti en az bir kez işlenir. Ancak, belirli durumlarda aynı ileti yeniden teslim edilebilir. İlave bir mantık yinelemeleri algılamak için uygulamada Required senaryo yinelenen işlemeyi, kabul etmiyorsa, elde edilebilir temel **MessageID** boyunca sabit kalır iletinin özelliği Teslim girişimleri. Bu olarak bilinir *tam olarak bir kez* işleme.
 
 ## <a name="topics-and-subscriptions"></a>Konular ve abonelikler
 Kuyruklar, her ileti tek bir tüketici tarafından işlenir aksine *konuları* ve *abonelikleri* iletişim, bir çok form sağladığınız bir *Yayımlama/abonelik* düzeni. Alıcılar çok fazla sayıda ölçekleme için yararlı, yayımlanan her ileti konuya kaydedilen her abonelik için kullanılabilir yapılır. İletiler konu başlığına gönderilen ve bir veya daha fazla ilişkili abonelik, bir abonelik başına temelinde ayarlanabilir filtre kuralları bağlı olarak teslim edilir. Abonelikler ek filtreler almak istediği iletileri kısıtlamak için kullanabilirsiniz. İletileri gönderilir aynı şekilde konu kuyruğa gönderilmeden ancak iletileri alınmayan konusundan doğrudan. Bunun yerine, bunlar aboneliklerden alınır. Bir konu aboneliği konu başlığına gönderilen iletilerin kopyalarını alan sanal kuyruğa benzer. İletileri bir abonelikten bir kuyruktan alınan şekilde aynı aldı.
@@ -155,7 +155,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Bu abonelik filtresi yerinde olan iletiler birlikte `StoreName` özelliğini `Store1` için sanal sırasına kopyalanır `Dashboard` abonelik.
 
-Olası filtre değerleri hakkında daha fazla bilgi için belgelerine bakın [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ve [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) sınıfları. Ayrıca bkz [aracılı Mesajlaşma: Gelişmiş filtreler](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) ve [konu filtreleri](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) örnekleri.
+Olası filtre değerleri hakkında daha fazla bilgi için belgelerine bakın [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ve [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) sınıfları. Ayrıca bkz [aracılı Mesajlaşma: Gelişmiş filtreler](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) ve [konu filtreleri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters) örnekleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki konularda daha fazla bilgi ve Service Bus Mesajlaşma kullanma örnekleri Gelişmiş bakın.
@@ -163,6 +163,5 @@ Aşağıdaki konularda daha fazla bilgi ve Service Bus Mesajlaşma kullanma örn
 * [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
 * [Service Bus aracılı mesajlaşma .NET eğitmeni](service-bus-brokered-tutorial-dotnet.md)
 * [Service Bus aracılı Mesajlaşma REST Öğreticisi](service-bus-brokered-tutorial-rest.md)
-* [Konu başlığı filtreleri örneği](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/TopicFilters)
 * [Aracılı Mesajlaşma: Gelişmiş filtreleri örneği](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 

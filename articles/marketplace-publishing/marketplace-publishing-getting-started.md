@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa00f176ff56c13033907e134fc236c291308028
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Yayımlama ve Azure markette bir teklif yönetme
 Bu makalede, geliştiricilerin oluşturmak, dağıtmak ve diğer Azure müşterileri ve ortakları satın almak ve kullanmak Azure Market listelenen çözümleri yönetmek amacıyla sağlanır.
@@ -99,9 +99,6 @@ Yardım çözümünüzle aşağıdaki kaynaklardan yönetin:
 * [Üretim değerlere listeleme fiyat geri](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Üretim değerleri faturalama modeline geri](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Listelenen SKU üretim değerine görünürlük ayarını geri](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
-* [Bulut çözümü sağlayıcısı satıcınızla ıncentive değiştirme](marketplace-publishing-csp-incentive.md)
-* [Ödeme raporlama anlama](marketplace-publishing-report-payout.md)
-* [Bir yayımcı olarak destek alma](marketplace-publishing-get-publisher-support.md)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 [Azure PowerShell ayarlayın](marketplace-publishing-powershell-setup.md)

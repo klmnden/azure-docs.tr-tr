@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -31,7 +31,7 @@ Birçok kuruluş bilmek istediğiniz dağıtım sonrası nasıl veya SSPR gerçe
 [Azure portalı] mevcut raporlar aşağıdaki soruları yanıtlanabilir (https://portal.azure.com/).
 
 > [!NOTE]
-> Olmalıdır [genel yönetici](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) ve bu veriler kuruluşunuz adına raporlama sekme veya denetim günlüklerini en az bir kez ziyaret ederek toplanması katılımı gerekir. Bunun yapılması kadar veri kuruluşunuz için toplanmaz
+> Olmalıdır [genel yönetici](active-directory-assign-admin-roles.md) ve bu veriler kuruluşunuz adına raporlama sekme veya denetim günlüklerini en az bir kez ziyaret ederek toplanması katılımı gerekir. Bunun yapılması kadar veri kuruluşunuz için toplanmaz
 
 * Kaç kişinin parola sıfırlama için kayıtlı?
 * Parola sıfırlama için kayıtlı olan kim?
@@ -78,13 +78,7 @@ Bir çalışan betik olduktan sonra sonraki senaryolarınızı karşılayacak ş
 
 Almak veya bu pencereyi aşan veri depolamak gerekiyorsa, dış bir veritabanında kalıcı yapma ve neden farkları sorgulamak için API kullanarak öneririz. Bizim önerimiz, kuruluşunuzda SSPR kullanmaya başladığınızda, bu veri alma başlamak, harici olarak kalır ve bu noktadan itibaren farkları izlemek devam etmek için ' dir.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Parola sıfırlama kayıt olayları hızla PowerShell ile karşıdan yükleme
-
-Azure AD raporları ve olayları API kullanarak doğrudan ek olarak, ayrıca kullanabilirsiniz PowerShell Betiği dizininizde yeni kayıt olayları aşağıda. Kim son kayıtlı olan veya beklediğiniz gibi parola sıfırlama sunum oluştuğunu sağlamak istediğiniz görmek istediğiniz durumlarda kullanışlıdır.
-
-* [Azure AD SSPR'yi kayıt etkinlik PowerShell Betiği](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Azure Portalı'nda rapor sütunlarını açıklaması
+## <a name="description-of-report-columns-in-azure-portal"></a>Azure Portalı'nda rapor sütunlarını açıklaması
 
 Aşağıdaki listede ayrıntılı raporu sütunların her biri açıklanmaktadır:
 
@@ -93,7 +87,7 @@ Aşağıdaki listede ayrıntılı raporu sütunların her biri açıklanmaktadı
 * **Tarih ve saat** – tarih ve saat girişimi.
 * **Veri kayıtlı** – hangi kimlik doğrulama verileri kullanıcı sağlanan sırasında parola sıfırlama kaydı.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Azure Portalı'nda rapor değerlerinin açıklaması
+## <a name="description-of-report-values-in-azure-portal"></a>Azure Portalı'nda rapor değerlerinin açıklaması
 
 Aşağıdaki tabloda her sütun için izin verilen farklı değerler açıklanmaktadır:
 
@@ -198,16 +192,16 @@ Aşağıdaki listede bu etkinliği ayrıntılı açıklanmıştır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [SSPR başarılı bir sunum nasıl tamamlamak?](active-directory-passwords-best-practices.md)
-* [Sıfırlama veya parolanızı değiştirme](active-directory-passwords-update-your-own-password.md).
-* [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
-* [Bir lisans soru var mı?](active-directory-passwords-licensing.md)
-* [Hangi verilerin SSPR tarafından kullanılır ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](active-directory-passwords-data.md)
-* [Hangi kimlik doğrulama yöntemlerinin kullanıcıların var mı?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [SSPR ile ilkesi seçenekleri nelerdir?](active-directory-passwords-policy.md)
-* [Parola geri yazma nedir ve neden t hakkında önemli?](active-directory-passwords-writeback.md)
-* [Tüm SSPR seçeneklerinde nedir ve ne anlama geldiklerini?](active-directory-passwords-how-it-works.md)
-* [Bir şey bozuk düşünüyorum. SSPR nasıl sorun giderme?](active-directory-passwords-troubleshoot.md)
-* [Herhangi bir yerde else kapsanmayan bir soru sahip](active-directory-passwords-faq.md)
+* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
+* [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md).
+* [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md).
+* [Lisans ile ilgili sorunuz mu var?](active-directory-passwords-licensing.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
+* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)
+* [Parola geri yazma nedir ve neden önemlidir?](active-directory-passwords-writeback.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
+* [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
+* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Azure AD'de SSPR etkinlik denetim örneği günlükleri"

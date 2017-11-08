@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/19/2017
+ms.date: 11/07/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
 Bu makalede, Azure AD için uygulama geliştirme öğrenmeye olduğunda faydalıdır çekirdek Azure Active Directory (AD) Geliştirici kavramları bazıları için tanımları içerir.
@@ -153,13 +153,13 @@ Bir uygulama oturum açma işlevini genellikle çoklu oturum açma (SSO) uygulam
 Kullanıcı durumunu ayrılırken bir son kullanıcı ilişkili beklemediğiniz kimlik doğrulama işlemini [istemci uygulaması](#client-application) oturumu sırasında [oturum açma](#sign-in)
 
 ## <a name="tenant"></a>Kiracı
-Azure AD dizini örneğini Azure AD kiracısı adlandırılır. Özellikler de dahil olmak üzere, çeşitli sağlar:
+Azure AD dizini örneğini Azure AD kiracısı adlandırılır. Dahil olmak üzere çeşitli özellikler sunar:
 
 * Tümleşik uygulamalar için bir kayıt defteri hizmeti
 * kimlik doğrulama kullanıcı hesapları ve kayıtlı uygulamalar
 * OAuth2 ve SAML, dahil çeşitli protokoller desteklemek için gereken REST uç noktalarını da dahil olmak üzere [yetkilendirme uç noktası](#authorization-endpoint), [belirteç uç noktası](#token-endpoint) ve "Genel" uç nokta tarafından kullanılan [ çok kiracılı uygulamalara](#multi-tenant-application).
 
-Bir kiracı, bir Azure AD ile de ilişkilidir veya abonelik için kimlik ve erişim yönetimi özellikleri sağlayarak bu aboneliğin sağlama sırasında Office 365 aboneliği. Bkz: [Azure Active Directory kiracısı alma] [ AAD-How-To-Tenant] çeşitli yollar hakkında ayrıntılar için erişim için bir kiracı elde edebilirsiniz. Bkz: [Azure aboneliklerinin Azure Active Directory ile ilişkili] [ AAD-How-Subscriptions-Assoc] abonelikleri ve Azure AD kiracısı arasındaki ilişki hakkında ayrıntılı bilgi için.
+Azure ve Office 365 abonelikleri ile oluşturulan/ilişkili kayıt, sağlama kimlik ve erişim yönetimi özellikleri abonelik için sırasında Azure AD kiracılar. Azure aboneliği yöneticileri de ek oluşturabilirsiniz Azure Portalı aracılığıyla Azure AD kiracılarıyla. Bkz: [Azure Active Directory kiracısı alma] [ AAD-How-To-Tenant] çeşitli yollar hakkında ayrıntılar için erişim için bir kiracı elde edebilirsiniz. Bkz: [Azure aboneliklerinin Azure Active Directory ile ilişkili] [ AAD-How-Subscriptions-Assoc] abonelikleri ve Azure AD kiracısı arasındaki ilişki hakkında ayrıntılı bilgi için.
 
 ## <a name="token-endpoint"></a>belirteç uç noktası
 Tarafından uygulanan uç noktalardan biri [yetkilendirme sunucusu](#authorization-server) destek OAuth2 [yetkilendirme verir](#authorization-grant). Grant bağlı olarak, bu almak için kullanılabilir bir [erişim belirteci](#access-token) (ve ilgili "Yenile" belirteç) için bir [istemci](#client-application), veya [kimliği belirteci](#ID-token) ile kullanıldığında [Openıd Bağlantı] [ OpenIDConnect] protokolü.
