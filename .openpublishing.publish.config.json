@@ -60,6 +60,17 @@
       "branch": "master"
     },
     {
+      "path_to_root": "policy-templates",
+      "url": "https://github.com/Azure/azure-policy",
+      "branch": "master",
+      "branch_mapping":
+      {
+        "release-build-mysql": "release-build",
+        "release-build-postgresql": "release-build",
+        "release-build-stellar": "release-build"
+      }
+ 	  },
+    {
       "path_to_root": "samples-mediaservices-encryptiondrm",
       "url": "https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm",
       "branch": "master"
