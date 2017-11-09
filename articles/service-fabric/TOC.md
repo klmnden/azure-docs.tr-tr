@@ -136,11 +136,30 @@
 ## [API Management ile tümleştirme](service-fabric-api-management-overview.md)
 
 ## İzleme ve tanılama
-### [Genel Bakış](service-fabric-diagnostics-overview.md)
-### [Sistem durumu modeli](service-fabric-health-introduction.md)
-### [Durum bilgisi olan Reliable Services özelliğinde tanılama](service-fabric-reliable-services-diagnostics.md)
-### [Reliable Actors hizmetinde tanılama](service-fabric-reliable-actors-diagnostics.md)
-### [Güvenilir Hizmet ile Uzaktan İletişim için performans sayaçları](service-fabric-reliable-serviceremoting-diagnostics.md)
+### [İzleme ve tanılama uygulamaları](service-fabric-diagnostics-overview.md)
+### Olay oluşturma
+#### [Platform düzeyinde etkinlikler oluşturma](service-fabric-diagnostics-event-generation-infra.md)
+##### [İşlevsel kanal](service-fabric-diagnostics-event-generation-operational.md)
+##### [Reliable Services olayları](service-fabric-reliable-services-diagnostics.md)
+##### [Reliable Actors olayları](service-fabric-reliable-actors-diagnostics.md)
+##### [Performans ölçümleri](service-fabric-diagnostics-event-generation-perf.md)
+##### [Uzaktan Hizmet İletişimini izleme](service-fabric-reliable-serviceremoting-diagnostics.md)
+#### [Uygulama düzeyinde olaylar oluşturma](service-fabric-diagnostics-event-generation-app.md)
+### Uygulama ve küme sistem durumunu denetleme
+#### [Service Fabric sistem durumunu izleme](service-fabric-health-introduction.md)
+#### [Hizmet durumunu raporlama ve denetleme](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Özel durum raporları ekleme](service-fabric-report-health.md)
+#### [Sistem durum raporlarıyla ilgili sorunları giderme](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Sistem durumu raporlarını görüntüleme](service-fabric-view-entities-aggregated-health.md)
+### Olayları toplama
+#### [EventFlow ile olayları toplama](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Azure Tanılama ile olayları toplama
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Olayları çözümleme
+#### [Application Insights ile olayları çözümleme](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [OMS ile olayları çözümleme](service-fabric-diagnostics-event-analysis-oms.md)
+### [Yerel kümenizde sorun giderme](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Nasıl yapılır kılavuzları
 ## Geliştirme ortamınızı kurma
@@ -317,30 +336,12 @@
 #### [Hizmet taşıma](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## İzleme ve tanılama
-### [İzleme ve tanılama uygulamaları](service-fabric-diagnostics-overview.md)
-### Olay oluşturma
-#### [Platform düzeyinde etkinlikler oluşturma](service-fabric-diagnostics-event-generation-infra.md)
-##### [İşlevsel kanal](service-fabric-diagnostics-event-generation-operational.md)
-##### [Reliable Services olayları](service-fabric-reliable-services-diagnostics.md)
-##### [Reliable Actors olayları](service-fabric-reliable-actors-diagnostics.md)
-##### [Performans ölçümleri](service-fabric-diagnostics-event-generation-perf.md)
-#### [Uygulama düzeyinde olaylar oluşturma](service-fabric-diagnostics-event-generation-app.md)
-### Uygulama ve küme sistem durumunu denetleme
-#### [Service Fabric sistem durumunu izleme](service-fabric-health-introduction.md)
-#### [Hizmet durumunu raporlama ve denetleme](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-#### [Özel durum raporları ekleme](service-fabric-report-health.md)
-#### [Sistem durum raporlarıyla ilgili sorunları giderme](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-#### [Sistem durumu raporlarını görüntüleme](service-fabric-view-entities-aggregated-health.md)
-#### [Windows Server kapsayıcılarını izleme](service-fabric-diagnostics-containers-windowsserver.md)
-### Olayları toplama
-#### [EventFlow ile olayları toplama](service-fabric-diagnostics-event-aggregation-eventflow.md)
-#### Azure Tanılama ile olayları toplama
-##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
-##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
-### Olayları çözümleme
-#### [Application Insights ile olayları çözümleme](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [OMS ile olayları çözümleme](service-fabric-diagnostics-event-analysis-oms.md)
-### [Yerel kümenizde sorun giderme](service-fabric-troubleshoot-local-cluster-setup.md)
+### OMS
+#### [OMS Log Analytics’i ayarlama](service-fabric-diagnostics-oms-setup.md)
+#### [OMS Aracısını ekleme](service-fabric-diagnostics-oms-agent.md)
+#### [Kapsayıcıları izleme](service-fabric-diagnostics-oms-containers.md)
+### Performans izleme
+#### [WAD ile performans izleme](service-fabric-diagnostics-perf-wad.md)
 
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)

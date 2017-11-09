@@ -8,15 +8,17 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 6101dfa4bc74acf5045975f6513886fa135fe833
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7492fffd1c18a149ef12174c79d64b47afbaa3e4
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="best-practices-for-sql-data-sync"></a>SQL veri eşitleme için en iyi yöntemler 
+# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Azure SQL veri eşitleme (Önizleme) için en iyi yöntemler 
 
 Bu makalede SQL veri eşitleme (Önizleme) için en iyi uygulamaları açıklar.
+
+SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme) ile](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a>Güvenlik ve güvenilirlik
 
@@ -221,3 +223,21 @@ Bir veritabanını bir eşitleme grubundan kaldırmanız ve eşitleme grubu değ
 İlk olarak, bir veritabanı eşitleme grubundan kaldırın. Sonra değişikliğin dağıtılması ve tamamlamak için XML'deki sağlamak için bekleyin. Bu işlem tamamlandıktan sonra eşitleme grubunu düzenlemek ve değişiklikleri dağıtın.
 
 Bir veritabanını kaldırın ve sonra ilk dağıtmadan eşitleme grubu düzenlemek denerseniz, değişiklikleri, bir veya başka bir işlem başarısız olur ve portal arabiriminde tutarsız bir duruma alabilirsiniz. Bu durumda, doğru duruma geri yüklemek için sayfayı yenileyin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+SQL veri eşitleme hakkında daha fazla bilgi için bkz:
+
+-   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](sql-database-sync-data.md)
+-   [Azure SQL veri eşitlemeye başlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL veri eşitleme ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)
+
+-   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:
+    -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Bir Azure SQL Database ve SQL Server içi veritabanı arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [SQL veri eşitleme REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+SQL veritabanı hakkında daha fazla bilgi için bkz:
+
+-   [SQL veritabanı genel bakış](sql-database-technical-overview.md)
+-   [Veritabanı yaşam döngüsü yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)

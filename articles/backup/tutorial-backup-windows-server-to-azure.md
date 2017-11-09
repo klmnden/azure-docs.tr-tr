@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Windows Server’ı Azure’da Yedekleme
 
@@ -116,23 +116,19 @@ Azure yedeklemeleri ortaya çıktığında Windows Server'da zamanlamak için Mi
 
 3. Tıklatın **sonraki** gitmek için **yukarı geri öğelerine seçin** sayfası.
 
-4. Tıklatın **öğeleri Ekle** ve Seç açılan iletişim kutusunda **sistem durumu** ve dosya veya de yedeklemek istediğiniz klasörleri. Daha sonra, **Tamam**'a tıklayın.
+4. Tıklatın **öğeleri Ekle** ve açılan iletişim kutusundan seçin **sistem durumu** ve dosya veya de yedeklemek istediğiniz klasörleri. Daha sonra, **Tamam**'a tıklayın.
 
 5. **İleri**’ye tıklayın.
 
-6. Üzerinde **yedekleme zamanlamasını belirtin** sayfasında, gün veya hafta gerektiğinde yedeklemeleri dosyalar ve klasörler için tetiklenmesi sürelerini belirtin. Sistem Durumu yedekleme zamanlaması otomatik olarak yapılandırılır. 
+6. Üzerinde **yedekleme zamanlamasını belirtin (sistem durumu)** sayfasında, gün veya hafta yedeklemeleri gerektiğinde için sistem durumu tetiklenmesi tıklatıp süresini belirtin **sonraki** 
 
-    ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.  Üzerinde **bekletme ilkesi seçin** sayfasında, dosyalar ve klasörler için yedekleme kopyası için bekletme ilkesi seçin. Sistem durumu yedeklemeleri saklama süresi otomatik olarak 60 gün olarak ayarlanır.
+7.  Üzerinde **bekletme ilkesi seçin (sistem durumu)** sayfasında yedekleme kopyası için sistem durumu için bekletme ilkesi seçin ve tıklayın **sonraki**
+8. Benzer şekilde, seçili dosya ve klasörler için yedekleme zamanlaması ve bekletme ilkesi seçin. 
 8.  Üzerinde **seçin ilk yedekleme türünü** sayfasında, seçeneğini bırakın **otomatik olarak ağ üzerinden** seçili ve ardından **sonraki**.
 9.  Üzerinde **onay** sayfasında, bilgileri gözden geçirin ve ardından **son**.
 10. Sihirbaz yedekleme zamanlamasını oluşturduktan sonra **Kapat**'a tıklayın.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Bir geçici yedekleme gerçekleştirin
-
 
 Yedekleme işleri çalıştırdığınızda, zamanlama oluşturulur. Ancak, siz sunucusunda yedeklediğiniz değil. Bu veri dayanıklılığı sunucunuz için emin olmak için bir isteğe bağlı yedekleme çalıştırmak için bir olağanüstü durum kurtarma en iyi uygulamadır.
 
@@ -140,8 +136,9 @@ Yedekleme işleri çalıştırdığınızda, zamanlama oluşturulur. Ancak, siz 
 
     ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.  Üzerinde **onay** sayfasında, ayarları gözden geçirin, **Şimdi Yedekle** Sunucunuzu Yedekleme için Sihirbazı'nı kullanır. Ardından **Yedekle**'ye tıklayın.
-3.  Sihirbazı kapatmak için **Kapat**'a tıklayın. Sihirbaz yedekleme işlemi tamamlanmadan önce kapatırsanız, sihirbaz arka planda çalışmaya devam eder.
+2.  Üzerinde **Şimdi Yedekle** seçin makineden **dosya ve klasörleri** veya **sistem durumu** yedeklemek ve tıklatın istediğiniz **sonraki** 
+3. Üzerinde **onay** sayfasında, ayarları gözden geçirin, **Şimdi Yedekle** Sunucunuzu Yedekleme için Sihirbazı'nı kullanır. Ardından **Yedekle**'ye tıklayın.
+4.  Sihirbazı kapatmak için **Kapat**'a tıklayın. Sihirbaz yedekleme işlemi tamamlanmadan önce kapatırsanız, sihirbaz arka planda çalışmaya devam eder.
 4.  İlk Yedekleme tamamlandıktan sonra **işi tamamlandı** durumu görünür **işleri** MARS Aracısı konsolunun bölmesinde.
 
 

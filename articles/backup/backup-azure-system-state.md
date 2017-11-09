@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager dağıtım Windows sistem durumu yedekleme
 Bu makalede, Azure için Windows Server sistem durumunu yedekleme açıklanmaktadır. Bu, size temel işlemler boyunca yol göstermeye yönelik bir öğreticidir.
@@ -29,7 +29,7 @@ Azure Backup hakkında daha fazla bilgi edinmek istiyorsanız bu [genel bakış�
 Azure aboneliğiniz yoksa istediğiniz Azure hizmetine erişmenizi sağlayan [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma hizmetleri kasası oluşturma
-Dosya ve klasörlerinizi yedeklemek için, verileri depolamak istediğiniz bölgede bir Kurtarma Hizmetleri kasası oluşturmanız gerekir. Ayrıca, depolama alanınızın nasıl çoğaltılmasını istediğinizi belirlemeniz gerekir.
+Windows Server sistem durumunu yedeklemek için verileri depolamak istediğiniz bölgede bir kurtarma Hizmetleri kasası oluşturmanız gerekir. Ayrıca, depolama alanınızın nasıl çoğaltılmasını istediğinizi belirlemeniz gerekir.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturmak için
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure Portal](https://portal.azure.com/)'da oturum açın.
@@ -135,6 +135,9 @@ Bir kasa oluşturduğunuza göre Windows sistem durumunu yedekleme için yapıla
     Kasa kimlik bilgileri, İndirmeler klasörünüze indirilir. Kasa kimlik bilgilerini indirme tamamlandıktan sonra kimlik bilgilerini açmak veya kaydetmek isteyip istemediğinizi soran bir açılır pencere görüntülenir. **Kaydet**’e tıklayın. Yanlışlıkla **Aç**’a tıklarsanız, kasa kimlik bilgilerini açmaya çalışan iletişim kutusu başarısız olur. Kasa kimlik bilgilerini açamazsınız. Sonraki adıma geçin. Kasa kimlik bilgileri İndirmeler klasöründedir.   
 
     ![kasa kimlik bilgilerini indirme tamamlandı](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+> [!NOTE]
+> Kasa kimlik bilgileri, aracı kullanmayı amaçladığınız Windows Server'a yereldir bir konuma kaydedilmesi gerekir. 
+>
 
 ## <a name="install-and-register-the-agent"></a>Aracıyı yükleme ve kaydetme
 
@@ -163,40 +166,13 @@ Bir kasa oluşturduğunuza göre Windows sistem durumunu yedekleme için yapıla
 
 Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yapılandırıp zamanlamak için hazırsınız.
 
-## <a name="back-up-windows-server-system-state-preview"></a>Windows Server sistem durumunu (Önizleme) yedekleme
-İlk yedekleme üç görevleri içerir:
+## <a name="back-up-windows-server-system-state"></a>Windows Server Sistem Durumunu yedekleme 
+İlk yedekleme iki görevleri içerir:
 
-* Azure Backup aracısını kullanarak sistem durumu yedeklemesi etkinleştir
 * Yedeklemeyi zamanlama
-* Dosya ve klasörleri ilk kez yedekleme
+* İlk kez sistem durumunu yedekleme
 
 İlk yedeklemeyi tamamlamak için Microsoft Azure Kurtarma Hizmetleri aracısını kullanın.
-
-### <a name="to-enable-system-state-backup-using-the-azure-backup-agent"></a>Azure Backup Aracısı kullanılarak sistem durumu yedeklemesi etkinleştirmek için
-
-1. Bir PowerShell oturumunda Azure Backup altyapısını durdurmak için aşağıdaki komutu çalıştırın.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Windows kayıt defterini açın.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Aşağıdaki kayıt defteri anahtarı ile belirtilen DWord değerini ekleyin.
-
-  | Kayıt defteri yolu | Kayıt defteri anahtarı | DWord değeri |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Yükseltilmiş bir komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını yeniden başlatın.
-
-  ```
-  PS C:\> Net start obengine
-  ```
 
 ### <a name="to-schedule-the-backup-job"></a>Yedekleme işini zamanlamak için
 
@@ -216,11 +192,7 @@ Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yap
 
 6. **İleri**’ye tıklayın.
 
-7. Sistem Durumu yedekleme ve bekletme zamanlaması her Pazar 9:00 PM yerel zaman yedeklemek için otomatik olarak ayarlanır ve bekletme süresini 60 gün olarak ayarlanır.
-
-   > [!NOTE]
-   > Sistem Durumu yedekleme ve bekletme ilkesi otomatik olarak yapılandırılır. Dosya ve klasörleri ek olarak Windows Server sistem durumu yedekleme yapıyorsanız, yalnızca yedekleme ve Bekletme İlkesi Sihirbazı'ndan dosyası yedeklerini belirtin. 
-   >
+7. Gerekli yedekleme sıklığı ve bekletme ilkesi, sistem durumu yedeklemeleri için sonraki sayfalarında seçin. 
 
 8. Onay sayfasında bilgileri gözden geçirin ve ardından **Son**'a tıklayın.
 
@@ -234,88 +206,21 @@ Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yap
 
     ![Windows Server şimdi yedekle](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Onay sayfasında, Şimdi Yedekle Sihirbazı'nın makineyi yedeklemek için kullanacağı ayarları gözden geçirin. Ardından **Yedekle**'ye tıklayın.
+3. Seçin **sistem durumu** üzerinde **yedekleme öğe seç** görünür ve ekran **sonraki**.
+
+4. Onay sayfasında, Şimdi Yedekle Sihirbazı'nın makineyi yedeklemek için kullanacağı ayarları gözden geçirin. Ardından **Yedekle**'ye tıklayın.
 
 4. Sihirbazı kapatmak için **Kapat**'a tıklayın. Yedekleme işlemi tamamlanmadan önce sihirbazı kapatırsanız, sihirbaz arka planda çalışmaya devam eder.
 
-5. Sunucunuzda, Windows Server sistem durumu yanı sıra dosya ve klasörlerinizi yedekleme yapıyorsanız Şimdi Yedekle Sihirbazı yalnızca dosyaların yedeğini alın. Geçici bir sistem durumu Yedekleme gerçekleştirmek için aşağıdaki PowerShell komutunu kullanın:
 
-    ```
-    PS C:\> Start-OBSystemStateBackup
-    ```
-
-  İlk yedekleme tamamlandıktan sonra, Yedekleme konsolunda **İş tamamlandı** durumu görünür.
+İlk yedekleme tamamlandıktan sonra, Yedekleme konsolunda **İş tamamlandı** durumu görünür.
 
   ![IR tamamlandı](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
-
-## <a name="frequently-asked-questions"></a>Sık sorulan sorular
-
-Aşağıdaki sorular ve yanıtlar tamamlayıcı bilgiler sağlar.
-
-### <a name="what-is-the-staging-volume"></a>Hazırlama toplu nedir?
-
-Hazırlama toplu sistem durumu yedeklemesi yerel olarak kullanılabilir, Windows Server Yedekleme'burada aşamaları Ara konumunu temsil eder. Azure Backup Aracısı sonra sıkıştırır ve bu Ara yedekleme şifreler ve güvenli HTTPS protokolü aracılığıyla yapılandırılmış kurtarma Hizmetleri Kasası'na gönderir. **Bir Windows işletim birim hazırlama toplu oluşturmak önerilir. Sistem durumu yedeklemeleri sorunları gözlemlerseniz, hazırlama biriminiz konumunu denetimi ilk sorun giderme adımdır.** 
-
-### <a name="how-can-i-change-the-staging-volume-path-specified-in-the-azure-backup-agent"></a>Hazırlama birimi Azure Backup aracısını belirtilen yolu nasıl değiştirebilir miyim?
-
-Hazırlama toplu varsayılan önbellek klasöründe bulunur. 
-
-1. Bu konumu değiştirmek için (bir yükseltilmiş komut istemi'nde) aşağıdaki komutu kullanın:
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Ardından aşağıdaki kayıt defteri girdilerini yeni hazırlama toplu klasörünün yolu ile güncelleştirin.
-
-  |Kayıt defteri yolu|Kayıt defteri anahtarı|Değer|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | Yeni hazırlama toplu konumu |
-
-Hazırlama yolu büyük küçük harfe duyarlıdır ve hangi sunucuda mevcut olarak tam aynı büyük küçük harf olmalıdır. 
-
-3. Hazırlama birimi yolu değiştirdiğinizde, Backup altyapısını yeniden başlatın:
-  ```
-  PS C:\> Net start obengine
-  ```
-4. Değiştirilen yolun almak için Microsoft Azure kurtarma Hizmetleri Aracısı'nı açın ve sistem durumunun geçici bir yedeklemeyi tetikleyin.
-
-### <a name="why-is-the-system-state-default-retention-set-to-60-days"></a>Neden sistem durumu varsayılan bekletme 60 gün olarak ayarlanır?
-
-Bir sistem durumu yedeklemesi kullanım ömrünü "kullanım ömrü" ayarı Windows Server Active Directory rolü için aynıdır. Silinmiş Öğe işareti yaşam süresi girişi için varsayılan değer 60 gündür. Bu değer dizin hizmeti (NTDS) config nesnede ayarlanabilir.
-
-### <a name="how-do-i-change-the-default-backup-and-retention-policy-for-system-state"></a>Varsayılan yedekleme ve bekletme ilkesi için sistem durumu nasıl değiştiririm?
-
-Varsayılan yedekleme ve sistem durumu için bekletme ilkesini değiştirmek için:
-1. Backup altyapısını durdurun. Yükseltilmiş bir komut isteminden aşağıdaki komutu çalıştırın.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Ekleyin veya HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider aşağıdaki kayıt defteri anahtar girişlerinde güncelleştirin.
-
-  |Kayıt defteri adı|Açıklama|Değer|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Yedekleme yapılandırmak için kullanılır. 9 yerel saati varsayılandır.|DWord: Biçimi 9:30 yerel saati 2130 örneğin SSDD (ondalık)|
-  |SSBScheduleDays|Belirtilen zamanda bir sistem durumu yedeklemesi zaman gerçekleştirilmelidir gün yapılandırmak için kullanılır. Tek tek basamak haftanın günleri belirtin. 0 Pazar gösteren, 1. Pazartesi, vb. Varsayılan yedekleme için Pazar günüdür.|DWord: Yedekleme (örneğin 1230 Pazartesi, Salı, Çarşamba ve Pazar yedeklemeler zamanlar ondalık) çalıştırmak için haftanın günlerini.|
-  |SSBRetentionDays|Yedekleme tutulacağı gün yapılandırmak için kullanılır. Varsayılan değer 60'tır. Değer izin verilen en fazla 180'dir.|DWord: Yedekleme (ondalık) tutulacağı gün sayısı.|
-
-3. Yedekleme Altyapısı yeniden başlatmak için aşağıdaki komutu kullanın.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Microsoft Kurtarma Hizmetleri Aracısı'nı açın.
-
-5. Tıklatın **yedekleme zamanlaması** ve ardından **sonraki** kadar yansıtılan değişiklikleri görebilirsiniz.
-
-6. Tıklatın **son** değişiklikleri uygulamak için.
-
 
 ## <a name="questions"></a>Sorularınız mı var?
 Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Windows makinelerini yedekleme](backup-configure-vault.md) konusunda daha fazla bilgi edinin.
-* Dosya ve klasörlerinizi yedeklediğinize göre artık [kasa ve sunucularınızı yönetebilirsiniz](backup-azure-manage-windows-server.md).
+* Windows Server sistem durumu yedeklemesi yedeklediğinize göre yapabilecekleriniz [kasa ve sunucularınızı yönetmek](backup-azure-manage-windows-server.md).
 * Bir yedeklemeyi geri yüklemeniz gerekirse [dosyaları bir Windows makinesine geri yüklemek](backup-azure-restore-windows-server.md) için bu makaleyi kullanın.

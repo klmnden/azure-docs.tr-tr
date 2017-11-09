@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
@@ -43,7 +43,7 @@ Yükleme sırasında sorunu yaşayıp çalıştırırsanız, yükleyici günlük
 Bu dizinlerin içerikleri zip ve tanılama için bize gönderin.
 
 ### <a name="workbench-desktop-app"></a>Çalışma ekranı masaüstü uygulaması
-Çalışma ekranı Masaüstü çökerse günlük dosyaları burada bulabilirsiniz:
+Oturum açma konusunda sorun yaşıyorsanız veya çalışma ekranı Masaüstü çökerse, günlük dosyalarını burada bulabilirsiniz:
 ```
 # Windows
 %APPDATA%\AmlWorkbench
@@ -83,6 +83,23 @@ Azure ML çalışma ekranı içinde çalışırken, ayrıca bize bir kaş çatma
 - Metin kümeleme dönüşümler Mac üzerinde desteklenmez.
 
 - RevoScalePy kitaplığı yalnızca Windows ve Linux (Docker kapsayıcılardaki) desteklenir. MacOS üzerinde desteklenmiyor.
+
+## <a name="delete-experimentation-account"></a>Deneme hesabı silme
+Bir deneme hesabı silmek için CLI kullanabilirsiniz, ancak alt çalışma alanları ve bu alt çalışma içinde alt projeleri silmeniz gerekir.
+
+```azure-cli
+# delete a project
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+
+# delete a workspace 
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+
+# delete an experimentation account
+$ az ml account experimentation delete -g <resource group name> -n <experimentation account name>
+```
+
+Ayrıca, projeler ve çalışma ekranı uygulama içinde çalışma alanlarından silebilirsiniz.
+
 
 ## <a name="file-name-too-long-on-windows"></a>Windows dosya adı çok uzun
 Windows çalışma ekranı kullanıyorsa, bir biraz "Sistem belirtilen yol bulunamıyor" hatası yanıltıcı olarak yüzey varsayılan en fazla 260 karakter dosya adı uzunluğu sınırı içinde çalıştırabilirsiniz. Çok uzun dosya yolu adı izin vermek için bir kayıt defteri anahtarı ayarı değiştirebilirsiniz. Gözden geçirme [bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) nasıl ayarlanacağı hakkında daha fazla ayrıntı için _MAX_PATH_ kayıt defteri anahtarı.

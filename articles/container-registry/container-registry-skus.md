@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>Azure kapsayıcı kayıt defteri SKU'ları
 
@@ -43,21 +43,7 @@ Klasik kayıt defteri SKU ilk sürüm Azure Azure kapsayıcı kayıt defteri hiz
 
 Aşağıdaki tabloda temel, standart ve Premium hizmet katmanları sınırları ve özellikleri ayrıntılı olarak açıklanmaktadır.
 
-| Özellik | Temel | Standart | Premium |
-|---|---|---|---|---|
-| Depolama | 10 Gib'den | 100 Gib'den| 500 Gib'den |
-| Okuma işlemleri: dakika başına<sup>1, 2</sup> | 1k | 300k | 10.000 k |
-| Yazma işlemleri: dakika başına<sup>1, 3</sup> | 100 | 500 | 2k |
-| MB/sn bant genişliği karşıdan<sup>1</sup> | 30 | 60 | 100 |
-| MB/sn bant genişliği karşıya<sup>1</sup> | 10 | 20 | 50 |
-| Web kancaları | 2 | 10 | 100 |
-| Coğrafi çoğaltma | Yok | Yok | [Desteklenen *(Önizleme)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> *okuma işlemleri:*, *yazma işlemleri:*, ve *bant genişliği* minimum tahminleri. Kullanım gerektirdiğinden performansı artırmak için ACR çalışır.
-
-<sup>2</sup> [docker çekme](https://docs.docker.com/registry/spec/api/#pulling-an-image) katmanları görüntü yanı sıra bildirim alma sayısına dayalı olarak birden çok okuma işlemleri için çevirir.
-
-<sup>3</sup> [docker itme](https://docs.docker.com/registry/spec/api/#pushing-an-image) gönderilen gerekir Katmanlar sayısına göre birden çok yazma işlemleri için çevirir. A `docker push` içeren *okuma işlemleri:* varolan bir görüntü yönelik bir bildirim almak için.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>Kayıt defteri boyutunu Yönet
 Her SKU depolama kısıtlamaları tipik bir senaryo ile hizalamak için tasarlanmıştır: Başlarken için temel, üretim uygulamaları ve Premium çoğunluğu hiper ölçekli performans için standart ve [coğrafi çoğaltma](container-registry-geo-replication.md). Kayıt defteri kullanım ömrü düzenli aralıklarla kullanılmayan içeriği silerek boyutuna yönetmeniz gerekir.

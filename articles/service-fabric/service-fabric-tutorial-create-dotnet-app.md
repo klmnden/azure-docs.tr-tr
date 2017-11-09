@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5a095663b7e716fd63322c9f89f67a1f3187638b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Bir ASP.NET çekirdek Web API ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti ile bir uygulama oluşturun ve dağıtın
 Bu öğretici bir dizi birini bir parçasıdır.  Azure Service Fabric uygulaması bir ASP.NET çekirdek Web API ön uç ve verilerinizi depolamak için durum bilgisi olan bir arka uç hizmeti ile nasıl oluşturulacağını öğreneceksiniz. İşlemi tamamladığınızda, oylama bir durum bilgisi olan bir arka uç hizmetinde kümedeki Oylama sonuçlarını kaydettiği ön uç bir ASP.NET Core web uygulamasıyla sahip. El ile oylama uygulaması oluşturmak istemiyorsanız, şunları yapabilirsiniz [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) tamamlanan uygulama için ve için İleri atlayabilirsiniz [üzerinden oylama örnek uygulama yol](#walkthrough_anchor).
@@ -228,7 +228,11 @@ Açık *Views/Shared/_Layout.cshtml* dosya, ASP.NET uygulaması için varsayıla
 ```
 
 ### <a name="update-the-votingwebcs-file"></a>VotingWeb.cs dosyasını güncelleştirme
-Açık *VotingWeb.cs* WebListener web sunucusu kullanarak durum bilgisi olmayan hizmetin ASP.NET Core WebHost oluşturur dosya.  Ekleme `using System.Net.Http;` dosyanın en üstüne yönergesi.  Değiştir `CreateServiceInstanceListeners()` işlev şununla sonra yaptığınız değişiklikleri kaydedin.
+Açık *VotingWeb.cs* WebListener web sunucusu kullanarak durum bilgisi olmayan hizmetin ASP.NET Core WebHost oluşturur dosya.  
+
+Ekleme `using System.Net.Http;` dosyanın en üstüne yönergesi.  
+
+Değiştir `CreateServiceInstanceListeners()` işlev şununla sonra yaptığınız değişiklikleri kaydedin.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -257,7 +261,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### <a name="add-the-votescontrollercs-file"></a>VotesController.cs dosyası ekleme
-Oylama Eylemler tanımlayan bir denetleyici ekleyin. Sağ tıklayın **denetleyicileri** klasörünü seçip **Ekle -> Yeni öğe sınıfı ->**.  "VotesController.cs" dosya adı ve'ı tıklatın **Ekle**.  Dosya içeriğini yaptığınız değişiklikleri kaydedin sonra aşağıdaki değiştirin.  Daha sonra [VotesController.cs dosyasını güncelleştirme](#updatevotecontroller_anchor), bu dosyayı okumak ve arka uç hizmetinden oylama veri yazmak için değiştirilecek.  Şimdilik, denetleyici görünümüne statik dize verilerini döndürür.
+Oylama Eylemler tanımlayan bir denetleyici ekleyin. Sağ tıklayın **denetleyicileri** klasörünü seçip **Ekle -> Yeni öğe sınıfı ->**.  "VotesController.cs" dosya adı ve'ı tıklatın **Ekle**.  
+
+Dosya içeriğini yaptığınız değişiklikleri kaydedin sonra aşağıdaki değiştirin.  Daha sonra [VotesController.cs dosyasını güncelleştirme](#updatevotecontroller_anchor), bu dosyayı okumak ve arka uç hizmetinden oylama veri yazmak için değiştirilecek.  Şimdilik, denetleyici görünümüne statik dize verilerini döndürür.
 
 ```csharp
 using System;
@@ -296,7 +302,23 @@ namespace VotingWeb.Controllers
 }
 ```
 
+### <a name="configure-the-listening-port"></a>Dinleme bağlantı noktasını yapılandırın
+VotingWeb ön uç hizmeti oluşturulduğunda, Visual Studio bir bağlantı noktası üzerinde dinleme hizmeti için rastgele seçer.  VotingWeb hizmeti bu uygulama için ön uç gibi davranır ve dış trafiği kabul eder, sağlandığından hizmet sabit bir bağlayabilir ve bağlantı noktası iyi biliyor. Çözüm Gezgini'nde açık *VotingWeb/PackageRoot/ServiceManifest.xml*.  Bul **Endpoint** kaynak **kaynakları** bölümünde ve değiştirme **bağlantı noktası** 80 veya başka bir bağlantı noktası değeri. Dağıtma ve uygulama yerel olarak çalıştırmak için uygulama dinleme bağlantı noktası açık ve bilgisayarınızdaki kullanılabilir olması gerekir.
 
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+Ayrıca 'F5' kullanarak hata ayıklamasını yaparken doğru bağlantı noktasına bir web tarayıcısı açar şekilde oylama Proje uygulama URL'si özelliği değeri güncelleştirin.  Çözüm Gezgini'nde seçin **oylama** proje ve güncelleştirme **uygulama URL'si** özelliği.
+
+![Uygulama URL'si](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ### <a name="deploy-and-run-the-application-locally"></a>Dağıtma ve uygulama yerel olarak çalıştırma
 Şimdi devam edin ve uygulamayı çalıştırın. Hata ayıklama için uygulamayı dağıtmak üzere Visual Studio'da `F5` tuşuna basın. `F5`Visual Studio olarak daha önce açılmazsa başarısız **yönetici**.

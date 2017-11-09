@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8b90885583c411e5b1e513188a636fe54ec74b7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Sayısal işlevler için Azure Resource Manager şablonları
 
@@ -122,11 +122,13 @@ Bir yineleme döngüsü dizinini döndürür.
 
 ### <a name="remarks"></a>Açıklamalar
 
-Bu işlev her zaman ile kullanılan bir **kopyalama** nesnesi. İçin hiçbir değer sağlanmazsa **uzaklık**, geçerli yineleme değeri döndürülür. Yineleme değeri sıfırdan başlatır.
+Bu işlev her zaman ile kullanılan bir **kopyalama** nesnesi. İçin hiçbir değer sağlanmazsa **uzaklık**, geçerli yineleme değeri döndürülür. Yineleme değeri sıfırdan başlatır. Yineleme döngüleri kaynakları veya değişkenleri tanımlarken kullanabilirsiniz.
 
 **LoopName** özelliği Copyındex bir kaynak yineleme ya da özellik yineleme başvuran belirtmenize olanak sağlar. İçin hiçbir değer sağlanmazsa **loopName**, geçerli kaynak türü yineleme kullanılır. İçin bir değer girin **loopName** bir özellik dolaşırken. 
  
 Nasıl kullanabileceğinize tam bir açıklaması için **Copyındex**, bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
+
+Kullanarak bir örnek için **Copyındex** bir değişken tanımlarken bkz [değişkenleri](resource-group-authoring-templates.md#variables).
 
 ### <a name="example"></a>Örnek
 

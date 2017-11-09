@@ -21,6 +21,8 @@
       href: tutorial-user-access.md
     - name: 3 - Harcamaları tahmin etme
       href: tutorial-forecast-spending.md
+    - name: 4 - Maliyetleri yönetme
+      href: tutorial-manage-costs.md
 - name: Kaynaklar
   items:
     - name: Maliyet Yönetimi videoları

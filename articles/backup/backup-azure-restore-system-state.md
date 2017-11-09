@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 320c85f8045d9b72cf7f430d2e2736ba8e5ec269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server sistem durumunu geri yükle
 
-Bu makalede, Azure kurtarma Hizmetleri Kasası'nı Windows Server sistem durumu yedeği açıklanmaktadır. Sistem durumunu geri yüklemek için bir sistem durumu yedeklemesi olmalıdır ('ndaki yönergeleri kullanarak oluşturduğunuz [sistem durumu yedekleme](backup-azure-system-state.md#back-up-windows-server-system-state-preview)) ve yüklediğinizden emin olun [en son sürümünü Microsoft Azure Recovery Services'ın (MARS) Aracı](http://aka.ms/azurebackup_agent). Azure kurtarma Hizmetleri Kasası'nı Windows Server Sistem Durumu verilerini kurtarma iki adımlı bir işlemdir:
+Bu makalede, Azure kurtarma Hizmetleri Kasası'nı Windows Server sistem durumu yedeği açıklanmaktadır. Sistem durumunu geri yüklemek için bir sistem durumu yedeklemesi olmalıdır ('ndaki yönergeleri kullanarak oluşturduğunuz [sistem durumu yedekleme](backup-azure-system-state.md#back-up-windows-server-system-state)ve yüklediğinizden emin olun [en son sürümünü Microsoft Azure Recovery Services'ın (MARS) Aracı](http://aka.ms/azurebackup_agent). Azure kurtarma Hizmetleri Kasası'nı Windows Server Sistem Durumu verilerini kurtarma iki adımlı bir işlemdir:
 
 1. Sistem durumu, Azure yedekleme dosyalarını farklı geri yükle. Azure yedekleme dosyalarından olarak sistem durum geri yüklerken şunlardan birini yapabilirsiniz:
   * Burada yedeklemeleri gerçekleştirilecek, geri yükleme sistem durumu aynı sunucuya veya

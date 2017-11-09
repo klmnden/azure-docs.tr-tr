@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3cf0007f09c40fbccf58fbaee32df7be9bb2fa1a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Dağıtma ve Azure kapsayıcı kayıt defteri kullanma
 
@@ -60,7 +60,7 @@ Bu öğreticinin geri kalanını, kullandığımız `<acrname>` kapsayıcı kay�
 
 ## <a name="container-registry-login"></a>Kapsayıcı kayıt defteri oturum açma
 
-Kullanım [az acr oturum açma](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) ACR örneğinde oturum açma için komutu. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir ad vermeniz gerekir.
+Kullanım [az acr oturum açma](https://docs.microsoft.com/cli/azure/acr#az_acr_login) ACR örneğinde oturum açma için komutu. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir ad vermeniz gerekir.
 
 ```azurecli
 az acr login --name <acrName>

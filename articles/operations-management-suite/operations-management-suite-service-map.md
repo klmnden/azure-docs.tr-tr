@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Operations Management Suite hizmet Haritası çözümde kullanın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz şekilde sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine bağlı sistemler. Bir aracı yüklemesini dışındaki bağlantı noktaları üzerinden tüm TCP bağlı mimarisi herhangi bir yapılandırma gerekli ve hizmet eşlemesi sunucuları, işlemleri arasındaki bağlantıları gösterir.
@@ -224,11 +224,26 @@ Aşağıdaki resimde görebileceğiniz bir ConfigurationChange olay ayrıntılı
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Operations Management Suite performans tümleştirme
-**Makine performansını** bölmesi seçilen sunucu için standart performans ölçümleri görüntüler. Ölçümleri tarafından gönderilen ve alınan ağ bayt CPU kullanımı, bellek kullanımı, gönderilen ve alınan ağ bayt ve üst işlemlerin bir listesini içerir. Ağ performans verilerini almak için ayrıca Operations Management Suite kablo verileri 2.0 çözümde etkinleştirmiş olmanız gerekir.
+**Makine performansını** bölmesi seçilen sunucu için standart performans ölçümleri görüntüler. Ölçümleri tarafından gönderilen ve alınan ağ bayt CPU kullanımı, bellek kullanımı, gönderilen ve alınan ağ bayt ve üst işlemlerin bir listesini içerir.
 
 ![Makine performans bölmesi](media/oms-service-map/machine-performance.png)
 
+Performans verileri görmek için gerekebilir [uygun günlük analizi performans sayaçlarını etkinleştirme](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Etkinleştirmek istediğiniz sayaçları:
 
+Windows:
+- Ýþlemci(*)\% işlemci zamanı
+- Bellek\% Kaydedilmiş Bayt yüzdesi
+- Ağ bağdaştırıcısı (*) \Bytes gönderilen/sn
+- Ağ bağdaştırıcısı (*) \Bytes alınan/sn
+
+Linux:
+- Ýþlemci(*)\% işlemci zamanı
+- Memory(*)\% kullanılan bellek
+- Ağ bağdaştırıcısı (*) \Bytes gönderilen/sn
+- Ağ bağdaştırıcısı (*) \Bytes alınan/sn
+
+Ağ performans verilerini almak için ayrıca Operations Management Suite kablo verileri 2.0 çözümde etkinleştirmiş olmanız gerekir.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Operations Management Suite güvenlik tümleştirme
 Her iki çözüm de etkin ve Operations Management Suite çalışma alanınızda yapılandırılmış güvenlik ve Denetim ile hizmet Haritası tümleştirme otomatik olarak yapılır.
 

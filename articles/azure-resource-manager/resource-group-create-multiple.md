@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bir kaynak veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma
 Bu konu bir kaynak birden çok örneğini veya bir özelliği birden çok örneği üzerinde bir kaynak oluşturmak için Azure Resource Manager şablonu yineleme gösterir.
 
 Kaynak dağıtılabilir olup olmadığını belirlemek bkz olanak tanıyan şablonunuza mantığı eklemeniz gerekiyorsa, [koşullu kaynağını dağıtma](#conditionally-deploy-resource).
+
+Birden çok öğe bir dizi değişken oluşturma örneği için bkz: [değişkenleri](resource-group-authoring-templates.md#variables).
 
 ## <a name="resource-iteration"></a>Kaynak yineleme
 Bir kaynak türü birden çok örneğini oluşturmak için Ekle bir `copy` öğesi için kaynak türü. Copy öğesinde sayısı yinelemeleri ve bu döngü için bir ad belirtin. Sayaç değerinin pozitif bir tamsayı olmalıdır ve 800 aşamaz. Resource Manager kaynakları paralel olarak oluşturur. Bu nedenle, oluşturulan siparişi garanti edilmez. Sırayla tekrarlayan kaynakları oluşturmak için bkz [seri kopyalama](#serial-copy). 

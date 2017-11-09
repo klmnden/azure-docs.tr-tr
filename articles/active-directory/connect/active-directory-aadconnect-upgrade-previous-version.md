@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 52fd9375c71c42feaf87f4a0f4220e1cb3889e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: En son önceki bir sürümünden yükseltme
 Bu konuda, Azure Active Directory (Azure AD) Bağlan yüklemenizi en son sürümüne yükseltme için kullanabileceğiniz farklı yöntemler açıklanmaktadır. Kendiniz Azure AD Connect sürümleriyle geçerli tutmanızı öneririz. Ayrıca içindeki adımları kullanın [çarpma geçiş](#swing-migration) önemli bir yapılandırma değişikliği yaptığınızda bölüm.
@@ -47,6 +47,8 @@ Tek bir sunucu ve değerinden yaklaşık 100.000 nesneye sahip olduğunda bu ter
 Out-of-box eşitleme kuralları için değişiklik yaptıysanız, ardından bu kurallar geri yükseltmeden varsayılan yapılandırmaya ayarlanır. Yapılandırmanızı arasında yükseltme tutulur emin olmak için açıklandığı gibi değişiklikler yaptığınızdan emin olun [en iyi uygulamalar varsayılan yapılandırmasını değiştirmek için](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
 Yerinde yükseltme sırasında olabilir (tam alma adımı ve tam eşitleme adımı dahil) belirli eşitleme etkinliklerini yükseltme işlemi tamamlandıktan sonra çalıştırılacak gerektiren sunulan değişiklikler. Bu tür etkinlikler erteleme bölümüne bakın. [yükselttikten sonra tam eşitleme erteleme nasıl](#how-to-defer-full-synchronization-after-upgrade).
+
+Standart olmayan Bağlayıcısı ile (örneğin, genel LDAP Bağlayıcısı ve genel SQL bağlayıcı) Azure AD Connect kullanıyorsanız, karşılık gelen Bağlayıcı yapılandırması yenilemelisiniz [Eşitleme Hizmeti Yöneticisi'ni](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) yerinde yükseltme sonrasında. Bağlayıcı yapılandırmasını yenileme hakkında daha fazla bilgi için makale bölümüne bakın [Bağlayıcısı sürüm yayımlama geçmişi - sorun giderme](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Doğru yapılandırmasını yenileme değil, içeri ve dışarı aktarma adımlarını çalıştırmak için bağlayıcı çalışmaz. İletiyle uygulama olay günlüğünde aşağıdaki hatayı alırsınız *"derleme sürümünü AAD Bağlayıcı yapılandırması ("X.X.XXX. "X") ("X.X.XXX. gerçek sürümden daha eski "X"), "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".*
 
 ## <a name="swing-migration"></a>Swing geçişi
 Karmaşık bir dağıtım veya çok sayıda nesne varsa, Canlı sistem üzerinde bir yerinde yükseltme yapmak için pratik olabilir. Bazı müşteriler için bu işlem birden fazla gün--sürebilir ve bu süre boyunca hiçbir delta değişiklikleri işlenir. Ayrıca yapılandırmanızı önemli değişiklikler yapmayı planlayın ve buluta gönderilen önce bunları denemenin istediğinizde bu yöntemi kullanabilirsiniz.

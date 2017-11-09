@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 3030336f5efca5029e0e790372495df11cdc8aeb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: fa25f0435df79a78d39e8f89d702d3b64db79d65
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory mimarisini anlama
-Azure Active Directory (Azure AD), kullanıcılarınız için Azure hizmet ve kaynaklarına erişimi güvenli bir şekilde yönetmenizi sağlar. Azure AD ile birlikte eksiksiz kimlik yönetimi olanakları sunulur. Azure AD özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory nedir?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis)
+Azure Active Directory (Azure AD), kullanıcılarınız için Azure hizmet ve kaynaklarına erişimi güvenli bir şekilde yönetmenizi sağlar. Azure AD ile birlikte eksiksiz kimlik yönetimi olanakları sunulur. Azure AD özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
-Azure AD ile kullanıcı ve gruplar oluşturup bunları yönetebilir, ayrıca kurumsal kaynaklara erişim izni vermek ya da erişimi reddetmek için izinleri etkinleştirebilirsiniz. Kimlik yönetimi hakkında bilgi için bkz. [Azure kimlik yönetimi ile ilgili temel bilgiler](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity).
+Azure AD ile kullanıcı ve gruplar oluşturup bunları yönetebilir, ayrıca kurumsal kaynaklara erişim izni vermek ya da erişimi reddetmek için izinleri etkinleştirebilirsiniz. Kimlik yönetimi hakkında bilgi için bkz. [Azure kimlik yönetimi ile ilgili temel bilgiler](https://docs.microsoft.com/azure/active-directory/fundamentals-identity).
 
 ## <a name="azure-ad-architecture"></a>Azure AD mimarisi
 Azure AD’nin coğrafi olarak dağıtılmış mimarisi, müşterilerimize kurumsal düzeyde kullanılabilirlik ve performans sunmamızı sağlayan kapsamlı izleme, otomatik yeniden yönlendirme, yük devretme ve kurtarma özelliklerini bir araya getirir.
@@ -79,7 +79,7 @@ Azure AD, belirteç verme ile dizin okumaları için sıfır [Kurtarma Süresi H
 
 ### <a name="data-centers"></a>Veri merkezleri
 
-Azure AD çoğaltmaları, dünyanın dört bir yanında bulunan veri merkezlerinde depolanır. Daha fazla bilgi edinmek için bkz. [Azure veri merkezleri](https://azure.microsoft.com/en-us/overview/datacenters).
+Azure AD çoğaltmaları, dünyanın dört bir yanında bulunan veri merkezlerinde depolanır. Daha fazla bilgi edinmek için bkz. [Azure veri merkezleri](https://azure.microsoft.com/overview/datacenters).
 
 Azure AD aşağıdaki özelliklere sahip veri merkezlerinde çalışır:
 
@@ -113,8 +113,8 @@ Herhangi bir Azure AD hizmeti beklendiği gibi çalışmazsa, işlevselliği mü
 
 **Güvenli işlemler**
 
-Tüm işlemler için çok faktörlü kimlik doğrulaması (MFA) gibi operasyonel denetimlerin yanı sıra tüm işlemlerin denetimini yapıyoruz. Ayrıca, herhangi bir isteğe bağlı operasyonel görev için gereken geçici erişimi sürekli biçimde sağlamak üzere tam zamanında yükseltme sistemi kullanıyoruz. Daha fazla bilgi için bkz. [Güvenilir Bulut](https://azure.microsoft.com/en-us/support/trust-center).
+Tüm işlemler için çok faktörlü kimlik doğrulaması (MFA) gibi operasyonel denetimlerin yanı sıra tüm işlemlerin denetimini yapıyoruz. Ayrıca, herhangi bir isteğe bağlı operasyonel görev için gereken geçici erişimi sürekli biçimde sağlamak üzere tam zamanında yükseltme sistemi kullanıyoruz. Daha fazla bilgi için bkz. [Güvenilir Bulut](https://azure.microsoft.com/support/trust-center).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure Active Directory geliştirici kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+[Azure Active Directory geliştirici kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 

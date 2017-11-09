@@ -1,5 +1,6 @@
 Azure’daki sanal makineniz (VM) bir önyükleme veya disk bir hatasıyla karşılaşırsa, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Başarısız olan bir uygulama güncelleştirmesinin, VM’yi önyükleme işleminin başarılı bir şekilde tamamlanmasını engellemesi yaygın bir örnektir. Bu makalede hatalarını düzeltmek ve orijinal VM'yi yeniden oluşturmak amacıyla sanal sabit diskinizi başka bir VM'ye bağlanmak için Azure Portal’ı nasıl kullanacağınız açıklanmıştır.
 
+
 ## <a name="recovery-process-overview"></a>Kurtarma işlemine genel bakış
 Sorun giderme işlemi aşağıdaki gibidir:
 

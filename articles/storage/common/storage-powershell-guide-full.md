@@ -11,13 +11,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage ile Azure PowerShell’i kullanma
 
@@ -165,7 +165,7 @@ Diğer anahtarı yeniden oluşturmak için kullanmak `key2` yerine anahtar adı 
 Anahtarlarınızı birini yeniden oluşturmak ve yeni değer yeniden görmek için alın.
 
 > [!NOTE] 
-> Bir üretim depolama hesabı anahtarı yeniden üretilirken önce dikkatli planlama gerçekleştirmeniz gerekir. Bir veya iki anahtarlarını yeniden oluşturma, yeniden üretildi anahtarını kullanarak herhangi bir uygulama için erişim geçersiz kılar. Daha fazla bilgi için lütfen bkz [Regenate depolama erişim tuşlarını](storage-create-storage-account.md#regenerate-storage-access-keys).
+> Bir üretim depolama hesabı anahtarı yeniden üretilirken önce dikkatli planlama gerçekleştirmeniz gerekir. Bir veya iki anahtarlarını yeniden oluşturma, yeniden üretildi anahtarını kullanarak herhangi bir uygulama için erişim geçersiz kılar. Daha fazla bilgi için lütfen bkz [depolama erişim tuşlarını yeniden](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Bir depolama hesabını silme 
@@ -216,6 +216,12 @@ PowerShell ile depolama hesabınızı yönetme anladığınıza göre veri nesne
 * [BLOB'lar PowerShell ile yönetme](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Dosyaları PowerShell ile yönetme](../files/storage-how-to-use-files-powershell.md)
 * [Kuyruklar PowerShell ile yönetme](../queues/storage-powershell-how-to-use-queues.md)
+* [PowerShell ile Azure Table depolama işlemleri](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+Azure Cosmos DB tablo API anahtar teslimi genel dağıtım, düşük gecikme süresi okuma ve yazma, otomatik ikincil dizin oluşturma ve ayrılmış işleme gibi tablo depolama premium özellikleri sunar. 
+
+* Daha fazla bilgi için bkz: [Azure Cosmos DB tablo API](../../cosmos-db/table-introduction.md). 
+* Azure Cosmos DB tablo API işlemleri gerçekleştirmek için PowerShell'i kullanmayı öğrenmek için bkz: [PowerShell ile Azure Cosmos DB tablo API gerçekleştirmek işlemleri](../../cosmos-db/table-powershell.md).
 
 ## <a name="azures-independently-deployed-clouds"></a>Azure'nın bağımsız olarak dağıtılan Bulutlar
 
@@ -234,7 +240,7 @@ Yeni bir kaynak grubu ve bu alıştırma için bir depolama hesabı oluşturduys
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu nasıl yapılır makalesi depolama hesaplarını yönetmek için yönetim düzlemi cmdlet'leri kullanarak ortak işlemleri kapsar. Şunları öğrendiniz: 
 

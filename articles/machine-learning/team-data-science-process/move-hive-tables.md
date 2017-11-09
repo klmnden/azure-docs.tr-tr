@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: c90c3d3c0effd68a4a5962d4d097fccbdc3fee56
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.openlocfilehash: 1eee39135dca98db205677072d79421eadcdd85e
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolama alanından veri yükleme
 Bu konu, Hive tabloları oluşturma ve Azure blob depolama alanından veri yükleme genel Hive sorguları gösterir. Hive tablolarını bölümlendirme ve en iyi duruma getirilmiş satır sütunlu (sorgu performansını artırmak için biçimlendirme ORC) kullanarak bu bazı yönergeler de sağlanır.
@@ -32,7 +32,7 @@ Bu makalede, sahip olduğunuz varsayılmaktadır:
 
 * Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [Azure storage hesapları hakkında](../../storage/common/storage-create-storage-account.md).
 * Özelleştirilmiş bir Hadoop kümesine Hdınsight hizmetiyle sağlandı.  Yönergeler gerekiyorsa bkz [özelleştirme Azure Hdınsight Hadoop kümeleri için Gelişmiş analiz](customize-hadoop-cluster.md).
-* Küme için etkin uzaktan erişim, oturum açmış ve Hadoop komut satırı konsolu açılır. Yönergeler gerekiyorsa bkz [Hadoop küme baş düğümü erişim](customize-hadoop-cluster.md#headnode).
+* Küme için etkin uzaktan erişim, oturum açmış ve Hadoop komut satırı konsolu açılır. Yönergeler gerekiyorsa bkz [Hadoop küme baş düğümü erişim](customize-hadoop-cluster.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure blob depolama alanına veri yükleme
 Sağlanan yönergeleri izleyerek bir Azure sanal makinesi oluşturduysanız [Gelişmiş analiz için Azure sanal makinesi ayarlama](../data-science-virtual-machine/setup-virtual-machine.md), bu komut dosyası indirilmiş oldukları *C:\\kullanıcılar \\ \<kullanıcı adı\>\\belgeleri\\veri bilimi betikleri* sanal makinede dizin. Bu Hive sorguları yalnızca kendi veri şeması ve Azure blob depolama yapılandırması gönderimi için hazır olması için uygun alanları takın gerektirir.
@@ -142,7 +142,7 @@ Bir Hive tablosu oluşturur Hive sorgusu aşağıdadır.
 
 Takılır gereken alanlarının açıklamaları ve diğer yapılandırmalar şunlardır:
 
-* **&#60; veritabanı adı >**: oluşturmak istediğiniz veritabanının adı. Varsayılan veritabanı sorgu kullanmak istiyorsanız, *veritabanı oluştur...* atlanabilir.
+* **&#60; veritabanı adı >**: oluşturmak istediğiniz veritabanının adı. Varsayılan veritabanı sorgu kullanmak istiyorsanız, *veritabanı oluştur...*  atlanabilir.
 * **&#60; tablo adı >**: Belirtilen veritabanı içinde oluşturmak istediğiniz tablonun adı. Varsayılan veritabanı kullanmak istiyorsanız, tablonun doğrudan göre başvurulabilen *&#60; tablo adı >* olmadan &#60; veritabanı adı >.
 * **&#60; alan ayırıcı >**: Hive tablosu karşıya yüklenecek veri dosyasındaki alanlar sınırlandıran ayırıcı.
 * **&#60; satır ayırıcı >**: veri dosyasındaki satır sınırlandıran ayırıcı.

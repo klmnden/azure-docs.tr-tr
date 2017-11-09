@@ -380,6 +380,8 @@
           href: how-to-use-perfInsights.md
         - name: Performans Tanılama VM Uzantısı
           href: performance-diagnostics-vm-extension.md
+        - name: İç içe geçmiş sanallaştırma kullanımı
+          href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Başvuru
   items:
     - name: Azure CLI
