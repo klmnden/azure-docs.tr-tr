@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazıları listelenmiştir. Bu belge şu anda tüm Azure hizmetlerini kapsamaz. Zamanla, liste genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -27,10 +27,10 @@ Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazılar
 Lütfen şu adresi ziyaret [Azure fiyatlandırma genel bakış](https://azure.microsoft.com/pricing/) Azure fiyatlandırma hakkında daha fazla bilgi edinmek için. Burada, kullanarak maliyetlerinizi tahmin edebilirsiniz [fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) veya bir hizmet için fiyatlandırma ayrıntıları sayfasını ziyaret (örneğin, [Windows Vm'lerini](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Maliyetlerinizi yönetmenize yardımcı olmak ipuçları için bkz: [Azure faturalama ve maliyet yönetimi ile beklenmeyen maliyetleri önlemek](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Sınırı veya kotası yukarıdaki yükseltmek istiyorsanız **varsayılan sınır**, [ücretsiz bir çevrimiçi müşteri destek isteği açma](azure-supportability/resource-manager-core-quotas-request.md). Yukarıdaki sınırları yükseltilemez **sınırı** aşağıdaki tabloda gösterilen değeri. Varsa hiçbir **sınırına** sütun sonra kaynak ayarlanabilir sınırlar yok. 
-> 
+> Sınırı veya kotası yukarıdaki yükseltmek istiyorsanız **varsayılan sınır**, [ücretsiz bir çevrimiçi müşteri destek isteği açma](azure-supportability/resource-manager-core-quotas-request.md). Yukarıdaki sınırları yükseltilemez **sınırı** aşağıdaki tabloda gösterilen değeri. Varsa hiçbir **sınırına** sütun sonra kaynak ayarlanabilir sınırlar yok.
+>
 > Ücretsiz deneme abonelikleri için sınır uygun olmayan veya kota artırır. Ücretsiz deneme sürümü varsa, yükseltmeden bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) abonelik. Daha fazla bilgi için bkz: [yükseltme Azure ücretsiz deneme sürümü için Kullandıkça Öde](billing/billing-upgrade-azure-subscription.md).
-> 
+>
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Sınırları ve Azure Resource Manager
 Artık, tek bir Azure kaynak grubu içinde birden çok Azure kaynaklarında birleştirmek mümkündür. Kaynak grupları kullanırken, kez genel sınırları bölgesel düzeyinde Azure Resource Manager ile yönetilen haline gelir. Azure kaynak grupları hakkında daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış](azure-resource-manager/resource-group-overview.md).
@@ -41,8 +41,8 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 > Hizmet Yönetimi kotalar gibi Azure kaynak grupları, kaynaklar için kotalar başına bölge aboneliğinizi tarafından erişilebilir olan ve abonelik başına, olmayan vurgulamak önemlidir. Şimdi çekirdek kotalarını örnek olarak kullanın. Çekirdek desteği olan bir kota artışı isteği göndermek üzere ihtiyacınız varsa, hangi bölgelerde kullanın ve ardından belirli Azure kaynak grubu çekirdek kotaları tutarlar ve istediğiniz bölgeler için istekte istediğiniz kaç çekirdek karar vermeniz gerekir. Bu nedenle, uygulamanızın vardır; çalıştırmak için 30 çekirdek Batı Avrupa'da kullanmanız gerekiyorsa Özellikle, Batı Avrupa 30 çekirdeğini istemeniz gerekir. Ancak, diğer herhangi bir bölgede artırmak çekirdek kota sahip olmaz – yalnızca Batı Avrupa 30-çekirdek kotası olacak.
 > <!-- -->
 > Sonuç olarak, iş yükü herhangi bir bölgede olması için Azure kaynak grubu kotaları gerekenler karar dikkate kullanışlı ve bu miktar içine dağıtım dikkate her bölgede isteyin. Bkz: [dağıtım sorunlarını giderme](resource-manager-common-deployment-errors.md) özel bölgeler için geçerli kotalar keşfetme daha fazla yardım için.
-> 
-> 
+>
+>
 
 ## <a name="service-specific-limits"></a>Hizmete özgü sınırları
 * [Active Directory](#active-directory-limits)
@@ -60,6 +60,7 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
+* [Container Registry](#container-registry-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -117,8 +118,13 @@ Azure Resource Manager ve Azure kaynak gruplarını kullanırken aşağıdaki s�
 ### <a name="virtual-machine-scale-sets-limits"></a>Sanal makine ölçek kümeleri sınırları
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-### <a name="container-instances-limits"></a>Kapsayıcı sınırları örnekleri
+### <a name="container-instances-limits"></a>Kapsayıcı örnekleri sınırları
 [!INCLUDE [container-instances-limits](../includes/container-instances-limits.md)]
+
+### <a name="container-registry-limits"></a>Kapsayıcı kayıt defteri sınırları
+Aşağıdaki tablo özellikler ve temel, standart ve Premium sınırları ayrıntıları [hizmet katmanları](./container-registry/container-registry-skus.md).
+
+[!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
 ### <a name="networking-limits"></a>Ağ limitleri
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -141,7 +147,7 @@ Azure Resource Manager ve Azure kaynak gruplarını kullanırken aşağıdaki s�
 ### <a name="storage-limits"></a>Depolama sınırları
 Depolama hesabı sınırları hakkında daha fazla ayrıntı için bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage/common/storage-scalability-targets.md).
 
-<!--like # storage accts --> 
+<!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
@@ -164,7 +170,7 @@ Azure dosyaları sınırları hakkında daha fazla ayrıntı için bkz: [Azure d
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### <a name="virtual-machine-disk-limits"></a>Sanal makine disk sınırları 
+#### <a name="virtual-machine-disk-limits"></a>Sanal makine disk sınırları
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
 Bkz: [sanal makine boyutlarını](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ek ayrıntılar için.

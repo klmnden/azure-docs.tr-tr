@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Azure Cosmos DB performans ipuçları
 Azure Cosmos DB garantili gecikme süresi ve verimlilik ile sorunsuz bir şekilde ölçeklendirilebilen bir hızlı ve esnek dağıtılmış veritabanıdır. Büyük mimari değişiklikler yaptığınızda veya veritabanınızla Cosmos DB ölçeklendirmek için karmaşık kodlar yazmak zorunda değildir. Yukarı ve aşağı doğru ölçeklendirme tek bir API çağrısı yapma olarak kadar kolay veya [SDK yöntem çağrısı](set-throughput.md#set-throughput-sdk). Ancak, Cosmos DB ağ çağrıları erişilir en yüksek performans elde etmek için yapabileceğiniz istemci-tarafı iyileştirmeler vardır.
@@ -165,7 +165,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Cosmos DB zengin bir ilişkisel ve hiyerarşik sorgularıyla UDF'ler, saklı yordamları ve Tetikleyicileri – tüm işletim veritabanı koleksiyon içindeki belgelerde dahil olmak üzere veritabanı işlemleri sunar. Bu işlemlerin her biri ile ilişkili maliyet CPU, g/ç ve işlemi tamamlamak için gereken bellek göre değişir. Göz önünde bulundurulması ve donanım kaynaklarını yönetmek yerine, bir uygulama isteği hizmet ve çeşitli veritabanı işlemlerini gerçekleştirmek için gereken kaynakları için tek bir ölçü olarak bir istek birimi (RU) düşünebilirsiniz.
 
-    [İstek birimleri](request-units.md) satın aldığınız kapasite birimlerinin sayısına göre her bir veritabanı hesabı için sağlanır. İstek birimi tüketim saniye başına oranı olarak değerlendirilir. Sağlanan istek birimi oranı oranı hesabı için ayrılmış düzeyinin altına düşene kadar hesaplarında sınırlıdır aşan uygulamalar. Uygulamanız daha yüksek düzeyde üretilen iş gerektiriyorsa, ek kapasite birimleri satın alabilirsiniz.
+    Üretilen iş miktarına göre sağlandığına [istek birimleri](request-units.md) her kapsayıcıya ayarlayın. İstek birimi tüketim saniye başına oranı olarak değerlendirilir. Sağlanan istek birimi oranı oranı hesabı için ayrılmış düzeyinin altına düşene kadar hesaplarında sınırlıdır aşan uygulamalar. Uygulamanız daha yüksek düzeyde üretilen iş gerektiriyorsa, ek istek birimleri sağlama tarafından üretilen işi artırabilir. 
 
     Kaç tane istek birimlerine bir işlem için kullanılan bir sorgu karmaşıklığını etkiler. Koşulları sayısı, koşulları, UDF'ler sayısı ve tüm kaynak veri kümesi boyutunu yapısını sorgu işlemlerinin maliyetini etkiler.
 

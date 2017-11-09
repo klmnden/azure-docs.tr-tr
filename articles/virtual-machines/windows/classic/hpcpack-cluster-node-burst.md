@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 8031c9bae923e19574b7189a97cb71a148b63d77
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>İsteğe bağlı "aşırı" düğümleri Azure HPC Pack kümede ekleyin
 Ayarladığınız varsa bir [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) küme Azure üzerinde bir şekilde kolayca küme kapasite yukarı veya aşağı, önceden yapılandırılmış işlem düğümü VM'ler kümesi korumadan ölçek isteyebilirsiniz. Bu makalede, isteğe bağlı "aşırı" düğümleri (çalışan rolü örnekleri bir bulut hizmetinde çalışan) eklemek baş düğümüne Azure işlem kaynakları olarak gösterilmiştir. 
 
 > [!IMPORTANT] 
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Düğümleri veri bloğu][burst]
 

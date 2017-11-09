@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dab783e574ef4f5507737d5004fd8d2a98629458
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: c10f4c575c7b9a68e7a1ff8fedf0f17f4fb8599d
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI ile Linux sanal makinesi oluşturma
 
-Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu kılavuzda Ubuntu sunucusu çalıştıran bir sanal makineyi Azure CLI kullanarak dağıtma işleminin ayrıntıları verilmektedir. Sunucu dağıtıldıktan sonra bir SSH bağlantısı oluşturulur ve bir NGINX web sunucusu yüklenir.
+Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Ubuntu server çalıştıran bir sanal makine dağıtmak için Azure CLI kullanarak bu hızlı başlangıç ayrıntıları. Sunucu dağıtıldıktan sonra bir SSH bağlantısı oluşturulur ve bir NGINX web sunucusu yüklenir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

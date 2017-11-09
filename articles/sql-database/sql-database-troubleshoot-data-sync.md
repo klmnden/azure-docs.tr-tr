@@ -8,15 +8,17 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: d0cbe02e5a99fc62869256ed86e774aa2729f7e6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bbfcac5a54f04f20dbdeeecef7c06b91128b8c6a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="troubleshoot-issues-with-azure-sql-data-sync"></a>Azure SQL veri eşitleme ile ilgili sorunları giderme
+# <a name="troubleshoot-issues-with-azure-sql-data-sync-preview"></a>Azure SQL veri eşitleme (Önizleme) ile ilgili sorunları giderme
 
 Bu makalede SQL veri eşitleme (Önizleme) ekibin bilinen geçerli sorunlarının nasıl giderileceği açıklanmaktadır. Bir sorun için geçici bir çözüm varsa, burada sağlanır.
+
+SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme) ile](sql-database-sync-data.md).
                                                            
 ## <a name="my-client-agent-doesnt-work"></a>My istemci Aracısı çalışmıyor
 
@@ -487,3 +489,20 @@ Aşağıdaki koşullardan herhangi biri bir eşitleme grubu işleme durumunda ka
 
 Sorunu düzeltmek erişemiyorsanız, eşitleme grubunuzun durumunu sıfırlanabilir Microsoft desteği tarafından. Sıfırlama, bir forum gönderisi oluşturmak durumunuzu olması için [Azure SQL veritabanı Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)ve abonelik Kimliğinizi ve sıfırlanması gerekir grubunun eşitleme Grup Kimliğini içerir. Bir Microsoft destek mühendisi postanızı için yanıt ve ne zaman durumu sıfırlandı size bildirmek.
 
+## <a name="next-steps"></a>Sonraki adımlar
+SQL veri eşitleme hakkında daha fazla bilgi için bkz:
+
+-   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](sql-database-sync-data.md)
+-   [Azure SQL veri eşitlemeye başlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL veri eşitleme için en iyi yöntemler](sql-database-best-practices-data-sync.md)
+
+-   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:
+    -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [Bir Azure SQL Database ve SQL Server içi veritabanı arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+-   [SQL veri eşitleme REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+SQL veritabanı hakkında daha fazla bilgi için bkz:
+
+-   [SQL veritabanı genel bakış](sql-database-technical-overview.md)
+-   [Veritabanı yaşam döngüsü yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)

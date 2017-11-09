@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 3bd39b9a63cd4a18eabee3d1737daac56b3e37df
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 469db4f3faf12cbd778f18b7bc74ec6b86b412c7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL veritabanı sunucuları ve veritabanları oluşturma ve yönetme
 
@@ -35,7 +35,7 @@ Bir Azure SQL veritabanı olabilir:
 - [Çok kiracılı SaaS tasarım desenine](sql-database-design-patterns-multi-tenancy-saas-applications.md) katılan ve veritabanları tek başına ya da havuza eklenmiş (veya her ikisi de) olabilecek bir veritabanı kümesinin bir parçası 
 
 > [!TIP]
-> Geçerli veritabanı adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/en-us/sql/relational-databases/databases/database-identifiers). 
+> Geçerli veritabanı adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). 
 >
  
 - Microsoft Azure SQL Veritabanı tarafından kullanılan varsayılan veritabanı harmanlaması **SQL_LATIN1_GENERAL_CP1_CI_AS** şeklindedir; buradaki **LATIN1_GENERAL** İngilizce (Amerika Birleşik Devletleri), **CP1** kod sayfası 1252, **CI** büyük-küçük harfe duyarlı ve **AS** is aksan duyarlıdır. Harmanlamanın nasıl ayarlanacağı hakkında daha fazla bilgi edinmek için bkz. [HARMANLAMA (Transact-SQL)](https://msdn.microsoft.com/library/ms184391.aspx).
@@ -126,7 +126,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları Azure PowerShell ile ol
 |[Yeni-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Bir kaynak grubu oluşturur]
 |[AzureRmSqlServer yeni](/powershell/module/azurerm.sql/new-azurermsqlserver)|Sunucu oluşturur|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Sunucuları hakkında bilgi döndürür|
-|[Set-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/set-azurermsqlserver)|Bir sunucu özelliklerini değiştirir|
+|[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Bir sunucu özelliklerini değiştirir|
 |[Remove-AzureRmSqlServer](/powershell/module/azurerm.sql/remove-azurermsqlserver)|Bir sunucuyu kaldırır|
 |[New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule)|Bir sunucu düzeyinde güvenlik duvarı kuralı oluşturur |
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|Bir sunucu için güvenlik duvarı kurallarını alır|

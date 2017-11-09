@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9b01ff86da6a1fd4a439a6ba59ea15ed6480cdad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 568cad4e394dfedddce1bfce66ddf627947d7568
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory kimlik koruması ve Microsoft Graph kullanmaya başlama
 Microsoft Graph olan Microsoft unified API uç noktasını ve giriş, [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, bir listesi için Microsoft Graph sorgu sayesinde [risk olayları](active-directory-identityprotection-risk-events-types.md) ve bilgi ilişkili. Bu makalede bu API sorgulama başlamanızı sağlar. Bir ayrıntılı giriş, tam belgelere ve Graph Explorer'da erişim için bakın [Microsoft Graph site](https://graph.microsoft.io/).

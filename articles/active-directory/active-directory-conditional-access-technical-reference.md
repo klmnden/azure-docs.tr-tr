@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory koşullu erişim Teknik Başvurusu
 
@@ -82,11 +82,7 @@ Microsoft bulut uygulamalarının yanı sıra bulut uygulamaları aşağıdaki t
 
 ## <a name="device-platform-condition"></a>Cihaz platform koşulu
 
-Bir koşullu erişim ilkesi, bir istemcide ilke işletim sistemine bağlamanın cihaz platformu koşul yapılandırabilirsiniz.
-
-![İstemci işletim sistemi için erişim ilkesi bağlayın](./media/active-directory-conditional-access-technical-reference/41.png)
-
-Azure AD koşullu erişim, aşağıdaki cihaz platformlarını destekler:
+Bir koşullu erişim ilkesi, bir istemcide ilke işletim sistemine bağlamanın cihaz platformu koşul yapılandırabilirsiniz. Azure AD koşullu erişim, aşağıdaki cihaz platformlarını destekler:
 
 - Android
 
@@ -96,7 +92,12 @@ Azure AD koşullu erişim, aşağıdaki cihaz platformlarını destekler:
 
 - Windows
 
-- macOS (Önizleme)
+- macOS
+
+
+![İstemci işletim sistemi için erişim ilkesi bağlayın](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -131,11 +132,11 @@ Koşullu erişim ilkenizi aşağıdaki tarayıcılarda desteklenir:
 | Windows Server 2016    | Chrome                      | Çok yakında |
 | Windows Server 2012 R2 | Internet Explorer, Chrome   | ![İşaretli][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome   | ![İşaretli][1] |
-| macOS                  | Safari                      | ![İşaretli][1] |
-| macOS                  | Chrome                      | Çok yakında |
+| macOS                  | Chrome, Safari              | ![İşaretli][1] |
+
 
 > [!NOTE]
-> Kullanım muse Chrome desteği için Windows 10 oluşturucuları güncelleştirme (sürüm 1703) veya sonraki bir sürümü.<br>
+> Chrome desteği, Windows 10 oluşturucuları güncelleştirme (sürüm 1703) kullanmanız gerekir ya da daha sonra.<br>
 > Yükleyebileceğiniz [bu uzantı](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Desteklenen mobil uygulamalar ve Masaüstü istemcileri
@@ -153,7 +154,7 @@ Aşağıdaki mobil uygulamalar ve Masaüstü istemcileri koşullu erişim Office
 | Dynamics CRM uygulaması| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS ve Android|
 | Takvim/posta/kişiler uygulama, Outlook 2016 (modern kimlik doğrulaması ile) Outlook 2013| Office 365 Exchange Online| Windows 10|
 | MFA ve konum İlkesi uygulamalar için. Cihaz tabanlı ilkeleri desteklenmez.| Herhangi bir My uygulamaları uygulama hizmeti| Android ve iOS|
-| Microsoft ekipleri Hizmetleri - bu Microsoft Teams ve tüm alt istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+| Microsoft ekipleri Hizmetleri - bu Microsoft Teams ve tüm alt istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS|
 | Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemci (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
 | Office 2016 uygulamalar, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisi (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan| Office 365 SharePoint Online| Windows 10|
 | MacOS (Word, Excel, PowerPoint, yalnızca OneNote) için Office 2016. OneDrive iş desteğine gelecek için planlanan| Office 365 SharePoint Online| Mac OS X|
@@ -165,6 +166,7 @@ Aşağıdaki mobil uygulamalar ve Masaüstü istemcileri koşullu erişim Office
 | Power BI uygulaması. Android için Power BI uygulaması cihaz temelli koşullu erişim şu anda desteklemiyor.| Powerbı hizmeti| Windows 10, Windows 8.1, Windows 7 ve iOS|
 | Skype Kurumsal| Office 365 Exchange Online| Android, IOS|
 | Visual Studio Team Services uygulama| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+
 
 
 

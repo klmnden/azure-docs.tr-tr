@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 43d54de7e875de9212c23c49ad0539bf2272a312
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 510b394256bbe86a5eb5bfbc3af4681670b89de3
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Azure Portal kullanarak bir Windows sanal makinesinde oturum açma
 Azure portalında kullandığınız **Bağlan** bir Uzak Masaüstü oturumu ve bir Windows VM oturumunu Başlat düğmesi.
@@ -33,6 +33,7 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 
 > [!IMPORTANT]
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager modelini kullanarak bir VM'de oturum açma hakkında daha fazla bilgi için bkz: [burada](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="connect-to-the-virtual-machine"></a>Sanal makineye bağlanma
 1. Azure Portal’da oturum açın.

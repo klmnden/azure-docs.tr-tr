@@ -3,7 +3,7 @@ title: "Özel komut dosyaları Linux VM'ler için Azure'da çalışan | Microsof
 description: "Özel betik uzantısının kullanarak Linux VM yapılandırma görevleri otomatikleştirme"
 services: virtual-machines-linux
 documentationcenter: 
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: nepeters
-ms.openlocfilehash: 1dde64aac72c11ccfccf4fdb676279692befaadd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danis
+ms.openlocfilehash: 3f8eeb71027d9bdd5c72570bd07d673136646e6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-azure-custom-script-extension-with-linux-virtual-machines"></a>Azure özel betik uzantısı ile Linux sanal makineleri kullanma
 Özel betik uzantısının indirir ve Azure sanal makinelerde komut dosyaları çalıştırılır. Bu dağıtım yapılandırmaları, yazılım yükleme veya başka bir yapılandırma için yararlı bir uzantısıdır / yönetim görevi. Komut dosyaları Azure depolama veya diğer erişilebilir Internet konumdan indirilen veya çalışma zamanı uzantısı sağlanan. Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir ve Azure CLI, PowerShell, Azure portalında veya Azure sanal makine REST API'sini kullanarak da çalıştırılabilir.

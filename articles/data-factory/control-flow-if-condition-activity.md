@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: shlo
-ms.openlocfilehash: 0eb4f03a5d53da771a550bd5d79607ff7f0f52d3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d6f198f7376bf2fdbc812373721571162a8c4402
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Varsa Azure Data Factory etkinliğinde koşul
 Varsa koşul etkinliği aynı işlevselliği sağlayan bir deyim programlama dillerinde sağlıyorsa. Koşul olarak değerlendirildiğinde etkinlikleri kümesi değerlendirir `true` ve başka bir dizi koşul olarak değerlendirildiğinde etkinlikleri `false`. 
@@ -76,10 +76,13 @@ ifade | True veya false olarak değerlendirilmelidir ifade | Evet
 ifTrueActivities | İfade olarak değerlendirildiğinde yürütülen etkinlikleri kümesi `true`. | Evet
 ifFalseActivities | İfade olarak değerlendirildiğinde yürütülen etkinlikleri kümesi `false`. | Evet
 
-## <a name="sample"></a>Örnek
+## <a name="example"></a>Örnek
 Bu örnekteki işlem hattı verileri bir çıkış klasörü için bir giriş klasöründen kopyalar. Çıkış klasörüne ardışık düzen parametresinin değeri tarafından belirlenir: routeSelection. RouteSelection değeri true ise, veriler için outputPath1 kopyalanır. Ve routeSelection değeri false ise, veriler için outputPath2 kopyalanır. 
 
-### <a name="pipeline-with-if-condition-activity"></a>IF-koşul etkinlikle kanalı
+> [!NOTE]
+> Bu bölüm, JSON tanımları ve ardışık düzen çalıştırmak için örnek PowerShell komutlarını sağlar. Azure PowerShell ve JSON tanımlarını kullanarak Data Factory işlem hattı oluşturmak için adım adım yönergeler içeren bir anlatım için bkz: [Öğreticisi: Azure PowerShell kullanarak bir veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md).
+
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>IF-koşul etkinliği (Adfv2QuickStartPipeline.json) kanal
 
 ```json
 {
@@ -190,7 +193,7 @@ Bu örnekteki işlem hattı verileri bir çıkış klasörü için bir giriş kl
 ```
 
 
-### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage bağlı hizmeti (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -207,7 +210,7 @@ Bu örnekteki işlem hattı verileri bir çıkış klasörü için bir giriş kl
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset"></a>Parametreli Azure Blob veri kümesi
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametreli Azure Blob veri kümesi (BlobDataset.json)
 Ardışık Düzen kümeleri **folderPath** ya da değerine **outputPath1** veya **outputPath2** parametresi ardışık. 
 
 ```json
@@ -234,7 +237,7 @@ Ardışık Düzen kümeleri **folderPath** ya da değerine **outputPath1** veya 
 }
 ```
 
-### <a name="pipeline-parameter-json"></a>JSON ardışık düzeni parametresi
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Ardışık Düzen parametre JSON (PipelineParameters.json)
 
 ```json
 {
@@ -246,10 +249,11 @@ Ardışık Düzen kümeleri **folderPath** ya da değerine **outputPath1** veya 
 ```
 
 ### <a name="powershell-commands"></a>PowerShell komutları
+Bu komutlarda JSON dosyaları klasörüne kaydettiğinizden varsayılmaktadır: C:\ADF. 
 
 ```powershell
-# Login-AzureRmAccount
-# Select-AzureRmSubscription "<Your subscription name>"
+Login-AzureRmAccount
+Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"
 $dataFactoryName = "<Data Factory Name. Must be globally unique>";

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 7b69f770354c9402a3248a1d5a27558ff9aea7c4
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 0b136953adecbd049c12f102714e23f00ac0d350
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Bir Azure kapsayıcı hizmeti (AKS) Küme yükseltme
 
@@ -38,15 +38,15 @@ az aks get-versions --name myK8sCluster --resource-group myResourceGroup --outpu
 Çıktı:
 
 ```console
-Name     ResourceGroup    MasterVersion    MasterUpgrades    AgentPoolVersion    AgentPoolUpgrades
--------  ---------------  ---------------  ----------------  ------------------  -------------------
-default  myResourceGroup  1.7.7            1.8.1             1.7.7               1.8.1
+Name     ResourceGroup    MasterVersion    MasterUpgrades       AgentPoolVersion    AgentPoolUpgrades
+-------  ---------------  ---------------  -------------------  ------------------  -------------------
+default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Yükseltme için kullanılabilir iki sürümlerini sunuyoruz: 1.8.0 ve 1.8.1.  Biz kullanabilirsiniz `az aks upgrade` kullanılabilir en son sürüme yükseltmek için komutu.  Yükseltme işlemi sırasında düğüm dikkatle olduğundan [cordoned ve boşaltmış](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) çalışan uygulamalar engellemeyi en aza indirmek için.
+Yükseltme için kullanılabilir üç sürümlerini sunuyoruz: 1.7.9, 1.8.1 ve 1.8.2. Biz kullanabilirsiniz `az aks upgrade` kullanılabilir en son sürüme yükseltmek için komutu.  Yükseltme işlemi sırasında düğüm dikkatle olduğundan [cordoned ve boşaltmış](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) çalışan uygulamalar engellemeyi en aza indirmek için.
 
 ```azurecli-interactive
-az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.1
+az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
 ```
 
 Çıktı:
@@ -81,7 +81,7 @@ az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes
     ],
     "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
     "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.westus2.azmk8s.io",
-    "kubernetesVersion": "1.8.1",
+    "kubernetesVersion": "1.8.2",
     "linuxProfile": {
       "adminUsername": "azureuser",
       "ssh": {
@@ -116,7 +116,7 @@ az aks show --name myK8sCluster --resource-group myResourceGroup --output table
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myK8sCluster  westus2     myResourceGroup  1.8.1                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
+myK8sCluster  westus2     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.westus2.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -29,12 +29,15 @@
       href: concepts-service.md
     - name: Güvenlik kavramları
       href: concepts-security.md
+    - name: Güvenlik
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Cihaz kayıtlarını yönetme
       href: how-to-manage-enrollments.md
     - name: SDK ile HSM kullanma
       href: use-hsm-with-sdk.md
+    - name: Sağlama Hizmeti’ne erişimi denetleme
+      href: how-to-control-access.md
 - name: Başvuru
   items:
     - name: REST

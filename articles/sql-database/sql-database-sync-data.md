@@ -1,6 +1,6 @@
 ---
-title: "Eşitleme veri (Önizleme) | Microsoft Docs"
-description: "Azure SQL veri eşitleme (Önizleme) bu genel bakış sunar."
+title: "Azure SQL veri eşitleme (Önizleme) | Microsoft Docs"
+description: "Azure SQL veri eşitleme (Önizleme) bu genel bakış sunar"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL veri eşitleme ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme)
 
 SQL veri eşitleme veri birden çok SQL veritabanları ve SQL Server örnekleri arasında çift yönlü Seç eşitlemenize olanak sağlayan Azure SQL veritabanı üzerine kurulu bir hizmettir.
 
@@ -44,7 +44,7 @@ Veri Eşitleme bir hub ve bağlı bileşen topolojisi verileri eşitlemek için 
 -   **Eşitleme veritabanı** veri eşitleme için meta veri ve günlük içerir. Eşitleme veritabanı Hub veritabanı ile aynı bölgede bir Azure SQL veritabanı bulunan olması gerekir. Eşitleme müşteri oluşturuldu ve ait müşteri veritabanıdır.
 
 > [!NOTE]
-> Üzerinde bir şirket içi veritabanı kullanıyorsanız, zorunda [bir yerel Aracısı yapılandırın.](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Üzerinde bir şirket içi veritabanı kullanıyorsanız, zorunda [bir yerel Aracısı yapılandırın.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
 
 ![Veritabanları arasında eşitleme verileri](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -58,7 +58,7 @@ Veri eşitleme veri birkaç Azure SQL veritabanlarını veya SQL Server veritaba
 
 -   **Genel olarak dağıtılmış uygulamalar:** birçok işletme birkaç bölgeler ve hatta bazı ülkelerde span. Ağ gecikmesini en aza indirmek için yakın bir bölgede verileriniz en iyisidir. Veri Eşitleme ile eşitlenen tüm dünyada bölgelerdeki veritabanlarını kolayca tutabilirsiniz.
 
-Veri Eşitleme aşağıdaki senaryolar için önerilir yok:
+Veri Eşitleme aşağıdaki senaryolar için uygun değil:
 
 -   Olağanüstü Durum Kurtarma
 
@@ -77,48 +77,6 @@ Veri Eşitleme aşağıdaki senaryolar için önerilir yok:
 -   **Çakışmaları giderme:** veri eşitleme çakışması çözümleme için iki seçenek sunar *Hub WINS* veya *üye WINS*.
     -   Seçerseniz *Hub WINS*, hub değişiklikleri her zaman üyesinde değişikliklerin üzerine.
     -   Seçerseniz *üye WINS*, üye üzerine yaz değişiklikleri hub'ında yapılan değişiklikler. Birden fazla üye ise, hangi üye eşitlenir son değeri bağlıdır.
-
-## <a name="limitations-and-considerations"></a>Sınırlamalar ve ilgili önemli noktalar
-
-### <a name="performance-impact"></a>Performans etkisi
-Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için Tetikleyiciler silin. Kullanıcı veritabanında değişiklik izleme yan tablolar oluşturur. Bu değişiklik izleme etkinlikleri veritabanının yükünüzü etkiler. Hizmet katmanı değerlendirmek ve gerekirse yükseltin.
-
-### <a name="eventual-consistency"></a>Nihai tutarlılık
-Veri Eşitleme tetikleyici tabanlı olduğundan, işlem tutarlılığı garanti edilmez. Microsoft, tüm değişiklikler sonunda yapılır ve veri eşitleme veri kaybına neden olmaz garanti eder.
-
-### <a name="unsupported-data-types"></a>Desteklenmeyen veri türleri
-
--   FILESTREAM
-
--   SQL/CLR UDT
-
--   XMLSchemaCollection (desteklenen XML)
-
--   İmleç, zaman damgası, HierarchyId
-
-### <a name="requirements"></a>Gereksinimler
-
--   Her tablonun birincil anahtarı olmalıdır. Herhangi bir satırın birincil anahtarı değerini değiştirmeyin. Bunu yapmak varsa, satır silin ve yeni birincil anahtar değeri ile oluşturun. 
-
--   Bir tablonun birincil anahtarı olmayan bir kimlik sütunu olamaz.
-
--   Nesne (veritabanları, tablolar ve sütunlar) adlarını yazdırılabilir karakterleri nokta (.), köşeli ayraç ([) içeren veya sağa kare köşeli ayraç (]) olamaz.
-
--   Anlık görüntü yalıtımı etkinleştirilmesi gerekir. Daha fazla bilgi için bkz: [anlık görüntü yalıtımı SQL Server'daki](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
-### <a name="limitations-on-service-and-database-dimensions"></a>Hizmet ve veritabanı boyutları sınırlamalar
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **Boyutlar**                                                      | **Sınırı**              | **Geçici çözüm**              |
-| Eşitleme grubu sayısı için herhangi bir veritabanı ait olabilir.       | 5                      |                             |
-| Bir tek eşitleme grubundaki uç noktaları sayısı              | 30                     | Birden çok eşitleme grupları oluşturma |
-| Bir tek eşitleme grubundaki şirket içi uç noktaları sayısı üst sınırı. | 5                      | Birden çok eşitleme grupları oluşturma |
-| Veritabanı, tablo, şema ve sütun adları                       | ad başına 50 karakter |                             |
-| Bir eşitleme grubundaki tablolar                                          | 500                    | Birden çok eşitleme grupları oluşturma |
-| Bir eşitleme grubundaki bir tablodaki sütunlar                              | 1000                   |                             |
-| Bir tabloda veri satır boyutu                                        | 24 mb                  |                             |
-| Minimum eşitleme aralığı                                           | 5 dakika              |                             |
 
 ## <a name="common-questions"></a>Sık sorulan sorular
 
@@ -143,15 +101,63 @@ Bu hata iletisi, iki aşağıdaki sorunlardan biri gösterir:
 Veri Eşitleme döngüsel başvurulara işleyemez. Bunları önlemek emin olun. 
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Nasıl dışarı aktarma ve veri eşitleme ile veritabanı alma?
-Bir veritabanı .bacpac dosya olarak dışarı aktarmanız ve yeni bir veritabanı oluşturmak için aktarın sonra yeni veritabanı veri eşitlemeyi kullanmak için iki şunları yapmanız gerekir:
+Bir veritabanı olarak dışarı aktardıktan sonra bir `.bacpac` dosya ve yeni bir veritabanı oluşturmak için dosya alma, veri eşitleme yeni veritabanı kullanmak için aşağıdaki iki birini yapmanız gerekir:
 1.  Veri eşitleme nesneleri yan tablolar üzerinde Temizleme **yeni veritabanı** kullanarak [bu komut dosyası](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Bu komut tüm gerekli veri eşitleme nesneleri veritabanından siler.
 2.  Yeni bir veritabanı ile eşitleme grubunu yeniden oluşturun. Eski eşitleme grubu artık ihtiyacınız varsa dosyayı silin.
+
+## <a name="sync-req-lim"></a>Gereksinimler ve sınırlamalar
+
+### <a name="general-requirements"></a>Genel gereksinimler
+
+-   Her tablonun birincil anahtarı olmalıdır. Herhangi bir satırın birincil anahtarı değerini değiştirmeyin. Bunu yapmak varsa, satır silin ve yeni birincil anahtar değeri ile oluşturun. 
+
+-   Bir tablonun birincil anahtarı olmayan bir kimlik sütunu olamaz.
+
+-   Nesne (veritabanları, tablolar ve sütunlar) adlarını yazdırılabilir karakterleri nokta (.), köşeli ayraç ([) içeren veya sağa kare köşeli ayraç (]) olamaz.
+
+-   Anlık görüntü yalıtımı etkinleştirilmesi gerekir. Daha fazla bilgi için bkz: [anlık görüntü yalıtımı SQL Server'daki](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
+### <a name="general-considerations"></a>Genel konular
+
+#### <a name="eventual-consistency"></a>Nihai tutarlılık
+Veri Eşitleme tetikleyici tabanlı olduğundan, işlem tutarlılığı garanti edilmez. Microsoft, tüm değişiklikler sonunda yapılır ve veri eşitleme veri kaybına neden olmaz garanti eder.
+
+#### <a name="performance-impact"></a>Performans etkisi
+Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için Tetikleyiciler silin. Kullanıcı veritabanında değişiklik izleme yan tablolar oluşturur. Bu değişiklik izleme etkinlikleri veritabanının yükünüzü etkiler. Hizmet katmanı değerlendirmek ve gerekirse yükseltin.
+
+### <a name="general-limitations"></a>Genel sınırlamalar
+
+#### <a name="unsupported-data-types"></a>Desteklenmeyen veri türleri
+
+-   FILESTREAM
+
+-   SQL/CLR UDT
+
+-   XMLSchemaCollection (desteklenen XML)
+
+-   İmleç, zaman damgası, HierarchyId
+
+#### <a name="limitations-on-service-and-database-dimensions"></a>Hizmet ve veritabanı boyutları sınırlamalar
+
+| **Boyutlar**                                                      | **Sınırı**              | **Geçici çözüm**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| Eşitleme grubu sayısı için herhangi bir veritabanı ait olabilir.       | 5                      |                             |
+| Bir tek eşitleme grubundaki uç noktaları sayısı              | 30                     | Birden çok eşitleme grupları oluşturma |
+| Bir tek eşitleme grubundaki şirket içi uç noktaları sayısı üst sınırı. | 5                      | Birden çok eşitleme grupları oluşturma |
+| Veritabanı, tablo, şema ve sütun adları                       | ad başına 50 karakter |                             |
+| Bir eşitleme grubundaki tablolar                                          | 500                    | Birden çok eşitleme grupları oluşturma |
+| Bir eşitleme grubundaki bir tablodaki sütunlar                              | 1000                   |                             |
+| Bir tabloda veri satır boyutu                                        | 24 mb                  |                             |
+| Minimum eşitleme aralığı                                           | 5 dakika              |                             |
+|||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 
--   [SQL veri eşitleme ile çalışmaya başlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL veri eşitlemeye başlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL veri eşitleme için en iyi yöntemler](sql-database-best-practices-data-sync.md)
+-   [Azure SQL veri eşitleme ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)
 
 -   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:
     -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -162,5 +168,4 @@ SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 SQL veritabanı hakkında daha fazla bilgi için bkz:
 
 -   [SQL veritabanı genel bakış](sql-database-technical-overview.md)
-
 -   [Veritabanı yaşam döngüsü yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim
 
@@ -131,18 +131,13 @@ Oturum açma hesaplanan risk düzeyi, bir koşullu erişim ilkesi koşulu olarak
 
 ### <a name="device-platforms"></a>Cihaz platformları
 
-Cihaz platformu, Cihazınızda çalıştırılan işletim sistemi tarafından belirlenir:
+Cihaz platformu, Cihazınızda çalıştırılan işletim sistemi tarafından belirlenir: dahil edilen cihaz platformları yanı sıra bir ilkeden muaf tutulan cihaz platformları tanımlayabilirsiniz.  
+Cihaz platformları ilkesinde kullanmak için önce yapılandırma değiştirir değiştirmeniz **Evet**ve tüm seçin veya bireysel cihaz platformları ilkesi uygulanır. Tek tek cihaz platformlarını seçin İlkesi bu platformlarda yalnızca bir etkisi yoktur. Bu durumda, oturum açma işlemlerine diğer desteklenen platformlar ilke tarafından etkilenmez.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- macOS (Önizleme). 
 
 ![Koşullar](./media/active-directory-conditional-access-azure-portal/02.png)
 
-Bir ilkeden muaf tutulan cihaz platformları yanı sıra dahil edilen cihaz platformları tanımlayabilirsiniz.  
-Cihaz platformları ilkesinde kullanmak için önce yapılandırma değiştirir değiştirmeniz **Evet**ve tüm seçin veya bireysel cihaz platformları ilkesi uygulanır. Tek tek cihaz platformlarını seçin İlkesi bu platformlarda yalnızca bir etkisi yoktur. Bu durumda, oturum açma işlemlerine diğer desteklenen platformlar ilke tarafından etkilenmez.
+Desteklenen cihaz platformlarının tam bir listesi için bkz: [cihaz platformu koşul](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### <a name="locations"></a>Konumlar

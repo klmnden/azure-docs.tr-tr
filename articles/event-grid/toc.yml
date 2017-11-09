@@ -4,6 +4,8 @@
   items:
     - name: Event Grid Hakkında
       href: overview.md
+    - name: Mesajlaşma hizmetlerini karşılaştırma
+      href: compare-messaging-services.md
 - name: Hızlı Başlangıçlar
   items:
     - name: Blob depolama olaylarını yönlendirme - Azure CLI

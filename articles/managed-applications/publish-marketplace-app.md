@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/20/2017
+ms.date: 11/08/2017
 ms.author: gauravbh
-ms.openlocfilehash: b4fda06f85c7dab52ff38558b0d928193e0694f6
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 41eaff13cf55d58f58b33bc05d39a6665d51ea29
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Market'te Azure yönetilen uygulamalar
 
@@ -122,7 +122,7 @@ Bir SKU Market'te üst teklif altında görüntülenir. Azure portalında purcha
    Aşağıdaki alanları doldurun:
 
    * **Geçerli sürüm**: karşıya yüklediğiniz paket için bir sürümü girin. Şu biçimde olmalıdır `{number}.{number}.{number}{number}`.
-   * **Bir paket dosyası seçmek**: Bu paket .zip pakete sıkıştırılmış gerekli dosyası içerir. Daha fazla bilgi için bkz: [hizmet Kataloğu uygulaması oluştur](publish-service-catalog-app.md).
+   * **Bir paket dosyası seçmek**: Bu paket .zip pakete sıkıştırılmış iki gerekli dosyaları içerir. Yönetilen uygulamayı dağıtmak için gereken kaynakları tanımlayan Resource Manager şablonu bir dosyadır. Diğer dosya tanımlar [kullanıcı arabirimi](create-uidefinition-overview.md) tüketiciler Portalı aracılığıyla yönetilen uygulamayı dağıtmak için. Kullanıcı arabiriminde parametre değerlerini sağlamak üzere tüketiciler etkinleştiren öğelerini belirtin.
    * **Principalıd**: Bu özellik bir kullanıcının, kullanıcı grubu veya verilen uygulama Azure Active Directory (Azure AD) tanımlayıcısıdır Müşteri'nin abonelik içindeki kaynaklara erişim. Rol tanımı izinleri açıklar.
    * **Rol tanımı**: Bu özellik Azure AD tarafından sağlanan tüm yerleşik rol tabanlı erişim denetimi (RBAC) rollerini listesidir. Kaynakları müşteri adına yönetmek üzere kullanmak en uygun olan rolü seçebilirsiniz.
 
@@ -197,5 +197,5 @@ Tüm bölümleri doldurduktan sonra seçin **Yayımla** teklifiniz müşteriler 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yönetilen uygulamaların giriş için bkz: [yönetilen uygulama genel bakış](overview.md).
+* Yönetilen uygulamalara giriş için [Yönetilen uygulamalara genel bakış](overview.md) konusunu inceleyin.
 * Hizmet Kataloğu yönetilen uygulama yayımlama hakkında daha fazla bilgi için bkz: [oluşturma ve bir hizmet Kataloğu yönetilen uygulamayı yayımlayın](publish-service-catalog-app.md).

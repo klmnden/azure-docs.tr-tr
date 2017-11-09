@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Azure çok faktörlü kimlik doğrulama ayarlarını - genel Önizleme yapılandırın
 
@@ -29,6 +29,7 @@ Bu makalede Azure çok faktörlü kimlik doğrulaması ve çalışıyor olduğun
 
 | Özellik | Açıklama | 
 |:--- |:--- |
+| [Kullanıcı engelle/Engellemeyi Kaldır](#block/unblock-users) |Kullanıcı engelle/Engellemeyi Kaldır kullanıcılar kimlik doğrulama isteklerini almasını engelleyebilirsiniz. |
 | [Sahtekarlık Uyarısı](#fraud-alert) |Sahtekarlık uyarısı yapılandırılmış ve böylece kullanıcılarınızın kaynaklarına erişmek için sahte denemeleri raporlayabilirsiniz ayarlayın. |
 | [Bir kerelik atlama](#one-time-bypass) |Bir kerelik geçiş "çok faktörlü kimlik doğrulamasını atlayarak" bir kereliğine kimlik doğrulaması sağlar. |
 | [Özel sesli mesajları](#custom-voice-messages) |Özel sesli mesajları kendi kayıtları veya Tebrikler çok faktörlü kimlik doğrulama kullanmanıza olanak sağlar. |
@@ -37,6 +38,23 @@ Bu makalede Azure çok faktörlü kimlik doğrulaması ve çalışıyor olduğun
 | [Uygulama parolaları](#app-passwords) |Bir uygulama parolası MFA çok faktörlü kimlik doğrulamasını atlamak ve çalışmaya devam etmek için kullanmayan bir uygulama sağlar. |
 | [Anımsanan cihazlar ve tarayıcılar için çok faktörlü kimlik doğrulaması unutmayın](#remember-multi-factor-authentication-for-devices-that-users-trust) |MFA kullanarak bir kullanıcı başarıyla oturum sonra gün sayısı kümesini için cihazları anımsamasını sağlar. |
 | [Seçilebilir doğrulama yöntemleri](#selectable-verification-methods) |Kullanmak kullanıcılar için kullanılabilir kimlik doğrulama yöntemlerini seçmenize olanak sağlar. |
+
+## <a name="blockunblock-users"></a>Kullanıcı engelle/Engellemeyi Kaldır
+Kullanıcı engelle/Engellemeyi Kaldır, kullanıcıların kimlik doğrulama isteklerini almasını önlemek için kullanılabilir. Engellenen kullanıcılar için kimlik doğrulama girişimleri otomatik olarak reddedilir. Süre 90 gün bunlar engellenir engellenen kullanıcılara engellenen kalır.
+
+### <a name="block-a-user"></a>Bir kullanıcı engelleme
+1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
+2. Gidin **Azure Active Directory** > **MFA sunucusu** > **engelle/Engellemeyi Kaldır kullanıcılar**.
+3. Tıklatın **Ekle** bir kullanıcıyı engellemek için.
+4. Seçin **çoğaltma grubu**, engellenen kullanıcı adı olarak giriş  **username@domain.com** ve bir açıklama girin **neden** alan.
+5. Tıklatın **Ekle** engelleyen kullanıcı tamamlamak için.
+
+### <a name="unblock-a-user"></a>Bir kullanıcının engelini kaldırma
+1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
+2. Gidin **Azure Active Directory** > **MFA sunucusu** > **engelle/Engellemeyi Kaldır kullanıcılar**.
+3. Tıklatın **Engellemeyi Kaldır** içinde **eylem** engellemesini kaldırmak istediğiniz kullanıcı yanındaki sütuna.
+4. Bir yorum girin **neden engellemelerini kaldırma için** alan.
+5. Tıklatın **Engellemeyi Kaldır** kullanıcının engellemesini kaldırma tamamlamak için.
 
 ## <a name="fraud-alert"></a>Sahtekarlık Uyarısı
 Sahtekarlık uyarısı yapılandırılmış ve böylece kullanıcılarınızın kaynaklarına erişmek için sahte denemeleri raporlayabilirsiniz ayarlayın.  Kullanıcıların sahtekarlık mobil uygulama ile ya da telefon üzerinden bildirebilirsiniz.

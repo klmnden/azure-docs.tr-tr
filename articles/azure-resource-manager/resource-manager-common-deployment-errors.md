@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: d6dc0ffac1a3e688f93af903f51f798270b63711
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme
 
-Bu konuda, karşılaşabileceğiniz ve hataları gidermek için bilgiler sağlar bazı ortak bir Azure dağıtım hataları açıklanmaktadır. Dağıtım hatası için hata kodu bulamazsa, bakın [Bul hata kodu](#find-error-code).
+Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı yaygın bir Azure dağıtım hatalar açıklanır. Dağıtım hatası için hata kodu bulamazsa, bakın [Bul hata kodu](#find-error-code).
 
 ## <a name="error-codes"></a>Hata kodları
 
@@ -61,6 +61,7 @@ Bu konuda, karşılaşabileceğiniz ve hataları gidermek için bilgiler sağlar
 | PrivateIPAddressNotInSubnet | Belirtilen IP adresi alt ağ aralığının dışında. Alt ağ aralığında için IP adresini değiştirin. | [IP adresleri](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PropertyChangeNotAllowed | Dağıtılan bir kaynakta bazı özellikleri değiştirilemez. Bir kaynak güncelleştirirken değişikliklerinizi izin verilen özelliklerini sınırlayın. | [Güncelleştirme kaynağı](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | RequestDisallowedByPolicy | Aboneliğiniz dağıtımı sırasında gerçekleştirmeye eylem önleyen bir kaynak ilke içerir. Eylem engeller ilkeyi bulun. Mümkünse, ilkeden sınırlamaları karşılamak üzere, dağıtımınızı değiştirin. | [İlkeleri çözümleyin](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| ReservedResourceName | Ayrılmış bir ad içermeyen bir kaynak adı belirtin. | [Ayrılmış kaynak adları](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Tamamlamak silme işlemi için bekleyin. | |
 | ResourceGroupNotFound | Dağıtımı için hedef kaynak grubu adını kontrol edin. Önceden, aboneliğinizde var olmalıdır. Abonelik bağlamını kontrol edin. | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | Dağıtımınız, çözümlenemeyen bir kaynağa başvuruyor. Doğrulayın kullanımınız **başvuru** işlevi senaryonuz için gerekli olan parametreleri içerir. | [Başvuruları çözümlenemedi](resource-manager-not-found-errors.md) |

@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>SQL Veri Ambarı'nı kullanmaya başlayın
 
@@ -198,7 +198,7 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
     ```
 5. Harici tabloları oluşturun. Bu tablolar Azure blob depolamada saklanan verilere başvurur. Aşağıdaki T-SQL komutlarını çalıştırarak, tamamı dış veri kaynağımızda daha önce tanımladığımız Azure blobunu işaret eden dış tablolar oluşturun.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Azure blob depolamadan veri alma
 
@@ -430,7 +430,7 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
 
 2. Verilerinizi yüklenirken görüntüleyin.
 
-   Birkaç GB veri yüklüyorsunuz ve yüksek performanslı kümelenmiş columnstore dizinlerine sıkıştırıyorsunuz. Yüklemenin durumunu göstermek için, dinamik yönetim görünümleri (DMV’ler) kullanan aşağıdaki sorguyu çalıştırın. Sorguyu başlattıktan sonra, SQL Veri Ambarı ağır yükü kaldırırken siz bir kahve alıp arkanıza yaslanın.
-    
-    ```sql
+  Birkaç GB veri yüklüyorsunuz ve yüksek performanslı kümelenmiş columnstore dizinlerine sıkıştırıyorsunuz. Yüklemenin durumunu göstermek için, dinamik yönetim görünümleri (DMV’ler) kullanan aşağıdaki sorguyu çalıştırın. Sorguyu başlattıktan sonra, SQL Veri Ambarı ağır yükü kaldırırken siz bir kahve alıp arkanıza yaslanın.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. Tüm sistem sorgularını görüntüleyin.
 
@@ -563,7 +564,7 @@ Bu adımda, iki farklı DWU ayarında performansı karşılaştırırsınız.
     > [!NOTE]
     > Ölçek değiştirilirken sorgular çalıştırılamaz. Ölçeklendirme, o anda çalışmakta olan sorgularınızı **sonlandırır**. İşlemi tamamladığında sorgularınızı yeniden başlatabilirsiniz.
     >
-    
+
 5. Tüm sütunlar için üst milyon girişler seçerek, giden veriler üzerinde tarama işlemi gerçekleştirin. Hızlı ilerlemek istiyorsanız, daha az satır seçmekten çekinmeyin. Bu işlemin çalıştırılması için geçen süreyi not edin.
 
     ```sql
@@ -626,11 +627,11 @@ Bu adımda, iki farklı DWU ayarında performansı karşılaştırırsınız.
 
     > [!NOTE]
     > SQL DW istatistikleri sizin için otomatik olarak yönetmez. İstatistikleri sorgu performansı için önemlidir ve istatistikleri oluşturmanız ve güncelleştirmeniz önemle tavsiye edilir.
-    > 
+    >
     > **En çok faydayı, birleştirmelerin bulunduğu sütunlar, WHERE yan tümcesinde kullanılan sütunlar ve GROUP BY içinde bulunan sütunlar için istatistik tutarak elde edebilirsiniz.**
     >
 
-3. Önkoşullar’dan sorguyu yeniden çalıştırın ve tüm performans farklarını inceleyin. Sorgu performansı farklılıkları ölçek büyütme kadar güçlü olmaz, ancak bir hız yükselmesi fark edersiniz. 
+4. Önkoşullar’dan sorguyu yeniden çalıştırın ve tüm performans farklarını inceleyin. Sorgu performansı farklılıkları ölçek büyütme kadar güçlü olmaz, ancak bir hız yükselmesi fark edersiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

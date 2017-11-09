@@ -4,11 +4,11 @@ hide_bc: True
 title: Microsoft Azure Belgeleri
 description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 featureFlags: clicktale
-ms.openlocfilehash: 1cce8a0c31a7bb7e4c6e228261b27244a762b441
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 810133d91382bffbcd728f9484e075da04da0fd8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service</p>
+                                                <p>Azure Container Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1352,8 +1352,8 @@ ms.lasthandoff: 11/01/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Kubernetes, DC/OS veya Docker Swarm kullanarak kapsayıcıları ölçeklendirme düzenleme</p>
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Kubernetes kullanarak kapsayıcılı uygulamaları uygun ölçekte çalıştırma</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2019,8 +2019,8 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service</h3>
-                                                    <p>Kubernetes, DC/OS veya Docker Swarm kullanarak kapsayıcıları ölçeklendirme düzenleme</p>
+                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <p>Kubernetes kullanarak kapsayıcılı uygulamaları uygun ölçekte çalıştırma</p>
                                                 </div>
                                             </div>
                                         </div>

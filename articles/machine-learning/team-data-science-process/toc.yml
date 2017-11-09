@@ -79,8 +79,23 @@
           maintainContext: true
         - name: Platformlar ve araçlar
           href: platforms-and-tools.md
-        - name: Hadoop’u Özelleştirme
-          href: customize-hadoop-cluster.md
+        - name: HDInsight kümelerinde R ve Python
+          items:
+            - name: HDInsight'ta Spark’a giriş
+              href: ../../hdinsight/spark/apache-spark-overview.md
+              maintainContext: true
+            - name: Azure HDInsight’ta Apache Spark kümesi oluşturma
+              href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md
+              maintainContext: true
+            - name: Jupyter Notebook için PySpark çekirdekleri
+              href: ../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md
+              maintainContext: true
+            - name: HDInsight’ta R Server
+              href: ../../hdinsight/r-server/r-server-overview.md
+              maintainContext: true
+            - name: HDInsight üzerinde R Server kullanmaya başlayın
+              href: ../../hdinsight/r-server/r-server-get-started.md
+              maintainContext: true
         - name: Azure Machine Learning çalışma alanı
           href: ../studio/create-workspace.md
           maintainContext: true

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect eşitleme: işletimsel görevleri ve değerlendirme
 Bu konunun amacı, Azure AD Connect eşitleme için işletimsel görevleri açıklar sağlamaktır.
@@ -68,11 +68,18 @@ Bu yöntem uygulamak için aşağıdaki adımları izleyin:
 #### <a name="verify"></a>Doğrulama
 1. Bir komut istemi açın ve gidin`%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Çalıştır: `csexport "Name of Connector" %temp%\export.xml /f:x` bağlayıcısının adını eşitleme hizmeti bulunamadı. "Contoso.com için – AAD" benzer bir ada sahip Azure AD için.
-3. PowerShell Betiği bölümünden kopyalayın [CSAnalyzer](#appendix-csanalyzer) adlı bir dosyaya `csanalyzer.ps1`.
-4. Bir PowerShell penceresi açın ve PowerShell komut dosyasını oluşturduğunuz klasöre göz atın.
-5. Çalıştır: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. Şimdi adlı bir dosyanız varsa **processedusers1.csv** , incelenmesi Microsoft Excel'de. Tüm değişiklikleri Azure AD'ye aktarılacak hazırlanan bu dosya bulunamadı.
-7. Veriler veya yapılandırma gerekli değişiklikleri yapın ve bu adımları tekrar (içeri aktarma ve eşitleme ve doğrula) çalıştırın, dışarı aktarılacak olan değişiklikleri beklenen kadar.
+3. Çalıştır: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Microsoft Excel'de incelenebilir export.csv adlı % temp % içinde bir dosyanız. Bu dosya dışarı aktarılacak olan tüm değişiklikleri içerir.
+4. Veriler veya yapılandırma gerekli değişiklikleri yapın ve bu adımları tekrar (içeri aktarma ve eşitleme ve doğrula) çalıştırın, dışarı aktarılacak olan değişiklikleri beklenen kadar.
+
+**C:\Export.csv anlama** dosyasının çoğu kendinden açıklamalıdır. İçerik anlamak üzere bazı kısaltmalar:
+* OMODT – nesne değişikliği türü. Nesne düzeyinde bir işlemi ekleme, güncelleştirme veya silme olup olmadığını gösterir.
+* AMODT – öznitelik değişikliği türü. Bir öznitelik düzeyinde işlemi ekleme, güncelleştirme veya silme olup olmadığını gösterir.
+
+**Ortak tanımlayıcılarının alınması** export.csv dosyası dışarı aktarılacak olan tüm değişiklikleri içerir. Her satır bir bağlayıcı alanı nesne için bir değişikliği karşılık gelir ve nesne DN özniteliği tarafından tanımlanır. Bağlayıcı alanı içindeki bir nesneye atanmış benzersiz bir tanımlayıcı DN özniteliğidir. Çözümlenecek export.csv fazla satır/değişiklik olduğunda, çıkışı nesneleri DN özniteliği tek başına göre değişir şekil zor olabilir. Değişiklikleri analiz etme işlemini basitleştirmek için csanalyzer.ps1 PowerShell komut dosyasını kullanın. Komut dosyası nesnelerin ortak tanımlayıcıları (örneğin, displayName, userPrincipalName) alır. Betik kullanmak için:
+1. PowerShell Betiği bölümünden kopyalayın [CSAnalyzer](#appendix-csanalyzer) adlı bir dosyaya `csanalyzer.ps1`.
+2. Bir PowerShell penceresi açın ve PowerShell komut dosyasını oluşturduğunuz klasöre göz atın.
+3. Çalıştır: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+4. Şimdi adlı bir dosyanız varsa **processedusers1.csv** , incelenmesi Microsoft Excel'de. Dosya DN özniteliği eşlemeyi ortak tanımlayıcıları (örneğin, displayName ve userPrincipalName) sağladığını unutmayın. Şu anda dışarı aktarılacak gerçek öznitelik değişikliklerini içermez.
 
 #### <a name="switch-active-server"></a>Anahtar active server
 1. Şu anda etkin sunucuda değil verme için Azure AD ile (FIM/DirSync/Azure AD eşitleme) sunucu etkinleştirmek ya da hazırlama modu (Azure AD Connect) ayarlayın.

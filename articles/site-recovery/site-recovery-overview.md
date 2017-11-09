@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="about-site-recovery"></a>Site Recovery Hakkında
 
@@ -67,7 +67,6 @@ Site Recovery, şunlar için çoğaltmayı yönetebilir:
 **Hangi bölgeler Site Recovery için desteklenir?** | [Desteklenen bölgeler](https://azure.microsoft.com/regions/services/) |
 **Çoğaltılan makineler için hangi işletim sistemleri gerekir?** | [Azure VM gereksinimleri](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[VMware VM gereksinimleri](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> Hyper-V VM’ler için Azure ve Hyper-V tarafından desteklenen tüm [konuk işletim sistemleri](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) desteklenir.<br/><br/> [Fiziksel sunucu gereksinimleri](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **Hangi VMware sunucularına/ana bilgisayarlarına ihtiyacımız var?** | VMware VM’leri [desteklenen vSphere konaklarında/vCenter sunucularında](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) bulunabilir.
-
 **Hangi iş yüklerini çoğaltabilirim?** | Desteklenen bir çoğaltma makinesinde çalışan tüm iş yüklerini çoğaltabilirsiniz. Ayrıca, Site Recovery ekibi [çeşitli uygulamalar](site-recovery-workload.md#workload-summary) için uygulamaya özgü testler gerçekleştirdi.
 
 

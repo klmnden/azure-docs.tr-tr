@@ -15,16 +15,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01fa162d41e03e29f3b6f0ca128e7cc49aa91abb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM üzerinde Django Hello World web uygulaması
 
 > [!IMPORTANT] 
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Azure Resource Manager ve klasik dağıtım modeli](../../../resource-manager-deployment-model.md). Bu makalede Klasik dağıtım modeli açıklanır. En yeni dağıtımların Resource Manager modelini kullanmasını öneririz.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Bu öğretici, Azure Virtual Machines'de Windows Server'daki Django tabanlı bir Web sitesi barındırmak nasıl gösterir. Öğreticide, Azure ile konusunda deneyim varsayıyoruz. Öğreticiyi tamamladığınızda, Django tabanlı bir uygulamayı oluşturan ve bulutta çalışan sahip olabilir.
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: clemensv;hillaryc;sethm
-ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e1fa9db3b4801103069163c55a9b342a27d00ac
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # Azure Service Bus ve Event Hubs Protokolü Kılavuzu'nda AMQP 1.0
 
@@ -32,7 +32,7 @@ Bu makalede kısaca OASIS AMQP teknik komitesi şu anda sonuçlandırılmış ta
 
 Tüm mevcut AMQP 1.0 istemcisi yığını, Azure hizmet veri yolu AMQP 1.0 aracılığıyla etkileşim kurabilmesi için herhangi bir platformda kullanarak herhangi bir geliştirici için belirtilir.
 
-Apache Proton veya AMQP.NET Lite gibi ortak genel amaçlı AMQP 1.0 yığınları zaten tüm çekirdek AMQP 1.0 hareketleri uygulayın. Bu temel hareketleri bazen bir üst düzey API'si ile sarılır; Apache Proton bile iki, kesinlik temelli Messenger API ve reaktif rektör API sunar.
+Apache Proton veya AMQP.NET Lite gibi ortak genel amaçlı AMQP 1.0 yığınları zaten tüm çekirdek AMQP 1.0 protokollerini uygulayın. Bu temel hareketleri bazen bir üst düzey API'si ile sarılır; Apache Proton bile iki, kesinlik temelli Messenger API ve reaktif rektör API sunar.
 
 Aşağıdaki tartışmada AMQP bağlantıları, oturumları ve bağlantıları yönetimini ve çerçeve aktarımları ve akış denetimi işlenmesini ilgili yığın (gibi Apache Protonun durgun-C) tarafından işlenir ve uygulama geliştiricileri özel kadar varsa işlem yapmanız gerekli değil varsayıyoruz. Bağlamalarında birkaç API temelleri yeteneği gibi bağlanmak ve çeşit oluşturmak için varlığını varsayıyoruz *gönderen* ve *alıcı* soyutlama nesneleri, daha sonra sahip bazı şeklini `send()` ve `receive()` işlemleri, sırasıyla.
 
@@ -238,13 +238,13 @@ Aşağıdaki bölümlerde, hangi özellikler standart AMQP ileti bölümlerden S
 Bu bölüm, Azure Service Bus'ın OASIS teknik komitesi AMQP için şu anda geliştirilmekte taslak uzantıları amqp, temel alan Gelişmiş özelliklerini kapsar. Service Bus bu Taslaklar en son sürümlerini uygular ve bu Taslaklar standart durumuna ulaşmasını olarak sunulan değişiklikler devralır.
 
 > [!NOTE]
-> Service Bus Mesajlaşma hizmeti Gelişmiş işlemler istek/yanıt modeli aracılığıyla desteklenir. Bu işlem ayrıntılarını belgede açıklanan [hizmet veri yolu AMQP 1.0: istek-yanıt tabanlı işlemleri](service-bus-amqp-request-response.md).
+> Service Bus Mesajlaşma hizmeti Gelişmiş işlemler istek/yanıt modeli aracılığıyla desteklenir. Bu işlem ayrıntılarını makalesinde açıklanan [hizmet veri yolu AMQP 1.0: istek-yanıt tabanlı işlemleri](service-bus-amqp-request-response.md).
 > 
 > 
 
 ### AMQP Yönetimi
 
-AMQP yönetim burada tartışılan taslak uzantıları ilk belirtimidir. Bu belirtimi AMQP yönetim etkileşimleri Mesajlaşma altyapısı ile izin AMQP protokolünü üzerinde katmanlanmış Protokolü hareketleri kümesini tanımlar. Belirtimi genel işlemleri gibi tanımlayan *oluşturma*, *okuma*, *güncelleştirme*, ve *silme* bir ileti altyapısı ve sorgu işlemleri kümesi içindeki varlıklar yönetmek için.
+AMQP yönetim bu makalede açıklanan taslak uzantıları ilk belirtimidir. Bu belirtimi bir AMQP yönetim etkileşimleri Mesajlaşma altyapısı ile izin AMQP protokolünü üzerinde katmanlanmış protokolleri kümesi tanımlar. Belirtimi genel işlemleri gibi tanımlayan *oluşturma*, *okuma*, *güncelleştirme*, ve *silme* bir ileti altyapısı ve sorgu işlemleri kümesi içindeki varlıklar yönetmek için.
 
 Bu hareketleri Mesajlaşma altyapısı ile istemci arasında bir istek/yanıt etkileşimi gerektirir ve bu nedenle bu etkileşim düzeni AMQP üstünde modellemek nasıl belirtimi tanımlar: istemci Mesajlaşma altyapısı bağlandığında, bir oturum başlatır ve bağlantıları çifti oluşturur. Bir bağlantı üzerindeki istemci gönderen olarak davranır ve diğer bağlı alıcı, böylece bir çift yönlü kanalı olarak davranıp bağlantıları oluşturma gibi davranır.
 

@@ -8,6 +8,41 @@
 ### [Önceden yapılandırılmış çözümü dağıtma](iot-suite-remote-monitoring-deploy.md)
 ### [Önceden yapılandırılmış çözümü çalıştırma](iot-suite-remote-monitoring-explore.md)
 
+## Uzaktan izleme (önceki sürüm)
+### [Önceden yapılandırılmış çözümler nelerdir?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [SSS](iot-suite-v1-faq.md)
+
+### Kullanmaya Başlama
+#### [Önceden yapılandırılmış çözümleri kullanmaya başlama](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [azureiotsuite.com sitesindeki izinler](iot-suite-v1-permissions.md)
+#### [Uzaktan izleme çözüm kılavuzu](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Raspberry Pi’ye bağlanma](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### C kullanma
+###### [Sanal veriler](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Gerçek algılayıcılar kullanma](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Üretici yazılımı güncelleştirmesini uygulama](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Node.js kullanma
+###### [Sanal veriler](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Gerçek algılayıcılar kullanma](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Üretici yazılımı güncelleştirmesini uygulama](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Intel NUC ağ geçidinizi bağlama
+##### [Sanal veriler](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [Gerçek algılayıcı kullanma](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### Nasıl yapılır?
+#### Sanal cihaza bağlanma
+##### [Windows üzerinde C](iot-suite-v1-connecting-devices.md)
+##### [Linux üzerinde C](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [Mantıksal Uygulama’yı uzaktan izleme çözümüne bağlama](iot-suite-v1-logic-apps-tutorial.md)
+#### [Önceden yapılandırılmış bir çözümü özelleştirme](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Uzaktan izleme çözümüyle dinamik telemetri kullanma](iot-suite-v1-dynamic-telemetry.md)
+#### [Uzaktan izleme çözümünde özel kural oluşturma](iot-suite-v1-custom-rule.md)
+#### [Uzaktan izleme çözümündeki cihaz bilgileri](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## Tahmine dayalı bakım
 ### [Tahmine dayalı bakım çözümüne genel bakış](iot-suite-predictive-overview.md)
 ### [Tahmine dayalı bakım çözüm kılavuzu](iot-suite-predictive-walkthrough.md)

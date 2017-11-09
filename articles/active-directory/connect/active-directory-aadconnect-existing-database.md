@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Var olan bir ADSync veritabanı kullanarak Azure AD Connect'i yükleme
 Azure AD Connect verileri depolamak için bir SQL Server veritabanı gerektirir. Varsayılan olarak Azure AD Connect ile SQL Server 2012 Express LocalDB yüklenen kullanabilir veya kendi SQL tam sürümünü kullanın. Daha önce Azure AD Connect yüklendiğinde ADSync adlı yeni bir veritabanı her zaman oluşturuldu. Azure AD Connect sürüm 1.1.613.0 (veya sonra), varolan bir ADSync veritabanına işaret ederek Azure AD Connect yükleme seçeneğiniz vardır.
@@ -35,19 +35,19 @@ Aşağıdaki senaryolarda yararlı yararlar şunlardır:
 
 
 - Var olan bir Azure AD Connect dağıtıma sahip. Var olan Azure AD Connect sunucunuz artık çalışıyor ancak ADSync veritabanını içeren SQL server hala çalışıyor. Yeni bir Azure AD Connect sunucusu yüklemek ve var olan ADSync veritabanının üzerine getirin. 
-- Var olan bir Azure AD Connect dağıtıma sahip. ADSync veritabanını içeren SQL server'ınızdaki artık çalışmıyor. Ancak, veritabanının son yedeğini sahip. Önce yeni bir SQL server ADSync veritabanı geri yükleyebilirsiniz. Sonra yeni bir Azure AD Connect sunucusu yüklemek ve geri yüklenen ADSync veritabanının üzerine getirin.
+- Var olan bir Azure AD Connect dağıtıma sahip. ADSync veritabanını içeren SQL server'ınızdaki artık çalışmıyor. Ancak, en son veritabanı sahip yedekleyin. Önce yeni bir SQL server ADSync veritabanı geri yükleyebilirsiniz. Sonra yeni bir Azure AD Connect sunucusu yüklemek ve geri yüklenen ADSync veritabanının üzerine getirin.
 - Yerel veritabanı kullanarak var olan bir Azure AD Connect dağıtım var. Yerel veritabanı tarafından uygulanan 10GB sınırını nedeniyle, tam SQL geçirmek istediğiniz. LocalDB ADSync veritabanını yedekleyin ve bir SQL Server'a geri yükleyin. Sonra yeni bir Azure AD Connect sunucusu yükleyin ve geri yüklenen ADSync veritabanının üzerine getirin.
-- Hazırlama server kurulumunu çalıştığınız ve geçerli etkin sunucunun yapılandırmasıyla eşleşen emin olmak istiyor. ADSync veritabanını yedekleyin ve başka bir SQL Server'a geri yükleyebilirsiniz. Sonra yeni bir Azure AD Connect sunucusu yükleyin ve geri yüklenen ADSync veritabanının üzerine getirin.
+- Hazırlama sunucusu kurmak çalışıyorsunuz ve geçerli etkin sunucunun yapılandırmasıyla eşleşen emin olmak istiyor. ADSync veritabanını yedekleyin ve başka bir SQL Server'a geri yükleyebilirsiniz. Sonra yeni bir Azure AD Connect sunucusu yükleyin ve geri yüklenen ADSync veritabanının üzerine getirin.
 
 ## <a name="prerequisite-information"></a>Önkoşul bilgileri
 
 Devam etmeden önce olabilmesi için önemli notlar dikkat edin:
 
-
 - Donanım ve önkoşullar ve hesap ve Azure AD Connect'i yüklemek için gereken izinler Azure AD Connect'i yüklemeye yönelik önkoşulları gözden geçirdiğinizden emin olun. "Varolan veritabanını kullan" modu kullanarak Azure AD Connect'i yüklemek için gerekli izinleri "özel" yükleme ile aynı olur.
+- Azure AD Connect varolan ADSync karşı dağıtma veritabanı yalnızca tam SQL ile desteklenir. SQL Express LocalDB ile desteklenmiyor. Kullanmak istediğiniz yerel veritabanı var olan bir ADSync veritabanı varsa, ilk (LocalDB) ADSync veritabanı yedekleme ve tam SQL geri yüklemelisiniz. Sonrasında, Azure AD Connect bu yöntemi kullanarak geri yüklenen veritabanı karşı dağıtabilirsiniz.
 - Yükleme için kullanılan Azure AD Connect sürümü aşağıdaki ölçütleri karşılamalıdır:
     - 1.1.613.0 veya üstü ve
-    - Aynı veya son ADSync veritabanı ile kullanılan Azure AD Connect sürümünden daha yüksek. Yükleme için kullanılan Azure AD Connect sürümü son ADSync veritabanı ile kullanılan sürümden daha yüksek ise, bir tam eşitleme gerekli olabilir.  İki sürümü arasında şema veya eşitleme kuralı değişiklik varsa, bu gereklidir. 
+    - Aynı veya son ADSync veritabanı ile kullanılan Azure AD Connect sürümünden daha yüksek. Yükleme için kullanılan Azure AD Connect sürümü son ADSync veritabanı ile kullanılan sürümden daha yüksek ise, bir tam eşitleme gerekli olabilir.  İki sürümü arasında şema veya eşitleme kuralı değişiklikler yapıldıysa, tam eşitleme gereklidir. 
 - Kullanılan ADSync veritabanı, nispeten yeni bir eşitleme durumu içermelidir. Son eşitleme etkinliği varolan ADSync veritabanı ile son üç hafta içinde olmalıdır.
 - "Varolan veritabanını kullan" yöntemi kullanarak Azure AD Connect'i yükleme sırasında oturum açma yöntemi önceki Azure AD Connect sunucusunda yapılandırılan korunmaz. Ayrıca, yükleme sırasında oturum açma yöntemi yapılandıramazsınız. Yükleme tamamlandıktan sonra yalnızca oturum açma yöntemi yapılandırabilirsiniz.
 - Aynı ADSync veritabanını paylaşan birden çok Azure AD Connect sunucusu olamaz. "Varolan veritabanını kullan" yöntemi, yeni bir Azure AD Connect sunucusu var olan bir ADSync veritabanı yeniden kullanmanıza olanak sağlar. Paylaşımı desteklemez.

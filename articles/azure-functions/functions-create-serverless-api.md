@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure işlevleri kullanarak sunucusuz bir API oluşturma
 
@@ -61,7 +61,8 @@ Ardından, yeni API yüzeyi ile çalışma görmek için işlevinizi test.
 1. Sol gezinti bölmesinde işlevin adına tıklayarak geliştirme sayfasına geri gidin.
 1. Tıklatın **Al işlevi URL** ve URL'yi kopyalayın. Bunu kullandığını görürsünüz `/api/hello` şimdi rota.
 1. Yeni bir tarayıcı sekmesi veya tercih edilen REST istemciniz URL'yi kopyalayın. Tarayıcılar GET varsayılan olarak kullanır.
-1. İşlevi çalıştırmak ve çalıştığını doğrulayın. Hızlı Başlangıç kod karşılamak için sorgu dizesi olarak "name" parametresi sağlamanız gerekebilir.
+1. Parametreleri URL'nizi sorgu dizesinde örneğin ekleyin`/api/hello/?name=John`
+1. ', Çalışmakta olduğunu onaylamak için Enter' a basın. Yanıt görmeniz gerekir "*Hello John*"
 1. İşlev yürütülmez onaylamak için başka bir HTTP yöntemi ile uç noktası çağrılmadan da deneyebilirsiniz. Bunun için cURL, Postman veya Fiddler gibi bir REST istemcisi kullanmanız gerekecektir.
 
 ## <a name="proxies-overview"></a>Proxy'leri genel bakış
@@ -85,9 +86,8 @@ Bu bölümde, ön uç genel apı'nize olarak hizmet veren yeni bir proxy oluştu
 Adımlarını yineleyin [bir işlev uygulaması oluşturma](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) proxy oluşturursunuz yeni bir işlev uygulaması oluşturmak için. Bu yeni uygulamanın URL bizim API için ön uç hizmet verir ve daha önce düzenlemekte olduğunuz işlev uygulaması arka ucu olarak hizmet verecektir.
 
 1. Portalı'nda yeni ön uç işlevi uygulamanıza gidin.
-1. Seçin **ayarları**. Ardından geçiş **etkinleştirmek Azure işlevleri proxy'leri (Önizleme)** için "Açık".
-1. Seçin **Platform ayarları** ve **uygulama ayarları**.
-1. Ekranı aşağı kaydırarak **uygulama ayarları** ve "HELLO_HOST" anahtarı ile yeni bir ayar oluşturun. Değerini, arka uç işlevi uygulamanızın konağa gibi ayarlama `<YourBackendApp>.azurewebsites.net`. Bu HTTP işlevinizi test edilirken önceden kopyaladığınız URL'yi bir parçasıdır. Bu ayar daha sonra yapılandırma başvuru.
+1. Seçin **Platform özellikleri** ve **uygulama ayarları**.
+1. Ekranı aşağı kaydırarak **uygulama ayarları** burada anahtar/değer çiftlerinin depolanır ve yeni bir "HELLO_HOST" anahtarla ayarlama. Değerini, arka uç işlevi uygulamanızın konağa gibi ayarlama `<YourBackendApp>.azurewebsites.net`. Bu HTTP işlevinizi test edilirken önceden kopyaladığınız URL'yi bir parçasıdır. Bu ayar daha sonra yapılandırma başvuru.
 
     > [!NOTE] 
     > Proxy için bir sabit kodlanmış ortamı bağımlılığı önlemek ana bilgisayar yapılandırması için önerilen uygulama ayarları. Uygulama ayarları kullanarak, proxy yapılandırması ortamlar arasında taşıyabilirsiniz ve ortama özgü uygulama ayarları uygulanacak anlamına gelir.
@@ -120,7 +120,7 @@ Adımlarını yineleyin [bir işlev uygulaması oluşturma](https://docs.microso
 
 Ardından, çözümünüz için sahte bir API oluşturmak için bir proxy kullanır. Bu, istemci geliştirme ilerleme için tam olarak uygulanan arka uç gerek kalmadan sağlar. Geliştirme, daha sonra bu mantığı destekleyen yeni bir işlev uygulaması oluşturmak ve proxy yönlendirin.
 
-Bu sahte API oluşturmak için yeni bir proxy oluşturacağız kullanarak bu zaman [App Service Düzenleyicisi](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Başlamak için portal işlevi uygulamanızda gidin. Seçin **Platform özellikleri** ve Bul **App Service Düzenleyicisi**. Bu tıklandığında App Service Düzenleyicisi'ni yeni sekmede açılır.
+Bu sahte API oluşturmak için yeni bir proxy oluşturacağız kullanarak bu zaman [App Service Düzenleyicisi](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Başlamak için portal işlevi uygulamanızda gidin. Seçin **Platform özellikleri** ve altında **geliştirme araçları** Bul **App Service Düzenleyicisi**. Bu tıklandığında App Service Düzenleyicisi'ni yeni sekmede açılır.
 
 Seçin `proxies.json` sol gezinti bölmesinde. Bu yapılandırma, proxy'leri tamamı için depolayan dosyasıdır. Birini kullanırsanız [işlevleri dağıtım yöntemleri](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), bu kaynak denetiminde koruyacaktır dosyasıdır. Bu dosya hakkında daha fazla bilgi için bkz: [proxy'leri Gelişmiş Yapılandırma](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
@@ -178,7 +178,7 @@ Sonraki sahte API'nizi ekleyeceksiniz. Proxies.json dosyanızı aşağıdaki sat
 
 Bu yeni olmadan bir proxy, "GetUserByName" backendUri özelliği ekler. Başka bir kaynak çağırmak yerine, bir yanıt geçersiz kılma kullanılarak proxy'leri varsayılan yanıttan değiştirir. İstek ve yanıt geçersiz kılmaları da arka uç URL'si ile birlikte kullanılabilir. Bu, özellikle eski bir sistemi için proxy sunucusunu nereye üst bilgiler, değiştirmeniz gerekebilir sorguladığınızda parametreleri, vb. kullanışlıdır. İstek ve yanıt geçersiz kılmalar hakkında daha fazla bilgi için bkz: [istekleri ve yanıtları proxy'leri değiştirme](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
 
-Çağırarak sahte API'nizi test `/api/users/{username}` bir tarayıcı veya sık kullandığınız REST istemcisinden kullanarak uç nokta. Değiştirdiğinizden emin olun _{username}_ olan bir kullanıcı adı temsil eden bir dize değeri.
+Çağırarak sahte API'nizi test `<YourProxyApp>.azurewebsites.net/api/users/{username}` bir tarayıcı veya sık kullandığınız REST istemcisinden kullanarak uç nokta. Değiştirdiğinizden emin olun _{username}_ olan bir kullanıcı adı temsil eden bir dize değeri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

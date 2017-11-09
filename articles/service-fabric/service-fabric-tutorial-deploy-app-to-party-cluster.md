@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Azure taraf kümede bir uygulamayı dağıtma
 Bu öğretici iki serinin bir parçasıdır ve Azure taraf kümede Azure Service Fabric uygulama dağıtma gösterir.
@@ -58,24 +58,6 @@ Bir taraf kümesine erişmek için bu siteye göz atın: http://aka.ms/tryservic
 
 > [!NOTE]
 > Parti kümeleri sağlanmaz, bu nedenle uygulamalarınız ve bunları put herhangi bir veri başkalarına görünür olabilir. Başkalarının görmesini istemiyorsanız herhangi bir şey dağıtmazsınız. Tüm Ayrıntılar için kullanım koşullarını üzerinden okuduğunuzdan emin olun.
-
-## <a name="configure-the-listening-port"></a>Dinleme bağlantı noktasını yapılandırın
-VotingWeb ön uç hizmeti oluşturulduğunda, Visual Studio bir bağlantı noktası üzerinde dinleme hizmeti için rastgele seçer.  VotingWeb hizmeti bu uygulama için ön uç gibi davranır ve dış trafiği kabul eder, sağlandığından hizmet sabit bir bağlayabilir ve bağlantı noktası iyi biliyor. Çözüm Gezgini'nde açık *VotingWeb/PackageRoot/ServiceManifest.xml*.  Bul **Endpoint** kaynak **kaynakları** bölümünde ve değiştirme **bağlantı noktası** 80 değeri.
-
-```xml
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
-    </Endpoints>
-  </Resources>
-```
-
-Ayrıca 'F5' kullanarak hata ayıklamasını yaparken doğru bağlantı noktasına bir web tarayıcısı açar şekilde oylama Proje uygulama URL'si özelliği değeri güncelleştirin.  Çözüm Gezgini'nde seçin **oylama** proje ve güncelleştirme **uygulama URL'si** özelliği.
-
-![Uygulama URL'si](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>Uygulamayı Azure'a dağıtma
 Uygulama hazır, Visual Studio'dan doğrudan taraf kümeye dağıtabilirsiniz.

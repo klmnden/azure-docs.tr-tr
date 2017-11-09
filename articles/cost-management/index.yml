@@ -37,3 +37,4 @@ sections:
           - html: <a href="tutorial-review-usage">Anomalileri ve verimlilikleri belirlemek için kullanım ve maliyetleri gözden geçirme</a>
           - html: <a href="tutorial-user-access">Maliyet Yönetimi verilerine erişim atama</a>
           - html: <a href="tutorial-forecast-spending">Gelecek harcamaları tahmin etme</a>
+          - html: '<a href="tutorial-manage-costs">Maliyet dağıtımı, ücret hesaplama raporları ve ücret yansıtma raporları ile maliyetleri yönetme</a>'

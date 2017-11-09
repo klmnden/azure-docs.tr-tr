@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performans ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Azure veri depolama ve veri ambarı çözümleri Kurumsal düzeyde bir dizi sağ
 Bu makalede açıklanır:
 
 * [Performans referans numaraları](#performance-reference) desteklenen projenizi; planlamanıza yardımcı olması için kaynak ve havuz veri depoları
-* Kopya işleme dahil olmak üzere farklı senaryolarda artırabilir özellikleri [bulut veri taşıma birimleri](#cloud-data-movement-units), [paralel kopyalama](#parallel-copy), ve [kopyalama hazırlanan](#staged-copy);
+* Kopya işleme dahil olmak üzere farklı senaryolarda artırabilir özellikleri [veri taşıma birimleri bulut](#cloud-data-movement-units), [paralel kopyalama](#parallel-copy), ve [kopyalama hazırlanan](#staged-copy);
 * [Performans ayarlama yönergeleri](#performance-tuning-steps) performans ve kopyalama performansını etkileyebilir anahtar Etkenler ayarlama konusunda.
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Bir başvuru olarak aşağıdaki tabloyu kopyalama üretilen iş sayısını gö
 ![Performans Matrisi](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->Kopya etkinliği Azure bir tümleştirme Çalışma Zamanı Modülü üzerinde çalıştırıldığında Azure Data Factory sürüm 2, en az veri taşıma birimleri iki buluttur.
+>Azure Data Factory sürüm 2, kopya etkinliği Azure bir tümleştirme Çalışma Zamanı Modülü üzerinde çalıştırıldığında en az izin verilen bulut veri taşıma birimidir iki. Belirtilmezse, varsayılan veri taşıma birimleri kullanıldığına bakın [bulut veri taşıma birimleri](#cloud-data-movement-units).
 
 Dikkat edilecek noktalar:
 
@@ -84,13 +84,12 @@ Dikkat edilecek noktalar:
 
 A **bulut veri taşıma birimi (DMU)** veri fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüdür. **DMU yalnızca uygulanır [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-integration-runtime)**, ama [Self-hosted tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**Kopyalama etkinliği çalıştırmak güçlendirmeniz en az bulut veri taşıma birimleri iki olur.** Aşağıdaki tabloda farklı kopyalama senaryosunda kullanılan varsayılan DMUs listeler.
+**Kopyalama etkinliği çalıştırmak güçlendirmeniz en az bulut veri taşıma birimleri iki olur.** Belirtilmezse, aşağıdaki tabloda farklı kopyalama senaryosunda kullanılan varsayılan DMUs listelenmektedir:
 
 | Kopyalama senaryosu | Hizmeti tarafından belirlenen varsayılan DMUs |
 |:--- |:--- |
-| Dosya tabanlı depoları arasında veri kopyalama | 2 ile 16 sayısı ve dosya boyutuna bağlı olarak arasında. |
-| Salesforce/Dynamics veri kopyalama | 4 |
-| Diğer tüm kopyalama senaryoları | 2 |
+| Dosya tabanlı depoları arasında veri kopyalama | 4 ile sayısı ve dosya boyutuna bağlı olarak 16 arasında. |
+| Diğer tüm kopyalama senaryoları | 4 |
 
 Bu varsayılanı geçersiz kılmak için için bir değer belirtin **cloudDataMovementUnits** şekilde özelliği. **İzin verilen değerler** için **cloudDataMovementUnits** özelliği olan 2, 4, 8, 16 ve 32. **Bulut DMUs gerçek sayısını** eşit veya bu değerden azsa yapılandırılan, veri deseni bağlı olarak, kopyalama işlemini çalışma zamanında kullanır. Daha fazla birimi belirli kopya kaynak ve havuz için yapılandırdığınızda alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
 

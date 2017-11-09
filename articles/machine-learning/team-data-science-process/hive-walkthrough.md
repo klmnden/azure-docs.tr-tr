@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Eylem takım veri bilimi işleminde: kullanım Azure Hdınsight Hadoop kümeleri
 Bu kılavuzda, kullandığımız [takım veri bilimi işlem (TDSP)](overview.md) bir uçtan uca senaryoyu kullanarak bir [Azure Hdınsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfedin ve özellik mühendislik verileri genel kullanıma [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi ve aşağı veri örneği için. Veri modelleri çok sınıflı ve ikili sınıflandırma ve regresyon Tahmine dayalı görevler işlemek için Azure Machine Learning ile oluşturulur.
@@ -59,15 +59,15 @@ Biz bu kılavuzda, formülasyonu temel adres tahmin sorunları üç örnekler *�
 
 1. **İkili sınıflandırma**: bir ipucu bir seyahat, yani ödenmiş olup olmadığına bakılmaksızın tahmin bir *İpucu\_tutar* büyük $0 pozitif bir örnektir küçük, ancak bir *İpucu\_tutar* 0 / negatif bir örnektir.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Çok sınıflı sınıflandırma**: seyahat için ücretli ipucu tutarlar aralığını tahmin etmek için. Biz bölmek *İpucu\_tutar* beş depo veya sınıfları:
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Regresyon görev**: seyahat için ücretli ipucu miktarı tahmin etmek için.  
 
 ## <a name="setup"></a>Bir Hdınsight Hadoop kümesi gelişmiş analizler için ayarlama
@@ -132,7 +132,7 @@ Veriler artık Azure Blob Depolama ve hazır Hdınsight küme içinde kullanılm
 > 
 > 
 
-Keşif veri analizi için ve veri örnekleme aşağı küme baş düğümüne erişmek için özetlenen yordamı izleyin [Hadoop küme baş düğümü erişim](customize-hadoop-cluster.md#headnode).
+Keşif veri analizi için ve veri örnekleme aşağı küme baş düğümüne erişmek için özetlenen yordamı izleyin [Hadoop küme baş düğümü erişim](customize-hadoop-cluster.md).
 
 Bu kılavuzda, öncelikli olarak yazılmış sorguları kullanırız [Hive](https://hive.apache.org/), ön veri explorations gerçekleştirmek için bir SQL benzeri sorgu dili. Hive sorguları .hql dosyalarında depolanır. Biz ardından aşağı içinde Azure Machine Learning modeli oluşturmak için kullanılmak üzere bu veri örneği.
 
@@ -723,17 +723,17 @@ Hive verme için önkoşul olarak sorgular [veri içeri aktarma] [ import-data] 
 
 İlgili bazı Ayrıntılar [veri içeri aktarma] [ import-data] modülü ve giriş parametreleri:
 
-**HCatalog sunucusu URI**: abc123 küme adı olduğundan sonra yalnızca budur: https://abc123.azurehdinsight.net
+**HCatalog sunucusu URI**: küme adını abc123, bu yalnızca ise: https://abc123.azurehdinsight.net
 
-**Hadoop kullanıcı hesabı adı** : küme için seçilen kullanıcı adı (**değil** uzaktan erişim kullanıcı adı)
+**Hadoop kullanıcı hesabı adı**: küme için seçilen kullanıcı adı (**değil** uzaktan erişim kullanıcı adı)
 
-**Hadoop kullanıcı hesabı parolasını** : küme için seçilen parolayı (**değil** uzaktan erişim parola)
+**Hadoop kullanıcı hesabı parolasını**: küme için seçilen parolayı (**değil** uzaktan erişim parola)
 
-**Çıktı verilerini konumunu** : Bu Azure olarak seçilir.
+**Çıktı verilerini konumunu**: Bu Azure olarak seçilir.
 
-**Azure depolama hesabı adı** : varsayılan depolama hesabı adını kümeyle ilişkili.
+**Azure depolama hesabı adı**: varsayılan depolama hesabı adını kümeyle ilişkili.
 
-**Azure kapsayıcı adı** : Bu küme için varsayılan kapsayıcı adı olduğundan ve küme adı genellikle aynıdır. "Abc123" adlı bir küme için yalnızca abc123 budur.
+**Azure kapsayıcı adı**: Bu küme için varsayılan kapsayıcı adı olduğundan ve küme adı genellikle aynıdır. "Abc123" adlı bir küme için yalnızca abc123 budur.
 
 > [!IMPORTANT]
 > **İstediğimiz kullanarak sorgulamak için herhangi bir tablo [veri içeri aktarma] [ import-data] Azure Machine Learning modülünde bir iç tablosu olması gerekir.** Bir ipucu D.db veritabanındaki bir tablo T bir iç tablosu ise belirlemek için aşağıdaki gibidir.
@@ -783,7 +783,7 @@ Sonuç olarak, size bir AUC 0.987, aşağıdaki çizimde gösterildiği gibi edi
 
 a. Bu sorun için hedef (veya sınıfı) etiketimizi olan "İpucu\_sınıfı" hangi alabilir beş değerlerden (0,1,2,3,4). İkili sınıflandırma durumda olduğu gibi bu deneme için hedef sızıntıları olan birkaç sütunlar sahip. Özellikle: eğimli, İpucu\_tutarı, toplam\_zaman sınama sırasında kullanılamaz hedef etiketi açığa bilgilerini tutar. Biz kullanarak bu sütunları kaldırın [Select Columns in Dataset sütun] [ select-columns] modülü.
 
-Hangi Kutusu'nda çıkmasına ipucu olasıdır tahmin etmek için bizim deneme anlık gösterir (sınıfı 0: ipucu = $0, 1 sınıfı: ipucu > 0 ve ipucu < = $5, sınıf 2: ipucu > $5 ve ipucu < = $10, sınıf 3: ipucu > $10 ve ipucu < = $20, sınıf 4: > $20 ipucu)
+Hangi Kutusu'nda çıkmasına ipucu olasıdır tahmin etmek için bizim deneme anlık gösterir (sınıfı 0: ipucu = $0, 1 sınıfı: ipucu > 0 ve ipucu < = $5, sınıf 2: ipucu > $5 ve ipucu < = $10, sınıf 3: ipucu > $10 ve ipucu < = $20 Sınıf 4: > $20 ipucu)
 
 ![Deneme anlık görüntü](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -795,7 +795,7 @@ b. Bu deneme için bizim tahmin accuracies aramak için karışıklığı matrix
 
 ![Karışıklığı Matrisi](./media/hive-walkthrough/cxFmErM.png)
 
-Bizim sınıfı accuracies yaygın sınıfları oldukça iyi iken, model "öğrenme" iyi bir iş nadir sınıflarında yapmaz olduğunu unutmayın.
+Bizim sınıfı accuracies yaygın sınıfları oldukça iyi olsa da, model "öğrenme" iyi bir iş nadir sınıflarında yapmaz olduğunu unutmayın.
 
 **3. Regresyon görev**: seyahat için ücretli ipucu miktarı tahmin etmek için.
 
@@ -814,12 +814,12 @@ b. Regresyon sorunlarınızı biz tahminleri, katsayısı ve benzeri karesi alı
 Katsayısı hakkında 0.709 olduğunu bakın, yaklaşık %71 varyans olduğunu belirtmek bizim modeli katsayısını tarafından açıklanmıştır.
 
 > [!IMPORTANT]
-> Azure Machine Learning ve erişmek ve bunu kullanma hakkında daha fazla bilgi için lütfen [Machine Learning nedir?](../studio/what-is-machine-learning.md). Machine Learning denemelerini Azure Machine learning'de bir grup ile çalmak için çok kullanışlı bir kaynaktır [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/). Galeri denemeler genişliğine kapsayan ve Azure Machine Learning yeteneklerin sayısını içine kapsamlı bir giriş sağlar.
+> Azure Machine Learning ve erişmek ve bunu kullanma hakkında daha fazla bilgi için lütfen [Machine Learning nedir](../studio/what-is-machine-learning.md). Machine Learning denemelerini Azure Machine learning'de bir grup ile çalmak için çok kullanışlı bir kaynaktır [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/). Galeri denemeler genişliğine kapsayan ve Azure Machine Learning yeteneklerin sayısını içine kapsamlı bir giriş sağlar.
 > 
 > 
 
 ## <a name="license-information"></a>Lisans bilgileri
-Bu örnek gözden geçirme ve eşlik eden betikleri MIT lisansı altında Microsoft tarafından paylaşılır. Lütfen LICENSE.txt dosyayı daha fazla ayrıntı için örnek kod github'da dizininde iade edin.
+Bu örnek gözden geçirme ve eşlik eden betikleri MIT lisansı altında Microsoft tarafından paylaşılır. LICENSE.txt dizindeki dosyayı örnek kodu, GitHub üzerinde daha fazla ayrıntı için lütfen denetleyin.
 
 ## <a name="references"></a>Başvurular
 • [Andrés Monroy NYC ücreti dönüşleri indirme sayfası](http://www.andresmh.com/nyctaxitrips/)  

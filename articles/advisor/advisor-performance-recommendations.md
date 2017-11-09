@@ -14,17 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 995a1f37a3fd68b39c14a95d46109c0f7814018d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e32723cd3ef13829890a630f4bff308164e17674
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor performans önerileri
 
 Azure Danışmanı performans önerileri hızı ve kritik iş uygulamalarının yanıtlama hızını geliştirilmesine yardımcı olun. Performans öneriler danışmanına alın **performans** Danışmanı Pano sekmesi.
-
-![Advisor performans sekmesi](./media/advisor-performance-recommendations/advisor-performance-tab.png)
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>SQL DB Danışmanı ile veritabanı performansı
 
@@ -34,8 +32,6 @@ Advisor önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir g
 > Önerileri almak için bir veritabanı hakkında kullanım haftada olması gerekir ve bu hafta içinde var. bazı tutarlı etkinlik olması gerekir. SQL veritabanı Danışmanı daha kolay rastgele WINS'e etkinlik için tutarlı bir sorgu modelleri için en iyi duruma getirebilirsiniz.
 
 SQL Database Advisor hakkında daha fazla bilgi için bkz: [SQL veritabanı Danışmanı'nı](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
-
-![SQL veritabanı önerileri](./media/advisor-performance-recommendations/advisor-performance-sql.png)
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>Redis önbelleği performansı ve güvenilirliği iyileştirmek
 
@@ -49,23 +45,12 @@ Azure Danışmanı uygulama hizmetleri deneyiminizi geliştirmek ve ilgili platf
 * Burada collocating kaynakları web uygulamaları ve veritabanları gibi örneklerinin algılama, performans ve düşük maliyetli artırabilir. 
 
 Uygulama Hizmetleri öneriler hakkında daha fazla bilgi için bkz: [Azure App Service için en iyi uygulamaları](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
-![Uygulama Hizmetleri önerileri](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Performans önerileri Danışmanı erişme
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. Oturum [Azure portal](https://portal.azure.com)ve ardından açın [Danışmanı](https://aka.ms/azureadvisordashboard).
 
-2. Sol bölmede **daha fazla hizmet**.
-
-3. Hizmet menü bölmesinde altında **izleme ve Yönetim**, tıklatın **Azure Danışmanı**.  
- Advisor Panosu görüntülenir.
-
-4. Advisor Panoda tıklatın **performans** sekmesi.
-
-5. Önerileri almak ve ardından istediğiniz aboneliği seçin **alma önerileri**.
-
-> [!NOTE]
-> Advisor önerileri erişmek için öncelikle *aboneliğinizi kaydetmek* Danışmanı ile. Bir abonelik kayıtlı olduğunda bir *abonelik sahibi* Danışmanı Pano başlatır ve tıkladığında **alma önerileri** düğmesi. Bu bir *tek seferlik işlem*. Abonelik kaydedildikten sonra Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* bir abonelik, bir kaynak grubu ya da belirli bir kaynak için.
+2.  Advisor Panoda tıklatın **performans** sekmesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

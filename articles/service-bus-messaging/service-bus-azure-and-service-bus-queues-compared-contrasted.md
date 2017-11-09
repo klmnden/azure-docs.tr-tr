@@ -1,24 +1,24 @@
 ---
-title: "Azure depolama kuyrukları ve Service Bus kuyruklarını - karşılaştırılan ve contrasted | Microsoft Docs"
+title: "Azure depolama kuyrukları ve Service Bus kuyruklarını karşılaştırıldığında ve contrasted | Microsoft Docs"
 description: "İki tür Azure tarafından sunulan kuyruk arasındaki benzerlikler ve farkları analiz eder."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: tysonn
+editor: 
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/07/2017
+ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: 555759073507219188b59af76a82be74b112c57c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyruklarını - karşılaştırılan ve contrasted
 Bu makalede farklar ve iki tür bugün Microsoft Azure tarafından sunulan kuyruk arasındaki benzerlikler Çözümler: depolama kuyrukları ve Service Bus kuyruklarını. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
@@ -33,7 +33,7 @@ Azure kuyruk mekanizmasıyla iki türlerini destekler: **depolama kuyrukları** 
 Depolama kuyrukları queuing iki teknolojiyi aynı anda mevcut olsa da, ilk Azure Storage hizmetleri üzerine inşa ayrılmış kuyruk depolama mekanizması olarak eklenmiştir. Service Bus kuyrukları, uygulamaları veya birden çok iletişim protokolü, veri sözleşmeleri, güven etki alanları ve/veya ağ ortamları yayılabilir uygulama bileşenlerini tümleştirmek üzere tasarlanmış daha geniş "Mesajlaşma" altyapısının üzerinde oluşturulmuştur.
 
 ## <a name="technology-selection-considerations"></a>Teknoloji seçimi konuları
-Depolama kuyrukları ve Service Bus kuyruklarını message queuing hizmeti şu anda Microsoft Azure üzerinde sunulan uygulamalarıdır. Her ikisinden birini seçin veya her ikisi de belirli çözüm veya iş/teknik sorun çözme gereksinimlerine bağlı olarak kullanmak anlamına gelir biraz farklı özellik kümesi vardır.
+Depolama kuyrukları ve Service Bus kuyruklarını message queuing hizmeti şu anda Microsoft Azure tarafından sunulan uygulamalarıdır. Her ikisinden birini seçin veya her ikisi de belirli çözüm veya iş/teknik sorun çözme gereksinimlerine bağlı olarak kullanmak anlamına gelir biraz farklı özellik kümesi vardır.
 
 Belirli bir çözüm amaçla hangi queuing teknolojisi uygun belirlerken, çözüm mimarları ve geliştiricileri aşağıdaki önerileri göz önünde bulundurmalısınız. Daha fazla ayrıntı için sonraki bölüme bakın.
 
@@ -49,7 +49,7 @@ Bir çözümü Mimarı/geliştirici, olarak **Service Bus kuyruklarını kullanm
 * Sıranın bir garantili ilk-giren ilk çıkar sağlamak için çözümünüzün gerektirir (FIFO) sıralı teslim.
 * Simetrik bir deneyim Azure ve Windows Server (özel bulut) üzerinde istediğiniz. Daha fazla bilgi için bkz: [Windows Server için hizmet veri yolu](https://msdn.microsoft.com/library/dn282144.aspx).
 * Çözümünüzü otomatik yinelenen algılama destekleyebilmesi gerekir.
-* İşlem iletilerinin uygulamanıza paralel uzun süre çalışan akış olarak istediğiniz (ileti akışı kullanarak ilişkili [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) ileti özelliği). Bu modelde, kullanıcı uygulama her düğüme ileti aksine akışlar için rekabet. Bir akış süren bir düğüme verildiğinde düğüm işlemleri kullanarak uygulama akışı durumunu durumunu inceleyebilirsiniz.
+* İşlem iletilerinin uygulamanıza paralel uzun süre çalışan akış olarak istediğiniz (ileti akışı kullanarak ilişkili [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) ileti özelliği). Bu modelde, kullanıcı uygulama her düğüme ileti aksine akışlar için rekabet. Bir akış süren bir düğüme verildiğinde düğüm işlemleri kullanarak uygulama akışı durumunu durumunu inceleyebilirsiniz.
 * Çözümünüzü işlem davranışı ve gönderme ya da birden fazla ileti kuyruktan alırken kararlılık gerektirir.
 * Yaşam süresi (TTL) karakteristiğini uygulamaya özgü iş yükü, 7 günlük sürede aşabilir.
 * Uygulamanız 64 KB aşabilir iletilerini işleme ancak olası değil yaklaşım 256 KB sınırlar.
@@ -61,7 +61,7 @@ Bir çözümü Mimarı/geliştirici, olarak **Service Bus kuyruklarını kullanm
 * Yayımlama ve iletileri toplu kullanmak ister misiniz?
 
 ## <a name="comparing-storage-queues-and-service-bus-queues"></a>Depolama kuyrukları ve Service Bus kuyruklarını karşılaştırma
-Aşağıdaki bölümlerdeki tablolar sıra özellikleri mantıksal bir gruplandırmasını sağlar ve, hem depolama sıraları hem de hizmet veri yolu sıraları kullanılabilen özellikleri bir bakışta karşılaştırmanıza olanak tanır.
+Aşağıdaki bölümlerdeki tablolar sıra özellikleri mantıksal bir gruplandırmasını sağlar ve, hem Azure Storage sıraları hem de hizmet veri yolu sıraları kullanılabilen özellikleri bir bakışta karşılaştırmanıza olanak tanır.
 
 ## <a name="foundational-capabilities"></a>Temel özellikler
 Bu bölümde bazı depolama kuyrukları ve Service Bus kuyrukları ile sağlanan temel queuing özelliklerini karşılaştırır.
@@ -121,7 +121,7 @@ Bu bölüm, depolama kuyrukları ve Service Bus kuyruklarını tarafından sağl
 * Sıra otomatik iletme otomatik iletme iletilerinin içinden alma işlemini yapan uygulamanın iletiyi tüketir tek bir sıraya için kuyrukları binlerce sağlar. Güvenliği sağlamak, akışını denetlemek için bu düzenek kullanın ve her ileti yayımcı arasında depolama yalıtır.
 * Depolama kuyrukları, ileti içeriği güncelleştirmek için destek sağlar. Böylece sıfırdan yerine en son bilinen kontrol noktasından işlenebilir, bu işlev kalıcı durum bilgilerini ve artımlı ilerleme durumu güncelleştirmeleri için iletiye kullanabilirsiniz. Service Bus kuyrukları ile aynı senaryo ileti oturumları kullanarak etkinleştirebilirsiniz. Oturumları etkinleştir, kaydetme ve uygulama işleme durumunu almak (kullanarak [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) ve [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
 * [Kullanılmayan lettering](service-bus-dead-letter-queues.md), olduğu yalnızca Service Bus kuyruklarını tarafından desteklenir, işlenemiyor başarıyla alıcı uygulama tarafından veya ne zaman iletileri erişemiyor hedeflerine süresi dolmuş bir yaşam süresi (nedeniyle iletileri yalıtmak için kullanışlı olabilir TTL) özelliği. TTL değeri ne kadar bir ileti kuyruğunda kalır belirtir. Service Bus ile TTL süresi sona erdiğinde $DeadLetterQueue adlı özel bir kuyruğuna ileti taşınır.
-* "Zarar" iletileri depolama kuyruklarda bir iletiyi kuyruktan alma uygulama bulma incelediği  **[DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx)**  iletinin özelliği. Varsa **DequeueCount** belirli bir eşik değerinden yüksek uygulama bir uygulama tarafından tanımlanan "sahipsiz" kuyruğuna ileti taşır.
+* "Zarar" iletileri depolama kuyruklarda bir iletiyi kuyruktan alma uygulama bulma incelediği [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) iletinin özelliği. Varsa **DequeueCount** belirli bir eşik değerinden yüksek uygulama bir uygulama tarafından tanımlanan "sahipsiz" kuyruğuna ileti taşır.
 * Depolama kuyrukları tüm sırası iyi olarak toplanan ölçümler olarak yürütülen işlemlerin ayrıntılı günlüğü almak etkinleştirin. Bu seçeneklerin ikisi de hata ayıklama ve depolama sorguları uygulamanızı nasıl kullandığını anlamak için kullanışlıdır. Ayrıca, uygulamanızın performans ayarlama ve kuyrukları kullanma maliyetlerini azaltmak için yararlıdır.
 * "Service Bus tarafından desteklenen ileti oturumları" kavramı sırayla iletileri ve bunların ilgili alıcılar arasında oturum benzeri benzeşim oluşturur belirli bir alıcı ilişkilendirilecek bir belirli mantıksal gruba ait iletileri sağlar. Bu hizmet veri yolu işlevindeki ayarlayarak Gelişmiş etkinleştirebilirsiniz [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) bir ileti özelliği. Alıcıları belirli bir oturum kimliği üzerinde dinleme ve belirtilen oturum tanımlayıcısını paylaşan iletileri alacak.
 * Service Bus kuyruklarını tarafından otomatik olarak desteklenen yineleme algılama işlevi bir kuyruk veya konu değerine göre gönderilen yinelenen iletileri kaldırır [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) özelliği.
@@ -133,7 +133,7 @@ Bu bölümde depolama kuyrukları ve Service Bus kuyruklarını açısından kar
 | --- | --- | --- |
 | En büyük sıra boyutu |**500 TB**<br/><br/>(sınırlı bir [tek bir depolama hesabı kapasitesi](../storage/common/storage-introduction.md#queue-storage)) |**80 GB için 1 GB**<br/><br/>(kuyruk oluşturma sırasında tanımlanan ve [bölümleme etkinleştirme](service-bus-partitioning.md) – "Ek bilgiler" bölümüne bakın) |
 | İleti boyutu üst sınırı |**64 KB**<br/><br/>(48 kullanırken KB **Base64** kodlama)<br/><br/>Azure, kuyruklar ve BLOB'lar – bu noktada, şunları yapabilirsiniz enqueue birleştirerek büyük iletileri destekleyen tek bir öğe için en fazla 200GB. |**256 KB** veya **1 MB**<br/><br/>(başlık ve gövde, en fazla üstbilgi boyutu dahil: 64 KB).<br/><br/>Bağımlı [hizmet katmanı](service-bus-premium-messaging.md). |
-| En fazla ileti TTL |**7 gün** |**`TimeSpan.Max`** |
+| En fazla ileti TTL |**7 gün** |**TimeSpan.Max** |
 | Kuyruğu en yüksek sayısı |**Sınırsız** |**10,000**<br/><br/>(hizmet ad alanı artırılabilir) |
 | Maksimum eşzamanlı istemci sayısı |**Sınırsız** |**Sınırsız**<br/><br/>(yalnızca 100 eş zamanlı bağlantı sınırı TCP protokolü tabanlı iletişim'geçerlidir) |
 

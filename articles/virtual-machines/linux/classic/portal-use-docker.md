@@ -15,25 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Docker VM Uzantısını Azure Klasik Portal ile kullanma
 > [!IMPORTANT] 
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [Docker](https://www.docker.com/) kullanır en popüler sanallaştırma yaklaşımlardan biri [Linux kapsayıcıları](http://en.wikipedia.org/wiki/LXC) verileri yalıtarak ve bilgi işlem paylaşılan kaynakları üzerinde bir yolu olarak sanal makineleri yerine. Tarafından yönetilen Docker VM uzantısı kullanabilirsiniz [Azure Linux Aracısı] kapsayıcıları uygulamalarınızın Azure ile ilgili herhangi bir sayıda barındıran bir Docker VM oluşturmak için.
 
 > [!NOTE]
-> Bu konu, Klasik Azure portalından Docker VM oluşturmayı açıklar. Komut satırında bir Docker VM oluşturma hakkında bilgi için bkz: [Docker VM uzantısı Azure komut satırı arabirimi (Azure CLI) gelen kullanmayı]. Kapsayıcıları ve bunların avantajları üst düzey bir tartışma için bkz [Docker yüksek düzey Beyaz Tahta](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> Bu konuda, Azure portalından Docker VM oluşturmayı açıklar. Komut satırında bir Docker VM oluşturma hakkında bilgi için bkz: [Docker VM uzantısı Azure komut satırı arabirimi (Azure CLI) gelen kullanmayı]. Kapsayıcıları ve bunların avantajları üst düzey bir tartışma için bkz [Docker yüksek düzey Beyaz Tahta](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
 ## <a name="create-a-new-vm-from-the-image-gallery"></a>Görüntü galeriden yeni VM oluşturma
-İlk adım bir Azure VM Ubuntu 14.04 LTS görüntünün görüntü Galerisi'nden bir örnek sunucu görüntüsünü ve Ubuntu 14.04 masaüstü istemci olarak kullanarak Docker VM uzantısı destekleyen Linux görüntüsünden gerektirir. Portalı'nda tıklatın **+ yeni** yeni bir VM örneği oluşturun ve Ubuntu 14.04 LTS görüntü seçim yok ya da tam görüntü Galerisi, aşağıda gösterildiği gibi seçmek için sol alt köşedeki içinde.
+İlk adım bir Azure VM Ubuntu 14.04 LTS görüntünün görüntü Galerisi'nden bir örnek sunucu görüntüsünü ve Ubuntu 14.04 masaüstü istemci olarak kullanarak Docker VM uzantısı destekleyen Linux görüntüsünden gerektirir. Portalı'nda tıklatın **+ yeni** yeni bir VM örneği oluşturun ve Ubuntu 14.04 LTS görüntü seçim yok ya da tam görüntü Galerisi, aşağıda gösterildiği gibi seçin.
 
 > [!NOTE]
 > Şu anda yalnızca Temmuz 2014'den daha yeni Ubuntu 14.04 LTS görüntüleri Docker VM uzantısı destekler.
@@ -67,11 +68,6 @@ Komut satırında kullanın  **`base64`**  veya base64 ile kodlanmış Konular o
 
 ## <a name="add-the-docker-vm-extension"></a>Docker VM uzantısı Ekle
 Docker VM uzantısı eklemek için oluşturduğunuz VM örneği bulun ve ekranı aşağı kaydırarak **uzantıları** ve aşağıda gösterildiği gibi VM uzantıları getirmek için tıklatın.
-
-> [!NOTE]
-> Bu işlevsellik yalnızca önizleme portalında desteklenir: https://portal.azure.com/
-> 
-> 
 
 ![](media/portal-use-docker/ClickExtensions.png)
 

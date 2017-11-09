@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/22/2017
+ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: b94001e16068f1163beaac81053a03600af5f768
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizmetlerini yayımları sağlar. Bu bilgiler, bir konuk işletim sistemi devre dışı önce yükseltme yolunuza planlamanıza yardımcı olur. Rollerinizi kullanacak şekilde yapılandırırsanız, *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı gibi [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -43,6 +43,8 @@ Hangi, bir konuk işletim sistemi değilseniz ya da konuk işletim sistemi iş n
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
 
+###### <a name="november-8-2017"></a>**8 Kasım 2017**
+Ekim konuk işletim sistemi yayımladı.
 
 ###### <a name="october-6-2017"></a>**6 Ekim 2017**
 Eylül konuk işletim sistemi yayımladı. Windows Server 2016 Eylül sürüm için netfx3 varsayılan olarak etkindir. Müşteriler Ekle ' dism / online Feature /featurename:netfx3' kendi iş akışının .NET 2.x uygulaması 4.x çalışma zamanı ile çalışacak biçimde gerektirir veya .NET 2.x uygulaması çalıştırdıysanız hata işlenmiş ve .NET 4.x uygulaması çalıştıran kendi ONSTART.
@@ -71,12 +73,6 @@ Konuk işletim sistemi serbest bıraktı.
 ###### <a name="may-17-2017"></a>**17 May 2017**
 Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dışı olmayan işletim sistemi sürümleri [düzeltme] portalından: WA-KONUK-OS-5.4_201612-01, WA-KONUK-OS-4.39_201612-01, WA-KONUK-OS-3.46_201612-01, WA-KONUK-işletim sistemi-2.59_201701-01
 
-###### <a name="may-12-2017"></a>**12 May 2017**
-Mayıs konuk işletim sistemi dağıtımı 12 Mayıs başlatıyor ve 13 Haziran tahmini sürümü vardır.
-
-###### <a name="april-18-2017"></a>**18 Nisan 2017**
-Nisan konuk işletim sistemi dağıtımı 18 Nisan başlatıyor ve May 9 Tahmini sürümü vardır.
-
 
 ## <a name="releases"></a>Sürümleri
 ## <a name="family-5-releases"></a>Aile 5 sürümleri
@@ -92,16 +88,16 @@ Nisan konuk işletim sistemi dağıtımı 18 Nisan başlatıyor ve May 9 Tahmini
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.12_201710-01 |8 Kasım 2017 |POST 5.14 |TBD |
 | WA-GUEST-OS-5.11_201709-01 |6 Ekim 2017 |POST 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |24 Ağustos 2017 |POST 5.12 |TBD |
-| WA-GUEST-OS-5.9_201707-01 |3 Ağustos 2017 |POST 5.11 |TBD |
+|~~WA-GUEST-OS-5.9_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
 |~~WA-GUEST-OS-5.4_201612-01~~ |10 Ocak 2017 |5 Haziran 2017|TBD |
 |~~WA-GUEST-OS-5.3_201611-01~~ |14 Aralık 2016 |9 May 2017 |TBD |
-|~~WA-GUEST-OS-5.2_201610-02~~ |1 Kasım 2016 |10 Nisan 2017 |TBD |
 
 ## <a name="family-4-releases"></a>Aile 4 serbest bırakır
 **Windows Server 2012 R2**
@@ -115,20 +111,16 @@ Nisan konuk işletim sistemi dağıtımı 18 Nisan başlatıyor ve May 9 Tahmini
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.47_201710-01 |8 Kasım 2017 |POST 4.49 |TBD |
 | WA-GUEST-OS-4.46_201709-01 |6 Ekim 2017 |POST 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |24 Ağustos 2017 |POST 4.47 |TBD |
-| WA-GUEST-OS-4.44_201707-01 |3 Ağustos 2017 |POST 4.46 |TBD |
+|~~WA-GUEST-OS-4.44_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
 |~~WA-GUEST-OS-4.39_201612-01~~ |10 Ocak 2017 |5 Haziran 2017 |TBD |
 |~~WA-GUEST-OS-4.38_201611-01~~ |14 Aralık 2016 |9 May 2017 |TBD |
-|~~WA-GUEST-OS-4.37_201610-02~~ |16 Kasım 2016 |10 Nisan 2017 |TBD |
-|~~WA-GUEST-OS-4.36_201609-01~~ |13 Ekim 2016 |14 Ocak 2017 |TBD |
-|~~WA-GUEST-OS-4.35_201608-01~~ |13 Eylül 2016 |16 Aralık 2016 |TBD |
-|~~WA-GUEST-OS-4.34_201607-01~~ |8 Ağustos, 2016 |13 Kasım 2016 |TBD |
-
 
 ## <a name="family-3-releases"></a>Aile 3 serbest bırakır
 **Windows Server 2012**
@@ -142,20 +134,16 @@ Nisan konuk işletim sistemi dağıtımı 18 Nisan başlatıyor ve May 9 Tahmini
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.54_201710-01 |8 Kasım 2017 |POST 3.56 |TBD |
 | WA-GUEST-OS-3.53_201709-01 |6 Ekim 2017 |POST 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |24 Ağustos 2017 |POST 3.54 |TBD |
-| WA-GUEST-OS-3.51_201707-01 |3 Ağustos 2017 |POST 3.53 |TBD |
+|~~WA-GUEST-OS-3.51_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
 |~~WA-GUEST-OS-3.46_201612-01~~ |10 Ocak 2017 |5 Haziran 2017 |TBD |
 |~~WA-GUEST-OS-3.45_201611-01~~ |14 Aralık 2016 |9 May 2017 |TBD |
-|~~WA-GUEST-OS-3.44_201610-02~~ |16 Kasım 2016 |1 Mayıs 2017 |TBD |
-|~~WA-GUEST-OS-3.43_201609-01~~ |13 Ekim 2016 |14 Ocak 2017 |TBD |
-|~~WA-GUEST-OS-3.42_201608-01~~ |13 Eylül 2016 |16 Aralık 2016 |TBD |
-|~~WA-GUEST-OS-3.41_201607-01~~ |8 Ağustos, 2016 |13 Kasım 2016 |TBD |
-
 
 ## <a name="family-2-releases"></a>Ailesi 2 sürümleri
 **Windows Server 2008 R2 SP1**
@@ -169,9 +157,10 @@ Nisan konuk işletim sistemi dağıtımı 18 Nisan başlatıyor ve May 9 Tahmini
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.67_201710-01 |8 Kasım 2017 |POST 2.69 |TBD |
 | WA-GUEST-OS-2.66_201709-01 |6 Ekim 2017 |POST 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |24 Ağustos 2017 |POST 2.67 |TBD |
-| WA-GUEST-OS-2.64_201707-01 |3 Ağustos 2017 |POST 2.66 |TBD |
+|~~WA-GUEST-OS-2.64_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
 |~~WA-GUEST-OS-2.63_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
@@ -179,11 +168,6 @@ Nisan konuk işletim sistemi dağıtımı 18 Nisan başlatıyor ve May 9 Tahmini
 |~~WA-GUEST-OS-2.59_201701-01~~ |10 Ocak 2017 |5 Haziran 2017 |TBD |
 |~~WA-GUEST-OS-2.58_201612-01~~ |10 Ocak 2017 |9 May 2017|TBD |
 |~~WA-GUEST-OS-2.57_201611-01~~ |14 Aralık 2016 |10 Nisan 2017 |TBD |
-|~~WA-GUEST-OS-2.56_201610-02~~ |16 Kasım 2016 |10 Şubat 2017 |TBD |
-|~~WA-GUEST-OS-2.55_201609-01~~ |13 Ekim 2016 |14 Ocak 2017 |TBD |
-|~~WA-GUEST-OS-2.54_201608-01~~ |13 Eylül 2016 |16 Aralık 2016 |TBD |
-|~~WA-GUEST-OS-2.53_201607-01~~ |8 Ağustos, 2016 |13 Kasım 2016 |TBD |
-
 
 
 ## <a name="msrc-patch-updates"></a>MSRC düzeltme eki güncelleştirmeleri

@@ -3,7 +3,7 @@ title: "Bir Windows VM özel betik uzantısı | Microsoft Docs"
 description: "Uzak bir Windows VM PowerShell betikleri çalıştırmak için özel betik uzantısı kullanarak Azure VM yapılandırma görevleri otomatikleştirme"
 services: virtual-machines-windows
 documentationcenter: 
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -14,17 +14,18 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
-ms.author: nepeters
-ms.openlocfilehash: 986ab1025dc188cd7fa1cf8b131a9d4b859be8f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danis
+ms.openlocfilehash: b62cf38b2b16bd54b4df38402e8b7d75f5fd5e68
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Özel betik uzantısı Klasik dağıtım modeli kullanılarak Windows için
 
 > [!IMPORTANT] 
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. [Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) öğrenin.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Özel betik uzantısının indirir ve Azure sanal makinelerde komut dosyaları çalıştırılır. Bu dağıtım yapılandırmaları, yazılım yükleme veya başka bir yapılandırma için yararlı bir uzantısıdır / yönetim görevi. Komut dosyaları Azure depolama veya GitHub indirilen veya çalışma zamanı uzantısı Azure portalında sağlanmaktadır. Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir ve Azure CLI, PowerShell, Azure portalında veya Azure sanal makine REST API'sini kullanarak da çalıştırılabilir.
 

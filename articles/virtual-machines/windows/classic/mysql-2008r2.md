@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Windows Server 2016 çalıştıran Klasik dağıtım modeli kullanılarak oluşturulmuş bir sanal makinede MySQL yükleme
 [MySQL](https://www.mysql.com) bir popüler açık kaynak, SQL veritabanı. Bu öğreticide, yüklemek ve çalıştırmak nasıl gösterilir **5.7.18 MySQL community sürümü** MySQL sunucusu çalıştıran bir sanal makine olarak **Windows Server 2016**. Deneyiminizi MySQL veya Windows Server'ın diğer sürümleri için biraz farklı olabilir.
@@ -28,6 +28,7 @@ Linux'ta MySQL yükleme ile ilgili yönergeler için bkz: [Azure üzerinde MySQL
 
 > [!IMPORTANT]
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ## <a name="create-a-virtual-machine-running-windows-server-2016"></a>Windows Server 2016 çalıştıran bir sanal makine oluşturma
 Windows Server 2016 çalıştıran bir VM zaten sahip değilseniz, bu kullanabilirsiniz [öğretici](./tutorial.md) sanal makine oluşturulamıyor.
