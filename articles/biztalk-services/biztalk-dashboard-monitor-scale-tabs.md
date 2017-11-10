@@ -1,6 +1,6 @@
 ---
 title: "Pano, İzleyici, Ölçek, yapılandırmak ve karma bağlantılar BizTalk Services | Microsoft Docs"
-description: "Denetimleri hakkında bilgi edinin ve izleme Klasik portal sekmelerindeki performans için BizTalk Services: pano, İzleyici, Ölçek, yapılandırma ve karma bağlantılar. MABS, WABS"
+description: "Denetimleri hakkında bilgi edinin ve BizTalk Services için performans izleme"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Pano, İzleme, Ölçeklendirme, Yapılandırma ve Karma Bağlantı sekmelerini inceleyin
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 BizTalk hizmeti oluşturma ve uygulamanızı dağıttıktan sonra bazı BizTalk hizmeti ayarlarını değiştirin ve uygulama performansı izleme. 
 
-Klasik Azure portalını açtığınızda, otomatik olarak yerleştirilmiş **tüm öğeleri** sekmesi. BizTalk hizmeti görüntülemek için BizTalk hizmetinizi seçin **tüm öğeleri** sekmesinde veya seçin **BIZTALK SERVICES** sekmesinde; ve ardından, BizTalk hizmeti adını seçin.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Aşağıdaki sekmeleri içeren yeni bir pencere açılır. Bu konuda aşağıdaki sekmelerden açıklanmaktadır.
 
@@ -84,9 +84,9 @@ Erişim denetimi portalı da açabilirsiniz. <a HREF="http://go.microsoft.com/fw
 <br/><br/>
 <ol>
 <li>BizTalk hizmetinizi seçip <strong>anahtarları Eşitle</strong>. İkincil anahtar seçin. Bunu yaptığınızda, ikincil anahtarı kullanarak BizTalk hizmetini başlatır.</li>
-<li>Azure Klasik portalında, depolama hesabınızı seçin ve birincil anahtar yeniden. BizTalk hizmetinizi ikincil anahtarı kullanarak unutmayın.</li>
+<li>Depolama hesabınızı seçin ve birincil anahtarını yeniden oluşturma. BizTalk hizmetinizi ikincil anahtarı kullanarak unutmayın.</li>
 <li>BizTalk hizmetinizi seçip <strong>anahtarları Eşitle</strong>. Şimdi, birincil anahtar seçin. Bu yeni birincil, yeniden anahtarıdır.</li>
-<li>Azure Klasik portalında, depolama hesabınızı seçin ve ikincil anahtar yeniden.</li>
+<li>Depolama hesabınızı seçin ve ikincil anahtar yeniden.</li>
 </ol>
 <br/>
 Bu işlem, "rollover anahtarları" adı verilir. Amacı, BizTalk hizmeti kesintiye uğratmadan birincil anahtar ve ikincil anahtar arasında geçiş yapmak kullanıcıların sağlamaktır.</td>
@@ -169,7 +169,7 @@ Bu performans ölçümlerini bir açıklaması için Git [kullanılabilir ölç�
 </tr>
 <tr>
 <td><strong>Abonelik adı</strong></td>
-<td>BizTalk hizmetinizi barındıran abonelik listeler. Abonelik Klasik Azure portalına erişimi yönetir.</td>
+<td>BizTalk hizmetinizi barındıran abonelik listeler. Abonelik erişimi yönetir.</td>
 </tr>
 <tr>
 <td><strong>Abonelik kimliği</strong></td>
@@ -177,7 +177,7 @@ Bu performans ölçümlerini bir açıklaması için Git [kullanılabilir ölç�
 </tr>
 </table>
 
-[BizTalk Services: Klasik portalı kullanarak Azure sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280) BizTalk hizmeti oluşturma adımlarını listeler.
+[BizTalk Services: Sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280) BizTalk hizmeti oluşturma adımlarını listeler.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>, Bağlantı bilgilerini, eşitleme anahtarları, yönetin ve görev çubuğunda silin:
 <table border="1">
@@ -206,9 +206,9 @@ Erişim denetimi portalı da açabilirsiniz. Bu erişim denetimi portalı sol ge
 <br/><br/>
 <ol>
 <li>BizTalk hizmetinizi seçip <strong>anahtarları Eşitle</strong>. İkincil anahtar seçin. Bunu yaptığınızda, ikincil anahtarı kullanarak BizTalk hizmetini başlatır.</li>
-<li>Azure Klasik portalında, depolama hesabınızı seçin ve birincil anahtar yeniden. BizTalk hizmetinizi ikincil anahtarı kullanarak unutmayın.</li>
+<li>Depolama hesabınızı seçin ve birincil anahtarını yeniden oluşturma. BizTalk hizmetinizi ikincil anahtarı kullanarak unutmayın.</li>
 <li>BizTalk hizmetinizi seçip <strong>anahtarları Eşitle</strong>. Şimdi, birincil anahtar seçin. Bu yeni birincil, yeniden anahtarıdır.</li>
-<li>Azure Klasik portalında, depolama hesabınızı seçin ve ikincil anahtar yeniden.</li>
+<li>Depolama hesabınızı seçin ve ikincil anahtar yeniden.</li>
 </ol>
 <br/>
 Bu işlem, "rollover anahtarları" adı verilir. Amacı, BizTalk hizmeti kesintiye uğratmadan birincil anahtar ve ikincil anahtar arasında geçiş yapmak kullanıcıların sağlamaktır.</td>
@@ -329,7 +329,7 @@ Yedekleme durumu Yok'a ayarlar veya otomatik. None olarak ayarlandığında, yed
 [BizTalk Services: Yedekleme ve geri yükleme](biztalk-backup-restore.md) ait ayrıntıları sağlar. 
 
 ## <a name="HybridConnections"></a>Karma bağlantılar
-Karma bağlantılar Azure uygulaması, Web uygulamaları veya Azure App Service'de Mobile Apps gibi statik TCP bağlantı noktası, SQL Server, MySQL, HTTP Web API'leri ve birçok özel Web hizmeti gibi kullanan bir şirket içi kaynağa bağlayın. Karma bağlantılar, Azure Klasik Portalı'nda BizTalk Services'da yönetilir.
+Karma bağlantılar Azure uygulaması, Web uygulamaları veya Azure App Service'de Mobile Apps gibi statik TCP bağlantı noktası, SQL Server, MySQL, HTTP Web API'leri ve birçok özel Web hizmeti gibi kullanan bir şirket içi kaynağa bağlayın. Karma bağlantılar, BizTalk Services'da yönetilir.
 
 Oluşturmak veya karma bağlantılar Azure BizTalk Services yönetmek için bkz: [karma bağlantılar](integration-hybrid-connection-overview.md).
 
@@ -343,7 +343,7 @@ Farklı sekmelerle tanıdık, Azure BizTalk Services özellikleri hakkında daha
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Karma Bağlantılar](integration-hybrid-connection-overview.md)  
 * [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](biztalk-editions-feature-chart.md)  
-* [BizTalk Services: Klasik portalı kullanarak Azure hazırlama](biztalk-provision-services.md)  
+* [BizTalk Services: sağlama](biztalk-provision-services.md)  
 * [BizTalk Services: BizTalk hizmeti durumu grafiği](biztalk-service-state-chart.md)  
 * [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 4918a820ca07a7d83dfb544ee9f0bbeb66d22722
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Bisiklet paylaşımı Öğreticisi: Azure Machine Learning çalışma ile verileri hazırlama Gelişmiş
 Azure Machine Learning Hizmetleri (Önizleme) olan bir tümleşik, uçtan uca veri bilimi ve verileri hazırlama, denemeler geliştirmek ve bulut ölçeğinde modelleri dağıtmak profesyonel veri bilimcilerine için Gelişmiş analiz çözümü.
@@ -347,7 +347,6 @@ Sonraki adım, saat aralığına göre gruplandırılmış değerlerin ortalamas
     > Komut dosyasını daha önce bu öğreticide kullanılan sütun adları bekliyor. Farklı bir sütun adları varsa, komut dosyası adlarında değiştirmeniz gerekir.
 
    ```python
-   maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
    maxVal = max(df["HOURLYDRYBULBTEMPF_Mean"])
    minVal = min(df["HOURLYDRYBULBTEMPF_Mean"])
    df["HOURLYDRYBULBTEMPF_Mean"] = (df["HOURLYDRYBULBTEMPF_Mean"]-minVal)/(maxVal-minVal)

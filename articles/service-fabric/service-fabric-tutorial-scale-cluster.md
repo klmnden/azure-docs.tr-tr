@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: b8a9204b9eece396fbc30eacc8912ba9e655b963
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Ölçek Service Fabric kümesi
 
-Bu öğretici, üç bir serinin bir parçasıdır ve varolan kümenizi ve ölçeklendirme gösterir. Seçtiğiniz zaman bitirdiğinizde, kümenizi ölçeklendirme ve tüm sol üzerinden kaynakları temizlemek nasıl anlarsınız.
+Bu öğretici iki serinin bir parçasıdır ve varolan kümenizi ve ölçeklendirmek nasıl gösterir. Seçtiğiniz zaman bitirdiğinizde, kümenizi ölçeklendirme ve tüm sol üzerinden kaynakları temizlemek nasıl anlarsınız.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 

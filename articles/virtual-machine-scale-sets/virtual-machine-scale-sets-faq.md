@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/8/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek SSS ayarlar
 
@@ -577,7 +577,7 @@ Bir sanal makineyi ölçeği ikiden VM'ler ile Ayarla oluşturabilirsiniz başka
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesindeki VM'lerin sayısını nasıl değişiyor?
 
-Bir sanal makine ölçek kümesindeki VM'lerin sayısını değiştirmek için bkz: [bir sanal makine ölçek kümesi örnek sayısını değiştirme](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Azure portalında kümesi bir sanal makine ölçek VM'ler sayısını değiştirmek için VM ölçek özellikler bölümü ayarlamak, "Ölçeklendirme" dikey penceresinde'ı tıklatın ve kaydırıcı çubuğu'nu kullanın. Örnek sayısı değiştirmek diğer yolları için bkz: [bir sanal makine ölçek kümesi örnek sayısını değiştirme](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Belirli eşikleri dolduğunda özel uyarılar nasıl tanımlamak?
 

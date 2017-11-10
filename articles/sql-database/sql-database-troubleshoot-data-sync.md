@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: bbfcac5a54f04f20dbdeeecef7c06b91128b8c6a
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 29fb935ada4aa7f2571b128f82d4c037bbb88eb1
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="troubleshoot-issues-with-azure-sql-data-sync-preview"></a>Azure SQL veri eşitleme (Önizleme) ile ilgili sorunları giderme
 
@@ -495,6 +495,7 @@ SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 -   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](sql-database-sync-data.md)
 -   [Azure SQL veri eşitlemeye başlama](sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL veri eşitleme için en iyi yöntemler](sql-database-best-practices-data-sync.md)
+-   [OMS günlük analizi ile İzleyici Azure SQL veri eşitleme](sql-database-sync-monitor-oms.md)
 
 -   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:
     -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)

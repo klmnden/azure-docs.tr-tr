@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8ff8c425189efdd7ea21984528bf7ea765e17955
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e28ea6df24b9df144552739427427ee14e998584
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management Service Fabric ile dağıtma
-Bu öğretici iki serinin bir parçasıdır. Bu öğretici nasıl ayarlanacağını gösterir [Azure API Management](../api-management/api-management-key-concepts.md) Service Fabric arka uç hizmetinde trafiğini yönlendirmek için Service Fabric ile.  İşlemi tamamladığınızda, bir sanal AĞA API Management dağıtılmış vardır, bir API işlemi arka uç durum bilgisi olmayan hizmetler için trafiği göndermek için yapılandırılmış. Service Fabric ile Azure API Management senaryoları hakkında daha fazla bilgi için bkz: [genel bakış](service-fabric-api-management-overview.md) makalesi.
+Bu öğretici üç serinin bir parçasıdır.  Azure API Management Service Fabric ile dağıtma Gelişmiş, arka uç Service Fabric hizmetlerinize yönlendirme kuralları zengin bir dizi API yayımlamak gerektiğinde yararlı bir senaryodur. Bu öğretici nasıl ayarlanacağını gösterir [Azure API Management](../api-management/api-management-key-concepts.md) Service Fabric arka uç hizmetinde trafiğini yönlendirmek için Service Fabric ile.  İşlemi tamamladığınızda, bir sanal AĞA API Management dağıtılmış vardır, bir API işlemi arka uç durum bilgisi olmayan hizmetler için trafiği göndermek için yapılandırılmış. Service Fabric ile Azure API Management senaryoları hakkında daha fazla bilgi için bkz: [genel bakış](service-fabric-api-management-overview.md) makalesi.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -63,6 +63,10 @@ az account set --subscription <guid>
 Bulut uygulamalarını genellikle kullanıcılar, aygıtlar veya diğer uygulamalar için tek bir giriş noktası sağlamak için bir ön uç ağ geçidi gerekir. Service Fabric bir ağ geçidi herhangi bir ASP.NET Core uygulaması gibi durum bilgisiz hizmet veya olay hub'ları, IOT hub'ı ya da Azure API Management gibi trafik giriş için tasarlanan başka bir hizmet olabilir. Bu öğretici, Service Fabric uygulamaları için bir ağ geçidi olarak Azure API Yönetimi'ni kullanarak bir giriş var. API Management Service Fabric, arka uç Service Fabric hizmetlerinize yönlendirme kuralları zengin bir dizi API yayımlamanıza olanak tanıyan ile doğrudan tümleşir. 
 
 Güvenli sahip olduğunuza [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) Azure üzerinde API Management API yönetimi için tasarlanmış NSG ve alt ağ sanal bir ağa (VNET) dağıtın. Bu öğreticide, API Management Resource Manager şablonu VNET, alt ağ ve önceki ayarladığınız NSG adları kullanmak üzere önceden yapılandırılmıştır [Windows Küme öğretici](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux küme öğretici](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
+
+Bu öğretici Azure API Management ve Service Fabric aynı sanal ağ alt ağlarında olan aşağıdaki topoloji dağıtır:
+
+ ![Resim yazısı][sf-apim-topology-overview]
 
 Aşağıdaki Resource Manager şablonu ve parametre dosyasını karşıdan yükleyin:
  
@@ -404,3 +408,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 [cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

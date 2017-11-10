@@ -1,6 +1,6 @@
 ---
-title: Dynamics CRM ve Azure Data Factory kullanarak 365 veri kopyalama | Microsoft Docs
-description: "Kopya etkinliği Azure Data Factory ardışık düzeninde kullanarak desteklenen havuz veri depolarına Dynamics CRM'den veri ve 365 kopyalama öğrenin."
+title: Veri kopyalama/Dynamics CRM ve Azure Data Factory kullanarak 365 | Microsoft Docs
+description: "Dynamics CRM verileri ve 365 desteklenen havuz veri depolarına (veya) desteklenen kaynak veri depolarına Dynamics CRM ve 365 kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak kopyalamak öğrenin."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,24 +11,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 1af330596052a92237469aba4729474e7fe417aa
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="copy-data-from-dynamics-365dynamics-crm-using-azure-data-factory"></a>Dynamics 365 / Dynamics CRM Azure Data Factory kullanarak verileri kopyalama
+# <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Veri kopyalama/Dynamics 365 / Dynamics CRM Azure Data Factory kullanma
 
-Bu makalede kopya etkinliği Azure Data Factory'de Dynamics 365 / Dynamics CRM'den verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede kopya etkinliği Azure Data Factory'de ilk ve son Dynamics 365 / Dynamics CRM verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen havuz veri deposuna Dynamics 365 / Dynamics CRM'den veri kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Verileri Dynamics 365 / Dynamics CRM'den tüm desteklenen havuz veri deposuna kopyalamak ya da veri tüm desteklenen kaynak veri deposundan Dynamics 365 / Dynamics CRM kopyalayın. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
 Özellikle, bu Dynamics bağlayıcı Dynamics sürümleri ve kimlik doğrulama türleri destekler:
 
@@ -61,7 +61,11 @@ Aşağıdaki özellikler Dynamics bağlantılı hizmeti için desteklenir:
 | Kuruluş adı | Dynamics örneğinin kuruluş adı. | Kullanıcıyla ilişkili birden fazla Dynamics örnekleri olduğunda Hayır, belirtmeniz gerekir. |
 | authenticationType | Dynamics sunucusuna bağlanmak için kimlik doğrulama türü. Belirtin **"Office365"** Dynamics Çevrimiçi. | Evet |
 | kullanıcı adı | Dynamics bağlanmak için kullanıcı adını belirtin. | Evet |
-| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Azure anahtar kasası parola koyun ve parola bir "AzureKeyVaultSecret" olarak yapılandırmanız gerekir. Daha fazla bilgi için bkz: [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md) makalesi. | Evet |
+| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Azure anahtar kasası parola koyun ve parola bir "AzureKeyVaultSecret" olarak yapılandırmanız gerekir. ' Dan daha fazla bilgi edinin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Kaynak havuzu için Evet için Hayır'ı |
+
+>[!IMPORTANT]
+>Verileri açıkça Dynamics kopyalamak için [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Dynamics ve bağlantılı hizmet ilişkilendirme yakın bir konum aşağıdaki örnekteki gibi.
 
 **Örnek: Dynamics Çevrimiçi Office365 kimlik doğrulaması kullanma**
 
@@ -78,12 +82,16 @@ Aşağıdaki özellikler Dynamics bağlantılı hizmeti için desteklenir:
             "username": "test@contoso.onmicrosoft.com",
             "password": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "mySecret",
+                "secretName": "<secret name in AKV>",
                 "store":{
-                    "linkedServiceName": "<Azure Key Vault linked service>",
+                    "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
                 }
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -102,7 +110,11 @@ Aşağıdaki özellikler Dynamics bağlantılı hizmeti için desteklenir:
 | Kuruluş adı | Dynamics örneğinin kuruluş adı. | Evet |
 | authenticationType | Dynamics sunucusuna bağlanmak için kimlik doğrulama türü. Belirtin **"Ifd"** Dynamics ile şirket içi IFD için. | Evet |
 | kullanıcı adı | Dynamics bağlanmak için kullanıcı adını belirtin. | Evet |
-| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Azure anahtar kasası parola koyun ve parola bir "AzureKeyVaultSecret" olarak yapılandırmak zorunda unutmayın. Daha fazla bilgi için bkz: [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md) makalesi. | Evet |
+| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Azure anahtar kasası parola koyun ve parola bir "AzureKeyVaultSecret" olarak yapılandırmak zorunda unutmayın. ' Dan daha fazla bilgi edinin [anahtar kasasına kimlik bilgilerini saklamak](store-credentials-in-key-vault.md). | Evet |
+| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Kaynak havuzu için Evet için Hayır'ı |
+
+>[!IMPORTANT]
+>Verileri açıkça Dynamics kopyalamak için [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) aşağıdaki örnekteki gibi Dynamics ve bağlantılı hizmet ilişkilendirme yakın konumla.
 
 **Örnek: Dynamics ile şirket içi IFD kimlik doğrulaması kullanarak IFD**
 
@@ -121,12 +133,16 @@ Aşağıdaki özellikler Dynamics bağlantılı hizmeti için desteklenir:
             "username": "test@contoso.onmicrosoft.com",
             "password": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "mySecret",
+                "secretName": "<secret name in AKV>",
                 "store":{
-                    "linkedServiceName": "<Azure Key Vault linked service>",
+                    "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
                 }
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -136,15 +152,16 @@ Aşağıdaki özellikler Dynamics bağlantılı hizmeti için desteklenir:
 
 Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde Dynamics veri kümesi tarafından desteklenen özellikler listesini sağlar.
 
-Dynamics verileri kopyalamak için kümesine tür özelliği ayarlamak **DynamicsEntity**. Aşağıdaki özellikler desteklenir:
+Veri kopyalama/Dynamics için veri kümesi türü özelliğini ayarlayın **DynamicsEntity**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Veri kümesi türü özelliği ayarlamak: **DynamicsEntity** |Evet |
-| EntityName | Alınacak varlığın mantıksal adı. | ("Sorgu" etkinliği kaynağındaki belirtilmişse) yok |
+| EntityName | Alınacak varlığın mantıksal adı. | Havuz için Evet ("etkinlik kaynağında sorgu" belirtilirse) kaynak için Hayır'ı |
 
 > [!IMPORTANT]
-> **Veri kümesi "yapısı" bölümünde Dynamics için gerekli olan**, üzerinden kopyalamak istediğiniz Dynamics veriler için sütun adı ve veri türü tanımlar. ' Dan daha fazla bilgi edinin [veri kümesi yapısı](concepts-datasets-linked-services.md#dataset-structure) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
+>- **Veri Dynamics kopyalarken "yapısı" bölümü gereklidir** Dynamics kümesinde üzerinden kopyalamak istediğiniz Dynamics veriler için sütun adı ve veri türünü tanımlayan. ' Dan daha fazla bilgi edinin [veri kümesi yapısı](concepts-datasets-linked-services.md#dataset-structure) ve [Dynamics için veri türü eşlemesi](#data-type-mapping-for-dynamics).
+>- **Dynamics veri kopyalama işlemi sırasında "yapısı" isteğe bağlı bölümüdür** Dynamics kümesindeki. Hangi sütunları içine kopyalamak için kaynak veri şeması tarafından belirlenir. Kaynağınız CSV dosyası üst bilgi içermeyen ise girdi veri kümesi "yapısı" sırada tek tek CSV dosyasındaki alanlar eşleştiren sütun adı ve veri türü belirtin.
 
 **Örnek:**
 
@@ -184,7 +201,7 @@ Dynamics verileri kopyalamak için kümesine tür özelliği ayarlamak **Dynamic
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Dynamics kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, Dynamics kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
 
 ### <a name="dynamics-as-source"></a>Kaynak olarak Dynamics
 
@@ -192,7 +209,7 @@ Dynamics verileri kopyalamak için kopyalama etkinliği için kaynak türünü a
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **DynamicsSource**  | Evet |
+| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **DynamicsSource**  | Evet |
 | sorgu  | FetchXML olan Microsoft Dynamics kullanılan özel sorgu dili (çevrimiçi & şirket içi). Aşağıdaki örnekte görebilir ve'dan daha fazla bilgi edinin [yapı FeachXML sorgularıyla](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | (Veri kümesinde "entityName" belirtilmişse) yok  |
 
 **Örnek:**
@@ -247,36 +264,84 @@ Dynamics verileri kopyalamak için kopyalama etkinliği için kaynak türünü a
 </fetch>
 ```
 
+### <a name="dynamics-as-sink"></a>Havuz olarak Dynamics
+
+Dynamics verileri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın. **DynamicsSink**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **havuz** bölümü:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Kopya etkinliği havuz tür özelliği ayarlamak: **DynamicsSink**  | Evet |
+| WriteBehavior | İşlemi yazma davranışını.<br/>Değer izin verilen: **"Upsert"**. | Evet |
+| writeBatchSize | Dynamics her toplu işlemde yazılan veriler satır sayısı. | Hayır (varsayılan değer 10) |
+| ignoreNullValues | Yazma işlemi sırasında (dışında anahtar alanları) giriş verisi null değerleri yoksay gösterir.<br/>İzin verilen değerler: **true**, ve **false**.<br>-true: ekleme işlemi yaparken hedef veriler değişmeden upsert/güncelleştirme işlemini yaparken nesne ve Ekle bırakın tanımlanan varsayılan değeri.<br/>-false: upsert/güncelleştirme işlemini yaparken hedef nesnenin verileri NULL olarak güncelleştirir ve NULL değer ekleme işlemi yaparken ekleyin.  | Hayır (varsayılan değer false) |
+
+>[!NOTE]
+>Havuz writeBatchSize ve kopyalama etkinliği varsayılan değerini [parallelCopies](copy-activity-performance.md#parallel-copy) Dynamics eşzamanlı olarak gönderilmesini 100 kayıt başka bir deyişle, her iki 10 Dynamics havuz için olan.
+
+**Örnek:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToDynamics",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Dynamics output dataset>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "DynamicsSink",
+                "writeBehavior": "Upsert",
+                "writeBatchSize": 10,
+                "ignoreNullValues": true
+            }
+        }
+    }
+]
+```
+
 ## <a name="data-type-mapping-for-dynamics"></a>Eşleme Dynamics için veri türü
 
 Dynamics veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Dynamics veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
 
 Veri kümesi yapısında, Dynamics veri kaynağına göre karşılık gelen ADF veri türünü yapılandırmak aşağıdaki eşleme tabloyu kullanarak yazın:
 
-| Dynamics veri türü | Veri Fabrikası geçici veri türü |
-|:--- |:--- |
-| AttributeTypeCode.BigInt | Uzun |
-| AttributeTypeCode.Boolean | Boole değeri |
-| AttributeType.Customer | GUID |
-| AttributeType.DateTime | Tarih saat |
-| AttributeType.Decimal | Ondalık |
-| AttributeType.Double | Çift |
-| AttributeType.EntityName | Dize |
-| AttributeType.Integer | Int32 |
-| AttributeType.Lookup | GUID |
-| AttributeType.ManagedProperty | Boole değeri |
-| AttributeType.Memo | Dize |
-| AttributeType.Money | Ondalık |
-| AttributeType.Owner | GUID |
-| AttributeType.Picklist | Int32 |
-| AttributeType.Uniqueidentifier | GUID |
-| AttributeType.String | Dize |
-| AttributeType.State | Int32 |
-| AttributeType.Status | Int32 |
+| Dynamics veri türü | Veri Fabrikası geçici veri türü | Kaynak olarak desteklenen | Havuzu olarak desteklenir |
+|:--- |:--- |:--- |:--- |
+| AttributeTypeCode.BigInt | Uzun | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boole değeri | ✓ | ✓ |
+| AttributeType.Customer | GUID | ✓ |  |
+| AttributeType.DateTime | Tarih saat | ✓ | ✓ |
+| AttributeType.Decimal | Ondalık | ✓ | ✓ |
+| AttributeType.Double | Çift | ✓ | ✓ |
+| AttributeType.EntityName | Dize | ✓ | ✓ |
+| AttributeType.Integer | Int32 | ✓ | ✓ |
+| AttributeType.Lookup | GUID | ✓ |  |
+| AttributeType.ManagedProperty | Boole değeri | ✓ |  |
+| AttributeType.Memo | Dize | ✓ | ✓ |
+| AttributeType.Money | Ondalık | ✓ |  |
+| AttributeType.Owner | GUID | ✓ | |
+| AttributeType.Picklist | Int32 | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
+| AttributeType.String | Dize | ✓ | ✓ |
+| AttributeType.State | Int32 | ✓ |  |
+| AttributeType.Status | Int32 | ✓ |  |
+
 
 > [!NOTE]
 > Dynamics veri türü AttributeType.CalendarRules ve AttributeType.PartyList desteklenmez.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).
+Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

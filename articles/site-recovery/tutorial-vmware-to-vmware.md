@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 503d7060437d08ed35681fca7f1b9306746b7f44
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makineleri veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarma ayarlama
 
@@ -45,7 +45,7 @@ Ne çoğaltılacağı ve için çoğaltma yeri seçin.
 2. Seçin **kurtarma sitesine** > **Evet, VMware vSphere hiper yönetici ile**. Daha sonra, **Tamam**'a tıklayın.
 3. İçinde **Scout Kurulum**, Inmage Scout 8.0.1 GA yazılım ve kayıt anahtarını indirin. Tüm bileşenler için Kurulum dosyaları indirilen .zip dosyasına dahil edilir.
 
-## <a name="install-component-updates"></a>Bileşeni güncelleştirmelerini yükleyin
+## <a name="download-and-install-component-updates"></a>Bileşen güncelleştirmeleri karşıdan yükleyip
 
  Gözden geçirme ve en son yükleme [güncelleştirmeleri](#updates). Güncelleştirmeleri aşağıdaki sırayla sunucularda yüklü olmalıdır:
 
@@ -83,7 +83,7 @@ Karşıdan [güncelleştirme](https://aka.ms/asr-scout-update6) .zip dosyası. D
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
 1. VMware siteleri hedef ve kaynak arasında çoğaltmayı ayarlayın.
-2. Yönergeler için ürünle birlikte indirilir Inmage Scout belgeleri kullanın. Alternatif olarak, aşağıdaki gibi belgelere erişebilir:
+2. Kurulum, koruma ve kurtarma hakkında daha fazla bilgi edinmek için aşağıdaki belgelere bakın:
 
    * [Sürüm notları](https://aka.ms/asr-scout-release-notes)
    * [Uyumluluk matrisi](https://aka.ms/asr-scout-cm)
@@ -95,6 +95,8 @@ Karşıdan [güncelleştirme](https://aka.ms/asr-scout-update6) .zip dosyası. D
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 güncelleştirme 6 
 Güncelleştirilmiş: 12 Ekim 2017
+
+Karşıdan [Scout güncelleştirme 6](https://aka.ms/asr-scout-update6).
 
 Scout güncelleştirme 6 birikmeli bir güncelleştirmedir. Güncelleştirme 1'deki tüm düzeltmeleri güncelleştirme 5 artı yeni düzeltmeler ve aşağıda açıklanan geliştirmeleri içerir. 
 

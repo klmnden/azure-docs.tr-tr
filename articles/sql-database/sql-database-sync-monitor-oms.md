@@ -8,11 +8,11 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: e1099d2cd7eeccbe76d762028a0c5d5f95f53026
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 5a0d25d698ddb15b4ba88d322c07a28b329c4add
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>OMS günlük analizi ile İzleyici Azure SQL veri eşitleme (Önizleme) 
 
@@ -24,19 +24,19 @@ SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut 
 
 Artık tek tek sorunlar için aramak için her eşitleme grubu günlükleri göz gerekmez. Özel bir OMS (Operations Management Suite) görünüm kullanarak herhangi bir yerde aboneliklerinizi tüm eşitleme grubu izleyebilirsiniz. Bu görünüm SQL veri eşitleme müşterilere önemli bilgileri de ortaya çıkarır.
 
-![Veri Eşitleme izleme Panosu](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.jpg)
+![Veri Eşitleme izleme Panosu](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Otomatik e-posta bildirimleri
 
-Artık Azure Portalı'nda el ile veya PowerShell veya REST API aracılığıyla günlük denetlemeniz gerekir. Yararlanarak [OMS günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), bir hata durumunda görmek için gereken bu e-posta adresleri doğrudan Git uyarılar oluşturabilirsiniz.
+Artık Azure portalında el ile veya PowerShell veya REST API aracılığıyla günlük denetlemeniz gerekir. İle [OMS günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), hata oluştuğunda bunları görmek için gereken kişilerin e-posta adreslerini doğrudan Git uyarılar oluşturabilirsiniz.
 
-![Veri Eşitleme e-posta bildirimleri](media/sql-database-sync-monitor-oms/sync-email-notifications.jpg)
+![Veri Eşitleme e-posta bildirimleri](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
-## <a name="how-do-you-set-this-up"></a>Nasıl bu ayarladığınız? 
+## <a name="how-do-you-set-up-these-monitoring-features"></a>Bu izleme özellikleri nasıl ayarladığınız? 
 
-SQL veri eşitleme için kısa bir saat içinde şunları yaparak izleme çözümü özel bir OMS uygulayın.
+SQL veri eşitleme için kısa bir saat içinde şunları yaparak izleme çözümü özel bir OMS uygulayın:
 
-3 bileşenleri yapılandırmanız gerekir:
+Üç bileşeni yapılandırmanız gerekir:
 
 -   İçin OMS SQL veri eşitleme günlük veri akışı için bir PowerShell runbook.
 
@@ -70,7 +70,7 @@ Bir runbook oluşturma hakkında daha fazla bilgi için bkz: [ilk PowerShell run
 
 1.  Azure Otomasyonu hesabınızı altında seçin **Runbook'lar** işlem Otomasyonu sekmesinde.
 
-2.  Seçin **bir runbook'ları ekleyin** Runbook'lar sayfasının sol üst köşesinde adresindeki.
+2.  Seçin **Runbook Ekle** Runbook'lar sayfasının sol üst köşesinde adresindeki.
 
 3.  Seçin **mevcut bir Runbook'u içeri aktar**.
 
@@ -80,13 +80,13 @@ Bir runbook oluşturma hakkında daha fazla bilgi için bkz: [ilk PowerShell run
 
 6.  Azure Otomasyonu hesabınızı altında seçin **değişkenleri** sekmesi altında paylaşılan kaynakları.
 
-7.  Seçin **değişken Ekle** değişkenleri sayfasında. Runbook için son yürütme zamanı depolamak için bir değişken oluşturmak gerekir. Birden çok runbook varsa, her runbook için bir değişken gerekir.
+7.  Seçin **değişken Ekle** değişkenleri sayfasında. Runbook için son yürütme zamanı depolamak için bir değişken oluşturun. Birden çok runbook varsa, her runbook için bir değişken gerekir.
 
 8.  Değişken adı olarak ayarlanmış `DataSyncLogLastUpdatedTime` ve onun türü DateTime olarak ayarlayın.
 
 9.  Runbook'u seçin ve sayfanın en üstündeki Düzenle düğmesini tıklatın.
 
-10. Hesabınızı ve SQL veri eşitleme yapılandırması için gerekli değişiklikleri yapın. (Örnek betik daha ayrıntılı bilgi için bkz.)
+10. Hesabınızı ve SQL veri eşitleme yapılandırması için gerekli değişiklikleri yapın. (Daha ayrıntılı bilgi için örnek komut dosyasına bakın.)
 
     1.  Azure Information.
 
@@ -96,7 +96,7 @@ Bir runbook oluşturma hakkında daha fazla bilgi için bkz: [ilk PowerShell run
 
 11. Runbook Test Bölmesi'nde çalıştırın. Başarılı olup olmadığını denetleyin.
 
-    Hatalar varsa, en son PowerShell modül yüklü olduğundan emin olun. Bunu yapmak için **modülleri galeri** Otomasyon hesabınızda.
+    Hatalar varsa, en son PowerShell modül yüklü olduğundan emin olun. En son PowerShell modülündeki yükleyebilirsiniz **modülleri galeri** Otomasyon hesabınızda.
 
 12. Tıklatın **yayımlama**
 
@@ -118,7 +118,7 @@ Runbook'u zamanlamak için:
 
 ### <a name="check-the-automation"></a>Otomasyon denetleyin
 
-Automation'ınızı altında beklendiği gibi çalışıp çalışmadığını izlemek için **genel bakış** automation hesabınız için **Proje istatistikleri** altında görüntülemek **izleme**. Bu, kolay görüntüleme için panonuza sabitleyin. Runbook Göster "Tamamlandı" olarak başarılı çalıştığında ve başarısız çalışır "Başarısız" göster.
+Automation'ınızı altında beklendiği gibi çalışıp çalışmadığını izlemek için **genel bakış** automation hesabınız için **Proje istatistikleri** altında görüntülemek **izleme**. Bu görünüm kolay görüntüleme için panonuza sabitleyin. Runbook Göster "Tamamlandı" olarak başarılı çalıştığında ve başarısız çalışır "Başarısız" Göster
 
 ## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>E-posta bildirimleri için OMS günlük okuyucu uyarı oluşturma
 
@@ -136,9 +136,9 @@ OMS günlük analizi kullanan bir uyarı oluşturmak için şunları yapın. Bir
 
     1.  Toplama değerini ayarlamak **büyük**.
 
-    2.  Sonra **büyük**, bildirimler almadan önce geçecek eşiği girin. Geçici hataları veri eşitleme beklenir. Eşik gürültü azaltmak için 5 olarak ayarlamanızı öneririz.
+    2.  Sonra **büyük**, bildirimler almadan önce geçecek eşiği girin. Geçici hataları veri eşitleme beklenir. Gürültü azaltmak için eşiği 5 olarak ayarlayın.
 
-5.  Altında **Eylemler**ayarlayın **e-posta bildirimi** "Yes". İstenen e-posta alıcılarını girin.
+5.  Altında **Eylemler**ayarlayın **e-posta bildirimi** "Evet." İstenen e-posta alıcılarını girin.
 
 6.  **Kaydet** düğmesine tıklayın. Hata oluştuğunda belirtilen alıcılara e-posta bildirimleri artık alırsınız.
 
@@ -168,7 +168,7 @@ OMS görünüm yapılandırmak için şunları yapın:
 
         2.  Her eşitleme grubu için bölmeler eşitleme grubu adları güncelleştirin.
 
-    3.  Onn her parçasında, başlık gerektiği gibi güncelleştirin.
+    3.  Her bölme üzerinde başlığı gerektiği gibi güncelleştirin.
 
 4.  Tıklatın **kaydetmek** ve görünüm hazırdır.
 
@@ -189,10 +189,11 @@ Bu makalede aşağıdaki konumlardan açıklanan kod örnekleri indirin:
 -   [Veri Eşitleme günlük OMS görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-veya SQL veri eşitleme hakkında daha fazla bilgi bakın:
+SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 
 -   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](sql-database-sync-data.md)
 -   [Azure SQL veri eşitlemeye başlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL veri eşitleme için en iyi yöntemler](sql-database-best-practices-data-sync.md)
 -   [Azure SQL veri eşitleme ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)
 
 -   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:

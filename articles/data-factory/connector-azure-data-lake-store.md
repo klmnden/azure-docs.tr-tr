@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 6ef76763859482d24c088f58fe361882cc4a619b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daba616debcf445e092697575465311f39e9466f
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake Store bilgisayardan veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Azure Data Lake Store için tüm desteklenen kaynak veri deposundan veri kopyala
 
 Özellikle, bu Azure Data Lake Store bağlayıcı destekler:
 
-- Dosya kopyalarken kullanarak **hizmet sorumlusu** kimlik doğrulaması.
+- Dosya kopyalarken kullanarak **hizmet sorumlusu** veya **yönetilen hizmet kimliği (MSI)** kimlik doğrulaması.
 - Dosyaları olarak kopyalama- ya da ayrıştırma/oluşturma dosyalarıyla [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>başlarken
@@ -44,7 +44,23 @@ Aşağıdaki bölümler, Azure Data lake Store'a Data Factory varlıklarını be
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
 
-Hizmet asıl kimlik doğrulaması kullanarak bir Azure Data Lake Store bağlantılı hizmeti oluşturabilirsiniz.
+Azure Data Lake Store bağlantılı hizmetinin aşağıdaki özellikleri desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Type özelliği ayarlamak **AzureDataLakeStore**. | Evet |
+| dataLakeStoreUri | Azure Data Lake Store hesabı hakkında bilgi. Bu bilgiler aşağıdaki biçimlerden birini alır: `https://[accountname].azuredatalakestore.net/webhdfs/v1` veya `adl://[accountname].azuredatalakestore.net/`. | Evet |
+| Kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | Evet |
+| subscriptionId | Data Lake Store hesabına ait olduğu azure abonelik kimliği. | Havuz için gerekli |
+| resourceGroupName | Data Lake Store hesabına ait olduğu azure kaynak grubu adı. | Havuz için gerekli |
+| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+
+Aşağıdaki bölümlerde daha fazla özellikleri ve farklı kimlik doğrulama türü için JSON örnek sırasıyla bakın:
+
+- [Hizmet asıl kimlik doğrulaması kullanma](#using-service-principal-authentication)
+- [Yönetilen hizmet identitiy kimlik doğrulaması kullanma](#using-managed-service-identitiy-authentication)
+
+### <a name="using-service-principal-authentication"></a>Hizmet asıl kimlik doğrulaması kullanma
 
 Hizmet asıl kimlik doğrulaması kullanmak için Azure Active Directory (Azure AD) bir uygulama varlığı kaydetmek ve Data Lake Store'a erişim izni. Ayrıntılı adımlar için bkz: [hizmeti için kimlik doğrulama](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Bağlantılı hizmet tanımlamak için kullandığınız aşağıdaki değerleri not edin:
 
@@ -54,21 +70,15 @@ Hizmet asıl kimlik doğrulaması kullanmak için Azure Active Directory (Azure 
 
 >[!TIP]
 > Hizmet asıl uygun Azure Data Lake Store'da izni olduğundan emin olun:
->- Kaynak olarak en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi gereksinimi yoktur.
->- Havuz en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopya güçlendirmeniz Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi.
+>- Kaynak olarak en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
+>- Havuz en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopya güçlendirmeniz Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi.
 
 Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlamak **AzureDataLakeStore**. | Evet |
-| dataLakeStoreUri | Azure Data Lake Store hesabı hakkında bilgi. Bu bilgiler aşağıdaki biçimlerden birini alır: `https://[accountname].azuredatalakestore.net/webhdfs/v1` veya `adl://[accountname].azuredatalakestore.net/`. | Evet |
 | servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet |
 | servicePrincipalKey | Uygulamanın anahtarını belirtin. Bu alan bir SecureString işaretleyin. | Evet |
-| Kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | Evet |
-| subscriptionId | Data Lake Store hesabına ait olduğu azure abonelik kimliği. | Havuz için gerekli |
-| resourceGroupName | Data Lake Store hesabına ait olduğu azure kaynak grubu adı. | Havuz için gerekli |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
 
@@ -84,6 +94,43 @@ Aşağıdaki özellikler desteklenir:
                 "type": "SecureString",
                 "value": "<service principal key>"
             },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identitiy-authentication"></a>Yönetilen hizmet identitiy kimlik doğrulaması kullanma
+
+Data factory ile ilişkilendirilebilir bir [yönetilen hizmet kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği doğrudan kendi hizmet princial kullanmaya benzer Data Lake Store kimlik doğrulaması için de kullanabilirsiniz. Bu belirlenen Fabrika verilerine erişim ve kopyalama / Data Lake Store izin verir.
+
+Yönetilen hizmet identitiy (MSI) kimlik doğrulaması kullanmak için:
+
+1. [Veri Fabrikası hizmet kimliği alma](data-factory-service-identity.md#retrieve-service-identity) "Hizmeti kimliği uygulama Fabrikanızda birlikte oluşturulan kimliği" değerini kopyalayarak.
+2. Data Lake Store'a hizmet sorumlusu için yaptığınız gibi hizmet kimliği erişim verin. Ayrıntılı adımlar için bkz: [hizmeti için kimlik doğrulama - Azure Data Lake Store hesabına dosya veya klasöre Ata Azure AD uygulama](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+
+>[!TIP]
+> Veri Fabrikası hizmet identitiy uygun Azure Data Lake Store'da izni olduğundan emin olun:
+>- Kaynak olarak en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
+>- Havuz en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopya güçlendirmeniz Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi.
+
+Azure Data Factory bağlantılı hizmetteki genel Data Lake Store bilgilerin yanı sıra tüm özelliklerini belirtmeniz gerekmez.
+
+**Örnek:**
+
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<subscription of ADLS>",
             "resourceGroupName": "<resource group of ADLS>"

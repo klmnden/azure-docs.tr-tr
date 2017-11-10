@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: twooley
-ms.openlocfilehash: a66c7dddab1a2246dd0a9fa3c7533063140d2f01
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 32ca25998046caa6cf29410644f3cd86868b679d
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure yığın 1710 güncelleştirme (yapı 20171020.1)
 
@@ -60,12 +60,12 @@ Bu bölüm, 1710 güncelleştirme yüklemesi sırasında karşılaşabileceğini
 
 | Belirti  | Nedeni  | Çözüm |
 |---------|---------|---------|
-|Bir güncelleştirme gerçekleştirmek, aşağıdakine benzer bir hata güncelleştirme eylem planını "Depolama ana bilgisayarları yeniden Depolama düğümü" adımı sırasında ortaya çıkabilir.<br><br>**{"name": "Yeniden depolama Hosts", "Açıklama": "Yeniden depolama konakları.", "errorMessage": "türü 'BareMetal' rolünün ' Restart' HostName-05 atlandı bir özel durum: \n\nThe bilgisayar oluşturulur. WMI hizmeti şu hata iletisiyle üzerinden kendi LastBootUpTime alınamadı: RPC sunucusu kullanılamıyor. (HRESULT özel durumu: 0x800706BA). \nat yeniden-ana bilgisayar** | Bu sorunun olası hatalı bir sürücüden bazı yapılandırmalarda mevcut kaynaklanır. | 1. Temel kart yönetim denetleyicisi (BMC) web arabirimine oturum açmak ve hata iletisinde tanımlanan ana bilgisayarı yeniden başlatın.<br><br>2. Güncelleştirme ayrıcalıklı uç nokta kullanarak devam edin. |
-| Bir güncelleştirme gerçekleştirdiğinizde, güncelleştirme işlemi kabin ve ilerleme adımından sonra olmamasını görünüyor "Adım: adımı 2.4 - Güncelleştirme çalışıyorsa" güncelleştirme eylem planı.<br><br>Bu adım sonra kopyalama işlemi .nupkg dosyaların bir dizi tarafından iç altyapı dosya paylaşımlarına izler. Örneğin:<br><br>**1 dosyaları için \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\PerfCounterConfiguration content\PerfCollector\VirtualMachines kopyalama**  | Sorunu bir altyapı sanal makine ve bir sorun, Windows Server genişleme dosya sunucusu (bir sonraki güncelleştirmesinde teslim SOFS) disklerde doldurma günlük dosyalarını kaynaklanır. | Yardım için lütfen Microsoft Müşteri Hizmetleri ve desteği (CSS) başvurun. | 
-| Bir güncelleştirme gerçekleştirdiğinizde, aşağıdakine benzer bir hata adımı sırasında oluşabilecek "Adım: adım 2.13.2 - güncelleştirme çalıştıran *VM_Name*" güncelleştirme eylem planı. (Sanal makine adı farklılık gösterebilir.)<br><br>**ActionPlanInstanceWarning ece/MachineName: WarningMessage:Task: 'Başarısız Cloud\Fabric\WAS' rolünün ' LiveUpdate' arabiriminin çağırma:<br>'WAS' rolünün 'LiveUpdate' türü bir özel durum oluşturuldu:<br>depolama sırasında bir hata oluştu başlatma: Microsoft Storage hizmetine bir API çağrısı yapma çalışırken bir hata oluştu: {"İletisi": "Service Fabric ile iletişim kurulurken bir zaman aşımı oluştu. Özel durum türü: TimeoutException. Özel durum iletisi: işlem zaman aşımına uğradı. "}**  | Sorun Windows Server'daki bir sonraki güncelleştirmesinde sabit bir g/ç zaman aşımı nedeniyle oluşur. | Yardım için Microsoft CSS temasa geçin.
-| Bir güncelleştirme gerçekleştirdiğinizde, aşağıdakine benzer bir hata adımı sırasında "21 yeniden SQL server Vm'lerinin adım." oluşabilir<br><br>**'VirtualMachines' rolünün 'LiveUpdateRestart' türü bir özel durum oluşturuldu:<br>VerboseMessage: VM MachineName [VirtualMachines:LiveUpdateRestart] sorgulama-Sql01. - 13/10/2017 5:11:50 PM VerboseMessage: [VirtualMachines: LiveUpdateRestart] VM HighlyAvailable işaretlenir. -10/13/2017 5:11:50 PM VerboseMessage: [VirtualMachines:LiveUpdateRestart] konumundaki MS. MS adresindeki Internal.ServerClusters.ExceptionHelp.Build. Microsoft.FailoverClusters.PowerShell.StopClusterResourceCommand.BeginTimedOperation() adresindeki Internal.ServerClusters.ClusterResource.BeginTakeOffline (Boolean zorla) Microsoft.FailoverClusters.PowerShell.FCCmdlet.ProcessRecord() - 13/10/2017 5:11:50 PM WarningMessage:Task adresindeki Microsoft.FailoverClusters.PowerShell.TimedCmdlet.WrappedProcessRecord(): çağırma arabiriminin 'LiveUpdateRestart' rolünün ' Cloud\Fabric\VirtualMachines başarısız oldu:** | Sanal makine yeniden başlatamadı Bu sorun oluşabilir. | Yardım için Microsoft CSS temasa geçin.
-| Bir güncelleştirme gerçekleştirdiğinizde, aşağıdakine benzer bir hata oluşabilir:<br><br>**2017-10-22T01:37:37.5369944Z 'SQL' rolünün 'Kapatma' türü bir özel durum oluşturuldu: duraklatma düğümü 's45r1004-Sql01' sitesindeki Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\Applications\EnterpriseCloudEngineApplicationType_ bir hata oluştu App1\EnterpriseCloudEngineServicePkg.Code.1.0.597.18\CloudDeployment\Roles\SQL\SQL.psm1: 542at kapatma, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\Applications\EnterpriseCloudEngineApplicationType_App1\ satır EnterpriseCloudEngineServicePkg.Code.1.0.597.18\CloudDeployment\Classes\SQL\SQL.psm1: 50at satır <ScriptBlock>, <No file>: 18at satır <ScriptBlock>, <No file>: satır 16** | Sanal makine rolleri boşaltmak için askıya alınmış bir duruma yerleştirirseniz Bu sorun ortaya çıkabilir. | Yardım için Microsoft CSS temasa geçin.
-| Bir güncelleştirme gerçekleştirdiğinizde, aşağıdaki hata oluşabilir:<br><br>**'ADFS' rolünün 'Doğrula' türü bir özel durum oluşturuldu: ADFS/grafik rol için doğrulama başarısız oldu, hata: ADFS araştırma endpoint denetlenirken hata *endpoint_URI*: "0" bağımsız değişkenle "GetResponse" çağrılırken özel durum: "uzak sunucu bir hata döndürdü: (503) sunucusu kullanılamıyor. "Invoke-ADFSGraphValidation adresindeki**<br><br>**'ADFS' rolünün 'Doğrula' türü bir özel durum oluşturuldu: ADFS/grafik rol için doğrulama başarısız oldu, hata: ADFS özellikleri alınırken hata oluştu: net.tcp://localhost için bağlanılamadı: 1500/ilkesi. Bağlantı denemesi 00:00:02.0498923 için bir zaman aralığı devam. TCP hata kodu 10061: hedef makine 127.0.0.1:1500 etkin olarak reddettiğinden bağlantı kurulamadı. Invoke-ADFSGraphValidation** | Güncelleştirme eylem planını Active Directory Federasyon Hizmetleri (AD FS) sistem durumu doğrulanamıyor. | Yardım için Microsoft CSS başvurun.
+|Bir güncelleştirme, aşağıdakine benzer bir hata gerçekleştirdiğinizde<br>"Depolama ana bilgisayarları yeniden Depolama düğümü" adımı sırasında ortaya çıkabilir<br> güncelleştirme eylem planını.<br><br>**{"name": "Yeniden depolama Hosts", "Açıklama": "yeniden<br> depolama konakları.","errorMessage": "yazın rolünün ' Restart'<br> 'BareMetal' yükseltilmiş bir özel durum: \n\n bilgisayar<br> HostName-05 atlandı. Kendi LastBootUpTime alınamadı<br> WMI hizmeti şu hata iletisiyle üzerinden:<br> RPC sunucusu kullanılamıyor.<br> (HRESULT özel durumu: 0x800706BA). \nat yeniden-ana bilgisayar** | Bu sorunun olası hatalı bir sürücüden bazı yapılandırmalarda mevcut kaynaklanır. | 1. Temel kart yönetim denetleyicisi (BMC) web arabirimine oturum açmak ve hata iletisinde tanımlanan ana bilgisayarı yeniden başlatın.<br><br>2. Güncelleştirme ayrıcalıklı uç nokta kullanarak devam edin. |
+| Bir güncelleştirme gerçekleştirdiğinizde, güncelleştirme işlemi kabin görünüyor<br> ve ilerleme adımından sonra olmamasını "Adım: adım 2.4 - yükleme çalıştırma<br> güncelleştirme eylem planını güncelleştir".<br><br>Bu adım sonra .nupkg kopyalama işlemlerinin bir dizi tarafından izlenir<br> İç altyapı dosya paylaşımlarına dosyalar. Örneğin:<br><br>**1 dosyaları için content\PerfCollector\VirtualMachines kopyalayarak <br> \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\ <br>PerfCounterConfiguration**  | Sorunu bir altyapı sanal makine ve bir sorun, Windows Server genişleme dosya sunucusu (bir sonraki güncelleştirmesinde teslim SOFS) disklerde doldurma günlük dosyalarını kaynaklanır. | Yardım için lütfen Microsoft Müşteri Hizmetleri ve desteği (CSS) başvurun. | 
+| Bir güncelleştirme, aşağıdakine benzer bir hata gerçekleştirdiğinizde<br> adım sırasında ortaya çıkabilecek "Adım: adım 2.13.2 - güncelleştirme çalıştırma<br> *VM_Name*"planının güncelleştirme eylem. (Sanal makine<br> adı değişebilir.)<br><br>**ActionPlanInstanceWarning ece/MachineName:<br> WarningMessage:Task: çağrıldı 'LiveUpdate' arabirim<br> rolü 'başarısız Cloud\Fabric\WAS': 'LiveUpdate' rolü yazın<br> '' yükseltildi bir özel durum: sırasında bir hata oluştu Depolama<br> başlatma: bir API yapmaya çalışırken bir hata oluştu<br> Microsoft Storage hizmetine çağrı: {"İletisi": "zaman aşımı<br> Service Fabric ile iletişim kurulurken oluştu.<br> Özel durum türü: TimeoutException.<br> Özel durum iletisi: işlem zaman aşımına uğradı. "}**  | Sorun Windows Server'daki bir sonraki güncelleştirmesinde sabit bir g/ç zaman aşımı nedeniyle oluşur. | Yardım için Microsoft CSS temasa geçin.
+| Bir güncelleştirme, aşağıdakine benzer bir hata gerçekleştirdiğinizde<br> adımı sırasında "21 yeniden SQL server Vm'lerinin adım." oluşabilir<br><br>**'LiveUpdateRestart' rolünün 'yükseltilmiş VirtualMachines' türü bir<br> özel durum: VerboseMessage: [VirtualMachines:LiveUpdateRestart]<br> VM MachineName için sorgulama-Sql01. - 13/10/2017 5:11:50 PM VerboseMessage: [VirtualMachines: LiveUpdateRestart]<br> VM olarak HighlyAvailable. - 13/10/2017 işaretlenmiş 5:11:50 PM<br> VerboseMessage: [VirtualMachines:LiveUpdateRestart] konumundaki<br>MS. Konumundaki Internal.ServerClusters.ExceptionHelp.Build<br>MS. Internal.ServerClusters.ClusterResource.BeginTakeOffline<br>(Boolean zorla) Microsoft.FailoverClusters.PowerShell adresindeki.<br> Konumundaki StopClusterResourceCommand.BeginTimedOperation() <br>Microsoft.FailoverClusters.PowerShell.TimedCmdlet.Wrapped<br>ProcessRecord() Microsoft.FailoverClusters.PowerShell adresindeki.<br> FCCmdlet.ProcessRecord() - 13/10/2017 5:11:50 PM uyarı<br>ileti: Görev: çağrıldı 'LiveUpdateRestart' arabirim<br> rolü 'Cloud\Fabric\VirtualMachines' başarısız oldu:** | Sanal makine yeniden başlatamadı Bu sorun oluşabilir. | Yardım için Microsoft CSS temasa geçin.
+| Bir güncelleştirme gerçekleştirdiğinizde, aşağıdakine benzer bir hata oluşabilir:<br><br>**2017-10-22T01:37:37.5369944Z türü 'Kapatma' rolünün 'SQL'<br> özel durum oluşturuldu: duraklatma düğüm bir hata oluştu<br> 's45r1004-Sql01' sitesindeki Stop-SQL, C:\ProgramData\SF\ErcsClusterNode2 <br>\Fabric\work\ Applications\ EnterpriseCloud <br>EngineApplicationType &#95; App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\ <br> CloudDeployment\Roles\SQL\SQL.psm1:line 542 adresindeki<br> kapatma, C:\ProgramData\SF\ErcsClusterNode2\Fabric\work\ <br> Uygulamaları \EnterpriseCloudEngineApplicationType &#95; App1\ <br>EnterpriseCloudEngineServicePkg.Code.1.0.597.18\Cloud<br>Deployment\Classes\SQL\SQL.psm1: satır 50 &#60; ScriptBlock &#62;<br> &#60; Hiçbir dosya >: satır 18 en &#60; ScriptBlock &#62; &#60; Hiçbir dosya &#62;: satır 16** | Sanal makine rolleri boşaltmak için askıya alınmış bir duruma yerleştirirseniz Bu sorun ortaya çıkabilir. | Yardım için Microsoft CSS temasa geçin.
+| Bir güncelleştirme gerçekleştirdiğinizde, aşağıdaki hata oluşabilir:<br><br>**"ADFS' rolünün 'Doğrula' türü bir özel durum oluşturuldu: doğrulama<br> ADFS/grafik rolü hatasıyla başarısız oldu: hata ADFS denetimini<br> endpoint araştırma *endpoint_URI*: özel durum arama<br> " "0" bağımsız değişkenli ile GetResponse":" uzak sunucu<br> bir hata döndürdü: (503) sunucusu kullanılamıyor. "konumundaki Invoke -<br>ADFSGraphValidation**<br><br>**'ADFS' rolünün 'Doğrula' türü bir özel durum oluşturuldu: doğrulama<br> ADFS/grafik rolü hatasıyla başarısız oldu: alınırken hata<br> ADFS özellikleri: bağlanılamadı <br>net.tcp://localhost: 1500/ilkesi. Bağlantı denemesi devam<br> 00:00:02.0498923, bir zaman aralığı için. TCP hata kodu<br> 10061: hiçbir bağlantı kurulamadı, çünkü hedef<br> makine etkin olarak reddetti onu 127.0.0.1:1500.<br> Invoke-ADFSGraphValidation adresindeki** | Güncelleştirme eylem planını Active Directory Federasyon Hizmetleri (AD FS) sistem durumu doğrulanamıyor. | Yardım için Microsoft CSS temasa geçin.
 
 ## <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
 
@@ -75,16 +75,16 @@ Bu bölümde 20171020.1 yapı ile ilgili bilinen sorunlar yükleme sonrası içe
 
 - Yönetici portalı'nda işlem ve depolama kaynaklarını görüntülemek mümkün olmayabilir. Bu güncelleştirme yükleme sırasında bir hata oluştu ve güncelleştirme yanlış başarılı olarak bildirildi olduğunu gösterir. Bu sorun devam ederse, lütfen Yardım için Microsoft CSS başvurun.
 - Boş bir portal panosunda görebilirsiniz. Pano kurtarmak için portalın sağ üst köşesindeki dişli simgesini seçin ve ardından **varsayılan ayarları geri**.
-- Kullanıcılar bir abonelik olmadan tam Market göz atabilir ve planları ve teklifleri gibi yönetim öğelerini görebilirsiniz. Bu öğeler kullanıcılara işlevsiz.
-- **Taşıma** bir kaynak grubu özelliklerini görüntülediğinizde düğmesi devre dışı. Bu davranış beklenir. Kaynak grupları abonelikler arasında taşıma şu anda desteklenmiyor.
-- Aboneliğiniz Azure yığın Portal kullanımı için izinleri görüntülemek mümkün değildir. Geçici bir çözüm olarak izinleri PowerShell kullanarak doğrulayabilirsiniz.
--  Burada abonelik, kaynak grubu veya konum aşağı açılan listesinde seçtiğiniz herhangi bir iş akışı için bir veya daha fazla aşağıdaki sorunlarla karşılaşabilirsiniz:
+- Bir kaynak grubu özelliklerini görüntülediğinizde **taşıma** düğmesi devre dışıdır. Bu davranış beklenir. Kaynak grupları abonelikler arasında taşıma şu anda desteklenmiyor.
+- Burada abonelik, kaynak grubu veya konum aşağı açılan listesinde seçtiğiniz herhangi bir iş akışı için bir veya daha fazla aşağıdaki sorunlarla karşılaşabilirsiniz:
 
    - Boş bir satır listesi üstündeki görebilirsiniz. Hala beklendiği gibi bir öğe seçin yapabiliyor olmanız gerekir.
    - Açılan listedeki öğeleri listesi kısaysa, öğe adlarının herhangi biri görmeye olmayabilir.
    - Birden çok kullanıcı aboneliğiniz varsa, kaynak grubu aşağı açılan listesi boş olabilir. 
 
    Son iki sorunlarını geçici olarak çözmek için abonelik veya kaynak grubu (biliyorsanız) adını yazın veya bunun yerine PowerShell kullanabilirsiniz.
+- Kullanıcı abonelikleri yalnız bırakılmış kaynakları sonuçlarında siliniyor. Geçici bir çözüm olarak ilk kullanıcı kaynakları veya tüm kaynak grubunu silme ve kullanıcı abonelikleri silin.
+- Aboneliğiniz Azure yığın Portal kullanımı için izinleri görüntülemek mümkün değildir. Geçici bir çözüm olarak izinleri PowerShell kullanarak doğrulayabilirsiniz.
   
 ### <a name="backup"></a>Backup
 
@@ -94,26 +94,27 @@ Bu bölümde 20171020.1 yapı ile ilgili bilinen sorunlar yükleme sonrası içe
 
 - Bir altyapı rol örneğini yeniden başlatırsanız, yeniden başlatma başarısız olduğunu belirten bir ileti alabilirsiniz. Bununla birlikte, yeniden başlatma gerçekten başarılı oldu.
 
-### <a name="services"></a>Hizmetler
-
-**Market**
+### <a name="marketplace"></a>Market
 - Kullanarak Azure yığın Market öğeleri eklemeye çalıştığınızda **azure'dan Ekle** seçeneği, tüm öğeleri olabilir indirme için görünür.
-- Sanal makine ölçek kümeleri oluşturmak için hiçbir Market deneyim yoktur. Bir şablonu kullanarak bir ölçek oluşturabilirsiniz.
-- Bunlar ilk Azure işlevlerine abonelikte oluşturmadan önce bir kiracı depolama kaynak sağlayıcısı kaydetmeniz gerekir.
-- Kullanıcı abonelikleri yalnız bırakılmış kaynakları sonuçlarında siliniyor. Geçici bir çözüm olarak ilk kullanıcı kaynakları veya tüm kaynak grubunu silme ve kullanıcı abonelikleri silin. 
+- Kullanıcılar bir abonelik olmadan tam Market göz atabilir ve planları ve teklifleri gibi yönetim öğelerini görebilirsiniz. Bu öğeler kullanıcılara işlevsiz.
 
-**SQL/MySQL**
-- Bu yeni bir SQL veya MySQL SKU kiracılar veritabanları oluşturabilmeniz için önce bir saate kadar sürebilir. 
-- Öğeleri doğrudan SQL ve MySQL kaynak sağlayıcısı tarafından gerçekleştirilen değil sunucularda barındırma oluşturulması desteklenmiyor ve eşleşmeyen bir duruma neden olabilir.
-
-**İşlem**
+### <a name="compute"></a>İşlem
 - Kullanıcılar coğrafi olarak yedekli depolama ile sanal makine oluşturmak için seçeneği sunulur. Bu yapılandırma, sanal makine oluşturma başarısız olmasına neden olur.
 - Yalnızca bir hata etki alanı ve bir bir güncelleştirme etki alanı ile bir sanal makine kullanılabilirlik yapılandırabilirsiniz.
+- Sanal makine ölçek kümeleri oluşturmak için hiçbir Market deneyim yoktur. Bir şablonu kullanarak bir ölçek oluşturabilirsiniz.
+- Sanal makine ölçek kümeleri için ölçeklendirme ayarları portalda kullanılabilir değildir. Geçici bir çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürümü farklılıkları nedeniyle kullanmalısınız `-Name` yerine parametre `-VMScaleSetName`.
  
-**Ağ**
+### <a name="networking"></a>Ağ
 - Portalı kullanarak bir ortak IP adresi ile bir yük dengeleyicisi oluşturulamıyor. Geçici bir çözüm olarak, yük dengeleyici oluşturmak için PowerShell'i kullanabilirsiniz.
 - Ağ Yük Dengeleyici oluşturduğunuzda, bir ağ adresi çevirisi (NAT) kuralı oluşturmanız gerekir. Bunu yapmazsanız, yük dengeleyici oluşturulduktan sonra bir NAT kuralı eklemeye çalıştığınızda bir hata alırsınız.
 - VM oluşturulur ve bu IP adresi ile ilişkili sonra bir sanal makineden (VM) genel bir IP adresi ilişkisini olamaz. Disassociation çalışmak için görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır. Yeni bir VM için IP adresi yeniden atama olsa bile bu davranış oluşur (genellikle olarak adlandırılan bir *VIP takası*). Tüm gelecekte bu IP adresi sonucu başlangıçta ilişkili VM değil de yeni bir bağlantı üzerinden bağlanma girişiminde bulunur. Şu anda, yeni VM oluşturmak için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
+ 
+### <a name="sqlmysql"></a>SQL/MySQL
+- Bu yeni bir SQL veya MySQL SKU kiracılar veritabanları oluşturabilmeniz için önce bir saate kadar sürebilir. 
+- Öğeleri doğrudan SQL ve MySQL kaynak sağlayıcısı tarafından gerçekleştirilen değil sunucularda barındırma oluşturulması desteklenmiyor ve eşleşmeyen bir duruma neden olabilir.
+ 
+### <a name="app-service"></a>App Service
+- Bir kullanıcı, bunlar ilk Azure işlevlerine abonelikte oluşturmadan önce depolama kaynak sağlayıcısı kaydetmeniz gerekir.
  
 ### <a name="field-replaceable-unit-fru-procedures"></a>Alan değiştirilebilen biriminin (FRU) yordamları
 

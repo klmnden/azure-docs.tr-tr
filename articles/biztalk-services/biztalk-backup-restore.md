@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45365092f5bcd1a8d309c10404a7437c494a8967
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Yedekleme ve Geri Yükleme
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk Services yedekleme ve geri yükleme özellikleri içerir. Bu konu, yedekleme ve geri yükleme Klasik Azure portalını kullanarak BizTalk Services açıklar.
+Azure BizTalk Services yedekleme ve geri yükleme özellikleri içerir. 
 
-BizTalk Services kullanarak yedekleyebilirsiniz [BizTalk Services REST API](http://go.microsoft.com/fwlink/p/?LinkID=325584). 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!NOTE]
 > Karma bağlantılar, sürüm ne olursa olsun yedeklenmiş değil. Karma bağlantılar yeniden oluşturmanız gerekir.
@@ -34,7 +34,6 @@ BizTalk Services kullanarak yedekleyebilirsiniz [BizTalk Services REST API](http
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 * Yedekleme ve geri yükleme tüm sürümleri için kullanılamayabilir. Bkz: [BizTalk Services: sürümler grafiği](biztalk-editions-feature-chart.md).
-* Klasik Azure portalını kullanarak, bir talep üzerine yedekleme oluşturmak veya zamanlanmış bir yedekleme oluşturun. 
 * Yedekleme içeriği aynı BizTalk hizmeti ya da yeni bir BizTalk hizmeti geri yüklenebilir. Aynı adı kullanarak BizTalk hizmeti geri yüklemek için mevcut BizTalk hizmeti silinmelidir ve ad kullanılabilir olmalıdır. BizTalk hizmeti sildikten sonra kullanılabilir olması aynı adı istedik daha uzun zaman alabilir. Kullanılabilir olması aynı adı bekleyemiyorsanız, yeni bir BizTalk hizmeti geri yükleyin.
 * BizTalk Services aynı sürümü veya daha yüksek bir sürüme geri yüklenebilir. BizTalk Services daha düşük bir sürüme geri yükleme, yedeklemenin ne zaman alındığı gelen desteklenmiyor.
   
@@ -46,70 +45,10 @@ BizTalk Services kullanarak yedekleyebilirsiniz [BizTalk Services REST API](http
 * İsteğe bağlı: BizTalk Services Portalı'nda herhangi bir yönetim işlemini durdurun.
 
 ## <a name="create-a-backup"></a>Bir yedekleme oluşturun
-Bir yedekleme herhangi bir zamanda alınabilir ve sizin tarafınızdan tamamen denetlenir. Bu bölümde Azure Klasik portalı kullanarak yedeklemeler oluşturmak için aşağıdaki adımları listeler de dahil olmak üzere:
-
-[İsteğe bağlı bir yedekleme](#backupnow)
-
-[Yedeklemeyi zamanlama](#backupschedule)
-
-#### <a name="backupnow"></a>İsteğe bağlı bir yedekleme
-1. Klasik Azure portalında seçin **BizTalk Services**ve ardından istediğiniz BizTalk hizmeti yedekleme.
-2. İçinde **Pano** sekmesine **yedekleme** sayfanın sonundaki.
-3. Yedek bir ad girin. Örneğin *myBizTalkService*BU*tarih*.
-4. Bir blob depolama hesabı seçin ve yedeklemeyi başlatmak için onay işaretini seçin.
-
-Yedekleme tamamlandıktan sonra bir kapsayıcı girdiğiniz yedek adı ile depolama hesabı oluşturulur. Bu kapsayıcı, BizTalk hizmeti yedekleme yapılandırmanızı içerir.
-
-#### <a name="backupschedule"></a>Yedeklemeyi zamanlama
-1. Klasik Azure portalında seçin **BizTalk Services**, yedekleme işini zamanlamak ve ardından istediğiniz BizTalk hizmeti adını seçin **yapılandırma** sekmesi.
-2. Ayarlama **yedekleme durumu** için **otomatik**. 
-3. Seçin **depolama hesabı** yedeğini depolamak için girin **sıklığı** için yedekleme oluşturmaya ve yedeklemeleri tutmak için ne kadar süre (**bekletme gün**):
-   
-    ![][AutomaticBU]
-   
-    **Notlar**     
-   
-   * İçinde **bekletme gün**, bekletme dönemi yedekleme sıklığı büyük olmalıdır.
-   * Seçin **her zaman en az bir yedekleme tutun**, saklama süresi olsa bile.
-4. **Kaydet**’i seçin.
-
-Zamanlanmış bir yedekleme işini çalıştırdığında, girdiğiniz depolama hesabında (yedek verileri depolamak için) bir kapsayıcı oluşturur. Kapsayıcının adı adlı *BizTalk hizmeti adı-tarih-saat*. 
-
-BizTalk hizmeti Pano gösterirse bir **başarısız** durumu:
-
-![Zamanlanan son yedekleme durumu][BackupStatus] 
-
-Bağlantı gidermenize yardımcı olması için Yönetim Hizmetleri işlem günlükleri açar. Bkz: [BizTalk Services: işlem günlükleri kullanarak sorun giderme](http://go.microsoft.com/fwlink/p/?LinkId=391211).
+Bir yedekleme herhangi bir zamanda alınabilir ve sizin tarafınızdan tamamen denetlenir. Bir yedekleme oluşturmak için kullanmak [Azure BizTalk hizmetlerinin yönetilmesi için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ## <a name="restore"></a>Geri Yükleme
-Azure Klasik portalından veya yedeklerini geri [geri BizTalk hizmeti REST API'si](http://go.microsoft.com/fwlink/p/?LinkID=325582). Bu bölümde, Klasik portalı kullanarak geri yüklemek için adımları listelenir.
-
-#### <a name="before-restoring-a-backup"></a>Bir yedeği geri yüklemeden önce
-* Yeni izleme, arşivleme ve depoları izleme BizTalk hizmeti geri yüklenirken girilebilir.
-* Aynı EDI çalışma zamanı verileri geri yüklendi. EDI çalışma zamanı yedekleme denetim numaraları depolar. Yedekleme sırayla geri yüklenen denetim numaralarıdır. Son yedeklemeden sonra işlenen iletileri, bu yedekleme içeriğin geri yinelenen denetim numaraları neden olabilir.
-
-#### <a name="restore-a-backup"></a>Yedeği geri yükleme
-1. Klasik Azure portalında seçin **yeni** > **uygulama hizmetleri** > **BizTalk hizmeti** > **geri**:
-   
-    ![Yedeği geri yükleme][Restore]
-2. İçinde **yedekleme URL**, klasör simgesini seçin ve BizTalk hizmeti yapılandırma yedeği depolar Azure depolama hesabı'nı genişletin. Kapsayıcısını genişletin ve sağ bölmede, karşılık gelen yedekleme .txt dosyası seçin. 
-   <br/><br/>
-   Seçin **açık**.
-3. Üzerinde **geri yükleme BizTalk hizmeti** want bir **BizTalk hizmeti adı** ve doğrulama **etki alanı URL'si**, **Edition**, ve **bölge** geri yüklenen BizTalk hizmeti için. **Yeni bir SQL veritabanı oluştur** veritabanı izleme için:
-   
-    ![][RestoreBizTalkService]
-   
-    İleri okunu seçin.
-4. SQL veritabanı adını doğrulayın, bu sunucu için SQL veritabanı oluşturulacağı fiziksel sunucu ve bir kullanıcı adı/parola girin.
-
-    SQL veritabanı sürümü, boyutu ve diğer özellikleri yapılandırmak isteyip istemediğinizi seçin **Gelişmiş veritabanı ayarlarını yapılandır**. 
-
-    İleri okunu seçin.
-
-1. Yeni bir depolama hesabı oluşturun veya BizTalk hizmeti için mevcut bir depolama hesabını girin.
-2. Geri yüklemeyi başlatmak için onay işaretini seçin.
-
-Geri yükleme işlemi başarıyla tamamlandığında, yeni bir BizTalk hizmeti askıya alınmış durumda Klasik Azure Portalı'ndaki BizTalk Services sayfasında listelenir.
+Bir yedeklemeyi geri yüklemek için kullanmak [Azure BizTalk hizmetlerinin yönetilmesi için REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx).
 
 ### <a name="postrestore"></a>Bir yedekleme geri yükledikten sonra
 BizTalk hizmeti her zaman içinde geri bir **askıya** durumu. Bu durumda, önce yeni ortam işlevsel dahil olmak üzere yapılandırma değişiklikleri yapabilirsiniz:
@@ -118,8 +57,6 @@ BizTalk hizmeti her zaman içinde geri bir **askıya** durumu. Bu durumda, önce
 * Mevcut bir BizTalk hizmeti ortamına çoğaltmak için BizTalk hizmeti geri yükleyin. Bu durumda, bir kaynak FTP klasörü kullanın özgün BizTalk Services Portalı'nda yapılandırılmış anlaşmaları varsa farklı kaynak FTP klasör kullanmak için anlaşmaları yeni geri yüklenen ortamında güncelleştirmeniz gerekebilir. Aksi takdirde, aynı iletiyi çekme çalışılırken iki farklı anlaşmaları olabilir.
 * Birden çok BizTalk hizmeti ortamları için geri yüklediyseniz, Visual Studio uygulamaları, PowerShell cmdlet'leri, REST API'leri veya ticari ortak Yönetimi OM API'leri doğru ortamında hedef emin olun.
 * Geri yüklenen yeni BizTalk hizmeti ortamda otomatik yedeklemeler yapılandırmak için iyi bir uygulamadır.
-
-Azure Klasik Portalı'nda BizTalk hizmetini başlatmak için geri yüklenen BizTalk hizmeti seçin ve Seç **Sürdür** görev çubuğunda. 
 
 ## <a name="what-gets-backed-up"></a>Ne yedeklenir
 Bir yedek oluşturulduğunda, aşağıdaki öğeleri desteklenir:
@@ -194,13 +131,13 @@ Bir yedek oluşturulduğunda, aşağıdaki öğeleri desteklenir:
 </table>
 
 ## <a name="next"></a>Sonraki
-Klasik Azure portalında Azure BizTalk Services oluşturmak için şu adrese gidin [BizTalk Services: sağlama kullanarak Azure Klasik portalı](http://go.microsoft.com/fwlink/p/?LinkID=302280). Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
+Azure BizTalk Services oluşturmak için şu adrese gidin [BizTalk Services: Sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280). Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [BizTalk hizmeti yedekleme](http://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [BizTalk hizmeti yedekten geri yükleyin](http://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: Klasik portalı kullanarak Azure hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: Durum Grafiğini hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](http://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Azaltma](http://go.microsoft.com/fwlink/p/?LinkID=302282)

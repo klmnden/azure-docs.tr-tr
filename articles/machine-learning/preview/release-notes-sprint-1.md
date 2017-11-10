@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: a294a3f92163f78bace56654c284c4e83623b829
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="sprint-1---november-2017"></a>1 Kasım 2017 sprint 
 
@@ -127,13 +127,13 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 - Görüntü oluşturma hizmeti artık Azure IOT Hizmetleri/cihazlar için yapı görüntüleri destekler.
 
 ### <a name="sample-projects"></a>Örnek Proje
-- _Iris sınıflandırma_ örnek proje:
+- [_Iris sınıflandırma_ ](./tutorial-classifying-iris-part-1.md) örnek proje:
     - `iris_pyspark.py`yeniden adlandırılır `iris_spark.py`.
-    - `iris_score.py`yeniden adlandırılır `iris-score.py`.
+    - `iris_score.py`yeniden adlandırılır `score_iris.py`.
     - `iris.dprep`ve `iris.dsource` en son verileri hazırlık Altyapısı güncelleştirmeleri yansıtacak şekilde güncelleştirilir.
     - `iris.ipynb`Hdınsight kümesinde çalışmak için Not Defteri düzeltilir.
     - Çalıştırma geçmişi içinde açık `iris.ipynb` not defteri hücre.
-- _Veri bisiklet paylaşımı verileri kullanarak hazırlığı Gelişmiş_ "İşlemek hata değerini" adım örnek proje sabit.
-- _Yetişkin Census verileri MMLSpark_ örnek proje `docker.runconfig` JSON öğesinden YAML için güncelleştirilmiş biçimi.
-- Dağıtılmış Hyperparameter ayarlama örnek proje`docker.runconfig` JSON öğesinden YAML için güncelleştirilmiş biçimi.
-- Yeni örnek proje _görüntü CNTK kullanarak sınıflandırma_.
+- [_Veri bisiklet paylaşımı verileri kullanarak hazırlığı Gelişmiş_ ](./tutorial-bikeshare-dataprep.md) "İşlemek hata değerini" adım örnek proje sabit.
+- [_Yetişkin Census verileri MMLSpark_ ](https://github.com/Azure/MachineLearningSamples-mmlspark) örnek proje `docker.runconfig` JSON öğesinden YAML için güncelleştirilmiş biçimi.
+- [_Hyperparameter ayarlama dağıtılmış_ ](./scenario-distributed-tuning-of-hyperparameters.md) örnek proje`docker.runconfig` JSON öğesinden YAML için güncelleştirilmiş biçimi.
+- Yeni örnek proje [ _görüntü CNTK kullanarak sınıflandırma_](./scenario-image-classification-using-cntk.md).

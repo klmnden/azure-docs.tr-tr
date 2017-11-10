@@ -1,4 +1,6 @@
 
+Bellek, ilişkisel veritabanı sunucuları, Orta ve büyük önbellekler ve bellek içi analizi için harika bir yüksek bellek CPU oranı VM boyutları teklif en iyi duruma getirilmiş. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyut için depolama üretilen iş ve ağ performansı sayısı hakkında bilgi sağlar. 
+
 * M-serisi, buluttaki sanal makineler arasında en yüksek vCPU sayısını (128’e kadar sanal işlemci) ve en büyük bellek miktarını (2,0 TiB’a kadar) sunar.  Son derece büyük veritabanları veya yüksek vCPU sayısı ve büyük miktarlarda belleğin yararlı olacağı diğer uygulamalar için idealdir.
 
 * Dv2 Serisi, D Serisi, G Serisi ve bunlara karşılık gelen DS/GS modelleri daha hızlı vCPU'ya, daha iyi geçici depolama performansına veya daha yüksek belleğe ihtiyaç duyan uygulamalar için idealdir.  Bu seçenekler birçok kurumsal sınıf uygulama için güçlü bir bileşim sunar.

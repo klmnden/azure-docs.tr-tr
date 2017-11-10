@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 39b5c70c8740bc06beded42e9066e3be196741a1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7eb4f6c8c7ddfe0cb0d8a37e27d4e697e760107a
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama SAP NetWeaver için
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -942,7 +942,7 @@ VM yeterince genel ve hesapları/kullanıcılar hedeflenen Azure dağıtım sena
 >
 > VM bir yönetici hesabıyla oturum açmak için son adım olacaktır. Bir Windows komut penceresinde açın *yönetici*. İçin %Windir%\Windows\System32\sysprep gidin ve sysprep.exe yürütün.
 > Küçük bir pencere görüntülenir. Denetlenecek önemlidir **Generalize** seçeneği (varsayılan olarak atanmamış checked) ve 'Kapatma' için 'Yeniden başlatma' varsayılan kapatma seçeneğini değiştirin. Bu yordam, sysprep işleminin yürütülen şirket içi bir VM konuk işletim sistemini olduğunu varsayar.
-> Zaten Azure'da çalışan bir VM ile yordamı gerçekleştirmek istiyorsanız, açıklanan adımları izleyin [bu makalede](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
+> Zaten Azure'da çalışan bir VM ile yordamı gerçekleştirmek istiyorsanız, açıklanan adımları izleyin [bu makalede](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 >
 > ![Linux][Logo_Linux] Linux
 >
