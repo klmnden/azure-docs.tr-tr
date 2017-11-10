@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD federasyonu uyumluluk listesi
 Azure Active Directory çoklu oturum sağlar ve herhangi bir Microsoft dışı çözümü gerek kalmadan Office 365 ve diğer Microsoft Online Hizmetleri için karma ve yalnızca bulut uygulamaları için uygulama erişimi güvenliğini Gelişmiş. Office 365, Microsoft Online services, çoğu gibi dizin hizmetleri, kimlik doğrulama ve yetkilendirme için Azure Active Directory ile tümleşiktir. Şirket içi web uygulamaları ve Azure Active Directory de binlerce SaaS uygulamasına çoklu oturum açma sağlar. Lütfen desteklenen SaaS uygulamaları için Azure Active Directory Uygulama Galerisi bakın.
@@ -46,6 +46,7 @@ Burada listelenen üçüncü taraf kimlik sağlayıcınızı nasıl erişebilece
 * [Centrify](#centrify) 
 * [Dell bir kimlik bulut Erişim Yöneticisi v7.1](#dell-one-identity-cloud-access-manager-v71) 
 * [DigitalPersona bileşik kimlik doğrulaması](#digitalpersona-composite-authentication)
+* [ForgeRock kimlik platformu erişim yönetimi V5.x](#forgerock-identity-platform-access-management-v5x)
 * [IBM Tivoli Identity Manager 6.2.2 Federasyon](#ibm-tivoli-federated-identity-manager-622) 
 * [IceWall Federasyon sürüm 3.0](#icewall-federation-version-30) 
 * [Memority](#memority)
@@ -186,6 +187,17 @@ Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
 
 Daha fazla bilgi için bkz: [DigitalPersona bileşik kimlik doğrulaması](http://www.crossmatch.com/uploadedFiles/Support/Reference_Material/DigitalPersona-Office-365-Deployment-Guide.pdf).
 
+## <a name="forgerock-identity-platform-access-management-v5x"></a>ForgeRock kimlik platformu erişim yönetimi V5.x
+
+Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+
+| İstemci | Destek | Özel durumlar |
+| --- | --- | --- |
+| Exchange Web erişimi ve SharePoint Online gibi Web tabanlı istemciler |Destekleniyor |None|
+| Lync, Office aboneliği, CRM gibi zengin istemci uygulamaları |Destekleniyor |None|
+| Outlook ve ActiveSync gibi zengin e-posta istemcileri |Destekleniyor |None |
+
+Daha fazla bilgi için bkz: [ForgeRock kimlik platformu erişim yönetimi V5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517).
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli Identity Manager 6.2.2 Federasyon
 
