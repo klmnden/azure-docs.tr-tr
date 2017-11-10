@@ -3,22 +3,22 @@ title: "Azure yığın depolama: Farklar ve ilgili önemli noktalar"
 description: "Azure yığın depolama ve Azure Storage arasındaki farklar Azure yığın dağıtımında dikkat edilecek noktalar birlikte anlayın."
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: jeffgilb
+manager: femila
+ms.reviwer: xiaofmao
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/08/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 1dc099fa234e217b682c88f2214fe271c916eec2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure yığın depolama: Farklar ve ilgili önemli noktalar
 
@@ -33,7 +33,7 @@ Bu makalede, Azure depolama biriminden bilinen Azure yığın depolama farkları
 | Özellik | Azure (Genel) | Azure Stack |
 | --- | --- | --- |
 |Dosya depolama|Bulut tabanlı SMB dosya paylaşımları desteklenen|Henüz desteklenmiyor
-|Veri bekleyen şifreleme|256 bit AES şifreleme|Henüz desteklenmiyor
+|Bekleyen Veri için Azure Storage Hizmeti Şifreleme|256 bit AES şifreleme|Henüz desteklenmiyor
 |Depolama hesabı türü|Genel amaçlı ve Azure Blob storage hesapları|Genel amaçlı yalnızca
 |Çoğaltma seçenekleri|Yerel olarak yedekli depolama, coğrafi olarak yedekli depolama, coğrafi olarak yedekli depolamaya okuma erişimi ve bölge olarak yedekli depolama|Yerel olarak yedekli depolama
 |Premium depolama|Tam olarak desteklenir|Performans sınır sağlanabilir veya garanti
