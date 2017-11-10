@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Azure içerik teslim ağı varlıklar belirteci kimlik doğrulaması ile güvenli hale getirme
 
@@ -30,7 +30,7 @@ Belirteç kimlik doğrulama varlıklar yetkisiz istemcilerine hizmet veren Azure
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Belirteç kimlik doğrulama istekleri istek sahibinin bu kodlanmış ayrı tutma bilgilerini belirteç değeri içeren isteklerine gerektirerek güvenilen bir site tarafından oluşturulan doğrular. Yalnızca kodlanmış bilgi gereksinimleri karşılıyorsa içerik için bir istek sunulan; Aksi takdirde, istek reddedilir. Bir veya daha fazla aşağıdaki parametreleri kullanarak gereksinimleri ayarlayabilirsiniz:
+Belirteç kimlik doğrulama isteklerini ayrı tutma istek sahibi hakkında bilgi kodlanmış bir belirteç değeri içeren gerektirerek istekleri güvenilen bir site tarafından oluşturulan doğrular. Yalnızca kodlanmış bilgi gereksinimleri karşılıyorsa içerik için bir istek sunulan; Aksi takdirde, istek reddedilir. Bir veya daha fazla aşağıdaki parametreleri kullanarak gereksinimleri ayarlayabilirsiniz:
 
 - Ülke: İzin ver veya tarafından belirtilen ülkelerde kaynaklanan istekleri reddetmesini kendi [ülke kodu](https://msdn.microsoft.com/library/mt761717.aspx).
 - URL: Belirtilen varlık veya yol eşleşen istekleri izin verin.
@@ -41,8 +41,6 @@ Belirteç kimlik doğrulama istekleri istek sahibinin bu kodlanmış ayrı tutma
 - Süre sonu: bağlantı yalnızca sınırlı bir süre boyunca geçerli olmaya devam ettiğinden emin olmak için bir tarih ve saat dönemi atayabilir.
 
 Daha fazla bilgi için her parametre için ayrıntılı yapılandırma örneklerini görmek [belirteç kimlik doğrulamayı ayarlama](#setting-up-token-authentication).
-
-Şifrelenmiş bir simge oluşturduktan sonra bu URL yolun sonuna bir sorgu dizesi olarak ekler. Örneğin, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
 ## <a name="reference-architecture"></a>Başvuru mimarisi
 
@@ -64,15 +62,21 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
 
 2. Üzerine gelerek **HTTP büyük**ve ardından **belirteci Auth** çıkma içinde. Ardından şifreleme anahtarı ve şifreleme parametreleri aşağıdaki gibi ayarlayabilirsiniz:
 
-    1. Bir benzersiz şifreleme anahtarı girin **birincil anahtar** kutusunda ve isteğe bağlı olarak bir yedek anahtarı girin **yedek anahtarı** kutusu.
-
-        ![CDN belirteci auth kurulum anahtarı](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    1. Bir veya daha fazla şifreleme anahtarları oluşturun. Bir şifreleme anahtarı duyarlıdır ve herhangi bir bileşimini alfasayısal karakterler içerebilir. Karakterler, boşluklar dahil, başka türlerde izin verilmiyor. Uzunluk en fazla 250 karakterdir. Şifreleme anahtarlarınızı rastgele olduğundan emin olmak için OpenSSL aracını kullanarak bunları oluşturmanız önerilir. OpenSSL aracın sözdizimi aşağıdaki gibidir: `rand -hex <key length>`. Örneğin, `OpenSSL> rand -hex 32`. Kesinti süresini önlemek için hem birincil hem de bir yedek anahtarı oluşturun. Birincil anahtarınızı güncelleştirildiğinde bir yedek anahtarı içeriğinizi kesintisiz erişim sağlar.
     
-    2. Şifreleme parametreleri şifrele aracıyla ayarlayın. Şifrele aracıyla izin verebilir veya sona erme zamanı, ülke, başvuran, protokol ve (herhangi bir birleşimini)'deki istemci IP göre istekleri reddetmesini. 
+    2. Bir benzersiz şifreleme anahtarı girin **birincil anahtar** kutusunda ve isteğe bağlı olarak bir yedek anahtarı girin **yedek anahtarı** kutusu.
 
-        ![CDN şifrelemek aracı](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+    3. Her anahtarından için en düşük şifreleme sürümünü seçin, **Minimum şifreleme sürümünü** açılır listesi ve ardından **güncelleştirme**:
+       - **V2**: anahtarı sürüm 2.0 ve 3.0 belirteçleri oluşturmak için kullanılabilir gösterir. Yalnızca sürüm 3.0 anahtarına bir eski sürüm 2.0 şifreleme anahtarı geçiş, bu seçeneği kullanın.
+       - **V3**: (önerilen) anahtarı yalnızca sürüm 3.0 belirteçleri oluşturmak için kullanılabilir olduğunu gösterir.
 
-       Bir veya daha fazla aşağıdaki şifreleme parametreleri için değerler girin **şifrelemek aracı** alanı:  
+    ![CDN belirteci auth kurulum anahtarı](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    
+    4. Şifreleme parametreleri ayarlama ve bir belirteç oluşturmak için şifrele aracını kullanın. Şifrele aracıyla izin verebilir veya sona erme zamanı, ülke, başvuran, protokol ve (herhangi bir birleşimini)'deki istemci IP göre istekleri reddetmesini. Sınır sayısı ve bir belirteç oluşturmak için birleştirilebilir parametreler birleşimi olsa da, bir belirteç toplam uzunluğu 512 karakterle sınırlıdır. 
+
+       ![CDN şifrelemek aracı](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+
+       Bir veya daha fazla aşağıdaki şifreleme parametreleri için değerler girin **şifrelemek aracı** bölümü:  
 
        - **ec_expire**: geçmesi belirtecinin süresi dolmadan bir belirteç için süre sonu zamanı atar. Sona erme zamanı engellenir sonra gönderilen istek sayısı. Bu parametre standart dönem saniyesi sayısına dayalı bir UNIX zaman damgası kullanan `1/1/1970 00:00:00 GMT`. (Çevrimiçi araçlarını UNIX zaman Standart Saati arasında dönüştürmek için kullanabileceğiniz.) Örneğin, belirtecin anda süresi dolacak şekilde istiyorsanız `12/31/2016 12:00:00 GMT`, UNIX zaman damgası değeri kullanın `1483185600`aşağıdaki gibi. 
     
@@ -98,7 +102,7 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
     
        - **ec_ref_allow**: yalnızca belirtilen başvuran isteklere izin verir. Bir başvuran istenen kaynak bağlı web sayfasının URL'sini tanımlar. Protokol başvuran parametre değeri içermez. Giriş aşağıdaki türleri için parametre değeri verilir:
            - Bir ana bilgisayar adı veya bir ana bilgisayar adı ve yolu.
-           - Birden çok başvuran. Birden çok başvuran eklemek için her başvuran virgül ile ayırın. Başvuran değeri belirtin, ancak tarayıcı yapılandırması nedeniyle isteği başvuran bilgi gönderilmez, bu istekleri varsayılan olarak reddedilir. 
+           - Birden çok başvuran. Birden çok başvuran eklemek için her başvuran virgül ile ayırın. Başvuran değeri belirtin, ancak tarayıcı yapılandırması nedeniyle isteği başvuran bilgi gönderilmez, istek varsayılan olarak reddedilir. 
            - Başvuran bilgileri eksik olan istek sayısı. Bu tür istekleri izin vermek için metin "eksik" girin veya boş bir değer girin. 
            - Alt etki alanları. Alt etki alanları izin vermek için bir yıldız işareti girin (\*). Örneğin, tüm alt etki alanlarına izin vermek için `consoto.com`, girin `*.consoto.com`. 
            
@@ -116,13 +120,17 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
             
          ![CDN ec_clientip örneği](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 
-    3. Şifreleme parametre değerlerini girme bitirdikten sonra (hem birincil hem de bir yedek anahtarı oluşturduysanız) şifrelemek için anahtar türü seçin **için anahtarı şifrelemek** listesinde, bir şifreleme sürümden  **Şifreleme sürümünü** listeleyin ve ardından **şifrele**.
+    5. Şifreleme parametre değerlerini girme bitirdikten sonra (hem birincil hem de bir yedek anahtarı oluşturduysanız) şifrelemek için bir anahtar seçin **için anahtarı şifrelemek** listesi.
+    
+    6. Bir şifreleme sürümden seçin **şifreleme sürümünü** listesi: **V2** sürüm 2 için veya **V3** için sürüm 3 (önerilen). Ardından **şifrele** belirteci üretmek için.
+
+    Belirteç oluşturulduktan sonra görüntülenir **oluşturulan belirteç** kutusu. Belirteç kullanmak için URL yolu dosyasında sonuna bir sorgu dizesi olarak ekleyin. Örneğin, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    4. İsteğe bağlı olarak, belirteç şifre çözme aracıyla sınayın. Belirteç değeri yapıştırın **belirteç şifre çözme için** kutusu. Gelen şifresini çözmek için şifreleme anahtarı seçin **anahtarın şifresini çözmek** aşağı açılan listesinde ve ardından **şifresini**.
+    7. İsteğe bağlı olarak, belirteç şifre çözme aracıyla sınayın. Belirteç değeri yapıştırın **belirteç şifre çözme için** kutusu. Şifreleme anahtarı kullanımdan seçin **anahtarın şifresini çözmek** aşağı açılan listesinde ve ardından **şifresini**.
 
-    5. İsteğe bağlı olarak, bir istek reddedildiğinde, döndürülen yanıt kodu türünü özelleştirin. Koddan seçin **yanıt kodu** aşağı açılan liste ve tıklatın **kaydetmek**. **403** yanıt kodu (Yasak), varsayılan olarak seçilidir. Belirli yanıt kodları, ayrıca, hata sayfasının URL'sini girebilirsiniz **üstbilgi değeri** kutusu. 
+    Belirteç şifresi sonra parametrelerini görüntülenen **özgün parametreleri** kutusu.
 
-    6. Şifrelenmiş bir simge oluşturduktan sonra bu dosyanın sonuna bir sorgu dizesi olarak URL yolunuzda ekleyin. Örneğin, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    8. İsteğe bağlı olarak, bir istek reddedildiğinde, döndürülen yanıt kodu türünü özelleştirin. Koddan seçin **yanıt kodu** aşağı açılan liste ve tıklatın **kaydetmek**. **403** yanıt kodu (Yasak), varsayılan olarak seçilidir. Belirli yanıt kodları, ayrıca, hata sayfasının URL'sini girebilirsiniz **üstbilgi değeri** kutusu. 
 
 3. Altında **HTTP büyük**, tıklatın **kurallar altyapısı**. Kurallar altyapısı özelliği geçerli, belirteç kimlik doğrulama özelliğini etkinleştirmek ve ek belirteç kimlik doğrulamayla ilgili özellikler etkinleştirmek için yollarını tanımlamak için kullanın. Daha fazla bilgi için bkz: [kurallar altyapısı başvuru](cdn-rules-engine-reference.md).
 
@@ -151,4 +159,4 @@ Kullanılabilir diller şunlardır:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN özellikler ve fiyatlandırma sağlayıcısı
 
-Bilgi için bkz: [CDN'ye genel bakış](cdn-overview.md).
+Özellikleri hakkında daha fazla bilgi için bkz: [CDN'ye genel bakış](cdn-overview.md). Fiyatlandırma hakkında daha fazla bilgi için bkz: [içerik teslim ağı fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/).

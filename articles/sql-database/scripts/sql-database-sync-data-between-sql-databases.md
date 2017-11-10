@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: b96fc9525110729c618469665a697a4a2887f0bc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 531379bf9836825ca75f4901b07685f21f7b5309
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-powershell-to-sync-between-multiple-azure-sql-databases"></a>Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma
  
@@ -369,6 +369,7 @@ SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 -   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](../sql-database-sync-data.md)
 -   [Azure SQL veri eşitlemeye başlama](../sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL veri eşitleme için en iyi yöntemler](../sql-database-best-practices-data-sync.md)
+-   [OMS günlük analizi ile İzleyici Azure SQL veri eşitleme](../sql-database-sync-monitor-oms.md)
 -   [Azure SQL veri eşitleme ile ilgili sorunları giderme](../sql-database-troubleshoot-data-sync.md)
 
 -   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:

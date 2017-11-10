@@ -3,7 +3,7 @@ title: "Azure yığın ilke modülü kullanma | Microsoft Docs"
 description: "Bir Azure yığın abonelik gibi davranacak şekilde bir Azure aboneliği sınırlamak öğrenin"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
+author: SnehaGunda
 manager: byronr
 editor: 
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: e505c52a5e1897d5626ee2cacce9fa3eff12fbbd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/08/2017
+ms.author: sngun
+ms.openlocfilehash: 030cb837dd2082f472275bcc42dbd39b7f8b30c0
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Azure yığın ilke modülünü kullanarak Azure ilke yönetme
 
@@ -41,8 +41,9 @@ Azure yığın ilke modülünü, aynı sürüm oluşturma ve Azure yığın olar
 Aşağıdaki komut, Azure aboneliğinizin karşı varsayılan Azure yığın ilkesi uygulamak için kullanılabilir. Çalıştırmadan önce yerine *Azure abonelik adı* Azure aboneliğinizle.
 
 ```PowerShell
+Login-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzureStackRmPolicy)
+$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 $rgName = 'AzureStack'
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
@@ -53,9 +54,10 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 Daha ayrıntılı bir yöntem ilkelerini uygulamak isteyebilirsiniz.  Örnek olarak, aynı abonelikte çalıştıran diğer kaynaklara sahip olabilir.  Uygulamalarınızı Azure Azure kaynakları kullanarak yığını için test etmenizi sağlayan bir özel kaynak grubu için ilke uygulaması kapsamını belirleyebilirsiniz. Çalıştırmadan önce yerine *Azure abonelik adı* , Azure aboneliği ada sahip.
 
 ```PowerShell
+Login-AzureRmAccount
 $resourceGroupName = ‘myRG01’
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzureStackRmPolicy)
+$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 
 ```

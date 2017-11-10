@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights fiyatlandırma ve veri biriminde yönetme
 
@@ -39,7 +39,7 @@ Bkz: [Application Insights fiyatlandırma sayfası] [ pricing] geçerli fiyatlar
 Yeni bir Application Insights kaynak oluşturulduğunda ve çoğu müşteri için yeterli temel plan varsayılandır.
 
 * Temel planda veri hacmine göre ücretlendirilen: Application Insights tarafından alınan telemetri bayt sayısı. Veri birimi Application Insights tarafından uygulamanızdan alınan sıkıştırılmamış JSON veri paketi boyutu olarak ölçülür.
-İçin [tablo veri analizi içeri](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), veri hacmi Application Insights'a gönderilen dosyaların sıkıştırılmamış boyut olarak ölçülür.  
+İçin [tablo veri analizi içeri](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), veri hacmi Application Insights'a gönderilen dosyaların sıkıştırılmamış boyut olarak ölçülür.  
 * Yalnızca denemeler geliştirme veya ödeme yapmanız tahmin edilemez şekilde her uygulama için ilk, 1 GB ücretsizdir.
 * [Canlı ölçümleri akış](app-insights-live-stream.md) veri yok sayılan amacıyla fiyatlandırma için.
 * [Sürekli verme](app-insights-export-telemetry.md) temel planda bir ek GB başına ücret için kullanılabilir.

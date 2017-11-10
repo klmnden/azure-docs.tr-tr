@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 47896493fdaf651b8cf74a1ddf4fcffdd51d2972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>R Server ve açık kaynaklı R yetenekleri hdınsight'ta giriş
 
@@ -44,7 +44,9 @@ Erişim için ek Blob ekleme seçeneğiniz vardır ve sağlama işlemi bağıms�
 Aynı zamanda [Azure dosyaları](../../storage/files/storage-how-to-use-files-linux.md) kenar düğümünü kullanmak için bir depolama seçeneği olarak. Azure dosyaları Azure Storage'da Linux dosya sistemine oluşturulmuş bir dosya paylaşımını bağlama olanak sağlar. Hdınsight kümesi R Server için bu veri depolama seçenekleri hakkında daha fazla bilgi için bkz: [Azure depolama seçenekleri hdınsight'ta R Server kümeleri için](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Erişim R Server kümede
-Sağlama işlemi sırasında Rstudio'dan sunucuyu eklemek üzere seçtiğiniz sağlanan R sunucuya bir tarayıcı kullanarak kenar düğümüne bağlanabilirsiniz. Bu küme sağlamada yüklemediyseniz, daha sonra ekleyebilirsiniz. Bir küme oluşturulduktan sonra Rstudio'dan sunucusu yükleme hakkında daha fazla bilgi için bkz: [Hdınsight kümelerinde Rstudio'dan Server'ı yükleme](r-server-install-r-studio.md). R Server R konsoluna erişmek için SSH/PuTTY kullanarak da bağlanabilir. 
+R sunucuya bir tarayıcı kullanarak kenar düğümüne bağlanabilirsiniz. Küme oluşturma sırasında varsayılan olarak yüklenir. Daha fazla bilgi için bkz: [hdınsight'ta R Server ile stared](r-server-get-started.md).
+
+Ayrıca, R Server R konsoluna erişmek için SSH/PuTTY kullanarak komut satırı bağlanabilir. 
 
 ## <a name="develop-and-run-r-scripts"></a>Geliştirme ve R komut dosyalarını çalıştır
 Oluşturma ve çalıştırma R betiklerini paralel birkaç ölçeklendirin ve dağıtılmış yordamları yanı sıra 8000 + R açık kaynak paketlerinden birini ScaleR Kitaplığı'nda kullanabilirsiniz. Genel olarak, R Server edge düğümü üzerinde çalışacak bir betik içinde R yorumlayıcı bu düğüm üzerinde çalışır. Ayarlanmış bir işlem bağlamına sahip ScaleR işlevi çağırmak için gereken adımları istisnaları Hadoop harita azaltmak (RxHadoopMR) veya Spark (RxSpark). Bu durumda, işlevi başvurulan veri ile ilişkili olan bu verileri (görev) kümenin düğümleri arasında dağıtılmış bir şekilde çalışır. Farklı işlem bağlamı seçenekleri hakkında daha fazla bilgi için bkz: [işlem hdınsight'ta R Server için içerik seçeneklerini](r-server-compute-contexts.md).
@@ -87,7 +89,7 @@ Varolan bir kümeye yukarı veya aşağı portalı üzerinden genişletilebilir.
 Baş düğümler yedekli ve tüm veri düğümleri etkilenen olduğundan, bu süre boyunca çalıştıran herhangi bir işi yavaşlayabilir. Bunlar hala tamamlanıncaya kadar ancak çalışması gerekir. Yıkıcı bir hata, bir küme yeniden oluşturma gerektiren oluşmadığı sürece bu bakım olaylar arasında herhangi bir özel yazılım veya sahip olduğunuz yerel veriler korunur.
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>Hdınsight kümesinde R Server IDE seçenekleri hakkında bilgi edinin
-Hdınsight kümesinin Linux kenar düğümüne R tabanlı çözümleme için giriş bölgedir. Hdınsight en son sürümü topluluk sürümünü yüklemek için varsayılan bir seçenek sağlar [Rstudio'dan Server](https://www.rstudio.com/products/rstudio-server/) tarayıcı tabanlı bir IDE olarak edge düğüm üzerinde. Bir IDE geliştirmeye yönelik olarak Rstudio'dan sunucu kullanımını ve R betiklerinin yürütülmesi R konsol kullanmaktan daha önemli ölçüde daha üretken olabilirler. Rstudio'dan sunucu kümesi oluştururken eklememek seçtiniz, ancak daha sonra ekleyin, sonra görmek istediğiniz [yükleme R Studio sunucuda Hdınsight kümeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio). +
+Hdınsight kümesinin Linux kenar düğümüne R tabanlı çözümleme için giriş bölgedir. Hdınsight en son sürümleri Rstudio'dan sunucusunun varsayılan yüklemesini kenar düğümüne tarayıcı tabanlı bir IDE sağlar. Bir IDE geliştirmeye yönelik olarak Rstudio'dan sunucu kullanımını ve R betiklerinin yürütülmesi R konsol kullanmaktan daha önemli ölçüde daha üretken olabilirler.
 
 Başka bir tam IDE Masaüstü IDE yüklemek ve bir uzak eşleme azaltın veya Spark işlem bağlamı kullanarak kümeye erişmelerini kullanmak için bir seçenektir. Seçenekleriniz Microsoft'un [R araçları Visual Studio için](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS) Rstudio'dan ve Walware Eclipse tabanlı [StatET](http://www.walware.de/goto/statet).
 
@@ -100,6 +102,5 @@ R Server Hdınsight kümesiyle ilişkili ücretleri standart Hdınsight kümeler
 R Server Hdınsight kümeleri ile kullanma hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
 * [Hdınsight'ta R Server kullanmaya başlama](r-server-get-started.md)
-* [HDInsight’a RStudio Server Ekleme (küme oluşturma sırasında yüklenmediyse)](r-server-install-r-studio.md)
 * [HDInsight üzerinde R Server için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
 * [HDInsight üzerinde R Server için Azure Depolama seçenekleri](r-server-storage.md)

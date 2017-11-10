@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için tanılama günlüklerine erişme
 
@@ -36,11 +36,9 @@ Tanılama günlük veri erişimi denetim izleri toplamanızı sağlar. Bu günl�
 
     ![Denetim toplama ve günlükleri istemek için tanılamayı açın](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Gelen __tanılama ayarları__, durum kümesine __üzerinde__ ve günlüğe kaydetme seçeneklerini belirleyin.
+3. Gelen __tanılama ayarları__, girin bir __adı__ bu günlüğü yapılandırması ve ardından günlük seçenekleri.
 
     ![Denetim toplama ve günlükleri istemek için tanılamayı açın](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "tanılama günlüklerini etkinleştirme")
-
-   * Ayarlama **durum** için **üzerinde** tanılama günlük kaydını etkinleştirmek için.
 
    * Depolama/verileri üç farklı yolla işlemi seçebilirsiniz.
 
@@ -58,34 +56,14 @@ Tanılama günlük veri erişimi denetim izleri toplamanızı sağlar. Bu günl�
         > [!NOTE]
         > Ya da seçmelisiniz __Arşiv bir depolama hesabı__, __bir olay Hub'ına akış__ veya __için günlük analizi Gönder__ tıklatmadan önce __kaydetmek__ düğmesi.
 
-Tanılama ayarları etkinleştirdikten sonra dönebilirsiniz __tanılama günlükleri__ günlükleri görüntülemek için dikey.
-
-## <a name="view-logs"></a>Günlükleri görüntüle
-
-### <a name="use-the-data-lake-analytics-view"></a>Data Lake Analytics görünümünü kullanın
-
-1. , Data Lake Analytics hesabı dikey penceresinde altında **izleme**seçin **tanılama günlüklerini** ve günlüklerini görüntülemek için bir giriş seçin.
-
-    ![Görünüm tanılama günlük](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "tanılama günlükleri görüntüleme")
-
-2. Günlükleri tarafından ayrılır **denetim günlüklerini** ve **isteği günlükleri**.
-
-    ![günlük girişleri](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * İstek günlüklerini Data Lake Analytics hesabı yapılan her API isteği yakalayın.
-   * Denetim günlüklerini günlükleri isteği ancak işlemleri çok daha ayrıntılı bir dökümünü sağlar benzerdir. Örneğin, bir tek karşıya yükleme API çağrısının istek günlüğü, Denetim günlüğü "Ekle" işlemlerinde neden olabilir.
-
-3. Tıklatın **karşıdan** , günlük indirmek bir günlük girişi için bağlantı.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Günlük verilerini içeren Azure depolama hesabı kullan
 
-1. Günlüğe kaydetme için Data Lake Analytics ile ilişkili Azure depolama hesabı dikey penceresini açın ve ardından __BLOB'lar__. **Blob hizmeti** iki kapsayıcı dikey penceresinde listelenir.
-
-    ![Görünüm tanılama günlük](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "tanılama günlükleri görüntüleme")
+1. Günlük verilerini tutun blob kapsayıcıları görüntülemek için Data Lake Analytics için günlüğü için kullanılan Azure Storage hesabı açın ve ardından __BLOB'lar__.
 
    * Kapsayıcı **Öngörüler günlükleri denetim** denetim günlüklerini içerir.
    * Kapsayıcı **Öngörüler günlükleri istekleri** isteği günlükleri içerir.
-2. Bu kapsayıcılara günlükleri aşağıdaki yapısı altında depolanır:
+
+2. Kapsayıcılara günlükleri aşağıdaki dosya yapısı altında depolanır:
 
         resourceId=/
           SUBSCRIPTIONS/

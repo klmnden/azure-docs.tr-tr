@@ -1,5 +1,6 @@
+Depolama en iyi duruma getirilmiş VM boyutları yüksek disk işleme ve g/ç sağlar ve büyük veri, SQL ve NoSQL veritabanları için idealdir. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyut için depolama üretilen iş ve ağ performansı sayısı hakkında bilgi sağlar. 
 
-Ls serisi NoSQL veritabanları (Cassandra, MongoDB, Cloudera ve Redis gibi) gibi düşük gecikme süresine sahip geçici depolama alanları gerektiren iş yükleri için optimize edilmiştir. Ls serisi, [Intel® Xeon İşlemci E5 v3 ailesi](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html) ile 32’ye kadar vCPU kullanım olanağı sunar. Ls serisi, G/GS serisi ile aynı CPU performansı sunar ve her vCPU başına 8 GiB bellek içerir.  
+Ls serisi, [Intel® Xeon İşlemci E5 v3 ailesi](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html) ile 32’ye kadar vCPU kullanım olanağı sunar. Ls serisi, G/GS serisi ile aynı CPU performansı sunar ve her vCPU başına 8 GiB bellek içerir.  
 
 ## <a name="ls-series"></a>Ls serisi
 

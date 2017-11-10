@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 0623847ea1e79c3a45a8fbdcc1d3a551864aefd6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da7ac8f323f9b2ec6303fbc85aa570373a538bcf
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Azure veri Kataloğu'nda ilgili veri varlıklarını görüntülemek nasıl?
 Azure veri Kataloğu, aralarında seçili veri varlığına ve görünümü ilişkiler ilgili veri varlıklarını görüntülemenizi sağlar. 
@@ -30,6 +30,9 @@ Aşağıdaki veri kaynaklarından veri varlıklarını kaydetme, Azure veri Kata
 - Azure SQL Database
 - MySQL
 - Oracle
+
+> [!NOTE]
+> Veri Kataloğu'nın iki veri varlıklar arasındaki ilişki içeri aktarmak aynı anda hem varlıkları kaydetmeniz gerekir. Bunlardan birini ayrı ayrı eklediyseniz, tekrar ve bunlar arasındaki ilişkinin almak için diğer veri varlığına ekleyin.
 
 ## <a name="view-related-data-assets"></a>İlgili veri varlıklarını görüntülemek
 Seçilen bir veri kümesine ilgili veri varlıklarını görüntülemek için kullanın **ilişkileri** sekmesinde aşağıdaki resimde gösterildiği gibi: 

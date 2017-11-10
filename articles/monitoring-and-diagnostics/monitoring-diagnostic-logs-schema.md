@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -56,20 +56,36 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 ## <a name="supported-log-categories-per-resource-type"></a>Kaynak türü başına günlük kategoriler desteklenen
 |Kaynak Türü|Kategori|Kategori görünen adı|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Altyapısı|Altyapısı|
+|Microsoft.AnalysisServices/servers|Hizmet|Hizmet|
 |Microsoft.ApiManagement/service|GatewayLogs|ApiManagement ağ geçidine ilgili günlükleri|
 |Microsoft.Automation/automationAccounts|JobLogs|İş günlükleri|
 |Microsoft.Automation/automationAccounts|JobStreams|İş akışları|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|DSC düğüm durumu|
 |Microsoft.Batch/batchAccounts|ServiceLog|Hizmet Günlükleri|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Örneğin, bant genişliği, çıkış, vb. ölçümleri uç noktanın alır.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|Fabrikanız|Ardışık Düzen etkinlik çalıştırmalarını günlüğü|
+|Microsoft.DataFactory/factories|PipelineRuns|Ardışık Düzen günlük çalışır|
+|Microsoft.DataFactory/factories|TriggerRuns|Tetikleyici günlük çalıştırır|
 |Microsoft.DataLakeAnalytics/accounts|Denetim|Denetim Günlükleri|
 |Microsoft.DataLakeAnalytics/accounts|İstekler|İstek günlükleri|
 |Microsoft.DataLakeStore/accounts|Denetim|Denetim Günlükleri|
 |Microsoft.DataLakeStore/accounts|İstekler|İstek günlükleri|
+|Microsoft.Devices/IotHubs|Bağlantılar|Bağlantılar|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Cihaz Telemetrisi|
+|Microsoft.Devices/IotHubs|C2DCommands|C2D komutları|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Aygıt Kimliği işlemleri|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Dosya karşıya yükleme işlemleri|
+|Microsoft.Devices/IotHubs|Yollar|Yollar|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|C2D Twin işlemleri|
+|Microsoft.Devices/IotHubs|TwinQueries|Twin sorguları|
+|Microsoft.Devices/IotHubs|JobsOperations|İşlerini işlemleri|
+|Microsoft.Devices/IotHubs|DirectMethods|Doğrudan yöntemleri|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Aygıt işlemleri|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Hizmet işlemleri|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Arşiv günlükleri|
 |Microsoft.EventHub/namespaces|OperationalLogs|İşlem günlükleri|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Otomatik ölçek günlükleri|
@@ -78,6 +94,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Tümleştirme hesap izleme olayları|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Ağ güvenlik grubu olayı|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Ağ güvenlik grubu kural sayacı|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Ağ güvenlik grubu kural akış olayı|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Yük Dengeleyici uyarı olayları|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Yük Dengeleyici araştırması sistem durumu|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS koruması bildirimleri|
@@ -85,6 +102,11 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Uygulama ağ geçidi erişim günlüğü|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Uygulama ağ geçidi performans günlüğü|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Uygulama ağ geçidi güvenlik duvarı günlüğü|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Ağ geçidi tanılama günlükleri|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tünel tanılama günlükleri|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Rota tanılama günlükleri|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Trafik Yöneticisi araştırma sistem durumu sonuçları olayı|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tablo GWM sayaçları|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Raporlama verilerini azure yedekleme|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery işleri|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site kurtarma olayları|
@@ -93,7 +115,6 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery kurtarma noktaları|
 |Microsoft.Search/searchServices|OperationLogs|İşlem günlükleri|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|İşlem günlükleri|
-|Microsoft.Sql/servers/databases|QueryStore|Sorgu Deposu|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Sorgu deposu çalışma zamanı istatistikleri|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Sorgu deposu bekleme istatistikleri|
 |Microsoft.Sql/servers/databases|Hatalar|Hatalar|

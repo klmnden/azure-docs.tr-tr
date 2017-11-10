@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Xamarin Forms kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -38,7 +38,7 @@ Bu öğretici ile en iyi sonuç için önce tamamlamanızı öneririz [Xamarin F
 
 Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir. Bu kimlik doğrulama işlemi tamamlandıktan sonra uygulamanıza geri yönlendirmek bir kimlik doğrulama sistemi sağlar. Bu öğreticide, URL şemasının kullanırız _appname_ boyunca. Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz. Mobil uygulamanız için benzersiz olmalıdır. Sunucu tarafında yeniden yönlendirmeyi etkinleştirmek için:
 
-1. [Azure portalında] uygulama hizmetinizi seçin.
+1. İçinde [Azure portal][8], uygulama hizmetinizi seçin.
 
 2. Tıklatın **kimlik doğrulama / yetkilendirme** menü seçeneği.
 
@@ -166,9 +166,9 @@ Bu bölümde nasıl uygulandığını gösterir **IAuthenticate** Android uygula
 
     Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, için farklı bir değer seçin [MobileServiceAuthenticationProvider][7].
 
-6. Aşağıdaki kodu ekleyin <application> AndroidManifest.xml düğümünün:
+6. Güncelleştirme **AndroidManifest.xml** dosyasını aşağıdaki XML içine ekleyerek `<application>` öğe:
 
-```xml
+    ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -177,15 +177,15 @@ Bu bölümde nasıl uygulandığını gösterir **IAuthenticate** Android uygula
         <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-```
-
-1. Aşağıdaki kodu ekleyin **OnCreate** yöntemi **MainActivity** çağırmadan önce sınıfın `LoadApplication()`:
+    ```
+    Değiştir `{url_scheme_of_your_app}` URL şemasına sahip.
+7. Aşağıdaki kodu ekleyin **OnCreate** yöntemi **MainActivity** çağırmadan önce sınıfın `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
     Bu kod, Doğrulayıcı uygulama yükleri önce başlatılmış sağlar.
-2. Uygulama yeniden, çalıştırın, ardından seçtiğiniz ve kimliği doğrulanmış bir kullanıcı olarak verilerine erişebilir doğrulayın kimlik doğrulama sağlayıcısının oturum açın.
+8. Uygulama yeniden, çalıştırın, ardından seçtiğiniz ve kimliği doğrulanmış bir kullanıcı olarak verilerine erişebilir doğrulayın kimlik doğrulama sağlayıcısının oturum açın.
 
 ## <a name="add-authentication-to-the-ios-app"></a>İOS uygulaması için kimlik doğrulaması ekleme
 Bu bölümde nasıl uygulandığını gösterir **IAuthenticate** iOS uygulaması projesi arabiriminde. İOS cihazları destekleme değil, bu bölümü atlayabilirsiniz.
@@ -236,28 +236,28 @@ Bu bölümde nasıl uygulandığını gösterir **IAuthenticate** iOS uygulamas�
         }
 
     Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, [MobileServiceAuthenticationProvider] için farklı bir değer seçin.
-
-6. OpenUrl (Uıapplication uygulama, NSUrl url NSDictionary seçenekleri) yöntemi aşırı yüklemesini ekleyerek AppDelegate sınıfını güncelleştirme
+    
+6. Güncelleştirme **AppDelegate** ekleyerek sınıfı **OpenUrl** yöntemi aşırı yükleme, aşağıdaki gibi:
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
-
-6. Aşağıdaki kod satırını ekleyin **FinishedLaunching** yöntemi çağırmadan önce `LoadApplication()`:
+   
+7. Aşağıdaki kod satırını ekleyin **FinishedLaunching** yöntemi çağırmadan önce `LoadApplication()`:
 
         App.Init(this);
 
     Bu kod, Doğrulayıcı uygulama yüklenmeden önce başlatılmış sağlar.
 
-6. Ekleme **{url_scheme_of_your_app}** Info.plist URL şemalarını için.
+8. Info.plist açın ve eklemek bir **URL türü**. Ayarlama **tanımlayıcısı** seçtiğiniz, bir adla **URL şemalarını** , uygulamanız için URL şeması için ve **rol** yok.
 
-7. Uygulama yeniden, çalıştırın, ardından seçtiğiniz ve kimliği doğrulanmış bir kullanıcı olarak verilerine erişebilir doğrulayın kimlik doğrulama sağlayıcısının oturum açın.
+9. Uygulama yeniden, çalıştırın, ardından seçtiğiniz ve kimliği doğrulanmış bir kullanıcı olarak verilerine erişebilir doğrulayın kimlik doğrulama sağlayıcısının oturum açın.
 
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Windows 10 (Phone dahil) uygulaması projeleri için kimlik doğrulaması ekleme
 Bu bölümde nasıl uygulandığını gösterir **IAuthenticate** Windows 10 uygulaması projeleri arabiriminde. Evrensel Windows Platformu (UWP) projeleri, ancak kullanarak için aynı adımları uygulamak **UWP** projeyle (not ettiğiniz değişir). Windows cihazları destekleme değil, bu bölümü atlayabilirsiniz.
 
-1. "Visual Studio'da sağ **UWP** , sonra da proje **başlangıç projesi olarak ayarla**.
+1. Visual Studio'da sağ **UWP** , sonra da proje **başlangıç projesi olarak ayarla**.
 2. Projeyi Hata Ayıklayıcısı'ndaki başlayın, ardından uygulama başladıktan sonra durum koduyla işlenmeyen bir özel durum 401 (yetkisiz) tetiklenir doğrulamak için F5 tuşuna basın. Arka uç erişimi yalnızca yetkili kullanıcılar ile sınırlı olduğundan 401 yanıt olur.
 3. Windows uygulama projesi için MainPage.xaml.cs açın ve aşağıdakileri ekleyin `using` deyimleri:
 
@@ -306,7 +306,7 @@ Bu bölümde nasıl uygulandığını gösterir **IAuthenticate** Windows 10 uyg
             return success;
         }
 
-    Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, [MobileServiceAuthenticationProvider] için farklı bir değer seçin.
+    Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, için farklı bir değer seçin [MobileServiceAuthenticationProvider][7].
 
 1. Aşağıdaki kod satırını Oluşturucusu eklemek **MainPage** çağırmadan önce sınıfın `LoadApplication()`:
 
@@ -326,12 +326,9 @@ Bu bölümde nasıl uygulandığını gösterir **IAuthenticate** Windows 10 uyg
                 ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
                 TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
             }
-
        }
 
-   Yöntemini geçersiz kılma zaten mevcut olduğunda koşullu kodu önceki kod parçacığını ekleyin.  Bu kod, Evrensel Windows projeleri için gerekli değildir.
-
-3. Ekleme **{url_scheme_of_your_app}** Package.appxmanifest içinde. 
+3. Package.appxmanifest açın ve eklemek bir **Protokolü** bildirimi. Ayarlama **görünen adı** için seçtiğiniz, bir ad ve **adı** , uygulama için URL şeması için.
 
 4. Uygulama yeniden, çalıştırın, ardından seçtiğiniz ve kimliği doğrulanmış bir kullanıcı olarak verilerine erişebilir doğrulayın kimlik doğrulama sağlayıcısının oturum açın.
 
@@ -355,3 +352,4 @@ Bu temel kimlik doğrulaması öğreticisini tamamladığınıza göre aşağıd
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
+[8]: https://portal.azure.com

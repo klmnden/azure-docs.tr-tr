@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
 Bu konu, Azure veri fabrikası (ADF) kullanarak verileri bir şirket içi SQL Server veritabanından bir SQL Azure veritabanına Azure Blob Storage nasıl taşınacağı gösterir.
@@ -80,32 +80,14 @@ Veri Yönetimi ağ geçidi serileştirir ve burada barındırılan bilgisayar ü
 Kurulum yönergeleri ve veri yönetimi ağ geçidi hakkında ayrıntılar için bkz: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>Veri kaynaklarına bağlanmak için bağlı hizmetler oluşturma
-Bağlı hizmet Azure veri fabrikası'nın bir veri kaynağına bağlanmak için gereken bilgileri tanımlar. Bağlı hizmetler oluşturmak için adım adım yordam sağlanan [bağlı hizmetler oluşturma](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+Bağlı hizmet Azure veri fabrikası'nın bir veri kaynağına bağlanmak için gereken bilgileri tanımlar. Bağlı hizmetler gerekli olan bu senaryoda üç kaynakları sahibiz:
 
-Bağlı hizmetler gerekli olan bu senaryoda üç kaynakları sahibiz.
+1. Şirket içi SQL Server
+2. Azure Blob Depolama
+3. Azure SQL veritabanı
 
-1. [Şirket içi SQL Server için bağlı hizmet](#adf-linked-service-onprem-sql)
-2. [Azure Blob Storage için bağlı hizmet](#adf-linked-service-blob-store)
-3. [Azure SQL database için bağlı hizmet](#adf-linked-service-azure-sql)
+Bağlı hizmetler oluşturmak için adım adım yordam sağlanan [bağlı hizmetler oluşturma](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
-### <a name="adf-linked-service-onprem-sql"></a>Şirket içi SQL Server database için bağlı hizmet
-Şirket içi SQL Server için bağlı hizmet oluşturmak için:
-
-* tıklatın **veri deposu** Klasik Azure portalı üzerinde ADF giriş sayfasındaki
-* seçin **SQL** ve girin *kullanıcıadı* ve *parola* şirket içi SQL Server için kimlik bilgileri. Servername olarak girmeniz gereken bir **tam servername ters eğik çizgi örnek adı (Sunucuadı\örnekadı)**. Bağlı hizmetin adı *adfonpremsql*.
-
-### <a name="adf-linked-service-blob-store"></a>Blob için bağlı hizmet
-Azure Blob Storage hesabı için bağlı hizmet oluşturmak için:
-
-* tıklatın **veri deposu** Klasik Azure portalı üzerinde ADF giriş sayfasındaki
-* seçin **Azure depolama hesabı**
-* Azure Blob Depolama hesabı anahtarı ve kapsayıcı adı girin. Bağlı hizmetin adı *adfds*.
-
-### <a name="adf-linked-service-azure-sql"></a>Azure SQL database için bağlı hizmet
-Azure SQL Database için bağlı hizmet oluşturmak için:
-
-* tıklatın **veri deposu** Klasik Azure portalı üzerinde ADF giriş sayfasındaki
-* seçin **Azure SQL** ve girin *kullanıcıadı* ve *parola* Azure SQL veritabanı için kimlik bilgileri. *Kullanıcıadı* olarak belirtilmelidir  *user@servername* .   
 
 ## <a name="adf-tables"></a>Tanımlama ve veri kümeleri erişmek nasıl belirlemek için tabloları oluşturma
 Aşağıdaki betik tabanlı yordamları yapısını, konum ve veri kümelerinin kullanılabilirliğini belirtin tablolar oluşturun. JSON dosyaları tabloları tanımlamak için kullanılır. Bu dosyalar yapısı hakkında daha fazla bilgi için bkz: [veri kümeleri](../../data-factory/v1/data-factory-create-datasets.md).
@@ -311,9 +293,6 @@ Bu ardışık düzen JSON tanımı dosyasına adlı kopya *pipelinedef.json* dos
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-(Diyagram tıklattığınızda) aşağıdaki gibi görünmesini Azure Klasik Portalı'nda ADF ardışık gördüğünüzü onaylayın
-
-![ADF ardışık düzen](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Ardışık Düzen Başlat
 Ardışık Düzen aşağıdaki komutu kullanarak şimdi çalıştırabilirsiniz:

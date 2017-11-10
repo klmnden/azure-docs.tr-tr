@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümesi Windows işletim sistemi düzeltme eki
 
@@ -51,14 +51,6 @@ Düzeltme eki orchestration uygulama aşağıdaki bileşenleri oluşur:
 > Düzeltme eki orchestration app Service Fabric onarım Yöneticisi sistem hizmeti devre dışı bırakın veya düğüm etkinleştirmek ve sistem durumu denetimleri gerçekleştirmek için kullanır. Düzeltme eki orchestration uygulama tarafından oluşturulan onarım görevi her düğüm için Windows Update ilerleme durumunu izler.
 
 ## <a name="prerequisites"></a>Ön koşullar
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Service Fabric çalışma zamanı sürümü desteklenen en düşük
-
-#### <a name="azure-clusters"></a>Azure kümeleri
-Düzeltme eki orchestration app Service Fabric çalışma zamanı sürümü v5.5 sahip Azure kümelerinde çalıştırılması gerekir ya da daha sonra.
-
-#### <a name="standalone-on-premises-clusters"></a>Tek başına şirket içi kümeleri
-Düzeltme eki orchestration app Service Fabric çalışma zamanı sürümü v5.6 sahip tek başına kümelerinde çalıştırılması gerekir ya da daha sonra.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>(Bu zaten çalışmıyorsa) onarım Yöneticisi hizmetini etkinleştirme
 
@@ -135,59 +127,6 @@ Onarım Yöneticisi hizmeti etkinleştirmek için:
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Tüm düğümlerde otomatik Windows Update devre dışı bırak
 
 Aynı anda birden çok küme düğümüne yeniden başlatabilirsiniz olduğundan otomatik Windows güncelleştirmelerini kullanılabilirlik kaybına neden olabilir. Düzeltme eki orchestration uygulama varsayılan olarak, her küme düğümünde otomatik Windows Update devre dışı bırakmak çalışır. Ancak, ayarları Grup İlkesi veya bir yönetici tarafından yönetiliyorsa, "Bildirim önce karşıdan" Windows Update ilke açık olarak ayarlanması önerilir.
-
-### <a name="optional-enable-azure-diagnostics"></a>İsteğe bağlı: Azure tanılamayı etkinleştirin
-
-Service Fabric çalışma zamanı sürümü çalıştıran kümeler `5.6.220.9494` ve yukarıdaki toplama düzeltme eki orchestration uygulama günlükleri Service Fabric bir parçası olarak günlüğe kaydeder.
-Kümenizi Service Fabric çalışma zamanı sürümünde çalışıyorsa, bu adımı atlayabilirsiniz `5.6.220.9494` ve üstü.
-
-Service Fabric çalışma zamanı sürümü çalıştıran kümeler için değerinden `5.6.220.9494`, düzeltme eki orchestration uygulama günlüklerini toplanan yerel olarak her küme düğümü.
-Merkezi bir konuma tüm düğümlerdeki günlükleri karşıya yüklemek için Azure tanılama yapılandırmanızı öneririz.
-
-Azure Tanılama'yı etkinleştirme hakkında daha fazla bilgi için bkz: [Azure tanılama kullanarak günlükleri toplamak](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Düzeltme eki orchestration uygulama günlüklerini aşağıdaki sabit sağlayıcısında kimlikleri oluşturulur:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-Resource Manager şablonu goto içinde `EtwEventSourceProviderConfiguration` altında bölümünde `WadCfg` ve aşağıdaki girdileri ekleyin:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Birden çok düğüm türleri, Service Fabric kümesi var. sonra önceki bölümde tüm eklenmelidir `WadCfg` bölümler.
 
 ## <a name="download-the-app-package"></a>Uygulama paketi yükle
 
@@ -303,20 +242,16 @@ Ters proxy küme üzerinde etkinleştirmek için adımları [ters proxy Azure Se
 
 ## <a name="diagnosticshealth-events"></a>Tanılama/sistem durumu olayları
 
-### <a name="collect-patch-orchestration-app-logs"></a>Toplama düzeltme eki orchestration uygulama günlükleri
+### <a name="diagnostic-logs"></a>Tanılama günlükleri
 
-Düzeltme eki orchestration uygulama günlükleri, çalışma zamanı sürümünden Service Fabric günlükleri bir parçası olarak toplanır `5.6.220.9494` ve üstü.
-Service Fabric çalışma zamanı sürümü çalıştıran kümeler için değerinden `5.6.220.9494`, günlükleri aşağıdaki yöntemlerden birini kullanarak toplanmasını.
+Düzeltme eki orchestration uygulama günlükleri Service Fabric çalışma zamanı günlükleri bir parçası olarak toplanır.
 
-#### <a name="locally-on-each-node"></a>Her bir düğümde yerel olarak
+Tanılama Aracı/ardışık düzen tercih ettiğiniz aracılığıyla günlükleri yakalamak istediğiniz durumda. Düzeltme eki orchestration uygulamanın kullandığı sabit sağlayıcısı aracılığıyla olaylarını günlüğe kaydedecek şekilde kimliğin [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Günlükleri toplanır yerel olarak her Service Fabric küme düğümünde Service Fabric çalışma zamanı sürümü ise değerinden `5.6.220.9494`. Günlükleri erişmek için konum \[Service Fabric\_yükleme\_sürücü\]:\\PatchOrchestrationApplication\\günlükleri.
-
-Service Fabric D sürücüsünde yüklüyse, örneğin, D: yoludur\\PatchOrchestrationApplication\\günlükleri.
-
-#### <a name="central-location"></a>Merkezi bir konum
-
-Azure tanılama önkoşul adımlarını bir parçası olarak yapılandırılmışsa, düzeltme eki orchestration uygulama günlüklerini Azure depolama alanında kullanılabilir.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Sistem durumu raporları
 

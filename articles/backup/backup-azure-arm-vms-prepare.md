@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -56,6 +56,12 @@ Ortamınızı hazırlama önce lütfen sınırlamaları anlayın.
 
 * 16'dan fazla veri diskleri içeren sanal makineleri yedekleme desteklenmiyor.
 * Sanal makineler verilerle disk boyutları 1023 GB'den büyük yedekleme desteklenmiyor.
+
+> [!NOTE]
+> Özel önizleme olan VM'ler için yedeklemeler desteklemek için sahip olduğumuz > 1TB yönetilmeyen diskler. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
 * Ayrılmış bir IP adresi ve tanımlanmış hiçbir uç nokta ile sanal makineleri yedekleme desteklenmiyor.
 * Yalnızca BEK kullanılarak şifrelenmiş VM'lerin yedeklenmesi desteklenmez. Linux VM'ler LUKS şifrelemesi kullanılarak şifrelenmiş yedeklemesi desteklenmiyor.
 * Anlık görüntü görev sırasında küme yapılandırmasında bulunan tüm VM'ler içeren gerektiren Küme Paylaşılan Volumes(CSV) veya ölçek dosya sunucusu yapılandırması içeren VM'ler yedeğini önerilmez. Azure yedekleme çoklu VM tutarlılığını desteklemiyor. 

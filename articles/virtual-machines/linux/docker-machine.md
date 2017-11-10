@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 7772381e9796ddc2e0db215bab4f230473eaa462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efd0b60079017e476b54acfc65ffe8f35ffe4933
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Docker makine konakları oluşturmak için nasıl kullanılacağını
 Bu makalede nasıl kullanılacağını ayrıntıları [Docker makine](https://docs.docker.com/machine/) konakları oluşturma. `docker-machine` Komutu Azure'da bir Linux sanal makine (VM) oluşturur sonra Docker yükler. Ardından, Docker ana bilgisayarları aynı yerel araçlarını ve iş akışları'nı kullanarak azure'da yönetebilirsiniz. Windows 10'da docker makine kullanmak için Linux bash kullanmanız gerekir.
@@ -39,7 +39,7 @@ docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
-    --azure-size "Standard_D2_v2 \
+    --azure-size "Standard_D2_v2" \
     myvm
 ```
 

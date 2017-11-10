@@ -12,16 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: b728e794132ab8eb91d5d77b3ed452f0c84b8823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güvenlik Yanıt Merkezi (MSRC) güncelleştirmelerinin gösterir. Belirli bir güncelleştirme Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeleri her zaman taşımak İleri için belirli [ailesi] [ family-explain] de tanıtılan.
+
+## <a name="october-guest-os"></a>Ekim konuk işletim sistemi
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| İlişki 17-10 | [4041691] |Windows 10 güncelleştirmeleri |5.12 |10 Ekim 2017 |
+| İlişki 17-10 | [4041678], [4041679], [4041687] |Yalnızca Windows güvenliği |2.67, 3.54, 4.47 |10 Ekim 2017 |
+| İlişki 17-10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |10 Ekim 2017 |
+| İlişki 17-10 | [4041681], [4041690], [4041693] |Windows aylık toplamaları |2.67, 3.54, 4.47 |10 Ekim 2017 |
+| Yok | [4038777] |Eylül güvenlikle ilgili olmayan dökümü |2.67 |12 Eylül 2017 |
+| Yok | [4038799] |Eylül güvenlikle ilgili olmayan dökümü |3.54 |12 Eylül 2017 |
+| Yok | [4038792] |Eylül güvenlikle ilgili olmayan dökümü |4.47 |12 Eylül 2017 |
+| Yok | [4040980] |Eylül .NET güvenlikle ilgili olmayan dökümü |2.67 |12 Eylül 2017 |
+| Yok | [4040979] |Eylül .NET güvenlikle ilgili olmayan dökümü |3.54 |12 Eylül 2017 |
+| Yok | [4040981] |Eylül .NET güvenlikle ilgili olmayan dökümü |4.47 |12 Eylül 2017 |
 
 ## <a name="september-guest-os"></a>Eylül konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -535,6 +549,20 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Yok |[2999802] |Kesiksiz çizgi noktalı çizgiler yerine Windows yazdırılır |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2896881] |Uzun AddPrinterConnection VBScript komut Windows oturum açma işlemi sırasında kullanıcılar için Yazıcılar eşlemek için kullandığınızda, oturum açma zamanı |4.15, 3.22, 2.34 |13 Ocak 2015 |
 
+[4041691]: http://support.microsoft.com/kb/4041691 
+[4041678]: http://support.microsoft.com/kb/4041678 
+[4041679]: http://support.microsoft.com/kb/4041679
+[4041687]: http://support.microsoft.com/kb/4041687
+[4040685]: http://support.microsoft.com/kb/4040685
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041690]: http://support.microsoft.com/kb/4041690
+[4041693]: http://support.microsoft.com/kb/4041693
+[4038777]: http://support.microsoft.com/kb/4038777
+[4038799]: http://support.microsoft.com/kb/4038799
+[4038792]: http://support.microsoft.com/kb/4038792
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040979]: http://support.microsoft.com/kb/4040979
+[4040981]: http://support.microsoft.com/kb/4040981
 
 [4038782]: http://support.microsoft.com/kb/4038782
 [4038779]: http://support.microsoft.com/kb/4038779

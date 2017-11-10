@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 1e884754682ecab4cdf097bd75caa6fcf2e0a29c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL veritabanı'nda otomatik ayarlama
 
@@ -46,10 +46,7 @@ Azure SQL veritabanları için uygulanan ayarlama işlemleri, en yoğun iş yük
 
 Otomatik ayarlama mekanizmaları olgun ve yüz binlerce Azure üzerinde çalışan veritabanları üzerinde perfected. Uygulanan otomatik ayarlama işlemleri pozitif geliştirme iş yükü performansı olduğundan emin olmak için otomatik olarak doğrulanır. Gerileyen performansı önerileri dinamik olarak algılandı ve derhal döndürüldü. Üzerinden ayarlama geçmiş oturum her Azure SQL veritabanına yapılan geliştirmeler ayarlama, düz bir izleme yoktur. 
 
-Otomatik ayarlama works genel bir bakış ve tipik kullanım senaryoları için lütfen katıştırılmış video bakın:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
->
+![Nasıl yapılır otomatik ayarlama iş?](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
 Azure SQL veritabanı otomatik ayarlama, çekirdek mantığını SQL Server otomatik ayarlama altyapısı ile paylaşıyor. Yerleşik zekaya mekanizmasını ek teknik bilgiler için bkz: [SQL Server otomatik ayarlama](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
 
@@ -60,6 +57,12 @@ Otomatik ayarlama, aboneliğinizde el ile etkinleştirilmesi gerekir. Azure port
 Otomatik ayarlama otonom şekilde otomatik olarak ayarlama önerileri, performans artışı otomatik doğrulama dahil olmak üzere uygulama üzerinden çalışır. 
 
 Daha fazla denetim için öneriler ayarlama, otomatik uygulama kapatılabilir ve öneriler ayarlama el ile Azure Portalı aracılığıyla uygulanabilir. Yalnızca otomatik ayarlama önerileri görüntülemek ve komut dosyaları ve araçları tercih ettiğiniz el ile uygulamak için çözüm kullanmak da mümkündür. 
+
+Gömülü video otomatik ayarlama works genel bir bakış ve tipik kullanım senaryoları için bkz:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
+>
 
 ## <a name="automatic-tuning-options"></a>Otomatik ayarlama seçenekleri
 

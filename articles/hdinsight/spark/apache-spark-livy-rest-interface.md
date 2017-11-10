@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.openlocfilehash: 7b6b551fa1009da744598715b09f13355ded2884
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f6c27fb651fc13877a889c26aa47903985625a0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Hdınsight Spark kümesinde işleri uzaktan göndermek için Apache Spark REST API kullanın
 
-Livy, Azure Hdınsight Spark kümesinde işleri uzaktan göndermek için kullanılan Apache Spark REST API kullanmayı öğrenin. Ayrıntılı belgeler için bkz: [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Livy, Azure Hdınsight Spark kümesinde işleri uzaktan göndermek için kullanılan Apache Spark REST API kullanmayı öğrenin. Ayrıntılı belgeler için bkz: [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
 
 Livy etkileşimli Spark Kabukları çalıştırmak veya Spark çalıştırılmak üzere toplu iş göndermek için kullanabilirsiniz. Bu makalede, toplu iş göndermek Livy kullanarak alınmaktadır. Bu makalede parçacıkları cURL Livy Spark uç REST API çağrıları yapmak için kullanın.
 
@@ -189,6 +189,7 @@ Livy kullanarak Spark kümeleri için uzak iş gönderme için içine çalışab
 
 ## <a name="next-step"></a>Sonraki adım
 
+* [Livy REST API belgeleri](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
 * [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](apache-spark-job-debugging.md)
 

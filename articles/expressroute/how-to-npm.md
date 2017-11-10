@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: aff54b86da6a8a062a3f1c76aa69e32c60008274
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 35dd3c6be2fb2fa5ec4d14eefce1c16005210364
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Ağ Performans İzleyicisi'ni (Önizleme) ExpressRoute için yapılandırma
 
@@ -88,14 +88,14 @@ Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zat
   >ExpressRoute için Linux Aracısı şu anda desteklenmiyor izleme.
   >
   >
-2. Ardından, kopyalama ve yapıştırma **çalışma alanı kimliği** ve **birincil anahtar** Defteri'ne.
+2. Ardından, kopyalama **çalışma alanı kimliği** ve **birincil anahtar** Defteri'ne.
 3. İçinde **yapılandırma aracıları** bölümünde, Powershell komut dosyasını karşıdan yükleyin. PowerShell Betiği TCP işlemler için ilgili güvenlik duvarı bağlantı noktasını açın yardımcı olur.
 
   ![PowerShell betiği](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: İzleme Aracısı her izleme sunucusuna yükleyin
 
-1. Çalıştırma **Kurulum** ExpressRoute izleme için kullanmak istediğiniz her sunucuda aracıyı yüklemek için. İzleme için kullanacağınız sunucu bir VM ya da şirket içi ya da olabilir ve Internet erişimi olması gerekir. En az bir aracı şirket içi ve Azure içinde izlemek istediğiniz her ağ kesimindeki yüklemeniz gerekir.
+1. Çalıştırma **Kurulum** ExpressRoute izleme için kullanmak istediğiniz her sunucuda aracıyı yüklemek için. İzleme için kullanacağınız sunucu bir VM ya da şirket içi ya da olabilir ve Internet erişimi olması gerekir. Azure'da izlemek istediğiniz her ağ kesimindeki en az bir aracı şirket içi ve bir aracı yüklemeniz gerekir.
 2. Üzerinde **Hoş Geldiniz** sayfasında, **sonraki**.
 3. Üzerinde **Lisans Koşulları'nı** sayfasında, lisans okuyun ve ardından **ediyorum**.
 4. Üzerinde **hedef klasörü** sayfasında, değiştirmek veya varsayılan yükleme klasörünü ve ardından **sonraki**.
@@ -116,7 +116,7 @@ Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zat
 
 ### <a name="proxy"></a>2.3: (isteğe bağlı) proxy ayarlarını yapılandır
 
-Internet'e erişmek için bir web proxy kullanıyorsanız, Microsoft İzleme Aracısı için proxy ayarlarını yapılandırmak için aşağıdaki adımları kullanın. Her sunucu için aşağıdaki adımları gerçekleştirmeniz gerekir. Yapılandırmanız gereken birden çok sunucu olması durumunda, bu işlemi otomatikleştirmek için bir betik kullanmak sizin için daha kolay olabilir. Aksi takdirde bkz [Microsoft İzleme Aracısı bir betik kullanarak proxy ayarlarını yapılandırmak için](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Internet'e erişmek için bir web proxy kullanıyorsanız, Microsoft İzleme Aracısı için proxy ayarlarını yapılandırmak için aşağıdaki adımları kullanın. Her sunucu için aşağıdaki adımları gerçekleştirin. Yapılandırmanız gereken birden çok sunucu olması durumunda, bu işlemi otomatikleştirmek için bir betik kullanmak sizin için daha kolay olabilir. Aksi takdirde bkz [Microsoft İzleme Aracısı bir betik kullanarak proxy ayarlarını yapılandırmak için](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
 Microsoft Monitoring Agent Denetim Masası'nı kullanarak proxy ayarlarını yapılandırmak için:
 
@@ -168,8 +168,7 @@ NSG hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-n
 >
 >
 
-NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma alanı Güvenilenler listesine sahip istemeniz gerekir. [Sayfasına gidin ve istek formu doldurmak için burayı tıklatın](https://go.microsoft.com/fwlink/?linkid=862263). (İpucu: bir yeni penceresinde veya sekmesinde bu bağlantıyı açmak istediğiniz). Uygulamaları güvenilir listeye almayı işlemi, bir iş günü veya daha fazla sürebilir. Uygulamaları güvenilir listeye almayı tamamladıktan sonra size bir e-posta göndereceğiz.
-
+NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma alanı Güvenilenler listesine sahip istemeniz gerekir. [Sayfasına gidin ve istek formu doldurmak için burayı tıklatın](https://go.microsoft.com/fwlink/?linkid=862263). (İpucu: bir yeni penceresinde veya sekmesinde bu bağlantıyı açmak istediğiniz). Uygulamaları güvenilir listeye almayı işlemi, bir iş günü veya daha fazla sürebilir. Uygulamaları güvenilir listeye almayı tamamlandıktan sonra bir e-posta alacaksınız.
 
 ## <a name="setupmonitor"></a>Adım 5: ExpressRoute izleme için NPM yapılandırma
 
@@ -189,7 +188,7 @@ NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma ala
 3. Yapılandırma sayfasında, sol tarafındaki Panoda bulunan 'ExpressRoute eşlemeler' sekmesine gidin. Tıklatın **Şimdi Bul**.
 
   ![Bul](.\media\how-to-npm\13.png)
-4. Bulma tamamlandığında benzersiz hattı adı ve sanal ağ adı için kurallar konusuna bakın. Başlangıçta, bu kuralları devre dışı bırakılır. Kuralları etkinleştirin, ardından izleme aracıları seçip eşik değerleri gerekir.
+4. Bulma tamamlandığında benzersiz hattı adı ve sanal ağ adı için kurallar konusuna bakın. Başlangıçta, bu kuralları devre dışı bırakılır. Kuralları etkinleştirin, ardından izleme aracıları ve eşik değerleri seçin.
 
   ![rules](.\media\how-to-npm\14.png)
 5. Kuralları etkinleştirme ve değerleri seçip izlemek istediğiniz aracıları sonra yaklaşık olarak 30-60 dakika doldurma başlamak değerleri için bekleme yoktur ve **ExpressRoute izleme** döşeme kullanılabilir hale gelir. İzleme döşeme gördüğünüzde, ExpressRoute bağlantı hatları ve bağlantı kaynaklarını NPM tarafından izlenen.
@@ -229,6 +228,7 @@ Bağlantı hattı topolojisini görüntülemek için tıklatın **topoloji** dö
 
 ![filtreleri](.\media\how-to-npm\topology.png)
 
-#### <a name="detailed-topology-view-of-a-particular-expressroute-circuit---with-vnet-connections"></a>-VNet bağlantıları ile belirli bir expressroute bağlantı hattı ayrıntılı topoloji görünümü
+#### <a name="detailed-topology-view-of-a-circuit"></a>Bir bağlantı hattının ayrıntılı topoloji görünümü
 
+Bu görünüm, VNet bağlantıları gösterir.
 ![ayrıntılı topolojisi](.\media\how-to-npm\17.png)

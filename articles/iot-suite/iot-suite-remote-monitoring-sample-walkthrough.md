@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a90eb0eae6855cd0fbede65a024b5ff6490cce0
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>Önceden yapılandırılmış Uzaktan izleme çözümü mimarisi
 
@@ -42,7 +42,7 @@ Aşağıdaki diyagram yayılan Uzaktan izleme önceden yapılandırılmış çö
 Microsoft ilk önceden yapılandırılmış çözümler yayımlanan bu yana bulut mimarisi gelişmiştir. [Mikro](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) ölçek ve esneklik geliştirme hızını ödün vermeden elde etmek için kanıtlanmış yöntem olarak ortaya çıkmıştır. Birkaç Microsoft Hizmetleri bu tasarım örüntüsü mükemmel güvenilirlik ve ölçeklendirilebilirlik sonuçları ile dahili olarak kullanın. Ayrıca bunları yararlanabilir şekilde güncelleştirilmiş önceden yapılandırılmış çözümler bu learnings yöntem içine yerleştirin.
 
 > [!TIP]
-> Mikro hizmet mimarisi hakkında daha fazla bilgi için bkz: [.NET uygulama mimarisi](https://www.microsoft.com/net/learn/architecture) ve [mikro: Bulut tarafından desteklenen bir uygulama revolution](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+> Mikro hizmet mimarisi hakkında daha fazla bilgi için [.NET Uygulama Mimarisi](https://www.microsoft.com/net/learn/architecture) ve [Mikro hizmetler: Bulut tarafından desteklenen bir uygulama devrimi](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) konusunu inceleyin.
 
 ## <a name="device-connectivity"></a>Cihaz bağlantısı
 
@@ -141,5 +141,6 @@ Kaynak kodu ve geliştirici belgeleri araştırmak istiyorsanız, biriyle iki an
 
 * [Önceden yapılandırılmış Uzaktan izleme ile Azure IOT (.NET) için çözüm](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Önceden yapılandırılmış Uzaktan izleme Azure IOT (Java) için çözüm](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Önceden yapılandırılmış Uzaktan izleme mimarisi çözümü)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Önceden yapılandırılmış Uzaktan izleme çözümü hakkında daha fazla kavramsal bilgi için bkz: [önceden yapılandırılmış çözümü özelleştirme](iot-suite-remote-monitoring-customize.md).

@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: c0175d4fb98614d41423b7204fe7eb2aa50d23dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Müşteriler, uygulamanızın nasıl kullandığını anlamak için Azure Application Insights kullanın
 
@@ -40,7 +40,7 @@ Bu öğreticiyi tamamlamak için:
 - İndirme ve yükleme [Visual Studio anlık görüntü hata ayıklayıcısı](http://aka.ms/snapshotdebugger).
 - .NET uygulaması azure'a dağıtma ve [Application Insights SDK'sı etkinleştirmek](app-insights-asp-net.md). 
 - [Uygulamanızdan telemetri göndermesine](app-insights-usage-overview.md#send-telemetry-from-your-app) özel olaylar/sayfa görünümleri eklemek için
-- Gönderme [kullanıcı bağlamı](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-send-user-context) ne zaman içinde bir kullanıcı yaptığını izlemek ve kullanım özellikleri tam olarak kullanma.
+- Gönderme [kullanıcı bağlamı](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) ne zaman içinde bir kullanıcı yaptığını izlemek ve kullanım özellikleri tam olarak kullanma.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 Oturum açtığınızda Azure portalında [https://portal.azure.com](https://portal.azure.com).

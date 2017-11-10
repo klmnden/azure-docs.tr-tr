@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Verenin Adı ve Verenin Anahtarı
 
@@ -76,13 +76,9 @@ Daha açık [yeni AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.
 Hizmet veri yolu verenin adı ve verenin anahtarı BizTalk Bağdaştırıcısı Hizmetleri tarafından kullanılır. BizTalk Services projenizde Visual Studio, bir şirket içi iş kolu (LOB) sistemine bağlamak için BizTalk Bağdaştırıcısı Hizmetleri kullanın. Bağlanmak için LOB geçişi oluşturmak ve LOB Sistem bilgilerinizi girin. Bunu yaparken hizmet veri yolu verenin adı ve verenin anahtarı da girin.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Hizmet veri yolu verenin adı ve verenin anahtarı almak için
-1. [Klasik Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
-2. Sol gezinti bölmesinde seçin **Service Bus**.
-3. Ad alanınızı seçin. Görev çubuğunda seçin **bağlantı bilgilerini**. Bu görüntüler **varsayılan veren** (verenin adı) ve **varsayılan anahtar** (verenin anahtarı). Değerlerine kopyalanabilir.  
-
-Özetlemek için:  
-Verenin adı varsayılan veren =  
-Verenin anahtarı = varsayılan anahtar
+1. [Azure Portal](http://portal.azure.com) oturum açın.
+2. Arama **Service Bus**, ad alanınızı seçin. 
+3. Açık **paylaşılan erişim ilkeleri** özelliklerini seçin, ilke ve görüntüleme **bağlantı dizesi** adı ve anahtar değerleri.  
 
 ## <a name="next"></a>Sonraki
 Ek Azure BizTalk Services konuları:
@@ -95,7 +91,7 @@ Ek Azure BizTalk Services konuları:
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Nasıl yapılır: hizmet kimlikleri yapılandırmak için ACS yönetim hizmeti kullanın](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: Klasik portalı kullanarak Azure hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: sağlama](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk Services: Durum Grafiğini hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk Services: Yedekleme ve Geri Yükleme](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

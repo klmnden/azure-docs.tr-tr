@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 336d3ffaee21040a95366e0317cecdb83977ce97
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak görüntü sınıflandırma
 
@@ -91,12 +91,10 @@ Bu öğretici, en fazla 428 görüntülerini oluşan bir üst gövde giysisinin 
 
 Komut dosyası `0_downloadData.py` tüm görüntülere indirmeleri *görüntüleri/DATA_DIR/fashionTexture/* dizin. Büyük olasılıkla bozuk 428 URL'leri bazılarıdır. Bu bir sorun değildir ve yalnızca eğitim ve test için biraz daha az resimler sağlanıncaya anlamına gelir.
 
-Aşağıdaki şekilde öznitelikleri noktalı (sol iki sütun), şeritli (Orta iki sütun) ve leopard (sağda iki sütun) için örnekler gösterilmektedir. Ek açıklamalar üst gövde giysisinin öğesi göre yapıldığını.
+Aşağıdaki şekilde şeritli (Orta) ve (sağdaki) leopard (soldaki), noktalı öznitelikleri için örnekler gösterilmektedir. Ek açıklamalar üst gövde giysisinin öğesi göre yapıldığını.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: e15a263879ddc0edabc301201019f4209eee1058
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Hdınsight'ta R Server için içerik seçeneklerini işlem
 
@@ -83,6 +83,5 @@ Bu makalede ve bunun nasıl yürütme kenar düğümüne veya Hdınsight küme �
 
 * [R Server Hadoop için genel bakış](r-server-overview.md)
 * [R Server ile için Hadoop kullanmaya başlama](r-server-get-started.md)
-* [Hdınsight'a Rstudio'dan sunucu ekleme (değilse küme oluşturma sırasında eklenen)](r-server-install-r-studio.md)
 * [HDInsight üzerinde R Server için Azure Depolama seçenekleri](r-server-storage.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Ne yapıp BizTalk hizmeti durumu kullanarak olamaz
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 BizTalk hizmeti geçerli durumuna bağlı olarak BizTalk hizmeti gerçekleştiremez veya işlem vardır.
 
-Örneğin, Azure Klasik portalında yeni bir BizTalk hizmeti sağlayın. Başarıyla tamamlandığında, BizTalk hizmeti olarak `active` durumu. Etkin durumda durdurmak, askıya alma ve BizTalk hizmeti silin. BizTalk hizmetini durdurun ve durdurma başarısız olduysa BizTalk hizmeti gider bir `StopFailed` durumu. İçinde `StopFailed` durumunda, BizTalk hizmeti yeniden. Sürdür'gibi izin verilmeyen bir işlem denerseniz aşağıdaki hata oluşur:
+Örneğin, yeni bir BizTalk hizmeti sağlayın. Başarıyla tamamlandığında, BizTalk hizmeti olarak `active` durumu. Etkin durumda durdurmak, askıya alma ve BizTalk hizmeti silin. BizTalk hizmetini durdurun ve durdurma başarısız olduysa BizTalk hizmeti gider bir `StopFailed` durumu. İçinde `StopFailed` durumunda, BizTalk hizmeti yeniden. Sürdür'gibi izin verilmeyen bir işlem denerseniz aşağıdaki hata oluşur:
 
 `Operation not allowed`
 
@@ -52,7 +52,6 @@ Aşağıdaki tablolar, işlemler veya BizTalk hizmeti belirli bir durumda olduğ
 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Klasik Azure portalını kullanarak BizTalk hizmeti oluşturma](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk Services Pano, İzleyici ve ölçek sekmeleri yapabilecekleriniz](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk Services geliştirici, temel, standart ve Premium sürümlerinde ile Al](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [Yedekleme ve BizTalk hizmeti geri yükleme](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

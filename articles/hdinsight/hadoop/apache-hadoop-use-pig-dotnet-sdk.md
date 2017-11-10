@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 27ecba06f2251aaf742f2221982cad5cb9602769
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop için .NET SDK kullanarak Pig işleri çalıştırma
 
@@ -57,7 +57,7 @@ Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyl
 
 3. Projeyi oluşturmak için **Tamam**'a tıklayın.
 
-4. Gelen **Araçları** menüsünde, select **kitaplık Paket Yöneticisi** veya **Nuget Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
+4. Gelen **Araçları** menüsünde, select **kitaplık Paket Yöneticisi** veya **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
 
 5. .NET SDK'sı paketleri yüklemek için aşağıdaki komutu kullanın:
 
@@ -121,10 +121,6 @@ Hdınsight .NET SDK'sı .NET istemci kitaplıkları, .NET Hdınsight kümeleriyl
 7. Uygulamayı başlatmak için basın **F5**.
 
 8. Uygulamadan çıkmak için basın **ENTER**.
-
-## <a name="summary"></a>Özet
-
-Gördüğünüz gibi Hadoop için .NET SDK'sı bir Hdınsight kümesine Pig işleri gönderme .NET uygulamaları oluşturmak ve iş durumunu izlemenize olanak sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
