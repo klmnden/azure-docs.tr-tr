@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager şablonu kullanarak Service Bus yetkilendirme kuralını | Microsoft Docs"
+title: "Azure Resource Manager şablonu kullanarak bir Service Bus yetkilendirme kuralını | Microsoft Docs"
 description: "Ad alanı ve Azure Resource Manager şablonu kullanarak sıra için bir hizmet veri yolu yetkilendirme kuralı oluştur"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: fbd2372829a1aefa2c080c0a8a72b9ff4375b16f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 384a2fce4bf338ffc4ab6690980c12ad7ff34a6e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Ad alanı ve bir Azure Resource Manager şablonu kullanarak sıra için bir hizmet veri yolu yetkilendirme kuralı oluştur
 
-Bu makalede oluşturan bir Azure Resource Manager şablonu kullanmayı gösterir bir [yetkilendirme kuralı](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) için bir hizmet veri yolu ad alanı ve sıra. Nasıl tanımlamak için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen öğreneceksiniz. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
+Bu makalede oluşturan bir Azure Resource Manager şablonu kullanmayı gösterir bir [yetkilendirme kuralı](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) için bir hizmet veri yolu ad alanı ve sıra. Makalede nasıl belirtmek için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
 Şablonları oluşturma hakkında daha fazla bilgi için lütfen bkz [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
@@ -36,12 +36,13 @@ Tam şablon için bkz: [Service Bus yetkilendirme kuralı şablonunu] [ Service 
 > * [Hizmet veri yolu ad alanı konu ve abonelik oluşturma](service-bus-resource-manager-namespace-topic.md)
 > * [Konu, abonelik ve kuralı ile Service Bus ad alanı oluşturma](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Son şablonları denetlemek için ziyaret edin [Azure hızlı başlangıç şablonlarını] [ Azure Quickstart Templates] Galerisi ve "Service Bus" için arama
+> Son şablonları denetlemek için ziyaret edin [Azure hızlı başlangıç şablonlarını] [ Azure Quickstart Templates] Galerisi ve arama **Service Bus**.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>Ne dağıtacaksınız?
-Bu şablon kullanılarak bir hizmet veri yolu yetkilendirme kuralı için bir ad alanı ve mesajlaşma varlığıyla (Bu durumda, bir kuyruktaki) dağıtır.
+
+Bu şablon kullanılarak bir hizmet veri yolu yetkilendirme kuralı için bir ad alanı ve mesajlaşma varlığıyla (Bu durumda, bir kuyruktaki) dağıtın.
 
 Bu şablonu kullanan [paylaşılan erişim imzası (SAS)](service-bus-sas.md) kimlik doğrulaması için. SAS hizmet veri yolu ad alanı veya belirli haklar ilişkili Mesajlaşma varlığıyla (kuyruk veya konu) yapılandırılmış bir erişim anahtarı kullanarak kimlik doğrulaması uygulamaları etkinleştirir. Bu anahtar ardından istemcilerin sırayla Service Bus kimlik doğrulaması yapmak için kullanabileceği bir SAS belirteci oluşturmak için de kullanabilirsiniz.
 
@@ -86,9 +87,12 @@ Hizmet veri yolu ad alanında kuyruk adı.
 Şablon hizmet veri yolu API'sini sürümü.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 
 ## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar

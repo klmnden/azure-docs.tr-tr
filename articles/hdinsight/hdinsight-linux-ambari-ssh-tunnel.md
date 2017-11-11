@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Ambari web kullanıcı Arabirimi, kaynak, iş, Oozie ve diğer web Uı'lar erişmek için SSH tünel kullan
 
@@ -48,7 +48,7 @@ Kümenizi özelleştirmek için betik eylemleri kullanın, herhangi bir hizmet v
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Bir SSH istemcisi. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Bir SSH istemcisi. Çoğu işletim sistemi üzerinden bir SSH istemcisi sağlar `ssh` komutu. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * SOCKS5 proxy kullanmak üzere yapılandırılmış bir web tarayıcısı.
 
@@ -74,9 +74,9 @@ Bu komut, bağlantı noktasına yerel 9876 kümeye SSH üzerinden trafiğini yö
 * **C** -web trafiği çoğunlukla metin olduğundan tüm verileri sıkıştırmak.
 * **2** -force Protokolü sürüm 2 yalnızca denemek için SSH.
 * **q** -Sessiz mod.
-* **T** -biz yalnızca bir bağlantı noktası iletme beri sözde tty ayırma, devre dışı.
-* **n**-STDIN, okunması biz yalnızca bir bağlantı noktası iletme beri engelleyin.
-* **N** -biz yalnızca bir bağlantı noktası iletme olduğundan bir uzak komutu yürütülmez.
+* **T** -yalnızca bir bağlantı noktası iletme bu yana sözde tty ayırma, devre dışı.
+* **n**-Yalnızca bir bağlantı noktası iletme bu yana STDIN, okunması engelleyin.
+* **N** -yalnızca bir bağlantı noktası iletme bu yana bir uzak komutu yürütülmez.
 * **f** -arka planda çalıştırın.
 
 Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına gönderilen trafiğin küme baş düğümüne yönlendirilir.

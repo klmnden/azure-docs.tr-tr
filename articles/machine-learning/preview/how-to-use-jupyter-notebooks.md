@@ -2,19 +2,19 @@
 title: "Azure Machine Learning çalışma ekranı içinde Jupyter not defterlerini kullanma | Microsoft Docs"
 description: "Azure Machine Learning çalışma ekranının Jupyter not defterleri özelliğini kullanmak için kılavuz"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 11/09/2017
+ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma Jupyter Not Defteri kullanma
 
@@ -31,12 +31,12 @@ Yüksek bir düzeyde Jupyter not defteri mimarisi üç bileşeni içerir, her fa
 - **Sunucu**: Not defteri dosyaları (.ipynb) barındıran web sunucusu
 - **Çekirdek**: Burada dizüstü bilgisayar hücreleri gerçek yürütülmesi olur çalışma zamanı ortamı
 
-Daha fazla ayrıntı için lütfen resmi başvuru [Jupyter belgelerine](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Fowllowing nasıl bu istemci, sunucu ve çekirdek mimarisi Azure ML bileşenlerinde eşlemek gösteren bir diyagramıdır.
+Daha fazla ayrıntı için lütfen resmi başvuru [Jupyter belgelerine](http://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html). Azure ML bileşenleri için bu istemci, sunucu ve çekirdek mimarisi nasıl eşleme gösteren diyagram aşağıdadır.
 
 ![Not Defteri mimarisi](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
 ## <a name="kernels-in-azure-ml-workbench-notebook"></a>Azure ML çalışma ekranı not defterlerinde çekirdekler
-Birçok erişmek için Azure ML çalışma ekranındaki tarafından farklı tekrar sadece çalıştırma yapılandırmaları yapılandırın ve hedeflerin işlem `aml_config` projenizdeki klasöre. Yeni bir işlem hedef vererek ekleme `az ml computetarget attach` komut yeni bir çekirdek ekleme aynıdır.
+Azure ML çalışma ekranındaki birçok farklı tekrar çalıştırma yapılandırmaları yapılandırarak erişimi ve hedeflerin işlem `aml_config` projenizdeki klasöre. Yeni bir işlem hedef vererek ekleme `az ml computetarget attach` komut yeni bir çekirdek ekleme aynıdır.
 
 >[!NOTE]
 >Gözden geçirme [yapılandırma yürütme](experimentation-service-configuration.md) hakkında daha fazla ayrıntı yapılandırmaları çalıştırır ve hedefleri işlem.
@@ -49,6 +49,9 @@ Tekrar genellikle biçiminde adlandırılmış "\<proje adı > \<config çalış
 ### <a name="local-python-kernel"></a>Yerel Python çekirdek
 Bu Python çekirdek yürütme yerel makinede destekler. Bu tümleşik Azure Machine Learning'in çalıştırma geçmişi desteği. Çekirdek genellikle "my_project_name yerel" adıdır.
 
+>[!NOTE]
+>"Python 3" çekirdek kullanmayın. Bu, varsayılan olarak Jupyter tarafından sağlanan bir tek başına çekirdek olur. Azure Machine Learning özellikleriyle tümleştirilmediği.
+
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Python çekirdek Docker (yerel veya uzak)
 Bu Python çekirdek yerel makinenizde ya da uzak bir Linux VM Docker kapsayıcısı içinde çalışır. Çekirdek genellikle "my_project docker" adıdır. İlişkili `docker.runconfig` dosyasının `Framework` alan kümesi'ne `Python`.
 
@@ -59,7 +62,7 @@ Bu PySpark çekirdeği komut dosyaları Docker kapsayıcısı, yerel makinenize,
 Bu çekirdek projeniz için bir işlem hedefi olarak bağlı uzak Hdınsight kümesi çalıştırır. Çekirdek genellikle "my_project my_hdi" adıdır. 
 
 >[!IMPORTANT]
->İçinde `.compute` HDI dosyasının işlem hedef, değiştirmeniz gerekir `yarnDeployMode` alanı `client` (varsayılan değer `cluster`) bu çekirdek kullanmak için. 
+>İçinde `.compute` HDI dosyasını hedef işlem, değiştirmeniz gerekir `yarnDeployMode` alanı `client` (varsayılan değer `cluster`) bu çekirdek kullanmak için. 
 
 ## <a name="start-jupyter-server-from-the-workbench"></a>Başlangıç Jupyter sunucudan çalışma ekranı
 Azure Machine Learning çalışma ekranından çalışma ekranı kişinin not defterlerini erişilebilir **not defterlerini** sekmesi. _Sınıflandırma Iris_ örnek proje içeren bir `iris.ipynb` örnek dizüstü bilgisayar.
@@ -104,6 +107,33 @@ Varsayılan tarayıcınız proje giriş dizinine işaret eden Jupyter sunucusuyl
 Şimdi tıklatabilirsiniz bir `.ipynb` not defteri dosyasını açmak ve çekirdek (ayarlanmamışsa) ayarlayın ve etkileşimli oturumunuzu başlatın.
 
 ![Proje Panosu](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+
+## <a name="use-magic-commands-to-manage-experiments"></a>Sihirli komutları denemeler yönetmek için kullanın
+
+Kullanabileceğiniz [Sihirli komutları](http://ipython.readthedocs.io/en/stable/interactive/magics.html) çalıştırma geçmişi izlemek ve modelleri veya veri kümeleri gibi çıkışları kaydetmek için Not Defteri hücreleri içinde.
+
+Tek tek not defteri izlemek için hücre, kullanım "% azureml geçmişi" Sihirli komutu çalıştırır. Geçmiş etkinleştirdikten sonra her hücre çalıştırmayı çalışma geçmişinde girişi olarak görüntülenir.
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+Hücre izleme Çalıştır devre dışı bırakmak için "Kapat % azureml geçmişi" Sihirli komutunu kullanın.
+
+Modeli ve veri dosyalarını çalışacak durumundan kaydetmek için "% azureml karşıya yükleme" Sihirli komutunu kullanabilirsiniz. Verili çıktılar çalıştırma geçmişi görünümünde olarak kaydedilmiş nesneler görünür Çalıştır.
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+>[!NOTE]
+>"Çıktı" adlı bir klasöre çıkışları kaydedilmelidir
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 - Jupyter not defteri kullanmayı öğrenmek için ziyaret edin [Jupyter resmi belge](http://jupyter-notebook.readthedocs.io/en/latest/).    

@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Tasarım desenleri çok kiracılı SaaS uygulamaları ve Azure Search için
 Çok kiracılı uygulama kimin göremez ya da başka bir kiracı veri paylaşımı kiracılar herhangi bir sayıda aynı Hizmetleri ve özellikleri sağlar biridir. Bu belge, Azure Search ile oluşturulan çok müşterili uygulamalar için Kiracı yalıtımı stratejileri açıklanır.
 
 ## <a name="azure-search-concepts"></a>Azure arama kavramları
-Bir hizmet olarak arama çözümü olarak Azure Search zengin arama deneyimleri herhangi bir altyapı yönetme veya uzmanı arama olmadan olmadan uygulamaları eklemek için geliştiricilere sağlar. Veri Hizmeti karşıya ve bulutta depolanan. Azure Search API basit isteklerini kullanarak, veri sonra değiştirilen aranır ve. Hizmeti genel bir bakış bulunabilir [bu makalede](http://aka.ms/whatisazsearch). Tasarım modeli ele almadan önce Azure Search'te bazı kavramları anlamanız önemlidir.
+Bir hizmet olarak arama çözümü olarak Azure Search zengin arama deneyimleri herhangi bir altyapı yönetme veya bir uzman bilgilerini alma olmadan olmadan uygulamaları eklemek için geliştiricilere sağlar. Veri Hizmeti karşıya ve bulutta depolanan. Azure Search API basit isteklerini kullanarak, veri sonra değiştirilen aranır ve. Hizmeti genel bir bakış bulunabilir [bu makalede](http://aka.ms/whatisazsearch). Tasarım modeli ele almadan önce Azure Search'te bazı kavramları anlamanız önemlidir.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Arama Hizmetleri, dizinleri, alanları ve belgeleri
 Azure Search kullanırken, bir abone bir *search hizmeti*. Azure Search'e veri karşıya olarak depolanır bir *dizin* arama hizmeti içinde. Tek bir hizmet kapsamındaki dizin sayısı olabilir. Bir hizmet kapsamındaki dizinleri veritabanındaki tablolar benzetilebilir sırada veritabanları tanıdık kavramlarını kullanmak için arama hizmeti bir veritabanına benzetilebilir.

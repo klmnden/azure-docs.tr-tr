@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/07/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search hizmet sınırları
 Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve bağımlı nesneler olup olmadığına göre [Azure Search sağlamak](search-create-service-portal.md) adresindeki bir **serbest**, **temel**, veya **Standart** fiyatlandırma katmanı.
 
-* **Ücretsiz** Azure aboneliğinizle birlikte gelen bir çok kiracılı paylaşılan bir hizmettir. Bu hizmet ile için ayrılmış kaynakları kaydolmadan önce birkaç deneme yapmanız izin veren bir ek-ücretsiz varolan aboneleri için seçenektir.
+* **Ücretsiz** Azure aboneliğinizle birlikte gelen bir çok kiracılı paylaşılan bir hizmettir. 
 * **Temel** daha küçük ölçekli üretim iş yükleri için özel bilgi işlem kaynakları sağlar.
-* **Standart** her düzeydeki daha fazla depolama ve işleme kapasitesi ile ayrılmış makinelerde çalışır. Standart gelen dört düzeyler: S1, S2, S3 ve S3 yüksek yoğunluklu (S3 HD).
+* **Standart** daha fazla depolama ve işleme kapasiteye sahip ayrılmış makinelerde her düzeyde çalışır. Standart gelen dört düzeyler: S1, S2, S3 ve S3 yüksek yoğunluklu (S3 HD).
 
 > [!NOTE]
-> Bir hizmeti belirli bir katman sağlanır. Daha fazla kapasite almak için katmanları atlamak gerekiyorsa, yeni bir hizmet (hiçbir yerinde yükseltme yoktur) hazırlamanız gerekir. Daha fazla bilgi için bkz: [bir SKU katmanı seçin veya](search-sku-tier.md). Zaten sağlanan hizmet kapasitesiyle ayarlama hakkında daha fazla bilgi için bkz: [ölçeklendirme sorgu ve dizin oluşturma iş yükleri için kaynak düzeylerini](search-capacity-planning.md).
+> Bir hizmeti belirli bir katman sağlanır. Kapasite sağlamak için katmanları atlama (hiçbir yerinde yükseltme yoktur) yeni bir hizmet sağlama içerir. Daha fazla bilgi için bkz: [bir SKU katmanı seçin veya](search-sku-tier.md). Zaten sağlanan hizmet kapasitesiyle ayarlama hakkında daha fazla bilgi için bkz: [ölçeklendirme sorgu ve dizin oluşturma iş yükleri için kaynak düzeylerini](search-capacity-planning.md).
 >
 
 ## <a name="per-subscription-limits"></a>Abonelik sınırları
@@ -66,16 +66,11 @@ Bir dizin API çağrılırken en fazla belge boyutuna başvuruyor. Belge, aslın
 
 Belge boyutu tutun, sorgulanabilir olmayan verileri istekten dışlamak unutmayın. Görüntüleri ve diğer ikili veriler doğrudan sorgulanabilir değildir ve dizinde saklanan döndürmemelidir. Arama sonuçlarında sorgulanabilir olmayan verilerini tümleştirmek için bir URL referansını kaynağa depolar yapılamayan bir alan tanımlayın.
 
-## <a name="workload-limits-queries-per-second"></a>İş yükü sınırları (sorguları saniye başına)
-| Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| QPS |Yok |Çoğaltma başına yaklaşık 3 |Çoğaltma başına yaklaşık 15 |Çoğaltma başına yaklaşık 60 |Çoğaltma başına yaklaşık >60 |Çoğaltma başına yaklaşık >60 |
+## <a name="queries-per-second-qps"></a>Sorgular / saniye (QPS)
 
-Sorgular (QPS) saniyede tahmini değerleri çıkarmaya benzetimli ve gerçek müşteri iş yükleri kullanarak buluşsal yöntemler üzerinde göre yaklaşık olur. Tam QPS verimini verilerinizi ve sorgu doğasına bağlı olarak değişir.
+QPS tahminleri bağımsız olarak her müşteri tarafından geliştirilmiş olmalıdır. Dizin boyutu ve karmaşıklığı, sorgu boyutu ve karmaşıklığı ve trafik miktarı QPS, birincil determinantlar var. Etkenlerden bilinmeyen olduğunda anlamlı tahminleri sunmak için bir yolu yoktur.
 
-Kaba tahminleri yukarıda verilen rağmen gerçek hızı, özellikle nerede işleme kullanılabilir bant genişliğini ve sistem kaynakları için rekabet dayanır ücretsiz paylaşılan hizmet belirlemek zordur. QPS çözümünüz için her zaman kaç diğer iş yüklerinin aynı anda çalıştırılması bağlı olarak farklılık gösterir ücretsiz katmanında işlem ve depolama kaynaklarını birden çok abone tarafından paylaşılır.
-
-Daha fazla parametre üzerinde denetimi yoktur çünkü standart düzeyinde, QPS daha yakından tahmin edebilirsiniz. En iyi uygulamaları bölümüne bakın [arama çözümünüzü yönetme](search-manage.md) QPS, iş yükleri için hesaplamanın nasıl hakkında yönergeler için.
+Tahminler özel kaynakları (temel ve standart katmanları) üzerinde çalışan hizmetleri üzerinde hesaplandığında daha tahmin edilebilir. Daha fazla parametre üzerinde denetime sahip olduğundan daha fazla QPS yakından tahmin edebilirsiniz. Yaklaşım tahmin etme hakkında yönergeler için bkz [Azure Search performans ve en iyi duruma getirme](search-performance-optimization.md).
 
 ## <a name="api-request-limits"></a>API istek sınırları
 * İstek başına 16 MB maksimum <sup>1</sup>

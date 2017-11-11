@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f60586dcd09148d916bafdde21cc038f57ed9287
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>ITSM iş öğelerini BT Hizmet Yönetimi Bağlayıcısı (Önizleme) kullanarak merkezi olarak yönetme
 
@@ -30,13 +30,13 @@ BT Hizmet Yönetimi Bağlayıcısı ile şunları yapabilirsiniz:
 
   - Olay yönetimi uygulamalarınızı tercih ettiğiniz ITSM aracında ile işletimsel uyarı tümleştirin.
     - İş öğeleri (örneğin, uyarı, olay, olay) içinde ITSM OMS uyarılardan ve günlük arama aracılığıyla oluşturun.
-    - Azure etkinlik günlüğü uyarılarınızı Eylem grupları ITSM eylemde üzerinden bağlı iş öğeleri oluşturun. 
-  
+    - Azure etkinlik günlüğü uyarılarınızı Eylem grupları ITSM eylemde üzerinden bağlı iş öğeleri oluşturun.
+
   - İzleme, günlük ve kuruluşunuzda kullanılan hizmet yönetimi verileri birleştirin.
     - Olay ilişkilendirmek ve istek verileri ile ilgili günlük verilerini günlük analizi çalışma alanındaki tooling, ITSM değiştirin.   
     - Olaylara genel bakış için üst düzey panoları görüntülemek için değişiklik istekleri ve etkilenen sistemleri.
     - Hizmet Yönetimi veri almak için günlük analizi sorgular yazarsınız.
-      
+
 ## <a name="adding-the-it-service-management-connector-solution"></a>Hizmet Yönetimi Bağlayıcısı çözümü BT ekleme
 
 Açıklanan işlemi kullanarak, günlük analizi çalışma alanı BT Hizmet Yönetimi Bağlayıcısı çözüm eklemek [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
@@ -70,14 +70,15 @@ BT Hizmet Yönetimi Bağlayıcısı çözümünü destekler bağlanmasını **Sy
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
 
-BT Hizmet Yönetimi Bağlayıcısı ITSM yazılım ayrıntılarla yapılandırdıktan sonra bağlayıcı bağlı ITSM ürün/hizmetinden veri toplamayı başlatır. Olaylar ve değişiklik istekleri ITSM Ürün/hizmet sayısına bağlı olarak, ilk eşitleme birkaç dakika içinde tamamlanması. 
+BT Hizmet Yönetimi Bağlayıcısı ITSM yazılım ayrıntılarla yapılandırdıktan sonra bağlayıcı bağlı ITSM ürün/hizmetinden veri toplamayı başlatır. Olaylar ve değişiklik istekleri ITSM Ürün/hizmet sayısına bağlı olarak, ilk eşitleme birkaç dakika içinde tamamlanması.
 
 > [!NOTE]
 > - ITSM üründen BT Hizmet Yönetimi Bağlayıcısı çözümü tarafından alınan veri türü günlük kayıtları olarak günlük analizi görünür **ServiceDesk_CL**.
 > - Günlük kaydı içeren adında bir alan **ServiceDeskWorkItemType_s**, olay veya değişiklik isteği, iki tür ITSM ürün içeri veri olduğu
 
 ## <a name="data-synced-from-itsm-product"></a>Veri ITSM üründen eşitlendi
-Olaylar ve değişiklik istekleri, ITSM ürün için günlük analizi çalışma alanınız eşitlenir. Aşağıdaki bilgiler BT Hizmet Yönetimi Bağlayıcısı tarafından toplanan veri örnekleri gösterilmektedir:
+Olaylar ve değişiklik istekleri, ITSM ürün için günlük analizi çalışma alanınız eşitlenir.
+Aşağıdaki bilgiler BT Hizmet Yönetimi Bağlayıcısı tarafından toplanan veri örnekleri gösterilmektedir:
 
 > [!NOTE]
 > İş öğesi türüne bağlı olarak günlük analizi içeri **ServiceDesk_CL** aşağıdaki alanları içerir:
@@ -252,29 +253,29 @@ Ayrıca iş öğelerini bağlı ITSM kaynaklardan doğrudan bir günlük kaydı 
 4. Uygun değerleri sağlayın **kişi türündeki**, **etkisi**, **aciliyet**, **kategori**, ve **alt kategori** metin kutuları ve ardından **oluşturma**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Azure uyarıları ITSM iş öğeleri oluşturma
-ITSM bağlayıcı şimdi Eylem grupları ile tümleşiktir. [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md) Azure uyarılarınızı eylemleri tetikleyen, modüler ve yeniden kullanılabilir bir yolunu sağlar. Eylem grupları ITSM eylemde ITSM ürününüzü varolan ITSM bağlayıcı çözümünü kullanarak iş öğelerini oluşturur.
+ITSM bağlayıcı şimdi Eylem grupları ile tümleşiktir.
 
-1. Azure portalında tıklayın **İzleyicisi**
-2. Sol bölmede tıklayın **Eylem grupları**
+[Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md) Azure uyarılarınızı eylemleri tetikleyen, modüler ve yeniden kullanılabilir bir yolunu sağlar. Eylem grupları ITSM eylemde ITSM ürününüzü varolan ITSM bağlayıcı çözümünü kullanarak iş öğelerini oluşturur.
+
+1. Azure portalında tıklatın **İzleyici**.
+2. Sol bölmede **Eylem grupları**.
 
     ![Eylem Grupları](media/log-analytics-itsmc/ActionGroups.png)
 
-3. Sağlamak **adı** ve **kısaad** eylem grubunuz için. Seçin **kaynak grubu** ve **abonelik** oluşturulmasına eylem grubunuzun istediğiniz.
+3. Sağlamak **adı** ve **kısaad** eylem grubunuz için. Seçin **kaynak grubu** ve **abonelik** eylem grubu oluşturmak istediğiniz.
 
     ![Eylem grupları ayrıntısı](media/log-analytics-itsmc/ActionGroupsDetail.png)
 
-4. Eylemler listesinde **ITSM** için açılan gelen **eylem türü**. Sağlayan bir **adı** 'ı tıklatın ve eylemi için **Düzenle ayrıntıları**.
-
-
+4. Eylemler listesinde **ITSM** için aşağı açılır menüden **eylem türü**. Sağlayan bir **adı** tıklatın ve eylemi için **Düzenle ayrıntıları**.
 5. Seçin **abonelik** günlük analizi çalışma alanınız bulunduğu. Seçin **bağlantı** yani Ardından, çalışma alanı adı, ITSM bağlayıcı adı. Örneğin, "MyITSMMConnector(MyWorkspace)."
 
     ![ITSM eylemi ayrıntıları](./media/log-analytics-itsmc/ITSMActionDetails.png)
 
-6. Seçin **iş öğesi** açılan türünden.
+6. Seçin **iş öğesi** açılır menüsünden türü.
 7. ITSM ürününüzü tarafından gerekli alanları doldurun veya varolan bir şablonu kullanmak üzere seçin.
 8. **Tamam**’a tıklayın.
 
-Azure uyarı kuralı oluşturma/düzenleme yaparken ITSM eylemi olan bir eylem grubu, kullanın. Uyarıyı tetikleyen iş öğesi ITSM aracında oluşturulur. 
+Azure uyarı kuralı oluşturma/düzenleme yaparken ITSM eylemi olan bir eylem grubu, kullanın. Uyarıyı tetikleyen iş öğesi ITSM aracında oluşturulur.
 
 >[!NOTE]
 >Şu anda yalnızca etkinlik günlüğü uyarıları ITSM eylemini desteklemektedir. Diğer Azure uyarılar için bu, Hayır op eylemdir.
@@ -288,7 +289,7 @@ Azure uyarı kuralı oluşturma/düzenleme yaparken ITSM eylemi olan bir eylem g
     - bağlantıyı kurmak için karşılık gelen ITSM üründe yeterli ayrıcalıkları olup olmadığını denetleyin.
  - Service Manager bağlantılarında
      - Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturulan emin olun. Şirket içi Service Manager makineyle bağlantı kuran başarıyla doğrulamak için Web uygulaması URL'si yapma belgelerindeki ayrıntılı olarak ziyaret [karma bağlantı](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
-     
+
 2.  ServiceNow verileri için günlük analizi eşitlenmedi, örneği değil uykuda ServiceNow emin olun. ServiceNow geliştirme örnekleri bazen boştayken uzun bir süre için uyku moduna gidin. Aksi takdirde, sorunu bildirin.
 3.  OMS uyarıları yangın ancak iş öğeleri ITSM üründe oluşturulmamış veya yapılandırma öğeleri oluşturulan/iş öğeleri veya herhangi diğer genel bilgi için aşağıdaki konumlarda aramak için bağlı değil:
  -  **BT Hizmet Yönetimi Bağlayıcısı çözüm**: Çözüm bağlantıları/iş öğeleri/bilgisayarların vb. özetini gösterir. Döşeme gösteren tıklatın **bağlayıcı durumu**, size aldığı **günlük arama** ilgili sorgu. Günlük kayıtları LogType_S ile daha fazla bilgi için hata olarak arayın.

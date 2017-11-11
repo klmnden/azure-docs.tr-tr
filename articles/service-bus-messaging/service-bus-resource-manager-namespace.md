@@ -14,17 +14,17 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir hizmet veri yolu ad alanı oluşturma
 
 Bu makalede, bir hizmet veri yolu ad alanı türü oluşturan bir Azure Resource Manager şablonu kullanmayı açıklar **ileti** standart SKU ile. Makale ayrıca dağıtım yürütme için belirtilen parametreleri tanımlar. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
-Şablonları oluşturma hakkında daha fazla bilgi için lütfen bkz [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
+Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
 Tam şablon için bkz: [hizmet veri yolu ad alanı şablonu] [ Service Bus namespace template] github'da.
 
@@ -48,9 +48,9 @@ Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıkla
 [![Azure’a dağıtma](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametreler
-Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon adlı bir bölüm içerir `Parameters` , tüm parametre değerlerini içerir. Dağıttığınız projesini temel alan veya dağıttığınız ortamı dayanarak değişir bu değerleri için bir parametre tanımlamanız gerekir. Her zaman aynı kalır değerleri parametrelerini tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
+Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon adlı bir bölüm içerir `Parameters` , tüm parametre değerlerini içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
 
-Bu şablon, aşağıdaki parametreleri tanımlar.
+Bu şablon, aşağıdaki parametreleri tanımlar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
 Oluşturmak için hizmet veri yolu ad alanı adı.
@@ -81,7 +81,7 @@ Hizmet veri yolu adı [SKU](https://azure.microsoft.com/pricing/details/service-
 
 ```
 
-Şablon (standart veya Premium) Bu parametre için izin verilen değerleri tanımlar ve herhangi bir değer belirtilmezse varsayılan değer (standart) atar.
+Şablon (standart veya Premium) Bu parametre için izin verilen değerleri tanımlar. Herhangi bir değer belirtilirse, varsayılan değer (standart) Kaynak Yöneticisi'ni atar.
 
 Hizmet veri yolu fiyatlandırma hakkında daha fazla bilgi için bkz: [Service fiyatlandırma ve faturalama Bus][Service Bus pricing and billing].
 
@@ -91,7 +91,7 @@ Hizmet veri yolu fiyatlandırma hakkında daha fazla bilgi için bkz: [Service f
 ```json
 "serviceBusApiVersion": { 
        "type": "string", 
-       "defaultValue": "2015-08-01", 
+       "defaultValue": "2017-04-01", 
        "metadata": { 
            "description": "Service Bus ApiVersion used by the template" 
        } 

@@ -3,7 +3,7 @@ title: "Kendini barındıran tümleştirmesi çalışma zamanı Azure Data Facto
 description: "Veri fabrikaları özel bir ağda veri depolarına erişmesini sağlayan Azure veri fabrikası'nda kendi kendini barındıran tümleştirmesi çalışma zamanı oluşturmayı öğrenin."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.author: abnarain
+ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve Self-hosted tümleştirmesi çalışma zamanı yapılandırma
 Tümleştirme çalışma zamanı (IR), farklı ağ ortamlar genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -103,11 +103,11 @@ Kendini barındıran tümleştirmesi çalışma zamanı, bir MSI kurulum paketi 
 
 
 ## <a name="high-availability-and-scalability"></a>Yüksek kullanılabilirlik ve ölçeklenebilirlik
-Self-hosted tümleştirme çalışma zamanı associateed birden çok şirket içi makineler olabilir. Bu makineler, düğümler olarak adlandırılır. En fazla dört düğüm Self-hosted tümleştirmesi çalışma zamanı ile ilişkili olabilir. Mantıksal bir ağ geçidi için birden çok düğüm (yüklü ağ geçidi ile şirket içi makineler) sahip avantajları şunlardır:
+Self-hosted tümleştirme çalışma zamanı için birden çok şirket içi makineler ilişkili olabilir. Bu makineler, düğümler olarak adlandırılır. En fazla dört düğüm Self-hosted tümleştirmesi çalışma zamanı ile ilişkili olabilir. Mantıksal bir ağ geçidi için birden çok düğüm (yüklü ağ geçidi ile şirket içi makineler) sahip avantajları şunlardır:
 1. Yüksek kullanılabilirlik çalışma zamanının Self-hosted tümleştirme, BT'nin artık tek hata noktası oluşturur, büyük veri çözüm ya da bulut veri tümleştirmesi ile en fazla 4 düğüm sürekliliğini sağlama Azure Data Factory ile gelir.
 2. Geliştirilmiş performans ve işleme şirket içi ve bulut arasında veri taşıma sırasında veri depolar. Daha fazla bilgi almak [performans karşılaştırmaları](copy-activity-performance.md).
 
-Birden çok düğüm Self-hosted tümleştirmesi çalışma zamanı yazılımını yükleyerek ilişkilendirebilirsiniz [İndirme Merkezinden](https://www.microsoft.com/download/details.aspx?id=39717) ve kimlik doğrulama anahtarları obtainined birini tarafından kaydetme Bölümünde açıklandığı gibi AzureRmDataFactoryV2IntegrationRuntimeKey yeni cmdlet [Öğreticisi](tutorial-hybrid-copy-powershell.md)
+Birden çok düğüm Self-hosted tümleştirmesi çalışma zamanı yazılımını yükleyerek ilişkilendirebilirsiniz [İndirme Merkezinden](https://www.microsoft.com/download/details.aspx?id=39717) ve tarafından alınan kimlik doğrulama anahtarları birini kaydetme Bölümünde açıklandığı gibi AzureRmDataFactoryV2IntegrationRuntimeKey yeni cmdlet [Öğreticisi](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
 > Her düğüm ilişkilendirmek için Self-hosted tümleştirmesi çalışma zamanı Yeni Oluştur gerekmez.

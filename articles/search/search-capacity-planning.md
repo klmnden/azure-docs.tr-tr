@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 02/08/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47dcd5366ef8ba3d4598e6d418b11997c61bddea
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>Sorgu ve iş yüklerini Azure Search'te dizin oluşturma için ölçek kaynak düzeyleri
 Çalıştırdıktan sonra [bir fiyatlandırma katmanı seçin](search-sku-tier.md) ve [bir arama hizmeti sağlamak](search-create-service-portal.md), isteğe bağlı olarak çoğaltma ya da hizmetiniz tarafından kullanılan bölümlerini sayısını artırmak için sonraki adımdır. Her katman fatura birimleri sabit sayıda sunar. Bu makalede, sorgu yürütme, dizin oluşturma ve depolama için gereksinimlerinizi dengeleyen bir en iyi yapılandırmasını elde etmek için bu birimleri tahsis açıklanmaktadır.
 
-Kaynak yapılandırması, bir hizmetin ayarladığınızda kullanılabilir [temel katmana](http://aka.ms/azuresearchbasic) veya biri [standart katmanları](search-limits-quotas-capacity.md). Bu katmanlar adresinde Faturalanabilir Hizmetleri için kapasite artışlarla satın *arama birimine* (SUs) burada her bölüm ve çoğaltma sayar bir SU. 
+Kaynak yapılandırması, bir hizmetin ayarladığınızda kullanılabilir [temel katmana](http://aka.ms/azuresearchbasic) veya biri [standart katmanları](search-limits-quotas-capacity.md). Bu katmanlar adresindeki Hizmetleri için kapasite artışlarla satın *arama birimine* (SUs) burada her bölüm ve çoğaltma sayar bir SU. 
 
 Daha az SUs sonuçları orantılı olarak daha düşük bir faturaya eklenecektir kullanma. Hizmet ayarlamak sürece faturalama için etkindir. Hizmet geçici olarak kullanmıyorsanız, faturalama önlemek için yalnızca hizmetin silinmesi ve gerektiğinde daha sonra yeniden oluşturulması yoludur.
 
@@ -51,21 +51,19 @@ Artırın veya çoğaltmaları ve bölümleri değiştirmek için Azure portalı
 1. Oturum [Azure portal](https://portal.azure.com/) ve arama hizmeti seçin.
 2. İçinde **ayarları**, açık **ölçek** dikey ve artırmak veya bölümler ve çoğaltmalar sayısını azaltmak için kaydırma çubuklarını kullanın.
 
-Bir komut dosyası veya kod tabanlı sağlama yaklaşım, gerekiyorsa [Yönetimi REST API](https://msdn.microsoft.com/library/azure/dn832687.aspx) portalına alternatiftir.
+Bir komut dosyası veya kod tabanlı sağlama yaklaşım, gerekiyorsa [Yönetimi REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) portalına alternatiftir.
 
 Genellikle, hizmet işlemleri doğru sorgu iş yükleri özellikle eğilimi nedeniyle arama uygulamaları bölümler,'den daha fazla çoğaltmaları gerekir. Bölüm [yüksek kullanılabilirlik](#HA) nedenini açıklar.
 
 > [!NOTE]
-> Bir hizmet sağlandıktan sonra daha yüksek bir SKU yükseltilemez. Yeni katman bir arama hizmeti oluşturun ve dizinleri yeniden yüklemeniz gerekir. Bkz: [portalda Azure Search hizmeti oluşturma](search-create-service-portal.md) hizmet sağlama konusunda yardım için.
+> Bir hizmet sağlandıktan sonra daha yüksek bir SKU yükseltilemez. Yeni katmanını bir arama hizmeti oluşturun ve dizinleri yeniden yüklemeniz gerekir. Bkz: [portalda Azure Search hizmeti oluşturma](search-create-service-portal.md) hizmet sağlama konusunda yardım için.
 >
 >
 
 <a id="HA"></a>
 
 ## <a name="high-availability"></a>Yüksek kullanılabilirlik
-Kolay ve ölçeği oldukça hızlı olduğundan, genellikle bir bölüm ve bir başlayın veya iki çoğaltmaları ve ardından sorgu birimler olarak ölçek büyütme yapı öneririz. Bir bölüm, temel veya S1 katmanları en çok sayıda Hizmetleri (bölüm başına 15 milyondan fazla belge), yeterli depolama ve g/ç sağlar.
-
-Sorgu iş yükleri öncelikle çoğaltmalar üzerinde çalıştırın. Daha fazla verimlilik veya yüksek kullanılabilirlik gerekiyorsa, ek çoğaltmaları büyük olasılıkla gerektirir.
+Kolay ve ölçeği oldukça hızlı olduğundan, genellikle bir bölüm ve bir başlayın veya iki çoğaltmaları ve ardından sorgu birimler olarak ölçek büyütme yapı öneririz. Sorgu iş yükleri öncelikle çoğaltmalar üzerinde çalıştırın. Daha fazla verimlilik veya yüksek kullanılabilirlik gerekiyorsa, ek çoğaltmaları büyük olasılıkla gerektirir.
 
 Yüksek kullanılabilirlik için genel öneriler şunlardır:
 
@@ -73,6 +71,8 @@ Yüksek kullanılabilirlik için genel öneriler şunlardır:
 * Okuma/yazma iş yüklerinin (sorgular ve tek tek belgeler eklendikçe, güncelleştirilmiş veya dizin) yüksek kullanılabilirlik için üç veya daha fazla çoğaltmaları
 
 Azure arama için hizmet düzeyi sözleşmelerine (SLA), sorgu işlemleri ve ekleme, güncelleştirme veya silme belgeleri oluşur dizin güncelleştirmeleri hedefler.
+
+Temel katman bir bölüm ve üç çoğaltmaları en üste. Dizin oluşturma ve sorgu işleme için isteğe bağlı dalgalanmalara hemen yanıtlamak için esneklik istiyorsanız, bir standart katmanı göz önünde bulundurun.
 
 ### <a name="index-availability-during-a-rebuild"></a>Bir yeniden oluşturma sırasında dizin kullanılabilirliği
 
@@ -89,9 +89,9 @@ Bir yeniden oluşturma sırasında dizin kullanılabilirliğini sağlamak için 
 ## <a name="increase-query-performance-with-replicas"></a>Yinelemelerle sorgu performansı artırma
 Sorgu gecikmesi ek çoğaltmaları gerekli olan bir göstergesidir. Genellikle, sorgu performansı iyileştirme bir ilk adım bu kaynağın daha fazla bilgi eklemektir. Çoğaltmaları ekledikçe dizini ek kopyalarını büyük sorgu iş yüklerini desteklemek ve yüklemek için çevrimiçi birden çok çoğaltma isteğini dengeleyin.
 
-Sabit tahminleri / saniye (QPS) sorgularını sağladığımız olamaz: sorgu performansı rakip iş yükleri ve sorgu karmaşıklığına bağlıdır. Ortalama, temel veya S1 SKU'ları bir yineleme yaklaşık 15 QPS servis edebilirsiniz, ancak daha yüksek veya düşük sorgu karmaşıklığına bağlı olarak, üretilen iş görüntülenir (modellenmiş sorguları daha karmaşık) ve ağ gecikme süresi. Ayrıca, çoğaltmaları ekleme kesinlikle ölçek ve performans ekleyeceksiniz rağmen sonuç kesinlikle doğrusal olmadığını bilmek önemlidir: üç çoğaltmaları ekleme garanti etmez Üçlü işleme.
+Sabit tahminleri / saniye (QPS) sorgularını sağladığımız olamaz: sorgu performansı rakip iş yükleri ve sorgu karmaşıklığına bağlıdır. Çoğaltmaları ekleme açıkça daha iyi performansla sonuçlanır rağmen sonuç kesinlikle doğrusal değil: üç çoğaltmaları ekleme garanti etmez Üçlü işleme.
 
-İş yükleri için QPS tahmin yaklaşımları dahil olmak üzere QPS hakkında bilgi edinmek için bkz: [Search hizmetinizi yönetme](search-manage.md).
+QPS tahmin etme, iş yükleri için şu konularda rehberlik için bkz: [Azure Search performans ve en iyi duruma getirme konuları](search-performance-optimization.md).
 
 ## <a name="increase-indexing-performance-with-partitions"></a>Bölümleri olan dizin oluşturma performansı artırma
 Gerçek zamanlı veri yenileme gerektiren arama uygulamalar orantılı olarak daha fazla bölüm çoğaltmaları daha gerekir. Bölümler ekleme okuma/yazma işlemleri çok sayıda işlem kaynakları arasında yayar. Bu aynı zamanda, daha fazla disk alanı ek dizinler ve belgeleri depolamak için sağlar.

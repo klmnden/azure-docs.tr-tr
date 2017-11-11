@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 423eee65040a11695d9f6c18d64948e4c3d3aafe
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure işlevleri barındırma planları karşılaştırma
 
@@ -68,7 +68,7 @@ VM maliyet dizi yürütmeleri, yürütme zamanı ve kullanılan bellek ayırır.
 
 Bir uygulama hizmeti planı ile elle çıkışı daha fazla VM örnekleri ekleyerek ölçeklendirebilirsiniz veya otomatik ölçeklendirme etkinleştirebilirsiniz. Daha fazla bilgi için bkz: [örnek sayısı el ile veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Aynı zamanda farklı bir uygulama hizmeti planı seçerek ölçeği artırabilirsiniz. Daha fazla bilgi için bkz: [Azure bir uygulamada ölçeklendirin](../app-service/web-sites-scale.md). 
 
-Bir uygulama hizmeti planı JavaScript işlevleri çalıştırmayı planlıyorsanız, daha az çekirdeğe sahip bir plan seçmeniz gerekir. Daha fazla bilgi için bkz: [işlevleri için JavaScript başvurusu](functions-reference-node.md#choose-single-core-app-service-plans).  
+Bir uygulama hizmeti planı JavaScript işlevleri çalıştırmayı planlıyorsanız, daha az Vcpu'lar sahip bir plan seçmeniz gerekir. Daha fazla bilgi için bkz: [seçin tek çekirdek uygulama hizmeti planları](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +93,7 @@ Barındırma planı tüketimini kullandığınızda işlevi kod dosyaları Azure
 > [!NOTE]
 > Tüketim plan üzerinde bir blob tetikleyici kullanırken olabilir en fazla 10 dakikalık bir gecikmeyle bir işlev uygulaması boşta geçti, yeni BLOB'lar işleme. İşlev uygulaması çalışmaya başladıktan sonra BLOB'ları hemen işlenir. Bu ilk gecikmeyi önlemek için aşağıdaki seçeneklerden birini göz önünde bulundurun:
 > - Always On özellikli ile bir uygulama hizmeti planınız işlev uygulaması barındırır.
-> - Başka bir mekanizma, blob adı içeren bir kuyruk iletisi gibi işleme blob tetiklemek için kullanın. Bir örnek için bkz: [sıra tetikleyicisi blob ile girişi bağlamayı](functions-bindings-storage-blob.md#input-sample).
+> - Başka bir mekanizma, blob adı içeren bir kuyruk iletisi gibi işleme blob tetiklemek için kullanın. Bir örnek için bkz: [C# betiği ve JavaScript örnek blob'a giriş ve bağlamaları çıkış](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Çalışma zamanı ölçeklendirme
 

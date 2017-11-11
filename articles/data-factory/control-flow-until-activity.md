@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory kadar etkinliğinde
 Until etkinliği aynı işlevselliği sağlayan bir-yapısı döngü programlama dillerinde sağlayana kadar. Etkinliği ile ilişkili koşulunu true olarak değerlendirilir kadar etkinlikleri kümesi bir döngü yürütür. Bir zaman aşımı değeri için belirttiğiniz veri fabrikası etkinliğinde kadar. 
@@ -60,7 +60,7 @@ Until etkinliği aynı işlevselliği sağlayan bir-yapısı döngü programlama
 ad | Adını `Until` etkinlik. | Dize | Evet
 type | Ayarlanmalıdır **kadar**. | Dize | Evet
 ifade | True veya false olarak değerlendirilmelidir ifade | İfade.  | Evet
-timeout | Do-burada belirtilen saat sonra zaman aşımına döngü kadar. | Dize. `d.hh:mm:ss`(veya) `hh:mm:ss`. Varsayılan değer 7 gündür. | Hayır
+timeout | Do-burada belirtilen saat sonra zaman aşımına döngü kadar. | Dize. `d.hh:mm:ss`(veya) `hh:mm:ss`. Varsayılan değer 7 gündür. Maksimum değer: 90 gün. | Hayır
 Etkinlikler | İçin ifadeyi hesaplar kadar çalıştırılan etkinlikleri kümesi `true`. | Etkinlikler dizisi. |  Evet
 
 ## <a name="example-1"></a>Örnek 1

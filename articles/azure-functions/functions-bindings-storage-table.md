@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri depolama tablosu bağlamaları | Microsoft Docs"
-description: "Azure Storage bağlamaları Azure işlevlerini kullanmak nasıl anlayın."
+title: "Azure işlevleri tablo depolama bağlamaları"
+description: "Azure Table depolama bağlamaları Azure işlevlerini kullanmak nasıl anlayın."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -8,85 +8,105 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi"
-ms.assetid: 65b3437e-2571-4d3f-a996-61a74b50a1c2
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 11/08/2017
 ms.author: chrande
-ms.openlocfilehash: 486b7c31c914ba7bb2d75e3f83ccf346a09104e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="azure-functions-storage-table-bindings"></a>Azure işlevleri depolama tablo bağlamaları
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="azure-functions-table-storage-bindings"></a>Azure işlevleri tablo depolama bağlamaları
 
-Bu makalede nasıl yapılandırılacağı ve kod Azure Storage tablo bağlamaları Azure işlevlerinde açıklanmaktadır. Giriş ve Azure Storage tablolarının bağlantılarında çıktı Azure işlevleri destekler.
-
-Depolama Tablo Bağlama aşağıdaki senaryoları destekler:
-
-* **C# veya Node.js işlevi tek bir satırda okuma** - ayarlanmış `partitionKey` ve `rowKey`. `filter` Ve `take` özellikleri bu senaryoda kullanılmaz.
-* **C# işlevinde birden çok satır okuma** -işlevler çalışma zamanı sağlayan bir `IQueryable<T>` nesnesi tabloya bağlı. Tür `T` öğesinden türetilmelidir `TableEntity` veya uygulayan `ITableEntity`. `partitionKey`, `rowKey`, `filter`, Ve `take` özellikler bu senaryoda kullanılmaz; kullanabilirsiniz `IQueryable` tüm gerekli filtreleme yapmak için nesne. 
-* **Bir düğüm işlevinde birden çok satır okuma** - ayarlanmış `filter` ve `take` özellikleri. Ayarlamazsanız `partitionKey` veya `rowKey`.
-* **C# işlevinde bir veya daha fazla satır yazma** -işlevler çalışma zamanı sağlar bir `ICollector<T>` veya `IAsyncCollector<T>` tabloya bağlı olduğu `T` eklemek istediğiniz varlıklar şeması belirtir. Genellikle, yazın `T` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. `partitionKey`, `rowKey`, `filter`, Ve `take` özellikleri bu senaryoda kullanılmaz.
+Bu makalede Azure Table depolama bağlamaları Azure işlevlerinde ile nasıl çalışılacağını açıklar. Giriş ve Azure tablo depolaması için bağlamaları çıktı Azure işlevleri destekler.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="input"></a>
+## <a name="table-storage-input-binding"></a>Tablo depolama giriş bağlama
 
-## <a name="storage-table-input-binding"></a>Depolama tablo giriş bağlama
-Azure Storage tablo giriş bağlama depolama tablosu, işlevinde kullanmanıza olanak sağlar. 
+Bir tablodaki bir Azure Storage hesabı okumak için Azure Table depolama giriş bağlama kullanın.
 
-Bir işlev depolama tablo girişi aşağıdaki JSON nesneleri kullanan `bindings` function.json dizisi:
+## <a name="input---example"></a>Girişi - örnek
 
-```json
+Dile özgü örneğe bakın:
+
+* [Önceden derlenmiş C# bir varlığı okuma](#input---c-example-1)
+* [Önceden derlenmiş C# birden çok varlık okuma](#input---c-example-2)
+* [C# betik - bir varlığı okuma](#input---c-script-example-1)
+* [C# betik - birden çok varlık okuma](#input---c-script-example-2)
+* [F#](#input---f-example-2)
+* [JavaScript](#input---javascript-example)
+
+### <a name="input---c-example-1"></a>Giriş - C# Örnek 1
+
+Aşağıdaki örnekte gösterildiği [C# önceden derlenmiş](functions-dotnet-class-library.md) tek bir tablo satırı okur kodu. 
+
+Satır anahtar değeri "{queueTrigger}" satır anahtarını kuyruk iletisi dizeden geldiğini belirtir.
+
+```csharp
+public class TableStorage
 {
-    "name": "<Name of input parameter in function signature>",
-    "type": "table",
-    "direction": "in",
-    "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to read - see below>",
-    "rowKey": "<RowKey of table entity to read - see below>",
-    "take": "<Maximum number of entities to read in Node.js - optional>",
-    "filter": "<OData filter expression for table input in Node.js - optional>",
-    "connection": "<Name of app setting - see below>",
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
+        TraceWriter log)
+    {
+        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+    }
 }
 ```
 
-Şunlara dikkat edin: 
+### <a name="input---c-example-2"></a>Giriş - C# Örnek 2
 
-* Kullanım `partitionKey` ve `rowKey` birlikte tek bir varlık okunamıyor. Bu özellikleri isteğe bağlıdır. 
-* `connection`Depolama bağlantı dizesi içeren bir uygulama ayarı adı içermelidir. Standart Düzenleyici'de Azure portalında **tümleştir** sekmesinde, bir depolama alanı oluşturduğunuzda, hesap ya da mevcut bir seçer için bu uygulama ayarı yapılandırır. Ayrıca [bu uygulamayı el ile ayarlama yapılandırma](functions-how-to-use-azure-function-app-settings.md#settings).  
+Aşağıdaki örnekte gösterildiği [C# önceden derlenmiş](functions-dotnet-class-library.md) birden çok tablo satırı okur kodu. Unutmayın `MyPoco` sınıfı türer `TableEntity`.
 
-<a name="inputusage"></a>
+```csharp
+public class TableStorage
+{
+    public class MyPoco : TableEntity
+    {
+        public string Text { get; set; }
+    }
 
-## <a name="input-usage"></a>Giriş kullanımı
-C# işlevlerde, giriş tablosu varlık (veya varlıklar) adlandırılmış bir parametre gibi işlevi imzanız kullanarak bağladığınız `<T> <name>`.
-Burada `T` veri türü, verileri seri durumdan istediğiniz olduğunda ve `paramName` , belirtilen adı [bağlama giriş](#input). Node.js işlevlerde kullanarak giriş tablosu varlık (veya varlıklar) erişim `context.bindings.<name>`.
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
+        TraceWriter log)
+    {
+        foreach (MyPoco poco in pocos)
+        {
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+        }
+    }
+}
+```
 
-Giriş verisi Node.js veya C# işlevlerde serisi. Seri durumdan çıkarılmış nesneler sahip `RowKey` ve `PartitionKey` özellikleri.
+### <a name="input---c-script-example-1"></a>Giriş - C# betik örnek 1
 
-C# işlevleri, şu türlerden birine de bağlayabilirsiniz ve işlevleri çalışma zamanı türü kullanarak tablo verileri seri durumdan dener:
+Aşağıdaki örnek, bir tablo giriş bağlama gösterir bir *function.json* dosya ve [C# betik](functions-reference-csharp.md) bağlama kullanan kod. İşlevi bir sıra tetikleyici tek bir tablo satırı okumak için kullanır. 
 
-* Uygulayan herhangi bir türü`ITableEntity`
-* `IQueryable<T>`
-
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>Giriş örneği
-Tek bir tablo satırı okumak için bir sıra tetikleyici kullanır aşağıdaki function.json sahip olması. JSON belirtir `PartitionKey`  
- `RowKey`. `"rowKey": "{queueTrigger}"`Satır anahtarını kuyruk iletisi dizeden geldiğini belirtir.
+*Function.json* dosyayı belirtir bir `partitionKey` ve `rowKey`. `rowKey` Değeri "{queueTrigger}" satır anahtarını kuyruk iletisi dizeden geldiğini gösterir.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -97,7 +117,7 @@ Tek bir tablo satırı okumak için bir sıra tetikleyici kullanır aşağıdaki
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     }
   ],
@@ -105,15 +125,10 @@ Tek bir tablo satırı okumak için bir sıra tetikleyici kullanır aşağıdaki
 }
 ```
 
-Tek tablo varlığı okur dile özgü örneğe bakın.
+[Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-* [C#](#inputcsharp)
-* [F#](#inputfsharp)
-* [Node.js](#inputnodejs)
+C# betik kod aşağıdaki gibidir:
 
-<a name="inputcsharp"></a>
-
-### <a name="input-sample-in-c"></a>C# giriş örneği #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -129,9 +144,91 @@ public class Person
 }
 ```
 
-<a name="inputfsharp"></a>
+### <a name="input---c-script-example-2"></a>Giriş - C# betik örnek 2
 
-### <a name="input-sample-in-f"></a>F # giriş örneği #
+Aşağıdaki örnek, bir tablo giriş bağlama gösterir bir *function.json* dosya ve [C# betik](functions-reference-csharp.md) bağlama kullanan kod. İşlev varlıklar için bir kuyruk iletisi içinde belirtilen bir bölüm anahtarı okur.
+
+Burada *function.json* dosyası:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "tableBinding",
+      "type": "table",
+      "connection": "MyStorageConnectionAppSetting",
+      "tableName": "Person",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+C# betik kodu, Azure depolama SDK'sına bir başvuru ekler, böylece varlık türü öğesinden türetilen `TableEntity`:
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
+    {
+        log.Info($"Name: {person.Name}");
+    }
+}
+
+public class Person : TableEntity
+{
+    public string Name { get; set; }
+}
+```
+
+### <a name="input---f-example"></a>Giriş - F # örnek
+
+Aşağıdaki örnek, bir tablo giriş bağlama gösterir bir *function.json* dosya ve [F # betiği](functions-reference-fsharp.md) bağlama kullanan kod. İşlevi bir sıra tetikleyici tek bir tablo satırı okumak için kullanır. 
+
+*Function.json* dosyayı belirtir bir `partitionKey` ve `rowKey`. `rowKey` Değeri "{queueTrigger}" satır anahtarını kuyruk iletisi dizeden geldiğini gösterir.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+F # kod aşağıdaki gibidir:
+
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -145,9 +242,40 @@ let Run(myQueueItem: string, personEntity: Person) =
     log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
-<a name="inputnodejs"></a>
+### <a name="input---javascript-example"></a>Giriş - JavaScript örneği
 
-### <a name="input-sample-in-nodejs"></a>Node.js giriş örneği
+Aşağıdaki örnek, bir tablo giriş bağlama gösterir bir *function.json* dosya ve [JavaScript kodu] bağlama kullanır (işlevleri başvuru node.md). İşlevi bir sıra tetikleyici tek bir tablo satırı okumak için kullanır. 
+
+*Function.json* dosyayı belirtir bir `partitionKey` ve `rowKey`. `rowKey` Değeri "{queueTrigger}" satır anahtarını kuyruk iletisi dizeden geldiğini gösterir.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[Yapılandırma](#input---configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+JavaScript kod aşağıdaki gibidir:
+
 ```javascript
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
@@ -156,46 +284,132 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## <a name="input---attributes-for-precompiled-c"></a>Giriş - öznitelikler için önceden derlenmiş C#
+ 
+İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) İşlevler, tablo giriş bağlama yapılandırmak için aşağıdaki öznitelikler kullanın:
 
-## <a name="storage-table-output-binding"></a>Bağlama depolama tablo çıktısı
-Etkinleştirir bağlama Azure Storage tablo çıktısı, varlıklar bir depolama alanına yazmak için işlevinde tablo. 
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
-Bir işlev aşağıdaki JSON nesneleri kullanan çıktısı depolama tablosu `bindings` function.json dizisi:
+  Özniteliğin Oluşturucusu tablo adı, bölüm anahtarını ve satır anahtarını alır. Aşağıdaki örnekte gösterildiği gibi bir out parametresi ya da işlevin dönüş değeri kullanılabilmesi için:
 
-```json
+  ```csharp
+  [FunctionName("TableInput")]
+  public static void Run(
+      [QueueTrigger("table-items")] string input, 
+      [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
+      TraceWriter log)
+  ```
+
+  Ayarlayabileceğiniz `Connection` özelliğini kullanmak için depolama hesabı aşağıdaki örnekte gösterildiği gibi belirtin:
+
+  ```csharp
+  [FunctionName("TableInput")]
+  public static void Run(
+      [QueueTrigger("table-items")] string input, 
+      [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
+      TraceWriter log)
+  ```
+
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+
+  Depolama hesabı belirtmek için başka bir yol sağlar. Oluşturucusu depolama bağlantı dizesi içeren bir uygulama ayarı adını alır. Öznitelik parametre, yöntemi veya sınıf düzeyinde uygulanabilir. Aşağıdaki örnek, sınıf ve yöntem düzeyindeki gösterir:
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("TableInput")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  ```
+
+Depolama hesabı şu sırayla belirlenir:
+
+* `Table` Özniteliğin `Connection` özelliği.
+* `StorageAccount` Aynı parametre olarak uygulanan öznitelik `Table` özniteliği.
+* `StorageAccount` İşlevi için uygulanan öznitelik.
+* `StorageAccount` Sınıfına uygulanan öznitelik.
+* İşlev uygulaması ("AzureWebJobsStorage" uygulama ayarı) için varsayılan depolama hesabı.
+
+## <a name="input---configuration"></a>Girişi - yapılandırma
+
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `Table` özniteliği.
+
+|Function.JSON özelliği | Öznitelik özelliği |Açıklama|
+|---------|---------|----------------------|
+|**türü** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**yönü** | yok | ayarlanmalıdır `in`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**adı** | yok | Tablo veya işlev kodu varlığı temsil eden değişken adı. | 
+|**tableName** | **TableName** | Tablonun adı.| 
+|**partitionKey** | **PartitionKey** |İsteğe bağlı. Okunacak tablo varlığın bölüm anahtarı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
+|**rowKey** |**RowKey** | İsteğe bağlı. Okunacak tablo varlığın satır anahtarı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
+|**Al** |**Al** | İsteğe bağlı. JavaScript'te okumak için varlıklar maksimum sayısı. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
+|**Filtre** |**Filtre** | İsteğe bağlı. Bir OData filtre ifadesi JavaScript'te giriş tablosu. Bkz: [kullanım](#input---usage) bölüm bu özelliği kullanmak nasıl hakkında yönergeler için.| 
+|**bağlantı** |**Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br/>Yerel olarak geliştirirken, uygulama ayarları değerlerini gidin [local.settings.json dosya](functions-run-local.md#local-settings-file).|
+
+## <a name="input---usage"></a>Giriş - kullanım
+
+Tablo depolama giriş bağlama aşağıdaki senaryoları destekler:
+
+* **C# veya C# komut satırındaki okuma**
+
+  Ayarlama `partitionKey` ve `rowKey`. Tablo verisi yöntemi parametresini kullanarak erişim `T <paramName>`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T`genellikle uygulayan bir tür olduğundan `ITableEntity` veya türetilen `TableEntity`. `filter` Ve `take` özellikleri bu senaryoda kullanılmaz. 
+
+* **C# ya da C# komut dosyasında bir veya daha fazla satır okuma**
+
+  Tablo verisi yöntemi parametresini kullanarak erişim `IQueryable<T> <paramName>`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T`uygulayan bir tür olmalıdır `ITableEntity` veya türetilen `TableEntity`. Kullanabileceğiniz `IQueryable` tüm gerekli filtreleme yapmak için yöntemleri. `partitionKey`, `rowKey`, `filter`, Ve `take` özellikleri bu senaryoda kullanılmaz.  
+
+> [!NOTE]
+> `IQueryable`işe yaramazsa şekilde .NET Core içinde çalışmıyor [işlevleri v2 çalışma zamanı](functions-versions.md).
+
+  Alternatif kullanmaktır bir `CloudTable paramName` Azure depolama SDK'sını kullanarak tabloyu okumak için yöntem parametresi.
+
+* **JavaScript bir veya daha fazla satır okuma**
+
+  Ayarlama `filter` ve `take` özellikleri. Ayarlamazsanız `partitionKey` veya `rowKey`. Giriş tablosu varlık (veya varlıklar) kullanarak erişim `context.bindings.<name>`. Seri durumdan çıkarılmış nesneler sahip `RowKey` ve `PartitionKey` özellikleri.
+
+## <a name="table-storage-output-binding"></a>Tablo depolama bağlama çıktı
+
+Bir Azure depolama hesabındaki bir tablo varlıkları yazılacak bağlama Azure Table depolama çıktı kullanın.
+
+## <a name="output---example"></a>Çıktı - örnek
+
+Dile özgü örneğe bakın:
+
+* [Önceden derlenmiş C#](#output---c-example)
+* [C# betiği](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Çıktı - C# örnek
+
+Aşağıdaki örnekte gösterildiği [C# önceden derlenmiş](functions-dotnet-class-library.md) tek bir tablo satırı yazmak için bir HTTP tetikleyicisi kullanan kod. 
+
+```csharp
+public class TableStorage
 {
-    "name": "<Name of input parameter in function signature>",
-    "type": "table",
-    "direction": "out",
-    "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to write - see below>",
-    "rowKey": "<RowKey of table entity to write - see below>",
-    "connection": "<Name of app setting - see below>",
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableOutput")]
+    [return: Table("MyTable")]
+    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
+    {
+        log.Info($"C# http trigger function processed: {input.Text}");
+        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
+    }
 }
 ```
 
-Şunlara dikkat edin: 
+### <a name="output---c-script-example"></a>Çıktı - C# kod örneği
 
-* Kullanım `partitionKey` ve `rowKey` birlikte tek bir varlık yazmak için. Bu özellikleri isteğe bağlıdır. Ayrıca belirtebilirsiniz `PartitionKey` ve `RowKey` işlevi kodunuzda varlık nesnesi oluşturduğunuzda.
-* `connection`Depolama bağlantı dizesi içeren bir uygulama ayarı adı içermelidir. Standart Düzenleyici'de Azure portalında **tümleştir** sekmesinde, bir depolama alanı oluşturduğunuzda, hesap ya da mevcut bir seçer için bu uygulama ayarı yapılandırır. Ayrıca [bu uygulamayı el ile ayarlama yapılandırma](functions-how-to-use-azure-function-app-settings.md#settings). 
+Aşağıdaki örnek, bağlama tablo çıktısı gösterir bir *function.json* dosya ve [C# betik](functions-reference-csharp.md) bağlama kullanan kod. İşlev birden çok tablo varlıkları yazar.
 
-<a name="outputusage"></a>
-
-## <a name="output-usage"></a>Çıktı kullanımı
-C# İşlevler, tablo çıktısı adlandırılmış kullanarak bağladığınız `out` işlevi imzanız parametresinde ister `out <T> <name>`, burada `T` veri türü, verileri seri hale getirmek istediğiniz olduğunda ve `paramName` , belirtilen adı [bağlama çıktı](#output). Node.js işlevlerde kullanarak çıktıyı tabloya erişim `context.bindings.<name>`.
-
-Node.js veya C# işlevleri nesneleri seri hale getirebilir. C# işlevlerde, aşağıdaki türlerine bağlayabilirsiniz:
-
-* Uygulayan herhangi bir türü`ITableEntity`
-* `ICollector<T>`(birden çok varlık çıkarmak için. Bkz: [örnek](#outcsharp).)
-* `IAsyncCollector<T>`(zaman uyumsuz sürümü `ICollector<T>`)
-* `CloudTable`(Azure depolama SDK'sını kullanma. Bkz: [örnek](#readmulti).)
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Çıkış örneği
-Aşağıdaki *function.json* ve *run.csx* örnek nasıl birden çok tablo varlıkları yazılacağını gösterir.
+Burada *function.json* dosyası:
 
 ```json
 {
@@ -207,7 +421,7 @@ Aşağıdaki *function.json* ve *run.csx* örnek nasıl birden çok tablo varlı
     },
     {
       "tableName": "Person",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -217,15 +431,10 @@ Aşağıdaki *function.json* ve *run.csx* örnek nasıl birden çok tablo varlı
 }
 ```
 
-Birden çok tablo varlıkları oluşturur dile özgü örneğe bakın.
+[Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.js](#outnodejs)
+C# betik kod aşağıdaki gibidir:
 
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>C# çıktı örneği #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -250,9 +459,37 @@ public class Person
 }
 
 ```
-<a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>F # çıktı örneği #
+### <a name="output---f-example"></a>Çıktı - F # örnek
+
+Aşağıdaki örnek, bağlama tablo çıktısı gösterir bir *function.json* dosya ve [F # betiği](functions-reference-fsharp.md) bağlama kullanan kod. İşlev birden çok tablo varlıkları yazar.
+
+Burada *function.json* dosyası:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+F # kod aşağıdaki gibidir:
+
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -270,9 +507,36 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
               Name = "Name" + i.ToString() })
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>Çıktı - JavaScript örneği
 
-### <a name="output-sample-in-nodejs"></a>Node.js çıktı örneği
+Aşağıdaki örnek, bağlama tablo çıktısı gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev birden çok tablo varlıkları yazar.
+
+Burada *function.json* dosyası:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+[Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+JavaScript kod aşağıdaki gibidir:
+
 ```javascript
 module.exports = function (context) {
 
@@ -290,54 +554,65 @@ module.exports = function (context) {
 };
 ```
 
-<a name="readmulti"></a>
+## <a name="output---attributes-for-precompiled-c"></a>Çıktı - öznitelikler için önceden derlenmiş C#
 
-## <a name="sample-read-multiple-table-entities-in-c"></a>Örnek: C# birden çok tablo varlıkları okuma  #
-Aşağıdaki *function.json* ve C# kod örneği sıra iletide belirtilen bir bölüm anahtarı için varlıklar okur.
+ İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "tableBinding",
-      "type": "table",
-      "connection": "MyStorageConnection",
-      "tableName": "Person",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-C# kodu, Azure depolama SDK'sına bir başvuru ekler, böylece varlık türü öğesinden türetilen `TableEntity`.
+Özniteliğin Oluşturucusu tablo adını alır. Üzerinde kullanılabilir bir `out` parametresi veya aşağıdaki örnekte gösterildiği gibi işlevinin dönüş değeri:
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-using Microsoft.WindowsAzure.Storage.Table;
-
-public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
-    {
-        log.Info($"Name: {person.Name}");
-    }
-}
-
-public class Person : TableEntity
-{
-    public string Name { get; set; }
-}
+[FunctionName("TableOutput")]
+[return: Table("MyTable")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
 ```
 
-## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+Ayarlayabileceğiniz `Connection` özelliğini kullanmak için depolama hesabı aşağıdaki örnekte gösterildiği gibi belirtin:
 
+```csharp
+[FunctionName("TableOutput")]
+[return: Table("MyTable", Connection = "StorageConnectionAppSetting")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
+```
+
+Kullanabileceğiniz `StorageAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde depolama hesabı belirtin. Daha fazla bilgi için bkz: [girişi - öznitelikler için C# önceden derlenmiş](#input---attributes-for-precompiled-c).
+
+## <a name="output---configuration"></a>Çıktı - yapılandırma
+
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `Table` özniteliği.
+
+|Function.JSON özelliği | Öznitelik özelliği |Açıklama|
+|---------|---------|----------------------|
+|**türü** | yok | ayarlanmalıdır `table`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**yönü** | yok | ayarlanmalıdır `out`. Azure portalında bağlama oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**adı** | yok | Tablo veya varlığı temsil eden işlevi kod içinde kullanılan değişken adı. Kümesine `$return` işlevi dönüş değeri başvurmak için.| 
+|**tableName** |**TableName** | Tablonun adı.| 
+|**partitionKey** |**PartitionKey** | Yazılacak tablo varlığın bölüm anahtarı. Bkz: [kullanımı bölümü](#output---usage) nasıl bu özelliği kullanmak hakkında yönergeler için.| 
+|**rowKey** |**RowKey** | Yazılacak tablo varlığın satır anahtarı. Bkz: [kullanımı bölümü](#output---usage) nasıl bu özelliği kullanmak hakkında yönergeler için.| 
+|**bağlantı** |**Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br/>Yerel olarak geliştirirken, uygulama ayarları değerlerini gidin [local.settings.json dosya](functions-run-local.md#local-settings-file).|
+
+## <a name="output---usage"></a>Çıktı - kullanım
+
+Table storage bağlama destekler aşağıdaki senaryolarda çıktı:
+
+* **Herhangi bir dilde bir satır yazın**
+
+  Yöntem parametresi gibi kullanarak çıktı tablosu varlık, C# ve C# betik erişim `out T paramName` veya işlev dönüş değeri. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T`Bölüm anahtarı ve satır anahtarı tarafından sağlanan herhangi bir seri hale getirilebilir türü olabilir *function.json* dosya veya `Table` özniteliği. Aksi takdirde, `T` içeren bir tür olmalıdır `PartitionKey` ve `RowKey` özellikleri. Bu senaryoda, `T` genellikle uygulayan `ITableEntity` veya türetilen `TableEntity`, ancak gerekli değildir.
+
+* **C# veya C# içinde bir veya daha fazla satır yazma**
+
+  C# ve C# betik çıktı tablosu varlık yöntemi parametresini kullanarak erişim `ICollector<T> paramName` veya `ICollectorAsync<T> paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. `T`eklemek istediğiniz varlıklar şeması belirtir. Genellikle, `T` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. Bölüm anahtarı ve satır anahtarı değerlerini *function.json* veya `Table` öznitelik oluşturucunun Bu senaryoda kullanılmaz.
+
+  Alternatif kullanmaktır bir `CloudTable paramName` yöntem parametresi Azure depolama SDK'sını kullanarak tabloya yazabilirsiniz.
+
+* **Bir veya daha fazla satır yazmanıza**
+
+  JavaScript işlevleri kullanarak çıktıyı tabloya erişim `context.bindings.<name>`.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)

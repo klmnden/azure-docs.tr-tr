@@ -4,7 +4,7 @@ description: "Azure üzerinde bir SQL Server VM depolanan verileri araştırmak 
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 4777a6acbf3b45ab207d64feb7cba52f61f38eeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5079fc9d9a0ccd89664407fcdba9a7958e1407d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Azure üzerindeki SQL Server Sanal Makinesi verilerini keşfetme
 Bu belge, Azure üzerinde bir SQL Server VM depolanan verileri araştırmak alınmaktadır. Bu SQL kullanarak veri wrangling veya Python gibi bir programlama dili kullanılarak yapılabilir.
@@ -69,6 +69,6 @@ Aşağıdaki bağlantı dizesi biçimi Python pyodbc (Değiştir servername, dbn
 
 Konusunda anlatıldığı gibi Pandas DataFrame ile çalışabilirsiniz artık [veri bilimi ortamınızdaki işlem Azure Blob veri](data-blob.md).
 
-## <a name="cortana-analytics-process-in-action-example"></a>Eylem örnekte Cortana Analytics işlemi
+## <a name="the-team-data-science-process-in-action-example"></a>Eylem örnekte takım veri bilimi işlemi
 Cortana Analytics ortak bir veri kümesini kullanarak işlem uçtan uca kılavuz örneği için bkz: [eylem takım veri bilimi işlem: SQL Server'ı kullanarak](sql-walkthrough.md).
 

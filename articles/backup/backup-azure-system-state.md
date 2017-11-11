@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 5481e9139f18cb88ce5152776fa18df3f9441c80
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager dağıtım Windows sistem durumu yedekleme
 Bu makalede, Azure için Windows Server sistem durumunu yedekleme açıklanmaktadır. Bu, size temel işlemler boyunca yol göstermeye yönelik bir öğreticidir.
@@ -35,7 +35,7 @@ Windows Server sistem durumunu yedeklemek için verileri depolamak istediğiniz 
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure Portal](https://portal.azure.com/)'da oturum açın.
 2. Hub menüsünde **Diğer hizmetler**'e tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazıp **Kurtarma Hizmetleri kasaları** seçeneğine tıklayın.
 
-    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
     Abonelikte kurtarma hizmetleri kasaları varsa kasalar listelenir.
 3. **Kurtarma Hizmetleri kasaları** menüsünde **Ekle**'ye tıklayın.

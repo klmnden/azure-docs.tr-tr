@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 11/10/2017
 ms.author: jingwang
-ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 990bffa728977efead7b2b20847ff2adaa63a7f8
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Kopya etkinliği Azure Data factory'de hataya dayanıklılık
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/18/2017
 Azure Data Factory kopyalama etkinliğinde uyumsuz satırları kaynak ve havuz veri depoları arasında veri kopyalama işlemi sırasında işleme için iki yol sunar:
 
 - İptal etmek ve kopyalama başarısız uyumsuz veriler olduğunda etkinliği karşılaştı (varsayılan davranıştır).
-- Tüm verileri hata toleransı ekleme ve uyumsuz veri satırları atlanıyor kopyalama devam edebilirsiniz. Ayrıca, Azure Blob depolama alanına uyumsuz satırları oturum açabilir. Ardından, hatanın nedenini öğrenmek, veri kaynağındaki verileri düzeltin ve kopyalama etkinliği yeniden deneme için günlüğünü de inceleyebilirsiniz.
+- Tüm verileri hata toleransı ekleme ve uyumsuz veri satırları atlanıyor kopyalama devam edebilirsiniz. Ayrıca, Azure Blob storage veya Azure Data Lake Store uyumsuz satırları oturum açabilir. Ardından, hatanın nedenini öğrenmek, veri kaynağındaki verileri düzeltin ve kopyalama etkinliği yeniden deneme için günlüğünü de inceleyebilirsiniz.
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [kopyalama etkinliği hata toleransı V1](v1/data-factory-copy-activity-fault-tolerance.md).
@@ -50,23 +50,24 @@ Aşağıdaki örnek kopyalama etkinliği uyumsuz satırları atlanıyor yapılan
     },
     "sink": {
         "type": "SqlSink",
-    },         
-    "enableSkipIncompatibleRow": true,           
+    },
+    "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
          "linkedServiceName": {
-              "referenceName": "AzureBlobLinkedService",
+              "referenceName": "<Azure Storage or Data Lake Store linked service>",
               "type": "LinkedServiceReference"
             },
             "path": "redirectcontainer/erroroutput"
      }
 }
 ```
+
 Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Veya kopyalama sırasında uyumsuz satırları atlanacak belirtir. | True<br/>False (varsayılan) | Hayır
 redirectIncompatibleRowSettings | Zaman uyumsuz satırları günlüğe kaydetmek istediğiniz bir grup olabilir özellik belirtilmiş. | &nbsp; | Hayır
-linkedServiceName | Atlanan satırları içeren günlüğü depolamak için Azure Storage bağlı hizmeti. | AzureStorage veya AzureStorageSas adı günlük dosyasını depolamak için kullanmak istediğiniz depolama örneğine başvurur hizmeti bağlı. | Hayır
-Yol | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verileri günlüğe kaydetmek için kullanmak istediğiniz Blob Depolama yolunu belirtin. Bir yol belirtmezseniz, hizmet bir kapsayıcı oluşturur. | Hayır
+linkedServiceName | Bağlı hizmetin adı [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) veya [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) Atlanan satırları içeren günlüğü depolamak için. | Adı bir `AzureStorage` veya `AzureDataLakeStore` günlük dosyasını depolamak için kullanmak istediğiniz örneğine başvurur bağlantılı hizmet türü. | Hayır
+Yol | Atlanan satır içeren bir günlük dosyası yolu. | Uyumsuz verileri günlüğe kaydetmek için kullanmak istediğiniz yolu belirtin. Bir yol belirtmezseniz, hizmet bir kapsayıcı oluşturur. | Hayır
 
 ## <a name="monitor-skipped-rows"></a>Atlanan satır izleme
 Çalıştırma kopyalama etkinliği tamamlandıktan sonra kopyalama etkinliği çıktıda Atlanan satır sayısını görebilirsiniz:

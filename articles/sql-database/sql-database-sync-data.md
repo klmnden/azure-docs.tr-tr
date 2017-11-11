@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: c69fab3f711e2a650d088ccec1c05ec29e0e567b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: fe11926cb7f6b2a80913895b685acfcc433e9805
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
 
 SQL veri eşitleme veri birden çok SQL veritabanları ve SQL Server örnekleri arasında çift yönlü Seç eşitlemenize olanak sağlayan Azure SQL veritabanı üzerine kurulu bir hizmettir.
 
@@ -44,7 +44,7 @@ Veri Eşitleme bir hub ve bağlı bileşen topolojisi verileri eşitlemek için 
 -   **Eşitleme veritabanı** veri eşitleme için meta veri ve günlük içerir. Eşitleme veritabanı Hub veritabanı ile aynı bölgede bir Azure SQL veritabanı bulunan olması gerekir. Eşitleme müşteri oluşturuldu ve ait müşteri veritabanıdır.
 
 > [!NOTE]
-> Üzerinde bir şirket içi veritabanı kullanıyorsanız, zorunda [bir yerel Aracısı yapılandırın.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Üzerinde bir şirket içi veritabanı kullanıyorsanız, zorunda [yerel aracı yapılandırma](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Veritabanları arasında eşitleme verileri](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -155,7 +155,7 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 
 SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 
--   [Azure SQL veri eşitlemeye başlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL veri eşitleme ayarı](sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL veri eşitleme için en iyi yöntemler](sql-database-best-practices-data-sync.md)
 -   [OMS günlük analizi ile İzleyici Azure SQL veri eşitleme](sql-database-sync-monitor-oms.md)
 -   [Azure SQL veri eşitleme ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)

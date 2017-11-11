@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure olay kılavuzuna giriş
 
@@ -25,6 +25,30 @@ Belirli olayları farklı uç noktalar, birden çok uç nokta için çok noktaya
 Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başlamak istiyorsanız, bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md).
 
 ![Olay kılavuz işlevsel modeli](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>Olay yayımcıları
+
+Şu anda aşağıdaki Azure hizmetlerini olay kılavuz için yerleşik yayımcı desteğine sahiptir:
+
+* Kaynak grupları (yönetim işlemlerini)
+* Azure abonelikleri (yönetim işlemlerini)
+* Event Hubs
+* Depolama blobu
+* Özel konular
+
+Diğer Azure hizmetleriyle bu yıl eklenir.
+
+## <a name="event-handlers"></a>Olay işleyicileri
+
+Şu anda aşağıdaki Azure hizmetlerini olay kılavuz yerleşik işleyici desteği vardır: 
+
+* Azure İşlevleri
+* Logic Apps
+* Azure Otomasyonu
+* Web kancaları
+* Microsoft Akış
+
+Diğer Azure hizmetleriyle bu yıl eklenir.
 
 ## <a name="concepts"></a>Kavramlar
 
@@ -52,34 +76,6 @@ Azure olay kılavuz önemli özelliklerinden bazıları şunlardır:
 * **Özel olaylar** -olay kılavuz rota, filtre ve güvenilir bir şekilde teslim özel olaylar uygulamanızda kullanın.
 
 Olay kılavuz, olay hub'ları ve Service Bus karşılaştırması için bkz: [iletileri teslim Azure hizmetleri arasında seçim yapma](compare-messaging-services.md).
-
-## <a name="built-in-publisher-and-handler-integration"></a>Yerleşik yayımcı ve işleyici ile tümleştirme
-
-Azure Yayımcılar ve işleyicileri dahil olmak üzere çok sayıda hizmetlerini kullanarak yerleşik olay destek sunar.
-
-### <a name="publishers"></a>Yayımcılar
-
-Şu anda aşağıdaki Azure hizmetlerini olay kılavuz için yerleşik yayımcı desteğine sahiptir:
-
-* Kaynak grupları (yönetim işlemlerini)
-* Azure abonelikleri (yönetim işlemlerini)
-* Event Hubs
-* Depolama blobu
-* Özel konular
-
-Diğer Azure hizmetleriyle bu yıl eklenir.
-
-### <a name="handlers"></a>İşleyicileri
-
-Şu anda aşağıdaki Azure hizmetlerini olay kılavuz yerleşik işleyici desteği vardır: 
-
-* Azure İşlevleri
-* Logic Apps
-* Azure Otomasyonu
-* Web kancaları
-* Microsoft Akış
-
-Diğer Azure hizmetleriyle bu yıl eklenir.
 
 ## <a name="what-can-i-do-with-event-grid"></a>Olay kılavuzla ne yapabilirim?
 

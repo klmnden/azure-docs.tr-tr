@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: badaefb4986f573362babea81d704bf2be067d6b
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığında MySQL veritabanları kullanın
 
@@ -153,7 +153,7 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbi
 Sistem performansı ve indirme hızına bağlı olarak, yükleme olarak birkaç saat 20 dakika veya uzun olarak biraz sürebilir. MySQLAdapter dikey kullanılabilir durumda değilse, Yönetici portalı yenileyin.
 
 > [!NOTE]
-> Yükleme 90 dakikadan uzun sürerse, başarısız olabilir ve ekranında ve günlük dosyasında bir hata iletisi görürsünüz. Dağıtımı başarısız olan adımdan denenir. Önerilen bellek ve çekirdek belirtimleri karşılamıyor sistemleri MySQL RP dağıtmak mümkün olmayabilir.
+> Yükleme 90 dakikadan uzun sürerse, başarısız olabilir ve ekranında ve günlük dosyasında bir hata iletisi görürsünüz. Dağıtımı başarısız olan adımdan denenir. Önerilen bellek ve vCPU belirtimleri karşılamıyor sistemleri MySQL RP dağıtmak mümkün olmayabilir.
 
 
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: markscu
-ms.openlocfilehash: 541086d4b2f0c52f9e03c3993311705b7475e9a6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Düşük öncelikli sanal makineleri Batch ile kullanma
 
@@ -71,7 +71,7 @@ Azure toplu işlem kullanmasına ve düşük öncelikli Vm'lerden yararlanmak ko
 
 -   Görevler kesintiye toplu algılar ve otomatik olarak yeniden çalıştırılacak görevleri requeues.
 
--   Düşük öncelikli sanal makineleri ayrı çekirdek kotası, özel VM'ler için farklıdır. 
+-   Düşük öncelikli sanal makineleri ayrı vCPU kotası, özel VM'ler için farklıdır. 
     Düşük öncelikli sanal makineleri daha az maliyet olduğundan kota düşük öncelikli sanal makineleri için özel VM'ler için kota daha yüksektir. Daha fazla bilgi için bkz: [Batch Hizmeti kotaları ve sınırlarına](batch-quota-limit.md#resource-quotas).    
 
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: glenga
-ms.openlocfilehash: 18d3a87da8c240a3153dfa68f9b1d8bd17bbe693
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 10943769e46adf05642e19d6be297820171bb9f6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Azure işlevleri C# betik Geliştirici Başvurusu
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -375,7 +375,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 
 `BindingTypeAttribute`bağlama tanımlayan bir .NET özniteliktir ve `T` , bağlama türü tarafından desteklenen giriş veya çıkış türü. `T`Ayrıca olamaz bir `out` parametre türü (gibi `out JObject`). Örneğin, Mobile Apps Tablo Bağlama destekler çıktı [altı türleri çıktı](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ancak yalnızca kullanabilirsiniz [ICollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) veya [IAsyncCollector<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)için `T`.
 
-Aşağıdaki kod örneği oluşturur bir [depolama blobu çıktı bağlama](functions-bindings-storage-blob.md#using-a-blob-output-binding) blob ile çalışma zamanında tanımlanan yol sonra Yazar bir dize için blob.
+Aşağıdaki kod örneği oluşturur bir [depolama blobu çıktı bağlama](functions-bindings-storage-blob.md#blob-storage-input--output-bindings) blob ile çalışma zamanında tanımlanan yol sonra Yazar bir dize için blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;

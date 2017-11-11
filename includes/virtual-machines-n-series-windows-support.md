@@ -4,8 +4,12 @@
 
 | İşletim Sistemi | Sürücü |
 | -------- |------------- |
-| Windows Server 2016 | [370.12](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
-| Windows Server 2012 R2 | [370.12](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+| Windows Server 2016 | [385.41](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [385.41](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+
+> [!NOTE]
+> Microsoft NV VM'ler için NVIDIA kılavuz sürücü yükleyiciler yeniden dağıtır. Bu kılavuz sürücüleri yalnızca Azure NV Vm'lerinde yükleyin. Bu sürücüleri kılavuz Azure sanal GPU yazılım lisansı içerir.
+>
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>NC örnekleri - NVIDIA Tesla sürücüleri
 
