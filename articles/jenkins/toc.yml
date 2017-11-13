@@ -1,0 +1,65 @@
+- name: Azure üzerinde Jenkins
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Azure üzerinde Jenkins hakkında
+      href: overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Jenkins sunucusu oluşturma
+      href: /azure/jenkins/install-jenkins-solution-template
+- name: Öğreticiler
+  items:
+    - name: App Service’e CI/CD
+      href: /azure/jenkins/java-deploy-webapp-tutorial
+      maintainContext: true
+    - name: Kubernetes’e CI/CD
+      href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
+      maintainContext: true
+    - name: Linux VM’lere CI/CD
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+      maintainContext: true
+    - name: İşlem hattı işinde Azure kaynakları oluşturma
+      href: /azure/jenkins/execute-cli-jenkins-pipeline
+      maintainContext: true
+    - name: Azure VM aracılarıyla ölçeklendirme
+      href: /azure/jenkins/jenkins-azure-vm-agents
+      maintainContext: true
+- name: Nasıl yapılır
+  items:
+    - name: Azure üzerinde Jenkins güvenliğini sağlama
+      href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
+    - name: App Service eklentisini kullanma
+      href: deploy-jenkins-app-service-plugin.md
+    - name: Azure Depolama’ya yayımlama
+      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+      maintainContext: true
+    - name: VSTS ile Jenkins kullanma
+      href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+- name: Örnekler
+  items:
+    - name: Örnek işler ve betikler
+      href: 'https://github.com/Azure/azure-devops-utils/tree/master/jenkins'
+- name: Kaynaklar
+  items:
+    - name: Eklentiler
+      items:
+        - name: Azure App Service eklentisi
+          href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Azure Kapsayıcı Aracıları eklentisi
+          href: 'https://plugins.jenkins.io/azure-container-agents'
+        - name: Azure Container Service eklentisi
+          href: 'https://plugins.jenkins.io/azure-acs'
+        - name: Azure Kimlik Bilgisi eklentisi
+          href: 'https://plugins.jenkins.io/azure-credentials'
+        - name: Azure İşlev eklentisi
+          href: 'https://plugins.jenkins.io/azure-function'
+        - name: Azure Depolama eklentisi
+          href: 'https://plugins.jenkins.io/windows-azure-storage'
+        - name: Azure VM aracıları eklentisi
+          href: 'https://plugins.jenkins.io/azure-vm-agents'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Jenkins giriş sayfası
+      href: 'https://jenkins.io/'

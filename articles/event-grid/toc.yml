@@ -46,6 +46,15 @@
       href: subscription-creation-schema.md
     - name: Olay şeması
       href: event-schema.md
+      items:
+        - name: Azure abonelikleri
+          href: event-schema-subscriptions.md
+        - name: Blob depolama
+          href: event-schema-blob-storage.md
+        - name: Event Hubs
+          href: event-schema-event-hubs.md
+        - name: Kaynak grupları
+          href: event-schema-resource-groups.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

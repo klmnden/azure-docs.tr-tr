@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Veri taşıma
+    - name: Veri kopyalama
       items:
-        - name: Kopyalama Etkinliği’ne genel bakış
+        - name: Desteklenen kaynaklardan hedeflere veri kopyalama
           href: copy-activity-overview.md
+        - name: Bölümlenmiş verileri okuma veya yazma
+          href: how-to-read-write-partitioned-data.md
         - name: Bağlayıcılar
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Azure Data Lake Store
               href: connector-azure-data-lake-store.md
+            - name: MySQL için Azure Veritabanı
+              href: connector-azure-database-for-mysql.md
             - name: Azure Dosya Depolama
               href: connector-azure-file-storage.md
             - name: Azure Search
@@ -168,6 +172,8 @@
       items:
         - name: If Condition Etkinliği
           href: control-flow-if-condition-activity.md
+        - name: Until Etkinliği
+          href: control-flow-until-activity.md
         - name: Web Etkinliği
           href: control-flow-web-activity.md
         - name: Arama Etkinliği
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: Her Bir Etkinlik için
           href: control-flow-for-each-activity.md
+        - name: Wait Etkinliği
+          href: control-flow-wait-activity.md
         - name: İfade Dili
           href: control-flow-expression-language-functions.md
         - name: Sistem değişkenleri
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Kimlik bilgilerini şirket içinde barındırılan tümleştirme çalışma zamanı için şifreleme
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Veri fabrikası hizmet kimliği
+          href: data-factory-service-identity.md
     - name: İzleme ve yönetme
       items:
         - name: SDK’ları kullanma

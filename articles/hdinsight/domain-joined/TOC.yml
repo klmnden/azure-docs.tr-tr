@@ -1,6 +1,6 @@
 - name: Azure HDInsight Belgeleri
   href: /azure/hdinsight
-- name: HDInsight’ta çok kullanıcılı kümeler
+- name: HDInsight üzerinde Enterprise Security
   items:
     - name: Genel Bakış
       href: apache-domain-joined-introduction.md
@@ -13,6 +13,8 @@
   items:
     - name: Etki alanına katılmış HDInsight kümelerini yapılandırma
       href: apache-domain-joined-configure.md
+    - name: Azure AD DS kullanarak Etki alanına katılmış HDInsight’ı yapılandırma
+      href: apache-domain-joined-configure-using-azure-adds.md
     - name: Hive ilkelerini yapılandırma
       href: apache-domain-joined-run-hive.md
     - name: Kapasite planlaması

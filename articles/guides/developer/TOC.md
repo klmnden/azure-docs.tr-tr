@@ -1,7 +1,7 @@
 # Genel Bakış
 ## [Geliştirici kılavuzu](azure-developer-guide.md) 
-## [Azure hizmetlerine genel bakış](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Portala genel bakış](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
+## [Azure hizmetlerine genel bakış](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
+## [Portala genel bakış](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK’lar ve araçlar](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Hızlı Başlangıç
@@ -107,6 +107,7 @@
 ## [Faturalandırma](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Kaynaklar
+## [Azure limitleri ve kotaları](../../azure-subscription-service-limits.md)
 ## [Azure bölgeleri](https://azure.microsoft.com/regions/)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
