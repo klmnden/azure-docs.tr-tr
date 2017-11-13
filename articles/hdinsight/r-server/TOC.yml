@@ -20,8 +20,6 @@
       items:
         - name: Depolama seçenekleri
           href: r-server-storage.md
-        - name: R Studio’yu yükleme
-          href: r-server-install-r-studio.md
         - name: İşlem bağlamı
           href: r-server-compute-contexts.md
         - name: ScaleR ve SparkR
