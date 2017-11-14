@@ -1,6 +1,6 @@
 ---
 title: "Azure Data Factory veri okumak veya yazmak nasıl bölümlenmiş | Microsoft Docs"
-description: "Bölümlenmiş veri Azure Data Factory sürüm 2 okumaya veya yazmaya öğrenin."
+description: "Azure Data Factory sürüm 2 bölümlenmiş veri okunamıyor veya yazılamıyor öğrenin."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: ee83fce3eeef4bde6dc8e0ea6f17b40396619412
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2066847feb3dcdf36ead8901a679d8cae7a6acde
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Azure Data Factory sürüm 2 verileri okumak veya yazmak nasıl bölümlenmiş
 Sürüm 1'de, Azure Data Factory veri okunurken veya bölümlenmiş SliceStart/SliceEnd/WindowStart/WindowEnd sistem değişkenleri kullanılarak yazılırken desteklenir. Sürüm 2'de, ardışık düzen parametre ve tetikleyici başlangıç saati ve zamanlanan saat parametresinin değeri kullanarak bu davranışı elde edebilirsiniz. 
@@ -38,19 +38,19 @@ PartitonedBy özelliği hakkında daha fazla bilgi için bkz: [sürüm 1 Azure B
 
 Sürüm 2'de, bu davranışı elde etmenin bir yolu aşağıdaki eylemleri yapmaktır: 
 
-1. Tanımlayan bir **parametresi kanal** dize türünde. Aşağıdaki örnekte, ardışık düzen parametre adıdır **ScheduledRunTime**. 
-2. Ayarlama **folderPath** parametresinin ardışık düzeni için örnekte gösterildiği gibi değerine veri kümesi tanımında. 
+1. Tanımlayan bir **parametresi kanal** dize türünde. Aşağıdaki örnekte, ardışık düzen parametre adıdır **scheduledRunTime**. 
+2. Ayarlama **folderPath** ardışık düzen parametresinin değeri için veri kümesi tanımında. 
 3. Ardışık Düzen çalıştırmadan önce parametresi için bir sabit kodlanmış değer geçirin. Veya bir tetikleyicinin başlangıç saati veya zamanlanan süreden çalışma zamanında dinamik olarak geçirin. 
 
 ```json
 "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.ScheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.ScheduledRunTime, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
 },
 ```
 
 ## <a name="pass-in-value-from-a-trigger"></a>Değer tetikleyiciden geçirmek
-Aşağıdaki tetikleyici tanımı'nda, tetikleyici zamanlanmış süre ScheduledRunTime ardışık düzen parametresi için bir değer olarak geçirilir: 
+Aşağıdaki tetikleyici tanımı'nda, tetikleyici zamanlanmış süre için bir değer olarak geçirilen **scheduledRunTime** parametresi kanal: 
 
 ```json
 {
@@ -64,7 +64,7 @@ Aşağıdaki tetikleyici tanımı'nda, tetikleyici zamanlanmış süre Scheduled
                 "referenceName": "MyPipeline"
             },
             "parameters": {
-                "ScheduledRunTime": "@trigger().scheduledTime"
+                "scheduledRunTime": "@trigger().scheduledTime"
             }
         }
     }
@@ -80,7 +80,7 @@ Aşağıdaki tetikleyici tanımı'nda, tetikleyici zamanlanmış süre Scheduled
   "type": "AzureBlob",
   "typeProperties": {
     "folderPath": {
-      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.date, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.date, '%M'), '/dayno=', formatDateTime(pipeline().parameters.date, '%d'), '/')",
+      "value": "@concat(pipeline().parameters.blobContainer, '/logs/marketingcampaigneffectiveness/yearno=', formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy'), '/monthno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%M'), '/dayno=', formatDateTime(pipeline().parameters.scheduledRunTime, '%d'), '/')",
       "type": "Expression"
     },
     "format": {
@@ -134,15 +134,15 @@ Ardışık düzen tanımı:
                         "type": "Expression"
                     },
                     "Year": {
-                        "value": "@formatDateTime(pipeline().parameters.date, 'yyyy')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, 'yyyy')",
                         "type": "Expression"
                     },
                     "Month": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%M')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%M')",
                         "type": "Expression"
                     },
                     "Day": {
-                        "value": "@formatDateTime(pipeline().parameters.date, '%d')",
+                        "value": "@formatDateTime(pipeline().parameters.scheduledRunTime, '%d')",
                         "type": "Expression"
                     }
                 }
@@ -154,7 +154,7 @@ Ardışık düzen tanımı:
             "name": "HivePartitionGameLogs"
         }],
         "parameters": {
-            "date": {
+            "scheduledRunTime": {
                 "type": "String"
             },
             "blobStorageAccount": {

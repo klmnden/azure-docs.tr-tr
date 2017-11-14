@@ -3,7 +3,7 @@ title: "Visual Studio ile uzak bir küme için bir uygulama yayımlama | Microso
 description: "Visual Studio kullanarak bir uzak service fabric kümesi için bir uygulama yayımlamak öğrenin."
 services: service-fabric
 documentationcenter: na
-author: cawams
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: faecd892-eb54-4d9c-8023-c67442afb8e8
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
-ms.author: cawa
-ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ryanwi
+ms.openlocfilehash: 60be4f285d658c7922f6a3ff620ee3b0aaaccf72
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="deploy-and-remove-applications-using-visual-studio"></a>Dağıtma ve Visual Studio kullanarak uygulamaları kaldırma
 > [!div class="op_single_selector"]

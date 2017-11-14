@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>CLI'yi yükleme ve Azure yığını ile kullanım için yapılandırma
 
@@ -204,6 +204,15 @@ az group create \
 Kaynak grubu başarıyla oluşturulduysa, önceki komutu aşağıdaki yeni oluşturulan kaynağın özelliklerini çıkarır:
 
 ![Kaynak grubu oluşturmak çıktı](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>Bilinen sorunlar
+CLI Azure yığınında kullanırken bilmeniz gereken bazı bilinen sorunlar vardır:
+
+* CLI etkileşimli mod yani `az interactive` komutu Azure yığınında henüz desteklenmiyor.
+* Sanal makine görüntülerini Azure yığınında kullanılabilir listesini almak için kullanmak `az vm images list --all` komutu yerine `az vm image list` komutu. Belirtme `--all` yanıtı yalnızca Azure yığın ortamınızda kullanılabilir görüntüleri döndürür emin olur. 
+* Mevcut olan sanal makine görüntüsü diğer adlar Azure yığını için geçerli olmayabilir. Sanal makine görüntülerini kullanırken, tüm URN parametresini kullanmanız gerekir (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) yerine görüntü diğer adı. Bu URN görüntü belirtimleri türetilmiş ile eşleşmelidir `az vm images list` komutu.
+* Varsayılan olarak, CLI 2.0 "Standard_DS1_v2" varsayılan sanal makine görüntü boyutunu kullanır. Ancak, bu boyutu değil henüz Azure yığınında kullanılabilir, bu nedenle, belirtmeniz gerekir `--size` açıkça bir sanal makine oluşturulurken parametre. Kullanarak Azure yığınında kullanılabilir sanal makine boyutlarının listesi elde edebilirsiniz `az vm list-sizes --location <locationName>` komutu.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

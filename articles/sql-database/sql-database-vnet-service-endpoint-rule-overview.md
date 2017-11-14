@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -141,6 +141,9 @@ Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınır
 - Her Azure SQL veritabanı sunucusu, belirli herhangi bir sanal ağ için 128 ACL girişleri kadar olabilir.
 
 - Sanal ağ kuralları yalnızca Azure Resource Manager sanal ağlar için geçerlidir; ve değil [Klasik dağıtım modeli] [ arm-deployment-model-568f] ağlar.
+
+- Azure SQL veritabanı kapatma ON sanal ağ hizmet uç noktaları ayrıca MySQL ve PostGres Azure Hizmetleri için uç noktaları sağlar. Ancak, uç noktaları ON ile MySQL veya Postgres örneklerine uç noktalarından bağlanma girişimi başarısız olur.
+    - Bu MySQL temel nedeni ve PostGres başarısız şu anda desteklemiyor.
 
 - Güvenlik Duvarı'nda, IP adres aralıklarını aşağıdaki ağ öğelere uygulanır, ancak sanal ağ kuralları yapın:
     - [Siteden siteye (S2S) sanal özel ağ (VPN)][vpn-gateway-indexmd-608y]

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3e4eef12c1d19be6e0f1051caaa5cf2e98626aef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Azure portalından bir işlev uygulaması oluşturma
 
@@ -40,7 +40,7 @@ Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıy
 
 Azure işlevleri sahip iki farklı hizmet planları: Tüketim planlama ve uygulama hizmeti planı. Kodunuz çalışan, Ölçek genişletme yükü işlemek gereken ve ardından ölçekler-kod çalışmadığı zaman zaman tüketimi planı otomatik olarak işlem gücü ayırır. Uygulama hizmeti planı uygulama hizmeti tüm özellikleri, işlev uygulama erişim sağlar. İşlev uygulamanızı oluşturulur ve şu anda değiştirilemez, hizmeti planınızı seçmeniz gerekir. Daha fazla bilgi için bkz: [barındırma planı bir Azure işlevleri arasından seçim](functions-scale.md).
 
-Bir uygulama hizmeti planı JavaScript işlevleri çalıştırmayı planlıyorsanız, daha az çekirdek planla seçmeniz gerekir. Daha fazla bilgi için bkz: [işlevleri için JavaScript başvurusu](functions-reference-node.md#choose-single-core-app-service-plans).
+Bir uygulama hizmeti planı JavaScript işlevleri çalıştırmayı planlıyorsanız, daha az çekirdek planla seçmeniz gerekir. Daha fazla bilgi için bkz: [işlevleri için JavaScript başvurusu](functions-reference-node.md#choose-single-vcpu-app-service-plans).
 
 <a name="storage-account-requirements"></a>
 

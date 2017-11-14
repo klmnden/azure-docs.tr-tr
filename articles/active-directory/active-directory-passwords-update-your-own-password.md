@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Yardım, Azure AD parolamı unuttum
+# <a name="reset-your-work-or-school-password"></a>İş veya Okul parolanızı sıfırlama
 
-Parolanızı unuttuysanız, BT personelinizden hiç parola almadıysanız, hesabınız kilitlendiyse veya parolayı değiştirmek istiyorsanız, size yardımcı olabiliriz. Parolanızı biliyor ve yalnızca değiştirmek için bölümüne devam [parolamı Değiştir](#change-my-password) aşağıda.
+Parolanızı unuttuysanız, hiçbir zaman şirket destek birinden alınan, kilitlendiğinden, hesap veya değiştirmek istiyorsanız dışında size yardımcı olabilir. Parolanızı biliyor ve yalnızca değiştirmek için bölümüne devam [parolamı Değiştir](#change-my-password) aşağıda.
 
    > [!NOTE]
    > Xbox, hotmail.com veya outlook.com gibi kişisel hesabınızı kurtarmaya çalışıyorsanız [önerileri bu makaledeki bulundu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -64,7 +64,7 @@ Biz onu çağırabilir ve hesabınızı geri dönmek istediğiniz kadar Azure AD
    ![Kimlik doğrulama verilerinizi doğrulama][Verification]
 
 4. BT personelinizin daha fazla doğrulamaya ihtiyacı olabilir ve farklı bir seçimle 3. adımı yinelemeniz gerekebilir.
-5. **Yeni parola seçin** sayfasında yeni bir parola girin, parolanızı onaylayın ve **Son**’a tıklayın. Parolanızın 8-16 karakter uzunluğunda olmasını ve büyük/küçük harf karakterleri, sayılar ve özel karakterler içermesini öneririz.
+5. **Yeni parola seçin** sayfasında yeni bir parola girin, parolanızı onaylayın ve **Son**’a tıklayın. İş veya Okul parolanızı belirli gereksinimleri olabilir; Parolanız 8-16 karakter büyük ve küçük harfleri, sayıları ve özel karakterler olabilir öneririz.
 6. **Parolanız sıfırlandı** ifadesini gördüğünüzde, yeni parolanızla oturum açabilirsiniz.
 
     ![Parolanız sıfırlandı][Complete]

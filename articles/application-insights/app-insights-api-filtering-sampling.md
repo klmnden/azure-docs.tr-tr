@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 9261f44a0c0400a0a8d908b0ff72318c637771de
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5f4db2e79575202d3d9fa1601fb182c7a0881338
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtreleme ve Application Insights SDK'sı telemetri ön işleme
 
@@ -335,6 +335,9 @@ Telemetri işlemciler ve telemetri başlatıcıları arasındaki fark nedir?
 * TelemetryProcessors tamamen değiştirin veya bir telemetri öğesi atmak olanak sağlar.
 * TelemetryProcessors performans sayacı telemetri işlem yok.
 
+## <a name="troubleshooting-applicationinsightsconfig"></a>Applicationınsights.config sorunlarını giderme
+* Derleme adı ve tam olarak nitelenmiş tür adını doğru olduğundan emin olun.
+* Applicationınsights.config dosyası çıkış dizininizde ve son değişiklikler içeren onaylayın.
 
 ## <a name="reference-docs"></a>Başvuru belgeleri
 * [API’ye Genel Bakış](app-insights-api-custom-events-metrics.md)

@@ -4,7 +4,7 @@ description: "Gelişmiş analitikler için bir dizi anahtar soru dikkate alarak 
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev
-ms.openlocfilehash: 42d1de8a27f8979db5662094e8bd74a6f5ccac55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f4cf702b899b285b18c09d7a5951589d2ae71b7d
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Senaryoları tanımlama ve gelişmiş analiz verileri işlemeyi planlama
-Hangi kaynaklara Gelişmiş analitik veri kümesi üzerinde işleme yapmak için bir ortamını ayarlama yaparken dikkate alınacak planlama yapmalıyım? Bu makalede, görevler ve kaynaklarla ilgili senaryonuz tanımlanmasına yardımcı olacak sorulacak sorular bir dizi önerir. Tahmine dayalı analiz için üst düzey adımlar dizisi kısmında özetlenen [takım veri bilimi işlem (TDSP) nedir?](overview.md). Belirli kaynaklar bu adımların her biri, belirli bir senaryo ile ilgili görevleri için gerektirir. Senaryonuz tanımlamak için önemli sorular veri Lojistik, özellikleri, veri kümeleri ve araçları ve analiz yapmayı tercih dilleri kalitesini ilgilendiren.
+Hangi kaynaklara Gelişmiş analitik veri kümesi üzerinde işleme yapmak için bir ortamını ayarlama yaparken dikkate alınacak planlama yapmalıyım? Bu makalede bir dizi yardımcı sorulacak sorular öneren görevler ve kaynaklarla ilgili senaryonuz tanımlayın. Tahmine dayalı analiz için üst düzey adımlar dizisi kısmında özetlenen [takım veri bilimi işlem (TDSP) nedir?](overview.md). Bu adımların her biri, belirli bir senaryo ile ilgili görevleri için belirli kaynaklar gerektirir. Senaryonuz tanımlamak için önemli sorular veri Lojistik, özellikleri, veri kümeleri ve araçları ve analiz yapmayı tercih dilleri kalitesini ilgilendiren.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>Lojistik sorular: veri konumları ve taşıma
-Lojistik soruları konumunu ilgilendiren **veri kaynağı**, **hedef** Azure ve zamanlaması dahil, veri taşıma gereksinimleri tutar ve kaynakları katılan. Veri analizi işlemi sırasında birkaç kez taşınması gerekebilir. Azure üzerinde ardından Machine Learning Studio uygulamasına yerel veri depolama bazı forma taşıma ortak bir senaryodur.
+Lojistik soruları konumunu ilgilendiren **veri kaynağı**, **hedef** Azure ve verilerin taşınması için gereksinimler, zamanlama, tutar ve ilgili kaynaklar dahil olmak üzere. Veri analizi işlemi sırasında birkaç kez taşınması gerekebilir. Azure üzerinde ardından Machine Learning Studio uygulamasına yerel veri depolama bazı forma taşıma ortak bir senaryodur.
 
 1. **Veri kaynağınızı nedir?** Yerel veya bulutta mı? Örneğin:
    
@@ -42,12 +42,12 @@ Lojistik soruları konumunu ilgilendiren **veri kaynağı**, **hedef** Azure ve 
    * Hdınsight (Hadoop Azure üzerinde) veya Hive tabloları
    * Azure Machine Learning
    * Edilebilme Azure sanal sabit diskler.
-3. **Nasıl verileri taşımak mısınız?** Aşağıdaki konulardaki yordamları ve alma veya birçok farklı depolama ve ortamlar işleme veri yüklemek kullanılabilir kaynakları özetlenmiştir.
+3. **Nasıl verileri taşımak mısınız?** Yordamlar ve alma veya birçok farklı depolama ve ortamlar işleme veri yüklemek kullanılabilir kaynakları aşağıdaki makalelerde özetlenmiştir:
    
    * [Analiz için depolama ortamlara veri yükleme](ingest-data.md)
    * [Çeşitli veri kaynaklarından Azure Machine Learning Studio'da eğitim verilerinizi almak](../studio/import-data.md).
 4. **Verileri düzenli bir zamanlamaya göre taşınamaz veya geçiş sırasında değiştirilmiş gerekiyor mu?** Veri sürekli geçirilmesi, hem şirket içi erişir ve bulut kaynaklarına eklendiyse veya veri işlem yapılan işlem ya da değiştirilmiş veya iş mantığı kendisine geçirilen esnasında eklenmiş olması gerekiyor özellikle karma bir senaryoda, gerektiğinde Azure veri fabrikası (ADF) kullanmayı düşünün. Daha fazla bilgi için bkz: [veri taşıma bir şirket içi SQL Server'dan Azure Data Factory ile SQL Azure](move-sql-azure-adf.md)
-5. **Verilerin ne kadar Azure'a taşınacak mi?** Çok büyük veri kümeleri belirli ortamları depolama kapasitesini aşabilir. Bir örnek için boyutu sınırları hakkında bilgi için Machine Learning Studio'da sonraki bölüme bakın. Bu gibi durumlarda bir örnek veri çözümleme sırasında kullanılabilir. Aşağı örnek bir veri kümesi çeşitli Azure ortamlarda konusunda ayrıntılı bilgi için bkz [örnek veri takım veri bilimi işleminde](sample-data.md).
+5. **Verilerin ne kadar Azure'a taşınacak mi?** Son derece büyük veri kümeleri belirli ortamları depolama kapasitesini aşabilir. Bir örnek için boyutu sınırları hakkında bilgi için Machine Learning Studio'da sonraki bölüme bakın. Bu gibi durumlarda bir örnek veri çözümleme sırasında kullanılabilir. Aşağı örnek bir veri kümesi çeşitli Azure ortamlarda konusunda ayrıntılı bilgi için bkz [örnek veri takım veri bilimi işleminde](sample-data.md).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Veri özellikleri soruları: türünü, biçimi ve boyutu
 Bu sorular depolama planlama ve her biri için çeşitli veri türlerine uygun ve her biri bazı kısıtlamalar sahip ortamlarda, işleme için anahtar vardır.
@@ -68,8 +68,8 @@ Bu sorular depolama planlama ve her biri için çeşitli veri türlerine uygun v
 3. **Verilerinizi büyüklüğü nedir?**
    
    * Küçük: 2 GB'tan daha az
-   * Orta: 2GB ve 10GB'değerinden büyük
-   * Büyük: 10GB daha büyük
+   * Orta: 2 GB ve 10 GB'değerinden büyük
+   * Büyük: 10 GB daha büyük
 
 Azure Machine Learning Studio ortamı örneğin alın:
 
@@ -79,7 +79,7 @@ Azure Machine Learning Studio ortamı örneğin alın:
 Analytics işleminde kullanılan diğer Azure hizmetleriyle sınırlamaları hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md).
 
 ## <a name="data-quality-questions-exploration-and-pre-processing"></a>Veri Kalitesi soruları: araştırması ve ön işleme
-1. **Verileriniz hakkında ne biliyor musunuz?** Bir anlayın temel özellikleri sağlamak gerektiğinde verileri keşfedin. Ne düzenleri veya sergiler, eğilimlerin aykırı değerlerini nedir veya kaç değerleri eksik. Bu adım, en uygun özellikleri önermek veya analizini yazın varsayımlar formulating ve ek veri toplama için planları formulating gerekli ön işleme kapsamını belirlemek için önemlidir. Açıklayıcı istatistikleri hesaplama ve görselleştirmeleri çizme veri İnceleme için yararlı tekniklerle aynıdır. Bir veri kümesi çeşitli Azure ortamlarda keşfetmek nasıl Ayrıntılar için bkz [takım veri bilimi işlemi keşfedin](explore-data.md).
+1. **Verileriniz hakkında ne biliyor musunuz?** Temel özelliklerinden bir anlayın kazanmak için verileri keşfedin. Hangi desenleri veya onu sergiler, eğilimleri var. hangi aykırı değerlerini veya kaç değerleri eksik. Bu adım, en uygun özellikleri önermek veya analizini yazın varsayımlar formulating ve ek veri toplama için planları formulating gerekli ön işleme kapsamını belirlemek için önemlidir. Açıklayıcı istatistikleri hesaplama ve görselleştirmeleri çizme veri İnceleme için yararlı tekniklerle aynıdır. Bir veri kümesi çeşitli Azure ortamlarda keşfetmek nasıl Ayrıntılar için bkz [takım veri bilimi işlemi keşfedin](explore-data.md).
 2. **Verilerin önceden işlenmesi veya temizleme gerektiriyor mu?**
    Ön işleme ve veri temizleme dataset machine learning için etkili bir şekilde kullanılabilmesi için önce genellikle gerçekleştirilmesi gereken önemli görevlerdir. Ham verileri gürültülü ve güvenilmeyen görülür ve değerleri eksik olabilir. Bu tür veriler için modelleme kullanarak yanıltıcı sonuçlara yol açabilir. Bir açıklama için bkz: [veri Gelişmiş için hazırlamak üzere görevleri makine öğrenme](prepare-data.md).
 

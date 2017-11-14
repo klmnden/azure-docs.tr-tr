@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 26837a72dd4539cd5b32e5b49a127a714f3a1426
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 40821d32c5bdfe51bb3cb205660d6f25b2c3fadc
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights sistem performans sayaçları
 Windows, çok çeşitli sağlar [performans sayaçları](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) CPU doluluğu, bellek, disk ve ağ kullanımı gibi. Ayrıca kendi tanımlayabilirsiniz. [Application Insights](app-insights-overview.md) bu performans sayaçlarını bir şirket içi ana bilgisayar veya sanal makinede yönetici erişimi için elinizde uygulamanız IIS altında çalışıp çalışmadığını gösterebilir. Grafikler, Canlı uygulamanızın kullanılabilir kaynakları belirtmek ve sunucu örnekleri arasında dengesiz yük belirlemenize yardımcı olabilir.
@@ -83,7 +83,6 @@ Sistem performans sayaçları toplamak ve Application Insights'a gönderme için
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 ```
-
 Veya, oluşturduğunuz özel ölçümleri ile aynı şey yapabilirsiniz:
 
 ``` C#
@@ -115,6 +114,9 @@ Gibi diğer telemetri **performanceCounters** de bir sütuna sahip `cloud_RoleIn
 
 * *Özel durum oranı* bir sistem performans sayacı. CLR oluşturulan ve toplam bir örnekleme aralığı içinde aralık uzunluğu ile böler tüm işlenen ve işlenmeyen özel durumları sayar. Application Insights SDK'sı bu sonucu toplar ve portala gönderir.
 * *Özel durumlar* grafiğin örnekleme aralığı portalında tarafından alınan TrackException raporları sayısıdır. Burada yazdığınız TrackException kodunuzda çağırır ve tüm içermeyen yalnızca işlenmiş özel durumları içerir [işlenmeyen özel durumlar](app-insights-asp-net-exceptions.md). 
+
+## <a name="performance-counters-in-aspnet-core-applications"></a>Asp.Net Core uygulamaları performans sayaçları
+Performans sayaçları, yalnızca uygulamanın tam .NET Framework hedefliyorsa desteklenir. .Net için performans sayaçlarını toplama yeteneği yoktur çekirdek uygulamalar.
 
 ## <a name="alerts"></a>Uyarılar
 Diğer ölçümleri gibi aşağıdakileri yapabilirsiniz [bir uyarı ayarlamak](app-insights-alerts.md) bir performans sayacı belirttiğiniz bir sınır dışında giderilmediğine sizi uyarır. Uyarıları dikey penceresini açın ve eklemek uyarı'ı tıklatın.

@@ -1,6 +1,6 @@
 ---
 title: "Azure dosya eşitleme (Önizleme) sorunlarını giderme | Microsoft Docs"
-description: "Azure dosya eşitleme ile ilgili genel sorunları giderme"
+description: "Azure dosya eşitleme ile ilgili genel sorunları giderin."
 services: storage
 documentationcenter: 
 author: wmgries
@@ -14,47 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 6bc5f2da2b8628671037b9257db746e73cd3afad
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
-Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
+Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
 
-Bu makalede, sorun giderme ve Azure dosya eşitleme dağıtımınıza karşılaşılan sorunları çözmenize yardımcı olmak için tasarlanmıştır. Başarısız olan bu kılavuz daha kapsamlı bir araştırma sorunların yardımcı olmak için sistem önemli günlükleri toplamak nasıl gösterilmektedir. Yanıt sorunuzun yanıtını burada görmüyorsanız, (sipariş yükselen içinde) aşağıdaki kanallar aracılığıyla Bize Ulaşın çekinmeyin:
+Bu makalede ve Azure dosya eşitleme dağıtımınıza karşılaşabileceğiniz sorunları gidermek amacıyla tasarlanmıştır. Biz de sorunun daha kapsamlı bir araştırma gerekiyorsa sistemden önemli günlükleri toplamak açıklar. Sorunuzun yanıtını görmüyorsanız, bize (sırayla yükselen) aşağıdaki kanallar aracılığıyla başvurabilirsiniz:
 
 1. Bu makalede Açıklamalar bölümüne.
-2. [Azure depolama Forumu](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata)
-3. [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
-4. Microsoft Support: yeni bir destek servis talebi oluşturmak için gezinme "Yardım + destek için" sekmesinde Azure portalda ve "Yeni destek isteği"'i tıklatın.
+2. [Azure depolama Forumu](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+3. [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
+4. Microsoft destek. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesine **Yardım + Destek** düğmesine tıklayın ve ardından **yeni destek isteği**.
 
 ## <a name="agent-installation-and-server-registration"></a>Aracı yükleme ve sunucu kaydı
 <a id="agent-installation-failures"></a>**Aracı yükleme hatalarını giderme**  
-Azure dosya eşitleme aracı yüklemesi başarısız olursa, aracı yükleme sırasında günlük kaydını etkinleştirmek için yükseltilmiş bir komut isteminde aşağıdaki komutu çalıştırın:
+Yükseltilmiş bir komut isteminde Azure dosya eşitleme aracı yüklemesi başarısız olursa aracı yükleme işlemi sırasında oturum açmak için aşağıdaki komutu çalıştırın:
 
 ```
 StorageSyncAgent.msi /l*v Installer.log
 ```
 
-Yükleme başarısız sonra nedenini belirlemek için installer.log gözden geçirin. 
+Yükleme hatanın nedenini belirlemek için installer.log gözden geçirin. 
 
 > [!Note]  
-> Aracı yüklemesi, Microsoft Update'i kullanmayı seçerseniz ve Windows Update hizmeti çalışmadığı başarısız olur.
+> Aracı yüklemesi Microsoft Update'i kullanmak için makinenize ayarlamak ve Windows Update hizmeti çalışmıyor başarısız olur.
 
 <a id="server-registration-missing"></a>**Sunucu kayıtlı sunucuları'nın altında Azure Portalı'nda listelenmez**  
-Bir sunucu için bir depolama eşitleme hizmeti kayıtlı sunucuları'nın altında listede yoksa, aşağıdaki adımları gerçekleştirin:
+Bir sunucu altında listelenmemişse **kayıtlı sunucuları** depolama eşitleme hizmeti için:
 1. Kaydetmek istediğiniz sunucuya oturum açın.
-2. Dosya Gezgini'ni açın ve depolama eşitleme Aracısı yükleme dizinine gidin (varsayılan konum `C:\Program Files\Azure\StorageSyncAgent`). 
-3. ServerRegistration.exe çalıştırın ve sunucuyu bir depolama eşitleme hizmeti ile kaydetmek için sihirbazı izleyin.
+2. Dosya Gezgini'ni açın ve (varsayılan konumu C:\Program Files\Azure\StorageSyncAgent:) depolama eşitleme Aracısı yükleme dizinine gidin. 
+3. ServerRegistration.exe çalıştırın ve sunucuyu bir depolama eşitleme hizmeti ile kaydetmek için sihirbazı tamamlayın.
 
-<a id="server-already-registered"></a>**Sunucu kaydı Azure dosya eşitleme Aracısı'nı yükledikten sonra aşağıdaki iletisini görüntüler: "Bu sunucusu zaten kayıtlı"**  
+<a id="server-already-registered"></a>**Sunucu kaydı Azure dosya eşitleme aracı yükleme işlemi sırasında aşağıdaki iletisini görüntüler: "Bu sunucusu zaten kayıtlı"** 
+
 !["Sunucu zaten kayıtlı" hatası ile sunucu kaydı iletişim kutusunun ekran görüntüsü iletisi](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
-Sunucu, daha önce bir depolama eşitleme hizmetine kayıtlı değilse bu ileti görüntülenir. Geçerli depolama eşitleme hizmeti sunucuyla ve yeni bir depolama eşitleme hizmeti ile kaydetme kaydını silmek için adımlarını izleyin [Azure dosya eşitleme sahip bir sunucu kaydını](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+Sunucunun bir depolama eşitleme hizmeti daha önceden kaydedilen bu ileti görüntülenir. Geçerli depolama eşitleme hizmeti sunucunun kaydını silmek ve ardından yeni bir depolama eşitleme hizmeti ile kaydetmek için bölümünde açıklanan adımları [Azure dosya eşitleme sahip bir sunucu kaydını](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-Sunucu, kayıtlı sunucuları depolama eşitleme hizmetinin altında listelenmemişse kaydını kaldırmak istediğiniz sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
+Altında sunucu listelenmemişse **kayıtlı sunucuları** depolama eşitleme hizmeti kaydını kaldırmak istediğiniz sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -62,25 +63,25 @@ Reset-StorageSyncServer
 ```
 
 > [!Note]  
-> Sunucu kümesinin parçası olmadığını ise, isteğe bağlı bir `Reset-StorageSyncServer -CleanClusterRegistration` ayrıca küme kayıt kaldıracak parametresi.
+> Sunucu kümesinin parçası ise, isteğe bağlı kullanabilirsiniz *sıfırlama StorageSyncServer - CleanClusterRegistration* ayrıca küme kaydını kaldırmak için parametre.
 
-<a id="web-site-not-trusted"></a>**Bir sunucuya kaydedilirken çok sayıda "güvenilmeyen web site" yanıtları neden alıyorum?**  
-Bu hata oluşur **Gelişmiş Internet Explorer güvenlik** İlkesi, sunucu kaydı sırasında etkindir. Düzgün bir şekilde devre dışı bırakma hakkında daha fazla bilgi için **Gelişmiş Internet Explorer güvenlik** İlkesi bkz [hazırlama Windows sunucularıyla kullanmak için Azure dosya eşitleme](storage-sync-files-deployment-guide.md#prepare-windows-servers-for-use-with-azure-file-sync) ve [Azure dosya dağıtma Eşitleme (Önizleme)](storage-sync-files-deployment-guide.md).
+<a id="web-site-not-trusted"></a>**Bir sunucuyu kaydettirmek, çok sayıda "güvenilmeyen web site" yanıtları bakın. Neden?**  
+Bu sorun oluşur zaman **Gelişmiş Internet Explorer güvenlik** İlkesi, sunucu kaydı sırasında etkindir. Doğru bir şekilde devre dışı bırakma hakkında daha fazla bilgi için **Gelişmiş Internet Explorer güvenlik** İlkesi bkz [Azure dosya eşitleme ile kullanmak için Windows Server hazırlama](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) ve [Azure dosya dağıtma Eşitleme (Önizleme)](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Eşitleme Grup Yönetimi
-<a id="cloud-endpoint-using-share"></a>**Bulut uç noktası oluşturma, şu hata ile başarısız olur: "Belirtilen Azure dosya paylaşımı zaten farklı bir CloudEndpoint tarafından kullanılıyor"**  
-Azure dosya paylaşımı zaten başka bir bulut uç noktası tarafından kullanılıyorsa bu hata oluşur. 
+<a id="cloud-endpoint-using-share"></a>**Bulut uç noktası oluşturma başarısız oldu, bu hata: "Belirtilen Azure dosya paylaşımı zaten farklı bir CloudEndpoint tarafından kullanılıyor"**  
+Azure dosya paylaşımı zaten başka bir bulut uç noktası tarafından kullanılıyorsa bu sorun oluşur. 
 
-Bu hatayı alıyorsunuz ve Azure dosya paylaşımı şu anda bir bulut uç noktası tarafından kullanılmakta değil, Azure Dosya paylaşımındaki Azure dosya eşitleme meta verileri temizlemek için aşağıdaki aşağıdaki adımları gerçekleştirin:
+Bu iletiyi görürseniz ve Azure dosya paylaşımı şu anda bir bulut uç noktası tarafından kullanılmadığından Azure Dosya paylaşımındaki Azure dosya eşitleme meta verileri temizlemek için aşağıdaki adımları tamamlayın:
 
 > [!Warning]  
-> Meta veriler şu anda bir bulut uç noktası tarafından kullanılmakta olan bir Azure dosya paylaşımında silinmesi, Azure dosya eşitleme işlemlerinin başarısız olmasına neden olur. 
+> Şu anda bir bulut uç noktası tarafından kullanılmakta olan bir Azure dosya paylaşımında meta verileri silme Azure dosya eşitleme işlemlerinin başarısız olmasına neden olur. 
 
-1. Azure Portalı'nda, Azure dosya paylaşımına gidin.  
-2. Azure dosya paylaşımı sağ tıklatın ve seçin **meta verileri düzenleme**
-3. SyncService sağ tıklatın ve seçin **silmek**.
+1. Azure portalında, Azure dosya paylaşımına gidin.  
+2. Azure dosya paylaşımına sağ tıklayın ve ardından **Düzenle meta verileri**.
+3. Sağ **SyncService**ve ardından **silmek**.
 
-<a id="cloud-endpoint-authfailed"></a>**Bulut uç noktası oluşturma hatası ile başarısız olur: AuthorizationFailed**  
+<a id="cloud-endpoint-authfailed"></a>**Bulut uç noktası oluşturma başarısız oldu, bu hata: "AuthorizationFailed"**  
 Kullanıcı hesabınız bir bulut uç noktası oluşturmak için yeterli hakları yoksa bu sorun oluşur. 
 
 Bir bulut uç noktası oluşturmak için kullanıcı hesabınızın aşağıdaki Microsoft Authorization izinleri olması gerekir:  
@@ -89,96 +90,100 @@ Bir bulut uç noktası oluşturmak için kullanıcı hesabınızın aşağıdaki
 * Şunu okuyun: rol ataması Al
 * Yazma: rol ataması oluşturma
 
-Aşağıdaki yerleşik roller uygun Microsoft Authorization izinlere sahip:  
+Aşağıdaki yerleşik roller gerekli Microsoft Authorization izinlere sahip:  
 * Sahip
 * Kullanıcı Erişimi Yöneticisi
 
-Kullanıcı hesabı rolünüz uygun izinleri olup olmadığını belirlemek için aşağıdakileri gerçekleştirin:  
-* Tıklatın **kaynak grupları** Azure portalında
-* Depolama hesabının bulunduğu kaynak grubu seçin ve tıklatın **erişim denetimi (IAM)**
-* Tıklatın **rol** (örn., sahibi, katkıda bulunan) kullanıcı hesabınız için.
-* İçinde **kaynak sağlayıcısı** listesinde **Microsoft Authorization** 
-* **Rol ataması** olmalıdır **okuma** ve **yazma izinleri**
-* **Rol tanımı** olmalıdır **okuma** ve **yazma izinleri**
+Kullanıcı hesabı rolünüz gerekli izinlere sahip olup olmadığını belirlemek için:  
+1. Azure portalında seçin **kaynak grupları**.
+2. Depolama hesabının bulunduğu kaynak grubunu seçin ve ardından **erişim denetimi (IAM)**.
+3. Seçin **rol** (örneğin, sahibi veya katkıda) kullanıcı hesabınız için.
+4. İçinde **kaynak sağlayıcısı** listesinde **Microsoft Authorization**. 
+    * **Rol ataması** olmalıdır **okuma** ve **yazma** izinleri.
+    * **Rol tanımı** olmalıdır **okuma** ve **yazma** izinleri.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Uç nokta silme hatası ile başarısız olur: MgmtInternalError**  
-Azure dosya paylaşımı veya depolama hesabı bulut uç noktası silmeden önce sildiyseniz Bu sorun ortaya çıkabilir. Gelecek bir güncelleştirmede bu sorun düzeltilecektir ve bulut uç noktası silinebilir.
+<a id="cloud-endpoint-deleteinternalerror"></a>**Bulut uç noktası silme işlemi başarısız oldu, bu hata: "MgmtInternalError"**  
+Bulut uç noktası silmeden önce Azure dosya paylaşımı veya depolama hesabı silinir, bu sorun ortaya çıkabilir. Gelecek bir güncelleştirmede bu sorun düzeltilecektir. Bu sırada, Azure dosya paylaşımı veya depolama hesabını sildikten sonra bulut uç noktasını silmek mümkün olacaktır.
 
-Bu sorunun oluşmasını önlemek için Azure dosya paylaşımı veya depolama hesabını silmeden önce bulut uç noktası silin.
+Azure dosya paylaşımı veya depolama hesabını silmeden önce bu arada, bu sorunun oluşmasını önlemek için bulut uç noktası silin.
 
 ## <a name="sync"></a>Sync
-<a id="afs-change-detection"></a>**Bir dosyayı doğrudan my Azure dosya paylaşımı SMB üzerinden veya portal üzerinden oluşturdum. Dosya eşitleme gruptaki sunucular için eşitlenen kadar ne kadar?**  
+<a id="afs-change-detection"></a>**I bir dosya doğrudan my Azure dosya paylaşımı SMB üzerinden veya portal üzerinden oluşturduysanız, ne kadar dosya eşitleme gruptaki sunucular için eşitleme için sürer?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
-<a id="broken-sync"></a>**Bir sunucu üzerinde çalışmıyor eşitleme ile ilgili sorunları giderme**  
-Bir sunucuda eşitleme başarısız olursa aşağıdakileri gerçekleştirin:
-- Bir Azure dosya paylaşımına eşitlemek istediğiniz dizin için Azure portalında bir sunucusu uç noktası var olduğunu doğrulayın:
+<a id="broken-sync"></a>**Bir sunucuda eşitleme başarısız**  
+Bir sunucuda eşitleme başarısız olursa:
+1. Sunucusu uç noktası Azure portalında bir Azure dosya paylaşımına eşitlemek istediğiniz dizinin var olduğundan emin olun:
     
-    ![Azure portalında hem bulut hem de sunucusu uç noktası ile eşitleme grubunun bir ekran görüntüsü](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
+    ![Bulut uç noktasına ve Azure portalında sunucusu uç noktası ile eşitleme grubunun ekran görüntüsü](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
 
-- Altında bulunan Olay Görüntüleyicisi ile işlemsel ve tanılama olay günlüklerini gözden geçirin `Applications and Services\Microsoft\FileSync\Agent`.
-- Sunucunun internet bağlantısına sahip olduğunu doğrulayın.
-- Azure dosya hizmeti Hizmetler MMC ek bileşenini açarak sunucu üzerinde çalışan eşitleme ve (FileSyncSvc) ve depolama eşitleme aracısı hizmetinin çalıştığını doğrulayın.
+2. Olay Görüntüleyicisi'nde çalıştığını ve tanılama olay uygulamalar ve Services\Microsoft\FileSync\Agent altında bulunan günlüklerini gözden geçirin.
+    1. Sunucunun Internet bağlantısına sahip olduğunu doğrulayın.
+    2. Azure dosya eşitleme hizmetinin sunucuda çalıştığını doğrulayın. Bunu yapmak için Hizmetler MMC ek bileşenini açın ve (FileSyncSvc) depolama eşitleme aracısı hizmetinin çalıştığını doğrulayın.
 
-<a id="replica-not-ready"></a>**Eşitleme hatası ile başarısız olur: 0x80c8300f - çoğaltma gerekli işlemi gerçekleştirmek hazır değil**  
-Bu hata, bir bulut uç noktası oluşturun ve verileri içeren bir Azure dosya paylaşımı kullanırsanız beklenir. (24 saate kadar sürebilir) Azure dosya paylaşımında değişikliği Algılama işlemi tamamlandıktan sonra eşitleme düzgün çalışmaya başlamanız gerekir.
+<a id="replica-not-ready"></a>**Eşitleme başarısız olursa bu hata: "0x80c8300f - çoğaltma gerekli işlemi gerçekleştirmek hazır değil"**  
+Bu sorun, veri içeren bir bulut uç noktası oluşturun ve bir Azure dosya paylaşımı kullanırsanız beklenir. (24 saate kadar sürebilir) Azure dosya paylaşımında çalıştıran değişiklik algılama işi sona erdiğinde, eşitleme düzgün çalışmasını başlamanız gerekir.
 
-<a id="broken-sync-files"></a>**Eşitleme başarısız tek dosyalar ile ilgili sorunları giderme**  
-Tek tek dosyaların eşitleme başarısız oluyorsa, aşağıdakileri gerçekleştirin:
-- Altında işlemsel ve tanılama olay günlüklerini gözden geçirin `Applications and Services\Microsoft\FileSync\Agent` Olay Görüntüleyicisi'nde
-- Dosyada hiçbir açık tanıtıcıların olduğundan emin olun
-    - Not: Azure dosya eşitleme düzenli aralıklarla dosyaları açık tanıtıcıların ile eşitlemek için VSS anlık görüntüleri sürer
+<a id="broken-sync-files"></a>**Eşitlemesi başarısız tek tek dosya sorunlarını giderme**  
+Tek tek dosyaların eşitlemesi başarısız oluyorsa:
+1. Olay Görüntüleyicisi'nde çalıştığını ve tanılama olay uygulamalar ve Services\Microsoft\FileSync\Agent altında bulunan günlüklerini gözden geçirin.
+2. Dosya tanımlayıcıları hiçbir açık olduğunu doğrulayın.
+
+    > [!NOTE]
+    > Azure dosya eşitleme, VSS anlık görüntüleri tanımlayıcıları açık dosyaları eşitlemek için düzenli aralıklarla alır.
 
 ## <a name="cloud-tiering"></a>Bulut katmanlaması 
-<a id="files-fail-tiering"></a>**Katmanı tutulamadı dosyaları ile ilgili sorunları giderme**  
-Azure dosyaları katmanı dosyalar başarısız olursa, aşağıdaki adımları gerçekleştirin:
+<a id="files-fail-tiering"></a>**Katmanı başarısız dosya sorunlarını giderme**  
+Azure dosyaları katmanı dosyaları başarısız olursa:
 
-- Azure dosya paylaşımı dosyaları mevcut doğrulayın
-    - Not: Bu katmanlı önce bir dosya için Azure dosya paylaşımının senkronize gerekir
-- İşlemsel ve tanılama olay altında bulunan günlüklerini gözden geçirin `Applications and Services\Microsoft\FileSync\Agent` Olay Görüntüleyicisi'nde
-- Sunucunun Internet bağlantısı olduğunu doğrulayın 
-- Azure dosya eşitleme filtre sürücüleri (StorageSync.sys & StorageSyncGuard.sys) çalıştıran doğrulayın
-    - Yükseltilmiş bir komut istemi açın, çalıştırmak `fltmc` ve StorageSync.sys ve StorageSyncGuard.sys dosya sistemi filtre sürücüleri listelendiğini doğrulayın
+1. Dosyaların Azure dosya paylaşımı mevcut olduğunu doğrulayın.
 
-<a id="files-fail-recall"></a>**Çağrılmaya başarısız dosyaları ile ilgili sorunları giderme**  
-Dosyaları çağrılmaya başarısız olursa, aşağıdaki adımları gerçekleştirin:
-- İşlemsel ve tanılama olay altında bulunan günlüklerini gözden geçirin `Applications and Services\Microsoft\FileSync\Agent` Olay Görüntüleyicisi'nde
-- Azure dosya paylaşımında dosyaları var olduğunu doğrulayın
-- Sunucunun Internet bağlantısı olduğunu doğrulayın 
-- Azure dosya eşitleme filtre sürücüleri (StorageSync.sys & StorageSyncGuard.sys) çalıştıran doğrulayın
-    - Yükseltilmiş bir komut istemi açın, çalıştırmak `fltmc` ve StorageSync.sys ve StorageSyncGuard.sys dosya sistemi filtre sürücüleri listelendiğini doğrulayın
+    > [!NOTE]
+    > Katmanlı önce bir dosya için Azure dosya paylaşımının eşitlenen gerekir.
+2. Olay Görüntüleyicisi'nde çalıştığını ve tanılama olay uygulamalar ve Services\Microsoft\FileSync\Agent altında bulunan günlüklerini gözden geçirin.
+    1. Sunucunun Internet bağlantısına sahip olduğunu doğrulayın. 
+    2. Azure dosya eşitleme filtre sürücüleri (StorageSync.sys ve StorageSyncGuard.sys) çalıştığını doğrulayın:
+        - Yükseltilmiş bir komut isteminde çalıştırmak `fltmc`. StorageSync.sys ve StorageSyncGuard.sys dosya sistemi filtre sürücüleri listelendiğini doğrulayın.
 
-<a id="files-unexpectedly-recalled"></a>**Bir sunucu üzerinde beklenmedik bir şekilde çekilen dosyaları ile ilgili sorunları giderme**  
-Çevrimdışı özniteliği saygı ve bu dosyaların içeriğini okuma Atla sürece virüsten koruma, yedekleme ve çok sayıda dosya okuma diğer uygulamaları istenmeyen geri çekme neden olur. Bunu destekleyen bu ürünler için çevrimdışı dosyalar atlanıyor istenmeyen geri çekme virüsten koruma taramaları veya yedekleme işleri gibi işlemleri gerçekleştirirken önlemeye yardımcı olur.
+<a id="files-fail-recall"></a>**Çağrılmaya başarısız dosya sorunlarını giderme**  
+Dosyaları çağrılmaya başarısız olursa:
+1. Olay Görüntüleyicisi'nde çalıştığını ve tanılama olay uygulamalar ve Services\Microsoft\FileSync\Agent altında bulunan günlüklerini gözden geçirin.
+    1. Dosyaların Azure dosya paylaşımı mevcut olduğunu doğrulayın.
+    2. Sunucunun Internet bağlantısına sahip olduğunu doğrulayın. 
+    3. Azure dosya eşitleme filtre sürücüleri (StorageSync.sys ve StorageSyncGuard.sys) çalıştığını doğrulayın:
+        - Yükseltilmiş bir komut isteminde çalıştırmak `fltmc`. StorageSync.sys ve StorageSyncGuard.sys dosya sistemi filtre sürücüleri listelendiğini doğrulayın.
 
-Çevrimdışı dosyaları okuma atlamak için yazılım satıcınıza kendi çözümünü yapılandırma ile ilgili başvurun.
+<a id="files-unexpectedly-recalled"></a>**Beklenmedik bir sunucuda geri çekilen dosyalar sorun giderme**  
+Atla Çevrimdışı özniteliği saygı ve bu dosyaların içeriğini okuma Atla sürece virüsten koruma, yedekleme ve çok sayıda dosya okuma diğer uygulamaları istenmeyen geri çekme neden. Ürünler için çevrimdışı dosyalar atlanıyor bu seçenek yardımcı destekleyen kaçının istenmeyen geri çekme virüsten koruma taraması veya yedekleme işleri gibi işlemleri sırasında.
 
-Daha fazla istenmeyen geri çekme, dosya Gezgini'ndeki dosyaları tarama gibi diğer senaryolarda oluşabilir. Virüsten koruma sunucuda etkinse, bulut katmanlı dosyaları dosya Gezgini'nde sunucu üzerinde bir klasör açılarak istenmeyen geri çekme böylece daha neden olabilir.
+Çevrimdışı dosyaları okuma atlamak için kendi çözümünü yapılandırma konusunda bilgi edinmek için yazılım satıcınıza başvurun.
+
+İstenmeyen geri çekme ne zaman dosya Gezgini'nde dosyaları tarama gibi diğer senaryolarda de oluşabilir. Bulut katmanlı dosyalarını dosya Gezgini'nde sunucusuna olan bir klasörü açma içinde istenmeyen geri çekme neden olabilir. Virüsten koruma çözümünü sunucuda etkinse, bu daha yüksektir.
 
 ## <a name="general-troubleshooting"></a>Genel sorun giderme
-Azure dosya eşitleme ile bir sunucuda sorunlarla karşılaşırsanız, aşağıdaki işlemleri gerçekleştirerek başlatın:
-- Olay Görüntüleyicisi'nde tanılama ve işlemsel olay günlüklerini gözden geçirin
-    - Katmanlama, eşitleme ve geri çağırma sorunları tanılama ve işletimsel olay günlüklerinde altında günlüğe kaydedilir`Applications and Services\Microsoft\FileSync\Agent`
-    - Bir sunucu (örneğin, yapılandırma ayarlarını) yönetme konuları altında tanılama ve işletimsel olay günlüklerine kaydedilir`Applications and Services\Microsoft\FileSync\Management`
-- Azure dosya eşitleme hizmetinin sunucuda çalıştığını doğrulayın
-    - Hizmetler MMC ek bileşenini açın ve (FileSyncSvc) depolama eşitleme aracı hizmetinin çalıştığını doğrulayın
-- Azure dosya eşitleme filtre sürücüleri (StorageSync.sys & StorageSyncGuard.sys) çalıştıran doğrulayın
-    - Yükseltilmiş bir komut istemi açın, fltmc çalıştırın ve StorageSync.sys ve StorageSyncGuard.sys dosya sistemi filtre sürücüleri listelendiğini doğrulayın
+Azure dosya eşitleme ile bir sunucuda sorunlarla karşılaşırsanız, aşağıdaki adımları tamamlayarak başlayın:
+1. Olay Görüntüleyicisi'nde çalıştığını ve tanılama olay günlüklerini gözden geçirin.
+    - Eşitleme, katmanlama ve geri çağırma sorunları, uygulamalar ve Services\Microsoft\FileSync\Agent tanılama ve işletimsel olay günlüklerine kaydedilir.
+    - Bir sunucu (örneğin, yapılandırma ayarlarını) yönetimiyle ilgili sorunlar, uygulamalar ve Services\Microsoft\FileSync\Management altında çalıştığını ve tanılama olay günlüklerine kaydedilir.
+2. Azure dosya eşitleme hizmetinin sunucuda çalıştığını doğrulayın:
+    - Hizmetler MMC ek bileşenini açın ve (FileSyncSvc) depolama eşitleme aracısı hizmetinin çalıştığını doğrulayın.
+3. Azure dosya eşitleme filtre sürücüleri (StorageSync.sys ve StorageSyncGuard.sys) çalıştığını doğrulayın:
+    - Yükseltilmiş bir komut isteminde çalıştırmak `fltmc`. StorageSync.sys ve StorageSyncGuard.sys dosya sistemi filtre sürücüleri listelendiğini doğrulayın.
 
-Yukarıdaki adımları gerçekleştirdikten sonra sorun giderilmezse, aşağıdaki adımları gerçekleştirerek AFSDiag aracını çalıştırın:
-1. AFSDiag çıkış (örneğin, c:\output) kaydetmek için kullanılan bir dizin oluşturun.
-2. Yükseltilmiş bir PowerShell penceresi açın ve (isabet, her komutun ardından enter) aşağıdaki komutları çalıştırın:
+Sorun giderilmezse AFSDiag aracını çalıştırın:
+1. (Örneğin, C:\Output) AFSDiag çıkış kaydedileceği bir dizin oluşturun.
+2. Yükseltilmiş bir PowerShell penceresi açın ve ardından (her komuttan sonra Enter tuşuna basın) aşağıdaki komutları çalıştırın:
 
     ```PowerShell
     cd "c:\Program Files\Azure\StorageSyncAgent"
     Import-Module .\afsdiag.ps1
-    Debug-Afs c:\output # Note: use the path created in step 1
+    Debug-Afs c:\output # Note: Use the path created in step 1.
     ```
 
-3. Azure dosya eşitleme çekirdek modu izleme düzeyi için 1 (daha ayrıntılı izlemeler oluşturmak için belirtilmediği sürece) girin ve ENTER tuşuna basın.
-4. Azure dosya eşitleme kullanıcı modu izleme düzeyi için 1 (daha ayrıntılı izlemeler oluşturmak için belirtilmediği sürece) girin ve ENTER tuşuna basın.
-5. Sorunu yeniden oluşturun ve bittiğinde D tuşuna basın.
-6. Günlükleri ve izleme dosyaları içeren bir .zip dosyası belirtilen çıktı dizinine olacaktır.
+3. Azure dosya eşitleme çekirdek modu için izleme düzeyi, girin **1** (Aksi takdirde, daha ayrıntılı izlemeler oluşturmak için belirtilmediği sürece), ve ardından Enter tuşuna basın.
+4. Azure dosya eşitleme kullanıcı modu için izleme düzeyi, girin **1** (Aksi takdirde, daha ayrıntılı izlemeler oluşturmak için belirtilmediği sürece), ve ardından Enter tuşuna basın.
+5. Sorunu yeniden oluşturun. İşlemi tamamladığınızda, girin **D**.
+6. Günlükleri içeren bir .zip dosyası ve izleme dosyaları, belirtilen çıkış dizinine kaydedilir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 - [Azure dosyaları sık sorulan sorular](storage-files-faq.md)

@@ -3,7 +3,7 @@ title: "Azure mikro için sürekli tümleştirme ayarlama | Microsoft Docs"
 description: "Visual Studio Team Services (VSTS) kullanarak sürekli tümleştirme ve dağıtım Service Fabric uygulaması için ayarlama hakkında genel bakış alın."
 services: service-fabric
 documentationcenter: na
-author: mthalman-msft
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: 3e8c2290-9e7a-456a-9b2c-db44d1b3988d
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
-ms.author: mthalman;mikhegn
-ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ryanwi
+ms.openlocfilehash: d73120018fa02a64c2a895a93b43661fccd4e5aa
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>Service Fabric sürekli tümleştirme ve Visual Studio Team Services ile dağıtımı ayarlama
 Bu makalede, Visual Studio Team Services (VSTS) kullanarak sürekli tümleştirme ve bir Azure Service Fabric uygulaması için dağıtım ayarlama adımlarını açıklar.

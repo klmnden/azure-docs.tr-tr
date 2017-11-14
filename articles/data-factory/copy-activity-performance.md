@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/13/2017
 ms.author: jingwang
-ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performans ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -88,7 +88,7 @@ A **bulut veri taşıma birimi (DMU)** veri fabrikası'nda tek bir birimi (CPU, 
 
 | Kopyalama senaryosu | Hizmeti tarafından belirlenen varsayılan DMUs |
 |:--- |:--- |
-| Dosya tabanlı depoları arasında veri kopyalama | 4 ile sayısı ve dosya boyutuna bağlı olarak 16 arasında. |
+| Dosya tabanlı depoları arasında veri kopyalama | 4 ile sayısı ve dosya boyutuna bağlı olarak 32 arasında. |
 | Diğer tüm kopyalama senaryoları | 4 |
 
 Bu varsayılanı geçersiz kılmak için için bir değer belirtin **cloudDataMovementUnits** şekilde özelliği. **İzin verilen değerler** için **cloudDataMovementUnits** özelliği olan 2, 4, 8, 16 ve 32. **Bulut DMUs gerçek sayısını** eşit veya bu değerden azsa yapılandırılan, veri deseni bağlı olarak, kopyalama işlemini çalışma zamanında kullanır. Daha fazla birimi belirli kopya kaynak ve havuz için yapılandırdığınızda alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
@@ -133,7 +133,7 @@ Her kopya Çalıştır etkinliği için veri fabrikası veri depolamak ve hedef 
 
 | Kopyalama senaryosu | Hizmeti tarafından belirlenen varsayılan paralel kopya sayısı |
 | --- | --- |
-| Dosya tabanlı depoları arasında veri kopyalama |1 ile 32 arasında. Dosyaları ve iki bulut veri depolarını veya Self-hosted tümleştirmesi çalışma zamanı makinenin fiziksel yapılandırması arasında veri kopyalamak için kullanılan bulut veri taşıma birimleri (DMUs) sayıda boyutuna bağlıdır. |
+| Dosya tabanlı depoları arasında veri kopyalama |1 ile 64 arasında. Dosyaları ve iki bulut veri depolarını veya Self-hosted tümleştirmesi çalışma zamanı makinenin fiziksel yapılandırması arasında veri kopyalamak için kullanılan bulut veri taşıma birimleri (DMUs) sayıda boyutuna bağlıdır. |
 | Tüm kaynak veri deposundan Azure Table depolama alanına veri kopyalama |4 |
 | Diğer tüm kopyalama senaryoları |1 |
 

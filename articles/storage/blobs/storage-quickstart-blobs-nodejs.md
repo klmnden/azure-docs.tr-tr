@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2017
 ms.author: gwallace
-ms.openlocfilehash: 9ea7f77d3bbe45de49c798fe3d51151e1a5a6658
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dd4d3abf082767c40760d020c0997b365452e769
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-nodejs"></a>Aktarım nesneleri/Node.js kullanarak Azure Blob depolama biriminden
 
@@ -103,7 +103,11 @@ Bir aracı gibi kullanabilir [Azure Storage Gezgini](http://storageexplorer.com/
 
 Dosyaları doğrulandıktan sonra tanıtım ve test dosyalarını silmeniz herhangi bir tuşa basın. Örnek yaptığı bildiğinize göre kodu aramak için index.js dosyasını açın. 
 
-## <a name="get-references-to-the-storage-objects"></a>Depolama nesneleri başvuruları alma
+## <a name="understand-the-sample-code"></a>Örnek kodu anlama
+
+Ardından, böylece nasıl çalıştığını anlamanız biz örnek kodda yol.
+
+### <a name="get-references-to-the-storage-objects"></a>Depolama nesneleri başvuruları alma
 
 Yapılacak ilk şey referansı oluşturmaktır `BlobService` erişmek ve Blob Depolama yönetmek için kullanılır. Bu nesneler birbirine yapı--her listedeki bir sonraki tarafından kullanılır.
 
@@ -120,7 +124,7 @@ blobService.createContainerIfNotExists(blockBlobContainerName, { 'publicAccessLe
     if (error) return callback(error);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>BLOB kapsayıcıya karşıya yükle
+### <a name="upload-blobs-to-the-container"></a>BLOB kapsayıcıya karşıya yükle
 
 Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları en yaygın olarak kullanılır. Bunlar, metin ve ikili verileri bu quickstart kullanıldıkları neden olduğu depolanması için idealdir.
 
@@ -141,7 +145,7 @@ console.log('   Uploaded Blob URL:', blobService.getUrl(CONTAINER_NAME, BLOCK_BL
 
 Blob storage ile kullanabileceğiniz çeşitli karşıya yükleme yöntemler vardır. Örneğin, bir bellek akış varsa, kullanabileceğiniz [createBlockBlobFromStream](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromStream) yöntemi yerine [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_createBlockBlobFromLocalFile).
 
-## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
+### <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
 Ardından, uygulama bir kapsayıcı kullanılarak, dosyaların bir listesini alır [listBlobsSegmented](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_listBlobsSegmented). Aşağıdaki kod BLOB'lar listesini alır ve ardından bunları bulunan blobların URI'ler gösteren döngü. Komut penceresinde URI'yi kopyalayın ve dosyayı görüntülemek için bir tarayıcıya yapıştırın.
 
@@ -158,7 +162,7 @@ blobService.listBlobsSegmented(CONTAINER_NAME, null, function (error, data) {
     console.log('\n');
 ```
 
-## <a name="download-blobs"></a>Blob’ları indirme
+### <a name="download-blobs"></a>Blob’ları indirme
 
 Kullanarak yerel disk blobları indirmek [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice?view=azure-node-2.2.0#azure_storage_BlobService_getBlobToLocalFile).
 
@@ -171,7 +175,7 @@ handleError(error);
 console.log('   Downloaded File:', DOWNLOADED_FILE_PATH, '\n');
 ```
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+### <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Bu hızlı başlangıcı karşıya BLOB'ları artık ihtiyacınız varsa, tüm kapsayıcı kullanarak silebilirsiniz [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) ve [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteContainerIfExists). Ayrıca artık gerekli değilse oluşturulan dosyaları silin. Bu uygulamada bastığınızda dikkate uygulamadan çıkmak için girin.
 

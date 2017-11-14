@@ -3,7 +3,7 @@ title: "Azure ExpressRoute için yönlendirme gereksinimleri | Microsoft Belgele
 description: "Bu sayfada, ExpressRoute devreleri için yönlendirmeyi yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler verilmektedir."
 documentationcenter: na
 services: expressroute
-author: osamazia
+author: ganesr
 manager: ganesr
 editor: 
 ms.assetid: 5b382e79-fa3f-495a-a764-c5ff86af66a2
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: osamam
-ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.date: 11/03/2017
+ms.author: ganesr
+ms.openlocfilehash: 088147060eeeba5c900cdcdc3fb38fc1d4ccfc58
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -174,6 +174,8 @@ Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsin
 | Batı Avrupa | 12076:51002 |
 | Birleşik Krallık Güney | 12076:51024 |
 | Birleşik Krallık Batı | 12076:51025 |
+| Fransa Orta | 12076:51030 |
+| Fransa Güney | 12076:51031 |
 | **Asya Pasifik** | |
 | Doğu Asya | 12076:51010 |
 | Güneydoğu Asya | 12076:51011 |

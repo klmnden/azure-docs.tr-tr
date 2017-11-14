@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 9f49fbff9f66dc081e94b35e1318a2c9aee60dc0
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 851477331c5990f2e950b2aa83ef1d61e6174326
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-using-the-azure-portal"></a>Azure portalını kullanarak bir veri fabrikası oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Bu hızlı başlangıcın bir parçası olarak gerçekleştireceğiniz adımlar 
          
       Bu hızlı başlangıçtaki adımlardan bazıları kaynak grubu için şu adı kullandığınızı varsayar: **ADFTutorialResourceGroup**. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
 4. **Sürüm** için **V2 (Önizleme)** öğesini seçin.
-5. Data factory için **konum** seçin. Şu anda V2 veri fabrikalarını yalnızca **Doğu ABD** bölgesinde oluşturabilirsiniz. Ancak, veri fabrikalarında kullanılan işlem ve veri depoları başka bölgelerde olabilir. 
+5. Data factory için **konum** seçin. Data Factory V2 şu anda Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 6. **Panoya sabitle**’yi seçin.     
 7. **Oluştur**'a tıklayın.
       

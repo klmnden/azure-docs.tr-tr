@@ -7,13 +7,13 @@ manager: routlaw
 ms.service: virtual-machines-linux
 ms.custom: devops
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/13/2017
 ms.author: tarcher
-ms.openlocfilehash: 859c0a2f2cf315e9168ed9828061c03da6b8e0a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>VM kümesinin Terraform ve HCL ile oluşturma
 
@@ -35,7 +35,7 @@ Bu öğreticide şunları yaptınız:
 
 Bu bölümde, bir Azure hizmet sorumlusu ve güvenlik sorumlusu kimlik bilgilerini içeren iki Terraform yapılandırma dosyaları oluşturur.
 
-1. [Bir Azure AD hizmet sorumlusu ayarlamak](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) Terraform sağlama kaynaklara Azure'da etkinleştirmek için. Asıl oluşturulurken, abonelik kimliği, Kiracı kimliği, görünen adı ve parola değerlerini not edin.
+1. [Bir Azure AD hizmet sorumlusu ayarlamak](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) Terraform sağlama kaynaklara Azure'da etkinleştirmek için. Asıl oluşturulurken, abonelik kimliği, Kiracı, AppID ve parola değerlerini not edin.
 
 2. Bir komut istemi açın.
 
@@ -236,7 +236,7 @@ Terraform başlatmak için aşağıdaki komutu çalıştırın:
 
 [Terraform planı komutu](https://www.terraform.io/docs/commands/plan.html) yürütme planı oluşturmak için kullanılır. Yürütme planı oluşturmak için Terraform tüm toplayan `.tf` geçerli dizindeki dosyaları. 
 
-Burada yapılandırma değişebilir yürütme planı oluşturduğunuz zaman ve saat arasında ortak bir ortamda çalışıyorsanız yürütme planı uygulamak için kullanmanız gereken [terraform planı komutunun-çıkış parametresi](https://www.terraform.io/docs/commands/plan.html#out-path)ve bir dosyaya yürütme planı çıktı. Bir tek kişi ortamında çalışıyorsanız, aksi takdirde atlayabilirsiniz `-out` parametresi.
+Burada yapılandırma değişebilir yürütme planı oluşturduğunuz zaman ve saat arasında ortak bir ortamda çalışıyorsanız yürütme planı uygulamak için kullanmanız gereken [terraform planı komutunun-çıkış parametresi](https://www.terraform.io/docs/commands/plan.html#out-path)yürütme planı bir dosyaya kaydetmek için. Bir tek kişi ortamında çalışıyorsanız, aksi takdirde atlayabilirsiniz `-out` parametresi.
 
 Terraform değişkenleri dosyanızın adı olup olmadığını `terraform.tfvars` ve onu IU `*.auto.tfvars` desenini kullanarak dosya adı belirtmeniz gerekir [terraform planı komutunun - var dosya parametresi](https://www.terraform.io/docs/commands/plan.html#var-file-foo) çalışırken`terraform plan`komutu.
 

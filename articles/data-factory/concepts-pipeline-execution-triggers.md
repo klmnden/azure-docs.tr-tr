@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ Zamanlayıcı tetikleyicinizin bir işlem hattı çalıştırmasını başlatmas
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ Zamanlayıcı tetikleyicinizin bir işlem hattı çalıştırmasını başlatmas
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ Zamanlayıcı tetikleyicinizin bir işlem hattı çalıştırmasını başlatmas
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ Zamanlayıcı tetikleyicinizin bir işlem hattı çalıştırmasını başlatmas
 }
 ```
 
+> [!IMPORTANT]
+>  **Parameters** özelliği, **işlem hatları** içindeki zorunlu bir özelliktir. İşlem hattınız herhangi bir parametre almasa bile, özellik mevcut olmak zorunda olduğundan parametreler için boş bir json ekleyin.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Genel Bakış: Zamanlayıcı tetikleyicisi şeması
 Aşağıdaki tabloda bir tetikleyici içindeki yinelenme ve zamanlamayla ilgili ana öğelerin genel bir özeti verilmiştir:
 
 JSON özelliği |     Açıklama
 ------------- | -------------
 startTime | startTime, Tarih-Saat türündedir. Basit zamanlamalar için startTime ilk yinelenme zamanıdır. Karmaşık zamanlamalar için tetikleyici startTime değerinden önce başlamaz.
+endTime | Tetikleyici için bitiş tarihini ve saatini belirtir. Tetikleyici bu tarihten sonra çalıştırılmaz. endTime değeri geçmişte olamaz.
+timeZone | Şu anda yalnızca UTC desteklenmektedir. 
 yineleme | recurrence nesnesi tetikleyici için yinelenme kurallarını belirtir. recurrence nesnesi şu öğeleri destekler: frequency, interval, endTime, count ve schedule. recurrence tanımlanmışsa frequency değerinin de tanımlanması gerekir. Diğer recurrence öğeleri isteğe bağlıdır.
 frequency | Tetikleyicinin yineleneceği sıklık birimini temsil eder. Desteklenen değerler: `minute`, `hour`, `day`, `week` veya `month`.
 interval | interval pozitif tamsayıdır. Tetikleyicinin çalışma sıklığını belirten frequency için aralığı belirtir. Örneğin interval değeri 3, frequency değeri de "week" ise tetikleyici 3 haftada bir yinelenir.
-endTime | Tetikleyici için bitiş tarihini ve saatini belirtir. Tetikleyici bu tarihten sonra çalıştırılmaz. endTime değeri geçmişte olamaz.
 schedule | Belirtilen sıklıktaki bir tetikleyici, yinelenmesini bir yinelenme zamanlamasına göre değiştirir. schedule; dakika, saat, haftanın günü, ayın günü ve hafta numarası tabanlı değişiklikleri içerir.
+
+
+### <a name="schedule-trigger-example"></a>Zamanlama tetikleyicisi örneği
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Genel Bakış: Zamanlayıcı tetikleyicisi şema varsayılanları, sınırlar ve örnekler
 
@@ -251,7 +292,7 @@ Son olarak bir tetikleyici zamanlamaya sahipse zamanlamada saat ve/veya dakika b
 ### <a name="deep-dive-schedule"></a>Ayrıntılı Bakış: schedule
 schedule bir yandan tetikleyici çalıştırma sayısını sınırlayabilir. Örneğin frequency parametresi "month" olan bir tetikleyici yalnızca 31. günde çalışan bir zamanlamaya sahipse tetikleyici yalnızca 31. günü olan aylarda çalışır.
 
-Diğer taraftan schedule, tetikleyici çalıştırma sayısını da genişletebilir. Örneğin frequency parametresi "month" olan bir tetikleyici ayın 1. ve 2. gününde çalışan bir zamanlamaya sahipse tetikleyici ayda bir kez yerine ayın 1. ve 2. günlerinde çalışır.
+Diğer yandan zamanlama, tetikleyici çalıştırma sayısını da genişletebilir. Örneğin frequency parametresi "month" olan bir tetikleyici ayın 1. ve 2. gününde çalışan bir zamanlamaya sahipse tetikleyici ayda bir kez yerine ayın 1. ve 2. günlerinde çalışır.
 
 Birden fazla schedule öğesi belirtilmişse değerlendirme sırası en büyükten en küçüğe doğru (hafta numarası, ayın günü, haftanın günü, saat ve dakika) olur.
 
@@ -262,9 +303,9 @@ JSON adı | Açıklama | Geçerli Değerler
 --------- | ----------- | ------------
 minutes | Tetikleyicinin çalıştığı dakika değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul>
 hours | Tetikleyicinin çalıştığı saat değeri. | <ul><li>Tamsayı</li><li>Tamsayı dizisi</li></ul>
-weekDays | Tetikleyicinin çalıştığı hafta günleri. Yalnızca weekly frequency değeri ile belirtilebilir. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday veya Sunday</li><li>Yukarıdaki değerlerden oluşan dizi (maksimum dizi boyutu: 7)</li></p>Büyük/küçük harf duyarlı değildir</p>
+weekDays | Tetikleyicinin çalıştığı hafta günleri. Yalnızca weekly frequency değeri ile belirtilebilir. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday veya Sunday</li><li>Değerlerden herhangi birinin dizisi (en büyük dizi boyutu 7)</li></p>Büyük/küçük harf duyarlı değildir</p>
 monthlyOccurrences | Tetikleyicinin ayın hangi günlerinde çalışacağını belirler. Yalnızca monthly frequency değeri ile belirtilebilir. | monthlyOccurence nesneleri dizisi: `{ "day": day,  "occurrence": occurence }`. <p> day, tetikleyicinin çalıştığı haftanın günüdür. Örneğin `{Sunday}`, ayın her Pazar günüdür. Gereklidir.<p>occurrence, ayın ay içindeki yinelenme günüdür. Örneğin `{Sunday, -1}`, ayın son Pazar günüdür. İsteğe bağlı.
-monthDays | Tetikleyicinin çalıştığı ayın günü. Yalnızca monthly frequency değeri ile belirtilebilir. | <ul><li><= -1 ve >= -31 şartlarını karşılayan herhangi bir değer</li><li>>= 1 ve <= 31 şartlarını karşılayan herhangi bir değer</li><li>Yukarıdaki değerlerden oluşan bir dizi</li>
+monthDays | Tetikleyicinin çalıştığı ayın günü. Yalnızca monthly frequency değeri ile belirtilebilir. | <ul><li><= -1 ve >= -31 şartlarını karşılayan herhangi bir değer</li><li>>= 1 ve <= 31 şartlarını karşılayan herhangi bir değer</li><li>Bir değer dizisi</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Örnekler: yineleme zamanlamaları

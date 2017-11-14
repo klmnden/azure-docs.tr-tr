@@ -3,7 +3,7 @@ title: "Bir bulut hizmeti dağıtımı (Node.js). Aşama | Microsoft Docs"
 description: "Azure uygulamanızı hazırlama ortamınıza dağıtın ve ardından sanal IP (VIP) takas kullanarak bir üretim ortamına dağıtma hakkında bilgi edinin."
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: d65d26a6-b424-49cd-a88c-7ef46bb112a8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: e35bbd31f39722c2e95ce58772dc6bd5eaf839a0
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Bir Azure uygulamasında hazırlama
 Paketlenmiş bir uygulama, uygulama Internet üzerinden erişilebilir üretim ortamına geçmeden önce sınanacak Azure hazırlama ortamında dağıtılabilir. Yalnızca Azure tarafından oluşturulan karıştırılmış bir URL ile aşamalı uygulama erişimi hazırlama ortamında tam olarak üretim ortamı gibi olmasıdır. Uygulamanızın düzgün çalıştığını doğruladıktan sonra üretim ortamına bir sanal IP (VIP) değiştirme gerçekleştirerek dağıtılabilir.

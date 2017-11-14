@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: cf69d30f36178db9cad18e18f370645cd84de558
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: f7683bc203c93993c0eb5aaed6ca788458546019
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory kullanarak birden çok tabloyu toplu olarak kopyalama
 
@@ -99,7 +99,7 @@ Hem SQL Veritabanı hem de SQL Veri Ambarı için Azure hizmetlerinin SQL sunucu
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Bir veri fabrikası oluşturmak için **Set-AzureRmDataFactoryV2** cmdlet’ini çalıştırın. Komutu yürütmeden önce yer tutucuları kendi değerlerinizle değiştirin.
+2. Bir veri fabrikası oluşturmak için **Set-AzureRmDataFactoryV2** cmdlet’ini çalıştırın. Komutu yürütmeden önce yer tutucuları kendi değerlerinizle değiştirin. 
 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>"
@@ -116,7 +116,7 @@ Hem SQL Veritabanı hem de SQL Veri Ambarı için Azure hizmetlerinin SQL sunucu
         ```
 
     * Data Factory örnekleri oluşturmak için Azure aboneliğinde Katkıda Bulunan veya Yönetici rolünüz olmalıdır.
-    * Şu anda, Data Factory yalnızca Doğu ABD bölgesinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+    * Data Factory V2 şu anda Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
 ## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
 

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: b096b9d79c049d8659a4171a0cbb42a99e245776
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2a825e59093b64ab56110f9a045b0325728b39b2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Aktarım nesneleri/Java kullanarak Azure Blob depolama biriminden
 
@@ -85,19 +85,23 @@ Dosyaları doğrulandıktan sonra tanıtım ve test dosyalarını silmeniz enter
 
 ## <a name="understand-the-sample-code"></a>Örnek kodu anlama
 
+Ardından, böylece nasıl çalıştığını anlamanız biz örnek kodda yol.
+
+### <a name="get-references-to-the-storage-objects"></a>Depolama nesneleri başvuruları alma
+
 Yapılacak ilk şey erişmek ve Blob Depolama yönetmek için kullanılan nesnelerin referansları oluşturmaktır. Bu nesneler birbirine yapı--her listedeki bir sonraki tarafından kullanılır.
 
 * Bir örneğini oluşturmak **CloudStorageAccount** gösteren nesne [depolama hesabı](/java/api/com.microsoft.azure.management.storage._storage_account).
 
-**CloudStorageAccount** nesnesi depolama hesabınıza bir gösterimini ve ayarlama ve depolama hesabı özellikleri programlı erişim sağlar. Kullanarak **CloudStorageAccount** nesne örneği oluştur **CloudBlobClient**, blob hizmetine erişmek gerekli olduğu.
+    **CloudStorageAccount** nesnesi depolama hesabınıza bir gösterimini ve ayarlama ve depolama hesabı özellikleri programlı erişim sağlar. Kullanarak **CloudStorageAccount** nesne örneği oluştur **CloudBlobClient**, blob hizmetine erişmek gerekli olduğu.
 
 * Bir örneğini oluşturmak **CloudBlobClient** işaret nesnesi [Blob hizmeti](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client) depolama hesabınızdaki.
 
-**CloudBlobClient** ayarlamak ve blob depolama özellikleri programlı erişim sağlayan blob hizmet erişim noktası sağlar. Kullanarak **CloudBlobClient** örneği oluşturabilirsiniz **CloudBlobContainer** kapsayıcıları oluşturmak üzere gerekli nesne.
+    **CloudBlobClient** ayarlamak ve blob depolama özellikleri programlı erişim sağlayan blob hizmet erişim noktası sağlar. Kullanarak **CloudBlobClient** örneği oluşturabilirsiniz **CloudBlobContainer** kapsayıcıları oluşturmak üzere gerekli nesne.
 
 * Bir örneğini oluşturmak **CloudBlobContainer** temsil eden nesne [kapsayıcı](/java/api/com.microsoft.azure.storage.blob._cloud_blob_container) eriştiğiniz. Kapsayıcıları dosyalarınızı düzenlemek için bilgisayarınızda klasörleri kullanmak gibi bloblarınızın düzenlemek için kullanılır.    
 
-Bulduktan sonra **CloudBlobContainer**, bir örneğini oluşturabilirsiniz **CloudBlockBlob** belirli işaret nesnesi [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) hangi, ilgilendiğiniz içinde ve karşıya yükleme, yükleme, kopyalama, vb. işlemi gerçekleştirin.
+    Bulduktan sonra **CloudBlobContainer**, bir örneğini oluşturabilirsiniz **CloudBlockBlob** belirli işaret nesnesi [blob](/java/api/com.microsoft.azure.storage.blob._cloud_block_blob) hangi, ilgilendiğiniz içinde ve karşıya yükleme, yükleme, kopyalama, vb. işlemi gerçekleştirin.
 
 > [!IMPORTANT]
 > Kapsayıcı adları küçük harf olmalıdır. Bkz: [adlandırma ve başvuran kapsayıcıları, Blobları ve meta veri](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) kapsayıcı ve blob adları hakkında daha fazla bilgi için.

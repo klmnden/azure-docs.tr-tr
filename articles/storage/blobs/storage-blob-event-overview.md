@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a56e6026ed0c2c873030625fa7a9b35b92faf930
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>BLOB Depolama olaylarında (Önizleme) tepki
 
@@ -46,7 +46,7 @@ Olay kılavuz olay özelliklerini kullanımı hakkında ek bilgi bölümlerinde 
 > |EventTime|Dize|Olay oluşturuldu, ISO 8601 biçiminde tarih/saat|
 > |Olay türü|Dize|"Microsoft.Storage.BlobCreated" veya "Microsoft.Storage.BlobDeleted"|
 > |Kimlik|Dize|Bu benzersiz tanımlayıcı olay|
-> |Veri|Nesne|Blob depolama özgü olay verilerini toplama|
+> |Veri|nesne|Blob depolama özgü olay verilerini toplama|
 > |data.contentType|Dize|Content-Type üstbilgisi blobundan döndürülür blob'u, içerik türü|
 > |data.contentLength|Sayı|Content-Length üstbilgisi blobundan döndürülür gibi bayt sayısını temsil eden bir tamsayı olduğu gibi blob'unun boyutu.  İle BlobCreated olay, ancak değil BlobDeleted gönderdi.|
 > |Data.URL|Dize|Olay konusu nesnenin URL'si|
@@ -55,7 +55,7 @@ Olay kılavuz olay özelliklerini kullanımı hakkında ek bilgi bölümlerinde 
 > |Data.Sequencer|Dize|Herhangi bir belirli blob adını olayların mantıksal sırası temsil eden bir donuk dize değeri.  Kullanıcılar, iki olay aynı blob adı göreli dizisini anlamak için standart dize karşılaştırma kullanabilir.|
 > |data.requestId|Dize|Depolama API işlemi için hizmeti oluşturulan isteği kimliği.  Azure tanılama günlüklerine "istek kimliği üstbilgisi" alanını kullanarak kaydeder ve yapma işlemi başlatmasını API çağrısı 'x-ms-request-id' başlığı döndürülür depolama ilişkilendirmek için kullanılabilir. Bkz: [oturum biçimi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
 > |data.clientRequestId|Dize|Depolama API işlemi için sağlanan istemci isteği kimliği.  "X-ms-istemci-request-id" başlığı kullanarak istemci isteklerinde sağlanan ve Azure Storage tanılama günlüklerine günlükleri "client-request-id" alanında kullanarak ilişkilendirmek için kullanılır. Bkz: [oturum biçimi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
-> |data.storageDiagnostics|Nesne|Bazen Azure depolama hizmeti tarafından eklenen tanılama verilerini.  Varsa, olay tüketicileri tarafından sayılır.|
+> |data.storageDiagnostics|nesne|Bazen Azure depolama hizmeti tarafından eklenen tanılama verilerini.  Varsa, olay tüketicileri tarafından sayılır.|
 
 BlobCreated olay bir örneği burada verilmiştir:
 ```json
@@ -80,7 +80,7 @@ BlobCreated olay bir örneği burada verilmiştir:
 
 ```
 
-Daha fazla bilgi için bkz: [Blob Depolama olayları şema](../../event-grid/event-schema.md#azure-blob-storage).
+Daha fazla bilgi için bkz: [Blob Depolama olayları şema](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Olayları filtreleme
 BLOB olay abonelikleri olay türünü ve oluşturulan veya silinen nesnenin blob adını ve kapsayıcı adı tarafından göre filtre uygulanabilir.  Konu filtrelere göre olay kılavuz iş "ile başlayan" ve "eşleşen bir konu olan olaylar için abone teslim edilir böylece ile eşleşirse, sona erer".

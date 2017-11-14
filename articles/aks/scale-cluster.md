@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: d380c593ebecd18af7dcca190d8c4134cbdfd63c
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 3c05ccc6d1e304b7c511015b916425347bc4d995
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>Bir Azure kapsayıcı hizmeti (AKS) küme ölçeklendirme
 
@@ -40,7 +40,7 @@ az aks scale --name myK8sCluster --resource-group myResourceGroup --agent-count 
 ```json
 {
   "id": "/subscriptions/4f48eeae-9347-40c5-897b-46af1b8811ec/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myK8sCluster",
-  "location": "westus2",
+  "location": "eastus",
   "name": "myK8sCluster",
   "properties": {
     "accessProfiles": {
@@ -66,7 +66,7 @@ az aks scale --name myK8sCluster --resource-group myResourceGroup --agent-count 
       }
     ],
     "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
-    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.westus2.azmk8s.io",
+    "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.eastus.azmk8s.io",
     "kubernetesVersion": "1.7.7",
     "linuxProfile": {
       "adminUsername": "azureuser",

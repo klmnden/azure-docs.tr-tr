@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application ınsights'ta Analytics turu
 [Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfaları günlük analizi sorgu dili açıklanmaktadır.
@@ -54,7 +54,7 @@ Ayrıntıları görmek için herhangi bir öğeyi genişletin:
 ![Tablo seçin ve yapılandırma sütunları kullanın](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Web tarayıcısında kullanılabilir sonuçları yeniden sıralamak için sütun head'ı tıklatın. Ancak büyük sonuç kümesi için tarayıcıya indirilen satır sayısı sınırlı olduğunu unutmayın. Bu şekilde sıralama her zaman gerçek yüksek veya en düşük öğeleri göstermez. Öğeleri güvenilir bir şekilde sıralamak için kullanmak `top` veya `sort` işleci.
+> Web tarayıcısında kullanılabilir sonuçları yeniden sıralamak için sütun başlığını tıklatın. Ancak büyük sonuç kümesi için tarayıcıya indirilen satır sayısı sınırlı olduğunu unutmayın. Bu şekilde sıralama sadece döndürülen sonuç kümesini sıralar ve gerçek yüksek veya en düşük öğeleri her zaman göstermez. Öğeleri güvenilir bir şekilde sıralamak için kullanmak `top` veya `sort` işleci.
 >
 >
 
@@ -92,7 +92,7 @@ Belirli bir sütuna göre sıralanmış ilk n satırları göster:
 
 Sonuç aynı kalır, ancak biraz daha yavaş çalışır. (Ayrıca yazabilirsiniz `order`, bir diğer ad olduğu `sort`.)
 
-Sütun üstbilgileri Tablo görünümünde ayrıca ekranında sonuçları sıralamak için kullanılabilir. Ancak, kullandıysanız Kuşkusuz `take` veya `top` almak için yalnızca bir kısmını bir tablo, sadece alınan kayıt yeniden sıralamak.
+Sütun üstbilgileri Tablo görünümünde ayrıca ekranında sonuçları sıralamak için kullanılabilir. Ancak, kullandıysanız Kuşkusuz `take` veya `top` hemen almak için sütun başlığına tıklayarak bir tablonun parçası sadece alınan kayıt yeniden sıralamak.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Burada](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): bir koşula göre filtreleme
 
@@ -115,8 +115,9 @@ Belirli Sonuç kodu döndürdü yalnızca istekleri görelim:
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Sağ türü alınıyor
-Başarısız istekleri Bul:
+### <a name="find-unsuccessful-requests"></a>Başarısız istekleri Bul
+
+Bir dize değeri büyük kullanmak için bir tamsayıya dönüştürmek-karşılaştırması:
 
 ```AIQL
 
@@ -240,7 +241,7 @@ Veya biz sonucu farklı adlar istekleri ayrı:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`Akış veri noktaları gruplar halinde kendisi için toplar `by` yan tümcesi eşit olarak değerlendirir. Her değer `by` ifade - yukarıdaki örnekte her işlem adı - sonuç tablosunda bir satırı sonuçlanıyor.
+`Summarize`Akış veri noktaları gruplar halinde kendisi için toplar `by` yan tümcesi eşit olarak değerlendirir. Her değer `by` ifade - yukarıdaki örnekte her benzersiz işlem adı - sonuç tablosunda bir satırı sonuçlanıyor.
 
 Veya sonuçları günün saatini göre gruplandırabilirsiniz:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: e8b28bc9ccc12b280b1746272519bd4c9ea9e4a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bed51dc1216b40f6602fae6d32bc8bd7aa517605
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -66,11 +66,11 @@ Kullanabileceğiniz [şirket markası özelliğini](../active-directory/active-d
 
 E-posta imza B2C Kiracı ilk oluşturduğunuzda belirttiğiniz B2C kiracının adını içerir. Bu yönergeleri kullanarak adı değiştirebilirsiniz:
 
-1. [Klasik Azure portalında](https://manage.windowsazure.com/) Abonelik Yöneticisi olarak oturum açın.
-1. B2C kiracınızın gidin.
-1. **Configure (Yapılandır)** sekmesine tıklayın.
-1. Değişiklik **adı** altında **Directory özellikleri** bölümü.
-1. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
+1. Oturum [Azure portal](https://portal.azure.com/) Abonelik Yöneticisi olarak.
+1. Açık **Azure Active Directory** dikey.
+1. Tıklatın **özellikleri** sekmesi.
+1. Değişiklik **adı** alan.
+1. Tıklatın **kaydetmek** sayfanın üst kısmındaki.
 
 Şu anda değiştirmek için bir yolu yoktur "den:" e-posta alan. Oy [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) doğrulama e-posta gövdesi özelleştirme ilgilendiğiniz.
 
