@@ -19,7 +19,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-## Uygulamanızı AD kiracınıza kaydetme
+## <a name="register-your-application-with-your-ad-tenant"></a>Uygulamanızı AD kiracınıza kaydetme
 İlk olarak, uygulamanızı Azure Active Directory (Azure AD) kiracısına kaydetmeniz gerekir. Bu, uygulamanıza bir Uygulama Kimliği verir ve uygulamanızın belirteçleri alabilmesini sağlar.
 
 * [Azure Portal](https://portal.azure.com)’da oturum açın.

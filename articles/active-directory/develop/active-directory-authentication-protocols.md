@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory kimlik doğrulama protokolleri
+# <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory kimlik doğrulama protokolleri
 Azure Active Directory (Azure AD), çeşitli en yaygın olarak kullanılan kimlik doğrulama ve yetkilendirme kurallarının destekler. Bu bölümdeki konular, desteklenen protokoller ve uygulamalarının Azure AD'de açıklanmaktadır. Konular, desteklenen talep türleri, kullanım giriş Federasyon meta verilerinin gözden dahil, OAuth 2.0 ayrıntılı. ve SAML 2.0 protokolü başvurusu belgeleri ve sorun giderme bölümü.
 
-## Makaleler ve başvuru kimlik doğrulama protokolleri
+## <a name="authentication-protocols-articles-and-reference"></a>Makaleler ve başvuru kimlik doğrulama protokolleri
 * [Önemli bilgiler hakkında imzalama anahtarı Rollover Azure AD'de](active-directory-signing-key-rollover.md) – Azure AD anahtar geçişi tempoyla, anahtarı otomatik olarak güncelleştirmek için yaptığınız değişiklikler ve tartışma için en yaygın uygulama senaryoları güncelleştirme imzalama hakkında bilgi edinin.
 * [Desteklenen belirteç ve talep türleri](active-directory-token-and-claims.md) -Azure AD verir belirteçleri talepleri hakkında bilgi edinin.
 * [Federasyon meta verileri](active-directory-federation-metadata.md) -bulmak ve Azure AD oluşturur meta veri belgelerini yorumlama hakkında bilgi edinin.
@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD), çeşitli en yaygın olarak kullanılan kimli
 * [Hizmet çağrıları On-Behalf-Of akış ile](active-directory-protocols-oauth-on-behalf-of.md) -hizmet çağrıları için OAuth 2.0 On-Behalf-Of akış kullanmayı öğrenin.
 * [SAML Protokolü başvurusu](active-directory-saml-protocol-reference.md) -Azure AD çoklu oturum açma ve tek Sign-out SAML profilleri hakkında bilgi edinin.
 
-## Ayrıca Bkz.
+## <a name="see-also"></a>Ayrıca Bkz.
 [Azure Active Directory Geliştirici Kılavuzu](active-directory-developers-guide.md)
 
 [Active Directory kod örnekleri](active-directory-code-samples.md)

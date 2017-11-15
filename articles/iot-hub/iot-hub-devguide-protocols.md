@@ -20,7 +20,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-# Başvuru - iletişim protokolü seçin
+# <a name="reference---choose-a-communication-protocol"></a>Başvuru - iletişim protokolü seçin
 
 IOT Hub cihaz tarafındaki iletişimleri için aşağıdaki protokolleri cihazların sağlar:
 
@@ -51,7 +51,7 @@ Cihaz tarafındaki iletişimleri için protokol seçtiğinizde aşağıdaki nokt
 > [!WARNING]
 > HTTPS kullanırken, her cihaz için bulut-cihaz iletilerini 25 dakikada bir veya daha fazla yoklama. Ancak, geliştirme sırasında 25 dakikada daha sık yoklamak için kabul edilebilir.
 
-## Bağlantı noktası numaraları
+## <a name="port-numbers"></a>Bağlantı noktası numaraları
 
 Aygıtları çeşitli protokoller kullanarak Azure IOT Hub ile iletişim kurabilir. Genellikle, Protokol seçimi çözümü belirli gereksinimleri tarafından yönetilir. Aşağıdaki tabloda, belirli bir iletişim kuralı kullanabilmek bir cihaz için açık olmalıdır giden bağlantı noktalarını listeler:
 
@@ -66,7 +66,7 @@ Aygıtları çeşitli protokoller kullanarak Azure IOT Hub ile iletişim kurabil
 Bir Azure bölgesinde bir IOT hub'ı oluşturduğunuzda, IOT hub'ı bu IOT hub'ın ömrü boyunca aynı IP adresini tutar. Ancak, Microsoft hizmet kalitesini korumak için farklı ölçek birimi için IOT hub'ı taşınırsa, yeni bir IP adresi atanmış olduğu.
 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 IOT hub'ı MQTT Protokolü nasıl uyguladığını hakkında daha fazla bilgi için bkz: [MQTT protokolünü kullanarak, IOT hub ile iletişim kurun][lnk-mqtt-support].
 
