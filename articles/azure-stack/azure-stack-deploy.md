@@ -3,8 +3,8 @@ title: "Azure yığın Geliştirme Seti dağıtımının önkoşulları | Micros
 description: "Azure yığın Geliştirme Seti (bulut işleci) için ortamı ve donanım gereksinimlerini görüntüleyin."
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack dağıtım önkoşulları
 
@@ -40,7 +40,7 @@ Dağıtmadan önce [Azure yığın Geliştirme Seti](azure-stack-poc.md), bilgis
 
 \*Birçok eklemeyi düşünüyorsanız, bu kapasite önerilen fazlasını gerekir [Market öğesi](azure-stack-download-azure-marketplace-item.md) azure'dan.
 
-**Veri disk sürücüsü yapılandırması:** Tüm veri sürücüleri aynı türde (tümü SAS veya tümü SATA) ve kapasitede olmalıdır. SAS disk sürücüleri kullanılıyorsa disk sürücülerinin (MPIO kullanılmaz, çok yollu destek sağlanır) tek bir yolla bağlanması gerekir.
+**Veri disk sürücüsü yapılandırması:** tüm veri sürücüleri türü (tüm SAS, tüm SATA veya tüm NVMe) ve kapasite aynı olmalıdır. SAS disk sürücüleri kullanılıyorsa disk sürücülerinin (MPIO kullanılmaz, çok yollu destek sağlanır) tek bir yolla bağlanması gerekir.
 
 **HBA yapılandırma seçenekleri**
 
@@ -56,6 +56,7 @@ Dağıtmadan önce [Azure yığın Geliştirme Seti](azure-stack-poc.md), bilgis
 * RAID SSD (Medya türü belirtilmemişse/bilinmiyorsa\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
+* NVMe
 
 \*RAID denetleyiciler geçiş yetenek olmadan medya türü tanıyamıyor. Bu tür denetleyiciler, hem HDD'yi hem de SSD'yi Belirtilmemiş olarak işaretler. Bu durumda, kalıcı depolama alanı olarak önbelleğe alma cihazları yerine SSD kullanılır. Bu nedenle, bu SSD Geliştirme Seti dağıtabilirsiniz.
 
