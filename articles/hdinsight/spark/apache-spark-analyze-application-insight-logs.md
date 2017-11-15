@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 6ea3114a30b0ae313efb14495f5556e5484bef06
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d7e4e064a451831c7cf0753064522d0a0b4f5d63
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Application Insights telemetri günlüklerini hdınsight'ta Spark ile çözümleme
 
@@ -61,7 +61,7 @@ Application Insights telemetri bilgilerini BLOB'lar için sürekli olarak dışa
 
 * **BLOB türü**: Hdınsight yalnızca blok bloblarını destekler. Blok blobları kullanarak uygulama Öngörüler varsayılanlarını şekilde çalışmalıdır varsayılan Hdınsight ile.
 
-Ek depolama alanı olan bir Hdınsight kümesine ekleme hakkında daha fazla bilgi için bkz: [ek depolama hesapları ekleme](../hdinsight-hadoop-add-storage.md) belge.
+Varolan bir kümeye depolama ekleme hakkında daha fazla bilgi için bkz: [ek depolama hesapları ekleme](../hdinsight-hadoop-add-storage.md) belge.
 
 ### <a name="data-schema"></a>Veri şeması
 
@@ -79,7 +79,7 @@ Varolan bir kümeye Azure depolama hesabı eklemek için bilgileri kullanın. [e
 
 ## <a name="analyze-the-data-pyspark"></a>Verileri çözümlemek: PySpark
 
-1. Gelen [Azure portal](https://portal.azure.com), Hdınsight kümesinde, Spark seçin. Gelen **hızlı bağlantılar** bölümünde, select **küme panolarında**ve ardından **Jupyter not defteri** küme Dashboard__ dikey penceresinden.
+1. Gelen [Azure portal](https://portal.azure.com), Hdınsight kümesinde, Spark seçin. Gelen **hızlı bağlantılar** bölümünde, select **küme panolarında**ve ardından **Jupyter not defteri** küme Dashboard__ bölümünden.
 
     ![Küme panolarında](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 
@@ -222,7 +222,7 @@ Varolan bir kümeye Azure depolama hesabı eklemek için bilgileri kullanın. [e
 
 ## <a name="analyze-the-data-scala"></a>Verileri çözümlemek: Scala
 
-1. Gelen [Azure portal](https://portal.azure.com), Hdınsight kümesinde, Spark seçin. Gelen **hızlı bağlantılar** bölümünde, select **küme panolarında**ve ardından **Jupyter not defteri** küme Dashboard__ dikey penceresinden.
+1. Gelen [Azure portal](https://portal.azure.com), Hdınsight kümesinde, Spark seçin. Gelen **hızlı bağlantılar** bölümünde, select **küme panolarında**ve ardından **Jupyter not defteri** küme Dashboard__ bölümünden.
 
     ![Küme panolarında](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
 2. Jupyter sayfanın sağ üst köşesinde seçin **yeni**ve ardından **Scala**. Scala tabanlı Jupyter not defteri içeren yeni bir tarayıcı sekmesi görüntülenir.

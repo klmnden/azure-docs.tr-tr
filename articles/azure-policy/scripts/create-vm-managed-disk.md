@@ -1,5 +1,5 @@
 ---
-title: "Azure ilke json örnek - yönetilen diski kullanarak VM oluşturma | Microsoft Docs"
+title: "Azure ilke json örnek - denetim yönetilen disk kullanmayan VM | Microsoft Docs"
 description: "Yönetilen diskleri kullanmayan bir sanal makine oluşturulduğunda bu json örnek denetler."
 services: azure-policy
 documentationcenter: 
@@ -15,13 +15,13 @@ ms.workload:
 ms.date: 10/30/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: d581280981ce93382ee48c38d74ed6eefa4403fd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 576cb49eee9404cfb09bc4374c4f8544b6db377a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-vm-using-managed-disk"></a>Yönetilen diski kullanarak VM oluşturma
+# <a name="audit-when-vm-does-not-use-managed-disk"></a>VM kullanmaz, Denetim disk yönetilen
 
 Bir sanal makine oluşturulduğunda denetimleri yönetilen diskleri kullanmaz.
 

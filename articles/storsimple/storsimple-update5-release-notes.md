@@ -4,7 +4,7 @@ description: "StorSimple 8000 serisi güncelleştirme 5 için yeni özellikler, 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 serisi güncelleştirme 5 sürüm notları
 
@@ -31,6 +31,7 @@ Güncelleştirme 5 güncelleştirme 4 ile güncelleştirme 0.1 çalıştıran he
 StorSimple çözümünüzde güncelleştirme dağıtmadan önce sürüm notları'nda yer alan bilgileri gözden geçirin.
 
 > [!IMPORTANT]
+> * Güncelleştirme 5 zorunlu bir güncelleştirme ve hemen yüklü olması gerekir. Daha fazla bilgi için bkz: nasıl yapılır [uygulamak güncelleştirme 5](storsimple-8000-install-update-5.md).
 > * Güncelleştirme 5 aygıt yazılımı, disk bellenim, işletim sistemi güvenlik ve diğer işletim sistemi güncelleştirmelerini sahiptir. Bu güncelleştirmeyi yüklemek için yaklaşık 4 saat sürer. Disk bellenim güncelleştirme kesintiye uğratan güncelleştirme ve cihazınız için bir kapalı kalma süresi ile sonuçlanır. Cihazınız güncel tutmak için güncelleştirme 5 uygulamanızı öneririz.
 > * Yeni sürümler için güncelleştirmelerinin göremeyebilirsiniz hemen biz aşamalı güncelleştirmeler yapmak için. Birkaç gün bekleyin ve ardından güncelleştirmeleri taramak üzere bu güncelleştirmeleri yeniden olarak yakında kullanılabilir hale gelecektir.
 

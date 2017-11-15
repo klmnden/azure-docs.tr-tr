@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: d5ae2a68f749310d4d6a2514055fb258978eec9c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 804b20111ea99892201079657d6d3602ececdd28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
@@ -42,7 +42,7 @@ Genel olarak dağıtılan bir veritabanı hizmeti olarak Azure Cosmos DB, ölçe
     * Aşağıdaki veri modellerinin API'leri, birden çok dilde sağlanan SDK'larla desteklenir:
         * [DocumentDB API](documentdb-introduction.md): özellikleri sorgulama SQL Şeması daha az JSON veritabanı altyapısıyla.
         * [MongoDB API](mongodb-introduction.md): Cosmos DB üstünde oluşturulmuş bir MongoDB veritabanı hizmeti. Varolan MongoDB kitaplıkları, sürücüleri, Araçlar ve uygulamaları ile uyumludur.
-        * [Tablo API](table-introduction.md): Azure Table depolama uygulamaları için premium özellikleri sağlamak için yerleşik bir anahtar-değer depolama veritabanı hizmeti.
+        * [Tablo API](table-introduction.md): Azure Table depolama uygulamaları için premium özellikleri sağlamak için yerleşik bir anahtar-değer veritabanı hizmeti.
         * [(Gremlin) API grafik](graph-introduction.md): grafik veritabanı yerleşik hizmeti aşağıdaki [Apache TinkerPop belirtimi](http://tinkerpop.apache.org/).
         * Ek veri modelleri çok yakında!
 

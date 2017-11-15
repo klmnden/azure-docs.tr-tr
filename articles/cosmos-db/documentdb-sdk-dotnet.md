@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fcd3b9647833d15d0fd7913f3be55f18f665d094
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 25fd7ca3a7a6f2bd9b361bd459a707bad49449e4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK'sı: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -51,6 +51,15 @@ ms.lasthandoff: 10/26/2017
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+### <a name="a-name11901190"></a><a name="1.19.0"/>1.19.0
+
+* API Başvurusu Azure Cosmos DB Azure DocumentDB değişikliği marka belgeleri, meta veri bilgileri derlemelerde ve NuGet paketi. 
+* Tanılama bilgileri ve gecikme süresi ile doğrudan bağlantı modunu gönderilen istekleri yanıt gelen kullanıma sunar. Özellik adlarının RequestDiagnosticsString ve RequestLatency ResourceResponse sınıfı üzerinde bulunur.
+* Bu SDK sürümü https://aka.ms/cosmosdb-emulator Merkezi'nden Azure Cosmos DB öykünücüsü kullanılabilir en son sürümünü gerektirir. 
+
+### <a name="a-name11811181"></a><a name="1.18.1"/>1.18.1 
+
+* Microsoft arkadaş derlemeler için iç değişiklikleri.
 
 ### <a name="a-name11801180"></a><a name="1.18.0"/>1.18.0 
 
@@ -261,6 +270,8 @@ Kullanımdan Kaldırılan SDK kullanarak Azure Cosmos DB yapılan tüm isteklere
 
 | Sürüm | Sürüm tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.19.0](#1.19.0) |10 Kasım 2017 |--- |
+| [1.18.1](#1.18.1) |07 Kasım 2017 |--- |
 | [1.18.0](#1.18.0) |17 Ekim 2017 |--- |
 | [1.17.0](#1.17.0) |10 Ağustos 2017 |--- |
 | [1.16.1](#1.16.1) |07 Ağustos 2017 |--- |

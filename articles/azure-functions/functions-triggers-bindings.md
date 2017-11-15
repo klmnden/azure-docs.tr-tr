@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 Azure işlevleri aracılığıyla Azure ve diğer hizmetleri olaylara yanıt kodu yazmanızı sağlar *Tetikleyicileri* ve *bağlamaları*. Bu makalede Tetikleyicileri kavramsal genel bakış olduğundan ve tüm bağlamaları desteklenen programlama dilleri. Tüm bağlamaları için ortak olan özellikleri aşağıda açıklanmıştır.
@@ -243,7 +243,7 @@ Bir tetikleyici (örneğin, bir işlev tetiklenen kuyruk iletisini) tarafından 
 
 Her tetikleyici için meta veri özelliklerini ayrıntılarını karşılık gelen başvuru konusunda açıklanmıştır. Belgeleri de kullanılabilir de **tümleştir** portal sekmesinde, **belgelerine** bağlama yapılandırma alanı aşağıdaki bölümüne.  
 
-Örneğin, bazı gecikmeler BLOB Tetikleyicileri sahip olduğundan, işlevinizi çalıştırmak için bir sıra tetikleyici kullanabilirsiniz (bkz [Blob Depolama tetikleyici](functions-bindings-storage-blob.md#storage-blob-trigger)). Kuyruk iletisini üzerinde tetiklemek için blob filename içerecektir. Kullanarak `queueTrigger` meta veri özelliği, tüm yapılandırmanızı yerine kodunuzu bu davranış belirtebilirsiniz.
+Örneğin, bazı gecikmeler BLOB Tetikleyicileri sahip olduğundan, işlevinizi çalıştırmak için bir sıra tetikleyici kullanabilirsiniz (bkz [Blob Depolama tetikleyici](functions-bindings-storage-blob.md#blob-storage-trigger)). Kuyruk iletisini üzerinde tetiklemek için blob filename içerecektir. Kullanarak `queueTrigger` meta veri özelliği, tüm yapılandırmanızı yerine kodunuzu bu davranış belirtebilirsiniz.
 
 ```json
   "bindings": [

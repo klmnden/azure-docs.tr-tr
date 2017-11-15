@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/09/2017
 ms.author: nkolli;giridham;markgal
-ms.openlocfilehash: a9a516cfdfaf4b95c4f0121a66e90f6e71206e9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f13739c2d3f7fba700b649f27e02913481ca5e5
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM ile Azure’a iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Azure yedekleme DPM verileri yedeklemek gibi için hazırlayın:
 
   > [!IMPORTANT]
   > Mart 2017’den itibaren Backup kasaları oluşturmak için klasik portalı kullanamayacaksınız.
-  > Artık Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltebilirsiniz. Ayrıntılı bilgi için [Backup kasasını Kurtarma Hizmetleri kasasına yükseltme](backup-azure-upgrade-backup-to-recovery-services.md) makalesine bakın. Microsoft, Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltmenizi önerir.<br/> 15 Ekim 2017’den itibaren, PowerShell kullanarak Backup kasaları oluşturamayacaksınız. **1 Kasım 2017’ye kadar**:
+  > Artık Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltebilirsiniz. Ayrıntılı bilgi için [Backup kasasını Kurtarma Hizmetleri kasasına yükseltme](backup-azure-upgrade-backup-to-recovery-services.md) makalesine bakın. Microsoft, Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltmenizi önerir.<br/> 30 Kasım 2017 sonra yedekleme kasaları oluşturmak için PowerShell kullanmanız mümkün olmaz. **30 Kasım 2017 tarafından**:
   >- Yükseltilmemiş olan tüm Backup kasaları Kurtarma Hizmetleri kasalarına otomatik olarak yükseltilecektir.
   >- Klasik portalda yedekleme verilerinize erişemeyeceksiniz. Bunun yerine, Kurtarma Hizmetleri kasalarındaki yedekleme verilerinize erişmek için Azure portalını kullanabilirsiniz.
   >

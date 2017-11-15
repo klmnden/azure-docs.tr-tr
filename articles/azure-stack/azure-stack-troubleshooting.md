@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/11/2017
 ms.author: helaw
-ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a8e871a3a44cb14503832d2f3a096712f8112a7
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure yığın sorunlarını giderme
 
@@ -37,16 +37,6 @@ Yükleme sırasında bir hatayla karşılaşırsanız, kullanabileceğiniz başa
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>PowerShell oturumu dağıtımını sonunda hala açıksa ve herhangi bir çıktı göstermiyor
 Seçili olduğunda bu davranış büyük olasılıkla yalnızca bir PowerShell komut penceresi varsayılan davranışını sonucudur. Geliştirme Seti Dağıtımı gerçekte başarılı oldu ancak komut penceresi seçerken duraklatıldı. "Komut penceresinde titlebar içinde Seç" sözcüğünü bakarak böyledir doğrulayabilirsiniz.  Bunu seçimini kaldırmak için ESC tuşuna basın ve sonra tamamlama iletisi gösterilecek.
-
-## <a name="templates"></a>Şablonlar
-### <a name="azure-template-wont-deploy-to-azure-stack"></a>Azure şablonu Azure yığınına dağıtmayacaksanız
-Olduğundan emin olun:
-
-* Şablon kullanılabilir veya Azure yığınında önizlemede zaten bir Microsoft Azure hizmet kullanıyor olmanız gerekir.
-* Belirli bir kaynak için kullanılan API'leri, yerel Azure yığın örneği tarafından desteklenir ve geçerli bir konum ("yerel" Azure yığın Geliştirme Seti, vs "Doğu ABD" veya "Güney Hindistan'da" Azure içinde) hedefleme.
-* Gözden [bu makalede](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) Test-AzureRmResourceGroupDeployment cmdlet'leri hakkında hangi catch Azure Resource Manager sözdizimi küçük farklılıklar.
-
-Ayrıca zaten sağlanan Azure yığın şablonları kullanabilirsiniz [GitHub deposunu](http://aka.ms/AzureStackGitHub/) başlamanıza yardımcı olacak.
 
 ## <a name="virtual-machines"></a>Sanal makineler
 ### <a name="default-image-and-gallery-item"></a>Varsayılan görüntü ve galeri öğesi
@@ -75,20 +65,6 @@ Daha fazla bilgiyi bekletme eşiği ve isteğe bağlı geri kazanma içinde yap�
 ## <a name="storage"></a>Depolama
 ### <a name="storage-reclamation"></a>Depolama geri kazanma
 Portalda görünmesi kapasite iadesi on dört saate kadar sürebilir. Alan geri kazanma blok blob Mağazası'nda iç kapsayıcı dosyaları kullanım yüzdesi gibi çeşitli etkenlere bağlıdır. Bu nedenle, ne kadar veri silinmiş bağlı olarak, garantisi yoktur Atık toplayıcısının çalışacağı yükleyen iadesi alanı üzerinde.
-
-## <a name="powershell"></a>PowerShell
-### <a name="resource-providers-not-registered"></a>Kaynak sağlayıcıları kayıtlı değil
-Kiracı abonelik PowerShell ile bağlanırken, kaynak sağlayıcıları değil otomatik olarak kaydedilir fark edeceksiniz. Kullanım [Bağlan Modülü](https://github.com/Azure/AzureStack-Tools/tree/master/Connect), veya Powershell'den aşağıdaki komutu çalıştırın (çalıştırdıktan sonra [yüklemek ve bağlamak](azure-stack-connect-powershell.md) Kiracı olarak): 
-  
-       Get-AzureRMResourceProvider | Register-AzureRmResourceProvider
-
-## <a name="cli"></a>CLI
-
-* CLI etkileşimli mod yani `az interactive` komutu Azure yığınında henüz desteklenmiyor.
-* Sanal makine görüntülerini Azure yığınında kullanılabilir listesini almak için kullanmak `az vm images list --all` komutu yerine `az vm image list` komutu. Belirtme `--all` yanıtı yalnızca Azure yığın ortamınızda kullanılabilir görüntüleri döndürür emin olur. 
-* Mevcut olan sanal makine görüntüsü diğer adlar Azure yığını için geçerli olmayabilir. Sanal makine görüntülerini kullanırken, tüm URN parametresini kullanmanız gerekir (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) yerine görüntü diğer adı. Ve bu URNmust eşleşen görüntü belirtimleri türetilmiş gibi `az vm images list` komutu.
-* Varsayılan olarak, CLI 2.0 "Standard_DS1_v2" varsayılan sanal makine görüntü boyutunu kullanır. Ancak, bu boyutu değil henüz Azure yığınında kullanılabilir, bu nedenle, belirtmeniz gerekir `--size` açıkça bir sanal makine oluşturulurken parametre. Kullanarak Azure yığınında kullanılabilir sanal makine boyutlarının listesi elde edebilirsiniz `az vm list-sizes --location <locationName>` komutu.
-
 
 ## <a name="windows-azure-pack-connector"></a>Windows Azure Pack Bağlayıcısı
 * Azure yığın Geliştirme Seti dağıttıktan sonra azurestackadmin hesabının parolasını değiştirirseniz, artık birden çok bulut modunu yapılandırabilirsiniz. Bu nedenle, hedef Windows Azure Pack ortamına bağlamak mümkün olmayacaktır.

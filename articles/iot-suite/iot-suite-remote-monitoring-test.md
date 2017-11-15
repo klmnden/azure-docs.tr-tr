@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 426b7ff6114fd0b79a6af71a78705f11b80862bf
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Çözümünüzü sanal cihazlar ile test
 
@@ -173,7 +173,7 @@ Yeni bir aygıt türü benzetimi mikro oluşturmanın kolay kopyalamak ve mevcut
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -299,12 +299,12 @@ Aşağıdaki adımlar yerleşik tanımlama dosyaları bulmak nasıl gösterir **
 1. Zaten yapmadıysanız, kopyalamak için aşağıdaki komutu kullanın **aygıt benzetimi** GitHub deposunu yerel makinenize:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+    git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-1. Her cihaz türü bir JSON modeli dosyası ve ilişkili komut dosyalarında sahip `data/devicemodels` klasör. Benzetim tanımlayan dosyaların **Soğutucu** aygıt türü şunlardır:
-    * `data/devicemodels/chiller-01.json`
-    * `data/devicemodels/scripts/chiller-01-state.js`
+1. Her cihaz türü bir JSON modeli dosyası ve ilişkili komut dosyalarında sahip `Services/data/devicemodels` klasör. Benzetim tanımlayan dosyaların **Soğutucu** aygıt türü şunlardır:
+    * `Services/data/devicemodels/chiller-01.json`
+    * `Services/data/devicemodels/scripts/chiller-01-state.js`
 
 ### <a name="specify-the-new-telemetry-type"></a>Yeni telemetri türünü belirtin
 

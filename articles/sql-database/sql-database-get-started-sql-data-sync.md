@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veri eşitleme (Önizleme) ile çalışmaya başlama | Microsoft Docs"
-description: "Bu öğreticide Azure SQL veri eşitleme (Önizleme) ile çalışmaya başlamanıza yardımcı olur."
+title: "Azure SQL veri eşitleme (Önizleme) ayarı | Microsoft Docs"
+description: "Bu öğretici Azure SQL veri eşitlemeyi (Önizleme) ayarlamak nasıl gösterir"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 0dc34a8e08ea75a84d1553963bdb892c84dacdb7
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: d0b3f3b188bc5da91414efb763b5165377009191
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>Azure SQL veri eşitleme (Önizleme) ile çalışmaya başlama
+# <a name="set-up-sql-data-sync-preview"></a>SQL veri eşitleme ayarı (Önizleme)
 Bu öğreticide, Azure SQL Database ve SQL Server örneklerini içeren bir karma eşitleme grubu oluşturarak Azure SQL veri eşitlemeyi ayarlamak nasıl öğrenin. Yeni eşitleme grubunu tam olarak yapılandırılmamış ve belirlediğiniz bir zamanlamaya göre eşitler.
 
 Bu öğretici, SQL Database ve SQL Server ile en az bazı konusunda deneyim sahibi olduğunuzu varsayar. 
@@ -110,7 +110,7 @@ Yeni eşitleme grubu oluşturup, adım 2 ' yi dağıttıktan sonra **eşitleme �
 
     ![Yeni SQL veritabanı eşitleme üye eklendi](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>Bir şirket içi SQL Server veritabanı ekleyin
+### <a name="add-on-prem"></a>Bir şirket içi SQL Server veritabanı ekleyin
 
 İçinde **üye veritabanı** bölümünde, isteğe bağlı olarak seçerek bir şirket içi SQL Server eşitleme grubuna ekleyin **bir şirket içi veritabanı Ekle**. **Yapılandırma şirket içi** sayfası açılır.
 

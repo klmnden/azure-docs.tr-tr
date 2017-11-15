@@ -4,7 +4,7 @@ description: "SQL Bölüm Tabloları Kullanarak Paralel Toplu Veri Alma"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
@@ -12,24 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL Bölüm Tabloları Kullanarak Paralel Toplu Veri Alma
 Bu belge, yapı verilerinin bir SQL Server veritabanına hızlı paralel Toplu içe aktarma için bölümlenmiş tabloları açıklar. Büyük veri yükleme/aktarım için bir SQL veritabanı için sonraki sorgular ve SQL DB için veri alma kullanılarak geliştirilebilir *bölümlenmiş tabloları ve görünümleri*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Yeni bir veritabanı ve dosya grupları kümesi oluşturma
 * [Yeni bir veritabanı oluşturmak](https://technet.microsoft.com/library/ms176061.aspx), zaten yoksa.
-* Veritabanı dosya grupları bölümlenmiş fiziksel dosyaları tutacak veritabanına ekleyin. Bu, yapılabilir [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) yeni veya [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) veritabanı zaten varsa.
+* Veritabanı dosya grupları bölümlenmiş fiziksel dosyalarını tutan veritabanına ekleyin. 
+* Bu, yapılabilir [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) yeni veya [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) veritabanı zaten varsa.
 * Bir veya daha fazla her veritabanı dosya (gerektiğinde) ekleyin.
   
   > [!NOTE]
-  > Bu bölüm veri tutan hedef dosya grubunda ve dosya verilerini depolanacağı fiziksel veritabanı dosya adı belirtin.
+  > Bu bölüm veri tutan hedef dosya ve dosya verilerinin depolandığı fiziksel veritabanı dosya adı belirtin.
   > 
   > 
 
@@ -55,18 +56,19 @@ Aşağıdaki örnekte, üç birincil dışındaki dosya grupları ve günlük gr
     ')
 
 ## <a name="create-a-partitioned-table"></a>Bölümlenmiş bir tablo oluştur
-Önceki adımda oluşturulan veritabanı dosya gruplarını eşlenmiş veri şeması göre bölümlenmiş tabloları oluşturun. Veriler toplu bölümlenmiş tabloları içeri olduğunda, kayıtları arasında bir bölüm düzeni göre dosya gruplarını aşağıda açıklandığı gibi dağıtılacaktır.
+Önceki adımda oluşturduğunuz veritabanı dosya gruplarını eşlenmiş veri şeması göre bölümlenmiş tabloları oluşturmak için önce bir bölüm işlevini ve düzeni oluşturmanız gerekir. Veriler toplu bölümlenmiş tabloları içeri olduğunda, kayıtları arasında bir bölüm düzeni göre dosya gruplarını aşağıda açıklandığı gibi dağıtılır.
 
-**Bir bölüm tablosu oluşturmak için aktarmanız gerekir:**
-
-* [Bölümleme işlevi oluşturma](https://msdn.microsoft.com/library/ms187802.aspx) değerleri/sınırları her tek tek bölüm tablosunda örneğin dahil edilecek, aya göre bölümleri sınırlamak için aralığını tanımlar (bazı\_datetime\_alan) yıl 2013:
+### <a name="1-create-a-partition-function"></a>1. Bölümleme işlevi oluşturma
+[Bölümleme işlevi oluşturma](https://msdn.microsoft.com/library/ms187802.aspx) aralık değerleri/sınırların her tek tek bölüm tablosunda örneğin dahil edilecek, aya göre bölümleri sınırlamak için bu işlevi tanımlar (bazı\_datetime\_alan) yıl 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
             '20130201', '20130301', '20130401',
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
-* [Bir bölüm düzeni oluşturma](https://msdn.microsoft.com/library/ms179854.aspx) hangi eşlemeleri her bölüm aralığı bölüm işlevinde fiziksel bir dosya grubuna örn:
+
+### <a name="2-create-a-partition-scheme"></a>2. Bir bölüm düzeni oluşturma
+[Bir bölüm düzeni oluşturma](https://msdn.microsoft.com/library/ms179854.aspx). Bu düzen, her bölüm aralığı bölüm işlevinde örneğin fiziksel bir dosya grubuna eşler:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -83,7 +85,9 @@ Aşağıdaki örnekte, üç birincil dışındaki dosya grupları ve günlük gr
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* [Bölümlenmiş bir tablo oluşturmak](https://msdn.microsoft.com/library/ms174979.aspx)(s), veri şemasına göre ve tablo örneğin bölümlemek için kullanılan bölüm düzeni ve kısıtlama alanı belirtin:
+
+### <a name="3-create-a-partition-table"></a>3. Bölüm tablosu oluşturma
+[Bölümlenmiş bir tablo oluşturmak](https://msdn.microsoft.com/library/ms174979.aspx)(s), veri şemasına göre ve tablo örneğin bölümlemek için kullanılan bölüm düzeni ve kısıtlama alanı belirtin:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -91,6 +95,7 @@ Aşağıdaki örnekte, üç birincil dışındaki dosya grupları ve günlük gr
 Daha fazla bilgi için bkz: [bölümlenmiş tablolar oluşturmak ve dizinleri](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Toplu her tek tek bölüm tablosu için veri alma
+
 * BCP, toplu ekleme ya da diğer yöntemleri gibi kullanabilir [SQL Server Yükseltme Sihirbazı](http://sqlazuremw.codeplex.com/). Sağlanan örnek BCP yöntemini kullanır.
 * [Veritabanı alter](https://msdn.microsoft.com/library/bb522682.aspx) günlüğü, örneğin yükünü en aza indirmek için toplu_günlüklü için işlem günlüğü düzenini değiştirmek için:
   
@@ -162,7 +167,7 @@ Aşağıdaki PowerShell betiğini paralel veri BCP kullanarak yükleme örneğid
 
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Birleştirme ve sorgu performansı en iyi duruma getirmek için dizinleri oluşturma
-* Birden çok tablodan veri modelleme için ayıklanır varsa, dizinleri birleştirme performansını artırmak için birleştirme anahtarları oluşturun.
+* Birden çok tablodan veri modelleme için ayıklamak, dizinleri birleştirme performansını artırmak için birleştirme anahtarları oluşturun.
 * [Dizin oluşturma](https://technet.microsoft.com/library/ms188783.aspx) (kümelenmiş veya kümelenmemiş) her bölüm için aynı dosya grubu için örneğin hedefleme:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
@@ -178,5 +183,5 @@ Aşağıdaki PowerShell betiğini paralel veri BCP kullanarak yükleme örneğid
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Gelişmiş analizler işlemi ve eylem örnekte teknolojisi
-Sahip ortak bir veri kümesi Cortana Analytics işlemini kullanarak uçtan uca kılavuz örnek için bkz: [Cortana Analytics eylem işleminde: SQL Server'ı kullanarak](sql-walkthrough.md).
+Takım veri bilimi işlemi sahip ortak bir veri kümesi kullanarak uçtan uca kılavuz örneği için bkz [takım veri bilimi işlemi sürüyor: SQL Server'ı kullanarak](sql-walkthrough.md).
 

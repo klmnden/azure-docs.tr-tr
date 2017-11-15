@@ -87,7 +87,6 @@
 #### [Azure AD’de ürünler ve hizmet planları için başvurular](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 gruplarının süre sonlarını ayarlama](active-directory-groups-lifecycle-azure-portal.md)
 ### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
-### [Adanmış grupları etkinleştirme](active-directory-accessmanagement-dedicated-groups.md)
 ### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](active-directory-groups-restore-azure-portal.md)
 ### Grup ayarlarını yönetme
@@ -254,7 +253,6 @@
 ##### [Klasik portal](active-directory-add-manage-domain-names.md)
 ### [Dizininizi yönetme](active-directory-administer.md)
 ### [Birden fazla dizin](active-directory-licensing-directory-independence.md)
-### [0365 dizinleri](active-directory-manage-o365-subscription.md)
 ### [Self servise kaydolma](active-directory-self-service-signup.md)
 #### [Yönetilmeyen bir dizini devralma](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

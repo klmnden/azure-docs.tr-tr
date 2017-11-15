@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 11/13/2017
 ms.author: larryfr
-ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Hdınsight'ta Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 
@@ -41,7 +41,7 @@ Ek makineler sanal ağa katılmak için ilk sanal ağ oluşturun ve ardından, H
 
 Bir Hdınsight kümesindeki tüm düğümlere bir Azure sanal ağında bulunan ve doğrudan internet'ten erişilemez. Ortak ağ geçidi tüm Hdınsight küme türleri arasında ortak olan aşağıdaki bağlantı noktaları, Internet erişim sağlar.
 
-| Hizmet | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | sshd |22 |SSH |İstemciler üzerinde birincil headnode sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |İstemciler sınır düğümde sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
@@ -54,17 +54,17 @@ Bir Hdınsight kümesindeki tüm düğümlere bir Azure sanal ağında bulunan v
 
 Aşağıdakiler için belirli küme türleri kullanılabilir:
 
-| Hizmet | Bağlantı noktası | Protokol | Küme türü | Açıklama |
+| Hizmet | Bağlantı Noktası | Protokol | Küme türü | Açıklama |
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |HBase REST API. Bkz: [HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |Spark REST API. Bkz: [uzaktan Livy kullanarak Spark gönderme işleri](spark/apache-spark-livy-rest-interface.md) |
 | Storm |443 |HTTPS |Storm |Storm web kullanıcı Arabirimi. Bkz: [dağıtma ve Hdınsight üzerinde Storm topolojilerini yönetme](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Kimlik doğrulama
 
 Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrulanması gerekir:
 
-| Bağlantı noktası | Kimlik Bilgileri |
+| Bağlantı Noktası | Kimlik Bilgileri |
 | --- | --- |
 | 22 veya 23 |Küme oluşturma sırasında belirtilen SSH kullanıcı kimlik bilgileri |
 | 443 |Oturum açma adı (varsayılan: Yönetici) ve küme oluşturma sırasında ayarlanan parola |
@@ -79,7 +79,7 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 
 ### <a name="ambari"></a>Ambari
 
-| Hizmet | Düğümler | Bağlantı noktası | URL yolu | Protokol | 
+| Hizmet | Düğümler | Bağlantı Noktası | URL yolu | Protokol | 
 | --- | --- | --- | --- | --- |
 | Ambari web kullanıcı Arabirimi | Baş düğümler | 8080 | / | HTTP |
 | Ambari REST API | Baş düğümler | 8080 | / api/v1 | HTTP |
@@ -90,7 +90,7 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 
 ### <a name="hdfs-ports"></a>HDFS bağlantı noktaları
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | İş web kullanıcı Arabirimi |Baş düğümler |30070 |HTTPS |Web durumunu görüntülemek için kullanıcı Arabirimi |
 | İş meta veri hizmeti |Baş düğümler |8020 |IPC |Dosya sistemi meta verileri |
@@ -101,7 +101,7 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 
 ### <a name="yarn-ports"></a>YARN bağlantı noktaları
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | Resource Manager web kullanıcı Arabirimi |Baş düğümler |8088 |HTTP |Web kullanıcı Arabirimi için kaynak yöneticisi |
 | Resource Manager web kullanıcı Arabirimi |Baş düğümler |8090 |HTTPS |Web kullanıcı Arabirimi için kaynak yöneticisi |
@@ -115,20 +115,20 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 
 ### <a name="hive-ports"></a>Hive bağlantı noktaları
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Baş düğümler |10001 |Thrift |Hizmet yığını (Thrift/JDBC) bağlamak için |
 | Hive meta depo |Baş düğümler |9083 |Thrift |Kovan meta verileri (Thrift/JDBC) bağlanmak için hizmeti |
 
 ### <a name="webhcat-ports"></a>WebHCat bağlantı noktaları
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | WebHCat sunucu |Baş düğümler |30111 |HTTP |Web API üstünde HCatalog ve diğer Hadoop Hizmetleri |
 
 ### <a name="mapreduce-ports"></a>MapReduce bağlantı noktaları
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | Kaynak |Baş düğümler |19888 |HTTP |MapReduce kaynak web kullanıcı Arabirimi |
 | Kaynak |Baş düğümler |10020 |&nbsp; |MapReduce kaynak sunucusu |
@@ -136,21 +136,21 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 
 ### <a name="oozie"></a>Oozie
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | Oozie sunucu |Baş düğümler |11000 |HTTP |Oozie hizmeti URL'si |
 | Oozie sunucu |Baş düğümler |11001 |HTTP |Oozie Yönetim için bağlantı noktası |
 
 ### <a name="ambari-metrics"></a>Ambari ölçümleri
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | Zaman Çizelgesi (uygulama geçmişi) |Baş düğümler |6188 |HTTP |Zaman Çizelgesi hizmet web kullanıcı Arabirimi |
 | Zaman Çizelgesi (uygulama geçmişi) |Baş düğümler |30200 |RPC |Zaman Çizelgesi hizmet web kullanıcı Arabirimi |
 
 ### <a name="hbase-ports"></a>HBase bağlantı noktaları
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | HMaster |Baş düğümler |16000 |&nbsp; |&nbsp; |
 | HMaster bilgisi Web kullanıcı Arabirimi |Baş düğümler |16010 |HTTP |HBase ana web kullanıcı Arabirimi için bağlantı noktası |
@@ -159,18 +159,18 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 
 ### <a name="kafka-ports"></a>Kafka bağlantı noktaları
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | Aracısı |Çalışan düğümü |9092 |[Kafka kablo protokolü](http://kafka.apache.org/protocol.html) |İstemci iletişimi için kullanılan |
 | &nbsp; |Zookeeper düğümleri |2181 |&nbsp; |İstemciler için Zookeeper bağlanmak için kullandığınız bağlantı noktası |
 
 ### <a name="spark-ports"></a>Spark bağlantı noktaları
 
-| Hizmet | Düğümler | Bağlantı noktası | Protokol | URL yolu | Açıklama |
+| Hizmet | Düğümler | Bağlantı Noktası | Protokol | URL yolu | Açıklama |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift sunucuları |Baş düğümler |10002 |Thrift | &nbsp; | Spark SQL (Thrift/JDBC) bağlanmak için hizmeti |
-| Livy sunucu | Baş düğümler | 8998 | HTTP | /batches | Deyimler, işleri ve uygulamaları çalıştırmak için hizmeti |
+| Livy sunucu | Baş düğümler | 8998 | HTTP | &nbsp; | Deyimler, işleri ve uygulamaları çalıştırmak için hizmeti |
 
 Örnekler:
 
-* Livy: `curl "http://10.0.0.11:8998/batches"`. Bu örnekte, `10.0.0.11` Livy hizmeti barındıran headnode IP adresidir.
+* Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. Bu örnekte, `10.0.0.11` Livy hizmeti barındıran headnode IP adresidir.

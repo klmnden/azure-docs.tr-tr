@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/07/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b480d10df777a2757c073ff77e1845d33d63163a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b16e57e06d5055fc0c2750385630a908e10bd217
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows-server"></a>GPU sürücüleri Windows Server çalıştıran N-serisi VM'ler için ayarlama
 Windows Server 2016 veya Windows Server 2012 R2 çalıştıran Azure N-serisi VM'ler GPU yeteneklerinden yararlanabilmek için desteklenen NVIDIA grafik sürücüleri yükleyin. N-serisi VM dağıttıktan sonra bu makalede sürücü kurulum adımlarını sağlar. Sürücü Kurulum bilgileri de için kullanılabilir [Linux VM'ler](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -50,7 +50,7 @@ GPU aygıt durumunu sorgulamak için aşağıdaki komutu çalıştırın [NVIDIA
 
 1. Bir komut istemi açın ve değiştirmek **C:\Program Files\NVIDIA Corporation\NVSMI** dizini.
 
-2. Çalıştırma **NVIDIA SMI**. Sürücü yüklüyse, aşağıda için benzer bir çıktı göreceksiniz. Unutmayın **GPU kul** gösterir **%0** GPU iş yükü VM çalıştırmakta olduğunuz sürece.
+2. `nvidia-smi` öğesini çalıştırın. Sürücü yüklüyse, aşağıdakine benzer bir çıktı göreceksiniz. Unutmayın **GPU kul** gösterir **%0** GPU iş yükü VM çalıştırmakta olduğunuz sürece. Sürücü sürümü ve GPU ayrıntıları gösterilen olanlardan farklı olabilir.
 
 ![NVIDIA cihaz durumu](./media/n-series-driver-setup/smi.png)  
 

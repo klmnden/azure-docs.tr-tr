@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: bcf42ebb081517d247690ee57c2be274784ef29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Şirket içi StorSimple cihazınızı (Güncelleştirme 3 ve üzeri) dağıtma
 
@@ -49,7 +49,7 @@ StorSimple cihazınızı yapılandırmak ve StorSimple Cihaz Yöneticisi hizmeti
 | [1. Adım: Yeni bir hizmet oluşturun](#step-1-create-a-new-service) |StorSimple cihazınız için bulut yönetimi ve depolamayı ayarlayın. *Başka StorSimple cihazlar için bir hizmetiniz varsa, bu adımı atlayın*. |
 | [2. Adım: Hizmet kayıt anahtarını alın](#step-2-get-the-service-registration-key) |StorSimple cihazınızı kaydetmek ve yönetim hizmetine bağlamak için bu anahtarı kullanın. |
 | [3. Adım: StorSimple için Windows PowerShell üzerinden cihazı yapılandırın ve kaydedin](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Kurulumu yönetim hizmetini kullanarak tamamlamak için cihazı ağınıza bağlayın ve Azure’a kaydedin. |
-| [4. Adım: Minimum cihaz kurulumunu tamamlayın](#step-4-complete-minimum-device-setup)</br>[İsteğe bağlı: StorSimple cihazınızı güncelleştirin](#scan-for-and-apply-updates) |Depolama alanı sağlamak için, yönetim hizmetini kullanarak cihaz kurulumunu tamamlayın ve etkinleştirin. |
+| [4. Adım: Minimum cihaz kurulumunu tamamlayın](#step-4-complete-minimum-device-setup)</br>[Önerilen uygulama: StorSimple cihazınızı güncelleştirme](#scan-for-and-apply-updates) |Depolama alanı sağlamak için, yönetim hizmetini kullanarak cihaz kurulumunu tamamlayın ve etkinleştirin. |
 | [5. Adım: Birim kapsayıcısı oluşturun](#step-5-create-a-volume-container) |Birimleri sağlamak için bir kapsayıcı oluşturun. Birim kapsayıcısı, kapsadığı tüm birimler için depolama hesabı, bant genişliği ve şifreleme ayarlarını içerir. |
 | [6. Adım: Birim oluşturun](#step-6-create-a-volume) |Sunucularınız için StorSimple cihazında depolama birimleri sağlayın. |
 | [7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin](#step-7-mount-initialize-and-format-a-volume)</br>[İsteğe bağlı: MPIO’yu yapılandırın](storsimple-8000-configure-mpio-windows-server.md) |Sunucularınızı cihaz tarafından sağlanan iSCSI depolama alanına bağlayın. İsteğe bağlı olarak, sunucularınızın bağlantı, ağ ve arabirim hatalarından etkilenmemesini sağlamak için MPIO’yu yapılandırın. |
@@ -127,6 +127,8 @@ En düşük cihaz kurulumunu tamamlamak için Azure portalında aşağıdaki ad�
 
 [!INCLUDE [storsimple-8000-complete-minimum-device-setup-u2](../../includes/storsimple-8000-complete-minimum-device-setup-u2.md)]
 
+Minimum cihaz ayarını tamamladıktan sonra [en son güncelleştirmeleri taramak ve uygulamak](#scan-for-and-apply-updates) önerilir.
+
 ## <a name="step-5-create-a-volume-container"></a>5. Adım: Birim kapsayıcısı oluşturun
 Birim kapsayıcısı, kapsadığı tüm birimler için depolama hesabı, bant genişliği ve şifreleme ayarlarını içerir. StorSimple cihazınızda birimleri sağlamaya başlamadan önce bir birim kapsayıcısı oluşturmanız gerekir.
 
@@ -181,7 +183,7 @@ StorSimple için Windows PowerShell’e bağlanmak için PuTTY gibi bir terminal
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>Güncelleştirmeleri tarama ve güncelleştirmeleri uygulama
-Cihazınızın güncelleştirilmesi birkaç saat sürebilir. En son güncelleştirmeyi yüklemenin ayrıntılı adımları için [Güncelleştirme 4'ü yükleme](storsimple-8000-install-update-4.md) bölümüne gidin.
+Cihazınızın güncelleştirilmesi birkaç saat sürebilir. En son güncelleştirmeyi yüklemenin ayrıntılı adımları için [Güncelleştirme 5'i yükleme](storsimple-8000-install-update-5.md) bölümüne gidin.
 
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>Bir Windows Server konağının IQN’ini alın

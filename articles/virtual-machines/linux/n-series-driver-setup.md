@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N-serisi Vm'lerinde NVIDIA GPU sürücüleri yükleyin
 
@@ -70,11 +70,11 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 5. Kılavuz sürücü yükleyip yeniden açın:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 
 6. Ne zaman sorulan X yapılandırma dosyanızı güncelleştirmek için seçin NVIDIA xconfig yardımcı programı çalıştırmak istediğinizi **Evet**.
@@ -139,11 +139,11 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 5. Kılavuz sürücü yükleyip yeniden açın:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 6. Ne zaman sorulan X yapılandırma dosyanızı güncelleştirmek için seçin NVIDIA xconfig yardımcı programı çalıştırmak istediğinizi **Evet**.
 
@@ -165,7 +165,7 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 
 GPU cihaz durumu, SSH VM ve Çalıştır sorgulamak için [NVIDIA SMI](https://developer.nvidia.com/nvidia-system-management-interface) komut satırı yardımcı programının sürücüsüyle yüklü. 
 
-Aşağıdakine benzer bir çıktı görünür:
+Çıktı aşağıdakine benzer görünür. Sürücü sürümü ve GPU ayrıntıları gösterilen olanlardan farklı olabilir.
 
 ![NVIDIA cihaz durumu](./media/n-series-driver-setup/smi-nv.png)
  
@@ -229,7 +229,7 @@ Sonra dağıtım için belirli çalışma yükleme komutları.
 
 1. CUDA sürücüleri yükleyip yeniden açın.
   ```bash
-  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -348,11 +348,11 @@ RDMA bağlantısı destekleyen Azure Marketi aşağıdaki görüntüleri birinde
 * **CentOS tabanlı HPC** -CentOS tabanlı 7.3 HPC. RDMA sürücüler ve Intel MPI 5.1 VM yüklenir. 
 
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshooting"></a>Sorun Giderme
 
 * CUDA sürücüleri 4.4.0-75 Linux çekirdek Ubuntu 16.04 LTS üzerinde çalışan Azure N-serisi vm'lerde bilinen bir sorun yoktur. Çekirdek bir sürümden yükseltme yapıyorsanız, en az yükseltme çekirdek sürüm 4.4.0-77.
 
-* Sorgu kartlar gerektiğinde komutunun çıkışını hızlıdır NVIDIA SMI kullanarak Kalıcılık modu da ayarlayabilirsiniz. Kalıcılık modu ayarlamak için yürütme `nvidia-smi -pm 1`. VM yeniden başlatılırsa, modu ayarı kaybolur olduğunu unutmayın. Her zaman modu ayarı başlatma sırasında yürütülecek komut dosyası oluşturabilirsiniz.
+* Kalıcılık modunu kullanarak ayarlayabilirsiniz `nvidia-smi` sorgu kartlar gerektiğinde komutunun çıkışını daha hızlı olacak şekilde. Kalıcılık modu ayarlamak için yürütme `nvidia-smi -pm 1`. VM yeniden başlatılırsa, modu ayarı kaybolur olduğunu unutmayın. Her zaman modu ayarı başlatma sırasında yürütülecek komut dosyası oluşturabilirsiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

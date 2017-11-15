@@ -13,13 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 9caea4191a2ca99e6e98cc8ce7ca9ca0c7b8dc87
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: bba2781d43aff9e462246cfe21961695e48196d8
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Sürüm 1 - Genel Kullanım](v1/data-factory-data-movement-security-considerations.md)
+> * [Sürüm 2 - Önizleme](data-movement-security-considerations.md)
+
 Bu makalede, verilerinizin güvenliğini sağlamak için Azure Data Factory veri taşıma hizmetleri kullanan temel güvenlik altyapısı açıklanmaktadır. Azure veri fabrikası yönetim kaynakları Azure güvenlik altyapı üzerine kurulmuş ve Azure tarafından sunulan tüm olası güvenlik önlemleri kullanın.
 
 > [!NOTE]
@@ -27,7 +31,7 @@ Bu makalede, verilerinizin güvenliğini sağlamak için Azure Data Factory veri
 
 Bir Data Factory çözümünde bir veya daha fazla [işlem hattı](concepts-pipelines-activities.md) oluşturursunuz. İşlem hattı, bir araya geldiğinde bir görev gerçekleştiren mantıksal etkinlik grubudur. Bu ardışık düzen veri fabrikası oluşturulduğu bölgede yer alır. 
 
-Data Factory yalnızca kullanılabilir olsa bile **Doğu ABD** ve **Doğu ABD 2** bölge (sürüm 2 Önizleme), veri taşıma Hizmeti'nde kullanılabilir [genel birçok bölgede](concepts-integration-runtime.md#azure-ir). Veri Taşıma hizmeti bu bölgeye henüz dağıtılmamışsa, Data Factory hizmetinin veri coğrafi bölgeye bırakmaz sağlar / bölge alternatif bir bölge kullanın hizmete açıkça toplamasını sürece. 
+Data Factory yalnızca kullanılabilir olsa bile **Doğu ABD**, **Doğu ABD 2**, ve **Batı Avrupa** bölgeler (sürüm 2 Önizleme), veri taşıma Hizmeti'nde kullanılabilir olduğu[genel birçok bölgede](concepts-integration-runtime.md#azure-ir). Veri Taşıma hizmeti bu bölgeye henüz dağıtılmamışsa, Data Factory hizmetinin veri coğrafi bölgeye bırakmaz sağlar / bölge alternatif bir bölge kullanın hizmete açıkça toplamasını sürece. 
 
 Azure Data Factory'nin kendisi sertifikalar kullanılarak şifrelenmiş bulut veri depoları için bağlı hizmet kimlik bilgilerini dışında herhangi bir veriyi depolamaz. Veri hareketini [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) arasında, verilerin işlenmesini de başka bölgelerde veya şirket içi bir ortamda [işlem hizmetleri](compute-linked-services.md) kullanarak düzenlemek için veri temelinde iş akışları oluşturmanızı sağlar. Ayrıca, izlemek ve SDK'ları ve Azure İzleyicisi'ni kullanarak da iş akışları yönetmenize olanak sağlar.
 

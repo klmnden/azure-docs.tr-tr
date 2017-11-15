@@ -36,12 +36,19 @@
 ### [Azure portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Azure CLI](how-to-routefilter-cli.md)
+## [Ortak eşlemeden Microsoft eşlemesine geçiş yapma](how-to-move-peering.md)
 ## [Bir devreyi klasikten Resource Manager’a taşıma](expressroute-howto-move-arm.md)
 ## [İlişkili sanal ağları klasikten Resource Manager’a geçirme](expressroute-migration-classic-resource-manager.md)
 ## ExpressRoute için yönlendirici yapılandırma
 ### [Yönlendirici yapılandırma](expressroute-config-samples-routing.md)
 ### [NAT için yönlendirici yapılandırma örnekleri](expressroute-config-samples-nat.md)
 ## [ExpressRoute için Ağ Performansı İzleyicisini Yapılandırma](how-to-npm.md)
+## Klasik dağıtım modeli makaleleri
+### [Bağlantı hattını değiştirme](expressroute-howto-circuit-classic.md)
+### [Eşleme yapılandırması oluşturma ve değiştirme](expressroute-howto-routing-classic.md)
+### [ExpressRoute bağlantı hattına bir sanal ağ bağlama](expressroute-howto-linkvnet-classic.md)
+### [Birlikte bulunan ExpressRoute ve S2S bağlantılarını yapılandırma](expressroute-howto-coexist-classic.md)
+### [Sanal ağa ağ geçidi ekleme](expressroute-howto-add-gateway-classic.md)
 
 ## En İyi Uygulamalar
 ### [Ağ güvenliği ve bulut hizmetlerine yönelik en iyi uygulamalar](../best-practices-network-security.md)

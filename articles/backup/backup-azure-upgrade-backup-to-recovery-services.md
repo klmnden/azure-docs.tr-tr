@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/03/2017
+ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme
 
@@ -120,7 +120,7 @@ Bir kurtarma Hizmetleri Kasası'na yükseltme yaptıktan sonra (Iaas Vm'leri ve 
 Hayır. Devam eden Yedeklemelerinizin kesintisiz sırasında ve yükseltmeden sonra devam eder.
 
 **En kısa sürede yükseltmeyi düşünüyorsanız yok, my kasalarını ne olur?**</br>
-Tüm yeni özellikler yalnızca kurtarma Hizmetleri kasaları için geçerli olduğundan, biz, kasa yükseltmenizi yönlendirmeye. Microsoft, sonunda Klasik Portalı'nı Kaldır. 1 Eylül 2017 başlangıç Microsoft Kurtarma Hizmetleri kasaları için yedekleme kasalarını otomatik yükseltme işlemini başlatacak. Microsoft 30 Kasım 2017 tarafından yükseltme işlemini tamamlayacak. Kasanızı dilediğiniz zaman arasında otomatik olarak yükseltilebilir. Microsoft, mümkün olan en kısa sürede kasanızı yükseltme önerir.
+Tüm yeni özellikler yalnızca kurtarma Hizmetleri kasaları için geçerli olduğundan, biz, kasa yükseltmenizi yönlendirmeye. Microsoft, sonunda Klasik Portalı'nı Kaldır. 1 Eylül 2017 başlangıç Microsoft Kurtarma Hizmetleri kasaları için yedekleme kasalarını otomatik yükseltme işlemini başlatacak. Kasım sonra 30,2017, PowerShell kullanarak yedekleme kasaları artık oluşturabilirsiniz. Kasanızı dilediğiniz zaman arasında otomatik olarak yükseltilebilir. Microsoft, mümkün olan en kısa sürede kasanızı yükseltme önerir.
 
 **Bu yükseltme ortalaması my varolan araçları için nedir?**</br>
 Resource Manager dağıtım modeli için araç güncelleştirin. Kurtarma Hizmetleri kasaları için oluşturulan Resource Manager dağıtım modelinde kullanın. Resource Manager dağıtım modeli için planlama ve, kasa fark Hesap önemlidir. 

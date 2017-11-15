@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cdaf09d5558e0453b826b9a3e52500379ced5422
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir ana oluşturma
 
@@ -150,7 +150,7 @@ Uygulama hizmeti ortamı iki sürümü vardır: ASEv1 ve ASEv2. Yukarıdaki bilg
 
 ASEv1 içinde tüm kaynakları el ile yönetin. Ön Uçları, çalışanlar ve IP tabanlı SSL için kullanılan IP adresleri dahildir. Uygulama hizmeti planınızı ölçeklendirebilirsiniz önce da barındırmak istediğiniz çalışan havuzunda Ölçeklendirmesi gerekir.
 
-ASEv1 ASEv2 öğesinden farklı bir fiyatlandırma modelini kullanır. ASEv1 içinde ayrılmış her çekirdek için ücret ödersiniz. Ön Uçları veya tüm iş yükleri barındıran olmayan çalışanlar için kullanılan çekirdek dahildir. ASEv1 içinde varsayılan en büyük ölçekli bir ana 55 toplam konaklar boyutudur. Bu, çalışanlar ve ön uçlar içerir. ASEv1 bir avantajı, onu bir Klasik sanal ağı ve Resource Manager sanal ağ içinde dağıtılabilir ' dir. ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş][ASEv1Intro].
+ASEv1 ASEv2 öğesinden farklı bir fiyatlandırma modelini kullanır. ASEv1 içinde ayrılmış her vCPU için ücret ödersiniz. Ön Uçları veya tüm iş yükleri barındıran olmayan çalışanlar için kullanılan Vcpu'lar dahildir. ASEv1 içinde varsayılan en büyük ölçekli bir ana 55 toplam konaklar boyutudur. Bu, çalışanlar ve ön uçlar içerir. ASEv1 bir avantajı, onu bir Klasik sanal ağı ve Resource Manager sanal ağ içinde dağıtılabilir ' dir. ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş][ASEv1Intro].
 
 Resource Manager şablonu kullanarak bir ASEv1 oluşturmak için bkz: [Resource Manager şablonu ile bir ILB ana v1 oluşturma][ILBASEv1Template].
 

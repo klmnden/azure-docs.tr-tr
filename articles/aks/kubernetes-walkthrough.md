@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 89d469b330644b8f5b82a343ea4408d5b8d10b12
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d774f776bf4ef5434b0748e50b3064f47c834b7e
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Bir Azure kapsayıcı hizmeti (AKS) kümeyi dağıtma
 
@@ -48,10 +48,10 @@ Kaydolduktan sonra artık ile AKS Kubernetes küme oluşturmak hazırsınız.
 
 [az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir gruptur.
 
-Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *westus2* konumu.
+Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Çıktı:
@@ -59,7 +59,7 @@ az group create --name myResourceGroup --location westus2
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westus2",
+  "location": "eastus",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {

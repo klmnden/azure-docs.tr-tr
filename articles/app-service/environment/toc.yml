@@ -38,6 +38,8 @@
       href: integrate-with-application-gateway.md
     - name: Şablondan ASE oluşturma
       href: create-from-template.md
+    - name: Zorlamalı tünel yapılandırması
+      href: forced-tunnel-support.md
 - name: Başvuru
   items:
     - name: Yönetim adresleri

@@ -1,5 +1,5 @@
 ---
-title: "Azure kapsayıcı örnekleri Azure dosyaları biriminde bağlama"
+title: "Azure kapsayıcı durumlarda Azure dosyaları birim"
 description: "Azure kapsayıcı örnekleri durumuyla kalıcı hale getirmek için bir Azure dosyaları birim öğrenin"
 services: container-instances
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Azure kapsayıcı örneği ile bir Azure dosya paylaşımı oluşturma
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Azure kapsayıcı örneği ile bir Azure dosya paylaşımını bağlama
 
 Varsayılan olarak, Azure kapsayıcı durum bilgisiz örnekleridir. Kapsayıcı kilitlenmesine veya durdurur, durumuna kaybolur. Kapsayıcı ömür ötesinde durumunu kalıcı hale getirmek için bir dış depolama alanından bir birim bağlama gerekir. Bu makalede, Azure kapsayıcı örnekleri ile kullanmak için bir Azure dosya paylaşımının gösterilmektedir.
 
@@ -185,16 +185,16 @@ Değerleri parametreleri dosyaya ekleyin:
 Tanımlanan şablonla kapsayıcı oluşturun ve Azure CLI kullanarak, birim. Şablon dosyası adlı varsayılarak *azuredeploy.json* ve parametreler dosyası adlı *azuredeploy.parameters.json*, komut satırı sonra:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-Kapsayıcı başlatıldığında sonra aracılığıyla dağıtılan basit web uygulaması kullanarak **aci/seanmckenna-hellofiles** belirttiğiniz bağlama yolunda Azure dosya paylaşımında dosyaları yönetmek için resim. Aşağıdakiler aracılığıyla web uygulaması için IP adresi alın:
+Kapsayıcı başlatıldığında sonra aracılığıyla dağıtılan basit web uygulaması kullanarak **aci/seanmckenna-hellofiles** belirttiğiniz bağlama yolundaki Azure dosya paylaşımında dosyaları yönetmek için resim. Web uygulaması ile IP adresi al [az kapsayıcı Göster](/cli/azure/container#az_container_show) komutu:
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-Gibi bir araç kullanabilirsiniz [Microsoft Azure Storage Gezgini](http://storageexplorer.com) almak ve dosya paylaşımı için yazılmış dosyasını inceleyin.
+Gibi bir araç kullanabilirsiniz [Microsoft Azure Storage Gezgini](https://storageexplorer.com) almak ve dosya paylaşımı için yazılmış dosyasını inceleyin.
 
 >[!NOTE]
 > Azure Resource Manager şablonları kullanma hakkında daha fazla bilgi için bkz: parametre dosyaları ve Azure CLI ile dağıtma [Resource Manager şablonları ve Azure CLI kaynaklarla dağıtmak](../azure-resource-manager/resource-group-template-deploy-cli.md).

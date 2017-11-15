@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: ae489cfab1effca8fa33c4e2693b8b5229eda9c5
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell için Azure yığın yükle  
 
@@ -82,7 +82,7 @@ Yükleme işlemini onaylamak için aşağıdaki komutu çalıştırın:
 
 ## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>Bağlantısı kesilmiş bir veya kısmen bağlı senaryosunda PowerShell yükle
 
-Bağlantısı kesilmiş bir senaryoda, PowerShell modülleri Internet bağlantısına sahip bir makine için ilk indirme ve yükleme için Azure yığın Geliştirme Seti için Aktarım gerekir.
+Bağlantısı kesilmiş veya kısmen bağlı senaryoda, PowerShell modülleri Internet bağlantısına sahip bir makine için ilk indirme ve yükleme için Azure yığın Geliştirme Seti için Aktarım gerekir.
 
 > [!IMPORTANT]
 > AzureRM 1.2.11 PowerShell modülü sürümü yeni değişiklikler ile ilgili bir listesi bulunur. 1.2.10 yükseltme sürümü, geçiş Guide'a bakın [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).

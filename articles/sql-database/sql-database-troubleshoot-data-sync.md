@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 29fb935ada4aa7f2571b128f82d4c037bbb88eb1
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 8c59e6ad42109c7df64fd651a012a56446daaad0
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="troubleshoot-issues-with-azure-sql-data-sync-preview"></a>Azure SQL veri eşitleme (Önizleme) ile ilgili sorunları giderme
+# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile ilgili sorunları giderme
 
 Bu makalede SQL veri eşitleme (Önizleme) ekibin bilinen geçerli sorunlarının nasıl giderileceği açıklanmaktadır. Bir sorun için geçici bir çözüm varsa, burada sağlanır.
 
@@ -493,7 +493,7 @@ Sorunu düzeltmek erişemiyorsanız, eşitleme grubunuzun durumunu sıfırlanabi
 SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 
 -   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](sql-database-sync-data.md)
--   [Azure SQL veri eşitlemeye başlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL veri eşitleme ayarı](sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL veri eşitleme için en iyi yöntemler](sql-database-best-practices-data-sync.md)
 -   [OMS günlük analizi ile İzleyici Azure SQL veri eşitleme](sql-database-sync-monitor-oms.md)
 

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 98892a0919b1ba49308fd3bc51c735977bbff437
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Azure’da StorSimple sanal cihazını dağıtma ve yönetme
+> [!NOTE]
+> StorSimple için klasik portal kullanım dışıdır. StorSimple Cihaz Yöneticileriniz, yeni Azure portalına kullanımdan kaldırma zamanlamasına göre otomatik olarak taşınacaktır. Bu taşımayla ilgili bir e-posta ve portal bildirimi alacaksınız. Bu belge de yakında kullanımdan kaldırılacaktır. Bu makalenin yeni Azure portalına yönelik sürümünü görüntülemek için [Azure’da StorSimple sanal cihazı dağıtma ve yönetme](storsimple-8000-cloud-appliance-u2.md) sayfasına gidin. Taşıma hakkında tüm sorularınız için bkz. [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Genel Bakış
 StorSimple 8000 serisi sanal cihaz Microsoft Azure StorSimple çözümünüzle birlikte gelen ek bir yetenektir. StorSimple sanal cihazı Microsoft Azure sanal ağındaki bir sanal makinede çalışır ve bunu ana bilgisayarlarınızdaki verileri yedeklemek ve kopyalamak için kullanabilirsiniz. Bu öğretici Azure’da bir sanal cihaz yönetmeyi ve dağıtmayı açıklar ve yazılım sürümü Güncelleştirme 2'yi veya düşük sürümünü çalıştıran tüm sanal cihazlar için geçerlidir.
 
@@ -33,7 +36,7 @@ StorSimple sanal cihazı, standart 8010 (önceden 1100 olarak biliniyordu) ve pr
 | **Azure VM** |Standard_A3 (4 çekirdek, 7 GB bellek) |Standard_DS3 (4 çekirdek, 14 GB bellek) |
 | **Sürüm uyumluluğu** |Güncelleştirme 2 ya da üst sürümü öncesini çalıştıran sürümler |Güncelleştirme 2 ya da üst sürümünü çalıştıran sürümler |
 | **Bölge kullanılabilirliği** |Tüm Azure bölgeleri |Premium Depolama ve DS3 Azure VM’lerini destekleyen tüm Azure bölgeleri<br></br> Bölgenizde hem *Sanal Makineler > DS serisi* hem de *Depolama > Disk depolamanın* mevcut olup olmadığını görmek için [bu listeyi](https://azure.microsoft.com/en-us/regions/services) kullanın. |
-| **Depolama türü** |Yerel diskler için Azure Standard Storage kullanır.<br></br> [Standart Depolama hesabı oluşturmayı](../storage/common/storage-create-storage-account.md) öğrenin. |Yerel diskler için Azure Premium Depolama kullanır<sup>2</sup> <br></br>[Premium Storage hesabı oluşturmayı](../virtual-machines/windows/premium-storage.md) öğrenin. |
+| **Depolama türü** |Yerel diskler için Azure Standard Storage kullanır.<br></br> [Standart Depolama hesabı oluşturmayı](../storage/common/storage-create-storage-account.md) öğrenin. |Yerel diskler için Azure Premium Depolama kullanır<sup>2</sup> <br></br>[Premium Storage hesabı oluşturmayı](../storage/common/storage-premium-storage.md) öğrenin. |
 | **İş yükü kılavuzu** |Yedeklerden dosya alma öğe düzeyi |Bulut geliştirme ve test senaryoları, düşük gecikme, daha yüksek performans iş yükleri <br></br>Olağanüstü durum kurtarma için ikincil cihaz |
 
 <sup>1</sup> *Önceden 1100 olarak biliniyordu*.
@@ -63,7 +66,7 @@ Aşağıdaki tabloda StorSimple sanal cihazı ve StorSimple fiziksel cihazı ara
 | **Hizmeti verileri şifreleme anahtarı** |Fiziksel cihazda yeniden oluşturun ve ardından yeni anahtarla sanal cihazı güncelleştirin. |Sanal cihazdan yeniden oluşturamazsınız. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Sanal cihaz için önkoşullar
-Aşağıdaki bölümlerde, StorSimple sanal cihazınız için yapılandırma önkoşulları açıklanmaktadır. Sanal cihazı dağıtmadan önce, [sanal cihaz kullanımıyla ilgili güvenlik konularını](storsimple-security.md) gözden geçirin.
+Aşağıdaki bölümlerde, StorSimple sanal cihazınız için yapılandırma önkoşulları açıklanmaktadır. Sanal cihazı dağıtmadan önce, [sanal cihaz kullanımıyla ilgili güvenlik konularını](storsimple-8000-security.md#storsimple-cloud-appliance-security) gözden geçirin.
 
 #### <a name="azure-requirements"></a>Azure gereksinimleri
 Sanal cihaz sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları yapmanız gerekir:
@@ -82,7 +85,7 @@ Sanal cihaz sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları 
 Sanal cihaz oluşturmadan önce, Azure StorSimple hizmetinize aşağıdaki güncelleştirmeleri uygulayın:
 
 * Sanal cihazınız için barındırma sunucuları olacak sanal makineler için [erişim denetimi kayıtları](storsimple-manage-acrs.md) ekleyin.
-* Sanal cihazla aynı bölgede bir [depolama hesabı](storsimple-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Sanal cihazla Standart veya Premium Storage hesabı kullanabilirsiniz. [Standard Storage hesabı](../storage/common/storage-create-storage-account.md) ya da [Premium Storage hesabı](../virtual-machines/windows/premium-storage.md) oluşturma hakkında daha fazla bilgi
+* Sanal cihazla aynı bölgede bir [depolama hesabı](storsimple-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Sanal cihazla Standart veya Premium Storage hesabı kullanabilirsiniz. [Standard Storage hesabı](../storage/common/storage-create-storage-account.md) ya da [Premium Storage hesabı](../storage/common/storage-premium-storage.md) oluşturma hakkında daha fazla bilgi
 * Verileriniz için oluşturduğunuzdan sanal cihaz oluşturma için farklı bir depolama hesabı kullanın. Aynı depolama hesabı kullanmak performansın düşmesine neden olabilir.
 
 Başlamadan önce aşağıdaki bilgilere sahip olduğunuzdan emin olun:

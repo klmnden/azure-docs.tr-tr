@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ee021f5679d3c5a37cd8a795732721b37aaf66ea
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazıları listelenmiştir. Bu belge şu anda tüm Azure hizmetlerini kapsamaz. Zamanla, liste genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -38,7 +38,7 @@ Artık, tek bir Azure kaynak grubu içinde birden çok Azure kaynaklarında birl
 Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları farklılıkları yansıtacak şekilde yeni bir tablo eklendi. Örneğin, bir **abonelik sınırları** tablo ve **abonelik sınırları - Azure Resource Manager** tablo. Bir sınır iki senaryoyu uyguladığında, yalnızca ilk tabloda gösterilir. Aksi belirtilmedikçe, tüm bölgeler arasında genel kısıtlamalardır.
 
 > [!NOTE]
-> Hizmet Yönetimi kotalar gibi Azure kaynak grupları, kaynaklar için kotalar başına bölge aboneliğinizi tarafından erişilebilir olan ve abonelik başına, olmayan vurgulamak önemlidir. Şimdi çekirdek kotalarını örnek olarak kullanın. Çekirdek desteği olan bir kota artışı isteği göndermek üzere ihtiyacınız varsa, hangi bölgelerde kullanın ve ardından belirli Azure kaynak grubu çekirdek kotaları tutarlar ve istediğiniz bölgeler için istekte istediğiniz kaç çekirdek karar vermeniz gerekir. Bu nedenle, uygulamanızın vardır; çalıştırmak için 30 çekirdek Batı Avrupa'da kullanmanız gerekiyorsa Özellikle, Batı Avrupa 30 çekirdeğini istemeniz gerekir. Ancak, diğer herhangi bir bölgede artırmak çekirdek kota sahip olmaz – yalnızca Batı Avrupa 30-çekirdek kotası olacak.
+> Hizmet Yönetimi kotalar gibi Azure kaynak grupları, kaynaklar için kotalar başına bölge aboneliğinizi tarafından erişilebilir olan ve abonelik başına, olmayan vurgulamak önemlidir. Şimdi vCPU kotalarını örnek olarak kullanın. Vcpu'lar desteğiyle kota artışı isteği göndermek üzere ihtiyacınız varsa, hangi bölgelerde kullanın ve ardından belirli Azure kaynak grubu vCPU kotaları tutarlar ve istediğiniz bölgeler için istekte istediğiniz kaç Vcpu'lar karar vermeniz gerekir. Bu nedenle, uygulamanız var. çalıştırmak için 30 Vcpu'lar Batı Avrupa'da kullanmanız gerekiyorsa, Batı Avrupa'da 30 Vcpu'lar özellikle istemeniz gerekir. Ancak, diğer herhangi bir bölgede artırmak vCPU kota sahip olmaz – yalnızca Batı Avrupa 30 vCPU kotası olacak.
 > <!-- -->
 > Sonuç olarak, iş yükü herhangi bir bölgede olması için Azure kaynak grubu kotaları gerekenler karar dikkate kullanışlı ve bu miktar içine dağıtım dikkate her bölgede isteyin. Bkz: [dağıtım sorunlarını giderme](resource-manager-common-deployment-errors.md) özel bölgeler için geçerli kotalar keşfetme daha fazla yardım için.
 >

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/17/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a056bf1ef6b13a2989922e135b99d31d84637c7
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>Şirket içi StorSimple cihazınızı dağıtma
+> [!NOTE]
+> StorSimple için klasik portal kullanım dışıdır. StorSimple Cihaz Yöneticileriniz, yeni Azure portalına kullanımdan kaldırma zamanlamasına göre otomatik olarak taşınacaktır. Bu taşımayla ilgili bir e-posta ve portal bildirimi alacaksınız. Bu belge de yakında kullanımdan kaldırılacaktır. Taşıma hakkında tüm sorularınız için bkz. [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md).
+
 > [!div class="op_single_selector"]
 > * [Güncelleştirme 2](storsimple-deployment-walkthrough-u2.md)
 > * [Güncelleştirme 1](storsimple-deployment-walkthrough-u1.md)

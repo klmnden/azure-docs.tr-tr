@@ -1,6 +1,6 @@
 ---
 title: "Azure Machine Learning hizmetleri için model derleme (önizleme) | Microsoft Docs"
-description: "Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu öğretici bir deneyimin 2. bölümüdür."
+description: "Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu ikinci bölümde deneme konusu ele alınmaktadır."
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,106 +10,110 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 09/25/2017
-ms.openlocfilehash: 976407daee45e2f3a8360c1316227cc3399ad43e
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 11/06/2017
+ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="classifying-iris-part-2-build-a-model"></a>Iris sınıflandırma bölüm 2: Model derleme
+# <a name="classify-iris-part-2-build-a-model"></a>Iris sınıflandırma bölüm 2: Model derleme
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
 
 Bu öğretici üç bölümden oluşan bir serinin ikinci bölümüdür. Öğreticinin bu bölümünde Azure Machine Learning hizmetlerini (önizleme) kullanarak aşağıdakileri yapmayı öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Azure Machine Learning Workbench ile çalışma
-> * Betikleri açma ve kodları gözden geçirme
-> * Betikleri yerel bir ortamda yürütme
-> * Çalıştırma geçmişini gözden geçirme
-> * Betikleri yerel bir Docker ortamında yürütme
-> * Betikleri yerel bir Azure CLI penceresinde yürütme
-> * Betikleri uzak bir Docker ortamında yürütme
-> * Betikleri bulut üzerindeki HDInsight ortamında yürütme
+> * Azure Machine Learning Workbench’i kullanma.
+> * Betikleri açma ve kodları gözden geçirme.
+> * Betikleri yerel bir ortamda yürütme.
+> * Çalıştırma geçmişini gözden geçirme.
+> * Betikleri yerel bir Docker ortamında yürütme.
+> * Betikleri yerel bir Azure CLI penceresinde yürütme.
+> * Betikleri uzak bir Docker ortamında yürütme.
+> * Betikleri bulut üzerindeki Azure HDInsight ortamında yürütme.
 
-Bu öğreticide kolaylık sağlamak için değişmeyen [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak macOS deneyimi de çok benzerdir.
+Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak Mac OS deneyimi de çok benzerdir.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğretici serisinin ilk bölümünü tamamlamış olmanız gerekir. Bu öğreticideki adımları uygulamaya başlamadan önce [Veri öğreticisini hazırlama](tutorial-classifying-iris-part-1.md) bölümündeki talimatları izleyerek Azure Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
+Bu öğretici serisinin ilk bölümünü tamamlayın. Bu öğreticideki adımları uygulamaya başlamadan önce [Veri öğreticisini hazırlama](tutorial-classifying-iris-part-1.md) bölümündeki talimatları izleyerek Azure Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
 
-İsteğe bağlı olarak betikleri yerel Docker kapsayıcısıyla çalıştırabilirsiniz. Bunun için bir Docker altyapısının (Community Edition yeterlidir) Windows veya macOS makinenizde yüklü ve başlatılmış olması gerekir. [Docker yükleme talimatları](https://docs.docker.com/engine/installation/) hakkında daha fazla bilgi edinin.
+İsteğe bağlı olarak betikleri yerel Docker kapsayıcısıyla çalıştırabilirsiniz. Bunun için bir Docker altyapısının (Community Edition yeterlidir) Windows veya Mac OS makinenizde yüklü ve başlatılmış olması gerekir. Docker yükleme hakkında daha fazla bilgi için bkz. [Docker yükleme yönergeleri](https://docs.docker.com/engine/installation/).
 
-Bir betiği uzak Azure VM'sindeki veya HDInsight Spark kümesindeki Docker kapsayıcısına göndermek istiyorsanız [Ubuntu tabanlı Azure Veri Bilimi Sanal Makinesi veya HDI Kümesi oluşturma talimatlarını](how-to-create-dsvm-hdi.md) inceleyebilirsiniz.
+Bir betiği uzak Azure VM'sindeki veya Azure HDInsight Spark kümesindeki Docker kapsayıcısına göndermek için [Ubuntu tabanlı Azure Veri Bilimi Sanal Makinesi veya HDInsight kümesi oluşturma yönergelerini](how-to-create-dsvm-hdi.md) inceleyebilirsiniz.
 
-## <a name="review-irissklearnpy-and-configuration-files"></a>iris_sklearn.py dosyasını ve yapılandırma dosyalarını gözden geçirin
-1. **Azure Machine Learning Workbench** uygulamasını başlatın ve öğretici serisinin önceki bölümünde oluşturduğunuz **myIris** projesini açın.
+## <a name="review-irissklearnpy-and-the-configuration-files"></a>iris_sklearn.py dosyasını ve yapılandırma dosyalarını gözden geçirme
+1. Azure Machine Learning Workbench uygulamasını ve öğretici serisinin önceki bölümünde oluşturduğunuz **myIris** projesini açın.
 
-2. Proje açıldıktan sonra Azure Machine Learning Workbench uygulamasının sol taraftaki araç çubuğunda yer alan **Dosyalar** düğmesine (klasör simgesi) tıklayın.
+2. Proje açıldıktan sonra en sol bölmedeki **Dosyalar** düğmesine (klasör simgesi) tıklayarak proje klasörünüzdeki dosya listesini açın.
 
-3. **iris_sklearn.py** dosyasını seçin. Python kodu Workbench içinde yeni bir metin düzenleyici sekmesinde açılır.
+3. **iris_sklearn.py** dosyasını seçin. Python kodu workbench içinde yeni bir metin düzenleyici sekmesinde açılır.
 
-   ![dosya aç](media/tutorial-classifying-iris/open_iris_sklearn.png)
+   ![Dosya açma](media/tutorial-classifying-iris/open_iris_sklearn.png)
 
    >[!NOTE]
-   >Bu basit proje sıklıkla güncelleştirildiğinden gördüğünüz projeler yukarıdaki kodla aynı olmayabilir.
+   >Bu basit proje sıklıkla güncelleştirildiğinden, gördüğünüz projeler yukarıdaki kodla aynı olmayabilir.
 
-4. Python betik kodunu gözden geçirerek kodlama stili hakkında bilgi edinin. Betiğin aşağıdaki görevleri gerçekleştirdiğine dikkat edin:
+4. Python betik kodunu gözden geçirerek kodlama stili hakkında bilgi edinin. Betik aşağıdaki görevleri gerçekleştirir:
 
    - **iris.dprep** veri hazırlama paketini yükleyerek [pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) öğesini oluşturur. 
 
         >[!NOTE]
-        >Örnek projeyle birlikte gelen `iris.dprep` veri hazırlama paketini kullanıyoruz. Paketin, bu öğreticinin 1. bölümünde derlediğiniz `iris-1.dprep` dosyasıyla aynı olması gerekir.
+        >Örnek projeyle birlikte gelen `iris.dprep` veri hazırlama paketini kullanın. Bu paket, bu öğreticinin 1. bölümünde derlediğiniz `iris-1.dprep` dosyasıyla aynı olmalıdır.
 
-   - Sorunun çözülmesini zorlaştırmak için rastgele özellikler ekler. (Iris, yaklaşık %100 kesinlikle kolayca sınıflandırılabilen küçük bir veri kümesi olduğundan rastgele hale getirilmesi gerekir.)
+   - Sorunun çözülmesini zorlaştırmak için rastgele özellikler ekler. Iris, yaklaşık %100 doğrulukla kolayca sınıflandırılan küçük bir veri kümesi olduğundan rastgele hale getirilmesi gerekir.
 
-   - [scikit-learn](http://scikit-learn.org/stable/index.html) makine öğrenimi kitaplığını kullanarak basit bir Lojistik Regresyon modeli derler. 
+   - [scikit-learn](http://scikit-learn.org/stable/index.html) makine öğrenimi kitaplığını kullanarak bir lojistik regresyon modeli derler. 
 
-   - [pickle](https://docs.python.org/2/library/pickle.html) kitaplığını kullanarak modeli `outputs` klasöründeki bir dosyaya seri hale getirir, yükler ve seri durumdan çıkararak belleğe geri alır
+   - [Pickle](https://docs.python.org/2/library/pickle.html) kitaplığını `outputs` klasöründeki dosyaya ekleyerek modeli seri hale getirir. Betik daha sonra modeli yükler ve bellekte yeniden seri durumdan çıkarır.
 
    - Seri durumdan çıkarılmış modeli kullanarak yeni kayıtla ilgili bir tahminde bulunur. 
 
-   - [matplotlib](https://matplotlib.org/) kitaplığını kullanarak karışıklık matrisi ve çok sınıflı ROC eğrisi olmak üzere iki grafik çizer ve bunları `outputs` klasörüne kaydeder.
+   - [matplotlib](https://matplotlib.org/) kitaplığını kullanarak iki grafik, bir karışıklık matrisi ve bir çok sınıflı alıcı çalıştırma özellikleri (ROC) eğrisi çizer ve sonra bunları `outputs` klasörüne kaydeder.
 
-   - Kurallaştırma oranını ve model kesinliğini günlüklere kaydetmek için işlem boyunca `run_logger` nesnesi kullanılır ve günlükler otomatik olarak çalıştırma geçmişinde silinir.
+   - Düzenleme hızını kaydetme ve doğruluğu günlüklerde modelleme işlemi boyunca `run_logger` nesnesi kullanılır. Günlükler çalıştırma geçmişinde otomatik olarak çizilir.
 
 
-## <a name="execute-irissklearnpy-script-in-local-environment"></a>iris_sklearn.py betiğini yerel ortamda çalıştırma
+## <a name="execute-irissklearnpy-script-in-a-local-environment"></a>iris_sklearn.py betiğini yerel ortamda çalıştırma
 
-Şimdi **iris_sklearn.py** betiğini ilk kez çalıştırmak üzere hazırlayalım. Bu betik için scikit-learn ve matplotlib paketleri gerekir. **scikit-learn**, Azure ML Workbench tarafından önceden yüklenmiştir. Ancak **matplotlib** paketini yüklememiz gerekir. 
+Şimdi **iris_sklearn.py** betiğini ilk kez çalıştırmak üzere hazırlayalım. Bu betik için **scikit-learn** ve **matplotlib** paketleri gerekir. **scikit-learn** paketi Azure Machine Learning Workbench’te zaten yüklüdür. Yine de **matplotlib** paketini yüklemeniz gerekir. 
 
-1. Azure Machine Learning Workbench'te **Dosya** menüsüne tıklayın ve **Komut İstemini Aç**'ı seçerek komut istemini başlatın. Bu komut satırı arabirimine Azure Machine Learning Workbench CLI penceresi veya kısaca CLI penceresi diyoruz.
+1. Azure Machine Learning Workbench'te **Dosya** menüsünü ve sonra **Komut İstemini Aç**'ı seçerek komut istemini açın. Bu komut satırı arabirimi penceresi, *Azure Machine Learning Workbench CLI penceresi* veya kısaca *CLI penceresi* olarak adlandırılır.
 
-2. CLI penceresine aşağıdaki komutu yazarak **matplotlib** Python paketini yükleyin. Bu işlemin bir dakikadan kısa sürede tamamlanması gerekir.
+2. CLI penceresine aşağıdaki komutu girerek **matplotlib** Python paketini yükleyin. Bu işlemin bir dakikadan kısa sürede tamamlanması gerekir.
 
    ```azurecli
    pip install matplotlib
    ```
 
    >[!NOTE]
-   >Yukarıdaki `pip install` komutunu atlarsanız `iris_sklearn.py` içindeki komut başarıyla çalışır ancak geçmiş görselleştirmelerinde gösterilen şekilde karışıklık matrisi çıktısını ve çok sınıflı ROC eğrisi çizimlerini oluşturmaz.
+   >Önceki `pip install` komutunu atlarsanız `iris_sklearn.py` içindeki kod başarılı bir şekilde çalışır. Yalnızca `iris_sklearn.py` komutunu çalıştırırsanız kod geçmiş görselleştirmelerinde gösterilen şekilde karışıklık matrisi çıktısını ve çok sınıflı ROC eğrisi çizimlerini oluşturmaz.
 
 3. Workbench uygulama penceresine dönün. 
 
-4. **iris_sklearn.py** sekmesinin sol üst kısmında, kaydet simgesinin yanında bulunan açılır menüye tıklayarak **Yapılandırmayı Çalıştır** bölümünü seçin.  Yürütme ortamı olarak **yerel** seçeneğini, çalıştırılacak betik olarak da `iris_sklearn.py` seçeneğini belirleyin.
+4. **iris_sklearn.py** sekmesinin üst kısmındaki araç çubuğunda, **Kaydet** simgesinin yanındaki açılır menüyü seçerek açın ve ardından **Yapılandırmayı Çalıştır**’ı seçin. Yürütme ortamı olarak **yerel** seçeneğini belirleyin ve sonra çalıştırılacak betik olarak `iris_sklearn.py` girin.
 
-5. Daha sonra aynı sekmenin sağ tarafına geçerek **Bağımsız Değişkenler** alanına `0.01` değerini girin. 
+5. Ardından, araç çubuğunun sağ tarafına giderek **Bağımsız Değişkenler** alanına `0.01` değerini girin. 
 
-   ![görüntü](media/tutorial-classifying-iris/run_control.png)
+   ![Çalıştırma denetimi](media/tutorial-classifying-iris/run_control.png)
 
-6. **Çalıştır** düğmesine tıklayın. Anında bir iş zamanlanır. İş, Workbench penceresinin sağ tarafındaki **İşler** panelinde listelenir. 
+6. **Çalıştır** düğmesini seçin. Anında bir iş zamanlanır. İş, workbench penceresinin sağ tarafındaki **İşler** bölmesinde listelenir. 
 
-7. Bir süre sonra işin durumu **Gönderiliyor**'dan **Çalışıyor** ve kısa bir süre sonra da **Tamamlandı** olarak değişir.
+7. Bir süre sonra işin **Gönderiliyor** olan durumu **Çalışıyor** ve sonra **Tamamlandı** olarak değişir.
 
-   ![sklearn öğesini çalıştırma](media/tutorial-classifying-iris/run_sklearn.png)
+   ![sklearn çalıştırma](media/tutorial-classifying-iris/run_sklearn.png)
 
-8. İşler panelinde iş durumu metnindeki **Tamamlandı** kelimesine tıklayın. Bir pencere açılır ve çalışan betiğin standart çıktı (stdout) metni görüntülenir. stdout metnini kapatmak için açılan pencerenin sağ üst kısmındaki **X** düğmesine tıklayın.
+8. **İşler** bölmesindeki iş durumu metninde **Tamamlandı** öğesini seçin. Bir pencere açılır ve çalışan betiğin standart çıktı (stdout) metni görüntülenir. stdout metnini kapatmak için açılır pencerenin sağ üst kısmındaki **Kapat** (**x**) düğmesini seçin.
 
-9. İşler panelindeki aynı iş durumunda **Tamamlandı** durumunun ve başlangıç zamanının hemen üzerinde yer alan mavi renkli **iris_sklearn.py [n]** (_n_ çalıştırma numarasıdır) metnine tıklayın. **Çalıştırma Özellikleri** sayfası açılır ve ilgili çalıştırmaya ait Çalıştırma Özellikleri bilgileri, **Çıktı** dosyaları, **Görselleştirmeler** ve **Günlükler** gösterilir. 
+9. **İşler** bölmesindeki aynı iş durumunda **Tamamlandı** durumunun ve başlangıç zamanının hemen üzerinde yer alan mavi renkli **iris_sklearn.py [n]** (_n_ çalıştırma numarasıdır) metnini seçin. **Çalıştırma Özellikleri** penceresi açılır ve bu çalıştırma için aşağıdaki bilgileri gösterir:
+   - **Çalıştırma Özellikleri** bilgileri
+   - **Çıkış** dosyaları
+   - Varsa **Görselleştirmeler**
+   - **Günlükler** 
 
    Çalıştırma tamamlandığında açılır pencerede aşağıdaki sonuçlar gösterilir:
 
    >[!NOTE]
-   >Önceden belirlenen eğitim kümesine rastgele seçimler eklediğimiz için sonuçlarınız burada gösterilenden farklı olabilir.
+   >Daha önce eğitim kümesine bazı rastgele seçimler eklediğimiz için tam sonuçlarınız burada gösterilen sonuçlardan farklı olabilir.
 
    ```text
    Python version: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  5 2016, 11:41:13) [MSC v.1900 64 bit (AMD64)]
@@ -137,124 +141,135 @@ Bir betiği uzak Azure VM'sindeki veya HDInsight Spark kümesindeki Docker kapsa
    Confusion matrix plotted.
    Plotting ROC curve....
    ROC curve plotted.
-   Confusion matrix and ROC curve plotted. See them in Run History details page.
+   Confusion matrix and ROC curve plotted. See them in Run History details pane.
    ```
 
 10. **Çalıştırma Özellikleri** sekmesini kapatın ve **iris_sklearn.py** sekmesine dönün. 
 
 11. Ek çalıştırmaları gerçekleştirin. 
 
-    **Bağımsız Değişkenler** alanına `0.001` ile `10` arasında farklı sayısal değerler girin. **Çalıştır**'a tıklayarak kodu birkaç kez daha yürütün. Değiştirdiğiniz bağımsız değişken değeri koddaki Lojistik Regresyon algoritmasına iletilir ve her seferinde farklı sonuçlar alınır.
+    **Bağımsız Değişkenler** alanına `0.001` ile `10` arasında farklı sayısal değerler girin. **Çalıştır**'ı seçerek kodu birkaç kez daha yürütün. Değiştirdiğiniz bağımsız değişken değeri koddaki lojistik regresyon algoritmasına iletilir ve her seferinde farklı bulgular alınır.
 
-## <a name="review-run-history-in-detail"></a>Çalıştırma Geçmişinin ayrıntılarını gözden geçirme
-Azure Machine Learning Workbench'te yürütülen her betik çalıştırma geçmişi kaydına dahil edilir. **Çalıştırmalar** görünümünü açarak belirli bir betiğin çalıştırma geçmişini görüntüleyebilirsiniz.
+## <a name="review-the-run-history-in-detail"></a>Çalıştırma geçmişinin ayrıntılarını gözden geçirme
+Azure Machine Learning Workbench'te yürütülen her betik çalıştırma geçmişi kaydına dahil edilir. **Çalıştırmalar** görünümünü açarsanız belirli bir betiğin çalıştırma geçmişini görüntüleyebilirsiniz.
 
-1. Sol araç çubuğundaki **Çalıştırmalar** düğmesine (saat simgesi) tıklayarak **Çalıştırmalar** listesini açın. Ardından **iris_sklearn.py** öğesine tıklayarak `iris_sklearn.py` öğesinin **Çalıştırma Panosunu** açın.
+1. **Çalıştırmalar** listesini açmak için sol araç çubuğundaki **Çalıştırmalar** düğmesini (saat simgesi) seçin. Ardından **iris_sklearn.py** öğesini seçerek `iris_sklearn.py` öğesinin **Çalıştırma Panosunu** açın.
 
-   ![görüntü](media/tutorial-classifying-iris/run_view.png)
+   ![Çalıştırma görünümü](media/tutorial-classifying-iris/run_view.png)
 
-2. **Çalıştırma Panosu** sekmesi açılır. Birden fazla çalıştırma sonucunda toplanan istatistikleri gözden geçirin. Grafikler sekmenin en üstünde oluşturulur ve sayfanın alt tarafındaki tabloda her çalıştırma ayrıntılarıyla birlikte yer alır.
+2. **Çalıştırma Panosu** sekmesi açılır. Birden fazla çalıştırma sonucunda toplanan istatistikleri gözden geçirin. Grafikler sekmenin üstünde işlenir. Her çalıştırma ardışık bir numaraya sahiptir ve çalıştırma ayrıntıları ekranın altındaki tabloda listelenir.
 
-   ![görüntü](media/tutorial-classifying-iris/run_dashboard.png)
+   ![Çalıştırma panosu](media/tutorial-classifying-iris/run_dashboard.png)
 
-3. Tabloyu filtreleyip grafiklere tıklayarak her bir çalıştırmanın durumunu, süresini, kesinliğini ve kurallaştırma oranını görüntüleyebilirsiniz. 
+3. Tabloyu filtreleyip herhangi bir grafiğe tıklayarak her bir çalıştırmanın durumunu, süresini, kesinliğini ve kurallaştırma oranını görüntüleyebilirsiniz. 
 
-4. **Çalıştırmalar** tablosundan iki veya üç çalıştırma seçip **Karşılaştır** düğmesine tıklayarak ayrıntılı karşılaştırma sayfasını açabilirsiniz. Yan yana karşılaştırmayı gözden geçirin. Karşılaştırma sayfasının sol üst kısmındaki **Çalıştırma listesi** geri düğmesine tıklayarak **Çalıştırma Panosu**'na dönün.
+4. **Çalıştırmalar** tablosundan iki veya üç çalıştırma belirleyip **Karşılaştır** düğmesini seçerek ayrıntılı karşılaştırma bölmesini açabilirsiniz. Yan yana karşılaştırmayı gözden geçirin. **Karşılaştırma** bölmesinin sol üst kısmındaki **Çalıştırma listesi** geri düğmesini seçerek **Çalıştırma Panosu**'na dönün.
 
-5. Ayrıntılarını görmek için çalıştırmalardan birine tıklayın. Seçilen çalıştırmanın istatistikleri _Çalıştırma Özellikleri_ bölümünde listelenir. Çıktı klasörüne yazılmış olan dosyalar **Çıktı** bölümünde listelenir ve indirilebilir.
+5. Ayrıntılarını görmek için çalıştırmalardan birini seçin. Seçilen çalıştırmanın istatistikleri **Çalıştırma Özellikleri** bölümünde listelenir. Çıktı klasörüne yazılmış olan dosyalar **Çıktılar** bölümünde listelenir ve oradan indirilebilir.
 
-   ![görüntü](media/tutorial-classifying-iris/run_details.png)
+   ![Çalıştırma ayrıntıları](media/tutorial-classifying-iris/run_details.png)
 
    Karışıklık matrisi ve çok sınıflı ROC eğrisi çizimleri **Görselleştirmeler** bölümünde oluşturulur. Tüm günlük dosyalarına **Günlükler** bölümünden de ulaşabilirsiniz.
 
 ## <a name="execute-scripts-in-the-local-docker-environment"></a>Betikleri yerel Docker ortamında yürütme
 
-Azure ML, Docker gibi ek yürütme ortamlarını kolayca yapılandırmanızı ve betiğinizi bu ortamlarda çalıştırmanızı sağlar. 
+Machine Learning sayesinde Docker gibi ek yürütme ortamlarını kolayca yapılandırabilir ve betiğinizi bu ortamlarda çalıştırabilirsiniz. 
 
 >[!IMPORTANT]
->Bu adımı tamamlamak için Docker altyapısının yerel ortamınızda yüklü ve başlatılmış olması gerekir. Daha fazla bilgi için yükleme kılavuzuna bakın.
+>Bu adımı tamamlamak için Docker altyapısının yerel ortamınızda yüklü ve başlatılmış olması gerekir. Daha fazla bilgi için Docker yükleme yönergelerine bakın.
 
-1. Sol araç çubuğundaki klasör simgesini seçerek projenizin **Dosyalar** listesini açın. `aml_config` klasörünü genişletin. 
+1. Soldaki bölmeden **Klasör** simgesini seçerek projenizin **Dosyalar** listesini açın. `aml_config` klasörünü genişletin. 
 
-2. **docker-python**, **docker-spark** ve **yerel** gibi birden fazla önceden yapılandırılmış ortam olduğuna dikkat edin. 
+2. **docker-python**, **docker-spark** ve **yerel** gibi birden fazla önceden yapılandırılmış ortam mevcuttur. 
 
-   Her ortamda `docker-python.compute` ve `docker-python.runconfig` olmak üzere iki dosya vardır. Her dosya türünü incelediğinizde belirli seçeneklerin metin düzenleyici ile yapılandırılabileceğini göreceksiniz.  
+   Her ortamda `docker-python.compute` ve `docker-python.runconfig` olmak üzere iki dosya vardır. Her dosyayı incelediğinizde belirli seçeneklerin metin düzenleyici ile yapılandırılabildiğini göreceksiniz.  
 
-   Karışıklığı önlemek için açık metin düzenleyici sekmelerini kapatın (X).
+   Temizlemek için açık olan metin düzenleyicilerin sekmelerinde **Kapat** (**x**) öğesini seçin.
 
-3. **iris_sklearn.py** betiğini **docker-python** ortamını kullanarak çalıştırın. 
+3. **docker-python** ortamını kullanarak **iris_sklearn.py** betiğini çalıştırın: 
 
-   - Sol araç çubuğundaki saat simgesine tıklayarak **Çalıştırmalar** panelini açın. **Tüm Çalıştırmalar**'a tıklayın. 
+   - Sol araç çubuğundaki **Saat** simgesini seçerek **Çalıştırmalar** bölmesini açın. **Tüm Çalıştırmalar**’ı seçin. 
    - **Tüm Çalıştırmalar** sekmesinin en üst kısmındaki hedeflenen ortam bölümünde varsayılan **yerel** değerinin yerine **docker-python** değerini seçin. 
-   - Ardından sağ tarafa geçerek çalıştırılacak betik için **iris_sklearn.py** dosyasını belirleyin. 
+   - Ardından sağ tarafa geçerek çalıştırılacak betik için **iris_sklearn.py** dosyasını seçin. 
    - Betikte belirtilmiş bir varsayılan değer olduğundan **Bağımsız Değişkenler** alanını boş bırakın. 
-   - **Çalıştır** düğmesine tıklayın.
+   - **Çalıştır** düğmesini seçin.
 
-4. Yeni bir iş başlatılır ve Workbench penceresinin sağ tarafındaki **İşler** panelinde gösterilir.
+4. Yeni bir işin başladığını gözlemleyin. İş, workbench penceresinin sağ tarafındaki **İşler** bölmesinde listelenir.
 
    Docker üzerinde ilk kez çalışıyorsanız işlemin tamamlanması fazladan birkaç dakika sürebilir. 
 
-   Azure Machine Learning Workbench arka planda `docker.compute` dosyasında belirtilen temel Docker görüntüsüne ve `conda_dependencies.yml` dosyasında belirtilen bağımlı Python paketlerine başvuran yeni bir Docker dosyası derler. Docker altyapısı ardından temel görüntüyü Azure'dan indirir, `conda_dependencies.yml` dosyasında belirtilen Python paketlerini yükler ve bir Docker kapsayıcısı başlatır. Ardından proje klasörünün yerel kopyasını kopyalar (veya çalıştırma yapılandırmasına bağlı olarak başvuru oluşturur) ve ardından `iris_sklearn.py` betiğini yürütür. İşlemin sonunda **yerel** hedefleme ile tam olarak aynı sonucu almanız gerekir.
+   Arka planda, Azure Machine Learning Workbench yeni bir docker dosyası derler. 
+   Yeni dosya, `docker.compute` dosyasında belirtilen temel Docker görüntüsüne ve `conda_dependencies.yml` dosyasında belirtilen bağımlılık Python paketlerine başvurur. 
+   
+   Docker altyapısı aşağıdaki görevleri gerçekleştirir:
 
-5. Şimdi Spark'ı deneyelim. Docker temel görüntüsünde önceden yüklenmiş ve yapılandırılmış bir Spark örneği bulunur. Bu sayede içinde bir PySpark betiği yürütebilirsiniz. Bu, Spark'ı yükleyip yapılandırmanıza gerek kalmadan Spark programınızı geliştirmek ve test etmek için kullanacağınız kolay bir yöntemdir. 
+    - Azure’dan temel görüntüyü indirir.
+    - `conda_dependencies.yml` dosyasında belirtilen Python paketlerini yükler.
+    - Bir Docker kapsayıcısı başlatır.
+    - Çalıştırma yapılandırmasına bağlı olarak proje klasörünün yerel kopyasını kopyalar veya kopyaya başvurur.      
+    - `iris_sklearn.py` betiğini yürütür.
 
-   `iris_spark.py` dosyasını açın. Bu betik `iris.csv` veri dosyasını yükler ve Spark ML kitaplığındaki Lojistik Regresyon algoritmasını kullanarak Iris veri kümesini sınıflandırır. Şimdi çalıştırma ortamını **docker-spark**, betiği ise **iris_spark.py** olarak değiştirin ve tekrar çalıştırın. Docker kapsayıcısı içinde Spark oturumunun oluşturulması ve başlatılması gerektiğinden bu işlem biraz daha uzun sürer. stdout değerinin `iris_spark.py` için stdout değerinden farklı olduğunu görebilirsiniz.
+   İşlemin sonunda **yerel** ortamını hedeflemenizle tam olarak aynı sonucu görmeniz gerekir.
+
+5. Şimdi Spark'ı deneyelim. Docker temel görüntüsünde önceden yüklenmiş ve yapılandırılmış bir Spark örneği bulunur. Bu örnek sayesinde, görüntü içinde bir PySpark betiği yürütebilirsiniz. Bu, Spark'ı yükleyip yapılandırmanıza gerek kalmadan Spark programınızı geliştirmek ve test etmek için kullanacağınız basit bir yöntemdir. 
+
+   `iris_spark.py` dosyasını açın. Bu betik `iris.csv` veri dosyasını yükler ve Spark Machine Learning kitaplığındaki lojistik regresyon algoritmasını kullanarak Iris veri kümesini sınıflandırır. Şimdi çalıştırma ortamını **docker-spark**, betiği ise **iris_spark.py** olarak değiştirin ve sonra tekrar çalıştırın. Docker kapsayıcısı içinde Spark oturumunun oluşturulması ve başlatılması gerektiğinden bu işlem biraz daha uzun sürer. stdout değerinin `iris_spark.py` için stdout değerinden farklı olduğunu görebilirsiniz.
 
 6. Birkaç çalıştırma daha gerçekleştirin ve farklı bağımsız değişkenler kullanın. 
 
-7. Spark ML kitaplığı kullanılarak derlenen basit Lojistik Regresyon modelini görmek için `iris_spark.py` dosyasını açın. 
+7. Spark Machine Learning kitaplığı kullanılarak derlenen lojistik regresyon modelini görmek için `iris_spark.py` dosyasını açın. 
 
-8. **İşler** paneliyle etkileşimde bulunarak farklı yürütme ortamlarında gerçekleştirdiğiniz çalıştırmaların çalıştırma geçmişi liste görünümü ve çalıştırma ayrıntıları görünümünü inceleyin.
+8. **İşler** bölmesiyle etkileşimde bulunarak farklı yürütme ortamlarında gerçekleştirdiğiniz çalıştırmaların çalıştırma geçmişi liste görünümü ve çalıştırma ayrıntıları görünümünü inceleyin.
 
-## <a name="execute-scripts-in-the-azure-ml-cli-window"></a>Betikleri Azure ML CLI penceresinde yürütme
+## <a name="execute-scripts-in-the-azure-machine-learning-cli-window"></a>Betikleri Azure Machine Learning CLI penceresinde yürütme
 
-1. Azure Machine Learning Workbench'te **Dosya** menüsüne ve **Komut İstemi Aç**'a tıklayarak komut satırı penceresini başlatın. Komut isteminiz `C:\Temp\myIris\>` istemiyle proje klasöründe ve başlatılır.
+1. Azure Machine Learning Workbench'te komut satırı penceresini açın, **Dosya** menüsünü ve sonra **Komut İstemini Aç**'ı seçin. Komut isteminiz `C:\Temp\myIris\>` istemiyle proje klasöründe başlatılır.
 
-   >[!Important]
-   >Aşağıdaki adımları gerçekleştirmek için komut satırı penceresini (Workbench'ten başlatılan) kullanmanız gerekir:
+   >[!IMPORTANT]
+   >Aşağıdaki adımları gerçekleştirmek için komut satırı penceresini (Workbench'ten açılan) kullanmanız gerekir.
 
-2. Komut istemini (CLI) kullanarak Azure'da oturum açın. 
+2. Komut istemini kullanarak Azure'da oturum açın. 
 
-   Workbench uygulaması ve CLI, Azure kaynaklarında kimlik doğrulaması gerçekleştirmek için bağımsız kimlik bilgisi önbelleği kullanır. Bu işlemi yalnızca bir kez yapmanız gerekir ve önbelleğe alınan belirteç süresi dolana kadar geçerli olacaktır. **az account list** komutu, oturum açma bilgilerinizle kullanılabilen aboneliklerin listesini döndürür. Birden fazla oturum açma bilgisi varsa kullanmak istediğiniz aboneliğin kimlik değerini kullanın ve **az set account -s** komutuyla birlikte abonelik kimliği değerini belirterek bunu varsayılan hesap olarak ayarlayın. Ardından account show komutunu kullanarak ayarı doğrulayın.
+   Workbench uygulaması ve CLI, Azure kaynaklarında kimlik doğrulaması gerçekleştirmek için bağımsız kimlik bilgisi önbelleği kullanır. Bu işlemi yalnızca bir kez yapmanız gerekir ve önbelleğe alınan belirteç süresi dolana kadar geçerli olacaktır. **az account list** komutu, oturum açma bilgilerinizle kullanılabilen aboneliklerin listesini döndürür. Birden fazla varsa, istenen abonelikteki kimlik değerini kullanın. Bu aboneliği **az account set -s** komutuyla birlikte kullanılacak varsayılan hesap olarak ayarlayın ve sonra abonelik kimliği değerini sağlayın. Ardından account **show** komutunu kullanarak ayarı doğrulayın.
 
    ```azurecli
-   REM login using aka.ms/devicelogin site.
+   REM login by using the aka.ms/devicelogin site
    az login
    
-   REM list all Azure subscriptions you have access to. 
+   REM lists all Azure subscriptions you have access to 
    az account list -o table
    
-   REM set the current Azure subscription to the one you want to use.
-   az set account -s <subscriptionId>
+   REM sets the current Azure subscription to the one you want to use
+   az account set -s <subscriptionId>
    
-   REM verify your current subscription is set correctly
+   REM verifies that your current subscription is set correctly
    az account show
    ```
 
-3. Kimlik doğrulamasından geçtikten ve geçerli Azure abonelik bağlamını ayarladıktan sonra CLI penceresine aşağıdaki komutları girerek matplotlib kitaplığını yükleyin ve Python betiğini çalıştırılacak deney olarak gönderin.
+3. Kimlik doğrulaması tamamlandıktan ve geçerli Azure abonelik bağlamını ayarladıktan sonra CLI penceresine aşağıdaki komutları girerek **matplotlib** kitaplığını yükleyin ve Python betiğini çalıştırılacak deneme olarak gönderin.
 
    ```azurecli
-   REM You don't need to do this if you have installed matplotlib locally from the previous steps.
+   REM you don't need to run this command if you have installed matplotlib locally from the previous steps
    pip install matplotlib
    
-   REM Kick off an execution of the iris_sklearn.py file against local compute context
+   REM kicks off an execution of the iris_sklearn.py file against the local compute context
    az ml experiment submit -c local .\iris_sklearn.py
    ```
 
-4. Çıktıyı gözden geçirin. Bu öğreticide Workbench kullanarak çalıştırdığınız betikle aynı çıktının ve sonucun döndürüldüğüne dikkat edin. 
+4. Çıktıyı gözden geçirin. Betiği çalıştırmak için Workbench kullandığınızda elde ettiğiniz çıktıyı ve sonuçları alırsınız. 
 
-5. Bilgisayarınızda Docker yüklüyse aynı betiği Docker yürütme ortamını kullanarak çalıştırın.
+5. Bilgisayarınızda Docker yüklüyse aynı betiği Docker yürütme ortamını kullanarak tekrar çalıştırın.
 
    ```azurecli
-   REM Execute iris_sklearn.py in local Docker container Python environment.
+   REM executes iris_sklearn.py in the local Docker container Python environment
    az ml experiment submit -c docker-python .\iris_sklearn.py 0.01
    
-   REM Execute iris_spark.py in local Docker container Spark environment.
+   REM executes iris_spark.py in the local Docker container Spark environment
    az ml experiment submit -c docker-spark .\iris_spark.py 0.1
    ```
-6. Azure Machine Learning Workbench'te sol araç çubuğundaki Klasör simgesine tıklayarak proje dosyalarını listeleyin ve **run.py** adlı Python betiğini açın. 
+6. Workbench'te sol bölmedeki **Klasör** simgesini seçerek proje dosyalarını listeleyin ve **run.py** adlı Python betiğini açın. 
 
-   Bu betik farklı kurallaştırma oranlarında döngü oluşturmak ve deneyi bu oranlarla birden fazla kez çalıştırmak için kullanışlıdır. Bu betik `10.0` kurallaştırma oranına (oldukça büyük bir sayıdır) sahip bir `iris_sklearn.py` işi başlatır ve oranı sonraki her çalıştırmada yarıya indirerek `0.005` olana kadar devam eder. 
+   Bu betik çeşitli düzenleme hızları üzerinde döngü oluşturmak için yararlıdır. Denemeyi bu hızlarla birden çok kez çalıştırın. Bu betik `10.0` düzenleme hızıyla (gerçekten büyük bir sayı) bir `iris_sklearn.py` işi başlatır. Daha sonra betik sonraki çalıştırmada hızı yarıya indirir ve hız `0.005` değerinin altına inene kadar ikiye bölmeye devam eder. 
 
    ```python
    # run.py
@@ -266,36 +281,39 @@ Azure ML, Docker gibi ek yürütme ortamlarını kolayca yapılandırmanızı ve
        reg = reg / 2
    ```
 
-   **run.py** betiğini komut satırından başlatmak için aşağıdaki komutları çalıştırın:
+   **run.py** betiğini komut satırından açmak için aşağıdaki komutları çalıştırın:
 
    ```cmd
-   REM Submit iris_sklearn.py multiple times with different regularization rates
+   REM submits iris_sklearn.py multiple times with different regularization rates
    python run.py
    ```
 
-   `run.py` tamamlandığında Azure Machine Learning Workbench'teki çalıştırma geçmişi liste görünümünde bir grafik görüntülenir.
+   `run.py` tamamlandığında Workbench'teki çalıştırma geçmişi liste görünümünde bir grafik görüntülenir.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Uzak makinedeki bir Docker kapsayıcısında yürütme
-Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütmek için ilgili uzak makineye SSH erişimine (kullanıcı adı ve parola) sahip olmanız gerekir. Ayrıca uzak makinede Docker altyapısı yüklü ve çalışır durumda olmalıdır. Böyle bir Linux makineye sahip olmanın en kolay yolu Azure'da bir [Ubuntu tabanlı Veri Bilimi Sanal Makinesi (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) oluşturmaktır. (CentOS tabanlı DSVM desteklenmez.) 
+Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütmek için ilgili uzak makineye SSH erişimine (kullanıcı adı ve parola) sahip olmanız gerekir. Ayrıca, uzak makinede Docker altyapısı yüklü ve çalışır durumda olmalıdır. Böyle bir Linux makineye sahip olmanın en kolay yolu Azure'da bir [Ubuntu tabanlı Veri Bilimi Sanal Makinesi (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) oluşturmaktır. 
 
-1. Sanal makine oluşturulduktan sonra aşağıdaki komutu kullanarak `.runconfig` ve `.compute` dosyası çifti oluşturup yürütme ortamı olarak ekleyebilirsiniz. Bu örnekte yeni ortamı `myvm` olarak adlandıralım.
+>[!NOTE] 
+>CentOS tabanlı DSVM *desteklenmez*.
+
+1. VM oluşturulduktan sonra `.runconfig` ve `.compute` dosyalarının bir çiftini oluşturursanız VM’yi yürütme ortamı olarak ekleyebilirsiniz. Dosyaları oluşturmak için aşağıdaki komutu kullanın. Bu örnekte yeni ortamı `myvm` olarak adlandıralım.
  
    ```azurecli
-   REM create myvm compute target
+   REM creates an myvm compute target
    az ml computetarget attach --name myvm --address <IP address> --username <username> --password <password> --type remotedocker
    ```
    
    >[!NOTE]
-   >IP Adresi alanı `vm-name.southcentralus.cloudapp.azure.com` gibi genel olarak adreslenebilir FQDN (tam etki alanı adı) da olabilir. Maliyet tasarrufu açısından sanal makineyi kapatmak isteyebileceğiniz için burada IP Adresi yerine FQDN değerini DSVM örneğinize ekleyip burada kullanmak faydalı olacaktır. Ayrıca sanal makineyi yeniden başlattığınızda da IP adresi değişmiş olabilir.
+   >IP adresi alanı `vm-name.southcentralus.cloudapp.azure.com` gibi genel olarak adreslenebilir tam etki alanı adı da (FQDN) olabilir. FQDN’yi DSVM’ye eklemek ve IP adresi yerine burada kullanmak iyi bir uygulamadır. VM’yi maliyet tasarrufu için bir noktada kapatma seçeneğine sahip olduğunuzdan bu uygulama faydalıdır. Ayrıca sanal makineyi yeniden başlattığınızda da IP adresi değişmiş olabilir.
 
-   Ardından aşağıdaki komutu çalıştırarak Docker görüntüsünü sanal makineye uygulayın ve betikleri çalıştırmaya hazır hale getirin.
+   Daha sonra, aşağıdaki komutu çalıştırarak Docker görüntüsünü sanal makineye uygulayın ve betikleri çalıştırmaya hazır hale getirin:
    
    ```azurecli
-   REM prepare the myvm compute target
+   REM prepares the myvm compute target
    az ml experiment prepare -c myvm
    ```
    >[!NOTE]
-   >`myvm.runconfig` içindeki `PrepareEnvironment` varsayılan `false` değerini `true` olarak da değiştirebilirsiniz. Bu komut Docker kapsayıcısını ilk çalıştırmada otomatik olarak hazırlar.
+   >`myvm.runconfig` içindeki `PrepareEnvironment` varsayılan `false` değerini `true` olarak da değiştirebilirsiniz. Bu değişiklik, komut Docker kapsayıcısını ilk çalıştırmada otomatik olarak hazırlar.
 
 2. `aml_config` altında oluşturulan `myvm.runconfig` dosyasını düzenleyin ve çerçevenin varsayılan `PySpark` değerini `Python` olarak değiştirin:
 
@@ -303,69 +321,69 @@ Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütm
    "Framework": "Python"
    ```
    >[!NOTE]
-   >Çerçeve ayarını PySpark olarak da bırakabilirsiniz. Ancak Python betiğinizi çalıştırmak için gerçekten bir Spark oturumuna ihtiyacınız yoksa çok verimli olmayacaktır.
+   >Çerçeve ayarını PySpark olarak bırakırsanız bu da işe yaramalıdır. Ancak Python betiğinizi çalıştırmak için gerçekten bir Spark oturumuna ihtiyacınız yoksa çok verimli olmayacaktır.
 
 3. CLI penceresine daha önce çalıştırdığınız komutu girin ancak bu durumda hedef olarak _myvm_ belirtin:
    ```azurecli
-   REM execute iris_sklearn.py in remote Docker container
+   REM executes iris_sklearn.py in a remote Docker container
    az ml experiment submit -c myvm .\iris_sklearn.py
    ```
-   Komut `docker-python` ortamı kullanıyor gibi yürütülür ancak yürütme işlemi uzak Linux sanal makinesinde gerçekleştirilir. CLI penceresinde aynı çıktı bilgileri görüntülenir.
+   Komut, uzak Linux VM üzerinde gerçekleşmesi dışında `docker-python` ortamındaymışsınız gibi yürütülür. CLI penceresinde aynı çıktı bilgileri görüntülenir.
 
-4. Şimdi kapsayıcıda Spark'ı deneyelim. Dosya gezginini açın (temel dosya değiştirme komutlarına hakimseniz bunu CLI penceresinde de gerçekleştirebilirsiniz). `myvm.runconfig` dosyasının bir kopyasını oluşturun ve `myvm-spark.runconfig` adını verin. Yeni dosyayı düzenleyerek `Python` olan `Framework` ayarını `PySpark` olarak değiştirin:
+4. Şimdi kapsayıcıda Spark kullanmayı deneyelim. Dosya Gezgini'ni açın. Temel dosya değiştirme komutlarına hakimseniz bunu CLI penceresinden de yapabilirsiniz. `myvm.runconfig` dosyasının bir kopyasını oluşturun ve `myvm-spark.runconfig` adını verin. Yeni dosyayı düzenleyerek `Python` olan `Framework` ayarını `PySpark` olarak değiştirin:
    ```yaml
    "Framework": "PySpark"
    ```
-   `myvm.compute` dosyasında değişiklik yapmayın. Spark yürütmesi için aynı sanal makine üzerindeki aynı Docker görüntüsü kullanılır. `myvy-spark.runconfig` içindeki `target` alanı aynı `myvm.compute` dosyaya `myvm` adıyla işaret eder.
+   `myvm.compute` dosyasında değişiklik yapmayın. Spark yürütmesi için aynı sanal makine üzerindeki aynı Docker görüntüsü kullanılır. `myvm-spark.runconfig` içindeki `target` alanı aynı `myvm.compute` dosyaya `myvm` adıyla işaret eder.
 
 5. Uzak Docker kapsayıcısındaki Spark örneğinde çalıştırmak için aşağıdaki komutu yazın:
    ```azureli
-   REM execute iris_spark.py in Spark instance on remote Docker container
+   REM executes iris_spark.py in a Spark instance on a remote Docker container
    az ml experiment submit -c myvm-spark .\iris_spark.py
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Betiği bir HDInsight kümesinde yürütme
 Bu betiği gerçek bir Spark kümesinde de çalıştırabilirsiniz. 
 
-1. Azure HDInsight Spark kümesine erişiminiz varsa gösterilen şekilde bir HDI çalıştırma yapılandırması oluşturun. Parametrelere HDInsight kümesinin adını, HDInsight kullanıcı adınızı ve parolanızı girin. Aşağıdaki komutu kullanın:
+1. Azure HDInsight Spark kümesine erişiminiz varsa burada gösterilen şekilde bir HDInsight çalıştırma yapılandırması oluşturun. Parametrelere HDInsight kümesinin adını, HDInsight kullanıcı adınızı ve parolanızı girin. Aşağıdaki komutu kullanın:
 
    ```azurecli
-   REM create a compute target that points to a HDI cluster
+   REM creates a compute target that points to a HDInsight cluster
    az ml computetarget attach --name myhdi --address <cluster head node FQDN> --username <username> --password <password> --type cluster
 
-   REM prepare the HDI cluster
+   REM prepares the HDInsight cluster
    az ml experiment prepare -c myhdi
    ```
 
-   Küme baş düğümü tam etki alanı adı (FQDN) genelde `<cluster_name>-ssh.azurehdinsight.net` şeklindedir.
+   Küme baş düğümü FQDN'si genellikle `<cluster_name>-ssh.azurehdinsight.net` şeklindedir.
 
    >[!NOTE]
-   >Burada `username`, küme SSH kullanıcı adıdır. HDI sağlama sırasında değiştirmediyseniz varsayılan değer `sshuser` olacaktır. Kümenin yönetim web sitesine erişim sağlamak için sağlama sırasında oluşturulan diğer kullanıcı olan `admin` değildir. 
+   >Burada `username`, küme SSH kullanıcı adıdır. HDInsight ayarı sırasında değiştirmezseniz varsayılan değer `sshuser` olacaktır. Bu değer, kümenin yönetim web sitesine erişim sağlamak için sağlama sırasında oluşturulan diğer kullanıcı olan `admin` değildir. 
 
 2. Aşağıdaki komutu çalıştırdığınızda betik HDInsight kümesinde çalışır:
 
    ```azurecli
-   REM execute iris_spark on the HDI cluster
+   REM executes iris_spark on the HDInsight cluster
    az ml experiment submit -c myhdi .\iris_spark.py
    ```
 
    >[!NOTE]
-   >Betiği uzak HDI kümesinde yürüttüğünüzde `admin` kullanıcı hesabını kullanarak `https://<cluster_name>.azurehdinsight.net/yarnui` YARN iş yürütme ayrıntılarını da görüntüleyebilirsiniz.
+   >Betiği uzak HDInsight kümesinde yürüttüğünüzde `admin` kullanıcı hesabını kullanarak `https://<cluster_name>.azurehdinsight.net/yarnui` konumundaki Yet Another Resource Negotiator (YARN) iş yürütme ayrıntılarını da görüntüleyebilirsiniz.
 
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Üç bölümden oluşan öğretici serisinin bu ikinci bölümünde Azure Machine Learning hizmetlerini kullanarak aşağıdakileri gerçekleştirmeyi öğrendiniz:
 > [!div class="checklist"]
-> * Azure Machine Learning Workbench ile çalışma
-> * Betikleri açma ve kodları gözden geçirme
-> * Betikleri yerel bir ortamda yürütme
-> * Çalıştırma geçmişini gözden geçirme
-> * Betikleri yerel bir Docker ortamında yürütme
-> * Betikleri yerel bir Azure CLI penceresinde yürütme
-> * Betikleri uzak bir Docker ortamında yürütme
-> * Betikleri bulut üzerindeki HDInsight ortamında yürütme
+> * Azure Machine Learning Workbench’i kullanma.
+> * Betikleri açma ve kodları gözden geçirme.
+> * Betikleri yerel bir ortamda yürütme.
+> * Çalıştırma geçmişini gözden geçirme.
+> * Betikleri yerel bir Docker ortamında yürütme.
+> * Betikleri yerel bir Azure CLI penceresinde yürütme.
+> * Betikleri uzak bir Docker ortamında yürütme.
+> * Betikleri bulut üzerindeki HDInsight ortamında yürütme.
 
-Artık serinin üçüncü bölümüne geçmeye hazırsınız. Burada Lojistik Regresyon modelini oluşturduk, şimdi de bunu gerçek zamanlı bir web hizmeti olarak dağıtalım.
+Artık serinin üçüncü bölümüne geçmeye hazırsınız. Burada lojistik regresyon modelini oluşturdunuz, şimdi de bunu gerçek zamanlı bir web hizmeti olarak dağıtalım.
 
 > [!div class="nextstepaction"]
 > [Model dağıtma](tutorial-classifying-iris-part-3.md)

@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL veri eşitleme en iyi uygulamalar | Microsoft Docs"
+title: "En iyi uygulamalar için Azure SQL veri eşitleme | Microsoft Docs"
 description: "Yapılandırma ve Azure SQL veri eşitleme çalıştırmak için en iyi yöntemleri öğrenin"
 services: sql-database
 ms.date: 11/2/2017
@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 51ef421e0761be81681728daba9c2b6300e702c4
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: d23bd186300d451186dd4f3644290cb4178417a2
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="best-practices-for-azure-sql-data-sync-preview"></a>Azure SQL veri eşitleme (Önizleme) için en iyi yöntemler 
+# <a name="best-practices-for-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) için en iyi yöntemler 
 
 Bu makalede SQL veri eşitleme (Önizleme) için en iyi uygulamaları açıklar.
 
@@ -228,7 +228,7 @@ Bir veritabanını kaldırın ve sonra ilk dağıtmadan eşitleme grubu düzenle
 SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 
 -   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](sql-database-sync-data.md)
--   [Azure SQL veri eşitlemeye başlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL veri eşitleme ayarı](sql-database-get-started-sql-data-sync.md)
 -   [OMS günlük analizi ile İzleyici Azure SQL veri eşitleme](sql-database-sync-monitor-oms.md)
 -   [Azure SQL veri eşitleme ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)
 

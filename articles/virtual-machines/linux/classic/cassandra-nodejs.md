@@ -3,7 +3,7 @@ title: "Cassandra ile Linux Azure üzerinde çalışan | Microsoft Docs"
 description: "Cassandra küme Linux Azure Virtual Machines'de bir Node.js uygulamasını çalıştırma"
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: tomarcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Azure’da Linux ile Cassandra Çalıştırma ve Cassandra’ya Node.js ile Erişme
 > [!IMPORTANT] 
@@ -146,8 +146,8 @@ VM şablonu oluşturmak için Klasik Azure portalında oturum açın ve aşağı
 <tr><td> YENİ BİR KULLANICI ADI             </td><td> yerelyönetici                       </td><td> "Yönetici" Ubuntu 12. xx ve sonra ayrılmış kullanıcı adı sağlanmış</td><tr>
 <tr><td> KİMLİK DOĞRULAMASI         </td><td> Onay kutusu                 </td><td>Bir SSH anahtarı ile güvenli isteyip istemediğinizi denetleyin </td><tr>
 <tr><td> SERTİFİKA             </td><td> Ortak anahtar sertifikası dosya adı </td><td> Daha önce oluşturulan ortak anahtarı kullanın</td><tr>
-<tr><td> Yeni parola    </td><td> güçlü parola </td><td> </td><tr>
-<tr><td> Parolayı onaylayın    </td><td> güçlü parola </td><td></td><tr>
+<tr><td> Yeni Parola    </td><td> güçlü parola </td><td> </td><tr>
+<tr><td> Parolayı Onayla    </td><td> güçlü parola </td><td></td><tr>
 </table>
 
 "Sanal makine yapılandırma" ekranında #2 aşağıdaki bilgileri girin:
@@ -158,7 +158,7 @@ VM şablonu oluşturmak için Klasik Azure portalında oturum açın ve aşağı
 <tr><td> BULUT HİZMETİ DNS ADI    </td><td>ubuntu template.cloudapp.net    </td><td>Bir makine belirsiz yük dengeleyici ad verin</td></tr>
 <tr><td> BÖLGE/BENZEŞİM GRUBU/SANAL AĞ </td><td>    Batı ABD    </td><td> Web uygulamalarınızın Cassandra küme erişimlerin bir bölge seçin</td></tr>
 <tr><td>DEPOLAMA HESABI </td><td>    Varsayılanı kullan    </td><td>Belirli bir bölgedeki varsayılan depolama hesabı ya da önceden oluşturulmuş depolama hesabı kullanın</td></tr>
-<tr><td>KULLANILABİLİRLİK KÜMESİ </td><td>    None </td><td>    Boş bırakın</td></tr>
+<tr><td>KULLANILABİLİRLİK KÜMESİ </td><td>    Hiçbiri </td><td>    Boş bırakın</td></tr>
 <tr><td>UÇ NOKTALARI    </td><td>Varsayılanı kullan </td><td>    Varsayılan SSH yapılandırmasını kullanın </td></tr>
 </table>
 
@@ -308,7 +308,7 @@ Bu işlem birkaç saniye sürer ve görüntünün görüntü Galerisi GÖRÜNTÜ
 <tr><th>VM öznitelik adı</th><th>Değer</th><th>Açıklamalar</th></tr>
 <tr><td>Ad</td><td>vnet-cass-Batı-ABD</td><td></td></tr>
 <tr><td>Bölge</td><td>Batı ABD</td><td></td></tr>
-<tr><td>DNS sunucuları</td><td>None</td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
+<tr><td>DNS sunucuları</td><td>Hiçbiri</td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
 <tr><td>Adres alanı</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Başlangıç IP</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
@@ -327,7 +327,7 @@ Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını bu makalenin kapsam�
 **2. adım: Sanal makine sağlamak** daha önce oluşturduğunuz görüntüsünü kullanarak, bulut sunucusu "hk-c-svc-Batı" şu sanal makineleri oluşturur ve bunları aşağıda gösterildiği gibi ilgili alt ağa bağlayın:
 
 <table>
-<tr><th>Makine adı    </th><th>Alt ağ    </th><th>IP Adresi    </th><th>Kullanılabilirlik kümesi</th><th>DC/raf</th><th>Çekirdek?</th></tr>
+<tr><th>Makine Adı    </th><th>Alt ağ    </th><th>IP Adresi    </th><th>Kullanılabilirlik kümesi</th><th>DC/raf</th><th>Çekirdek?</th></tr>
 <tr><td>HK-c1-Batı-ABD    </td><td>Veri    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 = </td><td>Evet</td></tr>
 <tr><td>HK-c2-Batı-ABD    </td><td>Veri    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 =    </td><td>Hayır </td></tr>
 <tr><td>HK-c3-Batı-ABD    </td><td>Veri    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Evet</td></tr>
@@ -464,7 +464,7 @@ Bir görünüm aşağıdaki gibi görmeniz gerekir:
 Azure Klasik portalında oturum açın ve tablodaki öznitelikleri göster ile bir sanal ağ oluşturun. Bkz: [Azure Klasik Portalı'nda Cloud-Only sanal ağ yapılandırma](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) işleminin ayrıntılı adımlar için.      
 
 <table>
-<tr><th>Öznitelik adı    </th><th>Değer    </th><th>Açıklamalar</th></tr>
+<tr><th>Öznitelik Adı    </th><th>Değer    </th><th>Açıklamalar</th></tr>
 <tr><td>Ad    </td><td>vnet-cass-Doğu-us</td><td></td></tr>
 <tr><td>Bölge    </td><td>Doğu ABD</td><td></td></tr>
 <tr><td>DNS sunucuları        </td><td></td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
@@ -523,7 +523,7 @@ Klasik Azure portalından, ağ geçidi için ağ geçidi bağlantısı kurmak i�
 ### <a name="step-8-create-the-virtual-machines-in-region-2"></a>8. adım: Bölge #2 sanal makineler oluşturma
 Aynı Azure depolama hesabı görüntüsünü VHD dosyasına #2 bölgede bulunan kopyalama veya adımları izleyerek bölge #1 dağıtımı'nda açıklandığı gibi Ubuntu görüntüsünü oluşturmak ve görüntü oluşturun. Bu görüntüyü kullanın ve aşağıdaki sanal makinelerin listesini yeni bir bulut hizmeti hk-c-svc-Doğu-us oluşturun:
 
-| Makine adı | Alt ağ | IP Adresi | Kullanılabilirlik kümesi | DC/raf | Çekirdek? |
+| Makine Adı | Alt ağ | IP Adresi | Kullanılabilirlik kümesi | DC/raf | Çekirdek? |
 | --- | --- | --- | --- | --- | --- |
 | HK-c1-Doğu-us |Veri |10.2.2.4 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Evet |
 | HK-c2-Doğu-us |Veri |10.2.2.5 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Hayır |

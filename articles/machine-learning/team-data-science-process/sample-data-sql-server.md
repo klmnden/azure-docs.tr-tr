@@ -4,7 +4,7 @@ description: "Azure SQL Server'da örnek veri"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>Azure üzerinde SQL Server örnek veri
-Bu belgede Azure SQL sunucusunda depolanan verileri örnek SQL veya Python programlama dili kullanılarak gösterilmektedir. Ayrıca, bir dosyaya kaydetmeyi, bir Azure blob karşıya yükleme ve Azure Machine Learning Studio'ya okuma Azure Machine Learning örneklenen verileri taşımak nasıl gösterir.
+Bu makalede Azure SQL sunucusunda depolanan verileri örnek SQL veya Python programlama dili kullanılarak gösterilmektedir. Ayrıca, bir dosyaya kaydetmeyi, bir Azure blob karşıya yükleme ve Azure Machine Learning Studio'ya okuma Azure Machine Learning örneklenen verileri taşımak nasıl gösterir.
 
 Python örnekleme kullandığı [pyodbc](https://code.google.com/p/pyodbc/) Azure SQL sunucusuna bağlanmak için ODBC kitaplığı ve [Pandas](http://pandas.pydata.org/) örnekleme yapmak için kitaplık.
 
 > [!NOTE]
-> Örnek SQL kod bu belgedeki verileri Azure SQL Server'da olduğunu varsayar. Değilse, lütfen [veri taşıma SQL Server için Azure üzerinde](move-sql-server-virtual-machine.md) konu verilerinizi Azure üzerinde SQL Server'a taşıma konusunda yönergeler için.
+> Örnek SQL kod bu belgedeki verileri Azure SQL Server'da olduğunu varsayar. Değilse, başvurmak [veri taşıma SQL Server için Azure üzerinde](move-sql-server-virtual-machine.md) makale verilerinizi Azure üzerinde SQL Server'a taşıma konusunda yönergeler için.
 > 
 > 
 
-Aşağıdaki **menü** çeşitli depolama ortamlarından veri örneği nasıl açıklayan konulara bağlantılar. 
+Aşağıdaki **menü** çeşitli depolama ortamlarından veri örneği anlatmaktadır makalelerinin bağlantıları. 
 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
@@ -40,9 +40,9 @@ Analiz etmek için planlama dataset büyükse, genellikle aşağı örnek için 
 Bir adımda bu örnekleme görevdir [takım veri bilimi işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="SQL"></a>SQL kullanarak
-Bu bölümde SQL kullanarak basit rastgele örnekleme veri karşı veritabanında gerçekleştirmek için çeşitli yöntemler açıklanmaktadır. Lütfen, veri boyutu ve onun dağıtım dayalı bir yöntem seçin.
+Bu bölümde SQL kullanarak basit rastgele örnekleme veri karşı veritabanında gerçekleştirmek için çeşitli yöntemler açıklanmaktadır. Veri boyutu ve onun dağıtım dayalı bir yöntem seçin.
 
-Aşağıdaki iki öğeyi NEWID SQL Server'da örnekleme gerçekleştirmek için nasıl kullanılacağını gösterir. Seçtiğiniz yöntem nasıl rastgele olması için örnek istediğiniz bağlıdır (Aşağıdaki örnek kodda pk_id olduğu varsayılır otomatik olarak oluşturulan bir birincil anahtar).
+Aşağıdaki iki öğeyi nasıl kullanılacağını gösteren `newid` örnekleme gerçekleştirmek için SQL Server'daki. Seçtiğiniz yöntem nasıl rastgele olması için örnek istediğiniz bağlıdır (Aşağıdaki örnek kodda pk_id olduğu varsayılır otomatik olarak oluşturulan bir birincil anahtar).
 
 1. Daha az kesin rasgele örnek
    
@@ -53,7 +53,7 @@ Aşağıdaki iki öğeyi NEWID SQL Server'da örnekleme gerçekleştirmek için 
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample için örnekleme kullanılan yanı sıra aşağıda gösterilmektedir. (Veri sihirbazın farklı sayfalarında değil bağıntılı varsayılarak), veri boyutu büyükse ve makul bir sürede tamamlamak bir sorgu için bu daha iyi bir yaklaşım olabilir.
+Tablesample yanısıra veri örnekleme için kullanılabilir. (Veri sihirbazın farklı sayfalarında değil bağıntılı varsayılarak), veri boyutu büyükse ve makul bir sürede tamamlamak bir sorgu için bu daha iyi bir yaklaşım olabilir.
 
     SELECT *
     FROM <table_name> 
@@ -112,12 +112,12 @@ Aşağıdaki örnek kod, aşağı örneklenen verileri bir dosyaya kaydedin ve b
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Azure Machine Learning kullanarak Azure blob üzerinden veri okuma [veri içeri aktarma] [ import-data] ekran Al aşağıda gösterildiği gibi Modülü:
+3. Azure Machine Learning kullanarak Azure blob üzerinden veri okuma [veri içeri aktarma] [ import-data] aşağıdaki ekran Al gösterildiği gibi Modülü:
 
 ![Okuyucu blob][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Eylem örnekte takım veri bilimi işlemi
-Bir ortak bir veri kümesini kullanarak takım veri bilimi işlemi bir uçtan uca kılavuz örneği için bkz [takım veri bilimi işlemi sürüyor: SQL sunucusu kullanarak](sql-walkthrough.md).
+Bir ortak bir veri kümesini kullanarak takım veri bilimi işlemi örneği kılavuz için bkz [takım veri bilimi işlemi sürüyor: SQL Server'ı kullanarak](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: bb0d996b950a31e3eaaaa9d90a6b96617b58192f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="templates-for-azure-policy"></a>Azure ilke şablonları
 
-Aşağıdaki tabloda Azure ilkesi için json şablonları bağlantılarını içerir.
+Aşağıdaki tabloda Azure ilkesi için json şablonları bağlantılarını içerir. Bu örnekler bulunan [Azure ilkesi örnekleri depo](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**İşlem**||
 | [Onaylanan VM görüntüleri](scripts/allowed-custom-images.md) | Özel onaylanmış yalnızca görüntüleri ortamınızda dağıtılmasını gerektirir. Onaylanan resim kimlikleri dizisi belirtin. |
-| [Yönetilen diski kullanarak VM oluşturma](scripts/create-vm-managed-disk.md) | Bir sanal makine oluşturulduğunda denetimleri yönetilen diskleri kullanmaz.|
+| [VM yönetilen Disk kullanmadığında denetleme](scripts/create-vm-managed-disk.md) | Bir sanal makine oluşturulduğunda denetimleri yönetilen diskleri kullanmaz.|
 | [Uzantısı yoksa, Denetim](scripts/audit-ext-not-exist.md) | Uzantı sahip bir sanal makine dağıtılmamışsa, denetler. Uzantı yayımcı ve türüne dağıtılan olup olmadığını denetlemek için belirtin. |
 | [Bir kaynak grubundan özel VM görüntüsü'izin ver](scripts/allow-custom-vm-image.md) |  Özel resimler onaylanan kaynak grubundan gelen gerektirir. Onaylanan kaynak grubunun adını belirtin. |
 | [Karma kullanımı avantajı Reddet](scripts/deny-hybrid-use.md) | Azure karma kullanma Avantajı (AHUB), kullanım engelliyor. Şirket içi lisansları kullanımına izin vermek istediğinizde değil işlevini kullanın. |
@@ -39,6 +39,11 @@ Aşağıdaki tabloda Azure ilkesi için json şablonları bağlantılarını iç
 | [Yönetilen diski kullanarak VM oluşturma](scripts/use-managed-disk-vm.md) | Sanal makineler yönetilen diskleri kullanmanızı gerektirir.|
 |**İzleme**||
 | [Tanılama ayarını denetleme](scripts/audit-diag-setting.md) | Kaynak türleri için etkinleştirilmemiş tanılama ayarlarını belirtilmişse denetler. Tanılama ayarları etkin olup olmadığını denetlemek için kaynak türleri dizisi belirtin. |
+|**Ad ve metin kuralları**||
+| [Birden çok adı desenleri izin ver](scripts/allow-multiple-name-patterns.md) | Kaynaklar için kullanılacak birçok adı desenleri birini izin verir. |
+| [LIKE desen gerektirir](scripts/enforce-like-pattern.md) | Kaynak adları desenini LIKE koşula emin olun. |
+| [Eşleşme deseni gerektirir](scripts/enforce-match-pattern.md) | Kaynak adları adlandırma desenle eşleşen emin olun. |
+| [Etiket eşleşme deseni gerektirir](scripts/enforce-tag-match-pattern.md) | Bir etiket değeri metin düzeni eşleştiğinden emin olun. |
 |**Ağ**||
 | [Uygulama ağ geçidi SKU'ları izin](scripts/allowed-app-gate-sku.md) | Uygulama ağ geçitleri onaylanmış bir SKU kullanmanızı gerektirir. Onaylanan SKU'ları dizisi belirtin. |
 | [Ağ İzleyicisi bölge için etkin değilse denetim](scripts/net-watch-not-enabled.md) | Ağ İzleyicisi belirtilen bir bölge için etkin değilse denetler. Ağ İzleyicisi etkin olup olmadığını denetlemek için bölge adını belirtin. |

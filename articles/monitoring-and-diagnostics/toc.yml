@@ -152,10 +152,10 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Sorun giderme
           href: azure-diagnostics-troubleshooting.md
-    - name: Azure İzleyici Ölçüm Gezgini’ni kullanma
-      items:
-        - name: Ölçüm Grafikleri Oluşturma
-          href: monitoring-metric-charts.md
+    - name: Ölçüm Gezgini’nde Ölçüm Grafikleri Oluşturma
+      href: monitoring-metric-charts.md
+    - name: Grafana’ya ölçüm gönderme
+      href: monitor-send-to-grafana.md
 - name: Başvuru
   items:
     - name: Azure CLI

@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager şablonu konuları
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 Uygulamanızı geliştirirken şablon taşınabilirlik Azure ve Azure yığın arasında olmak önemlidir.  Bu konu, Azure Resource Manager geliştirme için Değerlendirmeler sağlar [şablonları](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), uygulama ve test dağıtımınızda Azure Azure yığın ortam erişim olmadan prototip olabilir.
+
+## <a name="resource-provider-availability"></a>Kaynak sağlayıcı kullanılabilirliği
+Kullanılabilir veya Azure yığınında önizlemede zaten bir Microsoft Azure hizmet dağıtmak için planlama şablonu kullanıyor olmanız gerekir.
 
 ## <a name="public-namespaces"></a>Ortak ad alanları
 Azure yığını, veri merkezinizde barındırıldığından, farklı hizmet uç noktası ad alanlarını Azure genel bulutunda vardır. Sonuç olarak, Azure yığınına dağıtmak çalıştığınızda sabit kodlanmış ortak uç noktaları Resource Manager şablonlarındaki başarısız. Bunun yerine, kullanabileceğiniz *başvuru* ve *birleştirme* işlevi dinamik olarak değerlerine göre hizmet uç noktası oluşturmak için dağıtım sırasında kaynak Sağlayıcısı'ndan alınan. Örneğin, belirtme yerine *blob.core.windows.net* şablonunuzda, almak [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dinamik olarak ayarlamak için *osDisk.URI* uç noktası:
@@ -36,7 +39,7 @@ Azure yığını, veri merkezinizde barındırıldığından, farklı hizmet uç
 ## <a name="api-versioning"></a>API sürümü oluşturma
 Azure hizmet sürümleri, Azure ve Azure yığın arasında farklılık gösterebilir. Her kaynak sunulan yetenekleri tanımlayan apiVersion özniteliği gerektirir. Azure yığınında API sürümü uyumluluğundan emin olmak için her kaynak sağlayıcısı için geçerli API sürümleri şunlardır:
 
-| Kaynak sağlayıcısı | apiVersion |
+| Kaynak Sağlayıcısı | apiVersion |
 | --- | --- |
 | İşlem |`'2015-06-15'` |
 | Ağ |`'2015-06-15'`, `'2015-05-01-preview'` |
@@ -73,7 +76,6 @@ Resource Manager şablonları konum özniteliği dağıtım sırasında kaynakla
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Şablonları PowerShell ile dağıtma](azure-stack-deploy-template-powershell.md)

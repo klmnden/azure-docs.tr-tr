@@ -13,11 +13,11 @@ ms.devlang: rest-api
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: c48e99c0e3248a80aae864c9d11edec740f3bb41
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 5535bc0438c650fdf0e03229359bc8bf4a1f6990
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>REST API kullanarak Azure veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -114,6 +114,7 @@ Aşağıdaki noktalara dikkat edin:
     ```
     Data factory name "ADFv2QuickStartDataFactory" is not available.
     ```
+* Data Factory V2 şu anda Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
 Örnek yanıt aşağıdaki gibidir:
 

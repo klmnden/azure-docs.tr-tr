@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure portalında Azure arama için Hizmet Yönetimi
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ Azure Search zengin arama deneyimi özel uygulamalara oluşturmak için kullanı
 * Hizmet kapasite, bölümler ve çoğaltmalar değiştirerek ayarlayın.
 * Hizmet katmanının maksimum sınırlarına göre kaynak kullanımı izleyin.
 
-**Kapsamda değil** 
+Dikkat *yükseltme* bir yönetim görevi olarak listelenmemiş. Hizmet sağlandığında kaynaklar için farklı bir katmana taşıma yeni bir hizmet gerektirir. Ayrıntılar için bkz [bir Azure Search hizmeti oluşturma](search-create-service-portal.md).
 
-*İçerik Yönetimi* (veya dizin yönetimi) sorgu toplu anlamak, kişi arama için ve başarılı arama sonuçları belirli belgeleri için müşteriler yönlendirmede nasıl hangi koşulları bulmak için arama trafiği çözümleme gibi işlemler başvurur dizininizi. Bu alanda daha fazla yardım için bkz: [Azure arama için arama trafiği analiz](search-traffic-analytics.md).
-
-*Sorgu performansı* Ayrıca bu makalede kapsamında değildir. Daha fazla bilgi için bkz: [izlemek kullanım ve sorgu ölçümleri](search-monitor-usage.md) ve [performans ve en iyi duruma getirme](search-performance-optimization.md).
-
-*Yükseltme* bir yönetim görevi değildir. Hizmet sağlandığında kaynaklar için farklı bir katmana taşıma yeni bir hizmet gerektirir. Ayrıntılar için bkz [bir Azure Search hizmeti oluşturma](search-create-service-portal.md).
+> [!Tip]
+> Arama trafiği veya sorgu performansını analiz etme konusunda yardım için mi arıyorsunuz? Arama terimleri kişiler, sorgu birim ve nasıl başarılı arama sonuçları kazanç Öngörüler dizininizdeki belirli belgelere müşteriler yönlendirmede ' dir. Yönergeler için bkz [Azure arama için arama trafiği analiz](search-traffic-analytics.md), [izlemek kullanım ve sorgu ölçümleri](search-monitor-usage.md), ve [performans ve en iyi duruma getirme](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -113,15 +110,10 @@ Erişim izinleri görüntülemek için başka bir yolu **rolleri** kullanıcıla
 ## <a name="monitor-resource-usage"></a>Kaynak kullanımını izleme
 Panosunda, kaynak izleme hizmet panosunu ve hizmet sorgulayarak edinebilirsiniz birkaç ölçümleri gösterilen bilgiler sınırlıdır. Hizmet panosunda kullanım bölümünde, hızlı bir şekilde bölüm kaynak düzeyleri, uygulamanız için yeterli olup olmadığını belirleyebilirsiniz.
 
-Arama hizmeti API'si kullanılarak, belgeler ve dizin sayısına elde edebilirsiniz. Fiyatlandırma katmanını temel alan bu sayıları ile ilişkili sabit sınırları vardır. Daha fazla bilgi için bkz: [Search hizmet limitleri](search-limits-quotas-capacity.md). 
+Search Hizmeti REST API'sini kullanarak, belgeler ve dizin sayısına program aracılığıyla alabilirsiniz: 
 
 * [Dizin istatistikleri Al](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Count belgeleri](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Davranışları önbelleğe alma, geçici olarak bir sınırı overstate. Örneğin, paylaşılan hizmetini kullanırken, bir belge görebilirsiniz 10.000 belgelerin sabit sınır üzerinden sayısı. Overstatement geçicidir ve sonraki zorlama limitini üzerinde algılandı. 
-> 
-> 
 
 ## <a name="disaster-recovery-and-service-outages"></a>Olağanüstü durum kurtarma ve hizmet kesintilerine karşı
 

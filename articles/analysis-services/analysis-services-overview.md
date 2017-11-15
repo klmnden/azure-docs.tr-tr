@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ Azure portalında, birkaç dakikada [sunucu oluşturabilirsiniz](analysis-servic
 Sunucu oluşturduğunuzda, doğrudan Azure portalında bir tablosal model oluşturabilirsiniz. Yeni (önizleme aşamasındaki) [Web tasarımcısı özelliğiyle](analysis-services-create-model-portal.md), Azure SQL Veritabanı'na ve bir Azure SQL Veri Ambarı veri kaynağına bağlanabilir veya Power BI Desktop.pbix dosyasını içeri aktarabilirsiniz. Tablolar arasındaki ilişkiler otomatik olarak oluşturulur ve doğrudan tarayıcınızdan ölçümler oluşturabilir veya model.bim dosyasını json biçiminde düzenleyebilirsiniz.
 
 ## <a name="scale-to-your-needs"></a>Gereksinimlerinize göre ölçeklendirin
+
+### <a name="the-right-tier-when-you-need-it"></a>İhtiyacınız olduğunda doğru katman
+
 Azure Analysis Services; Geliştirici, Temel ve Standart katmanlarında sunulur. Her katmanda, plan maliyetleri işlem gücüne, QPU'lara ve bellek boyutuna göre değişir. Sunucu oluşturduğunuzda, katman içinde bir plan seçersiniz. Aynı katman içinde planları yukarı veya aşağı doğru değişiklik yapabilir veya daha üst bir katmana yükseltebilirsiniz, ama üst katmandan daha alt bir katmana inemezsiniz.
 
-Ölçeği artırın, azaltın veya sunucunuzu duraklatın. Azure portalını kullanın ve PowerShell'i kullanarak kolayca tam denetim sahibi olun. Sadece kullandığınız kadar ödersiniz. Farklı planlar ve katmanlar hakkında daha fazla bilgi edinmek ve fiyatlandırma hesaplayıcısını kullanarak kendinize uygun planı saptamak için, bkz. [Azure Analysis Services Fiyatlandırması](https://azure.microsoft.com/pricing/details/analysis-services/).
+Sunucunuzu yükseltin, indirin veya duraklatın. Azure portalını kullanın ve PowerShell'i kullanarak kolayca tam denetim sahibi olun. Sadece kullandığınız kadar ödersiniz. Farklı planlar ve katmanlar hakkında daha fazla bilgi edinmek ve fiyatlandırma hesaplayıcısını kullanarak kendinize uygun planı saptamak için, bkz. [Azure Analysis Services Fiyatlandırması](https://azure.microsoft.com/pricing/details/analysis-services/).
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>Hızlı sorgu yanıtları için genişletme kaynakları
+
+Azure Analysis Services genişletmesi ile istemci sorguları bir sorgu havuzundaki birden çok *sorgu çoğaltması* arasında dağıtılır. Sorgu çoğaltmaları, tablo modellerinizin eşitlenmiş kopyalarını içerir. Sorgu iş yükü dağıtılarak, yüksek sorgu iş yükleri sırasında yanıt süreleri azaltılabilir. İstemci sorgularının işleme işlemlerinden olumsuz yönde etkilenmediğinden emin olmak için, model işleme işlemleri sorgu havuzundan ayrılabilir. En fazla yedi ek sorgu çoğaltması (sizin sunucunuzla birlikte toplam sekiz) ile bir sorgu havuzu oluşturabilirsiniz. 
+
+Katmanınızın değiştirirken yaptığınız gibi, sorgu çoğaltmalarını gereksinimlerinize göre genişletebilirsiniz. Genişletmeyi portalda veya REST API'leri kullanarak yapılandırın. Daha fazla bilgi için bkz. [Azure Analysis Services ölçeğini genişletme](analysis-services-scale-out.md).
 
 ## <a name="keep-your-data-close"></a>Verileriniz yakınınızda olsun
 Azure Analysis Services sunucuları aşağıdaki [Azure bölgelerinde](https://azure.microsoft.com/regions/) oluşturulabilir:
@@ -92,11 +101,17 @@ Azure Analysis Services için kullanıcı kimlik doğrulaması, [Azure Active Di
 #### <a name="data-security"></a>Veri güvenliği
 Azure Analysis Services, Analysis Services veritabanları için depolamayı ve meta verileri kalıcı hale getirmek için Azure Blob depolamayı kullanır. Blob’daki veri dosyaları, Azure Blob Sunucu Tarafı Şifrelemesi (SSE) kullanılarak şifrelenir. Doğrudan Sorgu modu kullanılırken yalnızca meta veriler depolanır. Gerçek verilere veri kaynağından sorgu zamanında erişilir.
 
+#### <a name="firewall"></a>Güvenlik duvarı
+
+Azure Analysis Services Güvenlik Duvarı, kurallarda belirtilenler dışındaki tüm istemci bağlantılarını engeller. İstemci IP’lerine veya aralığa göre izin verilen IP adreslerini belirten kuralları yapılandırın. Power BI (hizmet) bağlantılarına da izin verilebilir veya bağlantılar engellenebilir. 
+
 #### <a name="on-premises-data-sources"></a>Şirket içi veri kaynakları
 [Şirket içi veri ağ geçidi](analysis-services-gateway.md) oluşturulup yapılandırılarak kuruluşunuzdaki şirket içi kaynaklarınızda bulunan verilere güvenli erişim gerçekleştirilir. Ağ geçitleri hem Doğrudan Sorgulama hem de bellek içi modlar için veri erişimi sağlar. Bir Azure Analysis Services modeli şirket içi bir veri kaynağına bağlandığında, şirket içi veri kaynağı için şifrelenen kimlik bilgilerinin yanı sıra bir sorgu oluşturulur. Ağ geçidi bulut hizmeti sorguyu analiz eder ve isteği bir Azure Service Bus’a gönderir. Şirket içi ağ geçidi, bekleyen istek olup olmadığını anlamak için Azure Service Bus’ı yoklar. Daha sonra, ağ geçidi sorguyu alır, kimlik bilgilerinin şifresini çözer ve yürütme için veri kaynağına bağlanır. Daha sonra, sonuçlar veri kaynağından tekrar ağ geçidine, oradan da Azure Analysis Services veritabanına gönderilir.
 
 Azure Analysis Services, [Microsoft Online Services Koşullarına](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) ve [Microsoft Online Services Gizlilik Sözleşmesine](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx) tabidir.
 Azure Güvenliği hakkında daha fazla bilgi edinmek için bkz. [Microsoft Güven Merkezi](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>En son istemci araçlarını destekler
 ![Veri görselleştirmeleri](./media/analysis-services-overview/aas-overview-clients.png)

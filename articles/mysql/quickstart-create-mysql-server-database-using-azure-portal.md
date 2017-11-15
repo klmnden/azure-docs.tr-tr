@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 10/16/2017
-ms.openlocfilehash: 73785cf8c4f1539cb52254ba316ed7d888b683aa
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.date: 11/01/2017
+ms.openlocfilehash: a8cea099103bd6a306e41770e47b1279f5dbcdea
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
 MySQL için Azure Veritabanı, bulutta yüksek oranda kullanılabilir olan MySQL veritabanları çalıştırmak, yönetmek ve ölçeklendirmek için kullanılan, yönetilen bir hizmettir. Bu Hızlı Başlangıçta, Azure portalını kullanarak yaklaşık beş dakikada nasıl MySQL için Azure Veritabanı sunucusu oluşturacağınız gösterilir.  
@@ -70,19 +70,21 @@ MySQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı o
 
 3.  **Güvenlik Duvarı kuralları** başlığı altında, güvenlik duvarı kuralı oluşturmaya başlamak için **Kural Adı** sütunundaki boş metin kutusunu seçin. 
 
-    Bu Hızlı Başlangıçta, tüm sütunlardaki kutuları aşağıdaki değerlerle doldurarak tüm IP adreslerinin sunucuya bağlanmasına izin verelim:
+   ![Bağlantı güvenliği - Güvenlik duvarı kuralları](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-    Kural adı | Başlangıç IP’si | Bitiş IP’si 
-    ---|---|---
-    AllowAllIps |  0.0.0.0 | 255.255.255.255
-    
-    Tüm IP adreslerine izin vermek güvenli değildir. Bu örnek kolaylık sağlaması açısından sağlanmıştır ancak gerçek hayattaki bir senaryoda uygulamalarınız ve kullanıcılarını için eklemeniz gereken kesin IP adres aralıklarını bilmeniz gerekir. 
+   Bu Hızlı Başlangıçta, tüm sütunlardaki kutuları aşağıdaki değerlerle doldurarak tüm IP adreslerinin sunucuya bağlanmasına izin verelim:
+
+   Kural adı | Başlangıç IP’si | Bitiş IP’si 
+   ---|---|---
+   AllowAllIps |  0.0.0.0 | 255.255.255.255
+   
+   Tüm IP adreslerine izin vermek güvenli değildir. Bu örnek kolaylık sağlaması açısından sağlanmıştır ancak gerçek hayattaki bir senaryoda uygulamalarınız ve kullanıcılarını için eklemeniz gereken kesin IP adres aralıklarını bilmeniz gerekir. 
 
 4. **Bağlantı güvenliği** sayfasının üst araç çubuğunda **Kaydet**’i seçin. Devam etmeden önce güncelleştirmenin başarıyla tamamlandığını belirten bildirim görünene kadar bekleyin. 
 
-    > [!NOTE]
-    > MySQL için Azure Veritabanı bağlantıları 3306 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, 3306 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınız 3306 numaralı bağlantı noktasını açmadığı sürece sunucunuza bağlanamazsınız.
-    > 
+   > [!NOTE]
+   > MySQL için Azure Veritabanı bağlantıları 3306 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, 3306 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınız 3306 numaralı bağlantı noktasını açmadığı sürece sunucunuza bağlanamazsınız.
+   > 
 
 ## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
 Veritabanı sunucusuna bağlanmak için tam sunucu adı ve yönetici oturum açma kimlik bilgileri gerekir. Bu değerleri Hızlı Başlangıç makalesinde daha önce not almış olabilirsiniz. Aksi takdirde, Azure portalındaki sunucuya **Genel Bakış** sayfasında veya **Özellikler** sayfasında sunucu adını ve oturum açma bilgilerini kolayca bulabilirsiniz.

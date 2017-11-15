@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 10/13/2017
 ms.author: nitinme
-ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 018cf772f458bb29712ef9516c3af4e969a94564
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>.NET SDK kullanılarak gerçekleştirilen Azure Data Lake Store'daki hesap yönetimi işlemleri
 > [!div class="op_single_selector"]
@@ -105,7 +105,7 @@ Makalenin geriye kalan bölümlerinde, kullanılabilir .NET yöntemlerinin, kiml
 * Uygulamanızın son kullanıcı kimlik doğrulaması için bkz. [.NET SDK kullanarak Data Lake Store'da son kullanıcı kimlik doğrulaması gerçekleştirme](data-lake-store-end-user-authenticate-net-sdk.md).
 * Uygulamanızın servisler arası kimlik doğrulaması için bkz. [.NET SDK kullanarak Data Lake Store'da servisler arası kimlik doğrulaması gerçekleştirme](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
-## <a name="create-client-objects"></a>İstemci nesneleri oluşturma
+## <a name="create-client-object"></a>İstemci nesnesi oluşturma
 Aşağıdaki kod parçacığı, istemci nesnesi için Data Lake Store hesabını oluşturur. Bu nesne hesap oluşturma, hesap silme gibi hesap yönetim isteklerini hizmete iletmek için kullanılır.
 
     // Create client objects and set the subscription ID

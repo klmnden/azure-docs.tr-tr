@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cfdf3b70f6fdb2ddd5f89a72c931d3b6be54132
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: bd09e2a21c25097fa4b378cb2dbe2787edbb1967
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Ölçüm telemetri: Application Insights veri modeli
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 11/01/2017
 
 Önceden toplanan ölçüm telemetri bu toplama süresi bir dakika olduğu varsayılır.
 
-Application Insights tarafından desteklenen çeşitli iyi bilinen ölçüm adı vardır. 
+Application Insights tarafından desteklenen çeşitli iyi bilinen ölçüm adı vardır. Bu ölçümleri performans sayaçları tabloya yerleştirilir.
 
 Sistem ve işlem sayaçları temsil eden ölçüm:
 
@@ -65,6 +65,8 @@ Toplanan ölçüm maksimum değeri. Ölçüm için ayarlanmamalıdır.
 Toplanan ölçüm standart sapması. Ölçüm için ayarlanmamalıdır.
 
 ## <a name="custom-properties"></a>Özel Özellikler
+
+Özel özellik Metrik `CustomPerfCounter` kümesine `true` ölçüm windows performans sayacı temsil ettiğini gösterir. Bu ölçümleri performans sayaçları tabloda yerleştirilir. Değil customMetrics içinde. Ayrıca bu ölçüm adı, kategori, sayaç ve örnek adlarını ayıklamak için ayrıştırılır.
 
 [!INCLUDE [application-insights-data-model-properties](../../includes/application-insights-data-model-properties.md)]
 

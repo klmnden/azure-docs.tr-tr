@@ -246,6 +246,8 @@
           items:
             - name: Tablo geliştirme
               href: table-support.md
+            - name: PowerShell ile Tablo API’si işlemleri
+              href: table-powershell.md
             - name: Azure Tablo depolama
               items:
                 - name: Tablo depolamaya genel bakış
@@ -254,7 +256,7 @@
                   href: table-storage-design-guide.md
                 - name: Tablo depolama REST API'leri
                   href: /rest/api/storageservices/Table-Service-Concepts
-                - name: Nasıl yapılır?
+                - name: Geliştirme
                   items:
                     - name: .NET
                       href: table-storage-how-to-use-dotnet.md
@@ -274,6 +276,8 @@
                       href: table-storage-how-to-use-python.md
                     - name: Ruby
                       href: table-storage-how-to-use-ruby.md
+                    - name: PowerShell
+                      href: table-storage-how-to-use-powershell.md
         - name: Akışı değiştirme
           href: change-feed.md
         - name: Jeo-uzamsal

@@ -3,7 +3,7 @@ title: Azure Search nedir | Microsoft Docs
 description: "Azure arama, tam olarak yönetilen barındırılan bulut arama hizmetidir. Bu özellik genel bakışı daha fazla bilgi edinin."
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
@@ -11,18 +11,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
-ms.openlocfilehash: 9893be47ec0c2f58ca206ec7c1bce13734513390
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: heidist
+ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
-Azure arama geliştiricilere API'ler sağlar ve web, mobil ve kurumsal uygulamalarda, veriler üzerinde zengin arama deneyimi eklemek için Araçlar bir bulut hizmet olarak arama çözümüdür.
+Azure arama, geliştiricilere API'ler sağlar ve web, mobil ve kurumsal uygulamalarda, içerik üzerinde zengin arama deneyimi eklemek için araçları bir hizmet olarak arama bulut çözümüdür.
 
-Basit bir işlevselliği kullanıma sunulan [REST API](/rest/api/searchservice/) veya [.NET SDK'sı](search-howto-dotnet-sdk.md) arama teknolojisi devralınmış karmaşıklığını maskeleyerek. API'ları yanı sıra Azure portalı yönetim ve prototip oluşturma desteği sağlar. Altyapı ve kullanılabilirlik Microsoft tarafından yönetilir.
+Basit bir işlevselliği kullanıma sunulan [REST API](/rest/api/searchservice/) veya [.NET SDK](search-howto-dotnet-sdk.md) bilgi alma devralınmış karmaşıklığını maskeleyerek. API'ları yanı sıra Azure portalı yönetim ve içerik yönetimi, prototipi oluşturulurken ve dizinleri sorgulama için araçları desteği sağlar. Hizmet bulutta çalıştığından, altyapı ve kullanılabilirlik Microsoft tarafından yönetilir.
 
 <a name="feature-drilldown"></a>
 
@@ -70,7 +70,7 @@ Müşteriler genellikle Azure Search'te arama ile ilgili diğer çözümlerle na
 
 | Karşılaştırılan | Temel farklılıklar |
 |--|--|
-|Bing | [Bing Web arama API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) gönderdiğiniz eşleşen koşulları aratıp dizinlerinde arar. Dizinleri HTML, XML ve diğer web içerikleri genel sitelere yerleşik olarak bulunur. [Bing özel arama](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) tek tek web sitelerinin kapsamlı içerik türleri için web aynı Gezgin teknolojisi sunar.<br/><br/>Azure Search verileri ve belgeleri, genellikle çeşitli kaynaklardan sahip olduğunuz doldurulan tanımlamak dizin arar. Azure arama Gezgini capabilies bazı veri kaynakları için sahip [dizin oluşturucular](search-indexer-overview.md), ancak dizini şemanızı tek, birleştirilmiş bir aranabilir kaynak uyan herhangi bir JSON belgesi gönderebilir. |
+|Bing | [Bing Web arama API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) gönderdiğiniz eşleşen koşulları aratıp dizinlerinde arar. Dizinleri HTML, XML ve diğer web içerikleri genel sitelere yerleşik olarak bulunur. [Bing özel arama](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) tek tek web sitelerinin kapsamlı içerik türleri için web aynı Gezgin teknolojisi sunar.<br/><br/>Azure Search verileri ve belgeleri, genellikle çeşitli kaynaklardan sahip olduğunuz doldurulan tanımlamak dizin arar. Azure arama Gezgini özellikleri arasında bazı veri kaynakları için sahip [dizin oluşturucular](search-indexer-overview.md), ancak dizini şemanızı tek, birleştirilmiş bir aranabilir kaynak uyan herhangi bir JSON belgesi gönderebilir. |
 |Veritabanı arama | [SQL Server tam metin araması](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) içerik SQL tablolardaki DBMS iç içindir. <br/><br/>Azure arama heterojen kaynaklardan içeriği depolar ve özelleştirilmiş metin dil ve özel analizi gibi işleme özellikleri sunar. [Tam metin arama motoru](search-lucene-query-architecture.md) Azure Search'te Apache Lucene, bilgi alma standart endüstri üzerine inşa edilmiştir. <br/><br/>Kaynak kullanımını, yalnızca başka bir ton noktasıdır. Doğal dil arama pkı'ya yoğun görülür. Ayrılmış bir çözüm için yük boşaltma arama işlem kaynakları korur. Harici hale getirerek aramada sorgu toplu eşleştirmek için ölçek kolayca ayarlayabilirsiniz.|
 |Ayrılmış arama çözümü | Şirket içi veya buluta hizmet çözümlerine ayrılmış arama tam spektrumun işlevsellikle çözümdür. Arama teknolojileri genellikle dizin oluşturma ve sorgu ardışık düzen üzerinde denetim sağlar, daha zengin sorgu erişmek ve sözdizimi, filtreleme derece ve uygunluğu ve kendi kendine yönlendirilmiş ve akıllı arama özellikleri üzerinden denetleyin. <br/><br/>Hizmet veya tek başına sunucu olarak şirket içinde veya bir sanal makine üzerinde barındırılan bir bulut olarak sunulan ayrılmış arama çözümleri bulabilirsiniz. İstiyorsanız, bir bulut hizmeti doğru seçimdir bir [anahtar teslim çözümüyle en az ek yükü ve Bakım ve ayarlanabilir ölçek](#cloud-service-advantage). <br/><br/>Bulut kip içinde birkaç sağlayıcıları karşılaştırılabilir Temel özelliklerle tam metin araması, coğrafi arama ve belirli bir düzeyde arama girişleri belirsizlik işleme yeteneği sunar. Genellikle, sahip bir [özel özellik](#feature-drilldown), veya kolaylığı ve genel Basitlik API'leri, araçları ve en iyi sığacak şekilde belirler yönetimi. |
 

@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
-Ağ modu sunulan kapsayıcı hizmetlerini Service Fabric kümesindeki varsayılan `nat` ağ modu. İle `nat` ağ modu, birden fazla kapsayıcı hizmeti dağıtım hataları aynı bağlantı noktası sonuçları dinlemek sahip. Bu aynı bağlantı noktasını dinler birkaç çalışan hizmetleri için Service Fabric destekler `open` ağ modu (sürüm 5.7 veya daha yüksek). İle `open` modu ağ, her kapsayıcı hizmeti dahili olarak aynı bağlantı noktasını dinlemek üzere birden çok hizmet veren dinamik olarak atanmış bir IP adresi alır.   
+Ağ modu sunulan kapsayıcı hizmetlerini Service Fabric kümesindeki varsayılan `nat` ağ modu. İle `nat` ağ modu, birden fazla kapsayıcı hizmeti dağıtım hataları aynı bağlantı noktası sonuçları dinlemek sahip. Bu aynı bağlantı noktasını dinler birkaç çalışan hizmetleri için Service Fabric destekler `Open` ağ modu (sürüm 5.7 veya daha yüksek). İle `Open` modu ağ, her kapsayıcı hizmeti dahili olarak aynı bağlantı noktasını dinlemek üzere birden çok hizmet veren dinamik olarak atanmış bir IP adresi alır.   
 
-Bu nedenle, hizmet bildiriminde tanımlanan statik bir uç noktası ile tek hizmet türü ile yeni hizmetleri oluşturulabilir ve kullanarak dağıtım hatasız silinmiş `open` ağ modu. Benzer şekilde, aynı kullanabilirsiniz `docker-compose.yml` birden fazla hizmet oluşturmak için dosya statik bağlantı noktası eşlemesi.
+Bu nedenle, hizmet bildiriminde tanımlanan statik bir uç noktası ile tek hizmet türü ile yeni hizmetleri oluşturulabilir ve kullanarak dağıtım hatasız silinmiş `Open` ağ modu. Benzer şekilde, aynı kullanabilirsiniz `docker-compose.yml` birden fazla hizmet oluşturmak için dosya statik bağlantı noktası eşlemesi.
 
 Dinamik olarak atanmış IP Hizmetleri değil önerilir itibaren IP adresi değişiklikleri hizmeti yeniden başlatılır veya başka bir düğüme taşır keşfetmek için kullanma. Yalnızca **Service Fabric adlandırma hizmeti** veya **DNS hizmeti** hizmet bulmayı için. 
 
 
 > [!WARNING]
-> Yalnızca 4096 IP'leri toplam Azure vNET başına izin verilir. Bu nedenle, düğüm sayısını ve kapsayıcı hizmeti örneklerinin sayısını toplamı (ile `open` ağ) bir sanal ağ içindeki 4096 aşamaz. Bu tür yüksek yoğunluklu senaryoları için `nat` ağ modu önerilir.
+> Yalnızca 4096 IP'leri toplam Azure vNET başına izin verilir. Bu nedenle, düğüm sayısını ve kapsayıcı hizmeti örneklerinin sayısını toplamı (ile `Open` ağ) bir sanal ağ içindeki 4096 aşamaz. Bu tür yüksek yoğunluklu senaryoları için `nat` ağ modu önerilir.
 >
 
 ## <a name="setting-up-open-networking-mode"></a>Açık ağ modunu ayarlama
@@ -183,7 +183,7 @@ Dinamik olarak atanmış IP Hizmetleri değil önerilir itibaren IP adresi deği
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | İzin Ver  |
 
 
-4. Her hizmet için uygulama bildiriminde ağ modunu belirtin `<NetworkConfig NetworkType="open">`.  Mod `open` ayrılmış bir IP adresi alma hizmetinde neden olur. Bir mod belirtilmezse, basic varsayılanları `nat` modu. Bu nedenle, aşağıdaki örnekte bildirim, `NodeContainerServicePackage1` ve `NodeContainerServicePackage2` her dinleme bağlantı noktasına olabilir (her iki hizmetlerin dinlediği `Endpoint1`).
+4. Her hizmet için uygulama bildiriminde ağ modunu belirtin `<NetworkConfig NetworkType="Open">`.  Mod `Open` ayrılmış bir IP adresi alma hizmetinde neden olur. Bir mod belirtilmezse, basic varsayılanları `nat` modu. Bu nedenle, aşağıdaki örnekte bildirim, `NodeContainerServicePackage1` ve `NodeContainerServicePackage2` her dinleme bağlantı noktasına olabilir (her iki hizmetlerin dinlediği `Endpoint1`). Zaman `Open` ağ modu specied, `PortBinding` yapılandırmalar belirtilemez.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -197,8 +197,7 @@ Dinamik olarak atanmış IP Hizmetleri değil önerilir itibaren IP adresi deği
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -206,14 +205,13 @@ Dinamik olarak atanmış IP Hizmetleri değil önerilir itibaren IP adresi deği
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Karışık ve hizmetlerde Windows kümesi için bir uygulama içinde farklı ağ modları eşleşmesi. Bu nedenle, bazı hizmetler sahip `open` modu ve bazı üzerinde `nat` ağ modu. İle bir hizmeti yapılandırıldığında `nat`, dinleme yaptığı bağlantı noktası benzersiz olmalıdır. Farklı Hizmetleri için ağ modlarını karıştırma Linux kümeleri üzerinde desteklenmiyor. 
+Karışık ve hizmetlerde Windows kümesi için bir uygulama içinde farklı ağ modları eşleşmesi. Bu nedenle, bazı hizmetler sahip `Open` modu ve bazı üzerinde `nat` ağ modu. İle bir hizmeti yapılandırıldığında `nat`, dinleme yaptığı bağlantı noktası benzersiz olmalıdır. Farklı Hizmetleri için ağ modlarını karıştırma Linux kümeleri üzerinde desteklenmiyor. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

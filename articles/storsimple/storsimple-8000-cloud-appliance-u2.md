@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure’da StorSimple Cloud Appliance dağıtma ve yönetme (StorSimple Güncelleştirme 3 ve üstü)
 
@@ -183,6 +183,18 @@ Bulut gerecinde ortak uç nokta oluşturmak için aşağıdaki adımları gerçe
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 Bu uygulama sanla ağınızdaki ortak uç noktaların sayısını en aza indireceğinden, aynı sanal ağdaki başka bir sanal makineden bağlanmanızı öneririz. Bu durumda, Uzak Masaüstü oturumu aracılığıyla sanal makineye bağlanın ve yerel ağdaki başka bir Windows istemcisinde olduğu gibi, sanal makineyi kullanım için yapılandırın. Bağlantı noktası zaten biliniyor olduğundan, ortak bağlantı noktası numarasını eklemeniz gerekmez.
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>Bulut gereci özel IP alma
+
+Bulut gerecinin aynı sanal ağ içindeki konak sunucusuna bağlanması için bulut gerecinin iç veya özel IP adresi gerekir. Bulut gerecinin özel IP adresini almak için aşağıdaki adımları uygulayın
+
+1. Bulut gereciniz için temel alınan sanal makineye gidin. Sanal makine, bulut gerecinizle aynı ada sahiptir. **Tüm kaynaklar**’a gidin, bulut gerecinin ve aboneliğin adını belirtin ve sanal makine türünü seçin. Sunulan sanal makinelerin listesinde, bulut gerecine karşılık gelen sanal makineyi seçin veya tıklayın.
+
+     ![Bulut gereciniz için sanal makine seçme](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. **Ayarlar > Ağ**’a gidin. Sağ bölmede bulut gerecinin özel IP adresini görüsünüz. Not alın.
+
+    ![Bulut gereciniz için özel IP adresi alma](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>StorSimple Cloud Appliance ile çalışma
 

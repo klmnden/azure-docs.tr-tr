@@ -71,9 +71,7 @@
 
 ## Kaynak ilkeleri ayarlama
 ### [Kaynak ilkeleri nelerdir?](resource-manager-policy.md)
-### Örnekler
-#### [Etiketler](resource-manager-policy-tags.md)
-#### [Adlandırma kuralları](resource-manager-policy-naming-convention.md)
+### [Adlandırma kuralları](resource-manager-policy-naming-convention.md)
 
 ## Denetim
 ### [Etkinlik günlüklerini görüntüleme](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Sanal Makine dağıtım hataları
