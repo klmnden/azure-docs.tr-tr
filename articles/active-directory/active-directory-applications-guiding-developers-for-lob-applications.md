@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76bb8d239b54b5236d077b98a5908c230cdc31a1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory için satır iş kolu uygulamaları geliştirme
 Bu kılavuz çizgi iş kolu (LoB) uygulamaları için Azure Active Directory (AD) geliştirme genel bir bakış sağlar. Hedef kitle Active Directory/Office 365 genel yönetici olur.
 
 ## <a name="overview"></a>Genel Bakış
-Azure AD ile tümleşik uygulamaları oluşturmak, kuruluş çoklu oturum açma Office 365 ile kullanıcılara sağlar. Uygulama bu uygulama için kimlik doğrulama İlkesi üzerinden denetim Azure AD sağlar sahip. Koşullu erişim ve çok faktörlü kimlik doğrulama (MFA) bkz: uygulamalarla koruma hakkında daha fazla bilgi için [yapılandırma erişim kuralları](active-directory-conditional-access-azuread-connected-apps.md).
+Azure AD ile tümleşik uygulamaları oluşturmak, kuruluş çoklu oturum açma Office 365 ile kullanıcılara sağlar. Uygulama bu uygulama için kimlik doğrulama İlkesi üzerinden denetim Azure AD sağlar sahip. Koşullu erişim ve çok faktörlü kimlik doğrulama (MFA) bkz: uygulamalarla koruma hakkında daha fazla bilgi için [yapılandırma erişim kuralları](active-directory-conditional-access-azure-portal-get-started.md).
 
 Azure Active Directory'yi kullanmak için uygulamanızı kaydetme. Uygulama kaydetme, geliştiricilerin Azure AD kullanıcıların kimliğini doğrulamak ve e-posta, Takvim ve belgeler gibi kullanıcı kaynaklara erişim istemek için kullanabileceğiniz anlamına gelir.
 
@@ -57,7 +57,7 @@ Uygulama kaydetme herhangi bir kullanıcı aşağıdakileri sağlar:
 * Varsayılan kullanıcı onayı deneyimi gösterme
 
 ## <a name="configure-access-rules"></a>Erişim kuralları yapılandırın
-SaaS uygulamaları için uygulama başına erişim kurallarını yapılandırın. Örneğin, MFA gerektirecek veya yalnızca güvenilen ağlarda kullanıcılara erişimi izin verebilirsiniz. Ayrıntılar için bu belgede mevcuttur [yapılandırma erişim kuralları](active-directory-conditional-access-azuread-connected-apps.md).
+SaaS uygulamaları için uygulama başına erişim kurallarını yapılandırın. Örneğin, MFA gerektirecek veya yalnızca güvenilen ağlarda kullanıcılara erişimi izin verebilirsiniz. Ayrıntılar için bu belgede mevcuttur [yapılandırma erişim kuralları](active-directory-conditional-access-azure-portal-get-started.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Kullanıcı Ataması gerektirir ve kullanıcılara atamak için uygulamayı yapılandırma
 Varsayılan olarak, kullanıcılar atanmadan uygulamalarına erişebilir. Ancak, uygulama rolleri gösterir veya uygulamanın bir kullanıcının erişim Panoda görünmesini istiyorsanız, kullanıcı ataması istemeniz gerekir.
@@ -76,8 +76,8 @@ Güvendiğiniz uygulamalar için kuruluşunuz adına uygulama onaylıyorsunuz ta
 
 Kullanıcı izni hakkında daha fazla bilgi ve onay Azure'da deneyimi için bkz: [Azure Active Directory Tümleştirme uygulamalarla](active-directory-integrating-applications.md).
 
-## <a name="related-articles"></a>İlgili makaleler
+## <a name="related-articles"></a>İlgili Makaleler
 * [Azure AD uygulama proxy'si ile şirket içi uygulamalara güvenli uzaktan erişimi etkinleştir](active-directory-application-proxy-get-started.md)
-* [SaaS uygulamaları için Azure koşullu erişim önizlemesi](active-directory-conditional-access-azuread-connected-apps.md)
+* [SaaS uygulamaları için Azure koşullu erişim önizlemesi](active-directory-conditional-access-azure-portal-get-started.md)
 * [Azure AD ile uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)

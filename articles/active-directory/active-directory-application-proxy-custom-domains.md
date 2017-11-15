@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c15808a97d4efa5f9453f33d9ac70ebde5288201
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f254f4959c66aeb3eec522f31e0d8a6780358188
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si özel etki alanları ile çalışma
 
@@ -34,7 +34,7 @@ Mümkün olduğunda, uygulamalarınız için özel etki alanları ayarlamanızı
 
 ## <a name="configure-a-custom-domain"></a>Özel bir etki alanı yapılandırma
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Özel bir etki alanı yapılandırmadan önce hazırlanan aşağıdaki gereksinimlere sahip olduğundan emin olun: 
 - A [Azure Active Directory'ye eklenen etki alanını doğruladıysanız](active-directory-domains-add-azure-portal.md).
@@ -82,7 +82,7 @@ Bir sertifikanın süresi dolduğunda, portal üzerinden başka bir sertifikayı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Çoklu oturum açmayı etkinleştir](active-directory-application-proxy-sso-using-kcd.md) yayımlanan uygulamalarınızı Azure AD kimlik doğrulamasına sahip.
-* [Koşullu erişimi etkinleştirme](active-directory-application-proxy-conditional-access.md) , yayımlanan uygulamalar için.
+* [Koşullu erişimi etkinleştirme](application-proxy-enable-remote-access-sharepoint.md) , yayımlanan uygulamalar için.
 * [Azure AD ile özel etki alanı adınızı ekleme](active-directory-domains-add-azure-portal.md)
 
 

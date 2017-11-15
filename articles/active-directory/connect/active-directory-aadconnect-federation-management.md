@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 0cab39bb3ce5c42fac543171baea498eb894c502
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9ff22c7b4793112da5211162ed9cd58ac86d238
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Yönetmek ve Azure AD Connect kullanarak Active Directory Federasyon Hizmetleri özelleştirme
 Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak nasıl yöneteceğinizi ve Active Directory Federasyon Hizmetleri (AD FS) özelleştirme açıklanır. Ayrıca, bir AD FS grubu için bir tam yapılandırma yapmanız gerekebilecek diğer ortak AD FS görevler içerir.
@@ -94,7 +94,7 @@ AD FS için alternatif oturum açma Kimliğini yapılandırma iki ana adımdan o
 
 2. Üzerinde **Azure ad Connect** sayfasında, Azure AD genel yönetici kimlik bilgilerinizi girin ve tıklayın **sonraki**.
 
-   ![Azure AD'ye Bağlanma](media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
+   ![Azure AD'ye bağlan](media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
 
 3. Etki alanı yönetici kimlik bilgilerini sağlayın.
 
@@ -127,7 +127,7 @@ AD FS için alternatif oturum açma Kimliğini yapılandırma iki ana adımdan o
 
 2. Azure genel yönetici kimlik bilgilerini sağlayın.
 
-   ![Azure AD'ye Bağlanma](media/active-directory-aadconnect-federation-management/wapserver2.PNG)
+   ![Azure AD'ye bağlan](media/active-directory-aadconnect-federation-management/wapserver2.PNG)
 
 3. Üzerinde **belirtin SSL sertifikası** sayfa, Azure AD Connect ile AD FS grubu yapılandırıldığında, sağlanan PFX dosyası için parola sağlayın.
    ![Sertifika parolası](media/active-directory-aadconnect-federation-management/WapServer3.PNG)
@@ -140,7 +140,7 @@ AD FS için alternatif oturum açma Kimliğini yapılandırma iki ana adımdan o
 
 5. Üzerinde **Proxy güven kimlik bilgilerini** sayfasında, Proxy'yi yapılandırmak için yönetici kimlik bilgilerine güven ve AD FS grubunuzdaki birincil sunucu erişim sağlayın.
 
-   ![Proxy güven kimlik bilgileri](media/active-directory-aadconnect-federation-management/WapServer6.PNG)
+   ![Ara sunucu güveni kimlik bilgileri](media/active-directory-aadconnect-federation-management/WapServer6.PNG)
 
 6. Üzerinde **yapılandırma için hazır** sayfasında, Sihirbazı gerçekleştirilecek eylemler listesini gösterir.
 
@@ -160,7 +160,7 @@ Azure AD Connect kullanarak Azure AD ile birleştirilecek bir etki alanına ekle
 
 2. Sihirbazın sonraki sayfasında, Azure AD genel yönetici kimlik bilgilerini sağlayın.
 
-   ![Azure AD'ye Bağlanma](media/active-directory-aadconnect-federation-management/AdditionalDomain2.PNG)
+   ![Azure AD'ye bağlan](media/active-directory-aadconnect-federation-management/AdditionalDomain2.PNG)
 
 3. Üzerinde **uzaktan erişim kimlik bilgileri** sayfasında, etki alanı yönetici kimlik bilgilerini sağlayın.
 
@@ -170,7 +170,7 @@ Azure AD Connect kullanarak Azure AD ile birleştirilecek bir etki alanına ekle
 
    ![Azure AD etki alanı](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
-    Etki alanını seçtikten sonra sihirbazın daha sihirbazın gerçekleştireceği eylemleri ve yapılandırma etkisini ilgili bilgileri sağlar. Henüz Azure AD'de doğrulanmış olmayan bir etki alanı seçerseniz bazı durumlarda, sihirbaz, etki alanı doğrulamanıza yardımcı olacak bilgiler sağlar. Bkz: [özel etki alanı adınızı Azure Active Directory'ye ekleme](../active-directory-add-domain.md) daha fazla ayrıntı için.
+    Etki alanını seçtikten sonra sihirbazın daha sihirbazın gerçekleştireceği eylemleri ve yapılandırma etkisini ilgili bilgileri sağlar. Henüz Azure AD'de doğrulanmış olmayan bir etki alanı seçerseniz bazı durumlarda, sihirbaz, etki alanı doğrulamanıza yardımcı olacak bilgiler sağlar. Bkz: [özel etki alanı adınızı Azure Active Directory'ye ekleme](../active-directory-domains-add-azure-portal.md) daha fazla ayrıntı için.
 
 5. **İleri**’ye tıklayın. **Yapılandırma için hazır** sayfası Azure AD Connect gerçekleştireceği eylemlerin listesini gösterir. Tıklatın **yükleme** yapılandırmayı tamamlamak için.
 

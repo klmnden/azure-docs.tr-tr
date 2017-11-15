@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 5e101c4b92868181a6b627d060a9c8e72a7837c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
 Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler etkinleştirmek için Gelişmiş kurallar oluşturabilirsiniz. Bu makalede, öznitelikleri ve kullanıcılar veya cihazlar için dinamik Üyelik kuralları oluşturmak için sözdizimi ayrıntıları.
@@ -78,10 +78,10 @@ Gelişmiş kural gövdesi toplam uzunluğu 2048 karakterden uzun olamaz.
 ## <a name="supported-expression-rule-operators"></a>Desteklenen ifade kural işleçleri
 Aşağıdaki tabloda, Gelişmiş kural gövdesindeki kullanılacak tüm desteklenen ifade kural işleçleri ve bunların söz dizimi listelenmektedir:
 
-| işleci | Sözdizimi |
+| İşleç | Sözdizimi |
 | --- | --- |
 | Eşit değildir |-ne |
-| eşittir |-eq |
+| Eşittir |-eq |
 | İle başlayan değil |-notStartsWith |
 | İle başlar |-startsWith |
 | İçermez |-notContains |
@@ -296,7 +296,7 @@ Bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluşturabilirsin
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Statik olarak dinamik üyelik değiştirme ve tersi yönde
 Bir gruptaki üyelik nasıl yönetilir değiştirmek mümkündür. Grubuna varolan tüm başvuruların hala geçerli olduğundan için aynı grup adı ve kimliği sistemde tutmak istediğiniz gerektiğinde bu faydalıdır; Yeni grup oluşturma bu başvuruları güncelleştirilmesi gerekir.
 
-Bu işlevleri desteklemek için Azure portal güncelleştirme işlemini gerçekleştiriyoruz. Bu arada, kullanabileceğiniz [Klasik Azure portalı](https://manage.windowsazure.com) (yönergeleri izleyin [burada](active-directory-accessmanagement-groups-with-advanced-rules.md)) ya da aşağıda gösterildiği gibi PowerShell cmdlet'lerini kullanın.
+Bu işlevleri desteklemek için Azure portal güncelleştirme işlemini gerçekleştiriyoruz. Bu arada, kullanabileceğiniz [Klasik Azure portalı](https://manage.windowsazure.com) (yönergeleri izleyin [burada](active-directory-groups-dynamic-membership-azure-portal.md)) ya da aşağıda gösterildiği gibi PowerShell cmdlet'lerini kullanın.
 
 > [!WARNING]
 > Varolan bir statik grup için dinamik bir grup değiştirirken, var olan tüm üyeleri gruptan kaldırılacak ve yeni üye eklemek için üyelik kuralını sonra işlenir. Uygulamaları veya kaynaklara erişimi denetlemek için Grup kullandıysanız, üyelik kuralını tam olarak işlenen kadar özgün üyeleri erişimlerini kaybedebilir.

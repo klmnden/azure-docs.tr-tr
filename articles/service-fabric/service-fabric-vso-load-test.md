@@ -3,7 +3,7 @@ title: "Yük testi uygulamanızı Visual Studio Team Services kullanarak | Micro
 description: "Test stres testi uygulamak Azure Service Fabric uygulamalarınızı Visual Studio Team Services kullanarak öğrenin."
 services: service-fabric
 documentationcenter: na
-author: cawams
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: fc743585-0d1b-483f-981d-493f4552ac07
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
-ms.author: cawa
-ms.openlocfilehash: e8e270ce865d4da3ee219958b308db2c1c89b11b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ryanwi
+ms.openlocfilehash: 42cd4fc0f7a8d1efdc4afff9c51693e756a1d1e3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Yük, Visual Studio Team Services kullanarak uygulamanızı test etme
 Bu makalede test stres testi uygulamak için Microsoft Visual Studio Yük Testi özellikleri kullanmak bir uygulama gösterilmektedir. Bir Azure Service Fabric durum bilgisi olan hizmet arka uç ve bir durum bilgisi olmayan web ön uç kullanır. Burada kullanılan örnek bir uçak konumu simulator uygulamasıdır. Bir uçak kimliği, ayrılma süresi ve hedef sağlayın. Uygulamanın arka uç isteklerini işleyen ve ön uç ölçütlerle eşleşen uçak haritada görüntüler.
@@ -27,12 +27,12 @@ Aşağıdaki diyagramda, test Service Fabric uygulaması gösterilmektedir.
 
 ![Örnek uçak konumu uygulama diyagramı][0]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce aşağıdakileri yapmanız gerekir:
 
 * Visual Studio Team Services hesabı edinin. Ücretsiz adresindeki edinebilirsiniz [Visual Studio Team Services](https://www.visualstudio.com).
 * Alma ve Visual Studio 2013 veya Visual Studio 2015 yükleyin. Bu makalede Visual Studio 2015 Enterprise edition kullanır, ancak Visual Studio 2013 ve diğer sürümleri benzer şekilde çalışması gerekir.
-* Hazırlama ortamında uygulamanıza dağıtın. Bkz: [Visual Studio kullanarak uzak bir küme için uygulamaların nasıl dağıtılacağı](service-fabric-publish-app-remote-cluster.md) bu hakkında bilgi için.
+* Hazırlama ortamında uygulamanıza dağıtın. Bkz: [Visual Studio kullanarak uzak bir küme için uygulamaların nasıl dağıtılacağı](service-fabric-manage-application-in-visual-studio.md) bu hakkında bilgi için.
 * Uygulamanızın kullanım deseniyle anlayın. Bu bilgiler, yük düzeni benzetimini yapmak için kullanılır.
 * Yük testi için hedef anlayın. Bu, yorumlar ve yük testi sonuçlarını analiz yardımcı olur.
 

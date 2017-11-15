@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: terrylan
-ms.openlocfilehash: 8d00882caf5411240c5f0a3533c78c3dbe361ef2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e816f151ea1f71770f00d6d77b65395fe080da3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure Kimlik Yönetimi güvenliğine genel bakış
 Microsoft kimlik ve erişim yönetimi çözümlerini Yardım BT doğrulama çok faktörlü kimlik doğrulama ve koşullu erişim gibi ek düzeylerini etkinleştirme uygulamaları ve kaynaklara erişim kurumsal veri merkezi genelinde ve buluta koruma ilkeleri. Raporlama, Denetim ve yardımcı olası güvenlik sorunlarını azaltmak uyarı Gelişmiş Güvenlik ile izleme şüpheli etkinlik. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) çoklu oturum açma bulut binlerce (SaaS) uygulamaları sağlar ve web uygulamaları için şirket içi erişebilirsiniz.
@@ -36,7 +36,7 @@ Makaleyi aşağıdaki çekirdek Azure kimlik yönetimi özellikleri üzerine oda
 
 * Çoklu oturum açma
 * Ters proxy
-* Multi-factor authentication
+* Multi-Factor Authentication
 * Güvenlik İzleme, uyarılar ve makine öğrenme tabanlı raporlar
 * Tüketici kimliği ve erişim yönetimi
 * Cihaz kaydı
@@ -57,7 +57,7 @@ Daha fazla bilgi edinin:
 
 * [Çoklu oturum açma genel bakış](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../active-directory/active-directory-appssoaccess-whatis.md)
-* [Azure Active Directory çoklu oturum açma SaaS uygulamaları ile tümleştirme](../active-directory/active-directory-sso-integrate-saas-apps.md)
+* [Azure Active Directory çoklu oturum açma SaaS uygulamaları ile tümleştirme](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Ters proxy
 Azure AD uygulama proxy'si sağlar, şirket içi uygulamalar gibi yayımlama [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) siteler, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), ve [IIS](http://www.iis.net/)-tabanlı uygulamalar özel ağınızdan ve ağınızın dışından kullanıcılarla güvenli erişim sağlar. Uygulama proxy'si, Azure AD destekleyen SaaS uygulamaları binlerce şirket içi web uygulamaları birçok türleri için uzaktan erişim ve çoklu oturum açma (SSO) sağlar. Çalışanlar oturum açtığınızda, uygulamalardan ev kendi cihazlarda ve bu bulut tabanlı proxy üzerinden kimlik doğrulaması.
@@ -67,9 +67,9 @@ Daha fazla bilgi edinin:
 * [Azure AD uygulama ara sunucusunu etkinleştirme](../active-directory/active-directory-application-proxy-enable.md)
 * [Azure AD uygulama proxy'si ile uygulama yayımlama](../active-directory/active-directory-application-proxy-publish.md)
 * [Çoklu oturum açma uygulama proxy'si ile uygulama](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Koşullu erişim ile çalışma](../active-directory/active-directory-application-proxy-conditional-access.md)
+* [Koşullu erişim ile çalışma](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
-## <a name="multi-factor-authentication"></a>Multi-factor authentication
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 Azure çok faktörlü kimlik doğrulaması (MFA), birden fazla doğrulama yöntemi kullanılmasını gerektiren ve kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekleyen kimlik doğrulama yöntemidir. MFA yardımcı olan veri ve basit bir oturum açma işlemi için kullanıcı talebine toplantı sırasında uygulamalara erişimi korumaya. Güçlü kimlik doğrulama seçeneklerini çeşitli aracılığıyla sunar — telefon araması, SMS mesajı veya mobil uygulama bildirimi veya doğrulama kodu ve üçüncü taraf OAuth belirteçleri.
 
 Daha fazla bilgi edinin:

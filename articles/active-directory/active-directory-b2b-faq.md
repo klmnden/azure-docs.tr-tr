@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: bfedbbf8b26e1b129584a6a644e64a15635f5723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği ile ilgili SSS
 
@@ -29,7 +29,7 @@ Bu Azure Active Directory (Azure AD) işletmeden işletmeye (B2B) işbirliği ha
 Hayır. Azure AD B2B işbirliği özellikleri yalnızca [Azure portal](https://portal.azure.com) ve [erişim paneli](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Bizim B2B işbirliği Konuk kullanıcılar için daha sezgisel böylece biz oturum açma sayfamızı özelleştirebilir miyim?
-Kesinlikle! Bkz: bizim [blog gönderisi bu özellik hakkında](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Kuruluşunuzun oturum açma sayfasını özelleştirme hakkında daha fazla bilgi için bkz: [şirket oturum açmak için markası ve erişim paneli sayfaları ekleme](active-directory-add-company-branding.md).
+Kesinlikle! Bkz: bizim [blog gönderisi bu özellik hakkında](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Kuruluşunuzun oturum açma sayfasını özelleştirme hakkında daha fazla bilgi için bkz: [şirket oturum açmak için markası ve erişim paneli sayfaları ekleme](customize-branding.md).
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>B2B işbirliği kullanıcılar SharePoint Online ve OneDrive erişebilir mi?
 Evet. Ancak, kişi seçici kullanarak mevcut Konuk kullanıcılar için SharePoint Online arama yeteneğidir **kapalı** varsayılan olarak. Varolan Konuk kullanıcılar için arama seçeneğini etkinleştirmek için ayarlanmış **ShowPeoplePickerSuggestionsForGuestUsers** için **üzerinde**. Bu ayar Kiracı düzeyinde veya site koleksiyonu düzeyinde açabilirsiniz. Set-SPOTenant ve Set-SPOSite cmdlet'leri kullanarak bu ayarı değiştirebilirsiniz. Bu cmdlet ile üyeleri tüm mevcut Konuk kullanıcılar dizinde arama yapabilirsiniz. Kiracı kapsamındaki değişiklikleri zaten sağlanmış SharePoint Online siteleri etkilemez.

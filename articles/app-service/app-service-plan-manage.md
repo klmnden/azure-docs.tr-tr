@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: b2305782fa4d8ca1bc90f239bc1f6ade0ff8fdc3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure uygulama hizmeti planında yönetme
 
@@ -56,7 +56,16 @@ Bir uygulamayı başka bir plana taşımak için taşımak istediğiniz uygulama
 
 Seçin **değişiklik uygulama hizmeti planı** işlemini başlatmak için.
 
-**Uygulama hizmeti planını Değiştir** açılır **uygulama hizmeti planı** Seçici. Bu uygulamaya taşımak için var olan bir planı seçin. Aynı kaynak grubunu ve bölge yalnızca planlarda görüntülenir. Yeni bir uygulama hizmeti planı aynı kaynak grubunu ve bölge oluşturduğunuz, ancak liste görünümünde görüntülenen değil, tarayıcı sayfanızı yenilemeyi deneyin.
+**Uygulama hizmeti planını Değiştir** açılır **uygulama hizmeti planı** Seçici. Bu uygulamaya taşımak için var olan bir planı seçin. 
+
+> [!IMPORTANT] 
+> **Seçin uygulama hizmeti planı** sayfası aşağıdaki ölçütlere göre filtrelenen: 
+> - Aynı kaynak grubunda var 
+> - Aynı coğrafi bölgede var 
+> - Aynı Web alanına var  
+> 
+> A _Web alanı_ sunucu kaynaklarını gruplandırması tanımlar uygulaması hizmetinde mantıksal bir yapıdır. Coğrafi bölge (örneğin, Batı ABD), uygulama hizmeti kullanan müşteriler ayırmak için birçok Web alanları içeriyor. Şu anda, uygulama hizmeti kaynaklar arasında izlemiyor taşınmasını mümkün değil. 
+> 
 
 ![Uygulama hizmeti planı Seçici.][change]
 

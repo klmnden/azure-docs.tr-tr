@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 3910c62e61d77f479da9fae2e1a8c0575c543281
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: d8ed395abb31a1cb41e35456ab5892a2e7c3a750
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belge kapsamlı bir listesini sağlar.
@@ -32,7 +32,7 @@ Aşağıdaki makaleleri iyi yalnızca Azure AD uygulama yönetimi özelliklerind
 |:---:| --- |
 | Azure AD çözdü uygulama yönetimi sorunları giriş |[Azure Active Directory (AD) ile uygulamaları yönetme](active-directory-enable-sso-scenario.md) |
 | Uygulamalara kimlerin erişebileceğini ve kullanıcıların uygulamaları nasıl başlatma tanımlama Azure ad çoklu oturum açma, etkinleştirme ile ilgili çeşitli özelliklere genel bakış |[Uygulama erişimi ve Azure Active Directory'de çoklu oturum açma](active-directory-appssoaccess-whatis.md) |
-| Farklı adımlar uygulamaları Azure AD ile tümleştirdiğinizde bakma |[Azure Active Directory uygulamaları ile tümleştirme](active-directory-integrating-applications-getting-started.md)<br /><br />[Çoklu oturum açma SaaS uygulamaları için etkinleştirme](active-directory-sso-integrate-saas-apps.md)<br /><br />[Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md) |
+| Farklı adımlar uygulamaları Azure AD ile tümleştirdiğinizde bakma |[Azure Active Directory uygulamaları ile tümleştirme](active-directory-integrating-applications-getting-started.md)<br /><br />[Çoklu oturum açma SaaS uygulamaları için etkinleştirme](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md) |
 | Uygulamaları Azure AD'de nasıl temsil edildiğini bir teknik açıklama |[Neden ve nasıl uygulamaları için Azure AD eklenir](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Sorun giderme makaleleri
@@ -80,8 +80,8 @@ Parola tabanlı çoklu oturum açma için kullanıcı başına en fazla on uygul
 |:---:| --- |
 | Azure AD uygulama proxy'si ve nasıl çalıştığı genel bakış |[Şirket içi uygulamalara güvenli uzaktan erişim sağlama](active-directory-application-proxy-get-started.md) |
 | Uygulama proxy'si nasıl yapılandırılır ve ilk uygulamanızı yayımlamak nasıl öğreticileri |[Azure AD uygulama ara sunucusu kurma](active-directory-application-proxy-enable.md)<br /><br />[Uygulama Ara sunucusu Bağlayıcısı sessiz yükleme](active-directory-application-proxy-silent-installation.md)<br /><br />[Nasıl yapılır uygulama ara sunucusu kullanarak uygulama yayımlama](active-directory-application-proxy-publish.md)<br /><br />[Kendi etki alanı adınızı kullanma](active-directory-application-proxy-custom-domains.md) |
-| Uygulamalar için çoklu oturum açma ve koşullu erişimi etkinleştirmek nasıl uygulama ara sunucusu ile yayımlanan |[Çoklu oturum açma uygulama proxy'si ile uygulama](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Koşullu erişim ve uygulama proxy'si](active-directory-application-proxy-conditional-access.md) |
-| Aşağıdaki senaryolar için uygulama proxy'si kullanma hakkında yönergeler |[Yerel istemci uygulamaları destekleme](active-directory-application-proxy-native-client.md)<br /><br />[Talep kullanan uygulama destekleme](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ayrı ağlar ve konumları yayımlanan uygulamalar destekleme](active-directory-application-proxy-connectors.md) |
+| Uygulamalar için çoklu oturum açma ve koşullu erişimi etkinleştirmek nasıl uygulama ara sunucusu ile yayımlanan |[Çoklu oturum açma uygulama proxy'si ile uygulama](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Koşullu erişim ve uygulama proxy'si](application-proxy-enable-remote-access-sharepoint.md) |
+| Aşağıdaki senaryolar için uygulama proxy'si kullanma hakkında yönergeler |[Yerel istemci uygulamaları destekleme](active-directory-application-proxy-native-client.md)<br /><br />[Talep kullanan uygulama destekleme](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Ayrı ağlar ve konumları yayımlanan uygulamalar destekleme](active-directory-application-proxy-connectors-azure-portal.md) |
 | Uygulama proxy'si için sorun giderme kılavuzu |[Uygulama Proxy sorun giderme kılavuzu](active-directory-application-proxy-troubleshoot.md) |
 
 Uygulama proxy'si, kullanıcı başına en fazla on uygulamaları için Azure AD'in tüm sürümleri için kullanılabilir. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) sınırsız uygulamaları destekler. Kuruluşunuzun varsa [Azure AD temel](https://azure.microsoft.com/pricing/details/active-directory/) veya [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), yapabilecekleriniz sonra [uygulamalara erişim atama için grupları kullanma](#managing-access-to-applications).
@@ -107,10 +107,9 @@ Azure AD Connect için kullanılabilir [Azure Active Directory'nin tüm sürüml
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| Koşullu erişim yetenekleri giriş sunulan Azure AD arasında Office365 ve Intune |[Koşullu erişim ile risk yönetme](active-directory-conditional-access.md) |
-| Aşağıdaki türdeki kaynakları için koşullu erişimi etkinleştirme |[SaaS uygulamaları için koşullu erişim](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Office 365 Hizmetleri için koşullu erişim](active-directory-conditional-access-device-policies.md)<br /><br />[Şirket içi uygulamalar için koşullu erişim](active-directory-conditional-access.md)<br /><br />[Azure AD uygulama proxy'si şirket içi uygulamalar için koşullu erişim yayımlanan](active-directory-application-proxy-conditional-access.md) |
-
-| Cihaz temelli koşullu erişim ilkelerini etkinleştirmek için Azure Active Directory ile cihazları kaydetme | [Azure Active Directory cihaz kaydı genel bakış](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Etki alanı için otomatik cihaz kaydını etkinleştirme katılmış Windows cihazlarda](active-directory-conditional-access-automatic-device-registration.md)<br />— [Adımları için Windows 8.1 cihazları](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Adımları için Windows 7 aygıtları](active-directory-conditional-access-automatic-device-registration-setup.md) |
+| Koşullu erişim yetenekleri giriş sunulan Azure AD arasında Office365 ve Intune |[Koşullu erişim ile risk yönetme](active-directory-conditional-access-azure-portal.md) |
+| Aşağıdaki türdeki kaynakları için koşullu erişimi etkinleştirme |[SaaS uygulamaları için koşullu erişim](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 Hizmetleri için koşullu erişim](active-directory-conditional-access-device-policies.md)<br /><br />[Şirket içi uygulamalar için koşullu erişim](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD uygulama proxy'si şirket içi uygulamalar için koşullu erişim yayımlanan](application-proxy-enable-remote-access-sharepoint.md) |
+| Cihaz temelli koşullu erişim ilkelerini etkinleştirmek için Azure Active Directory ile cihazları kaydetme |[Azure Active Directory cihaz kaydı genel bakış](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Etki alanı için otomatik cihaz kaydını etkinleştirme katılmış Windows cihazlarda](active-directory-conditional-access-automatic-device-registration.md)<br />— [Adımları için Windows 8.1 cihazları](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Adımları için Windows 7 aygıtları](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | İki aşamalı doğrulama için Microsoft Authenticator uygulamasını kullanma | [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
@@ -162,8 +161,8 @@ Kimlerin hangi kaynaklara erişimi olması gereken yönetmenize yardımcı olmak
 |:---:| --- |
 | Azure AD erişim yönetim özelliklerine genel bakış |[Uygulamalara erişimi yönetme giriş](active-directory-managing-access-to-apps.md)<br /><br />[Azure AD'de erişim yönetimi nasıl çalışır?](active-directory-manage-groups.md)<br /><br />[SaaS uygulamalarına erişimi yönetmek için grupları kullanma](active-directory-accessmanagement-group-saasapps.md) |
 | Self Servis yönetimine, uygulamaların ve grupları izin ver |[Self Servis uygulama yönetimi](active-directory-self-service-application-access.md)<br /><br />[Self Servis Grup Yönetimi](active-directory-accessmanagement-self-service-group-management.md) |
-| Azure AD'de, grupları ayarlama yönergeleri |[Güvenlik grupları oluşturma](active-directory-accessmanagement-manage-groups.md)<br /><br />[Bir grubun sahiplerini atama](active-directory-accessmanagement-managing-group-owners.md)<br /><br />["Tüm kullanıcıları" grubu kullanma](active-directory-accessmanagement-dedicated-groups.md) |
-| Öznitelik tabanlı üyelik kurallarını kullanarak grup üyeliğini otomatik olarak doldurmak için dinamik grupları kullanma |[Dinamik grup üyeliğini: Gelişmiş kurallar](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Dinamik grup üyeliklerini sorunlarını giderme](active-directory-accessmanagement-troubleshooting.md) |
+| Azure AD'de, grupları ayarlama yönergeleri |[Güvenlik grupları oluşturma](active-directory-groups-create-azure-portal.md)<br /><br />[Bir grubun sahiplerini atama](active-directory-accessmanagement-managing-group-owners.md)<br /><br />["Tüm kullanıcıları" grubu kullanma](active-directory-accessmanagement-dedicated-groups.md) |
+| Öznitelik tabanlı üyelik kurallarını kullanarak grup üyeliğini otomatik olarak doldurmak için dinamik grupları kullanma |[Dinamik grup üyeliğini: Gelişmiş kurallar](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Dinamik grup üyeliklerini sorunlarını giderme](active-directory-accessmanagement-troubleshooting.md) |
 
 Grup tabanlı bir uygulamaya erişim yönetimi için kullanılabilir [Azure AD temel](https://azure.microsoft.com/pricing/details/active-directory/) ve [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self Servis Grup Yönetimi, uygulama kendi kendine yönetimi ve dinamik grupların [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) özellikleri.
 

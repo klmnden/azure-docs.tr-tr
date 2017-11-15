@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: e28ea6df24b9df144552739427427ee14e998584
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1238863265a227c18ebef8ac2aaeabd802f877d4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management Service Fabric ile dağıtma
 Bu öğretici üç serinin bir parçasıdır.  Azure API Management Service Fabric ile dağıtma Gelişmiş, arka uç Service Fabric hizmetlerinize yönlendirme kuralları zengin bir dizi API yayımlamak gerektiğinde yararlı bir senaryodur. Bu öğretici nasıl ayarlanacağını gösterir [Azure API Management](../api-management/api-management-key-concepts.md) Service Fabric arka uç hizmetinde trafiğini yönlendirmek için Service Fabric ile.  İşlemi tamamladığınızda, bir sanal AĞA API Management dağıtılmış vardır, bir API işlemi arka uç durum bilgisi olmayan hizmetler için trafiği göndermek için yapılandırılmış. Service Fabric ile Azure API Management senaryoları hakkında daha fazla bilgi için bkz: [genel bakış](service-fabric-api-management-overview.md) makalesi.
@@ -37,7 +37,7 @@ Bu öğretici serisinde öğrenin nasıl yapılır:
 > * Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) bir şablonu kullanarak azure'da
 > * API Management Service Fabric ile dağıtma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce:
 - Bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Yükleme [Azure Powershell modülü sürümü 4.1 veya üzerini](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) veya [Azure CLI 2.0](/cli/azure/install-azure-cli).
@@ -235,7 +235,7 @@ Visual Studio'yu yönetici olarak başlatın ve ASP.NET Core hizmet oluşturun:
 
     Bu, Azure API Management'te aracılığıyla kullanıma uç noktadır.
 
- 7. Son olarak, Azure kümenizdeki uygulamayı dağıtın. [Visual Studio kullanarak](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), uygulama projesine sağ tıklatın ve **Yayımla**. Küme uç noktası sağlayın (örneğin, `mycluster.southcentralus.cloudapp.azure.com:19000`) Azure Service Fabric kümenizdeki uygulamayı dağıtmak için.
+ 7. Son olarak, Azure kümenizdeki uygulamayı dağıtın. Visual Studio'da Uygulama projesine sağ tıklatın ve **Yayımla**. Küme uç noktası sağlayın (örneğin, `mycluster.southcentralus.cloudapp.azure.com:19000`) Azure Service Fabric kümenizdeki uygulamayı dağıtmak için.
 
 Adlı bir ASP.NET Core durum bilgisiz hizmeti `fabric:/ApiApplication/WebApiService` artık Azure Service Fabric kümenizdeki çalıştırması gerekir.
 

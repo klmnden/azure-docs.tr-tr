@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 6d0f85a839171c43d226741f54e0dc954b85601d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a1279ba9626ece30491c8fc899054873f6359e2
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Dağıtma ve PowerShell kullanarak uygulamaları kaldırma
 > [!div class="op_single_selector"]
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
-> * [FabricClient API’leri](service-fabric-deploy-remove-applications-fabricclient.md)
 > * [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
+> * [FabricClient API’leri](service-fabric-deploy-remove-applications-fabricclient.md)
 
 <br/>
 
@@ -41,7 +41,7 @@ Bir uygulamanın dağıtıldığını ve bir örnek kümede çalışan sonra uyg
 2. Artık ihtiyacınız varsa uygulama türü kaydını kaldırma
 3. Uygulama paketi görüntü deposundan kaldırır
 
-Kullanırsanız [uygulamalarında hata ayıklama ve dağıtma için Visual Studio](service-fabric-publish-app-remote-cluster.md) yerel geliştirme kümenizde yukarıdaki adımların tümünü otomatik olarak bir PowerShell komut dosyası işlenir.  Bu komut dosyası içinde bulunur *betikleri* uygulama projesi klasörü. Bu makalede, Visual Studio dışında aynı işlemleri gerçekleştirebilmeleri için komut dosyası yaptıklarını üzerinde arka plan sağlar. 
+Dağıtma ve yerel geliştirme kümenizde uygulamalarında hata ayıklama için Visual Studio kullanıyorsanız, yukarıdaki adımların tümünü otomatik olarak bir PowerShell komut dosyası gerçekleştirilir.  Bu komut dosyası içinde bulunur *betikleri* uygulama projesi klasörü. Bu makalede, Visual Studio dışında aynı işlemleri gerçekleştirebilmeleri için komut dosyası yaptıklarını üzerinde arka plan sağlar. 
  
 ## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
 Bu makaledeki tüm PowerShell komutları çalıştırmadan önce her zaman başlamayı [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Service Fabric kümeye bağlanmak için. Yerel geliştirme kümeye bağlanmak için şu komutu çalıştırın:

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: Sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içermektedir. Bu makaleyi okuduktan sonra sorularınız varsa, yayınlayın [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -75,22 +75,7 @@ VMware VM'leri korumak için bir vSphere hiper yöneticisine ve VMware araçlar�
 Evet. Çoğaltma ve yük devretme şubelerinizde düzenlemek için Site Recovery kullandığınızda, merkezi bir konumda bir birleşik orchestration ve tüm dal office yükleri görünümünü elde edersiniz. Şubelerinizi ziyaret etmenize gerek kalmadan kolaylıkla tüm şubelerinizin olağanüstü durum kurtarma işlemlerini yönetebilir ve yük devretmeler çalıştırabilirsiniz.
 
 ## <a name="pricing"></a>Fiyatlandırma
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Hangi ı Azure Site Recovery kullanırken ücretlendirme?
-Site Recovery kullandığınızda, Site Recovery lisans, Azure depolama, depolama işlemleri ve giden veri aktarımı için ücret doğurur. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/site-recovery).
-
-Site Recovery lisans örneği bir VM veya fiziksel sunucu olduğu korumalı örneğidir.
-
-- Standart depolama hesabı için bir VM disk çoğaltır, Azure depolama ücret depolama tüketimini olur. Örneğin, kaynak disk boyutu ise 1 TB ve 400 GB kullanılabilir, 1 TB VHD ile Azure Site Recovery oluşturur, ancak ücret depolama 400 GB (hem de çoğaltma günlükleri için kullanılan depolama alanı miktarı) olan.
-- Premium depolama hesabı için bir VM disk çoğaltır, Azure depolama ücret yakın premium depolama disk seçeneğini yuvarlanmasını sağlanan depolama boyutu içindir. Örneğin, kaynak disk boyutu 50 GB ise, Site Recovery ile Azure 50 GB disk oluşturur ve Azure bu yakın premium depolama diskini (P10) eşler.  Maliyetleri P10 ve 50 GB disk boyutu değil, hesaplanır.  [Daha fazla bilgi edinin](https://aka.ms/premium-storage-pricing).  Premium depolama kullanıyorsanız, bir standart depolama hesabı çoğaltma günlüğü için de gereklidir ve bu günlükler için kullanılan standart depolama alanı miktarının ayrıca faturalandırılır.
-- Hiçbir disk yük devretme testi veya bir yük devretme oluşturulur. Çoğaltma durumunun depolama ücretlendirilen "Sayfa blobu ve disk" kategorisi altında göre [depolama fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/en-in/pricing/calculator/) alınan. Bu ücretlerden tabanlı depolama premium/standart türü ve veri yedekliği - LRS, GRS, RA-GRS vb. yazın.
-- Yönetilen diskleri bir yük devretmeyi kullanma seçeneği seçili ise, [ücretleri yönetilen diskleri için](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) bir yük devretme ve test yük devretme sonrasında uygulayın. Yönetilen disklerde ücretleri çoğaltma sırasında uygulanmaz.
-- Yönetilen diskleri bir yük devretmeyi kullanma seçeneği seçili değilse, depolama birimi olarak başına "Sayfa blobu ve disk" kategorisi altında ücretlendirilen [depolama fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/en-in/pricing/calculator/) yük devretme sonrasında ücrete. Bu ücretlerden tabanlı depolama premium/standart türü ve veri yedekliği - LRS, GRS, RA-GRS vb. yazın.
-- Depolama işlemleri kararlı durum çoğaltma sırasında ve düzenli VM işlemleri için bir yük devretme sonrasında ücretlendirilen / yük devretme sınamasını. Ancak bu ücretlerden önemsizdir.
-
-Ayrıca VM, depolama, çıkış ve depolama işlem maliyetleri nereye uygulanacağını test yük devretmesi sırasında maliyetlere.
-
-
+İle ilgili sorular fiyatlandırma için SSS lütfen [Azure Site Recovery fiyatlandırma](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Güvenlik
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Çoğaltılan veriler Site Recovery hizmetine gönderilir mi?
@@ -160,7 +145,7 @@ Evet. Daha fazla bilgiyi dağıtım makalelerinin bant genişliği azaltma hakk�
 * [Kapasite VMware Vm'lerini ve fiziksel sunucuları çoğaltmak için planlama](site-recovery-plan-capacity-vmware.md)
 * [Kapasite Hyper-V Vm'lerini Azure'a çoğaltma için planlama](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
-## <a name="failover"></a>Yük devretme
+## <a name="failover"></a>Yük Devretme
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>I Azure'a devretmek, nasıl Azure sanal makinelerini yük devretme sonrasında erişirim?
 Azure VM'lerine güvenli bir İnternet bağlantısı, siteden siteye VPN veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için değişik hazırlamanız gerekir. [Daha fazla bilgi](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 

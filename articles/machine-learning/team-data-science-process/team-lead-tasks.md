@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: 116eaa59eb60833036ad4d3c975c0b86e525f625
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="team-lead-tasks"></a>Ekip sağlama görevleri
 
@@ -64,7 +64,7 @@ Bu öğreticide depoları ve dizinler için belirtilen adları hedefiniz ayrı t
 Herhangi bir durumda, takım müşteri adayları ayarlama ve proje ve yardımcı programlar depoları kopyalama benimsemek için hangi şablonu ve yardımcı programlar depoları biliyorsanız, takım üyeleri izin vermeniz gerekiyor. Proje müşteri adayları izlemelidir [veri bilimi takım projesi sağlama görevlerde](project-lead-tasks.md) proje depoları ayrı takım projeleri olup olmadığını altında ya da tek bir takım projesi oluşturmak için. 
 
 
-## <a name="0-prerequisites"></a>0. Ön koşullar
+## <a name="0-prerequisites"></a>0. Önkoşullar
 
 Özetlenen, Grup Yöneticisi atanan görevleri tamamlayarak önkoşullara uyduğunuzdan [grup yöneticisi görevleri için bir veri bilimi ekibi](group-manager-tasks.md). Burada özetlemek için aşağıdaki gereksinimleri ekip sağlama görevleri başlamadan önce yerine getirmeniz gerekir: 
 

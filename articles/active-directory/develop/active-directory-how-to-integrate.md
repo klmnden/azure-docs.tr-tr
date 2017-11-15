@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -67,7 +67,7 @@ Azure AD ile tümleştirme ek kod yazmanız gerekmez yararları ile birlikte gel
 
 **Anormal oturum açma algılama.**  Azure AD bir milyardan fazla oturum açma işlemleri şüpheli etkinlikleri algılamak ve BT yöneticileri olası sorunları bildirmek için machine learning algoritmaları kullanılırken günde işler.  Azure AD oturum açma destekleyerek, uygulamanız bu koruma yararı alır. Daha fazla bilgi edinmek [Azure Active Directory erişimi raporu görüntüleme](../active-directory-view-access-usage-reports.md).
 
-**Koşullu erişim.**  Çok faktörlü kimlik doğrulaması ek olarak, yöneticiler gerektirebilir belirli koşullar kullanıcılar oturum uygulamanıza açma önce.  Ayarlanabilir koşullar istemci aygıtları, belirtilen gruplarının üyeliği ve erişim için kullanılan aygıt durumunu IP adres aralığı içerir.  Daha fazla bilgi edinmek [Azure Active Directory koşullu erişim](../active-directory-conditional-access.md).
+**Koşullu erişim.**  Çok faktörlü kimlik doğrulaması ek olarak, yöneticiler gerektirebilir belirli koşullar kullanıcılar oturum uygulamanıza açma önce.  Ayarlanabilir koşullar istemci aygıtları, belirtilen gruplarının üyeliği ve erişim için kullanılan aygıt durumunu IP adres aralığı içerir.  Daha fazla bilgi edinmek [Azure Active Directory koşullu erişim](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Kolay geliştirme
 **Endüstri standardı protokoller.**  Microsoft destek endüstri standartları taahhüt eder.  Azure AD SAML 2.0, Openıd Connect 1.0, OAuth 2.0 ve WS-Federasyon 1.2 kimlik doğrulama protokollerini destekler.  Grafik API'si OData 4.0 uyumlu değil.  Uygulama zaten federe oturum açma için SAML 2.0 veya Openıd Connect 1.0 protokollerini destekliyorsa, Azure AD için destek eklenmesi basit olabilir.  Daha fazla bilgi edinmek [Azure AD kimlik doğrulama protokolleri desteklenen](active-directory-authentication-protocols.md).

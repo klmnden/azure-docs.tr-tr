@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac5c39eac34221992803f3b27db241263f828b36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: cihaz geri yazma özelliğini etkinleştirme
 > [!NOTE]
@@ -30,7 +30,7 @@ Aşağıdaki belgeler Azure AD CONNECT'te cihaz geri yazma özelliğini etkinle�
 
 * ADFS cihaza bağlı olarak koşullu erişim etkinleştir (2012 R2 veya üstü) korumalı uygulamaları (bağlı olan taraf güvenleri).
 
-Bu, ek güvenlik ve uygulamalara erişimi yalnızca güvenilen cihazlara verilen güvence sağlar. Koşullu erişim hakkında daha fazla bilgi için bkz: [koşullu erişim ile Risk yönetme](../active-directory-conditional-access.md) ve [şirket içi koşullu Azure Active Directory cihaz kaydı kullanarak erişimi ayarlama](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Bu, ek güvenlik ve uygulamalara erişimi yalnızca güvenilen cihazlara verilen güvence sağlar. Koşullu erişim hakkında daha fazla bilgi için bkz: [koşullu erişim ile Risk yönetme](../active-directory-conditional-access-azure-portal.md) ve [şirket içi koşullu Azure Active Directory cihaz kaydı kullanarak erişimi ayarlama](../active-directory-conditional-access-automatic-device-registration-setup.md).
 
 > [!IMPORTANT]
 > <li>Cihazları kullanıcıların aynı ormanda yer almalıdır. Cihazları tek bir ormana geri yazılmalıdır olduğundan, bu özellik birden çok kullanıcı ormanı olan bir dağıtım şu anda desteklemiyor.</li>
@@ -140,8 +140,8 @@ Active Directory yapılandırmasını doğrulayın:
 
 ![Sorun giderme, cihaz kaydı yapılandırma üzerindeki izinleri doğrulayın](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
-## <a name="additional-information"></a>Ek bilgi
-* [Koşullu erişim ile risk yönetme](../active-directory-conditional-access.md)
+## <a name="additional-information"></a>Ek Bilgiler
+* [Koşullu erişim ile risk yönetme](../active-directory-conditional-access-azure-portal.md)
 * [Azure Active Directory cihaz kaydı ile şirket içi koşullu erişim ayarlama](../active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar

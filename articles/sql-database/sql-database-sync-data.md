@@ -13,14 +13,14 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: fe11926cb7f6b2a80913895b685acfcc433e9805
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
 
@@ -78,38 +78,11 @@ Veri Eşitleme aşağıdaki senaryolar için uygun değil:
     -   Seçerseniz *Hub WINS*, hub değişiklikleri her zaman üyesinde değişikliklerin üzerine.
     -   Seçerseniz *üye WINS*, üye üzerine yaz değişiklikleri hub'ında yapılan değişiklikler. Birden fazla üye ise, hangi üye eşitlenir son değeri bağlıdır.
 
-## <a name="common-questions"></a>Sık sorulan sorular
-
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Veri Eşitleme verilerimi ne sıklıkta eşitleyebilirsiniz? 
-En az beş dakikada sıklığıdır.
-
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Yalnızca SQL Server içi veritabanları arasında eşitlemek için veri eşitleme kullanabilir miyim? 
-Doğrudan yönetilemez. SQL Server içi veritabanları arasında dolaylı olarak, ancak Azure Hub veritabanı oluşturma ve ardından şirket içi veritabanlarını eşitleme grubuna ekleyerek eşitleyebilirsiniz.
-   
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>I veri eşitleme çekirdek veri my üretim veritabanından boş bir veritabanı ve kullanabileceğiniz bunları eşitlenmiş tut? 
-Evet. Şema özgün komut dosyası tarafından yeni veritabanında el ile oluşturun. Şema oluşturduktan sonra tabloları veri kopyalamak ve eşitlenmiş kalmasını sağlamak için bir eşitleme grubuna ekleyin.
-
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Oluşturulamadı tabloları neden görüyor musunuz?  
-Veri Eşitleme yan tablolar değişiklik izleme, veritabanınızdaki oluşturur. Bunları silmeyin veya veri eşitleme çalışmayı durdurur.
-   
-### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>Başka bir deyişle hata iletisi aldım "sütununa NULL değer eklenemiyor \<sütun\>. Sütun null değerlere izin vermiyor." Bu ne anlama geliyor ve nasıl hata düzeltebilirsiniz? 
-Bu hata iletisi, iki aşağıdaki sorunlardan biri gösterir:
-1.  Bir birincil anahtar olmayan bir tablo olabilir. Bu sorunu gidermek için birincil anahtarı eşitleniyor tüm tablolar için ekleyin.
-2.  CREATE INDEX deyiminde WHERE yan tümcesi olabilir. Eşitleme, bu durum işlemez. Bu sorunu gidermek için WHERE yan tümcesini kaldırın veya tüm veritabanları için el ile değişiklik. 
- 
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Veri Eşitleme döngüsel başvurulara nasıl işler? Diğer bir deyişle, ne zaman aynı verileri birden çok eşitleme gruplarında eşitlenen ve sonuç olarak değiştirerek korur?
-Veri Eşitleme döngüsel başvurulara işleyemez. Bunları önlemek emin olun. 
-
-### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Nasıl dışarı aktarma ve veri eşitleme ile veritabanı alma?
-Bir veritabanı olarak dışarı aktardıktan sonra bir `.bacpac` dosya ve yeni bir veritabanı oluşturmak için dosya alma, veri eşitleme yeni veritabanı kullanmak için aşağıdaki iki birini yapmanız gerekir:
-1.  Veri eşitleme nesneleri yan tablolar üzerinde Temizleme **yeni veritabanı** kullanarak [bu komut dosyası](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Bu komut tüm gerekli veri eşitleme nesneleri veritabanından siler.
-2.  Yeni bir veritabanı ile eşitleme grubunu yeniden oluşturun. Eski eşitleme grubu artık ihtiyacınız varsa dosyayı silin.
-
 ## <a name="sync-req-lim"></a>Gereksinimler ve sınırlamalar
 
 ### <a name="general-requirements"></a>Genel gereksinimler
 
--   Her tablonun birincil anahtarı olmalıdır. Herhangi bir satırın birincil anahtarı değerini değiştirmeyin. Bunu yapmak varsa, satır silin ve yeni birincil anahtar değeri ile oluşturun. 
+-   Her tablonun birincil anahtarı olmalıdır. Herhangi bir satırın birincil anahtarı değerini değiştirmeyin. Bir birincil anahtar değeri değiştirmeniz gerekiyorsa, satır silin ve yeni birincil anahtar değeri ile oluşturun. 
 
 -   Bir tablonun birincil anahtarı olmayan bir kimlik sütunu olamaz.
 
@@ -150,6 +123,44 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 | Bir tabloda veri satır boyutu                                        | 24 mb                  |                             |
 | Minimum eşitleme aralığı                                           | 5 dakika              |                             |
 |||
+
+## <a name="faq-about-sql-data-sync"></a>SQL veri eşitleme hakkında SSS
+
+### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Nasıl SQL veri eşitleme (Önizleme) hizmeti maliyeti nedir?
+
+Önizleme sırasında SQL veri eşitleme (Önizleme) hizmeti için ücret ödemeden yoktur.  Ancak, yine veri aktarımı ücretlerine veri taşıma için SQL veritabanı örneğinde ve bu moddan tahakkuk eder. Daha fazla bilgi için bkz: [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
+
+### <a name="what-regions-support-data-sync"></a>Hangi bölgeleri veri eşitleme destekliyor?
+
+SQL veri eşitleme (Önizleme) tüm genel bulut bölgelerde kullanılabilir.
+
+### <a name="is-a-sql-database-account-required"></a>Gerekli bir SQL veritabanı hesabı mı? 
+
+Evet. Hub veritabanını barındırmak için bir SQL veritabanı hesabınızın olması gerekir.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Yalnızca SQL Server içi veritabanları arasında eşitlemek için veri eşitleme kullanabilir miyim? 
+Doğrudan yönetilemez. SQL Server içi veritabanları arasında dolaylı olarak, ancak Azure Hub veritabanı oluşturma ve ardından şirket içi veritabanlarını eşitleme grubuna ekleyerek eşitleyebilirsiniz.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>I veri eşitleme çekirdek veri my üretim veritabanından boş bir veritabanı ve kullanabileceğiniz bunları eşitlenmiş tut? 
+Evet. Şema özgün komut dosyası tarafından yeni veritabanında el ile oluşturun. Şema oluşturduktan sonra tabloları veri kopyalamak ve eşitlenmiş kalmasını sağlamak için bir eşitleme grubuna ekleyin.
+
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Yedekleme ve geri yükleme my veritabanları için SQL veri eşitleme kullanmalıyım?
+
+Verilerinizi bir yedekleme oluşturmak için SQL veri eşitleme (Önizleme) kullanmak için önerilmez. Yedekleme ve SQL veri eşitleme (Önizleme) eşitlemeleri sürümlü olduğundan zaman içinde belirli bir noktaya geri alamazsınız. Ayrıca, SQL veri eşitleme (Önizleme) saklı yordamlar gibi diğer SQL nesneleri yedeklemez ve geri yükleme işlemi denk hızlı bir şekilde yapın.
+
+Bir yedekleme teknik önerilen için bkz: [bir Azure SQL veritabanını kopyalama](sql-database-copy.md).
+
+### <a name="is-collation-supported-in-sql-data-sync"></a>Harmanlamayı SQL veri eşitleme destekleniyor mu?
+
+Evet. SQL veri eşitleme harmanlama aşağıdaki senaryolarda destekler:
+
+-   Seçilen eşitleme şema tablolar değil zaten hub veya üye veritabanlarınızı sonra eşitleme grubunu dağıttığınızda ise, hizmet otomatik olarak ilgili tabloları ve sütunları boş hedef veritabanları seçili harmanlama ayarları oluşturur.
+
+-   Zaten eşitlenmiş için tabloları hub ve üye veritabanlarında yoksa, SQL veri eşitleme birincil anahtar sütunlarını eşitleme grubunu başarıyla dağıtmak için hub ve üye veritabanları arasında aynı harmanlamaya sahip olmasını gerektirir. Birincil anahtar sütunlar dışındaki sütunları harmanlama sınırlaması vardır.
+
+### <a name="is-federation-supported-in-sql-data-sync"></a>Federasyon SQL veri eşitleme destekleniyor mu?
+
+Federasyon kök veritabanı SQL veri eşitleme (Önizleme) hizmeti herhangi bir sınırlama olmadan kullanılabilir. Geçerli SQL veri eşitleme (Önizleme) sürümüne Federe veritabanı uç noktası ekleyemezsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

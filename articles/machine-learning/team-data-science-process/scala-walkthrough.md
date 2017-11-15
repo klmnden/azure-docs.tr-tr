@@ -4,7 +4,7 @@ description: "Denetimli makine öğrenimi görevlerini Spark ölçeklenebilir Ml
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: a7c97153-583e-48fe-b301-365123db3780
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev;deguhath
-ms.openlocfilehash: 19e963a56e8f905bb89d0162c65e893ae7515a97
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 940911144993f30723ad395722742c81a4b0a71c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure üzerinde Scala ve Spark kullanan Veri Bilimi
 Bu makalede Scala için denetimli makine öğrenimi görevlerini Spark ölçeklenebilir Mllib'i ve Spark ML paketleri ile bir Azure Hdınsight Spark kümesinde nasıl kullanıldığını gösterir. Oluşturduğunu görevlerinde anlatılmaktadır [veri bilimi işlem](http://aka.ms/datascienceprocess): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, model ve model tüketim. Makaleyi modellerinde Lojistik ve doğrusal regresyon, rastgele ormanları ve gradyan boosted ağaçları (GBTs) yanı sıra iki ortak denetimli makine öğrenimi görevlerini içerir:
@@ -41,7 +41,7 @@ Bu makaledeki kod ve kurulum adımları için Azure Hdınsight 3.4 Spark 1.6 var
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Bir Azure aboneliğinizin olması gerekir. Zaten bir yoksa [Azure ücretsiz deneme sürümünü edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Aşağıdaki yordamları tamamlamak için bir Azure Hdınsight 3.4 Spark 1.6 kümesi gerekir. Bir küme oluşturmak için deki yönergelere bakın [Başlarken: Azure hdınsight'ta Apache Spark oluşturma](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Küme türü ve sürümü Ayarla **küme türü seçin** menüsü.
 
@@ -295,7 +295,7 @@ Yerel bağlamı Pandas veri çerçeve olarak veri çerçevesi olduktan sonra Pyt
 * Pasta
 * Çizgi
 * Alan
-* Çubuğu
+* Çubuk
 
 Verileri çizmek için kod aşağıdaki gibidir:
 

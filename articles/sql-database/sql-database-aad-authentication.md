@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
 ms.author: rickbyh
-ms.openlocfilehash: 2726f5a78920f0ce47ed9d034e6a597c11b92e98
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>SQL Database veya SQL Data Warehouse ile kimlik doğrulaması için Azure Active Directory kimlik doğrulaması kullanma
 Azure Active Directory kimlik doğrulama mekanizmasıdır Microsoft Azure SQL veritabanına bağlanma bir ve [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) kimlikleri Azure Active Directory (Azure AD) kullanarak. Azure AD kimlik doğrulaması ile veritabanı kullanıcıları kimlikleri ve diğer Microsoft Hizmetleri tek bir merkezi konumda merkezi olarak yönetebilir. Merkezi kimlik yönetimi, veritabanı kullanıcıları yönetmek için tek bir yer sağlar ve izin Yönetimi basitleştirir. Avantajları şunlardır:
@@ -73,7 +73,7 @@ Azure SQL Database veya SQL Data Warehouse bir kapsanan veritabanı kullanıcıs
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD özellikleri ve sınırlamaları
 Azure AD aşağıdaki üyeleri, Azure SQL server veya SQL Data Warehouse sağlanabilir:
 
-* Yerel üyeleri: Azure AD'de yönetilen etki alanında veya bir müşteri etki alanında oluşturulan üyesi. Daha fazla bilgi için bkz: [kendi etki alanı adını Azure AD'ye ekleme](../active-directory/active-directory-add-domain.md).
+* Yerel üyeleri: Azure AD'de yönetilen etki alanında veya bir müşteri etki alanında oluşturulan üyesi. Daha fazla bilgi için bkz: [kendi etki alanı adını Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md).
 * Federasyon etki alanı üyeleri: federe bir etki alanı ile Azure AD'de oluşturulan üyesi. Daha fazla bilgi için bkz: [Microsoft Azure artık Windows Server Active Directory ile Federasyon destekler](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
 * Yerel veya Federasyon etki alanına üye olan alınan üyelerinden diğer Azure AD.
 * Active Directory grupları güvenlik grupları oluşturuldu.

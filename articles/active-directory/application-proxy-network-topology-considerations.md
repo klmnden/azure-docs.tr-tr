@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si kullanırken ağ topolojisi hakkında önemli noktalar
 
@@ -102,9 +102,9 @@ Bu makaleyi odağını bağlayıcı yerleştirme olsa da, daha iyi gecikme özel
 
 Giderek, kuruluşların kendi ağları barındırılan ortamlara taşıyor. Bu, bunları uygulamalarını şirket ağlarına parçası olduğunu da barındırılan bir ortamda ve etki alanı içinde devam sağlar. Bu durumda, önceki bölümlerde ele desenleri, yeni uygulama konumuna uygulanabilir. Bu seçenek düşünüyorsanız, bkz: [Azure AD etki alanı Hizmetleri](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Ayrıca, kullanma, bağlayıcılar düzenleme göz önünde bulundurun [bağlayıcı grupları](active-directory-application-proxy-connectors.md) farklı konumlarda ve ağlar hedef uygulamalar için. 
+Ayrıca, kullanma, bağlayıcılar düzenleme göz önünde bulundurun [bağlayıcı grupları](active-directory-application-proxy-connectors-azure-portal.md) farklı konumlarda ve ağlar hedef uygulamalar için. 
 
-## <a name="common-use-cases"></a>Genel kullanım örnekleri
+## <a name="common-use-cases"></a>Genel kullanım
 
 Bu bölümde, birkaç yaygın senaryolar üzerinden yol. Varsayımında Azure AD kiracısı (ve bu nedenle proxy hizmeti uç noktası) Amerika Birleşik Devletleri (ABD) bulunur. Durumları dünyanın diğer bölgeler için de geçerlidir. Bu kullanımda ele alınan durumları.
 
@@ -174,5 +174,5 @@ Ayrıca, bu durumda bir değişken kullanarak göz önünde bulundurun. Olasıl�
 
 - [Uygulama Ara sunucusunu etkinleştirme](active-directory-application-proxy-enable.md)
 - [Çoklu oturum açmayı etkinleştirme](active-directory-application-proxy-sso-using-kcd.md)
-- [Koşullu erişimi etkinleştirme](active-directory-application-proxy-conditional-access.md)
+- [Koşullu erişimi etkinleştirme](application-proxy-enable-remote-access-sharepoint.md)
 - [Uygulama Ara sunucusu ile ilgili sorunları giderme](active-directory-application-proxy-troubleshoot.md)

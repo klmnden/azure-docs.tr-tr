@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: fd823194f6e51600b9d4ca1daa053db837871fef
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 934f4deb3139c136c871ab0125ba45267e1d1b05
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>Azure IOT kenar OPC yayımcısı
 
@@ -44,7 +44,7 @@ Bu uygulama OPC temelleri'nın OPC UA başvuru yığını kullanır ve bu nedenl
 
 OPC yayımcı kaynak kodunda bulabilirsiniz [OPC yayımcı için Azure IOT kenar](https://github.com/Azure/iot-edge-opc-publisher) GitHub depo.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Uygulama oluşturmak için ihtiyacınız [.NET Core SDK 1.1.](https://docs.microsoft.com/dotnet/core/sdk) işletim sisteminiz için.
 

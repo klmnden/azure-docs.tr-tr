@@ -4,7 +4,7 @@ description: "Azure Data Lake bir veri kümesi üzerinde veri keşfi ve ikili s�
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 91a8207f-1e57-4570-b7fc-7c5fa858ffeb
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: bradsev;weig
-ms.openlocfilehash: 5c4ec4578d7d59ae128448be7378f6104d0ce601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/13/2017
+ms.author: bradsev; weig
+ms.openlocfilehash: b18b454d1fcdfb2b6e8ea77508f779aeabdc87a0
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: bir uçtan uca gözden geçirme
 Bu kılavuzda Azure Data Lake veri keşfi ve ikili sınıflandırma görevleri NYC ücreti seyahat örneği üzerinde yapın ve bir ipucu tarafından ücreti ödenen olsun veya olmasın tahmin etmek için veri kümesi masrafları için nasıl kullanılacağını gösterir. Adımlarda size yol gösterir [takım veri bilimi işlemi](http://aka.ms/datascienceprocess), uçtan uca, eğitim modeli için veri alma ve sonra model yayımlayan bir web hizmeti dağıtımına.
@@ -28,13 +28,13 @@ Bu kılavuzda Azure Data Lake veri keşfi ve ikili sınıflandırma görevleri N
 
 Data Lake Analytics ayrıca Cortana Analytics Suite’in de önemli bir parçasıdır ve Azure SQL Veri Ambarı, Power BI ve Veri Fabrikası ile birlikte çalışır. Bu, tam bulut büyük veri ve Gelişmiş analizi platformu sunar.
 
-Bu kılavuz Önkoşullar ve veri bilimi işlemi ve bunları yükleme form Data Lake Analytics ile görevleri tamamlamak için gereken kaynakları açıklayarak başlar. U-SQL'yi kullanarak veri işleme adımlarını özetler ve Python ve Hive kullanmaya nasıl yapıldığını göstererek sonucuna sonra oluşturmak ve Tahmine dayalı modelleri dağıtmak için Azure Machine Learning Studio'da. 
+Bu kılavuz Önkoşullar ve veri bilimi işlem görevleri tamamlamak için gereken kaynakları nasıl yükleneceğini açıklayan tarafından başlar. U-SQL'yi kullanarak veri işleme adımlarını özetler ve Python ve Hive kullanmaya nasıl yapıldığını göstererek sonucuna sonra oluşturmak ve Tahmine dayalı modelleri dağıtmak için Azure Machine Learning Studio'da. 
 
 ### <a name="u-sql-and-visual-studio"></a>U-SQL ve Visual Studio
 Bu kılavuzda, veri kümesi işlemek için U-SQL betikleri düzenlemek için Visual Studio kullanarak önerir. U-SQL betikleri ayrı bir dosyaya sağlanan ve burada açıklanmıştır. Alma, keşfetme ve veri örnekleme işlemi içerir. Ayrıca, Azure portalından bir U-SQL Script işini çalıştırmak nasıl gösterir. Hive tablolarını verileri yapı ve Azure Machine Learning Studio'da bir ikili sınıflandırma modeli dağıtımını kolaylaştırmak için ilişkili bir Hdınsight kümesi içinde oluşturulur.  
 
 ### <a name="python"></a>Python
-Bu izlenecek yol da derleme ve Python ile Azure Machine Learning Studio kullanarak Tahmine dayalı bir model dağıtma gösterilmektedir bir bölüm içerir.  Jupyter not defteri ile Python betiklerini adımları bu işlem için sunuyoruz. Not Defteri bazı ek özellik Mühendisliği adımları ve modelleri oluşturma çok sınıflı sınıflandırma ve Burada özetlenen ikili sınıflandırma modeli yanı sıra modelleme regresyon gibi kodunu içerir. Regresyon diğer ipucu özelliklerini temel alarak ipucu miktarı tahmin etmek için bir görevdir. 
+Bu izlenecek yol da derleme ve Python ile Azure Machine Learning Studio kullanarak Tahmine dayalı bir model dağıtma gösterilmektedir bir bölüm içerir. Jupyter Not Defteri, bu işlem adımları için Python komut dosyaları sağlar. Not Defteri bazı ek özellik Mühendisliği adımları ve modelleri oluşturma çok sınıflı sınıflandırma ve Burada özetlenen ikili sınıflandırma modeli yanı sıra modelleme regresyon gibi kodunu içerir. Regresyon diğer ipucu özelliklerini temel alarak ipucu miktarı tahmin etmek için bir görevdir. 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning Studio oluşturmak ve Tahmine dayalı modelleri dağıtmak için kullanılır. Bu yapılır iki yaklaşım kullanarak: ilk Python komut dosyaları ve ardından ile Hive tablolarını Hdınsight (Hadoop) kümesinde.
@@ -42,14 +42,14 @@ Azure Machine Learning Studio oluşturmak ve Tahmine dayalı modelleri dağıtma
 ### <a name="scripts"></a>Betikler
 Bu kılavuzda yalnızca asıl adımları özetlenmiştir. Tam indirebilirsiniz **U-SQL betiği** ve **Jupyter not defteri** gelen [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu konularda başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * Azure aboneliği. Zaten bir yoksa, bkz: [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Önerilen] Visual Studio 2013 veya üzeri. Zaten yüklü bu sürümlerinden birini yoksa, ücretsiz bir Community sürümü indirebilirsiniz [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
-> Visual Studio yerine Azure Data Lake sorguları göndermek için Azure Portalı'nı kullanabilirsiniz. Başlıklı portalında ve böylece her ikisi de Visual Studio ile nasıl üzerinde söz yönergeleri sağlarız **işlem U-SQL verilerle**. 
+> Visual Studio yerine Azure Data Lake sorguları göndermek için Azure portalını kullanabilirsiniz. Başlıklı portalında ve böylece her ikisi de Visual Studio ile nasıl üzerinde yönergeler verilmiştir **işlem U-SQL verilerle**. 
 > 
 > 
 
@@ -63,33 +63,33 @@ Bu kılavuz için veri bilimi ortamını hazırlamak için aşağıdaki kaynakla
 * Azure Machine Learning Studio hesabı
 * (Önerilen) Visual Studio için Azure Data Lake araçları
 
-Bu bölümde, bu kaynakların her biri oluşturma hakkında yönergeler sağlar. Hive tablolarını yerine Python, Azure Machine Learning ile kullanmayı seçerseniz bir model oluşturmak için ayrıca bir Hdınsight (Hadoop) kümesi sağlamak gerekir. Bu alternatif yordam uygun aşağıdaki bölümde açıklanan.
+Bu bölümde, bu kaynakların her biri oluşturma hakkında yönergeler sağlar. Hive tablolarını yerine Python, Azure Machine Learning ile kullanmayı seçerseniz bir model oluşturmak için ayrıca bir Hdınsight (Hadoop) kümesi sağlamak gerekir. Bu alternatif yordam seçeneği 2 bölümde açıklanmaktadır.
 
 
 > [!NOTE]
-> **Azure Data Lake Store** ya da ayrı olarak oluşturulabilir veya oluştururken **Azure Data Lake Analytics** varsayılan depolama. Bu ayrı olarak aşağıdaki kaynakların her biri oluşturmak için yönergeler başvurulan ancak Data Lake storage hesabını ayrı olarak oluşturulmamış.
+> **Azure Data Lake Store** ya da ayrı olarak oluşturulabilir veya oluştururken **Azure Data Lake Analytics** varsayılan depolama. Bu kaynakların her biri ayrı olarak oluşturmak için yönergeler başvurulan ancak Data Lake storage hesabını ayrı olarak oluşturulmamış.
 >
 > 
 
 ### <a name="create-an-azure-data-lake-store"></a>Bir Azure Data Lake deposu oluşturma
 
 
-Gelen bir ADLS oluşturma [Azure Portal](http://portal.azure.com). Ayrıntılar için bkz [Azure Portal'ı kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Küme AAD kimlik ayarladığınızdan emin olun **DataSource** dikey **isteğe bağlı yapılandırma** dikey açıklanan vardır. 
+Gelen bir ADLS oluşturma [Azure portal](http://portal.azure.com). Ayrıntılar için bkz [Azure portalını kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Küme AAD kimlik ayarladığınızdan emin olun **DataSource** dikey **isteğe bağlı yapılandırma** dikey açıklanan vardır. 
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
 ### <a name="create-an-azure-data-lake-analytics-account"></a>Bir Azure Data Lake Analytics hesabı oluşturma
-Bir ADLA hesabından oluşturma [Azure Portal](http://portal.azure.com). Ayrıntılar için bkz [Öğreticisi: Azure Data Lake Azure Portal kullanarak Analytics ile çalışmaya başlama](../../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
+Bir ADLA hesabından oluşturma [Azure portal](http://portal.azure.com). Ayrıntılar için bkz [Öğreticisi: Azure Data Lake Azure portalını kullanarak Analytics ile çalışmaya başlama](../../data-lake-analytics/data-lake-analytics-get-started-portal.md). 
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Bir Azure Blob storage hesabı oluşturma
-Bir Azure Blob Depolama hesabından oluşturma [Azure Portal](http://portal.azure.com). Ayrıntılar için bir depolama hesabı bölümünde bkz [Azure storage hesapları hakkında](../../storage/common/storage-create-storage-account.md).
+Bir Azure Blob Depolama hesabından oluşturma [Azure portal](http://portal.azure.com). Ayrıntılar için bir depolama hesabı bölümünde bkz [Azure storage hesapları hakkında](../../storage/common/storage-create-storage-account.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
 ### <a name="set-up-an-azure-machine-learning-studio-account"></a>Bir Azure Machine Learning Studio hesap ayarlama
-Oturum/Azure Machine Learning Studio'dan içine [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) sayfası. Tıklayın **hemen kullanmaya başlayın** düğmesine tıklayın ve ardından "Ücretsiz çalışma" veya "Standart çalışma"'i seçin. Bundan sonra Azure ML Studio'da denemeler oluşturmak mümkün.  
+Oturum/Azure Machine Learning Studio'dan içine [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) sayfası. Tıklayın **hemen kullanmaya başlayın** düğmesine tıklayın ve ardından "Ücretsiz çalışma" veya "Standart çalışma"'i seçin. Şimdi olduğunuz hazır Azure ML Studio'da denemeler oluşturmak için.  
 
 ### <a name="install-azure-data-lake-tools-recommended"></a>[Önerilen] Azure Data Lake Araçları'nı yükleme
 Visual Studio'dan sürümünüz için Azure Data Lake araçları yükleme [Visual Studio için Azure Data Lake Araçları](https://www.microsoft.com/download/details.aspx?id=49504).
@@ -101,18 +101,21 @@ Yükleme başarıyla tamamlandıktan sonra Visual Studio'yu açın. Data Lake me
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
 ## <a name="the-nyc-taxi-trips-dataset"></a>NYC ücreti dönüşleri veri kümesi
-Veri burada kullandık--genel kullanıma açık bir veri kümesidir [NYC ücreti dönüşleri dataset](http://www.andresmh.com/nyctaxitrips/). Yaklaşık 20 GB sıkıştırılmış CSV dosyaları (~ 48 GB sıkıştırılmamış) NYC ücreti seyahat veri oluşur, her seyahat için ücretli 173 milyondan fazla tek tek dönüşleri ve fares kaydetme. Her seyahat kayıt alma ve teslim konumları ve kez, anonim korsan (sürücü) lisans numarası ve medallion (ücreti'nın benzersiz kimliği) numarasını içerir. Veri 2013 yıl içinde tüm dönüşleri kapsayan ve aşağıdaki iki veri kümelerinin her ay sağlanır:
+Burada kullanılan veri kümesi genel kullanıma açık bir veri kümesi--olan [NYC ücreti dönüşleri dataset](http://www.andresmh.com/nyctaxitrips/). Yaklaşık 20 GB sıkıştırılmış CSV dosyaları (~ 48 GB sıkıştırılmamış) NYC ücreti seyahat veri oluşur, her seyahat için ücretli 173 milyondan fazla tek tek dönüşleri ve fares kaydetme. Her seyahat kayıt alma ve teslim konumları ve saatleri, anonim korsan (sürücü) lisans numarası ve medallion (ücreti'nın benzersiz kimliği) numarasını içerir. Veri 2013 yıl içinde tüm dönüşleri kapsayan ve aşağıdaki iki veri kümelerinin her ay sağlanır:
 
-* 'trip_data' CSV yolcu, toplama ve dropoff noktaları, seyahat süresi ve seyahat Uzunluk sayısı gibi seyahat ayrıntıları içerir. Birkaç örnek kayıt şunlardır:
-  
-       medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count, trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
+'trip_data' CSV yolcu, toplama ve dropoff noktaları, seyahat süresi ve seyahat Uzunluk sayısı gibi seyahat ayrıntıları içerir. Birkaç örnek kayıt şunlardır:
+
+       medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-* 'trip_fare' CSV ödeme türü, ücreti tutarı, ek ücret ve vergileri, ipuçları ve tolls, gibi her seyahat için ödenen ücreti ve Ücretli toplam miktarı ayrıntılarını içerir. Birkaç örnek kayıt şunlardır:
-  
+
+
+
+'trip_fare' CSV ödeme türü, ücreti tutarı, ek ücret ve vergileri, ipuçları ve tolls, gibi her seyahat için ödenen ücreti ve Ücretli toplam miktarı ayrıntılarını içerir. Birkaç örnek kayıt şunlardır:
+
        medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
        0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
@@ -123,7 +126,7 @@ Veri burada kullandık--genel kullanıma açık bir veri kümesidir [NYC ücreti
 Seyahat katılmak için benzersiz anahtar\_veri ve seyahat\_ücreti şu üç alanlardan oluşur: medallion, korsan\_lisans ve alma\_datetime. Ham CSV dosyaları ortak Azure storage blobundan erişilebilir. Bu katılımı U-SQL betiği bulunduğu [katılma seyahat ve ücreti tabloları](#join) bölümü.
 
 ## <a name="process-data-with-u-sql"></a>U-SQL ile verileri işleme
-Bu bölümde gösterilen veri işleme görevlerini alma, kalite denetimi, keşfetme ve veri örnekleme içerir. Ayrıca seyahat ve ücreti tabloları nasıl gösteriyoruz. Son bölümü Azure portalından bir U-SQL komut dosyası işi çalıştırma gösterir. Aşağıda, her alt bağlantıları verilmiştir:
+Bu bölümde gösterilen veri işleme görevlerini alma, kalite denetimi, keşfetme ve veri örnekleme içerir. Seyahat ve ücreti tabloları nasıl de gösterilir. Son bölümü Azure portalından bir U-SQL komut dosyası işi çalıştırma gösterir. Aşağıda, her alt bağlantıları verilmiştir:
 
 * [Veri alımı: ortak blob verileri okuma](#ingest)
 * [Veri Kalitesi denetimleri](#quality)
@@ -139,14 +142,14 @@ U-SQL, açık Visual Studio yürütmek için tıklatın **Dosya--> Yeni Proje-->
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
 > [!NOTE]
-> U-SQL Visual Studio yerine yürütmek için Azure Portalı'nı kullanmak da mümkündür. Portalındaki Azure Data Lake Analytics kaynağa gidin ve sorgular doğrudan olarak Resimli aşağıdaki şekilde gönderin.
+> U-SQL Visual Studio yerine yürütmek için Azure Portalı'nı kullanmak da mümkündür. Portalındaki Azure Data Lake Analytics kaynağa gidin ve sorgular doğrudan olarak aşağıdaki şekilde Resimli gönder:
 > 
 > 
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Veri alımı: ortak blob verileri okuyun
-Azure blob verileri konumu olarak başvurulur  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**  ve kullanarak ayıklanabilir **Extractors.Csv()**. Kendi kapsayıcı adı ve depolama hesabı adı için aşağıdaki komut yerine container_name@blob_storage_account_name wasb adresi. Dosya adları aynı biçimde olduğundan, biz kullanabilirsiniz **seyahat\_veri_ {\*\}.csv** tüm 12 seyahat dosyaları okumak için. 
+Azure blob verileri konumu olarak başvurulur  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**  ve kullanarak ayıklanabilir **Extractors.Csv()**. Kendi kapsayıcı adı ve depolama hesabı adı için aşağıdaki komut yerine container_name@blob_storage_account_name wasb adresi. Dosya adları aynı biçimde olduğundan, kullanmak mümkün **seyahat\_veri_ {\*\}.csv** tüm 12 seyahat dosyaları okumak için. 
 
     ///Read in Trip data
     @trip0 =
@@ -169,7 +172,7 @@ Azure blob verileri konumu olarak başvurulur  **wasb://container_name@blob_stor
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-İlk satırın üstbilgi olduğundan, biz üstbilgileri kaldırın ve uygun parçalara sütun türleri değiştirmeniz gerekir. İşlenen verilerin Azure Data Lake Storage kullanmaya Kaydet'i ya da geçebiliriz **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ veya Azure Blob Depolama hesabı kullanarak  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**. 
+İlk satırın üstbilgi olduğundan üstbilgileri kaldırın ve uygun parçalara sütun türleri değiştirmeniz gerekir. İşlenen verilerin Azure Data Lake Storage kullanmaya Kaydet'i seçebilir ya da **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ veya Azure Blob Depolama hesabı kullanarak  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**. 
 
     // change data types
     @trip =
@@ -201,7 +204,7 @@ Azure blob verileri konumu olarak başvurulur  **wasb://container_name@blob_stor
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
     USING Outputters.Csv();  
 
-Benzer şekilde biz ücreti veri kümelerinde okuyabilir. Azure Data Lake Store sağ tıklayın, verilerinizi bakmak seçebileceğiniz **Azure Portal--> Veri Gezgini** veya **dosya Gezgini** Visual Studio içinde. 
+Benzer şekilde ücreti veri kümelerinde okuyabilir. Sağ Azure Data Lake Store, verilerinize bakmak seçebilir **Azure portal--> Veri Gezgini** veya **dosya Gezgini** Visual Studio içinde. 
 
  ![10](./media/data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
@@ -280,7 +283,7 @@ Eksik değerleri için bazı değişkenler bulun:
 
 
 ### <a name="explore"></a>Veri keşfi
-Verilerin daha iyi anlamak için bazı veri keşfi yapabiliriz.
+Bazı veri keşfi verilerin daha iyi anlamak için aşağıdaki komut dosyalarıyla yapın.
 
 Eğimli ve eğimli olmayan dönüşleri dağıtımını bulun:
 
@@ -299,7 +302,7 @@ Eğimli ve eğimli olmayan dönüşleri dağıtımını bulun:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_4.csv"
     USING Outputters.Csv(); 
 
-İpucu tutar sonlandırma değerlerle dağıtımını bulun: 0,5,10 ve 20 dolar.
+İpucu tutar sonlandırma değerlerle dağıtımını bulun: 0, 5, 10 ile 20 dolar.
 
     //tip class/range distribution
     @tip_class =
@@ -389,7 +392,7 @@ Her yolcu sayısı düzeyi için kayıtları, ortalama ipucu tutar, ipucu tutar 
 
 
 ### <a name="sample"></a>Veri örnekleme
-İlk biz rastgele %0,1 verilerin birleştirilmiş tablosundan seçin:
+İlk olarak, rastgele verilerin %0,1 birleştirilmiş tablosundan seçin:
 
     //random select 1/1000 data for modeling purpose
     @addrownumberres_randomsample =
@@ -406,7 +409,7 @@ Her yolcu sayısı düzeyi için kayıtları, ortalama ipucu tutar, ipucu tutar 
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_7_random_1_1000.csv"
     USING Outputters.Csv(); 
 
-Ardından biz stratified örnekleme tarafından ikili değişken tip_class yapın:
+Ardından stratified örnekleme tarafından ikili değişken tip_class yapın:
 
     //stratified random select 1/1000 data for modeling purpose
     @addrownumberres_stratifiedsample =
@@ -433,26 +436,26 @@ U-SQL betikleri düzenlemeyi tamamladığınızda, Azure Data Lake Analytics hes
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
-İş başarıyla derlendiğini, izleme için Visual Studio'da, işin durumu görüntülenir. Çalışan iş tamamlandıktan sonra bile iş yürütme işlemi yeniden yürütme ve iş verimliliğinizi artırmak için performans sorunu adımları bulun. U-SQL işlerinizin durumunu denetlemek için Azure Portalı'na de gidebilirsiniz.
+İş başarıyla derlendiğini durumlarda, işin durumunu izlemek için Visual Studio'da görüntülenir. Çalışan iş tamamlandıktan sonra bile iş yürütme işlemi yeniden yürütme ve iş verimliliğinizi artırmak için performans sorunu adımları bulun. U-SQL işlerinizin durumunu denetlemek için Azure portalına de gidebilirsiniz.
 
  ![13](./media/data-lake-walkthrough/13-USQL-running-v2.PNG)
 
  ![14](./media/data-lake-walkthrough/14-USQL-jobs-portal.PNG)
 
-Artık Azure Blob storage veya Azure Portalı'nda çıktı dosyaları kontrol edebilirsiniz. Sonraki adımda bizim modelleme için stratified örnek verileri kullanacağız.
+Şimdi, Azure Blob Depolama veya Azure portal çıktı dosyaları kontrol edebilirsiniz. Sonraki adımda bizim modelleme için stratified örnek verileri kullanın.
 
  ![15](./media/data-lake-walkthrough/15-U-SQL-output-csv.PNG)
 
  ![16](./media/data-lake-walkthrough/16-U-SQL-output-csv-portal.PNG)
 
 ## <a name="build-and-deploy-models-in-azure-machine-learning"></a>Derleme ve Azure Machine Learning modellerini dağıtma
-Biz oluşturmak için iki seçenek kullanılabilir, Azure Machine Learning veri çekmek göstermek ve 
+İki seçenek, verileri oluşturmak için Azure Machine Learning çekmek kullanılabilir ve 
 
 * İlk seçenek, bir Azure Blob yazılmış örneklenen verileri kullan (içinde **veri örnekleme** Yukarıdaki adımı) ve Python derleme ve Azure Machine Learning modelinden dağıtmak için kullanın. 
-* İkinci seçenek, doğrudan bir Hive sorgusu kullanarak Azure Data Lake verilerde sorgu. Bu seçenek, yeni bir Hdınsight kümesi oluşturma veya mevcut bir Hdınsight kümesine burada Azure Data Lake Storage NY ücreti verileri Hive tablolarını işaret kullanın gerektirir.  Biz, hem bu seçenekler aşağıda ele alınmıştır. 
+* İkinci seçenek, doğrudan bir Hive sorgusu kullanarak Azure Data Lake verilerde sorgu. Bu seçenek, yeni bir Hdınsight kümesi oluşturma veya mevcut bir Hdınsight kümesine burada Azure Data Lake Storage NY ücreti verileri Hive tablolarını işaret kullanın gerektirir.  Her iki Bu seçenekler aşağıdaki bölümlerde ele alınmıştır. 
 
 ## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Seçenek 1: learning modellerini oluşturmak ve dağıtmak için kullanım Python makine
-Derleme ve makine öğrenimi modellerini Python kullanarak dağıtmak için yerel makinenizde veya Azure Machine Learning Studio'da Jupyter not defteri oluşturun. Jupyter not defteri sağlanan [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) keşfedin, verileri, özellik Mühendisliği, model ve dağıtım görselleştirmek için tam kodunu içerir. Bu makalede, yalnızca modelleme ve dağıtım gösterir. 
+Derleme ve makine öğrenimi modellerini Python kullanarak dağıtmak için yerel makinenizde veya Azure Machine Learning Studio'da Jupyter not defteri oluşturun. Jupyter not defteri sağlanan [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) keşfedin, verileri, özellik Mühendisliği, model ve dağıtım görselleştirmek için tam kodunu içerir. Bu makalede, yalnızca modelleme ve dağıtım ele alınmıştır. 
 
 ### <a name="import-python-libraries"></a>Python kitaplıkları içeri aktarma
 Örnek çalıştırmak için dosya, aşağıdaki Python paketlerini gerekli Jupyter Not Defteri veya Python komut dosyası. AzureML Not Defteri hizmeti kullanıyorsanız, bu paketleri önceden yüklenmiş olmuştur.
@@ -479,7 +482,7 @@ Derleme ve makine öğrenimi modellerini Python kullanarak dağıtmak için yere
 
 
 ### <a name="read-in-the-data-from-blob"></a>Blob verilerini okuma
-* Bağlantı dizesi   
+* Bağlantı Dizesi   
   
         CONTAINERNAME = 'test1'
         STORAGEACCOUNTNAME = 'XXXXXXXXX'
@@ -511,7 +514,7 @@ Derleme ve makine öğrenimi modellerini Python kullanarak dağıtmak için yere
 ### <a name="build-machine-learning-models"></a>Machine learning modellerini Derleme
 Burada bir seyahat veya eğimli tahmin etmek için bir ikili sınıflandırma modeli oluşturun. Jupyter Not Defteri, diğer iki modeli bulabilirsiniz: çok sınıflı sınıflandırma ve regresyon modeli.
 
-* İlk scikit kullanılabilir kukla değişkenleri oluşturmak üzere ihtiyacımız-modelleri öğrenin
+* İlk scikit içinde kullanılabilir kukla değişkenleri oluşturmak üzere ihtiyacınız-modelleri öğrenin
   
         df1_payment_type_dummy = pd.get_dummies(df1['payment_type'], prefix='payment_type_dummy')
         df1_vendor_id_dummy = pd.get_dummies(df1['vendor_id'], prefix='vendor_id_dummy')
@@ -555,7 +558,7 @@ Burada bir seyahat veya eğimli tahmin etmek için bir ikili sınıflandırma mo
        ![c2](./media/data-lake-walkthrough/c2-py-logit-evaluation.PNG)
 
 ### <a name="build-web-service-api-and-consume-it-in-python"></a>Web hizmeti API'si derleme ve Python içinde kullanma
-Makine, oluşturulduktan sonra model öğrenimi faaliyete istiyoruz. Burada ikili Lojistik modeli örnek olarak kullanırız. Scikit emin olun-yerel makinenize sürümünde 0.15.1 olduğunu öğrenin. Azure ML studio hizmeti kullanıyorsanız bu hakkında endişelenmeniz gerekmez.
+Makine, oluşturulduktan sonra model öğrenimi faaliyete istiyorsunuz. İkili Lojistik modeli kullanılan burada bir örnek olarak. Scikit emin olun-yerel makinenize sürümünde 0.15.1 olduğunu öğrenin. Azure ML studio hizmeti kullanıyorsanız bu hakkında endişelenmeniz gerekmez.
 
 * Çalışma alanı kimlik bilgileriniz Azure ML studio ayarlarından bulun. Azure Machine Learning Studio'da tıklatın **ayarları** --> **adı** --> **yetkilendirme belirteçleri**. 
   
@@ -595,16 +598,16 @@ Makine, oluşturulduktan sonra model öğrenimi faaliyete istiyoruz. Burada ikil
 Azure Machine Learning Studio verileri doğrudan Azure Data Lake Deposu'ndan veri okuyabilir ve sonra oluşturmak ve modelleri dağıtmak için kullanılır. Bu yaklaşım Azure Data Lake Store işaret eden bir Hive tablosu kullanır. Bu ayrı bir Azure Hdınsight kümesi olduğunu sağlanması, gerektirir Hive tablosu oluşturulduğu üzerinde. Aşağıdaki bölümlerde bunun nasıl yapılacağı gösterilmektedir. 
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>Hdınsight Linux kümesi oluşturma
-Hdınsight kümesi (Linux) oluşturmak [Azure Portal](http://portal.azure.com). Ayrıntılar için bkz **Azure Data Lake Store erişimi olan bir Hdınsight kümesi oluşturmayı** bölümüne [Azure Portal'ı kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Hdınsight kümesi (Linux) oluşturmak [Azure portal](http://portal.azure.com). Ayrıntılar için bkz **Azure Data Lake Store erişimi olan bir Hdınsight kümesi oluşturmayı** bölümüne [Azure portalını kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Hdınsight'ta Hive tablosu oluşturma
-Şimdi önceki adımda Azure Data Lake Store içinde depolanan verileri kullanarak Hdınsight kümesinde Azure Machine Learning Studio'da kullanılacak Hive tabloları oluşturun. Yeni oluşturduğunuz Hdınsight kümesi gidin. Tıklatın **ayarları** --> **özellikleri** --> **küme AAD kimlik** --> **ADLS erişimini**, Azure Data Lake Store hesabınızı okuma listesinde eklendiğinden emin olun, yazma ve yürütme hakları. 
+Şimdi önceki adımda Azure Data Lake Store içinde depolanan verileri kullanarak Hdınsight kümesinde Azure Machine Learning Studio'da kullanılacak Hive tabloları oluşturma. Oluşturulan Hdınsight kümesi gidin. Tıklatın **ayarları** --> **özellikleri** --> **küme AAD kimlik** --> **ADLS erişimini**, Azure Data Lake Store hesabınızı okuma listesinde eklendiğinden emin olun, yazma ve yürütme hakları. 
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
-Ardından **Pano** yanına **ayarları** düğmesi ve bir pencere açılır. Tıklatın **Hive görünümü** ve sayfanın sağ üst köşedeki görürsünüz **sorgu Düzenleyicisi'ni**.
+Ardından **Pano** yanına **ayarları** düğmesi ve bir pencere açılır. Tıklatın **Hive görünümü** ve sayfanın sağ üst köşedeki görmelisiniz **sorgu Düzenleyicisi'ni**.
 
  ![20](./media/data-lake-walkthrough/20-HDI-dashboard.PNG)
 
@@ -643,23 +646,23 @@ Bir tablo oluşturmak için aşağıdaki Hive komut dosyasında yapıştırın. 
     LOCATION 'adl://data_lake_storage_name.azuredatalakestore.net:443/nyctaxi_folder/demo_ex_9_stratified_1_1000_copy.csv';
 
 
-Sorgu çalışması sona erdiğinde, sonuçlar şöyle görürsünüz:
+Sorgu çalışması sona erdiğinde, şöyle sonuçları görmeniz gerekir:
 
  ![22](./media/data-lake-walkthrough/22-Hive-Query-results.PNG)
 
 ### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>Derleme ve Azure Machine Learning Studio'da modelleri dağıtma
-Biz şimdi oluşturmak ve bir ipucu Azure Machine Learning ile Ücretli olsun veya olmasın tahmin modeli dağıtmak hazır olursunuz. Stratified örnek verileri bu ikili sınıflandırma kullanıma hazır (veya ipucu) sorun. Çok sınıflı sınıflandırma (tip_class) ve regresyon (tip_amount) kullanarak Tahmine dayalı modelleri Ayrıca oluşturulmuş ve Azure Machine Learning Studio ile dağıtılır, ancak ikili sınıflandırma modeli kullanarak çalışması nasıl ele alınacağını yalnızca burada gösteriyoruz.
+Şimdi oluşturmak ve bir ipucu Azure Machine Learning ile Ücretli olsun veya olmasın tahmin modeli dağıtmak hazır olursunuz. Stratified örnek verileri bu ikili sınıflandırma kullanıma hazır (veya ipucu) sorun. Çok sınıflı sınıflandırma (tip_class) ve regresyon (tip_amount) kullanarak Tahmine dayalı modelleri Ayrıca oluşturulmuş ve Azure Machine Learning Studio ile dağıtılır, ancak burada yalnızca ikili sınıflandırma modelini kullanarak durumda nasıl ele alınacağını gösterilen.
 
 1. Azure ML kullanarak veri almak **veri içeri aktarma** modülü, kullanılabilir **veri giriş ve çıkış** bölümü. Daha fazla bilgi için bkz: [veri içeri aktarma modülü](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) başvuru sayfası.
 2. Seçin **Hive sorgusu** olarak **veri kaynağı** içinde **özellikleri** paneli.
 3. Aşağıdaki Hive betiğini yapıştırın **Hive veritabanı sorgusu** Düzenleyicisi
    
         select * from nyc_stratified_sample;
-4. URI, Hdınsight kümesi (Bu Azure Portalı'nda bulunabilir), Hadoop kimlik bilgileri, çıktı verilerini Azure depolama hesabı anahtarı/ad/kapsayıcı adı ve konumu girin.
+4. URI, Hdınsight kümesi (Bu Azure portalında bulunabilir), Hadoop kimlik bilgileri, çıktı verilerini Azure depolama hesabı anahtarı/ad/kapsayıcı adı ve konumu girin.
    
    ![23](./media/data-lake-walkthrough/23-reader-module-v3.PNG)  
 
-Hive tablodan veri okunurken bir ikili sınıflandırma deneme örneği aşağıdaki şekilde gösterilmiştir.
+Hive tablosundaki verileri aşağıdaki şekilde gösterilen bir ikili sınıflandırma deneme okuma örneği:
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
@@ -671,7 +674,7 @@ Otomatik olarak oluşturulan çalışması sona erdiğinde, denemeyi Puanlama, t
 
  ![26](./media/data-lake-walkthrough/26-AML-exp-deploy-web.PNG)
 
-Web hizmeti Pano kısa süre içinde görüntülenir:
+Web hizmeti Pano kısa süre içinde görüntüler:
 
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 

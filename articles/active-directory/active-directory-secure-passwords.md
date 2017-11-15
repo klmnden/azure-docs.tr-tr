@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD parola güvenlik çok katmanlı bir yaklaşım
 
@@ -37,7 +37,7 @@ Azure AD, parolaların güvenliğini sağlama konusunda aşağıdaki genel yakla
 * Parola karmaşıklık gereksinimleri
 * Normal ve düzenli parola sona erme süresi
 
-Parola Azure Active Directory'de sıfırlama hakkında daha fazla bilgi için Ek Yardım konusuna [Azure AD Self Servis parola sıfırlama için BT Uzmanı](active-directory-passwords.md).
+Parola Azure Active Directory'de sıfırlama hakkında daha fazla bilgi için Ek Yardım konusuna [Azure AD Self Servis parola sıfırlama için BT Uzmanı](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="azure-ad-password-protections"></a>Azure AD parola korumaları
 
@@ -74,7 +74,7 @@ Diğer Microsoft hesapları için kendi ekran izleyen bir benzer:
 
   ![Microsoft hesabı dışında kalmış](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Parola Azure Active Directory'de sıfırlama hakkında daha fazla bilgi için Ek Yardım konusuna [Azure AD Self Servis parola sıfırlama için BT Uzmanı](active-directory-passwords.md).
+Parola Azure Active Directory'de sıfırlama hakkında daha fazla bilgi için Ek Yardım konusuna [Azure AD Self Servis parola sıfırlama için BT Uzmanı](active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Bir Azure AD yöneticisiyseniz, kullanıcıların geleneksel parolalar oluşturmasını önlemek için [Windows Hello](https://www.microsoft.com/windows/windows-hello) kullanabilirsiniz.

@@ -4,7 +4,7 @@ description: "Spark Mllib'i Araç Seti modelleme yetenekleri dağıtılmış Hd�
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: a4e1de99-a554-4240-9647-2c6d669593c8
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 11/13/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: be3bbad11632f3af257239f6b10b1b22951073f7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8a4c9d37f0a6d004422fb745ac991f2648d2e255
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Azure Hdınsight'ta Spark kullanarak veri bilimi genel bakış
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -70,7 +70,7 @@ NYC ücreti ve uçak uçuş gecikme veri kümeleri üzerinde Spark 2.0 not defte
 
 Bir Spark 2.0 modeli ve puanlama için model tüketim operationalization hakkında yönergeler için bkz [Spark 1.6 belge tüketimi üzerinde](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) gerekli adımlar anahat oluşturma örneği. Bu Spark 2.0 kullanmak için Python kodu dosyasıyla Değiştir [bu dosyayı](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki yordamlar için Spark 1.6 ilişkilidir. Spark 2.0 sürümü için açıklanan ve için daha önce bağlanan dizüstü bilgisayarları kullanın. 
 
 1. bir Azure aboneliğinizin olması gerekir. Zaten bir yoksa, bkz: [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: e72dd7e84ce3961274cf312649cc679abc576aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b71c7e7f1ea58a273beb58717102522ad0f8c4a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store'da güvenlik
 Çoğu kurum, büyük veri analizi için akıllı kararlar almanıza yardımcı olmak iş öngörüleri avantajlarından sürüyor. Bir kuruluşun farklı kullanıcılar artan sayıda ile karmaşık ve düzenlenen bir ortam olabilir. Kritik iş verileri doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake Store, bu güvenlik gereksinimlerini karşılamak amacıyla tasarlanmıştır. Bu makalede, Data Lake Store, güvenlik özellikleri hakkında bilgi de dahil olmak üzere:
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 * Kimlik Doğrulaması
 * Yetkilendirme
 * Ağ yalıtımı
-* Veri koruma
+* Veri koruması
 * Denetim
 
 ## <a name="authentication-and-identity-management"></a>Kimlik doğrulama ve Kimlik Yönetimi
@@ -35,7 +35,7 @@ Kimlik doğrulama kullanıcı Data Lake Store'a bağlanan herhangi bir hizmeti v
 Her Azure aboneliğinin Azure Active Directory örneği ile ilişkili olabilir. Yalnızca kullanıcılar ve Azure Active Directory hizmetinizi tanımlı hizmet kimlikleri, Data Lake Store hesabı Azure portal, komut satırı araçlarını kullanarak erişebilir veya Azure Data Lake kullanarak, kuruluşunuz istemci uygulamaları aracılığıyla oluşturur SDK deposu. Bir merkezi erişim denetimi mekanizması Azure Active Directory'yi kullanarak anahtar avantajları şunlardır:
 
 * Basitleştirilmiş kimlik yaşam döngüsü yönetimi. Bir kullanıcı veya hizmet (bir hizmet asıl kimliği) kimliğini hızlı bir şekilde oluşturulur ve yalnızca silme veya hesabın dizinde devre dışı bırakarak hızlı bir şekilde iptal edildi.
-* Çok faktörlü kimlik doğrulaması. [Çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md) kullanıcı oturum açmaları ve işlemleri için ek bir güvenlik katmanı sağlar.
+* Çok öğeli kimlik doğrulama. [Çok faktörlü kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication.md) kullanıcı oturum açmaları ve işlemleri için ek bir güvenlik katmanı sağlar.
 * OAuth veya Openıd gibi standart bir açık protokolü aracılığıyla herhangi bir istemciden kimlik doğrulaması.
 * Kurumsal Dizin Hizmetleri ve bulut kimlik sağlayıcıları ile Federasyon.
 
@@ -54,7 +54,7 @@ Hesap yönetimi için rolleri atanmış rağmen bazı roller verilere erişim et
 
 | Roller | Yönetim hakları | Veri erişim hakları | Açıklama |
 | --- | --- | --- | --- |
-| Atanmış bir role yok |None |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
+| Atanmış bir role yok |Hiçbiri |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
 | Sahip |Tümü |Tümü |Süper kullanıcı sahibi rolüdür. Bu rolü her şeyi yönetebilir ve veri tam erişimi vardır. |
 | Okuyucu |Salt okunur |ACL ile yönetilen |Okuyucu rolüne hangi role atanmış kullanıcı gibi hesap yönetimi ile ilgili her şeyi görüntüleyebilir. Okuyucu rolüne değişiklik yapamazsınız. |
 | Katılımcı |Tüm ekleme ve kaldırma rolleri dışında |ACL ile yönetilen |Katkıda bulunan rolü dağıtımları ve oluşturma ve Uyarıları yönetme gibi bir hesap, bazı yönlerini yönetebilirsiniz. Katkıda bulunan rolü ekleme veya rollerini kaldırın. |
@@ -65,7 +65,7 @@ Yönergeler için bkz: [Data Lake Store hesapları için kullanıcıların veya 
 ### <a name="using-acls-for-operations-on-file-systems"></a>ACL'leri kullanarak dosya sistemi işlemleri
 Data Lake Store olan hiyerarşik dosya sistemi gibi Hadoop dağıtılmış dosya sistemi (HDFS) ve onu destekleyen [POSIX ACL'leri](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Okuma (r) denetimleri, yazma (w) ve yürütme (x) kaynaklara sahip rolünü, sahipleri grup ve diğer kullanıcılar ve gruplar için izinleri. Data Lake Store Public Preview’da (geçerli sürüm), ACL’ler kök klasörde, alt klasörlerde ve tek tek dosyalarda etkinleştirilebilir. Data Lake Store bağlanımda ACL’lerin nasıl çalıştığı üzerine daha fazla bilgi için bkz. [Data Lake Store’da erişim denetimi](data-lake-store-access-control.md).
 
-ACL'leri kullanarak birden çok kullanıcı için tanımladığınız öneririz [güvenlik grupları](../active-directory/active-directory-accessmanagement-manage-groups.md). Kullanıcılar bir güvenlik grubuna ekleyin ve bir dosya veya klasör için ACL'leri bu güvenlik grubuna atayın. En fazla dokuz girişleri özel erişim için ekleme ile sınırlı olduğundan, özel erişim sağlamak istediğinizde kullanışlıdır. Daha iyi Azure Active Directory güvenlik gruplarını kullanarak Data Lake Store'da depolanan verilerin güvenliğini sağlama hakkında daha fazla bilgi için bkz: [ACL'ler kullanıcılar veya güvenlik grubu için Azure Data Lake Store dosya sistemi atamak](data-lake-store-secure-data.md#filepermissions).
+ACL'leri kullanarak birden çok kullanıcı için tanımladığınız öneririz [güvenlik grupları](../active-directory/active-directory-groups-create-azure-portal.md). Kullanıcılar bir güvenlik grubuna ekleyin ve bir dosya veya klasör için ACL'leri bu güvenlik grubuna atayın. En fazla dokuz girişleri özel erişim için ekleme ile sınırlı olduğundan, özel erişim sağlamak istediğinizde kullanışlıdır. Daha iyi Azure Active Directory güvenlik gruplarını kullanarak Data Lake Store'da depolanan verilerin güvenliğini sağlama hakkında daha fazla bilgi için bkz: [ACL'ler kullanıcılar veya güvenlik grubu için Azure Data Lake Store dosya sistemi atamak](data-lake-store-secure-data.md#filepermissions).
 
 ![Liste standart ve özel erişim](./media/data-lake-store-security-overview/adl.acl.2.png "listesinde standart ve özel erişim")
 
@@ -74,7 +74,7 @@ Kullanım Data Lake veri deponuza ağ düzeyinde erişimi denetlemeye yardımcı
 
 ![Güvenlik Duvarı ayarları ve IP erişim](./media/data-lake-store-security-overview/firewall-ip-access.png "Güvenlik Duvarı ayarları ve IP adresi")
 
-## <a name="data-protection"></a>Veri koruma
+## <a name="data-protection"></a>Veri koruması
 Azure Data Lake Store yaşam döngüsü boyunca verilerinizi korur. Aktarımdaki verileri için Data Lake Store, ağ üzerinden veri güvenliğini sağlamak için endüstri standardı Aktarım Katmanı Güvenliği (TLS) protokolünü kullanır.
 
 ![Data Lake Store'da şifreleme](./media/data-lake-store-security-overview/adls-encryption.png "Data Lake Store'da şifreleme")

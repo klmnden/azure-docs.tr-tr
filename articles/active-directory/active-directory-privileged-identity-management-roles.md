@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c20aca4202319154b01d6398570f745636120f49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM farklı yönetim rolü
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -29,7 +29,7 @@ Azure AD'de farklı yönetim rolleri, kuruluşunuzdaki kullanıcılar atayabilir
 > [!IMPORTANT]
 > Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor.
 
-Genel yönetici olan kullanıcılar güncelleştirebilirsiniz **kalıcı olarak** PowerShell cmdlet'lerini kullanarak Azure AD'de rol atanmış `Add-MsolRoleMember` ve `Remove-MsolRoleMember`, ya da açıklandığı gibi Klasik portal üzerinden [ Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles.md).
+Genel yönetici olan kullanıcılar güncelleştirebilirsiniz **kalıcı olarak** PowerShell cmdlet'lerini kullanarak Azure AD'de rol atanmış `Add-MsolRoleMember` ve `Remove-MsolRoleMember`, ya da açıklandığı gibi Klasik portal üzerinden [ Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management (PIM) Azure AD'de kullanıcıları için ayrıcalıklı erişim ilkelerini yönetir. PIM kullanıcılar için bir veya daha fazla rol Azure AD'de atar ve kalıcı olarak rolünü veya rol için uygun olması birine atayın. Ne zaman bir kullanıcı bir role kalıcı olarak atanmış veya Azure Active Directory, Office 365 ve diğer uygulamalar rollerine atanmış izinlerle yönetebilecekleri sonra uygun rol atama etkinleştirir.
 
@@ -53,7 +53,7 @@ Privileged Identity Management kullanıcılar dahil olmak üzere genel yönetici
 * **SharePoint Yöneticisi** SharePoint Online Yönetim Merkezi SharePoint Online yönetim erişimi vardır ve neredeyse her görev SharePoint Online'da gerçekleştirebilirsiniz.
 * **İş Yöneticisi Skype** yönetim Skype kurumsal iş Yönetim Merkezi Skype üzerinden erişimi ve neredeyse her görev Skype Kurumsal çevrimiçi gerçekleştirebilirsiniz.
 
-Daha fazla ayrıntı için bu makaleler okuyun [Azure AD'de yönetici rolleri atama](active-directory-assign-admin-roles.md) ve [Office 365'te yönetici rolleri atama](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Daha fazla ayrıntı için bu makaleler okuyun [Azure AD'de yönetici rolleri atama](active-directory-assign-admin-roles-azure-portal.md) ve [Office 365'te yönetici rolleri atama](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

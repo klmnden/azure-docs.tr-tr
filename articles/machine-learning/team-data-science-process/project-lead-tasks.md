@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: ed3dc8d441989239f02e12231f06d22fbef9d3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe7cf1e6167de7d0dfaa5ed75c0b7f5ec23b18cf
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="project-lead-tasks"></a>Proje sağlama görevleri
 
@@ -42,7 +42,7 @@ Bu öğretici depoları ve dizinleri kısaltılmış adlarını kullanır. Bu ad
 - **D5**: yerel dizin R5 kopyalanabilir.
 
 
-## <a name="0-prerequisites"></a>0. Ön koşullar
+## <a name="0-prerequisites"></a>0. Önkoşullar
 
 Özetlenen, Grup Yöneticisi atanan görevleri tamamlayarak önkoşullara uyduğunuzdan [grup yöneticisi görevleri için bir veri bilimi ekibi](group-manager-tasks.md) ve için özetlenen sağlama takım [veri bilimi ekibinEkipsağlamagörevleri](team-lead-tasks.md). 
 
