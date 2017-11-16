@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
-ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1ed4fab00d5304a25d28149e2ce9adcc3168fd
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: Kullanıcı rolü ekleme ve kaldırma
-Azure Active Directory (AD ile), bir genel yönetici (veya şirket Yöneticisi) kullanıcıları olan güncelleştirebilirsiniz **kalıcı olarak** Azure AD'de rollerine atanmış. Bu PowerShell cmdlet'leri gibi gerçekleştirilir `Add-MsolRoleMember` ve `Remove-MsolRoleMember`. Ya da açıklandığı gibi Klasik Azure portalını kullanabilirsiniz [Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles.md).
+# <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management: Kullanıcı rolü ekleme veya kaldırma
+Azure Active Directory (AD ile), bir genel yönetici (veya şirket Yöneticisi) kullanıcıları olan güncelleştirebilirsiniz **kalıcı olarak** Azure AD'de rollerine atanmış. Bu PowerShell cmdlet'leri gibi gerçekleştirilir `Add-MsolRoleMember` ve `Remove-MsolRoleMember`. Ya da açıklandığı gibi Klasik Azure portalını kullanabilirsiniz [Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles-azure-portal.md).
 
 Azure AD Privileged Identity Management uygulaması kalıcı rol atamaları, de yapmak ayrıcalıklı rol yöneticilerinin sağlar. Ayrıca, ayrıcalıklı rol Yöneticiler kullanıcılar yapabilir **uygun** yönetici rolleri. Uygun bir yönetici rolü ihtiyaç duydukları ve bunlar bitirdiğinizde izinlerini sona etkinleştirebilirsiniz.
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: e56c9e74c3413f8780295678273ea2ba06caad77
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 97d344fd31d711454f3e4aa251361b86351cc283
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="heading"></a>Örnek verileri Azure blob kapsayıcılar, SQL Server'ı ve tabloları Hive
-Üç farklı Azure konumlardan birinde depolanan verileri örnek nasıl kapsayan bu belge konulara bağlantılar:
+Bu belge bağlantılar üç farklı Azure konumlardan birinde depolanan verileri örnek konularını makaleler için:
 
 * **Azure blob kapsayıcı verileri** programlı olarak karşıdan yükleyip örnek Python kodu ile örnekleme örneklenen.
 * **SQL Server verilerini** SQL ve Python programlama dili kullanılarak örneklenen. 

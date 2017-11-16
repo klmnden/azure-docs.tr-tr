@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Tasarım kavramları
 Azure AD Connect uygulama tasarımı sırasında zorlayıcı alanları tanımlamak için bu konunun amacı budur. Bu konuda derinlemesine belirli alanlara ise ve bu kavramları diğer konularında kısaca açıklanmıştır.
@@ -172,7 +172,7 @@ ConsistencyGuid özelliği etkinleştirilmiş Azure AD Connect dağıttıysanız
 
 ![Yeni dizinler için var olan dağıtım ekleme](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 
-## <a name="azure-ad-sign-in"></a>Azure AD oturum açma
+## <a name="azure-ad-sign-in"></a>Azure AD'de oturum açma
 Şirket içi dizininizi Azure AD ile tümleştirme sırasında önemlidir şekilde kullanıcı eşitleme ayarlarını nasıl etkileyebileceğini anlaması için kimliğini doğrular. Azure AD, kullanıcının kimliğini doğrulamak için userPrincipalName (UPN) kullanır. Ancak, kullanıcılarınızın eşitlediğinizde, userPrincipalName değeri için dikkatle kullanılacak öznitelik seçmeniz gerekir.
 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>UserPrincipalName özniteliği seçme
@@ -191,7 +191,7 @@ John, contoso.com ormanındaki bir kullanıcıdır. Şirket içi UPN kullanmak i
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Yönlendirilebilir olmayan şirket içi etki alanları ve Azure AD için UPN
 Bazı kuruluşlar contoso.local veya contoso gibi basit tek etiketli etki alanları gibi yönlendirilebilir olmayan etki alanları sahiptir. Azure AD'de yönlendirilemeyen bir etki alanını doğrulamak mümkün değildir. Azure AD Connect yalnızca bir doğrulanmış etki alanı için Azure AD'ye eşitleyebilirsiniz. Azure AD dizini oluşturduğunuzda, örneğin, contoso.onmicrosoft.com Azure AD için varsayılan etki alanı haline gelir yönlendirilebilir bir etki alanı oluşturur. Bu nedenle, diğer yönlendirilebilir etki alanında böyle bir senaryo için varsayılan onmicrosoft.com etki alanı eşitleme istemediğiniz durumda doğrulamak gerekli olur.
 
-Okuma [özel etki alanı adınızı Azure Active Directory'ye ekleme](../active-directory-add-domain.md) ekleme ve etki alanı doğrulama hakkında daha fazla bilgi için.
+Okuma [özel etki alanı adınızı Azure Active Directory'ye ekleme](../active-directory-domains-add-azure-portal.md) ekleme ve etki alanı doğrulama hakkında daha fazla bilgi için.
 
 Azure AD Connect yönlendirilebilir olmayan etki alanı ortamında çalıştırıyorsanız ve uygun şekilde express ayarlarla devam giderek uyar algılar. Yönlendirilemeyen bir etki alanında çalışıyorsanız, ardından bu kullanıcıların UPN yönlendirilemeyen sonekleri çok olabilir. Örneğin, contoso.local altında çalıştırıyorsanız, Azure AD Connect hızlı ayarları kullanarak yerine özel ayarlar kullanmanızı önerir. Özel ayarlarını kullanarak, kullanıcıların Azure AD ile eşitlenir sonra Azure'da oturum açmak için UPN kullanılması gereken özniteliği belirtebilirsiniz.
 

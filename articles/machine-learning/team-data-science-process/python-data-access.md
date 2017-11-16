@@ -4,7 +4,7 @@ description: "Yükleyin ve Python istemci kitaplığı erişmek ve Azure Machine
 services: machine-learning
 documentationcenter: python
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: huvalo;bradsev
-ms.openlocfilehash: 104999f3e667457892efb76a32123f8d64a8ffc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cffb90baadef570bbb7e4e2d96741cc0420b0a2
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python istemci kitaplığını kullanarak Python ile veri kümelerine erişim
 Microsoft Azure Machine Learning Python istemci kitaplığı önizlemesini güvenli erişim Azure Machine Learning veri kümeleriniz için bir yerel Python ortamından etkinleştirebilir ve oluşturulması ve bir çalışma alanı kümelerinde yönetimi sağlar.
@@ -40,7 +40,7 @@ Python istemci kitaplığı altında aşağıdaki ortamları test edilmiştir:
 
 Bunu, aşağıdaki paketleri bir bağımlılığa sahiptir:
 
-* istekleri
+* istek
 * Python dateutil
 * pandas
 
@@ -144,7 +144,7 @@ Aşağıdaki adımlar, bir deneme oluşturur, çalıştırır ve Ara dataset eri
     ![Çubuk grafik][ipython-histogram]
 
 ## <a name="clientApis"></a>Erişim, okuma, oluşturma ve veri kümelerini yönetmek için makine öğrenme Python istemci kitaplığını kullanma
-### <a name="workspace"></a>Çalışma alanı
+### <a name="workspace"></a>Çalışma Alanı
 Çalışma alanı Python istemci kitaplığı için giriş noktasıdır. Sağlamak `Workspace` sınıfı çalışma alanı kimliği ve yetkilendirme belirteci örnek oluşturmak için:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
@@ -176,7 +176,7 @@ Ya da dizin tarafından erişebilirsiniz:
     ds = ws.datasets[0]
 
 
-### <a name="metadata"></a>Meta Veriler
+### <a name="metadata"></a>Meta veriler
 Veri kümeleri içerik yanı sıra meta veriler bulunur. (Ara veri kümeleri bu kural için bir özel durumdur ve meta verileri yok.)
 
 Bazı meta veri değerleri, oluşturma sırasında kullanıcı tarafından atanır:

@@ -4,7 +4,7 @@ description: "StorSimple sanal dizinin dağıtım serisi ikinci Bu öğreticide,
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple sanal dizinin - VMware sağlama dağıtma
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici, sağlamak ve bir StorSimple sanal dizinin VMware ESXi 5.5 çalıştıran bir konak sistemi ve üstü bağlanmak açıklar. Bu makale, Azure portalı ve Microsoft Azure kamu bulut StorSimple sanal diziler dağıtımda için geçerlidir.
+Bu öğretici, sağlamak ve bir StorSimple sanal dizi VMware ESXi 5.0, 5.5 veya 6.0 çalıştıran bir ana bilgisayar sistemine bağlanmak açıklar. Bu makale, Azure portalı ve Microsoft Azure kamu bulut StorSimple sanal diziler dağıtımda için geçerlidir.
 
 Sanal cihaza bağlanmak ve sağlamak için yönetici ayrıcalıkları gerekir. Sağlama ve ilk kurulumu tamamlamak için yaklaşık 10 dakika sürebilir.
 
 ## <a name="provisioning-prerequisites"></a>Sağlama önkoşulları
-VMware ESXi 5.5 çalıştıran bir konak sistemi ve üstü, sanal cihazı sağlamak için gereken önkoşullar aşağıdaki gibidir.
+Sanal cihazı VMware ESXi 5.0, 5.5 veya 6.0, çalışan bir konak sisteminde sağlamak için gereken önkoşullar aşağıdaki gibidir.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>StorSimple Cihaz Yöneticisi hizmeti için
 Başlamadan önce aşağıdakilerden emin olun:
@@ -64,7 +64,7 @@ Sağlamak ve bir sanal cihaza bağlanmak için aşağıdaki adımları gerçekle
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>1. adım: ana bilgisayar sistemi minimum sanal cihaz gereksinimlerini karşıladığından emin olun.
 Sanal cihazı oluşturmak için ihtiyacınız:
 
-* VMware ESXi Server 5.5 çalıştıran bir konak sistemi ve üstü erişim.
+* VMware ESXi Server 5.0, 5.5 veya 6.0 çalıştıran bir ana bilgisayar sistemine erişim.
 * ESXi konağı yönetebilmesi için VMware vSphere istemci sisteminizdeki.
 
   * 4 çekirdek en az.
@@ -183,6 +183,9 @@ Sanal cihazı, hipervizörde sağlamak için aşağıdaki adımları gerçekleş
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 Sanal makineniz şimdi sağlanır. Bu makinede güç ve IP adresi almak için sonraki adımdır bakın.
+
+> [!NOTE]
+> VMware araçları sanal dizinizi (yukarıda sağlanan gibi) yüklememenizi öneririz. VMware Araçları'nın yüklenmesini desteklenmeyen bir yapılandırmada neden olur.
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3. adım: sanal cihaz başlatın ve IP Al
 Sanal cihazınız başlatmak ve buna bağlanmak için aşağıdaki adımları gerçekleştirin.

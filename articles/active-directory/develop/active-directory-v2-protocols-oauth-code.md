@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/12/2017
 ---
-# v2.0 protokolleri - OAuth 2.0 yetkilendirme kodu akışı
+# <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokolleri - OAuth 2.0 yetkilendirme kodu akışı
 OAuth 2.0 yetkilendirme kodu verme web API'leri gibi korunan kaynakları erişim kazanmak için bir aygıtta yüklü uygulamalar kullanılabilir.  Uygulama modeli v2.0 's uygulamayı OAuth 2.0 kullanarak oturum açın ve API erişmek için mobil ve Masaüstü uygulamalarınızı ekleyebilirsiniz.  Bu kılavuzda dilden bağımsızdır ve bizim açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklar.
 
 > [!NOTE]
@@ -31,12 +31,12 @@ OAuth 2.0 yetkilendirme kodu verme web API'leri gibi korunan kaynakları erişim
 
 OAuth 2.0 yetkilendirme kodu akışını içinde açıklanan [4.1 OAuth 2.0 belirtimi bölüm](http://tools.ietf.org/html/rfc6749).  Kimlik doğrulama ve yetkilendirme dahil olmak üzere uygulama türleri çoğunu gerçekleştirmeniz için kullanılan [web uygulamaları](active-directory-v2-flows.md#web-apps) ve [uygulamaları'yerel olarak yüklenen](active-directory-v2-flows.md#mobile-and-native-apps).  Güvenli bir şekilde v2.0 uç noktası kullanılarak güvenlik altına kaynaklara erişmek için kullanılan access_tokens edinmeye uygulamaları etkinleştirir.  
 
-## Protokol diyagramı
+## <a name="protocol-diagram"></a>Protokol diyagramı
 Yerel/mobil uygulama için tüm kimlik doğrulama akışı, yüksek düzeyde, şöyle bir bit görünür:
 
 ![OAuth kimlik doğrulama kodu akışı](../../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-## İstek bir kimlik doğrulama kodu
+## <a name="request-an-authorization-code"></a>İstek bir kimlik doğrulama kodu
 Yetkilendirme kodu akışını kullanıcıya yönlendirerek istemci ile başlayan `/authorize` uç noktası.  Bu istekte istemci kullanıcıdan almak için gereken izinleri gösterir:
 
 ```
@@ -74,7 +74,7 @@ Bu noktada, kullanıcı kimlik bilgilerini girin ve kimlik doğrulamasını tama
 
 Kullanıcı kimliğini doğrular ve izin veren sonra v2.0 uç noktası belirtilen uygulamanızı yanıt döndürülecek `redirect_uri`, bölümünde belirtilen yöntemi kullanarak `response_mode` parametresi.
 
-#### Başarılı yanıt
+#### <a name="successful-response"></a>Başarılı yanıt
 Başarılı yanıt kullanarak `response_mode=query` gibi görünüyor:
 
 ```
@@ -88,7 +88,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 | Kod |Uygulama istenen authorization_code. Uygulama, hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz.  Authorization_codes çok kısa süreli, genellikle bu, yaklaşık 10 dakika sonra süresi dolacak. |
 | durum |İstekte bir durum parametresi eklenirse, aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
-#### Hata yanıtı
+#### <a name="error-response"></a>Hata yanıtı
 Hata yanıtları da gönderilebilir için `redirect_uri` uygulama bunları uygun şekilde işleyebilmesi için:
 
 ```
@@ -102,7 +102,7 @@ error=access_denied
 | error |Oluşan hataları türlerini sınıflandırmak için kullanılan ve hataları tepki vermek için kullanılan bir hata kodu dizesi. |
 | error_description |Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi. |
 
-#### Yetkilendirme uç noktası hataları için hata kodları
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Yetkilendirme uç noktası hataları için hata kodları
 Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `error` hata yanıtı parametresi.
 
 | Hata kodu | Açıklama | İstemci eylemi |
@@ -115,7 +115,7 @@ Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `
 | temporarily_unavailable |Sunucunun geçici olarak istek işlemek için çok meşgul. |İsteği yeniden deneyin. İstemci uygulaması yanıt geçici bir durum gecikti kullanıcıya açıklayabilir. |
 | invalid_resource |Hedef kaynak mevcut değil, Azure AD, bulunamıyor veya düzgün yapılandırılmamış olduğundan geçerli değil. |Bu, varsa, kaynak kiracısında yapılandırılmadı gösterir. Uygulama yönerge Azure AD'ye ekleme ve uygulama yükleme için kullanıcıya sor |
 
-## İstek bir erişim belirteci
+## <a name="request-an-access-token"></a>İstek bir erişim belirteci
 Bir authorization_code edindiğiniz ve kullanıcı tarafından izin verilen göre kullanmak `code` için bir `access_token` göndererek istenen kaynak için bir `POST` isteği `/token` uç noktası:
 
 ```
@@ -148,7 +148,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Gerekli |Authorization_code almak için kullanılan aynı redirect_uri değer. |
 | client_secret |Web uygulamaları için gerekli |Uygulamanız için uygulama kayıt Portalı'nda oluşturulan uygulama gizli anahtarı.  Client_secrets güvenilir bir şekilde cihazlarda depolanamaz çünkü yerel bir uygulamada kullanılmamalıdır.  Web uygulamaları ve web sunucu tarafında client_secret güvenli bir şekilde saklayın olanağına sahip API'leri için gereklidir. |
 
-#### Başarılı yanıt
+#### <a name="successful-response"></a>Başarılı yanıt
 Başarılı bir token yanıt gibi görünür:
 
 ```
@@ -169,7 +169,7 @@ Başarılı bir token yanıt gibi görünür:
 | Kapsam |Access_token için geçerli olan kapsamlar. |
 | refresh_token |Bir OAuth 2.0 yenileme belirteci. Uygulama bu belirteci kullanabilirsiniz geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçleri almak.  Refresh_tokens uzun süreli ve uzun süre için kaynaklara erişimi korumak için kullanılır.  Daha fazla ayrıntı için bkz [v2.0 belirteç başvurusu](active-directory-v2-tokens.md). <br> **Not:** yalnızca sağlanan IF `offline_access` kapsam istendi. |
 | id_token |Bir imzasız JSON Web Token (JWT). Uygulama can base64Url bu belirteç için oturum kullanıcı hakkında bilgi parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüler, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için güvenmemelisiniz.  İd_tokens hakkında daha fazla bilgi için bkz: [v2.0 uç noktası belirteç başvurusu](active-directory-v2-tokens.md). <br> **Not:** yalnızca sağlanan IF `openid` kapsam istendi. |
-#### Hata yanıtı
+#### <a name="error-response"></a>Hata yanıtı
 Hata yanıtları gibi görünür:
 
 ```
@@ -194,7 +194,7 @@ Hata yanıtları gibi görünür:
 | trace_id |Tanılamada yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
 | correlation_id |Tanılamada bileşenlerinde yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
 
-#### Belirteç uç noktası hataları için hata kodları
+#### <a name="error-codes-for-token-endpoint-errors"></a>Belirteç uç noktası hataları için hata kodları
 | Hata kodu | Açıklama | İstemci eylemi |
 | --- | --- | --- |
 | invalid_request |Eksik gerekli parametre gibi protokol hatası. |Düzeltin ve isteği yeniden gönderin |
@@ -206,7 +206,7 @@ Hata yanıtları gibi görünür:
 | interaction_required |İstek kullanıcı etkileşimi gerektirir. Örneğin, bir ek kimlik doğrulama adım gereklidir. |Aynı kaynak isteği yeniden deneyin. |
 | temporarily_unavailable |Sunucunun geçici olarak istek işlemek için çok meşgul. |İsteği yeniden deneyin. İstemci uygulaması yanıt geçici bir durum gecikti kullanıcıya açıklayabilir. |
 
-## Erişim belirteci kullanın
+## <a name="use-the-access-token"></a>Erişim belirteci kullanın
 Başarıyla edindiğiniz göre bir `access_token`, belirteç isteklerini Web API'lerine dahil ederek kullanabileceğiniz `Authorization` üstbilgisi:
 
 > [!TIP]
@@ -220,7 +220,7 @@ Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## Erişim belirteci Yenile
+## <a name="refresh-the-access-token"></a>Erişim belirteci Yenile
 Access_tokens kısa süreli ve kaynaklara erişmeye devam etmek için parolalarının süresi dolduktan sonra bunları yenilemeniz gerekir.  Başka bir göndererek yapabilirsiniz `POST` isteği `/token` uç nokta, bu sefer sağlanması `refresh_token` yerine `code`:
 
 ```
@@ -253,7 +253,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Gerekli |Authorization_code almak için kullanılan aynı redirect_uri değer. |
 | client_secret |Web uygulamaları için gerekli |Uygulamanız için uygulama kayıt Portalı'nda oluşturulan uygulama gizli anahtarı.  Client_secrets güvenilir bir şekilde cihazlarda depolanamaz çünkü yerel bir uygulamada kullanılmamalıdır.  Web uygulamaları ve web sunucu tarafında client_secret güvenli bir şekilde saklayın olanağına sahip API'leri için gereklidir. |
 
-#### Başarılı yanıt
+#### <a name="successful-response"></a>Başarılı yanıt
 Başarılı bir token yanıt gibi görünür:
 
 ```
@@ -275,7 +275,7 @@ Başarılı bir token yanıt gibi görünür:
 | refresh_token |Yeni bir OAuth 2.0 yenileme belirteci. Eski yenileme belirtecini yenileme belirteçleri mümkün olduğunca uzun bir süredir geçerli kalmasını sağlamak için bu yeni alınan yenileme belirteci ile değiştirmeniz gerekir. <br> **Not:** yalnızca sağlanan IF `offline_access` kapsam istendi. |
 | id_token |Bir imzasız JSON Web Token (JWT). Uygulama can base64Url bu belirteç için oturum kullanıcı hakkında bilgi parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüler, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için güvenmemelisiniz.  İd_tokens hakkında daha fazla bilgi için bkz: [v2.0 uç noktası belirteç başvurusu](active-directory-v2-tokens.md). <br> **Not:** yalnızca sağlanan IF `openid` kapsam istendi. |
 
-#### Hata yanıtı
+#### <a name="error-response"></a>Hata yanıtı
 ```
 {
   "error": "invalid_scope",

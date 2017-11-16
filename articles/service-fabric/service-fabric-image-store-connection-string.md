@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: alexwun
-ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 723cf7d98022e8bbb4f1e3c8c0836a4c53c6a078
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>ImageStoreConnectionString ayarı anlama
 
@@ -44,7 +44,7 @@ Bir sistem hizmeti küme içindeki görüntü deposunda barındırma paket depos
 
 Dosya sistemi sağlayıcısı görüntü Deposu hizmetini yerine yerel bir kutusunu kümeleri için geliştirme sırasında küme biraz daha hızlı bootstrap için kullanılır. Fark genellikle küçük, ancak çoğu terimleri için yararlı bir iyileştirme geliştirme sırasında gelir. Diğer türleriyle depolama sağlayıcısı da yerel bir çalıştırma küme dağıtmak mümkündür, ancak genellikle geliştirme ve test iş akışı sağlayıcısı bakılmaksızın aynı kalır olduğundan Bunu yapmak için bir neden yoktur. Bu kullanım dışında dosya sistemi ve Azure depolama sağlayıcıları için eski destek yalnızca mevcut.
 
-ImageStoreConnectionString yapılandırılabilir olsa da, bu nedenle, genellikle yalnızca varsayılan ayarı kullanın. Azure üzerinden yayımlarken [Visual Studio][12], parametre otomatik olarak sizin için uygun şekilde ayarlanır. Azure üzerinde barındırılan kümeleri için programlı dağıtımı için bağlantı dizesi her zaman "fabric: görüntü" dir. Şüpheli zaman değeri her zaman küme bildirimi tarafından alarak doğrulanabilir olsa [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), veya [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Her iki şirket içi test ve üretim kümelerine her zaman görüntü deposu hizmet sağlayıcısı de kullanmak için yapılandırılmış olması gerekir.
+ImageStoreConnectionString yapılandırılabilir olsa da, bu nedenle, genellikle yalnızca varsayılan ayarı kullanın. Visual Studio üzerinden Azure yayımlarken parametresi otomatik olarak sizin için uygun şekilde ayarlanır. Azure üzerinde barındırılan kümeleri için programlı dağıtımı için bağlantı dizesi her zaman "fabric: görüntü" dir. Şüpheli zaman değeri her zaman küme bildirimi tarafından alarak doğrulanabilir olsa [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), veya [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Her iki şirket içi test ve üretim kümelerine her zaman görüntü deposu hizmet sağlayıcısı de kullanmak için yapılandırılmış olması gerekir.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 [Dağıtma ve PowerShell kullanarak uygulamaları kaldırma][10]
@@ -55,4 +55,4 @@ ImageStoreConnectionString yapılandırılabilir olsa da, bu nedenle, genellikle
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-[12]: service-fabric-publish-app-remote-cluster.md
+

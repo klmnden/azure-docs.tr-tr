@@ -21,19 +21,19 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-# OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
+# <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
 Web uygulamaları ve web Apı'lerinize Azure AD kiracınıza erişim yetkisi vermek etkinleştirmek için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuzda dilden bağımsızdır ve bizim açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklar.
 
 OAuth 2.0 yetkilendirme kodu akışını açıklanan [4.1 OAuth 2.0 belirtimi bölüm](https://tools.ietf.org/html/rfc6749#section-4.1). Web uygulamaları dahil olmak üzere birçok uygulama türü, kimlik doğrulama ve yetkilendirme gerçekleştirmek için kullanılır ve yerel olarak yüklü uygulamalar.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
-## OAuth 2.0 yetkilendirme akışı
+## <a name="oauth-20-authorization-flow"></a>OAuth 2.0 yetkilendirme akışı
 Yüksek bir düzeyde bir uygulama için tüm yetkilendirme akışı biraz şöyle:
 
 ![OAuth kimlik doğrulama kodu akışı](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
-## İstek bir kimlik doğrulama kodu
+## <a name="request-an-authorization-code"></a>İstek bir kimlik doğrulama kodu
 Yetkilendirme kodu akışını kullanıcıya yönlendirerek istemci ile başlayan `/authorize` uç noktası. Bu istekte istemcisi kullanıcıdan almak için gerekli olan izinleri belirtir. OAuth 2.0 uç noktaları Klasik Azure portalı, uygulamanızın sayfasından içinde alabileceğiniz **uç noktalarını görüntüle** düğmesini alt bölümü.
 
 ```
@@ -68,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 Bu noktada, kullanıcı kimlik bilgilerini girin ve belirtilen izinler için izin istenir `scope` sorgu parametresi. Kullanıcı kimliğini doğrular ve izin veren sonra Azure AD uygulamanızı yanıt gönderir `redirect_uri` isteğiniz adresi.
 
-### Başarılı yanıt
+### <a name="successful-response"></a>Başarılı yanıt
 Başarılı yanıt şöyle:
 
 ```
@@ -83,7 +83,7 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | session_state |Geçerli kullanıcı oturumunu tanımlayan benzersiz bir değerdir. Bu değer bir GUID olduğundan ancak İnceleme geçirilen genel olmayan bir değer olarak değerlendirilmelidir. |
 | durum |İstekte bir durum parametresi eklenirse, aynı değeri yanıt olarak görünmelidir. Yanıt kullanmadan önce istek ve yanıt durum değerleri özdeş olduğunu doğrulamak uygulama için iyi bir uygulamadır. Bu algılamaya yardımcı olur [siteler arası istek sahteciliği (CSRF) saldırılarını](https://tools.ietf.org/html/rfc6749#section-10.12) istemci karşı. |
 
-### Hata yanıtı
+### <a name="error-response"></a>Hata yanıtı
 Hata yanıtları da gönderilebilir için `redirect_uri` böylece uygulama bunları uygun şekilde işleyebilir.
 
 ```
@@ -98,7 +98,7 @@ error=access_denied
 | error_description |Hatanın ayrıntılı bir açıklaması. Bu ileti olması amaçlanmamıştır son kullanıcı dostu. |
 | durum |Durum değeri istekte gönderilen ve siteler arası istek sahtekarlığı (CSRF) saldırılarını önlemek için yanıtta döndürülen bir rastgele oluşturulmuş yeniden olmayan değerdir. |
 
-#### Yetkilendirme uç noktası hataları için hata kodları
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Yetkilendirme uç noktası hataları için hata kodları
 Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `error` hata yanıtı parametresi.
 
 | Hata kodu | Açıklama | İstemci eylemi |
@@ -111,7 +111,7 @@ Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `
 | temporarily_unavailable |Sunucunun geçici olarak istek işlemek için çok meşgul. |İsteği yeniden deneyin. İstemci uygulaması yanıt geçici bir koşul nedeniyle gecikti kullanıcıya açıklayabilir. |
 | invalid_resource |Hedef kaynak mevcut değil, Azure AD, bulunamıyor veya düzgün yapılandırılmamış olduğundan geçerli değil. |Bu, varsa, kaynak kiracısında yapılandırılmadı gösterir. Uygulama yönerge Azure AD'ye ekleme ve uygulama yükleme için kullanıcıya sor |
 
-## Bir erişim belirteci istemek için yetkilendirme kodu kullanın
+## <a name="use-the-authorization-code-to-request-an-access-token"></a>Bir erişim belirteci istemek için yetkilendirme kodu kullanın
 Bir yetkilendirme kodu edindiğiniz ve kullanıcı tarafından izin verilen göre bir POST isteği göndererek istenen kaynak için bir erişim belirteci kodunu kullanmak `/token` uç noktası:
 
 ```
@@ -142,7 +142,7 @@ grant_type=authorization_code
 
 Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama'yı tıklatın ve ardından **yapılandırma**.
 
-### Başarılı yanıt
+### <a name="successful-response"></a>Başarılı yanıt
 Azure AD, bir erişim belirteci üzerine başarılı bir yanıt döndürür. Ağ çağrılarından istemci uygulaması ve bunların ilişkili gecikme süresi en aza indirmek için istemci uygulaması erişim belirteçleri OAuth 2.0 yanıt olarak belirtilen belirteç ömrü için önbelleğe. Belirteç ömrü belirlemek için kullanın ya da `expires_in` veya `expires_on` parametre değerleri.
 
 Bir web API kaynak döndürürse bir `invalid_token` hata kodu, bu gösterebilir kaynak belirtecin süresinin dolduğunu algıladı. İstemci ve kaynak saatleri farklı (bir "saat eğriltme" olarak bilinir) varsa, kaynak belirteci istemci önbelleğinden temizlenmeden önce süresinin belirteç düşünebilirsiniz. Bu meydana gelirse, hala hesaplanan yaşam süresi içinde olsa bile, önbellekten belirteç temizleyin.
@@ -174,7 +174,7 @@ Başarılı yanıt şöyle:
 | refresh_token |Bir OAuth 2.0 yenileme belirteci. Uygulama geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçleri almak için bu belirteci kullanabilirsiniz.  Yenileme belirteçleri uzun süreli ve uzun süre için kaynaklara erişimi korumak için kullanılabilir. |
 | id_token |Bir imzasız JSON Web Token (JWT). Uygulama can base64Url bu belirteç için oturum kullanıcı hakkında bilgi parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüler, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için güvenmemelisiniz. |
 
-### JWT belirteci talepleri
+### <a name="jwt-token-claims"></a>JWT belirteci talepleri
 JWT belirteci değeri `id_token` parametresi aşağıdaki taleplerine kodu:
 
 ```
@@ -219,7 +219,7 @@ JSON web belirteçlerini hakkında daha fazla bilgi için bkz: [JWT IETF taslak 
 | UPN |Kullanıcının kullanıcı asıl adı. |
 | ver |Sürüm. JWT belirteci, genellikle 1.0 sürümü. |
 
-### Hata yanıtı
+### <a name="error-response"></a>Hata yanıtı
 Belirteç verme uç nokta hataları HTTP hata kodları, olduklarından istemci belirteci verme uç noktası doğrudan çağırır. HTTP durum kodu ek olarak, Azure AD belirteci verme endpoint de hatayı açıklayan nesnelerinin ile bir JSON belgesini döndürür.
 
 Bir örnek hata yanıtı şuna:
@@ -246,7 +246,7 @@ Bir örnek hata yanıtı şuna:
 | trace_id |Tanılamada yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
 | correlation_id |Tanılamada bileşenlerinde yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
 
-#### HTTP durum kodları
+#### <a name="http-status-codes"></a>HTTP durum kodları
 Aşağıdaki tabloda, belirteç yayınında son noktasını döndürür HTTP durum kodları listelenmektedir. Bazı durumlarda, hata kodu yanıtı açıklamak yeterli olur, ancak hatalar varsa eşlik eden JSON belgesini ayrıştırma ve hata kodunun incelemek gerekir.
 
 | HTTP kodu | Açıklama |
@@ -256,7 +256,7 @@ Aşağıdaki tabloda, belirteç yayınında son noktasını döndürür HTTP dur
 | 403 |Yetkilendirme başarısız oldu. Örneğin, kullanıcının kaynağa erişim izni yok. |
 | 500 |Hizmeti bir iç hata oluştu. İsteği yeniden deneyin. |
 
-#### Belirteç uç noktası hataları için hata kodları
+#### <a name="error-codes-for-token-endpoint-errors"></a>Belirteç uç noktası hataları için hata kodları
 | Hata kodu | Açıklama | İstemci eylemi |
 | --- | --- | --- |
 | invalid_request |Eksik gerekli parametre gibi protokol hatası. |Düzeltin ve isteği yeniden gönderin |
@@ -268,17 +268,17 @@ Aşağıdaki tabloda, belirteç yayınında son noktasını döndürür HTTP dur
 | interaction_required |İstek kullanıcı etkileşimi gerektirir. Örneğin, bir ek kimlik doğrulama adım gereklidir. | Etkileşimli olmayan bir istek yerine, aynı kaynak için etkileşimli yetkilendirme isteği ile yeniden deneyin. |
 | temporarily_unavailable |Sunucunun geçici olarak istek işlemek için çok meşgul. |İsteği yeniden deneyin. İstemci uygulaması yanıt geçici bir koşul nedeniyle gecikti kullanıcıya açıklayabilir. |
 
-## Kaynağa erişmek için erişim belirteci kullanın
+## <a name="use-the-access-token-to-access-the-resource"></a>Kaynağa erişmek için erişim belirteci kullanın
 Başarıyla edindiğiniz göre bir `access_token`, belirteç Web API ' larını isteklere dahil ederek kullanabileceğiniz `Authorization` üstbilgi. [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) belirtimi taşıyıcı belirteçlerini HTTP isteklerinde korunan kaynaklara erişim için nasıl kullanılacağını açıklar.
 
-### Örnek istek
+### <a name="sample-request"></a>Örnek istek
 ```
 GET /data HTTP/1.1
 Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
-### Hata yanıtı
+### <a name="error-response"></a>Hata yanıtı
 RFC 6750 sorunu HTTP durum kodları uygulamak güvenli kaynaklar. İstek kimlik doğrulama kimlik bilgileri içermiyor ya da belirteci eksik, yanıtı içeren bir `WWW-Authenticate` üstbilgi. Bir isteği başarısız olduğunda, kaynak sunucuda HTTP durum kodu ve bir hata kodu ile yanıt verir.
 
 İstemci isteği taşıyıcı belirteci içermiyor, başarısız bir yanıt örneği verilmiştir:
@@ -288,7 +288,7 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
 ```
 
-#### Hata parametreleri
+#### <a name="error-parameters"></a>Hata parametreleri
 | Parametre | Açıklama |
 | --- | --- |
 | authorization_uri |URI'si (fiziksel uç noktası) yetkilendirme sunucusu. Bu değer, bir bulma uç noktasından sunucusu hakkında daha fazla bilgi için arama anahtarı olarak da kullanılır. <p><p> İstemci yetkilendirme sunucusunun güvenilir olduğunu doğrulamanız gerekir. Kaynak Azure AD tarafından korunuyorsa, URL https://login.microsoftonline.com veya Azure AD destekleyen başka bir ana bilgisayar adı ile başlayan doğrulamak yeterlidir. Bir kiracı özgü kaynak her zaman bir kiracı özel yetkilendirme URI döndürmelidir. |
@@ -296,7 +296,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | error_description |Hatanın ayrıntılı bir açıklaması. Bu ileti olması amaçlanmamıştır son kullanıcı dostu. |
 | resource_id |Kaynak benzersiz tanımlayıcısını döndürür. İstemci uygulaması bu tanımlayıcı değeri olarak kullanabilirsiniz `resource` kaynak için bir belirteç istediğinde parametresi. <p><p> Bu değeri doğrulamak için istemci uygulaması için önemli, aksi takdirde kötü amaçlı bir hizmete anlamına olabilir bir **ayrıcalık yükseltme** saldırısı <p><p> Saldırının engellemek için önerilen doğrulamak için stratejidir `resource_id` erişilen web API'si URL tabanı eşleşen. Örneğin, https://service.contoso.com/data erişilen, `resource_id` htttps://service.contoso.com/ olabilir. İstemci uygulaması Reddet gerekir bir `resource_id` , değil başlamak temel URL ile kimlik doğrulamak için güvenilir bir alternatif yolu değilse. |
 
-#### Taşıyıcı düzeni hata kodları
+#### <a name="bearer-scheme-error-codes"></a>Taşıyıcı düzeni hata kodları
 RFC 6750 belirtimi WWW-Authenticate üstbilgisi ve taşıyıcı düzeni yanıtta kullanan kaynaklar için aşağıdaki hataları tanımlar.
 
 | HTTP durum kodu | Hata kodu | Açıklama | İstemci eylemi |
@@ -306,7 +306,7 @@ RFC 6750 belirtimi WWW-Authenticate üstbilgisi ve taşıyıcı düzeni yanıtta
 | 403 |insufficient_scope |Erişim belirteci kaynağa erişmek için gerekli kimliğe bürünme izinlere sahip değil. |Yetkilendirme uç noktası için yeni bir yetkilendirme isteği gönderin. Yanıt kapsam parametresi içeriyorsa, kaynak isteğinde kapsam değeri kullanın. |
 | 403 |insufficient_access |Belirteç konu kaynağa erişmek için gerekli izinlere sahip değil. |Farklı bir hesap kullanın veya belirtilen kaynak izni istemek için kullanıcıya sor. |
 
-## Erişim belirteçleri yenileme
+## <a name="refreshing-the-access-tokens"></a>Erişim belirteçleri yenileme
 Erişim belirteçleri, kısa süreli ve kaynaklara erişmeye devam etmek için zaman aşımına uğradığında yenilenmesi gerekir. Yenileyebileceğiniz `access_token` başka gönderme tarafından `POST` isteği `/token` uç noktası, ancak bu süre sağlama `refresh_token` yerine `code`.
 
 Yenileme belirteçleri belirtilen yaşam süresi yok. Genellikle, yenileme belirteçleri ömürleri oldukça uzun. Ancak, bazı durumlarda, yenileme belirteçleri sona, iptal edilen veya istenen eylem için yeterli ayrıcalıkları yok. Beklediğiniz ve doğru belirteci verme bitiş noktası tarafından döndürülen hataları işlemek uygulamanız gerekir.
@@ -329,7 +329,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
-### Başarılı yanıt
+### <a name="successful-response"></a>Başarılı yanıt
 Başarılı bir token yanıt gibi görünür:
 
 ```
@@ -352,7 +352,7 @@ Başarılı bir token yanıt gibi görünür:
 | access_token |İstenen yeni bir erişim belirteci. |
 | refresh_token |Bu yanıt süresi dolduğunda yeni erişim belirteçleri istemek için kullanılan yeni bir OAuth 2.0 refresh_token. |
 
-### Hata yanıtı
+### <a name="error-response"></a>Hata yanıtı
 Bir örnek hata yanıtı şuna:
 
 ```

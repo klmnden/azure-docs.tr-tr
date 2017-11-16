@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 1e715b54c78d42d88d2082e9b0e9f942bec72abd
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e4524704c6db0d21388ea407870c65d4f69a6323
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -31,7 +31,7 @@ Birçok kuruluş bilmek istediğiniz dağıtım sonrası nasıl veya SSPR gerçe
 [Azure portalı] mevcut raporlar aşağıdaki soruları yanıtlanabilir (https://portal.azure.com/).
 
 > [!NOTE]
-> Olmalıdır [genel yönetici](active-directory-assign-admin-roles.md) ve bu veriler kuruluşunuz adına raporlama sekme veya denetim günlüklerini en az bir kez ziyaret ederek toplanması katılımı gerekir. Bunun yapılması kadar veri kuruluşunuz için toplanmaz
+> Olmalıdır [genel yönetici](active-directory-assign-admin-roles-azure-portal.md) ve bu veriler kuruluşunuz adına raporlama sekme veya denetim günlüklerini en az bir kez ziyaret ederek toplanması katılımı gerekir. Bunun yapılması kadar veri kuruluşunuz için toplanmaz
 
 * Kaç kişinin parola sıfırlama için kayıtlı?
 * Parola sıfırlama için kayıtlı olan kim?

@@ -15,11 +15,11 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 239f3830a5e50f80ace15ff3f080653a5f402136
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Uygulamaları Azure AD uygulama proxy'si ile uzaktan erişim için güvenlik konuları
 
@@ -45,7 +45,7 @@ Azure AD güvenlik belirteci hizmeti (STS) tüm kimlik doğrulaması için Azure
 
 Ağınıza bağlantı kuran önce daha zengin İlkesi denetimleri uygulayın.
 
-İle [koşullu erişim](active-directory-conditional-access-azuread-connected-apps.md), hangi trafiğin uç uygulamalarınızı erişmesine izin verilip kısıtlamalar tanımlayabilirsiniz. Oturum açma işlemleri kimlik doğrulama ve kullanıcı riski profili gücünü konuma göre kısıtlayan ilkeler oluşturabilirsiniz.
+İle [koşullu erişim](active-directory-conditional-access-azure-portal-get-started.md), hangi trafiğin uç uygulamalarınızı erişmesine izin verilip kısıtlamalar tanımlayabilirsiniz. Oturum açma işlemleri kimlik doğrulama ve kullanıcı riski profili gücünü konuma göre kısıtlayan ilkeler oluşturabilirsiniz.
 
 Koşullu erişim, çok faktörlü kimlik doğrulama ilkeleri, bir güvenlik katmanı, kullanıcı kimlik doğrulamalarına eklenmesinden yapılandırmak için de kullanabilirsiniz. 
 

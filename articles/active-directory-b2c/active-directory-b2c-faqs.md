@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: bed51dc1216b40f6602fae6d32bc8bd7aa517605
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -57,7 +57,7 @@ Hayır, uygulamanızda herhangi bir yerde (Bulut veya şirket içi) barındırab
 Azure portalının sol tarafındaki menüde 'Azure AD B2C' açmadan önce yönetmek istediğiniz dizine geçmesi gerekir.  Kimliğinizi Azure portalının sağ üst tıklatarak dizinleri geçiş sonra aşağı açılan dizininde görüntülenen seçin.  Bir adım adım için görüntülerle görün [gitmek için Azure AD B2C ayarlarını](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Nasıl doğrulama e-postaları özelleştirebilirim (içerik ve "den:" alan) Azure AD B2C tarafından gönderilen?
-Kullanabileceğiniz [şirket markası özelliğini](../active-directory/active-directory-add-company-branding.md) doğrulama e-posta içeriğini özelleştirmek için. Özellikle, bu iki öğenin e-postanın özelleştirilebilir:
+Kullanabileceğiniz [şirket markası özelliğini](../active-directory/customize-branding.md) doğrulama e-posta içeriğini özelleştirmek için. Özellikle, bu iki öğenin e-postanın özelleştirilebilir:
 
 * **Kapak sayfası logosu**: sağ alt köşesinde gösterilir.
 * **Arka plan rengi**: en üstte gösterilen.
@@ -98,9 +98,9 @@ Bu makaleyi okuyun [dış kimlikler](../active-directory/active-directory-b2b-co
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Hangi raporlama ve Özellikler Denetim Azure AD B2C sağlar? Azure AD Premium ile aynı oldukları?
 Hayır, Azure AD B2C Azure AD Premium aynı kümesi raporları desteklemiyor. Ancak birçok commonalities vardır:
 
-* Oturum açma raporları her oturum açma azaltılmış ayrıntılarla kaydını sağlar.
-* Denetim raporları, Azure portalında Azure Active Directory altında kullanılabilir > etkinlik denetim günlüklerini > B2C seçin ve istediğiniz gibi filtreler uygulayabilirsiniz. Hem yönetici etkinliği, hem de uygulama etkinlik ele alınmıştır. 
-* Kullanıcı sayısı, oturum açma sayısı ve MFA hacmi kapsayan bir kullanım raporu şu adreste bulunabilir [kullanım raporlama API'si](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-usage-reporting-api)
+* **Oturum açma raporları** yalnızca Azure portalında kullanılabilir (Azure Active Directory > etkinlik > oturum açma işlemleri) ve grafik API'si kullanılabilir değil. Her oturum açma kaydını azaltılmış ayrıntılarla sağlarlar.
+* **Denetim raporları** yalnızca Azure portalında kullanılabilir (Azure Active Directory > etkinlik > Denetim günlüklerini) ve grafik API'si kullanılabilir değil. Hem yönetici etkinliği, hem de uygulama etkinlik içerirler. 
+* **Kullanım raporları** aracılığıyla yalnızca kullanılabilir [kullanım raporlama API'si](active-directory-b2c-reference-usage-reporting-api.md) ve Azure portalı üzerinden kullanılabilir değil. Bunlar kullanıcı sayısı, oturum açma sayısı ve MFA hacmi içerir. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Azure AD B2C tarafından sunulan sayfalardaki UI yerelleştirme? Hangi dilleri destekleniyor mu?
 Evet!  Hakkında bilgi edinin [dil özelleştirme](active-directory-b2c-reference-language-customization.md), genel önizlemede değil.  36 diller için çeviriler sağladığımız ve gereksinimlerinize uygun olarak herhangi bir dize geçersiz kılabilirsiniz.

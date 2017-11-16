@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory v2.0 ve OAuth 2.0 On-Behalf-Of akış
+# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 On-Behalf-Of akış
 Burada bir hizmet/sırayla başka çağırmak için gereken web API, uygulamanın çağırır kullanım örneği akış hizmet OAuth 2.0 On-Behalf-Of hizmeti/web API. Temsilci atanan kullanıcı kimliğini ve izinleri istek zincirinin aracılığıyla yaymak için kullanılan uygulamadır. Orta katman hizmet kimliği doğrulanmış istekler için aşağı akış hizmeti yapmak, Azure Active Directory'den (Azure AD), bir erişim belirteci güvenli kullanıcı adına gerekir.
 
 > [!NOTE]
@@ -29,7 +29,7 @@ Burada bir hizmet/sırayla başka çağırmak için gereken web API, uygulamanı
 >
 >
 
-## Protokol diyagramı
+## <a name="protocol-diagram"></a>Protokol diyagramı
 Kullanıcı bir uygulama kullanarak doğrulandı varsayın [OAuth 2.0 yetkilendirme kodu izin akışı](active-directory-v2-protocols-oauth-code.md). Bu noktada, uygulama kullanıcının talepleri ve orta katman web API (API A) erişmek için izniniz bir erişim belirteci (belirteci A) sahip. Şimdi, API bir aşağı akış web API'si (API B) kimliği doğrulanmış bir istekte bulunun gerekiyor.
 
 Adımları On-temsili akış oluşturur ve aşağıdaki diyagramda yardımıyla açıklanmıştır.
@@ -47,7 +47,7 @@ Adımları On-temsili akış oluşturur ve aşağıdaki diyagramda yardımıyla 
 > Bu senaryoda, orta katman hizmet aşağı akış API erişmek için kullanıcı onayı almak için kullanıcı etkileşimi olmadan sahiptir. Bu nedenle, adım onay bir parçası olarak kimlik doğrulaması sırasında önceden aşağı akış API'sine erişim seçeneği sunulur.
 >
 
-## Hizmet erişim belirteci isteği hizmetine
+## <a name="service-to-service-access-token-request"></a>Hizmet erişim belirteci isteği hizmetine
 Bir erişim belirteci istemek için bir HTTP POST için Kiracı özgü olun Azure AD v2.0 uç aşağıdaki parametrelerle.
 
 ```
@@ -56,7 +56,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 İstemci uygulaması olup bir paylaşılan gizlilik ya da bir sertifika tarafından güvenli hale seçti bağlı olarak iki durumlar vardır.
 
-### İlk durumda: bir paylaşılan gizlilik ile erişim belirteci isteği
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>İlk durumda: bir paylaşılan gizlilik ile erişim belirteci isteği
 Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği aşağıdaki parametreleri içerir:
 
 | Parametre |  | Açıklama |
@@ -68,7 +68,7 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 | Kapsam |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Daha fazla bilgi için bkz: [kapsamları](active-directory-v2-scopes.md).|
 | requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
 
-#### Örnek
+#### <a name="example"></a>Örnek
 Bir erişim belirteci ile aşağıdaki HTTP POST istekleri `user.read` https://graph.microsoft.com web API'si için kapsam.
 
 ```
@@ -86,7 +86,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### İkinci durumda: bir sertifika ile erişim belirteci isteği
+### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durumda: bir sertifika ile erişim belirteci isteği
 Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki parametreleri içerir:
 
 | Parametre |  | Açıklama |
@@ -101,7 +101,7 @@ Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki param
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizliliği isteğiyle durumunda olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
 
-#### Örnek
+#### <a name="example"></a>Örnek
 Bir erişim belirteci ile aşağıdaki HTTP POST istekleri `user.read` kapsam için bir sertifika ile https://graph.microsoft.com web API'si.
 
 ```
@@ -120,7 +120,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=https://graph.microsoft.com/user.read
 ```
 
-## Hizmet erişim belirteci yanıtı hizmetine
+## <a name="service-to-service-access-token-response"></a>Hizmet erişim belirteci yanıtı hizmetine
 Başarılı yanıt aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıt olan.
 
 | Parametre | Açıklama |
@@ -131,7 +131,7 @@ Başarılı yanıt aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıt olan.
 | access_token |İstenen erişim belirteci. Arama hizmeti alıcı hizmete kimlik doğrulaması için bu belirteci kullanabilirsiniz. |
 | refresh_token |İstenen erişim belirteci için yenileme belirteci. Arama hizmeti geçerli erişim belirtecinin süresi dolduktan sonra başka bir erişim belirteci istemek için bu belirteci kullanabilirsiniz. |
 
-### Başarılı yanıt örnek
+### <a name="success-response-example"></a>Başarılı yanıt örnek
 Aşağıdaki örnek, bir başarı isteğine yanıt olarak https://graph.microsoft.com web API'si için bir erişim belirteci için gösterir.
 
 ```
@@ -145,7 +145,7 @@ Aşağıdaki örnek, bir başarı isteğine yanıt olarak https://graph.microsof
 }
 ```
 
-### Hata yanıtı örneği
+### <a name="error-response-example"></a>Hata yanıtı örneği
 Aşağı Akış API koşullu erişim ilkesi ayarlayabilirsiniz çok faktörlü kimlik doğrulaması gibi varsa aşağı akış API için bir erişim belirteci almaya çalışırken bir hata yanıtı Azure AD belirteç uç noktası tarafından döndürülür. Böylece istemci uygulama, koşullu erişim ilkesi karşılamak için kullanıcı etkileşimi sağlayabilir orta katman hizmet bu hata istemci uygulamasına yüzey.
 
 ```
@@ -160,17 +160,17 @@ Aşağı Akış API koşullu erişim ilkesi ayarlayabilirsiniz çok faktörlü k
 }
 ```
 
-## Güvenli kaynağa erişmek için erişim belirteci kullanın
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Güvenli kaynağa erişmek için erişim belirteci kullanın
 Artık orta katman hizmet belirteci ayarlayarak Aşağı Akış web API'si, kimliği doğrulanmış istekler yapmasını yukarıda edinilen belirteci kullanarak `Authorization` üstbilgi.
 
-### Örnek
+### <a name="example"></a>Örnek
 ```
 GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 OAuth 2.0 protokolünü ve istemci kimlik bilgilerini kullanarak hizmet kimlik doğrulama gerçekleştirmek için başka bir yöntem hakkında daha fazla bilgi edinin.
 * [Azure AD v2.0 için OAuth 2.0 istemci kimlik bilgileri verin](active-directory-v2-protocols-oauth-client-creds.md)
 * [Azure AD v2.0 içinde OAuth 2.0](active-directory-v2-protocols-oauth-code.md)

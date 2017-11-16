@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 336d3ffaee21040a95366e0317cecdb83977ce97
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak görüntü sınıflandırma
 
@@ -42,7 +42,7 @@ Bu öğretici, üç bölüme ayrılır:
 Machine learning ve CNTK önceki deneyimiyle gerekli olmamasına karşın, temel alınan ilkeleri anlamak için faydalıdır. Eğitim zaman, öğreticide bildirilen vb. doğruluğu, yalnızca başvuru numaralarıdır ve kod çalıştırırken gerçek değerler hemen kesinlikle farklılık gösterir.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
@@ -52,9 +52,11 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 4. 2 bölümünde açıklanan DNN iyileştirme için gerekli ancak adanmış bir GPU SVM eğitim bölümü 1, yürütmek için gerekli değildir. Güçlü bir GPU olmadığı, üzerinde birden çok GPU eğitmek istediğiniz ya da bir Windows makinesine sahip değil, daha sonra Azure'nın derin öğrenme sanal makine Windows işletim sistemiyle birlikte kullanmayı düşünün. Bkz: [burada](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) 1-tıklatma dağıtım kılavuzu. Dağıtıldığında, bir Uzak Masaüstü bağlantısı üzerinden VM bağlanmak, çalışma ekranı var. yüklemek ve kod sanal makineden yerel olarak çalıştırmak.
 5. OpenCV gibi çeşitli Python kitaplıkları yüklü olması gerekir. Tıklatın *komut istemini açın* gelen *dosya* menüde çalışma ekranı ve bu bağımlılıklar yüklemek için aşağıdaki komutları çalıştırın:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl`(tam dosya adı ve sürümü değiştirebilirsiniz) http://www.lfd.uci.edu/~gohlke/pythonlibs/ OpenCV Tekerlek indirdikten sonra
-    - `conda install matplotlib numpy pillow`
-    - `conda install -c conda-forge bqplot`
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl`(tam dosya adı ve sürümü değiştirebilirsiniz) http://www.lfd.uci.edu/~gohlke/pythonlibs/ OpenCV Tekerlek indirdikten sonra
+    - `conda install pillow`
+    - `pip install -U numpy`
+    - `pip install bqplot`
+    - `jupyter nbextension enable --py --sys-prefix bqplot`
 
 ### <a name="troubleshooting--known-bugs"></a>Sorun giderme / bilinen hatalar
 - Bir GPU 2. bölüm için gereklidir ve aksi takdirde hata "toplu normalleştirme eğitim CPU üzerinde uygulanmadı" DNN iyileştirmek çalışırken atılır.
@@ -66,7 +68,7 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 ## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
 
 Bu örnek bir şablon kullanarak yeni bir proje oluşturmak için:
-1.  Azure Machine Learning çalışma ekranı açın.
+1.  Azure Machine Learning Workbench’i açın.
 2.  Üzerinde **projeleri** sayfasında,  **+**  oturum ve seçin **yeni proje**.
 3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun.
 4.  İçinde **arama proje şablonları** arama kutusu, "sınıflandırma görüntü" yazın ve şablonu seçin.

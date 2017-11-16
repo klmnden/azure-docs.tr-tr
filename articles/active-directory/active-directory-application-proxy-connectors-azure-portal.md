@@ -15,17 +15,13 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 477f20bd552460176be92f1db70bb0f76de8bac1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Ayrı ağlarda ve konumları bağlayıcı gruplarını kullanarak uygulama yayımlama
-> [!div class="op_single_selector"]
-> * [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
-> * [Klasik Azure Portalı](active-directory-application-proxy-connectors.md)
->
 
 Müşteriler daha da fazla senaryoları için Azure AD uygulama proxy'si ve uygulamaları kullanın. Bu nedenle uygulama Proxy daha esnek daha fazla topolojileri etkinleştirerek yaptık. Böylece, belirli uygulamaları sunmaya belirli bağlayıcılar atayabilirsiniz uygulama Proxy Bağlayıcısı grupları oluşturabilirsiniz. Bu yetenek, daha fazla denetim ve uygulama proxy'si dağıtımınızı en iyi duruma getirmek için yollar sağlar. 
 
@@ -36,7 +32,7 @@ Tüm uygulamaları bir bağlayıcı grubuna atanır. Grupları oluşturmazsanız
 >[!TIP] 
 >Büyük bir uygulama proxy'si dağıtımınız varsa, tüm uygulamaları varsayılan bağlayıcı grubuna atamayın. Bir active Bağlayıcısı gruba atanıncaya kadar bu şekilde, tüm dinamik trafik yeni bağlayıcılar almadığınız. Bu yapılandırma bakım kullanıcılarınızın etkilemeden gerçekleştirebilmeleri için bağlayıcıları bir boşta geri varsayılan grubuna taşıyarak moduna sağlar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bağlayıcılar grubuna emin olmak sahip [birden çok bağlayıcı yüklü](active-directory-application-proxy-enable.md). Yeni bir bağlayıcı yüklediğinizde otomatik olarak birleştiren **varsayılan** bağlayıcı grubu.
 
 ## <a name="create-connector-groups"></a>Bağlayıcı grupları oluşturma

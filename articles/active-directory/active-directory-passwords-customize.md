@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 030fb1d87547a4fc78d54a855bca961202f28837
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f2b172208185e343c9c10d55036c20d60346778c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="customize-azure-ad-functionality-for-self-service-password-reset"></a>Self Servis parola sıfırlama için Azure AD işlevselliği özelleştirme
 
@@ -40,7 +40,7 @@ Bu e-posta aşağıdaki sırayla aşağıdaki alıcılara gönderilir:
 
 Her durumda en fazla 100 alıcıların bildirim.
 
-Farklı yönetici hakkında daha fazla bilgi için roller ve bunları atama belgesine bakın [Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles.md)
+Farklı yönetici hakkında daha fazla bilgi için roller ve bunları atama belgesine bakın [Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles-azure-portal.md)
 
 ### <a name="disable-contact-your-administrator-emails"></a>Devre dışı bırakma, yönetici e-postaları başvurun
 
@@ -85,7 +85,7 @@ Aşağıdaki ayarlar, oturum açma sayfası kuruluşunuza uygun metin eklemenize
 * **Kullanıcı adı İpucu** örnek metnini değiştirir someone@example.com bir şey ile kullanıcılarınız için daha uygun, önerilen varsayılan iç ve dış kullanıcılar desteklendiğinde bırakılması için
 * **Oturum açma sayfası metni** en fazla 256 karakter uzunluğunda. Bu metin herhangi bir yere çevrimiçi ve Windows 10 Azure AD katılım deneyimi, kullanıcıların oturum açma görüntülenir. Bu metin koşullarını kullanın, yönergeler ve kullanıcılarınız için ipuçları için kullanın. **Herkes herhangi bir önemli bilgi burada sağlamaz, oturum açma sayfanızı görebilirsiniz.**
 
-### <a name="keep-me-signed-in-disabled"></a>Oturumumu açık bırak devre dışı
+### <a name="keep-me-signed-in-disabled"></a>Oturumumu imzalı devre dışı bırak
 
 Seçeneğini kapatın ve bunların tarayıcı penceresini yeniden açın, oturum açmış durumda kalmak için kullanıcıların "Benim devre dışı imzalı tut" sağlar. Bu seçenek oturum süreleri etkilemez. Bu ayarı altında bulunan **Azure Active Directory > Şirket markası > Düzenle şirket markası**.
 
@@ -100,17 +100,17 @@ Ad özniteliği altında değiştirebilirsiniz **Azure Active Directory > Özell
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [SSPR başarılı bir sunum nasıl tamamlamak?](active-directory-passwords-best-practices.md)
-* [Sıfırlama veya parolanızı değiştirme](active-directory-passwords-update-your-own-password.md).
-* [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
-* [Bir lisans soru var mı?](active-directory-passwords-licensing.md)
-* [Hangi verilerin SSPR tarafından kullanılır ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](active-directory-passwords-data.md)
-* [Hangi kimlik doğrulama yöntemlerinin kullanıcıların var mı?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [SSPR ile ilkesi seçenekleri nelerdir?](active-directory-passwords-policy.md)
-* [Parola geri yazma nedir ve neden t hakkında önemli?](active-directory-passwords-writeback.md)
-* [SSPR etkinliğinde üzerinde nasıl rapor edebilirim?](active-directory-passwords-reporting.md)
-* [Tüm SSPR seçeneklerinde nedir ve ne anlama geldiklerini?](active-directory-passwords-how-it-works.md)
-* [Bir şey bozuk düşünüyorum. SSPR nasıl sorun giderme?](active-directory-passwords-troubleshoot.md)
-* [Herhangi bir yerde else kapsanmayan bir soru sahip](active-directory-passwords-faq.md)
+* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
+* [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md).
+* [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md).
+* [Lisans ile ilgili sorunuz mu var?](active-directory-passwords-licensing.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
+* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)
+* [Parola geri yazma nedir ve neden önemlidir?](active-directory-passwords-writeback.md)
+* [SSPR’de etkinliği nasıl bildirebilirim?](active-directory-passwords-reporting.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
+* [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
+* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
 
 [Contact]: ./media/active-directory-passwords-customize/sspr-contact-admin.png "Parola e-posta örnek sıfırlama Yardım için yöneticinize başvurun"

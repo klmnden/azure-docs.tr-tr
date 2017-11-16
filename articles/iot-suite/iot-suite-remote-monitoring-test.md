@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 426b7ff6114fd0b79a6af71a78705f11b80862bf
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Çözümünüzü sanal cihazlar ile test
 
@@ -39,6 +39,10 @@ Aşağıdaki tabloda, bir veri akışı olarak buluta ligthbulb raporları veri 
 | Ad   | Değerler      |
 | ------ | ----------- |
 | Durum | "açık", "kapalı" |
+| Çevrimiçi | TRUE, false |
+
+> [!NOTE]
+> **Çevrimiçi** telemetri değeri tüm sanal türleri için zorunludur.
 
 *Yöntemleri*
 
@@ -72,7 +76,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Yeni bir cihaz türü için Pano ekleyin
 > * Var olan bir cihaz türünden özel telemetri Gönder
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
@@ -267,7 +271,11 @@ Test etmek için **ampul** aygıt türü, ilk test edebilirsiniz, cihaz türün�
 
 Test ve değişikliklerinizi yerel olarak hata ayıklama için bkz: [cihaz benzetimi genel bakış](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Yeni kopyalamak için projeyi yapılandırmak **ampul** aygıt dosyalar çıkış dizinine.
+Yeni kopyalamak için projeyi yapılandırmak **ampul** çıktı dizinine cihaz dosyaları:
+
+* Visual Studio kullanıyorsanız, önceki bölümde oluşturduğunuz üç yeni ampul dosyalarını eklediğinizden emin olun **Hizmetleri** çözümde projesine. Ardından **Çözüm Gezgini** bunları çıkış dizinine kopyalanacağını işaretlenecek.
+
+* Visual Studio Code kullanıyorsanız, açık **Services.csproj** dosya ve önceki bölümde oluşturduğunuz üç yeni ampul dosyalarını ekleyin. Var olan aygıt modeli dosyası girdileri bkz **Services.csproj** dosyası örnekleri olarak.
 
 Yeni cihaz dağıtılan bir çözümde sınamak için aşağıdakilerden birini bakın:
 

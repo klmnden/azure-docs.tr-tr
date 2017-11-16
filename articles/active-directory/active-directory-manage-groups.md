@@ -16,14 +16,14 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: aba231a91efafa48837e45435efd51769b12374b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6f43b722b0c9a31c8c7da4361e415673f3721b31
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>Azure Active Directory grupları ile kaynaklara erişimi yönetme
-Azure Active Directory (Azure AD), güçlü bir şirket içi ve bulut uygulamalarını ve Office 365 ve Microsoft olmayan SaaS uygulamaları dünyasına gibi Microsoft Çevrimiçi hizmetler gibi kaynakları erişimi yönetmek için özellikler kümesi sağlayan kapsamlı bir kimlik ve erişim yönetimi çözüm olduğu. Bu makalede genel bir bakış sağlar, ancak başlatmak istiyorsanız Azure AD kullanarak gruplar şu anda,'ndaki yönergeleri izleyin [Azure AD'deki güvenlik gruplarını yönetme](active-directory-accessmanagement-manage-groups.md). Azure Active Directory'deki grupları yönetmek için PowerShell nasıl kullanabileceğiniz görmek istiyorsanız, daha fazla bilgiyi [Grup Yönetimi için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Azure Active Directory (Azure AD), güçlü bir şirket içi ve bulut uygulamalarını ve Office 365 ve Microsoft olmayan SaaS uygulamaları dünyasına gibi Microsoft Çevrimiçi hizmetler gibi kaynakları erişimi yönetmek için özellikler kümesi sağlayan kapsamlı bir kimlik ve erişim yönetimi çözüm olduğu. Bu makalede genel bir bakış sağlar, ancak başlatmak istiyorsanız Azure AD kullanarak gruplar şu anda,'ndaki yönergeleri izleyin [Azure AD'deki güvenlik gruplarını yönetme](active-directory-groups-create-azure-portal.md). Azure Active Directory'deki grupları yönetmek için PowerShell nasıl kullanabileceğiniz görmek istiyorsanız, daha fazla bilgiyi [Grup Yönetimi için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
 > Azure Active Directory'yi kullanmak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, şunları yapabilirsiniz [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/pricing/free-trial/).
@@ -66,7 +66,7 @@ Bir grubun sahibi, ayrıca bu grubun Self Servis isteklerine için kullanılabil
 ## <a name="getting-started-with-access-management"></a>Access management ile çalışmaya başlama
 Başlamaya hazır mısınız? Azure AD grupları ile yapabileceğiniz temel görevlerden bazıları çıkışı denemelisiniz. Kuruluşunuzdaki farklı kaynaklar için farklı kişi grupları için özel erişim sağlamak için bu özellikleri kullanın. Temel ilk adımlar listesi aşağıda listelenmektedir.
 
-* [Dinamik bir grup üyeliklerini yapılandırmak için basit bir kural oluşturma](active-directory-accessmanagement-manage-groups.md)
+* [Dinamik bir grup üyeliklerini yapılandırmak için basit bir kural oluşturma](active-directory-groups-create-azure-portal.md)
 * [SaaS uygulamalarına erişimi yönetmek için bir grup kullanma](active-directory-accessmanagement-group-saasapps.md)
 * [Bir grup için son kullanıcı Self Servis kullanıma](active-directory-accessmanagement-self-service-group-management.md)
 * [Azure AD Connect kullanan Azure şirket içi gruba eşitleniyor](active-directory-aadconnect.md)
@@ -75,8 +75,8 @@ Başlamaya hazır mısınız? Azure AD grupları ile yapabileceğiniz temel gör
 ## <a name="next-steps"></a>Sonraki adımlar
 Erişim Yönetimi temelleri anladım, burada ek bazı gelişmiş özelliklerin Azure Active Directory içinde kullanılabilir uygulama ve kaynaklarına erişimi yönetmek için.
 
-* [Gelişmiş kurallar oluşturmak için öznitelikleri kullanma](active-directory-accessmanagement-groups-with-advanced-rules.md)
-* [Azure AD içinde güvenlik gruplarını yönetme](active-directory-accessmanagement-manage-groups.md)
+* [Gelişmiş kurallar oluşturmak için öznitelikleri kullanma](active-directory-groups-dynamic-membership-azure-portal.md)
+* [Azure AD içinde güvenlik gruplarını yönetme](active-directory-groups-create-azure-portal.md)
 * [Azure AD içinde ayrılmış grupları ayarlama](active-directory-accessmanagement-dedicated-groups.md)
 * [Gruplar için grafik API'si başvurusu](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-cmdlets.md)

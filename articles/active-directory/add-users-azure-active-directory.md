@@ -15,11 +15,11 @@ ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 3df0324cae65418f35743b6543753c405dee01d0
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 0e46ff82c4177de6b33e5df8714318bff83fbb34
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'ye yeni kullanıcı ekleme
 Bu makalede Azure Active Directory'de (Azure AD), kuruluşunuzdaki yeni kullanıcı ekleme açıklayan bir Azure portalını kullanarak bir zamanda veya şirket içi Windows Server AD kullanıcı hesabı verilerinizi eşitleyerek. 
@@ -31,7 +31,7 @@ Bu makalede Azure Active Directory'de (Azure AD), kuruluşunuzdaki yeni kullanı
    ![Ekle komutu seçme](./media/add-users-azure-active-directory/add-user.png)
 4. Kullanıcı için Ayrıntılar gibi girin **adı** ve **kullanıcı adı**. Kullanıcı adı etki alanı adı kısmını ya da gereken ilk varsayılan etki alanı adı "[etki alanı adı].onmicrosoft.com" veya doğrulanmış, Federasyon olmayan olması [özel etki alanı adı](add-custom-domain.md) "contoso.com" gibi
 5. Kopyalama veya aksi takdirde bu işlem tamamlandıktan sonra kullanıcıya sağlayabilir böylece oluşturulmuş kullanıcı parolası not edin.
-6. İsteğe bağlı olarak, açın ve bilgileri doldurun **profil**, **grupları**, veya **dizin rolünü** kullanıcı için. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md).
+6. İsteğe bağlı olarak, açın ve bilgileri doldurun **profil**, **grupları**, veya **dizin rolünü** kullanıcı için. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles-azure-portal.md).
 7. Üzerinde **kullanıcı**seçin **oluşturma**.
 8. Böylece kullanıcı oturum açarak yeni kullanıcı için oluşturulmuş bir parola güvenli bir şekilde dağıtın.
 

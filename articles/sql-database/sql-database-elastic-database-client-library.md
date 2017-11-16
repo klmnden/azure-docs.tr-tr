@@ -13,18 +13,18 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Ölçeklenebilir bulut veritabanları oluşturma
 Veritabanları ölçeklendirme Azure SQL veritabanı için ölçeklenebilir araçları ve özelliklerinin kullanılarak kolayca gerçekleştirilebilir. Özellikle, kullanabileceğiniz **esnek veritabanı istemci Kitaplığı** oluşturmak ve ölçeklendirilmiş veritabanları yönetmek için. Bu özellik kolayca yüzlerce kullanarak parçalı uygulamalar geliştirmenize olanak sağlar; veya hatta binlerce — Azure SQL veritabanlarının. [Esnek iş](sql-database-elastic-jobs-powershell.md) daha sonra bu veritabanlarının kolaylığı yönetim yardımcı olmak için kullanılabilir.
 
-Kitaplığı yüklemek için Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Kitaplığı yüklemek için NuGet gidin [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="documentation"></a>Belgeler
 1. [Esnek Veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md)
@@ -54,22 +54,32 @@ Kitaplığı yüklemek için Git [Microsoft.Azure.SqlDatabase.ElasticScale.Clien
 
 Genel olarak, esnek veritabanı araçlarını kullanan müşteriler, kendi semantiklerine sahip arası parça işlemleri aksine parça yerel işlemleri gönderirken tam T-SQL işlevselliğini kazanması bekleyebilirsiniz.
 
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
-Deneyin [örnek uygulaması](sql-database-elastic-scale-get-started.md) istemci işlevleri gösterir. 
 
-Kitaplığı yüklemek için Git [esnek veritabanı istemci Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- [Esnek veritabanı istemci Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) - **yükleme** NuGet kullanarak kitaplık.
 
-Bölünmüş birleştirme aracını kullanma ile ilgili yönergeler için bkz: [bölünmüş birleştirme aracına genel bakış](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md) - denemek için **örnek uygulaması** istemci işlevleri gösterir.
 
-[Esnek veritabanı istemci kitaplığı olan şimdi açık kaynaklı!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- [Github, Azure/esnek-db-tools](https://github.com/Azure/elastic-db-tools) -kitaplık açık kaynaklı bir yazılımdır.
+    - Esnek veritabanı araçlarını istemci kitaplığı ADO.NET geliştiricilerin uygulamak ve Azure SQL veritabanında veritabanı parçalama olarak bilinen desen kullanan uygulamalar oluşturmanıza olanak sağlar.
 
-Kullanım [esnek sorgular](sql-database-elastic-query-overview.md).
+- [Esnek veritabanı istemci kitaplığı olan şimdi açık kaynaklı!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) -bir **blog gönderisi** 09/2015/09 esnek veritabanı istemci Kitaplığı hakkında tarihli.
 
-Kitaplık, açık kaynak yazılımının olarak kullanılabilir [GitHub](https://github.com/Azure/elastic-db-tools). 
+- [Azure SQL Database esnek sorgu genel bakış](sql-database-elastic-query-overview.md) - esnek sorgular kullanılacak.
+
+- [Ölçeklendirilen bulut veritabanları arasında verilerin taşınması](sql-database-elastic-scale-overview-split-and-merge.md) - kullanma yönergeleri için **bölünmüş Birleştirme aracı**.
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 

@@ -1,5 +1,5 @@
 ---
-title: "Etkinleştirmek veya devre dışı Azure içerik teslim ağı özel etki alanı üzerinde HTTPS | Microsoft Docs"
+title: "Bir Azure içerik teslim ağı özel etki alanında HTTPS yapılandırma | Microsoft Docs"
 description: "Etkinleştirme veya HTTPS ile özel bir etki alanı Azure CDN uç noktanız devre dışı bırakma hakkında bilgi edinin."
 services: cdn
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Etkinleştirmek veya HTTPS Azure içerik teslim ağı özel etki alanı üzerinde devre dışı bırakma
+# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Bir Azure içerik teslim ağı özel etki alanında HTTPS yapılandırma
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Microsoft Azure içerik teslim ağı (CDN) özel etki alanları için HTTPS desteği aktarım sırasında verilerin güvenliğini artırmak için kendi etki alanı adınızı kullanarak SSL üzerinden güvenli içerik teslim etmenizi sağlar. Özel etki alanınız için HTTPS'yi etkinleştirmek için uçtan uca iş akışı tek tıklatmayla etkinleştirme, eksiksiz bir sertifika yönetimi ve tüm ek ücret ödemeden ile aracılığıyla basitleştirilmiştir.
+Microsoft, özel etki alanları için Azure içerik teslim ağı (CDN) üzerindeki HTTPS protokolünü destekler. HTTPS özel etki alanı desteği, aktarım sırasında veri güvenliğini artırmak için kendi etki alanı adınızı kullanarak SSL üzerinden güvenli içerik sunabilir. Özel etki alanınız için HTTPS'yi etkinleştirmek için iş akışı tek tıklatmayla etkinleştirme ve eksiksiz bir sertifika yönetimi, tüm ek ücret ödemeden ile aracılığıyla basitleştirilmiştir.
 
-Gizlilik ve tüm web uygulamaları hassas verilerinizi aktarım sırasında veri bütünlüğünü sağlamak önemlidir. HTTPS protokolünü kullanarak Internet üzerinden gönderildiğinde hassas verilerinizi şifrelenmesini sağlar. Sağladığı güven, kimlik doğrulaması ve web uygulamalarınızın saldırılara karşı korur. Azure CDN HTTPS varsayılan olarak bir CDN uç noktasında destekler. Örneğin, Azure CDN bir CDN uç noktası oluşturmak istiyorsanız (gibi `https://contoso.azureedge.net`), HTTPS otomatik olarak etkinleştirilir. Ayrıca, özel etki alanı HTTPS desteği, özel bir etki alanı için güvenli teslimat etkinleştirebilirsiniz (örneğin, `https://www.contoso.com`) de. 
+Yoldaki olsa gizlilik ve web uygulamanızın hassas verilerin veri bütünlüğünü sağlamak için önemlidir. HTTPS protokolünü kullanarak önemli verilerinizi Internet üzerinden gönderildiğinde şifrelendiğinden emin olun. Sağladığı güven, kimlik doğrulaması ve web uygulamalarınızın saldırılara karşı korur. Varsayılan olarak, Azure CDN bir CDN uç noktası HTTPS destekler. Örneğin, Azure CDN bir CDN uç noktası oluşturmak istiyorsanız (gibi `https://contoso.azureedge.net`), HTTPS otomatik olarak etkinleştirilir. Ayrıca, özel etki alanı HTTPS desteği, özel bir etki alanı için güvenli teslimat etkinleştirebilirsiniz (örneğin, `https://www.contoso.com`). 
 
 HTTPS özelliğinin en önemli özelliklerinden bazıları şunlardır:
 
@@ -41,7 +41,7 @@ HTTPS özelliğinin en önemli özelliklerinden bazıları şunlardır:
 
 ## <a name="enabling-https"></a>HTTPS etkinleştirme
 
-HTTPS'yi etkinleştirmek için aşağıdaki adımları izleyin:
+Özel bir etki alanı üzerinde HTTPS'yi etkinleştirmek için aşağıdaki adımları izleyin:
 
 ### <a name="step-1-enable-the-feature"></a>1. adım: özelliğini etkinleştir 
 
@@ -66,7 +66,7 @@ HTTPS'yi etkinleştirmek için aşağıdaki adımları izleyin:
 Özel etki alanınızda HTTPS etkinleştirdikten sonra DigiCert sertifika yetkilisi (CA), etki alanı sahipliğini kendi registrant başvurarak etki alanının göre doğrular [WHOIS](http://whois.domaintools.com/) registrant bilgi. Telefon numarası WHOIS kaydında listelenen veya kişi (varsayılan) e-posta adresi yapılır. 
 
 >[!NOTE]
->DNS sağlayıcınız ile bir sertifika yetkilisi yetkilendirme (CAA) kayıt varsa, geçerli bir CA DigiCert içermesi gerekir. CAA kaydı, CA'ları kendi etki alanı için sertifikalar vermek için yetkili DNS sağlayıcıları belirtmek etki alanı sahipleri sağlar. Bir CA CAA kaydına sahip bir etki alanı için bir sertifika için bir sıra alır ve bu CA yetkili bir veren listelenmeyen, o etki alanı veya alt etki alanı için sertifikayı veren yasaktır.
+>DNS sağlayıcınız ile bir sertifika yetkilisi yetkilendirme (CAA) kayıt varsa, geçerli bir CA DigiCert içermesi gerekir. CAA kaydı, CA'ları kendi etki alanı için sertifikalar vermek için yetkili DNS sağlayıcıları belirtmek etki alanı sahipleri sağlar. Bir CA CAA kaydına sahip bir etki alanı için bir sertifika için bir sıra alır ve bu CA yetkili bir veren listelenmeyen, o etki alanı veya alt etki alanı için sertifikayı veren yasaktır. CAA kayıtlarını yönetme hakkında daha fazla bilgi için bkz: [yönetmek CAA kayıtları](https://support.dnsimple.com/articles/manage-caa-record/). CAA kayıt aracı için bkz: [CAA kayıt yardımcı](https://sslmate.com/caa/).
 
 ![WHOIS kaydı](./media/cdn-custom-ssl/whois-record.png)
 
@@ -128,7 +128,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="disabling-https"></a>HTTPS devre dışı bırakma
 
-HTTPS etkinleştirdikten sonra daha sonra onu devre dışı bırakabilirsiniz. HTTPS devre dışı bırakmak için şu adımları izleyin:
+Özel bir etki alanı üzerinde HTTPS etkinleştirdikten sonra daha sonra onu devre dışı bırakabilirsiniz. HTTPS devre dışı bırakmak için şu adımları izleyin:
 
 ### <a name="step-1-disable-the-feature"></a>1. adım: özelliği devre dışı 
 

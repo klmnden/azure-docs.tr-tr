@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -51,7 +51,7 @@ Azure AD Premium herhangi POC için gereken bazı ön koşullar aşağıda veril
 
 Yaklaşık tam süresi: 1. 000'den az PoC kullanıcılar için bir saat
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -85,7 +85,7 @@ Daha fazla bilgi edinin: [anlama Office 365 kimlik ve Azure Active Directory - F
 
 Yaklaşık tam süresi: 15 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -99,10 +99,10 @@ Yaklaşık tam süresi: 15 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | Azure AD Yönetim Portalı'na gidin | [Azure AD yönetim portalında - şirket markası](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Oturum açma sayfası (kahramanı logosu, küçük logo, etiketler, vb.) için varlıkların karşıya yükleyin. AD FS varsa, ADFS oturum açma sayfaları ile aynı varlıkları isteğe bağlı olarak Hizala | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme: özelleştirilebilir öğeler](active-directory-add-company-branding.md) |
+| Oturum açma sayfası (kahramanı logosu, küçük logo, etiketler, vb.) için varlıkların karşıya yükleyin. AD FS varsa, ADFS oturum açma sayfaları ile aynı varlıkları isteğe bağlı olarak Hizala | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme: özelleştirilebilir öğeler](customize-branding.md) |
 | Birkaç dakika değişikliğin tam olarak etkili olması bekleyin |  |
 | Https://myapps.microsoft.com için POC kullanıcı kimlik bilgileriyle oturum |  |
-| Görünüm tarayıcıda onaylayın | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme](active-directory-add-company-branding.md) |
+| Görünüm tarayıcıda onaylayın | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme](customize-branding.md) |
 | İsteğe bağlı olarak, görünüm diğer aygıtları onaylayın |  |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
@@ -113,7 +113,7 @@ Eski Görünüm özelleştirme sonrasında kalırsa tarayıcı istemci önbelle�
 
 Yaklaşık tam süre: 10 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -134,7 +134,7 @@ Sorunları durumunda Git [senaryoları, sınırlamaları ve Azure Active Directo
 
 Yaklaşık tam süresi: 60 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -169,7 +169,7 @@ Yaklaşık tam süresi: 60 dakika
 
 Yaklaşık tam süresi: 15 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -204,7 +204,7 @@ Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullana
 
 Yaklaşık tam süresi: 30 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -237,7 +237,7 @@ Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullana
 
 Yaklaşık tam süresi: 20 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -270,7 +270,7 @@ Yaklaşık tam süresi: 60 dakika
 > [!IMPORTANT]
 > Bu, FIM/MIM aşina gerektiren gelişmiş bir yapılandırmadır. Üretimde Biz bu yapılandırma hakkında sorular öneri kullandıysanız geçtikleri [Premier Destek](https://support.microsoft.com/premier).
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -300,7 +300,7 @@ Yaklaşık tam süresi: 60 dakika
 
 Yaklaşık tam süre: 10 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -325,7 +325,7 @@ Uygulama etkin sağlama varsa, bilgi çalışanı olarak uygulamadan erişmeden 
 
 ## <a name="saas-and-identity-lifecycle"></a>SaaS ve kimlik yaşam döngüsü
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -351,7 +351,7 @@ Leavers PoC senaryoya ve/veya Mazeret senaryoları tahmin. Kullanıcı devre dı
 
 Yaklaşık tam süre: 10 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -375,11 +375,11 @@ Seçilen uygulamaların gereksinimlerini sağlama olabilir, bu nedenle hemen uyg
 
 Yaklaşık tam süresi: 15 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| Kiracınızda Self Servis parola yönetimini etkinleştirin. | [Azure Active Directory parola BT yöneticileri için sıfırlama](active-directory-passwords.md) |
+| Kiracınızda Self Servis parola yönetimini etkinleştirin. | [Azure Active Directory parola BT yöneticileri için sıfırlama](active-directory-passwords-update-your-own-password.md) |
 | Parola şirket içi parolaları yönetmek geri yazma etkinleştirin. Bunu gerektiren belirli Azure AD Not sürümleri Bağlan | [Parola Geri Yazma önkoşulları](active-directory-passwords-writeback.md) |
 | Bu işlevselliği kullanmak ve bir güvenlik grubunun üyesi olduğundan emin olun PoC kullanıcıları belirleyin. Kullanıcıların özelliği tam olarak göstermek için yönetici olmayanlar olması gerekir | [Özelleştirme: Azure AD parola yönetimi: parola sıfırlama için erişimi kısıtla](active-directory-passwords-writeback.md) |
 
@@ -407,7 +407,7 @@ Yaklaşık tam süresi: 15 dakika
 
 Yaklaşık tam süre: 10 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -434,7 +434,7 @@ Daha fazla bilgi edinin: [taslak NIST özel yayını 800-63B](https://pages.nist
 
 Yaklaşık tam süre: 10 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -463,7 +463,7 @@ Federasyon kullanıyorsanız, talep iç/dış şirket ağı durumuyla iletişim 
 
 Yaklaşık tam süresi: 15 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -494,7 +494,7 @@ Bu özellik Azure AD Premium P2 ve/veya EMS E5 parçasıdır
 
 Yaklaşık tam süresi: 20 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -519,7 +519,7 @@ Bu özellik Azure AD Premium P2 ve/veya EMS E5 parçasıdır
 
 Yaklaşık tam süre: 10 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
@@ -546,7 +546,7 @@ Bu özellik Azure AD Premium P2 ve/veya EMS E5 parçasıdır. Risk olaylar hakk�
 
 Yaklaşık tamamlanma süresi: 20 dakika
 
-### <a name="pre-requisites"></a>Ön koşullar
+### <a name="pre-requisites"></a>Önkoşullar
 
 | Önkoşul | Kaynaklar |
 | --- | --- |

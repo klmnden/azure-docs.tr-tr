@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 497582138504250b3c4a77dab440d29ad928a7d8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Bir ASP.NET çekirdek Web API ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti ile bir uygulama oluşturun ve dağıtın
 Bu öğretici bir dizi birini bir parçasıdır.  Azure Service Fabric uygulaması bir ASP.NET çekirdek Web API ön uç ve verilerinizi depolamak için durum bilgisi olan bir arka uç hizmeti ile nasıl oluşturulacağını öğreneceksiniz. İşlemi tamamladığınızda, oylama bir durum bilgisi olan bir arka uç hizmetinde kümedeki Oylama sonuçlarını kaydettiği ön uç bir ASP.NET Core web uygulamasıyla sahip. El ile oylama uygulaması oluşturmak istemiyorsanız, şunları yapabilirsiniz [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) tamamlanan uygulama için ve için İleri atlayabilirsiniz [üzerinden oylama örnek uygulama yol](#walkthrough_anchor).
@@ -40,7 +40,7 @@ Bu öğretici serisinde öğrenin nasıl yapılır:
 > * [CI/CD Visual Studio Team Services kullanarak yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [İzleme ve tanılama uygulama için ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce:
 - Bir Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Visual Studio 2017 yükleme](https://www.visualstudio.com/) yükleyip **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
@@ -66,7 +66,7 @@ Bu öğreticiye başlamadan önce:
    
    ![ASP.NET web hizmeti yeni hizmet iletişim kutusunda seçme](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. Sonraki sayfanın bir dizi ASP.NET Core proje şablonları sağlar. Bu öğretici için seçin **Web uygulaması**. 
+6. Sonraki sayfanın bir dizi ASP.NET Core proje şablonları sağlar. Bu öğretici için seçin **Web uygulaması (MVC)**. 
    
    ![ASP.NET proje türü seçin](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 

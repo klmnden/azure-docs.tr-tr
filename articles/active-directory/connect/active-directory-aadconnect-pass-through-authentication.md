@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6987ad8f36de55ac49785b41bb193721aa78321b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Kullanıcı oturum açma ile Azure Active Directory doğrudan kimlik doğrulaması
 
@@ -55,7 +55,7 @@ Doğrudan kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 
 - Kullanıcı oturum açma tüm web tarayıcı tabanlı uygulamalar ve Microsoft Office kullanan istemci uygulamaları destekleyen [modern kimlik doğrulaması](https://aka.ms/modernauthga).
 - Oturum açma kullanıcı adları, şirket içi varsayılan kullanıcı olabilir (`userPrincipalName`) veya Azure AD Connect içinde yapılandırılmış başka bir öznitelik (olarak bilinen `Alternate ID`).
-- Özelliği ile sorunsuz çalışır [koşullu erişim](../active-directory-conditional-access.md) özellikleri gibi çok faktörlü kimlik doğrulaması (kullanıcılarınızın güvenli hale getirmek için MFA).
+- Özelliği ile sorunsuz çalışır [koşullu erişim](../active-directory-conditional-access-azure-portal.md) özellikleri gibi çok faktörlü kimlik doğrulaması (kullanıcılarınızın güvenli hale getirmek için MFA).
 - Bulut tabanlı ile tümleşik [Self Servis parola yönetimi](../active-directory-passwords-overview.md), parola geri yazma için de dahil olmak üzere şirket içi Active Directory ve parola koruması banning tarafından yaygın olarak kullanılan parolalar.
 - Birden çok orman ortamlarına AD ormanlar arasında orman güvenleri varsa desteklenir ve ad soneki yönlendirmesi doğru yapılandırılmışsa.
 - Boş bir özelliktir ve kullanmak için Azure AD Ücretli tüm sürümleri olması gerekmez.

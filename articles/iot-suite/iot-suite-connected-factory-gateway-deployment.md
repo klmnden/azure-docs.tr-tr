@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e99a7bc34ac5ed060100e5f5032513bf4b18b2eb
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: f6a69ecbeb09dc042eff7c1f95ee518e701b0507
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Windows veya Linux üzerinde bir ağ geçidi bağlı Fabrika önceden yapılandırılmış çözümü dağıtma
 
@@ -44,7 +44,7 @@ Bu makaledeki adımları Docker üzerinde kullanarak bir ağ geçidi dağıtma G
 ## <a name="windows-deployment"></a>Windows Dağıtım
 
 > [!NOTE]
-> Bir ağ geçidi cihazı henüz yoksa, Microsoft ticari bir ağ geçidi ortaklarımızdan birinden satın önerir. Ziyaret [Azure IOT cihaz katalog] ağ geçidi aygıtlarını bağlı Fabrika çözümüyle uyumlu bir listesi. Ağ geçidi kurun aygıtla birlikte gelen yönergeleri izleyin. Alternatif olarak, var olan geçitlerinizin birinde el ile ayarlamak için aşağıdaki yönergeleri kullanın.
+> Bir ağ geçidi cihazı henüz yoksa, Microsoft ticari bir ağ geçidi ortaklarından birinden satın önerir. Ziyaret [Azure IOT cihaz katalog] ağ geçidi aygıtlarını bağlı Fabrika çözümüyle uyumlu bir listesi. Ağ geçidi kurun aygıtla birlikte gelen yönergeleri izleyin. Alternatif olarak, var olan geçitlerinizin birinde el ile ayarlamak için aşağıdaki yönergeleri kullanın.
 
 ### <a name="install-docker"></a>Docker yükleyin
 
@@ -103,7 +103,7 @@ Docker gelen yükledikten sonra da bu adımı gerçekleştirebilirsiniz **ayarla
 ## <a name="linux-deployment"></a>Linux dağıtımı
 
 > [!NOTE]
-> Bir ağ geçidi cihazı henüz yoksa, Microsoft ticari bir ağ geçidi ortaklarımızdan birinden satın önerir. Ziyaret [Azure IOT cihaz katalog] ağ geçidi aygıtlarını bağlı Fabrika çözümüyle uyumlu bir listesi. Ağ geçidi kurun aygıtla birlikte gelen yönergeleri izleyin. Alternatif olarak, var olan geçitlerinizin birinde el ile ayarlamak için aşağıdaki yönergeleri kullanın.
+> Bir ağ geçidi cihazı henüz yoksa, Microsoft ticari bir ağ geçidi ortaklarından birinden satın önerir. Ziyaret [Azure IOT cihaz katalog] ağ geçidi aygıtlarını bağlı Fabrika çözümüyle uyumlu bir listesi. Ağ geçidi kurun aygıtla birlikte gelen yönergeleri izleyin. Alternatif olarak, var olan geçitlerinizin birinde el ile ayarlamak için aşağıdaki yönergeleri kullanın.
 
 [Docker yükleme] Linux ağ geçidi cihazınız üzerinde.
 

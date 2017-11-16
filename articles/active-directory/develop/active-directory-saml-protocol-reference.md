@@ -22,7 +22,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory SAML Protokolü kullanma
+# <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Azure Active Directory SAML Protokolü kullanma
 Uygulamaların kullanıcılarına çoklu oturum açma deneyimini sağlamak üzere etkinleştirmek için azure Active Directory (Azure AD) kullanan SAML 2.0 protokolü. [Çoklu oturum açma](active-directory-single-sign-on-protocol-reference.md) ve [tek oturum kapatma](active-directory-single-sign-out-protocol-reference.md) SAML profilleri Azure ad açıklayan SAML onaylar, protokolleri ve bağlamaları kimlik sağlayıcı hizmeti nasıl kullanılır.
 
 SAML protokolü, kimlik sağlayıcısı (Azure AD) ve hizmet sağlayıcısı (kendileri hakkında bilgi alışverişi için uygulama) gerektirir.

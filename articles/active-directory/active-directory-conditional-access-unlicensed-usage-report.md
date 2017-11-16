@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0f5f0eb79d8924ebe7e5848e1d8b761ea2e4983d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 91b48098cc8ba2bb230b0536a9bcd121db79c533
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="unlicensed-usage-report"></a>Lisanssız kullanım raporu
 Kullanmakta olduğunuz lisanssız kullanıcıları tanımlamak lisanssız kullanım raporu yardımcı olur, Azure AD özelliklerini Ücretli. Bu, daha iyi hale getirmek için satın aldığınız lisansların kullanmanız ve Ek lisanslar gerekebilir tanımlamak için çalıştığınızı sağlar. 
@@ -42,6 +42,6 @@ Bir Azure AD Premium lisansı yoksa uygulanan koşullu erişim ilkesine sahip bi
 Bu MFA için geçerlidir / aygıt yanı sıra konumu ilkeleri ilkeler, Intune kullanın.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Office 365 ve diğer Azure Active Directory ile koşullu erişim kullanarak bağlı uygulamalar](active-directory-conditional-access.md)
-* [Azure AD koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md) 
+* [Office 365 ve diğer Azure Active Directory ile koşullu erişim kullanarak bağlı uygulamalar](active-directory-conditional-access-azure-portal.md)
+* [Azure AD koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md) 
 

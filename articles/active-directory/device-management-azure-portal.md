@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6ac076917092caa8b3c14ab179515c0693fc89bf
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Azure portalını kullanarak cihazları yönetme
 
@@ -36,7 +36,7 @@ Bu konuda:
 
 ## <a name="configure-device-settings"></a>Aygıt ayarlarını yapılandır
 
-Azure Portalı'nı kullanarak, cihazlarınızı yönetmek için aygıtlarınızı, Azure AD alanına katılmış ya da kayıtlı gerekir. Yönetici olarak, kaydetme ve aygıt ayarlarını yapılandırarak aygıtları birleştirme işleminin ince ayar yapabilirsiniz. 
+Azure Portalı'nı kullanarak, cihazlarınızı yönetmek için aygıtlarınızı aşağıdakilerden biri olması gerekir [kayıtlı veya birleştirilmiş](device-management-introduction.md#getting-devices-under-the-control-of-azure-ad) Azure ad. Yönetici olarak, kaydetme ve aygıt ayarlarını yapılandırarak aygıtları birleştirme işleminin ince ayar yapabilirsiniz. 
 
 ![Aygıt ayarlarını yapılandır](./media/device-management-azure-portal/22.png)
 
@@ -45,13 +45,13 @@ Aygıt Ayarları sayfasından yapılandırmanıza olanak sağlar:
 ![Bir Intune cihaz yönetme](./media/device-management-azure-portal/21.png)
 
 
-- **Kullanıcılar cihazları Azure AD'ye katılma** - bu ayarları cihazları Azure AD'ye katılabilirsiniz kullanıcıları seçmenize olanak sağlar. Varsayılan değer **tüm**.
+- **Kullanıcılar cihazları Azure AD'ye katılma** -Bu ayar için kullanıcıları seçmenize olanak tanır [cihazları](device-management-introduction.md#azure-ad-joined-devices) Azure ad. Varsayılan değer **tüm**.
 
 - **Ek yerel Yöneticiler Azure AD alanına katılmış aygıtlar** -bir cihazda yerel yönetici hakları verilen kullanıcılar seçebilir. Buraya eklenen kullanıcılar için eklendiğinde *cihaz yöneticileri* Azure AD'de rol. Azure AD'de genel Yöneticiler ve cihaz sahiplerine yerel yönetici hakları varsayılan olarak verilmiştir. Bu seçenek bir premium edition Azure AD Premium veya Enterprise Mobility Suite (EMS) gibi ürünler aracılığıyla kullanılabilen bir özelliktir. 
 
-- **Kullanıcıları Azure AD ile cihazlarını kaydetme** -Azure AD ile kaydedilecek cihazları izin vermek için bu ayarı yapılandırmanız gerekir. Seçerseniz **hiçbiri**, Azure AD alanına bağlı olmadıkları zaman Kaydet veya karma Azure AD alanına katılmış aygıtlar izin verilmez. Office 365 için Microsoft Intune veya mobil cihaz Yönetimi (MDM) ile kayıt kayıt gerektirir. Bu hizmetlerden birini yapılandırdıysanız **tüm** seçilir ve **NONE** kullanılamıyor...
+- **Kullanıcıları Azure AD ile cihazlarını kaydetme** -aygıtlarının izin vermek için bu ayarı yapılandırmak gereken [kayıtlı](device-management-introduction.md#azure-ad-registered-devices) Azure AD ile. Seçerseniz **hiçbiri**, Azure AD alanına bağlı olmadıkları zaman Kaydet veya karma Azure AD alanına katılmış aygıtlar izin verilmez. Office 365 için Microsoft Intune veya mobil cihaz Yönetimi (MDM) ile kayıt kayıt gerektirir. Bu hizmetlerden birini yapılandırdıysanız **tüm** seçilir ve **NONE** kullanılamıyor...
 
-- **Aygıtları katılmak çok öğeli kimlik doğrulama gerektiren** -kullanıcıların cihazlarını Azure AD'ye katılmak için ikinci bir kimlik doğrulama faktörü sağlamalarının gerekip gerekmediğini seçin. Varsayılan değer **Hayır**. Bir cihaz kaydedilirken çok faktörlü kimlik doğrulaması gerektiren öneririz. Bu hizmet için çok faktörlü kimlik doğrulamasını etkinleştirmeden önce çok faktörlü kimlik doğrulamasının cihazlarını kaydeden kullanıcılar için yapılandırılmış emin olmalısınız. Farklı Azure çok faktörlü kimlik doğrulama hizmetleri hakkında daha fazla bilgi için bkz: [Azure multi-Factor authentication ile çalışmaya başlama](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Aygıtları katılmak çok öğeli kimlik doğrulama gerektiren** -kullanıcıların ikinci bir kimlik doğrulama faktörü sağlamalarının gerekip gerekmediğini seçebilirsiniz [birleştirme](device-management-introduction.md#azure-ad-joined-devices) cihazlarını Azure ad. Varsayılan değer **Hayır**. Bir cihaz kaydedilirken çok faktörlü kimlik doğrulaması gerektiren öneririz. Bu hizmet için çok faktörlü kimlik doğrulamasını etkinleştirmeden önce çok faktörlü kimlik doğrulamasının cihazlarını kaydeden kullanıcılar için yapılandırılmış emin olmalısınız. Farklı Azure çok faktörlü kimlik doğrulama hizmetleri hakkında daha fazla bilgi için bkz: [Azure multi-Factor authentication ile çalışmaya başlama](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
 
 - **En fazla cihaz sayısını** -Bu ayar, Azure AD'de kullanıcı olan aygıtların sayısı seçmenize olanak sağlar. Bir kullanıcı bu kota ulaşırsa, bunlar olan değil kadar ek cihaz ekleyemez veya daha fazla var olan cihazları kaldırılır. Azure AD alanına katılmış veya Azure AD bugün kayıtlı olan tüm aygıtları için aygıt teklif sayılır. Varsayılan değer **20**.
 
@@ -66,12 +66,12 @@ Bu seçenek bir premium Azure AD Premium veya Enterprise Mobility Suite (EMS) gi
 
 Kayıtlı ve birleştirilmiş cihazları bulmak için iki seçeneğiniz vardır:
 
-- **Tüm cihazlar** içinde **Yönet** bölümünü **aygıtları** dikey penceresi  
+- **Tüm cihazlar** içinde **Yönet** bölümünü **aygıtları** sayfası  
 
     ![Tüm cihazlar](./media/device-management-azure-portal/41.png)
 
 
-- **Aygıtları** içinde **Yönet** bölümünü bir **kullanıcı** dikey penceresi
+- **Aygıtları** içinde **Yönet** bölümünü bir **kullanıcı** sayfası
  
     ![Tüm cihazlar](./media/device-management-azure-portal/43.png)
 
@@ -170,15 +170,15 @@ Bir yöneticiyseniz, görüntüleyebilir ve kullanıcıların kendi şifreli sü
 ## <a name="audit-logs"></a>Denetleme günlükleri
 
 
-Cihaz etkinliklerini, etkinlik günlükleri ile kullanılabilir. Bu, kullanıcı veya cihaz kayıt hizmeti tarafından tetiklenen etkinliklerin içerir:
+Cihaz etkinliklerini, etkinlik günlükleri ile kullanılabilir. Bu cihaz Kayıt Hizmeti'ni ve kullanıcılar tarafından tetiklenen etkinliklerin içerir:
 
-- Cihaz oluşturma ve cihazda sahipleri/kullanıcıları ekleme
+- Cihaz oluşturma ve sahipleri ekleme / cihazdaki kullanıcılar
 
 - Cihaz ayarlarındaki değişiklikler
 
 - Bir aygıt güncelleştirme veya silme gibi aygıt işlemleri
  
-Giriş noktanızdır denetim verilere **denetim günlüklerini** içinde **etkinlik** bölümünü **aygıtları* dikey.
+Giriş noktanızdır denetim verilere **denetim günlüklerini** içinde **etkinlik** bölümünü **aygıtları** sayfası.
 
 ![Denetleme günlükleri](./media/device-management-azure-portal/61.png)
 
@@ -202,7 +202,7 @@ Araç çubuğunda **Sütunlar**’a tıklayarak liste görünümünü özelleşt
 
 Raporlanan verileri istediğiniz düzeye gelecek şekilde daraltmak için, aşağıdaki alanları kullanarak denetim verilerini filtreleyebilirsiniz:
 
-- Catergory
+- Kategori
 - Etkinlik kaynak türü
 - Etkinlik
 - Tarih aralığı

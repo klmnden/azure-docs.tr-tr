@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 4a33df43ca218545d6c684103a64f2cd1460913b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory doğrudan kimlik doğrulaması: Geçerli sınırlamalar
 
@@ -38,7 +38,7 @@ Aşağıdaki senaryolarda tam olarak desteklenir:
 
 Aşağıdaki senaryolar _değil_ desteklenir:
 
-- Kullanıcı oturum açma işlemlerine eski Office istemci uygulamalarına - Office 2010 ve Office 2013 _olmadan_ modern kimlik doğrulaması). Kuruluşlar, modern kimlik doğrulaması için mümkünse geçmeniz önerilir. Modern kimlik doğrulama için doğrudan kimlik doğrulama desteği sağlar ancak da yardımcı olur, güvenli kullanıcı hesapları kullanarak [koşullu erişim](../active-directory-conditional-access.md) çok faktörlü kimlik doğrulama (MFA) gibi özellikleri.
+- Kullanıcı oturum açma işlemlerine eski Office istemci uygulamalarına - Office 2010 ve Office 2013 _olmadan_ modern kimlik doğrulaması). Kuruluşlar, modern kimlik doğrulaması için mümkünse geçmeniz önerilir. Modern kimlik doğrulama için doğrudan kimlik doğrulama desteği sağlar ancak da yardımcı olur, güvenli kullanıcı hesapları kullanarak [koşullu erişim](../active-directory-conditional-access-azure-portal.md) çok faktörlü kimlik doğrulama (MFA) gibi özellikleri.
 - Kullanıcı oturum açmalarına Skype içine iş 2016 Skype dahil olmak üzere iş istemci uygulamaları için.
 - Kullanıcı oturum açma işlemlerine PowerShell v1.0 içine. Bunun yerine PowerShell v2.0 kullanmanız önerilir.
 - Azure AD etki alanı Hizmetleri.

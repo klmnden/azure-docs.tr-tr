@@ -21,10 +21,10 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-# On-temsili akış kullanıcı kimliğini kullanarak hizmeti çağrıları için hizmet temsilcisi
+# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-temsili akış kullanıcı kimliğini kullanarak hizmeti çağrıları için hizmet temsilcisi
 Burada bir hizmet/sırayla başka çağırmak için gereken web API, uygulamanın çağırır kullanım örneği akış hizmet OAuth 2.0 On-Behalf-Of hizmeti/web API. Temsilci atanan kullanıcı kimliğini ve izinleri istek zincirinin aracılığıyla yaymak için kullanılan uygulamadır. Orta katman hizmet kimliği doğrulanmış istekler için aşağı akış hizmeti yapmak, Azure Active Directory'den (Azure AD), bir erişim belirteci güvenli kullanıcı adına gerekir.
 
-## Üzerinde-adına-Akış Diyagramı
+## <a name="on-behalf-of-flow-diagram"></a>Üzerinde-adına-Akış Diyagramı
 Kullanıcı bir uygulama kullanarak doğrulandı varsayın [OAuth 2.0 yetkilendirme kodu izin akışı](active-directory-protocols-oauth-code.md). Bu noktada, uygulama kullanıcının talepleri ve orta katman web API (API A) erişmek için izniniz bir erişim belirteci (belirteci A) sahip. Şimdi, API bir aşağı akış web API'si (API B) kimliği doğrulanmış bir istekte bulunun gerekiyor.
 
 Adımları On-temsili akış oluşturur ve aşağıdaki diyagramda yardımıyla açıklanmıştır.
@@ -38,9 +38,9 @@ Adımları On-temsili akış oluşturur ve aşağıdaki diyagramda yardımıyla 
 4. API b isteğinin yetkilendirme üst B belirteci ayarlayın
 5. Veriler güvenli kaynaktan API B'nin tarafından döndürülür
 
-## Azure AD'de uygulama ve hizmet kaydetme
+## <a name="register-the-application-and-service-in-azure-ad"></a>Azure AD'de uygulama ve hizmet kaydetme
 İstemci uygulaması ve orta katman hizmet Azure AD'de kaydedin.
-### Orta katman hizmet kaydı
+### <a name="register-the-middle-tier-service"></a>Orta katman hizmet kaydı
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda hesabınızda altında tıklatıp **Directory** listesinde, Active Directory Kiracı uygulamanızı kaydetmek için istediğiniz yeri seçin.
 3. Tıklayın **daha Hizmetleri** sol taraftaki gezinti içinde ve **Azure Active Directory**.
@@ -48,7 +48,7 @@ Adımları On-temsili akış oluşturur ve aşağıdaki diyagramda yardımıyla 
 5. Uygulama için kolay bir ad girin ve uygulama türünü seçin. Oturum açma URL'si veya yeniden yönlendirme URL'si temel URL için uygulama türü kümesine bağlı. Tıklayın **oluşturma** uygulaması oluşturmak için.
 6. Halen Azure portalında sırasında uygulamanızı seçin ve tıklayın **ayarları**. Ayarları menüsünden **anahtarları** ve bir anahtar add - 1 yıl veya 2 yıl anahtar bir süre seçin. Bu sayfayı kaydedin, anahtar değeri görüntülenir, kopyalama ve güvenli bir yerde değeri kaydetmek,-daha sonra uygulamanızda - uygulama ayarlarını yapılandırmak için bu anahtar gerekir, bu anahtarı değeri diğer herhangi bir yolla yeniden görüntülenen ya da alınabilir olmayacaktır. , böylece Lütfen Azure Portalı'ndan görülebilir hemen kaydedin.
 
-### İstemci uygulaması kaydetme
+### <a name="register-the-client-application"></a>İstemci uygulaması kaydetme
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Üst çubuğunda hesabınızda altında tıklatıp **Directory** listesinde, Active Directory Kiracı uygulamanızı kaydetmek için istediğiniz yeri seçin.
 3. Tıklayın **daha Hizmetleri** sol taraftaki gezinti içinde ve **Azure Active Directory**.
@@ -56,14 +56,14 @@ Adımları On-temsili akış oluşturur ve aşağıdaki diyagramda yardımıyla 
 5. Uygulama için kolay bir ad girin ve uygulama türünü seçin. Oturum açma URL'si veya yeniden yönlendirme URL'si temel URL için uygulama türü kümesine bağlı. Tıklayın **oluşturma** uygulaması oluşturmak için.
 6. -Ayarlar menüsünden uygulamanızın izinlerini yapılandırabilir, seçin **gerekli izinleri** bölümünde, tıklayın **Ekle**, ardından **bir API seçin**ve adını yazın Orta katman hizmet metin kutusuna. Ardından, tıklatın **Select izinleri** seçip ' erişim *hizmet adı*'.
 
-### Bilinen istemci uygulamaları yapılandır
+### <a name="configure-known-client-applications"></a>Bilinen istemci uygulamaları yapılandır
 Bu senaryoda, orta katman hizmet aşağı akış API erişmek için kullanıcı onayı almak için kullanıcı etkileşimi olmadan sahiptir. Bu nedenle, adım onay bir parçası olarak kimlik doğrulaması sırasında aşağı akış API'sine erişim seçeneği önceden sunulmalıdır.
 Bunu başarmak için istemci uygulamasının kayıt izni hem istemci hem de orta katman tarafından tek bir iletişim kutusuna gerekli birleştirir orta katman hizmet kaydının ile Azure AD'de açıkça bağlamak için aşağıdaki adımları izleyin.
 1. Orta katman hizmet kayıt gidin ve tıklayın **bildirim** bildirim Düzenleyicisi'ni açın.
 2. Bildiriminde bulun `knownClientApplications` dizi özelliği ve öğe istemci uygulamanın istemci Kimliğini ekleyin.
 3. Kaydetme tıklayarak bildirim Kaydet düğmesi.
 
-## Hizmet erişim belirteci isteği hizmetine
+## <a name="service-to-service-access-token-request"></a>Hizmet erişim belirteci isteği hizmetine
 Bir erişim belirteci istemek için bir HTTP POST için Kiracı özgü olun aşağıdaki parametrelerle Azure AD uç noktası.
 
 ```
@@ -71,7 +71,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
 İstemci uygulaması olup bir paylaşılan gizlilik ya da bir sertifika tarafından güvenli hale seçti bağlı olarak iki durumlar vardır.
 
-### İlk durumda: bir paylaşılan gizlilik ile erişim belirteci isteği
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>İlk durumda: bir paylaşılan gizlilik ile erişim belirteci isteği
 Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği aşağıdaki parametreleri içerir:
 
 | Parametre |  | Açıklama |
@@ -84,7 +84,7 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 | requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
 | Kapsam |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
 
-#### Örnek
+#### <a name="example"></a>Örnek
 Bir erişim belirteci https://graph.windows.net web API'si için aşağıdaki HTTP POST istekleri. `client_id` Erişim belirteci istekleri hizmeti tanımlar.
 
 ```
@@ -103,7 +103,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### İkinci durumda: bir sertifika ile erişim belirteci isteği
+### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durumda: bir sertifika ile erişim belirteci isteği
 Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki parametreleri içerir:
 
 | Parametre |  | Açıklama |
@@ -119,7 +119,7 @@ Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki param
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizliliği isteğiyle durumunda olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
 
-#### Örnek
+#### <a name="example"></a>Örnek
 Bir sertifika ile https://graph.windows.net web API'si için bir erişim belirteci aşağıdaki HTTP POST isteği gönderir. `client_id` Erişim belirteci istekleri hizmeti tanımlar.
 
 ```
@@ -139,7 +139,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## Hizmet erişim belirteci yanıtı hizmetine
+## <a name="service-to-service-access-token-response"></a>Hizmet erişim belirteci yanıtı hizmetine
 Başarılı yanıt aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıt olan.
 
 | Parametre | Açıklama |
@@ -153,7 +153,7 @@ Başarılı yanıt aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıt olan.
 | id_token |İstenen kimliği belirteci. Arama Hizmeti kullanıcının kimliğini doğrulamak ve kullanıcı oturumu başlatmak için bunu kullanabilirsiniz. |
 | refresh_token |İstenen erişim belirteci için yenileme belirteci. Arama hizmeti geçerli erişim belirtecinin süresi dolduktan sonra başka bir erişim belirteci istemek için bu belirteci kullanabilirsiniz. |
 
-### Başarılı yanıt örnek
+### <a name="success-response-example"></a>Başarılı yanıt örnek
 Aşağıdaki örnek, bir başarı isteğine yanıt olarak https://graph.windows.net web API'si için bir erişim belirteci için gösterir.
 
 ```
@@ -171,7 +171,7 @@ Aşağıdaki örnek, bir başarı isteğine yanıt olarak https://graph.windows.
 }
 ```
 
-### Hata yanıtı örneği
+### <a name="error-response-example"></a>Hata yanıtı örneği
 Aşağı Akış API koşullu erişim ilkesi ayarlayabilirsiniz çok faktörlü kimlik doğrulaması gibi varsa aşağı akış API için bir erişim belirteci almaya çalışırken bir hata yanıtı Azure AD belirteç uç noktası tarafından döndürülür. Böylece istemci uygulama, koşullu erişim ilkesi karşılamak için kullanıcı etkileşimi sağlayabilir orta katman hizmet bu hata istemci uygulamasına yüzey.
 
 ```
@@ -186,17 +186,17 @@ Aşağı Akış API koşullu erişim ilkesi ayarlayabilirsiniz çok faktörlü k
 }
 ```
 
-## Güvenli kaynağa erişmek için erişim belirteci kullanın
+## <a name="use-the-access-token-to-access-the-secured-resource"></a>Güvenli kaynağa erişmek için erişim belirteci kullanın
 Artık orta katman hizmet belirteci ayarlayarak Aşağı Akış web API'si, kimliği doğrulanmış istekler yapmasını yukarıda edinilen belirteci kullanarak `Authorization` üstbilgi.
 
-### Örnek
+### <a name="example"></a>Örnek
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 OAuth 2.0 protokolünü ve istemci kimlik bilgilerini kullanarak hizmet kimlik doğrulama gerçekleştirmek için başka bir yöntem hakkında daha fazla bilgi edinin.
 * [OAuth 2.0 istemci kimlik bilgileri sağlama Azure AD'de kullanarak hizmet kimlik doğrulama hizmeti](active-directory-protocols-oauth-service-to-service.md)
 * [Azure AD'de OAuth 2.0](active-directory-protocols-oauth-code.md)

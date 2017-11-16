@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: cf32ef4c80fa0ee68ce3dc1289467a419aab39c9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7d4ed0cc06e8b218b2b63c1d899701ba2eafd648
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Azure Veri Kataloğu önkoşulları
 
@@ -28,7 +28,7 @@ Birkaç Azure veri Kataloğu ayarlamadan önce ilgilenebilmek gerekir. Endişele
 ## <a name="azure-subscription"></a>Azure aboneliği
 Veri Kataloğu'nu ayarlamak için sahibi veya bir Azure aboneliğinin ortak sahibi olmalıdır.
 
-Azure Abonelikleri, veri Kataloğu gibi bulut hizmeti kaynaklarına erişimi düzenlemenize yardımcı olur. Abonelikleri nasıl kaynak kullanımı bildirilen faturalandırılır ve ödendiği denetlemenize yardımcı. Abonelikler ve departman, proje, bölgesel ofise vb. göre farklılık planları alacak şekilde her abonelik bir ayrı faturalandırma ve ödeme ayarına sahip olabilir. Her bir bulut hizmeti aboneliği aittir ve, veri Kataloğu'nu ayarlamak önce bir aboneliğe sahip olmanız gerekir. Daha fazla bilgi için bkz. [Hesapları, abonelikleri ve yönetici rollerini yönetme](../active-directory/active-directory-assign-admin-roles.md).
+Azure Abonelikleri, veri Kataloğu gibi bulut hizmeti kaynaklarına erişimi düzenlemenize yardımcı olur. Abonelikleri nasıl kaynak kullanımı bildirilen faturalandırılır ve ödendiği denetlemenize yardımcı. Abonelikler ve departman, proje, bölgesel ofise vb. göre farklılık planları alacak şekilde her abonelik bir ayrı faturalandırma ve ödeme ayarına sahip olabilir. Her bir bulut hizmeti aboneliği aittir ve, veri Kataloğu'nu ayarlamak önce bir aboneliğe sahip olmanız gerekir. Daha fazla bilgi için bkz. [Hesapları, abonelikleri ve yönetici rollerini yönetme](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 Veri Kataloğu'nu ayarlamak için bir Azure Active Directory (Azure AD) kullanıcı hesabıyla oturum açtığınızdan gerekir.

@@ -1,6 +1,6 @@
 ---
-title: "SAP (A) SCS örneğinde Windows Azure üzerinde dosya paylaşımı kullanarak Yük Devretme Kümelemesi | Microsoft Docs"
-description: "Dosya paylaşımı kullanarak Windows Yük devretme kümesinde SAP (A) SCS örneği kümeleme"
+title: "Azure üzerinde bir dosya paylaşımı kullanarak bir SAP ASCS/SCS örneği Windows Yük devretme kümesinde Küme | Microsoft Docs"
+description: "Azure üzerinde bir dosya paylaşımı kullanarak bir SAP ASCS/SCS örneği Windows Yük devretme kümesinde Küme öğrenin."
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 8cb339c9ecffbbc711aa6ea55d6f357fe0f4cfd0
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/14/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -201,179 +201,162 @@ ms.lasthandoff: 10/27/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
+[1869038]:https://launchpad.support.sap.com/#/notes/1869038 
 
-# <a name="clustering-sap-ascs-instance-on-windows-failover-cluster-using-file-share-on-azure"></a>SAP (A) SCS örneği Azure üzerinde dosya paylaşımı kullanarak Windows Yük Devretme Kümelemesi
+# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure üzerinde bir dosya paylaşımı kullanarak bir SAP ASCS/SCS örneği Windows Yük devretme kümesinde Küme
 
 > ![Windows][Logo_Windows] Windows
 >
 
-Windows Server Yük Devretme Kümelemesi, yüksek kullanılabilirlik SAP ASCS/SCS yükleme ve Windows'da DBMS temelidir.
+Windows Server Yük Devretme Kümelemesi yüksek kullanılabilirlik SAP ASCS/SCS yükleme ve Windows'da DBMS oluşturmaktadır.
 
-Bir yük devretme kümesi, uygulamaların ve hizmetlerin kullanılabilirliğini artırmak için birlikte çalışan 1 + n bağımsız sunucular (düğümler) grubudur. Bir düğüm hatası oluşursa, Windows Server Yük Devretme Kümelemesi uygulamaları ve hizmetleri sağlamak için iyi bir küme korurken oluşabilir sayısı hesaplar. Yük Devretme Kümelemesi elde etmek için farklı bir çekirdek modlarından seçebilirsiniz.
+Bir yük devretme kümesi, uygulamaların ve hizmetlerin kullanılabilirliğini artırmak için birlikte çalışan 1 + n bağımsız sunucular (düğümler) grubudur. Bir düğüm hatası oluşursa, Windows Server Yük Devretme Kümelemesi oluşur ve hala uygulamaları ve hizmetleri sağlamak için iyi bir küme korumak hatalarının sayısını hesaplar. Yük Devretme Kümelemesi elde etmek için farklı bir çekirdek modlarından seçebilirsiniz.
 
-## <a name="prerequisite"></a>Önkoşul
-Bu belgeyle başlatmadan önce bu belgeleri gözden geçirdiğinizden emin olun:
+## <a name="prerequisites"></a>Önkoşullar
+Bu makalede açıklanan görevler başlamadan önce bu makalede gözden geçirin:
 
-* [Azure sanal makinelerini yüksek kullanılabilirlik mimarisi ve SAP NetWeaver senaryoları][sap-high-availability-architecture-scenarios]
+* [Azure sanal makineleri yüksek oranda kullanılabilirlik mimarisi ve SAP NetWeaver senaryoları][sap-high-availability-architecture-scenarios]
 
 > [!IMPORTANT]
->Dosya Paylaşımı ile SAP (A) SCS örneklerinin kümeleme için desteklenir **SAP NetWeaver 7.40 (ve daha yüksek)** ürünleri ile **SAP çekirdek 7,49 (ve daha yüksek)**.
+> Bir dosya paylaşımı kullanarak SAP ASCS/SCS örnekleri kümeleme SAP NetWeaver 7.40 (ve daha sonra), SAP çekirdek 7.49 (ve daha sonra) desteklenir.
 >
 
 
-## <a name="windows-server-failover-clustering-in-azure"></a>Azure'da Windows Server Yük devretme
+## <a name="windows-server-failover-clustering-in-azure"></a>Windows Server Yük Devretme Kümelemesi ile Azure
 
-Çıplak metal veya özel bulut dağıtımları karşılaştırıldığında, Azure sanal makineleri Windows Server Yük Devretme Kümelemesi yapılandırmak için ek adımlar gerektirir. Bir küme oluşturma sırasında birkaç IP adresleri ve sanal ana bilgisayar adları SAP ASCS/SCS örneği için ayarlamanız gerekir.
+Tam veya özel bulut dağıtımları için ile karşılaştırıldığında, Azure sanal makineleri Windows Server Yük Devretme Kümelemesi yapılandırmak için ek adımlar gerektirir. Bir küme oluşturma sırasında birkaç IP adresleri ve sanal ana bilgisayar adları SAP ASCS/SCS örneği için ayarlamanız gerekir.
 
-### <a name="name-resolution-in-azure-and-cluster-virtual-host-name"></a>Ad çözümlemesi Azure ve küme sanal ana bilgisayar adı
+### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Ad çözümlemesi Azure ve küme sanal ana bilgisayar adı
 
-Azure bulut platformu kayan IP adresleri gibi sanal IP adreslerini yapılandırma seçeneği sağlamaz. Küme kaynağı bulutta ulaşmak için sanal bir IP adresi ayarlamak için alternatif bir çözüm gerekir. Azure sahip bir **iç yük dengeleyici** Azure yük dengeleyici hizmet. İç yük dengeleyici ile istemcileri kümenin küme sanal IP adresi ulaşabilirsiniz. Küme düğümleri içeren kaynak grubunda iç yük dengeleyicisi dağıtmanız gerekir. Ardından, kuralları araştırmasıyla iç yük dengeleyicisi bağlantı noktaları iletme tüm gerekli bağlantı noktası yapılandırın. İstemcileri sanal ana bilgisayar adını bağlanabilir. DNS sunucusu küme IP adresi ve kümesinin etkin düğümü iletme iç yük dengeleyici tanıtıcıları bağlantı noktası çözümler.
+Azure bulut platformu kayan IP adresleri gibi sanal IP adreslerini yapılandırma seçeneği sağlamaz. Küme kaynağı bulutta ulaşmak için sanal bir IP adresi ayarlamak için alternatif bir çözüm gerekir. 
+
+Azure Yük Dengeleyici Hizmeti sağlayan bir *iç yük dengeleyici* Azure için. İç yük dengeleyici ile istemcileri kümenin küme sanal IP adresi ulaşabilirsiniz. 
+
+Küme düğümleri içeren kaynak grubunda iç yük dengeleyicisi dağıtın. Ardından, kuralları araştırma kullanarak iç yük dengeleyicisi bağlantı noktaları iletme tüm gerekli bağlantı noktası yapılandırın. İstemcileri sanal ana bilgisayar adını bağlanabilir. DNS sunucusu küme IP adresi çözümler. İç yük dengeleyicisi kümesinin etkin düğümü için bağlantı noktası iletme işler.
 
 ![Şekil 1: Windows Server Yük devretme kümeleme yapılandırmasında Azure olmayan paylaşılan bir disk][sap-ha-guide-figure-1001]
 
-_**Şekil 1:** Windows Server Yük devretme kümeleme yapılandırmasında Azure olmayan paylaşılan bir disk_
+_**Şekil 1:** Azure yapılandırmasında bir paylaşılan disk olmayan Windows Server Yük devretme_
 
-## <a name="sap-ascs-ha-with-file-share"></a>Dosya Paylaşımı ile (A) SCS HA SAP
+## <a name="sap-ascsscs-ha-with-file-share"></a>SAP ASCS/SCS HA dosya paylaşımı
 
-SAP, yeni bir yaklaşım ve Windows Yük devretme kümesinde Küme SAP (A) SCS örneğine Paylaşılan diskleri küme için bir alternatif geliştirilmiştir.
-
-Burada kullanılan **SMB dosya paylaşımı** dağıtmak için bir seçenek **SAP genel ana bilgisayar dosyaları**.
+SAP, yeni bir yaklaşım ve SAP ASCS/SCS örneği üzerinde Windows Yük Devretme Kümelemesi için Paylaşılan diskleri, küme için bir alternatif geliştirilmiştir. Küme Paylaşılan diskleri kullanmak yerine, bir SMB dosya paylaşımına SAP genel ana bilgisayar dosyaları dağıtmak için kullanabilirsiniz.
 
 > [!NOTE]
->SMB dosya paylaşımı, SAP (A) SCS örneklerini Kümelemesi için paylaşılan disk küme için ek bir seçenektir.  
+> Bir SMB dosya paylaşımına SAP ASCS/SCS örnekleri kümeleme için Küme Paylaşılan diskleri kullanan bir alternatifidir.  
 >
 
-Bu mimariye özgüdür aşağıda verilmiştir:
+Bu mimari, aşağıdaki yollarla özeldir:
 
-* **SAP merkezi hizmetleriyle (kendi dosya yapısı ve ileti ve sıraya alma işlemleri) SAP genel ana bilgisayar dosyalarından ayrılır**
-* **SAP merkezi hizmetlerinin SAP (A) SCS altında çalıştırır**
-* SAP (A) SCS örneği'nın kümelenmiş olduğunu ve erişilebilir sanal ana bilgisayar adı kullanmaktır **< SCSVirtualHostName (A) >**
-* SAP genel dosyalarını SMB dosya paylaşımında yerleştirilir ve kullanılarak erişilir <SAPGLOBALHost> ana bilgisayar adı \\ \\ &lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...
-* SAP (A) SCS örneği her iki küme düğümünde bir yerel diskte yüklü
-* **< SCSVirtualHostName (A) >** ağ adı farklı  **&lt;SAPGLOBALHost&gt;**
+* SAP merkezi hizmetleriyle (kendi dosya yapısı ve ileti ve sıraya alma işlemleri) SAP genel ana bilgisayar dosyalarından ayrıdır.
+* SAP merkezi hizmetlerinin SAP ASCS/SCS örneği altında çalıştırın.
+* SAP ASCS/SCS örneğinin kümelenmiş olduğunu ve erişilebilir olduğundan kullanarak \<ASCS/SCS sanal ana bilgisayar adını\> sanal ana bilgisayar adı.
+* SAP genel dosyaları SMB dosya paylaşımında yerleştirilir ve kullanılarak erişilen \<SAP genel ana bilgisayar\> ana bilgisayar adı: \\ \\ &lt;SAP genel ana bilgisayar&gt;\sapmnt\\ &lt;SID&gt;\SYS\....
+* SAP ASCS/SCS örneği, her iki küme düğümünde bir yerel diskte yüklenir.
+* \<ASCS/SCS sanal ana bilgisayar adını\> ağ adı farklı &lt;SAP genel ana bilgisayar&gt;.
 
-![Şekil 2: Yeni SAP (A) SCS HA mimarisiyle SMB dosya paylaşımı][sap-ha-guide-figure-8004]
+![Şekil 2: SAP ASCS/SCS HA mimarisiyle SMB dosya paylaşımı][sap-ha-guide-figure-8004]
 
-_**Şekil 2:** yeni SAP (A) SCS HA mimarisiyle SMB dosya paylaşımı_
+_**Şekil 2:** yeni SAP ASCS/SCS HA mimarisiyle bir SMB dosya paylaşımı_
 
 SMB dosya paylaşımı için Önkoşullar:
 
-* SMB 3.0 (veya üstü) Protokolü
-* İçin Active Directory (AD) erişim denetimi listesi (ACL) ayarlayabilme **AD kullanıcı grupları** ve **bilgisayar nesnesi bilgisayar$**
-* Dosya Paylaşımı HA etkinleştirilmiş olmalıdır:
-    * Dosyaları depolamak için kullanılan diskler tek hata noktası olmamalıdır
-    * Sunucuları/VMs, bir süre kapalı kalmasını sağlamak dosya paylaşımının kapalı kalma süresi neden değil
+* SMB 3.0 (veya üstü) protokolü.
+* Active Directory erişimi denetim listeleri (ACL'ler) Active Directory kullanıcı grupları için ayarlayabilme ve `computer$` bilgisayar nesnesi.
+* Dosya Paylaşımı HA etkinleştirilmiş olması gerekir:
+    * Dosyaları depolamak için kullanılan diskler tek hata noktası olmaması gerekir.
+    * Sunucu veya VM kapalı kalma süresi kapalı kalma süresi dosya paylaşımında neden olmaz.
 
-Şimdi, **SAP &lt;SID&gt;**  küme rolünü değil içeren Küme Paylaşılan diskleri veya genel dosya paylaşımı küme kaynağı.
-
-
-![Şekil 3: dosya paylaşımı kullanırken, SAP < SID > Küme rolü kaynakları][sap-ha-guide-figure-8005]
-
-_**Şekil 3:** **SAP &lt;SID&gt;**  dosya paylaşımı kullanırken, küme rolü kaynakları_
+SAP \<SID\> Küme Paylaşılan diskleri veya genel bir dosya paylaşımı küme kaynağının küme rolünü içermiyor.
 
 
-## <a name="scale-out-file-share-sofs-with-storage-spaces-direct-s2d-on-azure-as-sapmnt-file-share"></a>Dosya Paylaşımı (SOFS) ile doğrudan depolama alanları (S2D) Azure üzerinde SAPMNT dosya paylaşımı olarak genişletme
+![Şekil 3: SAP \<SID\> küme için bir dosya paylaşımı kullanarak rolü kaynaklar][sap-ha-guide-figure-8005]
 
-SOFS barındırmak ve SAP genel ana bilgisayar dosyaları korumak için ve yüksek oranda kullanılabilir SAPMNT Dosya Paylaşımı hizmeti sunmak için kullanabilirsiniz.
+_**Şekil 3:** SAP &lt;SID&gt; küme için bir dosya paylaşımı kullanarak rolü kaynaklar_
 
-![Şekil 4: SAP genel ana bilgisayar dosyaları korumak için kullanılan SOFS dosya paylaşımı][sap-ha-guide-figure-8006]
 
-_**Şekil 4:** SAP genel ana bilgisayar dosyaları korumak için kullanılan SOFS dosya paylaşımı_
+## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Depolama alanları doğrudan bir SAPMNT dosya paylaşımı olarak Azure ile genişleme dosya paylaşımları
 
-> [!IMPORTANT]
->SOFS dosya paylaşımına tam Microsoft Azure bulut de şirket içi ortamlara benzer desteklenir.
->
+Bir genişleme dosya paylaşımında barındırabilir ve SAP genel ana bilgisayar dosyaları korumak için kullanabilirsiniz. Bir genişleme dosya paylaşımına da yüksek oranda kullanılabilir bir SAPMNT Dosya Paylaşımı hizmeti sunar.
 
-**SOFS** yüksek oranda kullanılabilir ve ölçeklenebilir yatay SAPMNT dosya paylaşımı sunan.
+![Şekil 4: SAP genel ana bilgisayar dosyaları korumak için kullanılan genişleme dosya paylaşımı][sap-ha-guide-figure-8006]
 
-**Depolama alanları doğrudan (S2D)**, olarak kullanılan **paylaşılan disk** sunucuları ile yerel depolama kullanarak yüksek oranda kullanılabilir ve ölçeklenebilir depolama oluşturma SOFS için etkinleştirir. Bu nedenle, paylaşılan depolama alanı için SOFS, örn. SAP GLOBALHOST dosyaları için kullanılan tek bir hata (SPOF) noktası değil.
+_**Şekil 4:** SAP genel ana bilgisayar dosyaları korumak için kullanılan bir genişleme dosya paylaşımı_
 
 > [!IMPORTANT]
->Kurulum olağanüstü durum kurtarma için planlıyorsanız, SOFS çözüm Azure yüksek oranda kullanılabilir bir dosya paylaşımı için önerilir.
+> Genişleme dosya paylaşımları, tam olarak Microsoft Azure Bulut ve şirket içi ortamlarında desteklenir.
 >
 
-### <a name="sap-prerequisites-for-sofs-in-azure"></a>Azure'da SOFS SAP önkoşulları
+Bir genişleme dosya paylaşımında bir yüksek oranda kullanılabilir ve ölçeklenebilir yatay SAPMNT dosya paylaşımı sunar.
 
-SOFS için şunlar gerekir:
+Depolama alanları doğrudan bir genişleme dosya paylaşımı için paylaşılan bir disk olarak kullanılır. Depolama alanları doğrudan ile yerel depolama sunucuları kullanarak yüksek oranda kullanılabilir ve ölçeklenebilir depolama oluşturmak için kullanabilirsiniz. Paylaşılan bir genişleme dosya paylaşımı için kullanılan depolama alanı, SAP genel ana bilgisayar dosyaları için ister, tek bir hata noktası değil.
 
-* SOFS için en az iki küme düğümü
+> [!IMPORTANT]
+>Varsa, *sağlamadığı* olağanüstü durum kurtarma, ayarlamak için plan Azure yüksek oranda kullanılabilir dosya paylaşımı için bir çözüm olarak bir genişleme dosya paylaşımına kullanmanızı öneririz.
+>
 
-* En az iki yerel diskler her düğüme sahip olmalıdır
+### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Genişleme dosya paylaşımları Azure SAP önkoşulları
 
-* Performans nedeni kullanmalısınız **dayanıklılık yansıtma**:
-    * **2 yönlü** iki küme düğümleri için SOFS yansıtma
-    * **3 yönlü** üç (veya daha fazla) küme düğümleri için SOFS yansıtma
+Bir genişleme dosya paylaşımını kullanmak için sisteminizin aşağıdaki gereksinimleri karşılamalıdır:
 
-
-* Bu **3 için önerilen (veya daha fazla küme) 3 yönlü yansıtma ile düğümleri SOFS için**.
-Bu kurulumu daha fazla ölçeklenebilirlik ve 2 küme düğümleri ve 2 yönlü yansıtma SOFS Kurulumu'den daha fazla depolama esneklik sunar.
-
-* Kullanmalısınız **Azure Premium disk**
-
-* Bu **önerilen** kullanmak için **Azure yönetilen diskleri**
-
-* Bu **önerilen** ile yeni birimleri biçimlendirme için **dayanıklı dosya sistemi (ReFS)**
-    * [SAP Not 1869038 - ReFs dosya sistemi SAP desteği] [1869038]
-    * Bkz: [dosya sistemi seçme] [ planning-volumes-s2d-choosing-filesystem] planlama birimleri depolama alanları doğrudan bölüm.
-    * Bu yüklediğinizden emin olun [MS **KB4025334** toplu güncelleştirme][kb4025334].
-
-
-* Kullanabileceğiniz **DS serisi** veya **DSv2 serisi** Azure VM boyutlarını
-
-* Depolama alanları doğrudan disk eşitleme için gereken VM ağ performansını arası iyi olmasını olan en az bir VM türü kullanması gereken **"Yüksek" ağ bant genişliği**.
-Daha fazla ayrıntı için bkz: [DSv2 serisi] [ dv2-series] ve [DS serisi] [ ds-series] belirtimi.
-
-* Bu **önerilen** bırakmayı ve **yedek ayrılmamış depolama havuzundaki bazı kapasite**. Veri güvenliği ve performansı artırmak sürücüleri başarısız olduktan sonra "yerinde" onarmak için alanı birimleri sağlar.
-
- Daha fazla ayrıntı için bkz: [birimlerin boyutunu seçme][choosing-the-size-of-volumes-s2d]
-
-
-* SOFS Azure Vm'lerinde dağıtılan, içinde **kendi Azure kullanılabilirlik kümesi**
-
-* Azure iç yük dengeleyici için SOFS dosya paylaşımı ağ adı, örn. yapılandırmak için gerekli <SAPGlobalHostName>< için (A) SCSVirtualHostname > SAP (A) SCS örneğinin veya DBMS gerçekleştirilir gibi. SOFS ölçeklendirme yük tüm küme düğümleri arasında nedenle <SAPGlobalHostName> tüm küme düğümlerinin yerel IP kullanıyor.
+* En az iki küme düğümü bir genişleme dosya paylaşımı için.
+* Her düğüm, en az iki yerel disk olması gerekir.
+* Performans nedeni kullanmalısınız *dayanıklılık yansıtma*:
+    * İki yönlü bir genişleme dosya paylaşımına iki küme düğümü için yansıtma.
+    * Üç yönlü yansıtma üç (veya daha fazla) küme düğümleri ile genişleme dosya paylaşımı için.
+* Üç yönlü yansıtma ile bir genişleme dosya paylaşımı için üç (veya daha fazla) küme düğümleri öneririz.
+    Bu kurulumu daha fazla ölçeklenebilirlik ve iki küme düğümlerini ve iki yönlü yansıtma genişleme dosya paylaşımına Kurulumu'den daha fazla depolama esneklik sunar.
+* Azure Premium diskleri kullanmanız gerekir.
+* Azure yönetilen diskleri kullanmanızı öneririz.
+* Dayanıklı dosya sistemi (ReFS) kullanarak birimleri biçimlendirme öneririz.
+    * Daha fazla bilgi için bkz: [SAP Not 1869038 - ReFs dosya sistemi SAP desteği] [ 1869038] ve [dosya sistemi seçme] [ planning-volumes-s2d-choosing-filesystem] bölüm Depolama alanları doğrudan planlama birimlerinde makalesi.
+    * Yüklediğiniz mutlaka [Microsoft KB4025334 toplu güncelleştirme][kb4025334].
+* DS serisi veya DSv2 serisi Azure VM boyutlarını kullanabilirsiniz.
+* İyi bir ağ performansı, depolama alanları doğrudan disk eşitleme için gerekli olan, VM'ler arasında en az bir "Yüksek" ağ bant genişliği olan bir VM türü kullanın.
+    Daha fazla bilgi için bkz: [DSv2 serisi] [ dv2-series] ve [DS serisi] [ ds-series] belirtimleri.
+* Depolama havuzundaki bazı ayrılmamış kapasite yedek öneririz. Depolama havuzundaki bazı ayrılmamış kapasite bırakarak bir sürücü arızalanırsa "yerinde" onarmak için birimler sunacaktır. Bu, veri güvenliği ve performansı artırır.  Daha fazla bilgi için bkz: [birim boyutu seçme][choosing-the-size-of-volumes-s2d].
+* Genişleme dosya paylaşımına Azure VM'ler, kendi Azure kullanılabilirlik kümesine dağıtılmalıdır.
+* Genişleme dosya paylaşımı ağ adı için Azure iç yük dengeleyici gibi yapılandırmak gerekmez \<SAP genel ana bilgisayar\>. Bunu yapmanız \<ASCS/SCS sanal ana bilgisayar adını\> SAP ASCS/SCS örneğinin veya DBMS için. Bir genişleme dosya paylaşımında tüm küme düğümleri arasında yük ölçeklendirir. \<SAP genel ana bilgisayar\> tüm küme düğümleri için yerel IP adresini kullanır.
 
 
 > [!IMPORTANT]
->İçin SAPGLOBALHOST gösteren SAPMNT dosya paylaşımı değiştirilemez. SAP farklı bir paylaşım adı sapmnt desteklemiyor.
->[Not 2492395 SAP - paylaşım adı sapmnt değiştirilebilir mi?][2492395]
+> İşaret SAPMNT dosya paylaşımı yeniden adlandırılamıyor \<SAP genel ana bilgisayar\>. Yalnızca paylaşım adı "sapmnt." SAP destekler
 
-### <a name="configuring-sap-ascs-instances-and-sofs-in-two-clusters"></a>SAP (A) SCS yapılandırma örnekleri ve iki kümelerinde SOFS
+> Daha fazla bilgi için bkz: [paylaşım adı sapmnt değiştirilmesi SAP Not 2492395 - olabilir?][2492395]
 
-SAP (A) SCS örnekleri kendi SAP ile bir kümede dağıtmak için olanağına sahip olursunuz <SID> küme rolünü. SOFS dosya paylaşımı ile başka bir küme rolünü başka bir kümede yapılandırılmış.
+### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>İki kümelerde SCS örnekleri ve bir genişleme dosya paylaşımı/SAP ASCS yapılandırın
 
-> [!IMPORTANT]
->Bu senaryoda, SAP (A) SCS örneği SAP UNC yolu kullanarak GLOBALHost erişmek için yapılandırılmış \\ \\ &lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...
->
-
-![Şekil 5: (A) SCS örneği ve iki kümelerinde dağıtılmış SOFS SAP][sap-ha-guide-figure-8007]
-
-_**Şekil 5:** (A) SCS örneği ve iki kümelerinde dağıtılmış SOFS SAP_
+SAP ASCS/SCS örnekleri kendi SAP ile bir kümede dağıtabilirsiniz \<SID\> küme rolünü. Bu durumda, başka bir küme rolüne sahip başka bir küme üzerinde genişleme dosya paylaşımını yapılandırın.
 
 > [!IMPORTANT]
->Azure bulut, SOFS dosya paylaşımları, kendi Azure kullanılabilirlik kümesinde dağıtılmalıdır ve SAP için kullanılan her bir küme üzerinde emin olmak için bu küme VM'lerin yerleştirilmesi temel alınan Azure altyapı boyunca dağıtılmış.
+>Bu senaryoda, SAP ASCS/SCS örneği UNC yolu kullanılarak SAP genel ana bilgisayar erişimi için yapılandırılmış \\ \\ &lt;SAP genel ana bilgisayar&gt;\sapmnt\\&lt;SID&gt;\SYS\.
 >
 
-## <a name="generic-file-share-with-sios-as-cluster-shared-disks"></a>Paylaşılan diskleri küme olarak SIOS sahip genel dosya paylaşımı
+![Şekil 5: SAP ASCS/SCS örneği ve iki kümelerinde dağıtılmış bir genişleme dosya paylaşımı][sap-ha-guide-figure-8007]
+
+_**Şekil 5:** SAP ASCS/SCS örneği ve bir genişleme dosya paylaşımına iki kümelerinde dağıtılmış_
+
+> [!IMPORTANT]
+> Azure bulutta SAP ve genişleme dosya paylaşımları kendi Azure kullanılabilirlik dağıtılması için kullanılan her küme ayarlayın. Bu, dağıtılmış bir kümede sanal makineleri temel Azure altyapı yerleşimini sağlar.
+>
+
+## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>Genel dosya paylaşımının SIOS Paylaşılan diskleri küme olarak DataKeeper
 
 
 > [!IMPORTANT]
->SOFS, yüksek oranda kullanılabilir bir dosya paylaşımı için çözüm önerilir.
+> Yüksek oranda kullanılabilir bir dosya paylaşımı için bir genişleme dosya paylaşımına çözüm öneririz.
 >
->Ancak, ayrıca planlıyorsanız **olağanüstü durum kurtarma** , yüksek oranda kullanılabilir bir dosya paylaşımı için genel bir dosya paylaşımı ve SISO teknoloji olarak Küme Paylaşılan diskler için kullanmak zorunda.
+> Ayrıca, yüksek oranda kullanılabilir dosya paylaşımı için olağanüstü durum kurtarma ayarlayın planlıyorsanız, Küme Paylaşılan diskler için genel bir dosya paylaşımı ve SISO DataKeeper kullanmanız gerekir.
 >
 
-Genel dosya paylaşımı yüksek oranda kullanılabilir bir dosya paylaşımı elde etmek için başka bir seçenektir.
+Genel dosya paylaşımı yüksek oranda kullanılabilir bir dosya paylaşımı elde etmek için başka bir seçenek değil.
 
-Burada, bir küme paylaşılan disk olarak 3 taraf SIOS çözüm kullanabilirsiniz.
+Bu durumda, Küme Paylaşılan bir disk olarak bir üçüncü taraf SIOS çözüm kullanabilirsiniz.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure altyapı hazırlık için SAP Windows Yük devretme kümesi ve dosya paylaşımı için SAP (A) SCS örneği kullanarak HA][sap-high-availability-infrastructure-wsfc-file-share]
-
-* [Itanium tabanlı sistemler için SAP NetWeaver HA yükleme Windows Yük devretme kümesi ve dosya paylaşımı için SAP (A) SCS örneği][sap-high-availability-installation-wsfc-shared-disk]
-
+* [Azure altyapı SAP HA için SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak hazırlama][sap-high-availability-infrastructure-wsfc-file-share]
+* [SAP NetWeaver HA SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşım yükleyin.][sap-high-availability-installation-wsfc-shared-disk]
 * [Azure'da UPD depolama için iki düğümlü depolama alanları doğrudan genişleme dosya sunucusu dağıtma][deploy-sofs-s2d-in-azure]
-
 * [Depolama alanları doğrudan Windows Server 2016][s2d-in-win-2016]
-
-* [Derin Dalış: Birimleri de depolama alanları doğrudan][deep-dive-volumes-in-s2d]
+* [Derin Dalış: depolama alanları doğrudan birimleri][deep-dive-volumes-in-s2d]

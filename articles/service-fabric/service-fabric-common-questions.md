@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan soruları Service Fabric
 
@@ -79,7 +79,7 @@ Güvenli bir şekilde yükseltme yapmak ve tek tek düğüm hatalarını varlı�
 
 Genellikle yapamazsınız. Service Fabric, sanal makineyi farklı bir ana bilgisayara taşınırsa, verileri ile taşımaz, yani, yerel, kısa ömürlü disklerde durumu depolar. Diğer düğümleri tarafından yeni düğümü güncel hale getirilene gibi normal işleminde, bir sorun değildir. Ancak, tüm düğümler durdurur ve daha sonra yeniden düğümlerin en yeni ana bilgisayar ve yapma kurtaramaz sistem üzerinde başlatmak önemli bir olasılığı yoktur.
 
-Dağıtmadan önce uygulamanızı test etmek için kümeleri oluşturmak istiyorsanız, bu kümeleri dinamik olarak parçası olarak oluşturmanızı öneririz, [sürekli tümleştirme/sürekli dağıtım ardışık düzen](service-fabric-set-up-continuous-integration.md).
+Dağıtmadan önce uygulamanızı test etmek için kümeleri oluşturmak istiyorsanız, bu kümeleri dinamik olarak parçası olarak oluşturmanızı öneririz, [sürekli tümleştirme/sürekli dağıtım ardışık düzen](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>My işletim sisteminden (örneğin Windows Server 2012 için Windows Server 2016) nasıl yükseltme?

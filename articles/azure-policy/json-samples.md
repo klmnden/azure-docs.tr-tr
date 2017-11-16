@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 875c8c87f62ecf0e7459dfcec22089854ad95594
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 4042c3606155d1d37947afccafd64652c9659894
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="templates-for-azure-policy"></a>Azure ilke şablonları
 
@@ -67,6 +67,7 @@ Aşağıdaki tabloda Azure ilkesi için json şablonları bağlantılarını iç
 | [DB düzeyi tehdit algılama ayarı denetleme](scripts/audit-db-threat-det-setting.md) | Bu ilkeleri belirli durumda ayarlanmamışsa SQL veritabanı güvenlik uyarısı ilkelerini denetler. Tehdit algılama etkin mi yoksa devre dışı mı olduğunu belirten bir değer belirtin.  |
 | [SQL Server düzeyi denetim ayarını denetleme](scripts/audit-sql-ser-leve-audit-setting.md) | Bu ayarları belirtilmiş bir ayarın eşleşmiyorsa SQL server denetim ayarlarını denetler. Denetim ayarlarını etkin veya devre dışı olup olmadığını belirten bir değer belirtin. |
 | [Sunucu düzeyinde tehdit algılama ayarı denetleme](scripts/audit-sql-ser-threat-det-setting.md) | Bu ilkeleri belirli durumda ayarlanmamışsa SQL veritabanı güvenlik uyarısı ilkelerini denetler. Tehdit algılama etkin mi yoksa devre dışı mı olduğunu belirten bir değer belirtin.  |
+| [Hiçbir Azure Active Directory yönetici denetleme](scripts/audit-no-aad-admin.md) | SQL Server'a atanan hiçbir Azure Active Directory yönetici olduğunda denetim. |
 | [SQL DB SKU'ları izin](scripts/allowed-sql-db-skus.md) | SQL veritabanları onaylanmış bir SKU kullanmak gerektirir. İzin verilen SKU kimlikleri bir dizi veya bir dizi izin verilen SKU adını belirtin. |
 |**Depolama**||
 | [Depolama hesapları ve sanal makineler için izin verilen SKU'ları](scripts/allowed-skus-storage.md) | Depolama hesapları ve sanal makineleri onaylanan SKU'ları kullanmanızı gerektirir. Sağlamak için kullandığı yerleşik ilkeleri SKU'ları onaylanmış. Bir dizi onaylanan sanal makinelerin SKU'ları ve bir dizi onaylanan depolama hesabı SKU'ları belirtin. |

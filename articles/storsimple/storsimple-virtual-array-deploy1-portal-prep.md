@@ -4,7 +4,7 @@ description: "StorSimple sanal dizinin dağıtmak için ilk öğreticide Azure p
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple sanal dizinin dağıtma - Azure portalında hazırlama
 
@@ -32,7 +32,7 @@ Kurulum ve yapılandırma işlemini tamamlamak için yönetici ayrıcalıkları 
 
 Bu makalede yayımlanmış bilgiler Azure portalı ve Microsoft Azure kamu bulut StorSimple sanal diziler dağıtımda için geçerlidir.
 
-### <a name="get-started"></a>başlarken
+### <a name="get-started"></a>Kullanmaya başlayın
 Dağıtım iş akışı portal hazırlama, sanallaştırılmış ortamınızdaki sanal bir dizi sağlama ve Kurulumu Tamamlanıyor oluşur. Bir dosya sunucusu veya bir iSCSI sunucusu olarak StorSimple sanal dizinin dağıtım ile çalışmaya başlamak için aşağıdaki tabulated kaynaklara başvurmanız gerekir.
 
 #### <a name="deployment-articles"></a>Dağıtım makaleleri
@@ -42,7 +42,7 @@ StorSimple sanal dizinizi dağıtmak için belirtilen sırada aşağıdaki makal
 | **#** | **Bu adımda** | **Bunu...** | **Ve bu belgeleri kullanın.** |
 | --- | --- | --- | --- |
 | 1. |**Azure Portalı'nı ayarlama** |Oluşturun ve StorSimple sanal dizinin sağlama önce StorSimple cihaz Yöneticisi hizmetini yapılandırın. |[Portal hazırlama](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Sanal dizinin sağlama** |Hyper-v, sağlamak ve bir StorSimple sanal dizisi Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 üzerinde Hyper-V çalıştıran bir konak sisteminde bağlanın. <br></br> <br></br> VMware için sağlamak ve bir StorSimple sanal dizinin VMware ESXi 5.5 çalıştıran bir konak sistemi ve üstü bağlanın.<br></br> |[Hyper-V sanal bir dizide sağlama](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware sanal bir dizide sağlama](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Sanal dizinin sağlama** |Hyper-v, sağlamak ve bir StorSimple sanal dizisi Windows Server 2012 R2, Windows Server 2012 veya Windows Server 2008 R2 üzerinde Hyper-V çalıştıran bir konak sisteminde bağlanın. <br></br> <br></br> VMware için sağlamak ve VMware ESXi 5.0, 5.5 veya 6.0 çalıştıran konak sisteminde bir StorSimple sanal diziye bağlanın.<br></br> |[Hyper-V sanal bir dizide sağlama](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware sanal bir dizide sağlama](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Sanal dizinin Kurulumu ayarlayın** |Dosya sunucunuz için ilk kurulum gerçekleştirmek, StorSimple dosya sunucunuzu kaydetmek ve cihaz kurulumunu tamamlayın. Ardından, SMB paylaşımları sağlayabilirsiniz. <br></br> <br></br> İSCSI sunucunuz için ilk kurulum gerçekleştirmek, StorSimple iSCSI sunucuyu kaydetmek ve cihaz kurulumunu tamamlayın. Ardından, iSCSI birimleri sağlayabilirsiniz. |[Sanal dizinin Kurulumu dosya sunucusu olarak ayarlayın](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Sanal dizinin Kurulumu iSCSI sunucusu olarak ayarla](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Azure Portalı'nı ayarlama şimdi başlayabilirsiniz.
@@ -54,7 +54,7 @@ Yapılandırma denetim listesinde, StorSimple sanal dizisinde yazılım yapılan
 * Karşıdan [StorSimple sanal dizinin dosya sunucusu yapılandırma denetim listesi](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Karşıdan [StorSimple sanal dizinin iSCSI sunucu yapılandırma denetim listesi](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Burada, StorSimple cihaz Yöneticisi hizmetiniz, StorSimple sanal dizinizi ve veri merkezi ağ için yapılandırma önkoşulları öğrenin.
 
@@ -70,7 +70,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 Sanal bir dizi dağıtmadan önce emin olun:
 
-* Olabilecek bir Windows Server 2008 R2 veya daha sonra Hyper-V çalıştıran ana bilgisayar sistemi veya VMware (ESXi 5.5 veya sonraki) erişiminiz bir aygıtı sağlamak için kullanılır.
+* Windows Server 2008 R2 veya daha sonra Hyper-V çalıştıran ana bilgisayar sistemi ya da olabilir (ESXi 5.0, 5.5 veya 6.0) VMware erişimi sağlamak için kullanılan bir cihaz.
 * Ana bilgisayar sistemi sanal dizinizi sağlamak için aşağıdaki kaynaklara ayrılması yapabiliyor:
   
   * 4 çekirdek en az.
@@ -136,7 +136,7 @@ Aşağıdaki adımlarda gerçekleştirmek [Azure portal](https://portal.azure.co
    
    * Hyper-V Windows Server 2012 ve sonraki sürümler için VHDX
    * VHD için Hyper-V Windows Server 2008 R2 ve sonraki sürümler
-   * VMDK VMWare ESXi 5.5 ve sonraki sürümleri
+   * VMWare ESXi 5.0, 5.5 veya 6.0 için VMDK
 5. Karşıdan yükleyip sıkıştırması açılmış dosyasının bulunduğu bir not yaparak bir yerel sürücüye dosyanın sıkıştırmasını açın.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>İsteğe bağlı adım: hizmet için yeni bir depolama hesabı yapılandırma

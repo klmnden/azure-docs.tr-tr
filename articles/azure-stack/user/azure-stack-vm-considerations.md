@@ -4,7 +4,7 @@ description: "Farklar ve konuları Azure yığınında sanal makinelerle çalı�
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
-manager: byronr
+manager: femila
 editor: 
 ms.assetid: 
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 11/14/2017
 ms.author: sngun
-ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Sanal makineler Azure yığınında dikkate alınacak noktalar
 
@@ -46,12 +46,14 @@ Azure yığın Geliştirme Seti aşağıdaki boyutları destekler:
 
 | Tür | Boyut | Desteklenen boyutlar aralığı |
 | --- | --- | --- |
-|Genel amaçlı |Temel A|A0 A4|
-|Genel amaçlı |Standart bir|A0 A7|
-|Genel amaçlı |Standart D|D1 D4|
-|Genel amaçlı |Standart Dv2|D1v2 D5v2|
-|Bellek için iyileştirilmiş|D Serisi|D11 D14|
-|Bellek için iyileştirilmiş |Dv2 Serisi|D11v2 D14v2|
+|Genel amaçlı |Temel A|A0 - A4|
+|Genel amaçlı |Standart bir|A0 - A7|
+|Genel amaçlı |D Serisi|D1 - D4|
+|Genel amaçlı |Dv2 Serisi|D1_v2 - D5_v2|
+|Genel amaçlı |DS serisi|DS1 - DS4|
+|Genel amaçlı |DSv2 serisi|DS1_v2 - DS5_v2|
+|Bellek için iyileştirilmiş|DS serisi|DS11 - DS14|
+|Bellek için iyileştirilmiş |DSv2 serisi|DS11_v2 - DS14_v2|
 
 Sanal makine boyutları ve bunların ilişkili kaynak miktarları Azure yığını ve Azure arasında tutarlı değil. Örneğin, bu bellek, çekirdek sayısı ve sayı/oluşturulabilmesi için veri diski boyutunun içerir. Ancak, aynı VM boyutu Azure yığınında performansını belirli bir Azure yığın ortamda temel özelliklerine bağlıdır.
 
