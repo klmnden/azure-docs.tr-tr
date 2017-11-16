@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Batch Rendering hizmetini kullanmaya başlama
 
@@ -91,7 +91,7 @@ Sağlanan lisans sürümleri şunlardır:
 
 ### <a name="custom-images"></a>Özel görüntüler
 
-Azure Batch, kendi özel görüntünüzü sağlamanıza imkan verir. Bu seçeneği kullanarak VM'nizi ihtiyacınız olan uygulamalar ve sürümlerle yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Sanal makine havuzu oluşturmak için özel görüntü kullanma](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images). Autodesk ve Chaos Group'un, Arnold ve V-Ray uygulamalarını lisanslama koşullarına uyacak şekilde değiştirdiğini unutmayın. Kullandığın kadar öde lisansının çalışması için bu uygulamaların gerekli sürümlerine sahip olduğunuzdan emin olun. Geçerli sürümler gözetimsiz olarak (toplu iş/komut satırı modunda) çalıştığında lisans sunucusu gerektirmediğinden Maya veya 3ds Max için lisans doğrulamasına gerek yoktur. Bu seçenekle ilgili sorularınız varsa lütfen Azure destek ekibiyle iletişime geçin.
+Azure Batch, kendi özel görüntünüzü sağlamanıza imkan verir. Bu seçeneği kullanarak VM'nizi ihtiyacınız olan uygulamalar ve sürümlerle yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Sanal makine havuzu oluşturmak için özel görüntü kullanma](https://docs.microsoft.com/azure/batch/batch-custom-images). Autodesk ve Chaos Group'un, Arnold ve V-Ray uygulamalarını lisanslama koşullarına uyacak şekilde değiştirdiğini unutmayın. Kullandığın kadar öde lisansının çalışması için bu uygulamaların gerekli sürümlerine sahip olduğunuzdan emin olun. Geçerli sürümler gözetimsiz olarak (toplu iş/komut satırı modunda) çalıştığında lisans sunucusu gerektirmediğinden Maya veya 3ds Max için lisans doğrulamasına gerek yoktur. Bu seçenekle ilgili sorularınız varsa lütfen Azure destek ekibiyle iletişime geçin.
 
 ## <a name="options-for-submitting-a-render-job"></a>İşleme işi gönderme seçenekleri
 
@@ -101,7 +101,7 @@ Kullandığınız 3D uygulamasına bağlı olarak işleme işlerini hizmete gön
 
 Maya ile şunları kullanabilirsiniz:
 
-- [Maya için Batch eklentisi](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
+- [Maya için Batch eklentisi](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
 - [BatchLabs](https://azure.github.io/BatchLabs) masaüstü uygulaması
 - [Batch Şablonları CLI'sı](batch-cli-templates.md)
 
@@ -114,7 +114,7 @@ Maya ile şunları kullanabilirsiniz:
 
 3ds Max Batch Labs şablonları VRay ve Arnold sahnelerini Azure Batch Rendering Hizmetini kullanarak işlemenizi sağlar. VRay ve Arnold için biri standart sahneler, diğeri de 3ds Max varlık ve doku dosyası (.mxp dosyası) yolu gerektiren daha karmaşık sahneler için olmak üzere iki şablon sürümüne sahiptir. 3ds Max Batch Labs şablonları hakkında daha fazla bilgi için GitHub'daki [BatchLabs-data](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) deposuna bakın.
 
-Ayrıca [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial)'sını kullanarak işleme hizmetini var olan işlem hattınızla tümleştirebilirsiniz.
+Ayrıca [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial)'sını kullanarak işleme hizmetini var olan işlem hattınızla tümleştirebilirsiniz.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Maya için Batch eklentisini kullanarak işleme işi gönderme

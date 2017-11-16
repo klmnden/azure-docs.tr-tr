@@ -9,14 +9,6 @@
 ## [Şablonlar için VS Code uzantısı](resource-manager-vscode-extension.md)
 ## [Resource Manager ile Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Örnekler
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Şablon dağıtma](resource-manager-samples-powershell-deploy.md)
-
-## Azure CLI
-### [Şablon dağıtma](resource-manager-samples-cli-deploy.md)
-
 # Nasıl yapılır?
 ## Şablon oluşturma
 ### [Şablon bölümleri](resource-group-authoring-templates.md)
