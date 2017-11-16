@@ -2,8 +2,6 @@
 title: "Etkinlik günlüğü uyarıları kullanılan Web kancası şema anlama | Microsoft Docs"
 description: "Bir etkinlik günlüğü uyarı etkinleştirdiğinde, bir Web kancası URL'si gönderilen JSON şeması hakkında bilgi edinin."
 author: johnkemnetz
-manager: orenr
-editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 
@@ -14,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: 75c71bcd16573d4f4dd3377c623aa9b414aa3906
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarılar için Web kancaları
 Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimlerini almak için Web kancası uç noktalarını yapılandırabilirsiniz. Web kancası ile işlem sonrası ya da özel eylemler için diğer sistemlere bu bildirimler yönlendirebilirsiniz. Bu makalede, bir Web kancası için HTTP POST için yükü nasıl göründüğünü gösterir.
@@ -90,37 +88,46 @@ POST işleminde yer alan JSON yükü yükü 's data.context.activityLog.eventSou
 ###<a name="servicehealth"></a>ServiceHealth
 ```json
 {
-    "schemaId": "unknown",
+    "schemaId": "Microsoft.Insights/activityLogs",
     "data": {
-        "status": "Activated",
-        "context": {
-            "activityLog": {
-                "properties": {
-                    "title": "...",
-                    "service": "...",
-                    "region": "...",
-                    "communication": "...",
-                    "incidentType": "Incident",
-                    "trackingId": "...",
-                    "groupId": "...",
-                    "impactStartTime": "3/29/2017 3:43:21 PM",
-                    "impactMitigationTime": "3/29/2017 3:43:21 PM",
-                    "eventCreationTime": "3/29/2017 3:43:21 PM",
-                    "impactedServices": "[{...}]",
-                    "defaultLanguageTitle": "...",
-                    "defaultLanguageContent": "...",
-                    "stage": "Active",
-                    "communicationId": "...",
-                    "version": "0.1"
-                }
-            }
+    "status": "Activated",
+    "context": {
+        "activityLog": {
+        "channels": "Admin",
+        "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+        "description": "Active: Virtual Machines - Australia East",
+        "eventSource": "ServiceHealth",
+        "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
+        "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
+        "level": "Informational",
+        "operationName": "Microsoft.ServiceHealth/incident/action",
+        "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+        "properties": {
+            "title": "Virtual Machines - Australia East",
+            "service": "Virtual Machines",
+            "region": "Australia East",
+            "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+            "incidentType": "Incident",
+            "trackingId": "0NIH-U2O",
+            "impactStartTime": "2017-10-18T02:48:00.0000000Z",
+            "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
+            "defaultLanguageTitle": "Virtual Machines - Australia East",
+            "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+            "stage": "Active",
+            "communicationId": "636439673646212912",
+            "version": "0.1.1"
         },
-        "properties": {}
+        "status": "Active",
+        "subscriptionId": "45529734-0ed9-4895-a0df-44b59a5a07f9",
+        "submissionTimestamp": "2017-10-18T23:49:28.7864349+00:00"
+        }
+    },
+    "properties": {}
     }
 }
 ```
 
-Belirli şeması hakkında ayrıntılı bilgi için hizmet sistem durumu bildirimi etkinlik günlüğü uyarıları görmek [hizmet durumu bildirimlerine](monitoring-service-notifications.md).
+Belirli şeması hakkında ayrıntılı bilgi için hizmet sistem durumu bildirimi etkinlik günlüğü uyarıları görmek [hizmet durumu bildirimlerine](monitoring-service-notifications.md). Ayrıca, bilgi nasıl [mevcut sorun yönetimi çözümleriyle hizmet sistem durumu Web kancası bildirimleri yapılandırmak](../service-health/service-health-alert-webhook-guide.md).
 
 Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlüğü uyarıları görmek [Azure etkinlik günlüğü'ne genel bakış](monitoring-overview-activity-logs.md).
 

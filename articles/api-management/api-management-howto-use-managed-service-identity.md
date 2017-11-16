@@ -1,5 +1,5 @@
 ---
-title: "Azure yönetilen hizmet kimliği Azure API Management'te kullanma | Microsoft Docs"
+title: "Kullanım Azure yönetilen hizmet kimliği Azure API Management | Microsoft Docs"
 description: "Yönetilen hizmet kimliği Azure API Management'te kullanmayı öğrenin"
 services: api-management
 documentationcenter: 
@@ -11,22 +11,22 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 70bf207cc173caf7d8cae3c4c9111ee2f427405b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ded0809fa90e98b2e845d328fbeec6d21507c46b
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-azure-api-management"></a>Azure yönetilen hizmet kimliği Azure API Management'te kullanma
+# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure yönetilen hizmet kimliği Azure API Management kullanma
 
 > [!Note]
 > Azure API Management yönetilen hizmet kimliği şu anda önizlemede değil.
 
-Bu konu, API Management hizmet örneği için bir yönetilen hizmet kimliği oluşturma ve diğer kaynaklarına erişmek nasıl gösterir. Azure Active Directory (AAD tarafından) oluşturulan bir yönetilen hizmet kimliği, API Management Örneğinize kolayca verir ve Azure anahtar kasası gibi diğer AAD korumalı kaynaklara güvenle erişin. Bu yönetilen hizmet kimliği, Azure tarafından yönetilen ve sağlamak veya tüm gizli döndürmek gerektirmez. Azure yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz: [yönetilen hizmet kimliği genel bakış](../active-directory/msi-overview.md).
+Bu makalede, bir API Management hizmet örneği için bir yönetilen hizmet kimliği oluşturma ve diğer kaynaklarına erişmek nasıl gösterir. Azure Active Directory (Azure AD) tarafından oluşturulan bir yönetilen hizmet kimliği, API Management Örneğinize kolay ve güvenli bir şekilde Azure AD korumalı gibi başka kaynaklar Azure anahtar kasası erişim sağlar. Bu yönetilen hizmet kimliği, Azure tarafından yönetilen ve sağlamak veya tüm gizli döndürmek gerektirmez. Azure yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz: [Azure kaynakları için Yönetilen hizmet kimliği](../active-directory/msi-overview.md).
 
-## <a name="creating-an-api-management-instance-with-an-identity-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir kimlikle API Management örneği oluşturma
+## <a name="create-an-api-management-instance-with-an-identity-by-using-a-resource-manager-template"></a>Bir Resource Manager şablonu kullanarak bir kimlikle bir API Management örneği oluşturma
 
-Kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere bir kimlikle API Management örneği oluşturulabilir. 
+Kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere API Management örneği bir kimlikle oluşturabilirsiniz: 
 
 ```json
 "identity" : {
@@ -34,9 +34,9 @@ Kaynak tanımı'nda aşağıdaki özellikler dahil olmak üzere bir kimlikle API
 }
 ```
 
-Bu oluşturup, API Management Örneğinize kimliğini yönetmek için Azure bildirir. 
+Bu özellik oluşturmak ve API Management Örneğinize kimliğini yönetmek için Azure söyler. 
 
-Örneğin, tam bir şablon aşağıdakine benzeyebilir:
+Örneğin, tam bir Azure Resource Manager şablonu aşağıdakine benzeyebilir:
 
 ```json
 {
@@ -109,13 +109,13 @@ Bu oluşturup, API Management Örneğinize kimliğini yönetmek için Azure bild
 }
 ```
 
-## <a name="obtaining-a-certificate-from-azure-key-vault"></a>Azure anahtar Kasası'sertifika edinme
+## <a name="obtain-a-certificate-from-azure-key-vault"></a>Azure anahtar Kasası'nı bir sertifika edinin
 
-Aşağıdaki örnekte Azure anahtar Kasası'nı bir sertifika edinme gösterir. Aşağıdaki adımları içerir:
+Aşağıdaki örnek, Azure anahtar Kasası'nı bir sertifika edinme gösterir. Aşağıdaki adımları içerir:
 
-* Bir kimlikle bir API Management örneği oluşturma
-* Erişim ilkeleri Azure anahtar kasası örnek güncelleştirin ve ondan parolaları almak API Management örneği izin ver
-* Anahtar kasası örnek bir sertifika kullanarak bir özel etki alanı adı ayarlayarak API Management örneği güncelleştir
+1. API Management örneği bir kimlikle oluşturun.
+2. Bir Azure anahtar kasası örneğinin erişim ilkeleri güncelleştirmek ve ondan parolaları almak API Management örneği izin verin.
+3. API Management örneği anahtar kasası örneğinden bir sertifika ile özel etki alanı adını ayarlayarak güncelleştirin.
 
 > [!Important]
 > Sertifikanın nesne sürümü sağlanmazsa, anahtar Kasası'na yüklendikten sonra API Management sertifikanın daha yeni sürümü otomatik olarak al. 
@@ -245,7 +245,8 @@ Aşağıdaki örnekte Azure anahtar Kasası'nı bir sertifika edinme gösterir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure yönetilen hizmet kimliği hakkında daha fazla bilgi edinin
-  * [Yönetilen hizmet Kimliği'ne genel bakış](../active-directory/msi-overview.md)
-  * [Daha fazla Azure Resource Manager şablonları bakın](https://github.com/Azure/azure-quickstart-templates)
+Azure yönetilen hizmet kimliği hakkında daha fazla bilgi edinin:
+
+* [Azure kaynakları için Yönetilen hizmet kimliği](../active-directory/msi-overview.md)
+* [Azure Resource Manager şablonları](https://github.com/Azure/azure-quickstart-templates)
 

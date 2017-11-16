@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış
 ## <a name="overview"></a>Genel Bakış
 Azure Media Services, bir *kanal* canlı akış içeriği işlemek için bir işlem hattını temsil eder. Bir kanal Canlı giriş akışları iki yoldan biriyle alır:
 
-* Çoklu bit hızlı RTMP veya kesintisiz akış (parçalanmış MP4) akışı etkin değil. Media Services ile gerçek zamanlı kodlama gerçekleştirmek için kanal için bir şirket içi gerçek zamanlı Kodlayıcı gönderir. Alınan akışların herhangi başka bir işleme olmadan kanallardan geçirin. Bu yöntem çağrılır *doğrudan*. Çoklu bit hızlı kesintisiz akış çıktı olarak sahip şu gerçek zamanlı Kodlayıcıları kullanabilirsiniz: Media Excel, Ateme, düşünün iletişimleri, Envivio, Cisco ve Elemental. Şu gerçek zamanlı kodlayıcılar RTMP çıktı olarak vardır: dinamik Adobe Flash medya Kodlayıcı, Telestream Wirecast, Haivision, Teradek ve TriCaster. Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızında akışa da gönderebilir, ancak bunu önermiyoruz. Media Services akışı isteyen müşteriler için sunar.
+* Çoklu bit hızlı RTMP veya kesintisiz akış (parçalanmış MP4) akışı etkin değil. Media Services ile gerçek zamanlı kodlama gerçekleştirmek için kanal için bir şirket içi gerçek zamanlı Kodlayıcı gönderir. Alınan akışların herhangi başka bir işleme olmadan kanallardan geçirin. Bu yöntem çağrılır *doğrudan*. Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızında akışa da gönderebilir, ancak bunu önermiyoruz. Media Services akışı isteyen müşteriler için sunar.
 
   > [!NOTE]
   > Bir doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur.
@@ -34,13 +34,13 @@ Azure Media Services, bir *kanal* canlı akış içeriği işlemek için bir iş
 
 Bir kanal oluşturduğunuzda Media Services 2.10 sürümünden başlayarak, nasıl kanalınızı Giriş akışı almak istediğinizi belirtebilirsiniz. Canlı akışınızı kodlama gerçekleştirmek için kanal isteyip istemediğinizi de belirtebilirsiniz. İki seçeneğiniz vardır:
 
-* **Geçir**: çıktı olarak Çoklu bit hızında akışa (geçiş akışı) sahip olan bir şirket içi gerçek zamanlı Kodlayıcı kullanmayı planlıyorsanız, bu değeri belirtin. Bu durumda, gelen akış çıkışı herhangi kodlamadan geçtiği. Bir kanal 2.10 serbest bırakmadan önce davranış budur. Bu konuda bu tür kanallar ile çalışma hakkında ayrıntılar sağlar.
-* **Kodlama canlı**: tek bit hızlı Canlı akışınızı Çoklu bit hızlı akış kodlamak için Media Services kullanmayı planlıyorsanız, bu değer seçin. Gerçek zamanlı kodlama bırakarak kanal unutmayın bir **çalıştıran** durumu fatura ücretleri erişimliye. Canlı akış olay fazladan saatlik ücret yazılmaması için tamamlandıktan sonra hemen çalışan kanalların kesmenizi öneririz. Media Services akışı isteyen müşteriler için sunar.
+* **Geçir**: çıktı olarak Çoklu bit hızında akışa (geçiş akışı) sahip bir şirket içi gerçek zamanlı Kodlayıcı kullanmayı planlıyorsanız, bu değeri belirtin. Bu durumda, gelen akış çıkışı herhangi kodlamadan geçtiği. Bir kanal 2.10 serbest bırakmadan önce davranış budur. Bu makalede, bu tür kanallar ile çalışma hakkında ayrıntılar sağlar.
+* **Kodlama canlı**: tek bit hızlı Canlı akışınızı Çoklu bit hızlı akış kodlamak için Media Services kullanmayı planlıyorsanız, bu değer seçin. Canlı bir kodlama kanalda bırakarak bir **çalıştıran** durumu fatura ücret doğurur. Canlı akış olay fazladan saatlik ücret yazılmaması için tamamlandıktan sonra hemen çalışan kanalların kesmenizi öneririz. Media Services akışı isteyen müşteriler için sunar.
 
 > [!NOTE]
-> Bu konu, gerçek zamanlı kodlama gerçekleştirmek için etkin değil kanalları özniteliklerini açıklar. Gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanallar ile çalışma hakkında daha fazla bilgi için bkz: [Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services kullanarak canlı akış](media-services-manage-live-encoder-enabled-channels.md).
+> Bu makalede, gerçek zamanlı kodlama gerçekleştirmek için etkin değil kanalları öznitelikleri açıklanmaktadır. Gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanallar ile çalışma hakkında daha fazla bilgi için bkz: [Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services kullanarak canlı akış](media-services-manage-live-encoder-enabled-channels.md).
 >
->
+>Önerilen şirket içi kodlayıcılarda hakkında daha fazla bilgi için bkz: [şirket içi kodlayıcılarda önerilen](media-services-recommended-encoders.md).
 
 Aşağıdaki diyagramda, Çoklu bit hızlı RTMP ya da parçalanmış MP4 sağlamak için bir şirket içi gerçek zamanlı Kodlayıcı kullanan bir canlı akış bir iş akışı temsil eder (kesintisiz akış) akışları çıktı olarak.
 
@@ -94,7 +94,7 @@ Alma akış (yanı Kodlayıcı yük devretme ve hataya dayanıklılık), dayanı
 
 - Ayrılmış bir noktasına dağıtmaya her Kodlayıcı ile birden çok kodlayıcılar:
 
-    Bu senaryoda, her iki Kodlayıcı sunar ve artıklık alma. Bu senaryoda, birincil URL'sine encoder1 iter ve ikincil URL'sine encoder2 iter. Bir kodlayıcı başarısız olduğunda, diğer Kodlayıcı veri göndermeye devam. Media Services, aynı zamanda birincil ve ikincil URL'leri kesmez olduğundan veri artıklığı korunabilir. Bu senaryo Kodlayıcıları eşitlenen zamanı ve tam olarak aynı veri sağlayan varsayar.  
+    Bu senaryoda, her iki Kodlayıcı sunar ve artıklık alır. Bu senaryoda, birincil URL'sine encoder1 iter ve ikincil URL'sine encoder2 iter. Bir kodlayıcı başarısız olduğunda, diğer Kodlayıcı veri göndermeye devam. Media Services, aynı zamanda birincil ve ikincil URL'leri kesmez olduğundan veri artıklığı korunabilir. Bu senaryo Kodlayıcıları eşitlenen zamanı ve tam olarak aynı veri sağlayan varsayar.  
 
 - Birincil ve ikincil URL'lere çift Ftp'den birden çok kodlayıcılar:
 
@@ -133,7 +133,7 @@ Bu kanala video yayımlamasına izin verilen IP adreslerini tanımlayabilirsiniz
 * Bir IP adresi ve CIDR alt ağ maskesi (örneğin, 10.0.0.1/22) kullanan bir IP aralığı
 * Bir IP adresi ve noktalı ondalık alt ağ maskesine (örneğin, 10.0.0.1(255.255.252.0)) kullanan bir IP aralığı
 
-Herhangi bir IP adresi belirtilir ve hiçbir kural tanımı yoksa hiçbir IP adresi izin verilir. Tüm IP adreslerine izin vermek için, bir kural oluşturun ve 0.0.0.0/0 olarak ayarlayın.
+Herhangi bir IP adresi belirtilir ve hiçbir kural tanımı yoksa hiçbir IP adresine izin verilir. Tüm IP adreslerine izin vermek için, bir kural oluşturun ve 0.0.0.0/0 olarak ayarlayın.
 
 ### <a name="channel-preview"></a>Kanal Önizleme
 #### <a name="preview-urls"></a>Önizleme URL'leri
@@ -154,13 +154,13 @@ Kanal oluşturduğunuzda Önizleme URL'sini alabilirsiniz. URL almak için kanal
 Kanal çıktı hakkında daha fazla bilgi için bkz: [ana kare aralığı](#keyframe_interval) bölümü.
 
 ### <a name="channel-managed-programs"></a>Kanal yönetilen programlar
-Bir kanal yayımlanması ve depolanmasını Canlı akıştaki kesimleri denetlemek için kullanabileceğiniz programlarla ilişkilidir. Kanallar, programları yönetir. Kanal ve program arasındaki ilişki, burada bir kanal sabit bir içerik akışının bulunduğu ve bir programın bu kanalda zamanlanmış bir olayı kapsamlıdır geleneksel Medyadaki çok benzer.
+Bir kanal yayımlanması ve depolanmasını Canlı akıştaki kesimleri denetlemek için kullanabileceğiniz programlarla ilişkilidir. Kanallar, programları yönetir. Kanal ve program arasındaki ilişki, burada bir kanal sabit bir içerik akışının bulunduğu ve bir programın bu kanalda zamanlanmış bir olayı kapsamlıdır geleneksel Medyadaki benzerdir.
 
-Program için kaydedilen içeriği kaç saat tutmak istediğinizi **Arşiv Penceresi** uzunluğunu ayarlayarak belirleyebilirsiniz. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. Arşiv penceresi uzunluğu, istemcilerin geçerli canlı konumdan zamanda geri gidebilecekleri en uzun süre miktarını da belirler. Olaylar belirtilen süre miktarından uzun sürebilir, ancak pencere uzunluğunun gerisine düşen içerik sürekli olarak atılır. Bu özelliğin bu değeri, istemci bildiriminin ne kadar uzayabileceğini de belirler.
+Program için kaydedilen içeriği kaç saat tutmak istediğinizi **Arşiv Penceresi** uzunluğunu ayarlayarak belirleyebilirsiniz. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. Arşiv penceresi uzunluğu de en fazla süre istemciyi geçmişe geçerli Canlı konumdan gidebilecekleri. Olaylar belirtilen süre miktarından uzun sürebilir, ancak pencere uzunluğunun gerisine düşen içerik sürekli olarak atılır. Bu özelliğin bu değeri, istemci bildiriminin ne kadar uzayabileceğini de belirler.
 
 Her bir program akışlı içerik depolayan bir varlıkla ilişkilidir. Bir varlık, bir Azure depolama hesabı blok blob kapsayıcısında eşlenmiş ve varlık içindeki dosyalara bu kapsayıcıdaki blobları olarak depolanır. Müşterilerinize akış görüntüleyebilmeniz programı yayımlamak için ilişkili varlığa yönelik bir OnDemand Bulucu oluşturmanız gerekir. Bu konum belirleyicisi istemcilerinize sağlayabilen bir akış URL'si oluşturmak için kullanabilirsiniz.
 
-Bir kanal en fazla eşzamanlı çalışan Üçe, destekler, böylece aynı gelen akışın birden çok arşivini oluşturabilirsiniz. Yayımlama ve gerektiğinde bir olayın farklı kısımlarını arşivleyin. Örneğin, iş gereksiniminiz bir programın 6 saatini arşivlemek ancak yalnızca son 10 dakikasını yayınlamak için olduğunu düşünün. Bunu yapmak için, eşzamanlı olarak çalışan iki program oluşturmanız gerekir. Olay 6 saatini arşivlemek için bir programın ayarlandığından ancak program yayımlanamaz. Diğer program 10 dakika arşivlenecek şekilde ayarlanır ve bu program yayımlanır.
+Bir kanal en fazla eşzamanlı çalışan Üçe, destekler, böylece aynı gelen akışın birden çok arşivini oluşturabilirsiniz. Yayımlama ve gerektiğinde bir olayın farklı kısımlarını arşivleyin. Örneğin, iş gereksiniminiz bir programın 6 saatini arşivlemek ancak yalnızca son 10 dakikasını yayınlamak için olduğunu düşünün. Bunu yapmak için, eşzamanlı olarak çalışan iki program oluşturmanız gerekir. Bir program olayın altı saat arşivlemek için ayarlanmış, ancak programın yayımlanamaz. Diğer program 10 dakika arşivlenecek şekilde ayarlanır ve bu program yayımlanır.
 
 Yeni olaylar için mevcut programları yeniden kullanmamalısınız. Bunun yerine, her olay için yeni bir program oluşturun. Akışı ve arşivlemeyi başlatmaya hazır olduğunuzda programı başlatın. Olay için akışı ve arşivlemeyi durdurmak istediğinizde programı durdurun.
 
@@ -210,8 +210,8 @@ Desteklenen standartlar kapalı açıklamalı alt yazı ve ad eklemek için aşa
 
 * Gerçek zamanlı Kodlayıcı yeniden her zaman, çağrı **sıfırlama** kanalda yöntemi. Kanal sıfırlamadan program durdurmanız gerekir. Kanal sıfırladıktan sonra program yeniden başlatın.
 * Bir kanal yalnızca olduğunda durdurulabilir **çalıştıran** durumu ve kanalındaki tüm programlar durduruldu.
-* Varsayılan olarak, Media Services hesabınıza yalnızca 5 kanalları ekleyebilirsiniz. Daha fazla bilgi için bkz: [kotaları ve kısıtlamaları](media-services-quotas-and-limitations.md).
-* Yalnızca, kanal olduğunda faturalandırılır **çalıştıran** durumu. Daha fazla bilgi için bkz [kanal durumları ve faturalama](media-services-live-streaming-with-onprem-encoders.md#states) bölümü.
+* Varsayılan olarak, Media Services hesabınıza yalnızca beş kanalları ekleyebilirsiniz. Daha fazla bilgi için bkz: [kotaları ve kısıtlamaları](media-services-quotas-and-limitations.md).
+* Yalnızca, kanal olduğunda faturalandırılır **çalıştıran** durumu. Daha fazla bilgi için bkz: [kanal durumları ve faturalama](media-services-live-streaming-with-onprem-encoders.md#states) bölümü.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -220,7 +220,9 @@ Desteklenen standartlar kapalı açıklamalı alt yazı ve ad eklemek için aşa
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>İlgili konular
-[Azure Media Services parçalanmış MP4 Canlı belirtimi alma](media-services-fmp4-live-ingest-overview.md)
+[Önerilen şirket içi kodlayıcılar](media-services-recommended-encoders.md)
+
+[Azure Media Services parçalanmış MP4 yaşamlarını belirtimi alma](media-services-fmp4-live-ingest-overview.md)
 
 [Azure Media Services genel bakış ve yaygın senaryolar](media-services-overview.md)
 

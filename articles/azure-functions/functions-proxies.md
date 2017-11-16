@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="work-with-azure-functions-proxies-preview"></a>Azure işlevleri proxy'leri (Önizleme) ile çalışma
-
-> [!NOTE] 
-> Azure işlevleri proxy'leri şu anda önizlemede değil. Önizleme, ancak standart işlevleri faturalama proxy yürütmeleri uygularken ücretsizdir. Daha fazla bilgi için bkz: [Azure işlevleri fiyatlandırma](https://azure.microsoft.com/pricing/details/functions/).
+# <a name="work-with-azure-functions-proxies"></a>Azure işlevleri proxy ile çalışma
 
 Bu makalede, yapılandırma ve Azure işlevleri proxy'leri iş açıklanmaktadır. Bu özellik ile başka bir kaynak tarafından uygulanan işlevi uygulamanızdan uç noktalarını belirtebilirsiniz. İstemciler için tek bir API yüzeyi hala sunarken büyük bir API (olduğu gibi bir mikro Hizmet Mimarisi), birden çok işlev uygulamalarının bölüneceği bu proxy'leri kullanabilirsiniz.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> Faturalama standart işlevleri proxy yürütmeleri için geçerlidir. Daha fazla bilgi için bkz: [Azure işlevleri fiyatlandırma](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Bir proxy sunucu oluşturma
 

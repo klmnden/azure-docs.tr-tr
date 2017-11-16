@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Operations Management Suite hizmet Haritası çözümde kullanın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz şekilde sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine bağlı sistemler. Bir aracı yüklemesini dışındaki bağlantı noktaları üzerinden tüm TCP bağlı mimarisi herhangi bir yapılandırma gerekli ve hizmet eşlemesi sunucuları, işlemleri arasındaki bağlantıları gösterir.
@@ -231,16 +231,16 @@ Aşağıdaki resimde görebileceğiniz bir ConfigurationChange olay ayrıntılı
 Performans verileri görmek için gerekebilir [uygun günlük analizi performans sayaçlarını etkinleştirme](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Etkinleştirmek istediğiniz sayaçları:
 
 Windows:
-- Ýþlemci(*)\% işlemci zamanı
-- Bellek\% Kaydedilmiş Bayt yüzdesi
-- Ağ bağdaştırıcısı (*) \Bytes gönderilen/sn
-- Ağ bağdaştırıcısı (*) \Bytes alınan/sn
+- Ýþlemci(*)\\% işlemci zamanı
+- Bellek\\% Kaydedilmiş Bayt yüzdesi
+- Adapter(*) ağ\\gönderilen bayt/sn
+- Adapter(*) ağ\\alınan bayt/sn
 
 Linux:
-- Ýþlemci(*)\% işlemci zamanı
-- Memory(*)\% kullanılan bellek
-- Ağ bağdaştırıcısı (*) \Bytes gönderilen/sn
-- Ağ bağdaştırıcısı (*) \Bytes alınan/sn
+- Ýþlemci(*)\\% işlemci zamanı
+- Memory(*)\\% kullanılan bellek
+- Adapter(*) ağ\\gönderilen bayt/sn
+- Adapter(*) ağ\\alınan bayt/sn
 
 Ağ performans verilerini almak için ayrıca Operations Management Suite kablo verileri 2.0 çözümde etkinleştirmiş olmanız gerekir.
  

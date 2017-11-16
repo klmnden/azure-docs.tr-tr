@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Bulut Hizmetleri Yapılandırma
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-how-to-configure-portal.md)
-> * [Klasik Azure Portalı](cloud-services-how-to-configure.md)
->
->
-
 Azure portalında bir bulut hizmeti için en yaygın olarak kullanılan ayarları yapılandırabilirsiniz. Ya da yapılandırma dosyalarınızı doğrudan güncelleştirmek isterseniz güncelleştirilecek hizmet yapılandırma dosyasını indirin ve ardından güncelleştirilmiş dosyayı yükleyin ve bulut hizmetini yapılandırma değişiklikleriyle güncelleştirin. Her iki şekilde de yapılandırma güncelleştirmeleri tüm rol örneklerine atılır.
 
 Ayrıca, bulut hizmeti rollerinizi ya da Uzak Masaüstü örneklerini bunları içine yönetebilirsiniz.
@@ -77,9 +71,9 @@ Yerine **ayarları** > **uyarı kuralları**, ölçüm döşemeleri birinde tık
 Buradan içeren kutucuğa kullanılan grafiği özelleştirme veya bir uyarı kuralı ekleyin.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Yeniden başlatma, yeniden görüntü oluşturma ya da Uzak Masaüstü
-Şu anda Uzak Masaüstü kullanarak yapılandıramazsınız **Azure portal**. Ancak, bunu aracılığıyla ayarlayabilirsiniz [Klasik Azure portalı](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), aracılığıyla veya [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+Uzak Masaüstü aracılığıyla ayarlayabilirsiniz [Azure portal (Kurulum Uzak Masaüstü)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), aracılığıyla veya [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-İlk olarak, bulut hizmet örneği üzerinde'ı tıklatın.
+Yeniden başlatma için yeniden görüntü oluşturma veya uzak bir bulut hizmeti içine tıklatın bulut hizmeti örneği.
 
 ![Bulut hizmeti örneği](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

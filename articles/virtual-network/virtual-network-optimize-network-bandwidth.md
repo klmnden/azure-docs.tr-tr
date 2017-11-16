@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Azure sanal makineleri için ağ verimliliğini en iyi duruma getirme
 
@@ -33,7 +33,7 @@ Windows VM ile destekleniyorsa [hızlandırılmış ağ](virtual-network-create-
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. RSS etkinleştirmek için aşağıdaki komutu girin:
 
@@ -44,66 +44,79 @@ Windows VM ile destekleniyorsa [hızlandırılmış ağ](virtual-network-create-
 3. RSS VM'yi girerek etkinleştirildiğini onaylayın `Get-NetAdapterRss` yeniden komutu. Başarılı olursa, aşağıdaki örnek çıkış verilir:
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
 
 ## <a name="linux-vm"></a>Linux VM
 
-RSS, her zaman bir Azure Linux VM'de varsayılan olarak etkindir. Ocak 2017 bu yana yayımlanan Linux tekrar daha yüksek ağ verimliliği elde etmek bir Linux VM sağlayan yeni ağ en iyi duruma getirme seçenekleri içerir.
+RSS, her zaman bir Azure Linux VM'de varsayılan olarak etkindir. Ekim 2017 bu yana yayımlanan Linux tekrar daha yüksek ağ verimliliği elde etmek bir Linux VM sağlayan yeni ağ en iyi duruma getirme seçenekleri içerir.
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>Ubuntu yeni dağıtımlar için
 
-En iyi duruma getirme alabilmek için önce en son desteklenen sürümünü, olan Haziran 2017 itibariyle güncelleştirin:
+Ubuntu Azure çekirdek Azure üzerinde en iyi ağ performansı sağlar ve varsayılan çekirdek 21 Eylül 2017'den bu yana bırakıldı. Bu çekirdek alabilmek için önce en son desteklenen sürümünü 16.04-LTS, aşağıda açıklandığı gibi yükleyin:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-Güncelleştirme tamamlandıktan sonra son çekirdek almak için aşağıdaki komutları girin:
+Oluşturma işlemi tamamlandıktan sonra en son güncelleştirmeleri almak için aşağıdaki komutları girin. Bu adımlar, Ubuntu Azure çekirdek çalışmakta VM'ler için de geçerlidir.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+Aşağıdaki isteğe bağlı komut kümesini Azure çekirdek zaten sahip ancak, daha fazla güncelleştirme hataları ile başarısız olan mevcut Ubuntu dağıtımlar için yararlı olabilir.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-İsteğe bağlı komut:
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Var olan VM'ler için ubuntu Azure çekirdek yükseltme
 
-`apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Ubuntu Azure Önizleme çekirdek
-> [!WARNING]
-> Bu Azure Linux Önizleme çekirdek kullanılabilirliği ve güvenilirliği Market görüntü olarak aynı düzeyde olmayabilir ve genel kullanılabilirlik olan tekrar bırakın. Özellik desteklenmiyor, yetenekleri kısıtlı ve varsayılan çekirdek olarak güvenilir olmayabilir. Bu çekirdek üretim iş yükleri için kullanmayın.
-
-Önemli verimliliği performansından önerilen Azure Linux çekirdek yükleyerek elde edilebilir. Bu çekirdek denemek için /etc/apt/sources.list için bu satırı ekleyin
+Önemli verimliliği performansından Azure Linux çekirdeğe yükselterek elde edilebilir. Bu çekirdek yüklü olup olmadığını doğrulamak için çekirdek sürümünü denetleyin.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
-Daha sonra bu komutları kök olarak çalıştırın.
+VM Azure çekirdek yoksa, sürüm numarasını genellikle "4.4" ile başlar. Bu durumda, kök olarak aşağıdaki komutları çalıştırın.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-En iyi duruma getirme alabilmek için önce en son desteklenen sürümünü, olan Temmuz 2017 itibariyle güncelleştirin:
+En son iyileştirmeler alabilmek için şu parametreleri belirterek bir VM ile en son desteklenen sürümünü oluşturmak en iyisidir:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
-Güncelleştirme tamamlandıktan sonra son Linux Tümleştirme hizmetleri (LIS) yükleyin.
-Üretilen iş iyileştirme 4.2.2-2 başlayarak LIS kullanılıyor. LIS yüklemek için aşağıdaki komutları girin:
+Yeni ve mevcut sanal makineleri son Linux Tümleştirme hizmetleri (LIS) yüklenmesini yararlı olabilir.
+Üretilen iş iyileştirme geliştirmeleri daha sonraki sürümlerinde içerse de 4.2.2-2 başlayarak LIS içinde ' dir. En son LIS yüklemek için aşağıdaki komutları girin:
 
 ```bash
 sudo yum update
@@ -113,21 +126,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-En iyi duruma getirme alabilmek için önce en son desteklenen sürümünü, olan Temmuz 2017 itibariyle güncelleştirin:
+En iyi duruma getirme alabilmek için şu parametreleri belirterek bir VM ile en son desteklenen sürümünü oluşturmak en iyisidir:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
-Güncelleştirme tamamlandıktan sonra son Linux Tümleştirme hizmetleri (LIS) yükleyin.
+Yeni ve mevcut sanal makineleri son Linux Tümleştirme hizmetleri (LIS) yüklenmesini yararlı olabilir.
 4.2 başlayarak LIS, üretilen iş iyileştirme kullanılıyor. LIS'yi indirmeniz ve yüklemeniz için aşağıdaki komutları girin:
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/15/2017
 ms.author: raprasa
-ms.openlocfilehash: 84b26c9ff354adef3f1bc1e61f235c520b63df13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Otomatik çevrimiçi yedekleme ve geri yükleme ile Azure Cosmos DB
 Azure Cosmos DB tüm verilerinizi yedeklerini düzenli aralıklarla otomatik olarak alır. Otomatik yedekleme performansı veya veritabanı işlemlerinizin kullanılabilirliğini etkilemeden alınır. Tüm yedeklemeler ayrı olarak başka bir depolama hizmetinde depolanır ve bu yedekleri bölgesel afetler karşı dayanıklılık için genel olarak çoğaltılır. Yanlışlıkla Cosmos DB kapsayıcı sildiğinizde ve daha sonra veri kurtarma veya bir olağanüstü durum kurtarma çözümü gerektiren otomatik yedekleme senaryoları için tasarlanmıştır.  
@@ -27,7 +27,7 @@ Azure Cosmos DB tüm verilerinizi yedeklerini düzenli aralıklarla otomatik ola
 Bu makalede hızlı bir özeti veri artıklık ve kullanılabilirlik Cosmos DB'de ile başlayan ve yedeklemeleri ele alınmaktadır. 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Cosmos DB - bir özeti ile yüksek kullanılabilirlik
-Cosmos DB olacak şekilde tasarlanmıştır [Genel dağıtılmış](distribute-data-globally.md) – yük devretme ve saydam çok girişli API'leri güdümlü İlkesi ile birlikte birden çok Azure bölgeler arasında verimliliği ölçeklendirmenizi sağlar. Bir veritabanı sistem sunumu olarak [% 99,99 kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db), Cosmos DB tüm yazma işlemlerini istemciye bildirmeden önce yerel disklere işlemi, bir yerel veri merkezi içinde çoğaltmalarının bir çekirdek tarafından uygulanır. Cosmos DB yüksek kullanılabilirliğini yerel depolama biriminde bulunan güvenir ve hiçbir harici depolama teknolojileri bağlı değildir unutmayın. Ayrıca, veritabanı hesabınızı birden fazla Azure bölgesiyle ilişkiliyse, yazma diğer bölgeler arasında çoğaltılır. Birçok dilediğiniz şekilde veritabanı hesabınızla ilişkili bölgeler salt okunur düşük gecikme, üretilen iş ve erişim verilerinizi ölçeklendirmek için olabilir. Okuma her bölgede (çoğaltılmış) veri çoğaltma kümesi boyunca işlemi kalıcıdır.  
+Cosmos DB olacak şekilde tasarlanmıştır [Genel dağıtılmış](distribute-data-globally.md) – yük devretme ve saydam çok girişli API'leri güdümlü İlkesi ile birlikte birden çok Azure bölgeler arasında verimliliği ölçeklendirmenizi sağlar. Azure Cosmos DB sunar [% 99,99 kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) tüm tek bölge ve tüm bölgeli hesapları ile rahat tutarlılık ve %99.999 kullanılabilirlik tüm bölgeli veritabanı hesaplarda okuyun. Azure Cosmos DB tüm yazma işlemlerini istemciye bildirmeden önce yerel disklere işlemi, bir yerel veri merkezi içinde çoğaltmalarının bir çekirdek tarafından uygulanır. Cosmos DB yüksek kullanılabilirliğini yerel depolama biriminde bulunan güvenir ve hiçbir harici depolama teknolojileri bağlı değildir unutmayın. Ayrıca, veritabanı hesabınızı birden fazla Azure bölgesiyle ilişkiliyse, yazma diğer bölgeler arasında çoğaltılır. Birçok dilediğiniz şekilde veritabanı hesabınızla ilişkili bölgeler salt okunur düşük gecikme, üretilen iş ve erişim verilerinizi ölçeklendirmek için olabilir. Okuma her bölgede (çoğaltılmış) veri çoğaltma kümesi boyunca işlemi kalıcıdır.  
 
 Aşağıdaki çizimde gösterildiği gibi bir tek Cosmos DB kapsayıcıdır [yatay olarak bölümlenmiş](partition-data.md). "Bölüm" Aşağıdaki diyagramda bir daire gösterilir ve her bölüm bir çoğaltma kümesi yüksek oranda kullanılabilir hale gelir. Yerel dağıtım (X ekseni tarafından gösterilen) tek bir Azure bölgesi içinde budur. Ayrıca, her bölüm (karşılık gelen çoğaltma kümesi) sonra genel veritabanı hesabınızı (örneğin, bölgelerde Bu çizim üç – Doğu ABD, Batı ABD ve orta Hindistan) ile ilişkili birden çok bölgeye dağıtılır. "Bölüm kümesi" Genel dağıtılmış olduğu varlık verilerinizi (Y ekseni tarafından gösterilen) her bölgede birden çok kopyasını kapsayan. Veritabanı hesabınızla ilişkili bölgeler öncelik atayabilir ve Cosmos DB olacak saydam yük devretme durumunda olağanüstü durum sonraki bölge. El ile de uygulamanız uçtan uca kullanılabilirliğini test etmek için yük devretme benzetimini de yapabilirsiniz.  
 

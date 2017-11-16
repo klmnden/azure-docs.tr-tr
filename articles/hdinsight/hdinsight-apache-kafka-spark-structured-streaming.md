@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Hdınsight'ta Spark yapılandırılmış akış Kafka (Önizleme) ile kullanma
+# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Hdınsight üzerinde Kafka ile akış yapılandırılmış Spark kullanma
 
 Spark yapılandırılmış akış verilerini Azure hdınsight'ta Apache Kafka okumak için nasıl kullanılacağını öğrenin.
 
@@ -52,7 +52,7 @@ Azure sanal ağı, Kafka, oluşturabilir ve el ile Spark kümeleri olsa da, bir 
 
     Bu şablon, aşağıdaki kaynaklara oluşturur:
 
-    * Hdınsight 3.5 kümede Kafka.
+    * Hdınsight 3.6 kümede Kafka.
     * Bir Spark Hdınsight 3.6 kümede.
     * Bir Azure sanal Hdınsight kümeleri içeren ağ.
 

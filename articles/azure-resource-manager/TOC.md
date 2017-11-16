@@ -69,10 +69,6 @@
 ### [Aboneliklere erişmek için kimlik doğrulama API’si](resource-manager-api-authentication.md)
 ### [Kaynakları kilitleme](resource-group-lock-resources.md)
 
-## Kaynak ilkeleri ayarlama
-### [Kaynak ilkeleri nelerdir?](resource-manager-policy.md)
-### [Adlandırma kuralları](resource-manager-policy-naming-convention.md)
-
 ## Denetim
 ### [Etkinlik günlüklerini görüntüleme](resource-group-audit.md)
 ### [Dağıtım işlemlerini görüntüleme](resource-manager-deployment-operations.md)

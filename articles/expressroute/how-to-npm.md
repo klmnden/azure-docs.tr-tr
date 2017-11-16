@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: b041244b28d76de4bac2822c115482e31d073a22
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Ağ Performans İzleyicisi'ni (Önizleme) ExpressRoute için yapılandırma
 
@@ -74,6 +74,11 @@ Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zat
   * Kaynak grubu - bir kaynak grubu oluşturabilir veya mevcut bir kullanabilirsiniz.
   * Konumu - seçmelisiniz bir [bölge desteklenen](#regions).
   * Fiyatlandırma katmanı - seçin 'ücretsiz'
+  
+  >[!NOTE]
+  >Expressroute bağlantı hattı dünyada herhangi bir yerde olabilir ve çalışma alanı ile aynı bölgede olması gerekmez.
+  >
+
 
   ![Çalışma alanı](.\media\how-to-npm\4.png)<br><br>
 4. Tıklatın **Tamam** kaydetmek ve ayarları şablonu dağıtmak için. Şablon doğrular sonra tıklayın **oluşturma** çalışma dağıtmak için.
@@ -174,7 +179,7 @@ NSG hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-n
 >
 >
 
-NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma alanı Güvenilenler listesine sahip istemeniz gerekir. [Sayfasına gidin ve istek formu doldurmak için burayı tıklatın](https://go.microsoft.com/fwlink/?linkid=862263). (İpucu: bir yeni penceresinde veya sekmesinde bu bağlantıyı açmak istediğiniz). Uygulamaları güvenilir listeye almayı işlemi, bir iş günü veya daha fazla sürebilir. Uygulamaları güvenilir listeye almayı tamamlandıktan sonra bir e-posta alacaksınız.
+NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma alanı Güvenilenler listesine sahip istemeniz gerekir. [Sayfasına gidin ve istek formu doldurmak için burayı tıklatın](https://aka.ms/npmcohort). (İpucu: bir yeni penceresinde veya sekmesinde bu bağlantıyı açmak istediğiniz). Uygulamaları güvenilir listeye almayı işlemi, bir iş günü veya daha fazla sürebilir. Uygulamaları güvenilir listeye almayı tamamlandıktan sonra bir e-posta alacaksınız.
 
 ## <a name="setupmonitor"></a>Adım 5: ExpressRoute izleme için NPM yapılandırma
 

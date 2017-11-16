@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>X12 kod çözme Azure Logic Apps Enterprise tümleştirme paketi ile iletileri
 
@@ -65,6 +65,16 @@ Gereksinim duyduğunuz öğeleri şöyledir:
     Örneğin:
 
     ![Kod çözme için dosya iletisi SELECT X12 düz](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+
+   > [!NOTE]
+   > Gerçek ileti içeriği veya iyi ya da hatalı ileti dizisi için yükü base64 ile kodlanmış değil. Bu nedenle, bu içeriği işleyen bir ifade belirtmeniz gerekir.
+   > Burada, içerik Tasarımcısı'nda Deyim Oluşturucusu'nu kullanarak veya kod görünümünde girebilirsiniz XML olarak işleyen bir örnek verilmiştir.
+   > ``` json
+   > "content": "@xml(base64ToBinary(item()?['Payload']))"
+   > ```
+   > ![İçerik örneği](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
+   >
+
 
 ## <a name="x12-decode-details"></a>X12 kod çözme ayrıntıları
 

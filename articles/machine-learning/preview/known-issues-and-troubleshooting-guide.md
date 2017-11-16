@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 28d97d65d2671f7af2cd3b29ea65ae053d5e8122
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
@@ -85,7 +85,11 @@ Azure ML çalışma ekranı içinde çalışırken, ayrıca bize bir kaş çatma
 - RevoScalePy kitaplığı yalnızca Windows ve Linux (Docker kapsayıcılardaki) desteklenir. MacOS üzerinde desteklenmiyor.
 
 ## <a name="cant-update-workbench"></a>Çalışma ekranı güncelleştirilemiyor
-Yeni bir güncelleştirme kullanılabilir olduğunda, çalışma ekranı uygulama giriş sayfası yeni güncelleştirme hakkında bildiren bir ileti görüntüler. Sol alt köşesindeki uygulama zil simgesine görünen bir güncelleştirme rozet görmeniz gerekir. Gösterge üzerinde tıklatın ve güncelleştirmeyi yüklemek için yükleyici Sihirbazı izleyin. Bildirim görmüyorsanız, uygulamanın yeniden başlatmayı deneyin. Yeniden başlatma işleminden sonra güncelleştirme bildirimi hala görmüyorsanız, birkaç nedeni olabilir.
+Yeni bir güncelleştirme kullanılabilir olduğunda, çalışma ekranı uygulama giriş sayfası yeni güncelleştirme hakkında bildiren bir ileti görüntüler. Sol alt köşesindeki uygulama zil simgesine görünen bir güncelleştirme rozet görmeniz gerekir. Gösterge üzerinde tıklatın ve güncelleştirmeyi yüklemek için yükleyici Sihirbazı izleyin. 
+
+![Güncelleştirme resmi](./media/known-issues-and-troubleshooting-guide/update.png)
+
+Bildirim görmüyorsanız, uygulamanın yeniden başlatmayı deneyin. Yeniden başlatma işleminden sonra güncelleştirme bildirimi hala görmüyorsanız, birkaç nedeni olabilir.
 
 ### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Görev çubuğunda sabitlenmiş kısayoldan çalışma ekranı başlatma
 Güncelleştirme zaten yüklenmiş. Ancak sabitlenmiş kısayolu hala eski BITS diskteki işaret. Bunu göz atarak doğrulamak `%localappdata%/AmlWorkbench` klasörü ve en son sürümü yüklü varsa ve burada işaret ettiğinden görmek için sabitlenmiş kısayol özelliğini inceleyin bakın. Doğrulandı, yalnızca eski kısayol kaldırın, çalışma ekranı Başlat menüsünden başlatın ve isteğe bağlı olarak görev çubuğunda yeni sabitlenmiş bir kısayol oluşturun.

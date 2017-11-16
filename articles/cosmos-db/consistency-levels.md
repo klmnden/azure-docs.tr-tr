@@ -13,22 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1ebec2285982c70aa9dc49950769fe18e2e2d0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303a36fc966cd92399de92b4d52f75c114b75781
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>İnce ayarlanabilir veri tutarlılık düzeylerini Azure Cosmos veritabanı
-Azure Cosmos DB sıfırdan yukarı genel dağıtım aklınızda her veri modeli için tasarlanmıştır. Tahmin edilebilir düşük gecikme süresi garantileri, % 99,99 kullanılabilirlik SLA ve birden çok iyi tanımlanmış gevşek tutarlılık modelleri sunmak üzere tasarlanmıştır. Şu anda Azure Cosmos DB beş tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı öneki ve son. 
+Azure Cosmos DB sıfırdan yukarı genel dağıtım aklınızda her veri modeli için tasarlanmıştır. Tahmin edilebilir düşük gecikme süresi garanti ve birden çok iyi tanımlanmış gevşek tutarlılık modelleri sunmak üzere tasarlanmıştır. Şu anda Azure Cosmos DB beş tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı öneki ve son. En yüksek oranda tutarlı bir model kullanılabilir olan daha az tutarlılık daha güçlü, sağladıkları gibi sınırlanmış eskime durumu, oturum, tutarlı öneki ve nihai olan "gevşek tutarlılık modelleri olarak" gösteriyor. 
 
-Yanında **güçlü** ve **nihai tutarlılık** modelleri Azure Cosmos DB üç daha fazla dikkatle kod oluşturulmuş ve kullanıma hazır hale getirilmiş tutarlılık modeli sunar ve sahip dağıtılmış veritabanı tarafından yaygın olarak sunulan gerçek dünya durumlara karşı oluştuğu doğrulandı. Bunlar **sınırlanmış eskime durumu**, **oturum**, ve **tutarlı önek** tutarlılık düzeyi. Topluca bu beş tutarlılık düzeyleri iyi reasoned dengelemeler tutarlılık, kullanılabilirlik ve gecikme süresi arasında yapmanızı sağlar. 
+Yanında **güçlü** ve **nihai tutarlılık** sunulan yaygın olarak dağıtılan veritabanları tarafından modelleri Azure Cosmos DB üç daha fazla dikkatle kod oluşturulmuş ve kullanıma hazır hale getirilmiş tutarlılık modeli sunar:  **sınırlanmış eskime durumu**, **oturum**, ve **tutarlı önek**. Bu tutarlılık düzeylerin her birinde yararlılığı gerçek dünya kullanımı talepleri doğrulandı. Topluca bu beş tutarlılık düzeyleri iyi reasoned dengelemeler tutarlılık, kullanılabilirlik ve gecikme süresi arasında yapmanızı sağlar. 
 
 ## <a name="distributed-databases-and-consistency"></a>Dağıtılmış veritabanları ve tutarlılık
-Ticari olarak dağıtılmış veritabanları iki kategoriye ayrılır: iyi tanımlanmış, kanıtlanabilir tutarlılık seçenekleri sunmayan veritabanları ve iki olağan dışı programlama seçeneği (güçlü ve nihai tutarlılık) sunan veritabanları. 
+Ticari dağıtılmış veritabanlarının iki kategoriye ayrılır: provable iyi tanımlanmış tutarlılık seçimler hiç sunmazlar veritabanları ve iki aşırı programlama (nihai tutarlılık güçlü) seçimlere veritabanları. 
 
 İlk veritabanı grubu, uygulama geliştiricilerini çoğaltma protokollerinin küçük ayrıntılarından kurtarır ve tutarlılık, kullanılabilirlik, gecikme süresi ve aktarım hızı arasında zorlu seçimler yapmalarını bekler. İkinci veritabanı grubu ise iki olağan dışı örnekten birinin seçilmesini gerektirir. 50’den fazla tutarlılık modeli üzerinde yapılan çok sayıda araştırma ve teklife rağmen, dağıtılmış veritabanı topluluğu güçlü ve nihai tutarlılığı aşan tutarlılık düzeylerini ticari düzeye taşıyamamıştır. Cosmos DB geliştiriciler sınırlanmış eskime durumu tutarlılığı spektrumun – güçlü, boyunca beş iyi tanımlanmış tutarlılık modelleri arasında seçmenizi sağlayan [oturum](http://dl.acm.org/citation.cfm?id=383631), tutarlı öneki ve son. 
 
@@ -40,15 +40,19 @@ Aşağıdaki tabloda her tutarlılık düzeyinin sunduğu garantiler gösterilme
 
 | Tutarlılık Düzeyi | Garantiler |
 | --- | --- |
-| Güçlü | Doğrusallaştırma |
+| Güçlü | Linearizability. Bir öğe en son sürümüne geri dönmek için okuma garanti.|
 | Sınırlanmış Eskime Durumu | Tutarlı Ön Ek. -k ön eklerine veya t aralığına göre yazma işlemlerinin arkasındaki gecikmeyi okur |
 | Oturum   | Tutarlı Ön Ek. Monoton okuma, monoton yazma, yazdıklarınızı okuma, okuduktan sonra yazma |
 | Tutarlı Ön Ek | Döndürülen güncelleştirmeler, boşluk olmadan tüm güncelleştirmelerin bazı ön ekleridir |
 | Nihai  | Bozuk okumalar |
 
-Cosmos DB hesabınızdaki varsayılan tutarlılık düzeyini yapılandırabilirsiniz (ve daha sonra belirli bir okuma isteğinde tutarlılığı geçersiz kılabilirsiniz). Dahili olarak, varsayılan tutarlılık düzeyi bölgeler yayılabilir bölüm kümeleri içinde veriler için geçerlidir. Sınırlanmış eskime durumu % 20 tercih ve oturum tutarlılığı yaklaşık bizim kiracılar %73 kullanın. Yaklaşık %3 müşterilerimizin çeşitli tutarlılık düzeylerini başlangıçta kendi uygulama için belirli tutarlılık seçim şekilde önce deneme inceleyin. Ayrıca bizim kiracılar % 2'yalnızca bir istek başına tutarlılık düzeylerini geçersiz kılma inceleyin. 
+Cosmos DB hesabınızdaki varsayılan tutarlılık düzeyini yapılandırabilirsiniz (ve daha sonra belirli bir okuma isteğinde tutarlılığı geçersiz kılabilirsiniz). Dahili olarak, varsayılan tutarlılık düzeyi bölgeler yayılabilir bölüm kümeleri içinde veriler için geçerlidir. Yaklaşık Azure Cosmos DB kiracılar kullanım oturum tutarlılığı %73 ve % 20 sınırlanmış eskime durumu tercih eder. Yaklaşık %3 Azure Cosmos DB müşterilerin kendi uygulama için belirli tutarlılık seçim şekilde önce çeşitli tutarlılık düzeylerini başlangıçta deneyin. Azure Cosmos DB kiracılar % 2'yalnızca bir istek başına tutarlılık düzeylerini geçersiz kılar. 
 
-Cosmos DB nihai tutarlılık güçlü veya sınırlanmış eskime durumu tutarlılığı ile okuma olarak ucuz iki kez ve okuma oturumunda, tutarlı önek sunulamıyor. Cosmos DB endüstri lideri tutarlılığı garanti birlikte kullanılabilirliği, performansı ve gecikme süresi dahil olmak üzere kapsamlı % 99,99 SLA sahiptir. Kullanıyoruz bir [linearizability denetleyicisi](http://dl.acm.org/citation.cfm?id=1806634), sürekli olarak bizim hizmet telemetri çalışır ve açık yayımlanmaması herhangi bir tutarlılık ihlali size bildirir. Sınırlanmış eskime durumu için izleme ve k ve t sınırları için herhangi bir ihlali rapor. Tüm beş gevşek tutarlılık düzeyleri için biz de rapor [probabilistic sınırlanmış eskime durumu ölçüm](http://dl.acm.org/citation.cfm?id=2212359) doğrudan.  
+Cosmos DB nihai tutarlılık güçlü veya sınırlanmış eskime durumu tutarlılığı ile okuma olarak ucuz iki kez ve okuma oturumunda, tutarlı önek sunulamıyor. Cosmos DB endüstri lideri tutarlılığı garanti birlikte kullanılabilirliği, performansı ve gecikme süresi dahil olmak üzere kapsamlı SLA sahiptir. Azure Cosmos DB kullanan bir [linearizability denetleyicisi](http://dl.acm.org/citation.cfm?id=1806634), sürekli olarak hizmet telemetri çalışır ve açık yayımlanmaması herhangi bir tutarlılık ihlali size bildirir. Sınırlanmış eskime durumu için Azure Cosmos DB izler ve herhangi bir ihlali k ve t sınırları için raporlar. Tüm beş gevşek tutarlılık düzeyleri için de Azure Cosmos DB raporları [probabilistically, eskime durumu ölçüm ilişkisindeki](http://dl.acm.org/citation.cfm?id=2212359) doğrudan.  
+
+## <a name="service-level-agreements"></a>Hizmet düzeyi sözleşmeleri
+
+Azure Cosmos DB sunan kapsamlı % 99,99 [SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) hangi garantisi verimlilik, tutarlılık, kullanılabilirlik ve gecikme Azure Cosmos DB için veritabanı herhangi beş tutarlılık denetimi ile yapılandırılmış tek bir Azure bölgesine kapsamlı hesapları düzeyleri veya herhangi bir dört gevşek tutarlılık düzeyleri ile yapılandırılmış birden fazla Azure bölgesine yayılan veritabanı hesaplar. Ayrıca, bağımsız bir tutarlılık düzeyi tercih Azure Cosmos DB %99.999 SLA iki veya daha fazla Azure bölgeleri kapsayıcı veritabanı hesapları için okuma kullanılabilirlik sunar.
 
 ## <a name="scope-of-consistency"></a>Tutarlılık kapsamı
 Tutarlılık kesinliği tek bir kullanıcı isteğine kapsamlıdır. Yazma isteği karşılık gelen bir ekleme, değiştirme, upsert veya işlem silin. Yazma gibi bir okuma/sorgu işlem de bir tek kullanıcı isteğine kapsama alınır. Kullanıcı büyük sayfalara bölme için sonuç kümesi, birden çok bölüm kapsayıcı gerekebilir, ancak her işlem için tek bir sayfayla kapsamlı ve gelen tek bir bölüm içinde sunulan okuyun.
@@ -60,15 +64,15 @@ Cosmos DB hesabınızın altında veritabanı hesabınızdaki tüm koleksiyonlar
 
 * Güçlü tutarlılık sunan bir [linearizability](https://aphyr.com/posts/313-strong-consistency-models) garanti öğeyi en son sürümüne geri dönmek için garanti okuma ile. 
 * Güçlü tutarlılık, çoğaltmaların çoğunluğu çekirdek tarafından işlemi yürütüldükten sonra yazma yalnızca görünür olmasını sağlar. Bir yazma ya da zaman uyumlu olarak işlemi hem birincil hem de ikincil kopya çekirdek tarafından kararlıdır veya iptal edilir. Okuma her zaman çekirdek okuma çoğunluğu tarafından onaylanan, bir istemci her zaman en son alınan yazma okumak için garanti ve kaydedilmemiş ya da kısmi bir yazma hiçbir zaman görebilirsiniz. 
-* Güçlü tutarlılık kullanmak üzere yapılandırılmış azure Cosmos DB hesapları birden fazla Azure bölgesine Azure Cosmos DB hesaplarıyla ilişkilendiremezsiniz. 
+* Güçlü tutarlılık kullanmak üzere yapılandırılmış azure Cosmos DB hesapları birden fazla Azure bölgesine Azure Cosmos DB hesaplarıyla ilişkilendiremezsiniz.  
 * Okuma işlemi maliyetini (cinsinden [istek birimleri](request-units.md) tüketilen) ile güçlü tutarlılık oturum daha yüksek ya da Sonuçta, olan ancak sınırlanmış eskime durumu ile aynı.
 
 **Sınırlanmış eskime durumu**: 
 
 * Okuma yazma tarafından arkasında en fazla geri kalabilir eskime durumu tutarlılığı garanti ilişkisindeki *K* sürümleri veya bir öğenin önekleri veya *t* zaman aralığı. 
 * Sınırlanmış eskime durumu seçme gerektiğinde, bu nedenle, "eskime durumu" iki şekilde yapılandırılabilir: sürümleri sayısı *K* olarak okumaları öteleme yazma ve zaman aralığını arkasındaki öğesinin *t* 
-* Sınırlanmış eskime durumu teklifleri toplam genel dışında içinde sırada "eskime durumu penceresi." Monoton okuma garanti mevcut bir bölge içinde hem iç hem de dış "eskime durumu penceresi." 
-* Sınırlanmış eskime durumu oturumu veya nihai tutarlılık daha güçlü bir tutarlılık garanti sağlar. Genel olarak dağıtılmış uygulamalar için burada güçlü tutarlılık sahip ancak % 99,99 kullanılabilirlik ve düşük gecikme süresi de istiyorsanız istediğiniz sınırlanmış eskime durumu senaryoları için kullanmanızı öneririz. 
+* Sınırlanmış eskime durumu teklifleri toplam genel dışında içinde sırada "eskime durumu penceresi." Bir bölge içinde hem iç hem de dış "eskime durumu penceresi." monoton okuma garanti var 
+* Sınırlanmış eskime durumu daha güçlü bir tutarlılığı garanti oturum, önek tutarlı ya da nihai tutarlılık sağlar. Genel olarak dağıtılmış uygulamalar için burada güçlü tutarlılık sahip ancak % 99,99 kullanılabilirlik ve düşük gecikme süresi de istiyorsanız istediğiniz sınırlanmış eskime durumu senaryoları için kullanmanızı öneririz.   
 * Sınırlanmış eskime durumu tutarlılığı ile yapılandırılmış olan azure Cosmos DB hesapları Azure bölgeleri herhangi bir sayıda Azure Cosmos DB hesaplarıyla ilişkilendirebilirsiniz. 
 * Okuma işlemi (RUs tüketilen) bakımından maliyetini sınırlanmış eskime durumu ile oturum ve nihai tutarlılık, ancak güçlü tutarlılık aynı daha yüksektir.
 
@@ -78,7 +82,7 @@ Cosmos DB hesabınızın altında veritabanı hesabınızdaki tüm koleksiyonlar
 * Oturum tutarlılığı monoton okuma, monoton yazma ve okuma kendi yazma (RYW) garanti garanti bu yana bir aygıt veya kullanıcı oturumu burada dahil tüm senaryoları için idealdir. 
 * Oturum tutarlılığı, oturum açmak için tahmin edilebilir tutarlılık sağlar ve en düşük gecikme süreli yazma işlemleri ve okuma sunarken verimlilik maksimum okuyun. 
 * Oturum tutarlılığı ile yapılandırılmış olan azure Cosmos DB hesapları Azure bölgeleri herhangi bir sayıda Azure Cosmos DB hesaplarıyla ilişkilendirebilirsiniz. 
-* Okuma işlemi (RUs tüketilen) bakımından maliyetini oturum tutarlılığı ile değerinden güçlü ve sınırlanmış eskime durumu, ancak birden fazla nihai tutarlılık düzeyidir
+* Okuma işlemi (RUs tüketilen) bakımından maliyetini oturum tutarlılığı ile değerinden güçlü ve sınırlanmış eskime durumu, ancak birden fazla nihai tutarlılık düzeydir.
 
 <a id="consistent-prefix"></a>
 **Tutarlı önek**: 
@@ -97,9 +101,9 @@ Cosmos DB hesabınızın altında veritabanı hesabınızdaki tüm koleksiyonlar
 
 ## <a name="configuring-the-default-consistency-level"></a>Varsayılan tutarlılık düzeyi yapılandırılıyor
 1. İçinde [Azure portal](https://portal.azure.com/), çubuğunda **Azure Cosmos DB**.
-2. İçinde **Azure Cosmos DB** veritabanı hesabı değiştirmek için dikey penceresinde, seçin.
-3. Hesap dikey penceresinde tıklayın **varsayılan tutarlılık**.
-4. İçinde **varsayılan tutarlılık** dikey penceresinde, yeni tutarlılık düzeyi seçin ve tıklatın **kaydetmek**.
+2. İçinde **Azure Cosmos DB** sayfasında, değiştirmek için veritabanı hesabı seçin.
+3. Hesap sayfasında tıklatın **varsayılan tutarlılık**.
+4. İçinde **varsayılan tutarlılık** sayfasında, yeni tutarlılık düzeyi seçin ve tıklayın **kaydetmek**.
    
     ![Ayarlar simgesine ve varsayılan tutarlılık giriş vurgulama ekran görüntüsü](./media/consistency-levels/database-consistency-level-1.png)
 

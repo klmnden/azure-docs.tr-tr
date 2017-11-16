@@ -16,6 +16,7 @@
 ### [MPP mimarisi](massively-parallel-processing-mpp-architecture.md)
 ### [Performans katmanları](performance-tiers.md)
 ### [Veri ambarı birimleri](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Kapasite sınırları](sql-data-warehouse-service-capacity-limits.md)
 ### [Sık sorulan sorular](sql-data-warehouse-overview-faq.md)
 
 ## Yedekleme ve geri yükleme
@@ -147,7 +148,7 @@
 
 # Başvuru
 
-## [Kapasite sınırları](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [Tam başvuru](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW dil öğeleri](sql-data-warehouse-reference-tsql-language-elements.md)

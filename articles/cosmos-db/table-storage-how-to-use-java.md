@@ -14,20 +14,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 323d574cbdeea1a2141d3c10d402e44e8af8ee19
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f47e5dfb174a0c7b99111485cee74eb01df665c7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>Java'dan Azure Table storage kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Genel Bakış
 Bu kılavuz Azure Table depolama hizmeti kullanılarak yaygın senaryolar gerçekleştirmek nasıl yapacağınızı gösterir. Java ve kullanım örnekleri yazılır [Java için Azure depolama SDK'sı][Azure Storage SDK for Java]. Kapsamdaki senaryolar da dahil **oluşturma**, **listeleme**, ve **silme** tabloları, yanı **ekleme**, **sorgulama**, **değiştirme**, ve **silme** bir tabloda varlıklar. Tabloları hakkında daha fazla bilgi için bkz: [sonraki adımlar](#Next-Steps) bölümü.
 
-Not: Bir SDK'sı Android cihazlarda Azure depolama kullanan geliştiriciler için kullanılabilir. Daha fazla bilgi için bkz: [Android için Azure depolama SDK'sı][Azure Storage SDK for Android].
+> [!NOTE]
+> Bir SDK'sı, Android cihazlarda Azure depolama kullanan geliştiriciler için kullanılabilir. Daha fazla bilgi için bkz: [Android için Azure depolama SDK'sı][Azure Storage SDK for Android].
+>
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -70,7 +72,11 @@ String storageConnectionString =
 Aşağıdaki örnekler, bu iki yöntemden birini depolama bağlantı dizesini almak için kullanılan olduğunu varsayalım.
 
 ## <a name="how-to-create-a-table"></a>Nasıl yapılır: bir tablo oluştur
-A **CloudTableClient** nesne tabloları ve varlıkları için başvuru nesneleri almak olanak sağlar. Aşağıdaki kod oluşturur bir **CloudTableClient** nesne ve yeni bir oluşturmak için kullandığı **CloudTable** tablo temsil eden nesne adında "Kişiler". (Not: oluşturmak için ek yol vardır **CloudStorageAccount** nesneleri; daha fazla bilgi için bkz: **CloudStorageAccount** içinde [Azure Storage istemci SDK'sı başvurusu].)
+A **CloudTableClient** nesne tabloları ve varlıkları için başvuru nesneleri almak olanak sağlar. Aşağıdaki kod oluşturur bir **CloudTableClient** nesne ve yeni bir oluşturmak için kullandığı **CloudTable** tablo temsil eden nesne adında "Kişiler". 
+
+> [!NOTE]
+> Oluşturmak için ek yol vardır **CloudStorageAccount** nesneleri; daha fazla bilgi için bkz: **CloudStorageAccount** içinde [Azure Storage istemci SDK'sı başvurusu].)
+>
 
 ```java
 try

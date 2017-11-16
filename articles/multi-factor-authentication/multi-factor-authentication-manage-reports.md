@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: richagi
+ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication raporlarında
 
@@ -28,11 +28,11 @@ Azure çok faktörlü kimlik doğrulaması ve kuruluşunuz tarafından kullanıl
 | Rapor | Açıklama |
 |:--- |:--- |
 | Kullanım |Kullanım raporları bilgileri görüntüler genel kullanımı, kullanıcı özeti ve kullanıcı ayrıntıları. |
-| Sunucu durumu |Bu rapor, çok faktörlü kimlik doğrulaması için hesabınızla ilişkili sunucularının durumunu görüntüler. |
-| Engellenmiş kullanıcı geçmişi |Bu raporlar engelleme veya kullanıcıların engelini kaldırma isteklerinin geçmişini görüntüleyin. |
-| Atlanmış kullanıcı geçmişi |Çok faktörlü kimlik doğrulaması için bir kullanıcının telefon numarası atlama isteklerinin geçmişini gösterir. |
+| Sunucu Durumu |Bu rapor, çok faktörlü kimlik doğrulaması için hesabınızla ilişkili sunucularının durumunu görüntüler. |
+| Engellenen Kullanıcı Geçmişi |Bu raporlar engelleme veya kullanıcıların engelini kaldırma isteklerinin geçmişini görüntüleyin. |
+| Atlanan Kullanıcı Geçmişi |Çok faktörlü kimlik doğrulaması için bir kullanıcının telefon numarası atlama isteklerinin geçmişini gösterir. |
 | Sahtekarlık Uyarısı |Belirttiğiniz tarih aralığı içinde gönderilen sahtekarlık uyarısı geçmişini gösterir. |
-| Sıraya alınmış |Sıraya alınan işleme ve durumlarını listeler raporları. Rapor tamamlandığında indirme veya raporu görüntülemek için bir bağlantı sağlanır. |
+| Sıraya Alındı |Sıraya alınan işleme ve durumlarını listeler raporları. Rapor tamamlandığında indirme veya raporu görüntülemek için bir bağlantı sağlanır. |
 
 ## <a name="view-reports"></a>Raporları görüntüleme
 

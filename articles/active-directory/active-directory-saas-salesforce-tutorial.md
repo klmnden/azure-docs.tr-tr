@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7471a6999ac4dcd15f5162e69cb0100cc1e3b14f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Öğretici: Salesforce Azure Active Directory Tümleştirme
 
@@ -121,9 +121,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+5. Tıklatın **kaydetmek** düğmesini ![yapılandırma çoklu oturum açma](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
 
 6. Üzerinde **Salesforce yapılandırma** 'yi tıklatın **yapılandırma Salesforce** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.** 
 
@@ -154,7 +152,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçin **adı** alanına, bu yapılandırma için bir kolay ad yazın. İçin bir değer sağlama **adı** otomatik olarak doldurulması **API adı** metin kutusu.
 
-    b. Yapıştır **SMAL varlık kimliği** içine değer **veren** Salesforce alanındaki.
+    b. Yapıştır **SAML varlık kimliği** içine değer **veren** Salesforce alanındaki.
 
     c. İçinde **varlık kimliği textbox**, şu biçimi kullanarak Salesforce etki alanı adınızı yazın:
       

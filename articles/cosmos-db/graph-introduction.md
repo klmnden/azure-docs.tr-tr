@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB giriş: grafik API'si
 
@@ -44,7 +44,7 @@ Azure Cosmos DB grafik API'si sağlar:
 - Esnek depolama ve işleme gecikmeleri okuma 10 MS'den kısa ve 99 en az 15 ms ölçeklendirme.
 - Otomatik anlık sorgu kullanılabilirlik ile dizin oluşturma.
 - İnce ayarlanabilir tutarlılık düzeyleri.
-- % 99,99 kullanılabilirlik dahil olmak üzere kapsamlı SLA.
+- Kapsamlı SLA gevşek tutarlılık ve %99.999 % 99,99 kullanılabilirlik SLA tüm tek bölge ve tüm bölgeli hesapları için de dahil olmak üzere tüm bölgeli veritabanı hesaplarda kullanılabilirlik okuyun.
 
 Azure Cosmos DB sorgulamak için kullanabileceğiniz [Apache TinkerPop](http://tinkerpop.apache.org) grafik geçişi dil [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), veya diğer TinkerPop uyumlu grafik sistemleri [Apache Spark GraphX](spark-connector-graph.md).
 

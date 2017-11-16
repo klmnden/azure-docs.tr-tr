@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Azure enterprise iskele uygulamanın örnekleri
 Bu konu kuruluş için önerilerin nasıl uygulayabilirsiniz örnekler sağlayan bir [Azure enterprise iskele](resource-manager-subscription-governance.md). Contoso adlı kurgusal bir şirket yaygın senaryolar için en iyi yöntemleri göstermek için kullanır.
@@ -68,14 +68,14 @@ Dave abonelik kaynaklarını yönetmek için aşağıdaki gereksinimlere sahipti
 * Müşterinizle maliyetleri ile ilgili. Bu nedenle, uygulama sahipleri gereksiz yere pahalı sanal makinelerin oluşturulmasını önlemek istediği.  
 * Geliştiriciler birçok iş birimleri bu uygulamaya hizmet olduğundan iş birimi ve uygulama sahip her bir kaynağın etiketlemek istediği. Bu etiketler kullanarak madde işaretleri uygun takımlar faturalandıracaktır.
 
-Aşağıdaki oluşturur [Resource Manager ilkeleri](resource-manager-policy.md):
+Aşağıdaki oluşturur [Azure ilkeleri](../azure-policy/azure-policy-introduction.md):
 
 | Alan | Etki | Açıklama |
 | --- | --- | --- |
 | location |Denetim |Denetim tüm bölgelerdeki kaynakları oluşturma |
-| type |Reddet |G-serisi sanal makinelerin oluşturulmasını Reddet |
-| etiketler |Reddet |Uygulama sahibi etiketi gerektirir |
-| etiketler |Reddet |Maliyet merkezi etiketi gerektirir |
+| type |reddet |G-serisi sanal makinelerin oluşturulmasını Reddet |
+| etiketler |reddet |Uygulama sahibi etiketi gerektirir |
+| etiketler |reddet |Maliyet merkezi etiketi gerektirir |
 | etiketler |ekleme |Etiket adı append **departmanı** ve etiket değeri **madde işaretleri** tüm kaynaklar için |
 
 ### <a name="resource-tags"></a>Kaynak etiketleri
@@ -98,7 +98,7 @@ Aşağıdaki kaynaklar oluşturur:
 | --- | --- | --- |
 | Sanal Ağ |vnet iç |ExpressRoute aracılığıyla Contoso şirket ağına ve BitBucket uygulama ile kullanılır.  Bir alt ağ (`bitbucket`) belirli bir IP adresi alanı uygulamayla sağlar |
 | Sanal Ağ |Dış sanal ağ |Genel kullanıma yönelik uç noktalar gerektiren gelecekteki uygulamalar için kullanılabilir |
-| Ağ güvenlik grubu |bitbucket nsg |Bu iş yükü, saldırı yüzeyini nerede uygulama yaşıyor yalnızca bağlantı noktası 443 üzerinden alt ağ için bağlantılara izin vererek indirilir sağlar (`bitbucket`) |
+| Ağ Güvenlik Grubu |bitbucket nsg |Bu iş yükü, saldırı yüzeyini nerede uygulama yaşıyor yalnızca bağlantı noktası 443 üzerinden alt ağ için bağlantılara izin vererek indirilir sağlar (`bitbucket`) |
 
 ### <a name="resource-locks"></a>Kaynak kilitleri
 Contoso şirket ağı iç sanal ağ bağlantısını herhangi bir wayward komut dosyası veya yanlışlıkla silinmesini korunmalıdır Dave tanır.
@@ -143,9 +143,9 @@ Bir kullanıcı geliştirme oluşturabilirsiniz sku türünü sınırlamaz ve bu
 
 | Alan | Etki | Açıklama |
 | --- | --- | --- |
-| location |Reddet |ABD veri merkezleri dışında herhangi bir kaynağa oluşturulmasını Reddet |
-| etiketler |Reddet |Uygulama sahibi etiketi gerektirir |
-| etiketler |Reddet |Departman etiketi gerektirir |
+| location |reddet |ABD veri merkezleri dışında herhangi bir kaynağa oluşturulmasını Reddet |
+| etiketler |reddet |Uygulama sahibi etiketi gerektirir |
+| etiketler |reddet |Departman etiketi gerektirir |
 | etiketler |ekleme |Üretim ortamında gösterir her bir kaynak grubundaki etiket ekleme |
 
 Bir kullanıcı üretimde oluşturabilirsiniz sku türünü sınırlamaz.
@@ -173,7 +173,7 @@ Contoso madde işaretleri bilgi güvenliği ve risk yönetimi ekibi uygulamayı 
 | Kaynak türü | Ad | Açıklama |
 | --- | --- | --- |
 | Sanal Ağ |Dış sanal ağ |Bağlılık kartı uygulamayı barındıran ve doğrudan Contoso'nun ExpressRoute bağlı değil. Kod kaynak kodu sistemlerine doğrudan PaaS hizmetlere gönderilir |
-| Ağ güvenlik grubu |loyaltycard nsg |Bu iş yükü, saldırı yüzeyini bağlı iletişimi yalnızca TCP 443 numaralı vererek indirilir sağlar.  Contoso ayrıca ek koruma için bir Web uygulaması Güvenlik Duvarı'nı kullanarak araştırmaktadır. |
+| Ağ Güvenlik Grubu |loyaltycard nsg |Bu iş yükü, saldırı yüzeyini bağlı iletişimi yalnızca TCP 443 numaralı vererek indirilir sağlar.  Contoso ayrıca ek koruma için bir Web uygulaması Güvenlik Duvarı'nı kullanarak araştırmaktadır. |
 
 ### <a name="resource-locks"></a>Kaynak kilitleri
 Dave Alice confer ve bazı yalıtılarak bir kodun sırasında yanlışlıkla silinmesini önlemek için ortamı anahtar kaynakların kaynak kilitleri eklemeye karar.

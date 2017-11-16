@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/27/2016
+ms.date: 11/15/2017
 ms.author: dugill;tomfitz
-ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Erişim abonelikler için kaynak yöneticisi kimlik doğrulaması API'sini kullanın
 ## <a name="introduction"></a>Giriş
-Müşterinin Azure kaynaklarını yöneten bir uygulama oluşturmak için gereken bir yazılım geliştirici varsa, bu konuda, Azure Resource Manager API'leri ile kimlik doğrulaması ve diğer abonelikler kaynaklarına erişim kazanmak nasıl gösterir.
+Bir müşterinin Azure kaynaklarını yöneten bir uygulama oluşturmak için gereken bir yazılım geliştirici varsa, bu makalede, Azure Resource Manager API'leri ile kimlik doğrulaması ve diğer abonelikler kaynaklarına erişim kazanmak nasıl gösterilmektedir.
 
 Uygulamanızı çeşitli şekillerde Resource Manager API'leri erişebilirsiniz:
 
 1. **Kullanıcı + uygulama erişimi**: oturum açmış bir kullanıcı adına kaynaklara uygulamalar için. Bu yaklaşım, web uygulamaları ve yalnızca "Etkileşimli Yönetimi" Azure kaynakları ile ilgili komut satırı araçları gibi uygulamalar için çalışır.
 2. **Yalnızca uygulama erişim**: arka plan programı Hizmetleri ve zamanlanmış işler çalışan uygulamalar için. Uygulamanın kimlik kaynaklarına doğrudan erişimi verilir. Bu yaklaşım, Azure uzun vadeli gözetimsiz (katılımsız) erişimi olması gereken uygulamalar için çalışır.
 
-Bu konu, her iki yetkilendirme yöntemi kullanan bir uygulama oluşturmak için adım adım yönergeler sağlar. REST API veya C# ile her adımı gerçekleştirmek nasıl gösterir. Tam bir ASP.NET MVC uygulaması şu adresten edinilebilir [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+Bu makalede her iki yetkilendirme yöntemi kullanan bir uygulama oluşturmak için adım adım yönergeler sağlar. REST API veya C# ile her adımı gerçekleştirmek nasıl gösterir. Tam bir ASP.NET MVC uygulaması şu adresten edinilebilir [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>Web uygulaması yaptığı
 Web uygulaması:
@@ -37,15 +37,15 @@ Web uygulaması:
 1. Bir Azure kullanıcı oturum açtığında.
 2. Kaynak Yöneticisi için web uygulaması erişimi vermek için kullanıcıya sorar.
 3. Resource Manager erişmek için kullanıcı + uygulama erişim belirtecini alır.
-4. Resource Manager çağırın ve uygulamanın hizmet sorumlusu Abonelikteki aboneliğine uygulama uzun vadeli erişim sağlayan bir rol atamak için belirtecinden (3. adım) kullanır.
+4. Abonelik bir rolde uygulamanın hizmet sorumlusu atamak için belirtecinden (3. adım) kullanır. Bu adım aboneliğe uygulama uzun vadeli erişim sağlar.
 5. Yalnızca uygulama erişim belirtecini alır.
 6. Kaynak Yöneticisi'ni abonelik alanındaki kaynakları yönetmek için belirtecinden (5. adım) kullanır.
 
-Web uygulamasının uçtan uca akışı aşağıda verilmiştir.
+Web uygulaması akışı aşağıda verilmiştir.
 
 ![Kaynak Yöneticisi kimlik doğrulama akışı](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
-Bir kullanıcı olarak kullanmak istediğiniz aboneliği için abonelik kimliğini sağlar:
+Bir kullanıcı olarak kullanmak istediğiniz aboneliği için abonelik Kimliğini sağlar:
 
 ![Abonelik kimliği sağlayın](./media/resource-manager-api-authentication/sample-ux-1.png)
 
@@ -68,7 +68,7 @@ Bağlı aboneliklerinizi yönetin:
 ## <a name="register-application"></a>Uygulamayı Kaydet
 Kodlama başlamadan önce web uygulamanızı Azure Active Directory (AD ile) kaydedin. Uygulama Kayıt Merkezi Kimliği uygulamanız için Azure AD içinde oluşturur. Uygulamanız OAuth istemci kimliği, yanıt URL'leri ve uygulamanızın kimlik doğrulaması ve Azure Resource Manager API'leri erişmek için kullandığı kimlik bilgileri gibi hakkındaki temel bilgileri tutar. Uygulama kaydı ayrıca Microsoft APIs kullanıcı adına erişirken uygulamanız gereken çeşitli izinlere temsilci kaydeder.
 
-Uygulamanızı diğer abonelik eriştiği için bir çok kiracılı uygulama olarak yapılandırmanız gerekir. Doğrulama geçirmek için Azure Active Directory ile ilişkilendirilmiş bir etki alanı sağlar. Azure Active Directory ile ilişkili etki alanları görmek için oturum [Klasik portal](https://manage.windowsazure.com). Azure Active Directory'yi seçin ve ardından **etki alanları**.
+Uygulamanızı diğer abonelik eriştiği için bir çok kiracılı uygulama olarak yapılandırmanız gerekir. Doğrulama geçirmek için Azure Active Directory ile ilişkilendirilmiş bir etki alanı sağlar. Azure Active Directory ile ilişkili etki alanları görmek için portalda oturum açın.
 
 Aşağıdaki örnek, Azure PowerShell kullanarak uygulamayı kaydedin gösterilmektedir. Bu komutun çalışması Azure PowerShell'in en son sürümünü (Ağustos 2016) olması gerekir.
 
@@ -89,8 +89,8 @@ Azure AD uygulamaları için de sertifika kimlik bilgileri destekler: otomatik o
 
 Bir sertifika ile AD uygulaması oluşturma hakkında daha fazla bilgi için bkz: [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için kullanım Azure PowerShell](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) veya [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için kullanım Azure CLI](resource-group-authenticate-service-principal-cli.md) .
 
-## <a name="get-tenant-id-from-subscription-id"></a>Abonelik kimliği Kiracı kimliğinizi alma
-Resource Manager çağırmak için kullanılabilecek bir belirteç istemek için uygulamanızı Azure aboneliği barındıran Azure AD kiracısı Kiracı kimliği bilmek ister. Büyük olasılıkla, kullanıcılarınızın abonelik kimlikleri biliyorum, ancak bunlar kendi Kiracı kimlikleri için Azure Active Directory anlamayabilirsiniz. Kullanıcının Kiracı Kimliği almak için abonelik kimliği için kullanıcı isteyin. Bu abonelik kimliği, abonelik ilgili bir istek gönderirken sağlar:
+## <a name="get-tenant-id-from-subscription-id"></a>Abonelik kimliği Kiracı Kimliğinizi alma
+Resource Manager çağırmak için kullanılabilecek bir belirteç istemek için uygulamanızı Azure aboneliği barındıran Azure AD kiracısı Kiracı kimliği bilmek ister. Büyük olasılıkla, kullanıcılarınızın kimliklerini aboneliğini biliyorum, ancak bunlar kendi Kiracı kimlikleri için Azure Active Directory anlamayabilirsiniz. Kullanıcının Kiracı Kimliği almak için abonelik kimliği için kullanıcıya sor Bu abonelik sağlamak abonelik ilgili bir istek gönderirken, kimlik:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
@@ -99,14 +99,14 @@ Kullanıcı henüz oturum açtıktan değil, ancak Kiracı kimliği gelen yanıt
 ## <a name="get-user--app-access-token"></a>Kullanıcı + uygulama erişim belirteci alın
 Uygulamanızı Azure AD ile bir OAuth 2.0 yetkilendirme kullanıcının kimlik bilgilerini doğrulamak ve bir kimlik doğrulama kodu geri alma isteği - kullanıcı yönlendirir. Uygulamanız, kaynak yöneticisi için bir erişim belirteci almak için yetki kodunu kullanır. [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) yöntemi, yetkilendirme isteği oluşturur.
 
-Bu konu, kullanıcının kimliğini doğrulamak için REST API istekleri gösterir. Kodunuzda kimlik doğrulaması yapmak için yardımcı kitaplıkları da kullanabilirsiniz. Bu kitaplıklar hakkında daha fazla bilgi için bkz: [Azure Active Directory kimlik doğrulama kitaplıkları](../active-directory/active-directory-authentication-libraries.md). Kimlik Yönetimi uygulamada tümleştirme ile ilgili yönergeler için bkz: [Azure Active Directory Geliştirici Kılavuzu](../active-directory/active-directory-developers-guide.md).
+Bu makalede, kullanıcının kimliğini doğrulamak için REST API istekleri gösterilmektedir. Kodunuzda kimlik doğrulaması yapmak için yardımcı kitaplıkları da kullanabilirsiniz. Bu kitaplıklar hakkında daha fazla bilgi için bkz: [Azure Active Directory kimlik doğrulama kitaplıkları](../active-directory/active-directory-authentication-libraries.md). Kimlik Yönetimi uygulamada tümleştirme ile ilgili yönergeler için bkz: [Azure Active Directory Geliştirici Kılavuzu](../active-directory/active-directory-developers-guide.md).
 
 ### <a name="auth-request-oauth-20"></a>Kimlik doğrulama isteği (OAuth 2.0)
 Bir açık Bağlan/OAuth2.0 yetkilendirmek istek kimliği için Azure AD Authorize son noktası yürütün:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-Bu istek için sorgu dizesi parametreleri açıklanan [bir kimlik doğrulama kodu isteme](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) konu.
+Bu istek için sorgu dizesi parametreleri açıklanan [bir kimlik doğrulama kodu isteme](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) makalesi.
 
 Aşağıdaki örnek, OAuth2.0 yetkilendirme isteği gösterilmektedir:
 
@@ -119,7 +119,7 @@ Azure AD kullanıcının kimliğini doğrular ve gerekirse, uygulama izni vermek
 ### <a name="auth-request-open-id-connect"></a>Kimlik doğrulama isteği (Open ID Connect)
 Bir açık bağlanma yetkisi istek kimliği yalnızca Azure kaynak yöneticisi kullanıcı adına erişmek istediğiniz, ancak Ayrıca, uygulamanız kendi Azure AD hesabı kullanarak oturum açmak kullanıcının izin verin. Open ID Connect ile uygulamanızı uygulamanızı kullanıcıyla oturum açmak için kullanabileceğiniz Azure AD'den bir id_token de alır.
 
-Bu istek için sorgu dizesi parametreleri açıklanan [oturum açma isteği Gönder](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) konu.
+Bu istek için sorgu dizesi parametreleri açıklanan [oturum açma isteği Gönder](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) makalesi.
 
 Bir örnek Open ID Connect isteğidir:
 
@@ -136,7 +136,7 @@ Uygulamanızı Azure AD'den yetkilendirme kodu aldı, Azure kaynak yöneticisi i
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-Bu istek için sorgu dizesi parametreleri açıklanan [yetkilendirme kodu kullanın](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) konu.
+Bu istek için sorgu dizesi parametreleri açıklanan [yetkilendirme kodu kullanın](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) makalesi.
 
 Aşağıdaki örnek kod grant belirteci parola kimlik bilgisi için bir istek gösterir:
 
@@ -191,7 +191,7 @@ Bağlanmak her abonelik için çağrı [Resource Manager liste izinlerini](https
 
 [UserCanManagerAccessForSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L44) yöntemi ASP.NET MVC örnek uygulaması, bu çağrıyı uygular.
 
-Aşağıdaki örnek, bir abonelik bir kullanıcının izinleri istemek gösterilmiştir. 83cfe939-2402-4581-b761-4f59b0a041e4 abonelik kimliğini gösterir.
+Aşağıdaki örnek, bir abonelik bir kullanıcının izinleri istemek gösterilmiştir. 83cfe939-2402-4581-b761-4f59b0a041e4 abonelik Kimliğini gösterir.
 
     GET https://management.azure.com/subscriptions/83cfe939-2402-4581-b761-4f59b0a041e4/providers/microsoft.authorization/permissions?api-version=2015-07-01 HTTP/1.1
 
@@ -203,7 +203,7 @@ Abonelik üzerinde kullanıcı izinlerini almak için yanıt örneğidir:
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-API izinleri birden çok izin verir. Her izin izin verilen eylemleri (Eylemler) oluşur ve eylemleri (notactions) izin verilmiyor. Bir eylem tüm izinleri izin verilen eylemleri listesinde mevcut ve bu izni notactions listesinde yok olduğunda, kullanıcının bu eylemi gerçekleştirmek için izin verilir. **Microsoft.Authorization/roleassignments/Write** , erişim yönetim hakları veren eylemdir. Uygulamanız bu eylem dizesi eylemleri ve her izin notactions bir regex eşleşme aramak için izinleri sonuç ayrıştırma gerekir.
+API izinleri birden çok izin verir. Her izin izin verilen eylemleri oluşur (**Eylemler**) ve Eylemler izin verilmeyen (**notactions**). Bir eylem mevcut herhangi bir izni izin verilen eylemleri ve bu izni izin verilmeyen eylemleri yok olduğunda, kullanıcının bu eylemi gerçekleştirmek için izin verilir. **Microsoft.Authorization/roleassignments/Write** , erişim yönetim hakları veren eylemdir. Uygulamanız bu eylem dizesi bir regex eşleşme aramak için izinleri sonucu ayrıştırılamıyor gerekir **Eylemler** ve **notactions** her izni.
 
 ## <a name="get-app-only-access-token"></a>Yalnızca uygulama erişim belirteci alma
 Artık, kullanıcının Azure aboneliğine erişimi atayın, biliyorsunuz. Sonraki adımlar şunlardır:
@@ -217,7 +217,7 @@ Artık, kullanıcının Azure aboneliğine erişimi atayın, biliyorsunuz. Sonra
 * Uygulamanızın kimlik kullanıcının Azure Active Directory'de nesne kimliği
 * Abonelikte uygulamanızın gerektirdiği RBAC rolü tanıtıcısı
 
-Uygulamanız bir Azure AD'den bir kullanıcı kimliği doğruladığında, Azure AD'de, uygulamanız için bir hizmet sorumlusu nesnesi oluşturur. Azure hizmet asıl adı için karşılık gelen uygulamaları Azure kaynaklarına doğrudan erişim vermek üzere atanacak RBAC rolleri sağlar. Bu tam olarak yapmak istediğimiz eylemdir. Azure AD hizmet sorumlusu oturum açmış kullanıcı, uygulamanızın tanıtıcısı belirlemek için Azure AD Graph API sorgu kullanıcının.
+Uygulamanız bir Azure AD'den bir kullanıcı kimliği doğruladığında, Azure AD'de, uygulamanız için bir hizmet sorumlusu nesnesi oluşturur. Azure hizmet asıl adı için karşılık gelen uygulamaları Azure kaynaklarına doğrudan erişim vermek üzere atanacak RBAC rolleri sağlar. Bu tam olarak yapmak istediğiniz eylemdir. Azure AD hizmet sorumlusu oturum açmış kullanıcı, uygulamanızın tanıtıcısı belirlemek için Azure AD Graph API sorgu kullanıcının.
 
 Azure kaynak yöneticisi için yalnızca bir erişim belirteci sahip - Azure AD grafik API'si yi çağırmak için yeni bir erişim belirteci gerekir. Azure AD her uygulamada yalnızca uygulama erişim belirteci yeterli olacak şekilde, kendi hizmet sorumlusu nesnesi sorgulama izni vardır.
 
@@ -228,7 +228,7 @@ Uygulamanıza kimlik doğrulaması ve Azure AD grafik API'si için bir belirteç
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) yöntemi ASP.net MVC örnek uygulamasının alır yalnızca uygulama erişim belirteci grafik API'si için Active Directory kimlik doğrulama kitaplığı .NET için kullanma.
 
-Bu istek için sorgu dizesi parametreleri açıklanan [bir erişim belirteci isteği](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) konu.
+Bu istek için sorgu dizesi parametreleri açıklanan [bir erişim belirteci isteği](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) makalesi.
 
 İstemci kimlik bilgileri için bir örnek isteği belirteci verin:
 
@@ -244,11 +244,11 @@ Bu istek için sorgu dizesi parametreleri açıklanan [bir erişim belirteci ist
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039862","not_before":"1432035962","resource":"https://graph.windows.net/","access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRv****G5gUTV-kKorR-pg"}
 
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>Kullanıcı Azure AD uygulama hizmet sorumlusu objectID alın
-Şimdi, sorgu için yalnızca uygulama erişim belirtecini kullanır [Azure AD grafik hizmet asıl adı](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) dizininde uygulamanın hizmet sorumlusu nesnesi kimliğini belirlemek için API.
+Şimdi, sorgu için yalnızca uygulama erişim belirtecini kullanır [Azure AD grafik hizmet asıl adı](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity) dizininde uygulamanın hizmet sorumlusu nesnesi Kimliğini belirlemek için API.
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) yöntemi ASP.net MVC örnek uygulamasının bu çağrıyı uygular.
 
-Aşağıdaki örnek, bir uygulamanın hizmet asıl istek gösterilmektedir. a0448380-c346-4f9f-b897-c18733de9394 uygulama istemci kimliğini gösterir.
+Aşağıdaki örnek, bir uygulamanın hizmet asıl istek gösterilmektedir. a0448380-c346-4f9f-b897-c18733de9394 uygulama istemci Kimliğini gösterir.
 
     GET https://graph.windows.net/62e173e9-301e-423e-bcd4-29121ec1aa24/servicePrincipals?api-version=1.5&$filter=appId%20eq%20'a0448380-c346-4f9f-b897-c18733de9394' HTTP/1.1
 
@@ -276,7 +276,7 @@ Uygulamanız için rol ataması, böylece select en az gereken ayrıcalık kulla
 
 [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) yöntemi ASP.net MVC örnek uygulaması, bu çağrıyı uygular.
 
-Aşağıdaki isteği örnek Azure RBAC rolü tanımlayıcı alma gösterir. 09cbd307-aa71-4aca-b346-5f253e6e3ebb abonelik kimliğini gösterir.
+Aşağıdaki isteği örnek Azure RBAC rolü tanımlayıcı alma gösterir. 09cbd307-aa71-4aca-b346-5f253e6e3ebb abonelik Kimliğini gösterir.
 
     GET https://management.azure.com/subscriptions/09cbd307-aa71-4aca-b346-5f253e6e3ebb/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01 HTTP/1.1
 
@@ -292,18 +292,18 @@ Sürekli olarak bu API çağrısı gerekmez. Rol tanımı iyi bilinen GUID sapta
 
     /subscriptions/{subscription_id}/providers/Microsoft.Authorization/roleDefinitions/{well-known-role-guid}
 
-Yaygın olarak kullanılan yerleşik roller iyi bilinen GUID'lerini şunlardır:
+Yaygın olarak kullanılan yerleşik roller tanımlayıcıları şunlardır:
 
 | Rol | GUID |
 | --- | --- |
 | Okuyucu |acdd72a7-3385-48EF-bd42-f606fba81ae7 |
 | Katılımcı |b24988ac-6180-42a0-ab88-20f7382dd24c |
-| Sanal makine Katılımcısı |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+| Sanal Makine Katılımcısı |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Sanal ağ Katılımcısı |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
-| Depolama hesabı katkıda bulunan |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
-| Web sitesi katkıda bulunan |de139f84-1756-47ae-9be6-808fbbe84772 |
-| Web planı katkıda bulunan |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
-| SQL Server katkıda bulunan |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
+| Depolama Hesabı Katılımcısı |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
+| Web Sitesi Katılımcısı |de139f84-1756-47ae-9be6-808fbbe84772 |
+| Web Planı Katılımcısı |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+| SQL Server Katılımcısı |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
 | SQL DB Katılımcısı |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>Uygulama için RBAC rolü atama
@@ -353,7 +353,7 @@ Uygulamanız bir Azure aboneliğine yönelik istenen erişime sahip olduğunu de
 ## <a name="manage-connected-subscriptions"></a>Bağlı aboneliklerini yönetme
 Uygulamanızın hizmet üzerinde bir abonelik sorumlusu için uygun RBAC rolü atandığında, uygulamanızı izleme/Azure kaynak yöneticisi için yalnızca uygulama erişim belirteçleri kullanarak yönetme tutun.
 
-Abonelik sahibi Klasik Portalı'nı veya komut satırı araçlarını kullanarak, uygulamanızın rol ataması kaldırırsa, uygulamanız bu abonelik erişebilir. Bu durumda, abonelik ile bağlantı uygulaması dışında koptu kullanıcıya bildir ve "Bağlantıyı Onar" seçeneğini verin. "Onar" yalnızca çevrimdışı silindi rol ataması yeniden oluşturur.
+Abonelik sahibi portalı veya komut satırı araçlarını kullanarak, uygulamanızın rol ataması kaldırırsa, uygulamanız bu abonelik erişebilir. Bu durumda, abonelik ile bağlantı uygulaması dışında koptu kullanıcıya bildir ve "Bağlantıyı Onar" seçeneğini verin. "Onar" Çevrimdışı silindi rol ataması yeniden oluşturur.
 
 Abonelikler, uygulamaya bağlanmak kullanıcı yalnızca etkin olarak abonelikleri çok bağlantısını kesmek kullanıcı izin vermesi gerekir. Bir erişim yönetimi açısından bakıldığında, uygulamanın hizmet sorumlusu abonelikte sahip rol atamasının kaldırılması anlamına gelir bağlantısını kesin. İsteğe bağlı olarak, abonelik için uygulamada herhangi bir durum çok kaldırılmış olabilir.
 Yalnızca abonelik erişim yönetim izni olan kullanıcılar abonelik bağlantısını kesmek kullanabilirsiniz.

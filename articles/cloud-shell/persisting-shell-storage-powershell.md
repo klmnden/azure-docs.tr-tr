@@ -1,5 +1,5 @@
 ---
-title: "Azure bulut Kabuğu (Önizleme) dosyalarında kalıcı | Microsoft Docs"
+title: "Azure bulut Kabuğu (Önizleme) PowerShell dosyalarında kalıcı | Microsoft Docs"
 description: "Azure bulut Kabuk dosyaları nasıl devam ederse gözden geçirme."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Bulut Kabuk nasıl çalışır?
-Bulut Kabuk dosyaları aşağıdaki yöntemle devam eder: 
+## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>PowerShell Azure bulut Kabuğu (Önizleme) içinde nasıl çalışır?
+PowerShell bulut Kabuğu (Önizleme) dosyaları aşağıdaki yöntemle devam eder: 
 * Belirtilen dosya paylaşımı olarak takma `clouddrive` içinde `$Home` doğrudan dosya paylaşımı etkileşim için dizin.
 
 ## <a name="list-cloud-drive-file-shares"></a>Bulut sürücü dosya paylaşımları

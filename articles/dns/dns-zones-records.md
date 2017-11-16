@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS bölgeleri ve kayıtları'na genel bakış
 
@@ -54,6 +54,16 @@ Bu kayıt kümesindeki tüm kayıtlar için aynı değeri kullanılmak üzere Az
 Azure DNS [joker kayıtlarını](https://en.wikipedia.org/wiki/Wildcard_DNS_record) destekler. (Bir joker karakter olmayan kayıt kümesinden daha yakın bir eşleşme olmadıkça) joker kayıtlarını yanıt adla eşleşen herhangi bir sorgu olarak döndürülür. Azure DNS joker karakter kaydı kümeleri NS ve SOA dışında tüm kayıt türleri için destekler.
 
 Joker karakter kaydı kümesi oluşturmak için kayıt kümesi adını kullanın '\*'. Alternatif olarak, aynı zamanda bir adla kullanabilirsiniz '\*'olarak kendi en solundaki etiketle, örneğin,'\*.foo'.
+
+### <a name="caa-records"></a>CAA kayıtları
+
+CAA kayıtları etki sahipleri kendi etki alanı için sertifikalar vermek üzere hangi sertifika yetkilileri (CA) yetkili belirtmek izin verin. Bu, bazı durumlarda yanlış sertifikalar önlemek CA'ları sağlar. CAA kayıtları üç özelliklere sahiptir:
+* **Bayrakları**: 0 ile başına özel bir anlamı olan kritik bayrağı temsil etmek için kullanılan 255 arasında bir tamsayı budur [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Etiket**: şunlardan biri olabilen bir ASCII dizesi:
+    * **sorunu**: (tüm türleri) sertifikaları vermek için izin verilen CA'ları belirtmek istiyorsanız bunu kullanın
+    * **issuewild**: (yalnızca joker sertifikaları) sertifikaları vermek için izin verilen CA'ları belirtmek istiyorsanız bunu kullanın
+    * **iodef**: bir e-posta adresi veya ana bilgisayar adı için CA'ları yetkisiz cert sorunu isteklerinde bildirebilir belirtin
+* **Değer**: seçilen özel etiket değeri
 
 ### <a name="cname-records"></a>CNAME kayıtları
 
@@ -120,7 +130,7 @@ Varsayılan olarak, Azure DNS PowerShell Etag'ler bölgelere eşzamanlı değiş
 
 Azure DNS REST API düzeyinde Etag'ler HTTP üstbilgileri kullanılarak belirtilir.  Davranışlarını aşağıdaki tabloda verilmiştir:
 
-| Üstbilgi | Davranışı |
+| Üstbilgi | Davranış |
 | --- | --- |
 | None |PUT (Etag denetimleri) her zaman başarılı |
 | IF-match<etag> |PUT yalnızca kaynak var ve Etag eşleşiyorsa başarılı |

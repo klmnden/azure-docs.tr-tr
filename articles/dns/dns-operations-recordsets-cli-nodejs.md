@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76473349b2c6121d8f289a86b46c10a8b8697b34
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-dns-records-in-azure-dns-using-the-azure-cli-10"></a>Azure CLI 1.0 kullanarak Azure DNS'de DNS kayıtlarını yönetme
 
@@ -104,6 +104,14 @@ SOAs oluşturulduğundan bir SOA kayıt kümesi oluşturmak için örnek vermeyi
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com test-aaaa AAAA --ipv6-address 2607:f8b0:4009:1803::1005
+```
+
+### <a name="create-a-caa-record"></a>Bir CAA kaydı oluşturun
+
+Aşağıdaki örnek CAA kaydının nasıl oluşturulacağını gösterir. 
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com ca1 CAA --caaflags 0 --caatag issue --caavalue "ca1.contoso.com"
 ```
 
 ### <a name="create-a-cname-record"></a>Bir CNAME kaydı oluşturun

@@ -1,5 +1,5 @@
 ---
-title: "Azure bulut Kabuğu (Önizleme) kısıtlamaları | Microsoft Docs"
+title: "Azure bulut Kabuk kısıtlamaları | Microsoft Docs"
 description: "Azure bulut Kabuk sınırlamaları genel bakış"
 services: azure
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: 66f07481d6e62b4375dd2752c5e7d6f8e02d4a3c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure bulut Kabuk sınırlamaları
 
@@ -70,7 +70,7 @@ Geçmişinizi bash komutların bulut Kabuk oturum kesintisi veya eşzamanlı otu
 
 ### <a name="slow-startup-time"></a>Yavaş başlangıç zamanı
 
-Azure bulut Kabuk PowerShell'de Önizleme sırasında başlatmak için 60 saniye sürebilir.
+Azure bulut Kabuğu (Önizleme) PowerShell Önizleme sırasında başlatmak için 60 saniye sürebilir.
 
 ### <a name="no-home-directory-persistence"></a>No $Home dizin kalıcılığı
 

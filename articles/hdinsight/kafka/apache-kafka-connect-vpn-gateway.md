@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden (Önizleme) hdınsight'ta Kafka bağlanma
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden hdınsight'ta Kafka bağlanma
 
 Bir Azure sanal ağı üzerinden hdınsight'ta Kafka doğrudan bağlanmak öğrenin. Bu belge için Kafka bağlanma aşağıdaki yapılandırmaları kullanma bilgileri verilmiştir:
 
@@ -32,7 +32,7 @@ Bir Azure sanal ağı üzerinden hdınsight'ta Kafka doğrudan bağlanmak öğre
 
 Hdınsight genel internet üzerinden doğrudan bağlantı Kafka izin vermiyor. Bunun yerine, Kafka istemcileri (üreticileri ve tüketicileri) aşağıdaki bağlantı yöntemlerden birini kullanmanız gerekir:
 
-* İstemciyi aynı sanal ağda Kafka olarak Hdınsight üzerinde çalıştırın. Bu yapılandırma kullanılan [Hdınsight üzerinde Apache Kafka (Önizleme) ile başlar](apache-kafka-get-started.md) belge. İstemci Hdınsight küme düğümlerinde doğrudan veya aynı ağdaki başka bir sanal makine üzerinde çalışır.
+* İstemciyi aynı sanal ağda Kafka olarak Hdınsight üzerinde çalıştırın. Bu yapılandırma kullanılan [Hdınsight üzerinde Apache Kafka başlayarak](apache-kafka-get-started.md) belge. İstemci Hdınsight küme düğümlerinde doğrudan veya aynı ağdaki başka bir sanal makine üzerinde çalışır.
 
 * Şirket içi ağınız gibi özel ağ sanal ağa bağlayın. Bu yapılandırma, Kafka ile doğrudan çalışmak için şirket içi ağınızdaki istemcilerin sağlar. Bu yapılandırmayı etkinleştirmek için aşağıdaki görevleri gerçekleştirin:
 

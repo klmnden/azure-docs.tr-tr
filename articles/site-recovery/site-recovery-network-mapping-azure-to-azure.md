@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1df7e04fc9cec5722747bafce7e2e5519b76315d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>İki Azure bölgeleri arasında ağ eşlemesi
 
@@ -48,7 +48,7 @@ Ağ eşlemesi Güneydoğu Asya Doğu Asya oluşturmak için aynı işlevi görü
 
 ## <a name="mapping-network-when-enabling-replication"></a>Çoğaltma etkinleştirirken eşleme ağ
 
-Başka bir sanal makine için ilk zaman form bir Azure bölgesi çoğaltma yapıyorsanız, ağ eşlemesi yapılmazsa, hedef ağ aynı işleminin bir parçası olarak seçebilirsiniz. Site Recovery, hedef bölgeye kaynak bölgesinden ve bu seçime dayalı kaynak bölge için hedef bölgesinden ağ eşlemeleri oluşturur.   
+Ardından, bir sanal makine için ilk kez bir Azure bölgesinden diğerine çoğaltma yapıyorsanız, ağ eşlemesi yapılmazsa hedef ağ aynı işleminin bir parçası olarak seçebilirsiniz. Site Recovery, hedef bölgeye kaynak bölgesinden ve bu seçime dayalı kaynak bölge için hedef bölgesinden ağ eşlemeleri oluşturur.   
 
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -80,10 +80,10 @@ Hedef sanal makinenin, kaynak sanal makinenin adını temel alarak seçilir. Hed
 Her hedef sanal makinenin ağ arabirimi için IP adresi gibi seçilir:
 
 ### <a name="dhcp"></a>DHCP
-Kaynak sanal makinenin Ağ arabiriminin DHCP kullanıyorsanız, hedef sanal makinenin ağ arabirimi Ayrıca DHCP ayarlanır.
+Kaynak sanal makinenin Ağ arabiriminin DHCP kullanıyorsanız, hedef sanal makine ağ arabiriminin Ayrıca DHCP ayarlanır.
 
 ### <a name="static-ip"></a>Statik IP
-Kaynak sanal makinenin Ağ arabiriminin statik IP kullanıyorsanız, ardından hedef sanal makinenin ağ arabirimi de statik IP kullanmak üzere ayarlanmış. Statik IP şu şekilde seçilir:
+Kaynak sanal makinenin Ağ arabiriminin statik IP kullanıyorsanız, ardından hedef sanal makine ağ arabiriminin de statik IP kullanmak üzere ayarlanmış. Statik IP şu şekilde seçilir:
 
 #### <a name="same-address-space"></a>Aynı adres alanı
 

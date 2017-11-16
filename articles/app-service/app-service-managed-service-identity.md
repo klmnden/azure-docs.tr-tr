@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 28965ec8290c8ab22255f9001cc6c3905dda4b8b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği (genel Önizleme) uygulama hizmeti ve Azure işlevleri kullanma
 
@@ -103,7 +103,7 @@ Uygulama hizmeti ve Azure işlevleri bir belirteç almak için basit bir REST pr
 
 ### <a name="asal"></a>.NET için Microsoft.Azure.Services.AppAuthentication kitaplığı kullanma
 
-.NET uygulamaları ve işlevleri için bir yönetilen hizmet kimliği ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık ayrıca kodunuzu makinenizde, kullanıcı hesabını kullanarak yerel olarak geliştirme, test sağlayacak [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) veya Active Directory tümleşik kimlik doğrulaması. Bu bölüm kitaplığını kullanmaya başlama gösterilmiştir.
+.NET uygulamaları ve işlevleri için bir yönetilen hizmet kimliği ile çalışmak için en basit yolu Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık ayrıca kodunuzu makinenizde Visual Studio'dan kullanıcı hesabınızı kullanarak yerel olarak geliştirme, test sağlayacak [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Services.AppAuthentication başvuru]. Bu bölümde, kodunuzu kitaplıkta kullanmaya başlama gösterilmiştir.
 
 1. Başvurular ekleyin [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) uygulamanıza NuGet paketleri.
 
@@ -119,7 +119,7 @@ string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https:
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
 
-Microsoft.Azure.Services.AppAuthentication ve onu sunan işlemleri hakkında daha fazla bilgi için bkz: [App Service ve MSI .NET örnek ile KeyVault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Microsoft.Azure.Services.AppAuthentication ve onu sunan işlemleri hakkında daha fazla bilgi için bkz: [Microsoft.Azure.Services.AppAuthentication başvuru] ve [App Service ve MSI .NET ile KeyVault örnek](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-rest-protocol"></a>REST protokolünü kullanarak
 
@@ -132,7 +132,7 @@ Yönetilen hizmet kimliği ile bir uygulama tanımlı iki ortam değişkeni vard
 > [!div class="mx-tdBreakAll"]
 > |Parametre adı|İçinde|Açıklama|
 > |-----|-----|-----|
-> |Kaynak|Sorgu|AAD kaynak kaynak URI'si için bir belirteç elde.|
+> |kaynak|Sorgu|AAD kaynak kaynak URI'si için bir belirteç elde.|
 > |API sürümü|Sorgu|Kullanılacak belirteci API sürümü. "2017-09-01" şu anda desteklenen tek sürümdür.|
 > |Gizli|Üstbilgi|MSI_SECRET ortam değişkeni değeri.|
 
@@ -144,7 +144,7 @@ Başarılı bir 200 Tamam yanıt JSON gövdesi aşağıdaki özellikleri içerir
 > |-------------|----------|
 > |access_token|İstenen erişim belirteci. Çağrıyı yapan web hizmeti alıcı web hizmeti için kimlik doğrulaması için bu belirteci kullanabilirsiniz.|
 > |expires_on|Erişim belirtecinin süresi dolduğunda süre. Tarih 1970'ten saniyeyi temsil edilir-01-01T0:0:0Z UTC sona erme zamanı kadar. Bu değer, önbelleğe alınan belirteç ömrü belirlemek için kullanılır.|
-> |Kaynak|Alıcı web hizmeti uygulama kimliği URI'si.|
+> |kaynak|Alıcı web hizmeti uygulama kimliği URI'si.|
 > |token_type|Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçlerini hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteci kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
@@ -208,3 +208,6 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+
+[Microsoft.Azure.Services.AppAuthentication başvuru]: https://go.microsoft.com/fwlink/p/?linkid=862452

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f0f6578b14b2fdd3807303eb94df077df92ba77
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB veritabanı güvenliği
 
@@ -71,7 +71,7 @@ Her birini ayrıntılı içine şimdi edinebilirsiniz.
 |Active directory ile tümleştirme (RBAC)| Ayrıca bu tabloda aşağıdaki ekran görüntüsünde gösterildiği gibi Azure portalında erişim denetimi (IAM) kullanarak veritabanı hesabı için erişim sağlayabilir. IAM rol tabanlı erişim denetimi sağlar ve Active Directory ile tümleştirir. Kişiler ve aşağıdaki görüntüde gösterildiği gibi grupları için yerleşik roller veya özel roller kullanabilirsiniz.|
 |Genel çoğaltma|Azure Cosmos DB ve bu sayede verilerinizi Azure'nın dünya çapında veri merkezleri herhangi biri bir düğmeyi tıklatarak ile çoğaltmak anahtar teslimi genel dağıtım sunar. Genel çoğaltma küresel olarak ölçeklendirmeyi ve verilerinize dünyanın düşük gecikmeli erişim sağlamanıza olanak tanır.<br><br>Güvenlik bağlamında bölgesel arızalara karşı veri koruma genel çoğaltma oluşturmasını sağlar.<br><br>Daha fazla bilgi edinin [verilerini genel dağıtmak](distribute-data-globally.md).|
 |Bölgesel yük devretme|Verilerinizi birden fazla veri merkezinde çoğaltıldığından, Azure Cosmos DB bölgesel veri merkezi çevrimdışı duruma işlemlerinizin otomatik olarak yapar. Verilerinizi çoğaltılan bölgeleri kullanarak yük devretme bölge öncelikli listesi oluşturabilirsiniz. <br><br>Daha fazla bilgi edinin [bölgesel yük devretme işlemlerini Azure Cosmos veritabanı](regional-failover.md).|
-|Yerel çoğaltma|Bile içinde tek bir veri merkezi, Azure Cosmos DB verilerini seçimi vererek yüksek kullanılabilirlik için otomatik olarak çoğaltır [tutarlılık düzeylerini](consistency-levels.md). Bu garanti bir [% 99,99 açık kalma süresi kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) ve bir finansal Garantisi ile - başka bir veritabanı hizmet sağlayabilir bir şey sunar.|
+|Yerel çoğaltma|Bile içinde tek bir veri merkezi, Azure Cosmos DB verilerini seçimi vererek yüksek kullanılabilirlik için otomatik olarak çoğaltır [tutarlılık düzeylerini](consistency-levels.md). Bu % 99,99 garanti [kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) tüm tek bölge ve tüm bölgeli hesapları ile rahat tutarlılık ve %99.999 okuma tüm bölgeli veritabanı hesaplarda kullanılabilirlik.|
 |Çevrimiçi yedeklemeleri otomatik|Azure Cosmos DB veritabanları düzenli olarak yedeklenen ve georedundant deposunda depolanır. <br><br>Daha fazla bilgi edinin [otomatik çevrimiçi yedekleme ve geri yükleme Azure Cosmos DB ile](online-backup-and-restore.md).|
 |Silinmiş verileri geri yüklemek|Otomatik çevrimiçi yedeklemeler yanlışlıkla olayından sonra yaklaşık 30 güne kadar sildiğiniz verileri kurtarmak için kullanılabilir. <br><br>Daha fazla bilgi edinin [otomatik çevrimiçi yedekleme ve geri yükleme ile Azure Cosmos DB](online-backup-and-restore.md)|
 |Koruma ve hassas verileri yalıtma|Listelenen bölgelerde tüm verileri [yenilikler nelerdir?](#whats-new) şimdi bekleme sırasında şifrelenir.<br><br>PII ve diğer gizli veriler belirli koleksiyonlar ve okuma-yazma yalıtılmış olabilir veya salt okunur erişimi belirli kullanıcılarla sınırlı olabilir.|

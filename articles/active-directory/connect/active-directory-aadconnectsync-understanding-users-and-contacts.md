@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect eşitleme: Kullanıcıları ve kişileri anlama | Microsoft Docs"
-description: "Kullanıcılar ve kişiler Azure AD Connect Eşitleme'de açıklanmaktadır."
+title: "Azure AD Connect eşitleme: kullanıcıları, grupları ve kişileri anlama | Microsoft Docs"
+description: "Kullanıcılar, gruplar ve kişiler Azure AD Connect Eşitleme'de açıklanmaktadır."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,24 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 0ad3194a0827c4ef68267ce5e3e3fcbe225e8a3d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect Eşitleme: Kullanıcıları ve Kişileri Anlama
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect eşitleme: kullanıcıları, grupları ve kişileri anlama
 Neden birden çok Active Directory ormanına gerekir ve birçok farklı dağıtım topolojileri vardır birkaç farklı nedenleri vardır. Ortak modelleri birleşme & edinme sonra bir hesap-kaynak dağıtımı ve GAL sync'ed ormanları içerir. Ancak karma modeller de olsa bile saf modelleri, yaygındır. Azure AD Connect eşitleme Varsayılan yapılandırmada herhangi belirli bir modeli varsaymaz ancak nasıl kullanıcı eşleştirme Yükleme Kılavuzu'nda seçilen bağlı olarak, farklı davranışlar gösterilebilir.
 
 Bu konuda, varsayılan yapılandırması bazı topolojide nasıl davranacağını aracılığıyla ele alacağız. Yapılandırma aracılığıyla ele alacağız ve eşitleme kuralları Düzenleyicisi yapılandırmasını aramak için kullanılabilir.
 
 Yapılandırma varsayar birkaç genel kurallar şunlardır:
-
 * Biz etkin dizinleri kaynağından almak sırasını bağımsız olarak, sonuç her zaman aynı olmalıdır.
 * Etkin bir hesap oturum açma bilgileri, her zaman katkıda dahil olmak üzere **userPrincipalName** ve **sourceAnchor**.
 * Bulunacak etkin hesap ise bağlı bir posta kutusu olmadığı sürece devre dışı bırakılmış bir hesaba userPrincipalName ve sourceAnchor, katkıda bulunur.
 * Bağlantılı bir posta kutusuna sahip bir hesap hiçbir zaman userPrincipalName ve sourceAnchor için kullanılır. Etkin bir hesabı daha sonra bulunamadı varsayılır.
 * Bir kişi nesnesi Azure AD ile bir kişi veya bir kullanıcı olarak sağlanan. Tüm kaynak Active Directory ormanları işlenen kadar gerçekten tanımadığınız.
+
+## <a name="groups"></a>Gruplar
+Active Directory gruplarına Azure AD eşitleme yaparken dikkat edilmesi gereken önemli noktalar:
+
+* Azure AD Connect dizin eşitlemesini yerleşik güvenlik grupları dışlar.
+
+* Azure AD Connect eşitleme desteklemiyor [birincil grup üyeliklerini](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) Azure ad.
+
+* Azure AD Connect eşitleme desteklemiyor [dinamik dağıtım grup üyeliklerini](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) Azure ad.
+
+* Bir Active Directory grubu posta etkin bir grup olarak Azure ad ile eşitlemek için:
+
+    * Varsa grubun *proxyAddress* özniteliği boş olduğundan, kendi *posta* öznitelik, bir değer olmalıdır veya 
+
+    * Varsa grubun *proxyAddress* özniteliği boş olmayan, bir birincil SMTP proxy adresi değeri içermelidir (büyük harf tarafından gösterilen **SMTP** öneki). İşte bazı örnekler:
+    
+      * ProxyAddress öznitelik değeri olan bir Active Directory grubu *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* Azure AD'de posta etkin olmaz. Bir birincil SMTP adresi yok.
+      
+      * Değerleri, proxyAddress özniteliğine sahip bir Active Directory grubu *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* Azure AD'de posta etkin olmaz. Bir smtp adresi içeriyor, ancak birincil değil.
+      
+      * Bir Active Directory grubu olan proxyAddress özniteliğine sahip değerleri *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* Azure AD'de posta etkin olacaktır.
 
 ## <a name="contacts"></a>Kişiler
 Farklı bir ormanda bir kullanıcıyı temsil eden kişiler sahip bir birleşme & edinme sonra GALSync çözüm iki veya daha fazla ormanlarında Exchange burada köprüleme yaygındır. Kişi nesnesi, her zaman posta özniteliğini kullanarak meta veri bağlayıcısı alanından katılıyor. Zaten varsa bir kişi nesnesi veya kullanıcı nesnesi aynı posta adresiyle, nesnelerin araya birleştirilir. Bu kuralda yapılandırılmış **içinde AD'den – kişi katılma**. Adlı bir kural bulunmaktadır **içinde AD'den – kişi ortak** meta veri deposu özniteliği için bir öznitelik akışı ile **sourceObjectType** sabiti ile **kişi**. Bu kural çok düşük önceliğe sahip bunu herhangi bir kullanıcı nesnesi aynı meta veri deposu nesnesi, sonra kural için katılmışsa **içinde AD'den – kullanıcı ortak** bu öznitelik için değer kullanıcı katkıda bulunur. En az bir kullanıcı bulunamazsa, bu kural, bu öznitelik değeri hiçbir kullanıcı birleştirdiğinizde başvurun ve değer kullanıcı sahiptir.

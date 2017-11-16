@@ -4,7 +4,7 @@ description: "Yazılım ve StorSimple sanal dizinizi için ağ gereksinimleri ha
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: alkohli
-ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Sanal Dizini sistem gereksinimleri
 ## <a name="overview"></a>Genel Bakış
@@ -41,7 +41,10 @@ Yazılım gereksinimleri, desteklenen web tarayıcıları, SMB sürümleri, sana
 | **Hiper yönetici** | **Sürüm** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 ve sonraki sürümler |
-| VMware ESXi |5.5 ve 6.0 |
+| VMware ESXi |5.0, 5.5 ve 6.0 <br> (6.5 desteklenmiyor.) |
+
+> [!IMPORTANT]
+> VMware araçları, StorSimple sanal dizisinde yüklemeyin; Bu, desteklenmeyen bir yapılandırmada neden olacaktır.
 
 ### <a name="virtual-device-requirements"></a>Sanal cihaz gereksinimleri
 | **Bileşen** | **Gereksinim** |
@@ -79,8 +82,8 @@ StorSimple sanal (dosya sunucusu olarak yapılandırılmış) dizinizi erişen S
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> Kopyalamayın veya StorSimple sanal dizinin dosya sunucusuna Windows şifreleme dosya sistemi (EFS) tarafından korunan dosyaları depolamak; Bu, desteklenmeyen bir yapılandırmada neden olacaktır. 
-> 
+> Kopyalamayın veya StorSimple sanal dizinin dosya sunucusuna Windows şifreleme dosya sistemi (EFS) tarafından korunan dosyaları depolamak; Bu, desteklenmeyen bir yapılandırmada neden olacaktır.
+
 
 ### <a name="supported-storage-format"></a>Desteklenen depolama biçimi
 Yalnızca Azure blok blob depolama desteklenir. Sayfa bloblarını desteklenmez. Daha fazla bilgi [blok blobları ve sayfa BLOB'ları hakkında](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).

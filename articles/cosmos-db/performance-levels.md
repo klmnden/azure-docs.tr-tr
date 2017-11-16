@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 ve S3 performans düzeyleri devre dışı bırakma
 
@@ -44,7 +44,7 @@ Bu makalede, S1, S2 ve S3 performans düzeyleri genel bir bakış sağlar ve ge�
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>S1, S2 ve S3 performans neden olan kaldırılan düzeyleri?
 
-S1, S2 ve S3 performans düzeyleri DocumentDB API koleksiyonları sunar esnekliği sağlamaz. S1, S2, S3 performans düzeyleri ile üretilen iş ve depolama kapasitesini önceden ayarlanmış ve esneklik sunmadı. Azure Cosmos DB işleme ve depolama, özelleştirme yeteneği gereksinimleriniz değiştikçe ölçeklendirme yeteneğinizi çok daha fazla esneklik sunumu olarak sunar.
+S1, S2 ve S3 performans düzeyleri esneklik, DocumentDB API koleksiyonları teklif sağlamaz. S1, S2, S3 performans düzeyleri ile üretilen iş ve depolama kapasitesini önceden ayarlanmış ve esneklik sunmadı. Azure Cosmos DB işleme ve depolama, özelleştirme yeteneği gereksinimleriniz değiştikçe ölçeklendirme yeteneğinizi çok daha fazla esneklik sunumu olarak sunar.
 
 <a name="compare"></a>
 
@@ -71,7 +71,7 @@ Hiçbir şey Cosmos DB geçiş sizin için işler. S1, S2 ve S3 koleksiyonu vars
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>Nasıl kendi koleksiyonuma geçişten sonra değişir mi?
 
-S1 koleksiyonu 400 RU/s üretilen iş ile bir tek bölümlü bir koleksiyon için bir geçişi yapılmaz. Tek bölüm koleksiyonları ile kullanılabilen en düşük işleme 400 RU/s olur. Ancak, 400 RU/s maliyeti, çok 150 RU/s için kullanabileceğiniz ödeme yapıyorsanız olmayan şekilde S1 koleksiyonunuzu ve 250 RU/s – ödeme tek bölümlü bir koleksiyon yaklaşık aynıdır.
+S1 koleksiyonu 400 RU/s üretilen iş ile bir tek bölümlü bir koleksiyon için bir geçişi yapılmaz. Tek bölüm koleksiyonları ile kullanılabilen en düşük işleme 400 RU/s olur. Çok 150 RU/s için kullanabileceğiniz ödeme yapıyorsanız olmayan şekilde S1 koleksiyonunuzu ve 250 RU/s – ödeme ancak maliyeti 400 RU/s tek bölümlü bir koleksiyon içinde yaklaşık aynıdır.
 
 S2 koleksiyonu 1 K RU/s ile bir tek bölümlü bir koleksiyon için bir geçişi yapılmaz. Herhangi bir değişiklik, üretilen iş düzeyi görürsünüz.
 
@@ -119,13 +119,13 @@ Azure Portalı'nı kullanarak tek bölüm koleksiyonları S1, S2 ve S3 performan
 
 1. İçinde [ **Azure portal**](https://portal.azure.com), tıklatın **Azure Cosmos DB**, sonra değiştirmek için Cosmos DB hesabı seçin. 
  
-    Varsa **Azure Cosmos DB** olan atlama çubuğu değil üzerinde tıklayın >, kaydırın **veritabanları**seçin **Azure Cosmos DB**ve DocumentDB hesabı seçin.  
+    Varsa **Azure Cosmos DB** olan atlama çubuğu değil üzerinde tıklayın >, kaydırın **veritabanları**seçin **Azure Cosmos DB**ve bir hesap seçin.  
 
-2. Kaynak menüsünde altında **kapsayıcıları**, tıklatın **ölçek**, aşağı açılan listeden değiştirin ve ardından istediğiniz koleksiyonu seçmek **fiyatlandırma katmanı**. Önceden tanımlanmış verimlilik kullanarak hesapları S1, S2 ve S3 fiyatlandırma katmanı vardır.  İçinde **fiyatlandırma katmanınızı seçin** dikey penceresinde tıklatın **standart** kullanıcı tanımlı verimlilik değiştirin ve ardından **seçin** değişikliklerinizi kaydetmek için.
+2. Kaynak menüsünde altında **kapsayıcıları**, tıklatın **ölçek**, aşağı açılan listeden değiştirin ve ardından istediğiniz koleksiyonu seçmek **fiyatlandırma katmanı**. Önceden tanımlanmış verimlilik kullanarak hesapları S1, S2 ve S3 fiyatlandırma katmanı vardır.  İçinde **fiyatlandırma katmanınızı seçin** sayfasında, **standart** kullanıcı tanımlı verimlilik değiştirin ve ardından **seçin** değişikliklerinizi kaydetmek için.
 
-    ![Üretilen iş değerini değiştirmek nereye gösteren ayarlar dikey penceresi ekran görüntüsü](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Üretilen iş değerini değiştirmek nereye gösteren ayarları sayfasının ekran görüntüsü](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. Geri **ölçek** dikey penceresinde **fiyatlandırma katmanı** değiştirilir **standart** ve **üretilen işi (RU/s)** kutusu ile bir varsayılan görüntülenir 400 değeri. İşleme 400-10.000 arasında ayarlamak [istek birimleri](request-units.md)/second (RU/s). **Tahmini aylık fatura** aylık maliyeti tahmini otomatik olarak sağlamak üzere Sayfa güncelleştirmelerini sonundaki. 
+3. Geri **ölçek** sayfasında **fiyatlandırma katmanı** değiştirilir **standart** ve **üretilen işi (RU/s)** kutusu ile bir varsayılan görüntülenir 400 değeri. İşleme 400-10.000 arasında ayarlamak [istek birimleri](request-units.md)/second (RU/s). **Tahmini aylık fatura** aylık maliyeti tahmini otomatik olarak sağlamak üzere Sayfa güncelleştirmelerini sonundaki. 
 
     >[!IMPORTANT] 
     > Yaptığınız değişiklikleri kaydedin ve fiyatlandırma katmanı standart taşıma sonra S1, S2 ve S3 performans düzeyleri için geri alamazsınız.
@@ -135,13 +135,13 @@ Azure Portalı'nı kullanarak tek bölüm koleksiyonları S1, S2 ve S3 performan
     Daha fazla verimlilik (10. 000'ru / s büyük) veya daha fazla depolama alanı (10 GB'den büyük) gerekli belirlerseniz, bölümlendirilmiş bir koleksiyon oluşturabilirsiniz. Tek bölümlü bir koleksiyon için bölümlendirilmiş bir koleksiyon geçirmek için bkz [tek bölümünden bölümlenmiş koleksiyonlar için geçiş](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
-    > Standart S1, S2 ve S3 değiştirme, 2 dakika kadar sürebilir.
+    > Standart S1, S2 ve S3 değiştirme iki dakika kadar sürebilir.
     > 
     > 
 
 **.NET SDK kullanarak tek bölüm koleksiyonları geçirmek için**
 
-Koleksiyonlarınızı performans düzeylerini değiştirmek için başka bir seçenek bizim SDK olur. Bu bölüm, yalnızca bir koleksiyona ait performansının değiştirilmesi kapsar kullanarak düzey bizim [DocumentDB .NET API](documentdb-sdk-dotnet.md), ancak bizim diğer SDK için benzer bir işlemdir.
+Koleksiyonları performans düzeylerini değiştirmek için başka bir seçenek Azure Cosmos DB SDK'ları olur. Bu bölüm, yalnızca bir koleksiyona ait performansının değiştirilmesi kapsar kullanarak düzey [DocumentDB .NET API](documentdb-sdk-dotnet.md), ancak bizim diğer SDK için benzer bir işlemdir.
 
 Saniye başına 5.000 istek birimlerine koleksiyonu verimlilik değiştirmek için bir kod parçacığı aşağıda verilmiştir:
     

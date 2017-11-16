@@ -1,5 +1,5 @@
 ---
-title: "Azure Öğreticisi - hazırlama ACR üzerinde Kubernertes | Microsoft Docs"
+title: "Azure Öğreticisi - hazırlama ACR üzerinde Kubernetes | Microsoft Docs"
 description: "AKS Öğreticisi - ACR hazırlama"
 services: container-service
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fabfbe51f9486c69d795b04bd668b50971157820
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Dağıtma ve Azure kapsayıcı kayıt defteri kullanma
 
@@ -32,13 +32,13 @@ Azure kapsayıcı kayıt defteri (ACR) Docker kapsayıcısı görüntüleri içi
 > * ACR için bir kapsayıcı görüntüsü etiketleme
 > * Görüntü ACR için karşıya yükleme
 
-Sonraki öğreticilerde bu ACR örneği AKS Kubernetes kümede tümleşiktir. 
+Sonraki öğreticilerde bu ACR örneği AKS Kubernetes kümede tümleşiktir.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 İçinde [önceki öğretici](./tutorial-kubernetes-prepare-app.md), basit bir Azure oylama uygulaması için bir kapsayıcı görüntüsü oluşturuldu. Azure oylama uygulama görüntüsü oluşturmadıysanız, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./tutorial-kubernetes-prepare-app.md).
 
-Bu öğretici, Azure CLI Sürüm 2.0.20 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli). 
+Bu öğretici, Azure CLI Sürüm 2.0.21 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Azure kapsayıcı kayıt defteri dağıtın
 
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Kayıt defteri itme görüntüleri
 
-Anında iletme `azure-vote-front` kayıt defterine görüntü. 
+Anında iletme `azure-vote-front` kayıt defterine görüntü.
 
 Aşağıdaki örneği kullanarak, ortamınızdan loginServer ACR loginServer adını değiştirin.
 

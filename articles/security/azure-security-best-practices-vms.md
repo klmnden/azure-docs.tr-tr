@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM Güvenlik için en iyi yöntemler
 
@@ -47,7 +47,7 @@ Makaleyi aşağıdaki VM en iyi güvenlik uygulamaları inceler:
 
 ## <a name="vm-authentication-and-access-control"></a>VM kimlik doğrulaması ve erişim denetimi
 
-VM korumanın ilk adımı, yalnızca yetkili kullanıcılar yeni Vm'leri ayarlayabilmek sağlamaktır. Kullanabileceğiniz [Azure Resource Manager ilkeleri](../azure-resource-manager/resource-manager-policy.md) , kuruluşunuzdaki kaynakların kuralları oluşturmak için özelleştirilmiş ilkeler oluşturma ve bu ilkeler, kaynaklara gibi uygulama [kaynak grupları](../azure-resource-manager/resource-group-overview.md).
+VM korumanın ilk adımı, yalnızca yetkili kullanıcılar yeni Vm'leri ayarlayabilmek sağlamaktır. Kullanabileceğiniz [Azure ilkeleri](../azure-policy/azure-policy-introduction.md) , kuruluşunuzdaki kaynakların kuralları oluşturmak için özelleştirilmiş ilkeler oluşturma ve bu ilkeler, kaynaklara gibi uygulama [kaynak grupları](../azure-resource-manager/resource-group-overview.md).
 
 Doğal bir kaynak grubuna ait VM'ler ilkelerine devralır. Sanal makineleri yönetmek için bu yaklaşım önerilir ancak aynı zamanda erişimi tek tek VM ilkeleri kullanarak denetleyebilirsiniz [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md).
 

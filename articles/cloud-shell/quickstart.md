@@ -1,5 +1,5 @@
 ---
-title: "Azure bulut Kabuğu (Önizleme) hızlı başlangıcı bash | Microsoft Docs"
+title: "Azure bulut Kabuk hızlı başlangıcı bash | Microsoft Docs"
 description: "Bulut Kabuk Bash'te için hızlı başlangıç"
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure bulut Kabuk Bash'te için hızlı başlangıç
 
@@ -30,7 +30,7 @@ Bu belgede Azure bulut Kabuğu'nda Bash kullanmak nasıl ayrıntıları [Azure p
 ## <a name="start-cloud-shell"></a>Bulut Kabuğu'nu başlatın
 1. Başlatma **bulut Kabuk** Azure portal'ın üst gezinti gelen <br>
 ![](media/quickstart/shell-icon.png)
-2. Bir depolama hesabı ve Azure dosya paylaşımı oluşturmak için bir abonelik seçin
+2. Bir depolama hesabı oluşturmak için bir abonelik seçin ve Microsoft Azure dosyaları paylaşma
 3. "Depolama oluştur" seçeneğini belirleyin
 
 > [!TIP]
@@ -79,4 +79,4 @@ Kaynak grubu ve içerdiği tüm kaynaklar Sil: <br>
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bulut Kabuk Bash'te için kalıcı dosyaları hakkında bilgi edinin](persisting-shell-storage.md) <br>
 [Azure CLI 2.0 hakkında bilgi edinin](https://docs.microsoft.com/cli/azure/) <br>
-[Azure File storage hakkında bilgi edinin](../storage/files/storage-files-introduction.md) <br>
+[Azure dosyaları depolama hakkında bilgi edinin](../storage/files/storage-files-introduction.md) <br>

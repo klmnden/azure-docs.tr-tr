@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.openlocfilehash: a76bcba5ab4ca8e1a4899e4aa28f734c09af2aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96c4ed88db5e24f439825aee5afe457a1e8c81d7
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Bir Azure bulut hizmeti için sabit bir sanal IP adresi koru
-Azure üzerinde barındırılan bir bulut hizmeti güncelleştirdiğinizde, sanal IP adresi (VIP) hizmetinin değiştirmez emin olmak gerekebilir. Birçok etki alanı Yönetim Hizmetleri, etki alanı adlarını kaydetme için etki alanı adı sistemi (DNS) kullanın. VIP aynı kalırsa DNS çalışır. Kullanabileceğiniz **Yayımlama Sihirbazı** bulut hizmetinizin VIP ne zaman değiştirmez emin olmak için Azure araçlarında güncelleştirmeniz. DNS etki alanı yönetimi için bulut hizmetlerini kullanma hakkında daha fazla bilgi için bkz: [bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma](cloud-services/cloud-services-custom-domain-name.md).
+Azure üzerinde barındırılan bir bulut hizmeti güncelleştirdiğinizde, sanal IP adresi (VIP) hizmetinin değiştirmez emin olmak gerekebilir. Birçok etki alanı Yönetim Hizmetleri, etki alanı adlarını kaydetme için etki alanı adı sistemi (DNS) kullanın. VIP aynı kalırsa DNS çalışır. Kullanabileceğiniz **Yayımlama Sihirbazı** bulut hizmetinizin VIP ne zaman değiştirmez emin olmak için Azure araçlarında güncelleştirmeniz. DNS etki alanı yönetimi için bulut hizmetlerini kullanma hakkında daha fazla bilgi için bkz: [bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma](cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="publish-a-cloud-service-without-changing-its-vip"></a>Bir bulut hizmeti, VIP değiştirmeden yayımlama
 İlk kez, Azure'a üretim ortamı gibi belirli bir ortamda dağıttığınızda bir bulut hizmeti VIP tahsis edilir. VIP yalnızca dağıtımı açıkça silin veya dağıtım örtük olarak dağıtımı güncelleştirme işlemi tarafından silinmesi durumunda değiştirir. VIP korumak için dağıtımınızı silmemelisiniz ve Visual Studio, dağıtımınızı otomatik olarak silmez emin olmanız gerekir. 
