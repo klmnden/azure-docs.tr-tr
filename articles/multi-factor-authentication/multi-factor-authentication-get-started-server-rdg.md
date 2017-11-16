@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/27/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 653712aebd274349b030eae653a8ea670e438d93
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1d1a017e05ad10906cf3ea869caf220b344f71d5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu
 Uzak Masaüstü (RD) Ağ Geçidi genellikle kullanıcıların kimliğini doğrulamak için yerel Ağ İlkesi Hizmetleri’ni (NPS) kullanır. Bu makale, Uzak Masaüstü Ağ Geçidi’ndeki RADIUS isteklerini (yerel NPS üzerinden) Multi-Factor Authentication Sunucusu’na yönlendirmeyi açıklar. Azure MFA ve RD Ağ Geçidi bileşimi, kullanıcılarınızın güçlü kimlik doğrulaması ile diledikleri yerden çalışma ortamlarına erişebileceği anlamına gelir. 

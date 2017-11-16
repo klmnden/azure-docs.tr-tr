@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: robb
-ms.openlocfilehash: 60048ab8e0118bc67850aa6ad91c82dcf8122b1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 21123299fbab59b388aacc4a802f3a9ec1d80632
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure İzleyici PowerShell hızlı başlangıç örnekleri
 Bu makale Azure İzleyicisi özelliklerine erişmenize yardımcı olması için PowerShell komutlarını örnek gösterir. Azure İzleyici otomatik ölçeklendirme bulut Hizmetleri, sanal makineler ve Web uygulamaları sağlar. Ayrıca, web URL'leri yapılandırılmış telemetri verilerini değerlerine göre arayın veya uyarı bildirimleri göndermek sağlar.
@@ -202,7 +202,7 @@ Tam listesi için kullanılabilir seçenekleri `Get-AzureRmMetricDefinition` şu
 
 ## <a name="create-and-manage-autoscale-settings"></a>Otomatik ölçeklendirme ayarlarını oluşturun ve yönetin
 Bir kaynak (bir Web uygulaması, VM, bulut hizmeti veya sanal makine ölçek kümesi) yalnızca bir otomatik ölçeklendirme ayarı için yapılandırılmış olabilir.
-Bununla birlikte, her otomatik ölçeklendirme ayarında birden çok profil olabilir. Örneğin, bir performans tabanlı ölçek profili ve ikinci bir zamanlama tabanlı profil için. Her profil yapılandırılmış birden çok kural bulunabilir. Otomatik ölçeklendirme hakkında daha fazla bilgi için bkz: [otomatik ölçeklendirme bir uygulamanın nasıl](../cloud-services/cloud-services-how-to-scale.md).
+Bununla birlikte, her otomatik ölçeklendirme ayarında birden çok profil olabilir. Örneğin, bir performans tabanlı ölçek profili ve ikinci bir zamanlama tabanlı profil için. Her profil yapılandırılmış birden çok kural bulunabilir. Otomatik ölçeklendirme hakkında daha fazla bilgi için bkz: [otomatik ölçeklendirme bir uygulamanın nasıl](../cloud-services/cloud-services-how-to-scale-portal.md).
 
 Kullanmak için adımlar şunlardır:
 

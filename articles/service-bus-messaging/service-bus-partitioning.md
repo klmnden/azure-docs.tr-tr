@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2017
-ms.author: sethm;hillaryc
-ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: sethm
+ms.openlocfilehash: beebfb496604b422e091cd3b4425933f3cea1283
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
 Azure Service Bus iletileri işlemek için birden çok ileti aracıları ve iletileri depolamak için birden çok Mesajlaşma deposu kullanır. Geleneksel kuyruk veya konu tek ileti aracısı tarafından işlenen ve bir Mesajlaşma deposunda depolanır. Hizmet veri yolu *bölümleri* kuyruklar ve konu başlıkları, etkinleştirmek veya *Mesajlaşma*, birden çok ileti aracıları ve mesajlaşma depoları arasında bölümlenecek. Bu, genel üretilen işi bölümlenmiş bir varlığın tek ileti aracısı veya Mesajlaşma deposu performansını tarafından artık sınırlı olduğu anlamına gelir. Ayrıca, bir Mesajlaşma deposu geçici bir kesinti bölümlenmiş kuyruk veya konu kullanılamaz işlemez. Bölümlenmiş kuyrukları ve konularından işlemleri ve oturumlar için destek gibi tüm Gelişmiş Service Bus özellikler içerebilir.
@@ -39,7 +39,7 @@ Bir istemci iletileri tüm parçaları bölümlenmiş bir kuyruktan ya da hizmet
 
 ## <a name="enable-partitioning"></a>Bölümleme etkinleştir
 
-Bölümlenmiş kuyrukları ve konularından Azure Service Bus ile kullanmak için Azure SDK'ın 2.2 veya sonraki bir sürümü veya belirtin `api-version=2013-10` , HTTP istekleri.
+Bölümlenmiş kuyrukları ve konularından Azure Service Bus ile kullanmak için Azure SDK'ın 2.2 veya sonraki bir sürümü veya belirtin `api-version=2013-10` ya da daha sonra HTTP istekleri.
 
 ### <a name="standard"></a>Standart
 
@@ -63,7 +63,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternatif olarak, bölümlenmiş kuyruk veya konudaki oluşturabilirsiniz [Azure portal] [ Azure portal] veya Visual Studio'da. Portalda, kuyruk veya konu oluşturduğunuzda **bölümleme etkinleştirmek** kuyruk veya konu seçeneğinde **oluşturma** dikey varsayılan olarak işaretli. Yalnızca standart katmanı varlıktaki bu seçenek devre dışı bırakabilirsiniz; Premium katmanındaki bölümleme her zaman etkindir. Visual Studio'da sırasıyla **etkinleştirmek bölümleme** onay kutusu **yeni kuyruk** veya **yeni konu** iletişim kutusu.
+Alternatif olarak, bölümlenmiş kuyruk veya konudaki oluşturabilirsiniz [Azure portal] [ Azure portal] veya Visual Studio'da. Portalda, kuyruk veya konu oluşturduğunuzda **bölümleme etkinleştirmek** kuyruk veya konu seçeneğinde **oluşturma** iletişim kutusu varsayılan olarak işaretli. Yalnızca standart katmanı varlıktaki bu seçenek devre dışı bırakabilirsiniz; Premium katmanındaki bölümleme her zaman etkindir. Visual Studio'da sırasıyla **etkinleştirmek bölümleme** onay kutusu **yeni kuyruk** veya **yeni konu** iletişim kutusu.
 
 ## <a name="use-of-partition-keys"></a>Bölüm anahtarlarını kullanımı
 İleti sıraya alınan bölümlenmiş kuyruk veya konu içine olduğunda, hizmet veri yolu bir bölüm anahtarının varlığını denetler. Bulursa, bu anahtarı temel parça seçer. Bölüm anahtarı bulamazsa, bir iç algoritmadan yola çıkılarak parça seçer.
@@ -82,7 +82,7 @@ Senaryoya bağlı olarak farklı ileti özellikleri bir bölüm anahtarı olarak
 ### <a name="not-using-a-partition-key"></a>Bir bölüm anahtarının kullanılması değil
 Bölüm anahtarı olmaması durumunda, hizmet veri yolu ileti bölümlenmiş kuyruk veya konu tüm parçaları ile hepsini şekilde dağıtır. Seçilen parça kullanılabilir durumda değilse, hizmet veri yolu ileti için farklı bir parça atar. Bu şekilde, bir Mesajlaşma deposu geçici kullanılamama rağmen gönderme işlemi başarılı olur. Ancak, garantili bölüm anahtarı sağlayan sıralama elde.
 
-Kullanılabilirlik (bölüm anahtarı) ve (bölüm anahtarı kullanarak) tutarlılık karşılaştırmasını daha ayrıntılı bir tartışma için bkz: [bu makalede](../event-hubs/event-hubs-availability-and-consistency.md). Bu bilgiler, bölümlenmiş hizmet veri yolu varlıklarını ve Event Hubs bölümler için eşit oranda geçerlidir.
+Kullanılabilirlik (bölüm anahtarı) ve (bölüm anahtarı kullanarak) tutarlılık karşılaştırmasını daha ayrıntılı bir tartışma için bkz: [bu makalede](../event-hubs/event-hubs-availability-and-consistency.md). Bu bilgiler bölümlenmiş Service Bus varlıklar için eşit oranda geçerlidir.
 
 Hizmet veri yolu vermek için yeterli kuyruğa ileti farklı bir parça zaman [MessagingFactorySettings.OperationTimeout] [ MessagingFactorySettings.OperationTimeout] ileti 15 saniyeden büyük olmalıdır gönderir istemci tarafından belirtilen değeri. Ayarladığınız önerilir [OperationTimeout] [ OperationTimeout] özelliğinin varsayılan değeri 60 saniye.
 
@@ -127,14 +127,14 @@ Service Bus otomatik ileti gelen ya da bölümlenen varlıklar arasında iletme 
 
 ## <a name="considerations-and-guidelines"></a>Dikkat edilecek noktalar ve yönergeleri
 * **Yüksek tutarlılık özellikleri**: bir varlığı oturumları, yinelenen algılama veya bölümlendirme anahtarı açık denetim gibi özellikler kullanan sonra Mesajlaşma işlemleri belirli parçada her zaman yönlendirilecek. Herhangi bir parçasının yüksek trafik deneyimi veya alttaki deponun sağlam değil, bu işlemler başarısız ve kullanılabilirlik azalır. Genel olarak, tutarlılık bölümlenmemiş varlıklar hala çok daha yüksektir; yalnızca bir alt trafik tüm trafiği aksine sorunları yaşıyor. Daha fazla bilgi için bkz [kullanılabilirlik ve tutarlılık tartışma](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Yönetim**: oluşturma, güncelleştirme ve silme gibi işlemleri varlığın tüm parçaları üzerinde gerçekleştirilmesi gerekir. Herhangi bir parça sağlıksız ise, bu işlemler için hataları neden olabilir. İleti sayısı gibi alma işlemi için bilgi tüm parçaları toplanması gerekir. Herhangi bir parça sağlıksız ise, varlık kullanılabilirlik durumunu sınırlı raporlanır.
+* **Yönetim**: oluşturma, güncelleştirme ve silme gibi işlemleri varlığın tüm parçaları üzerinde gerçekleştirilmesi gerekir. Herhangi bir parça sağlıksız ise, bu işlemler için hataları sonuçlanabilir. İleti sayısı gibi alma işlemi için bilgi tüm parçaları toplanması gerekir. Herhangi bir parça sağlıksız ise, varlık kullanılabilirlik durumunu sınırlı raporlanır.
 * **Düşük birim ileti senaryosu**: Bu senaryolara, özellikle HTTP protokolünü kullanarak birden çok gerçekleştirmeniz gerekebilir tüm iletileri almak için alma işlemleri. Alma istekleri için ön uç üzerinde tüm parçaları alma gerçekleştirir ve alınan tüm yanıtlarını önbelleğe kaydeder. Aynı bağlantı üzerinde bir sonraki alma isteği ve yararlanan bu önbelleğe alınan alma gecikme daha düşük olacaktır. Ancak, birden çok bağlantınız veya HTTP kullanıyorsanız, her istek için yeni bir bağlantı kurar. Bu nedenle, aynı düğümde güden hiçbir garantisi yoktur. Tüm mevcut iletiler kilitli ve içinde başka bir ön uç önbelleğe varsa, alma işlemi döndürür **null**. İletileri sonunda süresi dolacak ve yeniden alırsınız. HTTP Etkin tutmayı önerilir.
-* **Gözat/gözlem iletileri**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) her zaman belirtilen ileti sayısını döndürmüyor [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_MessageCount) özelliği. Bu iki ortak nedenleri vardır. İletileri koleksiyonu toplanmış boyutu 256 KB en fazla boyutu aşıyor bir nedenidir. Kuyruk veya konu varsa olan başka bir nedenle [EnablePartitioning özelliğinin](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning) kümesine **doğru**, bir bölüm iletileri istenen sayıda tamamlamak için yeterli iletileri olmayabilir. Bir uygulama belirli sayıda ileti almak istiyorsa, genel olarak, çağırmalıdır [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) sürekli olarak bu ileti sayısını alır veya atmaya daha fazla ileti yok kadar. Kod örnekleri dahil olmak üzere daha fazla bilgi için bkz: [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) veya [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient#Microsoft_ServiceBus_Messaging_SubscriptionClient_PeekBatch_System_Int32_).
+* **Gözat/gözlem iletileri**: [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) her zaman belirtilen ileti sayısını döndürmüyor [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) özelliği. Bu iki ortak nedenleri vardır. İletileri koleksiyonu toplanmış boyutu 256 KB en fazla boyutu aşıyor bir nedenidir. Kuyruk veya konu varsa olan başka bir nedenle [EnablePartitioning özelliğinin](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) kümesine **doğru**, bir bölüm iletileri istenen sayıda tamamlamak için yeterli iletileri olmayabilir. Bir uygulama belirli sayıda ileti almak istiyorsa, genel olarak, çağırmalıdır [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) sürekli olarak bu ileti sayısını alır veya atmaya daha fazla ileti yok kadar. Kod örnekleri dahil olmak üzere daha fazla bilgi için bkz: [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) veya [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API belgeleri.
 
 ## <a name="latest-added-features"></a>En son eklenen özellikler
 * Ekleme veya kaldırma kural bölümlenmiş varlıklarıyla artık desteklenmektedir. Bölümlenmiş olmayan varlıklar farklıdır, bu işlemler altında işlemleri desteklenmez. 
 * AMQP, gönderme ve alma ve ileti bölümlenmiş bir varlıktan artık desteklenmektedir.
-* AMQP aşağıdaki işlemler için artık desteklenmektedir: [toplu iş gönderme](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_BrokeredMessage__), [toplu alma](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ReceiveBatch_System_Int32_), [alma sıra numarası tarafından](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Receive_System_Int64_), [Peek](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_Peek), [yenileme kilit](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_RenewMessageLock_System_Guid_), [zamanlama ileti](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_ScheduleMessageAsync_Microsoft_ServiceBus_Messaging_BrokeredMessage_System_DateTimeOffset_), [iptal zamanlanmış iletisi](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_CancelScheduledMessageAsync_System_Int64_), [Kuralı Ekle](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [kuralı kaldırmak](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [oturum yenileme kilit](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_RenewLock), [kümesi oturum durumu](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_), [Get oturum durumu](/dotnet/api/microsoft.servicebus.messaging.messagesession#Microsoft_ServiceBus_Messaging_MessageSession_GetState), ve [listeleme oturumları](/dotnet/api/microsoft.servicebus.messaging.queueclient#Microsoft_ServiceBus_Messaging_QueueClient_GetMessageSessionsAsync).
+* AMQP aşağıdaki işlemler için artık desteklenmektedir: [toplu iş gönderme](/dotnet/api/microsoft.servicebus.messaging.queueclient.sendbatch), [toplu alma](/dotnet/api/microsoft.servicebus.messaging.queueclient.receivebatch), [alma sıra numarası tarafından](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive), [Peek](/dotnet/api/microsoft.servicebus.messaging.queueclient.peek), [yenileme kilit](/dotnet/api/microsoft.servicebus.messaging.queueclient.renewmessagelock), [zamanlama ileti](/dotnet/api/microsoft.servicebus.messaging.queueclient.schedulemessageasync), [iptal zamanlanmış iletisi](/dotnet/api/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync), [Kuralı Ekle](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [kuralı kaldırmak](/dotnet/api/microsoft.servicebus.messaging.ruledescription), [oturum yenileme kilit](/dotnet/api/microsoft.servicebus.messaging.messagesession.renewlock), [kümesi oturum durumu](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate), [Get oturum durumu](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate), ve [listeleme oturumları](/dotnet/api/microsoft.servicebus.messaging.queueclient.getmessagesessions).
 
 ## <a name="partitioned-entities-limitations"></a>Bölümlenen varlıklar sınırlamaları
 Şu anda hizmet veri yolu bölümlenmiş kuyrukları ve konularından aşağıdaki sınırlamalar getirir:
@@ -143,20 +143,20 @@ Service Bus otomatik ileti gelen ya da bölümlenen varlıklar arasında iletme 
 * Hizmet veri yolu şu anda en fazla 100 bölümlenmiş sıralar veya ad alanı başına konuları sağlar. Ad alanı (Premium katmanı için geçerli değildir) başına 10.000 varlık kota doğrultusunda her bölümlenmiş kuyruk veya konu sayar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Açıklamalara [hizmet veri yolu AMQP 1.0 desteği bölümlenmiş kuyruklar ve konu başlıkları] [ AMQP 1.0 support for Service Bus partitioned queues and topics] Mesajlaşma varlıkları bölümleme hakkında daha fazla bilgi edinmek için. 
+AMQP 1.0 belirtiminde Mesajlaşma temel kavramlar hakkında bilgi [AMQP 1.0 protokolü Kılavuzu](service-bus-amqp-protocol-guide.md).
 
 [Service Bus architecture]: service-bus-architecture.md
 [Azure portal]: https://portal.azure.com
-[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnablePartitioning
-[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription#Microsoft_ServiceBus_Messaging_TopicDescription_EnablePartitioning
-[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId
-[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_PartitionKey
-[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection
-[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId
-[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
+[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
+[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
+[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
+[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
+[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection
+[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
+[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
+[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md

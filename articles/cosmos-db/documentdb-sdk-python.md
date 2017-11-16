@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure DB Cosmos Python SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -51,6 +51,9 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* Bu SDK sürümü https://aka.ms/cosmosdb-emulator Merkezi'nden Azure Cosmos DB öykünücüsü kullanılabilir en son sürümünü gerektirir.
+
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Birleşik sözlüğü için hata düzeltmesi.
 * Eğik çizgi kaynak bağlantıda kırpma için hata düzeltmesi.
@@ -131,6 +134,7 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 
 | Sürüm | Sürüm tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.3.0](#2.3.0) |10 Kasım 2017 |--- |
 | [2.2.1](#2.2.1) |Eylül 29, 2017 |--- |
 | [2.2.0](#2.2.0) |10 Mayıs 2017 |--- |
 | [2.1.0](#2.1.0) |01 May 2017 |--- |

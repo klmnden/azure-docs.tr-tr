@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise iskele - Düzenleyici abonelik yönetimi
 Kuruluşlar Git Gide daha fazla esneklik ve Çeviklik için genel bulut geliştirilmektedir. Bunlar bulutun gücü veya iş için kaynakları en iyi duruma gelir oluşturmak için çalışan. Microsoft Azure, kuruluşların yapı taşları gibi çok çeşitli iş yüklerini ve uygulamaları adres birleştirebilirsiniz birçok sağlar. 
@@ -89,7 +89,7 @@ Kurumsal gereksinimleri aboneliğe idare genişletmek için abonelik düzeyinde 
 > Önceki ipuçları tutarlı bir adlandırma kuralı uygulamanıza yardımcı olur.
 
 ## <a name="policies-and-auditing"></a>İlkeleri ve Denetim
-İskele, ikinci sütun oluşturursunuz [Azure Resource Manager ilkeleri](resource-manager-policy.md) ve [etkinlik günlüğü denetleme](resource-group-audit.md). Kaynak Yöneticisi ilkeleri, Azure risk yönetme olanağı sağlar. Veri egemenliği kısıtlama zorlamayı veya belirli eylemleri denetim olun ilkeleri tanımlayabilirsiniz. 
+İskele, ikinci sütun oluşturursunuz [Azure ilkeleri](../azure-policy/azure-policy-introduction.md) ve [etkinlik günlüğü denetleme](resource-group-audit.md). Kaynak Yöneticisi ilkeleri, Azure risk yönetme olanağı sağlar. Veri egemenliği kısıtlama zorlamayı veya belirli eylemleri denetim olun ilkeleri tanımlayabilirsiniz. 
 
 * Varsayılan bir ilkedir **izin** sistem. Tanımlama ve kaynaklara Reddet veya Eylemler kaynaklar üzerinde denetim ilkeleri atayarak Eylemler denetler.
 * İlke tanım dili (IF then koşulları) ilkesi tanımlarında tarafından ilkeleri açıklanmaktadır.

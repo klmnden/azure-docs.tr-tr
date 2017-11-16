@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1513fc53501f1cfec93134841fbef9a8552dd43c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0c8f1aee75c4ee5cc35758b71ef573637fd3edd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB tablo API ve Azure Table storage ile geliştirme
 
@@ -25,11 +25,13 @@ Azure Cosmos DB tablo API Azure Table storage aynı tablo veri modeline paylaşa
 
 ## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB tablo API ile geliştirme
 
-Şu anda [Azure Cosmos DB tablo API](table-introduction.md) bir .NET SDK kullanılabilir olan [Windows Azure depolama Premium tablosu (Önizleme)](https://aka.ms/premiumtablenuget). Bu kitaplık genel olarak aynı sınıfları ve yöntem imzaları sahip [Windows Azure depolama SDK](https://www.nuget.org/packages/WindowsAzure.Storage), ancak tablo API (Önizleme) kullanarak Azure Cosmos DB hesaplarına bağlanma özelliği de vardır. Hızlı Başlangıç ve Azure Cosmos DB tablo API'sini kullanarak öğretici için aşağıdaki makalelere bakın:
-- Hızlı Başlangıç: [Azure Cosmos DB: Tablo API kullanarak bir .NET uygulaması oluşturma](create-table-dotnet.md)
-- Öğretici: [Azure Cosmos DB: .NET API tabloda ile geliştirme](tutorial-develop-table-dotnet.md)
+Şu anda [Azure Cosmos DB tablo API](table-introduction.md) dört SDK geliştirme için kullanılabilir olan: 
+- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK'sı. Bu kitaplık genel olarak aynı sınıfları ve yöntem imzaları sahip [Windows Azure depolama SDK](https://www.nuget.org/packages/WindowsAzure.Storage), ancak tablo API kullanarak Azure Cosmos DB hesaplarına bağlanma özelliği de vardır. 
+- [Python SDK](table-sdk-python.md). Yeni Azure Cosmos DB Python SDK'sı Azure Table storage ' Python destekler yalnızca SDK ' dir. Bu SDK, Azure Table depolama ve Azure Cosmos DB tablo API ile bağlanır.
+- [Java SDK](table-sdk-java.md). Bu Azure depolama SDK'sını tablo API kullanarak Azure Cosmos DB hesaplarına bağlamak için özelliğine sahiptir.
+- [Node.js SDK'sı](table-sdk-nodejs.md). Bu Azure depolama SDK'sını tablo API kullanarak Azure Cosmos DB hesaplarına bağlamak için özelliğine sahiptir.
 
-Tablo API ile çalışma hakkında ek bilgi sağlanmıştır [SSS: Tablo API ile geliştirme](faq.md#develop-with-the-table-api-preview) makalesi.
+Tablo API ile çalışma hakkında ek bilgi sağlanmıştır [SSS: Tablo API ile geliştirme](faq.md#develop-with-the-table-api) makalesi.
 
 ## <a name="developing-with-the-azure-table-storage"></a>Azure Table storage'ı geliştirme
 

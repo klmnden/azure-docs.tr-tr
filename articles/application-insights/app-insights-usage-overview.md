@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57d9ebc5a9689a6f1d48464aa20ffdc7fa61b00f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights ile kullanım analizi
 
@@ -34,7 +34,7 @@ Uygulama sunucusu kodunuzu hem de web sayfalarınıza Application Insights yükl
 
     ![Komut dosyası ana web sayfanızın head kopyalayın.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **Mobil uygulama kodu:** uygulamanızdan olaylarını toplamak ve ardından bu olayların kopyalarını göre Analiz için Application Insights'a gönderme mobil Center SDK'yı kullanma [bu kılavuz aşağıdaki](app-insights-mobile-center-quickstart.md).
+3. **Mobil uygulama kodu:** uygulamanızdan olaylarını toplamak ve ardından bu olayların kopyalarını göre Analiz için Application Insights'a gönderme için uygulama Merkezi SDK'sını kullanın [bu kılavuz aşağıdaki](app-insights-mobile-center-quickstart.md).
 
 4. **Telemetri alın:** projeniz için bir kaç dakika hata ayıklama modunda çalıştırılması ve genel bakış dikey penceresinde Application Insights sonuçlarında arayın.
 

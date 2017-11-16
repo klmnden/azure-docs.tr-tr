@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09c96aabe637582ef43b863f8381a6ecfbebbf5
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB genel verilerle dağıtmak nasıl
 Azure bulunabilen - 30 + coğrafi bölgeler arasında genel ayak izini sahiptir ve sürekli genişleyen. Dünya çapında iletişim durumu ile Azure, geliştiricilere sunduğu farklı özellikleri oluşturmak, dağıtmak ve genel olarak dağıtılmış uygulamaları kolayca yönetin olanağı biridir. 
@@ -40,10 +40,6 @@ Azure Cosmos DB planet ölçek uygulamaları kolayca yazmanızı etkinleştirmek
 
 ### <a id="RegionalPresence"></a>Her yerden bölgesel varlığı 
 Azure sürekli olarak artmaktadır coğrafi varlığını getirerek [yeni bölgeler](https://azure.microsoft.com/regions/) çevrimiçi. Azure Cosmos DB tüm yeni Azure bölgeleri varsayılan olarak kullanılabilir. Bu iş için yeni bölge Azure açar açmaz coğrafi bölge Azure Cosmos DB veritabanı hesabınız ile ilişkilendirmenizi sağlar.
-
-**Varsayılan olarak tüm Azure bölgeleri Azure Cosmos DB kullanılamıyor**
-
-![Azure Cosmos DB'de kullanılabilir tüm Azure bölgeleri](./media/distribute-data-globally/azure-regions.png)
 
 ### <a id="UnlimitedRegionsPerAccount"></a>Bölgeler sınırsız sayıda Azure Cosmos DB veritabanı hesabınızı ile ilişkilendirme
 Azure Cosmos DB Azure bölgeleri herhangi bir sayıda Azure Cosmos DB veritabanı hesabınız ile ilişkilendirmenizi sağlar. Coğrafi yalıtma kısıtlamaları dışında (örneğin, Çin, Almanya), Azure Cosmos DB veritabanı hesabınızla ilişkili olabilir bölgeler sayısının bir sınırlama yoktur. Aşağıdaki şekilde 25 Azure bölgeler arasında span için yapılandırılmış bir veritabanı hesabı gösterilmiştir.  
@@ -104,7 +100,7 @@ Genel olarak dağıtılmış veritabanı hizmet olarak Azure Cosmos DB iyi tanı
 Verilerinize dünyanın düşük gecikmeli erişim sunmak için Azure Cosmos DB gibi genel dağıtılmış veritabanı hizmetinin temel avantaj olmalıdır. Azure Cosmos DB garantili düşük gecikme süresi P99 çeşitli veritabanı işlemleri sunar. Azure Cosmos DB kullanan çoğaltma Protokolü veritabanı işlemleri sağlar (İdeal olarak, hem okuyan ve yazan) her zaman, istemcinin yerel bölgede gerçekleştirilir. Azure Cosmos DB SLA gecikme P99 okuma, (zaman uyumlu olarak) dizinli yazma ve çeşitli istek ve yanıt boyutları için sorgular içerir. Yazma işlemleri için gecikme garanti dayanıklı çoğunluğu çekirdek yürütme yerel veri merkezinde bulunan içerir.
 
 ### <a id="LatencyAndConsistency"></a>Gecikme süresi'nin ilişki tutarlılık 
-Zaman uyumlu olarak yazar çoğaltmak gereken genel dağıtılmış kurulumunda güçlü tutarlılık sağlamaya Genel dağıtılmış hizmet için ya da zaman uyumlu çapraz bölge okuma gerçekleştirmek – ışık hızına ve geniş alan ağı güvenilirlik dikte güçlü tutarlılık yüksek gecikme ve veritabanı işlemleri düşük kullanılabilirliği ile sonuçlanır. Bu nedenle, P99 ve 99.99 kullanılabilirlik garantili düşük gecikme sunmak için hizmet zaman uyumsuz çoğaltma uygulamanız gerekir. Hizmet ayrıca sağlaması gerekir bu içinde dönüş gerektiren [iyi tanımlanmış, gevşek tutarlılık choice(s)](consistency-levels.md) – daha güçlü (düşük gecikme süresi ve kullanılabilirliğini garanti sunmak için) ve (sezgisel bir programlama modeli sunmak için) "son" tutarlılık ideal güçlü zayıf.
+Zaman uyumlu olarak yazar çoğaltmak gereken genel dağıtılmış kurulumunda güçlü tutarlılık sağlamaya Genel dağıtılmış hizmet için ya da zaman uyumlu açık hızına ve geniş alan ağı güvenilirlik bu strong dikte çapraz bölge okuma – gerçekleştirin Tutarlılık daha yüksek gecikme süreleri ve azaltılmış kullanılabilirlik veritabanı işlemi ile sonuçlanır. Bu nedenle, sunmak için P99 en düşük gecikme ve tüm tek bölge ve tüm bölgeli hesapları için % 99,99 kullanılabilirlik gevşek tutarlılığı garanti ve kullanılabilirlik tüm bölgeli veritabanı hesaplarda %99.999 okuma, hizmet uygulamadığınız gerekir zaman uyumsuz çoğaltma. Hizmet ayrıca sağlaması gerekir bu içinde dönüş gerektiren [iyi tanımlanmış, gevşek tutarlılık choice(s)](consistency-levels.md) – daha güçlü (düşük gecikme süresi ve kullanılabilirliğini garanti sunmak için) ve (sezgisel bir programlama modeli sunmak için) "son" tutarlılık ideal güçlü zayıf.
 
 Azure Cosmos DB okuma işlemi çoğaltmaları belirli tutarlılık düzeyi garantisi sunmak için birden çok bölgeler arasında iletişim için gerekli olmayan sağlar. Benzer şekilde, (yani yazma zaman uyumsuz olarak bölgeler arasında çoğaltılır) tüm bölgeler arasında veri çoğaltılırken bir yazma işlemi engellediği değil sağlar. Birden çok gevşek tutarlılık düzeylerini bölgeli veritabanı hesapları için kullanılabilir. 
 
@@ -117,7 +113,7 @@ Yüksek gecikme kullanılamazlık ayırt etmek için çeşitli veritabanı işle
 Azure Cosmos DB, gecikme ve verimlilik arasında seçim yapmaz. Her iki gecikme P99 ve teslim sağlanan verimlilik SLA geliştirir. 
 
 ## <a id="ConsistencyGuarantees"></a>Tutarlılık
-Sırada [güçlü tutarlılık modeli](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) altın standardıdır hızı yüksek fiyatı yüksek gecikme (kararlı durumda) ve (karşısında hataları) kullanılabilirlik kaybına gelen programlamasına. 
+Sırada [güçlü tutarlılık modeli](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) altın standart programlama, onu (kararlı durumda) daha yüksek gecikme hızı yüksek fiyatına gelir ve kullanılabilirlik (karşısında hataları) azalır. 
 
 Azure Cosmos DB iyi tanımlanmış bir programlama modeli, çoğaltılmış verilerinin tutarlılık hakkında nedeni sunar. Çok konaklı uygulamalar oluşturmanıza olanak etkinleştirmek için Azure Cosmos DB tarafından kullanıma sunulan tutarlılık modelleri bölge belirsiz ve okuma ve yazma işlemleri Burada sunulan gelen bölge bağlı olmayan şekilde tasarlanmıştır. 
 
@@ -170,13 +166,13 @@ Azure Cosmos veritabanı tutarlılık SLA % 100'okuma isteklerinin tutarlılığ
 </table>
 
 ### <a id="ConsistencyAndAvailability"></a>Kullanılabilirlik ile tutarlılık'ın ilişkisi
-[İmpossibility sonuç](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) , [CAP Teoremi](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) kullanılabilir durumda kalır ve linearizable tutarlılık hataları karşısında sunmak sistem gerçekten olanaksız olduğunu kanıtlar. Veritabanı hizmeti CP veya AP seçmelisiniz - TP sistemleri atlayabilirsiniz linearizable tutarlılık lehinde kullanılabilirlik AP sistemleri atlayabilirsiniz sırada [linearizable tutarlılık](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) kullanılabilirlik lehinde. Azure Cosmos DB hiçbir zaman bir CP sistem resmi olarak kolaylaştırır istenen tutarlılık düzeyi ihlal ediyor. Bununla birlikte, pratikte tutarlılık tümü veya hiçbiri teklifinde değil – linearizable ve nihai tutarlılık arasında tutarlılık spektrumun boyunca birden çok iyi tanımlanmış tutarlılık model vardır. Azure Cosmos DB'de biz birkaç gevşek tutarlılık modellerin gerçek dünya Uygulanabilirlik ve sezgisel bir programlama modeli tanımlamak çalıştınız. Azure Cosmos DB 99.99 kullanılabilirlik SLA'sı ile birlikte sunarak tutarlılık kullanılabilirlik bileşim gider [birden çok rahat henüz iyi tanımlanmış tutarlılık düzeylerini](consistency-levels.md). 
+[İmpossibility sonuç](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf) , [CAP Teoremi](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf) kullanılabilir durumda kalır ve linearizable tutarlılık hataları karşısında sunmak sistem gerçekten olanaksız olduğunu kanıtlar. Veritabanı hizmeti CP veya AP seçmelisiniz - TP sistemleri atlayabilirsiniz linearizable tutarlılık lehinde kullanılabilirlik AP sistemleri atlayabilirsiniz sırada [linearizable tutarlılık](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) kullanılabilirlik lehinde. Azure Cosmos DB hiçbir zaman bir CP sistem resmi olarak kolaylaştırır istenen tutarlılık düzeyi ihlal ediyor. Bununla birlikte, pratikte tutarlılık tümü veya hiçbiri teklifinde değil – linearizable ve nihai tutarlılık arasında tutarlılık spektrumun boyunca birden çok iyi tanımlanmış tutarlılık model vardır. Azure Cosmos DB'de biz birkaç gevşek tutarlılık modellerin gerçek dünya Uygulanabilirlik ve sezgisel bir programlama modeli tanımlamak çalıştınız. Azure Cosmos DB sunarak tutarlılık kullanılabilirlik bileşim gider bir [birden çok rahat henüz iyi tanımlanmış tutarlılık düzeylerini](consistency-levels.md) ve tüm tek bölge ve tüm bölgeli hesapları ile için % 99,99 kullanılabilirlik Tutarlılık rahat ve kullanılabilirlik tüm bölgeli veritabanı hesaplarda %99.999 okuyun. 
 
 ### <a id="ConsistencyAndAvailability"></a>Gecikme süresi ile tutarlılık'in ilişki
 Daha kapsamlı bir değişim ucunun Prof. Daniel Abadi tarafından önerilen ve çağrılır [PACELC](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf), hangi de gecikme süresi ve tutarlılık bileşim kararlı durumda hesapları. Bu, tutarlılık ve gecikme süresi arasında kararlı durumda veritabanı sistem seçmeniz gerektiğini belirtir. (Zaman uyumsuz çoğaltma ve yerel okuma, yazma çekirdekleri tarafından desteklenir) birden çok gevşek tutarlılık modelleriyle Azure Cosmos DB tüm okuma ve yazma işlemleri için okuma yerel ve bölgeler sırasıyla yazma sağlar.  Bu, Azure Cosmos DB tutarlılık düzeyleri için bölge içinde düşük gecikme süresi garanti sunmanızı sağlar.  
 
 ### <a id="ConsistencyAndThroughput"></a>Üretilen iş ile tutarlılık'ın ilişkisi
-Belirli tutarlılık modeli uyarlamasını seçimine bağlı olduğundan bir [çekirdek türü](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), üretilen işi de tutarlılık seçimine göre değişir. Örneğin, Azure Cosmos DB'de kesinlikle tutarlı okuma işlemeyle kabaca, sonuçta tutarlı okuma yarısıdır. 
+Belirli tutarlılık modeli uyarlamasını seçimine bağlı olduğundan bir [çekirdek türü](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), üretilen işi de tutarlılık seçimine göre değişir. Örneğin, Azure Cosmos DB'de kesinlikle tutarlı okuma RU ücret, sonuçta tutarlı okuduğu kabaca çift olabilir. Bu durumda aynı verimliliği elde etmek için çift RUs koleksiyonunuzu üzerinde sağlamanız gerekir.
  
 **İlişki belirli tutarlılık düzeyi Azure Cosmos veritabanı için okuma kapasitesi**
 
@@ -207,7 +203,7 @@ Aynı [üretilen iş ile tutarlılık'in ilişki](#ConsistencyAndThroughput).
 Azure Cosmos DB işleme değişiklik yapıldığında, kullanılabilirliği sürdürmek devam eder. Azure Cosmos DB bölümleri (örneğin, bölme, birleştirme, kopyalama işlemleri) şeffaf bir şekilde yönetir ve uygulama özellikler esnek artırır veya verimliliği azaltır sırada operations performans veya kullanılabilirlik, kurtulabilirsiniz değil, sağlar. 
 
 ## <a id="AvailabilityGuarantees"></a>Kullanılabilirlik garantilerinden
-Azure Cosmos DB her veri ve denetim düzlemi işlemleri için çalışır durumda kalma süresi % 99,99 kullanılabilirlik SLA sunar. Daha önce açıklandığı gibi Azure Cosmos veritabanı kullanılabilirlik garantilerinden her veri ve denetim düzlemi işlemleri için gecikme süresini mutlak bir üst sınır içerir. Kullanılabilirlik garantilerinden steadfast ve bölgeler ve coğrafi uzaklığı bölgeler arasında sayısıyla değiştirmeyin. Kullanılabilirlik garantilerinden hem el ile yanı sıra, otomatik yük devretme kümelemesiyle uygulayın. Azure Cosmos DB uygulamanızı mantıksal uç noktalarına karşı çalışabilir saydam yük devretme durumunda yeni bölge isteklerini yönlendirebilirsiniz emin olun ve saydam çok girişli API'ler sunar. Farklı put, uygulamanızın üzerinde bölgesel yük devretme dağıtılması gerekmez ve kullanılabilirlik SLA'ları korunur.
+Azure Cosmos DB tüm tek bölge ve tüm bölgeli hesapları için % 99,99 kullanılabilirlik SLA'sı ile gevşek tutarlılık sunar ve tüm bölgeli veritabanı hesaplarda kullanılabilirlik %99.999 okuyun. Daha önce açıklandığı gibi Azure Cosmos veritabanı kullanılabilirlik garantilerinden her veri ve denetim düzlemi işlemleri için gecikme süresini mutlak bir üst sınır içerir. Kullanılabilirlik garantilerinden steadfast ve bölgeler ve coğrafi uzaklığı bölgeler arasında sayısıyla değiştirmeyin. Kullanılabilirlik garantilerinden hem el ile yanı sıra, otomatik yük devretme kümelemesiyle uygulayın. Azure Cosmos DB uygulamanızı mantıksal uç noktalarına karşı çalışabilir saydam yük devretme durumunda yeni bölge isteklerini yönlendirebilirsiniz emin olun ve saydam çok girişli API'ler sunar. Farklı put, uygulamanızın üzerinde bölgesel yük devretme dağıtılması gerekmez ve kullanılabilirlik SLA'ları korunur.
 
 ### <a id="AvailabilityAndConsistency"></a>Tutarlılık, gecikme ve verimlilik ile kullanılabilirlik'ın ilişkisi
 Kullanılabilirlik'in ilişki tutarlılık, gecikme ve verimlilik ile açıklanan [kullanılabilirlik ile tutarlılık'in ilişki](#ConsistencyAndAvailability), [kullanılabilirlik ile gecikme'nin ilişki](#LatencyAndAvailability) ve [kullanılabilirlik ile işleme'nin ilişki](#ThroughputAndAvailability). 

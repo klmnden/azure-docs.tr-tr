@@ -1,5 +1,5 @@
 ---
-title: "Azure Öğreticisi - güncelleştirme uygulaması üzerinde Kubernertes | Microsoft Docs"
+title: "Azure Öğreticisi - güncelleştirme uygulaması üzerinde Kubernetes | Microsoft Docs"
 description: "AKS Öğreticisi - güncelleştirme uygulaması"
 services: container-service
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 76fd3665fdbc2faa023452f3f7f25e0b67b8fac8
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: e788a982d2580e90309df977c8e2e1cb22daadaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Bir uygulamayı Azure kapsayıcı hizmeti (AKS) güncelleştir
 

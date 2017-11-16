@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 31af39eef3889bebd18baa2be297c433cc733ed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e0533db1bb907b0c9a09cdeb7aabbf120d506f
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Azure'da Java ve MySQL bir web uygulaması oluşturma
 
@@ -397,7 +397,7 @@ Uygulama yenilediğinizde bir **saat oluşturulan** sütundur artık görünür.
 
 Java uygulamanızı Azure App Service'te çalışırken terminalinizde doğrudan yöneltilen konsol günlükleri alabilirsiniz. Böylece, uygulama hatalarını hata ayıklama yardımcı olmak için aynı tanılama iletileri alabilirsiniz.
 
-Günlük akış başlatmak için kullanmak [az webapp günlük tail](/cli/azure/appservice/web/log#tail) bulut Kabuğu'nda komutu.
+Günlük akış başlatmak için kullanmak [az webapp günlük tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) bulut Kabuğu'nda komutu.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/08/2017
 ms.author: nitinme
-ms.openlocfilehash: 21b474e37ef0a6037e05ee1fe8e5088cb3e3601d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc959f763e9a84199130bae845cb62c493676977
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics-preview"></a>Hdınsight küme yönetim çözümleri günlük analizi (Önizleme) Ekle
+# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Hdınsight küme yönetim çözümleri için günlük analizi Ekle
 
 Hdınsight için Azure günlük analizi ekleyebilirsiniz kümeye özgü yönetim çözümleri sağlar. [Yönetim çözümleri](../log-analytics/log-analytics-add-solutions.md), Log Analytics’e ek veri ve analiz araçları sağlayarak OMS’e işlevsellik ekler. Bu çözümler, Hdınsight kümelerinizi önemli performans ölçümleri toplamak ve ölçümleri aramak için araçlar sağlar. Bu çözümlerin de görselleştirmeleri ve panolar için Hdınsight'ta desteklenen çoğu küme türleri sağlar. Çözümle topladığınız ölçümleri kullanarak özel izleme kurallarını ve uyarıları oluşturabilirsiniz. 
 
@@ -33,25 +33,29 @@ Bu makalede, kümeye özgü yönetim çözümleri bir OMS çalışma alanına ek
 
 ## <a name="add-cluster-specific-management-solutions"></a>Kümeye özgü yönetim çözümleri Ekle
 
-Bu bölümde, HBase küme yönetim çözümünü mevcut bir OMS çalışma alanına ekleyin. Diğer Hdınsight küme türleri için benzer çözümler yakında kullanıma sunulacaktır.
+Bu bölümde, HBase küme yönetim çözümünü mevcut bir OMS çalışma alanına ekleyin.
 
-1. OMS panosunu açın. Azure portalında Azure günlük analizi ile ilişkili Hdınsight küme dikey penceresini açın, izleme sekmesinin ve tıklatın **açmak OMS Pano**.
+1. Azure portalında bir HDInsigt küme Aç'ı tıklatın **izleme**ve ardından **açık OMS Pano**.
 
     ![Açık OMS Pano](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-log-analytics-open-oms-dashboard.png "açık OMS Panosu")
 
-1. OMS panosunda tıklatın **Çözümleri Galerisi** veya sol bölmeden Görünüm Tasarımcısı simgesi.
+1. OMS panosunda tıklatın **Çözümleri Galerisi** veya **Görünüm Tasarımcısı** sol bölmeden simgesi.
 
     ![Yönetim çözümü OMS ekleyin](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "yönetimi çözümü içinde OMS ekleyin")
 
-2. Çözümleri Galerisi'nde Bul **Hdınsight HBase izleme**, kutucuğuna tıklayın.
+2. Çözümleri Galerisi'nde aşağıdaki kutucuklara birini tıklatın:
 
-    ![HBase yönetim çözümü bulmak](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/find-hbase-management-solution.png "HBase yönetim çözümü Bul")
+    - Hdınsight Hadoop izleme
+    - Hdınsight HBase izleme (Önizleme)
+    - Hdınsight izleme Kafka
+    - Hdınsight Storm izleme
+    - Hdınsight Spark izleme
 
-3. Sonraki ekranda, tıklatın **Ekle**.
+3. Sonraki ekranda, tıklatın **Ekle**.  Aşağıdaki ekran görüntüsünde, HBase izleme için Ekle düğmesini gösterir.
 
      ![HBase yönetim çözümü ekleyin](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/add-hbase-management-solution.png "ekleme HBase yönetim çözümü")
 
-4. Şimdi, HBase yönetim çözümü için OMS Panoda bir kutucuğu görmeniz gerekir. (Bu makalede için önkoşul parçası) olarak OMS ile ilişkili küme bir HBase kümesi ise, döşeme kümede küme ve düğüm sayısını adını gösterir.
+4. HBase yönetim çözümü için OMS Panoda bir kutucuk göreceksiniz. (Bu makalede için önkoşul parçası) olarak OMS ile ilişkili küme bir HBase kümesi ise, döşeme kümede küme ve düğüm sayısını adını gösterir.
 
     ![HBase yönetim çözümü eklenen](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-hbase-management-solution.png "HBase yönetim çözümü eklendi")
 

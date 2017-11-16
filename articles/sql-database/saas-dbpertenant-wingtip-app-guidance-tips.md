@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: genemi
-ms.openlocfilehash: fbfaea938676991cf6280e5dd8c1e1190aa268a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4c90d70bb3b043ef81a224f0f69107eaa6eb0547
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="guidance-and-tips-for-azure-sql-database-multi-tenant-saas-app-example"></a>Kılavuzu ve Azure SQL veritabanı çok kiracılı SaaS uygulama örneği için ipuçları
 
 
-## <a name="download-and-unblock-the-wingtip-saas-scripts"></a>Karşıdan yükleme ve Wingtip SaaS betikleri Engellemeyi Kaldır
+## <a name="download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts"></a>Karşıdan yükleme ve Kiracı betikleri başına Wingtip biletleri SaaS veritabanı Engellemeyi Kaldır
 
 ZIP dosyaları bir dış kaynaktan yüklediğiniz ve açtığınız zaman yürütülebilir içeriği (komut dosyaları, DLL'ler) Windows tarafından engellenmiş olabilir. Komut dosyaları zip dosyasından çıkarılırken ***ayıklanıyor önce .zip dosyası engellemesini kaldırmak için aşağıdaki adımları izleyin***. Bu komut dosyalarını çalıştırma izni sağlar.
 
-1. Gözat [Wingtip SaaS github deposuna](https://github.com/Microsoft/WingtipSaaS).
+1. Gözat [Wingtip biletleri SaaS veritabanı Kiracı GitHub deposuna başına](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
 2. Tıklatın **Kopyala veya indir**.
 3. Tıklatın **ZIP'i indir** ve dosyayı kaydedin.
-4. Sağ **WingtipSaaS-master.zip** dosyasını bulun ve seçin **özellikleri**.
+4. Sağ **WingtipTicketsSaaS DbPerTenant master.zip** dosyasını bulun ve seçin **özellikleri**.
 5. Üzerinde **genel** sekmesine **Engellemeyi Kaldır**.
 6. **Tamam** düğmesine tıklayın.
 7. Dosyaları ayıklayın.
 
-Komut dosyaları içinde bulunur *... \\WingtipSaaS ana\\öğrenme modülleri* klasör.
+Komut dosyaları içinde bulunur *... \\Öğrenme modülleri* klasör.
 
 
-## <a name="working-with-the-wingtip-saas-powershell-scripts"></a>Wingtip SaaS PowerShell komut dosyaları ile çalışma
+## <a name="working-with-the-wingtip-tickets-saas-database-per-tenant-powershell-scripts"></a>Wingtip biletleri SaaS veritabanı başına Kiracı PowerShell komut dosyaları ile çalışma
 
 En iyi örnek almak için sağlanan komut dosyalarına daha yakından inceleyin gerekir. Farklı SaaS desenleri nasıl uygulandığını ayrıntılarını inceleyerek komut dosyalarıyla adım ve kesme noktaları kullanın. Sağlanan komut dosyalarını ve modülleri için en iyi anlama aracılığıyla kolayca adım için kullanmanızı öneririz [PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise).
 
@@ -73,10 +73,10 @@ Keşfetmek ve PowerShell komut dosyalarıyla Adımlama ipuçları:
 
 Kullanım [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmayı ve uygulama sunucuları ve veritabanları göz atın.
 
-Dağıtım - bağlanmak için iki SQL veritabanı sunucularının başlangıçta sahip *tenants1 -&lt;kullanıcı&gt; * sunucu ve *katalog -&lt;kullanıcı&gt; * Sunucu. Başarılı demo bağlantı sağlamak için her iki sunucuyu sahip bir [güvenlik duvarı kuralı](sql-database-firewall-configure.md) aracılığıyla tüm IP'ler izin verme.
+Dağıtım - bağlanmak için iki SQL veritabanı sunucularının başlangıçta sahip *tenants1-dpt -&lt;kullanıcı&gt;*  sunucu ve *katalog-dpt -&lt;kullanıcı&gt;* sunucu. Başarılı demo bağlantı sağlamak için her iki sunucuyu sahip bir [güvenlik duvarı kuralı](sql-database-firewall-configure.md) aracılığıyla tüm IP'ler izin verme.
 
 
-1. *SSMS*’yi açın ve *tenants1-&lt;User&gt;.database.windows.net* sunucusuna bağlanın.
+1. Açık *SSMS* ve bağlanmaya *tenants1-dpt -&lt;kullanıcı&gt;. database.windows.net* sunucu.
 2. **Bağlan** > **Veritabanı Altyapısı...**:
 
    ![katalog sunucusu seçeneğine tıklayın](media/saas-dbpertenant-wingtip-app-guidance-tips/connect.png)
@@ -85,7 +85,7 @@ Dağıtım - bağlanmak için iki SQL veritabanı sunucularının başlangıçta
 
    ![bağlantı](media/saas-dbpertenant-wingtip-app-guidance-tips/tenants1-connect.png)
 
-4. 2-3. adımları tekrarlayın ve *catalog-&lt;User&gt;.database.windows.net* sunucusuna bağlanın.
+4. 2-3 arasındaki adımları yineleyin ve bağlanmaya *katalog-dpt -&lt;kullanıcı&gt;. database.windows.net* sunucu.
 
 
 Başarıyla bağlandıktan sonra her iki sunucuyu da görmeniz gerekir. Veritabanlarının listesini sağlanmış kiracılar bağlı olarak farklı olabilir.
@@ -96,5 +96,5 @@ Başarıyla bağlandıktan sonra her iki sunucuyu da görmeniz gerekir. Veritaba
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Wingtip SaaS uygulamasına dağıtmak](saas-dbpertenant-get-started-deploy.md)
+[Kiracı uygulama başına Wingtip biletleri SaaS veritabanı dağıtma](saas-dbpertenant-get-started-deploy.md)
 

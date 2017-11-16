@@ -24,9 +24,6 @@
   items:
     - name: Kümeleri yönetme
       href: apache-domain-joined-manage.md
-    - name: Kullanıcı izinlerini yönetme
-      href: ../hdinsight-add-acls-at-file-folder-levels.md
-      maintainContext: true
 - name: Başvuru
   items:
     - name: Kod örnekleri

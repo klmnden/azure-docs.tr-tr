@@ -6,29 +6,28 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 7ae0ffa3-c8da-4151-bdcc-8f4f69290fb4
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 060680fd4a7ce6e0cde406cc4a8f6f3a21d3c588
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2144e3527b44e3cf508d23fedf7abb4cda595bbf
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager ve klasik dağıtım: dağıtım modelleri ve kaynaklarınızın durumunu anlamak
-Bu konuda, Azure Resource Manager ve klasik dağıtım modeli, kaynaklarınızın durumu hakkında bilgi edinin ve kaynaklarınızı birini veya diğerini dağıtılan neden. Resource Manager ve klasik dağıtım modellerine dağıtma ve yönetme Azure çözümlerinizi iki farklı şekilde temsil eder. İki farklı API kümesi bunlarla çalışmak ve dağıtılan kaynakları önemli farklılıklar içerebilir. İki model birbiriyle tam olarak uyumlu değildir. Bu konu bu farkları açıklamaktadır.
+Bu makalede, Azure Resource Manager ve klasik dağıtım modelleri hakkında bilgi edinin. Resource Manager ve klasik dağıtım modellerine dağıtma ve yönetme Azure çözümlerinizi iki farklı şekilde temsil eder. İki farklı API kümesi bunlarla çalışmak ve dağıtılan kaynakları önemli farklılıklar içerebilir. İki model birbirleri ile uyumlu değildir. Bu makalede bu farklar açıklanmaktadır.
 
 Dağıtım ve kaynaklarının yönetimini basitleştirmek için Microsoft, tüm yeni kaynaklar için Kaynak Yöneticisi'ni kullanmanızı önerir. Mümkünse, Microsoft, var olan kaynakların Resource Manager aracılığıyla dağıtmanız önerir.
 
 Resource Manager'da yeniyseniz, ilk tanımlanan terimleri gözden geçirmek isteyebileceğiniz [Azure Resource Manager'a genel bakış](resource-group-overview.md).
 
 ## <a name="history-of-the-deployment-models"></a>Dağıtım modelleri geçmişi
-Azure başlangıçta yalnızca klasik dağıtım modeli sağlanan. Bu modelde, bağımsız olarak her bir kaynağın var; İlgili kaynaklar gruplamak için hiçbir yolu yoktu. Bunun yerine, el ile çözüm ya da uygulama yapılan hangi kaynaklara izlemek ve eşgüdümlü bir yaklaşım yönetmeyi unutmayın zorunda kaldı. Bir çözümü dağıtmak için Klasik Portalı aracılığıyla ayrı ayrı her bir kaynak oluşturmak veya tüm kaynakların doğru sırada dağıtılan bir komut dosyası oluşturmak zorunda kalındı. Bir çözümü silmek için ayrı ayrı her bir kaynağın silme gerekiyordu. Kolayca uygulanır ve ilgili kaynaklar için erişim denetimi ilkeleri güncelleştirin. Son olarak, geçerli yardımcı şartlarını etiket kaynaklarına etiketleri kaynaklarınızı izleme ve faturalama yönetme.
+Azure başlangıçta yalnızca klasik dağıtım modeli sağlanan. Bu modelde, bağımsız olarak her bir kaynağın var; İlgili kaynaklar gruplamak için hiçbir yolu yoktu. Bunun yerine, el ile çözüm ya da uygulama yapılan hangi kaynaklara izlemek ve eşgüdümlü bir yaklaşım yönetmeyi unutmayın zorunda kaldı. Bir çözümü dağıtmak için portal aracılığıyla ayrı ayrı her bir kaynak oluşturmak veya tüm kaynakların doğru sırada dağıtılan bir komut dosyası oluşturmak zorunda kalındı. Bir çözümü silmek için ayrı ayrı her bir kaynağın silme gerekiyordu. Kolayca uygulanır ve ilgili kaynaklar için erişim denetimi ilkeleri güncelleştirin. Son olarak, geçerli yardımcı şartlarını etiket kaynaklarına etiketleri kaynaklarınızı izleme ve faturalama yönetme.
 
 2014'te Azure Kaynak Yöneticisi, bir kaynak grubu kavramı eklenen kullanıma sunuldu. Bir kaynak grubu, ortak bir yaşam döngüsü paylaşmak kaynaklar için bir kapsayıcıdır. Resource Manager dağıtım modeli çeşitli avantajlar sunar:
 
@@ -39,20 +38,14 @@ Azure başlangıçta yalnızca klasik dağıtım modeli sağlanan. Bu modelde, b
 * Çözümünüz için altyapıyı tanımlamak için JavaScript nesne gösterimi (JSON) kullanabilirsiniz. JSON dosyasının bir Resource Manager şablonu olarak bilinir.
 * Doğru sırayla dağıtılmalarını sağlamak için kaynaklarınız arasındaki bağımlılıkları tanımlayabilirsiniz.
 
-Resource Manager eklendiğinde tüm kaynakları firmalarda geriye dönük varsayılan kaynak grubuna eklendi. Bir kaynak şimdi Klasik dağıtım aracılığıyla oluşturursanız, bu kaynak grubu dağıtım sırasında belirtmedi olsa bile kaynak bu hizmet için varsayılan bir kaynak grubu içinde otomatik olarak oluşturulur. Ancak, yalnızca var olan bir kaynak grubu içindeki kaynak için Resource Manager modeli dönüştürülmüş anlamına gelmez. Biz, her hizmetin bir sonraki bölüm iki dağıtım modellerinde nasıl işlediğini en göreceğiz. 
+Resource Manager eklendiğinde tüm kaynakları firmalarda geriye dönük varsayılan kaynak grubuna eklendi. Bir kaynak şimdi Klasik dağıtım aracılığıyla oluşturursanız, bu kaynak grubu dağıtım sırasında belirtmedi olsa bile kaynak bu hizmet için varsayılan bir kaynak grubu içinde otomatik olarak oluşturulur. Ancak, yalnızca var olan bir kaynak grubu içindeki kaynak için Resource Manager modeli dönüştürülmüş anlamına gelmez.
 
 ## <a name="understand-support-for-the-models"></a>Modelleri için destek anlama
-Kaynaklarınız için kullanılacak hangi dağıtım modelini karar verirken, dikkat edilmesi gereken üç senaryo vardır:
+Dikkat edilmesi gereken üç senaryo vardır:
 
-1. Hizmet Kaynak Yöneticisi'ni destekler ve yalnızca tek bir türü sağlar.
-2. Hizmet Kaynak Yöneticisi'ni destekler ancak iki tür - sağlayan bir Resource Manager ve klasik için. Bu senaryo, yalnızca sanal makineler, depolama hesapları ve sanal ağlar için geçerlidir.
-3. Hizmet, Resource Manager desteklemez.
-
-Bir hizmet Resource Manager destekleyip desteklemediğini öğrenmek için bkz [kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md).
-
-Kullanmak istediğiniz hizmet Resource Manager desteklemiyorsa, Klasik dağıtım kullanarak devam etmeniz gerekir.
-
-Hizmet Resource Manager destekliyorsa ve **değil** bir sanal makine, depolama hesabı ya da sanal ağ herhangi zorluklar Kaynak Yöneticisi'ni kullanabilirsiniz.
+1. Bulut Hizmetleri, Resource Manager dağıtım modeli desteklemez.
+2. Sanal makineler, depolama hesapları ve sanal ağlar Resource Manager ve klasik dağıtım modellerini destekler.
+3. Diğer Azure Hizmetleri Kaynak Yöneticisi'ni destekler.
 
 Kaynak Klasik dağıtım oluşturduysanız sanal makineler, depolama hesapları ve sanal ağlar için üzerinde Klasik işlemleri aracılığıyla çalışmaya devam etmeniz gerekir. Sanal makine, depolama hesabı ya da sanal ağ Resource Manager dağıtım oluşturulmuşsa, Resource Manager işlemleri kullanarak devam etmeniz gerekir. Aboneliğinizi Resource Manager ve klasik dağıtımı oluşturulan kaynakları bir karışımını içeriyorsa bu ayrım kafa karıştırıcı elde edebilirsiniz. Kaynaklar aynı işlemleri desteklemediğinden bu kaynakların bileşimini beklenmeyen sonuçlar oluşturabilirsiniz.
 
@@ -81,66 +74,6 @@ Get-AzureRmVM -ResourceGroupName ExampleGroup
 ```
 
 Yalnızca Kaynak Yöneticisi desteği etiketleri oluşturulan kaynakları. Klasik kaynaklar için etiketler uygulanamıyor.
-
-## <a name="resource-manager-characteristics"></a>Kaynak Yöneticisi özellikleri
-İki model anlamanıza yardımcı olması için şimdi Kaynak Yöneticisi'ni türleri özelliklerini gözden geçirin:
-
-* Aracılığıyla oluşturulan [Azure portal](https://portal.azure.com/).
-  
-     ![Azure portalına](./media/resource-manager-deployment-model/portal.png)
-  
-     İşlem, depolama ve ağ kaynakları için Resource Manager veya Klasik dağıtım kullanma seçeneğiniz vardır. Seçin **Resource Manager**.
-  
-     ![Resource Manager dağıtımı](./media/resource-manager-deployment-model/select-resource-manager.png)
-* Azure PowerShell cmdlet'lerini Resource Manager sürümüyle oluşturulmuş. Bu komutlar biçimine sahip *fiili AzureRmNoun*.
-
-  ```powershell
-  New-AzureRmResourceGroupDeployment
-  ```
-
-* Aracılığıyla oluşturulan [Azure Resource Manager REST API'si](https://docs.microsoft.com/rest/api/resources/) REST işlemleri için.
-* Azure CLI komutları çalıştırmak aracılığıyla oluşturulan **arm** modu.
-  
-  ```azurecli
-  azure config mode arm
-  azure group deployment create
-  ```
-
-* Kaynak türü içermemesi **(Klasik)** adı. Aşağıdaki resimde türü olarak gösterilir **depolama hesabı**.
-  
-    ![web uygulamasına](./media/resource-manager-deployment-model/resource-manager-type.png)
-
-## <a name="classic-deployment-characteristics"></a>Klasik dağıtım özellikleri
-Ayrıca, hizmet yönetimi modeli olarak Klasik dağıtım modeli bilmeniz.
-
-Klasik dağıtım modelinde oluşturulan kaynakları aşağıdaki ortak özelliklere sahiptir:
-
-* Aracılığıyla oluşturulan [Klasik portal](https://manage.windowsazure.com)
-  
-     ![Klasik portal](./media/resource-manager-deployment-model/classic-portal.png)
-  
-     Veya, Azure portal ve belirtirseniz **Klasik** dağıtımı (için işlem, depolama ve ağ).
-  
-     ![Klasik dağıtım](./media/resource-manager-deployment-model/select-classic.png)
-* Azure PowerShell cmdlet'lerini Service Management sürümünü oluşturulur. Bu komut adları biçimine sahip *fiili AzureNoun*.
-
-  ```powershell
-  New-AzureVM
-  ```
-
-* Aracılığıyla oluşturulan [Hizmet Yönetimi REST API'si](https://msdn.microsoft.com/library/azure/ee460799.aspx) REST işlemleri için.
-* Azure CLI komutları çalıştırmak aracılığıyla oluşturulan **asm** modu.
-
-  ```azurecli
-  azure config mode asm
-  azure vm create
-  ```
-   
-* Kaynak türü içeren **(Klasik)** adı. Aşağıdaki resimde türü olarak gösterilir **depolama hesabı (Klasik)**.
-  
-    ![Klasik türü](./media/resource-manager-deployment-model/classic-type.png)
-
-Azure portalı Klasik dağıtım oluşturulan kaynakları yönetmek için kullanabilirsiniz.
 
 ## <a name="changes-for-compute-network-and-storage"></a>İşlem, ağ ve depolama için değişiklikleri
 Aşağıdaki diyagramda, Resource Manager aracılığıyla dağıtılan işlem, ağ ve depolama kaynakları görüntüler.
@@ -176,9 +109,9 @@ Bir sanal makineyi barındırmak için Klasik çözüm içerir:
 | Kullanılabilirlik Kümeleri |Platformun uygunluğu Sanal Makinelerde "AvailabilitySetName" yapılandırılarak belirtilirdi. Hata etki alanlarının en yüksek sayısı 2’ydi. |Kullanılabilirlik kümesi, Microsoft.Compute Sağlayıcısı tarafından sağlanan bir kaynaktır. Yüksek kullanılabilirliğin gerektiği Sanal Makineler Kullanılabilirlik Kümesi içinde bulunmalıdır. Hata etki alanlarının en yüksek sayısı artık 3’tür. |
 | Benzeşim Grupları |Benzeşim Grupları Sanal Ağlar oluşturmak için gerekliydi. Ancak, Bölgesel Sanal Aağlar girişiyle artık gerekmiyordu. |Basitleştirmek için, Benzeşim Grupları kavramı Azure Resource Manager aracılığıyla sunulan API'lerde yok. |
 | Yük Dengeleme |Bulut Hizmeti oluşturulması dağıtılan Virtual Machines için örtük yük dengeleyici sağlar. |Load Balancer, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Yük dengeli olması gereken Virtual Machines’in birincil ağ arabirimi yük dengeleyiciye baş vurmalıdır. Yük Dengeleyiciler dahili ve harici olabilir. Bir yük dengeleyici örneği (isteğe bağlı) bir sanal makine NIC içerir ve bir yük dengeleyici genel veya özel IP adresi (isteğe bağlı) başvuran IP adresleri arka uç havuzu başvurur. [Daha fazla bilgi edinin.](../virtual-network/resource-groups-networking.md) |
-| Sanal IP Adresi |Bir bulut hizmeti için bir VM eklendiğinde, cloud Services varsayılan VIP'i (sanal IP adresi) alın. Sanal IP Adresi örtük yük dengeleyiciyle ilişkili adrestir. |Genel IP Adresi, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Genel IP Adresi Statik (Ayrılmış) veya Dinamik olabilir. Dinamik Genel IP’ler bir Load Balancer atanabilir. Genel IP’ler Güvenlik Grupları kullanılarak güvenli hale getirilebilir. |
-| Ayrılmış IP Adresi |Azure’da bir IP adresini ayırabilir ve IP Adresinin yapışkan olmasını sağlamak için bunu Bulut Hizmetiyle ilişkilendirebilirsiniz. |Genel IP Adresi "Statik" modunda oluşturulabilir ve bir "Ayrılmış IP Adresi" ile aynı özelliği sunar. Statik Genel IP’ler yalnızca bir Yük dengeleyiciye hemen şimdi atanabilir. |
-| Genel IP Adresi (PIP) / VM |Genel IP adresleri de doğrudan bir VM'ye ilişkilendirilebilir. |Genel IP Adresi, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Genel IP Adresi Statik (Ayrılmış) veya Dinamik olabilir. Ancak, yalnızca dinamik Genel IP’ler, her VM için hemen şimdi bir Genel IP almak amacıyla bir Ağ Arabirimine atanabilir. |
+| Sanal IP Adresi |Bulut Hizmetleri, bir bulut hizmeti için bir VM eklendiğinde varsayılan VIP'i (sanal IP adresi) alır. Sanal IP Adresi örtük yük dengeleyiciyle ilişkili adrestir. |Genel IP Adresi, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Genel IP adresi statik (ayrılmış) veya dinamik olabilir. Dinamik genel IP'ler bir yük dengeleyiciye atanabilir. Genel IP’ler Güvenlik Grupları kullanılarak güvenli hale getirilebilir. |
+| Ayrılmış IP Adresi |Azure’da bir IP adresini ayırabilir ve IP Adresinin yapışkan olmasını sağlamak için bunu Bulut Hizmetiyle ilişkilendirebilirsiniz. |Genel IP adresi statik modunda oluşturulabilir ve ayrılmış bir IP adresi ile aynı özelliği sunar. |
+| Genel IP Adresi (PIP) / VM |Genel IP adresleri de doğrudan bir VM'ye ilişkilendirilebilir. |Genel IP Adresi, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Genel IP adresi statik (ayrılmış) veya dinamik olabilir. |
 | Uç Noktalar |Giriş Uç Noktaları, belirli bağlantı noktaları bağlantısının açık olması için bir Sanal Makinede yapılandırılmalıdır. Sanal makinelere bağlanmanın yaygın modlarında biri de giriş uç noktaları ayarlanarak yapılır. |Gelen NAT kuralları, VM’lere bağlanması için belirli bağlantı noktalarındaki uç noktaların etkinleştirilmesiyle aynı beceriyi gerçekleştirmek için Yük Dengeleyicilerde yapılandırılabilir. |
 | DNS Adı |Bulut hizmeti örtük bir genel benzersiz DNS Adı almalıdır. Örneğin: `mycoffeeshop.cloudapp.net`. |DNS Adları, Genel IP Adresi kaynağında belirtilebilen isteğe bağlı parametrelerdir. Şu biçimde - FQDN'sidir `<domainlabel>.<region>.cloudapp.azure.com`. |
 | Ağ Arabirimleri |Birincil ve İkincil Ağ Arabirimi ve özellikleri Sanal makinenin ağ yapılandırması olarak tanımlanmıştı. |Ağ Arabirimi, Microsoft.Network Sağlayıcısı tarafından sunulan bir kaynaktır. Ağ Arabiriminin yaşam döngüsü bir Sanal Makineye bağlı değildir. (Gerekli) sanal makinenin atanan IP adresi alt ağı sanal ağın (gerekli) sanal makine için ve (isteğe bağlı) bir ağ güvenlik grubuna başvuruyor. |
@@ -193,14 +126,14 @@ Resource Manager dağıtım Klasik dağıtımından kaynaklarınızı geçirmeye
 3. [Iaas kaynaklarına Klasikten Azure Resource Manager Azure PowerShell kullanarak geçirme](../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Iaas kaynaklarını Klasikten Azure Resource Manager'da Azure CLI kullanarak geçirme](../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
-## <a name="frequently-asked-questions"></a>Sık Sorulan Sorular
-**Klasik dağıtım kullanılarak oluşturulan sanal bir ağa dağıtmak için Azure Resource Manager kullanarak bir sanal makine oluşturabilir miyim?**
+## <a name="frequently-asked-questions"></a>Sık sorulan sorular
+**Klasik dağıtım kullanılarak oluşturulan sanal bir ağa dağıtmak için Kaynak Yöneticisi'ni kullanarak bir sanal makine oluşturabilir miyim?**
 
-Bu işlem desteklenmiyor. Azure Resource Manager, Klasik dağıtım kullanılarak oluşturulmuş bir sanal ağ içinde bir sanal makine dağıtmak için kullanamazsınız.
+Bu yapılandırma desteklenmiyor. Klasik dağıtım kullanılarak oluşturulmuş bir sanal ağ içinde bir sanal makine dağıtmak için Kaynak Yöneticisi'ni kullanamazsınız.
 
-**Azure Hizmet Yönetim API'leri kullanılarak oluşturulmuş kullanıcı görüntüsünden Azure Kaynak Yöneticisi'ni kullanarak bir sanal makine oluşturabilir miyim?**
+**Klasik dağıtım modeli kullanılarak oluşturulmuş kullanıcı görüntüsünden Kaynak Yöneticisi'ni kullanarak bir sanal makine oluşturabilir miyim?**
 
-Bu işlem desteklenmiyor. Ancak, hizmet yönetim API'leri kullanılarak oluşturulmuş bir depolama hesabından VHD dosyaları kopyalayın ve bunları Azure Resource Manager aracılığıyla oluşturulan yeni bir hesap ekleyin.
+Bu yapılandırma desteklenmiyor. Ancak, Klasik dağıtım modeli kullanılarak oluşturulmuş bir depolama hesabından VHD dosyaları kopyalayın ve Resource Manager aracılığıyla oluşturulan yeni bir hesap ekleyin.
 
 **Aboneliğimi ilgili kotaya etkisi nedir?**
 

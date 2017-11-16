@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services genişletme
 
@@ -32,7 +32,7 @@ Genişletme ile en çok yedi ek sorgu çoğaltmaları (sekiz toplam sunucunuz da
 
 Sorgu havuzda sahip sorgu çoğaltmaları sayısından bağımsız olarak, işleme iş yüklerinin sorgu çoğaltmalar arasında dağıtılmadı. Tek bir sunucu işlem sunucusu olarak görev yapar. Sorgu çoğaltmaları yalnızca sorgu havuzundaki her çoğaltma arasında eşitlenen modelleri sorguları hizmet. 
 
-İşlemleri tamamlandığında işlem sunucusu ve sorgu çoğaltma sunucusu arasında bir eşitleme gerçekleştirilmelidir. İşlemleri otomatik hale getirme, işlemler işleme başarıyla tamamlandıktan sonra bir eşitleme işlemi yapılandırmak önemlidir.
+İşlemleri tamamlandığında işlem sunucusu ve sorgu çoğaltma sunucusu arasında bir eşitleme gerçekleştirilmelidir. İşlemleri otomatik hale getirme, işlemler işleme başarıyla tamamlandıktan sonra bir eşitleme işlemi yapılandırmak önemlidir. Eşitleme portalında veya PowerShell veya REST API kullanarak el ile gerçekleştirilebilir.
 
 > [!NOTE]
 > Genişleme standart fiyatlandırma katmanı sunucuları için kullanılabilir. Her sorgu çoğaltma sunucunuz ile aynı hızda faturalandırılır.
@@ -58,12 +58,10 @@ Sorgu havuzda sahip sorgu çoğaltmaları sayısından bağımsız olarak, işle
 
 Birincil sunucunuzda tablolu modeller çoğaltma sunucuları ile eşitlenir. Eşitleme tamamlandığında, gelen sorguları çoğaltma sunucusu arasında dağıtma sorgu havuzu başlar. 
 
-### <a name="powershell"></a>PowerShell
-Kullanım [kümesi AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet'i. Belirtin `-Capacity` parametre değeri > 1.
 
 ## <a name="synchronization"></a>Eşitleme 
 
-Yeni sorgu çoğaltmaları sağladığınızda, Azure Analysis Services Modellerinizi genelinde tüm çoğaltma otomatik olarak çoğaltır. El ile eşitleme de gerçekleştirebilirsiniz. Modellerinizi işlerken güncelleştirmeleri sorgu çoğaltmaların arasında eşitlendiğini şekilde bir eşitleme gerçekleştirmeniz gerekir.
+Yeni sorgu çoğaltmaları sağladığınızda, Azure Analysis Services Modellerinizi genelinde tüm çoğaltma otomatik olarak çoğaltır. Portalı veya REST API'yi kullanarak el ile eşitleme de gerçekleştirebilirsiniz. Modellerinizi işlerken güncelleştirmeleri sorgu çoğaltmalarınızı arasında eşitlenir şekilde bir eşitleme gerçekleştirmeniz gerekir.
 
 ### <a name="in-azure-portal"></a>Azure portalında
 
@@ -72,18 +70,22 @@ Yeni sorgu çoğaltmaları sağladığınızda, Azure Analysis Services Modeller
 ![Genişleme kaydırıcı](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>REST API
+Kullanım **eşitleme** işlemi.
 
-Bir model Eşitle   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>Bir model Eşitle   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-Bir model eşitleme durumunu Al  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>Eşitleme durumunu Al  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+Eşitleme Powershell'den, çalıştırmak için [güncelleştirmek için en son](https://github.com/Azure/azure-powershell/releases) 5.01 veya daha yüksek AzureRM modülü. Kullanım [eşitleme AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Bağlantılar
 
 Sunucunuzun genel bakış sayfasında, iki sunucu adları vardır. Henüz bir sunucu için genişleme yapılandırmadıysanız, her iki sunucu adları aynı çalışır. Bir sunucu için genişleme yapılandırdıktan sonra bağlantı türüne bağlı olarak uygun sunucu adını belirtmek gerekir. 
 
-Power BI Desktop, Excel ve özel uygulamalar gibi son kullanıcı istemci bağlantıları için kullanmak **sunucu adı**. 
+Power BI Desktop, Excel ve özel uygulamalar kullanma gibi son kullanıcı istemci bağlantıları için **sunucu adı**. 
 
 Azure işlev uygulamalarının ve AMO, SSMS, SSDT ve PowerShell bağlantı dizeleri için kullanma **yönetim sunucusu adı**. Özel bir yönetim sunucusu adını içeren `:rw` (okuma-yazma) niteleyicisi. Tüm işlemleri yönetim sunucu üzerinde meydana gelir.
 

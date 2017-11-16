@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makinelerde SQL Server için performansa yönelik en iyi yöntemler
 
@@ -113,7 +113,7 @@ Premium depolama (DS serisi, DSv2 serisi ve GS serisi) desteği VM'ler için etk
 
   * Premium depolama (dev/test senaryoları) kullanmıyorsanız, veri diski tarafından desteklenen maksimum sayısı eklemek için önerilir, [VM boyutu](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ve Disk şeritleme kullanın.
 
-* **İlke önbelleği**: için Premium depolama veri diskler, veri dosyaları ve TempDB yalnızca barındırma veri disklerde okuma önbelleği sağlar. Premium depolama kullanmıyorsanız, tüm veri disklerde önbelleğe alma etkinleştirmeyin. Disk önbelleği, yapılandırma yönergeleri görmek için aşağıdaki konuları: [kümesi AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) ve [kümesi AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+* **İlke önbelleği**: için Premium depolama veri diskler, veri dosyaları ve TempDB yalnızca barındırma veri disklerde okuma önbelleği sağlar. Premium depolama kullanmıyorsanız, tüm veri disklerde önbelleğe alma etkinleştirmeyin. Disk önbelleği yapılandırma ile ilgili yönergeler için aşağıdaki konulara bakın. Klasik (ASM) dağıtım modeli için bkz: [kümesi AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) ve [kümesi AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager dağıtım modeli için bkz: [kümesi AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) ve [kümesi AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
   > [!WARNING]
   > Veritabanında bozulma olasılığını önlemek için Azure VM Disk önbellek ayarı değiştirirken SQL Server hizmetini durdurun.

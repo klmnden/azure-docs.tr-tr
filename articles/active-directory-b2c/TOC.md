@@ -90,6 +90,7 @@
 ## Başvuru
 ### [Sürüm notları](active-directory-b2c-developer-notes-custom.md)
 ### [SSO oturum sağlayıcıları](active-directory-b2c-reference-sso-custom.md)
+### [Dil özelleştirmesi](active-directory-b2c-language-customization-custom.md)
 ### [Güven Altyapısı tanımı](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Başvuru

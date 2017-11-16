@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Ortak Azure Cosmos DB kullanım durumları
 Bu makalede Azure Cosmos DB için birkaç ortak kullanım durumları genel bir bakış sağlar.  Bu makalede önerileri Cosmos DB ile Uygulamanızı geliştirirken bir başlangıç noktası olarak hizmet.   
@@ -39,7 +39,7 @@ Azure Cosmos DB çok çeşitli uygulamalar ve kullanım örnekleri içinde kulla
 
 Aşağıdaki genel ambition ile yüksek performanslı uygulamalar için oldukça uygun hale bazı Azure Cosmos DB öznitelikleridir.
 
-* Azure Cosmos DB yerel olarak yüksek kullanılabilirlik ve ölçeklenebilirlik için verilerinizi bölümler. Azure Cosmos DB % 99,99 kullanılabilirlik, performans, düşük gecikme süresi ve tutarlılığı garanti sunar.
+* Azure Cosmos DB yerel olarak yüksek kullanılabilirlik ve ölçeklenebilirlik için verilerinizi bölümler. Azure Cosmos DB kullanılabilirlik, performans, düşük gecikme süresi ve esnek tutarlılık tutarlılığı tüm tek bölge ve tüm bölgeli hesapları için % 99,99 garantileri sağlar ve kullanılabilirlik tüm bölgeli veritabanı hesaplarda %99.999 okuyun.
 * Azure Cosmos DB yedeklenen SSD depolama ile düşük gecikme süreli milisaniyelik sipariş yanıt sürelerini sahiptir.
 * Tam esneklik ve düşük maliyet performans oranı için tutarlılık düzeylerini nihai, tutarlı öneki, oturum ve sınırlanmış eskime durumu gibi Azure Cosmos veritabanı desteği sağlar. Veritabanı Hizmet düzeyleri tutarlılık Azure Cosmos DB olarak kadar esnekliği sağlar. 
 * Azure Cosmos DB bağımsız olarak depolama ve işleme ölçümler bir esnek veri kolay fiyatlandırma modeli vardır.

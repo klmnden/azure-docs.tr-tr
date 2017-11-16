@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 6166e20a4652379dc9eeffe522feb651f5e57ea2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2be36bce1b4cffdab2d25d150bd5a0e8451e422d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="security-best-practices-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Azure AD hesapları ile Azure çok faktörlü kimlik doğrulaması kullanmak için güvenlik en iyi uygulamalar
 
@@ -32,7 +32,7 @@ Tüm kullanıcılar için Azure MFA'yı etkinleştirmek için iki yolu vardır.
 * Her bir kullanıcı (ya da Azure MFA, Azure AD Premium veya Enterprise Mobility + Security) için lisans satın alma
 * Multi-Factor Auth sağlayıcısı ve ödeme kullanıcı başına veya kimlik doğrulaması başına oluşturur.
 
-### <a name="licenses"></a>Lisansları
+### <a name="licenses"></a>Lisanslar
 ![EMS](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 Azure AD Premium veya Enterprise Mobility + güvenlik lisansları varsa zaten Azure MFA gerekir. Kuruluşunuzun tüm kullanıcılar için iki aşamalı doğrulama özelliği genişletmek için ek bir şey gerekmez. Yalnızca bir kullanıcıya bir lisans atamanız gerekir ve ardından MFA üzerinde kapatabilirsiniz.
@@ -83,7 +83,7 @@ Kullanıcı Portalı Self Servis kapasitelerini ve tam bir kullanıcı yönetimi
 * Yükleyin ve ASP.NET v2.0.507207 kaydedin
 * Bu sunucuyu bir çevre ağında dağıtılan emin olun
 
-### <a name="app-passwords"></a>Uygulama parolaları
+### <a name="app-passwords"></a>Uygulama Parolaları
 Kuruluşunuz SSO Azure AD ile birleştirildiyse ve Azure MFA kullanma olacak, ardından aşağıdaki ayrıntıları dikkat edin:
 
 * Uygulama parolası, Azure AD tarafından doğrulanır ve bu nedenle Federasyon atlar. Federasyon yalnızca uygulama parolaları ayarlarken kullanılır.

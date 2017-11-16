@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>En iyi güvenlik uygulamaları Azure kimlik yönetimi ve erişim denetimi
 Birçok yeni bir sınır katman geleneksel ağ merkezli açısından bu rolü ele güvenlik için kimlik göz önünde bulundurun. Bu birincil Özet evrimi güvenlik dikkat ve Yatırımlar ağ çevreyi hale giderek porous ve bu çevre savunması kez bunlar olabildiğince etkili olamaz olgu gelen için önce Patlaması olan [KCG](http://aka.ms/byodcg) cihazlar ve bulut uygulamaları.
@@ -115,7 +115,7 @@ Dengeleme [Azure Resource Manager](../azure-resource-manager/resource-group-over
 
 Kaynakları nasıl oluşturulduğunu denetlediğiniz olmayan kuruluşlar, hizmet ihtiyaç duydukları olandan daha fazla kaynak oluşturarak kötüye kullanıcıları daha açıktır. Kaynak oluşturma işlemi sağlamlaştırma, çok kiracılı senaryo güvenliğini sağlamak için önemli bir adımdır.
 
-Makaleyi okuyarak Azure Resource Manager ile ilkeleri oluşturma hakkında daha fazla bilgi edinebilirsiniz [kaynakları yönetmek ve erişimi denetlemek için ilke kullanma](../azure-resource-manager/resource-manager-policy.md).
+Makaleyi okuyarak Azure Resource Manager ile ilkeleri oluşturma hakkında daha fazla bilgi edinebilirsiniz [Azure ilke nedir?](../azure-policy/azure-policy-introduction.md).
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>SaaS uygulamaları için kimlik özelliklerden yararlanacak şekilde Geliştirici Kılavuzu
 Kullanıcı Kimliği işlevden birçok senaryoda kullanıcılar eriştiğinde [SaaS uygulamaları](https://azure.microsoft.com/marketplace/active-directory/all/) ile şirket içi tümleştirilebilir veya Bulut dizini. Öncelikle, geliştiriciler bu uygulamaları gibi geliştirmek için güvenli bir yöntem kullanmanızı öneririz [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD ile bir hizmet olarak kimlik sağlayarak geliştiriciler için endüstri standardı protokolleri gibi desteği için kimlik doğrulama basitleştirir [OAuth 2.0](http://oauth.net/2/) ve [Openıd Connect](http://openid.net/connect/), de olarak açık kaynak kitaplıkları farklı platformlar için.

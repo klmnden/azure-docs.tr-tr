@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ebf63cd6d0f9e62d1001d74ce06b4849e08c0de0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Search dizini için veri kopyalama
 
@@ -51,7 +51,7 @@ Aşağıdaki özellikleri, bağlantılı Azure Search hizmeti için desteklenir:
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 > [!IMPORTANT]
-> Azure Search'te Azure Search dizinine bir bulut veri deposundan veri kopyalama hizmet bağlandığında, Azure tümleştirmesi çalışma zamanı connactVia açık bölgede ile başvurmanız gerekir. Bölge, Azure Search bulunduğu bir ayarlayın. [Azure tümleştirmesi çalışma zamanı] (kavramları tümleştirme runtime.md #azure-tümleştirme-çalışma zamanı)'dan daha fazla bilgi edinin.
+> Azure Search'te Azure Search dizinine bir bulut veri deposundan veri kopyalama hizmet bağlandığında, Azure tümleştirmesi çalışma zamanı connactVia açık bölgede ile başvurmanız gerekir. Bölge, Azure Search bulunduğu bir ayarlayın. ' Dan daha fazla bilgi edinin [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Örnek:**
 
@@ -175,7 +175,7 @@ Aşağıdaki tabloda, bir Azure Search veri türü veya desteklenip desteklenmed
 | Int32 | E |
 | Int64 | E |
 | Çift | E |
-| Boole değeri | E |
+| Boole | E |
 | DataTimeOffset | E |
 | Dize dizisi | N |
 | GeographyPoint | N |

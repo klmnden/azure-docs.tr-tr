@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0ffb0b82acd002cb02adc6e82a447d2b788496f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-your-azure-ad-directory"></a>Azure AD dizininizi yönetme
 
@@ -121,4 +121,4 @@ Azure AD, bir dizinin silinmesi için belirli koşulların sağlanmasını gerek
 * [Azure Multi-Factor Authentication Forumu](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
 * [Azure soruları için Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
-* [Azure AD’de yönetici rolü atama](active-directory-assign-admin-roles.md)
+* [Azure AD’de yönetici rolü atama](active-directory-assign-admin-roles-azure-portal.md)

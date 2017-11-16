@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Birden çok hizmet yapılandırmalarını kullanarak projenizi Azure yapılandırma
 Bir Azure bulut hizmeti projesi iki yapılandırma dosyalarını içerir: ServiceDefinition.csdef ve ServiceConfiguration.cscfg. Bu dosyalar Azure bulut hizmeti uygulamanız ile paketlenir ve Azure'da dağıtılabilir.
@@ -30,7 +30,7 @@ Microsoft Visual Studio için Azure Araçları bu dosyalarda depolanan yapıland
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Hizmet yapılandırma dosyalarını ve hizmet tanımı için temel alınan şemaları hakkında daha fazla bilgi için bkz: [şema başvurusu](https://msdn.microsoft.com/library/azure/dd179398.aspx). Hizmet yapılandırması hakkında daha fazla bilgi için bkz: [bulut hizmetlerini yapılandırma](cloud-services/cloud-services-how-to-configure.md).
+Hizmet yapılandırma dosyalarını ve hizmet tanımı için temel alınan şemaları hakkında daha fazla bilgi için bkz: [.csdef XML Şeması](cloud-services/schema-csdef-file.md) ve [.cscfg XML Şeması](cloud-services/schema-cscfg-file.md) makaleleri. Hizmet yapılandırması hakkında daha fazla bilgi için bkz: [bulut hizmetlerini yapılandırma](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## <a name="configuring-role-properties"></a>Rol özelliklerini yapılandırma
 Aşağıdaki bölümlerde işaret bazı farklar olsa da bir web rolü ve çalışan rolü için özellik sayfalarını benzerdir.
@@ -88,7 +88,7 @@ Kullanabileceğiniz **yerel depolama** bir rol için bir veya daha fazla yerel d
 ## <a name="certificates-page"></a>Sertifikalar sayfası
 Üzerinde **sertifikaları** sayfasında, sertifikalar rolünüze ile ilişkilendirebilirsiniz. Eklediğiniz sertifikalar HTTPS uç noktalarınızı yapılandırmak için kullanılabilir **uç noktaları** özellik sayfası.
 
-**Sertifikaları** özellik sayfası, hizmet yapılandırması, sertifikalar hakkında bilgi ekler. Hizmetiniz ile sertifikalarınızı paketlenmiş değil unutmayın; sertifikalarınızı ayrı olarak Azure karşıya yüklediğiniz gerekir [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885).
+**Sertifikaları** özellik sayfası, hizmet yapılandırması, sertifikalar hakkında bilgi ekler. Hizmetiniz ile sertifikalarınızı paketlenmiş değil unutmayın; sertifikalarınızı ayrı olarak Azure karşıya yüklediğiniz gerekir [Azure portal](http://portal.azure.com).
 
 Bir sertifika, rolüyle ilişkilendirmek için sertifika için bir ad sağlayın. Üzerinde bir HTTPS uç noktası yapılandırdığınızda sertifikaya başvurmak için bu adı kullanın **uç noktaları** özellik sayfası. Ardından, sertifika deposuna olup olmadığını belirtin **yerel makine** veya **geçerli kullanıcı** ve depo adını. Son olarak, sertifikanın parmak izini girin. Sertifika (My) deposunda geçerli User\Personal içinde ise, sertifika doldurulan bir listeden seçerek sertifikanın parmak izi girebilirsiniz. Başka bir konumda bulunuyorsa, parmak izi değeri el ile girin.
 

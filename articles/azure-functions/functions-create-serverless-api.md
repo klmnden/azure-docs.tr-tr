@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure işlevleri kullanarak sunucusuz bir API oluşturma
 
@@ -67,7 +67,7 @@ Ardından, yeni API yüzeyi ile çalışma görmek için işlevinizi test.
 
 ## <a name="proxies-overview"></a>Proxy'leri genel bakış
 
-Sonraki bölümde, bir proxy üzerinden API'nizi belirir. Azure işlevleri proxy'leri istekleri iletmek için diğer kaynakları sağlayan bir önizleme özelliğidir. Yalnızca Bu uç HTTP tetikleyicisi, ancak ne zaman yürütmek için kodu yazmak yerine adlandırılan gibi bir HTTP uç noktası tanımlamak, uzak bir uygulama için bir URL girin. Bu, istemcilerin kullanmak için kolay olan tek bir API yüzeyi içine birden çok API kaynağı oluşturmak sağlar. API'nizi mikro olarak oluşturmak isterseniz, bu özellikle yararlıdır.
+Sonraki bölümde, bir proxy üzerinden API'nizi belirir. Azure işlevleri proxy'leri için diğer kaynakları isteklerini iletmek sağlar. Yalnızca Bu uç HTTP tetikleyicisi, ancak ne zaman yürütmek için kodu yazmak yerine adlandırılan gibi bir HTTP uç noktası tanımlamak, uzak bir uygulama için bir URL girin. Bu, istemcilerin kullanmak için kolay olan tek bir API yüzeyi içine birden çok API kaynağı oluşturmak sağlar. API'nizi mikro olarak oluşturmak isterseniz, bu özellikle yararlıdır.
 
 Bir proxy gibi tüm HTTP kaynağa işaret edebilir:
 - Azure İşlevleri 
@@ -75,7 +75,7 @@ Bir proxy gibi tüm HTTP kaynağa işaret edebilir:
 - Docker kapsayıcılarında [Linux uygulama hizmeti](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Barındırılan herhangi bir API'yi
 
-Proxy'leri hakkında daha fazla bilgi için bkz: [Azure işlevleri proxy'leri (Önizleme) çalışmaya].
+Proxy'leri hakkında daha fazla bilgi için bkz: [Azure işlevleri proxy'leri çalışma].
 
 ## <a name="create-your-first-proxy"></a>İlk proxy oluşturma
 
@@ -97,7 +97,7 @@ Adımlarını yineleyin [bir işlev uygulaması oluşturma](https://docs.microso
 ### <a name="creating-a-proxy-on-the-frontend"></a>Ön uç üzerinde bir proxy sunucu oluşturma
 
 1. Ön uç işlevi uygulamanızı portalında için geri gidin.
-1. Sol taraftaki gezinti artı işaretini tıklatın '+' yanındaki "Proxy'leri (Önizleme)".
+1. Sol taraftaki gezinti artı işaretini tıklatın '+' "Proxy" yanındaki.
     ![Bir proxy sunucu oluşturma](./media/functions-create-serverless-api/creating-proxy.png)
 1. Tabloda belirtildiği gibi proxy ayarlarını kullanın. 
 
@@ -187,9 +187,9 @@ Bu öğreticide, derleme ve Azure işlevleri bir API özelleştirme öğrendiniz
 Daha fazla API'nizi geliştirdikçe aşağıdaki başvurular yararlı olabilir:
 
 - [Azure işlevleri HTTP ve Web kancası bağlamaları](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Azure işlevleri proxy'leri (Önizleme) çalışmaya]
+- [Azure işlevleri proxy'leri çalışma]
 - [Azure işlevleri API (Önizleme) belgeleme](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Azure işlevleri proxy'leri (Önizleme) çalışmaya]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Azure işlevleri proxy'leri çalışma]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

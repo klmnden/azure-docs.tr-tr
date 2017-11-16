@@ -1,29 +1,26 @@
 ---
-title: "Kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulama için yapılandırma | Microsoft Docs"
-description: "Bu öğretici kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulama için nasıl yapılandırılacağı açıklanmaktadır."
-keywords: 
+title: "Kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API'sini çağırmak özel bir uygulama için nasıl yapılandırılacağı | Microsoft Docs"
+description: "Bu makalede, kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulama için nasıl yapılandırılacağı açıklanmaktadır."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Kimlik doğrulama ve yetkilendirme Azure zaman serisi Insights API'si
 
-Bu makalede Azure zaman serisi Öngörüler API çağrılarının özel bir uygulamasının nasıl yapılandırılacağını açıklar.
+Bu makalede, kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulamada kullanılan nasıl yapılandırılacağı açıklanmaktadır.
 
 ## <a name="service-principal"></a>Hizmet sorumlusu
 
@@ -102,11 +99,9 @@ Ayrıntılı adımlar şunlardır:
     string accessToken = token.AccessToken;
     ```
 
+Uygulama kimliği ve anahtarı uygulamanızın Azure zaman serisi Insight ile kimlik doğrulaması yapmak için kullanın. 
+
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Uygulama kimliği ve anahtarı uygulamanızda kullanın. Zaman serisi Öngörüler API çağrılarının örnek kod için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
-
-## <a name="see-also"></a>Ayrıca bkz.
-
-* [Sorgu API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) için tam sorgu API Başvurusu
-* [Azure portalında bir hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Zaman serisi Öngörüler API çağrılarının örnek kod için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
+- API başvuru bilgileri için bkz: [sorgu API Başvurusu](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
+- [Azure portalında bir hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)

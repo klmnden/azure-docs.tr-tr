@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: e695cb375492c163350bcd7bfcb1dbdbc3f3c48f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: d18f5f9e75cd815b7f9622498f16624cf375d6bd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Azure kaynaklarınızı düzenlemek için etiketleri kullanma
 
@@ -149,7 +149,7 @@ Faturalama etiketleriyle destekleyen hizmetler için kullanım CSV yüklediğini
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Özelleştirilmiş ilkeler kullanarak aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke tüm kaynakların belirli bir etiket için bir değere sahip gerektirebilir. Daha fazla bilgi için bkz: [kaynakları yönetmek ve erişimi denetlemek için ilkeleri kullanma](resource-manager-policy.md).
+* Özelleştirilmiş ilkeler kullanarak aboneliğinizi arasında kısıtlamaları ve kuralları uygulayabilirsiniz. Tanımladığınız bir ilke tüm kaynakların belirli bir etiket için bir değere sahip gerektirebilir. Daha fazla bilgi için bkz: [Azure ilke nedir?](../azure-policy/azure-policy-introduction.md).
 * Kaynakları dağıtırken Azure PowerShell kullanarak bir giriş için bkz: [Azure PowerShell kullanarak Azure Resource Manager ile](powershell-azure-resource-manager.md).
 * Kaynakları dağıtırken Azure CLI kullanarak bir giriş için bkz: [Mac, Linux ve Windows Azure Resource Manager ile Azure CLI kullanarak](xplat-cli-azure-resource-manager.md).
 * Portalı kullanarak bir giriş için bkz: [Azure kaynaklarınızı yönetmek için Azure portalını kullanarak](resource-group-portal.md).  

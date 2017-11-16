@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>Model yönetim komut satırı arabirimi başvurusu
 
@@ -69,6 +69,8 @@ Yerel değişkenleri:
                      the active MLC env.
 
 **Dağıtım ortamını ayarlama**
+
+Kurulum komutu katkıda bulunan abonelik erişimi gerektirir. Yoksa, en az içine dağıtıyorsanız kaynak grubuna katkıda bulunan erişmeniz gerekir. İkinci yapmak için kurulum komutunu kullanarak bir parçası olarak kaynak grubu adı belirtmeniz gerekir `-g` bayrağı. 
 
 Dağıtımı için iki seçenek vardır: *yerel* ve *küme*. Ayarı `--cluster` (veya `-c`) bayrağı ACS küme hazırlar Küme dağıtımı sağlar. Temel kurulum söz dizimi aşağıdaki gibidir:
 

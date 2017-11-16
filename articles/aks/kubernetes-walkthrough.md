@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d774f776bf4ef5434b0748e50b3064f47c834b7e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 84f542340f62194a31817a8e358d75c0d0f103ee
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Bir Azure kapsayıcı hizmeti (AKS) kümeyi dağıtma
 
@@ -33,7 +33,7 @@ Bu hızlı başlangıç Kubernetes kavramlar, Kubernetes bakın hakkında ayrın
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI Sürüm 2.0.20 çalıştırıyorsanız bu hızlı başlangıç yükleyip CLI yerel olarak kullanmak seçerseniz, gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
+Azure CLI Sürüm 2.0.21 çalıştırıyorsanız bu hızlı başlangıç yükleyip CLI yerel olarak kullanmak seçerseniz, gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Azure aboneliğiniz için AKS Önizleme etkinleştirme
 AKS önizlemede olsa da, yeni küme oluşturma aboneliğinizi bir özellik bayrağı gerektirir. Bu özellik için kullanmak istediğiniz abonelikleri herhangi bir sayıda isteyebilir. Kullanım `az provider register` komutu AKS sağlayıcısını kaydetmek için:
@@ -74,7 +74,7 @@ az group create --name myResourceGroup --location eastus
 Aşağıdaki örnek adlı bir küme oluşturur *myK8sCluster* bir düğümü.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
 ```
 
 Birkaç dakika sonra komut tamamlanır ve küme hakkında JSON tarafından biçimlendirilmiş bilgiler gösterilir.

@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 764bbb95b661bb750d7802ee5996d8a491be928d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 85be41cd6d355e4a38eceacb5589c1df6029ad16
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Kubernetes Pano Azure kapsayıcı hizmeti (AKS)
 
-Azure CLI Kubernetes Pano başlatmak için kullanılabilir. Bu belge Kubernetes Pano Azure CLI ile başlayan aracılığıyla anlatılmaktadır ve ayrıca bazı temel Pano işlemleri aracılığıyla anlatılmaktadır. Kubernetes Pano bakın, daha fazla bilgi için [Kubernetes Web kullanıcı Arabirimi Panosu](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
+Azure CLI Kubernetes Pano başlatmak için kullanılabilir. Bu belge Kubernetes Pano Azure CLI ile başlayan aracılığıyla anlatılmaktadır ve ayrıca bazı temel Pano işlemleri aracılığıyla anlatılmaktadır. Kubernetes Pano bakın, daha fazla bilgi için [Kubernetes Web kullanıcı Arabirimi Panosu](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve kümeyle bir kubectl bağlantısı kurduğunuz kabul edilmektedir. Bu öğelere gereksiniminiz varsa bkz. [AKS hızlı başlangıç](./kubernetes-walkthrough.md).
 
-Ayrıca Azure CLI sürüm 2.0.20 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için az --version komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
+Ayrıca Azure CLI Sürüm 2.0.21 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için az --version komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
 ## <a name="start-kubernetes-dashboard"></a>Başlangıç Kubernetes Panosu
 

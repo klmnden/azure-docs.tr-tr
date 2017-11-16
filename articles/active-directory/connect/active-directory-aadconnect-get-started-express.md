@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3b634bc36e01f8586b6645515942c049701c30e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama
 Kimlik doğrulaması için [parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md) özelliğine ve tek ormanlı bir topolojiye sahipseniz Azure AD Connect **Hızlı Ayarları** kullanılır. **Hızlı Ayarlar** varsayılan seçenek olup yaygın olarak dağıtılan senaryo için kullanılır. Şirket içi dizininizi buluta genişletmek için yalnızca birkaç tıklama yapmanız yeterli.
@@ -39,7 +39,7 @@ Bu adımların nasıl gerçekleştirildiğini [videolar](#videos) bölümünden 
    ![Azure AD'ye Bağlanma](./media/active-directory-aadconnect-get-started-express/connectaad.png) Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. AD DS'ye Bağlanma ekranında kuruluş yöneticisi hesabına ilişkin kullanıcı adını ve parolayı girin. Etki alanı bölümünü NetBIOS veya FQDN biçiminde (örneğin, FABRIKAM\yönetici veya fabrikam.com\yönetici) girebilirsiniz. **İleri**’ye tıklayın.  
    ![AD DS'ye Bağlanma](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. [**Azure AD oturum açma yapılandırması**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) sayfası, yalnızca [önkoşullar](active-directory-aadconnect-prerequisites.md) bölümündeki [etki alanlarınızı doğrulama](../active-directory-add-domain.md) adımını tamamlamamış olmanız halinde görüntülenir.
+7. [**Azure AD oturum açma yapılandırması**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) sayfası, yalnızca [önkoşullar](active-directory-aadconnect-prerequisites.md) bölümündeki [etki alanlarınızı doğrulama](../active-directory-domains-add-azure-portal.md) adımını tamamlamamış olmanız halinde görüntülenir.
    ![Doğrulanmamış etki alanları](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
    Bu sayfayı görüyorsanız **Eklenmedi** ve **Doğrulanmadı** olarak işaretlenen tüm etki alanlarını gözden geçirin. Kullandığınız etki alanlarının Azure AD'de doğrulanmış olduğundan emin olun. Etki alanlarınızı doğruladıktan sonra Yenile simgesine tıklayın.
 8. Yapılandırma için hazır ekranında **Yükle**'ye tıklayın.

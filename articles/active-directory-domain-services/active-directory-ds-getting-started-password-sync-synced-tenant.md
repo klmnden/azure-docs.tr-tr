@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/18/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: fb5e1e6f03c47afc8eba5f469a985a38c0e542d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b658bc91723c8384b91eb62e8506c82aa5112509
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme
 Önceki görevlerde Azure Active Directory (Azure AD) kiracınız için Azure Active Directory Domain Services hizmetini etkinleştirdiniz. Sıradaki görev, NT LAN Manager (NTLM) ve Kerberos kimlik doğrulaması için gereken kimlik bilgisi karmalarının Azure AD Domain Services ile eşitlemesini etkinleştirmektir. Kimlik bilgisi eşitlemesini ayarladıktan sonra kullanıcılar, şirket kimlik bilgileri ile yönetilen etki alanında oturum açabilir.
@@ -62,7 +62,7 @@ Azure AD Connect'i yükleme talimatları şu makalede bulunabilir - [Azure AD Co
 ### <a name="enable-synchronization-of-ntlm-and-kerberos-credential-hashes-to-azure-ad"></a>NTLM ve Kerberos kimlik bilgisi karmalarını Azure AD'ye eşitlemeyi etkinleştirme
 Aşağıdaki PowerShell betiğini tüm AD ormanlarında çalıştırın. Bu betik tüm şirket içi kullanıcıların NTLM ve Kerberos parola karmalarının Azure AD kiracınızla eşitlenmesini sağlar. Betik ayrıca Azure AD Connect'te tam eşleşme başlatır.
 
-```
+```powershell
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
 $azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"  
 Import-Module adsync  

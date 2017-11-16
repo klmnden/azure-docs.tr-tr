@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: e35bbd31f39722c2e95ce58772dc6bd5eaf839a0
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 307741d0792b34332d98bfa4f2d62c9fd1cf07a1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="staging-an-application-in-azure"></a>Bir Azure uygulamasında hazırlama
 Paketlenmiş bir uygulama, uygulama Internet üzerinden erişilebilir üretim ortamına geçmeden önce sınanacak Azure hazırlama ortamında dağıtılabilir. Yalnızca Azure tarafından oluşturulan karıştırılmış bir URL ile aşamalı uygulama erişimi hazırlama ortamında tam olarak üretim ortamı gibi olmasıdır. Uygulamanızın düzgün çalıştığını doğruladıktan sonra üretim ortamına bir sanal IP (VIP) değiştirme gerçekleştirerek dağıtılabilir.
@@ -72,4 +72,4 @@ Başarıyla bir dağıtıma hazırlanan ve hazırlama dağıtımda olan VIP'ler 
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Azure'da VIP'ler takas tarafından hizmet yükseltmesi üretime dağıtma]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+[Azure'da VIP'ler takas tarafından hizmet yükseltmesi üretime dağıtma]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production

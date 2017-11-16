@@ -1,55 +1,63 @@
 ---
-title: "Azure Zaman Serisi Görüşleri ortamına olayları gönderme | Microsoft Docs"
-description: "Bu öğretici, olayları Zaman Serisi Görüşleri ortamınıza gönderme adımlarını içerir."
-keywords: 
-services: tsi
-documentationcenter: 
+title: "Bir Azure zaman serisi Öngörüler ortama olayları göndermek nasıl | Microsoft Docs"
+description: "Bu öğretici, oluşturmak, olay hub'ı yapılandırmak ve Azure zaman serisi Insights'ta gösterilmesini itme olaylara bir örnek uygulamayı çalıştırın açıklanmaktadır."
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Olay hub’ı kullanarak olayları Zaman Serisi Görüşleri ortamına gönderme
-
-Bu öğreticide, olay hub’ının nasıl oluşturulduğu ve yapılandırıldığı, ayrıca olayları göndermek için örnek bir uygulamanın nasıl çalıştırıldığı açıklanır. JSON biçiminde olaylar içeren bir olay hub’ınız mevcutsa bu öğreticiyi atlayabilir ve [zaman serisi görüşlerinde](https://insights.timeseries.azure.com) ortamınızı görüntüleyebilirsiniz.
+Bu makalede oluşturmak ve olay hub'ı yapılandırmak nasıl açıklar ve anında iletme olaylara bir örnek uygulamayı çalıştırın. Varolan bir event hub'olaylarla JSON biçiminde varsa, Bu öğretici atlayın ve ortamınızdaki görüntülemek [zaman serisi Öngörüler](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Olay hub’ını yapılandırma
-1. Olay hub’ı oluşturmak için, Olay Hub’ı [belgelerindeki](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) yönergeleri izleyin.
+1. Olay hub’ı oluşturmak için, Olay Hub’ı [belgelerindeki](../event-hubs/event-hubs-create.md) yönergeleri izleyin.
 
-2. Özel olarak yalnızca Zaman Serisi Görüşleri olay kaynağınız tarafından kullanılan bir tüketici grubu oluşturduğunuzdan emin olun.
+2. Arama **olay hub'ı** arama çubuğunda. Tıklatın **olay hub'ları** döndürülen listedeki.
 
-  > [!IMPORTANT]
-  > Bu tüketici grubunun başka hiçbir hizmet (örneğin, Stream Analytics işi veya başka bir Zaman Serisi Görüşleri ortamı) tarafından kullanılmadığından emin olun. Tüketici grubu başka hizmetler tarafından kullanılıyorsa, bu ortam ve diğer hizmetler için okuma işlemi olumsuz etkilenir. Tüketici grubu olarak “$Default” kullanıyorsanız, bu diğer okuyucular tarafından olası yeniden kullanıma yol açabilir.
+3. Olay hub'ınızı adına tıklayarak seçin.
+
+4. Altında **varlıklar** Orta yapılandırma penceresinde **olay hub'ları** yeniden.
+
+5. Olay hub'ı yapılandırmak için adını seçin.
 
   ![Olay hub’ı tüketici grubunu seçme](media/send-events/consumer-group.png)
 
-3. Olay hub’ında, csharp örneğinde olay göndermek için kullanılan “MySendPolicy” ilkesini oluşturun.
+6. Altında **varlıklar**seçin **tüketici grupları**.
+ 
+7. Özel olarak yalnızca Zaman Serisi Görüşleri olay kaynağınız tarafından kullanılan bir tüketici grubu oluşturduğunuzdan emin olun.
+
+   > [!IMPORTANT]
+   > Bu tüketici grubunun başka hiçbir hizmet (örneğin, Stream Analytics işi veya başka bir Zaman Serisi Görüşleri ortamı) tarafından kullanılmadığından emin olun. Tüketici grubu tarafından kullanılıyorsa, hizmetleri, okuma işlemi olumsuz şekilde etkilenir bu ortam ve diğer hizmetler için. Tüketici grubu olarak “$Default” kullanıyorsanız, bu diğer okuyucular tarafından olası yeniden kullanıma yol açabilir.
+
+8. Altında **ayarları** başlığını seçin **paylaşım erişim ilkeleri**.
+
+9. Olay hub'ına, oluşturma **MySendPolicy** csharp örnek olayları göndermek için kullanılır.
 
   ![Paylaşılan erişim ilkeleri’ni seçin ve Ekle düğmesine tıklayın](media/send-events/shared-access-policy.png)  
 
   ![Yeni paylaşılan erişim ilkesi ekleme](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Zaman Serisi Görüşleri olay kaynağı oluşturma
-1. Bir olay kaynağı oluşturmadıysanız, olay kaynağını oluşturmak için [bu yönergeleri](time-series-insights-add-event-source.md) izleyin.
+1. Bir olay kaynağı oluşturmadıysanız, olay kaynağını oluşturmak için [bu yönergeleri](time-series-insights-how-to-add-an-event-source-eventhub.md) izleyin.
 
-2. Zaman damgası özellik adı olarak “deviceTimestamp” değerini belirtin; bu özellik, csharp örneğinde gerçek zaman damgası olarak kullanılmıştır. Zaman damgası özellik adı büyük/küçük harfe duyarlıdır ve olay hub’ına JSON olarak gönderildiğinde değerleri __yyyy-AA-ggTSS:dd:ss.FFFFFFFK__ biçiminde olmalıdır. Özellik olayda mevcut değilse olay hub'ı sıraya alınan zamanı kullanılır.
+2. Belirtin **deviceTimestamp** zaman damgası özellik adı olarak – bu özellik C# örnek gerçek zaman damgası olarak kullanılır. Zaman damgası özellik adı büyük/küçük harfe duyarlıdır ve olay hub’ına JSON olarak gönderildiğinde değerleri __yyyy-AA-ggTSS:dd:ss.FFFFFFFK__ biçiminde olmalıdır. Özellik olayda mevcut değilse olay hub'ı sıraya alınan zamanı kullanılır.
 
   ![Olay kaynağı oluşturma](media/send-events/event-source-1.png)
 
 ## <a name="sample-code-to-push-events"></a>Olayları göndermek için kullanılacak örnek kod
-1. “MySendPolicy” olay hub’ı ilkesine gidin ve ilke anahtarıyla bağlantı dizesini kopyalayın.
+1. Adlı bir olay hub'ı ilke gidin **MySendPolicy**. Kopya **bağlantı dizesi** İlkesi anahtara sahip.
 
   ![MySendPolicy bağlantı dizesini kopyalama](media/send-events/sample-code-connection-string.png)
 
@@ -163,6 +171,7 @@ Basit bir JSON nesnesi.
 |--------|---------------|
 |cihaz1|2016-01-08T01:08:00Z|
 |cihaz2|2016-01-08T01:17:00Z|
+
 ### <a name="sample-3"></a>Örnek 3
 
 #### <a name="input"></a>Girdi
@@ -235,5 +244,5 @@ Basit bir JSON nesnesi.
 |WestUs|üretici1|EastUs|cihaz2|2016-01-08T01:17:00Z|titreşim|abs G|217.09|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-* [Zaman Serisi Görüşleri Portalı](https://insights.timeseries.azure.com)’nda ortamınızı görüntüleme
+> [!div class="nextstepaction"]
+> [Zaman serisi Öngörüler Explorer'da ortamınızı görüntülemek](https://insights.timeseries.azure.com).

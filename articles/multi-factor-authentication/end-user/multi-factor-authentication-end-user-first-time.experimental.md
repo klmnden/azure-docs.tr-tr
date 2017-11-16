@@ -6,7 +6,7 @@ keywords: "Azure dizini, active directory bulutta, active directory öğretici k
 documentationcenter: 
 author: barlanmsft
 manager: angrobe
-editor: pblachar
+ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: a345cacfe53f37f851eebb76b5b8997cb9c0b54b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: e0f7b08f7ad00679434992874ff5215f2b2c9dd3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Hesabımı iki aşamalı doğrulama için ayarlama
 İki aşamalı doğrulamayı geçirmesini diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır. Bu makaleyi okuduğunuz, büyük olasılıkla bir e-posta yöneticinizden iş veya Okul çok faktörlü kimlik doğrulaması hakkında aldığınız. Veya belki de oturum açmaya ve ek güvenlik doğrulaması ayarlamak için isteyen bir ileti aldı. Bu durumda, olursa **otomatik kayıt işlemini tamamlayıncaya kadar oturum açamazsınız**.

@@ -12,26 +12,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 7a94fd5065de93384460e851627a9813d439956b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-azure-resources-through-portal"></a>Portal üzerinden Azure kaynaklarınızı yönetmek
-> [!div class="op_single_selector"]
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [Portal](resource-group-portal.md) 
-> * [REST API](resource-manager-rest-api.md)
-> 
-> 
 
-Bu konuda nasıl kullanılacağını gösterir [Azure portal](https://portal.azure.com) ile [Azure Resource Manager](resource-group-overview.md) Azure kaynaklarınızı yönetmek için. Kaynakları portal üzerinden dağıtma hakkında bilgi edinmek için bkz: [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](resource-group-template-deploy-portal.md).
-
-Şu anda, her hizmeti Portalı'nı veya Kaynak Yöneticisi'ni destekler. Bu hizmetler için kullanmanız gerekir. [Klasik portal](https://manage.windowsazure.com). Her hizmet durumunu görmek [Azure portal kullanılabilirlik grafik](https://azure.microsoft.com/features/azure-portal/availability/).
+Bu makalede nasıl kullanılacağını gösterir [Azure portal](https://portal.azure.com) ile [Azure Resource Manager](resource-group-overview.md) Azure kaynaklarınızı yönetmek için. Kaynakları portal üzerinden dağıtma hakkında bilgi edinmek için bkz: [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](resource-group-template-deploy-portal.md).
 
 ## <a name="manage-resource-groups"></a>Kaynak gruplarını yönetme
 
@@ -58,7 +49,7 @@ Kaynak grubu, kaynaklarla ilgili meta verileri depolar. Bu nedenle, kaynak grubu
    
     ![sütunlar ekleme](./media/resource-group-portal/add-columns.png)
 7. Yeni kaynak grubunuz kaynakları dağıtma hakkında bilgi edinmek için bkz: [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](resource-group-template-deploy-portal.md).
-8. Bir kaynak grubu için hızlı erişim için dikey panonuza sabitleyebilirsiniz.
+8. Bir kaynak grubu için hızlı erişim için kaynak grubu panonuza sabitleyebilirsiniz.
    
     ![PIN kaynak grubu](./media/resource-group-portal/pin-group.png)
 9. Pano, kaynak grubu ve kaynaklarını görüntüler. Kaynak grupları veya herhangi birinde kaynaklarını öğesine gitmek üzere seçebilirsiniz.
@@ -71,12 +62,12 @@ Varlıklarınızı mantıksal olarak düzenlemek için kaynak grupları ve kayna
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
 ## <a name="monitor-resources"></a>Kaynakları izleme
-Bir kaynak seçtiğinizde, kaynak dikey penceresini varsayılan grafikleri ve izleme bu kaynak türü için tabloları gösterir.
+Bir kaynak seçtiğinizde, portal varsayılan grafikleri ve izleme bu kaynak türü için tabloları gösterir.
 
 1. Bir kaynak seçip bildirim **izleme** bölümü. Kaynak türü için uygun olan grafikleri içerir. Aşağıdaki resimde, varsayılan depolama hesabı için veri izleme gösterir.
    
     ![İzleme Göster](./media/resource-group-portal/show-monitoring.png)
-2. Bölümün yukarısında üç nokta (...) seçerek dikey bir bölümünü panonuza sabitleyebilirsiniz. Ayrıca, dikey bölümde boyutunu özelleştirmek veya tamamen kaldırın. Aşağıdaki resimde, PIN, özelleştirme veya CPU ve bellek bölümü kaldırma gösterilmektedir.
+2. Bölümün yukarısında üç nokta (...) seçerek bir bölüm panonuza sabitleyebilirsiniz. Ayrıca, bölüm boyutunu özelleştirmek veya tamamen kaldırın. Aşağıdaki resimde, PIN, özelleştirme veya CPU ve bellek bölümü kaldırma gösterilmektedir.
    
     ![PIN bölümü](./media/resource-group-portal/pin-cpu-section.png)
 3. Bölüm panoya sabitleme sonra Özet panosunda görürsünüz. Ve hemen seçerek, veriler hakkında daha fazla ayrıntı için alır.
@@ -92,7 +83,7 @@ Bir kaynak seçtiğinizde, kaynak dikey penceresini varsayılan grafikleri ve iz
      Panoları ile çalışma hakkında bilgi edinmek için [oluşturma ve Azure portalındaki Pano paylaşımı](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="manage-resources"></a>Kaynakları yönetme
-Bir kaynak için dikey penceresinde kaynak yönetmek için seçenekler bakın. Portal bu belirli kaynak türü için yönetim seçenekleri sunar. Üstte yer alan kaynak dikey penceresinin ve sol tarafındaki yönetimi komutları bakın.
+Bir kaynak portalda görüntülerken, bu kaynağa yönetmek için seçenekler bakın.
 
 ![Kaynakları yönetme](./media/resource-group-portal/manage-resources.png)
 
@@ -111,7 +102,7 @@ Tüm kaynaklar için aboneliğinizi ve aktarılmış maliyetleri hakkında bilgi
 
 ![aboneliği](./media/resource-group-portal/select-subscription.png)
 
-Abonelik dikey penceresinde içinde yazma oranını bakın.
+Yazma oranını bakın.
 
 ![yazma oranı](./media/resource-group-portal/burn-rate.png)
 
@@ -128,7 +119,7 @@ Kaynak grubunuzun ayarladıktan sonra kaynak grubu için Resource Manager şablo
 Adım adım yönergeler için bkz: [Azure Resource Manager şablonunu dışarı mevcut kaynaklardan](resource-manager-export-template.md).
 
 ## <a name="delete-resource-group-or-resources"></a>Kaynak grubunu veya kaynakları silme
-Bir kaynak grubunu silme içerdiği tüm kaynakları siler. Kaynakların kaynak grubunda silebilirsiniz. Olabileceğinden kaynaklara bağlı olan diğer kaynak gruplarının, bir kaynak grubu sildiğinizde dikkatli istiyor. Resource Manager bağlı kaynaklar silinmez, ancak bunlar beklenen kaynakları doğru çalışmayabilir.
+Bir kaynak grubunu silme içerdiği tüm kaynakları siler. Kaynakların kaynak grubunda silebilirsiniz. Bir kaynak grubu silerken dikkatli olun. Kaynak grubunun diğer kaynak gruplarının kaynaklarında bağımlı kaynakları içermiyor olabilir.
 
 ![Grup silme](./media/resource-group-portal/delete-group.png)
 

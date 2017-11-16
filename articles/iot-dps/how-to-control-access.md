@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: dkshir,rajeevmv
-ms.openlocfilehash: 7e98df582baeb4a15b772351802c63fd90303c77
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 718fe9b3ca449f8f7b1420080ea75716e8badcf5
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama hizmeti erişimi denetleme
 
@@ -36,7 +36,7 @@ Herhangi bir sağlama hizmet uç noktalarına erişmek için uygun izinlere sahi
 
 Erişim izni verebilir [izinleri](#device-provisioning-service-permissions) aşağıdaki yollarla:
 
-* **Paylaşılan erişim Yetkilendirme İlkeleri**. Paylaşılan erişim ilkeleri, herhangi bir birleşimini vermek [izinleri](#device-provisioning-service-permissions). İlkeleri tanımlayabilirsiniz [Azure portal][lnk-management-portal], veya program aracılığıyla [aygıt sağlama hizmeti REST API'leri] [lnk-resource-sağlayıcısı-API'leri] kullanarak. Yeni oluşturulan bir sağlama hizmeti aşağıdaki varsayılan ilkesi vardır:
+* **Paylaşılan erişim Yetkilendirme İlkeleri**. Paylaşılan erişim ilkeleri, herhangi bir birleşimini vermek [izinleri](#device-provisioning-service-permissions). İlkeleri tanımlayabilirsiniz [Azure portal][lnk-management-portal], veya program aracılığıyla kullanarak [cihaz sağlama hizmeti REST API'leri][lnk-resource-provider-apis]. Yeni oluşturulan bir sağlama hizmeti aşağıdaki varsayılan ilkesi vardır:
 
   * **provisioningserviceowner**: tüm izinleri ilkesiyle.
 
@@ -192,3 +192,4 @@ Aşağıdaki tabloda, IOT cihaz hizmeti sağlama erişimi denetlemek için kulla
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

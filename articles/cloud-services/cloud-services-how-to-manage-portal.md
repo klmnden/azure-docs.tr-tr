@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Bulut Hizmetleri yönetme
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-how-to-manage-portal.md)
-> * [Klasik Azure Portalı](cloud-services-how-to-manage.md)
->
->
-
 İçinde **bulut Hizmetleri (Klasik)** alanı Azure portal, hizmet rolü veya bir dağıtım güncelleştirmek, aşamalı bir dağıtım üretime yükseltmek, yapabilirsiniz; böylece kaynak bağımlılıkları bakın ve kaynakları birlikte ölçeği ve bir bulut hizmeti ya da dağıtım silmek bulut hizmetinize bağlamak kaynakları.
 
 Bulut hizmetinizi ölçeklendirme hakkında daha fazla bilgi kullanılabilir [burada](cloud-services-how-to-scale-portal.md).

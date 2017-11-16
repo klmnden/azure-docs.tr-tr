@@ -1,36 +1,35 @@
 ---
 title: "C# kullanarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetme | Microsoft Docs"
-description: "Bu öğretici, C# kullanarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek alınmaktadır"
-keywords: 
+description: "Bu makalede, C# (c-sharp) .NET dilinde yazılmış özel bir uygulama oluşturarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek açıklar."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: venkatgct
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 528a33cf01b2a0a07880dad62ba6bbaf4a605153
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C# kullanarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetme
 
-Bu C# örnek bir Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek nasıl gösterir.
-Örneği çalıştırmadan önce aşağıdaki adımların tamamlandığından emin olun.
+Bu makalede Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek için derleyebilirsiniz C# örnek kod açıklanmaktadır.
+
+Derleme ve örnek kod çalıştıran önce aşağıdaki adımları tamamlandıktan emin olun:
 1. Bir başvuru veri kümesi kullanılarak oluşturulup oluşturulmadığını [bu makalede](time-series-insights-add-reference-data-set.md).
-2. Uygulama çalışırken kullanılan erişim belirteci Azure Active Directory API aracılığıyla alınır. Bu belirteç geçirilmesi `Authorization` her sorgu API isteği üstbilgisi. Etkileşimli olmayan uygulamalar için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md) makalesi.
-3. Örnek başında tanımlanan tüm sabit doğru şekilde ayarlanır.
 
-## <a name="c-sample"></a>C# örneği
+2. Uygulama tarafından ile yetkilendirmek için kullanılacak erişim belirteci yapılandırın. Belirteç Azure Active Directory API aracılığıyla edinilen emin olun. Bu belirteç geçirilmesi `Authorization` her sorgu API isteği üstbilgisi. Etkileşimli olmayan uygulamalar için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md) makalesi.
 
+3. Örnek kod, atanan örnek sabitleri değiştirmek için Düzenle **DUMMY #**, yakınında kod başlangıcı. 
+
+## <a name="c-sample-code"></a>C# örnek kod 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -233,5 +232,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Tam API başvurusu için [Başvuru Verileri API'si](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) belgesine bakın.
+Tam REST API başvuru için bkz: [başvuru veri API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

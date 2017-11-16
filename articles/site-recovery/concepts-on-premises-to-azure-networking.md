@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile azure'a yük devretme sonrasında Vm'lere bağlanması | Microsoft Docs"
-description: "Şirket içi Azure Site Recovery ile yük devretme sonrasında Azure Vm'lerine bağlanmak için kılavuz ağ oluşturma"
+title: "Azure Site Recovery ile azure'a yük devretme sonrasında bağlanmak için IP adresleme yukarı ayarlama | Microsoft Docs"
+description: "IP adresi şirket içi Azure Site Recovery ile yük devretme sonrasında Azure Vm'lerine bağlanmak için ayarlamak üzere açıklar"
 services: site-recovery
 documentationcenter: 
 author: prateek9us
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: 6c0fa27aeed3e500bd69567f90743cc274144978
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5519a965d9828cfa1e73ba12f8acd1d509a36a66
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-azure"></a>Azure'a yük devretme sonrasında Vm'lere bağlanması
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>IP adresi azure'a yük devretme sonrasında bağlanmak için ayarlama
 
 Bu makalede kullandıktan sonra Azure Vm'lerine bağlanmak için ağ gereksinimleri açıklanmıştır [Azure Site Recovery](site-recovery-overview.md) çoğaltma ve yük devretme Azure hizmet.
 

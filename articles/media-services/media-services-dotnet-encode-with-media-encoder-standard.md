@@ -1,6 +1,6 @@
 ---
 title: "Bir varlık Medya Kodlayıcısı .NET kullanarak standart ile kodlamak | Microsoft Docs"
-description: "Bu konu, .NET medya Kodlayıcı standart kullanarak bir varlık kodlama için nasıl kullanılacağını gösterir."
+description: "Bu makalede .NET medya Kodlayıcı standart kullanarak bir varlık kodlama için nasıl kullanılacağı gösterilmektedir."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 929592368501c54277748bf46b2160c9058db3fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cce668007030672aff7af60c70339c1e079c75b1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Bir varlık Medya Kodlayıcısı .NET kullanarak standart ile kodlamak
 Kodlama işleri, Media Services’da en sık gerçekleştirilen işlemler arasındadır. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, Media Services yerleşik medya kodlayıcı kullanabilirsiniz. Bir Media Services iş ortağı tarafından sağlanan bir kodlayıcı de kullanabilirsiniz; üçüncü taraf kodlayıcılar Azure Market üzerinden kullanılabilir. 
 
-Bu konu, .NET varlıklarınızı ile Medya Kodlayıcısı standart (MES) kodlamak için nasıl kullanılacağını gösterir. Medya Kodlayıcısı standart yapılandırılmış açıklanan Kodlayıcı hazır ayarlarından birini kullanarak [burada](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Bu makalede .NET varlıklarınızı ile Medya Kodlayıcısı standart (MES) kodlamak için nasıl kullanılacağı gösterilmektedir. Medya Kodlayıcısı standart yapılandırılmış kodlayıcılar hazır ayarlarından birini kullanarak açıklanan [burada](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Her zaman Kaynak dosyalarınız Uyarlamalı bit hızlı MP4 kümesi kodlamak ve ardından istenen biçim kullanmaya kümesi dönüştürmek için önerilen [dinamik paketleme](media-services-dynamic-packaging-overview.md). 
 
@@ -38,7 +38,7 @@ Her zaman Kaynak dosyalarınız Uyarlamalı bit hızlı MP4 kümesi kodlamak ve 
 [Biçimleri ve codec bileşenleri](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>MES Ön ayarları
-Medya Kodlayıcısı standart yapılandırılmış açıklanan Kodlayıcı hazır ayarlarından birini kullanarak [burada](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Medya Kodlayıcısı standart yapılandırılmış kodlayıcılar hazır ayarlarından birini kullanarak açıklanan [burada](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Giriş ve çıkış meta verileri
 Bir giriş varlık (veya varlıklar) MES kullanarak kodlarken bir çıkış varlığı başarılı elde tamamlama, görev kodlayın. Çıkış varlığına, video, ses, küçük resimleri, bildirim, kullandığınız kodlama hazır ayar göre vb. içerir.
@@ -61,7 +61,7 @@ Aşağıdaki kod örneği, aşağıdaki görevleri gerçekleştirmek için Media
 * Kullanılacak belirtin [Uyarlamalı akış](media-services-autogen-bitrate-ladder-with-mes.md) hazır. 
 * Tek bir kodlama görev projeye ekleyin. 
 * Kodlanacak giriş varlık belirtin.
-* Kodlanmış varlık içerecek bir çıkış varlığı oluşturun.
+* Kodlanmış varlık içeren bir çıkış varlığı oluşturun.
 * İş ilerleme durumunu denetlemek için olay işleyici ekleyin.
 * İşi göndermek.
 
@@ -181,6 +181,14 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
                 }
             }
         }
+
+
+## <a name="advanced-encoding-features-to-explore"></a>Özellikleri keşfetmek için gelişmiş kodlama
+* [Küçük resimler oluşturma](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Kodlama sırasında küçük resimler oluşturma](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Kodlama sırasında kırpma videolar](media-services-crop-video.md)
+* [Kodlama hazır ayarlarını özelleştirme](media-services-custom-mes-presets-with-dotnet.md)
+* [Yer paylaşımı veya bir görüntü ile video Filigran](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 17f6918371678ac849198bff4e3b3eea8678c660
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure bulut Hizmetleri rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
 Sanal ağ (VNet) İlk Azure içinde ayarlarsınız. Ardından bir Active Directory etki alanı (bir Azure sanal makinede barındırılan) denetleyicisi Vnet'e ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rollerinizi önceden oluşturulmuş Vnet'e ekleyin, sonra etki alanı denetleyicisine bağlanma.
@@ -128,7 +128,7 @@ Ardından, yeni Vnet'in bulut hizmeti dağıtımınızı eklemeniz gerekir. Bunu
 </ServiceConfiguration>
 ```
 
-Sonraki bulut Hizmetleri projeyi oluşturun ve Azure'a dağıtın. Bulut Hizmetleri paketinizi Azure'a dağıtma konusunda yardım almak için bkz: [nasıl oluşturulacağı ve bir bulut hizmeti dağıtma](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
+Sonraki bulut Hizmetleri projeyi oluşturun ve Azure'a dağıtın. Bulut Hizmetleri paketinizi Azure'a dağıtma konusunda yardım almak için bkz: [nasıl oluşturulacağı ve bir bulut hizmeti dağıtma](cloud-services-how-to-create-deploy-portal.md)
 
 ## <a name="connect-your-webworker-roles-to-the-domain"></a>Web/çalışan rolleri etki alanına bağlayın
 Bulut hizmeti projenizi Azure üzerinde dağıtıldığında, rolü örneklerinizi AD etki alanı uzantısını kullanarak özel AD etki alanına bağlayın. AD etki alanı uzantısı, var olan bulut Hizmetleri dağıtımına eklemek ve özel etki alanına katılmak için PowerShell içinde aşağıdaki komutları çalıştırın:

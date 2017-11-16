@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.openlocfilehash: e5ce666f1d826c7901c9fd5e7fafe6171139c3ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 020e2996f40ed4a48affd3776e44e382c40cb3c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Oluşturma ve bir bulut hizmeti dağıtma
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-> * [Klasik Azure Portalı](cloud-services-how-to-create-deploy.md)
->
->
-
 Azure Portalı'nı oluşturmak ve bir bulut hizmeti dağıtmak iki yol sunar: *hızlı Oluştur* ve *özel Oluştur*.
 
 Bu makalede Hızlı oluşturma yönteminin yeni bir bulut hizmeti oluşturabilir ve daha sonra kullanmak için nasıl kullanılacağı açıklanmaktadır **karşıya** karşıya yükleyin ve Azure bulut hizmet paketinde dağıtın. Bu yöntemi kullandığınızda, Azure portalında gittiğiniz gibi tüm gereksinimleri tamamlamak için kullanılabilir uygun bağlantılar sağlar. Oluşturduğunuzda, bulut hizmeti dağıtmak hazırsanız özel Oluştur kullanarak aynı anda hem de yapabilirsiniz.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: e69ed1011fb0e9efdce115d1618c59c5bb86e224
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 441bb0a269de400c82abc083118f5e0642523640
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Sanal Ağ eşlemesi bir - farklı oluşturmak dağıtım modelleri ve abonelikleri
 
@@ -366,7 +366,7 @@ Kullanabilmeniz için önce çapraz abonelik arası dağıtım modelini özelli�
 
     ```powershell    
     Get-AzureRmProviderFeature `
-      -FeatureName FeatureName AllowClassicCrossSubscriptionPeering `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
     ```
 

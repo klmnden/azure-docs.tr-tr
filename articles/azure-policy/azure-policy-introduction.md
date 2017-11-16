@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>Azure ilke nedir?
 
@@ -51,7 +51,7 @@ Azure İlkesi'nde, varsayılan olarak kullanabileceğiniz bazı yerleşik ilkele
 
 Azure portal, PowerShell veya Azure CLI aracılığıyla bu ilkeleri atayabilirsiniz.
 
-İlke tanımları yapılar hakkında daha fazla bilgi için bu makalenin - Ara [ilke tanımı yapısını](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+İlke tanımları yapılar hakkında daha fazla bilgi için bu makalenin - Ara [ilke tanımı yapısını](policy-definition.md).
 
 ## <a name="policy-assignment"></a>İlke ataması
 
@@ -68,7 +68,7 @@ Parametreleri tanımlı/bir ilke tanımı oluşturulurken oluşturulur. Bir para
 <!--
 Next link should point to new Concept page for Parameters
 -->
-İlke parametreleri hakkında daha fazla bilgi için bkz: [kaynak ilkesine genel bakış - parametreleri](../azure-resource-manager/resource-manager-policy.md#parameters).
+İlke parametreleri hakkında daha fazla bilgi için bkz: [kaynak ilkesine genel bakış - parametreleri](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Girişimi tanımı
 Bir girişimi tanımı tekil değerlendiriyoruz elde doğrultusunda uyarlanabilir ilke tanımları koleksiyonudur. Girişimi tanımları, yönetme ve ilke tanımları atama basitleştirin. Bunlar, bir ilke kümesi tek bir öğe olarak gruplandırarak basitleştirin. Örneğin, başlıklı bir girişimi oluşturabilirsiniz **Azure Güvenlik Merkezi'nde izlemesini etkinleştir**, Azure Güvenlik Merkezi tüm kullanılabilir güvenlik önerileri izlemek için bir hedefi.

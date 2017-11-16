@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 93645aa5765d533b45fe2266f061ad61c0bf45d7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 5bf687afa8f42292a3b21b19a572c76926fef1cd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager ile Azure web uygulaması trafiğini denetleme
 > [!NOTE]
@@ -49,7 +49,7 @@ Azure Traffic Manager ile Azure kullanırken aşağıdaki noktaları göz önün
 * Web uygulamaları başka bir Azure bulut hizmeti ile birlikte kullanan dağıtımlar için aynı bölgede, iki tür karma senaryoları etkinleştirmek için uç noktalar birleştirebilirsiniz.
 * Bu gibi durumlarda, her bölge bir web uygulaması uç noktası yalnızca bir profil belirtebilirsiniz. Bir bölge için bir uç nokta olarak bir web uygulaması seçtiğinizde, bu bölgedeki diğer web uygulamaları bu profil için seçilmek kullanılamaz duruma gelir.
 * Bir Azure Traffic Manager profilini belirtin web uygulama uç noktaları altında görünür **etki alanı adları** bölümünde Yapılandır sayfasında profil web uygulamasında ancak değil için yapılandırılabilir vardır.
-* Bir profil için bir web uygulaması ekledikten sonra **Site URL'si** bir ayarlamış olduğunuz web Panoda uygulamanızın portal sayfası web uygulamasının özel etki alanı URL'sini görüntüler. Aksi durumda, trafik Yöneticisi Profil URL'sini görüntüler (örneğin, `contoso.trafficmgr.com`). Her iki doğrudan etki alanı adını web uygulamasını ve trafik Yöneticisi URL web uygulamanızın yapılandırma sayfasında altında görünür **etki alanı adları** bölümü.
+* Bir profil için bir web uygulaması ekledikten sonra **Site URL'si** bir ayarlamış olduğunuz web Panoda uygulamanızın portal sayfası web uygulamasının özel etki alanı URL'sini görüntüler. Aksi durumda, trafik Yöneticisi Profil URL'sini görüntüler (örneğin, `contoso.trafficmanager.net`). Her iki doğrudan etki alanı adını web uygulamasını ve trafik Yöneticisi URL web uygulamanızın yapılandırma sayfasında altında görünür **etki alanı adları** bölümü.
 * Özel etki alanı beklendiği gibi ancak bunları web uygulamalarınızdan ekleme yanı sıra iş, DNS haritanızı trafik Yöneticisi URL'sine işaret edecek şekilde yapılandırmanız da gerekir. Azure web uygulaması için özel bir etki alanı ayarlama hakkında daha fazla bilgi için bkz: [bir Azure web sitesi için bir özel etki alanı adı yapılandırma](app-service-web-tutorial-custom-domain.md).
 * Yalnızca standart veya premium modunda bir Azure Traffic Manager profilini web uygulamaları da ekleyebilirsiniz.
 

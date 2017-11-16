@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 763248b1b7adf821d37f2308195a0934a0aee152
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>İş veya Okul parolanızı sıfırlama
 
@@ -95,6 +95,27 @@ Normalde Azure Erişim Portalı’ndan uygulamalarınıza erişiyorsanız bu yö
 3. **Parolayı değiştir**’e tıklayın
 4. Eski parolanızı girin ve yeni parolanızı ayarlayıp onaylayın ve ardından **Gönder**’e tıklayın
 
+## <a name="reset-password-at-login"></a>Oturum açma sırasında parola sıfırlama
+
+Yöneticiniz işlevselliği etkinleştirilirse, bağlantı şimdi görebilirsiniz **parola sıfırlama** , Windows 10 sonbaharda oluşturucuları güncelleştirme oturum açma ekranında.
+
+![LoginScreen][LoginScreen]
+
+Tıklatarak **parola sıfırlama** bağlantı açılır oturum açma ekranına SSPR deneyimi böylece normal web tabanlı deneyimi erişmek için oturum açmak zorunda kalmadan parolanızı sıfırlayabilirsiniz.
+
+1. Kullanıcı Kimliğinizi doğrulayın ve tıklatın **sonraki**
+2. Seçin ve doğrulama için iletişim yöntemi onaylayın. Daha fazla doğrulama, BT personeliniz gerekebilir ve farklı bir seçenek olan yeniden bu adımı yineleyin gerekebilir.
+
+   ![ContactMethod][ContactMethod]
+
+3. Üzerinde **yeni bir parola oluşturmasını** sayfasında, yeni bir parola girin, parolanızı onaylayın ve ardından **sonraki**. Parolanızın 8-16 karakter uzunluğunda olmasını ve büyük/küçük harf karakterleri, sayılar ve özel karakterler içermesini öneririz.
+
+   ![ResetPassword][ResetPassword]
+
+4. Gördüğünüzde **parolanızı sıfırlama**, tıklatın **son**
+
+Artık hesabınıza erişebiliyor olmalısınız; erişemiyorsanız, kuruluşunuzun BT personelinden daha fazla yardım istemeniz gerekir.
+
 ## <a name="common-problems-and-their-solutions"></a>Ortak sorunlar ve çözümleri
 
  Bazı ortak hata durumları ve bunların çözümleri şunlardır:
@@ -116,3 +137,6 @@ Normalde Azure Erişim Portalı’ndan uygulamalarınıza erişiyorsanız bu yö
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Kimlik doğrulama verilerinizi doğrulayın"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Parolanızı değiştirme"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Parolanız sıfırlandı"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 sonbaharda oluşturucuları güncelleştirme oturum açma ekranı sıfırlama parola bağlantısı"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Kimlik doğrulama verilerinizi doğrulayın"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Parolanızı değiştirme"

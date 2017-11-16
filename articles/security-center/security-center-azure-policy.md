@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: e29c381643b233d38b10f89aed5469043c699f45
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Azure İlkesi ile Güvenlik Merkezi güvenlik ilkelerini tümleştirme
 Bu makale, Azure İlkesi ile desteklenen Azure Güvenlik Merkezi güvenlik ilkelerini yapılandırmanıza yardımcı olur. 
@@ -60,7 +60,7 @@ Güvenlik Merkezi'nde tüm Azure aboneliklerinizin varsayılan güvenlik ilkesin
     ![Kullanılabilir ilke tanımları](./media/security-center-policies/security-center-policies-fig11.png)
 
     * Bir ilkenin ayrıntılı açıklaması için ilkeyi seçin.  
-    Tanım **Önizleme** penceresi açılır. Tanımın bir açıklaması ve [ilke tanımı](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure) yapısını sağlayan JSON kodunun bağlantısı gösterilir.
+    Tanım **Önizleme** penceresi açılır. Tanımın bir açıklaması ve [ilke tanımı](../azure-policy/policy-definition.md) yapısını sağlayan JSON kodunun bağlantısı gösterilir.
 
     ![Tanımın Önizleme penceresi](./media/security-center-policies/security-center-policies-fig14.png)
 
@@ -72,7 +72,7 @@ Varsayılan güvenlik ilkesinde mevcut olan ilke tanımlarını anlamak için a�
 
 | İlke | Etkin ilke ne yapar? |
 | --- | --- |
-| Sistem güncelleştirmeleri |Windows Update veya Windows Server Update Services kaynağından kullanılabilir güvenlik güncelleştirmelerinin ve kritik güncelleştirmelerin günlük listesini alır. Alınan liste, sanal makineleriniz için yapılandırılan hizmete bağlıdır ve eksik güncelleştirmelerin uygulanmasını önerir. Linux sistemleri için bu ilke, kullanılabilir güncelleştirmeleri olan paketleri belirlemek üzere distro ile sağlanan paket yönetim sistemini kullanır. Ayrıca, [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure.md) sanal makinelerinden güvenlik güncelleştirmelerini ve kritik güncelleştirmeleri denetler. |
+| Sistem güncelleştirmeleri |Windows Update veya Windows Server Update Services kaynağından kullanılabilir güvenlik güncelleştirmelerinin ve kritik güncelleştirmelerin günlük listesini alır. Alınan liste, sanal makineleriniz için yapılandırılan hizmete bağlıdır ve eksik güncelleştirmelerin uygulanmasını önerir. Linux sistemleri için bu ilke, kullanılabilir güncelleştirmeleri olan paketleri belirlemek üzere distro ile sağlanan paket yönetim sistemini kullanır. Ayrıca, [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md) sanal makinelerinden güvenlik güncelleştirmelerini ve kritik güncelleştirmeleri denetler. |
 | İşletim sistemi güvenlik açıkları |Sanal makineyi saldırılara açık hale getirebilecek sorunları belirlemek üzere işletim sistemi yapılandırmalarını günlük olarak çözümler. İlke ayrıca bu güvenlik açıklarını gidermek üzere yapılandırma değişiklikleri yapılmasını önerir. İzlenmekte olan belirli yapılandırmalar hakkında daha fazla bilgi için [önerilen temel kurallar listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) konusunu inceleyin. (Şu an için Windows Server 2016 tam olarak desteklenmemektedir.) |
 | Uç nokta koruması |Virüsleri, casus yazılımları ve diğer kötü amaçlı yazılımları tanımlamaya ve kaldırmaya yardımcı olmak için tüm Windows sanal makinelerine (VM) sağlamak üzere uç nokta ayarlanmasını önerir. |
 | Disk şifrelemesi |Bekleyen verilerin korunmasını geliştirmek için tüm sanal makinelerde disk şifrelemesini etkinleştirmeyi önerir. |

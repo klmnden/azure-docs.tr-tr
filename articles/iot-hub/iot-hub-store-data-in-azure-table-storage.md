@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: xshi
-ms.openlocfilehash: aa33800de82b27d4819fe0eade127c2a40e3a493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5419f0fb86f2a7b051ffc7fda17c74cf15178a6b
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Azure blob depolama alanınızın algılayıcı verileri içeren IOT hub iletileri kaydetme
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-Bir Azure depolama hesabı ve IOT hub iletileri, table storage'da depolamak için bir Azure işlev uygulaması oluşturmayı öğrenin.
+Bir Azure depolama hesabı ve blob depolama alanınızın IOT hub iletileri depolamak için bir Azure işlev uygulaması oluşturmayı öğrenin.
 
 ## <a name="what-you-do"></a>Neler
 

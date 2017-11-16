@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Azure Yönetimi
 
@@ -36,7 +36,7 @@ Azure'nın altyapı tesis aynı anda milyonlarca müşteri barındırmak için u
 
 Bu belge, Azure idare özellikleri bu gereksinimleri karşılamak nasıl yardımcı olabileceğini anlamanıza yardımcı olur.
 
-## <a name="abstract"></a>Özet
+## <a name="abstract"></a>Soyut
 
 Microsoft Azure bulut idare bir tümleşik denetim ve gözden geçirmek ve Azure platformu kullanıcıların kullanımına kuruluşlar bildiren için danışmanlık yaklaşımı sağlar. Microsoft Azure bulut idare başvurduğu işlerinizdeki karar verme işlemlerini, ölçüt ve ilkeleri planlama mimarisi, edinme, dağıtım, işlem ve bir bulutun yönetim ilgili bilgi işlem.
 
@@ -115,7 +115,7 @@ Bir Kurumsal Anlaşma olan kuruluşlar için Azure abonelikleri dört düzeyli b
 
 - hesap sahibi
 
-- Hizmet Yöneticisi
+- Hizmet yöneticisi
 
 Bu hiyerarşide aşağıdaki yönetir:
 
@@ -225,14 +225,14 @@ Kaynakların bir etiketi paylaşması için aynı kaynak grubunda bulunmaları g
 Kaynak ilkeler, kuruluşunuz için standart kurallar oluşturmanıza olanak sağlar. Kaynakları uygun değerlerle etiketlenir olun ilkeleri oluşturabilirsiniz.
 
 > [!Note]
-> Daha fazla bilgi için bkz: [etiketleri için kaynak ilkelerini uygulamak](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> Daha fazla bilgi için bkz: [faturalama İlkesi Initiative etiketleri](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Azure portalından etiketli kaynakları da görüntüleyebilirsiniz.
 
 Aboneliğinize ait [kullanım raporu](https://docs.microsoft.com/azure/billing/billing-understand-your-bill), maliyetleri etiketlere göre ayırmanızı sağlayan etiket adları ve değerler içerir.
 
 > [!Note]
-> Etiketler hakkında daha fazla bilgi için bkz. [Etiketleri kullanarak Azure kaynaklarınızı düzenleme](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+> Etiketler hakkında daha fazla bilgi için bkz: [faturalama İlkesi Initiative etiketleri](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Etiketler için aşağıdaki sınırlamalar geçerlidir:
 

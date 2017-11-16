@@ -1,73 +1,101 @@
 ---
 title: "Azure zaman serisi Öngörüler ortamınız için bir IOT hub'ı olay kaynağı ekleme | Microsoft Docs"
-description: "Bu öğretici bir IOT hub'ına zaman serisi Öngörüler ortamınıza bağlı bir olay kaynağı ekleme kapsar"
-keywords: 
+description: "Bu makalede bir IOT hub'ına zaman serisi Öngörüler ortamınıza bağlı bir olay kaynağı ekleme"
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: 3b98728ced81256d05b1bed2c92fc66c5ca61b98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="how-to-add-an-iot-hub-event-source"></a>Bir IOT hub'ı olay kaynağı ekleme
-
-Bu öğretici zaman serisi Öngörüler ortamınız için IOT Hub'ından okuyan bir olay kaynağı eklemek için Azure portalını kullanmayı kapsar.
+# <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Zaman serisi Öngörüler ortamına bir IOT hub'ı olay kaynağı ekleme
+Bu makalede, IOT Hub'ından zaman serisi Öngörüler ortamınıza verilerini okuyan bir olay kaynağı eklemek için Azure Portalı'nı kullanmayı açıklar.
 
 ## <a name="prerequisites"></a>Ön koşullar
+- Bir zaman serisi Öngörüler ortamı oluşturun. Daha fazla bilgi için bkz: [Azure zaman serisi Öngörüler ortam oluşturma](time-series-insights-get-started.md) 
+- IOT hub'ı oluşturun. IOT hub'ları hakkında daha fazla bilgi için bkz: [Azure portalını kullanarak IOT hub oluşturma](../iot-hub/iot-hub-create-through-portal.md)
+- IOT hub'ı etkin ileti olayları gönderilen olmalıdır.
+- Gelen kullanmak için IOT hub'zaman serisi Insight ortamı için ayrılmış bir tüketici grubu oluşturun. Herhangi bir tüketiciye paylaşılmayan kendi ayrılmış bir tüketici grubundaki her zaman serisi Öngörüler olay kaynağı olmalıdır. Birden çok okuyucular aynı tüketici grubu olaylarından kullanırsa, tüm okuyucular hatalar görmeniz olasıdır. Ayrıntılar için bkz [IOT Hub Geliştirici Kılavuzu](../iot-hub/iot-hub-devguide.md).
 
-Bir IOT Hub oluşturdunuz ve olaylar için yazma. IOT hub'ları hakkında daha fazla bilgi için bkz: <https://azure.microsoft.com/services/iot-hub/>
+## <a name="add-a-new-event-source"></a>Yeni bir olay kaynağı Ekle
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-> [Tüketici grupları] Herhangi bir tüketiciye paylaşılmayan kendi ayrılmış bir tüketici grubundaki her zaman serisi Öngörüler olay kaynağı olmalıdır. Birden çok okuyucular aynı tüketici grubu olaylarından kullanırsa, tüm okuyucular hatalar görmeniz olasıdır. Ayrıntılar için bkz [IOT Hub Geliştirici Kılavuzu](../iot-hub/iot-hub-devguide.md).
+2. Mevcut zaman serisi Öngörüler ortamınızın bulun. Tıklatın **tüm kaynakları** Azure portalının sol tarafındaki menüde. Zaman Serisi Görüşleri ortamınızı seçin.
 
-## <a name="choose-an-import-option"></a>Bir içe aktarma seçeneği seçin
+3. Altında **ortamı topolojisi** başlığını tıklatın **olay kaynakları**.
+   ![Olay kaynakları + Ekle](media/time-series-insights-how-to-add-an-event-source-iothub/1-event-sources.png)
 
-Olay kaynağı ayarlarını el ile girilebilir veya IOT hub'ı kullanılabilen IOT hub'ları öğesinden seçilebilir.
-İçinde **alma seçeneği** Seçici, aşağıdaki seçeneklerden birini seçin:
+4. Tıklatın **+ Ekle**.
 
-* IOT hub'ı ayarları sağlayın el ile
-* Kullanılabilir aboneliklerden IOT hub'ı kullanın
+5. Sağlayan bir **olay kaynağı adı** bu zaman serisi Öngörüler ortamına benzersiz gibi **olay akışı**.
 
-### <a name="select-an-available-iot-hub"></a>Kullanılabilir IOT hub'ı seçin
+   ![Form ilk üç parametre doldurun.](media/time-series-insights-how-to-add-an-event-source-iothub/2-import-option.png)
 
-Aşağıdaki tabloda, bir olay kaynağı olarak kullanılabilir IOT hub'ı seçerken açıklamasını yeni olay kaynağı sekmesiyle her seçenekte açıklanmaktadır:
+6. Seçin **kaynak** olarak **IOT hub'ı**.
 
-| ÖZELLİK ADI | AÇIKLAMA |
-| --- | --- |
-| Olay kaynağı adı | Olay kaynağı adı. Bu ad zaman serisi Öngörüler ortamınızda benzersiz olması gerekir.
-| Kaynak | Seçin **IOT hub'ı** bir IOT hub'ı olay kaynağı oluşturmak için.
-| Abonelik kimliği | Bu IOT hub'ının oluşturulduğu abonelik seçin.
-| IOT hub'ı adı | IOT Hub adını seçin.
-| IOT hub ilke adı | IOT hub'ı Ayarlar sekmesinde bulunan paylaşılan erişim ilkesi seçin. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağı için paylaşılan erişim ilkesi *gerekir* sahip **service bağlanma** izinleri.
-| IOT hub tüketici grubu | IOT Hub'ından olayları okumak için tüketici grubu. Olay kaynağı için ayrılmış bir tüketici grubu kullanmak için önerilir.
+7. Uygun seçin **alma seçeneği**. 
+   - Seçin **kullanım IOT Hub'ından kullanılabilir abonelikler** zaten varsa var olan IOT hub'ı aboneliklerinizden biri. Bu kolay bir yaklaşımdır.
+   - Seçin **sağlamak ve IOT hub'ı ayarlarını elle** zaman IOT hub'ı aboneliklerinize dış veya gelişmiş seçenekleri seçmenizi ister. 
 
-### <a name="provide-iot-hub-settings-manually"></a>IOT hub'ı ayarları sağlayın el ile
+8. Seçtiyseniz **kullanım IOT Hub'ından kullanılabilir abonelikler** seçeneği, aşağıdaki tabloda, her gerekli bir özellik açıklanmaktadır:
 
-Aşağıdaki tabloda ayarları girerken açıklamasını ile yeni bir olay kaynağı sekmesindeki her bir özellik açıklanmaktadır el ile:
+   ![Abonelik ve olay hub'ı ayrıntıları](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
 
-| ÖZELLİK ADI | AÇIKLAMA |
-| --- | --- |
-| Olay kaynağı adı | Olay kaynağı adı. Bu ad zaman serisi Öngörüler ortamınızda benzersiz olması gerekir.
-| Kaynak | Seçin **IOT hub'ı** bir IOT hub'ı olay kaynağı oluşturmak için.
-| Abonelik kimliği | Bu IOT hub'ının oluşturulduğu abonelik.
-| Kaynak grubu | Bu IOT hub'ının oluşturulduğu abonelik.
-| IOT hub'ı adı | IOT Hub'ınızın adıdır. IOT hub'ınızı oluşturduğunuzda, ona bir özel ad da vermiş
-| IOT hub ilke adı | Paylaşılan Erişim İlkesi IOT hub'ı ayarları sekmesinde oluşturulabilir. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağı için paylaşılan erişim ilkesi *gerekir* sahip **service bağlanma** izinleri.
-| IOT hub ilke anahtarı | Hizmet veri yolu ad alanına erişimi kimlik doğrulaması için kullanılan paylaşılan erişim anahtarı. Birincil veya ikincil anahtarı buraya girin.
-| IOT hub tüketici grubu | IOT Hub'ından olayları okumak için tüketici grubu. Olay kaynağı için ayrılmış bir tüketici grubu kullanmak için önerilir.
+   | Özellik | Açıklama |
+   | --- | --- |
+   | Abonelik Kimliği | Bu IOT hub'ının oluşturulduğu abonelik seçin.
+   | IOT hub'ı adı | IOT Hub adını seçin.
+   | IOT hub ilke adı | IOT hub'ı Ayarlar sekmesinde bulunan paylaşılan erişim ilkesi seçin. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağı için paylaşılan erişim ilkesi *gerekir* sahip **service bağlanma** izinleri.
+   | IOT hub ilke anahtarı | Anahtar önceden doldurulmaz.
+   | IOT hub tüketici grubu | IOT Hub'ından olayları okumak için tüketici grubu. Olay kaynağı için ayrılmış bir tüketici grubu kullanmak için önerilir.
+   | Olayı seri hale getirme biçimi | JSON günümüzde yalnızca serileştirme şeklindedir. Olay iletileri bu biçiminde olması gerekir veya hiç veri okuyabilir. |
+   | Zaman damgası özelliği adı | Bu değeri belirlemek için ileti biçimi, IOT Hub'ına gönderilen ileti verilerin anlamanız gerekir. Bu değer **adı** olay zaman damgası kullanmak istediğiniz ileti veri belirli olay özelliğinin. Değeri büyük/küçük harf duyarlıdır. Boş bırakılırsa **olay sıraya alma süresi** içinde olay kaynağı olay zaman damgası kullanılır. |
+
+9. Seçtiyseniz **sağlamak ve IOT hub'ı ayarlarını elle** seçeneği, aşağıdaki tabloda, her gerekli bir özellik açıklanmaktadır:
+
+   | Özellik | Açıklama |
+   | --- | --- |
+   | Abonelik Kimliği | Bu IOT hub'ının oluşturulduğu abonelik.
+   | Kaynak grubu | Bu IOT hub'ının oluşturulduğu kaynak grubunun adı.
+   | IOT hub'ı adı | IOT Hub'ınızın adıdır. IOT hub'ınızı oluşturduğunuzda, ona bir özel ad da vermiş.
+   | IOT hub ilke adı | Paylaşılan Erişim İlkesi IOT hub'ı ayarları sekmesinde oluşturulabilir. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağı için paylaşılan erişim ilkesi *gerekir* sahip **service bağlanma** izinleri.
+   | IOT hub ilke anahtarı | Hizmet veri yolu ad alanına erişimi kimlik doğrulaması için kullanılan paylaşılan erişim anahtarı. Birincil veya ikincil anahtarı buraya girin.
+   | IOT hub tüketici grubu | IOT Hub'ından olayları okumak için tüketici grubu. Olay kaynağı için ayrılmış bir tüketici grubu kullanmak için önerilir.
+   | Olayı seri hale getirme biçimi | JSON günümüzde yalnızca serileştirme şeklindedir. Olay iletileri bu biçiminde olması gerekir veya hiç veri okuyabilir. |
+   | Zaman damgası özelliği adı | Bu değeri belirlemek için ileti biçimi, IOT Hub'ına gönderilen ileti verilerin anlamanız gerekir. Bu değer **adı** olay zaman damgası kullanmak istediğiniz ileti veri belirli olay özelliğinin. Değeri büyük/küçük harf duyarlıdır. Boş bırakılırsa **olay sıraya alma süresi** içinde olay kaynağı olay zaman damgası kullanılır. |
+
+10. Seçin **oluşturma** yeni olay kaynağı ekleyin.
+
+   ![Oluştur’a tıklayın](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+
+   Olay kaynağının oluşturulmasından sonra, Zaman Serisi Görüşleri ortamınıza veri akışını otomatik olarak başlatır.
+
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>Bir tüketici grubu IOT hub'ınızı ekleyin
+Tüketici grupları, Azure IOT hub'larından verilerini çekmesini uygulamalar tarafından kullanılır. Güvenilir bir şekilde IOT Hub'ından veri okumak için bu zaman serisi Öngörüler ortam yalnızca tarafından kullanılmak üzere ayrılmış bir tüketici grubu, sağlar.
+
+IOT hub'ınıza yeni bir tüketici grubu eklemek için aşağıdaki adımları izleyin:
+1. Azure portalında bulun ve IOT hub'ınızı açın.
+
+2. Altında **ileti** başlığını seçin **uç noktaları**. 
+
+   ![Bir tüketici grubu Ekle](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
+
+3. Seçin **olayları** uç noktasını ve **özellikleri** sayfası açılır.
+
+4. Altında **tüketici grupları** başlığı tüketici grubu için benzersiz bir ad sağlayın. Bu aynı adı zaman serisi Öngörüler ortamında yeni bir olay kaynağı oluştururken kullanın.
+
+5. Seçin **kaydetmek** yeni bir tüketici grubundaki kaydetmek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-1. Ortamınıza veri erişim ilkesine eklemek [tanımla veri erişim ilkeleri](time-series-insights-data-access.md)
-1. Ortamınızda erişim [zaman serisi Insights portalı](https://insights.timeseries.azure.com)
+- [Veri erişim ilkeleri tanımlamanıza](time-series-insights-data-access.md) verilerin güvenliğini sağlamak için.
+- [Olayları göndermek](time-series-insights-send-events.md) olay kaynağı.
+- Ortamınızda erişim [zaman serisi Öngörüler explorer](https://insights.timeseries.azure.com).

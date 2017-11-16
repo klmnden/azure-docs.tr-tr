@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 171f27c92ee9de14301ebb664e9ba3bcd98c394d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab99eaa10d232e244b17325188e83128c651caf6
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>PowerShell kullanarak Azure Cloud Services rolünde için Uzak Masaüstü Bağlantısı etkinleştir
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Klasik Azure Portalı](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Uzak Masaüstü, Azure'da çalışan rolü Masaüstü erişmenize olanak tanır. Uzak Masaüstü Bağlantısı çalışırken, uygulamanızın sorunları tanılamak ve gidermek için kullanabilirsiniz.
 
@@ -108,5 +105,5 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-[Bulut hizmetleri yapılandırmak için nasıl](cloud-services-how-to-configure.md)
+[Bulut hizmetleri yapılandırmak için nasıl](cloud-services-how-to-configure-portal.md)
 [bulut SSS - Uzak Masaüstü Hizmetleri](cloud-services-faq.md)

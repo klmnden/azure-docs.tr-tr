@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9ae4442f57170746eb0de94849b09625be51264
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Azure bulut Hizmetleri rolünde için Uzak Masaüstü Bağlantısı etkinleştir
 > [!div class="op_single_selector"]
 > * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Klasik Azure Portalı](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Uzak Masaüstü, Azure'da çalışan rolü Masaüstü erişmenize olanak tanır. Uzak Masaüstü Bağlantısı çalışırken, uygulamanızın sorunları tanılamak ve gidermek için kullanabilirsiniz.
 
@@ -47,7 +44,7 @@ Azure portalı Uzak Masaüstü uzantısı yaklaşımı kullanır, bu nedenle bil
     ![Bulut Hizmetleri Uzak Masaüstü](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > İlk olarak Uzak Masaüstü'nü etkinleştirin ve (onay işareti) Tamam'ı tıklatın, tüm rol örneklerini yeniden başlatılır. Yeniden başlatma önlemek için parolayı şifrelemek için kullanılan sertifikanın rolünün yüklenmesi gerekir. Bir yeniden başlatmayı engellemek için [bulut hizmeti için bir sertifika karşıya](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) ve bu iletişim kutusuna dönün.
+   > İlk olarak Uzak Masaüstü'nü etkinleştirin ve (onay işareti) Tamam'ı tıklatın, tüm rol örneklerini yeniden başlatılır. Yeniden başlatma önlemek için parolayı şifrelemek için kullanılan sertifikanın rolünün yüklenmesi gerekir. Bir yeniden başlatmayı engellemek için [bulut hizmeti için bir sertifika karşıya](cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) ve bu iletişim kutusuna dönün.
    >
    >
 3. İçinde **rolleri**, güncelleştirme veya seçmek istediğiniz rolü seçin **tüm** tüm rolleri için.
@@ -70,5 +67,5 @@ Uzak Masaüstü roller üzerinde etkinleştirildikten sonra Azure Portalı'ndan 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-[Bulut hizmetleri yapılandırmak için nasıl](cloud-services-how-to-configure.md)
+[Bulut hizmetleri yapılandırmak için nasıl](cloud-services-how-to-configure-portal.md)
 [bulut SSS - Uzak Masaüstü Hizmetleri](cloud-services-faq.md)

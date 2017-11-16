@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2017
+ms.date: 11/14/2017
 ms.author: sethm
-ms.openlocfilehash: b4b9d5d272bdb172f1d40db379a519a4f617550a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8b5887f2003dd793ae7a50f066b893f685002a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus kimlik doğrulaması ve yetkilendirme
 
-Uygulamaları Azure Service Bus işlevleri paylaşılan erişim imzası (SAS) belirteci kimlik doğrulamasını kullanarak erişim kazanır. SAS ile uygulamaların bir belirteç Service Bus için imzalanmış bir belirteç verenin hem de bilinen simetrik anahtar ve Service Bus ("paylaşılan") ile sunmak ve bu anahtarıdır doğrudan alma izni gibi belirli erişim hakkı verme kuralı ile ilişkili / dinleme veya ileti gönderin. SAS ya da ad alanı veya doğrudan bir kuyruk veya konu, hassas erişim denetimi için izin verme gibi varlıkları yapılandırılmış kurallardır.
+Uygulamaları paylaşılan erişim imzası (SAS) belirteci kimlik doğrulaması kullanarak Azure Service Bus kaynaklarına erişim kazanır. SAS ile uygulamaların bir belirteç Service Bus için imzalanmış bir belirteç verenin hem de bilinen simetrik anahtar ve Service Bus (Bu nedenle "paylaşılan") ile sunmak ve bu anahtarıdır doğrudan izni gibi belirli erişim hakkı verme kuralı ile ilişkili Alma dinleme veya ileti gönderin. SAS ya da ad alanı veya doğrudan bir kuyruk veya konu, hassas erişim denetimi için izin verme gibi varlıkları yapılandırılmış kurallardır.
 
-SAS belirteci ya da hizmet veri yolu istemci tarafından doğrudan oluşturulabilir veya istemci etkileşimde uç nokta veren bazı Ara belirteci tarafından oluşturulabilir. Örneğin, bir sistem, kimlik ve sistem erişim hakları kanıtlamak için bir Active Directory yetkilendirme korumalı web hizmeti uç noktası çağırmak istemci gerektirebilir ve web hizmeti daha sonra uygun Service Bus belirteci döndürür. Bu SAS belirteci kolayca SDK'da bulunan Service Bus belirteç sağlayıcısı kullanılarak oluşturulabilir. 
+SAS belirteci ya da hizmet veri yolu istemci tarafından doğrudan oluşturulabilir veya bazı Ara belirteç uç noktası ile etkileşime giren istemci veren tarafından oluşturulabilir. Örneğin, bir sistem kimliğini ve sistem erişim hakları ve web hizmeti sonra döndürür uygun Service Bus belirteci kanıtlamak için bir Active Directory yetkilendirme korumalı web hizmeti uç noktası çağırmak istemci gerektirebilir. Bu SAS belirteci kolayca Azure SDK'da bulunan Service Bus belirteç sağlayıcısı kullanılarak oluşturulabilir. 
 
 > [!IMPORTANT]
-> Azure Active Directory erişim denetimi (erişim denetimi hizmeti veya ACS olarak da bilinir) Service Bus ile birlikte kullanıyorsanız, sınırlı ve SAS kullanarak uygulamanızın geçirmelisiniz artık bu yöntem için destek olduğuna dikkat edin. Daha fazla bilgi için bkz: [bu blog gönderisine](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> Service Bus ile Azure Active Directory erişim denetimi (erişim denetimi hizmeti veya ACS olarak da bilinir) kullanıyorsanız, sınırlı ve uygulamanızı SAS'ı kullanacak şekilde geçirmelisiniz artık bu yöntem için destek olduğuna dikkat edin. Daha fazla bilgi için bkz: [bu blog gönderisine](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) ve [bu makalede](service-bus-migrate-acs-sas.md).
 
 ## <a name="shared-access-signature-authentication"></a>Paylaşılan erişim imzası kimlik doğrulaması
 
@@ -37,20 +37,21 @@ SAS belirteci ya da hizmet veri yolu istemci tarafından doğrudan oluşturulabi
 
 SAS kullanmak için yapılandırabileceğiniz bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ad alanı, kuyruk veya konu nesnesi. Bu kural aşağıdaki öğelerden oluşur:
 
-* *KeyName* kuralı tanımlar.
-* *PrimaryKey* oturum/SAS belirteçleri doğrulamak için kullanılan bir şifreleme anahtarıdır.
-* *SecondaryKey* oturum/SAS belirteçleri doğrulamak için kullanılan bir şifreleme anahtarıdır.
-* *Hakları* dinleme koleksiyonunu temsil eden, Gönder veya haklar verildi yönetin.
+* *KeyName*: kuralı tanımlar.
+* *PrimaryKey*: oturum/SAS belirteçleri doğrulamak için kullanılan bir şifreleme anahtarı.
+* *SecondaryKey*: oturum/SAS belirteçleri doğrulamak için kullanılan bir şifreleme anahtarı.
+* *Hakları*: koleksiyonunu temsil eder **dinleme**, **Gönder**, veya **Yönet** haklar verildi.
 
-Ad alanı düzeyinde yapılandırılan yetkilendirme kuralları, karşılık gelen anahtar kullanılarak imzalanmış belirteçleri ile istemciler için bir ad alanındaki tüm varlıklara erişim izni verebilir. En fazla 12 böyle yetkilendirme kuralları, bir hizmet veri yolu ad alanı, kuyruk veya konu yapılandırılabilir. Varsayılan olarak, bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ilk sağlandığında tüm haklara sahip her ad alanı için yapılandırılır.
+Ad alanı düzeyinde yapılandırılan yetkilendirme kuralları, karşılık gelen anahtar kullanılarak imzalanmış belirteçleri ile istemciler için bir ad alanındaki tüm varlıklara erişim izni verebilir. Bir hizmet veri yolu ad alanı, kuyruk veya konu gibi en fazla 12 yetkilendirme kuralları yapılandırabilirsiniz. Varsayılan olarak, bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ilk sağlandığında tüm haklara sahip her ad alanı için yapılandırılır.
 
 Bir varlık erişmek için istemci belirli bir kullanılarak oluşturulan bir SAS belirteci gerektirir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). SAS belirteci, yetkilendirme kuralı ile ilişkili bir şifreleme anahtarı ile erişim talep kaynak URI'sini içeren bir kaynak dize ve bir süre sonu HMAC SHA256 kullanılarak oluşturulur.
 
-Hizmet veri yolu için SAS kimlik doğrulama desteği dahil Azure .NET SDK'sı sürüm 2.0 ve üzeri. SAS desteği içeren bir [Rootmanagesharedaccesskey](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Bir bağlantı dizesi parametresi olarak kabul tüm API'leri SAS bağlantı dizeleri için destek içerir.
+Hizmet veri yolu için SAS kimlik doğrulama desteği dahil Azure .NET SDK'sı sürüm 2.0 ve üzeri. SAS desteği içeren bir [Rootmanagesharedaccesskey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Bir bağlantı dizesi parametresi olarak kabul tüm API'leri SAS bağlantı dizeleri için destek içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Okuma devam [paylaşılan erişim imzaları ile Service Bus kimlik doğrulaması](service-bus-sas.md) SAS hakkında daha fazla ayrıntı için.
-- [ACS için değişiklikleri etkin ad alanları.](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)
+- Nasıl yapılır [Azure Active Directory erişim denetimi (ACS) için paylaşılan erişim imzası yetkilendirme geçirmek](service-bus-migrate-acs-sas.md).
+- [Değişiklikleri ACS etkinleştirilmiş ad alanlarını](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
 - Karşılık gelen Azure geçiş kimlik doğrulama ve yetkilendirme hakkında bilgi için [Azure geçiş kimlik doğrulama ve yetkilendirme](../service-bus-relay/relay-authentication-and-authorization.md). 
 

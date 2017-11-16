@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory ve çok faktörlü kimlik doğrulaması: kimlik ve erişim denetimleri ile kişisel verileri koruma
 
@@ -121,23 +121,23 @@ Azure bulutta MFA dağıtmak için önce onu etkinleştirmeniz ve kullanıcılar
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Azure MFA kullanmaya nasıl etkinleştirebilirim?
 
-Kullanıcılarınızın Azure çok faktörlü kimlik doğrulamasını içeren lisansına sahipseniz, Azure MFA açmak için yapmanız gereken şey yoktur. Aksi durumda, dizininizde multi-Factor Auth sağlayıcısı oluşturmanız gerekir. Bunu yapmak için şu adımları uygulayın:
+Kullanıcılarınızın Azure çok faktörlü kimlik doğrulamasını içeren lisansına sahipseniz, yalnızca Azure MFA üzerinde yapılandırmanız gereken bir kullanıcı veya grup için ayrı ayrı başına. 
 
-1. Seçin **Active Directory** (yönetici olarak oturum açmış) Klasik Azure portalındaki.
+![MFA etkin kullanıcılar](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Seçin **çok faktörlü kimlik doğrulama sağlayıcıları.**
+Lisansları şu anda yoksa senaryonuz için en uygun dağıtım türünü belirleme işlemi gitmesi gerekir. Başlıklı makalenin bakarak başlatabilirsiniz [Azure çok faktörlü Autehntication çözüm seçtiğiniz](../multi-factor-authentication/multi-factor-authentication-get-started.md). Bir multi-Factor Authentication sunucusu oluşturmak gerektiğine karar verirseniz. Aşağıdaki adımları izleyerek başlatabilirsiniz:
 
-3. Seçin **yeni** altında ve **uygulama hizmetleri,** seçin **multi-Factor Auth sağlayıcısı.**
+1. Seçin **Active Directory** (yönetici olarak oturum açmış) Azure portalında.
 
-4. Seçin **hızlı oluştur.**
+2. Seçin **MFA sunucusu**
 
-5. Ad alanını doldurun ve kullanım modeli (kimlik doğrulaması veya etkin kullanıcı başına) seçin.
+3. Zaman aşımı değeri belirtin. 
 
-6. MFA sağlayıcısı ilişkili olduğu bir dizin belirleyin.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. **Oluştur** düğmesine tıklayın.
+4. Tıklatın **Kaydet**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+Bu pencerede MFA sunucusu yükleme seçeneği de vardır. Boyut ve makaleyi gözden geçirerek dağıtımınızı planlama hakkında ek ayrıntılar elde edebilirsiniz [Azure multi-Factor Authentication Sunucusu'nu kullanmaya başlama](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
 Çok faktörlü kimlik doğrulama sağlayıcısının nasıl yönetileceği hakkında daha fazla yönerge için bkz: [Azure multi-Factor Auth sağlayıcısı ile çalışmaya başlama.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 
@@ -158,7 +158,7 @@ Kullanıcı durumunu değiştirerek MFA etkinleştirmek için aşağıdakileri y
 5. Kullanıcı adının yanındaki kutuyu işaretleyin.
 6. Sağdaki hızlı adımlar altında seçin **etkinleştirmek**.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Açılır pencere Seçiminizi onaylayın.  Kendisi için MFA etkinleştirilmiş kullanıcılar oturum açtığında kaydetmek için istenir.
 
