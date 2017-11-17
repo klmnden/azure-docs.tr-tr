@@ -65,6 +65,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Azure kaynakları
               href: log-analytics-azure-storage.md
+            - name: Azure PaaS kaynakları
+              href: log-analytics-collect-azurepass-posh.md
             - name: Azure depolama biriminden tanılama veya günlük verileri
               href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager

@@ -17,6 +17,7 @@
 #### [Batch hizmeti ile Azure AD](batch-aad-auth.md)
 #### [Batch Yönetimi ile Azure AD](batch-aad-auth-management.md)
 ### [Yoğun işlem gücü kullanımlı VM’ler](batch-pool-compute-intensive-sizes.md)
+### [Kapsayıcı iş yükleri](batch-docker-container-workloads.md)
 ### [Eşzamanlı düğüm görevleri](batch-parallel-node-tasks.md)
 ### [Görevleri duruma göre sayma](batch-get-task-counts.md)
 ### [Özel bir görüntü ile havuz oluşturma](batch-custom-images.md)

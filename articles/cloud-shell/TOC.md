@@ -14,6 +14,9 @@
 ## [PowerShell’de kalıcı depolama](persisting-shell-storage-powershell.md)
 ## [Pencereyi kullanma](using-the-shell-window.md)
 
+# Örnekler
+## [Bash’te Terraform ile Azure kaynaklarını dağıtma](example-terraform-bash.md)
+
 # [Fiyatlandırma](pricing.md)
 
 # [Sorun giderme](troubleshooting.md)

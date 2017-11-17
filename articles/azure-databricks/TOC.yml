@@ -1,0 +1,25 @@
+- name: Azure Databricks belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Azure Databricks nedir?
+      href: what-is-azure-databricks.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Databricks çalışma alanı oluşturma
+      href: quickstart-create-databricks-workspace-portal.md
+- name: Kaynaklar
+  items:
+    - name: Databricks belgeleri
+      href: 'https://docs.azuredatabricks.net/user-guide/index.html'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=analytics'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Destek seçenekleri
+      href: 'https://azure.microsoft.com/support/options/'

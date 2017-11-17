@@ -125,7 +125,7 @@
           href: ps-template.md
         - name: Bir VM’ye bağlanma
           href: connect-logon.md
-        - name: AHUB lisansı kullanma
+        - name: Azure Hibrit Avantajı lisansını kullanma
           href: hybrid-use-benefit-licensing.md
         - name: Windows 10 için Çok Kiracılı Barındırma Kuralları’nı kullanma
           href: windows-desktop-multitenant-hosting-deployment.md
@@ -141,6 +141,17 @@
           href: policy.md
         - name: Anahtar kasası oluşturma
           href: key-vault-setup.md
+    - name: VM’leri koruma
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Tek bir VM’yi yedekleme
+          items:
+            - name: Azure portalına
+              href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Azure PowerShell
+              href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Birden fazla VM’yi yedekleme
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: VM’leri yönetme
       items:
         - name: Ortak PowerShell görevleri
@@ -167,6 +178,8 @@
           href: scheduled-events.md
         - name: Meta verileri izleme
           href: instance-metadata-service.md
+        - name: İç içe yerleştirilmiş sanallaştırmayı etkinleştirme
+          href: nested-virtualization.md
     - name: Görüntüleri Kullanma
       items:
         - name: Görüntüleri bulma ve kullanma
