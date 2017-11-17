@@ -20,7 +20,7 @@
 ## [Şirket içi veri ağ geçidini yükleme ve yapılandırma](analysis-services-gateway-install.md)
 ## [İstemci kitaplıkları alma](analysis-services-data-providers.md)
 ## [Yedekleme ve geri yükleme](analysis-services-backup.md)
-## [Sorgu çoğaltma genişletmesini yapılandırma](analysis-services-scale-out.md)
+## [Ölçek genişletmeyi yapılandırma](analysis-services-scale-out.md)
 ## [Excel ile bağlanma](analysis-services-connect-excel.md)
 ## [Power BI ile bağlanma](analysis-services-connect-pbi.md)
 ## [.odc dosyası oluşturma](analysis-services-odc.md)

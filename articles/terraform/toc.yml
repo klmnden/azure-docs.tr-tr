@@ -15,7 +15,7 @@
   items:
     - name: Terraform modülleri ile VM kümesi oluşturma
       href: terraform-create-vm-cluster-module.md
-    - name: Cloud Shell ile VM kümesi oluşturma
+    - name: Terraform ve HCL ile VM kümesi oluşturma
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Altyapı ile VM ölçek kümesini sağlama
       href: terraform-create-vm-scaleset-network-disks-hcl.md
