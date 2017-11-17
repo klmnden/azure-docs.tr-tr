@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ab0aa377f9803d74d8a7a94bdb4c7b780e3ae41d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions ve WebJobs arasında seçim yapma
 Bu makalede karşılaştırır ve tüm tümleştirme sorunlarını çözmek ve iş süreçlerini otomatikleştirmek aşağıdaki hizmetleri Microsoft bulutta farklılık gösterir:
@@ -52,7 +52,7 @@ Aşağıdaki tabloda, akış veya Logic Apps belirli bir tümleştirme için en 
 | Tasarım aracı |Tarayıcı içi ve mobil uygulama, yalnızca kullanıcı Arabirimi |Tarayıcı içi ve [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [kod görünümü](../logic-apps/logic-apps-author-definitions.md) kullanılabilir |
 | DevOps |Geçici, üretimde geliştirin |Kaynak denetimi, test, destek otomasyon ve yönetilebilirlik, [Azure kaynak yönetimi](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Yönetici deneyimi |[https://Flow.microsoft.com](https://flow.microsoft.com) |[https://Portal.Azure.com](https://portal.azure.com) |
-| Güvenlik |Standart uygulamalar: [veri egemenliği](https://wikipedia.org/wiki/Technological_Sovereignty), [bekleyen şifreleme](https://wikipedia.org/wiki/Data_at_rest#Encryption) hassas verileri için vb.. |Azure güvenlik güvencesi: [Azure güvenlik](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), [denetim günlüklerini](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)ve daha fazlası. |
+| Güvenlik |Standart uygulamalar: [veri egemenliği](https://wikipedia.org/wiki/Technological_Sovereignty), [bekleyen şifreleme](https://wikipedia.org/wiki/Data_at_rest#Encryption) hassas verileri için vb. |Azure güvenlik güvencesi: [Azure güvenlik](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), [denetim günlüklerini](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)ve daha fazlası. |
 
 <a name="function"></a>
 
@@ -81,12 +81,12 @@ Aşağıdaki tabloda, İşlevler ve Web işleri arasındaki farklar özetlenmekt
 | Ölçeklendirme |Configurationless ölçeklendirme |Uygulama hizmeti planı ile ölçeklendirin |
 | Fiyatlandırma |Kullanım başına ödeme ya da uygulama hizmeti planının bir parçası |Uygulama hizmeti planının bir parçası |
 | Çalışma türü |tetiklenen, zamanlanmış (Zamanlayıcı tetikleyicisi tarafından) |tetiklenen, sürekli, zamanlanmış |
-| Tetikleyici olayları |[Zamanlayıcı](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs'a](functions-bindings-event-hubs.md), [HTTP/Web (GitHub, Slack'e) kancası](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure hizmet veri yolu](functions-bindings-service-bus.md), [Azure depolama](functions-bindings-storage-blob.md) |[Azure depolama](functions-bindings-storage-blob.md), [Azure hizmet veri yolu](functions-bindings-service-bus.md) |
+| Tetikleyici olayları |[Zamanlayıcı](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs'a](functions-bindings-event-hubs.md), [HTTP/Web (GitHub, Slack'e) kancası](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [Azure Storage kuyruklarını ve BLOB'ları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |[Azure depolama kuyrukları ve blobları](functions-bindings-storage-blob.md), [Azure Service Bus kuyrukları ve konuları](functions-bindings-service-bus.md) |
 | Tarayıcı içi geliştirme |Destekleniyor |Desteklenmiyor |
 | C# |Destekleniyor |Destekleniyor |
 | F# |Destekleniyor |Desteklenmiyor |
 | JavaScript |Destekleniyor |Destekleniyor |
-| Java |Destekleniyor | Desteklenmiyor |
+| Java |Önizleme | Desteklenmiyor |
 | Bash |Deneysel |Destekleniyor |
 | (.Cmd, .bat) Windows komut dosyası |Deneysel |Destekleniyor |
 | PowerShell |Deneysel |Destekleniyor |
