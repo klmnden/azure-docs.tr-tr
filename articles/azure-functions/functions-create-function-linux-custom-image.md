@@ -5,17 +5,17 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 11/08/2017
+ms.date: 11/15/2017
 ms.topic: article
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 40fbbd0ec020320b26ed343aec8ac31d60b646dc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 67ee02df2c42ba39c2f186cc95fa886a3d735ed2
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Özel görüntü (Önizleme) kullanarak Linux üzerinde bir işlev oluşturun
 
@@ -145,7 +145,7 @@ v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 2422
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu konu Azure CLI Sürüm 2.0 veya üstü gerektirir. Çalıştırma `az --version` sürüm bulunamadı. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu konu Azure CLI Sürüm 2.0.21 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` sürüm bulunamadı. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 

@@ -1,11 +1,15 @@
-Bir Azure sanal makinesi birkaç veri diskini eklemeyi destekler. En iyi performans için, olası azalmayı önlemek için sanal makineye bağlı olup yüksek oranda kullanılan disk sayısını azaltmanız gerekebilir. Tüm diskler aynı anda yüksek oranda kullanılmıyorsa, depolama hesabı daha fazla sayıda diski destekler.
+Bir Azure sanal makinesi birkaç veri diskini eklemeyi destekler. Bu makalede, bir sanal makinenin veri diski için ölçeklenebilirlik ve performans hedefleri açıklanmaktadır. Bu hedeflerde sayısı ve performans ve kapasite gereksinimlerinizi karşılamak için gereken disk türüne karar vermenize yardımcı olması için kullanın. 
 
-* **Azure yönetilen disklerin:** yönetilen diskleri sayısı sınırı Bölgesel ve ayrıca depolama türüne bağlıdır. Varsayılan ve ayrıca üst sınırı abonelik başına, bölge başına ve depolama türü başına 10.000 olur. Örneğin, yönetilen en fazla 10.000 standart oluşturabilirsiniz diskleri ve ayrıca 10.000 premium diskler bir abonelikte ve bölgede yönetilen. 
+> [!IMPORTANT]
+> En iyi performans için mümkün azaltma önlemek için sanal makineye bağlı yüksek oranda kullanılan disk sayısını sınırlayın. Eklenen tüm diskler aynı anda yüksek oranda kullanılmaz, sanal makine disklerin daha büyük bir sayı destekleyebilir.
 
-    Yönetilen Anlık Görüntüler ve Görüntüler, Yönetilen Diskler sınırına göre sayılır.
+* **Azure yönetilen disklerin:** disk yönetilen diskler için disk türünü ve bölge başına sınırlıdır. Üst sınırı, aynı zamanda varsayılan sınır ise bir abonelik için disk türünü ve bölge başına 10.000 yönetilen diskleri. Örneğin, yönetilen en fazla 10.000 standart oluşturabilirsiniz diskleri ve ayrıca 10.000 premium yönetilen abonelik başına bir bölgede diskler.
+
+    Yönetilen anlık görüntüler ve görüntüleri yönetilen diskleri sınırınızı etkiler.
 
 * **Standart depolama hesapları için:** Standart bir depolama hesabı en fazla toplam 20.000 IOPS istek oranına sahiptir. Standart bir depolama hesabındaki tüm sanal makine disklerinizde toplam IOPS bu sınırı aşmamalıdır.
   
-    Tek bir standart depolama hesabı tarafından desteklenen yüksek kullanımlı disk sayısını, istek oranı sınırına göre kabaca hesaplayabilirsiniz. Örneğin, aşağıdaki tabloda gösterildiği gibi, bir Temel Katman sanal makine için yüksek oranda kullanılan en fazla disk 66 (disk başına 20.000/300 IOPS) iken, Standart Katman sanal makine için bu sayı yaklaşık 40’tır (disk başına 20.000/500 IOPS). 
+    Tek bir standart depolama hesabı tarafından desteklenen yüksek kullanımlı disk sayısını, istek oranı sınırına göre kabaca hesaplayabilirsiniz. Örneğin, temel katmanı VM, yüksek oranda kullanılan disk sayısı ve standart katmanı VM 66 (disk başına 20.000/300 IOPS) hakkında için yaklaşık 40 (disk başına 20.000/500 IOPS) olur. 
+
 * **Premium depolama hesapları için:** Premium depolama hesabında en fazla aktarım hızı 50 Gbps’dir. Tüm sanal makinelerdeki toplam aktarım hızı bu sınırı aşmamalıdır.
 

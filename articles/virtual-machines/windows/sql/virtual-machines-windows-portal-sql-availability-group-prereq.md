@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0748e0ffa405fc02f6da7e2c412beec12510fde5
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure sanal makinelerde Always On kullanılabilirlik grupları oluşturmak için önkoşulları tamamlamanız
 
@@ -368,7 +368,7 @@ Ardından, üç sanal makineleri--iki SQL Server VM'ler ve ek bir küme düğüm
 | --- | --- | --- | --- |
 | Uygun galeri öğesini seçin |**Windows Server 2016 Datacenter** |**Windows Server 2016 SQL Server 2016 SP1 Enterprise** |**Windows Server 2016 SQL Server 2016 SP1 Enterprise** |
 | Sanal Makine Yapılandırması **temelleri** |**Ad** küme fsw =<br/>**Kullanıcı adı** DomainAdmin =<br/>**Parola** Contoso =! 0000<br/>**Abonelik** aboneliğinizi =<br/>**Kaynak grubu** SQL-HA-RG =<br/>**Konum** azure konumunuz = |**Ad** sqlserver-0 =<br/>**Kullanıcı adı** DomainAdmin =<br/>**Parola** Contoso =! 0000<br/>**Abonelik** aboneliğinizi =<br/>**Kaynak grubu** SQL-HA-RG =<br/>**Konum** azure konumunuz = |**Ad** sqlserver-1 =<br/>**Kullanıcı adı** DomainAdmin =<br/>**Parola** Contoso =! 0000<br/>**Abonelik** aboneliğinizi =<br/>**Kaynak grubu** SQL-HA-RG =<br/>**Konum** azure konumunuz = |
-| Sanal Makine Yapılandırması **boyutu** |**BOYUTU** DS1 =\_V2 (1 çekirdek, 3.5 GB) |**BOYUTU** DS2 =\_V2 (2 Çekirdek, 7 GB)</br>Boyutu SSD depolama (Premium disk desteği. desteklemesi gerekir )) |**BOYUTU** DS2 =\_V2 (2 Çekirdek, 7 GB) |
+| Sanal Makine Yapılandırması **boyutu** |**BOYUTU** DS1 =\_V2 (1 vCPU, 3.5 GB) |**BOYUTU** DS2 =\_V2 (2 Vcpu, 7 GB)</br>Boyutu SSD depolama (Premium disk desteği. desteklemesi gerekir )) |**BOYUTU** DS2 =\_V2 (2 Vcpu, 7 GB) |
 | Sanal Makine Yapılandırması **ayarları** |**Depolama**: yönetilen diskleri kullanın.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulan.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |**Depolama**: yönetilen diskleri kullanın.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulan.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |**Depolama**: yönetilen diskleri kullanın.<br/>**Sanal ağ** autoHAVNET =<br/>**Alt ağ** sqlsubnet(10.1.1.0/24) =<br/>**Genel IP adresi** otomatik olarak oluşturulan.<br/>**Ağ güvenlik grubu** = yok<br/>**Tanılama izleme** = etkin<br/>**Tanılama depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik kümesi** sqlAvailabilitySet =<br/> |
 | Sanal Makine Yapılandırması **SQL Server ayarları** |Uygulanamaz |**SQL Bağlantısı** özel (sanal ağ dahilinde) =<br/>**Bağlantı noktası** 1433 =<br/>**SQL kimlik doğrulaması** = devre dışı bırak<br/>**Depolama yapılandırması** genel =<br/>**Otomatik düzeltme eki uygulama** 2: 00'dan Pazar =<br/>**Otomatik yedekleme** = devre dışı</br>**Azure anahtar kasası tümleştirme** = devre dışı |**SQL Bağlantısı** özel (sanal ağ dahilinde) =<br/>**Bağlantı noktası** 1433 =<br/>**SQL kimlik doğrulaması** = devre dışı bırak<br/>**Depolama yapılandırması** genel =<br/>**Otomatik düzeltme eki uygulama** 2: 00'dan Pazar =<br/>**Otomatik yedekleme** = devre dışı</br>**Azure anahtar kasası tümleştirme** = devre dışı |
 

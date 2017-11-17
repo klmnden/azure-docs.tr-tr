@@ -1,10 +1,10 @@
 ---
-title: "Azure CLI 2.0 - sanal ağ oluşturma | Microsoft Docs"
-description: "Azure CLI 2.0 kullanarak bir sanal ağ oluşturmayı öğrenin."
+title: "Azure CLI - sanal ağ oluşturma | Microsoft Docs"
+description: "Azure CLI kullanarak bir sanal ağ oluşturmayı öğrenin."
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -16,25 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanan bir sanal ağ oluşturma
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>Azure CLI kullanarak bir sanal ağ oluşturma
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure'un iki dağıtım modeli vardır: Azure Resource Manager ve klasik. Microsoft, kaynakların Resource Manager dağıtım modeliyle oluşturulmasını önerir. İki model arasındaki farkları öğrenmek için [Azure dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md) makalesini okuyun.
 
-## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri
-Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
-
-- [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız
-- [Azure CLI 2.0](#create-a-virtual-network) -bizim nesil CLI kaynak yönetimi dağıtım modeli (Bu makalede) için '
- 
-    Resource Manager’da farklı araçlar kullanarak da sanal ağ kurabilir veya aşağıdaki listeden farklı bir seçenek belirleyerek klasik dağıtım modeliyle sanal ağ oluşturabilirsiniz:
+Kaynak diğer araçları kullanarak Yöneticisi aracılığıyla bir sanal ağ oluşturun veya farklı bir seçenek aşağıdaki listeden seçerek Klasik dağıtım modeli aracılığıyla bir sanal ağ oluşturun:
 
 > [!div class="op_single_selector"]
 > * [Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -47,10 +41,9 @@ Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-Azure CLI 2.0 kullanarak bir sanal ağ oluşturmak için aşağıdaki adımları tamamlayın:
+Azure CLI kullanarak bir sanal ağ oluşturmak için aşağıdaki adımları tamamlayın:
 
 1. Yükleme ve yapılandırma en son [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login).
 

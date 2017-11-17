@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM'ler için Kıyaslama puanları işlem
 Aşağıdaki SPECInt Kıyaslama puanlar Windows Server çalıştıran Azure'nın yüksek performans VM serisi için işlem performansı gösterir. İşlem Kıyaslama puanları için kullanılabilir de [Linux VM'ler](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -65,7 +65,7 @@ Aşağıdaki SPECInt Kıyaslama puanlar Windows Server çalıştıran Azure'nın
 | Standart_h16mr |16 |2 |Intel Xeon E5-2667 v3 3,2 GHz @ |7 |569.6 |2.8 |
 
 ## <a name="about-specint"></a>SPECint hakkında
-Windows numaraları hesaplanan çalıştırarak [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) Windows Server'da. SPECint çekirdek başına bir kopya ile temel oranı seçeneği (yayımlanan SPECint_rate2006) kullanılarak çalıştırıldı. SPECint 12 ayrı testler her üç kez çalıştırın, her test Medyan değerini almak ve bunları bileşik bir puan oluşturmak üzere ağırlığı oluşur. Bu testlerin sonra gösterilen ortalama puanları sağlamak için birden çok VM çalıştırılmadı.
+Windows numaraları hesaplanan çalıştırarak [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) Windows Server'da. SPECint vCPU başına bir kopya ile temel oranı seçeneği (yayımlanan SPECint_rate2006) kullanılarak çalıştırıldı. SPECint 12 ayrı testler her üç kez çalıştırın, her test Medyan değerini almak ve bunları bileşik bir puan oluşturmak üzere ağırlığı oluşur. Bu testlerin sonra gösterilen ortalama puanları sağlamak için birden çok VM çalıştırılmadı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Depolama kapasitesi, disk ayrıntıları ve VM boyutları arasında seçmeye yönelik ek hususlar için bkz: [sanal makineler için Boyutlar](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 7068d6e83d196d95b4625d1b1a496be5a22c88a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Bağlanma ve Service Fabric Hizmetleri ile iletişim
 Service Fabric içinde bir hizmet birden çok VM genellikle dağıtılmış bir Service Fabric kümesindeki herhangi bir yerde çalışır. Bu tek bir yerden diğerine hizmet sahibi tarafından ya da otomatik olarak Service Fabric tarafından taşınabilir. Hizmetleri statik olarak belirli bir makine veya adresine bağlı olmak zorunda değildir.
@@ -63,7 +63,7 @@ Aşağıdaki çizimde gösterildiği gibi Service Fabric kümede çalışan DNS 
 Bkz: DNS kullanma hakkında daha fazla ayrıntı hizmetinin [Azure Service Fabric DNS hizmetinde](service-fabric-dnsservice.md) makalesi.
 
 ### <a name="reverse-proxy-service"></a>Ters proxy hizmeti
-Ters proxy services HTTPS dahil olmak üzere HTTP uç noktalarını kullanıma sunar kümedeki giderir. Ters proxy büyük ölçüde belirli bir URI biçimi sağlayarak diğer hizmetler ve bunların yöntemleri çağırma basitleştirir ve çözümleme işler, bağlantı, adlandırma hizmetini kullanarak birbiriyle iletişim kurmak için bir hizmet için gerekli adımları yeniden deneyin. Diğer bir deyişle, diğer hizmetler bu URL çağrılması kadar basit hale getirerek çağrılırken sizden adlandırma hizmeti gizler.
+Ters proxy services HTTPS dahil olmak üzere HTTP uç noktalarını kullanıma sunar kümedeki giderir. Ters proxy büyük ölçüde belirli bir URI biçimi sağlayarak diğer hizmetler ve bunların yöntemleri çağırma basitleştirir ve çözümleme işler, bağlantı, adlandırma hizmeti kullanmada diğeriyle iletişim için bir hizmet için gerekli adımları yeniden deneyin. Diğer bir deyişle, diğer hizmetler bu URL çağrılması kadar basit hale getirerek çağrılırken sizden adlandırma hizmeti gizler.
 
 ![Hizmet uç noktaları][10]
 

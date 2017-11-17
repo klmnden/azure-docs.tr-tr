@@ -1,8 +1,6 @@
-Cloud Shell içinde [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) komutuyla dağıtım kimlik bilgileri oluşturun.
+Cloud Shell içinde [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) komutuyla dağıtım kimlik bilgileri oluşturun. Bir web uygulamasına FTP ve yerel Git dağıtımı için dağıtım kullanıcısı gereklidir. Kullanıcı adı ve parola, hesap düzeyindedir. _Bunlar Azure aboneliği kimlik bilgilerinizden farklıdır._
 
-Bir web uygulamasına FTP ve yerel Git dağıtımı için dağıtım kullanıcısı gereklidir. Kullanıcı adı ve parola, hesap düzeyindedir. _Bunlar Azure aboneliği kimlik bilgilerinizden farklıdır._
-
-Aşağıdaki komutta *\<username>* ve *\<password>* kısımlarını yeni bir kullanıcı adı ve parola ile değiştirin. Kullanıcı adı benzersiz olmalıdır. Parola, en az sekiz karakter uzunluğunda olma ve şu üç öğeyi de içermelidir: harf, rakam, sembol. 
+Aşağıdaki örnekte  *\<kullanıcı adı >* ve  *\<parola >* (köşeli ayraçlar dahil) yeni bir kullanıcı adı ve parola ile. Kullanıcı adı benzersiz olmalıdır. Parola, en az sekiz karakter uzunluğunda olma ve şu üç öğeyi de içermelidir: harf, rakam, sembol. 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>

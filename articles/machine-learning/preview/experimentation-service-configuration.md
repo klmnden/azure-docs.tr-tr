@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning deneme hizmetini yapılandırma
 
@@ -220,6 +220,8 @@ _**Uzak vm yürütme bir Python komut dosyası için genel bakış:**_
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Bir Hdınsight kümesine betik çalıştırma
 Hdınsight Apache Spark destekleyen büyük veri analizi için popüler bir platformdur. Çalışma ekranı Hdınsight Spark kümeleri kullanarak büyük veri üzerinde deneme sağlar. 
+
+>! [NOT] Hdınsight kümesi birincil depolama alanı olarak Azure Blob kullanmanız gerekir. Azure Data Lake storage kullanarak henüz desteklenmiyor.
 
 Bir işlem hedef oluşturun ve aşağıdaki komutu kullanarak Hdınsight Spark kümesinde yapılandırmanın çalıştırın:
 

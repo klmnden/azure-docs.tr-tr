@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: bir ilk Spark Azure Azure portalını kullanarak Databricks üzerinde çalıştırın | Microsoft Docs"
+title: "Hızlı Başlangıç: bir Azure Azure portalını kullanarak Databricks üzerinde Spark çalıştırın | Microsoft Docs"
 description: "Hızlı Başlangıç Azure portalında bir Azure Databricks çalışma alanında, bir Apache Spark kümesi oluşturma ve Spark işi çalıştırmak için nasıl kullanılacağını gösterir."
 services: azure-databricks
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: d384a1aef89941c2c9b547e5e0d05bb562578393
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: b5f80427234549b13a1aca94cd04e4f7e6f94ccf
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç:, Azure portalını kullanarak Azure Databricks üzerinde Spark işini çalıştır
 

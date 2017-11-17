@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 51c06d838c5ed6286dfb99ea25faaaf33bad5f3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebf07218a6b356d71af51383ac85933ec63b543b
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Öğretici: Zendesk Azure Active Directory Tümleştirme
 
@@ -116,7 +116,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://<subdomain>.zendesk.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://<subdomain>.zendesk.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, şu biçimi kullanarak değeri yazın:`<subdomain>.zendesk.com`
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerleri tanımlayıcı URL'sini ve gerçek oturum açma URL'si ile güncelleştirin. Kişi [Zendesk destek ekibi](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) bu değerleri almak için. 

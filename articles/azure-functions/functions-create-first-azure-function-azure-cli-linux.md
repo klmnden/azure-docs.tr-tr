@@ -5,17 +5,17 @@ services: functions
 keywords: 
 author: ggailey777
 ms.author: glenga
-ms.date: 11/07/2017
+ms.date: 11/15/2017
 ms.topic: quickstart
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 4adc25dbca06271382dc76690c75d3198d59d4be
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d04e2000f2043e8bb11e15f6b9d7fd06ef5b9da3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Azure CLI (Önizleme) kullanarak Linux üzerinde çalışan ilk işlevinizi oluşturma
 
@@ -29,14 +29,13 @@ Aşağıdaki adımlar, Mac, Windows veya Linux bilgisayarı üzerinde destekleni
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
-+ Etkin bir [GitHub](https://github.com) hesabı. 
 + Etkin bir Azure aboneliği.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu konu Azure CLI Sürüm 2.0 veya üstü gerektirir. Çalıştırma `az --version` sürüm bulunamadı. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu konu Azure CLI Sürüm 2.0.21 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` sürüm bulunamadı. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 

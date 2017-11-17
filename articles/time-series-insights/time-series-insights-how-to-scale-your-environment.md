@@ -12,17 +12,17 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Zaman serisi Öngörüler ortamınızı ölçeklendirme
 
-Bu makalede, Azure portalını kullanarak zaman serisi Öngörüler ortamınızı ortamınızı kapasitesini değiştirmek açıklar. Kapasite Giriş oranı, depolama kapasitesi ve maliyet, seçilen Sku ile ilişkili uygulanan çarpanı toplamıdır. 
+Bu makalede, Azure portalını kullanarak zaman serisi Öngörüler ortamınızı ortamınızı kapasitesini değiştirmek açıklar. Kapasite Giriş oranı, depolama kapasitesi ve maliyet, seçilen SKU ile ilişkili uygulanan çarpanı toplamıdır. 
 
-Artırmak veya belirli bir fiyatlandırma Sku kapasitesiyle azaltmak için Azure portalını kullanabilirsiniz. 
+Artırmak veya belirli bir fiyatlandırma SKU kapasitesiyle azaltmak için Azure portalını kullanabilirsiniz. 
 
 Ancak, fiyatlandırma katmanı değiştirilirse SKU izin verilmiyor. Örneğin, SKU fiyatlandırma bir S1 olan bir ortamda bir S2 içine veya tersi dönüştürülemiyor. 
 
@@ -46,7 +46,7 @@ Kapasiteleri doğrusal olarak, S1 SKU kapasitesi 2 ile her ay gün giriş oranı
 ## <a name="change-the-capacity-of-your-environment"></a>Ortamınızı kapasitesini değiştirme
 1. Azure portalında bulun ve zaman serisi Öngörüler ortamınızı seçin. 
 
-2. Altında **ayarları** başlığını seçin **yapılandırma**.
+2. Zaman serisi Insighs ortamınızı menüsünü **yapılandırma**.
 
    ![Configure.PNG](media/scale-your-environment/configure.png)
 

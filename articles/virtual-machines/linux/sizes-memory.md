@@ -1,6 +1,6 @@
 ---
 title: "Linux Azure VM boyutlarını - bellek | Microsoft Docs"
-description: "Azure'daki Linux sanal makineler için kullanılabilir farklı bellek için iyileştirilmiş boyutlarını listeler."
+description: "Azure'daki Linux sanal makineler için kullanılabilir farklı bellek için iyileştirilmiş boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 61ab4e818c4152104769a547c6f8af064278b948
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 30574be2d0a803aa162ca225b5c2a66c65cc1eaa
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Sanal makine boyutlarını bellek için iyileştirilmiş
 

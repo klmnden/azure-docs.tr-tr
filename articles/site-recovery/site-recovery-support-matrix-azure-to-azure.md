@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 2b5431cefd26d27f6c72dbe72c4b90554b2511b6
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure'dan Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -166,7 +166,7 @@ ZRS | Desteklenmiyor |
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | Sanal makine disklerini seyrek erişimli ve sık erişimli depolama üzerinde desteklenmez.
 
 >[!IMPORTANT]
-> Uygun olduğundan emin olmak [depolama Kılavuzu](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) kaynağınız Azure için tüm performans sorunlarını önlemek için sanal makineler. Varsayılan ayarları izlerseniz, Site Recovery kaynak yapılandırmasını temel alarak gerekli depolama hesapları oluşturun. Özelleştirme ve kendi ayarlarınızı seçerseniz, izlediğinizden emin olun (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) kaynağınız VM'ler.
+> VM disk ölçeklenebilirlik ve performans hedefleri gözlemlemek olun [Linux](../virtual-machines/linux/disk-scalability-targets.md) veya [Windows](../virtual-machines/windows/disk-scalability-targets.md) tüm performans sorunlarını önlemek için sanal makineler. Varsayılan ayarları izlerseniz, Site Recovery gerekli diskler ve depolama hesapları kaynak yapılandırmasını temel alarak oluşturur. Özelleştirme ve kendi ayarlarınızı seçerseniz, kaynak VM'ler disk ölçeklenebilirlik ve performans hedefleri izleyin emin olun.
 
 ## <a name="support-for-network-configuration"></a>Ağ yapılandırması için destek
 **Yapılandırma** | **Desteklenen/desteklenmeyen** | **Açıklamalar**

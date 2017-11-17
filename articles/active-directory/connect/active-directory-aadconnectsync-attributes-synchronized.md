@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 786cba7402d8a7e7ecf4667d30c4c393c8d6de5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08663916214cf2d34704ef2a355464bc6df9b138
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect eşitleme: öznitelikleri eşitlenmiş Azure Active Directory'ye
 Bu konuda, Azure AD Connect eşitleme tarafından eşitlenen öznitelikler listelenir.  
@@ -36,7 +36,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
-| Öznitelik adı | Kullanıcı | Açıklama |
+| Öznitelik Adı | Kullanıcı | Yorum |
 | --- |:---:| --- |
 | accountEnabled |X |Bir hesap etkinleştirilirse tanımlar. |
 | CN = |X | |
@@ -48,7 +48,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | userPrincipalName |X |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | Yardımcısı |X |X | | |
@@ -87,7 +87,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | m |X |X | | |
 | LegacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
-| mangedBy | | |X | |
+| Şirketiniz tarafından | | |X | |
 | Yöneticisi |X |X | | |
 | Üye | | |X | |
 | Mobil |X |X | | |
@@ -172,7 +172,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | authOrig |X |X |X | |
@@ -254,7 +254,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (daha sonra Skype Kurumsal olarak bilinir)
-| Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | C |X |X | | |
@@ -303,7 +303,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | CN = |X | |X |Ortak adı veya diğer ad. En sık [posta] değeri önek. |
@@ -319,7 +319,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | userPrincipalName |X | | |Bu UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
 
 ## <a name="intune"></a>Intune
-| Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | C |X |X | | |
@@ -338,7 +338,7 @@ Bu durumda, bu konu içinde öznitelik listesi ile başlayın ve duyarlı veya P
 | userPrincipalName |X | | |UPN kullanıcı için oturum açma kimliğidir. En sık [posta] aynı değeri. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | C |X |X | | |
@@ -378,7 +378,7 @@ Bu grup, genel iş yükü veya uygulama için gerekli en az öznitelikleri olara
 
 Bu grup, Office 365, Dynamics veya Intune desteklemek için Azure AD dizini kullanılmazsa, kullanılabilen öznitelikleri kümesidir. Küçük bir çekirdek öznitelikler kümesi vardır.
 
-| Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Bir hesap etkinleştirilirse tanımlar. |
 | CN = |X | |X | |
@@ -399,7 +399,7 @@ Bu grup, Office 365, Dynamics veya Intune desteklemek için Azure AD dizini kull
 ## <a name="windows-10"></a>Windows 10
 Etki alanına katılmış Windows 10 computer(device) bazı öznitelikler Azure ad ile eşitler. Senaryoları hakkında daha fazla bilgi için bkz: [Windows 10 deneyimleri için etki alanına katılmış cihazlar için Azure AD Connect](../active-directory-azureadjoin-devices-group-policy.md). Bu öznitelikler her zaman eşitleyin ve Windows 10 işaretini kaldırabilirsiniz bir uygulama görünmez. Windows 10 etki alanına katılmış bir bilgisayar doldurulmuş özniteliği userCertificate sahip olarak tanımlanır.
 
-| Öznitelik adı | Cihaz | Açıklama |
+| Öznitelik Adı | Cihaz | Yorum |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |Etki alanına katılmış bilgisayarlar için sabit kodlu değeri. |
@@ -413,7 +413,7 @@ Etki alanına katılmış Windows 10 computer(device) bazı öznitelikler Azure 
 
 Bu öznitelikler için **kullanıcı** seçtiğiniz diğer uygulamalar yanı sıra şunlardır.  
 
-| Öznitelik adı | Kullanıcı | Açıklama |
+| Öznitelik Adı | Kullanıcı | Yorum |
 | --- |:---:| --- |
 | domainFQDN |X |DNSEtkiAlanıAdı olarak da bilinir. Örneğin, contoso.com. |
 | domainNetBios |X |NetBiosName olarak da bilinir. Örneğin, CONTOSO. |
@@ -421,7 +421,7 @@ Bu öznitelikler için **kullanıcı** seçtiğiniz diğer uygulamalar yanı sı
 ## <a name="exchange-hybrid-writeback"></a>Exchange karma geri yazma
 Etkinleştirmeyi seçtiğinizde bu öznitelikler geri Azure AD'den şirket içi Active Directory'ye yazılır **Exchange karma**. Exchange sürümünüzün bağlı olarak, daha az sayıda öznitelik eşitlenmiş olabilir.
 
-| Öznitelik adı | Kullanıcı | İletişim | Grup | Açıklama |
+| Öznitelik Adı | Kullanıcı | İletişim | Grup | Yorum |
 | --- |:---:|:---:|:---:| --- |
 | msDS-ExternalDirectoryObjectID |X | | |Azure AD'de cloudAnchor türetilmiş. Bu öznitelik, Exchange 2016 ve Windows Server 2016 AD yenidir. |
 | msExchArchiveStatus |X | | |Çevrimiçi Arşiv: posta arşivlemek müşterilerin sağlar. |
@@ -436,7 +436,7 @@ Etkinleştirmeyi seçtiğinizde bu öznitelikler geri Azure AD'den şirket içi 
 ## <a name="exchange-mail-public-folder"></a>Exchange posta ortak klasörü
 Bu öznitelikler seçtiğinizde etkinleştirmek için Azure AD ile şirket içi Active Directory'den eşitlenen **Exchange posta ortak klasör**.
 
-| Öznitelik adı | PublicFolder | Açıklama |
+| Öznitelik Adı | PublicFolder | Yorum |
 | --- | :---:| --- |
 | Görünen adı | X |  |
 | Posta | X |  |
@@ -448,7 +448,7 @@ Bu öznitelikler seçtiğinizde etkinleştirmek için Azure AD ile şirket içi 
 ## <a name="device-writeback"></a>Cihaz geri yazma
 Cihaz nesneleri, Active Directory içinde oluşturulur. Bu nesneler için Azure AD alanına katılmış aygıtlar olabilir veya etki alanına katılmış Windows 10 bilgisayarlar.
 
-| Öznitelik adı | Cihaz | Açıklama |
+| Öznitelik Adı | Cihaz | Yorum |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | Görünen adı |X | |

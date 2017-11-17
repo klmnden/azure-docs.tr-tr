@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 08/17/2017
+ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: 405ec2b27b488b570c4a5c86e4950ff98233360e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69c07cb31b1dc3ec3685448d8187ef3a57bd3821
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Event Hubs programlama kılavuzu
 
@@ -28,7 +28,7 @@ Bu makalede Azure Event Hubs'a ve Azure .NET SDK'sını kullanarak kod yazarken 
 
 Olayları ya da HTTP POST kullanılarak bir olay hub'ına veya bir AMQP 1.0 bağlantısı üzerinden gönderir. Kullanılacak seçimi ve ne zaman ele alınan belirli senaryoya bağlıdır. AMQP 1.0 bağlantıları Service Bus içinde aracılı bağlantılar olarak ölçülür ve sıklıkla daha yüksek ileti hacimlerine ve düşük gecikme gereksinimlerine sahip senaryolar kalıcı bir mesajlaşma kanalı sağladığından bu senaryolarda daha uygundur.
 
-Event Hubs’ı [NamespaceManager][] sınıfını kullanılarak oluşturabilir ve yönetebilirsiniz. .NET ile yönetilen API’ler kullanılırken Event Hubs’a veri yayımlamaya yönelik birincil yapılar [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) ve [EventData][] sınıflarıdır. [EventHubClient][] üzerinde olayları event hub'ına gönderildiği AMQP iletişim kanalını sağlar. [EventData][] sınıfı bir olayı temsil eder ve bir event hub'ına iletileri yayımlamak için kullanılır. Bu sınıf, olayla ilgili gövde bilgileri, bazı meta verileri ve üst bilgileri içerir. Diğer özellikler eklenir [EventData][] bir olay hub'ından geçtikçe nesne.
+Oluşturma ve olay hub'ları kullanarak yönetme [NamespaceManager][] sınıfı. .NET ile yönetilen API’ler kullanılırken Event Hubs’a veri yayımlamaya yönelik birincil yapılar [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) ve [EventData][] sınıflarıdır. [EventHubClient][] üzerinde olayları event hub'ına gönderildiği AMQP iletişim kanalını sağlar. [EventData][] sınıfı bir olayı temsil eder ve bir event hub'ına iletileri yayımlamak için kullanılır. Bu sınıf, olayla ilgili gövde bilgileri, bazı meta verileri ve üst bilgileri içerir. Diğer özellikler eklenir [EventData][] bir olay hub'ından geçtikçe nesne.
 
 ## <a name="get-started"></a>başlarken
 
@@ -57,7 +57,7 @@ var description = manager.CreateEventHubIfNotExists("MyEventHub");
 [EventHubDescription](/dotnet/api/microsoft.servicebus.messaging.eventhubdescription) sınıfı yetkilendirme kuralları, ileti elde tutma aralığı, bölüm kimlikleri, durum ve yol dahil olmak üzere bir event hub ile ilgili ayrıntılar içerir. Bu sınıf, bir olay hub'ındaki meta verilerini güncelleştirmek için kullanabilirsiniz.
 
 ## <a name="create-an-event-hubs-client"></a>Event Hubs istemcisi oluşturma
-Event Hubs ile etkileşim kurmaya yönelik birincil sınıf [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Bu sınıf hem gönderen hem de alıcı özellikleri sağlar. Aşağıdaki örnekte gösterildiği gibi [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) yöntemini kullanarak bu sınıfın bir örneğini oluşturabilirsiniz.
+Event Hubs ile etkileşim kurmaya yönelik birincil sınıf [Microsoft.ServiceBus.Messaging.EventHubClient][EventHubClient]. Bu sınıf hem gönderen hem de alıcı özellikleri sağlar. Kullanarak bu sınıfın örneği [oluşturma](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.create) yöntemi, aşağıdaki örnekte gösterildiği gibi:
 
 ```csharp
 var client = EventHubClient.Create(description.Path);
@@ -77,14 +77,14 @@ Bağlantı dizesi önceki yöntemler için App.config dosyasında göründüğü
 Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[key]
 ```
 
-Son olarak, aşağıdaki örnekte gösterildiği gibi bir [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) örneğinden [EventHubClient][] nesnesinin oluşturulması da mümkündür.
+Son olarak, bu da oluşturmak mümkündür bir [EventHubClient][] nesnesinin bir [Eventhubclient](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) , aşağıdaki örnekte gösterildiği gibi örneği:
 
 ```csharp
 var factory = MessagingFactory.CreateFromConnectionString("your_connection_string");
 var client = factory.CreateEventHubClient("MyEventHub");
 ```
 
-Bir mesajlaşma altyapısı örneğinden oluşturulan ek [EventHubClient][] nesneleri temel alınan aynı TCP bağlantısını yeniden kullanacaktır. Bu nedenle, bu nesneler işlemede istemci tarafı sınırlamasına sahiptir. [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) yöntemi tek bir mesajlaşma altyapısını yeniden kullanır. Tek bir gönderenden çok yüksek işleme gerekiyorsa birden fazla ileti altyapısı ve her mesajlaşma altyapısından bir [EventHubClient][] nesnesi oluşturabilirsiniz.
+Ek önemlidir [EventHubClient][] bir Mesajlaşma fabrikası örneğinden oluşturulan nesneler temel alınan aynı TCP bağlantısını yeniden kullanabilirsiniz. Bu nedenle, bu nesneler işlemede istemci tarafı sınırlamasına sahiptir. [Create](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Create_System_String_) yöntemi tek bir mesajlaşma altyapısını yeniden kullanır. Tek bir gönderenden çok yüksek işleme gerekiyorsa birden fazla ileti altyapısı ve her mesajlaşma altyapısından bir [EventHubClient][] nesnesi oluşturabilirsiniz.
 
 ## <a name="send-events-to-an-event-hub"></a>Olayları bir event hub'ına Gönder
 Oluşturarak olay hub'ına olayları göndermek bir [EventData][] örneği ve ile göndererek [Gönder](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) yöntemi. Bu yöntem tek bir alır [EventData][] örnek parametresini ve zaman uyumlu olarak olay hub'ına gönderir.
@@ -99,7 +99,7 @@ Oluşturarak olay hub'ına olayları göndermek bir [EventData][] örneği ve il
 
 Bir bölüm anahtarının kullanılması isteğe bağlıdır ve bir kullanılıp kullanılmayacağını dikkatle düşünmelisiniz. Olay sıralama önemliyse, çoğu durumda, bir bölüm anahtarının kullanılması iyi bir seçimdir. Bölüm anahtarı kullandığınızda, bu bölümler kullanılabilirlik tek bir düğümde gerektirir ve zaman içinde kesintiler; Örneğin, düğümlerin yeniden başlatma ve düzeltme zaman işlem. Bu nedenle, bölüm kimliği ayarlamak ve bu bölümü için herhangi bir nedenle kullanılamaz duruma gelir, bu bölümü verilere erişim denemesi başarısız olur. Bölüm anahtarı yüksek oranda kullanılabilirlik en önemli ise belirtmeyin; Bu durumda olayları daha önce açıklanan hepsini model kullanılarak bölümlere gönderilir. Bu senaryoda, kullanılabilirlik (bölüm kimliği) ve tutarlılık (bölüm kimliği için olaylar sabitleme) arasında açık bir seçim getirirsiniz.
 
-Başka bir göz önünde bulundurarak olayları işleme gecikme işliyor. Veri ve yeniden deneyin ve işleme takip edin daha iyi olabilir bazı durumlarda, büyük olasılıkla daha aşağı akış işleme gecikmelere neden olabilir. Örneğin, bir bandı, eksiksiz olmasa bile tam güncel verileri, ancak bir canlı sohbet ya da verileri hızlı bir şekilde, bunun yerine olurdu VoIP senaryo bekleyin en iyisidir.
+Başka bir göz önünde bulundurarak olayları işleme gecikme işliyor. Bazı durumlarda, veri ve potansiyel olarak daha aşağı akış işleme gecikmelere neden olabilir işlemeyle tutmaya çalışın fazla yeniden deneme bırakma daha iyi olabilir. Örneğin, bir bandı, eksiksiz olmasa bile tam güncel verileri, ancak bir canlı sohbet ya da verileri hızlı bir şekilde, bunun yerine olurdu VoIP senaryo bekleyin en iyisidir.
 
 Bu kullanılabilirlik noktalar bu senaryolarda verilen aşağıdaki hata işleme stratejiler birini:
 
@@ -111,13 +111,13 @@ Bu kullanılabilirlik noktalar bu senaryolarda verilen aşağıdaki hata işleme
 Daha fazla bilgi ve dengelemeler kullanılabilirlik ve tutarlılık arasında hakkında tartışma için bkz: [kullanılabilirlik ve Event Hubs tutarlılığını](event-hubs-availability-and-consistency.md). 
 
 ## <a name="batch-event-send-operations"></a>Toplu olay gönderme işlemleri
-Olayların toplu olarak gönderilmesi üretilen işi çarpıcı biçimde artırabilir. [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) metodu bir **IEnumerable** türünde parametresi [EventData][] ve toplu işin tamamını atomik bir işlem olay hub'ına gönderir.
+Olayların toplu olarak gönderilmesi yardımcı verimliliğini artırmak. [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) metodu bir **IEnumerable** türünde parametresi [EventData][] ve toplu işin tamamını atomik bir işlem olay hub'ına gönderir.
 
 ```csharp
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Tek bir toplu iş olayın 256 KB’lik sınırını aşmamalıdır. Ayrıca, toplu işteki her bir ileti aynı yayımcı kimliğini kullanır. Toplu işin en büyük olay boyutu aşmamasını sağlamak gönderenin sorumluluğundadır. Aşması durumunda bir istemci **Gönderme** hatası oluşturulur.
+Tek bir toplu iş olayın 256 KB'lik sınırını aşmamalıdır unutmayın. Ayrıca, toplu işteki her bir ileti aynı yayımcı kimliğini kullanır. Toplu işin en büyük olay boyutu aşmamasını sağlamak gönderenin sorumluluğundadır. Aşması durumunda bir istemci **Gönderme** hatası oluşturulur.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Zaman uyumsuz olarak gönderme ve ölçekli gönderme
 Ayrıca olayları bir event hub'ına zaman uyumsuz olarak gönderebilirsiniz. Zaman uyumsuz gönderme bir istemcinin olayları gönderebildiği hızı artırabilir. Bir [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) nesnesi döndüren zaman uyumsuz sürümlerde hem [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) hem de [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_SendBatch_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__) yöntemleri kullanılabilir. Bu teknik üretilen işi artırabilse de, istemcinin Event Hubs hizmeti tarafından kısıtlandığında bile olay göndermeye devam etmesine neden olabilir ve düzgün uygulanmaması durumunda istemcinin hata veya kayıp iletilerle karşılaşmasına yol açabilir. Ayrıca, istemci yeniden deneme seçeneklerini denetlemek için istemci üzerindeki [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity#Microsoft_ServiceBus_Messaging_ClientEntity_RetryPolicy) özelliğini kullanabilirsiniz.
@@ -132,10 +132,10 @@ var partitionedSender = client.CreatePartitionedSender(description.PartitionIds[
 [CreatePartitionedSender](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_CreatePartitionedSender_System_String_) döndüren bir [EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender) nesne olayları belirli olay hub'ı bölümünde yayımlamak için kullanabilirsiniz.
 
 ## <a name="event-consumers"></a>Olay tüketicileri
-Event Hubs olay tüketimi için iki adet birincil modele sahiptir: doğrudan alıcılar ve [EventProcessorHost][] gibi üst düzey soyutlamalar. Doğrudan alıcılar bir tüketici grubundaki bölümlere erişimin eşgüdümünden kendileri sorumludur.
+Event Hubs olay tüketimi için iki adet birincil modele sahiptir: doğrudan alıcılar ve [EventProcessorHost][] gibi üst düzey soyutlamalar. Alıcıları bölümleri sorumlu kendi erişim koordinasyonu için doğrudan bir *tüketici grubu*. Bir görünüme (durumu, konum veya offset) bölümlenmiş olay hub'ı bir tüketici grubudur.
 
 ### <a name="direct-consumer"></a>Doğrudan tüketici
-Bir tüketici grubundaki bölümden okuma yapmanın en doğrudan yolu [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) sınıfının kullanılmasıdır. Bu sınıfın bir örneğini oluşturmak için [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) sınıfının bir örneğini kullanmanız gerekir. Aşağıdaki örnekte tüketici grubu için alıcı oluşturulurken bölüm kimliği belirtilmelidir.
+Bir bölümün dışında okumak için en doğrudan yolu kullanmaktır [EventHubReceiver](/dotnet/apie/microsoft.servicebus.messaging.eventhubreceiver) sınıfı. Bu sınıfın bir örneğini oluşturmak için [EventHubConsumerGroup](/dotnet/api/microsoft.servicebus.messaging.eventhubconsumergroup) sınıfının bir örneğini kullanmanız gerekir. Aşağıdaki örnekte tüketici grubu için alıcı oluşturulurken bölüm kimliği belirtilmelidir:
 
 ```csharp
 EventHubConsumerGroup group = client.GetDefaultConsumerGroup();
@@ -158,7 +158,7 @@ while(receive)
 
 Belirli bir bölüme göre iletiler event hub'ına gönderildikleri sırayla alınır. Uzaklık bir bölümdeki bir iletiyi tanımlamak için kullanılan bir dize belirtecidir.
 
-Bir tüketici grubundaki tek bir bölüm aynı anda 5'ten fazla eşzamanlı okuyucunun bağlanmasına izin vermez. Okuyucular bağlandığında veya bağlantıları kesildiğinde hizmetin bağlantı kesilmesini algılamasından önce oturumları birkaç dakika boyunca etkin kalabilir. Bu süre boyunca bir bölüme yeniden bağlanılması başarısız olabilir. Event Hubs için doğrudan alıcı yazmaya tam örnek için bkz [Event Hubs doğrudan alıcıları](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) örnek.
+Tek bir bölüm 5'ten fazla eşzamanlı okuyucu herhangi bir zamanda bağlı olamaz unutmayın. Okuyucular bağlandığında veya bağlantıları kesildiğinde hizmetin bağlantı kesilmesini algılamasından önce oturumları birkaç dakika boyunca etkin kalabilir. Bu süre boyunca bir bölüme yeniden bağlanılması başarısız olabilir. Event Hubs için doğrudan alıcı yazmaya tam örnek için bkz [Event Hubs doğrudan alıcıları](https://code.msdn.microsoft.com/Event-Hub-Direct-Receivers-13fa95c6) örnek.
 
 ### <a name="event-processor-host"></a>Olay işlemcisi konağı
 [EventProcessorHost][] sınıfı Event Hubs verilerini işler. .NET platformu üzerinde olay okuyucuları oluştururken bu uygulamayı kullanmanız gerekir. [EventProcessorHost][] aynı zamanda denetim noktası oluşturma ve bölüm kiralama yönetimi sağlayan olay işlemcisi uygulamaları için iş parçacığı güvenli, çok işlemli, güvenli bir çalışma zamanı ortamı sağlar.
@@ -169,16 +169,16 @@ Bir tüketici grubundaki tek bir bölüm aynı anda 5'ten fazla eşzamanlı okuy
 * [CloseAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_CloseAsync_Microsoft_ServiceBus_Messaging_PartitionContext_Microsoft_ServiceBus_Messaging_CloseReason_)
 * [ProcessEventsAsync](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor#Microsoft_ServiceBus_Messaging_IEventProcessor_ProcessEventsAsync_Microsoft_ServiceBus_Messaging_PartitionContext_System_Collections_Generic_IEnumerable_Microsoft_ServiceBus_Messaging_EventData__)
 
-Olay işlemeyi başlatmak için örneği [EventProcessorHost][], event hub'ınıza uygun parametreleri sağlayarak. Ardından [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) uygulamanızı çalışma zamanına kaydetmek için [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1) çağrısı yapın. Bu noktada konak bir "Hızlı" algoritma kullanarak event hub'ındaki her bölüm üzerinde bir kira elde etmeye çalışır. Bu kiralar belirli bir zaman çerçevesi boyunca sürer ve sonrasında yenilenmelidir. Bu örnekte çalışan örnekleri olan yeni düğümler çevrimiçi oldukça kiralama ayırmaları yapar ve zaman içerisinde yük daha fazla kira elde etmeye çalıştığından düğümler arasında kayar.
+Olay işlemeyi başlatmak için örneği [EventProcessorHost][], event hub'ınıza uygun parametreleri sağlayarak. Ardından [IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) uygulamanızı çalışma zamanına kaydetmek için [RegisterEventProcessorAsync](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost#Microsoft_ServiceBus_Messaging_EventProcessorHost_RegisterEventProcessorAsync__1) çağrısı yapın. Bu noktada konak bir "Hızlı" algoritma kullanarak event hub'ındaki her bölüm üzerinde bir kira almaya çalışır. Bu kiralar belirli bir zaman çerçevesi için en son ve sonrasında yenilenmelidir. Bu örnekte çalışan örnekleri olan yeni düğümler çevrimiçi oldukça kiralama ayırmaları yapar ve zaman içerisinde yük daha fazla kira elde etmeye çalıştığından düğümler arasında kayar.
 
 ![Olay İşlemcisi Konağı](./media/event-hubs-programming-guide/IC759863.png)
 
-Zaman içerisinde bir denge sağlanır. Bu dinamik özellik hem ölçek artırma hem de ölçek azaltma için tüketicilere CPU tabanlı otomatik ölçeklendirmenin uygulanmasını sağlar. Event Hubs doğrudan ileti sayısı kavramına sahip olmadığından ortalama CPU kullanımı genellikle arka uç veya tüketici ölçeğini ölçmeye yönelik en iyi mekanizmadır. Yayımcılar tüketicilerin işleyebileceğinden daha fazla olay yayımlamaya başlarsa, tüketiciler üzerindeki CPU artışı çalışan örnek sayısı üzerinde otomatik ölçeklendirmeye neden olmak için kullanılabilir.
+Zaman içerisinde bir denge sağlanır. Bu dinamik özellik hem ölçek artırma hem de ölçek azaltma için tüketicilere CPU tabanlı otomatik ölçeklendirmenin uygulanmasını sağlar. Olay hub'ları ileti sayısı doğrudan kavramına sahip olmadığından ortalama CPU kullanımı genellikle arka uç veya tüketici ölçeğini ölçmeye yönelik en iyi mekanizmadır. Yayımcılar tüketicilerin işleyebileceğinden daha fazla olay yayımlamaya başlarsa, tüketiciler üzerindeki CPU artışı çalışan örnek sayısı üzerinde otomatik ölçeklendirmeye neden olmak için kullanılabilir.
 
 [EventProcessorHost][] sınıfı ayrıca bir Azure depolama tabanlı denetim noktası oluşturma mekanizması kullanır. Bu mekanizma uzaklığı bölüm başına temelinde depolar, böylece her tüketici önceki tüketicinin son denetim noktasının ne olduğunu belirleyebilir. Bölümler kiralamalar aracılığıyla düğümler arasında geçiş yaptığında yük kaymasını kolaylaştıran eşitleme mekanizması budur.
 
 ## <a name="publisher-revocation"></a>Yayımcı iptali
-Gelişmiş çalışma zamanı özelliklerine ek olarak [EventProcessorHost][], Event Hubs, belirli yayımcıların bir event hub'ına olay göndermesini engellemek üzere yayımcı iptalini sağlar. Bu özellikleri özellikle bir yayımcı belirteci tehlike girdiğinde veya bir yazılım güncelleştirmesi yayımcının uygunsuz şekilde davranmasına yol açtığında yararlıdır. Bu durumlarda SAS belirtecinin bir parçası olan yayımcı kimliğinin olayları yayımlaması engellenebilir.
+Gelişmiş çalışma zamanı özelliklerine ek olarak [EventProcessorHost][], Event Hubs, belirli yayımcıların bir event hub'ına olay göndermesini engellemek üzere yayımcı iptalini sağlar. Bu özellikler bir yayımcı belirteci tehlike veya bir yazılım güncelleştirmesi yayımcının uygunsuz şekilde davranmasına neden yararlıdır. Bu durumlarda SAS belirtecinin bir parçası olan yayımcı kimliğinin olayları yayımlaması engellenebilir.
 
 Yayımcı iptali ve yayımcı olarak Event Hubs’a gönderme hakkında daha fazla bilgi için [Event Hubs Büyük Ölçekli Güvenli Yayımlama](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) örneğine bakın.
 

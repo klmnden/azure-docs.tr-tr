@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect eşitleme: kullanıcıları, grupları ve kişileri anlama
 Neden birden çok Active Directory ormanına gerekir ve birçok farklı dağıtım topolojileri vardır birkaç farklı nedenleri vardır. Ortak modelleri birleşme & edinme sonra bir hesap-kaynak dağıtımı ve GAL sync'ed ormanları içerir. Ancak karma modeller de olsa bile saf modelleri, yaygındır. Azure AD Connect eşitleme Varsayılan yapılandırmada herhangi belirli bir modeli varsaymaz ancak nasıl kullanıcı eşleştirme Yükleme Kılavuzu'nda seçilen bağlı olarak, farklı davranışlar gösterilebilir.
@@ -42,15 +42,15 @@ Active Directory gruplarına Azure AD eşitleme yaparken dikkat edilmesi gereken
 
 * Bir Active Directory grubu posta etkin bir grup olarak Azure ad ile eşitlemek için:
 
-    * Varsa grubun *proxyAddress* özniteliği boş olduğundan, kendi *posta* öznitelik, bir değer olmalıdır veya 
+    * Varsa grubun *proxyAddress* özniteliği boş olduğundan, kendi *posta* özniteliği değerine sahip olmalıdır
 
-    * Varsa grubun *proxyAddress* özniteliği boş olmayan, bir birincil SMTP proxy adresi değeri içermelidir (büyük harf tarafından gösterilen **SMTP** öneki). İşte bazı örnekler:
+    * Varsa grubun *proxyAddress* özniteliği boş olmayan, en az bir SMTP proxy adresi değeri içermelidir. İşte bazı örnekler:
     
-      * ProxyAddress öznitelik değeri olan bir Active Directory grubu *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* Azure AD'de posta etkin olmaz. Bir birincil SMTP adresi yok.
-      
-      * Değerleri, proxyAddress özniteliğine sahip bir Active Directory grubu *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* Azure AD'de posta etkin olmaz. Bir smtp adresi içeriyor, ancak birincil değil.
+      * ProxyAddress öznitelik değeri olan bir Active Directory grubu *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* Azure AD'de posta etkin olmaz. Bir SMTP adresi yok.
       
       * Bir Active Directory grubu olan proxyAddress özniteliğine sahip değerleri *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* Azure AD'de posta etkin olacaktır.
+      
+      * Bir Active Directory grubu olan proxyAddress özniteliğine sahip değerleri *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* de Azure AD'de posta etkin olur.
 
 ## <a name="contacts"></a>Kişiler
 Farklı bir ormanda bir kullanıcıyı temsil eden kişiler sahip bir birleşme & edinme sonra GALSync çözüm iki veya daha fazla ormanlarında Exchange burada köprüleme yaygındır. Kişi nesnesi, her zaman posta özniteliğini kullanarak meta veri bağlayıcısı alanından katılıyor. Zaten varsa bir kişi nesnesi veya kullanıcı nesnesi aynı posta adresiyle, nesnelerin araya birleştirilir. Bu kuralda yapılandırılmış **içinde AD'den – kişi katılma**. Adlı bir kural bulunmaktadır **içinde AD'den – kişi ortak** meta veri deposu özniteliği için bir öznitelik akışı ile **sourceObjectType** sabiti ile **kişi**. Bu kural çok düşük önceliğe sahip bunu herhangi bir kullanıcı nesnesi aynı meta veri deposu nesnesi, sonra kural için katılmışsa **içinde AD'den – kullanıcı ortak** bu öznitelik için değer kullanıcı katkıda bulunur. En az bir kullanıcı bulunamazsa, bu kural, bu öznitelik değeri hiçbir kullanıcı birleştirdiğinizde başvurun ve değer kullanıcı sahiptir.

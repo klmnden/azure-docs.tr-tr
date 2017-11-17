@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>SAP S/4HANA veya BW/4HANA azure'da dağıtmak
 Bu makalede, SAP bulut Gereci kitaplığı (SAP CAL) 3.0 kullanılarak S/4HANA Azure üzerinde dağıtmayı açıklar. BW/4HANA gibi diğer SAP HANA tabanlı çözümlerini dağıtmak için aynı adımları izleyin.
@@ -95,7 +95,7 @@ Olduğu bir SAP CAL hesabı başarıyla oluşturuldu:
 Şimdi S/4HANA azure'da kullanıcı aboneliğinize dağıtmaya başlatabilirsiniz.
 
 > [!NOTE]
-Devam etmeden önce Azure H-serisi VM'ler için Azure çekirdek kotaları yüklü olup olmadığını belirler. Şu anda bazı SAP HANA tabanlı çözümler dağıtmak için H-serisi VM'ler Azure SAP CAL kullanır. Azure aboneliğiniz H-seri için hiçbir H-serisi çekirdek kota sahip olmayabilir. Bu durumda, en az 16 H-serisi çekirdek kotası almak için Azure desteğine başvurun gerekebilir.
+Devam etmeden önce Azure H-serisi VM'ler için Azure vCPU kotaları yüklü olup olmadığını belirler. Şu anda bazı SAP HANA tabanlı çözümler dağıtmak için H-serisi VM'ler Azure SAP CAL kullanır. Azure aboneliğiniz H-seri için hiçbir H-serisi vCPU kota sahip olmayabilir. Bu durumda, en az 16 H-serisi Vcpu'lar kotası almak için Azure desteğine başvurun gerekebilir.
 
 > [!NOTE]
 SAP CAL Azure üzerinde bir çözümü dağıttığınızda, yalnızca bir Azure bölgesi seçebilirsiniz bulabilirsiniz. SAP CAL tarafından önerilen farklı Azure bölgeleri dağıtmak için SAP CAL abonelik satın gerekir. Ayrıca bir ileti CAL hesabınızda Başlangıçta önerilen dışındaki Azure bölgeleri sunmak için etkin olması için SAP ile açmanız gerekebilir.

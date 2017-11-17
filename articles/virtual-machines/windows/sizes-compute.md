@@ -1,6 +1,6 @@
 ---
 title: "Azure Windows VM boyutları - en iyi duruma getirilmiş işlem | Microsoft Docs"
-description: "Azure'da Windows sanal makineler için kullanılabilir en iyi duruma getirilmiş farklı işlem boyutlarını listeler."
+description: "Azure'da Windows sanal makineler için kullanılabilir en iyi duruma getirilmiş farklı işlem boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler."
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 1497535e1c40b77a588ae292ae3d3e4f6ab7daa3
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 0f393f0c5ed297e12f60e378c54778bdb384d200
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>En iyi duruma getirilmiş işlem sanal makine boyutları
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: 33507d76839567c830c9e8152eeac70d5c0f2b7b
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5b8f2d750c3330fb05f5529c3e3549d8e06e5e4e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Dinamik şifreleme: içerik anahtarının yetkilendirme ilkesini yapılandırma
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -184,9 +184,6 @@ Yanıtı:
 Bu bölümde, bir içerik anahtarı yetkilendirme ilkesi oluşturun ve içerik anahtarı ile ilişkilendirmek açıklar. Yetkilendirme İlkesi, kullanıcı (örneğin "doğrulama anahtarı" listede yer belirteci ile imzalandığı anahtarı yoksa) anahtarı alma yetkisi olup olmadığını belirlemek için hangi Yetkilendirme gereksinimlerin karşılanması gerekir açıklar.
 
 Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilendirme gereksinimlerini tanımlamak için bir XML kullanmanız gerekir. Belirteç kısıtlamasına yapılandırma XML için aşağıdaki XML Şeması uygun olmalıdır.
-
-> [!NOTE]
-> İçerik anahtarı Yetkilendirme İlkeleri hakkında belirteç kısıtlamasına henüz hizmeti kullanılabilir değil.
 
 
 #### <a id="schema"></a>Belirteç kısıtlamasına şeması
@@ -428,9 +425,14 @@ AuthorizationPolicy ContentKey gösterildiği gibi ekleyin [burada](#AddAuthoriz
     public enum ContentKeyRestrictionType
     {
         Open = 0,
-        TokenRestricted = 1, // Not supported, reserved for future
-        IPRestricted = 2,
+        TokenRestricted = 1, 
+        IPRestricted = 2, // IP restriction on content key is not currently supported, reserved for future.
     }
+
+
+> [!NOTE]
+> İçerik anahtarı Yetkilendirme İlkeleri hakkında IP kısıtlama henüz hizmeti kullanılabilir değil.
+
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType

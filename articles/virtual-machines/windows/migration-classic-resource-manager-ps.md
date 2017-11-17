@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 489e6cc6bd3c5b36635f5f7e398d08fed681d2e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01bccb2f8d103faf77b39825a1f9ff663329ed7a
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Iaas kaynaklarına Klasikten Azure Resource Manager Azure PowerShell kullanarak geçirme
 Bu adımlar Azure PowerShell komutlarının altyapı Klasik dağıtım modeli hizmet (Iaas) kaynaklardan Azure Resource Manager dağıtım modeline olarak geçirmek için nasıl kullanılacağını gösterir.
@@ -126,8 +126,8 @@ Azure aboneliğiniz geçerli oturum için ayarlayın. Bu örnek varsayılan abon
 
 <br>
 
-## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>5. adım: Geçerli dağıtım veya VNET Azure bölgesinde yeterli Azure Resource Manager sanal makinesi çekirdeğe sahip olduğunuzdan emin olun
-Azure Kaynak Yöneticisi'nde sahip Çekirdek geçerli sayısını denetlemek için aşağıdaki PowerShell komutunu kullanabilirsiniz. Çekirdek kotaları hakkında daha fazla bilgi için bkz: [sınırları ve Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
+## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>5. adım: yeterli Azure Resource Manager sanal makine Vcpu'lar geçerli dağıtım veya VNET Azure bölgesinde olduğundan emin olun
+Azure Kaynak Yöneticisi'nde sahip Vcpu'lar geçerli sayısını denetlemek için aşağıdaki PowerShell komutunu kullanabilirsiniz. VCPU kotaları hakkında daha fazla bilgi için bkz: [sınırları ve Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
 
 Bu örnek kullanılabilirliğini denetler **Batı ABD** bölge. Örneğin, bölge adı kendi ile değiştirin.
 

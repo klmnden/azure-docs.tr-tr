@@ -3,41 +3,76 @@ title: "SKU serisi kullanılamaz | Microsoft Docs"
 description: "Bazı SKU serisi bu bölge için seçilen abonelik için kullanılamaz."
 services: Azure Supportability
 documentationcenter: 
-author: ganganarayanan
-manager: scotthit
+author: stevendotwang
+manager: rajatk
 editor: 
-ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: gangan
-ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: xingwan
+ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sku-series-unavailable"></a>SKU serisi kullanılamıyor
-Bazı bölgelerde belirli SKU'ları üzerinde yeni abonelikler otomatik olarak kullanılabilir değil.  Bu durum ortaya çıkabilir zaman [daha güçlü SKU'ları, bir bölgede sunulan](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) ve eski popülerliği SKU reddettiğinde.
-İleti "*bazı SKU serisi, bu bölge için seçilen abonelik için kullanılamaz*" işlem çekirdek Kotayı artırmak için bir destek isteği oluşturulurken görüntülenir.
+# <a name="region-or-sku-unavailable"></a>Bölge veya SKU kullanılamıyor
+Bu makalede sorunun bir bölge veya VM SKU erişimi olmaması bir Azure aboneliğinin nasıl çözümleneceği açıklanır.
 
-Üzerinde SKU kullanılabilirlik inceleyebilirsiniz [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) sayfası. 
+## <a name="symptoms"></a>Belirtiler
 
-Aboneliğinizden kısıtlanmış bir SKU erişim istemek için bir "Abonelik yönetimi" destek isteği oluşturun.
+### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>Bir sanal makine dağıtımı sırasında aşağıdaki hata iletilerinden birini alabilirsiniz:
+```
+Code: SkuNotAvailable
+Message: The requested size for resource '<resource>' is currently not available in location 
+'<location>' zones '<zone>' for subscription '<subscriptionID>'. Please try another size or 
+deploy to a different location or zones. See https://aka.ms/azureskunotavailable for details.
+```
 
-* Temel bilgileri sayfasında "Abonelik yönetimi" olarak sorun türü seçin ve "İleri" yi tıklatın.
+```
+Message: Your subscription doesn’t support virtual machine creation in <location>. Choose a 
+different location. Supported locations are <list of locations>
+```
+
+```
+Code: NotAvailableForSubscription
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>Ayrılmış sanal makine örnekleri satın alırken, aşağıdaki hata iletilerinden birini alabilirsiniz:
+
+```
+Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
+different location. Supported locations are: <list of locations>  
+```
+
+```
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>İşlem çekirdek Kotayı artırmak için bir destek isteği oluşturulurken bir bölge veya SKU ailesi seçime uygun değil.
+
+## <a name="solution"></a>Çözüm
+Önce bir alternatif bölge veya iş gereksinimlerinize uygun SKU ele almanızı öneririz. Uygun bölge veya SKU bulamıyor varsa, "Abonelik yönetimi" oluşturun [destek isteği](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) aşağıdaki adımları izleyerek:
+
+
+- Temel bilgileri sayfasında "Abonelik yönetimi" olarak sorun türü seçin, aboneliği seçin ve "İleri" yi tıklatın.
 
 ![Temel Bilgiler dikey penceresi](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* Sorun sayfasında "diğer genel sorular" sorun türü seçin ve tam bölge ve görme olmayan SKU girin.
-  Bu destek sürecini hızlandırmak yardımcı olur.
+
+-   Sorun sayfasında "diğer genel sorular" sorun türü seçin.
+- Ayrıntılar bölümünde:
+  - Sanal makineler dağıtmak veya ayrılmış sanal makine örnekleri satınalma arıyorsanız, lütfen belirtin
+  - Lütfen bölge, SKU ve dağıtmak veya satın alma için planlama sanal makine örneği sayısını belirtin
+
 
 ![Sorun](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* İletişim bilgileri sayfasında, iletişim bilgilerinizi girin ve "Oluştur" seçeneğine tıklayın.
+-   İletişim bilgilerinizi girin ve "Oluştur" seçeneğine tıklayın.
 
 ![İletişim Bilgileri](./media/SKU-series-unavailable/ContactInformation.png)
 

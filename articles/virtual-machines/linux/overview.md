@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: cef9abddf980c695040e99995eb325eeb182fad4
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-and-linux"></a>Azure ve Linux
 Microsoft Azure koleksiyonudur büyüyen tümleşik genel bulut, depolama, ağ, mobil analytics, sanal makineler, veritabanları dahil olmak üzere Hizmetleri ve web&mdash;çözümlerinizi barındırma için idealdir.  Microsoft Azure şirket içi donanım için yatırım yapmanıza gerek olmadan istediğiniz zaman yalnızca kullandığınız hizmetler için ödeme yapmanızı sağlayan ölçeklenebilir bir bilgi işlem platformu sunar.  Azure, çözümlerinizin ölçeğini artırmaya hazır olduğunuzda müşterilerinizin ihtiyaçlarını karşılamak için gereken ölçeğe yükseltilmek için hazırdır.
@@ -53,7 +53,7 @@ Azure'da VM dağıttığınızda, iş yükü için uygun bizim dizi boyutları b
 Burada, bir VM boyutu (A, D, DS, G ve GS) bizim serisi birini seçmek için temel bazı yönergeler bulunmaktadır.
 * A-series VM'ler giriş seviyesi VM'ler hafif iş yükleri ve geliştirme ve Test senaryoları için fiyatlandırılır bizim değerlerdir. Bunlar tüm bölgelerde geniş çapta kullanılabilir ve bağlanabilir ve sanal makineler için kullanılabilir tüm standart kaynakları kullanın.
 * A-series (A8 - A11) özel işlem yoğunluklu yapılandırmaları yüksek performanslı bilgi işlem küme uygulamalar için uygun boyutlarıdır.
-* D Serisi VM'ler, daha yüksek işlem gücüne ve geçici süreli disk performansına ihtiyaç duyan uygulamaları çalıştıracak şekilde tasarlanmıştır. D Serisi VM'ler daha hızlı işlemcilere, daha yüksek bellek-çekirdek oranına ve geçici disk için katı hal sürücüsüne (SSD) sahiptir.
+* D Serisi VM'ler, daha yüksek işlem gücüne ve geçici süreli disk performansına ihtiyaç duyan uygulamaları çalıştıracak şekilde tasarlanmıştır. D Serisi VM'ler daha hızlı işlemcilere, daha yüksek bellek-vCPU oranına ve geçici disk için katı hal sürücüsüne (SSD) sahiptir.
 * Dv2-serisi, bizim D-serisi en son sürümü, daha güçlü bir CPU özellikleri. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Üzerinde en son oluşturma dayalı 2.4 GHz Intel Xeon® E5-2673 v3 (Haskell) işlemci ve Intel Turbo artırma teknolojisi 2.0 ile 3,2 GHz gidebilirsiniz. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 * En fazla belleği sunan G Serisi VM'ler, Intel Xeon E5 V3 ailesi işlemcilere sahip ana bilgisayarlarda çalışır.
 

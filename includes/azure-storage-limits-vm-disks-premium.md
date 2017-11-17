@@ -21,8 +21,6 @@
 
 | Kaynak | Varsayılan Sınır |
 | --- | --- |
-| VM başına en fazla IOPS |GS5 VM ile 80.000 IOPS<sup>1</sup> |
-| Sanal makine başına en fazla aktarım hızı |GS5 VM ile 2.000 MB/sn<sup>1</sup> |
-
-<sup>1</sup>Diğer VM boyutlarına yönelik limitlerle ilgili bilgi edinmek için [Sanal Makine Boyutu](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)’na başvurun. 
+| VM başına en fazla IOPS |GS5 VM ile 80.000 IOPS |
+| Sanal makine başına en fazla aktarım hızı |GS5 VM ile 2.000 MB/sn |
 

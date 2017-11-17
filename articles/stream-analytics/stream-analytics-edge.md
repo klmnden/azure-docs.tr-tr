@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 6e94758581bd510e58a709a53e30c11a5c1f1b62
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics olarak IOT kenarında (Önizleme)
 
 > [!IMPORTANT]
 > Bu işlev önizlemede değil. Üretim ortamında kullanılmasından önermiyoruz.
  
-Azure Stream Analytics (ASA) olarak IOT kenarında böylece cihaz tarafından oluşturulan verilerin tam değerini kilidini açabilir yakın gerçek zamanlı analitik Intelligence yakın IOT cihazlara dağıtmak için geliştiricilere güçlendirir. Düşük gecikme süresi, dayanıklılık, bant genişliği ve uyumluluk verimli bir şekilde kullanılmasını gerektiren müşteriler için tasarlanmış, kuruluşların şimdi Denetim mantığı endüstriyel işlemleri yakın dağıtabilir ve bulutta yapılan büyük veri analizi tamamlar.  
-Azure Stream Analytics IOT kenar üzerinde çalışan içinde [Azure IOT kenar](https://azure.microsoft.com/campaigns/iot-edge/) framework ve dağıtımını ve yönetimini ASA işleri yapılabilir ASA içinde işi oluşturulduktan sonra IOT hub'ı kullanarak.
+Azure Stream Analytics (ASA) olarak IOT kenarında böylece cihaz tarafından oluşturulan verilerin tam değerini kilidini açabilir yakın gerçek zamanlı analitik Intelligence yakın IOT cihazlara dağıtmak için geliştiricilere güçlendirir. Düşük gecikme süresi, dayanıklılık, verimli kullanımı, bant genişliği ve uyumluluk için tasarlanmış, kuruluşların artık Denetim mantığı endüstriyel işlemleri yakın dağıtmak ve bulutta yapılan büyük veri analizi tamamlar.  
+Azure Stream Analytics IOT kenar üzerinde çalışan içinde [Azure IOT kenar](https://azure.microsoft.com/campaigns/iot-edge/) framework. Sonra iş ASA, deploym oluşturulur ve ASA işleri IOT hub'ı kullanarak yönetin.
 Bu özellik Önizleme sürümünde olduğu, soru veya Geri bildiriminiz varsa kullanabilirsiniz [Bu anket](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) ürün ekibine başvurun. 
 
 ## <a name="scenarios"></a>Senaryolar
-![Üst düzey diyagramı](media/stream-analytics-edge/ASAedge_highlevel.png) kenar üzerinde çalışan ASA olduğu özellikle ilgi çekici birkaç tipik senaryolar şöyledir:
-* **Düşük gecikme süreli komut ve Denetim**: Örneğin, üretim sistemleri için işletimsel veri son derece düşük gecikme süresine sahip yanıt gerekli güvenlik. Bir makine veya tetikleyici uyarıları durdurmak için anormallikleri algıladığınızda IOT Kenar çubuğunda ASA ile neredeyse gerçek zamanlı ve sorunu komutları algılayıcı verilerini analiz edebilirsiniz.
+![Üst düzey diyagramı](media/stream-analytics-edge/ASAedge_highlevel.png)
+
+* **Düşük gecikme süreli komut ve Denetim**: Örneğin, güvenlik sistemleri üretim işletimsel veri son derece düşük gecikme süresine sahip yanıtlaması gerekir. IOT Kenar çubuğunda ASA ile verileri yakın gerçek zamanlı ve bir makine durdurmak veya uyarıları tetiklemek için anormallikleri algıladığınızda komutları vermek algılayıcı çözümleyebilirsiniz.
 *   **Bulut bağlantı sınırlı**: Uzak araştırma ekipman, bağlı tekneler veya offshore ayrıntılara, gibi görev kritik sistemler gereksinim çözümlemek ve bulut bağlantı aralıklı olduğunda bile veri tepki vermek. ASA, akış mantıksal ağ bağlantısı bağımsız olarak çalışır ve hangi buluta başka bir işleme veya depolama için gönderdiğiniz seçebilirsiniz.
 * **Sınırlı bant genişliği**: veri birimi jet motoru tarafından üretilen veya bağlı araba veri filtre veya gereken önceden işlenen buluta göndermeden önce çok büyük olabilir. ASA kullanarak, filtre veya buluta gönderilmesi gereken veri toplama.
 * **Uyumluluk**: Mevzuat uyumluluğu, yerel olarak anonim veya buluta gönderilmeden önce bir araya getirilir için bazı veriler gerektirebilir. ASA ile 

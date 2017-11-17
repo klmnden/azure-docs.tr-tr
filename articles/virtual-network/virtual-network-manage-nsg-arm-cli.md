@@ -1,10 +1,10 @@
 ---
-title: "Ağ güvenlik grupları - Azure CLI 2.0 yönetme | Microsoft Docs"
-description: "Ağ güvenlik grupları Azure komut satırı arabirimi (CLI) 2.0 kullanarak yönetmeyi öğrenin."
+title: "Ağ güvenlik grupları - Azure CLI yönetme | Microsoft Docs"
+description: "Ağ güvenlik grupları Azure komut satırı arabirimini kullanarak yönetmeyi öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanan ağ güvenlik gruplarını yönet
+# <a name="manage-network-security-groups-using-the-azure-cli"></a>Azure CLI kullanarak ağ güvenlik gruplarını yönet
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri 
-
-Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz: 
-
-- [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız 
-- [Azure CLI 2.0](#View-existing-NSGs) -bizim gelecek nesil CLI kaynak yönetimi dağıtım modeli (Bu makalede)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -44,7 +36,6 @@ Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
 ## <a name="prerequisite"></a>Önkoşul
 Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login). 
-
 
 ## <a name="view-existing-nsgs"></a>Varolan Nsg'ler görüntüleyin
 Belirli bir kaynak grubunda Nsg'ler listesini görüntülemek için Çalıştır [az ağ nsg listesi](/cli/azure/network/nsg#list) komutunu bir `-o table` çıktı biçimi:
@@ -89,13 +80,13 @@ Beklenen çıktı:
 
 ## <a name="view-nsg-associations"></a>Görünüm NSG ilişkilendirmeleri
 
-Hangi kaynakları görüntülemek için **NSG ön uç** NSG olan ilişkilendirmek, çalışma `az network nsg show` komutunu aşağıda gösterildiği gibi. 
+Hangi kaynakları görüntülemek için **NSG ön uç** NSG olan ilişkilendirmek, çalışma `az network nsg show` komutu: 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-Ara **networkInterfaces** ve **alt ağlar** aşağıda gösterildiği gibi özellikleri:
+Ara **networkInterfaces** ve **alt ağlar** aşağıdaki örnek çıktıda görüldüğü gibi özellikleri:
 
 ```json
 [
@@ -117,7 +108,7 @@ Ara **networkInterfaces** ve **alt ağlar** aşağıda gösterildiği gibi özel
 ]
 ```
 
-Yukarıdaki örnekte, NSG herhangi ağ arabirimlerine (NIC'ler) ilişkili değil ve adlı bir alt ağ ile ilişkilendirilene **ön uç**.
+Önceki örnekte, NSG herhangi ağ arabirimlerine (NIC'ler) ilişkili değil ve adlı bir alt ağ ile ilişkilendirilene **ön uç**.
 
 ## <a name="add-a-rule"></a>Kural ekleme
 İzin verme kuralı eklemek için **gelen** bağlantı noktası trafiği **443** için herhangi bir makineden **NSG ön uç** NSG, aşağıdaki komutu girin:
@@ -160,7 +151,7 @@ Beklenen çıktı:
 ```
 
 ## <a name="change-a-rule"></a>Bir kural değiştirme
-Öğesinden gelen trafiğe izin vermek için yukarıda oluşturduğunuz kural değiştirmek için **Internet** yalnızca çalıştırmak [az ağ nsg kural güncelleştirmesi](/cli/azure/network/nsg/rule#update) komutu:
+Daha önce oluşturduğunuz kural değiştirmek için gelen gelen trafiğe izin verecek şekilde **Internet** yalnızca çalıştırmak [az ağ nsg kural güncelleştirmesi](/cli/azure/network/nsg/rule#update) komutu:
 
 ```azurecli
 az network nsg rule update \
@@ -339,7 +330,7 @@ az network vnet subnet update \
   ```
 
 ## <a name="delete-an-nsg"></a>Bir NSG'yi Sil
-Herhangi bir kaynağa ilişkili olmayan bir NSG'yi yalnızca silebilirsiniz. Bir NSG'yi silmek için aşağıdaki adımları izleyin.
+Herhangi bir kaynağa ilişkili olmayan bir NSG'yi yalnızca silebilirsiniz. Bir NSG'yi silmek için aşağıdaki adımları tamamlayın:
 
 1. Bir NSG'yi ilişkili tüm kaynakları denetlemek için çalıştırın `azure network nsg show` gösterildiği gibi [görünüm Nsg'ler ilişkilendirmeleri](#View-NSGs-associations).
 2. NSG herhangi NIC'ler ilişkiliyse çalıştırmak `azure network nic set` gösterildiği gibi [bir NSG'yi bir NIC gelen ilişkilendirmesini](#Dissociate-an-NSG-from-a-NIC) her NIC için 

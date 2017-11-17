@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: ebf6f1256a280fdff18c0c9060614acf0d4a642b
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure bulut Kabuk genel bakış
 Azure bulut Kabuk Azure kaynaklarını yönetmek için etkileşimli, tarayıcı erişilebilir bir kabuk ' dir.
@@ -82,12 +82,12 @@ Bırakmalar atanmış olan bulut Kabuk bölge ve yerel olarak/genel-yedekli depo
 [Öğrenin bulut Kabuk depolama hakkında dosya paylaşımları güncelleştirme ve karşıya yükleme ve indirme dosyaları.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Kavramlar
-* Bulut Kabuk bir oturuma özgü üzerinde kullanıcı başına sağlanan geçici bir makinede çalıştırır
+* Bir oturum başına üzerinde kullanıcı başına sağlanan geçici bir ana bilgisayarda bulut Kabuk çalıştırır
 * Bulut Kabuk etkileşimli etkinliği olmadan 20 dakika sonra zaman aşımına uğradı
-* Bulut Kabuk yalnızca bağlı bir dosya paylaşımı ile erişilebilir
-* Kabuk kullanan bulut bir Bash ve PowerShell için aynı dosya paylaşımı
+* Bir dosya paylaşımı takılması bulut Kabuğu gerektirir
+* Bulut Kabuk aynı dosya paylaşımı için Bash ve PowerShell kullanır
 * Bulut Kabuk atanmış bir makine her kullanıcı hesabı
-* İzinler normal Linux kullanıcı (Bash) ayarlanır
+* İzinler normal Linux kullanıcı Bash olarak ayarlanır
 
 Özellikleri hakkında daha fazla bilgi [bulut Kabuğu'nda Bash](features.md) ve [PowerShell bulut Kabuğu (Önizleme)](features-powershell.md).
 
@@ -102,5 +102,5 @@ Hızlı Başlangıç ipuçları için bu örneklerde denemek [bulut Kabuğu'nda 
 Bulut Kabuk barındıran makine, bir önkoşul bağlı Azure dosya paylaşımı ile ücretsizdir. Normal depolama ücretleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bulut Kabuk hızlı başlangıcı bash](quickstart.md)
+[Bulut Kabuk hızlı başlangıcı bash](quickstart.md) <br>
 [PowerShell içinde bulut Kabuğu (Önizleme) hızlı başlangıç](quickstart-powershell.md)

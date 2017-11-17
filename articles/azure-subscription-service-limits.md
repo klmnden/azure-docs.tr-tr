@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 823ae2dbb2f0cbff9d9b6db21fadbbbc1d2afe36
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazıları listelenmiştir. Bu belge şu anda tüm Azure hizmetlerini kapsamaz. Zamanla, liste genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -126,6 +126,20 @@ Aşağıdaki tablo özellikler ve temel, standart ve Premium sınırları ayrın
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
+<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
+### <a name="virtual-machine-disk-limits"></a>Sanal makine disk sınırları 
+[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
+
+#### <a name="managed-virtual-machine-disks"></a>Yönetilen sanal makine disklerini
+
+[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
+
+#### <a name="unmanaged-virtual-machine-disks"></a>Yönetilmeyen sanal makine disklerini
+
+[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
+
+[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
+
 ### <a name="networking-limits"></a>Ağ limitleri
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
@@ -168,22 +182,6 @@ Azure dosyaları sınırları hakkında daha fazla ayrıntı için bkz: [Azure d
 
 #### <a name="azure-table-storage-limits"></a>Azure tablo depolama sınırları
 [!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
-
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-#### <a name="virtual-machine-disk-limits"></a>Sanal makine disk sınırları
-[!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
-
-Bkz: [sanal makine boyutlarını](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ek ayrıntılar için.
-
-#### <a name="managed-virtual-machine-disks"></a>Yönetilen sanal makine disklerini
-
-[!INCLUDE [azure-storage-limits-vm-disks-managed](../includes/azure-storage-limits-vm-disks-managed.md)]
-
-#### <a name="unmanaged-virtual-machine-disks"></a>Yönetilmeyen sanal makine disklerini
-
-[!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
-
-[!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ### <a name="cloud-services-limits"></a>Bulut Hizmetleri sınırları
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]

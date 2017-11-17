@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ebda79442b8feb9f052c3ae455fa43aafb7b5a6a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 88dc0860b4455d19b05b4f4f1766210e3f3c704e
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Azure Stream Analytics IOT kenar modül olarak dağıtma - Önizleme
 
@@ -62,13 +62,16 @@ Bu bölümde, verilerin alınacağı IOT hub'ınızı, cihazınızdan gönderile
     ![Yeni depolama hesabı][1]
 
 3. Azure portalında az önce oluşturduğunuz depolama hesabınıza gidin. Tıklatın **Gözat BLOB'lar** altında **Blob hizmeti**. 
-1. ASA modülün verileri depolamak yeni bir kapsayıcı oluşturun. Erişim düzeyini ayarlamak _kapsayıcı_. **Tamam** düğmesine tıklayın.
+4. ASA modülün verileri depolamak yeni bir kapsayıcı oluşturun. Erişim düzeyini ayarlamak _kapsayıcı_. **Tamam** düğmesine tıklayın.
 
     ![Depolama ayarları][10]
 
-1. Azure portalında gidin **kaynak oluşturma** > **nesnelerin interneti** seçip **akış analizi işi**.
+5. Azure portalında gidin **kaynak oluşturma** > **nesnelerin interneti** seçip **akış analizi işi**.
 
-1. Bir ad girin **barındırma ortamı olarak "kenar" seçin** ve geri kalan varsayılan değerler kullanın.  **Oluştur**'a tıklayın.
+6. Bir ad girin, seçin **kenar** barındırma ortamı olarak ve geri kalan varsayılan değerler kullanın.  **Oluştur**'a tıklayın.
+
+    >[!NOTE]
+    >Şu anda IOT kenarına ASA işleri destekleyen bölgeleri sınırlı sayıda vardır. Konum olarak aşağıdakilerden birini seçin: Orta ABD, Batı Orta ABD, Kuzey Orta ABD, Doğu ABD, Doğu Kanada, Doğu Japonya, Doğu, Doğu Asya, Kuzey Avrupa, Birleşik Krallık Güney, Avustralya Doğu, Brezilya Güney. 
 
     ![ASA oluşturma][5]
 

@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 08c501b9132bb21f47f099725d1fad5556befb4c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: da0446a62c5d254aa92e6673de034852044bc052
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Bir sanal cihaz Windows Azure IOT kenar dağıtın - Önizleme
 
@@ -38,18 +38,18 @@ Bu öğretici, bir bilgisayarı veya Windows çalıştıran sanal makine bir nes
 3. Yükleme [Python 2.7 Windows] [ lnk-python] ve PIP komutunu kullanabilirsiniz emin olun.
 4. IOT kenar denetim komut dosyasını karşıdan yüklemek için aşağıdaki komutu çalıştırın.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Azure IOT kenar Windows kapsayıcıları veya Linux kapsayıcıları çalıştırabilirsiniz. Windows kapsayıcılar kullanmak için çalıştırmanız gerekir:
->    * Windows 10 sonbaharda oluşturucuları güncelleştirmesi, veya
->    * Windows Server (yapı 16299) 1709 veya
+> Azure IOT kenar Windows kapsayıcıları veya Linux kapsayıcıları çalıştırabilirsiniz. Aşağıdaki Windows sürümlerinden birini kullanıyorsanız, Windows kapsayıcıları kullanabilirsiniz:
+>    * Windows 10 sonbaharda oluşturucuları güncelleştir
+>    * Windows Server 1709 (16299 derleme)
 >    * X64 tabanlı bir cihazda Windows IOT Core (yapı 16299)
 >
-> Windows IOT Core için yönergeleri izleyin [Windows IOT Core üzerinde IOT kenar çalışma zamanı yükleme][lnk-install-iotcore]. Aksi takdirde, sadece [Windows kapsayıcılar kullanmak için Docker yapılandırmak][lnk-docker-containers]ve isteğe bağlı olarak önkoşulların aşağıdaki powershell komutuyla doğrulayabilirsiniz:
->    ```
+> Windows IOT Core için yönergeleri izleyin [Windows IOT Core üzerinde IOT kenar çalışma zamanı yükleme][lnk-install-iotcore]. Aksi takdirde, sadece [Windows kapsayıcılar kullanmak için Docker yapılandırma][lnk-docker-containers]. Önkoşulların doğrulamak için aşağıdaki komutu kullanın:
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -73,28 +73,28 @@ Bir IOT sınır cihazı, yeni oluşturulan IOT Hub ile kaydedin.
 Yükleyin ve Azure IOT kenar çalışma zamanı aygıtınızda başlatın. 
 ![Bir cihaz kaydetme][5]
 
-IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. İki modülden oluşur. İlk olarak, IOT kenar Aracısı dağıtımı ve IOT sınır cihazı modülleri izlenmesini kolaylaştırır. İkinci olarak, IOT kenar hub IOT sınır cihazı modülleri arasında ve cihaz IOT hub'ı arasındaki iletişim yönetir. 
+IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. İki modülden oluşur. **IOT kenar Aracısı** dağıtım ve IOT sınır cihazı modülleri izlenmesini kolaylaştırır. **IOT kenar hub** IOT sınır cihazı modülleri arasında ve cihaz IOT hub'ı arasındaki iletişim yönetir. Çalışma zamanı yeni aygıtınızda yapılandırdığınızda, yalnızca IOT kenar aracı ilk başta başlayacaktır. Bir modül dağıttığınızda kenar IOT hub'ı daha sonra gelir. 
 
 
-Yükleme ve IOT kenar çalışma zamanı başlatmak için aşağıdaki adımları kullanın:
+Çalışma zamanı IOT kenar cihaz bağlantı dizenizi önceki bölümdeki yapılandırın.
 
-1. Çalışma zamanı IOT kenar cihaz bağlantı dizenizi önceki bölümdeki yapılandırın.
+```cmd
+iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
+Çalışma zamanı başlatın.
 
-1. Çalışma zamanı başlatın.
+```cmd
+iotedgectl start
+```
 
-   ```
-   iotedgectl start
-   ```
+Docker IOT kenar Aracısı'nı bir modül olarak çalışıp çalışmadığını denetleyin.
 
-1. Docker IOT kenar Aracısı'nı bir modül olarak çalışıp çalışmadığını denetleyin.
+```cmd
+docker ps
+```
 
-   ```
-   docker ps
-   ```
+![Docker edgeAgent bakın](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Bir modül dağıtma
 
@@ -108,11 +108,21 @@ Azure IOT kenar Cihazınızı IOT Hub'ına telemetri verileri gönderecek bir mo
 
 Bu hızlı başlangıç yeni bir IOT sınır cihazı oluşturan ve IOT kenar çalışma zamanı yüklü. Ardından, cihaz için değişiklik yapmak zorunda kalmadan cihazda çalıştırmak için bir IOT kenar modülü göndermek için Azure portal kullanılır. Bu durumda, gönderilen modülü öğreticileri için kullanabileceğiniz çevresel veri oluşturur. 
 
-TempSensor modülünden gönderilen iletiler görüntüleyin:
+Sanal cihazınız yeniden çalıştıran bilgisayarda komut istemi açın. Buluttan dağıtılan modülü IOT kenar aygıtınızda çalışır durumda olduğunu doğrulayın. 
 
-```cmd/sh
-sudo docker logs -f tempSensor
+```cmd
+docker ps
 ```
+
+![Cihazınızda üç modüller görünümü](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+TempSensor modülünden buluta gönderilen iletiler görüntüleyin. 
+
+```cmd
+docker logs -f tempSensor
+```
+
+![Modülünüzün verileri görüntüleme](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 Cihaz kullanarak göndermeyi telemetriyi de görüntüleyebilirsiniz [IOT hub'ı explorer aracı][lnk-iothub-explorer]. 
 

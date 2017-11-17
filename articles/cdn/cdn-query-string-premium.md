@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: ba9c28f0e6df25b101b45edf836d0b95056cbc6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2021b5b7602605a7c264e9cd575399077691da34
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings---premium"></a>Denetim Azure içerik teslim ağı önbelleğe alma davranışını sorgu dizeleriyle - Premium
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Azure içerik teslim ağı (CDN), dosyaları bir sorgu dizesi içeren bir web isteği için nasıl önbelleğe kontrol edebilirsiniz. Sorgu dizesi olan bir web isteğinde sorgu dizesi bu sonra oluşan isteği bölümüdür `?` karakter. Bir sorgu dizesi tarafından ayrılmış bir veya daha fazla parametre içeren bir `&` karakter. Örneğin, `http://www.domain.com/content.mov?data1=true&data2=false`. Bir istekte birden fazla sorgu dizesi parametresi varsa, parametrelerin sırası önemli değildir. 
+Azure içerik teslim ağı (CDN), dosyaları bir sorgu dizesi içeren bir web isteği için nasıl önbelleğe kontrol edebilirsiniz. Sorgu dizesi olan bir web isteğinde sorgu dizesi, bir soru işareti (?) sonra oluşan istek bölümüdür. Bir sorgu dizesi alan adını ve değerini bir eşittir işareti (=) tarafından ayrılır bir veya daha fazla anahtar-değer çiftleri içerebilir. Her anahtar-değer çifti ampersan tarafından ayrılmış (&). Örneğin `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Bir isteğin sorgu dizesi içinde birden fazla anahtar-değer çifti varsa, bunların sırası önemli değildir. 
 
 > [!IMPORTANT]
 > Standart ve premium CDN ürünü için aynı sorgu dizesini önbelleğe alma işlevinin sağlasa da, kullanıcı arabirimi farklıdır.  Bu makalede arabirim için **verizon'dan Azure CDN Premium**. İle sorgu dizesi önbelleğe alma için **akamai'den Azure CDN standart** ve **verizon'dan Azure CDN standart**, bkz: [CDN önbelleğe alma davranışını denetleme, sorgu dizeleri içeren istekleri](cdn-query-string.md).

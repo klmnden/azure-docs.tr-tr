@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: fe0446b986ff73cce66a961c1c8aa1b01ef493a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d6f2d8319dde63434041885dcf5ff1a1cde3bcc
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Iaas kaynaklarını Klasikten Azure Resource Manager'da Azure CLI kullanarak geçirme
 Bu adımlar Azure komut satırı arabirimi (CLI) komutları altyapı Klasik dağıtım modeli hizmet (Iaas) kaynaklardan Azure Resource Manager dağıtım modeline olarak geçirmek için nasıl kullanılacağını gösterir. Makale gerektirir [Azure CLI 1.0](../../cli-install-nodejs.md). Azure CLI 2.0 yalnızca Azure Resource Manager kaynakları için geçerli olduğundan, bu geçiş için kullanılamaz.
@@ -77,14 +77,14 @@ Kaydın son beş dakika bekleyin. Aşağıdaki komutu kullanarak onay durumunu k
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>3. adım: Geçerli dağıtım veya VNET Azure bölgesinde yeterli Azure Resource Manager sanal makinesi çekirdeğe sahip olduğunuzdan emin olun
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>3. adım: yeterli Azure Resource Manager sanal makine Vcpu'lar geçerli dağıtım veya VNET Azure bölgesinde olduğundan emin olun
 Bu adım için geçiş gerekir `arm` modu. Aşağıdaki komutla bunu.
 
 ```
 azure config mode arm
 ```
 
-Azure Kaynak Yöneticisi'nde sahip Çekirdek geçerli miktarını denetlemek için aşağıdaki CLI komutu kullanabilirsiniz. Çekirdek kotaları hakkında daha fazla bilgi için bkz: [sınırları ve Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+Azure Kaynak Yöneticisi'nde sahip Vcpu'lar geçerli sayısını denetlemek için aşağıdaki CLI komutu kullanabilirsiniz. VCPU kotaları hakkında daha fazla bilgi için bkz: [sınırları ve Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

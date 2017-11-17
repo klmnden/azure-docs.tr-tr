@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e1337ddf5ed84a06a62e2faa198f3e8fb49bc3bd
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: c9f71a7e95ea8c1b2cbd9b74ef20f9b0342d00f8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-an-iot-edge-gateway-device-to-process-data-from-other-iot-devices---preview"></a>Diğer IOT cihazlarından veri işlemek için bir IOT sınır ağ geçidi cihazı oluşturma - Önizleme
 
@@ -68,7 +68,9 @@ Bu, tüm IOT sınır cihazı bir ağ geçidi olarak kullanmak tüm cihazlar ayn�
 
 Powershell örneği kullanabilirsiniz ve Bash betiklerini açıklanan [yönetme CA sertifikası örnek] [ lnk-ca-scripts] otomatik olarak imzalanan oluşturmak için **IOT hub sahibi CA** ve cihaz sertifikaları ile imzalanmış.
 
-1. 1. adımını izleyin [yönetme CA sertifikası örnek] [ lnk-ca-scripts] komut dosyalarını yüklemek için.
+1. 1. adımını izleyin [yönetme CA sertifikası örnek] [ lnk-ca-scripts] komut dosyalarını yüklemek için. Gelen kopyaladığınızdan emin olun `modules-preview` şube:
+                
+                git clone -b modules-preview https://github.com/Azure/azure-iot-sdk-c.git 
 2. Oluşturmak için 2. adım izleyin **IOT hub sahibi CA**, bu dosya, aşağı akış cihazlar tarafından bağlantıyı doğrulamak için kullanılacak.
 
 Ağ geçidi cihazınız için bir sertifika oluşturmak için aşağıdaki yönergeleri kullanın.
@@ -77,7 +79,7 @@ Ağ geçidi cihazınız için bir sertifika oluşturmak için aşağıdaki yöne
 
 * Çalıştırma `./certGen.sh create_edge_device_certificate myGateway` yeni bir cihaz sertifika oluşturmak için.  
   Bu ortak anahtar ve PFX ve cihazın özel anahtarı içeren.\private\new-edge-device.key.pem içeren dosyaları.\certs\new-edge-device.* oluşturur.  
-* `cat new-edge-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-edge-device-full-chain.cert.pem`ortak anahtarı alınamadı.
+* İçinde `certs` çalışması dizini `cat ./new-edge-device.cert.pem ./azure-iot-test-only.intermediate.cert.pem ./azure-iot-test-only.root.ca.cert.pem > ./new-edge-device-full-chain.cert.pem` aygıt ortak anahtarı tam zinciri alınamadı.
 * `./private/new-edge-device.cert.pem`cihazın özel anahtarı içerir.
 
 #### <a name="powershell"></a>PowerShell
@@ -135,7 +137,7 @@ Aşağı Akış cihaz herhangi bir uygulama olabilir kullanarak [Azure IOT cihaz
 
 İlk olarak, güven bir aşağı akış cihaz uygulaması sahip **IOT hub sahibi CA** ağ geçidi aygıtlarını TLS bağlantılarını doğrulamak için sertifika. Bu adım genellikle iki yolla gerçekleştirilebilir: işletim sistemi düzeyinde veya (için belirli diller) uygulama düzeyinde.
 
-Örneğin, .NET uygulamaları için aşağıdaki kod parçacığını yolunda saklanan PEM biçiminde bir sertifika güven ekleyebileceğiniz `certPath`.
+Örneğin, .NET uygulamaları için aşağıdaki kod parçacığını yolunda saklanan PEM biçiminde bir sertifika güven ekleyebileceğiniz `certPath`. Yukarıdaki komut dosyasını kullanıyorsanız, yolun başvurur `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) veya `RootCA.pem` (Powershell).
 
         using System.Security.Cryptography.X509Certificates;
         
@@ -145,8 +147,6 @@ Aşağı Akış cihaz herhangi bir uygulama olabilir kullanarak [Azure IOT cihaz
         store.Open(OpenFlags.ReadWrite);
         store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
         store.Close();
-
-Yukarıda başvurulan örnek komut dosyasında, ortak anahtarı oluşturur Not `certs/azure-iot-test-only.root.ca.cert.pem` (Bash) veya `RootCA.pem` (Powershell).
 
 İşletim sistemi düzeyinde bu adımı gerçekleştirmenin arasında Windows ve Linux dağıtımları arasında farklılık gösterir.
 
@@ -176,6 +176,8 @@ Genel olmayan bir ağ geçidi uygularken, protokol çevirisi modülünüzün mod
 
 Saydam bir ağ geçidi uygularken, modül aşağı akış aygıtlar için bağlantı dizeleri kullanılarak IOT Hub cihaz istemcisi birden çok örneğini oluşturur.
 
+[Azure IOT kenar Modbus Modülü] [ lnk-modbus-module] Protokolü Bağdaştırıcısı Modülü donuk bir ağ geçidi için açık bir uygulamasıdır.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [IOT kenar modülleri geliştirmek için Araçlar ve gereksinimleri anlamanız][lnk-module-dev].
@@ -191,4 +193,5 @@ Saydam bir ağ geçidi uygularken, modül aşağı akış aygıtlar için bağla
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 [lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/CACertToolEdge/tools/CACertificates/CACertificateOverview.md
+[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/modules-preview/tools/CACertificates/CACertificateOverview.md
+[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus

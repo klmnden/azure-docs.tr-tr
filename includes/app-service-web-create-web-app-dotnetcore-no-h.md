@@ -1,6 +1,6 @@
-Cloud Shell’de, [az webapp create](/cli/azure/webapp#create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../articles/app-service/containers/app-service-linux-intro.md) oluşturun. Değiştirmeyi unutmayın `<app_name>` benzersiz bir uygulama adına sahip.
+Cloud Shell’de, [az webapp create](/cli/azure/webapp#create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../articles/app-service/containers/app-service-linux-intro.md) oluşturun. 
 
-Aşağıdaki komutta çalışma kümesine `dotnetcore|1.1`. Desteklenen tüm çalışma zamanları görmek için çalıştırın [az webapp listesi-çalışma zamanları](/cli/azure/webapp#list-runtimes). 
+Aşağıdaki örnekte `<app_name>` bir genel benzersiz uygulama adıyla (geçerli karakterler `a-z`, `0-9`, ve `-`). Çalışma zamanı kümesine `dotnetcore|1.1`. Desteklenen tüm çalışma zamanları görmek için çalıştırın [az webapp listesi-çalışma zamanları](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
@@ -24,7 +24,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-Etkin git dağıtımı ile Linux kapsayıcısında boş yeni bir web uygulaması oluşturduğunuzu düşünün.
+Etkin git dağıtımı ile Linux kapsayıcısında boş web uygulaması oluşturduğunuzu düşünün.
 
 > [!NOTE]
 > Git uzak URL'sini gösterilen `deploymentLocalGitUrl` özelliğiyle biçimi `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Bu URL, daha sonra ihtiyacınız olacak şekilde kaydedin.

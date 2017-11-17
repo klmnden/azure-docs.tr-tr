@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Azure kapsayıcı durumlarda kapsayıcılı görevi çalıştırma
 
@@ -147,7 +147,7 @@ Kapsayıcı görüntüsüne baked komut satırı geçersiz kılmak için bir kap
 
 Örneğin, metin dışındaki analiz örnek kapsayıcı olabilir *Hamlet* farklı komut satırı belirterek. Kapsayıcı tarafından yürütülen Python betiği *wordcount.py*, bir URL bağımsız değişken olarak kabul eder ve varsayılan yerine bu sayfanın içeriğinin işleyecek.
 
-Örneğin, ilk üç beş harfli sözcükleri belirlemek için *Romeo ve Juliet*:
+Örneğin, en üst 3 beş harfli sözcükleri belirlemek için *Romeo ve Juliet*:
 
 ```azurecli-interactive
 az container create \
@@ -172,6 +172,8 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+### <a name="persist-task-output"></a>Görev çıktısı Sürdür
 
 Tamamlanıncaya kadar çalışabilmesi kapsayıcılarınızı çıktısını kalıcı hakkında ayrıntılar için bkz: [Azure kapsayıcı örnekleri ile Azure dosya paylaşımının takma](container-instances-mounting-azure-files-volume.md).
 
