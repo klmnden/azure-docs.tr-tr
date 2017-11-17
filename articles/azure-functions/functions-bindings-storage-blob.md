@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: e0c608fe3a80c9d704774e592a1eba383bbdffe8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Azure işlevleri Blob Depolama bağlamaları
 
@@ -309,7 +309,7 @@ Dile özgü örneğe bakın:
 
 ### <a name="input--output---c-example"></a>Giriş ve çıkışı - C# örnek
 
-Aşağıdaki örnek bir [C# önceden derlenmiş](functions-dotnet-class-library.md) bir giriş ve iki çıkış blob bağlamaları kullanan bir işlev. İşlevi bir görüntü blob'u oluşturulmasını tarafından tetiklenen *örnek görüntüleri* kapsayıcı. Görüntü blob'u, küçük ve orta ölçekli kopyalarını oluşturur. 
+Aşağıdaki örnek bir [C# önceden derlenmiş](functions-dotnet-class-library.md) blob tetikleyici ve iki çıkış blob bağlamaları kullanan bir işlev. İşlevi bir görüntü blob'u oluşturulmasını tarafından tetiklenen *örnek görüntüleri* kapsayıcı. Görüntü blob'u, küçük ve orta ölçekli kopyalarını oluşturur. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -342,7 +342,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Giriş ve çıkışı - C# kod örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [C# betik](functions-reference-csharp.md) bağlama kullanan kod. İşlevi bir blobu bir kopyasını oluşturur. İşlev kopyalamak için blob adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob adlı *{originalblobname}-kopyalama*.
+Aşağıdaki örnek, blob giriş ve çıkış bağlama gösterir bir *function.json* dosya ve [C# betik](functions-reference-csharp.md) bağlamaları kullanan kod. İşlev metin blob bir kopyasını oluşturur. İşlev kopyalamak için blob adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob adlı *{originalblobname}-kopyalama*.
 
 İçinde *function.json* dosyası `queueTrigger` meta veri özelliği blob adı belirtmek için kullanılan `path` özellikleri:
 
@@ -380,7 +380,7 @@ Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dos
 C# betik kod aşağıdaki gibidir:
 
 ```cs
-public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
@@ -389,7 +389,7 @@ public static void Run(string myQueueItem, Stream myInputBlob, out string myOutp
 
 ### <a name="input--output---javascript-example"></a>Giriş ve çıkışı - JavaScript örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [JavaScript kodu] bağlama kullanır (işlevleri başvuru node.md). İşlevi bir blobu bir kopyasını oluşturur. İşlev kopyalamak için blob adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob adlı *{originalblobname}-kopyalama*.
+Aşağıdaki örnek, blob giriş ve çıkış bağlama gösterir bir *function.json* dosya ve [JavaScript kodu] bağlamaları kullanır (işlevleri başvuru node.md). İşlevi bir blobu bir kopyasını oluşturur. İşlev kopyalamak için blob adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob adlı *{originalblobname}-kopyalama*.
 
 İçinde *function.json* dosyası `queueTrigger` meta veri özelliği blob adı belirtmek için kullanılan `path` özellikleri:
 

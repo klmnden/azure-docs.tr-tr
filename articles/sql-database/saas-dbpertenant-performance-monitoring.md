@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: a74a439eab3698e14e5b8e2db0d45a86e9f55f0e
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>İzleme ve Azure SQL veritabanı ve bir çok kiracılı SaaS uygulama havuzlarında performansını yönetme
 
@@ -64,7 +64,7 @@ Burada çalıştığınız birçok kaynaklarla, yüksek hacimli senaryolar için
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama kaynak koduna ve komut dosyaları alma
 
-Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github depo. [Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını karşıdan yüklemek için adımları](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github depo. [Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını karşıdan yüklemek için adımları](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
 
 ## <a name="provision-additional-tenants"></a>Ek kiracılar sağlama
 

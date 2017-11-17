@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: b302c6b3c6acbb8552796e7fb1bfd153d23dceb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 177f8a61487130e718e3e6cfb779b17a3ed8ed69
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Azure Vm'lerinde MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturma
 Microsoft Azure sanal makineleri, işlem yoğunluklu paralel MATLAB iş yüklerini çalıştırmak için bir veya daha fazla MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturmak için kullanın. Temel görüntü ve bir Azure Hızlı Başlangıç şablonu veya Azure PowerShell Betiği kullanmak için bir VM MATLAB dağıtılmış bilgi işlem sunucusu yazılım yükleme (kullanılabilir [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) dağıtmak ve kümeyi yönetmek için. Dağıtımdan sonra iş yüklerini çalıştırmak için kümeye bağlanın.
@@ -32,7 +32,7 @@ Azure sanal makineleri kullanarak, aynı mekanizmaları etkileşimli işleri, to
 * **İstemci bilgisayar** -dağıtımdan sonra Azure ve MATLAB dağıtılmış bilgi işlem sunucusu küme ile iletişim kurmak için bir Windows tabanlı bir istemci bilgisayar gerekir.
 * **Azure PowerShell** -bkz [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) , istemci bilgisayara yüklemek için.
 * **Azure aboneliği** -bir aboneliğiniz yoksa oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde. Daha büyük kümeleri için Kullandıkça Öde aboneliğine veya diğer satın alma seçenekleri göz önünde bulundurun.
-* **Çekirdek kota** -büyük bir küme veya birden fazla MATLAB dağıtılmış bilgi işlem sunucusu küme dağıtmak için çekirdek kota artırmanız gerekebilir. Bir Kotayı artırmak için [bir çevrimiçi müşteri destek isteği açma](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) herhangi bir ücret alınmaz.
+* **Vcpu'lar kota** -büyük bir küme veya birden fazla MATLAB dağıtılmış bilgi işlem sunucusu küme dağıtmak için vCPU Kotayı artırmak gerekebilir. Bir Kotayı artırmak için [bir çevrimiçi müşteri destek isteği açma](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) herhangi bir ücret alınmaz.
 * **MATLAB, paralel bilgi işlem araç ve MATLAB dağıtılmış bilgi işlem sunucusu lisansları** -betikleri varsayımında [MathWorks barındırılan Lisans Yöneticisi](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) için tüm lisanslar kullanılıyor.  
 * **MATLAB dağıtılmış bilgi işlem sunucusu yazılım** -VMs küme için temel VM görüntü kullanılacak bir VM üzerinde yüklü.
 
@@ -62,7 +62,7 @@ MATLAB istemcisi düğümü, MATLAB İş Zamanlayıcısı düğümü ve MATLAB d
 * Küme kullanmak için istemci düğüme tarafından Uzak Masaüstü'nü bağlayın. İstemci düğüm MATLAB istemci çalıştırır.
 * İstemci düğümün tüm çalışanlar tarafından erişilebilir bir dosya paylaşımı vardır.
 * MathWorks barındırılan Lisans Yöneticisi tüm MATLAB yazılımlar için lisans denetimleri için kullanılır.
-* Varsayılan olarak, bir MATLAB dağıtılmış bilgi işlem sunucusu çalışan çekirdek başına çalışan sanal makineleri üzerinde oluşturulur, ancak herhangi bir sayı belirtin.
+* Varsayılan olarak, bir MATLAB dağıtılmış bilgi işlem sunucusu çalışan vCPU başına çalışan sanal makineleri üzerinde oluşturulur, ancak herhangi bir sayı belirtin.
 
 ## <a name="use-an-azure-based-cluster"></a>Azure tabanlı bir küme kullanın
 Olarak MATLAB dağıtılmış bilgi işlem sunucu kümeleri, diğer türleri, küme Profil Yöneticisi'nde (VM istemcide) MATLAB istemci MATLAB İş Zamanlayıcısı küme profili oluşturmak için kullanmanız gerekir.

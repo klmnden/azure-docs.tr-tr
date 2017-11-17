@@ -3,7 +3,7 @@ title: "Azure zaman serisi Öngörüler Gezgini'ni kullanarak verileri araştır
 description: "Bu makalede Azure zaman serisi Öngörüler explorer web tarayıcınızda hızlı bir şekilde büyük verilerinize genel bir görünümünü görebilir ve IOT ortamınızı doğrulamak için nasıl kullanılacağını açıklar."
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure zaman serisi Öngörüler Gezgini
 Bu makalede, çeşitli özellikleri ve seçenekleri zaman serisi Öngörüler explorer web app içinde kullanılabilir araştırır. Verilerinizi görsel oluşturmak için web tarayıcınızda zaman serisi Öngörüler Gezgini'ni kullanın.
@@ -50,10 +50,10 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
       - **Bölünmüş tarafından**: kategorik sütunları (dize) Bu açılan gösterir
       - Adım ilişkilendirme etkinleştirmek, minimum ve maksimum Göster ve sonraki ölçmek için Denetim Masası'ndan y ekseni ayarlayın.  Ayrıca, gösterilen veriler sayısı, ortalama veya verilerin toplamı olup ayarlayabilirsiniz.
       - Aynı x ekseni üzerinde görüntülemek için en fazla beş koşulları ekleyebilirsiniz.  Kullanım **kopyalama aşağı** tıklayın veya ek bir terim Ekle düğmesi **Ekle** yeni bir terim eklemek için düğmeyi.
+     
+        ![Koşulları Düzenleyicisi Masası](media/time-series-insights-explorer/explorer2.png)
 
-      ![Koşulları Düzenleyicisi Masası](media/time-series-insights-explorer/explorer2.png)
-
-      - **Koşulu**: koşulu olaylarınızı aşağıda listelenen işlenenler kümesini kullanarak hızlı bir şekilde filtrelemenize olanak sağlar. Seçme/tıklayarak bir arama yapın, koşul güncelleştirme arama üzerinde otomatik olarak temel.  Desteklenen işlenen türleri şunlardır:
+      - **Koşulu**: koşulu olaylarınızı aşağıda listelenen işlenenler kümesini kullanarak hızlı bir şekilde filtrelemenize olanak sağlar. Seçme/tıklayarak bir arama yapın, koşul güncelleştirme arama üzerinde otomatik olarak temel.      Desteklenen işlenen türleri şunlardır:
 
          |İşlem  |Desteklenen türler  |Notlar  |
          |---------|---------|---------|
@@ -74,7 +74,7 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
 
    ![Sorgular](media/time-series-insights-explorer/explorer3.png)
 
-9. **Perspektif görünümü** aracı en fazla dört benzersiz sorguları eşzamanlı bir görünümünü sağlar. Grafiğin sağ üst köşesinde perspektif görüntüle düğmesi bulabilirsiniz.  
+9. **Perspektif görünümü** aracı en fazla dört benzersiz sorguları eşzamanlı bir görünümünü sağlar. Grafiğin sağ üst köşesindeki perspektif görüntüle düğmesi bulabilirsiniz.  
 
    ![Perspektif görünümü](media/time-series-insights-explorer/explorer4.png)
 
@@ -107,4 +107,5 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
 Şimdi çeşitli özellikleri ve seçenekleri zaman serisi Öngörüler explorer web app içinde kullanılabilir gördünüz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Zaman serisi Öngörüler ortamınızdaki sorunları tanılamada ve](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Zaman serisi Öngörüler ortamınızdaki sorunları tanılamada ve](time-series-insights-diagnose-and-solve-problems.md)

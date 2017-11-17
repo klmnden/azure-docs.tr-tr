@@ -9,11 +9,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47fb6f01eff8827179fbfa9e67ad3b901c8cdf94
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Zaman serisi Öngörüler ortamınızdaki sorunları tanılamada ve
 
@@ -24,9 +24,9 @@ Neden görmemiş verilerinizi çeşitli ortak nedenleri vardır [Azure zaman ser
 Azure zaman serisi Öngörüler yalnızca JSON verilerini destekler. JSON örnekler için bkz: [desteklenen JSON şekiller](time-series-insights-send-events.md#supported-json-shapes).
 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Olası neden B: olay kaynağı anahtarı gerekli izni eksik
-* Bir IOT hub için sahip anahtarı sağlamanız gerekir. **service bağlanma** izni.
+* Bir IOT Hub için sahip anahtarı sağlamanız gerekir. **service bağlanma** izni.
 
-   ![IOT hub hizmeti connect izni](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+   ![IOT Hub hizmeti connect izni](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    Önceki görüntüde ilkelerinin ya da gösterildiği gibi **iothubowner** ve **hizmet** çalışır, her ikisi de olduğundan **service bağlanma** izni.
    
@@ -61,7 +61,7 @@ Mantığı düzleştirme nasıl çalıştığını üst düzey anlamak için bkz
 Gecikme düzeltmek için ortamınıza SKU kapasitesini artırın. Daha fazla bilgi için bkz: [zaman serisi Öngörüler ortamınızı ölçeklendirme](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="possible-cause-b-initial-ingestion-of-historical-data-is-causing-slow-ingress"></a>Olası neden B: ilk alım geçmiş verilerin yavaş giriş neden oluyor
-Varolan bir olay kaynağına bağlanıyorsanız, IOT hub'ını veya olay hub'ı zaten verilerin içinde olduğunu olasıdır. Ortam olay kaynağının ileti saklama döneminin başından veri çekme başlatır.
+Varolan bir olay kaynağına bağlanıyorsanız, IOT hub'ını veya olay hub'ınızı zaten verilerin içinde olduğunu olasıdır. Ortam olay kaynağının ileti saklama döneminin başından veri çekme başlatır.
 
 Bu davranış varsayılan davranıştır ve değiştirilemiyor. Azaltma gerçekleştirmesine ve geçmiş verileri alma Yakala için biraz zaman alabilir.
 

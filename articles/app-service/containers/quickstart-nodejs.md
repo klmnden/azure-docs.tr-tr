@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a40dc540884454fed9c374ba1365fdf7b85e4531
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: d797b83e2ab7f1b567588ca8e884aed97b49cf45
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Node.js web uygulaması oluşturma
 
@@ -78,11 +78,11 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Yerleşik görüntüsüyle bir web uygulaması oluşturma
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Yeni oluşturulan web uygulamanıza göz atın. Değiştir  _&lt;uygulama adı >_ benzersiz bir uygulama adına sahip.
+Yeni oluşturulan web uygulamanıza göz atın. Değiştir  _&lt;uygulama adı >_ ile web uygulaması adı.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -142,7 +142,7 @@ Node.js örnek kod, bir web uygulamasında yerleşik görüntüsü ile çalış�
 
 ## <a name="update-and-redeploy-the-code"></a>Kodu güncelleştirme ve yeniden dağıtma
 
-Bir metin düzenleyici kullanarak `index.js` dosyasını Node.js uygulaması içinde açın ve `response.end` çağrısındaki metinde küçük bir değişiklik yapın:
+Yerel dizininde açın `index.js` dosya Node.js uygulamasında ve çağrısında metni küçük değişiklikler yapmak `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

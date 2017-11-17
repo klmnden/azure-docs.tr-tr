@@ -1,10 +1,10 @@
 ---
-title: "Bir statik genel IP adresi ile - Azure CLI 2.0 bir VM oluşturma | Microsoft Docs"
-description: "Azure komut satırı arabirimi (CLI) 2.0 kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin."
+title: "Bir statik genel IP adresi ile - Azure CLI bir VM oluşturma | Microsoft Docs"
+description: "Azure komut satırı arabirimi (CLI) kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c32694949880037f01bb2b6b9779d2cbb9809c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanan bir statik genel IP adresiyle bir VM oluşturma
+# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI kullanarak bir statik genel IP adresiyle bir VM oluşturma
 
 > [!div class="op_single_selector"]
 > * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+> * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Şablon](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (Klasik)](virtual-networks-reserved-public-ip.md)
 
@@ -40,7 +39,7 @@ Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli
 
 ## <a name = "create"></a>VM oluşturma
 
-Azure CLI 2.0 (Bu makalede) kullanarak bu görevi tamamlayabilirsiniz veya [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md). Değerler "" izlediği adımları değişkenlerde senaryodan ayarlarla kaynakları oluşturun. Değerleri, ortamınız için uygun şekilde değiştirin.
+Değerler "" izlediği adımları değişkenlerde senaryodan ayarlarla kaynakları oluşturun. Değerleri, ortamınız için uygun şekilde değiştirin.
 
 1. Yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) , zaten yüklü değilse.
 2. İçindeki adımları tamamlayarak Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma [Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

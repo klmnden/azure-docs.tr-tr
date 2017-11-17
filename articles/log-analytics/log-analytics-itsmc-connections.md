@@ -1,6 +1,6 @@
 ---
 title: "BT Hizmet Yönetimi Bağlayıcısı bağlantılarla Azure günlük analizi desteklenen | Microsoft Docs"
-description: "Merkezi olarak izlemek ve ITSM iş öğelerini yönetmek için Azure günlük analizi, BT Hizmet Yönetimi Bağlayıcısı ile ITSM ürünler/hizmetler bağlayın."
+description: "Bu makale, merkezi olarak izlemek ve ITSM iş öğelerini yönetmek için OMS günlük analizi, BT Hizmet Yönetimi Bağlayıcısı (ITSMC) ile ITSM ürünler/hizmetler bağlanma hakkında bilgi sağlar."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>ITSM ürünler/hizmetler ile BT Hizmet Yönetimi Bağlayıcısı (Önizleme) bağlanma
-Bu makale ITSM Ürün/hizmet için BT Hizmet Yönetimi Bağlayıcısı (ITSMC) OMS içinde bağlanıp merkezi olarak, iş öğelerini yönetme hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [ITSMC genel bakış](log-analytics-itsmc-overview.md).
+Bu makale ITSM Ürün/hizmet için BT Hizmet Yönetimi Bağlayıcısı (ITSMC) OMS içinde bağlanıp merkezi olarak, iş öğelerini yönetme hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
 
-Aşağıdaki ürünler/hizmetler desteklenir:
+Aşağıdaki ITSM ürünler/hizmetler desteklenir. Ürünü için ITSMC ürün bağlanma hakkında ayrıntılı bilgileri görüntülemek için seçin.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
@@ -162,7 +162,7 @@ Karma bağlantı başarıyla bağlandı.
 
 > Sonra karma bağlantısı oluşturulduğunda, doğrulayın ve dağıtılan Service Manager Web uygulaması ziyaret ederek bağlantıyı sınayın. OMS ITSMC bağlanmaya çalışmadan önce bağlantı başarılı olduğundan emin olun.
 
-Aşağıdaki resimde, başarılı bir bağlantı ayrıntılarını gösterir:
+Aşağıdaki örnek görüntü başarılı bir bağlantı ayrıntılarını gösterir:
 
 ![Karma bağlantı testi](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 

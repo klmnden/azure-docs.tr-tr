@@ -1,6 +1,6 @@
 ---
 title: "BT Hizmet Yönetimi Bağlayıcısı Azure günlük analizi | Microsoft Docs"
-description: "Tüm sorunların hızla çözülmesine ve BT Hizmet Yönetimi Bağlayıcısı merkezi olarak izlemek ve Azure günlük analizi ITSM iş öğelerini yönetmek için kullanın."
+description: "Bu çözüm merkezi olarak izlemek ve ITSM yönetmek için nasıl kullanılacağı hakkında bilgi OMS günlük analizi çalışma öğeleri ve hızlı bir şekilde tüm sorunları giderin ve bu makalede BT Hizmet Yönetimi Bağlayıcısı (ITSMC) genel bakış sağlar."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>ITSM iş öğelerini BT Hizmet Yönetimi Bağlayıcısı (Önizleme) kullanarak merkezi olarak yönetme
 
 ![BT Hizmet Yönetimi Bağlayıcısı simgesi](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) desteklenen bir BT Hizmet Yönetimi (ITSM) ürün/hizmet ve günlük analizi arasında çift yönlü tümleştirme sağlar.  Bu bağlantı günlük analizi uyarıları veya günlük kayıtlarını göre ITSM üründeki olaylar, uyarılar ya da olaylar oluşturabilirsiniz. Bağlayıcı da olaylar gibi verileri içe aktaran ve OMS günlük analizi ITSM üründen değişiklik istekleri.
+BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) desteklenen bir BT Hizmet Yönetimi (ITSM) ürün/hizmet ve günlük analizi arasında çift yönlü tümleştirme sağlar.  Bu bağlantı günlük analizi uyarılar, günlük kayıtlarını veya Azure uyarıları göre ITSM üründeki olaylar, uyarılar ya da olaylar oluşturabilirsiniz. Bağlayıcı da olaylar gibi verileri içe aktaran ve OMS günlük analizi ITSM üründen değişiklik istekleri.
 
 ITSMC ile şunları yapabilirsiniz:
 
@@ -56,11 +56,11 @@ Başarılı ayrıca sonra BT Hizmet Yönetimi Bağlayıcısı altında görürs�
  ![ITSMC Yenile](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>Bağlantıyı ITSM yazılımınızda yapılandırma
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>ITSM ürünler/hizmetlerinizi ITSMC bağlantısını yapılandırma
 
 ITSMC destekler bağlanmasını **System Center Service Manager**, **ServiceNow**, **Provance**, ve **Cherwell**.
 
-Sizin için uygun şekilde aşağıdaki yordamları kullanın:
+Aşağıdaki yordamları uygun şekilde sizin için kullanın:
 
 - [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 
@@ -258,6 +258,7 @@ Oluşturduğunuz OMS uyarı altında görülebilir **ayarları**>**uyarıları**
 4. Uygun değerleri sağlayın **kişi türündeki**, **etkisi**, **aciliyet**, **kategori**, ve **alt kategori** metin kutuları ve ardından **oluşturma**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Azure uyarıları ITSM iş öğeleri oluşturma
+
 ITSMC Eylem grupları ile tümleşiktir.
 
 [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md) Azure uyarılarınızı eylemleri tetikleyen, modüler ve yeniden kullanılabilir bir yolunu sağlar. Eylem gruplarında ITSM eylemini kullanarak ITSM ürününüzde ITSM bağlayıcı çözüm mevcut bir bağlantı olan iş öğeleri oluşturabilirsiniz.
@@ -286,7 +287,7 @@ Azure uyarı kuralı oluşturma/düzenleme yaparken ITSM eylemi olan bir eylem g
 
 >[!NOTE]
 
-> Şu anda yalnızca etkinlik günlüğü uyarıları ITSM eylem destekler. ITSM eylem diğer Azure uyarılar için desteklenmiyor.
+> Şu anda, etkinlik günlüğü uyarıları ITSM eylem desteği yalnızca, diğer Azure uyarıları bu desteklemez.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>OMS ITSM bağlantı sorunlarını giderme

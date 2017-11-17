@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e10b5dba6f91c97a5c6b71aee76eef062a8be82c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: e232b4cdb62b7bf212808bd380119482ee88b077
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç:, ilk Windows cihaz IOT kenar modülüne Azure portalından dağıtma - Önizleme
 
@@ -94,6 +94,8 @@ Docker IOT kenar Aracısı'nı bir modül olarak çalışıp çalışmadığın�
 docker ps
 ```
 
+![Docker edgeAgent bakın](./media/tutorial-simulate-device-windows/docker-ps.png)
+
 ## <a name="deploy-a-module"></a>Bir modül dağıtma
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -102,11 +104,21 @@ docker ps
 
 Bu hızlı başlangıç yeni bir IOT sınır cihazı oluşturan ve IOT kenar çalışma zamanı yüklü. Ardından, cihaz için değişiklik yapmak zorunda kalmadan cihazda çalıştırmak için bir IOT kenar modülü göndermek için Azure portal kullanılır. Bu durumda, gönderilen modülü öğreticileri için kullanabileceğiniz çevresel veri oluşturur. 
 
-TempSensor modülünden gönderilen iletiler görüntüleyin:
+Sanal cihazınız yeniden çalıştıran bilgisayarda komut istemi açın. Buluttan dağıtılan modülü IOT kenar aygıtınızda çalışır durumda olduğunu doğrulayın. 
 
-```cmd/sh
+```cmd
+docker ps
+```
+
+![Cihazınızda üç modüller görünümü](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+TempSensor modülünden buluta gönderilen iletiler görüntüleyin. 
+
+```cmd
 docker logs -f tempSensor
 ```
+
+![Modülünüzün verileri görüntüleme](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 Cihaz kullanarak göndermeyi telemetriyi de görüntüleyebilirsiniz [IOT hub'ı explorer aracı][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

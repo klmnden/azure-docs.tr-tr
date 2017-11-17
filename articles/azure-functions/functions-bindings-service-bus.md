@@ -1,5 +1,5 @@
 ---
-title: "Azure işlevleri Service Bus Tetikleyicileri ve bağlamaları | Microsoft Docs"
+title: "Azure işlevleri Service Bus Tetikleyicileri ve bağlamaları"
 description: "Azure Service Bus Tetikleyicileri ve bağlamaları Azure işlevlerinde nasıl kullanılacağını anlayın."
 services: functions
 documentationcenter: na
@@ -16,88 +16,51 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: 71149aaacc940a62e085cf1ce103a0214d05bd1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ef558f19bb88d208b0d224e30137ac237ab64bc
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-service-bus-bindings"></a>Azure işlevleri Service Bus bağlamaları
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Bu makalede, yapılandırma ve Azure Service Bus bağlamaları Azure işlevlerinde çalışmak açıklanmaktadır. 
-
-Tetikler ve Service Bus kuyrukları ve konuları için bağlamaları çıktı Azure işlevleri destekler.
+Bu makalede Azure işlevlerinde Azure Service Bus bağlamaları ile nasıl çalışılacağını açıklar. Tetikler ve Service Bus kuyrukları ve konuları için bağlamaları çıktı Azure işlevleri destekler.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="trigger"></a>
-
 ## <a name="service-bus-trigger"></a>Hizmet veri yolu tetikleyici
+
 Hizmet veri yolu kuyruğu ya da konu iletilerine yanıt için Service Bus tetikleyici kullanın. 
 
-Hizmet veri yolu kuyruk ve konu Tetikleyicileri aşağıdaki JSON nesneler tarafından tanımlanan `bindings` function.json dizisi:
+## <a name="trigger---example"></a>Tetikleyici - örnek
 
-* *sıra* tetikleyici:
+Dile özgü örneğe bakın:
 
-    ```json
-    {
-        "name" : "<Name of input parameter in function signature>",
-        "queueName" : "<Name of the queue>",
-        "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBusTrigger",
-        "direction" : "in"
-    }
-    ```
+* [Önceden derlenmiş C#](#trigger---c-example)
+* [C# betiği](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
 
-* *konu* tetikleyici:
+### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
 
-    ```json
-    {
-        "name" : "<Name of input parameter in function signature>",
-        "topicName" : "<Name of the topic>",
-        "subscriptionName" : "<Name of the subscription>",
-        "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBusTrigger",
-        "direction" : "in"
-    }
-    ```
+Aşağıdaki örnekte gösterildiği bir [C# işlevi önceden derlenmiş](functions-dotnet-class-library.md) , hizmet veri yolu kuyruğu iletiyi günlüğe kaydeder.
 
-Şunlara dikkat edin:
+```cs
+[FunctionName("ServiceBusQueueTriggerCSharp")]                    
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
+    string myQueueItem, 
+    TraceWriter log)
+{
+    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+}
+```
 
-* İçin `connection`, [işlevi uygulamanıza bir uygulama ayarı oluşturmak](functions-how-to-use-azure-function-app-settings.md) hizmet veri yolu ad alanınıza bağlantı dizesi içeren, uygulama ayarı adı belirtin `connection` , tetikleyici bir özellik. Konumundaki gösterilen adımları izleyerek bağlantı dizesini elde [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
-  Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır.
-  Bırakır `connection` boş, tetikleyici bir varsayılan hizmet veri yolu bağlantı dizesi ayarı adlandırılmış bir uygulamada belirttiğinizi varsayar `AzureWebJobsServiceBus`.
-* İçin `accessRights`, kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, hangi gösterir `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izni, `accessRights` için `listen`. Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin.
+### <a name="trigger---c-script-example"></a>Tetikleyici - C# kod örneği
 
-## <a name="trigger-behavior"></a>Tetikleyici davranışı
-* **Tek iş parçacığı oluşturma** - varsayılan olarak, çoklu iletileri aynı anda işlevleri çalışma zamanı işlemler. Bir kerede yalnızca bir tek kuyruk veya konu ileti işleme için çalışma zamanı yönlendirmek için ayarlanmış `serviceBus.maxConcurrentCalls` 1 olarak *host.json*. 
-  Hakkında bilgi için *host.json*, bkz: [klasör yapısını](functions-reference.md#folder-structure) ve [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
-* **Zehirli ileti işleme** -Service Bus, denetlenmesi veya Azure işlevleri yapılandırma veya kod yapılandırılmış kendi zehirli ileti işleme yapar. 
-* **PeekLock davranışı** -işlevler çalışma zamanı alan bir ileti [ `PeekLock` modu](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) ve çağrıları `Complete` işlevi başarıyla tamamlanırsa ileti veya çağrıları `Abandon` varsa işlevi başarısız olur. 
-  İşlev süreden uzun çalışırsa `PeekLock` zaman aşımı, kilidi otomatik olarak yenilenir.
+Aşağıdaki örnek, bağlama Service Bus tetikleyici gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlevi bir Service Bus kuyruk iletisi günlüğe kaydeder.
 
-<a name="triggerusage"></a>
-
-## <a name="trigger-usage"></a>Tetikleyici kullanımı
-Bu bölümde işlevi kodunuzda, Service Bus tetikleyici kullanmayı gösterir. 
-
-C# ve F #'de Service Bus tetikleyici ileti herhangi aşağıdaki giriş türleri seri durumdan çıkarılabiliyorsa:
-
-* `string`-dize iletileri için faydalı
-* `byte[]`-ikili veriler için kullanışlıdır
-* Tüm [nesne](https://msdn.microsoft.com/library/system.object.aspx) - JSON serileştirilmiş veriler için kullanışlıdır.
-  Özel bir giriş türü gibi bildirme varsa `CustomType`, Azure işlevleri, belirtilen türe JSON verilerini seri durumdan dener.
-* `BrokeredMessage`-ile seri durumdan çıkarılmış mesajıyla [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) yöntemi.
-
-Node.js içinde Service Bus tetikleyici ileti işlevine bir dize veya JSON nesnesi olarak geçirilir.
-
-<a name="triggersample"></a>
-
-## <a name="trigger-sample"></a>Tetikleyici örnek
-Aşağıdaki function.json olduğunu varsayalım:
+Veri bağlama işte *function.json* dosyası:
 
 ```json
 {
@@ -114,15 +77,7 @@ Aşağıdaki function.json olduğunu varsayalım:
 }
 ```
 
-Hizmet veri yolu kuyruğu iletisini işler dile özgü örneğe bakın.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Tetikleyici örnek C# #
+C# betik kod aşağıdaki gibidir:
 
 ```cs
 public static void Run(string myQueueItem, TraceWriter log)
@@ -131,18 +86,56 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
-<a name="triggerfsharp"></a>
+### <a name="trigger---f-example"></a>Tetikleyici - F # örnek
 
-### <a name="trigger-sample-in-f"></a>F # tetikleyici örnek #
+Aşağıdaki örnek, bağlama Service Bus tetikleyici gösterir bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanır. İşlevi bir Service Bus kuyruk iletisi günlüğe kaydeder. 
+
+Veri bağlama işte *function.json* dosyası:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "testqueue",
+    "connection": "MyServiceBusConnection",
+    "name": "myQueueItem",
+    "type": "serviceBusTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+F # betik kod aşağıdaki gibidir:
 
 ```fsharp
 let Run(myQueueItem: string, log: TraceWriter) =
     log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
-<a name="triggernodejs"></a>
+### <a name="trigger---javascript-example"></a>Tetikleyici - JavaScript örneği
 
-### <a name="trigger-sample-in-nodejs"></a>Node.js tetikleyici örnek
+Aşağıdaki örnek, bağlama Service Bus tetikleyici gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlevi bir Service Bus kuyruk iletisi günlüğe kaydeder. 
+
+Veri bağlama işte *function.json* dosyası:
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "testqueue",
+    "connection": "MyServiceBusConnection",
+    "name": "myQueueItem",
+    "type": "serviceBusTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+JavaScript kodu şöyledir:
 
 ```javascript
 module.exports = function(context, myQueueItem) {
@@ -151,63 +144,123 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## <a name="trigger---attributes-for-precompiled-c"></a>Tetikleyici - öznitelikler için önceden derlenmiş C#
+
+İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) İşlevler, Service Bus tetikleyiciyi yapılandırmak için aşağıdaki öznitelikler kullanın:
+
+* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
+
+  Özniteliğin Oluşturucusu kuyruk veya konu ve abonelik adını alır. Bağlantının erişim hakları de belirtebilirsiniz. Erişim hakları belirtmezseniz, varsayılan değer `Manage`. Erişim hakları ayarlama seçme açıklandığı [tetikleyici - yapılandırma](#trigger---configuration) bölümü. Aşağıda, bir dize parametresi ile kullanılan öznitelik gösteren bir örnek verilmiştir:
+
+  ```csharp
+  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
+  public static void Run(
+      [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
+  ```
+
+  Ayarlayabileceğiniz `Connection` özelliği kullanmak için Service Bus hesabı aşağıdaki örnekte gösterildiği gibi belirtin:
+
+  ```csharp
+  [FunctionName("ServiceBusQueueTriggerCSharp")]                    
+  public static void Run(
+      [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
+      string myQueueItem, TraceWriter log)
+  ```
+
+* [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
+
+  Kullanılacak hizmet veri yolu hesabını belirtmek için başka bir yol sağlar. Oluşturucusu hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adını alır. Öznitelik parametre, yöntemi veya sınıf düzeyinde uygulanabilir. Aşağıdaki örnek, sınıf ve yöntem düzeyindeki gösterir:
+
+  ```csharp
+  [ServiceBusAccount("ClassLevelServiceBusAppSetting")]
+  public static class AzureFunctions
+  {
+      [ServiceBusAccount("MethodLevelServiceBusAppSetting")]
+      [FunctionName("ServiceBusQueueTriggerCSharp")]
+      public static void Run(
+          [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
+          string myQueueItem, TraceWriter log)
+  ```
+
+Hizmet veri yolu hesabı aşağıdaki sırayla belirlenir:
+
+* `ServiceBusTrigger` Özniteliğin `Connection` özelliği.
+* `ServiceBusAccount` Aynı parametre olarak uygulanan öznitelik `ServiceBusTrigger` özniteliği.
+* `ServiceBusAccount` İşlevi için uygulanan öznitelik.
+* `ServiceBusAccount` Sınıfına uygulanan öznitelik.
+* "AzureWebJobsServiceBus" uygulama ayarı.
+
+## <a name="trigger---configuration"></a>Tetikleyici - yapılandırma
+
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `ServiceBusTrigger` özniteliği.
+
+|Function.JSON özelliği | Öznitelik özelliği |Açıklama|
+|---------|---------|----------------------|
+|**türü** | yok | "ServiceBusTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**adı** | yok | İşlev kodu kuyruk veya konu iletisinde temsil eden değişken adı. İşlev dönüş değeri başvurmak için "$return" ayarlayın. | 
+|**queueName**|**QueueName**|İzlemek için sırasının adı.  Yalnızca bir konu için bir sıra izliyorsanız seçin.
+|**topicName**|**TopicName**|İzlemek için konu adı. Yalnızca bir sıra için bir konu izliyorsanız seçin.|
+|**varlığıyla subscriptionName**|**Varlığıyla SubscriptionName**|İzlemek için Abonelik adı. Yalnızca bir sıra için bir konu izliyorsanız seçin.|
+|**bağlantı**|**Bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyServiceBus." adlı "MyServiceBus" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan hizmet veri yolu bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarını kullanır.<br><br>Bir bağlantı dizesi edinmek için gösterilen adımları izleyin [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır. <br/>Yerel olarak geliştirirken, uygulama ayarları değerlerini gidin [local.settings.json dosya](functions-run-local.md#local-settings-file).|
+|**erişimHakları**|**Erişim**|Bağlantı dizesi için erişim hakları. Kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, hangi gösterir `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izni, `accessRights` "dinlemek için". Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin.|
+
+## <a name="trigger---usage"></a>Tetikleyici - kullanım
+
+C# ve C# kod kuyruk veya konu gibi bir yöntem parametresi kullanılarak erişim iletisi `string paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Yerine aşağıdaki türlerinden herhangi birini kullanabilirsiniz `string`:
+
+* `byte[]`-İkili veriler için kullanışlıdır.
+* JSON, ileti içeriyorsa, özel bir tür - Azure işlevleri JSON verilerini seri durumdan dener.
+* `BrokeredMessage`-Seri durumdan çıkarılmış iletiyle verir [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) yöntemi.
+
+JavaScript'te, kuyruk veya konu ileti kullanarak erişim `context.bindings.<name>`. `<name>`değeri belirtilen `name` özelliği *function.json*. Hizmet veri yolu ileti işlevine bir dize veya JSON nesnesi olarak geçirilir.
+
+## <a name="trigger---poison-messages"></a>Tetikleyici - zarar iletileri
+
+Zehirli ileti işleme denetlenen veya Azure işlevlerinde yapılandırılmamış. Hizmet veri yolu kendisi zarar iletileri işler.
+
+## <a name="trigger---peeklock-behavior"></a>Tetikleyici - PeekLock davranışı
+
+İşlevler çalışma zamanı bir iletisinde aldığı [PeekLock modu](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Çağırır `Complete` işlevi başarıyla tamamlanırsa ileti veya çağrıları `Abandon` işlevi başarısız olursa. İşlev süreden uzun çalışırsa `PeekLock` zaman aşımı, kilidi otomatik olarak yenilenir.
+
+## <a name="trigger---hostjson-properties"></a>Tetikleyici - host.json özellikleri
+
+[Host.json](functions-host-json.md#servicebus) dosyası Service Bus tetikleyici davranışını denetleyen ayarları içerir.
+
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="service-bus-output-binding"></a>Hizmet veri yolu bağlama çıktı
-Hizmet veri yolu kuyruk ve konu çıkış bir işlev için aşağıdaki JSON nesneleri kullan `bindings` function.json dizisi:
 
-* *sıra* çıktı:
+Kuyruk veya konu iletileri göndermek için Azure Service Bus çıkış bağlama kullanın.
 
-    ```json
-    {
-        "name" : "<Name of output parameter in function signature>",
-        "queueName" : "<Name of the queue>",
-        "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBus",
-        "direction" : "out"
-    }
-    ```
-* *konu* çıktı:
+## <a name="output---example"></a>Çıktı - örnek
 
-    ```json
-    {
-        "name" : "<Name of output parameter in function signature>",
-        "topicName" : "<Name of the topic>",
-        "subscriptionName" : "<Name of the subscription>",
-        "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>",
-        "type" : "serviceBus",
-        "direction" : "out"
-    }
-    ```
+Dile özgü örneğe bakın:
 
-Şunlara dikkat edin:
+* [Önceden derlenmiş C#](#output---c-example)
+* [C# betiği](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
 
-* İçin `connection`, [işlevi uygulamanıza bir uygulama ayarı oluşturmak](functions-how-to-use-azure-function-app-settings.md) hizmet veri yolu ad alanınıza bağlantı dizesi içeren, uygulama ayarı adı belirtin `connection` çıkış bağlama özelliği. Konumundaki gösterilen adımları izleyerek bağlantı dizesini elde [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
-  Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır.
-  Bırakır `connection` boş çıkış bağlama varsayılan hizmet veri yolu bağlantı dizesi ayarı adlandırılmış bir uygulamada belirttiğinizi varsayar `AzureWebJobsServiceBus`.
-* İçin `accessRights`, kullanılabilir değerler `manage` ve `listen`. Varsayılan değer `manage`, hangi gösterir `connection` sahip **Yönet** izni. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izni, `accessRights` için `listen`. Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin.
+### <a name="output---c-example"></a>Çıktı - C# örnek
 
-<a name="outputusage"></a>
+Aşağıdaki örnekte gösterildiği bir [C# işlevi önceden derlenmiş](functions-dotnet-class-library.md) Service Bus kuyruğu ileti gönderir:
 
-## <a name="output-usage"></a>Çıktı kullanımı
-C# ve F #'de Azure işlevleri şu türlerden birini bir Service Bus kuyruk iletisi oluşturun:
+```cs
+[FunctionName("ServiceBusOutput")]
+[return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
+public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+{
+    log.Info($"C# function processed: {input.Text}");
+    return input.Text;
+}
+```
 
-* Tüm [nesne](https://msdn.microsoft.com/library/system.object.aspx) -parametre tanımına arar gibi `out T paramName` (C#).
-  İşlevler JSON iletiye nesne seri durumdan çıkarır. Çıkış değeri null ise, işlev çıktığında işlevleri null bir nesne ile iletisi oluşturur.
-* `string`-Parametre tanımına arar gibi `out string paraName` (C#). Parametre değeri null olmayan ise işlevi çıktığında işlevleri bir ileti oluşturur.
-* `byte[]`-Parametre tanımına arar gibi `out byte[] paraName` (C#). Parametre değeri null olmayan ise işlevi çıktığında işlevleri bir ileti oluşturur.
-* `BrokeredMessage`Parametre tanımına arar gibi `out BrokeredMessage paraName` (C#). Parametre değeri null olmayan ise işlevi çıktığında işlevleri bir ileti oluşturur.
+### <a name="output---c-script-example"></a>Çıktı - C# kod örneği
 
-C# işlevinde birden çok ileti oluşturmak için kullanabilirsiniz `ICollector<T>` veya `IAsyncCollector<T>`. Çağırdığınızda bir ileti oluşturulur `Add` yöntemi.
+Aşağıdaki örnek, bağlama Service Bus çıkış gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. 15 dakikada bir kuyruk iletisi göndermek için Zamanlayıcı tetikleyicisi işlevini kullanır.
 
-Node.js içinde bir dize, bir bayt dizisi veya (JSON'a seri durumdan) bir Javascript nesnesi atayabileceğiniz `context.binding.<paramName>`.
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Çıkış örneği
-Hizmet veri yolu kuyruğu çıkış tanımlayan aşağıdaki function.json olduğunu varsayalım:
+Veri bağlama işte *function.json* dosyası:
 
 ```json
 {
@@ -231,15 +284,7 @@ Hizmet veri yolu kuyruğu çıkış tanımlayan aşağıdaki function.json oldu�
 }
 ```
 
-Service bus kuyruğuna ileti gönderir dile özgü örneğe bakın.
-
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>C# çıktı örneği #
+Tek bir ileti oluşturan bir C# kodu şöyledir:
 
 ```cs
 public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
@@ -250,21 +295,47 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 }
 ```
 
-Veya birden çok iletileri oluşturmak için:
+Birden çok ileti oluşturan burada'nın C# betik kodu:
 
 ```cs
 public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
 {
-    string message = $"Service Bus queue message created at: {DateTime.Now}";
+    string message = $"Service Bus queue messages created at: {DateTime.Now}";
     log.Info(message); 
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
 ```
 
-<a name="outfsharp"></a>
+### <a name="output---f-example"></a>Çıktı - F # örnek
 
-### <a name="output-sample-in-f"></a>F # çıktı örneği #
+Aşağıdaki örnek, bağlama Service Bus çıkış gösterir bir *function.json* dosyası ve bir [F # betik işlevi](functions-reference-fsharp.md) bağlama kullanır. 15 dakikada bir kuyruk iletisi göndermek için Zamanlayıcı tetikleyicisi işlevini kullanır.
+
+Veri bağlama işte *function.json* dosyası:
+
+```json
+{
+    "bindings": [
+        {
+            "schedule": "0/15 * * * * *",
+            "name": "myTimer",
+            "runsOnStartup": true,
+            "type": "timerTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "outputSbQueue",
+            "type": "serviceBus",
+            "queueName": "testqueue",
+            "connection": "MyServiceBusConnection",
+            "direction": "out"
+        }
+    ],
+    "disabled": false
+}
+```
+
+Tek bir ileti oluşturan bir F # kodu şöyledir:
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
@@ -273,9 +344,35 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>Çıktı - JavaScript örneği
 
-### <a name="output-sample-in-nodejs"></a>Node.js çıktı örneği
+Aşağıdaki örnek, bağlama Service Bus çıkış gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. 15 dakikada bir kuyruk iletisi göndermek için Zamanlayıcı tetikleyicisi işlevini kullanır.
+
+Veri bağlama işte *function.json* dosyası:
+
+```json
+{
+    "bindings": [
+        {
+            "schedule": "0/15 * * * * *",
+            "name": "myTimer",
+            "runsOnStartup": true,
+            "type": "timerTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "outputSbQueue",
+            "type": "serviceBus",
+            "queueName": "testqueue",
+            "connection": "MyServiceBusConnection",
+            "direction": "out"
+        }
+    ],
+    "disabled": false
+}
+```
+
+Aşağıda, tek bir ileti oluşturur JavaScript kodu verilmiştir:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -286,7 +383,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Veya birden çok iletileri oluşturmak için:
+Aşağıda, birden fazla ileti oluşturur JavaScript kodu verilmiştir:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -299,6 +396,57 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+## <a name="output---attributes-for-precompiled-c"></a>Çıktı - öznitelikler için önceden derlenmiş C#
 
+İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+  Özniteliğin Oluşturucusu kuyruk veya konu ve abonelik adını alır. Bağlantının erişim hakları de belirtebilirsiniz. Erişim hakları ayarlama seçme açıklandığı [çıktı - yapılandırma](#output---configuration) bölümü. Aşağıda, işlevin dönüş değeri için uygulanan öznitelik gösteren bir örnek verilmiştir:
+
+  ```csharp
+  [FunctionName("ServiceBusOutput")]
+  [return: ServiceBus("myqueue")]
+  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+  ```
+
+  Ayarlayabileceğiniz `Connection` özelliği kullanmak için Service Bus hesabı aşağıdaki örnekte gösterildiği gibi belirtin:
+
+  ```csharp
+  [FunctionName("ServiceBusOutput")]
+  [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
+  public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+  ```
+
+Kullanabileceğiniz `ServiceBusAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde kullanılacak hizmet veri yolu hesabını belirtin.  Daha fazla bilgi için bkz: [tetikleyici - öznitelikler için önceden derlenmiş C#](#trigger---attributes-for-precompiled-c).
+
+## <a name="output---configuration"></a>Çıktı - yapılandırma
+
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `ServiceBus` özniteliği.
+
+|Function.JSON özelliği | Öznitelik özelliği |Açıklama|
+|---------|---------|----------------------|
+|**türü** | yok | "ServiceBus" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**yönü** | yok | Out"için" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**adı** | yok | Sıra veya işlev kodu konudaki temsil eden değişken adı. İşlev dönüş değeri başvurmak için "$return" ayarlayın. | 
+|**queueName**|**QueueName**|Kuyruk adı.  Yalnızca bir konu için sıraya ileti göndermek istiyorsanız ayarlayın.
+|**topicName**|**TopicName**|İzlemek için konu adı. Yalnızca bir kuyruk için konu ileti göndermek istiyorsanız ayarlayın.|
+|**varlığıyla subscriptionName**|**Varlığıyla SubscriptionName**|İzlemek için Abonelik adı. Yalnızca bir kuyruk için konu ileti göndermek istiyorsanız ayarlayın.|
+|**bağlantı**|**Bağlantı**|Bu bağlama için kullanılacak hizmet veri yolu bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca kalanı adını belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyServiceBus." adlı "MyServiceBus" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan hizmet veri yolu bağlantı dizesi "AzureWebJobsServiceBus" adlı uygulama ayarını kullanır.<br><br>Bir bağlantı dizesi edinmek için gösterilen adımları izleyin [yönetim kimlik bilgileri elde](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). Bağlantı dizesi, belirli bir kuyruğa ya da konu bunlarla sınırlı olmamak bir hizmet veri yolu ad alanı için olmalıdır. <br/>Yerel olarak geliştirirken, uygulama ayarları değerlerini gidin [local.settings.json dosya](functions-run-local.md#local-settings-file).|
+|**erişimHakları**|**Erişim** |Bağlantı dizesi için erişim hakları. Değerleri, "manage" ve "dinleme" kullanılabilir. "Manage", bağlantı olduğunu belirten varsayılandır **Yönet** izinleri. Sahip olmayan bir bağlantı dizesi kullanıyorsanız **Yönet** izinleri ayarlamanızı `accessRights` "dinlemek için". Aksi halde, çalışma zamanı gerektiren işlemleri yapmaya başarısız olabilir işlevleri hakları yönetin.|
+
+## <a name="output---usage"></a>Çıktı - kullanım
+
+C# ve C# betik kuyruk veya konu gibi bir yöntem parametresi kullanılarak erişim `out string paramName`. C# komut dosyası `paramName` içinde belirtilen değer `name` özelliği *function.json*. Aşağıdaki parametre türlerinden herhangi birini kullanabilirsiniz:
+
+* `out T paramName` - `T`JSON seri hale getirilebilir türler olabilir. Parametre değeri null ise, işlev çıktığında işlevleri null bir nesne ile iletisi oluşturur.
+* `out string`-İşlevi çıktığında parametre değeri null ise, işlevleri oluşturmaz bir ileti.
+* `out byte[]`-İşlevi çıktığında parametre değeri null ise, işlevleri oluşturmaz bir ileti.
+* `out BrokeredMessage`-İşlevi çıktığında parametre değeri null ise, işlevleri oluşturmaz bir ileti.
+
+Bir C# veya C# betik işlevinde birden çok ileti oluşturmak için kullanabilirsiniz `ICollector<T>` veya `IAsyncCollector<T>`. Çağırdığınızda bir ileti oluşturulur `Add` yöntemi.
+
+JavaScript'te, kuyruk veya konu başlığı kullanarak erişim `context.bindings.<name>`. `<name>`değeri belirtilen `name` özelliği *function.json*. Bir dize, bir bayt dizisi veya (JSON'a seri durumdan) bir Javascript nesnesi atayabileceğiniz `context.binding.<name>`.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)

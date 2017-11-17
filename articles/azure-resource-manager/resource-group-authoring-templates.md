@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 85fff4c8c5a68a4ebaa63b263e90d0220c273e23
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: b8d1988a8705e0708e412c24fb5b49f5ece31429
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Yapı ve Azure Resource Manager şablonları sözdizimi anlama
-Bu konu, bir Azure Resource Manager şablonu yapısını açıklar. Bir şablon ve bu bölümlerdeki özellikler farklı bölümlerini gösterir. JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler, şablon oluşur. Şablon oluşturmanın adım adım öğretici için bkz [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
+Bu makalede Azure Resource Manager şablonu yapısını tanımlar. Bir şablon ve bu bölümlerdeki özellikler farklı bölümlerini gösterir. JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler, şablon oluşur. Şablon oluşturmanın adım adım öğretici için bkz [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Şablon biçimi
 En basit yapısını şablon aşağıdaki öğeleri içerir:
@@ -43,7 +43,7 @@ En basit yapısını şablon aşağıdaki öğeleri içerir:
 | contentVersion |Evet |Şablon (örneğin, 1.0.0.0) sürümü. Bu öğe için herhangi bir değer sağlayabilir. Şablonu kullanarak kaynak dağıtırken, bu değer doğru şablonu kullanılmakta olduğunu emin olmak için kullanılabilir. |
 | parametreler |Hayır |Dağıtım kaynağı dağıtım özelleştirmek için yürütüldüğünde, sağlanan değerler. |
 | değişkenleri |Hayır |Şablondaki JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerler. |
-| Kaynakları |Evet |Dağıtılan veya bir kaynak grubunda güncelleştirilmiş kaynak türleri. |
+| kaynaklar |Evet |Dağıtılan veya bir kaynak grubunda güncelleştirilmiş kaynak türleri. |
 | Çıkışları |Hayır |Dağıtımdan sonra döndürülen değer. |
 
 Her öğe ayarlayabileceğiniz özellikler içerir. Aşağıdaki örnek, bir şablon için tam söz dizimi içerir:
@@ -66,11 +66,31 @@ Her öğe ayarlayabileceğiniz özellikler içerir. Aşağıdaki örnek, bir şa
             }
         }
     },
-    "variables": {  
+    "variables": {
         "<variable-name>": "<variable-value>",
-        "<variable-name>": { 
-            <variable-complex-type-value> 
-        }
+        "<variable-object-name>": {
+            <variable-complex-type-value>
+        },
+        "<variable-object-name>": {
+            "copy": [
+                {
+                    "name": "<name-of-array-property>",
+                    "count": <number-of-iterations>,
+                    "input": {
+                        <properties-to-repeat>
+                    }
+                }
+            ]
+        },
+        "copy": [
+            {
+                "name": "<variable-array-name>",
+                "count": <number-of-iterations>,
+                "input": {
+                    <properties-to-repeat>
+                }
+            }
+        ]
     },
     "resources": [
       {
@@ -117,7 +137,7 @@ Her öğe ayarlayabileceğiniz özellikler içerir. Aşağıdaki örnek, bir şa
 }
 ```
 
-Bu konunun ilerleyen bölümlerinde daha ayrıntılı şablon bölümlerini inceleyeceğiz.
+Bu makalede daha ayrıntılı şablon bölümlerini açıklanmaktadır.
 
 ## <a name="expressions-and-functions"></a>İfadeler ve işlevleri
 Şablonun temel sözdizimi JSON şeklindedir. Ancak, ifadeler ve işlevleri şablonu içinde kullanılabilir olan JSON değerlerin genişletir.  İfadeler, ilk JSON dize değişmez değerleri içinde yazılır ve son karakterler olan ayraçlar: `[` ve `]`sırasıyla. Şablon dağıtıldığında ifade değeri değerlendirilir. Bir dize yazılmış olsa da, ifade değerlendirme sonucu gibi bir dizi veya tamsayı, gerçek ifade bağlı olarak farklı bir JSON türde olabilir.  Başlangıç noktası ile sabit değerli bir dize olması `[`, ancak olmayan bir ifade olarak yorumlanır olması, dizesiyle başlatmak için ek bir köşeli ayraç eklemek `[[`.
@@ -334,6 +354,33 @@ Kullanabileceğiniz **kopyalama** birden çok öğe bir dizi bir değişken olu�
 }
 ```
 
+Birden fazla nesne kopyalama değişkenleri oluşturmak üzere kullanılırken de belirtebilirsiniz. Aşağıdaki örnekte iki dizi değişkenleri olarak tanımlar. Bir adlandırılan **üst düzey dizi diskleri** ve beş öğesine sahip. Diğer adlı **a farklı-dizi** ve üç öğeye sahiptir.
+
+```json
+"variables": {
+    "copy": [
+        {
+            "name": "disks-top-level-array",
+            "count": 5,
+            "input": {
+                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
+                "diskSizeGB": "1",
+                "diskIndex": "[copyIndex('disks-top-level-array')]"
+            }
+        },
+        {
+            "name": "a-different-array",
+            "count": 3,
+            "input": {
+                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
+                "diskSizeGB": "1",
+                "diskIndex": "[copyIndex('a-different-array')]"
+            }
+        }
+    ]
+},
+```
+
 ## <a name="resources"></a>Kaynaklar
 Kaynaklar bölümünde dağıtılan veya güncelleştirilen kaynakları tanımlayın. Sağ değerlerini sağlamak için dağıtıyorsanız türlerini anlamanız gerekir çünkü bu bölümde karmaşık elde edebilirsiniz. Ayarlamak için gereken kaynak özgü değerleri için (apiVersion, türü ve özellikleri), bkz: [kaynakları tanımlayan Azure Resource Manager şablonları](/azure/templates/). 
 
@@ -390,7 +437,7 @@ Aşağıdaki Yapı kaynaklarını tanımlayın:
 | Kopyalama |Hayır |Birden fazla örneği gerekirse oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm kullanmak istemiyorsanız, seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
 | dependsOn |Hayır |Bu kaynak dağıtılmadan önce dağıtılmalıdır kaynaklar. Resource Manager kaynakları arasındaki bağımlılıkları değerlendirir ve doğru sırada dağıtır. Kaynakları birbirlerine bağımlı olmadıkları zaman bunların paralel olarak dağıtılır. Değer bir kaynağın virgülle ayrılmış bir liste olabilir adları veya kaynak benzersiz tanımlayıcıları. Yalnızca bu şablonda dağıtılan kaynakları listeler. Bu şablonda tanımlı değil kaynakları önceden var olmalıdır. Dağıtımınızı yavaş ve döngüsel bağımlılıklar oluşturma gibi gereksiz bağımlılıkları eklemekten kaçının. Bağımlılıklarını ayarlama hakkında yönergeler için bkz [Azure Resource Manager'da bağımlılıkları tanımlama](resource-group-define-dependencies.md). |
 | properties |Hayır |Kaynak özgü yapılandırma ayarları. Özelliklerine ilişkin değerleri kaynak oluşturmak REST API işlemi için (PUT yöntemini) istek gövdesinde sağladığınız değerleri ile aynıdır. Ayrıca bir özelliği birden çok örneğini oluşturmak için bir kopya dizisi belirtebilirsiniz. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
-| Kaynakları |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Tam olarak nitelenmiş tür alt kaynağının üst kaynak türü gibi içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kullanılmaz. Bu bağımlılık açıkça tanımlamanız gerekir. |
+| kaynaklar |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Tam olarak nitelenmiş tür alt kaynağının üst kaynak türü gibi içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kullanılmaz. Bu bağımlılık açıkça tanımlamanız gerekir. |
 
 Kaynaklar bölümünde dağıtmak amacıyla kaynaklarınızı dizisi içerir. Her kaynak içinde bir dizi alt kaynakları da tanımlayabilirsiniz. Bu nedenle, kaynakları bölümünüzü gibi bir yapıya sahip:
 
@@ -482,7 +529,7 @@ Bir sanal makine bir parola veya SSH anahtarı ile birlikte dağıtılabilir olu
 
 Sanal makineyi dağıtmak için bir parola veya SSH anahtarı kullanarak bir örnek için bkz: [kullanıcı adı veya SSH koşul şablon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
 
-## <a name="outputs"></a>Çıkışları
+## <a name="outputs"></a>Çıkışlar
 Çıkış bölümünde dağıtımından döndürülen değerlerini belirtin. Örneğin, dağıtılan bir kaynağa erişmek için URI döndürebilirsiniz.
 
 Aşağıdaki örnek bir çıktı tanımının yapısını gösterir:

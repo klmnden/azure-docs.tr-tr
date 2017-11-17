@@ -7,6 +7,9 @@ Azure IOT kenar anahtar özelliklerini birini modülleri, IOT sınır cihazları
 1. İçinde **adı** alanına, `tempSensor`. 
 1. İçinde **görüntü URI** alanına, `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`. 
 1. Diğer ayarları değiştirmeden bırakın ve seçin **kaydetmek**.
+
+   ![IOT kenar modül adı ve görüntü URI girdikten sonra Kaydet](./media/iot-edge-deploy-module/name-image.png)
+
 1. Geri **modülleri ekleme** adım, select **sonraki**.
 1. İçinde **belirtin yolları** adım, select **sonraki**.
 1. İçinde **gözden geçirme şablonu** adım, select **gönderme**.

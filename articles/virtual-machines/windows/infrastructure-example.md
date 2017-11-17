@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee66bf554e8e623ebfaa82bc888fc541da322d2f
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Windows VM'ler için örnek Azure altyapı gözden geçirme
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-Bu makalede örnek uygulama altyapısı oluşturmaya anlatılmaktadır. Biz yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük dengeleyici kararları bir araya getirir basit bir çevrimiçi mağaza için bir altyapı tasarlama ve gerçekte sanal makineleri (VM'ler) dağıtma ayrıntılı olarak açıklanmaktadır.
+Bu makalede örnek uygulama altyapısı oluşturmaya anlatılmaktadır. Biz yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük dengeleyici kararları bir araya getirir basit bir çevrimiçi mağaza için bir altyapıya tasarlama ve gerçekte sanal makineleri (VM'ler) dağıtma ayrıntılı olarak açıklanmaktadır.
 
 ## <a name="example-workload"></a>Örnek iş yükü
 Adventure Works Cycles, azure'da oluşan bir çevrimiçi mağaza uygulama oluşturmak ister:
@@ -55,7 +55,7 @@ Sonuçta elde edilen tasarım eklemeniz gerekir:
 Tüm yukarıdaki adlandırma kurallarına izleyin:
 
 * Adventure Works Cycles kullandığı **[BT iş yükü]-[konum]-[Azure kaynak]** öneki olarak
-  * Bu örneğin, "**azos**" (Azure çevrimiçi) deposudur BT iş yükü adı ve "**kullanmak**" (Doğu ABD 2) konumudur
+  * Bu örneğin, "**azos**" (Azure çevrimiçi mağaza) addır BT iş yükü ve "**kullanmak**" (Doğu ABD 2) konumudur
 * Sanal ağları kullanın AZOS kullanım VN**[sayı]**
 * Kullanılabilirlik kümeleri kullanan azos-kullanın-olarak-**[rol]**
 * Sanal makine adları azos kullanın-kullanın-vm -**[vmname]**
@@ -85,7 +85,7 @@ Azure Portalı'nı kullanarak aşağıdaki ayarlara sahip bir yalnızca bulut sa
   * Adres alanı: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Kullanılabilirlik kümeleri
-Çevrimiçi depolarındaki tüm dört katmanların yüksek kullanılabilirliği sürdürmek için Adventure Works Cycles dört kullanılabilirlik kümeleri hakkında karar:
+Kullanıcıların çevrimiçi mağaza tüm dört katmanların yüksek kullanılabilirliği sürdürmek için Adventure Works Cycles dört kullanılabilirlik kümeleri hakkında karar:
 
 * **web olarak azos kullanım** web sunucuları için
 * **uygulama olarak azos kullanım** uygulama sunucuları için

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 64e70013c267a472a57b2cf172fa50d12a170515
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Yeni kiracılar sağlamak ve kataloğa kaydetme hakkında bilgi edinin
 
@@ -70,7 +70,7 @@ Kiracı uygulama başına Wingtip biletleri SaaS veritabanı adlı bir şablon v
 
 ## <a name="get-the-wingtip-application-scripts"></a>Wingtip uygulama betiklerini alma
 
-Wingtip SaaS komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. [Wingtip biletleri SaaS komut dosyalarını karşıdan yüklemek için adımları](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+Wingtip SaaS komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. [Wingtip biletleri SaaS komut dosyalarını karşıdan yüklemek için adımları](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Sağlama ve kataloğa kaydetme ile ilgili ayrıntılı kılavuz

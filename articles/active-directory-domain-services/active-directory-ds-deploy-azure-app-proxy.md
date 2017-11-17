@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 157a10277f89643245746223f2cd1d73680ac700
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD uygulama proxy'si bir Azure AD etki alanı Hizmetleri yönetilen etki alanında dağıtma
 Azure Active Directory (AD) uygulama proxy'si, internet üzerinden erişilebilmesi için şirket içi uygulamaları yayımlama tarafından uzaktan çalışanlar destek yardımcı olur. Azure AD etki alanı Hizmetleri ile Azure altyapı hizmetleri için şirket içi çalışan şimdi yükseltme-ve-shift eski uygulamalar olabilir. Ardından, kuruluşunuzdaki kullanıcılar için güvenli uzaktan erişim sağlamak için Azure AD uygulama proxy'si kullanarak bu uygulamaları yayımlayabilirsiniz.
@@ -56,7 +56,7 @@ Azure AD dizininiz için Azure AD uygulama proxy'si etkinleştirmek için aşağ
 
 
 ## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>Görev 2 - Azure AD uygulama ara sunucusu Bağlayıcısı'nı dağıtmak için etki alanına katılmış Windows sunucuları hazırlama
-Windows Server sanal Azure AD uygulama ara sunucusu Bağlayıcısı'nı yükleyebilmek için makinelerin etki alanına katılmış gerekir. Yayımlanan uygulamalara bağlı olarak, bağlayıcı yüklü olduğu birden çok sunucuları sağlamak tercih edebilirsiniz. Yardımcı daha ağır kimlik doğrulama yükü işlemek ve bu dağıtım seçeneğini daha yüksek kullanılabilirlik sağlar.
+Windows Server sanal Azure AD uygulama ara sunucusu Bağlayıcısı'nı yükleyebilmek için makinelerin etki alanına katılmış gerekir. Bazı uygulamalar için bağlayıcı yüklü olduğu birden çok sunucuları sağlamak tercih edebilirsiniz. Yardımcı daha ağır kimlik doğrulama yükü işlemek ve bu dağıtım seçeneğini daha yüksek kullanılabilirlik sağlar.
 
 Azure AD etki alanı Hizmetleri yönetilen etki alanınızı etkinleştirdiğiniz bağlayıcı sunucuları aynı sanal ağ (veya bağlı ve eşlenen bir sanal ağda) sağlayın. Benzer şekilde, uygulama proxy'si yayımlamak uygulamaları barındıran sunucuları aynı Azure sanal ağ üzerinde yüklü olması gerekir.
 
@@ -64,7 +64,7 @@ Bağlayıcı sunucuları sağlamak için başlıklı makalesinde ana hatlarıyla
 
 
 ## <a name="task-3---install-and-register-the-azure-ad-application-proxy-connector"></a>Görev 3 - yükleme ve kaydetme Azure AD uygulama ara sunucusu Bağlayıcısı
-Daha önce Windows Server sanal makine sağlanan ve yönetilen etki alanına katılan. Bu görevde, bu sanal makine üzerinde Azure AD uygulama ara sunucusu Bağlayıcısı'nı yükler.
+Daha önce Windows Server sanal makine sağlanan ve yönetilen etki alanına katılan. Bu görevde, bu sanal makine üzerinde Azure AD uygulama ara sunucusu Bağlayıcısı'nı yükleyin.
 
 1. Bağlayıcı yükleme paketini Azure AD Web uygulaması Ara sunucusu Bağlayıcısı'nı yüklemek VM kopyalayın.
 
@@ -102,8 +102,8 @@ Azure AD uygulama ara sunucusunu ayarlamadıysanız sahip ve Azure AD etki alan�
 Kullanıcıların, kimliğine ve göndermek ve şirket adına belirteçleri almak için uygulama proxy'si bağlayıcıları izin vererek tümleşik Windows kimlik doğrulaması (IWA) kullanarak uygulamalarınızı için çoklu oturum açmayı etkinleştir. Kerberos Kısıtlı temsilci (KCD) yönetilen etki alanı kaynaklarına erişmek için gerekli izinleri vermek bağlayıcı için yapılandırın. Kaynak tabanlı KCD mekanizması yönetilen etki alanlarında daha yüksek güvenlik için kullanın.
 
 
-### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Kaynak tabanlı kerberos Kısıtlı temsilci için Azure AD uygulama ara sunucusu Bağlayıcısı'nı etkinleştir
-Kullanıcıların kimliğine bürünebileceği şekilde Azure uygulama ara sunucusu Bağlayıcısı'nı kerberos Kısıtlı temsilci (KCD), yönetilen etki alanında yapılandırılması gerekir. Bir Azure AD etki alanı Hizmetleri tarafından yönetilen etki alanında, etki alanı yönetici ayrıcalıklarına sahip değil. Bu nedenle, **geleneksel hesap düzeyinde KCD, yönetilen bir etki alanında yapılandırılamaz**.
+### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Kaynak tabanlı kısıtlı Kerberos temsilcisi seçme için Azure AD uygulama ara sunucusu Bağlayıcısı'nı etkinleştir
+Kullanıcıların kimliğine bürünebileceği şekilde Azure uygulama ara sunucusu Bağlayıcısı'nı Kerberos Kısıtlı temsilci (KCD), yönetilen etki alanında yapılandırılması gerekir. Bir Azure AD etki alanı Hizmetleri tarafından yönetilen etki alanında, etki alanı yönetici ayrıcalıklarına sahip değil. Bu nedenle, **geleneksel hesap düzeyinde KCD, yönetilen bir etki alanında yapılandırılamaz**.
 
 Bu konuda açıklandığı gibi kaynak tabanlı KCD kullanın [makale](active-directory-ds-enable-kcd.md).
 
@@ -113,12 +113,12 @@ Bu konuda açıklandığı gibi kaynak tabanlı KCD kullanın [makale](active-di
 >
 
 Azure AD uygulama ara sunucusu Bağlayıcısı'nı yüklü olduğu bilgisayarın ayarlarını almak için Get-ADComputer PowerShell cmdlet'ini kullanın.
-```
+```powershell
 $ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
 ```
 
 Bundan sonra kaynak sunucu için kaynak tabanlı KCD ayarlamak için Set-ADComputer cmdlet'ini kullanın.
-```
+```powershell
 Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 

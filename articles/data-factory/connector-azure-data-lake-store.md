@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: daba616debcf445e092697575465311f39e9466f
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 3b2fbab10836b138792efad7ea30f4f0d15905c3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake Store bilgisayardan veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Azure Data Lake Store bağlantılı hizmetinin aşağıdaki özellikleri destekl
 Aşağıdaki bölümlerde daha fazla özellikleri ve farklı kimlik doğrulama türü için JSON örnek sırasıyla bakın:
 
 - [Hizmet asıl kimlik doğrulaması kullanma](#using-service-principal-authentication)
-- [Yönetilen hizmet identitiy kimlik doğrulaması kullanma](#using-managed-service-identitiy-authentication)
+- [Yönetilen hizmet kimlik doğrulama kullanılarak](#using-managed-service-identitiy-authentication)
 
 ### <a name="using-service-principal-authentication"></a>Hizmet asıl kimlik doğrulaması kullanma
 
@@ -71,7 +71,7 @@ Hizmet asıl kimlik doğrulaması kullanmak için Azure Active Directory (Azure 
 >[!TIP]
 > Hizmet asıl uygun Azure Data Lake Store'da izni olduğundan emin olun:
 >- Kaynak olarak en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
->- Havuz en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopya güçlendirmeniz Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi.
+>- Havuz en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopyalamak için Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi:
 
 Aşağıdaki özellikler desteklenir:
 
@@ -106,19 +106,19 @@ Aşağıdaki özellikler desteklenir:
 }
 ```
 
-### <a name="using-managed-service-identitiy-authentication"></a>Yönetilen hizmet identitiy kimlik doğrulaması kullanma
+### <a name="using-managed-service-identity-authentication"></a>Yönetilen hizmet kimlik doğrulama kullanılarak
 
-Data factory ile ilişkilendirilebilir bir [yönetilen hizmet kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği doğrudan kendi hizmet princial kullanmaya benzer Data Lake Store kimlik doğrulaması için de kullanabilirsiniz. Bu belirlenen Fabrika verilerine erişim ve kopyalama / Data Lake Store izin verir.
+Data factory ile ilişkilendirilebilir bir [yönetilen hizmet kimliği](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği doğrudan kendi hizmet sorumlusu kullanmaya benzer Data Lake Store kimlik doğrulaması için de kullanabilirsiniz. Bu belirlenen Fabrika verilerine erişim ve kopyalama / Data Lake Store izin verir.
 
-Yönetilen hizmet identitiy (MSI) kimlik doğrulaması kullanmak için:
+Yönetilen hizmet (MSI) kimlik doğrulama kullanmak için:
 
 1. [Veri Fabrikası hizmet kimliği alma](data-factory-service-identity.md#retrieve-service-identity) "Hizmeti kimliği uygulama Fabrikanızda birlikte oluşturulan kimliği" değerini kopyalayarak.
 2. Data Lake Store'a hizmet sorumlusu için yaptığınız gibi hizmet kimliği erişim verin. Ayrıntılı adımlar için bkz: [hizmeti için kimlik doğrulama - Azure Data Lake Store hesabına dosya veya klasöre Ata Azure AD uygulama](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
 
 >[!TIP]
-> Veri Fabrikası hizmet identitiy uygun Azure Data Lake Store'da izni olduğundan emin olun:
+> Veri Fabrikası hizmet kimlik uygun Azure Data Lake Store'da izni olduğundan emin olun:
 >- Kaynak olarak en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi (IAM) gereksinimi yoktur.
->- Havuz en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopya güçlendirmeniz Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi.
+>- Havuz en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopyalamak için Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol açıkça önlemek istiyorsanız [Azure IR oluşturmak](create-azure-integration-runtime.md#create-azure-ir) Data Lake Store ve Data Lake Store'da ilişkilendirme konumu ile bağlantılı hizmeti aşağıdaki örnekteki gibi:
 
 Azure Data Factory bağlantılı hizmetteki genel Data Lake Store bilgilerin yanı sıra tüm özelliklerini belirtmeniz gerekmez.
 
@@ -277,12 +277,12 @@ Bu bölümde, sonuçta elde edilen davranışını özyinelemeli ve copyBehavior
 
 | Özyinelemeli | copyBehavior | Kaynak klasör yapısı | Sonuçta elde edilen hedef |
 |:--- |:--- |:--- |:--- |
-| TRUE |preserveHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 kaynak aynı yapısını oluşturulur:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
-| TRUE |flattenHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef Klasör1 aşağıdaki yapısıyla oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya1 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya3 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5 için otomatik olarak oluşturulan adı |
-| TRUE |mergeFiles | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef Klasör1 aşağıdaki yapısıyla oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1 + dosya2 + dosya3 + File4 + 5 dosyası içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir |
-| False |preserveHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 aşağıdaki yapısıyla oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
-| False |flattenHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 aşağıdaki yapısıyla oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya1 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan adı<br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
-| False |mergeFiles | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 aşağıdaki yapısıyla oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1 + dosya2 içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir. dosya1 için otomatik olarak oluşturulan adı<br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
+| true |preserveHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 kaynak aynı yapısını oluşturulur:<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. |
+| true |flattenHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef Klasör1 aşağıdaki yapısıyla oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya1 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya3 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;File4 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;File5 için otomatik olarak oluşturulan adı |
+| true |mergeFiles | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef Klasör1 aşağıdaki yapısıyla oluşturulur: <br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1 + dosya2 + dosya3 + File4 + 5 dosyası içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir |
+| yanlış |preserveHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 aşağıdaki yapısıyla oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
+| yanlış |flattenHierarchy | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 aşağıdaki yapısıyla oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya1 için otomatik olarak oluşturulan adı<br/>&nbsp;&nbsp;&nbsp;&nbsp;dosya2 için otomatik olarak oluşturulan adı<br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
+| yanlış |mergeFiles | Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dosya3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Hedef klasör Klasör1 aşağıdaki yapısıyla oluşturulur<br/><br/>Klasör1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Dosya1 + dosya2 içeriği otomatik olarak oluşturulan dosya adında bir dosya halinde birleştirilir. dosya1 için otomatik olarak oluşturulan adı<br/><br/>Dosya3, File4 ve File5 Subfolder1 değil toplanma. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

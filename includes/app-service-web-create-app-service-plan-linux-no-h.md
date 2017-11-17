@@ -1,8 +1,8 @@
-Cloud Shell içinde [az appservice plan create](/cli/azure/appservice/plan#create) komutu ile bir App Service planı oluşturun.
+Bulut Kabuğu'nda ile kaynak grubundaki bir uygulama hizmeti planı oluştur [az uygulama hizmeti planı oluşturma](/cli/azure/appservice/plan#create) komutu.
 
-[!INCLUDE [app-service-plan](app-service-plan-linux.md)]
+<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-Aşağıdaki örnek, **Standart** fiyatlandırma katmanını kullanarak bir Linux kapsayıcısı içinde `myAppServicePlan` adlı bir App Service planı oluşturur:
+Aşağıdaki örnek adlı bir uygulama hizmeti planı oluşturur `myAppServicePlan` içinde **standart** fiyatlandırma Katmanı (`--sku S1`) ve Linux kapsayıcısındaki (`--is-linux`).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux

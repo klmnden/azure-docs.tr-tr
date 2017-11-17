@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 2eeb49cb6ab39c78612e0f1b3e08130ba88cf356
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5c4942dbeccbd97c6bfc0f2c086e8d6091f6ed64
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama ile ilgili sorunları giderme
 
@@ -59,7 +59,7 @@ Self Servis parola sıfırlama ile ilgili sorunları yaşıyorsanız izleyin ö�
 
 | **Hata** | Çözüm |
 | --- | --- |
-| Dizin, parola sıfırlama için etkinleştirilmedi **yöneticiniz size bu özelliği kullanmak etkinleştirilmemiş** | Anahtar **Self Servis parola sıfırlama etkin** bayrağını **bir grup** veya **herkes** tıklatıp **Kaydet** |
+| Dizin, parola sıfırlama için etkinleştirilmedi **yöneticiniz size bu özelliği kullanmak etkinleştirilmemiş** | Anahtar **Self Servis parola sıfırlama etkin** bayrağını **seçili** veya **tüm** tıklatıp **Kaydet** |
 | Bir Azure AD Premium veya Basic lisansı atanmış kullanıcı yok **yöneticiniz size bu özelliği kullanmak etkinleştirilmemiş** | Bir Azure AD Premium veya işlemi gerçekleştiren yönetici atanmış temel lisans yoksa bu durum oluşabilir. <br> Bu makale kullanarak söz konusu yönetici hesabı için bir lisans atayarak çözülebilir [atayabilir, doğrulayın ve lisans sorunları gidermek](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | İstek işlenirken hata oluştu | Bu pek çok sorundan kaynaklanabilir, ancak genellikle bu hata tarafından bir hizmet kesintisi veya yapılandırma sorunu nedeniyle oluşur. Bu hatayı görürseniz ve işinizin etkileyen ek Yardım için Microsoft Destek'e başvurun. |
 
@@ -67,7 +67,7 @@ Self Servis parola sıfırlama ile ilgili sorunları yaşıyorsanız izleyin ö�
 
 | **Hata** | Çözüm |
 | --- | --- |
-| Dizin, parola sıfırlama için etkinleştirilmedi. | Anahtar **Self Servis parola sıfırlama etkin** bayrağını **bir grup** veya **herkes** tıklatıp **Kaydet** |
+| Dizin, parola sıfırlama için etkinleştirilmedi. | Anahtar **Self Servis parola sıfırlama etkin** bayrağını **seçili** veya **tüm** tıklatıp **Kaydet** |
 | Bir Azure AD Premium veya Basic lisansı atanmış kullanıcı yok | Bir Azure AD Premium veya işlemi gerçekleştiren yönetici atanmış temel lisans yoksa bu durum oluşabilir. <br> Bu makale kullanarak söz konusu yönetici hesabı için bir lisans atayarak çözülebilir [atayabilir, doğrulayın ve lisans sorunları gidermek](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) |
 | Dizin, parola sıfırlama için etkin, ancak kullanıcı eksik veya yanlış biçimlendirilmiş kimlik doğrulama bilgilerine sahip değil | Bu kullanıcı kişi verilerini dizindeki devam etmeden önce dosyayı üzerinde düzgün bir şekilde oluşturulduğundan olun. Bu konu hakkında daha fazla bilgi için bkz: [Azure AD Self Servis parola sıfırlama tarafından kullanılan verileri](active-directory-passwords-data.md). |
 | Dizin, parola sıfırlama için etkin, ancak ilke iki doğrulama adımları gerektirecek şekilde ayarlandığında, bir kullanıcı kişi verilerini bir parçasını dosyada yalnızca sahiptir. | Bu kullanıcının en az iki düzgün yapılandırılmış iletişim yöntemlerini sahip olduğundan emin olun (örnek: cep telefonu **ve** ofis telefonu) devam etmeden önce. |
@@ -270,14 +270,14 @@ Düzgün yardımcı olmak için kadar ayrıntı mümkün olduğunca büyük dahi
 
 Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
 
-* [SSPR başarılı bir sunum nasıl tamamlamak?](active-directory-passwords-best-practices.md)
-* [Sıfırlama veya parolanızı değiştirme](active-directory-passwords-update-your-own-password.md).
-* [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
-* [Bir lisans soru var mı?](active-directory-passwords-licensing.md)
-* [Hangi verilerin SSPR tarafından kullanılır ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](active-directory-passwords-data.md)
-* [Hangi kimlik doğrulama yöntemlerinin kullanıcıların var mı?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [SSPR ile ilkesi seçenekleri nelerdir?](active-directory-passwords-policy.md)
-* [Parola geri yazma nedir ve neden t hakkında önemli?](active-directory-passwords-writeback.md)
-* [SSPR etkinliğinde üzerinde nasıl rapor edebilirim?](active-directory-passwords-reporting.md)
-* [Tüm SSPR seçeneklerinde nedir ve ne anlama geldiklerini?](active-directory-passwords-how-it-works.md)
-* [Herhangi bir yerde else kapsanmayan bir soru sahip](active-directory-passwords-faq.md)
+* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
+* [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md).
+* [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md).
+* [Lisans ile ilgili sorunuz mu var?](active-directory-passwords-licensing.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
+* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)
+* [Parola geri yazma nedir ve neden önemlidir?](active-directory-passwords-writeback.md)
+* [SSPR’de etkinliği nasıl bildirebilirim?](active-directory-passwords-reporting.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
+* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)

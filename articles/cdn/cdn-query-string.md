@@ -1,5 +1,5 @@
 ---
-title: "Azure CDN önbelleğe alma davranışını sorgu dizeleriyle denetleme | Microsoft Docs"
+title: "Azure içerik teslim ağı önbelleğe alma davranışını sorgu dizeleriyle denetleme | Microsoft Docs"
 description: "Azure CDN sorgu dizesini önbelleğe alma denetimleri sorgu dizeleri içerdiğinde nasıl dosyaları önbelleğe alınır."
 services: cdn
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 28e724f34c32edb0d5641b24f9ffedb7dc5f9680
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Denetim Azure içerik teslim ağı önbelleğe alma davranışını sorgu dizeleriyle etkinleştirmek
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Azure içerik teslim ağı (CDN), dosyaları bir sorgu dizesi içeren bir web isteği için nasıl önbelleğe kontrol edebilirsiniz. Sorgu dizesi olan bir web isteğinde sorgu dizesi bu sonra oluşan isteği bölümüdür `?` karakter. Bir sorgu dizesi tarafından ayrılmış bir veya daha fazla parametre içeren bir `&` karakter. Örneğin, `http://www.domain.com/content.mov?data1=true&data2=false`. Bir istekte birden fazla sorgu dizesi parametresi varsa, parametrelerin sırası önemli değildir. 
+Azure içerik teslim ağı (CDN), dosyaları bir sorgu dizesi içeren bir web isteği için nasıl önbelleğe kontrol edebilirsiniz. Sorgu dizesi olan bir web isteğinde sorgu dizesi, bir soru işareti (?) sonra oluşan istek bölümüdür. Bir sorgu dizesi alan adını ve değerini bir eşittir işareti (=) tarafından ayrılır bir veya daha fazla anahtar-değer çiftleri içerebilir. Her anahtar-değer çifti ampersan tarafından ayrılmış (&). Örneğin `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Bir isteğin sorgu dizesi içinde birden fazla anahtar-değer çifti varsa, bunların sırası önemli değildir. 
 
 > [!IMPORTANT]
 > Standart ve premium CDN ürünü için aynı sorgu dizesini önbelleğe alma işlevinin sağlasa da, kullanıcı arabirimi farklıdır.  Bu makalede arabirim için **akamai'den Azure CDN standart** ve **verizon'dan Azure CDN standart**. İle sorgu dizesi önbelleğe alma için **verizon'dan Azure CDN Premium**, bkz: [CDN önbelleğe alma davranışını denetleme istekleri sorgu dizeleriyle - Premium](cdn-query-string-premium.md).

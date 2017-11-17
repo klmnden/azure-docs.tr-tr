@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self Servis parola sıfırlama Azure AD derin Dalış
 
@@ -183,7 +183,7 @@ Bu seçeneği etkinleştirmek için bunlar uygulamaları için Azure AD kullanar
 Kayıt gerektiren devre dışı bırakıldığında, kullanıcılar yine de el ile kişi bilgileri kaydedebilirsiniz. Ya da ziyaret edebilirsiniz [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) veya seçin **parola sıfırlama için kaydetme** altında bağlantı **profil** erişim paneli sekmesindedir.
 
 > [!NOTE]
-> Kullanıcılar kapatmak parola sıfırlama kayıt Portalı'nı seçerek **iptal** veya penceresini kapatarak. Ancak, kayıt işlemi tamamlanana kadar oturum her zaman kaydetmek için istenir.
+> Kullanıcılar kapatmak parola sıfırlama kayıt Portalı'nı seçerek **iptal** veya penceresini kapatarak. Ancak, kayıt işlemi tamamlanana kadar oturum her zaman kaydı istenir.
 >
 > Bunlar zaten açtıysanız bu kullanıcının bağlantıyı kesin değildir.
 
@@ -209,6 +209,17 @@ Bu seçenek belirlenirse, **Evet**, ardından *tüm yöneticiler* Azure AD için
 
 Yükleme, yapılandırma ve Azure AD Connect etkinleştirirseniz, şirket içi tümleştirmeler için aşağıdaki ek seçeneğiniz vardır. Bu seçenekler griyse sonra geri yazma düzgün yapılandırılmamış. Daha fazla bilgi için bkz: [parola geri yazma yapılandırma](active-directory-passwords-writeback.md#configuring-password-writeback).
 
+![Geri yazma][Writeback]
+
+Bu sayfa bir hızlı geçerli yapılandırmasını temel alarak aşağıdaki iletilerinden biri görüntülenir şirket içi geri yazma istemcinin durumu sağlar:
+
+* Şirket içi geri yazma istemciniz çalışır durumda.
+* Azure AD çevrimiçi olduğundan ve şirket içi geri yazma istemciniz bağlanır. Ancak, Azure AD Connect yüklü olan sürümü güncel değil gibi görünüyor. Göz önünde bulundurun [yükseltme Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) önemli hata düzeltmeleri ve en son bağlantı özellikleri olmasını sağlamak için.
+* Ne yazık ki, Azure AD Connect yüklü olan sürümü güncel olduğundan biz şirket içi geri yazma istemci durumunuzu denetlenemiyor. [Azure AD Connect yükseltme](./connect/active-directory-aadconnect-upgrade-previous-version.md) bağlantı durumunuzu denetlemek için.
+* Ne yazık ki, şirket içi geri yazma istemciniz şu an bağlanamıyoruz gibi görünüyor. [Azure AD Connect sorun giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.
+* Ne yazık ki, parola geri yazma düzgün yapılandırılmamış olduğundan, şirket içi geri yazma istemciye bağlanamıyoruz. [Parola geri yazma yapılandırma](active-directory-passwords-writeback.md#configuring-password-writeback) bağlantı geri yüklemek için.
+* Ne yazık ki, şirket içi geri yazma istemciniz şu an bağlanamıyoruz gibi görünüyor. Bu bizim uçtaki geçici sorunlardan dolayı olabilir. Sorun devam ederse [sorun giderme Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.
+
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Şirket içi dizininize parolaları geri Yaz
 
 Bu denetim, parola geri yazma bu dizin için etkin olup olmadığını belirler. Geri yazma açıksa, şirket içi geri yazma hizmetinin durumunu gösterir. Bu parola geri yazma'nın Azure AD Connect'i yeniden yapılandırmak zorunda kalmadan geçici olarak devre dışı bırakmak istiyorsanız kullanışlıdır.
@@ -233,7 +244,7 @@ Parola sıfırlama ve değişiklik tüm işletmeden işletmeye (B2B) yapılandı
 Bu senaryoyu test etmek için bu iş ortağı kullanıcılar biriyle http://passwordreset.microsoftonline.com gidin. Bunlar bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta varsa, parola beklendiği gibi çalışır sıfırlayın.
 
 > [!NOTE]
-> Konuk erişimi olanlar Hotmail.com, Outlook.com ya da diğer kişisel e-posta adresleri gibi Azure AD kiracınız için verilmiş Microsoft hesapları Azure AD SSPR'yi kullanmanız mümkün değildir. İçinde bulunan bilgileri kullanarak parolalarını sıfırlamak gerekir [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) makalesi.
+> Konuk erişimi olanlar Hotmail.com, Outlook.com ya da diğer kişisel e-posta adresleri gibi Azure AD kiracınız için verilmiş Microsoft hesapları Azure AD SSPR'yi kullanmanız mümkün değildir. İçinde bulunan bilgileri kullanarak parolalarını sıfırlamak ihtiyaç duydukları [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) makalesi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -253,3 +264,4 @@ Aşağıdaki makaleler parola sıfırlama Azure AD ile ilgili ek bilgiler sağla
 * [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Kullanılabilir Azure AD kimlik doğrulama yöntemleri ve gereken miktar"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "Tümleştirme parola geri yazma yapılandırmasını ve sorun giderme bilgileri şirket içi"

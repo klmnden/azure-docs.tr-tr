@@ -1,10 +1,10 @@
 ---
-title: "VM ile birden çok IP adreslerini Azure CLI 2.0 kullanan | Microsoft Docs"
-description: "Azure CLI 2.0 kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin | Resource Manager."
+title: "VM ile birden çok IP adreslerini Azure CLI kullanarak | Microsoft Docs"
+description: "Azure komut satırı arabirimi (CLI) kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
-author: anavinahar
-manager: narayan
+author: jimdial
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,24 +14,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: annahar
-ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jimdial
+ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanarak sanal makineleri için birden çok IP adresi atayın
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI kullanarak sanal makineleri için birden çok IP adresi atayın
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Bu makalede, Azure CLI 2.0 kullanarak Azure Resource Manager dağıtım modeli sanal makine (VM) oluşturma açıklanmaktadır. Birden çok IP adresi Klasik dağıtım modeli aracılığıyla oluşturulan kaynakları atanamaz. Azure dağıtım modelleri hakkında daha fazla bilgi için okuma [dağıtım modellerini anlama](../resource-manager-deployment-model.md) makalesi.
+Bu makalede, Azure CLI kullanarak Azure Resource Manager dağıtım modeli sanal makine (VM) oluşturma açıklanmaktadır. Birden çok IP adresi Klasik dağıtım modeli aracılığıyla oluşturulan kaynakları atanamaz. Azure dağıtım modelleri hakkında daha fazla bilgi için okuma [dağıtım modellerini anlama](../resource-manager-deployment-model.md) makalesi.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Birden çok IP adresiyle bir VM oluşturma
 
-Azure CLI 2.0 (Bu makalede) kullanarak bu görevi tamamlayabilirsiniz veya [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md). Değerleri, ortamınız için uygun şekilde değiştirin. Adımları birden çok IP adresleriyle VM örneği oluşturmak senaryosunda açıklandığı şekilde açıklanmaktadır. Değişken değerleri değiştirmek "" ve IP adresi türleri, uygulamanız için gerekli olarak. 
+Adımları birden çok IP adresiyle bir örnek sanal makine oluşturmak senaryosunda açıklandığı şekilde açıklanmaktadır. Değişken değerleri değiştirmek "" ve gerektiğinde, uygulamanız için IP adresi türleri. 
 
 1. Yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) , zaten yüklü değilse.
 2. İçindeki adımları tamamlayarak Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma [Linux VM'ler için bir SSH ortak ve özel anahtar çifti oluşturma](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

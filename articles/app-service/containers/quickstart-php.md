@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 34da73e5feca1782f3e107fd30d268df4f9883d8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>App Service'de Linux üzerinde bir PHP web uygulaması oluşturma
 
@@ -71,14 +71,14 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Yerleşik görüntüsüyle bir web uygulaması oluşturma
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Yeni oluşturulan web uygulamanızı yerleşik görüntü ile görmek için siteye göz atın. Değiştir  _&lt;uygulama adı >_ benzersiz bir uygulama adına sahip.
+Yeni oluşturulan web uygulamanızı yerleşik görüntü ile görmek için siteye göz atın. Değiştir  _&lt;uygulama adı >_ ile web uygulaması adı.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 ![Boş web uygulaması sayfası](media/quickstart-php/app-service-web-service-created.png)
@@ -126,7 +126,7 @@ PHP örnek kod, bir web uygulamasında yerleşik görüntüsü ile çalışıyor
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Kodu yerel makinede güncelleştirme ve yeniden dağıtma
 
-Bir yerel metin düzenleyicisi kullanarak `index.php` dosyasını PHP uygulaması içinde açın ve `echo` öğesinin yanındaki dizenin içinde bulunan metinde küçük bir değişiklik yapın:
+Yerel dizininde açın `index.php` dosyası PHP uygulama içinde ve küçük metin dizesi içinde yanına değişiklik `echo`:
 
 ```php
 echo "Hello Azure!";

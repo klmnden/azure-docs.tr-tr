@@ -10,19 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
 
-> [!IMPORTANT]
-> Destek Ekibi ile iletişim kurarken yapı numarası olması önemlidir. Tıklayarak uygulamayı yapı numarası bulabilirsiniz **yardımcı** menüsü. Yapı numarası tıklatarak panonuza kopyalar. Destek forumları rapor çözmeye yardımcı olması için ya da e-postalara yapıştırın.
-
-![sürüm numarasını kontrol edin](media/known-issues-and-troubleshooting-guide/buildno.png)
+## <a name="find-the-workbench-build-number"></a>Çalışma ekranı yapı numarası Bul
+Destek Ekibi ile iletişim kurarken, çalışma ekranı uygulamanın yapı numarası eklemek önemlidir. Windows üzerinde tıklayarak yapı numarası bulabilirsiniz **yardımcı** menü ve **hakkında Azure ML çalışma ekranı**. MacOS üzerinde tıklatabilirsiniz **Azure ML çalışma ekranı** menü ve **hakkında Azure ML çalışma ekranı**.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN Forumu
 Sorular nakledebilirsiniz bir MSDN Forumu sunuyoruz. Ürün ekibi forum etkin olarak izler. URL Forumu [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
@@ -75,10 +73,13 @@ Azure ML çalışma ekranı içinde çalışırken, ayrıca bize bir kaş çatma
     >Bu sınır uygulanmaz `.git`, `docs` ve `outputs` klasörler. Bu klasör adları büyük/küçük harfe duyarlıdır. Büyük dosyalarla çalışıyorsanız, başvurmak [kalıcı değişiklikler ve çok büyük dosyalarla anlaşma](how-to-read-write-files.md).
 
 - İzin verilen maks. deneme yürütme süresi: yedi gün
+
 - İzlenen dosyasının en büyük boyutu `outputs` sonra bir çalışma klasörü: 512 MB
   - Bu komut çıkış klasöründeki 512 MB daha büyük bir dosya oluşturur, var. toplanmaz anlamına gelir. Büyük dosyalarla çalışıyorsanız, başvurmak [kalıcı değişiklikler ve çok büyük dosyalarla anlaşma](how-to-read-write-files.md).
 
 - SSH anahtarları bir uzak makine ya da Spark kümesi SSH üzerinden bağlanırken desteklenmez. Yalnızca kullanıcı adı/parola modu şu anda desteklenir.
+
+- Hedef işlem olarak Hdınsight kümesi kullanırken, Azure kullanmalısınız blob birincil depolama olarak. Azure Data Lake Storage kullanılması desteklenmez.
 
 - Metin kümeleme dönüşümler Mac üzerinde desteklenmez.
 

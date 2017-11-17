@@ -1,11 +1,11 @@
 ---
-title: "Ağ güvenlik grupları - Azure CLI 2.0 oluşturma | Microsoft Docs"
-description: "Azure CLI 2.0 kullanarak ağ güvenlik grupları oluşturup öğrenin."
+title: "Ağ güvenlik grupları - Azure CLI oluşturma | Microsoft Docs"
+description: "Azure CLI kullanarak ağ güvenlik grupları oluşturup öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
@@ -16,28 +16,21 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8efb3ab66d07875b51f723fed5594bcb477ed025
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-network-security-groups-using-the-azure-cli-20"></a>Ağ güvenlik grupları Azure CLI 2.0 kullanarak oluşturma
+# <a name="create-network-security-groups-using-the-azure-cli"></a>Ağ güvenlik grupları Azure CLI kullanarak oluşturma
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri 
-
-Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz: 
-
-- [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız 
-- [Azure CLI 2.0](#Create-the-nsg-for-the-front-end-subnet) -bizim gelecek nesil CLI kaynak yönetimi dağıtım modeli (Bu makalede)
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-Aşağıdaki örnek Azure CLI 2.0 komutlar zaten önceki senaryo tabanlı oluşturulan basit bir ortam bekler. 
+Aşağıdaki örnek Azure CLI komutları, önceki senaryoyu temel mevcut basit ortamında bekler. 
 
 ## <a name="create-the-nsg-for-the-frontend-subnet"></a>İçin NSG oluşturma `FrontEnd` alt ağ
 

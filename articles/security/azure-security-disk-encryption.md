@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: b35595d3dd91932888a26edc92dae81dd71682d8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows ve Linux Iaas VM'ler için Azure Disk şifrelemesi
 Microsoft Azure veri gizliliği, veri egemenliği ve etkinleştirir, Azure veri aralığı boyunca barındırılan denetime Gelişmiş Şifreleme teknolojileri denetlemek ve şifreleme anahtarlarını yönetmek sağlamak için kesinlikle kaydedilmiş veri denetim & Denetim erişimi. Bu Azure müşterilerin kendi iş gereksinimlerine en uygun çözümü seçim yapma esnekliği sağlar. Bu yazıda, biz, yeni bir teknoloji çözümüne "Azure Disk şifrelemesi Windows ve Linux Iaas VM'ın" korumak ve Kuruluş güvenliği ve uyumluluk taahhüt karşılamak için verilerinizi korumaya yardımcı olmak için tanıtılacaktır. Kağıt desteklenen senaryolar ve kullanıcı da dahil olmak üzere Azure disk şifrelemesi özelliklerinin nasıl kullanılacağı hakkında ayrıntılı yönergeler deneyimleri sağlar.
@@ -149,6 +149,7 @@ Disk şifrelemesi Iaas VM'ler için devre dışı bırakmak için aşağıdaki �
 | Ubuntu | 14.04.5-DAILY-LTS | İşletim sistemi ve veri diski |
 | Ubuntu | 12.10 | Veri diski |
 | Ubuntu | 12.04 | Veri diski |
+| RHEL | 7.4 | İşletim sistemi ve veri diski |
 | RHEL | 7.3 | İşletim sistemi ve veri diski |
 | RHEL | LVM 7.3 | İşletim sistemi ve veri diski |
 | RHEL | 7.2 | İşletim sistemi ve veri diski |

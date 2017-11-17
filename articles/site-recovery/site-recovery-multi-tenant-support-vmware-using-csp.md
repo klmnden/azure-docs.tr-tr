@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>CSP aracılığıyla Azure VMware sanal makineleri çoğaltmak için Azure Site Recovery çok müşterili desteği
 
@@ -50,7 +50,7 @@ Yukarıdaki diyagramda görüldüğü gibi her bir müşteri ayrı yönetim sunu
 Tüm duyarlı altyapı bilgileri (örneğin, erişim kimlik bilgileri) kalır, kiracılar için belirlenmemiş veri yalıtımı gereksinim gerekir. Bu nedenle, management server'ın tüm bileşenleri iş ortağı özel denetimi altında kalmasını öneririz. Yönetim sunucusu bileşenleri şunlardır:
 * Yapılandırma sunucusu (CS)
 * İşlem Sunucusu (PS)
-* Ana hedef sunucusu (MT) 
+* Ana hedef sunucusu (MT)
 
 Bir genişleme PS da iş ortağının altında denetimdir.
 
@@ -82,7 +82,7 @@ VCenter hesap erişim yordam aşağıdaki gibidir:
 
     * **Görevleri**: görev, güncelleştirme görevi oluşturma
 
-    * **Sanal makine**: 
+    * **Sanal makine**:
         * Yapılandırma > tüm
         * Etkileşim > yanıt soru, cihaz bağlantısı, yapılandırma CD medyasından, yapılandırma disket ortamı, kapatma, açma, VMware araçları yükleme
         * Stok > oluşturma varolandan, yeni oluştur, kaydetme, kaydı
@@ -95,7 +95,7 @@ VCenter hesap erişim yordam aşağıdaki gibidir:
 
 >| Nesne | Rol | Açıklamalar |
 >| --- | --- | --- |
->| vCenter | Salt okunur | Yalnızca farklı nesneleri yönetmek için vCenter erişime izin vermek gerekli. Vcenter yönetim işlemleri için kullanılan veya hesap için bir kiracı sağlanacak hiçbir zaman edecekse bu izni kaldırabilirsiniz. |
+>| vCenter | Salt Okunur | Yalnızca farklı nesneleri yönetmek için vCenter erişime izin vermek gerekli. Vcenter yönetim işlemleri için kullanılan veya hesap için bir kiracı sağlanacak hiçbir zaman edecekse bu izni kaldırabilirsiniz. |
 >| Datacenter | Azure_Site_Recovery |  |
 >| Konak ve konak kümesi | Azure_Site_Recovery | Böylece yalnızca erişilebilir ana Kiracı sanal makineleri yük devretme öncesinde ve sonrasında yeniden çalışma erişim nesne düzeyinde yeniden sağlar. |
 >| Veri deposu ve veri deposu küme | Azure_Site_Recovery | Önceki aynıdır. |
@@ -138,8 +138,8 @@ VM önkoşullar bölümünde açıklandığı gibi aynıdır [Azure Site Recover
 
 ### <a name="step-1-create-a-tenant-account"></a>1. adım: bir kiracı hesabı oluşturma
 
-1. Aracılığıyla [Microsoft Partner Center](https://partnercenter.microsoft.com/), CSP hesabınızda oturum açın. 
- 
+1. Aracılığıyla [Microsoft Partner Center](https://partnercenter.microsoft.com/), CSP hesabınızda oturum açın.
+
 2. Üzerinde **Pano** menüsünde, select **müşteriler**.
 
     ![Microsoft iş ortağı merkezi müşterileri bağlantı](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ VM önkoşullar bölümünde açıklandığı gibi aynıdır [Azure Site Recover
 
     ![Gözden geçirme sayfasını](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    Kiracı hesabınızı oluşturduktan sonra varsayılan hesabı ve parolası için bu abonelik ayrıntılarını görüntüleme onay sayfası görüntülenir. 
+    Kiracı hesabınızı oluşturduktan sonra varsayılan hesabı ve parolası için bu abonelik ayrıntılarını görüntüleme onay sayfası görüntülenir.
 
 7. Bilgileri kaydedin ve daha sonra gerektiği gibi Azure portalı oturum açma sayfası aracılığıyla parolayı değiştirin.  
- 
+
     Kiracı olarak bu bilgileri paylaşabilir veya oluşturabilir ve gerekirse ayrı bir hesap paylaşın.
 
 ### <a name="step-2-access-the-tenant-account"></a>2. adım: Kiracı hesabı erişim
 
-Kiracının abonelik açıklandığı gibi Microsoft iş ortağı merkezi Pano erişebilirsiniz "1. adım: bir kiracı hesabı oluşturun." 
+Kiracının abonelik açıklandığı gibi Microsoft iş ortağı merkezi Pano erişebilirsiniz "1. adım: bir kiracı hesabı oluşturun."
 
 1. Git **müşteriler** sayfasında ve Kiracı hesap adına tıklayın.
 
 2. Üzerinde **abonelikleri** sayfa kiracı hesabını, mevcut hesabı abonelikleri izlemek ve daha fazla abonelik gerektiği gibi ekleyin. Kiracının olağanüstü durum kurtarma işlemlerini yönetmek için seçin **tüm kaynaklar (Azure portalı)**.
 
     ![Tüm kaynaklar bağlantı](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     Tıklatarak **tüm kaynakları** kiracının Azure abonelikleri erişim sağlar. Üst Azure Active Directory bağlantısını tıklatarak erişim doğrulayabilirsiniz Azure portalının sağ.
 
     ![Azure Active Directory bağlantısı](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ Kiracının abonelik açıklandığı gibi Microsoft iş ortağı merkezi Pano e
 Artık Azure Portalı aracılığıyla Kiracı için tüm site kurtarma işlemleri ve olağanüstü durum kurtarma işlemlerini yönetebilirsiniz. Kiracı aboneliği, yönetilen olağanüstü durum kurtarma için CSP erişmek için yukarıda açıklanan süreci izleyin.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>3. adım: kaynakları Kiracı aboneliği dağıtın.
-1. Azure portalında bir kaynak grubu oluşturun ve sonra bir kurtarma Hizmetleri kasası normal işlem başına dağıtın. 
- 
+1. Azure portalında bir kaynak grubu oluşturun ve sonra bir kurtarma Hizmetleri kasası normal işlem başına dağıtın.
+
 2. Kasa kayıt anahtarını indir
 
 3. CS kasa kayıt anahtarını kullanarak Kiracı için kaydedin.
