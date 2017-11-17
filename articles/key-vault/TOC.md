@@ -14,6 +14,9 @@
 ### [Hizmet sınırlamaları](key-vault-service-limits.md)
 ### [HSM ile korunan anahtarlar](key-vault-hsm-protected-keys.md)
 ### [.NET 2.0’a geçiş](key-vault-dotnet2api-release-notes.md)
+### [Web Uygulaması gizli dizilerini kaydetme](vs-secure-secret-appsettings.md)
+### [.NET kullanarak hizmet kimlik doğrulaması](service-to-service-authentication.md)
+
 ### Genel bakış
 #### [Güvenlik dünyaları](key-vault-ovw-security-worlds.md)
 #### [Geçici silme](key-vault-ovw-soft-delete.md)

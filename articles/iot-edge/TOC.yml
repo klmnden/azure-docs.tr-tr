@@ -1,0 +1,79 @@
+- name: Azure IoT Edge belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Azure IoT Edge hakkında
+      href: how-iot-edge-works.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Uca dağıtma - Windows
+      href: quickstart.md
+    - name: Uca dağıtma - Linux
+      href: quickstart-linux.md
+- name: Öğreticiler
+  items:
+    - name: Bir Edge cihazını benzetme - Windows
+      href: tutorial-simulate-device-windows.md
+    - name: Bir Edge cihazını benzetme - Linux
+      href: tutorial-simulate-device-linux.md
+    - name: 'C# modülü geliştirme'
+      href: tutorial-csharp-module.md
+    - name: Azure Stream Analytics’i dağıtma
+      href: tutorial-deploy-stream-analytics.md
+    - name: Azure Machine Learning’i dağıtma
+      href: tutorial-deploy-machine-learning.md
+    - name: Azure İşlevleri’ni dağıtma
+      href: tutorial-deploy-function.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Ağ geçidi cihazı oluşturma
+      href: how-to-create-gateway-device.md
+    - name: Ölçekli dağıtma ve izleme
+      href: how-to-deploy-monitor.md
+    - name: IoT Core cihazı hazırlama
+      href: how-to-install-iot-core.md
+- name: Kavramlar
+  items:
+    - name: Iot Edge modülleri
+      href: iot-edge-modules.md
+      items:
+        - name: Geliştirme
+          href: module-development.md
+        - name: Birleşim
+          href: module-composition.md
+    - name: IoT Edge çalışma zamanı
+      href: iot-edge-runtime.md
+    - name: Dağıtımlar
+      href: module-deployment-monitoring.md
+    - name: Güvenlik
+      href: security.md
+- name: Kaynaklar
+  items:
+    - name: IoT için Azure Sertifikalı cihaz kataloğu
+      href: 'https://catalog.azureiotsuite.com/'
+    - name: Azure IoT Geliştirici Merkezi
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: DeviceExplorer aracı
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: iothub-diagnostics tool
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: iothub-explorer tool
+      href: 'https://github.com/Azure/iothub-explorer'
+    - name: Öğrenme yolu
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Teknik örnek olay incelemeleri
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

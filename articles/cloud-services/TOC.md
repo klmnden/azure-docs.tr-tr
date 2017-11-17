@@ -34,32 +34,21 @@
 #### [Bir Bulut Hizmeti rolünde görev kullanarak .NET Yükleme](cloud-services-dotnet-install-dotnet.md)
 
 ### Uzak Masaüstü’nü Yapılandırma
-#### [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Klasik portal](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Dağıtma
-### Portalda bulut hizmeti oluşturma ve dağıtma
-#### [Azure portal](cloud-services-how-to-create-deploy-portal.md)
-#### [Klasik portal](cloud-services-how-to-create-deploy.md)
+### [Portalda bulut hizmeti oluşturma ve dağıtma](cloud-services-how-to-create-deploy-portal.md)
 ### [PowerShell’de boş bir bulut hizmeti kapsayıcısı oluşturma](cloud-services-powershell-create-cloud-container.md)
-### Özel bir etki alanı adı yapılandırma
-#### [Portal](cloud-services-custom-domain-name-portal.md)
-#### [Klasik portal](cloud-services-custom-domain-name.md)
+### [Özel bir etki alanı adı yapılandırma](cloud-services-custom-domain-name-portal.md)
 ### [Bulut hizmeti dağıtımı hazırlama (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Özel bir Etki Alanı Denetleyicisi’ne bağlanma](cloud-services-connect-to-custom-domain.md)
 
 ## Hizmeti yönetme
-### Genel yönetim görevleri
-#### [Azure portal](cloud-services-how-to-manage-portal.md)
-#### [Klasik portal](cloud-services-how-to-manage.md)
-### Bulut Hizmetini Yapılandırma
-#### [Azure portal](cloud-services-how-to-configure-portal.md)
-#### [Klasik portal](cloud-services-how-to-configure.md)
+### [Genel yönetim görevleri](cloud-services-how-to-manage-portal.md)
+### [Bulut Hizmetini Yapılandırma](cloud-services-how-to-configure-portal.md)
 ### [Azure Otomasyonu’nu kullanarak bir Bulut Hizmetini yönetme](automation-manage-cloud-services.md)
-### Otomatik ölçeklendirmeyi yapılandırma
-#### [Azure portal](cloud-services-how-to-scale-portal.md)
-#### [Klasik portal](cloud-services-how-to-scale.md)
+### [Otomatik ölçeklendirmeyi yapılandırma](cloud-services-how-to-scale-portal.md)
 ### [Python ile Azure Kaynaklarını yönetme](cloud-services-python-how-to-use-service-management.md)
 
 ### [Konuk işletim sistemi düzeltme ekleri](cloud-services-guestos-msrc-releases.md)
@@ -71,9 +60,7 @@
 
 ## Sertifikaları yönetme
 ### [Cloud Services ve yönetim sertifikaları](cloud-services-certs-create.md)
-### SSL yapılandırma 
-#### [Portal](cloud-services-configure-ssl-certificate-portal.md)
-#### [Klasik portal](cloud-services-configure-ssl-certificate.md)
+### [SSL yapılandırma](cloud-services-configure-ssl-certificate-portal.md)
 
 ## İzleme
 ### [Bulut hizmetini izleme](cloud-services-how-to-monitor.md)
