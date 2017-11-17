@@ -1,0 +1,37 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Time Series Insights Belgeleri
+metadata:
+  title: 'Azure Time Series Insights Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  description: 'Tam olarak yönetilen olay işlemeyle bulutta nasıl IoT analizi çalıştıracağınızı öğrenin. Uygulamalardan, algılayıcılardan, cihazlardan ve diğer kaynaklardan gelen verileri gerçek zamanlı olarak analiz edin.'
+  services: time-series-insights
+  author: kfile
+  manager: jhubbard
+  ms.service: time-series-insights
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/13/2017
+  ms.author: kfile
+abstract:
+  description: 'Time Series Insights ortamı ayarlama hakkında bilgi edinin, IoT çözümlerinizin veya bağlı öğelerin zaman serisi verilerini araştırıp çözümleyin. Belgelerde, önkoşullar, nasıl yapılır bilgileri, API başvuruları ve birkaç dakika içinde çalışmaya başlamanıza yardımcı olacak diğer makaleler bulunur.'
+sections:
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: 'Log Analytics’i dağıtma ve Azure, diğer bulut hizmeti sağlayıcıları ve şirket içi kaynaklardaki verileri toplama işlemini yapılandırma hakkında bilgi edinin.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg'
+            text: Azure Time Series Insights’ı keşfedin
+            href: /azure/time-series-insights/time-series-quickstart
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API'ler
+            html: <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">Sorgu API'si</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Sorgu Söz Dizimi</a></p>

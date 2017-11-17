@@ -106,7 +106,8 @@
 
 ## [Canlı akış](media-services-manage-channels-overview.md)
 ### [Şirket içi kodlayıcılar](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [Önerilen şirket içi kodlayıcılar](media-services-recommended-encoders.md)
+#### [Azure portal](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Bulut kodlayıcıyla canlı akış](media-services-manage-live-encoder-enabled-channels.md)
 #### [Azure portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Wirecast kodlayıcı](media-services-configure-wirecast-live-encoder.md)
 ### [Uzun süren işlemleri çözme](media-services-dotnet-long-operations.md)
 ### [Bölünmüş MP4 canlı alma belirtimi](media-services-fmp4-live-ingest-overview.md)
+
+## [İçeriği kırpma](media-services-azure-media-clipper-overview.md)
+### [Azure Media Clipper’ı kullanmaya başlama](media-services-azure-media-clipper-getting-started.md)
+### [Azure Media Clipper’a varlık yükleme](media-services-azure-media-clipper-load-assets.md)
+### [Özel klavye kısayollarını yapılandırma](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Kırpma işlerini gönderme](media-services-azure-media-clipper-submit-job.md)
+### [Azure portal](media-services-azure-media-clipper-portal.md)
 
 ## [Koruma](media-services-content-protection-overview.md)
 ### [Azure portalında içerik korumasını yapılandırma](media-services-portal-protect-content.md)
@@ -219,8 +227,8 @@
 ## [REST](/rest/api/media/mediaservice)  
 
 # Kaynaklar
-## [Azure Media Services Topluluğu](media-services-community.md)
-## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [Azure Media Services topluluğu](media-services-community.md)
+## [Azure yol haritası](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Sürüm notları](media-services-release-notes.md)

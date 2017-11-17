@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Databricks Önizleme Belgeleri
+metadata:
+  title: Azure Databricks Belgeleri - Öğreticiler | Microsoft Docs
+  description: Microsoft Azure’da Databricks’i kullanma hakkında bilgi edinin.
+  services: azure-databricks
+  author: nitinme
+  manager: cgronlun
+  ms.service: azure-databricks
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/15/2017
+  ms.author: nitinme
+abstract:
+  description: 'Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur. Apache Spark’ın kurucuları ile birlikte tasarlanan Databricks, tek tıklama ile kurulum olanağı ve kolaylaştırılmış iş akışlarının yanı sıra veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliği sağlayan etkileşimli bir çalışma alanı sunmak amacıyla Azure ile tümleştirilmiştir. Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin.'
+sections:
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: 'Azure Databricks çalışma alanı ve Spark kümesi oluşturmayı, ardından aşağıdakileri kullanarak işleri çalıştırmayı öğrenin:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/azure-databricks/media/index/portal.svg
+            text: Azure portalına
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: 'Azure Databricks ile çalışma hakkında bilgi edinin:'
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="https://docs.azuredatabricks.net/user-guide/getting-started.html" target="_blank">Azure Databricks ile çalışmaya başlama</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-blob-storage" target="_blank">Azure Depolama’dan veri aktarma</a>'
+          - hmtl: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store" target="_blank">Import data from Azure Data Lake Store</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/user-guide/notebooks/index.html" target="_blank">Not defterleri ile çalışma</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/user-guide/jobs.html" target="_blank">Spark işleri çalıştırma</a>'
+          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/data-sources/index.html" target="_blank">Spark veri kaynaklarını kullanma</a>'

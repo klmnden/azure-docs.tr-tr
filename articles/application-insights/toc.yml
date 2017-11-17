@@ -91,6 +91,8 @@
       items:
         - name: Azure
           items:
+            - name: Sürekli izleme ekleme
+              href: app-insights-vsts-continuous-monitoring.md
             - name: Profil Oluşturucu
               href: app-insights-profiler.md
             - name: Profiler’ı etkinleştirme

@@ -58,21 +58,27 @@
     - name: Otomasyon
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: Azure Databricks
+      tocHref: /azure/azure-databricks/
+      topicHref: /azure/azure-databricks/
     - name: Container Kayıt Defteri
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
-    - name: Cost Management (Maliyet Yönetimi)
+    - name: Maliyet Yönetimi
       tocHref: /azure/cost-management/
       topicHref: /azure/cost-management/
     - name: İşlevler
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
-    - name: Devlet
+    - name: Azure Kamu
       tocHref: /azure/azure-government/
       topicHref: /azure/azure-government/
-    - name: Almanya
+    - name: Azure Almanya
       tocHref: /azure/germany/
       topicHref: /azure/germany/
+    - name: Azure Çin 21Vianet
+      tocHref: /azure/china/
+      topicHref: /azure/china/
     - name: Azure portalına
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
@@ -94,7 +100,7 @@
     - name: Batch
       tocHref: /azure/batch/
       topicHref: /azure/batch/
-    - name: Toplu AI
+    - name: Batch AI
       tocHref: /azure/batch-ai/
       topicHref: /azure/batch-ai/
     - name: Faturalandırma
@@ -201,6 +207,31 @@
     - name: HDInsight
       tocHref: /azure/hdinsight/
       topicHref: /azure/hdinsight/
+      items:
+        - name: Hadoop
+          tocHref: /azure/hdinsight/hadoop
+          topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
+        - name: HBase
+          tocHref: /azure/hdinsight/hbase
+          topicHref: /azure/hdinsight/hbase/apache-hbase-overview
+        - name: Interactive Query
+          tocHref: /azure/hdinsight/interactive-query
+          topicHref: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
+        - name: Kafka
+          tocHref: /azure/hdinsight/kafka
+          topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
+        - name: Enterprise Security
+          tocHref: /azure/hdinsight/domain-joined
+          topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
+        - name: R Server
+          tocHref: /azure/hdinsight/r-server
+          topicHref: /azure/hdinsight/r-server-overview
+        - name: Spark
+          tocHref: /azure/hdinsight/spark
+          topicHref: /azure/hdinsight/spark/apache-spark-overview
+        - name: Storm
+          tocHref: /azure/hdinsight/storm
+          topicHref: /azure/hdinsight/storm/apache-storm-overview
     - name: IoT Hub’ı
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -351,6 +382,9 @@
     - name: Akış Analizi
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
+    - name: Zaman Serisi Öngörüleri
+      tocHref: /azure/time-series-insights/
+      topicHref: /azure/time-series-insights/
     - name: Traffic Manager
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/

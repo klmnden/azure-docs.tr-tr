@@ -72,8 +72,7 @@
 
 ## [Grupları ve üyeleri yönetme](active-directory-manage-groups.md)
 ### Grupları yönetme
-#### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Klasik portal](active-directory-accessmanagement-manage-groups.md)
+#### [Azure portal](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
 ### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
@@ -93,8 +92,7 @@
 #### [Azure portal](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlet’ler](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Gelişmiş kurallar oluşturma
-#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-#### [Klasik portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
+#### [Azure portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
 ### [Sorun giderme](active-directory-accessmanagement-troubleshooting.md)
 
@@ -135,6 +133,7 @@
 #### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
 ### [SSPR Nasıl çalışır?](active-directory-passwords-how-it-works.md)
 ### [SSPR Dağıtım kılavuzu](active-directory-passwords-best-practices.md)
+### [SSPR ve Windows 10](active-directory-passwords-login.md)
 ### [SSPR İlkeleri ](active-directory-passwords-policy.md)
 ### [SSPR’yi Özelleştirme](active-directory-passwords-customize.md)
 ### [SSPR Veri gereksinimleri](active-directory-passwords-data.md)
@@ -209,8 +208,8 @@
 #### Klasik portalı kullanın
 ##### [Bağlayıcı indirme](application-proxy-enable-classic-portal.md)
 ##### [Uygulamaları yayımlama](active-directory-application-proxy-publish.md)
-##### [Bağlayıcı kullanma](active-directory-application-proxy-connectors.md)
-##### [Koşullu erişim](active-directory-application-proxy-conditional-access.md)
+##### [Bağlayıcı kullanma](active-directory-application-proxy-connectors-azure-portal.md)
+##### [Koşullu erişim](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Kurumsal uygulamaları yönetme
 #### [Kullanıcıları atama](active-directory-coreapps-assign-user-azure-portal.md)
@@ -222,6 +221,7 @@
 #### [Kurumsal uygulamalar için çoklu oturum açmayı yönetme](active-directory-enterprise-apps-manage-sso.md)
 #### [SAML uygulamaları için gelişmiş sertifika imzalama](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Kullanıcının deneyiminde üçüncü taraf bir uygulamayı gizleme](active-directory-coreapps-hide-third-party-app.md)
+### [HRD İlkesi'ni kullanarak Oturum Açma için Otomatik Hızlandırmayı Yapılandırma](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 #### [Self servis erişimi](active-directory-self-service-application-access.md)
@@ -248,9 +248,8 @@
 ## Dizininizi yönetme
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Özel etki alanı adları
-#### [Genel Bakış](active-directory-add-domain-concepts.md)
+#### [Genel Bakış](active-directory-domains-manage-azure-portal.md)
 #### [Etki alanı adlarını yönetme](active-directory-domains-manage-azure-portal.md)
-##### [Klasik portal](active-directory-add-manage-domain-names.md)
 ### [Dizininizi yönetme](active-directory-administer.md)
 ### [Birden fazla dizin](active-directory-licensing-directory-independence.md)
 ### [Self servise kaydolma](active-directory-self-service-signup.md)
