@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: de0222d897ed2cf94be98501c39385ac88f866fc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c589dd8c9d597145fd87a00d9a2ba040988cd8ec
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Nasıl bir Linux sanal makine veri diski kullanımdan çıkarın
 
@@ -35,28 +35,25 @@ Disk üzerinde var olan verileri yeniden kullanmak isterseniz bu verileri aynı 
 ## <a name="detach-a-data-disk-using-cli-20"></a>CLI 2.0 kullanan bir veri diskini
 
 ```azurecli
-az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+az vm disk detach \
+    -g myResourceGroup \
+    --vm-name myVm \
+    -n myDataDisk
 ```
 
 Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Portalı kullanarak veri diski çıkarma
-1. Portal hub seçin **sanal makineleri**.
+1. Soldaki menüde seçin **sanal makineleri**.
 2. Önce ayırmak istediğiniz veri diskine sahip bir sanal makineyi seçin **durdurmak** VM ayırması kaldırılacak.
-3. Sanal makine dikey penceresinde, seçin **diskleri**.
-4. Üstündeki **diskleri** dikey penceresinde, select **Düzenle**.
-5. İçinde **diskleri** ayırmak için istediğiniz veri diski en sağdaki dikey ![ayırma düğme görüntüsü](./media/detach-disk/detach.png) düğmesi ayırın.
-5. Disk kaldırıldıktan sonra dikey pencerenin üst kısmında Kaydet'i tıklatın.
-6. Sanal makine dikey penceresinde tıklayın **genel bakış** ve ardından **Başlat** VM'yi yeniden başlatmak için dikey pencerenin üstündeki düğmesi.
+3. Sanal makine bölmesinde seçin **diskleri**.
+4. Üstündeki **diskleri** bölmesinde, **Düzenle**.
+5. İçinde **diskleri** ayırmak için istediğiniz veri diski sağ bölmesinde ![ayırma düğme görüntüsü](./media/detach-disk/detach.png) düğmesi ayırın.
+5. Disk kaldırıldıktan sonra bölmesinin üst kısmında Kaydet'i tıklatın.
+6. Sanal makine bölmesinde **genel bakış** ve ardından **Başlat** VM'yi yeniden başlatmak için bölmenin üstündeki düğmesi.
 
 Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.
-
-
-
-
-
-
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

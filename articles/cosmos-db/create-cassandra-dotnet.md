@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2503e7e6025e6f064574f14855468ae9b1b97fa0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: ebfe845fa4f695064773a03f6d765da37ab44189
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Hızlı Başlangıç: .NET ve Azure Cosmos DB ile Cassandra uygulaması oluşturma
 
@@ -28,13 +28,13 @@ Azure Cosmos DB Microsoft'un Genel dağıtılmış birden çok model veritabanı
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure Cosmos DB Cassandra API Önizleme programına erişim. Erişim için henüz yapmadıysanız uyguladıysanız [şimdi kaydolun](https://aka.ms/cosmosdb-cassandra-signup).
-
-Visual Studio yüklü 2017 yoksa kullanın karşıdan yükleyip **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Alternatif olarak, [Azure Cosmos DB ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) gider ve taahhüt bir Azure aboneliği boş.
 
-Yükleme [Git](https://www.git-scm.com/) örnek kopyalanamıyor.
+Azure Cosmos DB Cassandra API Önizleme programına erişim. Erişim için henüz yapmadıysanız uyguladıysanız [şimdi kaydolun](cassandra-introduction.md#sign-up-now).
+
+Buna ek olarak: 
+* Visual Studio yüklü 2017 yoksa kullanın karşıdan yükleyip **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+* Yükleme [Git](https://www.git-scm.com/) örnek kopyalanamıyor.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
@@ -112,7 +112,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 1. İçinde [Azure portal](http://portal.azure.com/), tıklatın **bağlantı dizesi**. 
 
-    Kullanın ![Kopyala düğmesini](./media/create-cassandra-dotnet/copy.png) Kullanıcı adı değeri kopyalamak için ekranın sağ taraftaki düğmesi.
+    Kullanın ![Kopyala düğmesi](./media/create-cassandra-dotnet/copy.png) Kullanıcı adı değeri kopyalamak için ekranın sağ taraftaki düğmesi.
 
     ![Görüntüleme ve Azure portal, bağlantı dizesini sayfasında erişim tuşu kopyalama](./media/create-cassandra-dotnet/keys.png)
 

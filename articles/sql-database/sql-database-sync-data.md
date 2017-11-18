@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
 
@@ -80,16 +80,6 @@ Veri Eşitleme aşağıdaki senaryolar için uygun değil:
 
 ## <a name="sync-req-lim"></a>Gereksinimler ve sınırlamalar
 
-### <a name="general-requirements"></a>Genel gereksinimler
-
--   Her tablonun birincil anahtarı olmalıdır. Herhangi bir satırın birincil anahtarı değerini değiştirmeyin. Bir birincil anahtar değeri değiştirmeniz gerekiyorsa, satır silin ve yeni birincil anahtar değeri ile oluşturun. 
-
--   Bir tablonun birincil anahtarı olmayan bir kimlik sütunu olamaz.
-
--   Nesne (veritabanları, tablolar ve sütunlar) adlarını yazdırılabilir karakterleri nokta (.), köşeli ayraç ([) içeren veya sağa kare köşeli ayraç (]) olamaz.
-
--   Anlık görüntü yalıtımı etkinleştirilmesi gerekir. Daha fazla bilgi için bkz: [anlık görüntü yalıtımı SQL Server'daki](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
 ### <a name="general-considerations"></a>Genel konular
 
 #### <a name="eventual-consistency"></a>Nihai tutarlılık
@@ -98,7 +88,19 @@ Veri Eşitleme tetikleyici tabanlı olduğundan, işlem tutarlılığı garanti 
 #### <a name="performance-impact"></a>Performans etkisi
 Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için Tetikleyiciler silin. Kullanıcı veritabanında değişiklik izleme yan tablolar oluşturur. Bu değişiklik izleme etkinlikleri veritabanının yükünüzü etkiler. Hizmet katmanı değerlendirmek ve gerekirse yükseltin.
 
+### <a name="general-requirements"></a>Genel gereksinimler
+
+-   Her tablonun birincil anahtarı olmalıdır. Herhangi bir satırın birincil anahtarı değerini değiştirmeyin. Bir birincil anahtar değeri değiştirmeniz gerekiyorsa, satır silin ve yeni birincil anahtar değeri ile oluşturun. 
+
+-   Anlık görüntü yalıtımı etkinleştirilmesi gerekir. Daha fazla bilgi için bkz: [anlık görüntü yalıtımı SQL Server'daki](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
 ### <a name="general-limitations"></a>Genel sınırlamalar
+
+-   Bir tablonun birincil anahtarı olmayan bir kimlik sütunu olamaz.
+
+-   Nesne (veritabanları, tablolar ve sütunlar) adlarını yazdırılabilir karakterleri nokta (.), köşeli ayraç ([) içeren veya sağa kare köşeli ayraç (]) olamaz.
+
+-   Azure Active Directory kimlik doğrulaması desteklenmiyor.
 
 #### <a name="unsupported-data-types"></a>Desteklenmeyen veri türleri
 

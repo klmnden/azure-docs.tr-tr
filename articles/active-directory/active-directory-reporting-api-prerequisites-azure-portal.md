@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Azure AD raporlama API'si erişmek için Önkoşullar
 
@@ -37,7 +37,7 @@ Raporlama verilerini API aracılığıyla erişmek için atanan aşağıdaki rol
 Raporlama API erişiminizi hazırlamak için şunları yapmanız gerekir:
 
 1. Bir uygulamayı kaydetme 
-2. İzinleri 
+2. İzin ver 
 3. Yapılandırma ayarlarını toplayın 
 
 Sorularınız, sorunları veya Geri bildiriminiz için lütfen [bir destek bileti dosya](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
@@ -55,7 +55,7 @@ Azure AD raporlama API'si erişmek için dizininize yapılandırmak için Azure 
 
 **Bir Azure Active Directory uygulaması kaydetmek için:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Active Directory**.
+1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Azure Active Directory**.
    
     ![Uygulamayı Kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -80,7 +80,7 @@ Azure AD raporlama API'si erişmek için dizininize yapılandırmak için Azure 
     d. **Oluştur**'a tıklayın. 
 
 
-## <a name="grant-permissions"></a>İzinleri 
+## <a name="grant-permissions"></a>İzin ver 
 
 Bu adımın amacı, uygulamanızın vermektir **dizin verilerini okuma** izinleri **Windows Azure Active Directory** API.
 
@@ -120,7 +120,7 @@ Bu adımın amacı, uygulamanızın vermektir **dizin verilerini okuma** izinler
 Bu bölüm, aşağıdaki ayarları dizininizden alma gösterir:
 
 * Etki alanı adı
-* İstemci kimliği
+* İstemci Kimliği
 * Gizli anahtar
 
 Raporlama API çağrıları yapılandırırken bu değerleri gerekir. 
@@ -129,11 +129,11 @@ Raporlama API çağrıları yapılandırırken bu değerleri gerekir.
 
 **Etki alanınızın adını almak için:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Active Directory**.
+1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Azure Active Directory**.
    
     ![Uygulamayı Kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Üzerinde **Azure Active Directory** dikey penceresinde tıklatın **etki alanı adları**.
+2. Üzerinde **Azure Active Directory** dikey penceresinde tıklatın **özel etki alanı adları**.
 
     ![Uygulamayı Kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ Raporlama API çağrıları yapılandırırken bu değerleri gerekir.
 
 **Uygulamanızın istemci Kimliğini almak için:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Active Directory**.
+1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Azure Active Directory**.
    
     ![Uygulamayı Kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ Uygulamanızın istemci parolası mı almak için yeni bir anahtar oluşturun ve
 
 **Uygulamanızın istemci parolası mı almak için:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Active Directory**.
+1. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Azure Active Directory**.
    
     ![Uygulamayı Kaydet](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

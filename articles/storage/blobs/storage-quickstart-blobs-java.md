@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 11/01/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: 2a825e59093b64ab56110f9a045b0325728b39b2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 5676cef446de7a68d3d8fd1a3b6833a5de184ea1
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-java"></a>Aktarım nesneleri/Java kullanarak Azure Blob depolama biriminden
 
@@ -70,11 +70,16 @@ Maven komut satırı kullanarak örneği çalıştırmak istiyorsanız, bir Kabu
 Windows üzerinde uygulamayı çalıştırmak için olsaydı çıktısı örneği verilmiştir.
 
 ```
-Location of file: C:\Users\<user>\Documents\results.txt
-File has been written
-URI of blob is: http://myexamplesacct.blob.core.windows.net/quickstartblobs/results.txt
+Azure Blob storage quick start sample
+Creating container: quickstartcontainer
+Creating a sample file at: C:\Users\<user>\AppData\Local\Temp\sampleFile514658495642546986.txt
+Uploading the sample file 
+URI of blob is: https://myexamplesacct.blob.core.windows.net/quickstartcontainer/sampleFile514658495642546986.txt
 The program has completed successfully.
 Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+
+Deleting the container
+Deleting the source, and downloaded files
 ```
 
  Devam etmeden önce iki dosya için varsayılan dizini (windows kullanıcıları için Belgelerim klasörünü) denetleyin. Ekleri açmak ve aynı görebilirsiniz. Konsol penceresi dışında blob URL'sini kopyalayın ve Blob depolama alanına dosyasının içeriğini görüntülemek için bir tarayıcıya yapıştırın. Enter tuşuna bastığınızda, depolama kapsayıcısı ve dosyaları siler.

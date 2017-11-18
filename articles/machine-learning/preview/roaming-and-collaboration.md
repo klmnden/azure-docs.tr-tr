@@ -2,19 +2,19 @@
 title: "Makine gezici ve Azure işbirliği çalışma ekranı öğrenme | Microsoft Docs"
 description: "Bilinen sorunların listesi ve gidermenize yardımcı olması için bir kılavuz"
 services: machine-learning
-author: svankam
-ms.author: svankam
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
-ms.openlocfilehash: 156dd1b7f928df22b3feb9e7a13396d3b53a91d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.openlocfilehash: 856348c07a198a8c53c6661441d5c49196ef3af5
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Gezici ve Azure Machine Learning çalışma ekranı işbirliği
 Bu belge, nasıl Azure Machine Learning çalışma ekranı kodunuza etkinleştir işbirliğiyle yanı sıra makineler üzerinden projelerinizin dolaşan yardımcı olabileceği aracılığıyla açıklanmaktadır. 
@@ -90,23 +90,16 @@ Alice tıkladığı **dosya** menü ve seçer **komut istemi** menü öğesi iç
 # Find ARM ID of the experimnetation account
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Reader.
-# Bob now has read access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Reader --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation Account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the Account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <experimentation account ARM ID>
 
 # Find ARM ID of the workspace
 az ml workspace show --query "id"
 
-# Add Bob to the workspace as a Contributor.
-# Bob now has read/write access to all projects under the Workspace by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <workspace ARM ID>
-
-# find ARM ID of the project 
-az ml project show --query "id"
-
-# Add Bob to the Project as an Owner.
-# Bob now has read/write access to the Project, and can add others too.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <project ARM ID>
+# Add Bob to the workspace as an Owner.
+# Bob now has read/write access to all projects under the Workspace by inheritance. And he can invite or remove others.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace ARM ID>
 ```
 
 Rol ataması sonra doğrudan veya devralma, Bob çalışma ekranı proje listesi projesinde görebilirsiniz. Uygulama projesi görmek için yeniden başlatma gerekebilir. Bob sonra yükleyebilirler proje açıklandığı gibi [bölüm gezici](#roaming) ve Alice ile işbirliği yapın. 
@@ -124,3 +117,81 @@ Tüm kaynaklardan görüntülemek için kullanıcılar eklemek için aradığın
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
+## <a name="sample-collaboration-workflow"></a>Örnek işbirliği iş akışı
+İşbirliği akışını göstermek için şimdi bir örnek yol. Contoso çalışanlar Alice ve Bob Azure ML çalışma ekranı kullanarak bir veri bilimi projede işbirliği ister. Kimliklerini aynı Contoso Azure AD kiracısına ait.
+
+1. Alice, ilk VSTS projede boş bir Git deposu oluşturur. Bu VSTS proje Contoso AAD kiracısı altında oluşturulan bir Azure aboneliği dinamik. 
+
+2. Alice sonra her bilgisayarda bir Azure ML deneme hesabı, bir çalışma alanı ve bir Azure ML çalışma ekranı projesi oluşturur. Proje oluşturulurken aynen Git deposu URL'sini sağlar.
+
+3. Alice proje üzerinde çalışmaya başlar. Kendisinin bazı komut dosyaları oluşturur ve birkaç çalıştırır yürütür. Her çalıştırma için tüm proje klasörünün anlık bir yürütme olarak çalışma ekranı tarafından oluşturulan VSTS Git deposuna çalıştırma geçmişi dalı uygulamasına otomatik olarak gönderilir.
+
+4. Alice ile iş sürüyor mutluluk sunulmuştur. Yerel kendi değişikliği kaydetmek istediği _ana_ dal ve VSTS Git deposuna iter _ana_ dal. Proje Aç Bunu yapmak için aynen Azure ML çalışma ekranı komut istemi penceresinden başlatır ve aşağıdaki komutları sorunlar:
+    
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # stage all changes
+    $ git add -A
+
+    # commit changes with a comment
+    $ git commit -m "this is a good milestone"
+
+    # push the commit to the master branch of the remote Git repo in VSTS
+    $ git push
+    ```
+
+5. Alice, katılımcısı olarak çalışma alanına Bob sonra ekler. Aynen Azure portal veya kullanarak bunu yapabilirsiniz `az role assignment` komutu göstermeye üstünde. Kendisi ayrıca Bob okuma/erişim VSTS Git deposuna yazma verir.
+
+6. Bob, bilgisayarda artık Azure ML çalışma ekranı içinde günlüğe kaydeder. Çalışma alanı ona ile paylaşılan Alice ve bu çalışma alanı altında listelenen proje görebilir. 
+
+7. Bob proje adına göre tıklar ve projeyi bilgisayarına yüklenir.
+    
+    a. En son anlık görüntü kopyalarını çalıştırma geçmişi kaydedilen çalıştırmak indirilen projedeki dosyalarıdır. Son yürütme ana dala üzerinde değiller.
+    
+    b. Yerel proje klasöründeki ayarlanan _ana_ unstaged değişikliklerle dal.
+
+8. Bob, artık Alice ve tüm önceki çalışmalarını geri yükleme görüntüsünü tarafından yürütülen çalıştırır göz atabilirsiniz.
+
+9. Bob Alice tarafından gönderilen en son değişiklikleri almak ve farklı bir dalı üzerinde çalışmaya başlamak istiyor. Bu nedenle kendisi Azure ML çalışma ekranından komut istemi penceresi açar ve aşağıdaki komutları çalıştırır:
+
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # get the latest commit in VSTS Git master branch and overwrite current files
+    $ git pull --force
+
+    # create a new local branch named "bob" so Bob's work is done on the "bob" branch
+    $ git checkout -b bob
+    ```
+
+10. Bob, artık projeyi değiştirir ve yeni çalıştırır gönderin. Değişiklikler üzerinde yapılır _bob_ dal. Ve Bob'un çalıştırır de Alice'e görünür hale gelmiştir.
+
+11. Bob, değişiklikleri uzak Git deposu göndermek artık hazırdır. Çakışma olmaması için _ana_ Alice nerede çalıştığını dal, kendisi de adlı yeni bir uzaktan dalı kendi iş göndermek karar _bob_.
+
+    ```sh
+    # verify that the current branch is "bob" and it has unstaged changes
+    $ git status
+    
+    # stage all changes
+    $ git add -A
+
+    # commit them with a comment
+    $ git commit -m "I found a cool new trick."
+
+    # create a new branch on the remote VSTS Git repo, and push changes
+    $ git push origin bob
+    ```
+
+12. Bob sonra öğrenebilirsiniz Alice yeni cool eli hakkında kendi kodunda ve bir çekme isteği uzak Git deposu oluşturur _bob_ dallanma _ana_ dal. Ve Alice sonra içine çekme isteği birleştirme _ana_ dal.
+
+## <a name="next-steps"></a>Sonraki adımlar
+Git ile Azure ML çalışma ekranı kullanma hakkında daha fazla bilgi edinin: [Azure Machine Learning çalışma ekranı projesi ile kullanarak Git deposu](using-git-ml-project.md)

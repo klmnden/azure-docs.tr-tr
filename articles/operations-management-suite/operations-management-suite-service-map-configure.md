@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 209631536d8c611b46a2ad3ff6c685062b17c649
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c56a59a648b90c59e6e1a5e0fb6a26cd1dba4dfc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite içinde hizmet Haritası yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -28,8 +28,8 @@ Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntıları
 ## <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirir
 | Dosya | İşletim Sistemi | Sürüm | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| [InstallDependencyAgent Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.1 | CBF050BFEA78B56A138CB1313DE0E75ABC30187C1B96EF9B4CBDEDD9EDFF6A17 |
+| [InstallDependencyAgent Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.1 | F4560E951F6C57A7466C82052BAFBF9515DC80DDA794ED8FB4DB02CEBA743277 |
 
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
@@ -315,7 +315,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-| İşletim sistemi sürümü | Çekirdek sürümü |
+| OS sürümü | Çekirdek sürümü |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -324,7 +324,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-| İşletim sistemi sürümü | Çekirdek sürümü |
+| OS sürümü | Çekirdek sürümü |
 |:--|:--|
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -338,7 +338,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 6.9 | 2.6.32-696 |
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
-| İşletim sistemi sürümü | Çekirdek sürümü |
+| OS sürümü | Çekirdek sürümü |
 |:--|:--|
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -348,14 +348,14 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 ### <a name="ubuntu-server"></a>Ubuntu Server
 - Standart çekirdekleri yeniden derlemelerinin dahil olmak üzere özel çekirdekleri desteklenmez.
 
-| İşletim sistemi sürümü | Çekirdek sürümü |
+| OS sürümü | Çekirdek sürümü |
 |:--|:--|
 | 16.04 | 4.4.0-98 |
 | 14.04 | 3.13.0-135<br>4.4.0-98 |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux kesilemeyen kurumsal çekirdek ile
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
-| İşletim sistemi sürümü | Çekirdek sürümü
+| OS sürümü | Çekirdek sürümü
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -365,7 +365,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| İşletim sistemi sürümü | Çekirdek sürümü
+| OS sürümü | Çekirdek sürümü
 |:--|:--|
 | 5.8 | Oracle 2.6.32-300 (UEK R1) |
 | 5.9 | Oracle 2.6.39-300 (UEK R2) |
@@ -375,7 +375,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 #### <a name="suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
-| İşletim sistemi sürümü | Çekirdek sürümü
+| OS sürümü | Çekirdek sürümü
 |:--|:--|
 | 11 | 2.6.27 |
 | 11 SP1 | 2.6.32 |
@@ -384,7 +384,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 11 SP4 | 3.0.101 |
 
 #### <a name="suse-linux-10"></a>SUSE Linux 10
-| İşletim sistemi sürümü | Çekirdek sürümü
+| OS sürümü | Çekirdek sürümü
 |:--|:--|
 | 10 SP4 | 2.6.16.60 |
 

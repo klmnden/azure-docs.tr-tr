@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: ab97feac7dd92cdc64343e215f6c623a6de9ef60
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96e9cf2fed0b22fd7aa7b9ffeab0e94738ce510d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Ayrılmış sanal makine örnekleri sahip sanal makinelerde paradan tasarruf 
 Ayrılmış sanal makine örnekleri, yıllık veya üç yıl kullandığınız sanal makinelerde indirim almak için işlem kapasitesi için önceden ödeme olanak tanır. Sanal makine maliyetlerinizi önemli ölçüde azaltır — yüzde 72 Kullandıkça Öde fiyatları – yıllık veya üç yıllık ön taahhüt ile. Ayrılmış sanal makine örneklerinin bir fatura iskonto ve sanal makineler çalışma zamanı durumunu etkilemez.
@@ -46,7 +46,7 @@ Ayrılmış bir VM örnek satın sonra kapsamı değiştirebilirsiniz. Kapsamın
 
 Ayırma indirim yalnızca enterprise veya Kullandıkça Öde teklif türleri ile Aboneliklerdeki sanal makineler için geçerlidir. Bir abonelikte diğer teklif türleriyle çalışan sanal makineler ayırma indirim almaz. Kurumsal kayıtları için enterprise geliştirme ve Test abonelik için ayrılmış örnek avantajları uygun değil.
 
-Ayırma sanal makine faturalama etkilemesi açıklaması [avantajı faturalama ayırma uygulama anlama](https://go.microsoft.com/fwlink/?linkid=861721).
+Ayırma sanal makine faturalama etkilemesi açıklaması [avantajı faturalama ayırma uygulama anlama](https://go.microsoft.com/fwlink/?linkid=863405).
 
 ## <a name="what-happens-when-the-reservation-term-expires"></a>Ayırma terim süresi dolduğunda ne olur?
 Ayırma döneminin sonunda fatura indirim süresi dolar ve sanal makine altyapısı ödeme--, Git fiyattan faturalandırılır. Ayırmaları Otomatik yenilemeyi değil. Fatura indirim alınırken devam etmek için yeni bir ayrılmış sanal makine örneği satın almanız gerekir. 

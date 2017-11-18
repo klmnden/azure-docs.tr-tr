@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Çözümünüzü sanal cihazlar ile test
 
@@ -76,7 +76,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Yeni bir cihaz türü için Pano ekleyin
 > * Var olan bir cihaz türünden özel telemetri Gönder
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
@@ -177,7 +177,7 @@ Yeni bir aygıt türü benzetimi mikro oluşturmanın kolay kopyalamak ve mevcut
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      }
+      },
     }
     ```
 
@@ -307,12 +307,12 @@ Aşağıdaki adımlar yerleşik tanımlama dosyaları bulmak nasıl gösterir **
 1. Zaten yapmadıysanız, kopyalamak için aşağıdaki komutu kullanın **aygıt benzetimi** GitHub deposunu yerel makinenize:
 
     ```cmd/sh
-    git clone https://github.com/Azure/device-simulation-dotnet.git
+    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
     ```
 
-1. Her cihaz türü bir JSON modeli dosyası ve ilişkili komut dosyalarında sahip `Services/data/devicemodels` klasör. Benzetim tanımlayan dosyaların **Soğutucu** aygıt türü şunlardır:
-    * `Services/data/devicemodels/chiller-01.json`
-    * `Services/data/devicemodels/scripts/chiller-01-state.js`
+1. Her cihaz türü bir JSON modeli dosyası ve ilişkili komut dosyalarında sahip `data/devicemodels` klasör. Benzetim tanımlayan dosyaların **Soğutucu** aygıt türü şunlardır:
+    * `data/devicemodels/chiller-01.json`
+    * `data/devicemodels/scripts/chiller-01-state.js`
 
 ### <a name="specify-the-new-telemetry-type"></a>Yeni telemetri türünü belirtin
 

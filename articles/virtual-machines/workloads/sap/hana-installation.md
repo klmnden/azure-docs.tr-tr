@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 280001f9057825b9dcd98c5180340a54e2e239cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ef85c098058c97e5ec6d758fcf1dab5b1a87786
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırma
 
@@ -172,7 +172,7 @@ SAP destek Notlar SAP HANA SLES 12 uygulama için geçerlidir:
 - [SAP destek Not #171356 – SAP yazılım Linux'ta: genel bilgiler](https://launchpad.support.sap.com/#/notes/1984787).
 - [SAP destek Not #1391070 – Linux UUID çözümleri](https://launchpad.support.sap.com/#/notes/1391070).
 
-[Red Hat Enterprise Linux SAP HANA için](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) HANA büyük örneklerinde SAP HANA çalıştırmak için başka bir teklifidir. RHEL 6.7 ve 7.2 sürümlerinde kullanılabilir. 
+[Red Hat Enterprise Linux SAP HANA için](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) HANA büyük örneklerinde SAP HANA çalıştırmak için başka bir teklifidir. RHEL 6.7 ve 7.2 sürümlerinde kullanılabilir. Lütfen yerel Azure burada yalnızca RHEL 7.2 ve daha yeni sürümlerde desteklenir, VM'ler HANA büyük örnekleri ters yönde Not desteği RHEL 6.7 de. Ancak bir RHEL 7.x yayın kullanmanızı öneririz.
 
 Red Hat üzerinde ek ve kullanışlı SAP bağlantıları ile ilgili:
 - [SAP HANA üzerinde Red Hat Linux Site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).

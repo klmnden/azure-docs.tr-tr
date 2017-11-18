@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -431,7 +431,7 @@ Azure Cosmos DB - tablodan nerede oluşturmak göre kapsayıcı için varsayıla
 Üretilen iş kavramı açıklandığı [istek birimlerine Azure Cosmos veritabanı](request-units.md) makalesi. Bir tablo için işleme temel alınan fiziksel bölümleri arasında eşit olarak dağıtılır.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>Varsayılan RU/s CQL oluşturduğunuzda tablosunun nedir? Peki bunu değiştirmeniz gerekecek?
-Azure Cosmos DB (RU/s) saniye başına istek birimleri, bir para birimi olarak verimlilik sağlamak için kullanır. CQL oluşturulan tabloları sahip 400 RU. 10.000 portaldan RU değiştirebilirsiniz RU. 10. 000'den fazla ihtiyacınız varsa özel Önizleme - RU oluşturabilirsiniz, ilk portalından. Veya bu özelliği için CQL - istiyorsanız lütfen bizimle bağlanmak [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos DB (RU/s) saniye başına istek birimleri, bir para birimi olarak verimlilik sağlamak için kullanır. CQL oluşturulan tabloları sahip 400 RU. Portaldan RU değiştirebilirsiniz. 
 
 CQL
 ```

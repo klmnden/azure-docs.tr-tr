@@ -4,7 +4,7 @@ description: "Yönetim Kavramları ve Azure Active Directory'de bir etki alanı 
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory'de özel etki alanı adlarını yönetme
 Bir etki alanı adı tanımlayıcının birçok dizin kaynaklar için önemli bir parçasıdır: kullanıcı, bir grup adresi parçası için bir kullanıcı adı veya e-posta adresi bir parçasıdır ve bir uygulama için uygulama kimliği URI'SİNİN parçası olabilir. Azure Active Directory'de (Azure AD) bir kaynak, kaynak içeren dizine ait olarak zaten doğrulanmış bir etki alanı adı ekleyebilirsiniz. Yalnızca genel yönetici Azure AD etki alanı yönetimi görevlerini gerçekleştirebilir.
@@ -29,18 +29,18 @@ Dizininizi oluşturulduğunda 'contoso.onmicrosoft.com,' gibi bir ilk etki alan�
 
 1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
 2. Seçin **Azure Active Directory**.
-   
-   ![Açılış kullanıcı yönetimi](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Seçin **etki alanı adları**.
-4. Birincil etki alanı yapmak istediğiniz etki alanının adını seçin.
+3. Seçin **özel etki alanı adları**.
+     
+   ![Açılış kullanıcı yönetimi](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
+4. Birincil etki alanı olmasını istediğiniz etki alanının adını seçin.
 5. Seçin **birincil olun** komutu. Sorulduğunda Seçiminizi onaylayın.
    
-   ![Bir etki alanı adı birincil olun](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+   ![Bir etki alanı adı birincil olun](./media/active-directory-domains-manage-azure-portal/make-primary-domain.png)
 
 Birleşik olmadığı herhangi doğrulanmış özel etki alanı olmasını dizininiz için birincil etki alanı adını değiştirebilirsiniz. Dizininiz için birincil etki alanı değiştirme var olan tüm kullanıcılar kullanıcı adlarını değiştirmez.
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Azure AD ile özel etki alanı adlarını Ekle
-> 900 yönetilen etki alanı adlarının maksimum kadar ekleyebilirsiniz. Şirket içi Active Directory ile Federasyon, etki alanlarını yapılandırmak istiyorsanız, her dizinde 450 etki alanı adlarının maksimum ekleyebilirsiniz. Daha fazla bilgi için bkz: [federe ve yönetilen etki alanı adları](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Azure AD kiracınız için özel etki alanı adlarını Ekle
+900 yönetilen etki alanı adlarının maksimum kadar ekleyebilirsiniz. Şirket içi Active Directory ile Federasyon, etki alanları yapılandırıyorsanız, her dizinde 450 etki alanı adlarının maksimum ekleyebilirsiniz. Daha fazla bilgi için bkz: [federe ve yönetilen etki alanı adları](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Özel bir etki alanının alt etki alanlarını ekleme
 'Europe.contoso.com' gibi bir üçüncü düzey etki alanı adı dizininize eklemek istiyorsanız, önce ekleyin ve contoso.com gibi ikinci düzey etki alanı doğrulamanız gerekir. Alt etki alanı otomatik olarak Azure AD tarafından doğrulanır. Yeni eklediğiniz alt etki alanı doğrulandı görmek için etki alanları listelenir tarayıcıda sayfayı yenileyin.

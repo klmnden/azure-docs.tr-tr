@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 82019392edc99f0adccb26b483e77b7c576822fb
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Bir IOT kenar modül Azure işlevi dağıtma - Önizleme
 Azure işlevleri, iş mantığınızı IOT sınır cihazları için doğrudan uygulayan kod dağıtmak için kullanabilirsiniz. Bu öğreticide, oluşturma ve dağıtma algılayıcı verileri üzerinde bir sanal cihaz dağıtmak Azure IOT kenarına oluşturduğunuz sanal IOT sınır aygıtında filtreler bir Azure işlevi aracılığıyla açıklanmaktadır [Windows] [ lnk-tutorial1-win]veya [Linux] [ lnk-tutorial1-lin] öğreticileri. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:     
@@ -141,7 +141,7 @@ Aşağıdaki adımlar, Visual Studio Code ile Azure IOT kenar uzantısı bir IOT
 1. Docker görüntüsünü oluşturabilirsiniz.
     1. VS Code Explorer'da tıklatın **Docker** klasörünü açmak için. Kapsayıcı platformunuz için klasör ya da seçin **linux x64** veya **windows nano**. 
     2. Sağ **Dockerfile** dosya ve tıklayın **yapı IOT kenar modülü Docker görüntü**. 
-    3. İçinde **Klasör Seç** kutusunda, gidin **linux/Docker-x64** klasörü ve tıklatın **EXE_DIR olarak klasör seç**. 
+    3. İçinde **Klasör Seç** kutusunda, proje klasöre gidin **FilterFunction**, tıklatıp **EXE_DIR olarak klasör seç**. 
     4. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. Örneğin, `<docker registry address>/filterfunction:latest`; burada *docker kayıt defteri adresi* Docker hub'a kullanıyorsanız, Docker kimliğidir veya benzer `<your registry name>.azurecr.io`, Azure kapsayıcı kayıt defteri kullanıyorsanız.
  
 4. Docker için oturum açın. Tümleşik terminal içinde aşağıdaki komutu girin: 

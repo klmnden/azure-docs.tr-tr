@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
 Bu makalede, Azure AD için uygulama geliştirme öğrenmeye olduğunda faydalıdır çekirdek Azure Active Directory (AD) Geliştirici kavramları bazıları için tanımları içerir.
@@ -33,6 +33,9 @@ Erişim belirteçleri "Kullanıcı + uygulama" veya "Uygulama yalnızca", bağl�
 * ["İstemci kimlik bilgileri" yetkilendirme verme](#authorization-grant), belirteç bazen "Yalnızca uygulama" belirteci olarak başvurulabilen şekilde kaynak sahibinin kimlik doğrulama/yetkilendirme çalışan tek kimlik doğrulaması, istemci sağlar.
 
 Bkz: [Azure AD belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı için.
+
+## <a name="application-id-client-id"></a>Uygulama Kimliği (istemci kimliği)
+Belirli bir uygulama ve ilişkili yapılandırmaları tanımlayan bir uygulama kaydı için benzersiz tanımlayıcı Azure AD sorunları.  Bu uygulama kimliği ([istemci kimliği](https://tools.ietf.org/html/rfc6749#page-15)) kimlik doğrulaması gerçekleştirme ve istekleri olduğunda kullanılan kimlik doğrulama kitaplıkları geliştirme zamanında sağlanan. Uygulama Kimliği (istemci kimliği) bir gizli anahtar değil. 
 
 ## <a name="application-manifest"></a>Uygulama bildirimi
 Tarafından sağlanan bir özellik [Azure portal][AZURE-portal], uygulamanın kimlik yapılandırması, kendi ilişkili güncelleştirme mekanizması olarak kullanılan bir JSON gösterimini üreten [ Uygulama] [ AAD-Graph-App-Entity] ve [ServicePrincipal] [ AAD-Graph-Sp-Entity] varlıklar. Bkz: [Azure Active Directory Uygulama bildirimini anlama] [ AAD-App-Manifest] daha fazla ayrıntı için.
@@ -102,7 +105,7 @@ Bkz: [çok kiracılı uygulama desenini kullanarak Azure AD alanındaki herhangi
 ## <a name="native-client"></a>yerel istemci
 Bir tür [istemci uygulaması](#client-application) yüklü olan yerel bir aygıtta. Tüm kod, bir cihazda yürütülür olduğundan, "Genel" istemci kimlik bilgileri özel olarak/ilkemiz depolamak için sorunu nedeniyle olarak kabul edilir. Bkz: [OAuth2 istemci türleri ve profiller] [ OAuth2-Client-Types] daha fazla ayrıntı için.
 
-## <a name="permissions"></a>İzinleri
+## <a name="permissions"></a>İzinler
 A [istemci uygulaması](#client-application) erişim kazanır bir [kaynak sunucusu](#resource-server) izin istekleri bildirme tarafından. İki tür mevcuttur:
 
 * "Belirtin izinleri atanmış" [kapsam tabanlı](#scopes) imzalı bileşeninden temsilci yetkilendirme kullanarak erişim [kaynak sahibi](#resource-owner), kaynak çalışma zamanında sunulan ["scp" Talep](#claim) istemciye ait [erişim belirteci](#access-token).
@@ -174,7 +177,7 @@ Benzer şekilde bir hizmet sorumlusu nesnesi uygulama örneğini temsil etmek i�
 Bir tür [istemci uygulaması](#client-application) , kimlik bilgileri sunucuda güvenli bir şekilde depolayarak "gizli" istemci olarak çalışması için tüm kodu bir web sunucusunda ve mümkün yürütür. Bkz: [OAuth2 istemci türleri ve profiller] [ OAuth2-Client-Types] daha fazla ayrıntı için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD Geliştirici Kılavuzu] [ AAD-Dev-Guide] tüm Azure AD geliştirme için kullanılacak portalıdır ilgili konular, genel bir bakış da dahil olmak üzere [uygulama tümleştirmesi] [ AAD-How-To-Integrate] ve temelleri [Azure AD kimlik doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios].
+[Azure AD Geliştirici Kılavuzu] [ AAD-Dev-Guide] tüm Azure AD geliştirme için kullanmak için giriş sayfasıdır ilgili konular, genel bir bakış da dahil olmak üzere [uygulama tümleştirmesi] [ AAD-How-To-Integrate] ve temelleri [Azure AD kimlik doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios].  Kod örnekleri & öğreticiler açık ve çalışıyor hızla alma nasıl bulabileceğiniz [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Lütfen geri bildirim sağlamak ve iyileştirmek ve yeni tanımları istekleri dahil olmak üzere veya var olanları güncelleştirme bizim içerik şekil yardımcı olmak için aşağıdaki Açıklamalar bölümüne kullanın!
 

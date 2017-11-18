@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: be2a80645d23e709d6c5cfb3978498bbe85eca34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a78efef6bc82a837782c462bc3558a9582a8da7c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IOT Core üzerinde IOT kenar çalışma zamanı yükleme - Önizleme
 
@@ -25,8 +25,22 @@ Azure IOT kenar çalışma zamanı bile IOT sektördeki çok yaygın küçük te
 1. Yükleme [Windows 10 IOT Core Panosu] [ lnk-core] bir konak sisteminde.
 1. Adımları [Cihazınızı ayarlamak] [ lnk-board] MinnowBoard Turbot/MAX yapı 16299 görüntüsüyle panonuzu yapılandırmak için. 
 1. Cihazda sonra kapatma [PowerShell ile uzaktan oturum açma][lnk-powershell].
-1. PowerShell konsolunda [Docker ikili dosyaları yükleme][lnk-docker-install].
-1. IOT kenar çalışma zamanı yükleme ve yapılandırmanızı doğrulamak için PowerShell konsolunda aşağıdaki komutu çalıştırın:
+1. PowerShell konsolunda kapsayıcı yükleyin: 
+
+   ```powershell
+   Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-17.06.0-dev.zip -o temp.zip
+   Expand-Archive .\temp.zip $env:ProgramFiles -f
+   Remove-Item .\temp.zip
+   $env:Path += ";$env:programfiles\docker"
+   SETX /M PATH "$env:Path"
+   dockerd --register-service
+   start-service docker
+   ```
+
+   >[!NOTE]
+   >Bu PowerShell Betiği Moby proje Yapı sunucusundan olduğu ve yalnızca değerlendirme amacıyla tasarlanmıştır. Bu değil test, Destekli veya Docker tarafından desteklenir.
+
+1. IOT kenar çalışma zamanı yükleme ve yapılandırmanızı doğrulayın:
 
    ```powershell
    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)

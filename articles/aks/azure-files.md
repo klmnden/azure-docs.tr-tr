@@ -13,67 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: bae60e7f78934deacac173767ca3013ce93cf9ad
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Azure dosyaları ile Kubernetes kullanma
 
-Kapsayıcı tabanlı uygulamaları genellikle erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek gerekir. Azure dosyaları bu dış veri deposu olarak kullanılabilir. Bu makale Azure kapsayıcı Hizmeti'nde bir Kubernetes birimi olarak Azure dosyaları kullanılarak ayrıntıları.
+Kapsayıcı tabanlı uygulamalara erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek çoğunlukla gerekir. Azure dosyaları bu dış veri deposu olarak kullanılabilir. Bu makale Azure kapsayıcı Hizmeti'nde bir Kubernetes birimi olarak Azure dosyaları kullanılarak ayrıntıları.
 
 Kubernetes birimleri hakkında daha fazla bilgi için bkz: [Kubernetes birimleri][kubernetes-volumes].
 
-## <a name="creating-a-file-share"></a>Bir dosya paylaşımı oluşturma
+## <a name="create-an-azure-file-share"></a>Bir Azure dosya paylaşımı oluşturma
 
-Var olan bir Azure dosya paylaşımı Azure kapsayıcı hizmeti ile kullanılabilir. Bir oluşturmanız gerekiyorsa, aşağıdaki komutları kümesini kullanın.
-
-Kullanarak Azure dosya paylaşımı için bir kaynak grubu oluşturmak [az grubu oluşturma] [ az-group-create] komutu. Depolama hesabı ve Kubernetes küme kaynak grubu aynı bölgede bulunması gerekir.
+Bir Azure dosya paylaşımı Kubernetes birimi olarak kullanmadan önce bir Azure Storage hesabı ve dosya paylaşımı oluşturmanız gerekir. Aşağıdaki komut dosyası, bu görevleri tamamlamak için kullanılabilir. Not edin veya parametre değerleri güncelleştirmek, bunlardan bazıları Kubernetes birim oluşturulurken gereklidir.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
+# Change these four parameters
+AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+AKS_PERS_RESOURCE_GROUP=myAKSShare
+AKS_PERS_LOCATION=eastus
+AKS_PERS_SHARE_NAME=aksshare
 
-Kullanım [az depolama hesabı oluşturma] [ az-storage-create] bir Azure Storage hesabı oluşturmak için komutu. Depolama hesabı adı benzersiz olmalıdır. Değerini güncelleştirmek `--name` bağımsız değişkeni ile benzersiz bir değer.
+# Create the Resource Group
+az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-```azurecli-interactive
-az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
-```
+# Create the storage account
+az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
-Kullanım [az depolama hesabı anahtarları listesi ] [ az-storage-key-list] depolama anahtarı geri dönmek için komutu. Değerini güncelleştirmek `--account-name` bağımsız değişkeni ile benzersiz depolama hesabı adı.
+# Export the connection string as an environment variable, this is used when creating the Azure file share
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
-Not anahtar değerlerin her birini bu sonraki adımda kullanılır.
+# Create the file share
+az storage share create -n $AKS_PERS_SHARE_NAME
 
-```azurecli-interactive
-az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
-```
-
-Kullanım [az depolama paylaşımı oluşturmak] [ az-storage-share-create] Azure dosya paylaşımı oluşturmak için komutu. Güncelleştirme `--account-key` değeriyle toplanan son adımı.
-
-```azurecli-interactive
-az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+# Get storage account key
+STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
 ```
 
 ## <a name="create-kubernetes-secret"></a>Kubernetes gizli anahtar oluşturma
 
-Kubernetes dosya paylaşımına erişmek için kimlik bilgileri gerekir. Azure depolama hesabı adı ve her pod anahtarla depolamak yerine, bir kez depolanır bir [Kubernetes gizli] [ kubernetes-secret] ve her Azure dosyaları birim tarafından başvurulan. 
+Kubernetes dosya paylaşımına erişmek için kimlik bilgileri gerekir. Bu kimlik bilgileri depolanmış bir [Kubernetes gizli][kubernetes-secret], Kubernetes pod oluştururken başvurulan.
 
-Kubernetes gizli bildiriminde değerlerinin base64 ile kodlanmış olması gerekir. Kodlanmış değer döndürmek için aşağıdaki komutları kullanın.
+Bir Kubernetes gizli oluştururken, gizli değerleri base64 ile kodlanmış olmalıdır.
 
-İlk olarak, depolama hesabının adını kodlayın. Değiştir `storage-account` Azure depolama hesabınızın adı.
+İlk olarak, depolama hesabının adını kodlayın. Gerekirse, Değiştir `$AKS_PERS_STORAGE_ACCOUNT_NAME` Azure depolama hesabı adı.
 
 ```azurecli-interactive
-echo -n <storage-account> | base64
+echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 ```
 
-Ardından, depolama hesabının erişim anahtarı gereklidir. Şifrelenmiş anahtar döndürmek için aşağıdaki komutu çalıştırın. Değiştir `storage-key` bir önceki adımda toplanan anahtarla
+Ardından, depolama hesabı anahtarı kodlayın. Gerekirse, Değiştir `$STORAGE_KEY` Azure depolama hesabı anahtarı adı.
 
 ```azurecli-interactive
-echo -n <storage-key> | base64
+echo -n $STORAGE_KEY | base64
 ```
 
 Adlı bir dosya oluşturun `azure-secret.yml` ve aşağıdaki YAML kopyalayın. Güncelleştirme `azurestorageaccountname` ve `azurestorageaccountkey` değerleri base64 ile kodlanmış son adımda alınan değer.
@@ -89,15 +86,15 @@ data:
   azurestorageaccountkey: <base64_encoded_storage_account_key>
 ```
 
-Kullanım [kubectl uygulamak] [ kubectl-apply] gizli anahtarı oluşturmak için komutu.
+Kullanım [kubectl oluşturma] [ kubectl-create] gizli anahtarı oluşturmak için komutu.
 
 ```azurecli-interactive
-kubectl apply -f azure-secret.yml
+kubectl create -f azure-secret.yml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Birim olarak dosya paylaşımını bağlama
 
-Kendi spec birim yapılandırarak, pod, Azure dosya paylaşımı bağlayabilir. Adlı yeni bir dosya oluşturun `azure-files-pod.yml` aşağıdaki içeriğe sahip. Güncelleştirme `share-name` Azure dosyaları verilen ad paylaşın.
+Kendi spec birim yapılandırarak, pod, Azure dosya paylaşımı bağlayabilir. Adlı yeni bir dosya oluşturun `azure-files-pod.yml` aşağıdaki içeriğe sahip. Güncelleştirme `aksshare` Azure dosyaları verilen ad paylaşın.
 
 ```yaml
 apiVersion: v1
@@ -115,7 +112,7 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      shareName: <share-name>
+      shareName: aksshare
       readOnly: false
 ```
 
@@ -139,6 +136,6 @@ Azure dosyaları kullanarak Kubernetes birimleri hakkında daha fazla bilgi edin
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-apply]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#apply
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [az-group-create]: /cli/azure/group#az_group_create

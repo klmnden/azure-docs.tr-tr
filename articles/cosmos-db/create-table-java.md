@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: arramac
-ms.openlocfilehash: 5eade2b85737f9c381f6292a78fc5407398e2b9c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: ce5c1c25a73bdc02d7e66768752c6942144de517
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Hızlı Başlangıç: bir tablo API uygulamasını Java ve Azure Cosmos DB ile derleme
 
@@ -87,9 +87,20 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
    ![Görüntüleyin ve gerekli bağlantı dizesi bilgilerini kopyalamak bağlantı dizesi bölmesinde](./media/create-table-java/connection-string.png)
 
-2. Config.properties dosyasını açın ve gerekli bağlantı dizesi özellikleri yapılandırma dosyasına kopyalayın.
+2. Sağ tarafta Kopyala düğmesini kullanarak birincil bağlantı DİZESİNİ kopyalayın.
 
-3. Config.properties dosyasını kaydedin.
+3. Config.Properties C:\git-samples\storage-table-java-getting-started\src\main\resources klasöründen açın. 
+
+5. Satırı bir açıklama ve iki satırı açıklamadan çıkarın. İlk iki satır gibi görünmelidir.
+
+    ```
+    #StorageConnectionString = UseDevelopmentStorage=true
+    StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
+    ```
+
+6. 2. satır StorageConnectionString değerinde birincil bağlantı DİZENİZİ portalından yapıştırın. Bağlantı dizenizi uç noktası bölümünü documents.azure.com kullanıyorsa, bunun yerine table.cosmosdb.azure.com kullanmak için bu bölümü düzeltin.
+
+7. Config.properties dosyasını kaydedin.
 
 Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 

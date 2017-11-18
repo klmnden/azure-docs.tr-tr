@@ -12,20 +12,22 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 77bdeda57a23d77e7f00cfea1f9b8d362cfa4979
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 140789122dcc66e01b05ad81791bc3ca54e4f42c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>C# kullanarak Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetme
 
-Bu makalede Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek için derleyebilirsiniz C# örnek kod açıklanmaktadır.
+Bu konuda, Azure zaman serisi Öngörüler ortamı için başvuru verileri yönetmek için derleyebilirsiniz C# örnek kod açıklanmaktadır.
 
-Derleme ve örnek kod çalıştıran önce aşağıdaki adımları tamamlandıktan emin olun:
-1. Bir başvuru veri kümesi kullanılarak oluşturulup oluşturulmadığını [bu makalede](time-series-insights-add-reference-data-set.md).
+Derleme ve örnek kod çalıştırma önce aşağıdaki adımları tamamlayın:
+1. [Bir başvuru veri kümesi oluşturma](time-series-insights-add-reference-data-set.md).
 
-2. Uygulama tarafından ile yetkilendirmek için kullanılacak erişim belirteci yapılandırın. Belirteç Azure Active Directory API aracılığıyla edinilen emin olun. Bu belirteç geçirilmesi `Authorization` her sorgu API isteği üstbilgisi. Etkileşimli olmayan uygulamalar için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md) makalesi.
+2. Uygulama için yetkilendirme erişim belirtecini yapılandırın. Belirteç Azure Active Directory API aracılığıyla edinilen emin olun. Bu, belirteç geçirmelisiniz `Authorization` her sorgu API isteği üstbilgisi. 
+ 
+   Etkileşimli olmayan uygulama ayarlama hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme](time-series-insights-authentication-and-authorization.md).
 
 3. Örnek kod, atanan örnek sabitleri değiştirmek için Düzenle **DUMMY #**, yakınında kod başlangıcı. 
 
@@ -232,5 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-> [!div class="nextstepaction"]
-> Tam REST API başvuru için bkz: [başvuru veri API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[Başvuru verileri API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

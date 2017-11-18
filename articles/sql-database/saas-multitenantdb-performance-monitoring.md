@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 9961a39f8e422d72301958ef467e4267f2c6c498
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>İzleme ve bir çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanı performansını yönetme
 
@@ -35,7 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Sağlanan yük Oluşturucu çalıştırarak parçalı çok Kiracı veritabanı kullanımı benzetimi
 > * Yük arttıkça yanıt olarak veritabanını izleyin
 > * Daha fazla veritabanı yükünü yanıta veritabanında ölçeklendirin
-> * Kendi veritabanında yeni bir kiracı sağlama
+> * Bir kiracı tek Kiracı veritabanına sağlama
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
@@ -51,11 +51,11 @@ Veritabanı performans yönetimi, performans verilerini derleyip çözümlemeyi 
 * El ile performansını izlemek zorunda kalmamak için en etkili **veritabanları dışında normal aralıkları parazit durumlarda tetikleyen uyarıları ayarlama**.
 * Bir veritabanı performans düzeyi kısa vadeli dalgalanmalara yanıt verecek şekilde **DTU düzeyi ölçeklendirilmiş yukarı veya aşağı**. Bu dalgalanmayı normal veya öngörülebilir bir temelinde oluşursa **otomatik olarak gerçekleşecek şekilde veritabanı ölçekleme zamanlanabilir**. Örneğin, iş yükünüzün hafif olduğunu bildiğiniz gece veya hafta sonları gibi zamanlarda ölçeği azaltabilirsiniz.
 * Yanıt için daha uzun vadeli dalgalanmaları ya da kiracılar değişiklikleri **tek tek kiracıların diğer veritabanına taşınabilir**.
-* Yanıt vermesi için kısa vadeli artırır *tek tek* Kiracı yük **tek tek kiracılar bir veritabanından alınır ve bir bireysel performans düzeyi atanan**. Yükü daha azdır sonra Kiracı sonra çok Kiracı veritabanı için döndürülebilir. Bu önceden biliniyorsa, kiracılar pre-emptively veritabanı her zaman, gereken kaynak bulunduğundan emin olun ve diğer kiracılar çok Kiracı veritabanı üzerindeki etkiyi önlemek için taşınabilir. Popüler bir etkinlik için bilet satışı yoğunluğu yaşanan bir mekanda olduğu gibi bu gereksinim öngörülebildiği takdirde bu yönetim davranışı uygulamayla tümleştirilebilir.
+* Kısa vadeli artışlar yanıt verecek şekilde *tek tek* Kiracı yük **tek tek kiracılar bir veritabanından alınır ve bir bireysel performans düzeyi atanan**. Yükü daha azdır sonra Kiracı sonra çok Kiracı veritabanı için döndürülebilir. Bu önceden biliniyorsa, kiracılar pre-emptively veritabanı her zaman, gereken kaynak bulunduğundan emin olun ve diğer kiracılar çok Kiracı veritabanı üzerindeki etkiyi önlemek için taşınabilir. Popüler bir etkinlik için bilet satışı yoğunluğu yaşanan bir mekanda olduğu gibi bu gereksinim öngörülebildiği takdirde bu yönetim davranışı uygulamayla tümleştirilebilir.
 
-[Azure portalı](https://portal.azure.com), çoğu kaynak üzerinde yerleşik izleme ve uyarı özelliği sağlar. SQL veritabanı için izleme ve uyarma veritabanlarında kullanılabilir. Bu yerleşik izleme ve uyarma kaynak özgü kaynakları küçük sayılar için uygundur ancak birçok kaynaklarla çalışırken çok uygun değil.
+[Azure portalı](https://portal.azure.com), çoğu kaynak üzerinde yerleşik izleme ve uyarı özelliği sağlar. SQL veritabanı için izleme ve uyarma veritabanlarında kullanılabilir. Bu yerleşik izleme ve uyarma olduğundan kaynak özgü kaynakları küçük sayılar için uygundur ancak birçok kaynaklarla çalışırken kullanışlı değildir.
 
-Burada çalıştığınız birçok kaynaklarla yüksek hacimli senaryolar için [günlük analizi (OMS)](https://azure.microsoft.com/services/log-analytics/) kullanılabilir. Verilmiş tanılama günlüklerini ve günlük analizi çalışma alanındaki toplanan telemetri üzerinden analytics sağlayan ayrı bir Azure hizmet budur. Günlük analizi telemetri birçok Hizmetleri'nden toplayabilir ve sorgu ve uyarıları ayarlamak için kullanılır.
+Burada çalıştığınız birçok kaynaklarla, yüksek hacimli senaryolar için [günlük analizi (OMS)](https://azure.microsoft.com/services/log-analytics/) kullanılabilir. Verilmiş tanılama günlüklerini ve günlük analizi çalışma alanındaki toplanan telemetri üzerinden analytics sağlayan ayrı bir Azure hizmet budur. Günlük analizi telemetri birçok Hizmetleri'nden toplayabilir ve sorgu ve uyarıları ayarlamak için kullanılır.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip biletleri SaaS çok Kiracı veritabanı uygulama kaynak koduna ve komut dosyaları alma
 
@@ -71,7 +71,7 @@ Performans izleme ve yönetim işleyişi ölçekte iyi anlamak için bu öğreti
 1. **$DemoScenario** = **1**, _Kiracı grubu sağlama_ değerini ayarlayın
 1. Betiği çalıştırmak için **F5**'e basın.
 
-Komut dosyası birkaç dakika içinde çok kiracılı veritabanına 17 kiracılar dağıtın. 
+Komut dosyası 17 kiracılar çok kiracılı veritabanına birkaç dakika içinde dağıtır. 
 
 *Yeni TenantBatch* komut dosyası anahtarları parçalı çok Kiracı veritabanı içinde benzersiz Kiracı ile yeni kiracılar oluşturur ve Kiracı adı ve salonundan türü ile başlatır. Bu uygulamayı yeni bir kiracı hazırlar yolu ile tutarlıdır. 
 
@@ -95,7 +95,7 @@ Yük oluşturucu her kiracı veritabanına *yapay* bir yalnızca CPU yükü uygu
 Wingtip biletleri SaaS çok kiracılı bir SaaS uygulaması veritabanıdır ve bir SaaS uygulaması gerçek yükü genellikle durumlarıyla ve tahmin edilemez. Yük oluşturucu, bunun benzetimini gerçekleştirmek için kiracılar genelinde dağıtılan rastgele yük oluşturur. Birkaç dakika kadar 3-5 dakika aşağıdaki bölümlerde yük izlemek denemeden önce yük oluşturucuyu çalıştırmak çıkmaya, yük düzeni için gereklidir.
 
 > [!IMPORTANT]
-> Yük Oluşturucu işleri bir dizi olarak çalışan yeni bir PowerShell penceresi içinde bulunduğunuz. Oturumu kapatırsanız, yükleme Oluşturucu durdurur. Yük Oluşturucu kaldığı bir *iş çağırma* ürettiği burada oluşturucunun başlatıldıktan sonra sağlanan yeni kiracılar yük durumu. Kullanım *Ctrl-C* yeni işleri çağırma durdurun ve komut dosyası çıkmak için. Yük Oluşturucu, ancak yalnızca var olan kiracılar çalışmaya devam eder.
+> Yük Oluşturucu, yeni bir PowerShell penceresi işlerinde birtakım olarak çalışıyor. Oturumu kapatırsanız, yükleme Oluşturucu durdurur. Yük Oluşturucu kaldığı bir *iş çağırma* ürettiği burada oluşturucunun başlatıldıktan sonra sağlanan yeni kiracılar yük durumu. Kullanım *Ctrl-C* yeni işleri çağırma durdurun ve komut dosyası çıkmak için. Yük Oluşturucu, ancak yalnızca var olan kiracılar çalışmaya devam eder.
 
 ## <a name="monitor-resource-usage-using-the-azure-portal"></a>Azure portalını kullanarak kaynak kullanımını izleme
 
@@ -120,9 +120,9 @@ Gözlemlemek **DTU** grafik.
 1. **Yüksek DTU** gibi bir ad belirtin,
 1. Aşağıdaki değerleri ayarlayın:
    * **Ölçüm = DTU yüzdesi**
-   * **Koşul = büyüktür**.
+   * **Koşul büyük =**
    * **Eşik = 75**.
-   * **Süre = Son 30 dakika boyunca**.
+   * **Son 30 dakika boyunca süresi =**
 1. Bir e-posta adresi ekleyin *ek yönetici email(s)* kutusuna ve tıklatın **Tamam**.
 
    ![uyarı ayarlama](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -195,7 +195,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Sağlanan yük Oluşturucu çalıştırarak parçalı çok Kiracı veritabanı kullanımı benzetimi
 > * Yük arttıkça yanıt olarak veritabanını izleyin
 > * Daha fazla veritabanı yükünü yanıta veritabanında ölçeklendirin
-> * Kendi veritabanında yeni bir kiracı sağlama
+> * Bir kiracı tek Kiracı veritabanına sağlama
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

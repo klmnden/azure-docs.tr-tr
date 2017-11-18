@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: 73c472140861a0d0d270021ab268e8c1113c23b5
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Hdınsight kümeleri izlemek için Azure günlük analizi kullanın
 
@@ -31,7 +31,7 @@ Hdınsight'ta Hadoop küme işlemlerini izlemek için Azure günlük analizi kul
 
 * **Bir Azure aboneliği**. Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz. [Ücretsiz Azure hesabınızı hemen oluşturun](https://azure.microsoft.com/free).
 
-* **Azure Hdınsight kümesi**. Şu anda aşağıdaki Hdınsight küme türleri ile Azure OMS kullanabilirsiniz:
+* **Azure Hdınsight kümesi**. Şu anda aşağıdaki Hdınsight küme türleri ile Azure Operations Management Suite kullanabilirsiniz:
 
     * Hadoop
     * HBase
@@ -56,7 +56,7 @@ Bu bölümde, işler, hata ayıklama günlükleri, vb. izlemek üzere bir Azure 
 
     Ayarı kaydetmek için birkaç dakika sürer.  Bunu yaptıktan sonra gördüğünüz bir **açık OMS Pano** üstteki düğmesine. 
 
-    ![Açık OMS Pano](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "açık OMS Panosu")
+    ![Açık Operations Management Suite Pano](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-open-workspace.png "açık OMS Panosu")
 
 5. Tıklatın **açık OMS Pano**.
 6. İstenirse Azure kimlik bilgilerinizi girin.

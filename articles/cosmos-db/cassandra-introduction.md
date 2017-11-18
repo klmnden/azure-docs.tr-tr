@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 23909c65499697be66fc2d2f43c6d0bd8a02b614
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5ca9b8ed40a1e58a0aea4de87995caf5f9a9212b
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB Apache Cassandra API için giriş
 
@@ -36,7 +36,10 @@ Azure Cosmos DB yazılmış uygulamalar için veri deposu olarak kullanılabilir
 
 ![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-Cassandra istemci sürücüleri zaten alışık olduğunuz ve Azure Cosmos (gibi CQLSH) Cassandra sorgu tabanlı dil araçları kullanarak veritabanında depolanan verileri ile etkileşim kurmak Cassandra API sağlar.
+Cassandra istemci sürücüleri zaten alışık olduğunuz ve Azure Cosmos (gibi CQLSH) Cassandra sorgu tabanlı dil araçları kullanarak veritabanında depolanan verileri ile etkileşim kurmak Cassandra API sağlar. Bu Microsoft Mechanics video sorumlu mühendislik Yöneticisi Kirill Gavrylyuk ile hakkında daha fazla bilgi edinin.
+
+> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
+>
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Apache Cassandra API için Azure Cosmos DB kullanmanın faydası nedir?
 
@@ -56,17 +59,34 @@ Cassandra istemci sürücüleri zaten alışık olduğunuz ve Azure Cosmos (gibi
 
 **Kurumsal düzeyde**: güvenli ve varsayılan – DB sağlayan Azure cosmos uyumlu [uyumluluk sertifikalarından](https://www.microsoft.com/trustcenter) kullanıcıların, uyumluluk sorunları hakkında endişelenmeden platform kullanabilir emin olmak için. Azure Cosmos DB şifreleme REST ve hareket, IP Güvenlik Duvarı'nı ve denetim düzlemi etkinlikler için denetim günlüklerini de sağlar.  
 
+<a id="sign-up-now"></a>
+## <a name="sign-up-now"></a>Hemen kaydolun 
+
+Bir Azure aboneliğiniz zaten varsa, Cassandra API (Önizleme) programa katılmak kaydolabilirsiniz [Azure portal](https://aka.ms/cosmosdb-cassandra-signup).  Azure'da yeniyseniz, kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/free) 12 ay ücretsiz Azure Cosmos DB erişimin nereden. Cassandra API (Önizleme) programı'na erişim istemek için aşağıdaki adımları tamamlayın.
+
+1. İçinde [Azure portal](https://portal.azure.com), tıklatın **yeni** > **veritabanları** > **Azure Cosmos DB**. 
+
+2. Yeni hesap sayfasında seçin **Cassandra** API kutusunda. 
+
+3. İçinde **abonelik** kutusunda, bu hesap için kullanmak istediğiniz Azure aboneliğini seçin.
+
+4. Tıklatın **önizlemeye hemen kaydolun**.
+
+    ![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cassandra-sign-up.png)
+
+3. Bugün bölmesinde önizlemek için kaydolun tıklatın **Tamam**. 
+
+    İsteği gönderirseniz sonra durum değişikliklerini **onay bekleyen** yeni hesap bölmesinde. 
+
+İsteği gönderdikten sonra isteğiniz onaylandıktan e-posta bildirimi için bekleyin. İsteği tamamlamak için bir destek bileti oluşturun gerekmez. Sıraya alınmış olan istekleri incelenecektir. 
+
 ## <a name="how-to-get-started"></a>Nasıl kullanmaya başlarım
-Bir Azure Cosmos DB Cassandra API hesabı oluşturmak ve bir Cassandra uygulaması oluşturmak için Cassandra API quickstarts izleyin:
+Önizleme programına katıldıktan sonra Cassandra API'sini kullanarak bir uygulama oluşturmak için Cassandra API quickstarts izleyin:
 
 * [Hızlı Başlangıç: bir Cassandra Node.js ve Azure Cosmos DB ile web uygulaması oluşturma](create-cassandra-nodejs.md)
 * [Hızlı Başlangıç: bir Cassandra Java ve Azure Cosmos DB ile web uygulaması oluşturma](create-cassandra-java.md)
 * [Hızlı Başlangıç: bir Cassandra .NET ve Azure Cosmos DB ile web uygulaması oluşturma](create-cassandra-dotnet.md)
 * [Hızlı Başlangıç: bir Cassandra Python ve Azure Cosmos DB ile web uygulaması oluşturma](create-cassandra-python.md)
-
-## <a name="sign-up-now"></a>Hemen kaydolun 
-
-Bir Azure aboneliğiniz zaten varsa, Cassandra API (Önizleme) için de kaydolabilirsiniz [Azure portal](https://aka.ms/cosmosdb-cassandra-signup). Azure'da yeniyseniz için imzalama bir [ücretsiz deneme sürümü](https://azure.microsoft.com/free) 12 ay ücretsiz Azure Cosmos DB erişimin nereden.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

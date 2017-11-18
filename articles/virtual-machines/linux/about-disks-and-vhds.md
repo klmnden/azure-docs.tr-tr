@@ -1,6 +1,6 @@
 ---
-title: "Diskler ve Microsoft Azure Linux VM'ler için VHD'ler hakkında | Microsoft Docs"
-description: "Azure'daki Linux sanal makineleri için diskleri ve VHD temelleri hakkında bilgi edinin."
+title: "Microsoft Azure Linux VM'ler için disk depolaması hakkında | Microsoft Docs"
+description: "Azure'daki Linux sanal makineleri için disk ve VHD depolama temelleri hakkında bilgi edinin."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: be5f09af275142590ec6ade02562e914d5726e08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad55898806024a9f0562b32e7bdd990fd7dfd8d2
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-linux-vms"></a>Diskleri ve Azure Linux VM'ler için VHD'ler hakkında
+# <a name="about-disk-storage-for-azure-linux-vms"></a>Azure Linux VM'ler için disk depolaması hakkında
 Yalnızca başka bir bilgisayarda gibi azure'daki sanal makinelerde bir işletim sistemini, uygulamaları ve verileri depolamak için bir yer olarak diskleri kullanın. Tüm Azure sanal makineler en az iki disk – Linux işletim sistemi diski ve geçici bir diske sahip. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ve görüntünün gerçekte sanal bir Azure depolama hesabında depolanan sabit diskler (VHD). Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir. 
 
 Bu makalede, biz diskler için farklı kullanımlar hakkında konuşun ve oluşturma ve kullanma disklerinin farklı türleri açıklanmaktadır. Bu makalede ayrıca kullanılabilir [Windows sanal makineleri](../windows/about-disks-and-vhds.md).
@@ -59,6 +59,6 @@ Veri diski bir sanal makine için herhangi bir zamanda göre ekleyebileceğiniz 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir diski kullanıma açın](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM için ek depolama alanı eklemek için.
-* [Yazılım RAID yapılandırma](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artıklık için.
-* [Linux sanal makine yakalama](./classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) VM daha hızlı bir şekilde dağıtabilmek için.
+* [Anlık Görüntü](snapshot-copy-managed-disk.md).
+* [Yönetilen Diske Dönüştür](convert-unmanaged-to-managed-disks.md).
 
