@@ -7,14 +7,14 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/05/2017
+ms.date: 10/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 041919fd729880d429e08d8942f8d1ee087ccf61
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 11353ef93455a47f9f1c252fc5e192c111d87dd7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Linux sanal bir cihaz üzerinde Azure IOT kenar dağıtma - Önizleme
 
@@ -52,33 +52,29 @@ Bir IOT sınır cihazı, yeni oluşturulan IOT Hub ile kaydedin.
 Yükleyin ve Azure IOT kenar çalışma zamanı aygıtınızda başlatın. 
 ![Bir cihaz kaydetme][5]
 
-IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. İki modülden oluşur. İlk olarak, IOT kenar Aracısı dağıtımı ve IOT sınır cihazı modülleri izlenmesini kolaylaştırır. İkinci olarak, IOT kenar hub IOT sınır cihazı modülleri arasında ve cihaz IOT hub'ı arasındaki iletişim yönetir. 
+IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. İki modülden oluşur. **IOT kenar Aracısı** dağıtım ve IOT sınır cihazı modülleri izlenmesini kolaylaştırır. **IOT kenar hub** IOT sınır cihazı modülleri arasında ve cihaz IOT hub'ı arasındaki iletişim yönetir. Çalışma zamanı yeni aygıtınızda yapılandırdığınızda, yalnızca IOT kenar aracı ilk başta başlayacaktır. Bir modül dağıttığınızda kenar IOT hub'ı daha sonra gelir. 
 
-Yükleme ve IOT kenar çalışma zamanı başlatmak için aşağıdaki adımları kullanın:
+IOT sınır cihazı çalıştırdığı makinede IOT kenar denetim komut dosyasını karşıdan yükleyin:
+```cmd
+sudo pip install -U azure-iot-edge-runtime-ctl
+```
 
-1. IOT sınır cihazı çalıştırdığı makinede IOT kenar denetim komut dosyasını indirin.
+Çalışma zamanı IOT kenar cihaz bağlantı dizenizi önceki bölümdeki yapılandırın:
+```cmd
+sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   sudo pip install -U azure-iot-edge-runtime-ctl
-   ```
+Çalışma zamanı'nı başlatın:
+```cmd
+sudo iotedgectl start
+```
 
-1. Çalışma zamanı IOT kenar cihaz bağlantı dizenizi önceki bölümdeki yapılandırın.
+Docker IOT kenar Aracısı'nı bir modül olarak çalışıp çalışmadığını kontrol edin:
+```cmd
+sudo docker ps
+```
 
-   ```
-   sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
-
-1. Çalışma zamanı başlatın.
-
-   ```
-   sudo iotedgectl start
-   ```
-
-1. Docker IOT kenar Aracısı'nı bir modül olarak çalışıp çalışmadığını denetleyin.
-
-   ```
-   sudo docker ps
-   ```
+![Docker edgeAgent bakın](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Bir modül dağıtma
 
@@ -89,13 +85,23 @@ Azure IOT kenar Cihazınızı IOT Hub'ına telemetri verileri gönderecek bir mo
 
 ## <a name="view-generated-data"></a>Oluşturulan görünüm verileri
 
-Bu hızlı başlangıç yeni bir IOT sınır cihazı oluşturan ve IOT kenar çalışma zamanı yüklü. Ardından, cihaz için değişiklik yapmak zorunda kalmadan cihazda çalıştırmak için bir IOT kenar modülü göndermek için Azure portal kullanılır. Bu durumda, gönderilen modülü öğreticileri için kullanabileceğiniz çevresel veri oluşturur. 
+Bu öğreticide, yeni bir IOT sınır cihazı oluşturulur ve IOT kenar çalışma zamanı yüklü. Ardından, cihaz için değişiklik yapmak zorunda kalmadan cihazda çalıştırmak için bir IOT kenar modülü göndermek için Azure portal kullanılır. Bu durumda, gönderilen modülü öğreticileri için kullanabileceğiniz çevresel veri oluşturur. 
 
-TempSensor modülünden gönderilen iletiler görüntüleyin:
+Sanal cihazınız yeniden çalıştıran bilgisayarda komut istemi açın. Buluttan dağıtılan modülü IOT kenar aygıtınızda çalışır durumda olduğunu doğrulayın:
 
-```cmd/sh
-docker logs -f tempSensor
+```cmd
+sudo docker ps
 ```
+
+![Cihazınızda üç modüller görünümü](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+TempSensor modülünden buluta gönderilen iletiler görüntüleyin:
+
+```cmd
+sudo docker logs -f tempSensor
+```
+
+![Modülünüzün verileri görüntüleme](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 Cihaz kullanarak göndermeyi telemetriyi de görüntüleyebilirsiniz [IOT hub'ı explorer aracı][lnk-iothub-explorer]. 
 

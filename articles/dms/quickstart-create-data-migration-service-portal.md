@@ -10,20 +10,31 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/08/2017
-ms.openlocfilehash: 4213a0ae73c38dcad403140e3d45e28f2d338020
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: 9faac0716334d627cdde4c0ef16262670333b5d4
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-database-migration-service-instance-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir veritabanı geçiş hizmet örneği oluşturma
-Bu Hızlı Başlangıç, Azure veritabanı geçiş Hizmeti'nin bir örneğini oluşturmak için Azure Portalı'nı kullanın.  Hizmeti oluşturduktan sonra şirket içi SQL Server'dan Azure SQL veritabanına veri geçirmek için kullanmanız mümkün olacaktır.
+# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Azure portalı kullanarak Azure veritabanı geçiş hizmeti örneği oluşturma
+Bu Hızlı Başlangıç, Azure veritabanı geçiş Hizmeti'nin bir örneğini oluşturmak için Azure Portalı'nı kullanın.  Hizmeti oluşturduktan sonra bir Azure SQL veritabanı için SQL Server şirket içi verileri geçirmeye kullanmanız mümkün olacaktır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 Web tarayıcınızı açıp [Microsoft Azure portalı](https://portal.azure.com/)’na gidin. Portalda oturum açmak için kimlik bilgilerinizi girin. Varsayılan görünüm hizmet panonuzu içerir.
+
+## <a name="register-the-resource-provider"></a>Kayıt kaynak sağlayıcısı
+İlk veritabanı geçiş hizmetiniz oluşturmadan önce Microsoft.DataMigration kaynak sağlayıcısı kaydetmeniz gerekir.
+
+1. Azure portalında seçin **tüm hizmetleri**ve ardından **abonelikleri**.
+
+1. İçinde Azure veritabanı geçiş hizmeti örneğini oluşturun ve ardından istediğiniz aboneliği seçin **kaynak sağlayıcıları**.
+
+1. Geçiş için arama yapın ve ardından Microsoft.DataMigration sağında **kaydetmek**.
+
+![Kaynak sağlayıcısını kaydetme](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti oluşturma
 1. Tıklatın  **+**  yeni bir hizmet oluşturmak için.  Veritabanı geçiş hizmeti hala önizlemede değil.  

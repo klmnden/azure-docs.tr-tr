@@ -9,12 +9,12 @@ ms.reviewer:
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 7c7f93278d7020f1a20054934cfd6b34ce002c26
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: cc4053ac2be7e3a7a45da9a2a55f32f68bd9e3a0
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="what-is-the-azure-database-migration-service-preview"></a>Azure veritabanı geçiş hizmeti Önizleme nedir?
 Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma süresi ile birden çok veritabanı kaynakları sorunsuz kümesinden sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir. Hizmet şu anda odaklanan geliştirme çalışmalarını ile genel önizlemede değil:
@@ -24,8 +24,16 @@ Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma 
 - Uyuşmazlık serbest geçişler sürekli yatırım.
 
 ## <a name="use-familiar-tools"></a>Tanıdık araçları kullanın
-Azure veritabanı geçiş hizmeti mevcut araçlar ve hizmetlerimizi bazı işlevlerini birleştirir.  Bu, müşteri ile kapsamlı ve yüksek oranda kullanılabilir bir çözüm sağlar. Azure veritabanı geçiş hizmetini kullanan [veri geçiş Yardımcısı](http://aka.ms/dma) değerlendirme raporları sağlamak için.  Bu öneriler, bir geçiş işlemi gerçekleştirmeden önce gerekli değişiklikleri size kılavuzluk eder. Bu, gerekli herhangi bir düzeltme gerçekleştirmek için hazır. Geçiş işlemine başlamak hazır olduğunuzda, Azure veritabanı geçiş hizmeti ilişkili tüm adımları gerçekleştirir. Yangın ve işlemi Microsoft tarafından karar en iyi yöntemler yararlanan geçiş projelerinizi bilmesinin içiniz unutmayın. 
+Azure veritabanı geçiş hizmeti mevcut araçlar ve hizmetlerimizi işlevselliğini bazıları tümleştirir.  Bu, müşteri ile kapsamlı ve yüksek oranda kullanılabilir bir çözüm sağlar. Hizmet kullandığı [veri geçiş Yardımcısı](http://aka.ms/dma) bir geçiş işlemi gerçekleştirmeden önce gerekli değişiklikler kılavuzluk için öneri sağlama değerlendirme raporları oluşturmak için. Bu, gerekli herhangi bir düzeltme gerçekleştirmek için hazır. Geçiş işlemine başlamak hazır olduğunuzda, Azure veritabanı geçiş hizmeti ilişkili tüm adımları gerçekleştirir. Yangın ve geçiş projelerinizi işlemi yararlanan Microsoft tarafından belirlendiği şekilde en iyi yöntemlere göz bilmesinin rahatlık unutmayın.
 
+## <a name="regional-availabilty-during-public-preview"></a>Genel Önizleme sırasında bölgesel availabilty
+Azure veritabanı geçiş hizmetinin genel Önizleme sürümü aşağıdaki bölgelerde şu anda kullanılabilir:
+- Doğu ABD
+- Orta Güney ABD
+- Batı ABD
+- Güney Brezilya
+- Batı Avrupa
+- Kuzey Avrupa
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Azure veritabanı geçiş Azure portalını kullanarak hizmet oluşturma](quickstart-create-data-migration-service-portal.md).
+- [Azure portalı kullanarak Azure veritabanı geçiş hizmeti örneğini oluşturmak](quickstart-create-data-migration-service-portal.md).

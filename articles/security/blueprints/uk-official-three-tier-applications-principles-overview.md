@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/17/2017
 ms.author: jomolesk
-ms.openlocfilehash: bbf58215a4d236c70bf988cbfa1c8491055b5183
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 0be18e2c2354ea8f766eb48db793c906e565a201
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Ulusal siber Güvenlik Merkezi bulut Güvenlik İlkeleri'ne genel bakış
 
 
 > [!NOTE]
-> Bu güvenlik ilkelerine Ulusal siber Güvenlik Merkezi (NCSC) tarafından tanımlanır. Lütfen her güvenlik ilkesini yönelik Rehber ve sınama yordamları hakkında bilgi için NCSC belgelerine bakın.
+> Bu güvenlik ilkelerine UK Ulusal siber Güvenlik Merkezi (NCSC tarafından) tanımlanır. Lütfen [NCSC belgelerine](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) yordamları ve yönergeler için her güvenlik ilkesini test etme hakkında bilgi için.
 
 
 
@@ -435,3 +435,12 @@ Iaas ve PaaS teklifleri ile verileri ve iş yükleri güvenliğini önemli yönl
 |---|---|
 | **Müşteri** | Bu Azure şeması oluşturan eşlik eden kaynakları ve Azure Resource Manager şablonları defence derinlemesine yaklaşım güvenlik izleyin. Bu ilke uyumlu olması için üretim (örn., veritabanı yönetim yazılımı, web uygulama dağıtımı) kullanmak için müşteri tarafından başka bir yapılandırma gereklidir. |
 | **Sağlayıcı&nbsp;(Microsoft&nbsp;Azure)** | Uygulanamaz |
+
+## <a name="disclaimer"></a>Bildirim
+
+ - Bu belgede yalnızca bilgilendirme amaçlıdır. MICROSOFT HİÇBİR AÇIK, ZIMNİ VEYA NİZAMİ BU BELGEDEKİ BİLGİLER GARANTİDE BULUNMAZ. Bu belgede sağlanan "olarak-değil." URL ve diğer Internet Web sitesi başvuruları dahil olmak üzere bu belgede belirtilen bilgiler ve görüntüler bildirim yapılmadan değiştirilebilir. Bu belgeyi okuma müşterilerin kullanım riski size aittir.
+ - Bu belge müşterilerle herhangi bir Microsoft ürünü veya çözümleri üzerinde hiçbir fikri mülkiyet hakkı sağlamaz.
+ - Müşteriler kopyalayabilir ve bu belgeyi iç başvuru amacıyla kullanın.
+ - Bu belgedeki bazı öneriler artan veri, ağ veya azure'da işlem kaynağı kullanımına neden olabilir ve bir müşterinin Azure lisans ya da abonelik maliyetlerinizi artırabilir.
+ - Bu mimari müşterilerin belirli gereksinimlerine ayarlamak bir temel olarak hizmet için tasarlanmıştır ve olarak kullanılmamalıdır-bir üretim ortamında.
+ - Bu belge, bir başvuru olarak geliştirilen ve tüm anlamına gelir, bir müşteri belirli uyumluluk gereksinimleri ve düzenlemelere karşılayabilecek tanımlamak için kullanılmamalıdır. Müşteriler kendi organizasyon onaylı müşteri uygulamaları üzerinde yasal Destek'ten arama.

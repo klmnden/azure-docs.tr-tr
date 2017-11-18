@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: a573a7ef79e28c50ae0923849a88f88af40f21be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ba33399c9ea0f093de6c85328d6ec2b280da4a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Öğretici: Salesforce otomatik kullanıcı sağlamayı için yapılandırma
 
@@ -35,9 +35,7 @@ Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğun
 
 Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir.
 
-Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları Salesforce uygulamanıza erişimi olması gereken kullanıcılar temsil eden karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek, bu kullanıcılar Salesforce uygulamanıza atayabilirsiniz:
-
-[Bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcıların veya grupların Azure AD'de Salesforce uygulamanızı erişmeniz karar vermeniz gerekir. Bu karara yaptıktan sonra bu kullanıcılar Salesforce uygulamanıza'ndaki yönergeleri izleyerek atayabilirsiniz [bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-salesforce"></a>Salesforce kullanıcılara atamak için önemli ipuçları
 
@@ -55,7 +53,7 @@ Bu bölümde Azure AD Salesforce'nın kullanıcı hesabına API sağlama konusun
 >[!Tip]
 >Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için Salesforce, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Otomatik olarak bir kullanıcı hesabı sağlama yapılandırmak için:
+### <a name="configure-automatic-user-account-provisioning"></a>Hesap otomatik kullanıcı sağlamayı Yapılandır
 
 Bu bölümün amacı, Active Directory kullanıcı hesaplarının Salesforce kullanıcı sağlamayı etkinleştirme anahat sağlamaktır.
 
@@ -65,8 +63,9 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının Salesforce kul
 
 3. Salesforce örneğiniz seçin ve ardından **sağlama** sekmesi.
 
-4. Ayarlama **sağlama modunda** için **otomatik**. 
-![sağlama](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+4. Ayarlama **sağlama modunda** için **otomatik**.
+
+    ![sağlama](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki yapılandırma ayarları sağlar:
    
@@ -74,17 +73,21 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının Salesforce kul
    
     b. İçinde **yönetici parolası** metin kutusuna, bu hesabın parolasını yazın.
 
-6. Salesforce güvenlik belirtecini almak için aynı Salesforce yönetici dikkate yeni sekmede ve oturum açın. Sayfanın sağ üst köşesinde adınıza tıklayın ve ardından **My ayarları**.
+6. Salesforce güvenlik belirtecini almak için aynı Salesforce yönetici dikkate yeni sekmede ve oturum açın. Sayfanın sağ üst köşesinde adınıza tıklayın ve ardından **ayarları**.
 
      ![Otomatik kullanıcı sağlamayı etkinleştirin](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-my-settings.png "otomatik kullanıcı sağlamayı etkinleştirin")
-7. Sol gezinti bölmesinde tıklatın **kişisel** ilgili bölümü genişletin ve ardından **sıfırlama My güvenlik belirteci**.
+
+7. Sol gezinti bölmesinde tıklatın **kişisel bilgilerimi** ilgili bölümü genişletin ve ardından **sıfırlama My güvenlik belirteci**.
   
     ![Otomatik kullanıcı sağlamayı etkinleştirin](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-personal-reset.png "otomatik kullanıcı sağlamayı etkinleştirin")
-8. Üzerinde **sıfırlama My güvenlik belirteci** sayfasında, **güvenlik belirteci sıfırlama** düğmesi.
+
+8. Üzerinde **güvenlik belirteci sıfırlama** sayfasında, **güvenlik belirteci sıfırlama** düğmesi.
 
     ![Otomatik kullanıcı sağlamayı etkinleştirin](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-reset-token.png "otomatik kullanıcı sağlamayı etkinleştirin")
+
 9. Bu Yönetici hesabınızla ilişkili e-posta gelen kutusunu kontrol edin. Yeni güvenlik belirteci içeriyor Salesforce.com bir e-posta arayın.
-10. Belirteç kopyalama, Azure AD penceresine gidin ve yapıştırın **yuva belirteci** alan.
+
+10. Belirteç kopyalama, Azure AD penceresine gidin ve yapıştırın **gizli belirteci** alan.
 
 11. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Salesforce uygulamanıza bağlanabilir.
 
@@ -108,4 +111,4 @@ Bu, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bö
 
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-* [Çoklu oturum açmayı yapılandırın](active-directory-saas-salesforce-tutorial.md)
+* [Çoklu oturum açmayı yapılandırın](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Yönetmek ve Ağ İzleyicisi'ni ve Graylog kullanarak azure'daki ağ güvenlik grubu akışı günlüklerini analiz edin
 
@@ -148,9 +148,9 @@ Logstash akış tanımlama grubu düzeyinde biçimlendirilmiş JSON akış günl
     ```
 Sağlanan Logstash yapılandırma dosyası üç bölümden oluşur: Giriş, filtre ve çıkış. Giriş bölümü Logstash işleyecek günlüklerinin giriş kaynağı belirler – bu durumda biz bize ağ güvenlik grubu akışı erişmesine izin veren (sonraki adımlarda yüklü) bir Azure blogu giriş eklentisi kullanacaksanız günlük JSON dosyaları blob depolama alanına depolanır.
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+Ayrı bir Logstash olay böylece her bireysel akış tanımlama grubu ve ilişkili özellikleri alır filtre bölümünde sonra her akış günlük dosyası düzleştirir.
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+Son olarak, çıktı bölümündeki her Logstash olay Graylog sunucusuna iletir. Özel gereksinimlerine uyacak şekilde, Logstash yapılandırma dosyası, gerektiği gibi değiştirin.
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
@@ -183,7 +183,7 @@ Biz Logstash kullanarak akış günlükleri bağlantı ve Graylog sunucu ayarlam
 
     Giriş Graylog sunucunuz üzerinde yapılandırılmış IP bağlamak emin olun. IP adresi eşleşmelidir **konak** Logstash yapılandırma dosyasının UDP çıkış alanı. Varsayılan bağlantı noktası olmalıdır *12201*. Eşleşen olun **bağlantı noktası** UDP alanında çıktı Logstash yapılandırma dosyasında belirtilen.
 
-    ![Girişleri](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+    ![Girişler](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
     Giriş başlatma sonra altında görünmesini görmelisiniz **yerel girişleri** bölümünde, aşağıdaki resimde gösterildiği gibi:
 

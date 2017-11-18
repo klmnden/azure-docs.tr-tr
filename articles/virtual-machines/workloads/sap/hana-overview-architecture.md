@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>SAP HANA (büyük örnekler) genel bakış ve Azure üzerinde mimarisi
 
@@ -291,7 +291,10 @@ Bu liste, SAP HANA (büyük örnekler) Azure üzerinde çalıştırmak için ger
 - Red Hat Abonelik Yöneticisi Azure bir Azure VM üzerinde dağıtılabilir. Red Hat Abonelik Yöneticisi'ni (örnekler büyük kayıtlı ve hiçbir doğrudan internet içinden erişim Azure büyük örneği damgası üzerinde dağıtılan Kiracı (olduğu gibi) tarafından Red Hat sırasıyla güncelleştirilmiş) azure'da SAP HANA yeteneği sağlar.
 - SAP destek sahip olmanızı gerektirir de Linux sağlayıcınız ile bir sözleşme. Bu gereksinim HANA büyük örnekleri veya olgu çözümü tarafından silinmeyen, azure'da çalışma, Linux. Farklı olarak bazı Linux Azure galeri görüntüleri hizmeti ücret HANA büyük örneklerinin çözüm teklife dahil edilmez. Bu, SAP Linux dağıtıcı ile gerekliliklerini destek sözleşmeleri ile ilgili müşteri gibidir.   
    - SUSE Linux için destek sözleşmede gereksinimlerini aramak [SAP Not #1984787 - SUSE LINUX Enterprise Server 12: yükleme notları](https://launchpad.support.sap.com/#/notes/1984787) ve [SAP Not #1056161 - SUSE öncelik SAP uygulamalarıdesteğini](https://launchpad.support.sap.com/#/notes/1056161).
-   - Red Hat Linux için destek içerir ve (güncelleştirmeler HANA büyük örneklerinin işletim sistemlerine. Hizmet doğru aboneliğin düzeyleri olması gerekiyor. Red Hat "RHEL için SAP Business uygulamaları" abonelik alma önerir. Destek Hizmetleri ile ilgili, denetleyip [SAP Not #2002167 - Red Hat Enterprise Linux 7.x: yükleme ve yükseltme](https://launchpad.support.sap.com/#/notes/2002167) ve [SAP Not #1496410 - Red Hat Enterprise Linux 6.x: yükleme ve yükseltme](https://launchpad.support.sap.com/#/notes/1496410) için Ayrıntıları.
+   - Red Hat Linux için destek içerir ve (güncelleştirmeler HANA büyük örneklerinin işletim sistemlerine. Hizmet doğru aboneliğin düzeyleri olması gerekiyor. Red Hat önerir alınırken bir "için RHEL [SAP çözümleri](https://access.redhat.com/solutions/3082481)" abonelik. 
+
+Farklı Linux sürümleri farklı SAP HANA sürümüyle için destek matrisi denetleyin [SAP Not #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
 
 **Veritabanı:**
 

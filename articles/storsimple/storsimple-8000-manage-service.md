@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 serisi cihazlar için StorSimple cihaz Yöneticisi hizmeti dağıtma
 
@@ -113,6 +113,7 @@ Azure portalı hizmetinize geçiş için aşağıdaki adımları gerçekleştiri
 
 Geçiş tamamlandıktan sonra Azure portalında StorSimple cihaz Yöneticisi hizmeti üzerinden aygıtlarınızı yönetebilirsiniz. Azure portalına geçirmek için bir seçenek görmezsiniz ancak taşımak yapabileceğiniz istiyorsanız [bir istek göndermek](https://aka.ms/ss8000-cx-signup).
 
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Operations Update 3. 0'den önceki sürümleri çalıştıran cihazlarda desteklenir
 Azure Portal'da, yalnızca güncelleştirme 3.0 ve üzeri çalıştıran StorSimple cihazlar desteklenir. Eski sürümlerini çalıştıran cihazlar sınırlı bir desteği. Azure portalına geçirdikten sonra hangi işlemleri Update 3. 0'den önceki sürümleri çalıştıran cihazlarda desteklenir anlamak için aşağıdaki tabloyu kullanın.
 
 | İşlem                                                                                                                       | Destekleniyor      |
@@ -121,7 +122,7 @@ Azure Portal'da, yalnızca güncelleştirme 3.0 ve üzeri çalıştıran StorSim
 | Cihaz ayarları genel gibi ağ ve güvenlik yapılandırma                                                                | Evet            |
 | Tarama, indirme ve güncelleştirmeleri yükle                                                                                             | Evet            |
 | Aygıt devre dışı bırakma                                                                                                               | Evet            |
-| Aygıtı silme                                                                                                                   | Evet            |
+| Cihazı sil                                                                                                                   | Evet            |
 | Oluşturma, değiştirme ve bir birim kapsayıcısı Sil                                                                                   | Hayır             |
 | Oluşturma, değiştirme ve bir birim Sil                                                                                             | Hayır             |
 | Oluşturma, değiştirme ve bir yedekleme ilkesi silme                                                                                      | Hayır             |

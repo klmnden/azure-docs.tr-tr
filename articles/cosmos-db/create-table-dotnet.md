@@ -3,7 +3,7 @@ title: "Hızlı Başlangıç: Tablo API .NET - Azure Cosmos DB ile | Microsoft D
 description: "Bu hızlı başlangıç Azure portal ve .NET ile bir uygulama oluşturmak için Azure Cosmos DB tablo API kullanmayı gösterir"
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: mimig1
 manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/16/2017
+ms.author: mimig
+ms.openlocfilehash: 4e59c333e14e5e21a02c3160cf6311d1182e5a5e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Hızlı Başlangıç: bir tablo .NET ve Azure Cosmos DB ile API uygulaması oluşturma 
 
@@ -84,15 +84,16 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 2. Visual Studio'da App.config dosyasını açın. 
 
-3. Bu öğretici depolama öykünücüsünü kullanmaz gibi satır 8 ve yorum 7 satırındaki StorageConnectionString çıkışı StorageConnectionString açıklamadan çıkarın. 
-
-3. BİRİNCİL bağlantı DİZESİ değeri 8 satırındaki StorageConnectionString değerini yapıştırın. 
+3. Bu öğretici depolama öykünücüsünü kullanmaz gibi satır 8 ve yorum 7 satırındaki StorageConnectionString çıkışı StorageConnectionString açıklamadan çıkarın. Satır 7 ve 8 gibi görünmelidir:
 
     ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
     ```
 
-    Satır 8 benzer görünmelidir
+4. StorageConnectionString değerini satırında 8 Portalı'ndan birincil bağlantı DİZESİNİ yapıştırın. Tırnak işaretleri içine dizesini yapıştırın. Uç noktanız documents.azure.com kullanıyorsa, bu bölümü için table.cosmosdb.azure.com değiştirin. 
+
+    Satır 8 benzer şekilde görünmelidir:
 
     ```
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
@@ -110,11 +111,25 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
 3. Sonuçlardan yüklemek **Microsoft.Azure.CosmosDB.Table** kitaplığı. Bu, tüm bağımlılıkları yanı sıra Azure Cosmos DB tablo API paketi yükler.
 
-4. Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın.
+4. BasicSamples.cs açın ve bir kesme noktası satırı 30 ve satırı 52 ekleyin.
 
-    Konsol penceresinde Azure Cosmos veritabanı yeni tablo veritabanına eklenen tablo verileri görüntüler.
+5. Uygulamayı çalıştırmak için CTRL+F5 tuşlarına basın.
 
-    Şimdi Veri Gezgini'ne dönüp bu yeni verileri görebilir, sorgulayabilir, değiştirebilir ve onlarla çalışabilirsiniz.
+    Konsol penceresinde Azure Cosmos veritabanı yeni tablo veritabanına eklenen tablo verileri görüntüler. 
+    
+    Bağımlılıklar hakkında bir hata alırsanız, bkz: [sorun giderme](table-sdk-dotnet.md#troubleshooting).
+
+    İlk kesme noktası isabet, Veri Gezgini Azure portalında geri dönün ve tanıtım * tablosunu genişletin ve tıklatın **varlıklar**. **Varlıklar** sağa sekmesinde eklenen yeni varlık gösterir, kullanıcı 425-555-0101 için bu telefon numarasını not edin.
+    
+6. Veri Explorer'da varlıklar sekmesini kapatın.
+    
+7. Sonraki kesme uygulama çalışmaya devam eder.
+
+    Kesme noktası isabet, portala geri anahtarı, yeniden varlıklar sekmesini açın ve telefon numarası için 425-555-0105 güncelleştirildi not edin varlıklar tıklatın.
+
+8. Konsol penceresine döndüğünüzde, uygulamanın yürütülmesini sonlandırmak için CTRL + C tuşlarına basın. 
+
+    Artık Veri Gezgini için geri dönün ve eklemek veya entitites değiştirmek ve verileri sorgulamak.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 

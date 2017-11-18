@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a1d364b0dcb70998b390d0d96bcd1e439617e493
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Kimlik doğrulama ve yetkilendirme Azure zaman serisi Insights API'si
 
@@ -24,15 +24,15 @@ Bu makalede, kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler 
 
 ## <a name="service-principal"></a>Hizmet sorumlusu
 
-Bu bölümde, uygulama adına zaman serisi Insights API'si erişmek için bir uygulama yapılandırma açıklanmaktadır. Uygulama sonra verileri sorgulamak veya uygulama kimlik bilgileri ve kullanıcı kimlik bilgilerini değil zaman serisi Öngörüler ortamında başvuru veri yayımlama.
+Bu bölümde, uygulama adına zaman serisi Insights API'si erişmek için bir uygulama yapılandırma açıklanmaktadır. Uygulama sonra verileri sorgulamak veya kullanıcı kimlik bilgilerini yerine uygulama kimlik bilgileri ile zaman serisi Öngörüler ortamında başvuru veri yayımlama.
 
-Gerektiren bir uygulamaya erişim zaman serisi Öngörüler varsa, Azure Active Directory Uygulama ayarlama ve veri erişimi ilkelerini zaman serisi Öngörüler ortamında atamanız gerekir. Bu yaklaşım, çünkü uygulama kendi kimlik bilgileri altında çalışırken için tercih edilir:
+Erişim zaman serisi Öngörüler gerekir bir uygulamanız varsa, Azure Active Directory Uygulama ayarlama ve veri erişimi ilkelerini zaman serisi Öngörüler ortamında atamanız gerekir. Bu yaklaşım, çünkü uygulama kendi kimlik bilgileri altında çalışırken için tercih edilir:
 
-* Kendi izinlerinin farklı uygulama kimliği için izinleri atayabilirsiniz. Genellikle, bu izinleri tam olarak hangi uygulama yapması gereken için kısıtlanır. Örneğin, yalnızca belirli bir zaman serisi Öngörüler ortamda verileri okumak uygulama izin verebilirsiniz.
+* Kendi izinlerinin farklı uygulama kimliği için izinleri atayabilirsiniz. Genellikle, bu izinler hangi uygulamanın yalnızca gerektirdiğini için kısıtlanır. Örneğin, yalnızca belirli bir zaman serisi Öngörüler ortamda verileri okumak uygulama izin verebilirsiniz.
 * Sizin Sorumluluklarınız değiştirirseniz uygulamanın kimlik bilgilerini değiştirmek zorunda değilsiniz.
 * Katılımsız betik çalışırken kimlik doğrulaması otomatikleştirmek için bir sertifika veya bir uygulama anahtarı kullanın.
 
-Bu makalede Azure Portalı aracılığıyla bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluşta çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle, kuruluşunuzda çalıştırmak satır iş kolu uygulamaları için tek Kiracı uygulamaları kullanın.
+Bu konu Azure Portalı aracılığıyla bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluşta çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle, kuruluşunuzda çalıştırmak satır iş kolu uygulamaları için tek Kiracı uygulamaları kullanın.
 
 Kurulum akışında üç üst düzey adımları içerir:
 
@@ -103,5 +103,7 @@ Uygulama kimliği ve anahtarı uygulamanızın Azure zaman serisi Insight ile ki
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Zaman serisi Öngörüler API çağrılarının örnek kod için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
-- API başvuru bilgileri için bkz: [sorgu API Başvurusu](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-- [Azure portalında bir hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- API başvuru bilgileri için bkz: [sorgu API Başvurusu](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+
+> [!div class="nextstepaction"]
+> [Hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)

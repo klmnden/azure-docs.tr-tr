@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0aafdade2cbf293cf70f09721102ae8ceaef6303
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2097aa1c158f88a06ab93123f4e374b4245430d6
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Hızlı Başlangıç: Java ve Azure Cosmos DB ile Cassandra uygulaması oluşturma
 
@@ -28,9 +28,9 @@ Azure Cosmos DB Microsoft'un Genel dağıtılmış birden çok model veritabanı
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure Cosmos DB Cassandra API Önizleme programına erişim. Erişim için henüz yapmadıysanız uyguladıysanız [şimdi kaydolun](https://aka.ms/cosmosdb-cassandra-signup).
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Alternatif olarak, [Azure Cosmos DB ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) gider ve taahhüt bir Azure aboneliği boş.
+
+Azure Cosmos DB Cassandra API Önizleme programına erişim. Erişim için henüz yapmadıysanız uyguladıysanız [şimdi kaydolun](cassandra-introduction.md#sign-up-now).
 
 Buna ek olarak: 
 
@@ -41,6 +41,8 @@ Buna ek olarak:
     * Ubuntu’da Maven’i yüklemek için `apt-get install maven` komutunu çalıştırabilirsiniz.
 * [Git](https://www.git-scm.com/)
     * Ubuntu’da Git’i yüklemek için `sudo apt-get install git` komutunu çalıştırabilirsiniz.
+
+
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -148,7 +150,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     ![Görüntüleme ve bir kullanıcı adı Azure portal, bağlantı dizesi sayfasından kopyalama](./media/create-cassandra-java/keys.png)
 
-2. Kullanın ![Kopyala düğmesini](./media/create-cassandra-java/copy.png) KİŞİ nokta değeri kopyalamak için ekranın sağ taraftaki düğmesi.
+2. Kullanın ![Kopyala düğmesi](./media/create-cassandra-java/copy.png) KİŞİ nokta değeri kopyalamak için ekranın sağ taraftaki düğmesi.
 
 3. Açık `config.properties` C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources klasöründen dosya. 
 

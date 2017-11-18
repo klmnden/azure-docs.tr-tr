@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 7f42baa1ac37f425f915b6949e018f6e7397d3ae
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda yönelik tüm ilkeleri yönetme
 
@@ -79,7 +79,9 @@ Otomatik kapatma ilke bu Laboratuvar ait VM'ler kapatma süresi belirtmenize izi
 
 1. Bu ilkeyi etkinleştirirseniz, geçerli laboratuarda tüm sanal makineleri kapatmaya saat (ve saat dilimi) belirtin.
 
-1. Belirtin **Evet** veya **Hayır** belirtilen otomatik kapatma saatten önce 15 dakikada bir bildirim gönderme seçeneği için. Belirtirseniz **Evet**, burada bildirim gönderilen gönderilen veya değiştirilecek için bir Web kancası URL'si uç noktası veya bir e-posta adresi girin. Web kancası hakkında daha fazla bilgi için bkz: [bir Web kancası veya API Azure işlevi oluşturma](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Belirtin **Evet** veya **Hayır** belirtilen otomatik kapatma saatten önce 15 dakikada bir bildirim gönderme seçeneği için. Seçerseniz **Evet**, bir Web kancası URL'si uç noktası veya gönderilen veya gönderilmesi bildirim istediğiniz belirten bir e-posta adresi girin. Kullanıcı bildirimi alır ve kapatma erteleme seçeneği verilir.
+
+   Web kancası hakkında daha fazla bilgi için bkz: [bir Web kancası veya API Azure işlevi oluşturma](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. **Kaydet**’i seçin.
 

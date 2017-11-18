@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7b403518c75c72b68957f94dcac750cd922f6bc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: fc957ece0250d233db9cec4f1fdd8b063c13a136
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure üzerinde SAP ASCS/SCS örnekleri için bir Windows Yük devretme kümesi ve dosya paylaşımı SAP NetWeaver yüksek kullanılabilirlik yükleyin.
 
@@ -33,6 +33,8 @@ ms.lasthandoff: 11/16/2017
 [1596496]:https://launchpad.support.sap.com/#/notes/1596496
 
 [sap-installation-guides]:http://service.sap.com/instguides
+
+[sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -367,7 +369,7 @@ Get-ClusterAccess
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı oluşturma
 
-Bir SAP ASCS/SCS küme ağ adı oluşturun (örneğin, **pr1 ascs [10.0.6.7]**) konusunda açıklandığı üzere [kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı oluşturmak] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] . 
+Bir SAP ASCS/SCS küme ağ adı oluşturun (örneğin, **pr1 ascs [10.0.6.7]**) konusunda açıklandığı üzere [kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı oluşturmak] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
 
 ## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Varsayılan ve SAP ASCS/SCS örneği profil güncelleştirme
 
@@ -414,17 +416,17 @@ Yeni SAP ASCS/SCS sanal ana bilgisayar adı kullanın ve genel ana bilgisayar ad
 >SAP ABAP ASCS ve SAP Java SCS örnekleri PowerShell cmdlet'ini destekler.
 >
 
-Kopya **SAPScripts.ps1** C:\tmp için yerel sürücü ve aşağıdaki PowerShell cmdlet'ini çalıştırın:
+Kopya [ **SAPScripts.psm1** ] [ sap-powershell-scrips] C:\tmp için yerel sürücü ve aşağıdaki PowerShell cmdlet'ini çalıştırın:
 
 ```PowerShell
-Import-Module C:\tmp\SAPScripts.ps1
+Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Şekil 1: SAPScripts.ps1 çıkış][sap-ha-guide-figure-8012]
+![Şekil 1: SAPScripts.psm1 çıkış][sap-ha-guide-figure-8012]
 
-_**Şekil 1**: SAPScripts.ps1 çıkış_
+_**Şekil 1**: SAPScripts.psm1 çıkış_
 
 ## <a name="update-the-sidadm-user-environment-variable"></a>Güncelleştirme \<SID > adm kullanıcı ortam değişkeni
 

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: arramac
-ms.openlocfilehash: 99f3ddb165fa548ca1d65676bb1f945632c72dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1dcc2178b3c7017338e0097773fbf0d04c8b6a20
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Hızlı Başlangıç: bir tablo Node.js ve Azure Cosmos DB ile API uygulaması oluşturma
 
@@ -74,8 +74,6 @@ Buna ek olarak:
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. Ardından çözüm dosyasını Visual Studio'da açın. 
-
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, barındırılan veritabanıyla iletişim kurmak uygulamanızı sağlar. 
@@ -84,7 +82,9 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     ![Görüntüleyin ve gerekli bağlantı dizesi bilgilerini kopyalamak bağlantı dizesi bölmesinde](./media/create-table-nodejs/connection-string.png)
 
-2. App.config dosyasını açın ve gerekli bağlantı dizesi özellikleri yapılandırma dosyasına kopyalayın.
+2. Sağ tarafta Kopyala düğmesini kullanarak birincil bağlantı DİZESİNİ kopyalayın.
+
+3. App.config dosyasını açın ve üç satırındaki connectionString değeri yapıştırın. Bağlantı dizenizi uç noktası bölümünü documents.azure.com kullanıyorsa, bunun yerine table.cosmosdb.azure.com kullanmak için bu bölümü düzeltin.
 
 3. App.config dosyasını kaydedin.
 
@@ -94,14 +94,19 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
 1. Git terminal penceresinde `cd` depolama-tablo-java-başlama klasörüne.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Git içinde Java uygulaması çalıştırmak için aşağıdaki komutları çalıştırın, terminal penceresi başlatın.
+2. [Azure], yüklemek için aşağıdaki komutu çalıştırın [düğüm-UUID], [nconf] ve package.json dosyasına bir giriş kaydetmekte konusunda da yerel olarak [async] modülleri
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. Git düğüm uygulama çalıştırmak için aşağıdaki komutları çalıştırın, terminal penceresi başlatın.
+
+    ```
     node ./tableSample.js 
     ```
 

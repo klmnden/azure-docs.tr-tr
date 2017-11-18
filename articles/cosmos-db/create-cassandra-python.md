@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 95d58c600bc43059025e739a8cdb062287f4ffb5
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Hızlı Başlangıç: Python ve Azure Cosmos DB ile Cassandra uygulaması oluşturma
 
@@ -29,13 +29,14 @@ Azure Cosmos DB Microsoft'un Genel dağıtılmış birden çok model veritabanı
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
-    * [Python](https://www.python.org/downloads/) sürüm v2.7.14
-    * [Git](http://git-scm.com/)
-    * [Apache Cassandra Python sürücüsü](https://github.com/datastax/python-driver)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Alternatif olarak, [Azure Cosmos DB ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) gider ve taahhüt bir Azure aboneliği boş.
 
+Azure Cosmos DB Cassandra API Önizleme programına erişim. Erişim için henüz yapmadıysanız uyguladıysanız [şimdi kaydolun](cassandra-introduction.md#sign-up-now).
+
+Buna ek olarak:
+* [Python](https://www.python.org/downloads/) sürüm v2.7.14
+* [Git](http://git-scm.com/)
+* [Apache Cassandra Python sürücüsü](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -132,7 +133,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 1. İçinde [Azure portal](http://portal.azure.com/), tıklatın **bağlantı dizesi**. 
 
-    Kullanın ![Kopyala düğmesini](./media/create-cassandra-python/copy.png) ekranın üst değer, ilgili kişi noktası kopyalamak için sağ taraftaki düğmesi.
+    Kullanın ![Kopyala düğmesi](./media/create-cassandra-python/copy.png) ekranın üst değer, ilgili kişi noktası kopyalamak için sağ taraftaki düğmesi.
 
     ![Görüntüleme ve Azure portal, bağlantı dizesi dikey penceresinde bir erişim kullanıcı adı, parola ve iletişim noktası kopyalama](./media/create-cassandra-python/keys.png)
 

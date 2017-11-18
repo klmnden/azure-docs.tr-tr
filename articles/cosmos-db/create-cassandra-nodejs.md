@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 76850d6403fc4e87e95f5842b87b258d652c2c35
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: abf88cf96b32bc4168cb8c09a6e70ad0e395e88c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Hızlı Başlangıç: Node.js ve Azure Cosmos DB ile Cassandra uygulaması oluşturma
 
@@ -29,12 +29,13 @@ Azure Cosmos DB Microsoft'un Genel dağıtılmış birden çok model veritabanı
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Azure Cosmos DB Cassandra API Önizleme programına erişim. Erişim için henüz yapmadıysanız uyguladıysanız [şimdi kaydolun](https://aka.ms/cosmosdb-cassandra-signup).
-* [Node.js](https://nodejs.org/en/) sürüm v0.10.29 veya üzeri
-* [Git](http://git-scm.com/)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Alternatif olarak, [Azure Cosmos DB ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) gider ve taahhüt bir Azure aboneliği boş.
 
+Azure Cosmos DB Cassandra API Önizleme programına erişim. Erişim için henüz yapmadıysanız uyguladıysanız [şimdi kaydolun](cassandra-introduction.md#sign-up-now).
+
+Buna ek olarak:
+* [Node.js](https://nodejs.org/en/) sürüm v0.10.29 veya üzeri
+* [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
@@ -152,7 +153,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 1. İçinde [Azure portal](http://portal.azure.com/), tıklatın **bağlantı dizesi**. 
 
-    Kullanın ![Kopyala düğmesini](./media/create-cassandra-nodejs/copy.png) ekranın üst değer, ilgili kişi noktası kopyalamak için sağ taraftaki düğmesi.
+    Kullanın ![Kopyala düğmesi](./media/create-cassandra-nodejs/copy.png) ekranın üst değer, ilgili kişi noktası kopyalamak için sağ taraftaki düğmesi.
 
     ![Görüntüleme ve kişi noktası, kullanıcı adı ve parola Azure portal, bağlantı dizesi sayfasından kopyalama](./media/create-cassandra-nodejs/keys.png)
 

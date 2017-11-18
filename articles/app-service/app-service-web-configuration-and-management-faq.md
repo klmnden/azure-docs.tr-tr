@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e5fc1933efcaa9c6eaa7ab0021c3362e0714a3d5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web uygulamalarının yapılandırması ve Yönetimi SSS
 
@@ -319,4 +319,4 @@ Sıkıştırılacak istediğiniz belirli dinamik ve statik MIME türlerini de be
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Uygulama hizmeti için nasıl bir şirket içi ortamından geçişini?
 
-Siteleri Windows ve Linux web sunucularından App Service'e geçirme için Azure App Service geçiş Yardımcısı'nı kullanabilirsiniz. Geçiş Aracı gerektiğinde Azure web uygulamaları ve veritabanları oluşturur ve içeriği yayımlar. Daha fazla bilgi için bkz: [Azure App Service geçiş Yardımcısı](https://www.movemetothecloud.net/).
+Siteleri Windows ve Linux web sunucularından App Service'e geçirme için Azure App Service geçiş Yardımcısı'nı kullanabilirsiniz. Geçiş Aracı gerektiğinde Azure web uygulamaları ve veritabanları oluşturur ve içeriği yayımlar. Daha fazla bilgi için bkz: [Azure App Service geçiş Yardımcısı](https://www.migratetoazure.net/).

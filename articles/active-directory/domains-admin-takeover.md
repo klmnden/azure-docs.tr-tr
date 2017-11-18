@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 457857f44ad3081087b5843f156860c901562468
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak bir yönetilmeyen dizin üzerinde gerçekleştirin
 Bu makalede, Azure Active Directory (Azure AD) yönetilmeyen bir dizinde bir DNS etki alanı adı öncelikli iki yolu açıklanmaktadır. Azure AD kullanan bir bulut hizmeti için bir Self Servis kullanıcı kaydolduğunda yönetilmeyen bir Azure eklenen AD directory tabanlı kendi e-posta etki alanı üzerinde. Self Servis ya da "viral" için bir hizmet hakkında daha fazla bilgi için bkz: [Azure Active Directory için Self Servis kaydolma nedir?]()
@@ -67,7 +67,7 @@ Yukarıdaki adımları tamamladıktan sonra artık Office 365'te Fourth Coffee K
   
 6. Oturum [Azure AD Yönetim Merkezi](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) Azure AD Kiracı için genel yönetici olan bir hesapla.
   
-7. Seçin **etki alanı adları**, etki alanı adını ekleyin. Etki alanı adını sahipliği doğrulamak için DNS TXT kayıt girmeniz gerekecek. 
+7. Seçin **özel etki alanı adları**, etki alanı adını ekleyin. Etki alanı adını sahipliği doğrulamak için DNS TXT kayıt girmeniz gerekecek. 
   
   ![Azure AD ile eklenen etki alanı](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   

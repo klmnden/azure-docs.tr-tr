@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.openlocfilehash: b473ba03b8b700b3123f82343e59a1ed897c4189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c022d1c091fdd1b1e4d16270467c7191fc24ae3
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Hadoop MapReduce etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,6 @@ Bkz: [Pig](transform-data-using-hadoop-pig.md) ve [Hive](transform-data-using-ha
             "type": "LinkedServiceReference"
         },
         "jarFilePath": "MyAzureStorage/jars/sample.jar",
-        "jarlibs": "MyAzureStorage/jars/jar1",
         "getDebugInfo": "Failure",
         "arguments": [
           "-SampleHadoopJobArgument1"
@@ -76,7 +75,7 @@ Bkz: [Pig](transform-data-using-hadoop-pig.md) ve [Hive](transform-data-using-ha
 | className         | Yürütülecek sınıfın adı         | Evet      |
 | jarLinkedService  | Bir Azure depolama bağlı hizmeti başvuru Jar dosyalarını depolamak için kullanılır. Bu bağlı hizmetin belirtmezseniz, Azure depolama bağlı Hdınsight bağlı hizmeti tanımlanan hizmeti kullanılır. | Hayır       |
 | jarFilePath       | JarLinkedService tarafından başvurulan Azure storage'da depolanan Jar dosyalarını yolunu girin. Dosya adı büyük/küçük harf duyarlıdır. | Evet      |
-| jarlibs           | JarLinkedService tarafından başvurulan Azure storage'da depolanan iş tarafından başvurulan Jar kitaplığı dosyalarının yolunu sağlayın. Dosya adı büyük/küçük harf duyarlıdır. | Hayır       |
+| jarlibs           | Azure depolama jarLinkedService içinde tanımlı depolanan iş tarafından başvurulan Jar kitaplığı dosyalarının yolunu dizisi dize. Dosya adı büyük/küçük harf duyarlıdır. | Hayır       |
 | Getdebugınfo      | Günlük dosyaları için Azure Storage zaman kopyalanır belirtir Hdınsight kümesi tarafından kullanılan (veya) jarLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır       |
 | Bağımsız değişkenler         | Bir Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenler, her görevin komut satırı bağımsız değişkenleri olarak geçirilir. | Hayır       |
 | tanımlar           | Parametreler, Hive betiğini içinde başvurmak için anahtar/değer çiftleri olarak belirtin. | Hayır       |

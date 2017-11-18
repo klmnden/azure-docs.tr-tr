@@ -1,5 +1,5 @@
 ---
-title: "Creat bir Azure Otomasyonu hesabının İzleyici görevde | Microsoft Docs"
+title: "Azure Automation hesabında bir izleyici görev oluşturma | Microsoft Docs"
 description: "Bir klasörde oluşturulan yeni dosyalarda izlemek için Azure Automation hesabındaki bir izleyici görev oluşturmayı öğrenin."
 services: automation
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/15/2017
 ms.author: eamono
-ms.openlocfilehash: 55971908caca4526f7a3b102e90c554a533a7fee
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7cd6bebcaa1ed263b9854f7307cf22fba006748e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-automation-watcher-tasks-enable-you-to-respond-to-events-happening-in-your-local-datacenter"></a>Azure Otomasyonu İzleyici görevleri, yerel veri merkezinizde gerçekleştiği olaylara yanıt olanak sağlar
 

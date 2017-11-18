@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e232b4cdb62b7bf212808bd380119482ee88b077
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç:, ilk Windows cihaz IOT kenar modülüne Azure portalından dağıtma - Önizleme
 
@@ -42,7 +42,7 @@ Bu öğretici, bir bilgisayarı veya Windows çalıştıran sanal makine bir nes
 >    * Windows Server (yapı 16299) 1709 veya
 >    * X64 tabanlı bir cihazda Windows IOT Core (yapı 16299)
 >
-> Windows IOT Core için [yüklemesi Windows IOT Core üzerinde IOT kenar çalışma zamanı]'ndaki yönergeleri izleyin [lnk-Install-iotcore]. Aksi takdirde, sadece [Windows kapsayıcılar kullanmak için Docker yapılandırmak][lnk-docker-containers]ve isteğe bağlı olarak önkoşulların aşağıdaki powershell komutuyla doğrulayabilirsiniz:
+> Windows IOT Core için yönergeleri izleyin [Windows IOT Core üzerinde IOT kenar çalışma zamanı yükleme][lnk-install-iotcore]. Aksi takdirde, sadece [Windows kapsayıcılar kullanmak için Docker yapılandırmak][lnk-docker-containers]ve isteğe bağlı olarak önkoşulların aşağıdaki powershell komutuyla doğrulayabilirsiniz:
 >    ```
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -134,7 +134,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 Bir IOT kenar modülünü IOT kenar cihazına dağıtmak öğrendiniz. Böylece veri kenarına çözümleyebilirsiniz şimdi farklı türlerdeki modüllerle, Azure Hizmetleri dağıtmayı deneyin. 
 
 * [Bir modül olarak Azure işlevi dağıtma](tutorial-deploy-function.md)
-* [Azure Stream Analytics bir modül olarak dağıtma](tutorial-deploy-stream-analytics.md)
+* [Azure Stream Analytics’i modül olarak dağıtma](tutorial-deploy-stream-analytics.md)
 * [Kendi kodunuzu bir modül olarak dağıtma](tutorial-csharp-module.md)
 
 
@@ -150,6 +150,7 @@ Bir IOT kenar modülünü IOT kenar cihazına dağıtmak öğrendiniz. Böylece 
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

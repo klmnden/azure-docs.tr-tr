@@ -9,11 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning sık sorulan sorular
 
@@ -165,7 +165,6 @@ Y: ile çalışma ekranı dahil Jupyter geçerli sürümü Python 3 Çekirdek ve
 Genel Önizleme için çalışma ekranı gelen veri alımı destekler: 
 - Yerel sabit diske veya eşlenen ağ depolama konumu
 - Azure BLOB veya Azure Storage (bir Azure aboneliği gerektirir)
-- Azure Data Lake veya Azure Data Lake Storage (bir Azure aboneliği gerektirir)
 - Azure SQL Server
 - Microsoft SQL Server
 

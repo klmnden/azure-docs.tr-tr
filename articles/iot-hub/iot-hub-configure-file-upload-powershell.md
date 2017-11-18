@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: a72bda794b2da3e044c46249559610d06b1f1843
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6966fd4a60681643c2a690013035bde20abee78
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>IOT Hub'ın PowerShell kullanarak dosya yüklemeleri yapılandırın
 
@@ -136,7 +136,7 @@ Azure IOT hub'ı yönetme hakkında daha fazla bilgi için bu bağlantıları iz
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [Bir cihaz IOT Edge benzetimini yapma][lnk-iotedge]
+* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
 * [IOT çözümünüzden zemin oluşturan güvenli][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md
@@ -146,7 +146,7 @@ Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/

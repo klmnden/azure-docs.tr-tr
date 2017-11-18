@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan ortak terimleri bazıları listelenmektedir.
@@ -37,7 +37,7 @@ Bu makalede IOT hub'ı makalelerinde kullanılan ortak terimleri bazıları list
 Vardır _cihaz SDK'ları_ oluşturmanıza olanak sağlayan birden çok dil için kullanılabilir [cihaz uygulamaları](#device-app) bir IOT hub ile etkileşim. IOT hub'ı öğreticiler bu cihaz SDK'ları kullanmayı gösterir. Bu Github'da kaynak kodu ve cihaz SDK'ları hakkında daha fazla bilgi bulabilirsiniz [depo](https://github.com/Azure/azure-iot-sdks).
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-IOT sınır ağ geçidi ile bağlı cihazlar ile iletişim kurmak etkinleştirme uygulamaları yazma olanak tanır [IOT hub'ı](#iot-hub). IOT kenar öğreticiler bu hizmeti kullanmak nasıl gösterir. Azure IOT kenar hakkında daha fazla bilgi ve kaynak kodu bu Github'da bulabilirsiniz [depo](https://github.com/Azure/iot-edge).
+Kuruluşunuzun işletme öngörüleri veri yönetimi yerine üzerinde odaklanabilmeniz azure IOT kenar bulut analizi ve özel iş mantığı cihazlara taşır. IOT yazılım yapılandırarak, standart kapsayıcıları aracılığıyla cihazlara dağıtma ve tüm buluttan izleme gerçekten ölçeklendirmek, çözümünüzün etkinleştirin. Yükleme ve Azure IOT kenar kullanılacağı gösteren bir öğretici kullanmaya başlama bir [Linux](../iot-edge/tutorial-simulate-device-linux.md) veya [Windows](../iot-edge/tutorial-simulate-device-windows.md) aygıt.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IOT hizmeti SDK'ları
 Vardır _SDK hizmeti_ oluşturmanıza olanak sağlayan birden çok dil için kullanılabilir [arka uç uygulamaları](#back-end-app) bir IOT hub ile etkileşim. IOT hub'ı öğreticiler bu hizmeti SDK'ları kullanmayı gösterir. Bu Github'da kaynak kodu ve hizmet SDK'ları hakkında daha fazla bilgi bulabilirsiniz [depo](https://github.com/Azure/azure-iot-sdks).
@@ -189,7 +189,7 @@ Azure IOT paketi önceden yapılandırılmış çözümleri birden çok Azure hi
 [İşleri REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) yönetmenize olanak veren [işleri](#job) IOT hub'ınıza çalıştıran.
 
 ## <a name="module"></a>Modül
-İçinde [Azure IOT kenar](iot-hub-linux-iot-edge-get-started.md), [Modülü](iot-hub-linux-iot-edge-get-started.md) belirli bir görevi gerçekleştiren bir bileşenidir. Görevler, bir CİHAZDAN bir ileti alma, bir ileti dönüştürme ya da bir IOT hub'ına ileti gönderme içerebilir. Bir aracı modülleri arasında iletilerini yönlendirmede sorumludur. Azure IOT kenar örnek modüllerini içerir. Kendi özel modüller de oluşturabilirsiniz.
+İçinde [Azure IOT kenar](../iot-edge/tutorial-simulate-device-linux.md), [Modülü](../iot-edge/iot-edge-modules.md) belirli bir görevi gerçekleştiren bir bileşenidir. Görevler, bir CİHAZDAN bir ileti alma, bir ileti dönüştürme ya da bir IOT hub'ına ileti gönderme içerebilir. Bir aracı modülleri arasında iletilerini yönlendirmede sorumludur. Azure IOT kenar örnek modüllerini içerir. Kendi özel modüller de oluşturabilirsiniz.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) olan bir Mesajlaşma protokolleri [IOT hub'ı](#iot-hub) aygıtlarıyla iletişim kurmak için destekler. IOT hub'ı destekleyen Mesajlaşma protokolleri hakkında daha fazla bilgi için bkz: [IOT Hub ile iletileri almasına ve göndermesine](iot-hub-devguide-messaging.md).

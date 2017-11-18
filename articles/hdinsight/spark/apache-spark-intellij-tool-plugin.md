@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
-ms.author: nitinme
-ms.openlocfilehash: 82683349f3e562be5ac89ade4143588283abd71c
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/25/2017
+ms.author: maxluk,jejiang
+ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Intellij için Azure Araç Seti Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın
 
@@ -168,8 +168,8 @@ Yükleme yönergeleri için bkz: [Intellij için Azure Araç Seti yüklemek](htt
       
       İş çıktısı erişmek öğrenmek için bkz: "erişim ve Intellij için Azure Araç Seti kullanarak Hdınsight Spark kümeleri yönetmek" bölümünde bu makalenin sonraki bölümlerinde yer.
 
-## <a name="run-or-debug-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Çalıştırabilir veya bir Hdınsight Spark kümesi üzerinde Spark Scala uygulamanızın hatalarını ayıklama
-Küme Spark uygulamaya gönderilmesi bir başka yolu da öneririz. Parametreleri ayarlayarak yapabilirsiniz **Çalıştır/hata ayıklama yapılandırmaları** IDE. Daha fazla bilgi için bkz: [SSH aracılığıyla Intellij için Hdınsight kümesinde Azure araç seti ile Spark uygulamalarında uzaktan hata ayıklama](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Spark uygulamalarında Hdınsight kümesi üzerinde yerel olarak veya uzaktan hata ayıklama 
+Küme Spark uygulamaya gönderilmesi bir başka yolu da öneririz. Ayrıca parametreleri ayarlayarak yapabilirsiniz **Çalıştır/hata ayıklama yapılandırmaları** IDE. Daha fazla bilgi için bkz: [Spark uygulamalarında yerel olarak veya uzaktan Hdınsight kümesinde Azure araç seti ile SSH aracılığıyla Intellij için hata ayıklama](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Erişim ve Hdınsight Spark kümeleri Intellij için Azure Araç Seti kullanarak yönetme
 Intellij için Azure Araç Seti kullanarak çeşitli işlemler gerçekleştirebilirsiniz.
@@ -211,50 +211,6 @@ Varsayılan olarak, tüm Azure aboneliklerinden Spark kümeleri Intellij için A
 1. Azure Gezgini'nde sağ **Azure** kök düğümünü ve ardından **Aboneliklerini Yönet**. 
 
 2. İletişim kutusunda, erişim ve ardından istemediğiniz abonelikleri yanındaki onay kutularını temizleyin **Kapat**. Öğesini de seçebilirsiniz **oturum kapatma** dışında Azure aboneliğinizin imzalanacak istiyorsanız.
-
-## <a name="run-a-spark-scala-application-locally"></a>Spark Scala uygulama yerel olarak çalıştırma
-Intellij için Azure araç seti, Spark Scala uygulamaları iş istasyonunuza yerel olarak çalıştırmak için kullanabilirsiniz. Uygulamalar genellikle depolama kapsayıcıları gibi küme kaynaklarını erişimi gerekmez ve çalıştırma ve bunları yerel olarak test etme.
-
-### <a name="prerequisite"></a>Önkoşul
-Bir Windows bilgisayarda yerel Spark Scala uygulama çalıştırıyorsanız, ancak açıklandığı gibi bir özel durum alabilirsiniz [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356). WinUtils.exe Windows eksik olduğundan özel durum oluşur. 
-
-Bu hatayı gidermek için [yürütülebilir dosya indirme](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) gibi bir konuma **C:\WinUtils\bin**. Ardından, ortam değişkenine ekleyin **HADOOP_HOME**ve değişkenin değerini ayarlamak **C\WinUtils**.
-
-### <a name="run-a-local-spark-scala-application"></a>Yerel bir Spark Scala uygulamayı çalıştırın
-1. Intellij Idea başlatın ve bir proje oluşturun. 
-
-2. İçinde **yeni proje** iletişim kutusunda, aşağıdakileri yapın:
-   
-    a. Seçin **Hdınsight** > **Spark Hdınsight yerel çalışma örneği (Scala)**.
-
-    b. İçinde **oluşturma aracını** listesinde, gereksiniminize göre aşağıdakilerden birini seçin:
-
-      * **Maven**, Scala Proje Oluşturma Sihirbazı'nı desteği
-      * **SBT**, bağımlılıkları yönetme ve Scala projeyi oluşturmak için
-
-    ![Yeni Proje iletişim kutusu](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run.png)
-
-3. Seçin **sonraki**.
- 
-4. Sonraki penceresinde aşağıdakileri yapın:
-   
-    a. Bir proje adı ve konum girin.
-
-    b. İçinde **proje SDK** aşağı açılan listesinde, 1.7 sürümünden daha yeni bir Java sürümünü seçin.
-
-    c. İçinde **Spark sürüm** aşağı açılan listesinde, kullanmak istediğiniz Scala sürümünü seçin: Scala Spark 2.0 veya Scala 2.11.x 2.10.x Spark 1.6 için.
-
-    ![Yeni Proje iletişim kutusu](./media/apache-spark-intellij-tool-plugin/Create-local-project.PNG)
-
-5. **Son**’u seçin.
-
-6. Örnek kod şablonunu ekler (**LogQuery**) altında **src** bilgisayarınızda yerel olarak çalıştırabilirsiniz klasör.
-   
-    ![LogQuery konumu](./media/apache-spark-intellij-tool-plugin/local-app.png)
-
-7. Sağ **LogQuery** uygulama ve ardından **Çalıştır 'LogQuery'**. Üzerinde **çalıştırmak** sekmesini alt kısmında, aşağıdaki gibi bir çıktı görürsünüz:
-   
-   ![Spark uygulama yerel çalıştırma sonucu](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Intellij için Azure araç kullanma Intellij Idea uygulamalarınız Dönüştür
 Varolan Spark Scala dönüştürebilirsiniz Intellij için Azure araç seti ile uyumlu olacak şekilde Intellij Idea içinde oluşturulan uygulamaları. Ardından eklenti Hdınsight Spark kümesinde uygulamaları göndermek için kullanabilirsiniz.

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Hızlı Başlangıç:, ilk IOT kenar modülünü Azure portalından Linux aygıta dağıtmak - Önizleme
 
@@ -66,24 +66,26 @@ IOT hub ile iletişim kurabilmesi için sanal cihazınız için bir cihaz kimli�
 IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. İki modülden oluşur. İlk olarak, IOT kenar Aracısı dağıtımı ve IOT sınır cihazı modülleri izlenmesini kolaylaştırır. İkinci olarak, IOT kenar hub IOT sınır cihazı modülleri arasında ve cihaz IOT hub'ı arasındaki iletişim yönetir. 
 
 IOT sınır cihazı çalıştırdığı makinede IOT kenar denetim komut dosyasını karşıdan yükleyin:
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Çalışma zamanı IOT kenar cihaz bağlantı dizenizi önceki bölümdeki yapılandırın:
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Çalışma zamanı'nı başlatın:
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 Docker IOT kenar Aracısı'nı bir modül olarak çalışıp çalışmadığını kontrol edin:
-```python
+```cmd
 sudo docker ps
 ```
+
+![Docker edgeAgent bakın](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Bir modül dağıtma
 
@@ -93,11 +95,21 @@ sudo docker ps
 
 Bu hızlı başlangıç yeni bir IOT sınır cihazı oluşturan ve IOT kenar çalışma zamanı yüklü. Ardından, cihaz için değişiklik yapmak zorunda kalmadan cihazda çalıştırmak için bir IOT kenar modülü göndermek için Azure portal kullanılır. Bu durumda, gönderilen modülü öğreticileri için kullanabileceğiniz çevresel veri oluşturur. 
 
-TempSensor modülünden gönderilen iletiler görüntüleyin:
+Sanal cihazınız yeniden çalıştıran bilgisayarda komut istemi açın. Buluttan dağıtılan modülü IOT kenar aygıtınızda çalışır durumda olduğunu doğrulayın:
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![Cihazınızda üç modüller görünümü](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+TempSensor modülünden buluta gönderilen iletiler görüntüleyin:
+
+```cmd
 sudo docker logs -f tempSensor
 ```
+
+![Modülünüzün verileri görüntüleme](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 Cihaz kullanarak göndermeyi telemetriyi de görüntüleyebilirsiniz [IOT hub'ı explorer aracı][lnk-iothub-explorer]. 
 
@@ -115,7 +127,7 @@ Bir IOT kenar modülünü IOT kenar cihazına dağıtmak öğrendiniz. Böylece 
 
 * [Kendi kodunuzu bir modül olarak dağıtma](tutorial-csharp-module.md)
 * [Bir modül olarak Azure işlevi dağıtma](tutorial-deploy-function.md)
-* [Azure Stream Analytics bir modül olarak dağıtma](tutorial-deploy-stream-analytics.md)
+* [Azure Stream Analytics’i modül olarak dağıtma](tutorial-deploy-stream-analytics.md)
 
 
 <!-- Images -->

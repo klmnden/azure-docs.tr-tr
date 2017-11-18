@@ -12,13 +12,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 0900ec1931cc622339133393b72b558076a42710
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5bf995cba884ff9910ce000195c8fa0e3da2d332
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Hızlı Başlangıç: bir tablo Python ve Azure Cosmos DB ile API uygulaması oluşturma
 
@@ -84,7 +84,13 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     ![Görüntüleyin ve bağlantı dizesi Bölmesi'nde bağlantı DİZESİNİ kopyalayın](./media/create-table-python/connection-string.png)
 
-2. Documentdb dosyasını açın ve gerekli bağlantı dizesi özellikleri yapılandırma dosyasına kopyalayın.
+2. Sağ tarafta düğmesini kullanarak hesap adını kopyalayın.
+
+3. Documentdb dosyasını açın ve 19 satırındaki STORAGE_ACCOUNT_NAME değeri portalından hesap adı yapıştırın.
+
+4. Portalına geri dönün ve birincil anahtarı kopyalayın.
+
+5. BİRİNCİL anahtar portalından 20 satırındaki STORAGE_ACCOUNT_KEY değeri yapıştırın.
 
 3. Documentdb dosyasını kaydedin.
 
