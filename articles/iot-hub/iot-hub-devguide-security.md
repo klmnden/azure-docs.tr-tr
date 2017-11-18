@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2017
+ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: 24cdfa1deb7b597023288bdc59ff7e196b69580d
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -57,7 +57,7 @@ Erişim izni verebilir [izinleri](#iot-hub-permissions) aşağıdaki yollarla:
 > [!NOTE]
 > Bkz: [izinleri](#iot-hub-permissions) ayrıntılı bilgi için.
 
-## <a name="authentication"></a>Kimlik doğrulama
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Azure IOT Hub kimlik kayıt defteri güvenlik kimlik bilgileri ve paylaşılan erişim ilkeleri karşı bir belirteç doğrulayarak uç noktaları erişim verir.
 
@@ -238,7 +238,7 @@ Tüm işlevlere aygıtlardan erişilebilir önekiyle uç noktalarda tasarıma g�
 
 Aygıt'e yönelik uç noktalar (yedeklemiş Protokolü) şunlardır:
 
-| Uç Noktası | İşlev |
+| Uç Nokta | İşlev |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Cihaz-bulut iletileri gönderir. |
 | `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Bulut-cihaz iletilerini alır. |
@@ -310,7 +310,7 @@ Hizmet bileşenleri, yalnızca daha önce açıklandığı gibi uygun izinleri v
 
 Bitiş noktasında kullanıma sunulan hizmet işlevleri şöyledir:
 
-| Uç Noktası | İşlev |
+| Uç Nokta | İşlev |
 | --- | --- |
 | `{iot hub host name}/devices` |Oluştur, Güncelleştir, alabilir ve cihaz kimliklerini silebilir. |
 | `{iot hub host name}/messages/events` |Cihaz bulut iletilerini alır. |
@@ -470,7 +470,7 @@ Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıda
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens
 [lnk-amqp]: https://www.amqp.org/
 [lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
-[lnk-cbs]: https://www.oasis-open.org/committees/download.php/60412/amqp-cbs-v1.0-wd03.doc
+[lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
 [lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
 [lnk-management-portal]: https://portal.azure.com
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
