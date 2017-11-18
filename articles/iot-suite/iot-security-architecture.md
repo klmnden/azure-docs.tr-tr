@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.openlocfilehash: 925bada91216b98175fb725e7aba6a31f305839d
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="internet-of-things-security-architecture"></a>Nesnelerin interneti güvenlik mimarisi
 Sistem tasarlanırken, bu sistemde olası tehditler anlamak ve sistem tasarlanmış ve tasarlanmış gibi uygun savunma buna göre eklemek önemlidir. Nasıl bir saldırganın bir sistemden olabilir emin uygun Azaltıcı Etkenler hale getirir anlama olduğundan başlangıçtan itibaren yerinde göz önünde bulundurularak ile başlangıç ürün tasarlamak özellikle önemlidir. 
@@ -88,7 +88,7 @@ En iyi güvenlik en iyi duruma getirmek için tipik bir IOT mimarisinin alışt�
 * Bulut, ağ geçitleri ve
 * Hizmetler.
 
-Bölgeleri şekilde bir çözüm segmentlere ayırmak için geniş; her bölge genellikle kendi veri ve kimlik doğrulama ve yetkilendirme gereksinimlerine sahiptir. Bölgeleri hasar yalıtmak ve yüksek güven bölgeleri düşük güven bölgelerinde etkisini sınırlamak için de kullanılabilir.
+Bölgeleri şekilde bir çözüm segmentlere ayırmak için geniş; her bölge genellikle kendi veri ve kimlik doğrulama ve yetkilendirme gereksinimlerine sahiptir. Bölgeleri de yalıtım zarar görmesine kullanılması ve düşük güven bölgeleri daha yüksek güven bölgelerinde etkisini kısıtlayın.
 
 Her bölge bir güven, aşağıdaki çizimde kırmızı noktalı çizgi belirtildiği sınır ile ayrılır. Veri/bilgileri geçişin bir kaynak sunucudan diğerine temsil eder. Bu geçiş sırasında veri/bilgileri sahtekarlık, kurcalama, ret, bilgi açıklama, hizmet reddi ve ayrıcalık yükseltme (STRIDE) tabi olabilir.
 
