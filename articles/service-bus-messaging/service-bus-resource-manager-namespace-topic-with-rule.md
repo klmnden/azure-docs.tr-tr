@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 35e67d86b42358c4ce28b41beae1ee8e1896e939
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976c7b425dd17f8ed38f18b6ffa50b4368ab44b3
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Hizmet veri yolu ad alanı konu, aboneliği ve Azure Resource Manager şablonu kullanarak kural oluşturma
 
-Bu makale bir hizmet veri yolu ad alanı bir konu, abonelik, kural (Filtresi) oluşturur ve bir Azure Resource Manager şablonu kullanmayı gösterir. Nasıl tanımlamak için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen öğrenin. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz
+Bu makale bir hizmet veri yolu ad alanı bir konu, abonelik, kural (Filtresi) oluşturur ve bir Azure Resource Manager şablonu kullanmayı gösterir. Makalede nasıl belirtmek için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz
 
 Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
@@ -50,7 +50,7 @@ Bu şablon kullanılarak konu, abonelik ve kural (Filtresi) içeren bir hizmet v
 
 ## <a name="what-are-rules-filters"></a>Kuralları (filtreleri) nelerdir?
 
-Birçok senaryoda belirli özelliklere sahip iletileri farklı şekillerde işlenmelidir. Bunu etkinleştirmek için belirli özelliklere sahip ve bu değişiklikleri gerçekleştirmek iletileri bulmak için abonelik yapılandırabilirsiniz. Hizmet veri yolu abonelikleri konu başlığına gönderilen tüm iletiler görmenize rağmen bu iletiler bir kısmı yalnızca sanal abonelik kuyruğuna kopyalayabilirsiniz. Bu, abonelik filtreleri kullanılarak gerçekleştirilir. Kurallar (filtreleri) hakkında daha fazla bilgi için bkz: [kurallar ve Eylemler](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+Birçok senaryoda belirli özelliklere sahip iletileri farklı şekillerde işlenmelidir. Bu özel işleme etkinleştirmek için belirli özelliklere sahip ve bu değişiklikleri gerçekleştirmek iletileri bulmak için abonelik yapılandırabilirsiniz. Hizmet veri yolu abonelikleri konu başlığına gönderilen tüm iletiler görmenize rağmen bu iletiler bir kısmı yalnızca sanal abonelik kuyruğuna kopyalayabilirsiniz. Bu, abonelik filtreleri kullanılarak gerçekleştirilir. Kurallar (filtreleri) hakkında daha fazla bilgi için bkz: [kurallar ve Eylemler](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
 Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
 
@@ -100,9 +100,12 @@ Hizmet veri yolu ad alanında oluşturulan rule(filter) adı.
 Şablon hizmet veri yolu API'sini sürümü.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 ## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
 Standart bir hizmet veri yolu ad alanı türü oluşturur **ileti**, konu ve abonelik ve kuralları ile.

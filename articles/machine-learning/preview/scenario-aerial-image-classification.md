@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: cfffe5145f8762558e6ee573f6f2bb69d32424ad
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="aerial-image-classification"></a>Havadan görüntü sınıflandırma
 
@@ -133,6 +133,11 @@ Ana bilgisayar tarafından Hdınsight Spark erişilmelidir dosyaları proje depo
     Değerini kaydedin `key1` aşağıdaki komutta depolama anahtarı olarak değeri depolamak için komutu çalıştırın.
     ```
     set STORAGE_ACCOUNT_KEY=[storage account key]
+    ```
+1. Adlı bir dosya paylaşımı oluşturmak `baitshare` aşağıdaki komutla depolama hesabınızdaki:
+
+    ```
+    az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. Sık kullandığınız metin düzenleyicinizde yük `settings.cfg` Azure Machine Learning çalışma ekranı projenin "Code" alt dizinden dosya ve depolama hesabı adı ve anahtar gösterildiği gibi ekleyin. Kaydet ve Kapat `settings.cfg` dosya.
 1. Zaten yapmadıysanız, indirin ve yükleyin [AzCopy](http://aka.ms/downloadazcopy) yardımcı programı. AzCopy yürütülebilir "AzCopy" yazarak ve belgelerinde göstermek için Enter tuşuna basarak, sistem yolunda olduğundan emin olun.

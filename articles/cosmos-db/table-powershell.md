@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 35d05b7003d731610df816c8470acc9133a4a6de
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Azure PowerShell ile Azure Cosmos DB tablo API işlemleri 
 
@@ -47,7 +47,7 @@ Azure PowerShell yüklü veya güncelleştirildikten sonra modülü yüklemelisi
 Install-Module AzureRmStorageTable
 ```
 
-Azure Cosmos DB tablo API önizlemede olsa da, ayrıca kendi derlemelerinin yerel olarak bu PowerShell cmdlet'lerini kullanmak için gerekir. Bunun hakkında daha fazla yönerge için bkz: [Cosmos DB tablolar için Azure RM depolama tabloları PowerShell Modülü](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+Ardından yerel olarak bu PowerShell cmdlet'lerini kullanmak için Azure Cosmos DB derlemeleri yükleyin. Bunun hakkında daha fazla yönerge için bkz: [Cosmos DB tablolar için Azure RM depolama tabloları PowerShell Modülü](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
 Aşağıdaki alıştırmada denemek için bir Azure Cosmos DB veritabanı hesabınızın olması gerekir. Yeni Azure Cosmos DB oluşturma bir zaten yoksa, kullanarak hesap [Azure portal](https://portal.azure.com). Yeni bir veritabanı hesabı oluşturmanıza yardımcı olması için bkz: [Azure Cosmos DB: veritabanı hesabı oluşturma](create-table-dotnet.md#create-a-database-account).
 

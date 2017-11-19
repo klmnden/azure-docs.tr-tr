@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Azure Search için SKU veya fiyatlandırma katmanı seçme
 Azure Search'te bir [hizmet sağlandığına](search-create-service-portal.md) belirli fiyatlandırma katmanı veya SKU. Seçenekleriniz **serbest**, **temel**, veya **standart**, burada **standart** birden çok yapılandırmaları ve kapasiteleri kullanılabilir.
@@ -43,9 +43,9 @@ Kapasite ve hizmet çalıştırmanın maliyetlerini el eldeki gidin. Bu makalede
 
 * Sayısını ve boyutunu dizinler oluşturmak için planlama
 * Sayısını ve boyutunu belgeleri karşıya yüklemek için
-* Bazı fikir sorgu biriminin bakımından sorguları başına ikinci (QPS)
+* Bazı fikir sorgu biriminin bakımından sorguları başına ikinci (QPS). Yönergeler için bkz [Azure Search performans ve en iyi duruma getirme](search-performance-optimization.md).
 
-Bir sabit sınır sayısı dizinler veya bir hizmet belgelerde veya hizmeti tarafından kullanılan kaynakları (depolama veya çoğaltmaları) aracılığıyla maksimum sınırlarına ulaştığından sayısını ve boyutunu önemlidir. Hizmetiniz için gerçek sınırı hangisi ilk kullanılır: kaynakları veya nesneler.
+Bir sabit sınır hizmeti başına dizinleri sayısı veya hizmeti tarafından kullanılan kaynakları (depolama veya çoğaltmaları) aracılığıyla maksimum sınırlarına ulaştığından sayısını ve boyutunu önemlidir. Hizmetiniz için gerçek sınırı hangisi ilk kullanılır: kaynakları veya nesneler.
 
 Tahminler el de, aşağıdaki adımları işlemini basitleştirmek:
 
@@ -60,10 +60,10 @@ Aşağıdaki tabloda, her katman açıklamalarını sağlar.
 | --- | --- |
 | **Boş** |Değerlendirme, araştırma ya da küçük iş yükleri için kullanılan ücret ödemeden, paylaşılan bir hizmet. Diğer aboneleriyle paylaşıldığından, sorgu işleme ve dizin oluşturma başka Kime ve hizmetinin kullandığı göre değişir. Kapasite Küçük (50 MB 10.000 ile 3 dizinlerini belgeleri veya her). |
 | **Temel** |Ayrılmış donanım üzerinde küçük üretim iş yükleri. Yüksek oranda kullanılabilir. Kapasite en fazla 3 çoğaltmaları ve 1 bölüm (2 GB) toplamıdır. |
-| **S1** |Standart 1 (12) bölümler ve çoğaltmalar (12), ayrılmış donanım üzerinde Orta üretim iş yükleri için kullanılan esnek birleşimlerini destekler. Bölümleri ve en çok 36 Faturalanabilir arama birimi sayısı tarafından desteklenen birleşimleri yinelemede ayırabilirsiniz. Bu düzeyde bölümleri 25 GB ve QPS saniyede yaklaşık 15 sorgular. |
-| **S2** |Standart 2 büyük üretim iş yükleri aynı 36 arama birimi S1 ancak büyük boyutlu bölümler ve çoğaltmalar kullanarak çalıştırır. Bu düzeyde bölümleri 100 GB ve QPS saniyede yaklaşık 60 sorgular. |
-| **S3** |Standart 3 orantılı olarak büyük üretim iş yükleri daha yüksek son sistemlerinde 12 bölümleri veya 12 çoğaltmaları kadar yapılandırmalarını altında 36 arama birimi çalıştırır. Bu düzeyde bölümleri 200 GB ve QPS saniye başına birden fazla 60 sorgular. |
-| **S3 HD** |Standart 3 yüksek yoğunluklu, çok sayıda küçük dizinler için tasarlanmıştır. 200 GB olarak her 3 adede kadar bölümlere sahip olabilir. QPS, saniye başına birden fazla 60 sorgudur. |
+| **S1** |Standart 1 (12) bölümler ve çoğaltmalar (12), ayrılmış donanım üzerinde Orta üretim iş yükleri için kullanılan esnek birleşimlerini destekler. Bölümleri ve en çok 36 Faturalanabilir arama birimi sayısı tarafından desteklenen birleşimleri yinelemede ayırabilirsiniz. Bu düzeyde 25 GB bölümlerdir. |
+| **S2** |Standart 2 büyük üretim iş yükleri aynı 36 arama birimi S1 ancak büyük boyutlu bölümler ve çoğaltmalar kullanarak çalıştırır. Bu düzeyde 100 GB bölümlerdir. |
+| **S3** |Standart 3 orantılı olarak büyük üretim iş yükleri daha yüksek son sistemlerinde 12 bölümleri veya 12 çoğaltmaları kadar yapılandırmalarını altında 36 arama birimi çalıştırır. Bu düzeyde 200 GB bölümlerdir. |
+| **S3 HD** |Standart 3 yüksek yoğunluklu, çok sayıda küçük dizinler için tasarlanmıştır. 200 GB olarak her 3 adede kadar bölümlere sahip olabilir.|
 
 > [!NOTE]
 > Çoğaltma ve bölüm üst sınırlar, çıkışı, ne maksimum nominal değerde gelir daha etkili bir alt limit uygular (36 birim başına en fazla), arama birimi olarak faturalandırılır. Örneğin, en fazla 12 çoğaltmaları kullanmak için en fazla 3 bölümleri olabilir (12 * 3 = 36 birimleri). Benzer şekilde, en fazla bölüm kullanmak için 3 çoğaltmaları azaltın. Bkz: [ölçeklendirme sorgu ve iş yüklerini Azure Search'te dizin oluşturma için kaynak düzeylerini](search-capacity-planning.md) izin verilen birleşimleri grafikte için.
@@ -81,7 +81,6 @@ Aşağıdaki grafikte sınırlamaları uygulanmaya alt kümesidir [Azure Search 
 | En fazla bölümleri |Yok |1 |12 |12 |12 |3 <sup>2</sup> |
 | Bölüm boyutu |50 MB Toplam |Hizmeti başına 2 GB |Bölüm başına 25 GB |(Hizmeti başına en fazla 1.2 TB) kadar bölüm başına 100 GB |(Hizmeti başına en fazla 2.4 TB) kadar bölüm başına 200 GB |200 GB (kadar hizmeti başına en fazla 600 GB) |
 | En fazla yineleme |Yok |3 |12 |12 |12 |12 |
-| Saniye başına sorguları |Yok |Çoğaltma başına yaklaşık 3 |Çoğaltma başına yaklaşık 15 |Çoğaltma başına yaklaşık 60 |Çoğaltma başına yaklaşık >60 |Çoğaltma başına yaklaşık >60 |
 
 <sup>1</sup> ücretsiz katmanı ve önizleme özellikleri hizmet düzeyi sözleşmelerine (SLA) ile gelen değil. Hizmetiniz için yeterli artıklık sağladığınızda tüm Faturalanabilir katmanları için SLA etkili olur. İki veya daha fazla çoğaltmaları için (okuma) sorgu SLA gereklidir. Üç veya daha fazla çoğaltmalar, sorgu ve dizin oluşturma (okuma-yazma) SLA için gereklidir. Bölüm sayısı bir SLA önem verilmez. 
 

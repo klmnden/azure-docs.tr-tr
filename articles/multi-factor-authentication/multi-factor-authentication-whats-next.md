@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.reviewer: richagi
+ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Azure çok faktörlü kimlik doğrulama ayarlarını - genel Önizleme yapılandırın
 
@@ -29,7 +29,7 @@ Bu makalede Azure çok faktörlü kimlik doğrulaması ve çalışıyor olduğun
 
 | Özellik | Açıklama | 
 |:--- |:--- |
-| [Kullanıcı engelle/Engellemeyi Kaldır](#block/unblock-users) |Kullanıcı engelle/Engellemeyi Kaldır kullanıcılar kimlik doğrulama isteklerini almasını engelleyebilirsiniz. |
+| [Engelleme ve kullanıcıların Engellemeyi Kaldır](#block-and-unblock) |Kullanıcı engelle/Engellemeyi Kaldır kullanıcılar kimlik doğrulama isteklerini almasını engelleyebilirsiniz. |
 | [Sahtekarlık Uyarısı](#fraud-alert) |Sahtekarlık uyarısı yapılandırılmış ve böylece kullanıcılarınızın kaynaklarına erişmek için sahte denemeleri raporlayabilirsiniz ayarlayın. |
 | [Bir kerelik atlama](#one-time-bypass) |Bir kerelik geçiş "çok faktörlü kimlik doğrulamasını atlayarak" bir kereliğine kimlik doğrulaması sağlar. |
 | [Özel sesli mesajları](#custom-voice-messages) |Özel sesli mesajları kendi kayıtları veya Tebrikler çok faktörlü kimlik doğrulama kullanmanıza olanak sağlar. |
@@ -39,7 +39,7 @@ Bu makalede Azure çok faktörlü kimlik doğrulaması ve çalışıyor olduğun
 | [Anımsanan cihazlar ve tarayıcılar için çok faktörlü kimlik doğrulaması unutmayın](#remember-multi-factor-authentication-for-devices-that-users-trust) |MFA kullanarak bir kullanıcı başarıyla oturum sonra gün sayısı kümesini için cihazları anımsamasını sağlar. |
 | [Seçilebilir doğrulama yöntemleri](#selectable-verification-methods) |Kullanmak kullanıcılar için kullanılabilir kimlik doğrulama yöntemlerini seçmenize olanak sağlar. |
 
-## <a name="blockunblock-users"></a>Kullanıcı engelle/Engellemeyi Kaldır
+## <a name="block-and-unblock"></a>Engelleme ve engellemesini kaldırma
 Kullanıcı engelle/Engellemeyi Kaldır, kullanıcıların kimlik doğrulama isteklerini almasını önlemek için kullanılabilir. Engellenen kullanıcılar için kimlik doğrulama girişimleri otomatik olarak reddedilir. Süre 90 gün bunlar engellenir engellenen kullanıcılara engellenen kalır.
 
 ### <a name="block-a-user"></a>Bir kullanıcı engelleme
@@ -70,7 +70,7 @@ Sahtekarlık uyarısı yapılandırılmış ve böylece kullanıcılarınızın 
 
 ### <a name="configuration-options"></a>Yapılandırma seçenekleri
 
-- **Sahtekarlık bildirildiğinde kullanıcıyı engelle** - bir kullanıcı raporları sahtekarlık hesaplarında engellenir.
+- **Sahtekarlık bildirildiğinde kullanıcıyı engelle** - 90 gün boyunca bir kullanıcı raporları sahtekarlık hesaplarında engelleniyorsa veya yönetici hesaplarına engelini kaldırır kadar. Bir yönetici oturum açma işlemleri kullanarak oturum açma rapor gözden geçirin ve gelecekteki sahtekarlığı önlemek için uygun eylemi gerçekleştirin. Yönetici böylece [engellemesini](#unblock-a-user) kullanıcının hesabı.
 - **İlk Karşılama sırasında sahtekarlık bildirme kodu** - iki aşamalı doğrulamayı gerçekleştirmek için bir telefon araması aldığında, kullanıcıların Bunlar normalde # tuşuna basın, oturum açma onaylamak için. Sahtekarlığı bildir istiyorsanız, # basmadan önce bir kod girin. Bu kodu **0** varsayılan olarak, ancak özelleştirebilirsiniz.
 
 > [!NOTE]
@@ -188,7 +188,7 @@ Güvenilen IP'ler veya etkinleştirilip etkinleştirilmeyeceğini iki aşamalı 
 
 ![Güvenilen IP'ler](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
-## <a name="app-passwords"></a>Uygulama parolaları
+## <a name="app-passwords"></a>Uygulama Parolaları
 Bazı uygulamalar, Office 2010 gibi eski veya ve Apple Mail iki aşamalı doğrulamayı desteklemez. İkinci doğrulama kabul edecek şekilde yapılandırılmamışlardır. Bu uygulamaları kullanmak için "uygulama parolaları" kullanmak geleneksel parolanız yerine gerekir. Uygulama parolası iki aşamalı Doğrulamayı atla ve çalışmaya devam etmek uygulama izin verir.
 
 > [!NOTE]

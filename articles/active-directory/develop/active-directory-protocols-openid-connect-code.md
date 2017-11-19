@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-# Openıd Connect ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi
+# <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Openıd Connect ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi
 [Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) olan OAuth 2.0 protokolünü en üstünde oluşturulan Basit kimlik katmanı. OAuth 2.0 tanımlar edinme ve kullanma mekanizmaları **erişim belirteçleri** erişmek için korumalı kaynaklara, ancak bunlar tanımlamaz kimlik bilgilerini sağlamak için standart yöntemleri. Openıd Connect, OAuth 2.0 Yetkilendirme işlemi için bir uzantısı olarak kimlik doğrulaması gerçekleştirir. Biçiminde son kullanıcı hakkında bilgi sağlayan bir `id_token` , kullanıcının kimliğini doğrular ve kullanıcının temel profil bilgilerini sağlar.
 
 Bir sunucuda barındırılan ve tarayıcı erişilen bir web uygulaması oluşturuyorsanız Openıd Connect bizim önerilir.
@@ -29,12 +29,12 @@ Bir sunucuda barındırılan ve tarayıcı erişilen bir web uygulaması oluştu
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
-## Openıd Connect kullanarak kimlik doğrulama akışı
+## <a name="authentication-flow-using-openid-connect"></a>Openıd Connect kullanarak kimlik doğrulama akışı
 En basit oturum açma akışını aşağıdaki adımları içerir - bunların her biri aşağıda ayrıntılı olarak açıklanmıştır.
 
 ![Openıd Connect kimlik doğrulama akışı](media/active-directory-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
 
-## Openıd Connect meta veri belgesi
+## <a name="openid-connect-metadata-document"></a>Openıd Connect meta veri belgesi
 
 Openıd Connect oturum açma gerçekleştirmek bir uygulama için gerekli bilgileri çoğunu içeren bir meta veri belgesi açıklar. Bu, kullanılacak URL'ler gibi bilgileri ve hizmetin genel İmzalama anahtarları konumunu içerir. Openıd Connect meta veri belgesi yolda bulunabilir:
 
@@ -58,7 +58,7 @@ Basit bir JavaScript nesne gösterimi (JSON) belge meta verilerdir. Aşağıdaki
 }
 ```
 
-## Oturum açma isteği gönder
+## <a name="send-the-sign-in-request"></a>Oturum açma isteği gönder
 Kullanıcının kimliğini doğrulamak, web uygulamanız gerektiğinde kullanıcıya doğrudan gerekir `/authorize` uç noktası. Bu istek için ilk Bacak için benzer [OAuth 2.0 yetkilendirme kodu akışı](active-directory-protocols-oauth-code.md), birkaç önemli farklılıklar ile:
 
 * İstek kapsamı içermelidir `openid` içinde `scope` parametresi.
@@ -95,7 +95,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 Bu noktada, kullanıcı kimlik bilgilerini girin ve kimlik doğrulamasını tamamlamak istenir.
 
-### Örnek yanıt
+### <a name="sample-response"></a>Örnek yanıt
 Kullanıcı kimliğini doğrulamasından sonra bir örnek yanıt şu şekilde görünebilir:
 
 ```
@@ -111,7 +111,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | id_token |`id_token` Uygulama istenen. Kullanabileceğiniz `id_token` kullanıcının kimliğini doğrulamak ve kullanıcı oturumu başlatmak için. |
 | durum |Ayrıca belirteci yanıtta döndürülen istek dahil bir değer. Rastgele oluşturulan benzersiz bir değer tipik olarak kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12).  Durumu, sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
 
-### Hata yanıtı
+### <a name="error-response"></a>Hata yanıtı
 Hata yanıtları da gönderilebilir için `redirect_uri` uygulama bunları uygun şekilde işleyebilmesi için:
 
 ```
@@ -127,7 +127,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 | error |Oluşan hataları türlerini sınıflandırmak için kullanılan ve hataları tepki vermek için kullanılan bir hata kodu dizesi. |
 | error_description |Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi. |
 
-#### Yetkilendirme uç noktası hataları için hata kodları
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Yetkilendirme uç noktası hataları için hata kodları
 Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `error` hata yanıtı parametresi.
 
 | Hata kodu | Açıklama | İstemci eylemi |
@@ -140,7 +140,7 @@ Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `
 | temporarily_unavailable |Sunucunun geçici olarak istek işlemek için çok meşgul. |İsteği yeniden deneyin. İstemci uygulaması yanıt geçici bir koşul nedeniyle gecikti kullanıcıya açıklayabilir. |
 | invalid_resource |Hedef kaynak mevcut değil, Azure AD, bulunamıyor veya düzgün yapılandırılmamış olduğundan geçerli değil. |Bu, varsa, kaynak kiracısında yapılandırılmadı gösterir. Uygulama yönerge Azure AD'ye ekleme ve uygulama yükleme için kullanıcıya sor |
 
-## İd_token doğrula
+## <a name="validate-the-idtoken"></a>İd_token doğrula
 Yalnızca alma bir `id_token` ; kullanıcının kimliğini doğrulamak yeterli değil imzayı doğrulamak ve talepleri doğrulayın `id_token` uygulamanızın gereksinimleri başına. Azure AD endpoint Belirteçleri imzalamak ve bunların geçerli olduğunu doğrulamak için JSON Web belirteçleri (Jwt'ler) ve ortak anahtar şifrelemesi kullanır.
 
 Doğrulamayı seçebilirsiniz `id_token` istemci kodu ancak ortak bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve doğrulama var. gerçekleştirin. İmzası doğruladıktan sonra `id_token`, doğrulamak için gerekli birkaç talep vardır.
@@ -153,7 +153,7 @@ Senaryonuza bağlı olarak ek talep doğrulamak isteyebilir. Bazı ortak doğrul
 
 Doğruladıktan sonra `id_token`, kullanıcı bir oturumla başlar ve talepleri kullanan `id_token` uygulamanızda kullanıcı hakkında bilgi edinmek için. Bu bilgiler kullanılabilir ekran kayıtları, yetkilerini, vb. için. Talep ve belirteç türleri hakkında daha fazla bilgi için okuma [desteklenen belirteç ve talep türleri](active-directory-token-and-claims.md).
 
-## Oturum kapatma isteği gönder
+## <a name="send-a-sign-out-request"></a>Oturum kapatma isteği gönder
 Uygulama dışında kullanıcı oturum istediklerinde, uygulamanızın tanımlama bilgilerini veya aksi takdirde son kullanıcı oturumuyla temizlemek yeterli değil.  Kullanıcıya yönlendirme gerekir `end_session_endpoint` için oturum kapatma.  Bunu yapmak başarısız olursa, kullanıcı kimlik bilgilerini yeniden girmeye gerek kalmadan, uygulamanızın geçerli tek bir oturum açma oturumu Azure AD uç noktası ile olacağı sağlamalarını kuramaz.
 
 Kullanıcıya yalnızca yönlendirebilirsiniz `end_session_endpoint` Openıd Connect meta veri belgesinde listelenen:
@@ -168,7 +168,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | --- | --- | --- |
 | post_logout_redirect_uri |Önerilen |Kullanıcı başarıyla oturum kapatma sonra yönlendirilmesi gereken URL'si.  Dahil edilmezse, kullanıcı genel bir ileti gösterilir. |
 
-## Çoklu oturum kapatma
+## <a name="single-sign-out"></a>Çoklu oturum kapatma
 Ne zaman yeniden yönlendirmek için kullanıcı `end_session_endpoint`, Azure AD, kullanıcının oturumunu tarayıcıdan temizler. Ancak, kullanıcı hala Azure AD için kimlik doğrulama kullanan diğer uygulamalar için oturum açmanız. Kullanıcı aynı anda oturumu kapatmak bu uygulamalara olanak tanımak için Azure AD bir HTTP GET isteği kayıtlı gönderir `LogoutUrl` kullanıcı şu anda oturum tüm uygulamaların. Uygulamalar kullanıcı tanımlayan herhangi bir oturumunda temizlenmesi ve döndürme bu istek için yanıt gerekir bir `200` yanıt.  Çoklu oturum kapatma uygulamanızda desteklemek istiyorsanız, gibi uygulamalıdır bir `LogoutUrl` uygulamanızın kodu.  Ayarlayabileceğiniz `LogoutUrl` Azure portalından:
 
 1. Gidin [Azure Portal](https://portal.azure.com).
@@ -176,10 +176,10 @@ Ne zaman yeniden yönlendirmek için kullanıcı `end_session_endpoint`, Azure A
 3. Sol taraftaki gezinti panelinden seçin **Azure Active Directory**, ardından **uygulama kayıtlar** ve uygulamanızı seçin.
 4. Tıklayın **özellikleri** ve Bul **oturum kapatma URL'si** metin kutusu. 
 
-## Belirteç edinme
+## <a name="token-acquisition"></a>Belirteç edinme
 Birçok web uygulamaları yalnızca kullanıcı oturum açabilir, ancak ayrıca OAuth kullanarak bu kullanıcı adına bir web hizmetine erişim gerekir. Bu senaryo Openıd Connect aynı anda alınırken hatayla kullanıcı kimlik doğrulaması için bir araya getirir bir `authorization_code` almak için kullanılabilir `access_tokens` OAuth yetkilendirme kodu akışını kullanarak.
 
-## Erişim belirteci alın
+## <a name="get-access-tokens"></a>Erişim belirteci alın
 Erişim belirteci almak için oturum açma isteği üstten değiştirmeniz gerekir:
 
 ```
@@ -198,7 +198,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 İstekte izin kapsamları dahil olmak üzere ve kullanarak `response_type=code+id_token`, `authorize` uç nokta sağlar kullanıcı belirtilen izinleri seçtiği `scope` sorgu parametresi ve uygulamanız için bir erişim belirteci gönderip almak için bir kimlik doğrulama kodu döndürür.
 
-### Başarılı yanıt
+### <a name="successful-response"></a>Başarılı yanıt
 Başarılı yanıt kullanarak `response_mode=form_post` gibi görünüyor:
 
 ```
@@ -215,7 +215,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | Kod |Uygulama istenen authorization_code. Uygulama, hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. Authorization_codes kısa süreli ve genellikle yaklaşık 10 dakika sonra süresi dolacak. |
 | durum |İstekte bir durum parametresi eklenirse, aynı değeri yanıt olarak görünmelidir. Uygulama istek ve yanıt durum değerleri özdeş olduğunu doğrulamanız gerekir. |
 
-### Hata yanıtı
+### <a name="error-response"></a>Hata yanıtı
 Hata yanıtları da gönderilebilir için `redirect_uri` uygulama bunları uygun şekilde işleyebilmesi için:
 
 ```

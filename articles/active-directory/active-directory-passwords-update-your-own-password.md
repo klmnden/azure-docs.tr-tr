@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Yardım, Azure AD parolamı unuttum
+# <a name="reset-your-work-or-school-password"></a>İş veya Okul parolanızı sıfırlama
 
-Parolanızı unuttuysanız, BT personelinizden hiç parola almadıysanız, hesabınız kilitlendiyse veya parolayı değiştirmek istiyorsanız, size yardımcı olabiliriz. Parolanızı biliyor ve yalnızca değiştirmek için bölümüne devam [parolamı Değiştir](#change-my-password) aşağıda.
+Parolanızı unuttuysanız, hiçbir zaman şirket destek birinden alınan, kilitlendiğinden, hesap veya değiştirmek istiyorsanız dışında size yardımcı olabilir. Parolanızı biliyor ve yalnızca değiştirmek için bölümüne devam [parolamı Değiştir](#change-my-password) aşağıda.
 
    > [!NOTE]
    > Xbox, hotmail.com veya outlook.com gibi kişisel hesabınızı kurtarmaya çalışıyorsanız [önerileri bu makaledeki bulundu](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -64,7 +64,7 @@ Biz onu çağırabilir ve hesabınızı geri dönmek istediğiniz kadar Azure AD
    ![Kimlik doğrulama verilerinizi doğrulama][Verification]
 
 4. BT personelinizin daha fazla doğrulamaya ihtiyacı olabilir ve farklı bir seçimle 3. adımı yinelemeniz gerekebilir.
-5. **Yeni parola seçin** sayfasında yeni bir parola girin, parolanızı onaylayın ve **Son**’a tıklayın. Parolanızın 8-16 karakter uzunluğunda olmasını ve büyük/küçük harf karakterleri, sayılar ve özel karakterler içermesini öneririz.
+5. **Yeni parola seçin** sayfasında yeni bir parola girin, parolanızı onaylayın ve **Son**’a tıklayın. İş veya Okul parolanızı belirli gereksinimleri olabilir; Parolanız 8-16 karakter büyük ve küçük harfleri, sayıları ve özel karakterler olabilir öneririz.
 6. **Parolanız sıfırlandı** ifadesini gördüğünüzde, yeni parolanızla oturum açabilirsiniz.
 
     ![Parolanız sıfırlandı][Complete]
@@ -95,6 +95,27 @@ Normalde Azure Erişim Portalı’ndan uygulamalarınıza erişiyorsanız bu yö
 3. **Parolayı değiştir**’e tıklayın
 4. Eski parolanızı girin ve yeni parolanızı ayarlayıp onaylayın ve ardından **Gönder**’e tıklayın
 
+## <a name="reset-password-at-login"></a>Oturum açma sırasında parola sıfırlama
+
+Yöneticiniz işlevselliği etkinleştirilirse, bağlantı şimdi görebilirsiniz **parola sıfırlama** , Windows 10 sonbaharda oluşturucuları güncelleştirme oturum açma ekranında.
+
+![LoginScreen][LoginScreen]
+
+Tıklatarak **parola sıfırlama** bağlantı açılır oturum açma ekranına SSPR deneyimi böylece normal web tabanlı deneyimi erişmek için oturum açmak zorunda kalmadan parolanızı sıfırlayabilirsiniz.
+
+1. Kullanıcı Kimliğinizi doğrulayın ve tıklatın **sonraki**
+2. Seçin ve doğrulama için iletişim yöntemi onaylayın. Daha fazla doğrulama, BT personeliniz gerekebilir ve farklı bir seçenek olan yeniden bu adımı yineleyin gerekebilir.
+
+   ![ContactMethod][ContactMethod]
+
+3. Üzerinde **yeni bir parola oluşturmasını** sayfasında, yeni bir parola girin, parolanızı onaylayın ve ardından **sonraki**. Parolanızın 8-16 karakter uzunluğunda olmasını ve büyük/küçük harf karakterleri, sayılar ve özel karakterler içermesini öneririz.
+
+   ![ResetPassword][ResetPassword]
+
+4. Gördüğünüzde **parolanızı sıfırlama**, tıklatın **son**
+
+Artık hesabınıza erişebiliyor olmalısınız; erişemiyorsanız, kuruluşunuzun BT personelinden daha fazla yardım istemeniz gerekir.
+
 ## <a name="common-problems-and-their-solutions"></a>Ortak sorunlar ve çözümleri
 
  Bazı ortak hata durumları ve bunların çözümleri şunlardır:
@@ -116,3 +137,6 @@ Normalde Azure Erişim Portalı’ndan uygulamalarınıza erişiyorsanız bu yö
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Kimlik doğrulama verilerinizi doğrulayın"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Parolanızı değiştirme"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Parolanız sıfırlandı"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 sonbaharda oluşturucuları güncelleştirme oturum açma ekranı sıfırlama parola bağlantısı"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Kimlik doğrulama verilerinizi doğrulayın"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Parolanızı değiştirme"

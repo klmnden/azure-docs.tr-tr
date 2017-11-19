@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944149746b05108040cd0cc340e882b39713f06e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Öğretici: Azure Active Directory Tümleştirme ön ile
 
@@ -104,66 +104,60 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. Üzerinde **ön etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **IDP** modu tarafından başlatılan:
+3. Üzerinde **ön etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.frontapp.com`
 
     b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.frontapp.com/sso/saml/callback`
-
-4. Denetleme **Göster Gelişmiş URL ayarları**, uygulamada yapılandırmak istiyorsanız **SP** modunda başlatılan:
-
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
-
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si daha sonra öğreticide veya kişi açıklanacak olan bu değerleri güncelleştirmek [ön istemci destek ekibi](mailto:support@frontapp.com) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Gerçek tanımlayıcı ve yanıt URL'si daha sonra öğreticide veya kişi açıklanacak bu değerleri güncelleştirmek [ön istemci destek ekibi](mailto:support@frontapp.com) bu değerleri almak için. 
 
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
-6. Tıklatın **kaydetmek** düğmesi.
+5. Tıklatın **kaydetmek** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. Üzerinde **ön yapılandırma** 'yi tıklatın **yapılandırma ön** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **ön yapılandırma** 'yi tıklatın **yapılandırma ön** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Ön kiracınız yönetici olarak oturum.
+7. Ön kiracınız yönetici olarak oturum.
 
-9. Git **ayarları (dişli simgesine sol kenar) > Tercihler**.
+8. Git **ayarları (dişli simgesine sol kenar) > Tercihler**.
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
-10. Tıklatın **çoklu oturum açma** bağlantı.
+9. Tıklatın **çoklu oturum açma** bağlantı.
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Seçin **SAML** aşağı açılan listesinde **çoklu oturum açma**.
+10. Seçin **SAML** aşağı açılan listesinde **çoklu oturum açma**.
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. İçinde **giriş noktası** textbox değeri put **çoklu oturum açma hizmet URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
+11. İçinde **giriş noktası** textbox değeri put **çoklu oturum açma hizmet URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. İndirilen açmak **Certificate(Base64)** dosyasını Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **imzalama sertifikası** metin kutusu.
+12. İndirilen açmak **Certificate(Base64)** dosyasını Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **imzalama sertifikası** metin kutusu.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Üzerinde **hizmet sağlayıcı ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+13. Üzerinde **hizmet sağlayıcı ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
     a. Değerini kopyalayın **varlık kimliği** ve yapıştırın **tanımlayıcısı** metin kutusuna **ön etki alanı ve URL'leri** Azure portalı bölümünde.
 
-    b. Değerini kopyalayın **ACS URL** ve yapıştırın **oturum açma URL'si** metin kutusuna **ön etki alanı ve URL'leri** Azure portalı bölümünde.
+    b. Değerini kopyalayın **ACS URL** ve yapıştırın **yanıt URL'si** metin kutusuna **ön etki alanı ve URL'leri** Azure portalı bölümünde.
     
-15. Tıklatın **kaydetmek** düğmesi.
+14. Tıklatın **kaydetmek** düğmesi.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)

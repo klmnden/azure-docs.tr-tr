@@ -16,56 +16,57 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: db849cd1e9da634064f79fbc041098542580ad02
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: b65a4e49097828e7cd54a29e814befd2d2ac5d88
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Lisans gereksinimleri için Azure AD Self Servis parola sıfırlama
 
-Azure AD parola sıfırlama işlevi için sırayla, **kuruluşunuzda atanan en az bir Lisansı olmalıdır**. Kullanıcı başına parola sıfırlama deneyimi lisans uygulamaz. Microsoft lisans sözleşmenize ile uyumluluğu korumak için premium özellikleri kullanan kullanıcılara lisans atamanız gerekir.
+Azure Active Directory (Azure AD) parola sıfırlama işlevi için sırayla, *kuruluşunuzda atanan en az bir Lisansı olmalıdır*. Kullanıcı başına parola sıfırlama deneyimi lisans biz zorlamaz. Microsoft lisans sözleşmenize ile uyumluluğu korumak için premium özellikleri kullanan kullanıcılara lisans atamanız gerekir.
 
-* **Yalnızca bulut kullanıcıları** -Office 365 (O365) herhangi bir SKU veya Azure AD temel Ücretli
-* **Bulut** ve/veya **şirket içi kullanıcıların** -Azure AD Premium P1 veya P2, Enterprise Mobility + Security (EMS) veya güvenli üretken Enterprise (Parametreyi)
+* **Yalnızca bulut kullanıcıları**: Office 365 herhangi SKU veya Azure AD temel Ücretli
+* **Bulut** veya **şirket içi kullanıcıların**: Azure AD Premium P1 veya P2, Enterprise Mobility + Security (EMS) veya güvenli üretken Enterprise (Parametreyi)
 
 ## <a name="licenses-required-for-password-writeback"></a>Parola geri yazma için gerekli lisansları
 
-Parola geri yazma özelliğini kullanmak için aşağıdaki lisansları kiracınızda atanmış olması gerekir.
+Parola geri yazma özelliğini kullanmak için aşağıdaki lisansları Kiracı'atanmış olması gerekir:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Microsoft 365 (planı E3)
+* Microsoft 365 (planı E5)
 
 > [!WARNING]
-> Tek başına Office 365 planları lisans **parola geri yazma desteklemeyen** ve bu işlevlerin çalışması önceki planlardan gerektirir.
+> Tek başına Office 365 planları lisans *parola geri yazma desteklemeyen* ve bu işlevlerin çalışması önceki planlardan sahip olması gerekir.
 
-Maliyetleri de dahil olmak üzere ek lisans bilgileri şu sayfalarda bulunabilir.
+Maliyetleri de dahil olmak üzere ek lisans bilgileri şu sayfalarda bulunabilir:
 
-* [Azure Active Directory fiyatlandırma site](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Site fiyatlandırma Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Azure Active Directory özellikleri ve yetenekleri](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Microsoft 365](https://www.microsoft.com/microsoft-365/enterprise)
+* [Microsoft 365 Kurumsal](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Grup veya kullanıcı tabanlı lisans etkinleştirme
 
-Artık Azure AD, Grup tabanlı bir kullanıcılar grubuna toplu lisansları atamak için izin verme Yöneticiler lisans yerine bunları birer birer atama destekler. [Ata, doğrulayın ve lisans sorunları gidermek](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)
+Artık Azure AD, Grup tabanlı lisans destekler. Yöneticiler, bunları birer birer atama yerine kullanıcıların bir gruba toplu lisansları atayabilirsiniz. Daha fazla bilgi için bkz: [atayabilir, doğrulayın ve lisans sorunları gidermek](active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).
 
-Bazı Microsoft Hizmetleri tüm konumlarda kullanılabilir değil. Bir kullanıcıya bir lisans atanması önce yönetici kullanıcıya "Kullanım konumu" özelliği belirtmeniz gerekir. Lisans atama kullanıcı altında yapılabilir > Profil > Azure Portalı'ndaki ayarları. **Grup lisans atamasını kullanırken, belirtilen bir kullanım konumu olmayan tüm kullanıcılar dizininin konumunu devralır.**
+Bazı Microsoft Hizmetleri tüm konumlarda kullanılabilir değil. Yönetici bir kullanıcıya bir lisans atanabilmesi için önce belirtmelidir **kullanım konumu** kullanıcı özelliği. Lisans atama altında yapılabilir **kullanıcı** > **profil** > **ayarları** Azure portalı bölümünde. *Grup lisans atamasını kullandığınızda, belirtilen bir kullanım konumu olmayan tüm kullanıcılar dizininin konumunu devralır.*
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [SSPR başarılı bir sunum nasıl tamamlamak?](active-directory-passwords-best-practices.md)
-* [Sıfırlama veya parolanızı değiştirme](active-directory-passwords-update-your-own-password.md).
-* [Self Servis parola sıfırlama için kaydetme](active-directory-passwords-reset-register.md).
-* [Hangi verilerin SSPR tarafından kullanılır ve hangi verilerin, kullanıcılarınız için doldurmanız gerekir?](active-directory-passwords-data.md)
-* [Hangi kimlik doğrulama yöntemlerinin kullanıcıların var mı?](active-directory-passwords-how-it-works.md#authentication-methods)
-* [SSPR ile ilkesi seçenekleri nelerdir?](active-directory-passwords-policy.md)
-* [Parola geri yazma nedir ve neden t hakkında önemli?](active-directory-passwords-writeback.md)
-* [SSPR etkinliğinde üzerinde nasıl rapor edebilirim?](active-directory-passwords-reporting.md)
-* [Tüm SSPR seçeneklerinde nedir ve ne anlama geldiklerini?](active-directory-passwords-how-it-works.md)
-* [Bir şey bozuk düşünüyorum. SSPR nasıl sorun giderme?](active-directory-passwords-troubleshoot.md)
-* [Herhangi bir yerde else kapsanmayan bir soru sahip](active-directory-passwords-faq.md)
+* [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
+* [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
+* [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
+* [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
+* [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)
+* [Parola geri yazma nedir ve neden önemlidir?](active-directory-passwords-writeback.md)
+* [SSPR’de etkinliği nasıl bildirebilirim?](active-directory-passwords-reporting.md)
+* [SSPR’deki tüm seçenekler nelerdir ve ne anlama gelir?](active-directory-passwords-how-it-works.md)
+* [Bir arıza olduğunu düşünüyorum. SSPR’de nasıl sorun giderebilirim?](active-directory-passwords-troubleshoot.md)
+* [Başka bir yerde ele alınmayan bir sorum var](active-directory-passwords-faq.md)
+

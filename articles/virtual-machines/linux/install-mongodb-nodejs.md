@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Yükleme ve Azure CLI 1.0 kullanarak bir Linux VM üzerinde MongoDB yapılandırın
 [MongoDB](http://www.mongodb.org) bir popüler açık kaynak, yüksek performanslı NoSQL veritabanıdır. Bu makalede Resource Manager dağıtım modelini kullanarak yükleyin ve azure'da bir Linux VM üzerinde MongoDB yapılandırma gösterilmektedir. Örnekleri gösterilir, ayrıntı nasıl için:
@@ -163,7 +163,7 @@ Github'dan aşağıdaki Azure Hızlı Başlangıç şablonu kullanarak karmaşı
 * [MongoDB parçalama CentOS kümede](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> Bu karmaşık MongoDB parçalı Küme dağıtımı, 20'den fazla çekirdek, genellikle varsayılan çekirdek sayısı her bölge için bir abonelik olduğu gerektirir. Çekirdek sayısı artırmak için bir Azure destek isteği açın.
+> Bu karmaşık MongoDB parçalı kümesi dağıtma, 20'den fazla Vcpu, genellikle bir abonelik için bölge başına varsayılan vCPU sayısı olduğu gerektirir. VCPU sayınız artırmak için bir Azure destek isteği açın.
 
 Aşağıdaki örnek, bir kaynak grubu adıyla oluşturur *myResourceGroup* içinde *eastus* bölge. Aşağıdaki gibi kendi değerlerinizi girin:
 

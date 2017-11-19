@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d59ef16de433ac9691f6996eab2bf56f056feb88
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure işlevleri güvenilirliğini ve performansını en iyi duruma getirme
 
@@ -60,14 +60,13 @@ Idempotent işlevleri ile Zamanlayıcı Tetikleyicileri özellikle önerilir. Ke
 1. Bir db 10.000 satır için sorgu.
 2. Bunların her biri için bir kuyruk iletisi oluşturmak daha fazla işlem satırları aşağı satır.
  
-Nasıl karmaşık sisteminize bağlı olarak, size sahip olabilir: hatalı davranmakta söz konusu aşağı akış hizmetleriyle ağ kesintileri veya kota sınırları ulaşıldığında, vb.. Tüm bunların herhangi bir zamanda işlevinizi etkileyebilir. İşlevlerinizi için hazırlanması tasarlamanız gerekir.
+Nasıl karmaşık sisteminize bağlı olarak, size sahip olabilir: hatalı davranmakta söz konusu aşağı akış hizmetleriyle ağ kesintileri veya kota sınırları ulaşıldığında, vb. Tüm bunların herhangi bir zamanda işlevinizi etkileyebilir. İşlevlerinizi için hazırlanması tasarlamanız gerekir.
 
 İşleme kuyruğuna bu öğelerinin 5.000 ekledikten sonra bir hata oluşursa, kodunuzu nasıl tepki vermez? Öğeleri, tamamladığınız kümesindeki izler. Aksi takdirde, bunları yeniden başlattığınızda ekleyebilirsiniz. Bu, iş akışınızı üzerinde ciddi bir etkisi olabilir. 
 
 Bir kuyruk öğesi zaten işlenmiş ise Hayır op olmasını işlevinizi izin verir.
 
-Azure işlevleri platform kullandığınız bileşenleri için zaten sağlanan savunma önlemleri yararlanın. Örneğin, **zarar iletileri işleme** belgelerindeki [Azure depolama kuyruğu tetikler](functions-bindings-storage-queue.md#trigger).
- 
+Azure işlevleri platform kullandığınız bileşenleri için zaten sağlanan savunma önlemleri yararlanın. Örneğin, **zarar iletileri işleme** belgelerindeki [Azure depolama kuyruğu Tetikleyicileri ve bağlamaları](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Aynı işlev uygulaması test ve üretim kodunda bir arada kullanmayın
 
@@ -97,4 +96,3 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 Azure işlevleri Azure App Service kullandığından, ayrıca uygulama hizmeti yönergelerini farkında olmalıdır.
 * [Patterns and Practices HTTP performans iyileştirmeleri](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-

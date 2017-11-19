@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure Tanıtımı
 Microsoft Azure Microsoft'un uygulama için genel bulut platformudur.  Bu makalede bulut ilgili herhangi bir şey tanımadığınız olsa bile bir temel Azure, temelleri anlamak için size hedefidir bilgi işlem.
@@ -77,7 +77,7 @@ Web siteleri ve web uygulamalarını bulutta kişiler yapmak en yaygın özellik
 
 Bu, tam olarak Web Apps sağladıkları olur. Bu işlem modeli API'leri yanı sıra Azure yönetim portalını kullanarak bir yönetilen web ortamı sunar. Var olan bir Web sitesi uygulamasını Web uygulamalarına değişmeden taşıyabilir veya doğrudan bulutta yeni bir tane oluşturabilirsiniz. Bir Web sitesi çalışmaya başladıktan sonra ekleme ya da Yük Dengeleme isteklerini arasında gezinmek için Azure Web Apps güvenmek örneklerini dinamik olarak kaldırın. Azure uygulamaları, Web sitenizin bir sanal makinedeki diğer sitelerle çalıştığı, paylaşılan bir seçeneği ve kendi VM çalıştırmak bir site sağlayan standart bir seçenek sunar. Standart seçeneği ayrıca, gerekirse (güç bilgisayar) örneklerinizi boyutunu artırın olanak tanır.
 
-Geliştirme için Web uygulamaları için ilişkisel depolama .NET, PHP, Node.js, Java ve Python SQL veritabanı ve MySQL'den (ClearDB, bir Microsoft iş ortağı) ile birlikte destekler. WordPress, Joomla ve Drupal gibi çeşitli popüler uygulamalar için yerleşik destek de sağlar. Hedef, genel bulut ortamında Web siteleri ve web uygulamaları oluşturmak için düşük maliyetli, ölçeklenebilir ve kapsamlı ve kullanışlı bir platform sağlamaktır.
+Geliştirme için Web Apps .NET, PHP, Node.js, Java ve Python birlikte SQL Database ve Azure veritabanı için MySQL ilişkisel depolama için destekler. WordPress, Joomla ve Drupal gibi çeşitli popüler uygulamalar için yerleşik destek de sağlar. Hedef, genel bulut ortamında Web siteleri ve web uygulamaları oluşturmak için düşük maliyetli, ölçeklenebilir ve kapsamlı ve kullanışlı bir platform sağlamaktır.
 
 **Web uygulamaları senaryoları**
 

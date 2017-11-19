@@ -4,7 +4,7 @@ description: "Azure AD etki alanı Hizmetleri için sorun giderme kılavuzu"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD etki alanı Hizmetleri - sorun giderme kılavuzu
 Bu makale, ayarlama veya Azure Active Directory (AD) etki alanı Hizmetleri yönetme karşılaşabileceğiniz sorunları için sorun giderme ipuçları sağlar.
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Azure AD dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştirilemiyor
-Bu bölümde, Azure AD etki alanı Hizmetleri dizininiz için etkinleştirmek üzere deneyin ve başarısız ya da geri 'devre dışı' yükseğe hatalarında sorun giderme yardımcı olur.
+Bu bölümde, dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştirmeye çalıştığınızda hatalarında sorun giderme yardımcı olur.
 
 Karşılaştığınız hata iletisine karşılık gelen sorun giderme adımları seçin.
 
@@ -81,7 +81,7 @@ Uygulamayı bulun ve silmek için aşağıdaki PowerShell betiğini kullanın.
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 
@@ -151,7 +151,7 @@ Bir veya daha fazla kullanıcı Azure AD kiracınızda yeni oluşturulan yöneti
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Kullanıcı Azure AD kiracınıza kaldırıldı, yönetilen etki alanınızdan kaldırılmaz
 Azure AD kullanıcı nesnelerinin yanlışlıkla silinmesine karşı sizi korur. Azure AD kiracınızdan bir kullanıcı hesabı sildiğinizde, buna karşılık gelen kullanıcı nesnesi Geri Dönüşüm Kutusu’na taşınır. Bu silme işlemi, yönetilen etki alanınıza eşitlendiğinde, karşılık gelen kullanıcı hesabı devre dışı olarak işaretlenmiş neden olur. Bu özellik, kurtarabilir veya daha sonra kullanıcı hesabını silmeyi geri al yardımcı olur.
 
-Bir kullanıcı hesabıyla aynı UPN Azure AD dizininizi yeniden oluşturursanız bile, kullanıcı hesabının, yönetilen etki alanınız devre dışı durumda kalır. Kullanıcı hesabının, yönetilen etki alanından kaldırmak için zorlamanız gerekir Azure AD kiracınıza silin.
+Bir kullanıcı hesabıyla aynı UPN Azure AD dizininizi yeniden oluşturursanız bile, kullanıcı hesabının, yönetilen etki alanınız devre dışı durumda kalır. Kullanıcı hesabının, yönetilen etki alanından kaldırmak için zorla Azure AD kiracınıza silmeniz gerekir.
 
 Kullanıcı, kullanıcı hesabına tam olarak yönetilen etki alanından kaldırmak için Azure AD kiracınıza kalıcı olarak sil. Bu [MSDN makalesinde](https://msdn.microsoft.com/library/azure/dn194132.aspx) açıklandığı gibi Remove-MsolUser PowerShell cmdlet’ini '-RemoveFromRecycleBin' seçeneğiyle kullanın.
 

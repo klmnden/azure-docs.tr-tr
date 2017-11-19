@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17ff07648b210fe207b514381e98dd372375e092
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Öğretici: Çözümleme GmbH Jira için SAML SSO Azure Active Directory Tümleştirmesi
 
@@ -159,27 +159,53 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
 
-14. Üzerinde **SAML SingleSignOn eklentisi yapılandırma** sayfasında, **ek kimlik sağlayıcısı ekleyin** düğmesi kimlik sağlayıcısı ayarlarını yapılandırın.
+14. Üzerinde **SAML SingleSignOn eklentisi yapılandırma** sayfasında, **yeni IDP eklemek** kimlik sağlayıcısı ayarlarını yapılandırmak için düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
 
-15. Bu sayfada şu adımları gerçekleştirin:
+15. Üzerinde **SAML kimlik sağlayıcısı seçin** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon5.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon5a.png)
  
-    a. Ekleme **adı** kimlik sağlayıcısı (örneğin Azure AD).
+    a. Ayarlama **Azure AD** IDP türü.
     
-    b. Ekleme **açıklama** kimlik sağlayıcısı (örneğin Azure AD).
+    b. Ekleme **adı** kimlik sağlayıcısı (örneğin Azure AD).
+    
+    c. Ekleme **açıklama** kimlik sağlayıcısı (örneğin Azure AD).
+    
+    d. **İleri**’ye tıklayın.
+    
+16. Üzerinde **kimlik sağlayıcı Yapılandırması** sayfasında, **sonraki** düğmesi.
 
-    c. Tıklatın **XML** seçip **meta veri** Azure Portalı'ndan indirilen dosya.
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon5b.png)
 
-    d. Tıklatın **yük** düğmesi.
+17. Üzerinde **meta verileri içeri aktarma SAML IDP** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    e. IDP meta verileri okur ve alanları ekran görüntüsünde vurgulanmış şekilde doldurur. 
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon5c.png)
 
-16. ' I tıklatın **ayarlarını kaydetmek** düğmesini tıklatarak ayarları kaydedin.
+    a. Tıklatın **yükleme dosyası** düğmesini tıklatın ve 5. adımda indirdiğiniz meta veri XML dosyası seçin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon6.png)
+    b. Tıklatın **alma** düğmesi.
+    
+    c. İçeri aktarma başarılı olana kadar kısa bir süre bekleyin.
+    
+    d. Tıklatın **sonraki** düğmesi.
+    
+18. Üzerinde **kullanıcı kimliği öznitelik ve dönüşüm** sayfasında, **sonraki** düğmesi.
+
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon5d.png)
+    
+19. Üzerinde **kullanıcı oluşturma ve güncelleştirme** sayfasında, **İleri & Kaydet** ayarlarını kaydetmek için.   
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon6a.png)
+    
+20. Üzerinde **ayarlarınızı sınama** sayfasında, **Atla test & el ile yapılandırmanız** kullanıcı test şimdilik atlamak için. Bu, sonraki bölümde gerçekleştirilir ve Azure portalındaki bazı ayarları gerektirir. 
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon6b.png)
+    
+21. Apprearing iletişim okumada **test anlamına gelir atlanıyor...** , tıklatın **Tamam**.
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-samlssojira-tutorial/addon6c.png)
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)

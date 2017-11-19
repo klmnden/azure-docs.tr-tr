@@ -1,41 +1,38 @@
 ---
-title: "Kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulama için yapılandırma | Microsoft Docs"
-description: "Bu öğretici kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulama için nasıl yapılandırılacağı açıklanmaktadır."
-keywords: 
+title: "Kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API'sini çağırmak özel bir uygulama için nasıl yapılandırılacağı | Microsoft Docs"
+description: "Bu makalede, kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulama için nasıl yapılandırılacağı açıklanmaktadır."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: dmdenmsft
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: a1d364b0dcb70998b390d0d96bcd1e439617e493
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Kimlik doğrulama ve yetkilendirme Azure zaman serisi Insights API'si
 
-Bu makalede Azure zaman serisi Öngörüler API çağrılarının özel bir uygulamasının nasıl yapılandırılacağını açıklar.
+Bu makalede, kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulamada kullanılan nasıl yapılandırılacağı açıklanmaktadır.
 
 ## <a name="service-principal"></a>Hizmet sorumlusu
 
-Bu bölümde, uygulama adına zaman serisi Insights API'si erişmek için bir uygulama yapılandırma açıklanmaktadır. Uygulama sonra verileri sorgulamak veya uygulama kimlik bilgileri ve kullanıcı kimlik bilgilerini değil zaman serisi Öngörüler ortamında başvuru veri yayımlama.
+Bu bölümde, uygulama adına zaman serisi Insights API'si erişmek için bir uygulama yapılandırma açıklanmaktadır. Uygulama sonra verileri sorgulamak veya kullanıcı kimlik bilgilerini yerine uygulama kimlik bilgileri ile zaman serisi Öngörüler ortamında başvuru veri yayımlama.
 
-Gerektiren bir uygulamaya erişim zaman serisi Öngörüler varsa, Azure Active Directory Uygulama ayarlama ve veri erişimi ilkelerini zaman serisi Öngörüler ortamında atamanız gerekir. Bu yaklaşım, çünkü uygulama kendi kimlik bilgileri altında çalışırken için tercih edilir:
+Erişim zaman serisi Öngörüler gerekir bir uygulamanız varsa, Azure Active Directory Uygulama ayarlama ve veri erişimi ilkelerini zaman serisi Öngörüler ortamında atamanız gerekir. Bu yaklaşım, çünkü uygulama kendi kimlik bilgileri altında çalışırken için tercih edilir:
 
-* Kendi izinlerinin farklı uygulama kimliği için izinleri atayabilirsiniz. Genellikle, bu izinleri tam olarak hangi uygulama yapması gereken için kısıtlanır. Örneğin, yalnızca belirli bir zaman serisi Öngörüler ortamda verileri okumak uygulama izin verebilirsiniz.
+* Kendi izinlerinin farklı uygulama kimliği için izinleri atayabilirsiniz. Genellikle, bu izinler hangi uygulamanın yalnızca gerektirdiğini için kısıtlanır. Örneğin, yalnızca belirli bir zaman serisi Öngörüler ortamda verileri okumak uygulama izin verebilirsiniz.
 * Sizin Sorumluluklarınız değiştirirseniz uygulamanın kimlik bilgilerini değiştirmek zorunda değilsiniz.
 * Katılımsız betik çalışırken kimlik doğrulaması otomatikleştirmek için bir sertifika veya bir uygulama anahtarı kullanın.
 
-Bu makalede Azure Portalı aracılığıyla bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluşta çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle, kuruluşunuzda çalıştırmak satır iş kolu uygulamaları için tek Kiracı uygulamaları kullanın.
+Bu konu Azure Portalı aracılığıyla bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluşta çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle, kuruluşunuzda çalıştırmak satır iş kolu uygulamaları için tek Kiracı uygulamaları kullanın.
 
 Kurulum akışında üç üst düzey adımları içerir:
 
@@ -102,11 +99,11 @@ Ayrıntılı adımlar şunlardır:
     string accessToken = token.AccessToken;
     ```
 
+Uygulama kimliği ve anahtarı uygulamanızın Azure zaman serisi Insight ile kimlik doğrulaması yapmak için kullanın. 
+
 ## <a name="next-steps"></a>Sonraki adımlar
+- Zaman serisi Öngörüler API çağrılarının örnek kod için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
+- API başvuru bilgileri için bkz: [sorgu API Başvurusu](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 
-Uygulama kimliği ve anahtarı uygulamanızda kullanın. Zaman serisi Öngörüler API çağrılarının örnek kod için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
-
-## <a name="see-also"></a>Ayrıca bkz.
-
-* [Sorgu API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) için tam sorgu API Başvurusu
-* [Azure portalında bir hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+> [!div class="nextstepaction"]
+> [Hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)

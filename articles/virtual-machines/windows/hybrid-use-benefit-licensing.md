@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/02/2017
+ms.date: 11/13/2017
 ms.author: kmouss
-ms.openlocfilehash: d47b8ab2cd6391e937fe7f9ba6eded3b89fe2c40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure Hibrit Teklifi
-Yazılım Güvencesi ile müşteriler için Windows Server için Azure karma avantajı, şirket içi Windows Server lisanslarınızı kullanın ve Windows sanal makineleri Azure üzerinde sınırlı bir ücret çalıştırmak olanak sağlar. Windows Server için Azure karma avantajı herhangi yeni sanal makineleri dağıtmak için kullanabileceğiniz Azure desteklenen platform Windows Server görüntüsü veya Windows özel görüntüler. SQL Server veya üçüncü taraf Market görüntülerini gibi ek yazılımı ile görüntü olmadıktan sürece. Bu makalede Windows Server için Azure karma avantajı olan yeni VM'ler dağıtımı adımlarının gider. Windows Server için Azure karma Avantajı hakkında daha fazla bilgi için bkz: Lisans ve maliyet tasarrufu [Windows Server için Azure karma avantajı lisans sayfası](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Yazılım Güvencesi ile müşteriler için Windows Server için Azure karma avantajı, şirket içi Windows Server lisanslarınızı kullanın ve Windows sanal makineleri Azure üzerinde sınırlı bir ücret çalıştırmak olanak sağlar. Windows Server için Azure karma avantajı herhangi yeni sanal makineleri dağıtmak için kullanabileceğiniz Azure desteklenen platform Windows Server görüntüsü veya Windows özel görüntüler. Bu makalede Windows Server için Azure karma avantajı olan yeni VM'ler dağıtma ve nasıl varolan güncelleştirebilirsiniz adımları üzerinden VM'ler çalıştıran gider. Windows Server için Azure karma Avantajı hakkında daha fazla bilgi için bkz: Lisans ve maliyet tasarrufu [Windows Server için Azure karma avantajı lisans sayfası](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 > [!IMPORTANT]
 > Kurumsal Anlaşma Azure Market'te sahip müşteriler için yayımlanan eski '[HUB]' Windows Server görüntülerinin, 11/9/2017 sürümünden itibaren kullanımdan, standart Windows Server için Azure karma avantajı Portal'daki "Para Kaydet" seçeneğiyle kullanın Windows Server. Daha fazla bilgi için lütfen bu başvurun [makalesi.](https://support.microsoft.com/en-us/help/4036360/retirement-azure-hybrid-use-benefit-images-for-ea-subscriptions)
 >
 
 > [!NOTE]
-> Azure karma avantajı için Windows Server, SQL Server ya da herhangi bir üçüncü taraf Market görüntülerini gibi ek yazılım için ücretlendirilirsiniz VM ile birlikte kullanılamaz. 409 hata gibi alın: 'LicenseType değeri' izin verilmiyor; özelliğini değiştirme Maliyet ek yazılım olan bir Windows Server VM dönüştürmeye çalışırsanız. 
+> SQL Server ya da herhangi bir üçüncü taraf Market görüntülerini gibi ek yazılım için ücretlendirilirsiniz VM ile birlikte Windows Server için Azure karma avantajı kullanarak alınmakta. 409 hata gibi alırsanız: 'LicenseType değeri' izin verilmiyor; özelliğini değiştirme ardından Dönüştür veya yeni bir Windows Server, bu bölgede desteklenmiyor olabilir maliyeti, ek yazılım sahip VM dağıtmak çalışıyorsunuz.
 >
 
 
@@ -42,10 +42,11 @@ Azure karma avantajı ile Windows sanal makineleri kullanmak için birkaç yolu 
 
 1. Sağlanan birinden VM'ler dağıtabilirsiniz [Azure Marketi Windows Server görüntülerinde](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
 2. Yapabilecekleriniz [özel bir VM karşıya](#upload-a-windows-vhd) ve [Resource Manager şablonunu kullanarak dağıtın](#deploy-a-vm-via-resource-manager) veya [Azure PowerShell](#detailed-powershell-deployment-walkthrough)
+3. Geçiş ve Azure karma avantajı ile çalışan arasında var olan VM dönüştürebilir veya Windows Server için isteğe bağlı maliyet ödeme
 4. Ayrıca, Windows Server için Azure karma avantajı ile ayarlamak yeni bir sanal makine ölçek dağıtabilirsiniz
 
 > [!NOTE]
-> Şu anda bir varolan sanal makine ya da Windows Server için Azure karma avantajı kullanacak şekilde sanal makine ölçek dönüştürme desteklenmiyor
+> Windows Server için Azure karma avantajı kullanmak üzere ayarlanmış var olan bir sanal makine ölçek dönüştürme desteklenmiyor
 >
 
 ## <a name="deploy-a-vm-from-a-windows-server-marketplace-image"></a>Bir Windows Server Market görüntüsünden bir VM'yi dağıtmak
@@ -61,6 +62,26 @@ Adımlarını izleyin [PowerShell ile Windows sanal makine oluşturma](#https://
 
 ### <a name="portal"></a>Portal
 Adımlarını izleyin [Azure portalı ile Windows sanal makine oluşturma](#https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) ve var olan Windows Server lisansınızı kullanma seçeneğini seçin.
+
+## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure karma avantajı kullanarak mevcut bir VM'yi Dönüştür
+Windows Server için Azure karma avantajı yararlanmak için dönüştürmek istediğiniz mevcut bir VM'yi varsa, VM lisans türü aşağıdaki gibi güncelleştirebilirsiniz:
+
+### <a name="convert-to-using-azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure karma avantajı kullanmaya Dönüştür
+```powershell
+$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+```
+
+### <a name="convert-back-to-pay-as-you-go"></a>İşlemlere devam ederken geri ödeme Dönüştür
+```powershell
+$vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+```
+
+### <a name="portal"></a>Portal
+VM dikey portaldan Azure karma fayda "Yapılandırma" seçeneğini belirleyerek kullanmak için VM güncelleştirin ve "Azure karma fayda" seçeneğini Değiştir
 
 ## <a name="upload-a-windows-server-vhd"></a>Windows Server VHD karşıya yükle
 Windows Server VM azure'da dağıtmak için önce temel Windows yapınızın içeren bir VHD oluşturmanız gerekir. Azure için karşıya yüklemeden önce bu VHD Sysprep uygun şekilde hazırlanması gerekir. Yapabilecekleriniz [Sysprep işlemi ve VHD gereksinimleri hakkında daha fazla](upload-generalized-managed.md) ve [sunucu rolleri için Sysprep desteği](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). VM yedeklemesi, Sysprep çalıştırılmadan önce yedekleyin. 
@@ -78,7 +99,6 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 
 Ayrıca daha fazla hakkında bilgiyi [VHD için Azure işlem karşıya yükleme](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)
-
 
 ## <a name="deploy-a-vm-via-resource-manager-template"></a>Resource Manager şablonu aracılığıyla bir VM'yi dağıtmak
 Resource Manager şablonlarınızı, ek bir parametre içinde `licenseType` belirtilmesi gerekir. Daha fazla bilgi edinebilirsiniz [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md). Azure'a karşıya, VHD olduktan sonra lisans türü işlem sağlayıcısı bir parçası olarak dahil edin ve normal olarak, şablonunuzu dağıtmak için Resource Manager şablonunu düzenleyin:
@@ -100,7 +120,6 @@ New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -
 ```
 
 Daha açıklayıcı bir kılavuzu için farklı adımlar okuyabilirsiniz [Resource Manager ve PowerShell kullanarak bir Windows VM oluşturma](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 
 ## <a name="verify-your-vm-is-utilizing-the-licensing-benefit"></a>VM lisans avantajı kullanılarak doğrulayın
 PowerShell, Resource Manager şablonu veya portal aracılığıyla, VM dağıttıktan sonra lisans türü ile doğrulayabilirsiniz `Get-AzureRmVM` gibi:
@@ -161,7 +180,9 @@ foreach ($vm in $vms) {"VM Name: " + $vm.Name, "   Azure Hybrid Benefit for Wind
 Ayrıca [oluşturma ve bir sanal makine ölçek kümesi dağıtma](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) ve LicenseType değeri özelliğini ayarlayın
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinin [Windows Server için Azure karma avantajı lisans](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Daha fazla bilgi edinin [Azure karma avantajı paradan tasarruf etme](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+
+Daha fazla bilgi edinmek [ayrıntılı kılavuz lisans Windows Server için Azure karma avantajı](http://go.microsoft.com/fwlink/?LinkId=859786)
 
 Daha fazla bilgi edinmek [Resource Manager şablonları kullanarak](../../azure-resource-manager/resource-group-overview.md).
 

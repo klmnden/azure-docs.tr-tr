@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: grafik API'si, .NET geliştirin
 Azure Cosmos DB Microsoft'un Genel dağıtılmış birden çok model veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
@@ -53,7 +53,6 @@ Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.
 
 > [!TIP]
 > * Zaten Azure Cosmos DB hesabınız var mı? Bu durumda, İleri için atlayabilirsiniz [, Visual Studio çözümü ayarlama](#SetupVS)
-> * Bir Azure DocumentDB hesabına sahip miydiniz? Bu nedenle, hesabınızı şimdi bir Azure Cosmos DB hesabı ise ve size atlayabilirsiniz [, Visual Studio çözümü ayarlama](#SetupVS).  
 > * Azure Cosmos DB öykünücüsü kullanıyorsanız, lütfen bölümündeki adımları izleyin [Azure Cosmos DB öykünücüsü](local-emulator.md) öykünücü kurulması ve için İleri atlayabilirsiniz [, Visual Studio çözümünü kurmak](#SetupVS). 
 >
 > 
@@ -86,7 +85,7 @@ Azure portalında Azure Cosmos DB hesabınıza gidin, tıklatın **anahtarları*
 
 URI Portal'dan kopyalayın ve üzerinden yapıştırın `Endpoint` yukarıdaki uç nokta özelliğinde. Ardından portaldan birincil anahtarı kopyalayın ve yapıştırın `AuthKey` yukarıdaki özelliği. 
 
-! [C# uygulaması oluşturmak için Öğreticisi tarafından kullanılan Azure portal ekran görüntüsü. Bir Azure Cosmos DB hesap ANAHTARLAR düğmesi üzerinde Azure Cosmos DB Gezinti vurgulanmış ve anahtarlar dikey penceresinde URI ve birincil anahtar değerleri gösterir] [Anahtarları] 
+![Bir C# uygulaması oluşturmak için Öğreticisi tarafından kullanılan Azure portal ekran görüntüsü. ANAHTARLAR düğmesi üzerinde Azure Cosmos DB Gezinti vurgulanmış ve anahtarlar dikey penceresinde URI ve birincil anahtar değerleri gösterir bir Azure Cosmos DB hesabı](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>DocumentClient örneği 
 Ardından, yeni bir örneğini oluşturun **DocumentClient**.  
@@ -271,7 +270,7 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanara
 1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın. 
 2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, aşağıdakileri yaptığınızdan:
 

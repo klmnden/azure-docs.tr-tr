@@ -20,8 +20,6 @@
       items:
         - name: Depolama seçenekleri
           href: r-server-storage.md
-        - name: R Studio’yu yükleme
-          href: r-server-install-r-studio.md
         - name: İşlem bağlamı
           href: r-server-compute-contexts.md
         - name: ScaleR ve SparkR
@@ -116,9 +114,6 @@
           maintainContext: true
         - name: Kullanıcıları Ambari Views için yetkilendirme
           href: ../hdinsight-authorize-users-to-ambari.md
-          maintainContext: true
-        - name: Dosya ve klasör düzeyinde kullanıcı izinlerini yönetme
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
           maintainContext: true
     - name: Yönet
       items:

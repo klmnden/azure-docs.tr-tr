@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple Cihazınızda güncelleştirme 5 yükleyin
 
@@ -29,6 +29,7 @@ Bu öğretici, Azure portalı üzerinden önceki yazılım sürümleri çalışt
 Güncelleştirme 5 içerir aygıt yazılımı, Storport ve Spaceport, işletim sistemi güvenlik güncelleştirmelerini ve işletim sistemi güncelleştirmelerini ve disk Bellenim güncelleştirmeleri.  Aygıt yazılımı, Spaceport, Storport, güvenlik ve diğer işletim sistemi güncelleştirmelerini benzer güncelleştirmelerdir. Benzer olmayan veya normal güncelleştirme düzeltme yöntemle veya Azure Portalı aracılığıyla uygulanabilir. Disk Bellenim güncelleştirmeleri kesintiye uğratan güncelleştirmelerin ve cihaz cihazın Windows PowerShell arabirimini kullanarak düzeltme yöntemle bakım modunda olduğunda uygulanır.
 
 > [!IMPORTANT]
+> * Güncelleştirme 5 zorunlu bir güncelleştirme ve hemen yüklenmesi gerekir. Daha fazla bilgi için bkz: [güncelleştirme 5 sürüm notları](storsimple-update5-release-notes.md).
 > * Elle ve otomatik ön denetimleri kümesini donanım durumu ve ağ bağlantısı bakımından cihaz durumunu belirlemek için yükleme öncesinde gerçekleştirilir. Azure portalından güncelleştirmeleri uygularsanız, bu ön denetimleri gerçekleştirilir.
 > * Güncelleştirme 3'den önceki sürümleri çalıştıran bir cihazda güncelleştirirken düzeltme yöntemi kullanarak güncelleştirmeleri yüklemeniz önerilir. Herhangi bir sorunla karşılaşırsanız [bir destek bileti oturum](storsimple-8000-contact-microsoft-support.md).
 > * Yazılım ve diğer düzenli güncelleştirmeler Azure Portalı aracılığıyla yüklemenizi öneririz. Portalda güncelleştirme öncesi ağ geçidi denetimi başarısız olursa (güncelleştirmeleri yüklemek için) cihazın Windows PowerShell arabirimine yalnızca gitmeniz gerekir. Gelen güncelleştirdiğiniz sürümüne bağlı olarak, güncelleştirmeleri 4 saat sürebilir (veya daha büyük) yüklemek için. Bakım modu güncelleştirmeleri aygıtı Windows PowerShell arabirimi yüklenmesi gerekir. Bakım modu kesintiye uğratan güncelleştirmelerdir gibi bu cihazınız için aşağı zaman sonuçlanır.
@@ -74,19 +75,19 @@ Düzeltme yöntemi aşağıdaki üç adımdan oluşur:
 
 Karşıdan yükle ve önceden belirlenen sırasını ve önerilen klasörlerinde aşağıdaki düzeltmeleri yüklemeniz gerekir:
 
-| Sırası | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükleyin|
+| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükleyin|
 | --- | --- | --- | --- | --- | --- |
 | 1. |KB4037264 |Yazılım güncelleştirmesi<br> Her ikisi de karşıdan _HcsSfotwareUpdate.exe_ ve _CisMSDAgent.exe_ |Normal <br></br>Olmayan kesintiye uğratan |~ 25 dakika |FirstOrderUpdate|
 
 Güncelleştirme 4 çalıştıran bir CİHAZDAN güncelleştirme, yalnızca işletim sistemi toplu güncelleştirmeler ikinci sipariş güncelleştirmeleri yüklemeniz gerekir.
 
-| Sırası | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükleyin|
+| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükleyin|
 | --- | --- | --- | --- | --- | --- |
 | 2A. |KB4025336 |İşletim sistemi toplu güncelleştirmeler paketi <br> Windows Server 2012 R2 sürümünü karşıdan yükleyin |Normal <br></br>Olmayan kesintiye uğratan |- |SecondOrderUpdate|
 
 Güncelleştirme 3'ü çalıştıran bir aygıttan yükleme veya önceki sürümleri, aşağıdaki yanı sıra toplu güncelleştirmeleri yükleyin.
 
-| Sırası | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükleyin|
+| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati |Klasöre yükleyin|
 | --- | --- | --- | --- | --- | --- |
 | 2B. |KB4011841 <br> KB4011842 |LSI sürücü ve bellenim güncelleştirmeleri <br> USM bellenim güncelleştirme (sürüm 3,38) |Normal <br></br>Olmayan kesintiye uğratan |~ 3 saat <br> (2A içerir. + 2B. + 2 C.)|SecondOrderUpdate|
 | 2 C |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |İşletim sistemi güvenlik güncelleştirmeleri paketi <br> Windows Server 2012 R2 sürümünü karşıdan yükleyin |Normal <br></br>Olmayan kesintiye uğratan |- |SecondOrderUpdate|
@@ -95,7 +96,7 @@ Güncelleştirme 3'ü çalıştıran bir aygıttan yükleme veya önceki sürüm
 
 Önceki tabloda gösterilen tüm güncelleştirmeleri üstünde disk Bellenim güncelleştirmeleri yüklemeniz gerekebilir. Disk Bellenim güncelleştirmeleri çalıştırarak gerekmediğini doğrulayabilirsiniz `Get-HcsFirmwareVersion` cmdlet'i. Bu bellenim sürümleri çalıştırıyorsanız: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, sonra da bu güncelleştirmeleri yüklemek gerekmez.
 
-| Sırası | KB | Açıklama | Güncelleştirme türü | Yükleme saati | Klasöre yükleyin|
+| Sıra | KB | Açıklama | Güncelleştirme türü | Yükleme saati | Klasöre yükleyin|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Disk bellenim |Bakım <br></br>Kesintiye uğratan |~ 30 dakika | ThirdOrderUpdate |
 

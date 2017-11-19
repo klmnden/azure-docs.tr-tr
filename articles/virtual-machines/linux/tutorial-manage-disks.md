@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 882446ba32252490e27056c7c5c9a8f755e26ee6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Azure CLI ile Azure diskleri yönetme
 
@@ -61,7 +61,7 @@ Bir Azure sanal makine oluşturulduğunda, iki disk otomatik olarak sanal makine
 
 ## <a name="azure-data-disks"></a>Azure veri diski
 
-Uygulama yükleme ve verilerini depolamak için ek veri disklerinin eklenebilir. Veri diskleri sağlam ve esnek veri depolama burada istenen herhangi bir durumda kullanılmalıdır. Her veri diski 1 terabayttan küçük maksimum kapasitesine sahiptir. Kaç tane veri diskleri için bir VM eklenebilecek sanal makine boyutunu belirler. Her VM çekirdek için iki veri diskleri eklenebilir. 
+Uygulama yükleme ve verilerini depolamak için ek veri disklerinin eklenebilir. Veri diskleri sağlam ve esnek veri depolama burada istenen herhangi bir durumda kullanılmalıdır. Her veri diski 1 terabayttan küçük maksimum kapasitesine sahiptir. Kaç tane veri diskleri için bir VM eklenebilecek sanal makine boyutunu belirler. Her VM vCPU için iki veri diskleri eklenebilir. 
 
 ### <a name="max-data-disks-per-vm"></a>VM başına en fazla veri diski
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>XML dönüşümler ile Kurumsal tümleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -50,6 +50,11 @@ Dönüşüm/map tümleştirme hesabınızda yükledikten sonra bir mantıksal uy
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Seçin **XML dönüştürme** eylem   
 6. XML'in **içerik** , dönüştüren. HTTP isteği aldığınız herhangi bir XML veri kullanabilirsiniz **içerik**. Bu örnekte, mantıksal uygulama tetiklenen HTTP istek gövdesi seçin.
+
+   > [!NOTE]
+   > Emin olmak için içeriği **XML dönüştürme** XML. İçerik XML biçiminde değil veya base64 ile kodlanmış, içeriği işleyen bir ifade belirtmeniz gerekir. Örneğin, kullanabileceğiniz [işlevleri](logic-apps-workflow-definition-language.md#functions)gibi ```@base64ToBinary``` içerik kod çözme veya ```@xml``` içeriği XML olarak işlemek için.
+ 
+
 7. Adını seçin **harita** dönüştürme gerçekleştirmek için kullanmak istediğiniz. Harita zaten tümleştirme hesabınız olması gerekir. Bir önceki adımda, zaten haritanızı içeren tümleştirme hesabınıza mantığı uygulama erişimi vermiş.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Çalışmanızı kaydedin  

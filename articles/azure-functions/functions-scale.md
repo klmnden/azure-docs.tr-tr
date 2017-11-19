@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure işlevleri barındırma planları karşılaştırma
 
-## <a name="introduction"></a>Giriş
-
 Azure işlevlerinin iki farklı modda çalıştırabilirsiniz: Tüketim planı ve Azure uygulama hizmeti planı. Kodunuzu çalışıyorsa, çıkışı yükü işlemek için gerekli olan ölçeklendirir ve kod çalışmadığı zaman sonra ölçeklendirir tüketim planı otomatik olarak işlem gücü ayırır. Bu nedenle, boşta VM'ler için ödeme gerekmez ve yedek kapasite önceden gerekmez. Bu makalede tüketim plan üzerinde odaklanan bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) uygulama modeli. Uygulama hizmeti planı nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+>[!NOTE]  
+> Linux barındırma şu anda yalnızca bir uygulama hizmeti plan üzerinde kullanılabilir.
 
 Azure işlevleriyle alışık değilseniz, bkz: [Azure işlevlerine genel bakış](functions-overview.md).
 
@@ -55,7 +56,7 @@ Tüketim plan barındırma planı varsayılandır ve aşağıdaki avantajları s
 
 ## <a name="app-service-plan"></a>App Service planı
 
-Uygulama hizmeti planında işlevi uygulamalarınızı özel VM'ler temel, standart, Premium ve yalıtılmış SKU'ları, Web Apps, API uygulamaları ve mobil uygulamaları için benzer üzerinde çalıştırın. Ayrılmış sanal işlevleri ana her zaman çalışan anlamına gelir, uygulama hizmeti uygulamalarınız için ayrılır.
+Uygulama hizmeti planında işlevi uygulamalarınızı özel VM'ler temel, standart, Premium ve yalıtılmış SKU'ları, Web Apps, API uygulamaları ve mobil uygulamaları için benzer üzerinde çalıştırın. Ayrılmış sanal işlevleri ana her zaman çalışan anlamına gelir, uygulama hizmeti uygulamalarınız için ayrılır. Uygulama hizmeti planları Linux destekler.
 
 Aşağıdaki durumlarda bir uygulama hizmeti planı göz önünde bulundurun:
 - Diğer uygulama hizmet örneği zaten çalıştıran var olan, az VM'ye sahip.
@@ -63,12 +64,13 @@ Aşağıdaki durumlarda bir uygulama hizmeti planı göz önünde bulundurun:
 - Tüketim plan üzerinde sağlanan değerinden daha fazla CPU veya bellek seçenekleri gerekir.
 - Tüketim planı (10 dakika) üzerinde izin verilen en fazla yürütme süresini daha uzun çalıştırmanız gerekir.
 - Uygulama hizmeti ortamı VNET/VPN bağlantısı ve daha büyük VM boyutları için destek gibi bir uygulama hizmeti planı yalnızca kullanılabilen özellikleri gerektirir. 
+- Linux'ta işlevi uygulamanızı çalıştırmak istediğiniz veya işlevlerinizi çalıştırmak için özel bir görüntü sağlamak istiyorsunuz.
 
 VM maliyet dizi yürütmeleri, yürütme zamanı ve kullanılan bellek ayırır. Sonuç olarak, en fazla tahsis VM örneği maliyetini ücret ödersiniz olmaz. Uygulama hizmeti planı nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 Bir uygulama hizmeti planı ile elle çıkışı daha fazla VM örnekleri ekleyerek ölçeklendirebilirsiniz veya otomatik ölçeklendirme etkinleştirebilirsiniz. Daha fazla bilgi için bkz: [örnek sayısı el ile veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Aynı zamanda farklı bir uygulama hizmeti planı seçerek ölçeği artırabilirsiniz. Daha fazla bilgi için bkz: [Azure bir uygulamada ölçeklendirin](../app-service/web-sites-scale.md). 
 
-Bir uygulama hizmeti planı JavaScript işlevleri çalıştırmayı planlıyorsanız, daha az çekirdeğe sahip bir plan seçmeniz gerekir. Daha fazla bilgi için bkz: [işlevleri için JavaScript başvurusu](functions-reference-node.md#choose-single-core-app-service-plans).  
+Bir uygulama hizmeti planı JavaScript işlevleri çalıştırmayı planlıyorsanız, daha az Vcpu'lar sahip bir plan seçmeniz gerekir. Daha fazla bilgi için bkz: [seçin tek çekirdek uygulama hizmeti planları](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +95,7 @@ Barındırma planı tüketimini kullandığınızda işlevi kod dosyaları Azure
 > [!NOTE]
 > Tüketim plan üzerinde bir blob tetikleyici kullanırken olabilir en fazla 10 dakikalık bir gecikmeyle bir işlev uygulaması boşta geçti, yeni BLOB'lar işleme. İşlev uygulaması çalışmaya başladıktan sonra BLOB'ları hemen işlenir. Bu ilk gecikmeyi önlemek için aşağıdaki seçeneklerden birini göz önünde bulundurun:
 > - Always On özellikli ile bir uygulama hizmeti planınız işlev uygulaması barındırır.
-> - Başka bir mekanizma, blob adı içeren bir kuyruk iletisi gibi işleme blob tetiklemek için kullanın. Bir örnek için bkz: [sıra tetikleyicisi blob ile girişi bağlamayı](functions-bindings-storage-blob.md#input-sample).
+> - Başka bir mekanizma, blob adı içeren bir kuyruk iletisi gibi işleme blob tetiklemek için kullanın. Bir örnek için bkz: [C# betiği ve JavaScript örnek blob'a giriş ve bağlamaları çıkış](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Çalışma zamanı ölçeklendirme
 

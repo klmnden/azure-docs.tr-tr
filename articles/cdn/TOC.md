@@ -11,7 +11,7 @@
 ### [Depolama](cdn-create-a-storage-account-with-cdn.md)
 ### [Çıkış noktaları arası kaynak paylaşımı](cdn-cors.md)
 ### [CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md)
-### [Özel bir etki alanı üzerinde HTTPS'yi etkinleştirme](cdn-custom-ssl.md)
+### [Özel etki alanı üzerinde HTTPS'yi yapılandırma](cdn-custom-ssl.md)
 ## İçeriği iyileştirme
 ### [İyileştirmeye genel bakış](cdn-optimization-overview.md)
 ####[Büyük dosyaları iyileştirme](cdn-large-file-optimization.md)

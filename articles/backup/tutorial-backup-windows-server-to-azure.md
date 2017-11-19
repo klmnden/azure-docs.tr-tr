@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Windows Server’ı Azure’da Yedekleme
 
@@ -42,9 +42,9 @@ http://portal.azure.com sayfasından Azure portalda oturum açın.
 
 Windows Server Yedekleme önce yedeklemeler için yer oluşturun veya depolanması için geri yükleme noktalarını gerekir. A [kurtarma Hizmetleri kasası](backup-azure-recovery-services-vault-overview.md) Windows Server'ınızın yedeklemelerden depolar azure'da bir kapsayıcıdır. Azure portalında bir kurtarma Hizmetleri kasası oluşturmak için aşağıdaki adımları izleyin. 
 
-1. Sol taraftaki menüden seçin **daha fazla hizmet** ve Hizmetler listesinde yazın **kurtarma Hizmetleri**. Tıklatın **kurtarma Hizmetleri kasaları**.
+1. Sol taraftaki menüden seçin **tüm hizmetleri** ve Hizmetler listesinde yazın **kurtarma Hizmetleri**. Tıklatın **kurtarma Hizmetleri kasaları**.
 
-   ![Açık kurtarma Hizmetleri kasası](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![Açık kurtarma Hizmetleri kasası](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  **Kurtarma Hizmetleri kasaları** menüsünde **Ekle**'ye tıklayın.
 
@@ -134,7 +134,7 @@ Yedekleme işleri çalıştırdığınızda, zamanlama oluşturulur. Ancak, siz 
 
 1.  Microsoft Azure kurtarma Hizmetleri Aracısı konsolunda **Şimdi Yedekle**.
 
-    ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  Üzerinde **Şimdi Yedekle** seçin makineden **dosya ve klasörleri** veya **sistem durumu** yedeklemek ve tıklatın istediğiniz **sonraki** 
 3. Üzerinde **onay** sayfasında, ayarları gözden geçirin, **Şimdi Yedekle** Sunucunuzu Yedekleme için Sihirbazı'nı kullanır. Ardından **Yedekle**'ye tıklayın.

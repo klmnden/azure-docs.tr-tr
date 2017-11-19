@@ -16,6 +16,7 @@
 ### [MPP mimarisi](massively-parallel-processing-mpp-architecture.md)
 ### [Performans katmanları](performance-tiers.md)
 ### [Veri ambarı birimleri](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Kapasite sınırları](sql-data-warehouse-service-capacity-limits.md)
 ### [Sık sorulan sorular](sql-data-warehouse-overview-faq.md)
 
 ## Yedekleme ve geri yükleme
@@ -120,6 +121,8 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [İşlem düzeylerini otomatik hale getirme](manage-compute-with-azure-functions.md)
+
 ### Kaynak sınıfları
 #### [Yönergeler](resource-classes-for-workload-management.md)
 #### [İş yükünüzü çözümleme](analyze-your-workload.md)
@@ -145,7 +148,7 @@
 
 # Başvuru
 
-## [Kapasite sınırları](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [Tam başvuru](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [SQL DW dil öğeleri](sql-data-warehouse-reference-tsql-language-elements.md)

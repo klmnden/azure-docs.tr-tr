@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 93f0d21c7214487ffa0c2c5e27bd6e468920418c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimlerini (Dwu'lar) ve bilgi işlem Data Warehouse birimleri (cDWUs)
 Veri ambarı birimlerini (cDWUS) Azure SQL Data Warehouse için işlem ve veri ambarı birimlerini (Dwu'lar) açıklanmaktadır. Data warehouse birimleri ve bunları sayısını değiştirmek nasıl ideal sayısını seçmeye ilişkin öneriler içerir. 
@@ -52,16 +52,8 @@ Dwu ve cDWUs yukarı veya aşağı ölçeklendirme işlem desteği ve duraklatma
 Data warehouse birimleri arttıkça, bilgi işlem kaynakları doğrusal olarak artmaktadır. En iyi duruma getirilmiş işlem için en iyi sorgu performansını performans katmanı sağlar ve en yüksek ölçek ancak daha yüksek bir giriş fiyat vardır. Performans için sabit bir isteğe bağlı olan işletmeler için tasarlanmıştır. Bu sistemler önbellek çoğu kullanılmasını sağlamak. 
 
 ### <a name="capacity-limits"></a>Kapasite sınırları
-Varsayılan olarak, her sunucu (örneğin, myserver.database.windows.net) boyutunu ve ölçeğini, örnekteki veritabanlarının sınırlar bir kota sahiptir. Bir sunucu da kotanın sığmalıdır SQL DW ve SQL DB veritabanlarını barındırabilir. Bu kota, veritabanı işlem birimi (DTU) ölçülür ve varsayılan olarak 54.000 için en çok 6000 cDWU izin verecek şekilde ayarlanmıştır. Bu kota yalnızca bir güvenlik sınırıdır. Bir destek bileti oluşturma ve istek türü olarak "Kota" seçerek kotayı artırabilir. 
+Her bir SQL server (örneğin, myserver.database.windows.net) sahip bir [veritabanı işlem birimi (DTU)](../sql-database/sql-database-what-is-a-dtu.md) kota data warehouse birimleri belirli bir sayıda izin verir. Daha fazla bilgi için bkz: [iş yükü yönetim kapasite limitlerini](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-DTU gereksinim hesaplamak için DTU hesaplamanıza aşağıdaki çarpanları geçerlidir:
-
-| Performans katmanı | Ölçü Birimi | DTU çarpanı | Örnek                   |
-|:----------------:|----------------:|---------------:|--------------------------:|
-| Esneklik       |  DWU            | 7.5            | 7.5 = 45,000 x DW6000 DTU |
-| İşlem          | cDWU            | 9              | 7.5 = olarak 54.000 x DW6000 DTU |
-
-Portalda, geçerli DTU tüketimi bkz: SQL server özelliklerini görüntüleyebilirsiniz.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>Kaç tane data warehouse birimleri ihtiyacım var mı?
 Data warehouse birimleri ideal sayısı çok yükünüzü ve sisteme yüklenen veri miktarına bağlıdır.

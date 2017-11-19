@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Şirket içi VMware Vm'leri için olağanüstü durum kurtarma Azure ayarlama
 
@@ -85,20 +85,14 @@ Yapılandırma sunucusu VM aşağıdaki gereksinimleri karşıladığından yük
 Yapılandırma sunucusunda VM sistem saati bir saat sunucusuyla eşitlendiğinden emin olun.
 Saat 15 dakika içinde eşitlenmelidir. Zaman farkı 15 dakikadan fazla ise, kurulum başarısız olur.
 
-Yapılandırma sunucusu VM bu URL'leri erişebildiğinden emin olun:
+Yapılandırma sunucusu bu URL'leri erişebildiğinden emin olun:
 
-- *. accesscontrol.windows.net. Erişim denetimi ve kimlik yönetimi için kullanılır.
-- *. backup.windowsazure.com. Çoğaltma veri aktarımı ve düzenlemesi için kullanılır.
-- *. blob.core.windows.net. Çoğaltılan verileri depolayan depolama hesabına erişim için kullanılır.
-- *. hypervrecoverymanager.windowsazure.com. Çoğaltma yönetimi işlemleri ve düzenleme için kullanılır.
-- time.nist.gov ve time.windows.com. Sistem ile genel saat arasındaki saat eşitlemesini denetlemek için kullanılır.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - Herhangi bir IP adresi tabanlı güvenlik duvarı kuralı Azure ile iletişim kurmaya izin vermelidir.
 
-Azure Kamu bulutunun URL’leri:
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'na ve HTTPS (443) bağlantı noktasına izin verin.
+    - IP adres aralıklarını aboneliğinizin Azure bölgesi ve Batı ABD (erişim denetimi ve kimlik yönetimi için kullanılan) izin verir.
 
 Herhangi bir IP adresi tabanlı güvenlik duvarı kuralı iletişimi sağlamalıdır [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)ve bağlantı noktası 443 (HTTPS) ve 9443 (veri çoğaltma). IP adres aralıklarını aboneliğinizin Azure bölgesi ve Batı ABD (erişim denetimi ve kimlik yönetimi için kullanılan) izin verecek şekilde emin olun.
 

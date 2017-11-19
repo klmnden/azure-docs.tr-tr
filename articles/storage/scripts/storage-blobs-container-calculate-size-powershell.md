@@ -3,8 +3,8 @@ title: "Azure PowerShell Betiği örnek - hesaplamak blob kapsayıcı boyutu | M
 description: "Azure Blob depolamada kapsayıcı boyutu her bloblarını boyutunu toplanmasıyla hesaplayın."
 services: storage
 documentationcenter: na
-author: fhryo-msft
-manager: cbrooks
+author: tamram
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 
 ms.custom: mvc
@@ -13,15 +13,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 10/23/2017
-ms.author: fryu
-ms.openlocfilehash: cb053ba730a7dac5c23d98e1046fd63d27831e16
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 11/07/2017
+ms.author: tamram
+ms.openlocfilehash: f6f421e780bfbb7922a4b11f758330f2a9a0b84b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="calculate-the-size-of-a-blob-container"></a>Bir blob kapsayıcı boyutu hesaplanamadı
+# <a name="calculate-the-size-of-a-blob-storage-container"></a>Bir Blob Depolama kapsayıcısını boyutu hesaplanamadı
 
 Bu komut, BLOB kapsayıcısında boyutunu toplanmasıyla Azure Blob depolamada kapsayıcı boyutu hesaplar.
 
@@ -29,97 +29,34 @@ Bu komut, BLOB kapsayıcısında boyutunu toplanmasıyla Azure Blob depolamada k
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="determine-the-size-of-the-blob-container"></a>Blob kapsayıcısı boyutunu belirleme
-
-Blob kapsayıcısı toplam boyutu, kapsayıcı boyutu ve tüm BLOB kapsayıcısı altında boyutunu içerir.
-
-Aşağıdaki bölümlerde depolama kapasitesi blob kapsayıcılar ve bloblar için nasıl hesaplandığını açıklar. Aşağıdaki bölümde dizedeki karakter sayısını Len(X) anlamına gelir.
-
-### <a name="blob-containers"></a>BLOB kapsayıcıları
-
-Hesaplama aşağıdaki blob kapsayıcısı harcanan depolama alanı miktarı tahmin etmek açıklar:
-
-`
-48 bytes + Len(ContainerName) * 2 bytes +
-For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-For-Each Signed Identifier[512 bytes]
-`
-
-Çözümleme aşağıdadır:
-* her kapsayıcı için yük 48 bayt son değiştirilme zamanı, izinler, genel ayarları ve bazı sistem meta verileri içerir.
-
-* Kapsayıcı adı Unicode olarak depolanır, böylece karakter sayısını alın ve iki ile çarpın.
-
-* Her depolanan blob kapsayıcı meta veri bloğu için dize değeri uzunluğu (ASCII) adının uzunluğu depolarız.
-
-* Oturum tanımlayıcısı başına 512 bayt imzalı tanımlayıcı adı, başlangıç zamanı, bitiş saati ve izinleri içerir.
-
-### <a name="blobs"></a>Bloblar
-
-Aşağıdaki hesaplamaları blob harcanan depolama alanı miktarı tahmin etmek nasıl gösterir.
-
-* Blok blob (temel blob veya anlık görüntü):
-
-   `
-   124 bytes + Len(BlobName) * 2 bytes +
-   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-   8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
-   SizeInBytes(data in unique committed data blocks stored) +
-   SizeInBytes(data in uncommitted data blocks)
-   `
-
-* Sayfa blobu (temel blob veya anlık görüntü):
-
-   `
-   124 bytes + Len(BlobName) * 2 bytes +
-   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-   number of nonconsecutive page ranges with data * 12 bytes +
-   SizeInBytes(data in unique pages stored)
-   `
-
-Çözümleme aşağıdadır:
-
-* 124 bayt yük içeren blob için:
-    - Son değiştirme tarihi
-    - Boyut
-    - Cache-Control
-    - İçerik türü
-    - İçerik dili
-    - İçerik kodlama
-    - Content-MD5
-    - İzinler
-    - Anlık görüntü bilgileri
-    - Kira
-    - Bazı sistem meta verileri
-
-* Blob adı Unicode olarak depolanır, böylece karakter sayısını alın ve iki ile çarpın.
-
-* Her depolanan meta veri bloğu için dize değeri uzunluğu (ASCII olarak depolanır) adının uzunluğu ekleyin.
-
-* Blok bloblar için:
-    * engelleme listesi için 8 bayt sayısı.
-    * Blok sayısı blok kimliği boyutunu bayt cinsinden zaman.
-    * Tüm tamamlanan ve kaydedilmemiş blokları verilerin boyutu. 
-    
-    >[!NOTE]
-    >Anlık görüntüler kullanıldığında, bu boyut bu temel ya da anlık görüntü blobu için yalnızca benzersiz verileri içerir. Kaydedilmemiş blokları bir hafta sonra kullanılmıyorsa çöpünün toplanma oldukları. Bundan sonra bunların doğru faturalama sayılmaz.
-
-* Sayfa bloblarını için:
-    * Veri ardışık olmayan sayfa aralıklarını 12 bayt sayıda. Çağrılırken gördüğünüz benzersiz sayfa aralıklarını sayısıdır **GetPageRanges** API.
-
-    * Tüm depolanmış sayfaları bayt cinsinden veri boyutu. 
-    
-    >[!NOTE]
-    >Anlık görüntüler kullanıldığında, bu boyut yalnızca benzersiz sayfalar için temel blob veya kabul edilir anlık görüntü blob içerir.
+> [!IMPORTANT]
+> Bu PowerShell komut dosyasını bir tahmini boyutu için kapsayıcı sağlar ve hesaplamalar faturalama için kullanılmamalıdır. Fatura amaçlar için kapsayıcı boyutu hesaplar bir betik için bkz: [faturalama amacıyla bir Blob Depolama kapsayıcısını boyutunu hesaplamak](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size-ex.ps1 "Calculate container size")]
+[!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size.ps1 "Calculate container size")]
+
+## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
+
+Kaynak grubu, kapsayıcı ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+
+```powershell
+Remove-AzureRmResourceGroup -Name bloblisttestrg
+```
+
+## <a name="script-explanation"></a>Komut dosyası açıklaması
+
+Bu komut, Blob Depolama kapsayıcısını boyutunu hesaplamak için aşağıdaki komutları kullanır. Komut özgü belgelere Tablo bağlantıları her öğe.
+
+| Komut | Notlar |
+|---|---|
+| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Belirtilen bir depolama hesabı veya bir kaynak grubu veya abonelik tüm depolama hesaplarını alır. |
+| [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | BLOB'ları bir kapsayıcıda listeler. ||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure Storage faturalama hakkında daha fazla bilgi için bkz: [anlama Windows Azure depolama faturalama](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+Fatura amaçlar için kapsayıcı boyutu hesaplar bir betik için bkz: [faturalama amacıyla bir Blob Depolama kapsayıcısını boyutunu hesaplamak](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 
-- Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.1).
+Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
 
-- Ek depolama PowerShell komut dosyası örnekleri bulabilirsiniz [Azure Storage PowerShell örnekleri](../blobs/storage-samples-blobs-powershell.md).
+Ek depolama alanı PowerShell komut dosyası örnekleri bulunabilir [Azure Storage PowerShell örnekleri](../blobs/storage-samples-blobs-powershell.md).

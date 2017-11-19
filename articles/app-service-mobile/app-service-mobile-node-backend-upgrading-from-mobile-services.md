@@ -14,16 +14,16 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Varolan Node.js Azure mobil hizmetinizi App Service'e yükseltme
 App Service Mobile, Microsoft Azure kullanarak mobil uygulamaları oluşturmak için yeni bir yoludur. Daha fazla bilgi için bkz: [Mobile Apps nedir?].
 
-Bu konu, mevcut Node.js arka uç uygulama için yeni bir App Service Mobile Apps Azure Mobile Services yükseltme açıklar. Bu yükseltme gerçekleştirirken mevcut Mobile Services uygulamanız çalışmaya devam edebilirsiniz.  Bir Node.js arka uç uygulaması yükseltme yapmanız oluştuysa, [.NET Mobile Services yükseltme](app-service-mobile-net-upgrading-from-mobile-services.md).
+Bu makalede, varolan Node.js arka uç uygulama için yeni bir App Service Mobile Apps Azure Mobile Services yükseltme açıklar. Bu yükseltme gerçekleştirirken mevcut Mobile Services uygulamanız çalışmaya devam edebilirsiniz.  Bir Node.js arka uç uygulaması yükseltme yapmanız oluştuysa, [.NET Mobile Services yükseltme](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 Azure App Service'e bir mobil arka uç yükseltildiğinde, tüm uygulama hizmeti özelliklerine erişebilir ve göre faturalandırılır [uygulama hizmeti fiyatlandırma], fiyatlandırma değil Mobile Services.
 
@@ -36,7 +36,7 @@ Azure App Service'e bir mobil arka uç yükseltildiğinde, tüm uygulama hizmeti
 >
 
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Mobile Apps Node.js sunucusu SDK yenilikleri
-Yeni yükseltme [Mobile Apps SDK'sı](https://www.npmjs.com/package/azure-mobile-apps) iyileştirmeler de dahil olmak üzere birçok sağlar:
+Yeni yükseltme [Mobile Apps SDK'sı](https://www.npmjs.com/package/azure-mobile-apps) dahil olmak üzere birçok geliştirme sağlar:
 
 * Temel [Express framework](http://expressjs.com/en/index.html), yeni bir düğüm SDK hafif ve geldikleri gibi yeni düğümü sürümlerle karşılamak üzere tasarlanmıştır. Express ara yazılımını ile uygulama davranışını özelleştirebilirsiniz.
 * Mobile Services SDK'sına göre önemli performans geliştirmeleri.
@@ -44,7 +44,7 @@ Yeni yükseltme [Mobile Apps SDK'sı](https://www.npmjs.com/package/azure-mobile
 * Platformlar arası ve yerel geliştirme için yerleşik, Mobile Apps SDK'sı geliştirilen ve yerel olarak Windows, Linux ve OSX platformlarda çalıştırmak kullanabilirsiniz. Şimdi çalışıyor gibi kullanımı kolay ortak düğüm geliştirme teknikleri olan [Mocha](https://mochajs.org/) testleri dağıtımından önce.
 
 ## <a name="overview"></a>Temel yükseltmeye genel bakış
-Node.js arka ucu yükseltme yardımcı olmak için Azure App Service uyumluluğu paketi sağlamıştır.  Yükseltmeden sonra yeni bir uygulama hizmeti siteye dağıtılabilir bir niew sitesi olur.
+Node.js arka ucu yükseltme yardımcı olmak için Azure App Service uyumluluğu paketi sağlamıştır.  Yükseltmeden sonra yeni bir uygulama hizmeti siteye dağıtılabilir yeni bir site gerekir.
 
 Mobile Services istemci SDK'ları olan **değil** yeni mobil uygulamalar sunucusu SDK ile uyumlu. Uygulamanız için hizmetin sürekliliği sağlamak için değişiklikleri şu anda yayımlanan istemciler hizmet veren bir site yayınlamalıdır değil. Bunun yerine, yinelenen hizmet veren yeni bir mobil uygulama oluşturmanız gerekir. Bu uygulamayı ek finansal ücret oluşmasını önlemek için aynı uygulama hizmeti plan üzerinde koyabilirsiniz.
 
@@ -56,7 +56,7 @@ Yükseltme işlemi için tam anahattı aşağıdaki gibidir:
 2. Proje Uyumluluk Paketi kullanarak bir Azure mobil uygulaması dönüştürün.
 3. Farkları (örneğin, kimlik doğrulama ayarları) düzeltin.
 4. Dönüştürülen Azure mobil uygulaması projeniz için yeni bir uygulama hizmeti dağıtın.
-5. Yeni mobil uygulamayı istemci uygulamanızı yeni bir sürümü kullanıma.
+5. Yeni mobil uygulamanın kullandığı istemci uygulamanızı yeni bir sürümü kullanıma.
 6. (İsteğe bağlı) Özgün geçirilen mobil hizmet uygulamanızı silin.
 
 Özgün geçirilen mobil hizmette herhangi bir trafik görmüyorum silme ortaya çıkabilir.
@@ -98,12 +98,12 @@ Dağıtım sırasında aşağıdakileri yapmanız gerekir:
 3. **Kaynak Grubu** için yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun (uygulamanızla aynı adı kullanarak).
 
     Başka bir App Service planı seçin veya yeni bir tane oluşturun. Uygulama hizmetleri hakkında daha fazla bilgi için planları ve farklı fiyatlandırma yeni bir plan oluşturmak nasıl katmanı ve tercih ettiğiniz konumda bkz [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. **App Service planı** için, varsayılan plan ([Standart katman](https://azure.microsoft.com/pricing/details/app-service/)’da) seçilidir. Aynı zamanda başka bir plan da seçebilir veya [yeni bir tane oluşturabilirsiniz](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). App Service planının ayarları, uygulamanızla ilişkili [konumu, özellikleri, maliyeti ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) saptar.
+4. **App Service planı** için, varsayılan plan ([Standart katman](https://azure.microsoft.com/pricing/details/app-service/)’da) seçilidir. Ayrıca, farklı bir plan seçebilirsiniz veya [yeni bir tane oluşturun](../app-service/app-service-plan-manage.md#create-an-app-service-plan). Uygulama hizmeti planının ayarları belirlemek [konumu, özellikleri, maliyet ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) uygulamanızla ilişkili.
 
     Planla ilgili kararı verdikten sonra **Oluştur**’a tıklayın. Böylece Mobil Uygulama arka uç oluşturulur.
 
 ### <a name="run-createviewssql"></a>CreateViews.SQL Çalıştır
-Adlı bir dosya kurulmuş uygulamasını içeren `createViews.sql`.  Bu komut dosyasını hedef veritabanında yürütülmelidir.  Hedef veritabanı için bağlantı dizesi geçirilen mobil hizmetinden gelen elde edilebilir **ayarları** altında dikey **bağlantı dizeleri**.  Bu adlı `MS_TableConnectionString`.
+Adlı bir dosya kurulmuş uygulamasını içeren `createViews.sql`.  Bu komut dosyasını hedef veritabanında yürütülmelidir.  Hedef veritabanı için bağlantı dizesi geçirilen mobil hizmetinden gelen elde edilebilir **ayarları** altında sayfa **bağlantı dizeleri**.  Bu adlı `MS_TableConnectionString`.
 
 Bu komut dosyasından SQL Server Management Studio veya Visual Studio içinde çalıştırabilirsiniz.
 
@@ -116,12 +116,12 @@ Varolan bir veritabanını uygulama hizmetiniz için bağlantı:
 * Aşağı açılır menüsünde, seçin **SQL veritabanı**
 * Altında **SQL veritabanı**mevcut veritabanını seçin, ardından tıklayın **seçin**.
 * Altında **bağlantı dizesi**, veritabanı için kullanıcı adını ve parolasını girin, ardından tıklayın **Tamam**.
-* İçinde **veri bağlantıları ekleme** dikey penceresinde, tıklatıldığında **Tamam**.
+* İçinde **veri bağlantıları ekleme** sayfasında, tıklatın **Tamam**.
 
 Kullanıcı adı ve parola geçirilen mobil hizmetinizi hedef veritabanı için bağlantı dizesini görüntüleyerek bulunabilir.
 
 ### <a name="set-up-authentication"></a>Kimlik doğrulamasını ayarlama
-Azure Mobile Apps, Azure Active Directory, Facebook, Google, Microsoft ve Twitter kimlik doğrulama hizmeti içinde yapılandırmanıza olanak sağlar.  Özel kimlik doğrulama ayrı olarak geliştirilen gerekir.  Başvurmak [kimlik doğrulaması kavramlarını] belgelerine ve [kimlik doğrulaması Hızlı Başlangıç] daha fazla bilgi için.  
+Azure Mobile Apps, Azure Active Directory, Facebook, Google, Microsoft yapılandırın ve hizmet içinde kimlik doğrulaması Twitter olanak sağlar.  Özel kimlik doğrulama ayrı olarak geliştirilen gerekir.  Başvurmak [kimlik doğrulaması kavramlarını] belgelerine ve [kimlik doğrulaması Hızlı Başlangıç] daha fazla bilgi için.  
 
 ## <a name="updating-clients"></a>Mobil istemcilerin güncelleştir
 İşletimsel bir mobil uygulama arka ucu olduktan sonra hangi içereceği tükettiği istemci uygulamanızı yeni bir sürümünü çalışabilirsiniz. Mobile Apps istemci SDK ' yeni bir sürümünü de içerir ve benzer sunucu yükseltme için Mobile Apps sürümleri yüklemeden önce Mobile Services SDK'ları tüm başvurularını kaldırmanız gerekir.

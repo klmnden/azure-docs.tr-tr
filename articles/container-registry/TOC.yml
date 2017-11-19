@@ -15,6 +15,12 @@
       href: container-registry-get-started-powershell.md
 - name: Öğreticiler
   items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Service (AKS)
+      href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Service Fabric
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
     - name: Coğrafi Çoğaltma (önizleme)
       items:
         - name: 1 - Kapsayıcı kayıt defterini hazırlama
@@ -23,12 +29,6 @@
           href: container-registry-tutorial-deploy-app.md
         - name: 3- Web uygulamasını güncelleştirme
           href: container-registry-tutorial-deploy-update.md
-    - name: Azure Container Instances
-      href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Container Service (AKS)
-      href: ../aks/tutorial-kubernetes-prepare-app.md
-    - name: Service Fabric
-      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Kavramlar
   items:
     - name: Container Registry SKU’ları
@@ -57,13 +57,19 @@
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/azurerm.containerregistry
+    - name: Resource Manager şablonu
+      href: /azure/templates/microsoft.containerregistry/registries
 - name: Kaynaklar
   items:
-    - name: Yol Haritası
-      href: 'https://aka.ms/acr/roadmap'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Bölge kullanılabilirliği
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Yol Haritası
+      href: 'https://aka.ms/acr/roadmap'
+    - name: Ürün geri bildirimi sağlayın
+      href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'

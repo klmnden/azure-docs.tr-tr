@@ -14,14 +14,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 05/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7910540add4092e1b5822a7525bec912befd80e7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 2e2a9e8491ad56bcbc42be64729715016f7ed17b
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-application-insights"></a>Application Insights nedir?
-Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. DevOps işleminizi ile tümleşir ve geliştirme araçları, çeşitli bağlantı noktalarına sahiptir. Bunu izlemek ve Visual Studio mobil merkezi ve HockeyApp ile tümleştirerek mobil uygulamalarından telemetri çözümleyebilirsiniz.
+Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. DevOps işleminizi ile tümleşir ve geliştirme araçları, çeşitli bağlantı noktalarına sahiptir. Bunu izlemek ve Visual Studio Uygulama Merkezi ve HockeyApp ile tümleştirerek mobil uygulamalarından telemetri çözümleyebilirsiniz.
 
 ![Kullanıcı etkinliği istatistiklerinin grafiğini oluşturun veya belirli olayları ayrıntısına gidin.](./media/app-insights-overview/00-sample.png)
 
@@ -117,7 +117,7 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
   * [Node.js](app-insights-nodejs.md)
   * [Diğer platformlar](app-insights-platforms.md)
 * Sayfa görütüleme, AJAX ve diğer istemci tarafı telemetri verileri bakımından **[web sayfalarınızı izleyin](app-insights-javascript.md)**.
-* **[Mobil uygulama kullanımı çözümlemek](app-insights-mobile-center-quickstart.md)**  Visual Studio mobil Center ile tümleştirme tarafından.
+* **[Mobil uygulama kullanımı çözümlemek](app-insights-mobile-center-quickstart.md)**  Visual Studio Uygulama Merkezi ile tümleştirme tarafından.
 * **[Kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md)**: Sunucularımızdan web sitenize düzenli aralıklarla ping gönderin.
 
 

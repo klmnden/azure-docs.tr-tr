@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 5db4e5b18ad385e7eba125a1296a9c5054213446
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab38f6866519aabe1b4740cfaa26d7ff570d78de
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama
 Azure Resource Manager birçok şaşırtıcı özellik sunarken, sorunsuz şeyler emin olmak için geçiş Yolculuğunuzun planlama önemlidir. Planlama zaman harcama geçiş etkinliklerini yürütülürken sorunlarla değil olduğunu güvence altına alır. 
@@ -115,7 +115,7 @@ Birçok büyük geçişler bulunan sorunları oluştu. Bu kapsamlı bir liste de
 
     - Ağ Arabirimleri
     - Yük Dengeleyici
-    - Genel IP'ler
+    - Ortak IP'ler
     - Statik genel IP'ler
     - Çekirdek
     - Ağ Güvenlik Grupları
@@ -195,7 +195,7 @@ Artık Azure Kaynak Yöneticisi'nde etkinleştirmek istediğiniz hangi hizmetler
 - [Daha kolay ve daha denetimli dağıtımı için Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md).
 - [Etkinlik denetimi](../../azure-resource-manager/resource-group-audit.md)
-- [Kaynak ilkeleri](../../azure-resource-manager/resource-manager-policy.md)
+- [Azure ilkeleri](../../azure-policy/azure-policy-introduction.md)
 
 ### <a name="pitfalls-to-avoid"></a>Kaçınılacak Tuzaklar
 

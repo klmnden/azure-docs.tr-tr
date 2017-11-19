@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bbbd31313db44d32a829e9e4c6c9b5fd9c0e533e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7013e7ff3cb14dcad8e3e9a926bcee771180259d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Bir Windows sanal makineden bir veri diskini nasıl
 Sanal makineye bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayca ayırabilirsiniz. Bu diski sanal makineden kaldırır, ancak depolama biriminden kaldırmaz.
@@ -32,29 +32,30 @@ Sanal makineye bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayc
 Disk üzerinde var olan verileri yeniden kullanmak isterseniz bu verileri aynı sanal makineye veya başka birine yeniden ekleyebilirsiniz.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Portalı kullanarak veri diski çıkarma
-1. Portal hub seçin **sanal makineleri**.
+
+1. Soldaki menüde seçin **sanal makineleri**.
 2. Önce ayırmak istediğiniz veri diskine sahip bir sanal makineyi seçin **durdurmak** VM ayırması kaldırılacak.
-3. Sanal makine dikey penceresinde, seçin **diskleri**.
-4. Üstündeki **diskleri** dikey penceresinde, select **Düzenle**.
-5. İçinde **diskleri** ayırmak için istediğiniz veri diski en sağdaki dikey ![ayırma düğme görüntüsü](./media/detach-disk/detach.png) düğmesi ayırın.
-5. Disk kaldırıldıktan sonra dikey pencerenin üst kısmında Kaydet'i tıklatın.
-6. Sanal makine dikey penceresinde tıklayın **genel bakış** ve ardından **Başlat** VM'yi yeniden başlatmak için dikey pencerenin üstündeki düğmesi.
+3. Sanal makine bölmesinde seçin **diskleri**.
+4. Üstündeki **diskleri** bölmesinde, **Düzenle**.
+5. İçinde **diskleri** ayırmak için istediğiniz veri diski sağ bölmesinde ![ayırma düğme görüntüsü](./media/detach-disk/detach.png) düğmesi ayırın.
+5. Disk kaldırıldıktan sonra tıklatın **kaydetmek** bölmesinin üst kısmında.
+6. Sanal makine bölmesinde **genel bakış** ve ardından **Başlat** VM'yi yeniden başlatmak için bölmenin üstündeki düğmesi.
 
 
 
 Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.
 
 ## <a name="detach-a-data-disk-using-powershell"></a>PowerShell kullanarak bir veri diskini
-Bu örnekte, ilk komut adlı sanal makineye alır **MyVM07** içinde **RG11** Get-AzureRmVM cmdlet'ini kullanarak kaynak grubu. Sanal makinede komut depolar **$VirtualMachine** değişkeni.
+Bu örnekte, ilk komut adlı sanal makineye alır **MyVM07** içinde **RG11** kaynak grubunu kullanarak [Get-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet'i ve depolar**$VirtualMachine** değişkeni.
 
-İkinci komut sanal makineden DataDisk3 adlı veri diski kaldırır.
+İkinci satır kullanarak sanal makineyi DataDisk3 adlı veri diski kaldırır [Kaldır AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet'i.
 
-Son komut, veri diski kaldırma işlemini tamamlamak için sanal makinenin durumunu güncelleştirir.
+Üçüncü satır sanal makinenin durumunu güncelleştirir kullanarak [güncelleştirme-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) veri diski kaldırma işlemini tamamlamak için cmdlet'i.
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+Update-AzureRmVM -ResourceGroupName "RG11" -VM $VirtualMachine
 ```
 
 Daha fazla bilgi için bkz: [Kaldır AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).

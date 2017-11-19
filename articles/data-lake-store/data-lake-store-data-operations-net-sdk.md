@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: nitinme
-ms.openlocfilehash: 7f6319dcf1ae66a686dd1c2ea2810b3041183098
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: a5d446986f810993d65c7e73eb95eeb2283c39a3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Azure Data Lake Store'da .NET SDK'sı kullanılarak gerçekleştirilen dosya sistemi işlemleri
 > [!div class="op_single_selector"]
@@ -40,6 +40,8 @@ Data Lake Store'da hesap yönetim işlemlerini .NET SDK kullanarak gerçekleşti
 * **Azure Data Lake Store hesabı**. Hesap oluşturmaya ilişkin yönergeler için bkz. [Azure Data Lake Store kullanmaya başlama](data-lake-store-get-started-portal.md)
 
 ## <a name="create-a-net-application"></a>.NET uygulaması oluşturma
+[GitHub’da](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) bulunan kod örneği, depoda dosya oluşturma, dosyaları birleştirme, dosya indirme ve depodaki bazı dosyaları silme işlemlerinde size yol gösterir. Makalenin bu bölümü, kodun ana bölümlerinde sizi yönlendirir.
+
 1. Visual Studio'yu açın ve bir konsol uygulaması oluşturun.
 2. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın.
 3. **Yeni Proje** bölümünden, aşağıdaki değerleri yazın veya seçin:
@@ -49,32 +51,32 @@ Data Lake Store'da hesap yönetim işlemlerini .NET SDK kullanarak gerçekleşti
    | Kategori |Şablonlar/Visual C#/Windows |
    | Şablon |Konsol Uygulaması |
    | Ad |CreateADLApplication |
+
 4. Projeyi oluşturmak için **Tamam**'a tıklayın.
+
 5. NuGet paketlerini projenize ekleyin.
 
    1. Çözüm Gezgini'nde proje adına sağ tıklayın ve **NuGet Paketlerini Yönet**'e tıklayın.
    2. **NuGet Paket Yöneticisi** sekmesinde, **Paket kaynağının** **nuget.org** olarak ayarlandığından ve **Ön sürümü dahil et** onay kutusunun işaretli olduğundan emin olun.
    3. Aşağıdaki NuGet paketlerini arayıp yükleyin:
 
-      * `Microsoft.Azure.Management.DataLake.Store` - Bu öğreticide v2.1.3-preview kullanılır.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Bu öğreticide v2.2.12 kullanılır.
+      * `Microsoft.Azure.DataLake.Store` - Bu öğreticide v1.0.0 kullanılır.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Bu öğreticide v2.3.1 kullanılır.
+    
+    **NuGet Paket Yöneticisi**'ni kapatın.
 
-        ![NuGet kaynağı ekleme](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Yeni bir Azure Data Lake hesabı oluşturma")
-   4. **NuGet Paket Yöneticisi**'ni kapatın.
 6. **Program.cs** öğesini açın, var olan kodu silin ve ardından ad alanlarına başvurular eklemek için aşağıdaki deyimleri ekleyin.
 
         using System;
-        using System.IO;
+        using System.IO;using System.Threading;
         using System.Linq;
         using System.Text;
-        using System.Threading;
         using System.Collections.Generic;
         using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
                 
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
+        using Microsoft.Azure.DataLake.Store;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 7. Aşağıda gösterilen değişkenleri bildirin ve yer tutucu değerlerini sağlayın. Ayrıca, burada sağladığınız yerel yolun ve dosya adının bilgisayar üzerinde var olduğundan emin olun.
@@ -83,23 +85,7 @@ Data Lake Store'da hesap yönetim işlemlerini .NET SDK kullanarak gerçekleşti
         {
             class Program
             {
-                private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
-
-                private static string _adlsAccountName;
-                private static string _resourceGroupName;
-                private static string _location;
-
-                private static async void Main(string[] args)
-                {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
-                    _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
-                    _location = "East US 2";
-
-                    string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
-                    string localFilePath = Path.Combine(localFolderPath, "file.txt"); // TODO: Make sure this exists and can be overwritten.
-                    string remoteFolderPath = "/data_lake_path/";
-                    string remoteFilePath = Path.Combine(remoteFolderPath, "file.txt");
-                }
+                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; //Replace this value with the name of your existing Data Lake Store account.        
             }
         }
 
@@ -111,125 +97,83 @@ Makalenin geriye kalan bölümlerinde, kullanılabilir .NET yöntemlerinin, kiml
 * Uygulamanızın servisler arası kimlik doğrulaması için bkz. [.NET SDK kullanarak Data Lake Store'da servisler arası kimlik doğrulaması gerçekleştirme](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 
-## <a name="create-client-objects"></a>İstemci nesneleri oluşturma
-Aşağıdaki kod parçacığı Data Lake Store hesabını ve hizmete verme isteği göndermek için kullanılan dosya sistemi istemci nesnelerini oluşturur.
+## <a name="create-client-object"></a>İstemci nesnesi oluşturma
+Aşağıdaki kod parçacığı Data Lake Store ve hizmete verme isteği göndermek için kullanılan dosya sistemi istemci nesnesini oluşturur.
 
     // Create client objects
-    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(adlCreds);
+    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, adlCreds);
 
-## <a name="create-a-directory"></a>Dizin oluşturma
-Sınıfınıza aşağıdaki yöntemi ekleyin. Kod parçacığında, bir Data Lake Store hesabında dizin oluşturmak için kullanabileceğiniz bir `CreateDirectory()` yöntemi gösterilmiştir.
+## <a name="create-a-file-and-directory"></a>Dosya ve dizin oluşturma
+Aşağıdaki kod parçacığını uygulamanıza ekleyin. Bu kod parçacığı, bir dosyanın yanı sıra mevcut olmayan herhangi bir üst dizin ekler.
 
-    // Create a directory
-    public static void CreateDirectory(string path)
-    {
-            _adlsFileSystemClient.FileSystem.Mkdirs(_adlsAccountName, path);
-    }
-
-Aşağıdaki kod parçacığını `Main()` yönteminize ekleyerek `CreateDirectory()` yöntemini çağırın.
-
-    CreateDirectory(remoteFolderPath);
-    Console.WriteLine("Created a directory in the Data Lake Store account. Press any key to continue ...");
-    Console.ReadLine();
-
-## <a name="upload-a-file"></a>Dosyayı karşıya yükleme
-Sınıfınıza aşağıdaki yöntemi ekleyin. Kod parçacığında, bir Data Lake Store hesabına dosya yüklemek için kullanabileceğiniz bir `UploadFile()` yöntemi gösterilmiştir. SDK bir yerel dosya ile Data Lake Store dosya yolu arasında yinelemeli karşıya yükleme ve indirmeyi destekler.
-
-    // Upload a file
-    public static void UploadFile(string srcFilePath, string destFilePath, bool force = true)
-    {
-        _adlsFileSystemClient.FileSystem.UploadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:force);
-    }
-
-Aşağıdaki kod parçacığını `Main()` yönteminize ekleyerek `UploadFile()` yöntemini çağırın.
-
-    UploadFile(localFilePath, remoteFilePath, true);
-    Console.WriteLine("Uploaded file in the directory. Press any key to continue...");
-    Console.ReadLine();
+    // Create a file - automatically creates any parent directories that don't exist
     
-
-## <a name="get-file-or-directory-info"></a>Dosya veya dizin bilgilerini alma
-Aşağıdaki kod parçacığında, Data Lake Store'da kullanılabilir olan bir dosya veya dizin ile ilgili bilgileri almak için kullanabileceğiniz bir `GetItemInfo()` yöntemi gösterilmiştir.
-
-    public static FileStatusProperties GetItemInfo(string path)
+    string fileName = "/Test/testFilename1.txt";
+    using (var streamWriter = new StreamWriter(client.CreateFile(fileName, IfExists.Overwrite)))
     {
-        return _adlsFileSystemClient.FileSystem.GetFileStatus(_adlsAccountName, path).FileStatus;
+        streamWriter.WriteLine("This is test data to write");
+        streamWriter.WriteLine("This is line 2");
     }
-
-Aşağıdaki kod parçacığını `Main()` yönteminize ekleyerek `GetItemInfo()` yöntemini çağırın.
-
-    
-    var fileProperties = GetItemInfo(remoteFilePath);
-    Console.WriteLine("The owner of the file at the path is:", fileProperties.Owner);
-    Console.WriteLine("Press any key to continue...");
-    Console.ReadLine();
-
-## <a name="list-file-or-directories"></a>Dosyayı veya dizinleri listeleme
-Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki dosyaları ve dizinleri listelemek için kullanabileceğiniz bir `ListItems()` yöntemi gösterilmiştir.
-
-    // List files and directories
-    public static List<FileStatusProperties> ListItems(string directoryPath)
-    {
-        return _adlsFileSystemClient.FileSystem.ListFileStatus(_adlsAccountName, directoryPath).FileStatuses.FileStatus.ToList();
-    }
-
-Aşağıdaki kod parçacığını `Main()` yönteminize ekleyerek `ListItems()` yöntemini çağırın.
-
-    var itemList = ListItems(remoteFolderPath);
-    var fileMenuItems = itemList.Select(a => String.Format("{0,15} {1}", a.Type, a.PathSuffix));
-    Console.WriteLine(String.Join("\r\n", fileMenuItems));
-    Console.WriteLine("Files and directories listed. Press any key to continue ...");
-    Console.ReadLine();
-
-## <a name="concatenate-files"></a>Dosyaları birleştirme
-Aşağıdaki kod parçacığında, dosyaları birleştirmek için kullanabileceğiniz bir `ConcatenateFiles()` yöntemi gösterilmiştir.
-
-    // Concatenate files
-    public static void ConcatenateFiles(string[] srcFilePaths, string destFilePath)
-    {
-        _adlsFileSystemClient.FileSystem.Concat(_adlsAccountName, destFilePath, srcFilePaths);
-    }
-
-Aşağıdaki kod parçacığını `Main()` yönteminize ekleyerek `ConcatenateFiles()` yöntemini çağırın. Bu kod parçacığında Data Lake Store hesabınıza başka bir dosya yüklediğiniz ve dosyanın yolunun *anotherRemoteFilePath* dizesinde ilettiğiniz kabul edilmektedir.
-
-    string[] stringOfFiles = new String[] {remoteFilePath, anotherRemoteFilePath};
-    string destFilePath = Path.Combine(remoteFolderPath, "Concatfile.txt");
-    ConcatenateFiles(stringOfFiles, destFilePath);
-    Console.WriteLine("Files concatinated. Press any key to continue ...");
-    Console.ReadLine();
 
 ## <a name="append-to-a-file"></a>Dosyanın sonuna ekleme
-Aşağıdaki kod parçacığında, bir Data Lake Store hesabında zaten depolanmış olan bir dosyanın sonuna veri eklemek için kullanabileceğiniz bir `AppendToFile()` yöntemi gösterilmiştir.
+Aşağıdaki kod parçacığı Data Lake Store hesabında var olan bir dosyaya veri ekler.
 
-    // Append to file
-    public static void AppendToFile(string path, string content)
+    // Append to existing file
+    using (var streamWriter = new StreamWriter(client.GetAppendStream(fileName)))
     {
-        using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(content)))
+        streamWriter.WriteLine("This is the added line");
+    }
+
+## <a name="read-a-file"></a>Dosya okuma
+Aşağıdaki kod parçacığı Data Lake Store’daki bir dosyanın içeriğini okur.
+
+    //Read file contents
+    using (var readStream = new StreamReader(client.GetReadStream(fileName)))
+    {
+        string line;
+        while ((line = readStream.ReadLine()) != null)
         {
-            _adlsFileSystemClient.FileSystem.AppendAsync(_adlsAccountName, path, stream);
+            Console.WriteLine(line);
         }
     }
 
-Aşağıdaki kod parçacığını `Main()` yönteminize ekleyerek `AppendToFile()` yöntemini çağırın.
+## <a name="get-file-properties"></a>Dosya özelliklerini alma
+Aşağıdaki kod parçacığı bir dosya veya dizin ile ilişkili özellikleri döndürür.
 
-    AppendToFile(remoteFilePath, "123");
-    Console.WriteLine("Content appended. Press any key to continue ...");
-    Console.ReadLine();
+    // Get file properties
+    var directoryEntry = client.GetDirectoryEntry(fileName);
+    PrintDirectoryEntry(directoryEntry);
 
-## <a name="download-a-file"></a>Dosya indirme
-Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki bir dosyayı indirmek için kullanabileceğiniz bir `DownloadFile()` yöntemi gösterilmiştir.
+`PrintDirectoryEntry` yönteminin tanımı, [Github'daki](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) örneğin bir parçası olarak kullanılabilir. 
 
-    // Download file
-    public static void DownloadFile(string srcFilePath, string destFilePath)
+## <a name="rename-a-file"></a>Dosyayı yeniden adlandırma
+Aşağıdaki kod parçacığı Data Lake Store hesabında var olan bir dosyayı yeniden adlandırır.
+
+    // Rename a file
+    string destFilePath = "/Test/testRenameDest3.txt";
+    client.Rename(fileName, destFilePath, true);
+
+## <a name="enumerate-a-directory"></a>Dizin listeleme
+Aşağıdaki kod parçacığı Data Lake Store hesabındaki dizinleri listeler
+
+    // Enumerate directory
+    foreach (var entry in client.EnumerateDirectory("/Test"))
     {
-        _adlsFileSystemClient.FileSystem.DownloadFile(_adlsAccountName, srcFilePath, destFilePath, overwrite:true);
+        PrintDirectoryEntry(entry);
     }
 
-Aşağıdaki kod parçacığını `Main()` yönteminize ekleyerek `DownloadFile()` yöntemini çağırın.
+`PrintDirectoryEntry` yönteminin tanımı, [Github'daki](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) örneğin bir parçası olarak kullanılabilir.
 
-    DownloadFile(destFilePath, localFilePath);
-    Console.WriteLine("File downloaded. Press any key to continue ...");
-    Console.ReadLine();
+## <a name="delete-directories-recursively"></a>Dizinleri yinelemeli olarak silme
+Aşağıdaki kod parçacığı bir dizini ve tüm alt dizinlerini yinelemeli olarak siler.
+
+    // Delete a directory and all it's subdirectories and files
+    client.DeleteRecursive("/Test");
+
+## <a name="samples"></a>Örnekler
+Data Lake Store Filesystem SDK’sını kullanma örnekleri aşağıda verilmiştir.
+* [Github'daki temel örnek](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Github'daki gelişmiş örnek](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [.NET SDK kullanılarak gerçekleştirilen Data Lake Store'daki hesap yönetimi işlemleri](data-lake-store-get-started-net-sdk.md)

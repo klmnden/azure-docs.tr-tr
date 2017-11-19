@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veri eşitleme (Önizleme) ile çalışmaya başlama | Microsoft Docs"
-description: "Bu öğreticide Azure SQL veri eşitleme (Önizleme) ile çalışmaya başlamanıza yardımcı olur."
+title: "Azure SQL veri eşitleme (Önizleme) ayarı | Microsoft Docs"
+description: "Bu öğretici Azure SQL veri eşitlemeyi (Önizleme) ayarlamak nasıl gösterir"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -13,16 +13,16 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 0dc34a8e08ea75a84d1553963bdb892c84dacdb7
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>Azure SQL veri eşitleme (Önizleme) ile çalışmaya başlama
+# <a name="set-up-sql-data-sync-preview"></a>SQL veri eşitleme ayarı (Önizleme)
 Bu öğreticide, Azure SQL Database ve SQL Server örneklerini içeren bir karma eşitleme grubu oluşturarak Azure SQL veri eşitlemeyi ayarlamak nasıl öğrenin. Yeni eşitleme grubunu tam olarak yapılandırılmamış ve belirlediğiniz bir zamanlamaya göre eşitler.
 
 Bu öğretici, SQL Database ve SQL Server ile en az bazı konusunda deneyim sahibi olduğunuzu varsayar. 
@@ -110,7 +110,7 @@ Yeni eşitleme grubu oluşturup, adım 2 ' yi dağıttıktan sonra **eşitleme �
 
     ![Yeni SQL veritabanı eşitleme üye eklendi](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>Bir şirket içi SQL Server veritabanı ekleyin
+### <a name="add-on-prem"></a>Bir şirket içi SQL Server veritabanı ekleyin
 
 İçinde **üye veritabanı** bölümünde, isteğe bağlı olarak seçerek bir şirket içi SQL Server eşitleme grubuna ekleyin **bir şirket içi veritabanı Ekle**. **Yapılandırma şirket içi** sayfası açılır.
 
@@ -192,6 +192,83 @@ Yeni eşitleme Grup üyeleri oluşturulan ve dağıtılan, adım 3, sonra **yap�
     ![Eşitlemek için alanları seçin](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
 4.  Son olarak, seçin **kaydetmek**.
+
+## <a name="faq-about-setup-and-configuration"></a>Kurulum ve yapılandırma hakkında SSS
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Veri Eşitleme verilerimi ne sıklıkta eşitleyebilirsiniz? 
+En az beş dakikada sıklığıdır.
+
+### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL veri eşitleme tam olarak oluşturun ve tabloları sağlamak?
+
+Eşitleme şema tabloları hedef veritabanına zaten oluşturulmadıysa, SQL veri eşitleme (Önizleme) bunları seçtiğiniz sütunlarla oluşturur. Ancak, bu davranış tam uygunluğunu Şeması'nda, aşağıdaki nedenlerle oluşmaz:
+
+-   Yalnızca seçtiğiniz sütunları hedef tabloda oluşturulur. Kaynak tablolarda bazı sütunları eşitleme grubunun parçası değilse, bu sütunları hedef tablolarında sağlanmayan.
+
+-   Dizinler yalnızca seçilen sütunlar için oluşturulur. Kaynak tablo dizin eşitleme grubunun parçası olmayan sütunları varsa, bu dizinler hedef tabloda sağlanan değil.
+
+-   XML türü sütunlarındaki dizinler sağlanmayan.
+
+-   Denetim kısıtlamalarında sağlanmayan.
+
+-   Kaynak tablolarda varolan Tetikleyiciler sağlanmayan.
+
+-   Görünümleri ve saklı yordamlar hedef veritabanı oluşturulmadı.
+
+Bu sınırlamalar nedeniyle şunları öneririz:
+-   Üretim ortamları için tam uygunluğunu şema kendiniz sağlayın.
+-   Servisi denemek için otomatik sağlama özelliği SQL veri eşitleme (Önizleme) iyi çalışır.
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Oluşturulamadı tabloları neden görüyor musunuz?  
+Veri Eşitleme yan tablolar değişiklik izleme, veritabanınızdaki oluşturur. Bunları silmeyin veya veri eşitleme çalışmayı durdurur.
+
+### <a name="is-my-data-convergent-after-a-sync"></a>Verilerim bir eşitleme sonrasında convergent mi?
+
+Olmayabilir. Bir hub ile bir eşitleme grubu ve üç bağlı bileşen (A, B ve C), bir Hub, Hub'ına B ve c hub'a eşitlemeleri olan Bir veritabanına bir değişiklik yaptıysanız *sonra* değişiklik bir sonraki eşitleme görevi kadar veritabanı B veya C veritabanı yazılmaz eşitleme, hub'a.
+
+### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Şema değişiklikleri eşitleme grubuna nasıl sağlarım?
+
+Şema değişiklikleri el ile yapmanız gerekir.
+
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Nasıl dışarı aktarma ve veri eşitleme ile veritabanı alma?
+Bir veritabanı olarak dışarı aktardıktan sonra bir `.bacpac` dosya ve yeni bir veritabanı oluşturmak için dosya alma, veri eşitleme yeni veritabanı kullanmak için aşağıdaki iki birini yapmanız gerekir:
+1.  Veri eşitleme nesneleri yan tablolar üzerinde Temizleme **yeni veritabanı** kullanarak [bu komut dosyası](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Bu komut tüm gerekli veri eşitleme nesneleri veritabanından siler.
+2.  Yeni bir veritabanı ile eşitleme grubunu yeniden oluşturun. Eski eşitleme grubu artık ihtiyacınız varsa dosyayı silin.
+
+## <a name="faq-about-the-client-agent"></a>İstemci Aracısı hakkında SSS
+
+### <a name="why-do-i-need-a-client-agent"></a>Bir istemci Aracısı neden gerekiyor mu?
+
+SQL veri eşitleme (Önizleme) hizmeti SQL Server veritabanlarını istemci Aracısı üzerinden iletişim kurar. Bu güvenlik özelliğinin bir güvenlik duvarının arkasındaki veritabanları ile doğrudan iletişim engeller. Şifrelenmiş bağlantıları ve benzersiz bir belirteç zaman SQL veri eşitleme (Önizleme) hizmeti ile iletişim kurar aracı ile mu bunu kullanarak veya *aracı anahtarını*. SQL Server veritabanları bağlantı dizesi ve aracı anahtarı kullanılarak Aracısı kimlik doğrulaması. Bu tasarım, güvenlik, verileriniz için yüksek düzeyde sağlar.
+
+### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Kaç tane yerel aracı örneğinin UI çalıştırabilir miyim?
+
+Kullanıcı arabirimini yalnızca bir örneği çalıştırılabilir.
+
+### <a name="how-can-i-change-my-service-account"></a>Hizmet Hesabımı nasıl değiştirebilir miyim?
+
+Bir istemci Aracısı yükledikten sonra hizmet hesabını değiştirmek için yalnızca bunu kaldırın ve yeni bir istemci aracısı yeni hizmet hesabıyla yüklemek için yoludur.
+
+### <a name="how-do-i-change-my-agent-key"></a>Aracı anahtarımı nasıl değişiyor?
+
+Aracı anahtarını bir aracı tarafından yalnızca bir kez kullanılabilir. Bu, kaldırın, sonra yeni bir aracıyı yeniden yükleyin veya birden çok aracı tarafından kullanılabilir olduğunda yeniden kullanılamaz. Varolan bir aracı için yeni bir anahtar oluşturmanız gerekiyorsa, aynı anahtar ile SQL veri eşitleme (Önizleme) hizmeti istemci Aracısı ile kaydedilir emin olmalısınız.
+
+### <a name="how-do-i-retire-a-client-agent"></a>Bir istemci Aracısı nasıl devre dışı bırakma?
+
+Hemen geçersiz ya da bir aracı devre dışı bırakmak için Portalı'nda, anahtarı yeniden ancak aracı Arabiriminde bulunmayın. Bir anahtar oluşturma işlemi, karşılık gelen Aracısı çevrimiçi veya çevrimdışı olması durumunda belirtilmediğine önceki anahtar geçersiz kılar.
+
+### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Bir istemci aracısı başka bir bilgisayara nasıl taşıyabilirim?
+
+Şu anda açıktır olandan farklı bir bilgisayardan yerel aracı çalıştırmak istiyorsanız, şunları yapın:
+
+1. İstediğiniz bilgisayara aracıyı yükleyin.
+
+2. SQL veri eşitleme (Önizleme) portalında oturum açın ve yeni aracı için bir aracı anahtarını yeniden oluşturma.
+
+3. Yeni aracı anahtarını göndermek için yeni aracısının kullanıcı arabirimini kullanın.
+
+4. İstemci aracısının daha önce kaydedilen şirket içi veritabanlarının listesini yüklerken bekleyin.
+
+5. Veritabanı kimlik bilgileri olarak ulaşılamaz görüntülemek tüm veritabanları için sağlar. Bu veritabanları aracısının yüklü olduğu yeni bilgisayardan erişilebilir olması gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tebrikler. Bir SQL veritabanı örneğini ve SQL Server veritabanı içeren bir eşitleme grubu oluşturdunuz.

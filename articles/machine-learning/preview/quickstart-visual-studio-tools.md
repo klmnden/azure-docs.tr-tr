@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 09/12/2017
-ms.openlocfilehash: 680c1afab1af31cfef51b1c82d2db49f452ba6ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 400fc384519f2ff5c9bb7d83dab6499f5008a833
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>AI için Visual Studio Code Araçları
 AI için Visual Studio Code Araçları, Derin Öğrenme / AI çözümlerinin derlenmesini, test edilmesini ve dağıtılmasını sağlayan bir geliştirme uzantısıdır. Başta bir çalıştırma geçmişi görünümü olmak üzere önceki eğitimlerin performans ve özel ölçüm ayrıntılarını vererek, Azure Machine Learning ile sorunsuz bir tümleştirme sağlar. [Microsoft Bilişsel Araç Seti (önceki adıyla CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) ve diğer derin öğrenme çerçeveleriyle yeni projeye göz atma ve projeyi önyükleme olanağı tanıyan bir örnek gezgini görünümü sağlar. Son olarak, Azure Sanal Makineler veya GPU ile Linux sunucuları gibi uzak ortamlarda modelleri denemek üzere işleri göndermenizi sağlayan işlem hedeflerine yönelik bir gezgin sağlar. 
@@ -70,7 +70,6 @@ iris_sklearn.py dosyasını açın, sağ tıklayın ve **AI: İşi Gönder** ö�
 1. Komut paletini açın (Görüntüle > **Komutu Paleti** veya **Ctrl+Shift+P**).
 2. "AI Listesi" ifadesini girin.
 3. "AI: İşleri Listele" önerisini aldığınızda seçip enter tuşuna basın.
-4. "Azure Machine Learning" platformunu seçin.
 
 İş Listesi Görünümü açılır ve tüm çalıştırmalar ile bazı ilgili bilgileri gösterir.
 

@@ -15,11 +15,11 @@ ms.date: 07/21/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 3ef74c8d5d5b75eb2bca4e6c994f4718b5226db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6534320d36653d296f254dfff129d4c5031f8ce8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunları ve hata iletileri sorunlarını giderme
 Yayımlanmış bir uygulamanın erişme veya yayımlama uygulamalarda hatalar meydana gelirse, Microsoft Azure AD uygulama proxy'si düzgün çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -51,7 +51,7 @@ Olay günlüğünden bağlayıcı hata bulduktan sonra bu sorunu gidermek için 
 | Hata | Önerilen adımlar |
 | ----- | ----------------- |
 | Bağlayıcı kaydı başarısız oldu: etkin Azure Yönetim Portalı'nda uygulama proxy'si ve Active Directory kullanıcı adınızı ve parolanızı doğru girdiğinizden emin olun. Hata: 'bir veya daha fazla hata oluştu.' | Azure AD ile oturum açma olmadan kaydı penceresi kapattıysanız, bağlayıcı Sihirbazı'nı yeniden çalıştırın ve bağlayıcı kaydedin. <br><br> Kayıt penceresi açar ve oturum açmanızı vermeden hemen kapatılıyor, büyük olasılıkla bu hatayı alırsınız. Sisteminizde bir ağ hatası olduğunda bu hata oluşur. Tarayıcıdan ortak bir Web sitesine bağlanmak mümkündür ve bağlantı noktaları belirtildiği şekilde açık olduğundan emin olun [uygulama ara sunucusu önkoşulları](active-directory-application-proxy-enable.md). |
-| NET hata kaydı penceresinde görüntülenir. Devam edilemiyor. | Bu hatayı görürseniz ve penceresi kapanır yanlış kullanıcı adı ya da parola girdi. Yeniden Deneyin. |
+| NET hata kaydı penceresinde görüntülenir. Devam edilemiyor. | Bu hatayı görürseniz ve penceresi kapanır yanlış kullanıcı adı ya da parola girdi. Yeniden deneyin. |
 | Bağlayıcı kaydı başarısız oldu: etkin Azure Yönetim Portalı'nda uygulama proxy'si ve Active Directory kullanıcı adınızı ve parolanızı doğru girdiğinizden emin olun. Hata: ' AADSTS50059: hiçbir Kiracı tanımlama bilgileri ya da istek bulunamadı veya asıl URI başarısız oldu, kimlik bilgileri ve arama hizmeti tarafından sağlanan herhangi tarafından kapsanan. | Bir Microsoft Account ve Kuruluş Kimliği erişmeye çalıştığınız dizininin parçası olan bir etki alanı değil kullanarak oturum açmaya çalışıyorsunuz. Yönetici, Kiracı etki alanı etki alanı adıyla aynı parçasıdır, örneğin, Azure AD etki alanı contoso.com ise, yönetici olması gerekir emin olun admin@contoso.com. |
 | PowerShell komut dosyaları çalıştırmak için geçerli yürütme İlkesi alınamadı. | Bağlayıcı yükleme başarısız olursa, PowerShell yürütme ilkesini devre dışı olduğundan emin olmak için kontrol edin. <br><br>1. Grup İlkesi Düzenleyicisi'ni açın.<br>2. Git **Bilgisayar Yapılandırması** > **Yönetim Şablonları** > **Windows bileşenleri** > **Windows PowerShell** çift tıklayın ve **komut dosyası yürütme kapatma**.<br>3. Yürütme ilkesi için ya da ayarlanabilir **yapılandırılmamış** veya **etkin**. Varsa kümesine **etkin**seçenekleri altında olduğundan emin olun, yürütme İlkesi ayarlandığından **yerel ve uzak imzalanmış komut dosyalarını izin** veya **tüm komut dosyalarına izin**. |
 | Bağlayıcı yapılandırması yüklenemedi. | Kimlik doğrulaması için kullanılır, bağlayıcı'nın istemci sertifikasının süresi doldu. Bir proxy'nin arkasında yüklü bağlayıcı varsa, bu da oluşabilir. Bu durumda, bağlayıcı Internet'e erişemez ve uzak kullanıcılar için uygulamaları sağlamak mümkün olmaz. Güven kullanarak el ile yenileme `Register-AppProxyConnector` Windows PowerShell cmdlet'i. Bağlayıcınızı bir proxy'nin arkasında ise Internet erişimi bağlayıcı hesaplarına "Ağ Hizmetleri" ve "yerel sistem." vermek gerekli. Bu, onları Proxy için erişim verme veya onları proxy sunucusunu atlamak için ayarlayarak gerçekleştirilebilir. |
@@ -90,7 +90,7 @@ Bir hata veya sorun bu sorun giderme Kılavuzu'nda listelenmiyor Azure AD uygula
 * [Azure Active Directory Uygulama Ara sunucusunu etkinleştirme](active-directory-application-proxy-enable.md)
 * [Uygulama proxy'si ile uygulama yayımlama](active-directory-application-proxy-publish.md)
 * [Çoklu oturum açmayı etkinleştir](active-directory-application-proxy-sso-using-kcd.md)
-* [Koşullu erişimi etkinleştirme](active-directory-application-proxy-conditional-access.md)
+* [Koşullu erişimi etkinleştirme](application-proxy-enable-remote-access-sharepoint.md)
 
 
 <!--Image references-->

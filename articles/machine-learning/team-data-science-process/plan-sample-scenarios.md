@@ -4,7 +4,7 @@ description: "Tahmine dayalı analiz takım veri bilimi işlemine Gelişmiş yap
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev
-ms.openlocfilehash: 1dbc47b8a56fb2d295adfea0920b7eea45be69a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b6a92f4f4615954902124c59adca25560182de6
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning’de gelişmiş analiz senaryoları
 Bu makalede birçok örnek veri kaynakları ve tarafından işlenen hedef senaryoları özetlenmektedir [takım veri bilimi işlem (TDSP)](overview.md). TDSP akıllı uygulamaları derleme işbirliği yapmak ekipler için sistematik bir yaklaşım sağlar. Burada sunulan senaryoları veri özellikleri, kaynak konumları ve Azure hedef depoları bağlıdır veri işleme iş akışı içinde kullanılabilir seçenekler gösterilmektedir.

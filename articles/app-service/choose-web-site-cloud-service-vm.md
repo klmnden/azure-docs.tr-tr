@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, sanal makineler, Service Fabric ve Cloud Services karşılaştırması
 ## <a name="overview"></a>Genel Bakış
@@ -48,7 +48,7 @@ Aşağıdaki tabloda, en iyi seçim yapmanıza yardımcı olmak için özellikle
 | Hizmet veri yolu, depolama, SQL veritabanı gibi hizmetlere erişimi |X |X |X |X | |
 | Ana bilgisayar web veya web hizmetleri katmanı çok katmanlı mimarisi |X |X |X |X | |
 | Çok katmanlı mimarisinin konak orta katman |X |X |X |X |App Service web apps kolayca bir REST API'si Orta katmanı barındırmak ve [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) özelliği, arka plan işleme işleri barındırabilir. Web işleri katmanı için bağımsız ölçeklenebilirlik elde etmek için ayrılmış bir Web sitesinde çalıştırabilirsiniz. |
-| Tümleşik Hizmet olarak MySQL desteği |X |X |X | |Bulut Hizmetleri hizmet olarak MySQL Cleardb'nin teklifleri aracılığıyla ancak Azure Portal iş akışının parçası olarak değil tümleştirebilirsiniz. |
+| Tümleşik Hizmet olarak MySQL desteği |X |X | | | |
 | ASP.NET, klasik ASP, Node.js, PHP, Python desteği |X |X |X |X |Service Fabric kullanarak bir web ön uç oluşturmayı destekleyen [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) veya herhangi bir türde uygulamayı (Node.js, Java, vb.) olarak dağıtabileceğiniz bir [Konuk yürütülebilir](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Birden çok örneği dağıtın olmadan için genişletme |X |X |X |X |Sanal makineler için birden çok örneği ölçeğini, ancak bunlar üzerinde çalışan hizmetleri bu genişleme işlemek için yazılmış olmalıdır. Makine genelinde istekleri yönlendirmek ve Bakım veya donanım hataları nedeniyle tüm örnekleri aynı anda yeniden engellemek için bir benzeşim grubu oluşturmak için bir yük dengeleyici yapılandırmanız gerekir. |
 | SSL desteği |X |X |X |X |App Service web uygulamaları için özel etki alanı adları için SSL yalnızca temel ve Standart modu için desteklenir. Web uygulamaları ile SSL kullanma hakkında daha fazla bilgi için bkz: [bir Azure Web sitesi için bir SSL sertifikası yapılandırma](app-service-web-tutorial-custom-ssl.md). |
@@ -97,7 +97,7 @@ Azure uygulama hizmeti, şirket Web siteleri barındırmak için harika bir çö
 * Active Directory ile tümleştirin
 
 ### <a id="iis6"></a>Windows Server 2003'te çalışan bir IIS6 uygulama var.
-Azure uygulama hizmeti geçirme eski IIS6 uygulamalarla ilişkili altyapı maliyetleri önlemek kolaylaştırır. Microsoft oluşturdu [kullanımı kolay geçiş araçları ve ayrıntılı geçiş yönergeleri](https://www.movemetowebsites.net/) uyumluluğunu denetlemek ve yapılması gereken tüm değişiklikleri belirlemek etkinleştirin. Visual Studio, TFS ve ortak CMS araçları ile tümleştirme, IIS6 uygulama doğrudan buluta dağıtmak kolaylaştırır. Uygulama dağıtıldıktan sonra Azure Portal maliyetlerini yönetmek ve karşılamak kadar gerektiğinde talep ölçeklendirmenizi sağlayan güçlü bir yönetim araçlarını sağlar. Geçiş Aracı ile şunları yapabilirsiniz:
+Azure uygulama hizmeti geçirme eski IIS6 uygulamalarla ilişkili altyapı maliyetleri önlemek kolaylaştırır. Microsoft oluşturdu [kullanımı kolay geçiş araçları ve ayrıntılı geçiş yönergeleri](https://www.migratetoazure.net/) uyumluluğunu denetlemek ve yapılması gereken tüm değişiklikleri belirlemek etkinleştirin. Visual Studio, TFS ve ortak CMS araçları ile tümleştirme, IIS6 uygulama doğrudan buluta dağıtmak kolaylaştırır. Uygulama dağıtıldıktan sonra Azure Portal maliyetlerini yönetmek ve karşılamak kadar gerektiğinde talep ölçeklendirmenizi sağlayan güçlü bir yönetim araçlarını sağlar. Geçiş Aracı ile şunları yapabilirsiniz:
 
 * Hızlı ve kolay bir şekilde buluta eski Windows Server 2003 web uygulamanızı geçirin.
 * Ekli SQL veritabanı bir karma uygulaması oluşturmak için şirket içi bırakmayı tercih et.
@@ -174,7 +174,6 @@ Uygulamanız için seçilen seçenekleri ile çalışmaya başlamak için aşağ
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps

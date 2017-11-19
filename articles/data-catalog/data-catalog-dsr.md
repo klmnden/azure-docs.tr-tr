@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/15/2017
 ms.author: maroche
-ms.openlocfilehash: 1f637acffdbf31f6c69124282f50dc5830ad9f5b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure veri Kataloğu desteklenen veri kaynakları
 
@@ -42,32 +42,32 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Azure Data Lake Store dosya</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Azure Blob depolama</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Azure depolama dizini</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Azure depolama tablosu</td>
@@ -75,10 +75,10 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td>✓</td>
       <td>✓</td>
       <td>
-        <font size="2"></font>
+        <font size="2">
       </td>
       <td>
-        <font size="2"></font>
+        <font size="2">
       </td>
     </tr>
     <tr>
@@ -86,364 +86,364 @@ Bir tıklayın veya ortak bir API kullanarak meta verileri yayımlayabilirsiniz-
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>HDFS dosyası</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Hive tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Hive görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>MySQL tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>MySQL görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Oracle veritabanı tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Oracle veritabanı görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Diğer (genel varlık)</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Azure SQL Data Warehouse tablo</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI, SQL Server veri araçları</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop, SQL Server veri araçları</td>
+      <td></td>
     </tr>
     <tr>
       <td>SQL veri ambarı görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI, SQL Server veri araçları</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop, SQL Server veri araçları</td>
+      <td></td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services boyut</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services ölçü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services tablo</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services rapor</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Tarayıcı</font></td>
-      <td><font size=2>Yalnızca yerel mod sunucuları. SharePoint modu desteklenmiyor.</font></td>
+      <td>Tarayıcı</td>
+      <td>Yalnızca yerel mod sunucuları. SharePoint modu desteklenmiyor.</td>
     </tr>
     <tr>
       <td>SQL Server tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI, SQL Server veri araçları</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop, SQL Server veri araçları</td>
+      <td></td>
     </tr>
     <tr>
       <td>SQL Server görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel, Power BI, SQL Server veri araçları</font></td>
-      <td><font size=2></font></td>
+      <td>Excel, Power BI Desktop, SQL Server veri araçları</td>
+      <td></td>
     </tr>
     <tr>
       <td>Teradata tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Teradata görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>SAP HANA görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>DB2 tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>DB2 görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Dosya sistemi dosyasına</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>FTP dizin</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>FTP dosyası</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>HTTP raporu</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>HTTP uç noktası</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>HTTP dosya</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>OData varlık kümesi</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>OData işlevi</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>PostgreSQL tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>PostgreSQL görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>SAP HANA görünümü</td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td> Salesforce nesnesi</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>SharePoint listesi </td>
       <td>✓</td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Azure Cosmos DB koleksiyonu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Genel ODBC tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Genel ODBC görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Cassandra tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2>Genel bir ODBC varlık Yayımla</font></td>
+      <td></td>
+      <td>Genel bir ODBC varlık Yayımla</td>
     </tr>
     <tr>
       <td>Cassandra görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2>Genel bir ODBC varlık Yayımla</font></td>
+      <td></td>
+      <td>Genel bir ODBC varlık Yayımla</td>
     </tr>
     <tr>
       <td>Sybase tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Sybase görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>MongoDB tablosu</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2>Genel bir ODBC varlık Yayımla</font></td>
+      <td></td>
+      <td>Genel bir ODBC varlık Yayımla</td>
     </tr>
     <tr>
       <td>MongoDB görünümü</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td><font size=2></font></td>
-      <td><font size=2>Genel bir ODBC varlık Yayımla</font></td>
+      <td></td>
+      <td>Genel bir ODBC varlık Yayımla</td>
     </tr>
 </table>
 
-Ek kaynaklar için destek gerekiyorsa, bir özellik isteği gönderin [Azure veri Kataloğu Forumu](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Desteklenen belirli bir veri kaynağına bakın, bunu önerir (veya zaten önerilen değilse, desteği sesli) giderek isterseniz [veri Kataloğu Azure geri bildirim forumlarda](https://feedback.azure.com/forums/906052-data-catalog).
 
 
 ## <a name="data-source-reference-specification"></a>Veri kaynağı başvurusu belirtimi
@@ -462,519 +462,948 @@ Ek kaynaklar için destek gerekiyorsa, bir özellik isteği gönderin [Azure ver
       <td>Kapsayıcı</td>
       <td>Data Lake</td>
       <td>
-        <font size=2>Protokol: webhdfs <br>Kimlik doğrulaması: {temel, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Azure Data Lake Store</td>
-      <td>Tablo</td>
-      <td>Dizin, dosya</td>
+      <td>Table</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2>Protokol: webhdfs <br>Kimlik doğrulaması: {temel, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Azure Storage</td>
-      <td>Kapsayıcı</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
+      <td>Container</td>
       <td>
-        <font size=2>Protokol: azure BLOB sayısı <br>Kimlik doğrulaması: {azure erişim tuşu} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;etki alanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hesabı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kapsayıcı</font>
+        
+            Protocol: azure-blobs
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container
+        
       </td>
     </tr>
     <tr>
       <td>Azure Storage</td>
-      <td>Tablo</td>
-      <td>BLOB, dizini</td>
+      <td>Table</td>
+      <td>Blob, directory</td>
       <td>
-        <font size=2>Protokol: azure BLOB sayısı <br>Kimlik doğrulaması: {azure erişim tuşu} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;etki alanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hesabı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kapsayıcı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adı</font>
+        
+            Protocol: azure-blobs
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
+        
       </td>
     </tr>
     <tr>
       <td>Azure Storage</td>
-      <td>Kapsayıcı</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
+      <td>Container</td>
       <td>
-        <font size=2>Protokol: azure tabloları <br>Kimlik doğrulaması: {azure erişim tuşu} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;etki alanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hesabı</font>
+        
+            Protocol: azure-tables
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+        
       </td>
     </tr>
     <tr>
       <td>Azure Storage</td>
-      <td>Tablo</td>
-      <td>Tablo</td>
+      <td>Table</td>
+      <td>Table</td>
       <td>
-        <font size=2>Protokol: azure tabloları <br>Kimlik doğrulaması: {azure erişim tuşu} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;etki alanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hesabı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;adı</font>
+        
+            Protocol: azure-tables
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
+        
       </td>
     </tr>
     <tr>
       <td>Cosmos</td>
-      <td>Kapsayıcı</td>
-      <td>Sanal küme</td>
+      <td>Container</td>
+      <td>Virtual cluster</td>
       <td>
-        <font size=2>Protokol: cosmos <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: cosmos
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Cosmos</td>
-      <td>Tablo</td>
-      <td>Akış, akış kümesi görünümü</td>
+      <td>Table</td>
+      <td>Stream, stream set, view</td>
       <td>
-        <font size=2>Protokol: cosmos <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: cosmos
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Datazen</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Site</td>
       <td>
-        <font size=2>Protokol: http <br>Kimlik doğrulaması: {none, basic, windows, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Datazen</td>
-      <td>Rapor</td>
-      <td>Rapor, Pano</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2>Protokol: http <br>Kimlik doğrulaması: {none, basic, windows, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>DB2</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: db2 <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            Protocol: db2
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>DB2</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: db2 <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema</font>
+        
+            Protocol: db2
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+        
       </td>
     </tr>
     <tr>
-      <td>Dosya sistemi</td>
-      <td>Tablo</td>
-      <td>Dosya</td>
+      <td>File system</td>
+      <td>Table</td>
+      <td>File</td>
       <td>
-        <font size=2>Protokol: dosya <br>Kimlik doğrulaması: {none, basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yol</font>
+        
+            Protocol: file
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path
+        
       </td>
     </tr>
     <tr>
       <td>FTP</td>
-      <td>Tablo</td>
-      <td>Dizin, dosya</td>
+      <td>Table</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2>Protokol: ftp <br>Kimlik doğrulaması: {none, basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: ftp
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Hadoop dağıtılmış dosya sistemi</td>
-      <td>Kapsayıcı</td>
-      <td>Küme</td>
+      <td>Hadoop Distributed File System</td>
+      <td>Container</td>
+      <td>Cluster</td>
       <td>
-        <font size=2>Protokol: webhdfs <br>Kimlik doğrulaması: {temel, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Hadoop dağıtılmış dosya sistemi</td>
-      <td>Tablo</td>
-      <td>Dizin, dosya</td>
+      <td>Hadoop Distributed File System</td>
+      <td>Table</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2>Protokol: webhdfs <br>Kimlik doğrulaması: {temel, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Hive</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: hive <br>Kimlik doğrulaması: {Hdınsight, basic, username, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serverProtocol: {hive2}</font>
+        
+            Protocol: hive
+            <br>Authentication: {HDInsight, basic, username, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>connectionProperties:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2}
+        
       </td>
     </tr>
     <tr>
       <td>Hive</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: hive <br>Kimlik doğrulaması: {Hdınsight, basic, username, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serverProtocol: {hive2}</font>
+        
+            Protocol: hive
+            <br>Authentication: {HDInsight, basic, username, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>connectionProperties:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2}
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Site</td>
       <td>
-        <font size=2>Protokol: http <br>Kimlik doğrulaması: {none, basic, windows, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Rapor</td>
-      <td>Rapor, Pano</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2>Protokol: http <br>Kimlik doğrulaması: {none, basic, windows, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Tablo</td>
-      <td>Uç noktası, dosya</td>
+      <td>Table</td>
+      <td>Endpoint, file</td>
       <td>
-        <font size=2>Protokol: http <br>Kimlik doğrulaması: {none, basic, windows, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>MySQL</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: mysql <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            Protocol: mysql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>MySQL</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: mysql <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: mysql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>OData</td>
-      <td>Kapsayıcı</td>
-      <td>Varlık kapsayıcısı</td>
+      <td>Container</td>
+      <td>Entity container</td>
       <td>
-        <font size=2>Protokol: odata <br>Kimlik doğrulaması: {none, basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: odata
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>OData</td>
-      <td>Tablo</td>
-      <td>Varlık kümesi, işlevi</td>
+      <td>Table</td>
+      <td>Entity set, function</td>
       <td>
-        <font size=2>Protokol: odata <br>Kimlik doğrulaması: {none, basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kaynak</font>
+        
+            Protocol: odata
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource
+        
       </td>
     </tr>
     <tr>
-      <td>Oracle Veritabanı</td>
-      <td>Kapsayıcı</td>
+      <td>Oracle Database</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: oracle <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            Protocol: oracle
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
-      <td>Oracle Veritabanı</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>Oracle Database</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: oracle <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: oracle
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>PostgreSQL</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: postgresql <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            Protocol: postgresql
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>PostgreSQL</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: postgresql <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: postgresql
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Power BI</td>
-      <td>Kapsayıcı</td>
+      <td>Power BI Desktop</td>
+      <td>Container</td>
       <td>Site</td>
       <td>
-        <font size=2>Protokol: http <br>Kimlik doğrulaması: {none, basic, windows, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Power BI</td>
-      <td>Rapor</td>
-      <td>Rapor, Pano</td>
+      <td>Power BI Desktop</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2>Protokol: http <br>Kimlik doğrulaması: {none, basic, windows, oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Power Query</td>
-      <td>Tablo</td>
-      <td>Veri karma</td>
+      <td>Table</td>
+      <td>Data mashup</td>
       <td>
-        <font size=2>Protokolü: güç sorgu <br>Kimlik doğrulaması: {oauth} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: power-query
+            <br>Authentication: {oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Salesforce</td>
-      <td>Tablo</td>
-      <td>Nesne</td>
+      <td>Table</td>
+      <td>Object</td>
       <td>
-        <font size=2>Protokol: salesforce-com <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sınıfı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ItemName</font>
+        
+            Protocol: salesforce-com
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName
+        
       </td>
     </tr>
     <tr>
       <td>SAP HANA</td>
-      <td>Kapsayıcı</td>
-      <td>Sunucu</td>
+      <td>Container</td>
+      <td>Server</td>
       <td>
-        <font size=2>Protokol: sap hana sql <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu</font>
+        
+            Protocol: sap-hana-sql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+        
       </td>
     </tr>
     <tr>
       <td>SAP HANA</td>
-      <td>Tablo</td>
-      <td>Görünüm</td>
+      <td>Table</td>
+      <td>View</td>
       <td>
-        <font size=2>Protokol: sap hana sql <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: sap-hana-sql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SharePoint</td>
-      <td>Tablo</td>
-      <td>Liste</td>
+      <td>Table</td>
+      <td>List</td>
       <td>
-        <font size=2>Protokol: sharepoint listesi <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL</font>
+        
+            Protocol: sharepoint-list
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Veri Ambarı</td>
-      <td>Komut</td>
-      <td>Saklı yordam</td>
+      <td>SQL Data Warehouse</td>
+      <td>Command</td>
+      <td>Stored procedure</td>
       <td>
-        <font size=2>Protokol: tds <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Veri Ambarı</td>
+      <td>SQL Data Warehouse</td>
       <td>TableValuedFunction</td>
-      <td>Tablo değerli işlevi</td>
+      <td>Table-valued function</td>
       <td>
-        <font size=2>Protokol: tds <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Veri Ambarı</td>
-      <td>Kapsayıcı</td>
+      <td>SQL Data Warehouse</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: tds <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            Protocol: tds
+          <br>Authentication: {protocol, windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Veri Ambarı</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>SQL Data Warehouse</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: tds <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Komut</td>
-      <td>Saklı yordam</td>
+      <td>Command</td>
+      <td>Stored procedure</td>
       <td>
-        <font size=2>Protokol: tds <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
       <td>TableValuedFunction</td>
-      <td>Tablo değerli işlevi</td>
+      <td>Table-valued function</td>
       <td>
-        <font size=2>Protokol: tds <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: tds <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: tds <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services çok boyutlu</td>
-      <td>Kapsayıcı</td>
-      <td>modeli</td>
+      <td>SQL Server Analysis Services multidimensional</td>
+      <td>Container</td>
+      <td>Model</td>
       <td>
-        <font size=2>Protokolü: Analiz Hizmetleri <br>Kimlik doğrulaması: {windows, temel, anonim, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services çok boyutlu</td>
+      <td>SQL Server Analysis Services multidimensional</td>
       <td>KPI</td>
       <td>KPI</td>
       <td>
-        <font size=2>Protokolü: Analiz Hizmetleri <br>Kimlik doğrulaması: {windows, temel, anonim, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {KPI}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services çok boyutlu</td>
-      <td>Ölçü birimi</td>
-      <td>Ölçü birimi</td>
+      <td>SQL Server Analysis Services multidimensional</td>
+      <td>Measure</td>
+      <td>Measure</td>
       <td>
-        <font size=2>Protokolü: Analiz Hizmetleri <br>Kimlik doğrulaması: {windows, temel, anonim, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {Measure}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services çok boyutlu</td>
-      <td>Tablo</td>
-      <td>Boyut</td>
+      <td>SQL Server Analysis Services multidimensional</td>
+      <td>Table</td>
+      <td>Dimension</td>
       <td>
-        <font size=2>Protokolü: Analiz Hizmetleri <br>Kimlik doğrulaması: {windows, temel, anonim, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {boyutu}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tablo</td>
-      <td>Kapsayıcı</td>
-      <td>modeli</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Container</td>
+      <td>Model</td>
       <td>
-        <font size=2>Protokolü: Analiz Hizmetleri <br>Kimlik doğrulaması: {windows, temel, anonim, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tablo</td>
+      <td>SQL Server Analysis Services tabular</td>
       <td>KPI</td>
       <td>KPI</td>
       <td>
-        <font size=2>Protokolü: Analiz Hizmetleri <br>Kimlik doğrulaması: {windows, temel, anonim, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {KPI}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tablo</td>
-      <td>Ölçü birimi</td>
-      <td>Ölçü birimi</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Measure</td>
+      <td>Measure</td>
       <td>
-        <font size=2>Protokolü: Analiz Hizmetleri <br>Kimlik doğrulaması: {windows, temel, anonim, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {Measure}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services tablo</td>
-      <td>Tablo</td>
-      <td>Tablo</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Table</td>
+      <td>Table</td>
       <td>
-        <font size=2>Protokolü: Analiz Hizmetleri <br>Kimlik doğrulaması: {windows, temel, anonim, hiçbiri} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objectType: {Table}</font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Raporlama Hizmetleri</td>
-      <td>Kapsayıcı</td>
-      <td>Sunucu</td>
+      <td>SQL Server Reporting Services</td>
+      <td>Container</td>
+      <td>Server</td>
       <td>
-        <font size=2>Protokol: Raporlama Hizmetleri <br>Kimlik doğrulaması: {windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sürüm: {ReportingService2010}</font>
+        
+            Protocol: reporting-services
+            <br>Authentication: {windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010}
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Raporlama Hizmetleri</td>
-      <td>Rapor</td>
-      <td>Rapor</td>
+      <td>SQL Server Reporting Services</td>
+      <td>Report</td>
+      <td>Report</td>
       <td>
-        <font size=2>Protokol: Raporlama Hizmetleri <br>Kimlik doğrulaması: {windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yol <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sürüm: {ReportingService2010}</font>
+        
+            Protocol: reporting-services
+            <br>Authentication: {windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010}
+        
       </td>
     </tr>
     <tr>
       <td>Teradata</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: teradata <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            Protocol: teradata
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Teradata</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2>Protokol: teradata <br>Kimlik doğrulaması: {Protokolü, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            Protocol: teradata
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Ana Veri Hizmetleri</td>
-      <td>Kapsayıcı</td>
-      <td>modeli</td>
+      <td>SQL Server Master Data Services</td>
+      <td>Container</td>
+      <td>Model</td>
       <td>
-        <font size="2">Protokol: mssql-mds <br>Kimlik doğrulaması: {windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sürüm</font>
+        <font size="2">
+          Protocol: mssql-mds
+          <br>Authentication: {windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+        
       </td>
     </tr>
     <tr>
-      <td>SQL Server Ana Veri Hizmetleri</td>
-      <td>Tablo</td>
-      <td>Varlık</td>
+      <td>SQL Server Master Data Services</td>
+      <td>Table</td>
+      <td>Entity</td>
       <td>
-        <font size="2">Protokol: mssql-mds <br>Kimlik doğrulaması: {windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;modeli <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sürüm <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Varlık</font>
+        <font size="2">
+          Protocol: mssql-mds
+          <br>Authentication: {windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity
+        
       </td>
     </tr>
     <tr>
       <td>Azure Cosmos DB</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: belge-db <br>Kimlik doğrulaması: {azure erişim tuşu} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            Protocol: document-db
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Azure Cosmos DB</td>
-      <td>Koleksiyon</td>
-      <td>Koleksiyon</td>
+      <td>Collection</td>
+      <td>Collection</td>
       <td>
-        <font size=2>Protokol: belge-db <br>Kimlik doğrulaması: {azure erişim tuşu} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;URL <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;koleksiyonu</font>
+        
+            Protocol: document-db
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collection
+        
       </td>
     </tr>
     <tr>
-      <td>Genel ODBC</td>
-      <td>Kapsayıcı</td>
+      <td>Generic ODBC</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: odbc <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seçenekler <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            Protocol: odbc
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
-      <td>Genel ODBC</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>Generic ODBC</td>
+      <td>Table</td>
+      <td>Table, View</td>
       <td>
-        <font size=2>Protokol: odbc <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Seçenekler <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema</font>
+        
+            Protocol: odbc
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+        
       </td>
     </tr>
     <tr>
       <td>Sybase</td>
-      <td>Kapsayıcı</td>
+      <td>Container</td>
       <td>Database</td>
       <td>
-        <font size=2>Protokol: sybase <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı</font>
+        
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Sybase</td>
-      <td>Tablo</td>
-      <td>Tablo, Görünüm</td>
+      <td>Table</td>
+      <td>Table, View</td>
       <td>
-        <font size=2>Protokol: sybase <br>Kimlik doğrulaması: {basic, windows} <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sunucu <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Veritabanı <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Şema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nesne</font>
+        
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Diğer (Yukarıdakilerin hiçbiri)</td>
+      <td>Other (none of the above)</td>
       <td>\*</td>
       <td>\*</td>
       <td>
-        <font size=2>Protokol: genel-varlık <br>Adresi: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AssetID</font>
+        
+            Protocol: generic-asset
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId
+        
       </td>
     </tr>
 </table>

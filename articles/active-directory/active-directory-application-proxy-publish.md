@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19f52181a2847ab52029adac4d58e402a76d5f30
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
@@ -97,7 +97,7 @@ Bir uygulamayı silmek için listeden bir uygulama seçin ve ardından **Sil**'e
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Kendi etki alanı adınızı kullanarak uygulama yayımlama](active-directory-application-proxy-custom-domains.md)
 * [Çoklu oturum açmayı etkinleştirme](active-directory-application-proxy-sso-using-kcd.md)
-* [Koşullu erişimi etkinleştirme](active-directory-application-proxy-conditional-access.md)
+* [Koşullu erişimi etkinleştirme](application-proxy-enable-remote-access-sharepoint.md)
 * [Talepleri kullanan uygulamalarla çalışma](active-directory-application-proxy-claims-aware-apps.md)
 
 En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](http://blogs.technet.com/b/applicationproxyblog/) göz atın

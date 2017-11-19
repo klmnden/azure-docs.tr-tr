@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: f11f7bf6ed94c5d19ad51b1e474ab45d20216351
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights fiyatlandırma ve veri biriminde yönetme
 
@@ -110,7 +110,7 @@ Uygulama Öngörüler ücretler Azure faturanızı eklenir. Azure Faturalama bö
 Verileri gönderme birim sınırlıdır üç yolu vardır:
 
 * **Örnekleme:** bu düzenek kullanılabilir sunucu ve istemci uygulamalarınızı en az bozulma ölçümleri ile gönderilen telemetri miktarını azaltın. Bu, veri miktarını ayarlamak için sahip birincil araçtır. Daha fazla bilgi edinmek [özellikleri örnekleme](app-insights-sampling.md). 
-* **Günlük sınır:** Azure portalından bu Application Insights kaynağı oluşturma ayarlandığında 500 GB/gün. Visual Studio'da Application Insights kaynağı oluştururken, varsayılan faciliate yalnızca sınama amaçlı küçük (yalnızca 32.3 MB/gün). Bu durumda uygulamayı üretim ortamına dağıtmadan önce kullanıcının günlük ucun oluşturacağı yöneliktir. Bir yüksek trafik uygulama için daha yüksek bir maksimum istediniz sürece, üst sınır uygulanıyor 500 GB/gün olur. Maksadınızı olması gerektiği gibi günlük ucun ayarlarken dikkatli **hiç günlük ucun isabet**, çünkü daha sonra geri kalanı gün için veri kaybı ve uygulamanızı izlemek üzere oluşturulamıyor. Değiştirmek için veri birimi yönetim dikey (aşağıya bakın) bağlı günlük birimi cap dikey penceresini kullanın. Bazı abonelik türleri için Application Insights kullanılan kredi gerektiğini unutmayın. Abonelik bir harcama sınırı varsa, günlük sınır dikey penceresinde kaldırmak ve 32.3 MB/gün çıkarılmasına günlük ucun etkinleştirme yönergeleri sahip olur.  
+* **Günlük sınır:** Azure portalından bu Application Insights kaynağı oluşturma ayarlandığında 100 GB/gün. Visual Studio'da Application Insights kaynağı oluştururken, varsayılan faciliate yalnızca sınama amaçlı küçük (yalnızca 32.3 MB/gün). Bu durumda uygulamayı üretim ortamına dağıtmadan önce kullanıcının günlük ucun oluşturacağı yöneliktir. Bir yüksek trafik uygulama için daha yüksek bir maksimum istediniz sürece, üst sınır uygulanıyor 1000 GB/gün olur. Maksadınızı olması gerektiği gibi günlük ucun ayarlarken dikkatli **hiç günlük ucun isabet**, çünkü daha sonra geri kalanı gün için veri kaybı ve uygulamanızı izlemek üzere oluşturulamıyor. Değiştirmek için veri birimi yönetim dikey (aşağıya bakın) bağlı günlük birimi cap dikey penceresini kullanın. Bazı abonelik türleri için Application Insights kullanılan kredi gerektiğini unutmayın. Abonelik bir harcama sınırı varsa, günlük sınır dikey penceresinde kaldırmak ve 32.3 MB/gün çıkarılmasına günlük ucun etkinleştirme yönergeleri sahip olur.  
 * **Azaltma:** bu veri oranı 32 başına olay ikinci olarak, 1 dakika içinde ölçülen ortalama k için sınırlar. 
 
 

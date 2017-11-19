@@ -15,7 +15,8 @@
 ## [4. Görev: Sanal ağa yönelik DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)
 ## [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 
-# Nasıl yapılır
+# Nasıl yapılır?
+## [PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme](active-directory-ds-enable-using-powershell.md)
 ## Yönetilen bir etki alanına katılma
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Şablondan Windows Server VM](active-directory-ds-join-windows-vm-template.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 2dd5fe36105f4013c36dd4dc952424d5672ba91f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure yığın uygulama hizmeti kaynak Sağlayıcısı Ekle
 
@@ -97,7 +97,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     ![Uygulama Hizmeti Yükleyici](media/azure-stack-app-service-deploy/image07.png)    
 
-11. Rol örneği ve SKU seçenekleri gözden geçirin. Varsayılan örneği ve minimum SKU ASDK dağıtımında her rol için minimum sayısı ile doldurulur. Çekirdek ve bellek gereksinimlerini özetini dağıtımınızı planlamaya yardımcı olması için sağlanmıştır. Seçimlerinizi yaptıktan sonra tıklatın **sonraki**.
+11. Rol örneği ve SKU seçenekleri gözden geçirin. Varsayılan örneği ve minimum SKU ASDK dağıtımında her rol için minimum sayısı ile doldurulur. VCPU ve bellek gereksinimlerini özetini dağıtımınızı planlamaya yardımcı olması için sağlanmıştır. Seçimlerinizi yaptıktan sonra tıklatın **sonraki**.
 
     > [!NOTE]
     > Üretim dağıtımlarında yer alan yönergeleri izleyerek, [kapasite Azure yığınında Azure App Service sunucu rolleri için planlama](azure-stack-app-service-capacity-planning.md).
@@ -106,11 +106,11 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 
     | Rol | Minimum örnekleri | Minimum SKU | Notlar |
     | --- | --- | --- | --- |
-    | Denetleyici | 1 | Standard_A1 - (1 çekirdek, 1792 MB) | Yönetir ve uygulama hizmeti bulut durumunu korur. |
-    | Yönetim | 1 | Standard_A2 - (2 Çekirdek, 3584 MB) | Uygulama hizmeti Azure Resource Manager ve API uç noktaları, portal Uzantıları (yönetici, Kiracı, işlevleri portalına) ve veri hizmeti yönetir. Yük devretme desteği için 2 için önerilen örnekleri artar. |
-    | Yayımcı | 1 | Standard_A1 - (1 çekirdek, 1792 MB) | FTP ve web dağıtımı üzerinden içerik yayımlar. |
-    | FrontEnd | 1 | Standard_A1 - (1 çekirdek, 1792 MB) | Uygulama hizmeti uygulamaları isteklerini yönlendirir. |
-    | Paylaşılan çalışan | 1 | Standard_A1 - (1 çekirdek, 1792 MB) | Ana web veya API uygulamaları ve Azure işlevleri uygulamalar. Daha fazla örnek eklemek isteyebilirsiniz. Bir operatör olarak teklifinizle tanımlamak ve herhangi bir SKU katmanı seçin. Katman bir çekirdek en az olması gerekir. |
+    | Denetleyici | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Yönetir ve uygulama hizmeti bulut durumunu korur. |
+    | Yönetim | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Uygulama hizmeti Azure Resource Manager ve API uç noktaları, portal Uzantıları (yönetici, Kiracı, işlevleri portalına) ve veri hizmeti yönetir. Yük devretme desteği için 2 için önerilen örnekleri artar. |
+    | Yayımcı | 1 | Standard_A1 - (1 vCPU, 1792 MB) | FTP ve web dağıtımı üzerinden içerik yayımlar. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Uygulama hizmeti uygulamaları isteklerini yönlendirir. |
+    | Paylaşılan çalışan | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Ana web veya API uygulamaları ve Azure işlevleri uygulamalar. Daha fazla örnek eklemek isteyebilirsiniz. Bir operatör olarak teklifinizle tanımlamak ve herhangi bir SKU katmanı seçin. Katman bir vCPU en az olması gerekir. |
 
     ![Uygulama Hizmeti Yükleyici](media/azure-stack-app-service-deploy/image08.png)    
 

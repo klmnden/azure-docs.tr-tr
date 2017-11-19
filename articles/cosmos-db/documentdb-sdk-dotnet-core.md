@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 835956f185b4ecdcbfa0b486223dd9bc2d0377cb
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -57,6 +57,17 @@ ms.lasthandoff: 10/26/2017
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK henüz Evrensel Windows Platformu (UWP) uygulamaları ile uyumlu değil. .NET Core UWP uygulamaları destekleyen SDK'ın ilgileniyorsanız, e-posta Gönder [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
+ 
+ * Üzerinde DocumentCollection UniqueKeyPolicy özelliğini kullanarak belgeler için benzersiz dizin belirtme olanağı ekler.
+ * İçinde özel JsonSerializer ayarları bazı sorguları ve saklı yordam yürütme için dikkate alınır değil hatanın düzeltildiğini.
+
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+ 
+ * API Başvurusu Azure Cosmos DB Azure DocumentDB değişikliği marka belgeleri, meta veri bilgileri derlemelerde ve NuGet paketi. 
+ * Tanılama bilgileri ve gecikme süresi ile doğrudan bağlantı modunu gönderilen istekleri yanıt gelen kullanıma sunar. Özellik adlarının RequestDiagnosticsString ve RequestLatency ResourceResponse sınıfı üzerinde bulunur.
+ * Bu SDK sürümü https://aka.ms/cosmosdb-emulator Merkezi'nden Azure Cosmos DB öykünücüsü kullanılabilir en son sürümünü gerektirir.
+ 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
 * Birçok güvenilirlik düzeltmeleri ve geliştirmeleri eklendi.
@@ -144,6 +155,8 @@ Bu SDK ile ilgili sorularınız varsa, deftere [StackOverflow](http://stackoverf
 
 | Sürüm | Sürüm tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.7.1](#1.7.1) |16 Kasım 2017 |--- |
+| [1.7.0](#1.7.0) |10 Kasım 2017 |--- |
 | [1.6.0](#1.6.0) |17 Ekim 2017 |--- |
 | [1.5.1](#1.5.1) |02 Ekim 2017 |--- |
 | [1.5.0](#1.5.0) |10 Ağustos 2017 |--- | 

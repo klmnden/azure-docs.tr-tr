@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/10/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b07b9e01a5a8d8a5189b130fb5a9baeef7a43f4f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 Azure Backup hizmetinde iki tür kasa bulunur: Backup kasası ve Kurtarma Hizmetleri kasası. Backup kasası ilk önce gelmiştir. Ardından genişletilmiş Resource Manager dağıtımlarını desteklemek üzere Kurtarma Hizmetleri kasası kullanıma sunulmuştur. Genişletilmiş özellikler ve kasasında depolanan bilgileri bağımlılıkları nedeniyle, bir yedekleme veya kurtarma Hizmetleri kasası silme kafa karıştırıcı olabilir. Bu makale, Klasik Portalı'nı ve Azure portalını kasalarında silmek açıklanmaktadır.  
@@ -33,7 +33,7 @@ Azure Backup hizmetinde iki tür kasa bulunur: Backup kasası ve Kurtarma Hizmet
 >
 
 > [!IMPORTANT]
-> Artık Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltebilirsiniz. Ayrıntılı bilgi için [Backup kasasını Kurtarma Hizmetleri kasasına yükseltme](backup-azure-upgrade-backup-to-recovery-services.md) makalesine bakın. Microsoft, Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltmenizi önerir.<br/> **15 Ekim 2017**’den itibaren, artık PowerShell kullanarak Backup kasaları oluşturamayacaksınız. <br/> **1 Kasım 2017'den itibaren**:
+> Artık Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltebilirsiniz. Ayrıntılı bilgi için [Backup kasasını Kurtarma Hizmetleri kasasına yükseltme](backup-azure-upgrade-backup-to-recovery-services.md) makalesine bakın. Microsoft, Backup kasalarınızı Kurtarma Hizmetleri kasalarına yükseltmenizi önerir.<br/> Sonra **30 Kasım 2017**, yedekleme kasaları oluşturmak için PowerShell kullanmanız mümkün olmaz. <br/> **30 Kasım 2017 tarafından**:
 >- Yükseltilmemiş olan tüm Backup kasaları Kurtarma Hizmetleri kasalarına otomatik olarak yükseltilecektir.
 >- Klasik portalda yedekleme verilerinize erişemeyeceksiniz. Bunun yerine, Kurtarma Hizmetleri kasalarındaki yedekleme verilerinize erişmek için Azure portalını kullanabilirsiniz.
 >

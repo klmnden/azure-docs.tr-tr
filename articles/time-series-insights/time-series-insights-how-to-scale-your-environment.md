@@ -1,32 +1,31 @@
 ---
 title: "Azure zaman serisi Öngörüler ortamınızı ölçeklendirme | Microsoft Docs"
-description: "Bu öğretici, Azure zaman serisi Öngörüler ortamınızı ölçeklendirme kapsar"
-keywords: 
+description: "Bu makalede, Azure zaman serisi Öngörüler ortamınızın ölçeğini açıklar. Eklemek veya içinde bir fiyatlandırma SKU kapasitesi çıkarmak için Azure Portalı'nı kullanın."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: ba6bd1ab05bb7e24dd1bc307218e7a772fbde601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Zaman serisi Öngörüler ortamınızı ölçeklendirme
 
-Bu öğretici, zaman serisinin Öngörüler ortamınızı ölçeklendirmek nasıl ele alınmaktadır.
+Bu makalede, Azure portalını kullanarak zaman serisi Öngörüler ortamınızı ortamınızı kapasitesini değiştirmek açıklar. Kapasite Giriş oranı, depolama kapasitesi ve maliyet, seçilen SKU ile ilişkili uygulanan çarpanı toplamıdır. 
 
-> [!NOTE]
-> Ölçek büyütme sku türleri arasında izin verilmiyor. S1 Sku olan bir ortamda bir S2 ortamına dönüştürülemiyor.
+Artırmak veya belirli bir fiyatlandırma SKU kapasitesiyle azaltmak için Azure portalını kullanabilirsiniz. 
+
+Ancak, fiyatlandırma katmanı değiştirilirse SKU izin verilmiyor. Örneğin, SKU fiyatlandırma bir S1 olan bir ortamda bir S2 içine veya tersi dönüştürülemiyor. 
+
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU giriş hızları ve kapasiteleri
 
@@ -42,14 +41,23 @@ Bu öğretici, zaman serisinin Öngörüler ortamınızı ölçeklendirmek nası
 | 1 | 10 GB (10 milyon olay) | Ayda 300 GB (300 milyon olay) |
 | 10 | 100 GB (100 milyon olay) | Aylık 3 TB (3 milyon olay) |
 
-Kapasiteleri doğrusal olarak, S1 sku kapasitesi 2 ile her ay gün giriş oranı ve 60 GB (60 milyon olayları) başına 2 GB (2 milyon) olayları destekler şekilde ölçeklendirilir.
+Kapasiteleri doğrusal olarak, S1 SKU kapasitesi 2 ile her ay gün giriş oranı ve 60 GB (60 milyon olayları) başına 2 GB (2 milyon) olay destekler şekilde ölçeklendirilir.
 
-## <a name="changing-the-capacity-of-your-environment"></a>Ortamınızı kapasitesini değiştirme
+## <a name="change-the-capacity-of-your-environment"></a>Ortamınızı kapasitesini değiştirme
+1. Azure portalında bulun ve zaman serisi Öngörüler ortamınızı seçin. 
 
-1. Azure portalında kapasite değiştirmek istediğiniz ortamı seçin.
-1. Ayarlar altında Yapılandır'ı tıklatın.
-1. Kapasite kaydırıcıyı giriş ücretlerinizi gereksinimlerini karşılayan kapasitesini ve depolama kapasitesini seçmek için kullanın.
+2. Zaman serisi Insighs ortamınızı menüsünü **yapılandırma**.
+
+   ![Configure.PNG](media/scale-your-environment/configure.png)
+
+3. Ayarlama **kapasite** giriş ücretlerinizi gereksinimlerini karşılayan kapasitesini ve depolama kapasitesini seçmek için kaydırıcıyı. Bildirim **giriş oranı**, **depolama kapasitesi**, ve **maliyet tahmini** dinamik olarak değişikliğin etkisini göstermek için güncelleştirme. 
+
+   ![Kaydırıcı](media/scale-your-environment/slider.png)
+
+   Alternatif olarak, kaydırıcıyı sağa metin kutusuna kapasite çarpanı sayısını yazın. 
+
+4. Seçin **kaydetmek** ortamı ölçeklendirme. İlerleme göstergesi, kısa bir süre içinde değişiklik uygulanır kadar görüntülenir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-* Yeni Kapasite azaltma önlemek yeterli olduğunu doğrulayın. Daha fazla ayrıntı için bkz: *ortamınızı bastırma* bölüm [burada](time-series-insights-diagnose-and-solve-problems.md).
+> [!div class="nextstepaction"]
+> [Yeni Kapasite azaltma önlemek yeterli olduğunu doğrulayın](time-series-insights-diagnose-and-solve-problems.md).

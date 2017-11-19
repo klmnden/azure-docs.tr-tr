@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB: Tablo API (Önizleme) kullanarak tablo verileri sorgulamak nasıl?
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: Tablo API kullanarak tablo verileri sorgulamak nasıl
 
-Azure Cosmos DB [tablo API](table-introduction.md) (Önizleme) destekleyen OData ve [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) anahtar/değer (tablo) verileri sorgular.  
+Azure Cosmos DB [tablo API](table-introduction.md) OData destekler ve [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) anahtar/değer (tablo) verileri sorgular.  
 
 Bu makalede aşağıdaki görevleri içerir: 
 
@@ -38,13 +38,13 @@ Bu makalede sorgularda aşağıdaki örneği kullanın `People` tablosu:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Azure Cosmos DB Azure Table depolama API'leri ile uyumlu olduğundan [sorgulama tabloları ve varlıkları] bakın (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) tablosunu kullanarak sorguya hakkında ayrıntılar için API. 
+[Sorgulama tabloları ve varlıkları] bakın (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) tablo API'yi kullanarak sorguya hakkında ayrıntılar için. 
 
-Azure Cosmos DB sunar premium özellikleri hakkında daha fazla bilgi için bkz: [Azure Cosmos DB: Tablo API](table-introduction.md) ve [.NET içinde tablo API ile geliştirme](tutorial-develop-table-dotnet.md). 
+Azure Cosmos DB sunar premium özellikleri hakkında daha fazla bilgi için bkz: [Azure Cosmos DB tablo API](table-introduction.md) ve [.NET içinde tablo API ile geliştirme](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu sorguları çalışmak bir Azure Cosmos DB hesabınız varsa ve kapsayıcısında varlık verilere sahip. Bu yok? Tamamlamak [beş dakikalık quickstart](https://aka.ms/acdbtnetqs) veya [Geliştirici öğretici](https://aka.ms/acdbtabletut) bir hesap oluşturun ve veritabanınızı doldurmak için.
+Bu sorguları çalışmak bir Azure Cosmos DB hesabınız varsa ve kapsayıcısında varlık verilere sahip. Bu yok? Tamamlamak [beş dakikalık quickstart](create-table-dotnet.md) veya [Geliştirici öğretici](tutorial-develop-table-dotnet.md) bir hesap oluşturun ve veritabanınızı doldurmak için.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Sorgu PartitionKey ve RowKey
 Bir varlığın birincil anahtarının PartitionKey ve RowKey özellikler form için varlık tanımlamak için aşağıdaki özel söz dizimini kullanabilirsiniz: 
@@ -109,9 +109,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 Bu öğreticide, aşağıdakileri yaptığınızdan:
 
 > [!div class="checklist"]
-> * Tablo API (Önizleme) kullanarak sorgulama öğrendiniz 
+> * Tablo API kullanarak sorgulama öğrendiniz
 
 Verilerinizi Genel dağıtma konusunda bilgi almak için sonraki öğretici şimdi devam edebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Verilerinizi genel Dağıt](tutorial-global-distribution-documentdb.md)
+> [Verilerinizi genel Dağıt](tutorial-global-distribution-table.md)

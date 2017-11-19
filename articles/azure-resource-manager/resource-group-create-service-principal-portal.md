@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory Uygulama ve kaynaklarına erişebilir hizmet sorumlusu oluşturmak için Portal kullanın
 
@@ -27,11 +27,11 @@ Erişmek veya kaynak değiştirmek için gereken bir uygulamanız varsa, Azure A
 * Sizin Sorumluluklarınız uygulamanın kimlik bilgilerini değiştirirseniz gerekmez. 
 * Katılımsız betik yürütülürken kimlik doğrulaması otomatikleştirmek için bir sertifika kullanabilirsiniz.
 
-Bu konu, portal üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluş içinde çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle tek Kiracı uygulamalar, kuruluşunuzun içinde çalışan satır iş kolu uygulamaları için kullanılır.
+Bu makalede, portal üzerinden bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluş içinde çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle tek Kiracı uygulamalar, kuruluşunuzun içinde çalışan satır iş kolu uygulamaları için kullanılır.
 
 ## <a name="required-permissions"></a>Gerekli izinler
 
-Bu konuda tamamlamak için bir uygulamayı Azure AD kiracınıza ile kaydetmek için yeterli izinlere sahip ve Azure aboneliğinizde bir rolü uygulamaya atamanız gerekir. Şimdi bu adımları gerçekleştirmek için doğru izinlere sahip olduğunuzdan emin olun.
+Bu makalede tamamlamak için bir uygulamayı Azure AD kiracınıza ile kaydetmek için yeterli izinlere sahip ve Azure aboneliğinizde bir rolü uygulamaya atamanız gerekir. Şimdi bu adımları gerçekleştirmek için doğru izinlere sahip olduğunuzdan emin olun.
 
 ### <a name="check-azure-active-directory-permissions"></a>Azure Active Directory izinlerini denetleyin
 
@@ -104,7 +104,7 @@ Abonelik izinlerinizi denetlemek için:
 
    ![Uygulama Ekle](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Uygulama için bir ad ve URL belirtin. Şunlardan birini seçin **Web uygulaması / API** veya **yerel** oluşturmak istediğiniz uygulama türü için. Değerleri ayarladıktan sonra Seç **oluşturma**.
+1. Uygulama için bir ad ve URL belirtin. Seçin **Web uygulaması / API** oluşturmak istediğiniz uygulama türü için. Kimlik bilgilerini oluşturulamıyor bir **yerel** uygulama; bu nedenle, bu tür için otomatik uygulama çalışmaz. Değerleri ayarladıktan sonra Seç **oluşturma**.
 
    ![Uygulama adı](./media/resource-group-create-service-principal-portal/create-app.png)
 

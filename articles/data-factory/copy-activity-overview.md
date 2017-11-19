@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: bb739d19be7aedf73f422faaa0f5f63a81633d07
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 36443ec86c15edce27bdc4f50cabcaf2e14936bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory kopyalama etkinliği
 
@@ -65,6 +65,10 @@ Kopyalama etkinliği de destekler okuma ve dosyalara belirtilen biçimlerde yazm
 * Dosyaları metin (CSV) biçiminde şirket içi dosya sisteminden kopyalama ve Azure Blob Avro biçiminde yazın.
 * Şirket içi dosya sisteminden daraltılmış dosyaları kopyalayın ve Azure Data Lake Store'a kara açın.
 * Verileri Azure Blob'tan GZip sıkıştırılmış metin (CSV) biçiminde kopyalayın ve Azure SQL veritabanına yazma.
+
+## <a name="supported-regions"></a>Desteklenen bölgeler
+
+Kopyalama etkinliği'nın temelini oluşturan hizmeti genel bölgelerde kullanılabilir ve farklı coğrafyalara listelenen [Azure tümleştirmesi çalışma zamanı konumları](concepts-integration-runtime.md#integration-runtime-location). Genel olarak kullanılabilir topoloji genellikle çapraz bölge atlama önler verimli veri taşıma sağlar. Bkz: [bölgeye göre Hizmetleri](https://azure.microsoft.com/regions/#services) Data Factory ve veri taşıma bir bölgede kullanılabilirliği.
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -132,7 +136,7 @@ Aşağıdaki şablonu kopyalama etkinliği, desteklenen özelliklerin kapsamlı 
 | Girişleri | Kaynak verileri için hangi noktaları oluşturulan veri kümesi belirtin. Kopyalama etkinliği yalnızca tek bir giriş destekler. | Evet |
 | Çıkışları | Hangi havuz veri noktalarına oluşturulan veri kümesi belirtin. Kopyalama etkinliği yalnızca tek bir çıktı destekler. | Evet |
 | typeProperties | Kopyalama etkinliği yapılandırmak için özellikler grubu. | Evet |
-| Kaynak | Kopya kaynak türü ve karşılık gelen özelliklere verileri nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
+| kaynak | Kopya kaynak türü ve karşılık gelen özelliklere verileri nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
 | Havuz | Kopya Havuz türü ve karşılık gelen özelliklere veri yazma nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
 | Translator | Kaynak havuzu için açıkça bir sütun eşlemelerini belirtin. Varsayılan kopyalama davranışını gereksiniminizi gerçekleştirilemiyor uygulanır.<br/><br/>Ayrıntıları öğrenmek [şema ve veri türü eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
 | cloudDataMovementUnits | Powerfulness belirtin [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri kopyalama güçlendirmeniz.<br/><br/>Ayrıntıları öğrenmek [bulut veri taşıma birimleri](copy-activity-performance.md). | Hayır |
@@ -140,7 +144,7 @@ Aşağıdaki şablonu kopyalama etkinliği, desteklenen özelliklerin kapsamlı 
 | enableStaging<br/>stagingSettings | Geçici verileri doğrudan kopyalama veri havuzu kaynağından yerine aa blob storage'da hazırlamak bu seçeneği seçin.<br/><br/>Yararlı senaryoları ve yapılandırma ayrıntılarını öğrenmek [kopyalama hazırlanan](copy-activity-performance.md#staged-copy). | Hayır |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Uyumsuz satır veri havuzu kaynağından kopyalarken ne yapılacağını seçin.<br/><br/>Ayrıntıları öğrenmek [hataya dayanıklılık](copy-activity-fault-tolerance.md). | Hayır |
 
-## <a name="monitoring"></a>İzleme
+## <a name="monitoring"></a>Monitoring (İzleme)
 
 Kopya etkinliği yürütme ayrıntıları ve performans özellikleri kopyalama etkinliği çalıştırma sonucu döndürülür çıkış bölümü ->. Bir tükendi listesi aşağıdadır. Çalıştırma etkinliğini izlemek öğrenin [hızlı başlangıç bölümünde izleme](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). Performans ve senaryonuz için kopyalama etkinliği'nin yapılandırılmasını karşılaştırabilirsiniz [Performans başvurusu](copy-activity-performance.md#performance-reference) şirket içi sınama gelen.
 
@@ -152,9 +156,9 @@ Kopya etkinliği yürütme ayrıntıları ve performans özellikleri kopyalama e
 | rowsSkipped | Geçiliyor uyumsuz satır sayısını belirtir. Set "enableSkipIncompatibleRow" true olarak özelliğini açın. | Int64 değeri (birim) |
 | Üretilen iş | Aktarılan ve verileri oranı | Kayan noktalı sayıyı KB/sn |
 | copyDuration | Kopya süresi | Saniye cinsinden Int32 değeri |
-| sqlDwPolyBase | PolyBase SQL Data Warehouse'a veri kopyalama işlemi sırasında kullanılıyorsa. | Boole değeri |
-| redshiftUnload | UNLOAD Redshift veri kopyalama işlemi sırasında kullanılıyorsa. | Boole değeri |
-| hdfsDistcp | Distcp'yi HDFS veri kopyalama işlemi sırasında kullanılıyorsa. | Boole değeri |
+| sqlDwPolyBase | PolyBase SQL Data Warehouse'a veri kopyalama işlemi sırasında kullanılıyorsa. | Boole |
+| redshiftUnload | UNLOAD Redshift veri kopyalama işlemi sırasında kullanılıyorsa. | Boole |
+| hdfsDistcp | Distcp'yi HDFS veri kopyalama işlemi sırasında kullanılıyorsa. | Boole |
 | effectiveIntegrationRuntime | Etkinliğin çalışma, biçiminde güçlendirmeniz tümleştirme Runtime(s) kullanılan Göster `<IR name> (<region if it's Azure IR>)`. | Metin (dize) |
 | usedCloudDataMovementUnits | Kopyalama sırasında etkili bulut veri taşıma birimleri. | Int32 değeri |
 | redirectRowPath | Blob depolama Atlanan uyumsuz satır günlük yolu "redirectIncompatibleRowSettings" altında yapılandırın. Örneğe bakın. | Metin (dize) |

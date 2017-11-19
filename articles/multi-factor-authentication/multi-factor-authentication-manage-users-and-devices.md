@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 167359892cd46a5d2d4f961ed50d3a807eb14f6c
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: cec582462d6f9b3ae7fbee0dd2a3ab66d7b0d1da
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Bulutta Azure multi-Factor Authentication ile kullanıcı ayarlarını yönetme
 Yönetici olarak, aşağıdaki kullanıcı ve aygıt ayarlarını yönetebilirsiniz:

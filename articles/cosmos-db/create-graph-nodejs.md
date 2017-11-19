@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Grafik API'sini kullanarak bir Node.js uygulaması oluşturma
 
@@ -75,9 +75,23 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Açık `app.js
         });
     ```
 
-  Tüm yapılandırmalar, aşağıdaki bölümde düzenlediğimiz `config.js` öğesinde yer alır.
+  Tümünü bağlantılardır `config.js`, hangi biz düzenleme [bölümden](#update-your-connection-string).
 
-* `client.execute` yöntemiyle bir dizi Gremlin adımı yürütülür.
+* İşlevler, bir dizi farklı Gremlin işlemlerini yürütmek için tanımlanır. Bu, bunları biridir:
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* Her işlev yürüten bir `client.execute` yöntemi ile bir Gremlin sorgu dizesi parametresi. Örneği nasıl `g.V().count()` yürütülür:
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,11 +102,28 @@ Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. Açık `app.js
     });
     ```
 
+* Dosyanın sonunda tüm yöntemleri sonra kullanarak çağrılan `async.waterfall()` yöntemi. Bu onları art arda yürütecek:
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
 1. Config.js dosyasını açın. 
 
-2. Config.js dosyasında, config.endpoint anahtarını Azure portalının **Genel Bakış** sayfasında bulunan **Gremlin URI** değeriyle doldurun. 
+2. Config.js içinde doldurun `config.endpoint` ile anahtar **Gremlin URI** değeri **genel bakış** Azure portal sayfası. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 

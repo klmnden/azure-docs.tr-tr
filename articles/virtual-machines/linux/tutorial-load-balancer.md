@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Nasıl yükleneceğini Linux sanal makineleri yüksek oranda kullanılabilir bir uygulama oluşturmak için Azure Bakiye
 Yük Dengeleme, birden çok sanal makine genelinde gelen istekleri yayarak daha yüksek düzeyde kullanılabilirlik sağlar. Bu öğreticide, trafiği dağıtmak ve yüksek kullanılabilirlik sağlayan farklı bileşenleri, Azure yük dengeleyici hakkında bilgi edinin. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+Tüm üç sanal NIC oluşturduğunuzda, sonraki adıma devam edin.
+
+
 ## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
 ### <a name="create-cloud-init-config"></a>Bulut init yapılandırma oluşturma
-Önceki bir öğretici içinde [Linux sanal bir makinede ilk önyükleme özelleştirmek nasıl](tutorial-automate-vm-deployment.md), bulut init VM özelleştirmesiyle otomatikleştirmek öğrendiniz. NGINX yüklemek ve basit bir 'Hello World' Node.js uygulaması çalıştırmak için aynı bulut init yapılandırma dosyası kullanabilirsiniz.
+Önceki bir öğretici içinde [Linux sanal bir makinede ilk önyükleme özelleştirmek nasıl](tutorial-automate-vm-deployment.md), bulut init VM özelleştirmesiyle otomatikleştirmek öğrendiniz. NGINX yüklemek ve bir basit 'Hello World' Node.js uygulaması sonraki adımda çalıştırmak için aynı bulut init yapılandırma dosyası kullanabilirsiniz. Yük Dengeleyici öğreticinin sonunda uygulamada görmek için bu basit uygulama bir web tarayıcısında erişin.
 
 Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init.txt* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. Girin `sensible-editor cloud-init.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
 
@@ -253,7 +256,7 @@ az network public-ip show \
     --output tsv
 ```
 
-Bir web tarayıcısı ortak IP adresi girebilirsiniz. Unutmayın - birkaç dakika sürer bunlara trafiğini dağıtmak yük dengeleyici başlamadan önce hazır olmasını VM'ler. Yük Dengeleyici trafiği için aşağıdaki örnekteki gibi dağıtılmış VM konak adı dahil olmak üzere uygulama gösterilir:
+Bir web tarayıcısı ortak IP adresi girebilirsiniz. Unutmayın - bunlara trafiğini dağıtmak yük dengeleyici başlamadan önce hazır olmasını VM'ler için birkaç dakika sürer. Yük Dengeleyici trafiği için aşağıdaki örnekteki gibi dağıtılmış VM konak adı dahil olmak üzere uygulama gösterilir:
 
 ![Çalışan Node.js uygulaması](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 Uygulamanızı çalıştıran diğer iki VM arasında trafiği dağıtmak yük dengeleyici görmek için zorla-web tarayıcınızı yenileyin. İşletim sistemi güncelleştirmeleri yükleme veya VM yeniden başlatma gerçekleştirme gibi VM üzerinde bakım artık gerçekleştirebilirsiniz.
 
+Yük dengeleyiciye bağlı sanal NIC içeren VM'ler listesini görüntülemek için kullanın [az ağ lb adres havuzu Göster](/cli/azure/network/lb/address-pool#show). Sorgulamak ve sanal NIC kimliği üzerinde şu şekilde filtreleyin:
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+Çıktı VM 2 sanal NIC artık arka uç adres havuzu bir parçası olduğunu gösteren bir aşağıdaki örneğe benzer:
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>VM yük dengeleyiciye ekleyin
 VM bakım gerçekleştirdikten sonra veya kapasitesini genişletmek gerekiyorsa, bir VM ile arka uç adres havuzu ekleyebileceğiniz [az ağ NIC IP-config adres havuzu ekleme](/cli/azure/network/nic/ip-config/address-pool#add). Aşağıdaki örnek, sanal bir NIC'ye ekler **myVM2** için *myLoadBalancer*:
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+Sanal NIC arka uç adres havuzuna bağlı olduğunu doğrulamak için kullanılan [az ağ lb adres havuzu Göster](/cli/azure/network/lb/address-pool#show) önceki adımdaki.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,6 +1,6 @@
 ---
-title: "Diskler ve Microsoft Azure Windows VM'ler için VHD'ler hakkında | Microsoft Docs"
-description: "Diskleri ve VHD'ler için Windows Azure sanal makineleri temelleri hakkında bilgi edinin."
+title: "Microsoft Azure Windows VM için disk depolaması hakkında | Microsoft Docs"
+description: "Diskleri ve sanal makineleri VHD'ler için Windows Azure depolama temel kavramları hakkında bilgi edinin."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: b1beecf2e4268e358285c1101edcb13f6d592948
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 588f18da6056641f3c9e42286b70d1f18b424d76
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-windows-vms"></a>Diskleri ve Azure Windows VM'ler için VHD'ler hakkında
+# <a name="about-disk-storage-for-azure-windows-vms"></a>Azure Windows VM'ler için disk depolaması hakkında
 Yalnızca başka bir bilgisayarda gibi azure'daki sanal makinelerde bir işletim sistemini, uygulamaları ve verileri depolamak için bir yer olarak diskleri kullanın. Tüm Azure sanal makineler en az iki disk – bir Windows işletim sistemi diski ve geçici bir diske sahip. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ve görüntünün sanal bir Azure depolama hesabında depolanan sabit diskler (VHD). Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir. 
 
 Bu makalede, biz diskler için farklı kullanımlar hakkında konuşun ve oluşturma ve kullanma disklerinin farklı türleri açıklanmaktadır. Bu makalede ayrıca kullanılabilir [Linux sanal makineleri](../linux/about-disks-and-vhds.md).
@@ -79,6 +79,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir diski kullanıma açın](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VM için ek depolama alanı eklemek için.
-* [Windows geçici disk sürücü harfini değiştirin](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) uygulamanız için verileri D: sürücü kullanabilirsiniz.
+* [Bir diski kullanıma açın](attach-disk-portal.md) VM için ek depolama alanı eklemek için.
+* [Anlık Görüntü](snapshot-copy-managed-disk.md).
+* [Yönetilen Diske Dönüştür](convert-unmanaged-to-managed-disks.md).
+
 

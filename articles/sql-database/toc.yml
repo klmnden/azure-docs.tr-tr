@@ -200,9 +200,9 @@
     - name: Çok kiracılı SaaS
       items:
         - name: SaaS tasarım desenleri
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+          href: saas-tenancy-app-design-patterns.md
         - name: SaaS uygulama güvenliği
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+          href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Veritabanlarını geliştirme
       items:
         - name: JSON verileri
@@ -309,6 +309,8 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Otomasyonu
           href: sql-database-manage-automation.md
+        - name: OMS Log Analytics ile SQL Data Sync izleme
+          href: sql-database-sync-monitor-oms.md
         - name: SQL Data Sync için en iyi deneyimler
           href: sql-database-best-practices-data-sync.md
         - name: SQL Data Sync sorunlarını giderme
@@ -335,24 +337,45 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Çok kiracılı SaaS
       items:
-        - name: Öğreticiye giriş
-          href: sql-database-wtp-overview.md
-        - name: Örnek uygulamayı dağıtma
-          href: sql-database-saas-tutorial.md
-        - name: Kiracı sağlama
-          href: sql-database-saas-tutorial-provision-and-catalog.md
-        - name: Veritabanı performansını izleme
-          href: sql-database-saas-tutorial-performance-monitoring.md
-        - name: Log analytics ile izleme
-          href: sql-database-saas-tutorial-log-analytics.md
-        - name: Tek kiracıyı geri yükleme
-          href: sql-database-saas-tutorial-restore-single-tenant.md
-        - name: Kiracı şemasını yönetme
-          href: sql-database-saas-tutorial-schema-management.md
-        - name: Geçici sorgular çalıştırma
-          href: sql-database-saas-tutorial-adhoc-analytics.md
-        - name: Analiz için ETL
-          href: sql-database-saas-tutorial-tenant-analytics.md
+        - name: Wingtips’e hoş geldiniz
+          href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Tek başına uygulama
+          items:
+            - name: Örnek uygulamayı dağıtma
+              href: saas-standaloneapp-get-started-deploy.md
+        - name: Kiracı başına veritabanı
+          href: saas-dbpertenant-wingtip-app-overview.md
+          items:
+            - name: Öğreticiye giriş
+              href: saas-dbpertenant-wingtip-app-overview.md
+            - name: Uygulama rehberi
+              href: saas-dbpertenant-wingtip-app-guidance-tips.md
+            - name: Örnek uygulamayı dağıtma
+              href: saas-dbpertenant-get-started-deploy.md
+            - name: Kiracı sağlama
+              href: saas-dbpertenant-provision-and-catalog.md
+            - name: Veritabanı performansını izleme
+              href: saas-dbpertenant-performance-monitoring.md
+            - name: Log analytics ile izleme
+              href: saas-dbpertenant-log-analytics.md
+            - name: Bir kiracıyı geri yükleme
+              href: saas-dbpertenant-restore-single-tenant.md
+            - name: Kiracı şemasını yönetme
+              href: saas-tenancy-schema-management.md
+            - name: Geçici sorgular çalıştırma
+              href: saas-tenancy-adhoc-analytics.md
+            - name: Analiz için ETL
+              href: saas-tenancy-tenant-analytics.md
+        - name: Çok kiracılı veritabanı
+          items:
+            - name: Örnek uygulamayı dağıtma
+              href: saas-multitenantdb-get-started-deploy.md
+            - name: Veritabanı performansını izleme
+              href: saas-multitenantdb-performance-monitoring.md
+            - name: Geçici sorgular çalıştırma
+              href: saas-multitenantdb-adhoc-reporting.md
+            - name: Kiracı şemasını yönetme
+              href: saas-multitenantdb-schema-management.md
     - name: Uygulamaları geliştirme
       items:
         - name: C ve C++

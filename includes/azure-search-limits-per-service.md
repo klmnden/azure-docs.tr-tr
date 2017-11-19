@@ -11,7 +11,6 @@ Depolama, disk alanı ya da dizin veya belge sayısı *üst sınırı* ile kıs�
 | En fazla dizin oluşturucu |3 |5 |50 |200 |200 |Dizin oluşturucu desteği yok |
 | En fazla veri kaynağı |3 |5 |50 |200 |200 |Dizin oluşturucu desteği yok |
 | En fazla belge |10,000 |1 milyon |Bölüm başına 15 milyon veya hizmet başına 180 milyon |Bölüm başına 60 milyon veya hizmet başına 720 milyon |Bölüm başına 120 milyon veya hizmet başına 1.4 milyar |Dizin başına 1 milyon veya bölüm başına 200 milyon |
-| Tahmini sorgular/saniye (QPS) |Yok |Çoğaltma başına yaklaşık 3 |Çoğaltma başına yaklaşık 15 |Çoğaltma başına yaklaşık 60 |Çoğaltma başına yaklaşık 60 |Çoğaltma başına yaklaşık >60 |
 
 <sup>1</sup> ücretsiz katmanı ve önizleme özellikleri hizmet düzeyi sözleşmelerine (SLA) ile gelen değil. Hizmetiniz için yeterli artıklık sağladığınızda tüm Faturalanabilir katmanları için SLA etkili olur. İki veya daha fazla çoğaltmaları için (okuma) sorgu SLA gereklidir. Üç veya daha fazla çoğaltmalar, sorgu ve dizin oluşturma (okuma-yazma) SLA için gereklidir. Bölüm sayısı bir SLA önem verilmez. 
 

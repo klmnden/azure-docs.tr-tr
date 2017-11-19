@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/03/2017
-ms.author: cristyg
+ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 8b744f6b33a04a707c56e6fc8a4638118170b668
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 217b9f2f0dfed5b095e1bac1c8146abf4753fadc
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-secure-cluster-in-azure-by-using-powershell"></a>PowerShell kullanarak Azure'da güvenli küme oluşturma
 Bu makalede Azure Service Fabric kümeleri ve kapsayıcılar kullanarak bir .NET uygulaması buluta taşımak nasıl Göster eğitim serileri ilk getirilmiştir. Aşağıdaki adımlarda, Azure'da çalışan Service Fabric kümesi (Windows veya Linux) oluşturmayı öğrenin. İşlemi tamamladığınızda, uygulamaları dağıtabilir bulutta çalışan güvenli bir küme sahip.

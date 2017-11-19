@@ -11,17 +11,17 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
-Bu makale oluşturmak veya bir Azure Search Hizmeti Portalı'nda sağlamak açıklanmaktadır. PowerShell yönergeleri için bkz: [PowerShell ile yönetme Azure Search](search-manage-powershell.md).
+Oluşturma veya bir Azure Search Hizmeti Portalı'nda sağlamak öğrenin. PowerShell yönergeleri için bkz: [PowerShell ile yönetme Azure Search](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>(Ücretsiz veya Ücretli) abone olma
 
@@ -34,20 +34,21 @@ Alternatif olarak, [MSDN abone Avantajlarınızı etkinleştirebilir](https://az
 2. Artı işareti ("+") sol üst köşede'ı tıklatın.
 3. Seçin **Web + mobil** > **Azure arama**.
 
-![](./media/search-create-service-portal/find-search2.png)
+![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>Hizmet ve URL uç adı
 
-Bir hizmet adı API çağrıları karşı verildiği URL uç noktası'nın bir parçasıdır. Hizmet adınızı yazın **URL** alan. 
+Bir hizmet adı karşı hangi API çağrıları yayımlanan URL uç parçasıdır: `https://your-service-name.search.windows.net`. Hizmet adınızı girin **URL** alan. 
 
 Hizmet adı gereksinimleri:
+   * Search.windows.net ad alanı içinde benzersiz olmalıdır
    * uzunluğu 2 ile 60 karakter
-   * küçük harf, rakam veya kısa çizgi ("-")
-   * hiçbir kısa çizgi ("-") ilk 2 karakteri veya son tek karakter olarak
-   * Art arda gelen tirelere ("--")
+   * Küçük harf, rakam veya kesik çizgi kullanın ("-")
+   * Tireler kaçının ("-") ilk 2 karakteri veya son tek karakter olarak
+   * Art arda gelen tirelere ("--") her yerden
 
 ## <a name="select-a-subscription"></a>Abonelik seçin
-Birden fazla aboneliğiniz varsa, veri veya dosya depolama hizmetleri de sahip seçin. Azure arama otomatik algıla Azure Table ve Blob Depolama, SQL Database ve Azure Cosmos DB aracılığıyla dizin oluşturma için *dizin oluşturucular*, ancak yalnızca aynı abonelik içindeki Hizmetleri.
+Birden fazla aboneliğiniz varsa, veri veya dosya depolama hizmetleri de sahip seçin. Azure arama otomatik algıla Azure Table ve Blob Depolama, SQL Database ve Azure Cosmos DB aracılığıyla dizin oluşturma için [ *dizin oluşturucular*](search-indexer-overview.md), ancak yalnızca aynı abonelik içindeki Hizmetleri.
 
 ## <a name="select-a-resource-group"></a>Kaynak grubu seç
 Bir kaynak grubu, Azure Hizmetleri ve birlikte kullanılan kaynakları koleksiyonudur. Örneğin, bir SQL veritabanı dizini oluşturmak için Azure Search kullanıyorsanız, her iki hizmet aynı kaynak grubunun parçası olmalıdır.
@@ -63,11 +64,13 @@ Bir Azure hizmeti Azure arama dünyanın veri merkezlerinde barındırılabilir.
 
 Bu kılavuzda, biz hizmetimizi için standart katmana seçtiniz.
 
+Bir fiyatlandırma katmanı hizmeti oluşturulduktan sonra değiştirilemez. Daha yüksek veya düşük katmanı daha sonra gerekirse, hizmet yeniden oluşturmanız gerekir.
+
 ## <a name="create-your-service"></a>Hizmet oluşturma
 
 Oturum zaman Panoya hizmetiniz kolay erişim için PIN unutmayın.
 
-![](./media/search-create-service-portal/new-service2.png)
+![](./media/search-create-service-portal/new-service3.png)
 
 ## <a name="scale-your-service"></a>Hizmetinizi ölçeklendirme
 (15 dakika veya daha fazla katmanı bağlı olarak) bir hizmet oluşturmak için birkaç dakika sürebilir. Hizmetinizi sağlandıktan sonra gereksinimlerinizi karşılayacak şekilde ölçeklendirebilirsiniz. Azure Search hizmetiniz için standart katmana seçtiğinden hizmetinizi iki boyut ölçeklendirebilirsiniz: çoğaltmaları ve bölümler. Temel katman tercih etmiş, çoğaltmaları yalnızca ekleyebilirsiniz. Ücretsiz hizmeti sağlanan, Ölçek kullanılabilir değil.
@@ -79,7 +82,7 @@ Oturum zaman Panoya hizmetiniz kolay erişim için PIN unutmayın.
 > [!Important]
 > Bir hizmet olmalıdır [salt okunur SLA için 2 çoğaltma ve 3 çoğaltmaları için okuma/yazma SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Azure portalında, arama hizmeti dikey penceresine gidin.
+1. Azure Portalı'ndaki arama hizmeti sayfanıza gidin.
 2. Sol gezinti bölmesinde seçin **ayarları** > **ölçek**.
 3. Slidebar çoğaltmalar veya bölüm eklemek için kullanın.
 
@@ -105,9 +108,7 @@ Müşterilerin çoğu yalnızca bir hizmet kullansa da, hizmet artıklık işlet
 İkinci bir hizmet yüksek kullanılabilirlik için gerekli değildir. Aynı hizmeti 2 veya daha fazla çoğaltmaları kullandığınızda sorgular için yüksek kullanılabilirlik elde edilir. Çoğaltma güncelleştirmeleri sıralı, bir hizmet güncelleştirmesi gezinirken en az bir işlem olduğu anlamına gelir. Açık kalma süresi hakkında daha fazla bilgi için bkz: [hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Search Hizmeti sağladıktan sonra hazırsınız [bir dizin tanımla](search-what-is-an-index.md) karşıya yükleme ve verilerinizi arama.
+Azure Search Hizmeti sağladıktan sonra hazırsınız [bir dizin tanımla](search-what-is-an-index.md) karşıya yükleme ve verilerinizi arama. 
 
-Kod veya komut dosyasından hizmete erişmek için URL girin (*hizmet adı*. search.windows.net) ve anahtar. Yönetici anahtarlarına tam erişim; Sorgu anahtarları salt okunur erişim verin. Bkz: [Azure Search .NET ile kullanma](search-howto-dotnet-sdk.md) başlamak için.
-
-Bkz: [oluşturmak ve ilk dizininizi sorgulama](search-get-started-portal.md) portal tabanlı hızlı bir öğretici.
-
+> [!div class="nextstepaction"]
+> [Azure Search .NET ile kullanma](search-howto-dotnet-sdk.md)

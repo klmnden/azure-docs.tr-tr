@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 8f0207853097a3d31e06a722025f3964678414bf
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 085328a9bbe304004f25f46ba5c366e911ac3836
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - adlandırma kuralları
 Aşağıdaki tabloda için Data Factory yapıtlarının adlandırma kuralları sağlar.
 
 > [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin 1 sürümünü kullanıyorsanız, olduğu genel olarak kullanılabilir (GA) bkz. [Data Factory version1 kurallarında adlandırma](v1/data-factory-naming-rules.md).
+> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory version1 kurallarında adlandırma](v1/data-factory-naming-rules.md).
 
 | Ad | Ad benzersizliği | Doğrulama denetimleri |
 |:--- |:--- |:--- |
@@ -33,4 +33,4 @@ Aşağıdaki tabloda için Data Factory yapıtlarının adlandırma kuralları s
 | Kaynak Grubu |Microsoft Azure arasında benzersiz. Adları büyük/küçük harfe duyarsızdır. |<ul><li>En fazla karakter sayısı: 1000.</li><li>Ad harf, rakam ve şu karakterleri içerebilir: "-", "_",","ve"."</li></ul> |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri fabrikaları içindeki adım adım insturctions izleyerek oluşturmayı öğrenin [hızlı başlangıç: bir veri fabrikası oluşturun](quickstart-create-data-factory-powershell.md) makalesi. 
+Adım adım yönergeleri izleyerek veri fabrikaları oluşturmayı öğrenin [hızlı başlangıç: bir veri fabrikası oluşturun](quickstart-create-data-factory-powershell.md) makalesi. 

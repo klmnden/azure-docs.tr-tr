@@ -8,7 +8,7 @@ Azure DNS’de, kayıtlar göreli adlar kullanılarak belirtilir. *Tam* etki ala
 
 Her DNS kaydında bir ad ve bir tür vardır. Kayıtlar, içerdikleri verilere göre çeşitli türlerde düzenlenmiştir. En yaygın tür olan "A" kaydı bir adı bir IPv4 adresiyle eşleştirir. Başka bir sık kullanılan tür olan "MX" kaydıysa bir adı bir posta sunucusuyla eşleştirir.
 
-Azure DNS; A, AAAA, CNAME, MX, NS, PTR, SOA, SRV ve TXT gibi tüm yaygın DNS kayıt türlerini destekler. [SPF kayıtlarının TXT kaydı kullanılarak gösterildiğini](../articles/dns/dns-zones-records.md#spf-records) unutmayın.
+Azure DNS tüm yaygın DNS kayıt türlerini destekler: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV ve TXT. [SPF kayıtlarının TXT kaydı kullanılarak gösterildiğini](../articles/dns/dns-zones-records.md#spf-records) unutmayın.
 
 ### <a name="record-sets"></a>Kayıt kümeleri
 

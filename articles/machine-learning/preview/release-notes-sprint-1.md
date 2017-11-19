@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sprint-1---november-2017"></a>1 Kasım 2017 sprint 
+# <a name="sprint-1---november-2017"></a>Sprint 1 - Kasım 2017 
 
 **Sürüm numarası: 0.1.1710.31013**
 
@@ -122,7 +122,7 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 
 ### <a name="operationalization"></a>Operationalization
 - Web hizmeti adı "puan" ile artık başarısız olur.
-- Kullanıcı, artık yalnızca bir Azure kaynak grubu sahibi erişimi olan bir dağıtım ortamı oluşturabilirsiniz. Tüm abonelik sahibi erişimi artık gerekli değildir.
+- Kullanıcı, artık yalnızca katkıda bulunan erişimi olan bir Azure kaynak grubu veya abonelik dağıtım ortamı oluşturabilirsiniz. Tüm abonelik sahibi erişimi artık gerekli değildir.
 - Şimdi CLI operationalization sekmesinde Otomatik Tamamlama Linux'ta özgürlüğüne.
 - Görüntü oluşturma hizmeti artık Azure IOT Hizmetleri/cihazlar için yapı görüntüleri destekler.
 

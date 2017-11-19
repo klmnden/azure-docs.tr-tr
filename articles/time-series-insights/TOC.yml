@@ -1,0 +1,76 @@
+- name: Azure Zaman Serisi Görüşleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Time Series Insights hakkında
+      href: time-series-insights-overview.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Time Series Insights’ı keşfedin
+      href: time-series-quickstart.md
+- name: Kavramlar
+  items:
+    - name: Ortamınızı planlama
+      href: time-series-insights-environment-planning.md
+    - name: Gezginde verileri görselleştirme
+      href: time-series-insights-explorer.md
+    - name: Azaltmayı giderme
+      href: time-series-insights-environment-mitigate-latency.md
+    - name: Tanılama ve sorun giderme
+      href: time-series-insights-diagnose-and-solve-problems.md
+    - name: Geliştirme
+      items:
+        - name: Kimlik doğrulama ve yetkilendirme
+          href: time-series-insights-authentication-and-authorization.md
+        - name: 'C# kullanarak verileri sorgulama'
+          href: time-series-insights-query-data-csharp.md
+        - name: 'C# içinde başvuru verilerini yönetme'
+          href: time-series-insights-manage-reference-data-csharp.md
+        - name: Özel görünüm paylaşma
+          href: time-series-insights-parameterized-urls.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Ortam oluşturma
+      href: time-series-insights-get-started.md
+    - name: Veri erişim izni verme
+      href: time-series-insights-data-access.md
+    - name: Event Hubs’a bağlanma
+      href: time-series-insights-how-to-add-an-event-source-eventhub.md
+    - name: IoT Hub'a bağlanma
+      href: time-series-insights-how-to-add-an-event-source-iothub.md
+    - name: Başvuru veri kümesi oluşturma
+      href: time-series-insights-add-reference-data-set.md
+    - name: Olayları gönderme
+      href: time-series-insights-send-events.md
+    - name: Ortamınızı ölçeklendirme
+      href: time-series-insights-how-to-scale-your-environment.md
+- name: Başvuru
+  items:
+    - name: Sorgu API'si
+      href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
+    - name: Sorgu söz dizimi
+      href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+- name: Kaynaklar
+  items:
+    - name: İlgili Hizmetler
+      items:
+        - name: Azure IoT Paketi
+          href: /azure/iot-suite/
+        - name: Azure Event Hubs
+          href: /azure/event-hubs/
+        - name: Azure Stream Analytics
+          href: /azure/stream-analytics/
+    - name: Azure yol haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
+    - name: Destek seçenekleri
+      href: 'https://azure.microsoft.com/support/options/'

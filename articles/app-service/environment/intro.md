@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 63e2256ca6d392a0cd284269e8c2d059f94e9139
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>Uygulama hizmeti ortamları giriş #
  
@@ -48,13 +48,13 @@ Bir ana ön uçlar ve çalışanları oluşur. HTTP/HTTPS sonlandırma ve bir an
 
 Çalışanları müşteri uygulamaları barındıran rolleridir. Çalışanlar, üç sabit boyutlarında kullanılabilir:
 
-* Bir çekirdek/3.5 GB RAM
-* İki çekirdek/7 GB RAM
-* Dört çekirdek/14 GB RAM
+* Bir vCPU/3.5 GB RAM
+* İki vCPU/7 GB RAM
+* Dört vCPU/14 GB RAM
 
 Müşteriler, ön uçlar ve çalışanları yönetmek gerekmez. Tüm altyapı, kendi uygulama hizmeti planları müşterilerin ölçeklenebilir olarak otomatik olarak eklenir. Uygulama hizmeti planları oluşturulur veya ASE'de ölçeklendirilmiş gibi gerekli altyapı eklenip uygun şekilde kaldırılabilir.
 
-Düz aylık hızı için altyapıyı ödeyen ve ana boyutunu değiştirmez bir ana için yoktur. Ayrıca, uygulama hizmeti planı çekirdek başına bir maliyeti yoktur. ASE'de barındırılan tüm uygulamaları SKU fiyatlandırma Isolated içinde bulunur. Bir ana için fiyatlandırma hakkında daha fazla bilgi için bkz: [uygulama hizmeti fiyatlandırma] [ Pricing] sayfasında ve ASEs için kullanılabilir seçenekleri gözden geçirin.
+Düz aylık hızı için altyapıyı ödeyen ve ana boyutunu değiştirmez bir ana için yoktur. Ayrıca, uygulama hizmeti planı vCPU başına maliyet yoktur. ASE'de barındırılan tüm uygulamaları SKU fiyatlandırma Isolated içinde bulunur. Bir ana için fiyatlandırma hakkında daha fazla bilgi için bkz: [uygulama hizmeti fiyatlandırma] [ Pricing] sayfasında ve ASEs için kullanılabilir seçenekleri gözden geçirin.
 
 ## <a name="virtual-network-support"></a>Sanal ağ desteği ##
 
@@ -76,7 +76,7 @@ Uygulama hizmeti ortamı iki sürümü vardır: ASEv1 ve ASEv2. Yukarıdaki bilg
 
 ASEv1 tüm kaynakları el ile yönetmesi gerekir. Ön Uçları, çalışanlar ve IP tabanlı SSL için kullanılan IP adresleri dahildir. Uygulama hizmeti planınızı ölçeklendirebilirsiniz önce ilk genişleme da barındırmak istediğiniz çalışan havuzunda yapmak gerekir.
 
-ASEv1 ASEv2 öğesinden farklı bir fiyatlandırma modelini kullanır. ASEv1 içinde ayrılmış her çekirdek için ücret ödersiniz. Ön Uçları veya tüm iş yükleri barındıran olmayan çalışanlar için kullanılan çekirdek dahildir. ASEv1 içinde varsayılan en büyük ölçekli bir ana 55 toplam konaklar boyutudur. Bu, çalışanlar ve ön uçlar içerir. ASEv1 bir avantajı, onu bir Klasik sanal ağı ve Resource Manager sanal ağ içinde dağıtılabilir ' dir. ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş][ASEv1Intro].
+ASEv1 ASEv2 öğesinden farklı bir fiyatlandırma modelini kullanır. ASEv1 içinde ayrılmış her vCPU için ücret ödersiniz. Ön Uçları veya tüm iş yükleri barındıran olmayan çalışanlar için kullanılan Vcpu'lar dahildir. ASEv1 içinde varsayılan en büyük ölçekli bir ana 55 toplam konaklar boyutudur. Bu, çalışanlar ve ön uçlar içerir. ASEv1 bir avantajı, onu bir Klasik sanal ağı ve Resource Manager sanal ağ içinde dağıtılabilir ' dir. ASEv1 hakkında daha fazla bilgi için bkz: [uygulama hizmeti ortamı v1 giriş][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

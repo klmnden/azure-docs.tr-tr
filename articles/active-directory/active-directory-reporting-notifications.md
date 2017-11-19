@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Azure Active Directory raporlama bildirimleri
 ## <a name="what-reports-generate-email-notifications"></a>E-posta bildirimleri hangi raporlar oluşturur
@@ -47,5 +47,5 @@ Evet, Klasik Azure portalı içinde anormal oturum açma işlemlerine ilgili bil
 ## <a name="whats-next"></a>Sırada ne var?
 * Hangi güvenlik, Denetim ve etkinlik raporları kullanılabilir merak ediyor? Kullanıma [Azure AD güvenlik, Denetim ve etkinlik raporları](active-directory-view-access-usage-reports.md)
 * [Azure Active Directory Premium ile çalışmaya başlama](active-directory-get-started-premium.md)
-* [Oturum Açma ve Erişim Paneli sayfalarınıza şirket markası ekleme](active-directory-add-company-branding.md)
+* [Oturum Açma ve Erişim Paneli sayfalarınıza şirket markası ekleme](customize-branding.md)
 

@@ -13,24 +13,26 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Ölçeklenebilir bulut veritabanları oluşturma
 Veritabanları ölçeklendirme Azure SQL veritabanı için ölçeklenebilir araçları ve özelliklerinin kullanılarak kolayca gerçekleştirilebilir. Özellikle, kullanabileceğiniz **esnek veritabanı istemci Kitaplığı** oluşturmak ve ölçeklendirilmiş veritabanları yönetmek için. Bu özellik kolayca yüzlerce kullanarak parçalı uygulamalar geliştirmenize olanak sağlar; veya hatta binlerce — Azure SQL veritabanlarının. [Esnek iş](sql-database-elastic-jobs-powershell.md) daha sonra bu veritabanlarının kolaylığı yönetim yardımcı olmak için kullanılabilir.
 
-Kitaplığı yüklemek için Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Karşıdan yüklemek için:
+* Kitaplığı .NET sürümü [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* Kitaplık Java sürümü [Maven merkezi bir depoya](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## <a name="documentation"></a>Belgeler
 1. [Esnek Veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md)
 2. [Esnek veritabanı özellikleri](sql-database-elastic-scale-introduction.md)
 3. [Parça eşleme yönetimi](sql-database-elastic-scale-shard-map-management.md)
-4. [Ölçeği genişletilen mevcut veritabanlarını geçirme](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [Ölçeği genişletme varolan veritabanlarını geçirme](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Çok parça sorguları](sql-database-elastic-scale-multishard-querying.md)
 7. [Esnek veritabanı araçlarını kullanarak bir parça ekleme](sql-database-elastic-scale-add-a-shard.md)
@@ -54,22 +56,28 @@ Kitaplığı yüklemek için Git [Microsoft.Azure.SqlDatabase.ElasticScale.Clien
 
 Genel olarak, esnek veritabanı araçlarını kullanan müşteriler, kendi semantiklerine sahip arası parça işlemleri aksine parça yerel işlemleri gönderirken tam T-SQL işlevselliğini kazanması bekleyebilirsiniz.
 
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
-Deneyin [örnek uygulaması](sql-database-elastic-scale-get-started.md) istemci işlevleri gösterir. 
 
-Kitaplığı yüklemek için Git [esnek veritabanı istemci Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- Esnek veritabanı istemci kitaplığı ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - **karşıdan** kitaplığı.
 
-Bölünmüş birleştirme aracını kullanma ile ilgili yönergeler için bkz: [bölünmüş birleştirme aracına genel bakış](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md) - denemek için **örnek uygulaması** istemci işlevleri gösterir.
 
-[Esnek veritabanı istemci kitaplığı olan şimdi açık kaynaklı!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - kod Katkıları yapma.
+- [Azure SQL Database esnek sorgu genel bakış](sql-database-elastic-query-overview.md) - esnek sorgular kullanılacak.
 
-Kullanım [esnek sorgular](sql-database-elastic-query-overview.md).
+- [Ölçeklendirilen bulut veritabanları arasında verilerin taşınması](sql-database-elastic-scale-overview-split-and-merge.md) - kullanma yönergeleri için **bölünmüş Birleştirme aracı**.
 
-Kitaplık, açık kaynak yazılımının olarak kullanılabilir [GitHub](https://github.com/Azure/elastic-db-tools). 
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 

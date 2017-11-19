@@ -29,7 +29,7 @@ Bash'te, varolan dosya paylaşımları için kalıcı hale getirmek oluşturduğ
 ![Kaynak grubu ayarı](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 
 ### <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Bir Azure kaynak İlkesi ile kaynak oluşturma kısıtla
-Bulut Kabuğu'nda oluşturduğunuz depolama hesapları ile etiketlenmiş `ms-resource-usage:azure-cloud-shell`. Bulut Kabuğu'nda depolama hesapları oluşturma kullanıcıların engellemek istiyorsanız oluşturma bir [etiketleri için Azure kaynak İlkesi](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags) bu belirli etiketi tarafından tetiklenir.
+Bulut Kabuğu'nda oluşturduğunuz depolama hesapları ile etiketlenmiş `ms-resource-usage:azure-cloud-shell`. Bulut Kabuğu'nda depolama hesapları oluşturma kullanıcıların engellemek istiyorsanız oluşturma bir [etiketleri için Azure kaynak İlkesi](../articles/azure-policy/json-samples.md) bu belirli etiketi tarafından tetiklenir.
 
 ## <a name="supported-storage-regions"></a>Desteklenen depolama bölgeleri
 İlişkili Azure depolama hesapları için takma bulut Kabuk makine ile aynı bölgede bulunmalıdır.

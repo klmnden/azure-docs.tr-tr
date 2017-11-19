@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 736e48f9651d89a1f4e8e0ae72cdffebb8e9c6e0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Azure portalında bir kullanıcı tarafından tanımlanan rota - oluşturun
 
@@ -268,6 +268,12 @@ Bu makale, bir kullanıcı tarafından tanımlanan rota kullanıcı tanımlı yo
         - **Ubuntu**: çalıştırmak `tracepath myvm-private` komutu.
       Trafiği 10.0.1.4 (sanal makine özel bir alt ağ) ulaşmadan önce 10.0.2.4 (NVA) geçirir. 
     - Önceki adımları bağlanarak *myVm özel* sanal makine ve ping *myVm ortak* sanal makine. İzleme yolu 10.0.0.4 (sanal makine ortak bir alt ağ) ulaşmadan önce 10.0.2.4 yolculuk iletişimi gösterir.
+
+      > [!NOTE]
+      > Önceki adımlar, Azure özel IP adresleri arasında yönlendirme onaylamak etkinleştirin. İleri veya proxy istiyorsanız, genel IP trafiği ağ sanal gereç aracılığıyla adresleri:
+      > - Gereci ağ adresi çevirisi veya proxy özelliği sağlamanız gerekir. Ağ adresi çevirisi, kaynak IP adresini kendi ve bu isteği genel IP adresine iletmek Gereci çevrilmelidir durumunda. Gereci olup ağ adresi kaynak adresi çevrilen ya da proxy, ağ sanal gereç ait özel IP adresi genel bir IP adresi için Azure çevirir. Azure kullanan özel IP adresleri için ortak IP adresleri çevirmek için farklı yöntemler hakkında daha fazla bilgi için bkz: [giden bağlantılar anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Ek bir rota öneki gibi yol tablosundaki: 0.0.0.0/0, sonraki atlama türü değerinin VirtualAppliance ve sonraki atlama IP adresi 10.0.2.4 (olarak önceki örnek komut dosyası).
+      >
     - **İsteğe bağlı olarak**: Azure iki sanal makineler arasında sonraki atlama doğrulamak için sonraki atlama yeteneğini Azure Ağ İzleyicisi'ni kullanın. Ağ İzleyicisi'ni kullanmadan önce öncelikle [Azure Ağ İzleyicisi örnek oluşturmak](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde kullanmak istediğiniz bölge için. Bu öğreticide, BİZE Doğu bölgesi kullanılır. Bölge için bir Ağ İzleyicisi örneği etkinleştirdikten sonra ortak ve özel alt sanal makineler arasında sonraki atlama bilgileri görmek için aşağıdaki komutu girin:
      
         ```azurecli-interactive

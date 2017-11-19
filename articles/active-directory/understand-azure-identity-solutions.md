@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure kimlik çözümleri anlama
 Microsoft Azure Active Directory (Azure AD) dizin hizmetleri, kimlik yönetimi ve uygulamaya erişim yönetimi sağlayan bir kimlik ve erişim yönetimi bulut çözümüdür. Azure AD hızla [çoklu oturum açma (SSO) etkinleştirir](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) 000 1, kullanıcının önceden tümleştirilmiş ticari ve özel uygulamalar [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/). Çoğu bu uygulamaların, büyük olasılıkla zaten Office 365, Salesforce.com, kutusunu, ServiceNow ve Workday gibi kullanın.
@@ -89,7 +89,7 @@ Bunun yerine şirket içi veya bulut tabanlı kimlik çözümleri arasında seç
 > [!TIP]
 > Cıo'lar kendi BT stratejilerini merkezi bir parçası Azure Active Directory nasıl yaptığınız hakkında daha fazla bilgi için indirme [CIO'ın Kılavuzu Azure Active Directory'ye](https://aka.ms/AzureADCIOGuide).
 
-### <a name="azure-ad-domain-services"></a>Azure AD Domain Services
+### <a name="azure-ad-domain-services"></a>Azure AD Etki Alanı Hizmetleri
 **Azure AD etki alanı Hizmetleri** basit Azure VM yapılandırma denetimi ve ağ uygulama geliştirme ve test için şirket içi kimlik gereksinimlerini karşılamak üzere bir yol için AD DS kullanmak için bulut tabanlı bir seçenek sağlar. Azure AD Etki Alanı Hizmetleri'ni kaldırın ve şirket içi shift değil yöneliktir Azure VM'ler için AD DS altyapısı Azure AD etki alanı Hizmetleri tarafından yönetilir. Bunun yerine, yönetilen etki alanlarında Azure VM'ler, geliştirme, test ve AD DS kimlik doğrulama yöntemleri buluta gerektiren şirket içi uygulamalar hareketini desteklemek için kullanılmalıdır.
 
 ## <a name="common-scenarios-and-recommendations"></a>Yaygın senaryolar ve öneriler
@@ -110,12 +110,12 @@ Bir ton harika kaynaklarının çevrimiçi tüm Azure AD hakkında bilgi edinmen
 * [Şimdiye kadar bağlı dünya için ek güvenlik](../multi-factor-authentication/multi-factor-authentication.md)
 * [Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme](active-directory-saas-app-provisioning.md)
 * [Azure AD Raporlama ile çalışmaya başlama](active-directory-reporting-getting-started.md)
-* [Her yerden, parolaları yönetme](active-directory-passwords.md)
+* [Her yerden, parolaları yönetme](active-directory-passwords-update-your-own-password.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 * [Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme](active-directory-saas-app-provisioning.md)
 * [Şirket içi uygulamalara güvenli uzaktan erişim sağlama](active-directory-application-proxy-get-started.md)
 * [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
-* [Hangi Microsoft Azure Active Directory lisanslaması nedir?](active-directory-licensing-what-is.md)
+* [Hangi Microsoft Azure Active Directory lisanslaması nedir?](active-directory-licensing-whatis-azure-portal.md)
 * [Nasıl ı Kuruluşum içinde kullanılan onaylanmamış bulut uygulamaları bulabilir](active-directory-cloudappdiscovery-whatis.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -12,28 +12,28 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Özellikler ve PowerShell Azure bulut kabuğu için Araçlar
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Özellikler ve Araçlar PowerShell Azure bulut Kabuğu (Önizleme)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Özellikleri & araçlarını [Bash](features.md) da kullanılabilir.
 
-PowerShell bulut Kabuk içinde çalıştığı `Windows Server 2016`.
+PowerShell bulut Kabuğu (Önizleme) içinde çalıştığı `Windows Server 2016`.
 
 ## <a name="features"></a>Özellikler
 
 ### <a name="secure-automatic-authentication"></a>Güvenli otomatik kimlik doğrulaması
 
-PowerShell bulut Kabuğu güvenli bir şekilde ve otomatik olarak hesap erişim için Azure PowerShell kimliğini doğrular.
+PowerShell bulut Kabuğu (Önizleme) güvenli bir şekilde ve otomatik olarak hesap erişim için Azure PowerShell kimliğini doğrular.
 
 ### <a name="files-persistence-across-sessions"></a>Kalıcılık oturumlarında dosyaları
 
@@ -45,7 +45,7 @@ Bulut Kabuk geçici bir makine ayırma için her istek dışında dosyaları bu 
 
 ### <a name="azure-drive-azure"></a>Azure sürücüsü (Azure:)
 
-Bulut Kabuk PowerShell'de Azure sürücüde başlatır (`Azure:`).
+PowerShell bulut Kabuğu (Önizleme) Azure sürücüde başlatır (`Azure:`).
 Azure sürücüsü kolay bulma ve işlem, ağ, depolama vb. için dosya sistemi Gezinti benzer gibi Azure kaynakları gezinti sağlar.
 Bilinen kullanmaya devam edebilirsiniz [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/en-us/powershell/azure) bu kaynakları yönetmek için.
 Azure kaynaklarına doğrudan Azure portalında veya Azure PowerShell cmdlet'leri aracılığıyla yapılan ya da yapılan tüm değişiklikler anında Azure sürücüde yansıtılır.
@@ -91,7 +91,7 @@ Bu komutlar PowerShell uzaktan iletişimi üstünde oluşturulmuş ve Azure sana
 
 |**Kategori**    |**Ad**                                 |
 |----------------|-----------------------------------------|
-|Azure Araçları     |[Azure PowerShell (4.4.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1)<br> [Azure CLI (2.0.20)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Azure Araçları     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.21)](https://docs.microsoft.com/en-us/cli/azure/overview)|
 |Metin düzenleyiciler    |VIM<br> nano                             |
 |Paket Yöneticisi |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Kaynak denetimi  |Git                                      |
@@ -109,6 +109,6 @@ Bu komutlar PowerShell uzaktan iletişimi üstünde oluşturulmuş ve Azure sana
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bulut Kabuk de PowerShell ile hızlı başlangıç](quickstart-powershell.md)
+[PowerShell bulut Kabuğu (Önizleme) ile hızlı başlangıç](quickstart-powershell.md)
 
 [Azure PowerShell hakkında bilgi edinin](https://docs.microsoft.com/powershell/azure/)

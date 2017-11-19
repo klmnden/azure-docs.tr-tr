@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: 08b07053dd1507bcf0564f3071642f66f06b3559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86e19d5bb942937779665eb60d9dc0654c16747d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Azure App Service Web Apps ile Python yapılandırma
 Bu öğretici geliştirme ve temel bir Web sunucusu Ağ Geçidi Arabirimi (WSGI) uyumlu Python uygulaması yapılandırma seçenekleri açıklanmaktadır [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -33,15 +33,15 @@ Azure Market Bottle, Django ve Flask çerçeveleri için şablonlar içerir. İl
 * [Django ile Web uygulamaları oluşturma](https://portal.azure.com/#create/PTVS.Django)
 * [Flask ile Web uygulamaları oluşturma](https://portal.azure.com/#create/PTVS.Flask)
 
-## <a name="web-app-creation-on-azure-portal"></a>Azure Portal Web uygulaması oluşturma
+## <a name="web-app-creation-on-azure-portal"></a>Azure portal Web uygulaması oluşturma
 Bu öğretici, bir var olan Azure aboneliği ve Azure portalına erişim varsayar.
 
-Var olan bir web uygulamasının yoksa birinden oluşturabilirsiniz [Azure Portal](https://portal.azure.com).  Sol üst köşede yeni düğmesini tıklayın ve ardından **Web + mobil** > **Web uygulaması**.
+Var olan bir web uygulamasının yoksa birinden oluşturabilirsiniz [Azure portal](https://portal.azure.com).  Sol üst köşede yeni düğmesini tıklayın ve ardından **Web + mobil** > **Web uygulaması**.
 
 ## <a name="git-publishing"></a>Git yayımlamayı
-Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın. Bu öğretici Git oluşturmak, yönetmek ve Python web uygulamamıza Azure App Service'te yayımlama için kullanır.
+Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın. Bu öğretici Git oluşturmak, yönetmek ve Python web uygulamanızı Azure App Service'te yayımlama için kullanır.
 
-Git yayımlamayı ayarladıktan sonra bir Git deposu oluşturulur ve web uygulamanızı ile ilişkilendirilmiş. Deponun URL görüntülenir ve henceforth buluta yerel geliştirme ortamından veri göndermek için kullanılabilir. Git aracılığıyla uygulamaları yayımlamak için bir Git istemcisini de yüklü olduğundan emin olun ve Azure App Service web uygulaması içeriğinizi iletmek için sağlanan yönergeleri kullanın.
+Git yayımlamayı ayarladıktan sonra bir Git deposu oluşturulur ve web uygulamanızı ile ilişkilendirilmiş. Deponun URL görüntülenir ve buluta yerel geliştirme ortamından veri göndermek için kullanılır. Git aracılığıyla uygulamaları yayımlamak için bir Git istemcisini de yüklü olduğundan emin olun ve Azure App Service web uygulaması içeriğinizi iletmek için sağlanan yönergeleri kullanın.
 
 ## <a name="application-overview"></a>Uygulamaya Genel Bakış
 Sonraki bölümlerde, aşağıdaki dosyaları oluşturulur. Git deposu kök dizininde yerleştirilmelidir.
@@ -74,16 +74,16 @@ Bir örneği burada verilmiştir bir `app.py` özel işleyici tanımlar:
 Bu uygulama ile yerel olarak çalıştırabilirsiniz `python app.py`, ardından gözatın `http://localhost:5555` web tarayıcınızda.
 
 ## <a name="virtual-environment"></a>Sanal ortam
-Yukarıdaki örnek uygulaması herhangi bir dış paketi gerektirmez rağmen uygulamanızın bazı gerektirecektir olasıdır.
+Yukarıdaki örnek uygulaması herhangi bir dış paketi gerektirmez rağmen uygulamanızın bazı gerektirdiği olasıdır.
 
 Dış Paket bağımlılıklarını yönetmenize yardımcı olmak için Azure Git dağıtımı sanal ortamlar oluşturulmasını destekler.
 
 Azure depo kök dizininde bir requirements.txt algıladığında adlı bir sanal ortam otomatik olarak oluşturduğu `env`. Bu yalnızca ilk dağıtımı oluşur veya seçilen Python sonra herhangi bir dağıtımı sırasında çalışma zamanı değiştirildi.
 
-Büyük olasılıkla geliştirme için yerel olarak sanal bir ortam oluşturmak istersiniz, ancak Git deponuzu dahil etmeyin.
+Büyük olasılıkla geliştirme için yerel olarak sanal bir ortam oluşturmak istediğiniz, ancak Git deponuzu dahil etmeyin.
 
 ## <a name="package-management"></a>Paket Yönetimi
-Requirements.txt içinde listelenen paketler pip kullanarak sanal ortamda otomatik olarak yüklenir. Bu her dağıtımda gerçekleşir, ancak bir paket zaten yüklü ise pip yüklemeyi atlar.
+Requirements.txt içinde listelenen paketler pip kullanarak sanal ortamda otomatik olarak yüklenir. Bu her dağıtımda gerçekleşir, ancak bir paket zaten yüklü değilse pip yüklemeyi atlar.
 
 Örnek `requirements.txt`:
 
@@ -101,7 +101,7 @@ Requirements.txt içinde listelenen paketler pip kullanarak sanal ortamda otomat
 ## <a name="webconfig"></a>Web.config
 Sunucu istekleri nasıl yöneteceğini belirtmek için bir web.config dosyası oluşturmanız gerekir.
 
-Burada seçilen Python çalışma zamanı x.y eşleştirir ve ardından Azure otomatik olarak uygun dosyayı web.config olarak kopyalar deponuzun, Web.x.y.config'i dosyanız varsa unutmayın.
+X.y seçilen Python çalışma zamanı eşleştiği deponuz içinde bir Web.x.y.config'i dosyanız varsa Azure uygun dosyayı otomatik olarak web.config olarak kopyalar.
 
 Sonraki bölümde anlatılan sanal ortam proxy betiği aşağıdaki web.config örnekler kullanır.  Örnekte kullanılan WSGI işleyicisi çalışmak `app.py` üstünde.
 
@@ -203,7 +203,7 @@ Sonraki bölümde anlatılan sanal ortam proxy betiği aşağıdaki web.config �
     </configuration>
 
 
-Statik dosyalar web sunucusu tarafından doğrudan, Gelişmiş performans için Python kodu üzerinden geçmeden ele alınacaktır.
+Statik dosyalar web sunucusu tarafından Gelişmiş performans için Python kodu üzerinden geçmeden doğrudan işlenir.
 
 Yukarıdaki örneklerde, disk üzerindeki statik dosyaların konumunu URL konumda eşleşmesi gerekir. Bir istek için buna `http://pythonapp.azurewebsites.net/static/site.css` dosya diskte görecek `\static\site.css`.
 
@@ -356,7 +356,3 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
-
-## <a name="whats-changed"></a>Yapılan değişiklikler
-* Web Sitelerinden App Service’e kadar değiştirme kılavuzu için bkz. [Azure App Service ve Mevcut Azure Hizmetlerine Etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
-

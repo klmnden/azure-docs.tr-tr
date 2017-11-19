@@ -10,7 +10,11 @@
     - name: Otomatik sağlamayı ayarlama
       href: quick-setup-auto-provision.md
     - name: Sanal cihaz oluşturma
-      href: quick-create-simulated-device.md
+      items:
+        - name: TPM
+          href: quick-create-simulated-device.md
+        - name: X.509
+          href: quick-create-simulated-device-x509.md
 - name: Öğreticiler
   items:
     - name: 1 - Bulut kaynaklarını ayarlama
@@ -29,7 +33,6 @@
       href: concepts-service.md
     - name: Güvenlik kavramları
       href: concepts-security.md
-    - name: Güvenlik
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Cihaz kayıtlarını yönetme

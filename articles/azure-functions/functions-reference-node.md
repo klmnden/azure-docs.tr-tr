@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8050e116a48c69b2fccd6bdc1cf029dfdd6e6f28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -317,9 +317,9 @@ function GetEnvironmentVariable(name)
 
 JavaScript işlevleri ile çalışırken, aşağıdaki iki bölümlerdeki konuları unutmayın.
 
-### <a name="choose-single-core-app-service-plans"></a>Tek çekirdekli uygulama hizmeti planları seçin
+### <a name="choose-single-vcpu-app-service-plans"></a>Uygulama hizmeti planları tek vCPU seçin
 
-Uygulama hizmeti planı kullanan bir işlev uygulaması oluşturduğunuzda, bir plan ile birden çok çekirdek yerine bir tek çekirdek planı seçmenizi öneririz. Bugün, işlevleri çalışır JavaScript işlevleri daha verimli bir şekilde tek çekirdekli sanal makineler ve büyük sanal makineleri kullanarak beklenen performans iyileştirmeleri üretmez. Gerekli olduğunda, el ile daha fazla tek çekirdek VM örnekleri ekleyerek ölçeğini veya Otomatik ölçek etkinleştirebilirsiniz. Daha fazla bilgi için bkz: [örnek sayısı el ile veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+Uygulama hizmeti planı kullanan bir işlev uygulaması oluşturduğunuzda, bir plan ile birden çok Vcpu'lar yerine bir tek vCPU planı seçmenizi öneririz. Bugün, işlevleri çalışır JavaScript işlevleri daha verimli bir şekilde tek vCPU Vm'lerinde ve büyük sanal makineleri kullanarak beklenen performans iyileştirmeleri üretmez. Gerekli olduğunda, el ile daha fazla tek vCPU VM örnekleri ekleyerek ölçeğini veya Otomatik ölçek etkinleştirebilirsiniz. Daha fazla bilgi için bkz: [örnek sayısı el ile veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>TypeScript ve CoffeeScript desteği
 Doğrudan destek henüz otomatik derleme TypeScript veya CoffeeScript için çalışma zamanı mevcut olmadığından, bu tür destek dışında çalışma zamanı, dağıtım sırasında yapılması gerekir. 

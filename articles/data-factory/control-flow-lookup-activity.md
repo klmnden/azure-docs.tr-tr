@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure veri fabrikası'nda arama etkinliği
 Arama Etkinliği herhangi bir dış kaynaktan bir record/ table name/ değerini okumak veya aramak için kullanılabilir. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
@@ -53,6 +53,9 @@ Bu ardışık düzen iki etkinlik içerir: **aramak** ve **kopya**.
                 "name": "LookupActivity",
                 "type": "Lookup",
                 "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
                     "dataset": { 
                         "referenceName": "LookupDataset", 
                         "type": "DatasetReference" 
@@ -232,8 +235,8 @@ Bu Azure SQL veritabanı blob depolama alanına kopyalanacak verileri içerir.
 ## <a name="type-properties"></a>Tür özellikleri
 Ad | Açıklama | Tür | Gerekli
 ---- | ----------- | ---- | --------
-Veri kümesi | Veri kümesi özniteliği, arama için veri kümesi başvurusu sağlamaktır. Şu anda desteklenen veri türleri şunlardır:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | anahtar/değer çifti | Evet
-Kaynak | Kopyalama etkinliği kaynağı aynı veri kümesi-özel kaynak özellikleri | Anahtar/değer çifti | Hayır
+Veri kümesi | Veri kümesi özniteliği, arama için veri kümesi başvurusu sağlamaktır. Şu anda desteklenen veri türleri şunlardır:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | Anahtar/değer çifti | Evet
+kaynak | Kopyalama etkinliği kaynağı aynı veri kümesi-özel kaynak özellikleri | Anahtar/değer çifti | Hayır
 firstRowOnly | İlk satırı veya tüm satırları döndürür. | Boole değeri | Hayır
 
 ## <a name="next-steps"></a>Sonraki adımlar

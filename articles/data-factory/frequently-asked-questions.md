@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory hakkında SSS
 Bu makalede Azure Data Factory hizmetinin 2 sürümü için geçerlidir. Data Factory hakkında sık sorulan soruların yanıtlarını sağlar.  
@@ -71,7 +71,7 @@ Daha fazla bilgi için bkz: [Öğreticisi: denetim akışı](tutorial-control-fl
 SSIS iş yüklerinizi taşımak istiyorsanız, bir Data Factory sürüm 2 oluşturun ve bir Azure SSIS tümleştirmesi çalışma zamanı sağlayın. Azure SSIS tümleştirmesi çalışma zamanı Azure SSIS paketleri bulutta çalıştırmak için adanmış VM'nin (düğümler) tam olarak yönetilen bir kümedir. Adım adım yönergeler için bkz: [azure'a dağıtma SSIS paketleri](tutorial-deploy-ssis-packages-azure.md) Öğreticisi. 
  
 
-### <a name="sdks"></a>SDK’lar
+### <a name="sdks"></a>SDK
 İleri düzey bir kullanıcı varsa ve bu programa dayalı bir arabirim için baktığınızda, sürüm 2 zengin bir SDK'ları sağlayan yazar, yönetme veya sık kullanılan IDE kullanılarak işlem hatlarını izlemek için kullanabilirsiniz.
 
 - **.NET SDK**: .NET SDK, sürüm 2 için güncelleştirilmiştir. 
@@ -152,7 +152,7 @@ Data Factory kavramları hakkında daha fazla bilgi için aşağıdaki makaleler
 Fiyatlandırma ayrıntıları olan Azure Data Factory için bkz: [Data Factory fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>Hangi bölgeleri Azure Data Factory sürüm 2 destekleniyor mu?
-Şu anda veri fabrikaları sürüm 2 Doğu ABD ve Doğu ABD 2 bölgeler oluşturabilirsiniz. Ancak, veri depoları, işlem Hizmetleri veya gönderme SSIS paketleri karşı gönderme etkinlikler arasında veri taşımak için bir veri fabrikası tümleştirmesi çalışma zamanı başka bir bölgede kullanabilirsiniz. Daha fazla bilgi için bkz: [Data Factory konumları](concepts-integration-runtime.md#integration-runtime-location).
+Şu anda veri fabrikaları sürüm 2, Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerde oluşturabilirsiniz. Ancak, veri depoları, işlem Hizmetleri veya gönderme SSIS paketleri karşı gönderme etkinlikler arasında veri taşımak için bir veri fabrikası tümleştirmesi çalışma zamanı başka bir bölgede kullanabilirsiniz. Daha fazla bilgi için bkz: [Data Factory konumları](concepts-integration-runtime.md#integration-runtime-location).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Nasıl ı Data Factory hakkında bilgi içeren güncelliği?
 Azure Data Factory hakkında en güncel bilgiler için aşağıdaki sitelere bakın:

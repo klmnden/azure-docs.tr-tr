@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7574fdf8787e799e4d73fe32df9c1ad5be93abf1
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 290f2e837cae9bdb95cf8acb486938632927ca8c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de yönetici rolleri atama
 Bu makalede, Azure Active Directory'de (Azure AD) kullanıcıya bir yönetici rolü atama açıklanmaktadır. Kuruluşunuzdaki yeni kullanıcı ekleme hakkında daha fazla bilgi için bkz: [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-users-create-azure-portal.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
@@ -33,7 +33,7 @@ Bu makalede, Azure Active Directory'de (Azure AD) kullanıcıya bir yönetici ro
 
    ![Tüm kullanıcılar grubu açma](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 1. Listeden bir kullanıcı seçin.
-2. Seçilen kullanıcı için seçin **dizin rolünü** ve kullanıcının bir rol atayın **dizin rolünü** listesi. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md).
+2. Seçilen kullanıcı için seçin **dizin rolünü** ve kullanıcının bir rol atayın **dizin rolünü** listesi. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles-azure-portal.md).
 
       ![Bir kullanıcı rol atama](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 6. **Kaydet**’i seçin.

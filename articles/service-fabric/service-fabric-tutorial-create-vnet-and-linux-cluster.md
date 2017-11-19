@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Azure sanal ağda bir Service Fabric Linux kümesi dağıtma
 Bu öğretici bir dizi birini bir parçasıdır. Mevcut bir Azure sanal ağı (VNET) Linux Service Fabric kümesine dağıtmak ve Azure CLI kullanarak alt net öğreneceksiniz. İşlemi tamamladığınızda, uygulamaları dağıtabileceğiniz bulutta çalıştıran bir kümeye sahip. PowerShell kullanarak bir Windows kümesi oluşturmak için bkz: [Azure'da güvenli bir Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -35,6 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğretici serisinde öğrenin nasıl yapılır:
 > [!div class="checklist"]
 > * Azure üzerinde güvenli bir küme oluşturun
+> * [Bir küme veya ölçeklendirme](/service-fabric-tutorial-scale-cluster.md)
 > * [API Management Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -44,6 +45,22 @@ Bu öğreticiye başlamadan önce:
 - Yükleme [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 Aşağıdaki yordamlar, beş düğümlü Service Fabric kümesi oluşturun. Service Fabric kümesi Azure kullanımda çalıştırarak ücrete maliyeti hesaplamak için [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/).
+
+## <a name="introduction"></a>Giriş
+Bu öğretici, bir tek düğümlü türdeki beş düğümden oluşan bir küme Azure sanal ağında içine dağıtır.
+
+[Service Fabric kümesi](service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir. Kümeleri makineler binlerce ölçeklendirebilirsiniz. Bir makine ya da bir kümenin parçasıysa VM düğüm denir. Her düğüme bir düğüm adı (dize) atanır. Düğümleri yerleşim özellikleri gibi özelliklere sahiptir.
+
+Düğüm türü küme boyutu, sayı ve sanal makineler kümesinin özelliklerini tanımlar. Her tanımlanan düğüm türü olarak ayarlanan bir [sanal makine ölçek kümesi](/azure/virtual-machine-scale-sets/), Azure işlem kaynağı dağıtmak ve sanal makinelerin bir koleksiyon kümesi olarak yönetmek için kullanın. Her düğüm türü sonra ölçeklendirilebilir veya Aşağı bağımsız olarak, farklı bağlantı noktalarının açık olması ve farklı kapasite ölçümlerini olabilir. Düğüm türleri, küme düğümleri, "ön uç" veya "arka uç" gibi bir dizi için rolleri tanımlamak için kullanılır.  Kümenizi birden fazla düğüm türü olabilir, ancak en az beş VM'ler üretim kümeleri (veya test kümeleri için en az üç sanal makineleri) için birincil düğüm türü olmalıdır.  [Service Fabric Sistem Hizmetleri](service-fabric-technical-overview.md#system-services) birincil düğüm türü düğümlerinde yerleştirilir.
+
+## <a name="cluster-capacity-planning"></a>Küme kapasitesi planlama
+Bu öğretici, bir tek düğümlü türdeki beş düğümden oluşan bir küme dağıtır.  Tüm üretim Küme dağıtımı için kapasite planlamasının önemli bir adımdır. Bu işlemin bir parçası olarak dikkate alınması gereken bazı şeyleri burada bulabilirsiniz.
+
+- Düğüm sayısı kümeniz türleri 
+- Her bir düğüm türü (örneğin boyutu, birincil, İnternete ve VM'ler) özellikleri
+- Küme güvenilirlik ve dayanıklılık özellikleri
+
+Daha fazla bilgi için bkz: [küme kapasite planlama konuları](service-fabric-cluster-capacity.md).
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Azure'da oturum açın ve aboneliğinizi seçin
 Bu kılavuz, Azure CLI kullanır. Yeni bir oturum başlattığınızda, Azure hesabınızda oturum açın ve Azure komutları çalıştırmadan önce aboneliğinizi seçin.

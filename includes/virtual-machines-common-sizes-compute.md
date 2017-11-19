@@ -1,5 +1,7 @@
 <!-- F-series, Fs-series* -->
 
+En iyi duruma getirilmiş VM boyutları yüksek CPU ve bellek oranı vardır ve orta trafiği web sunucuları, ağ cihazları, toplu işlemler ve uygulama sunucuları için iyi işlem. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar.
+
 Fsv2-serisi 2.7 GHz temel çekirdek sıklığını ve 3.7 GHz maksimum tek çekirdek turbo sıklığını Intel® Xeon® Platinum 8168 işlemcide temel alır. 2 tek ve çift duyarlıklı kayan nokta işlemleri üzerindeki vektör işleme iş yükleri için performansı artırma X kadar Intel ölçeklenebilir işlemcilerde yenidir Intel® AVX-512 yönergeleri sağlar. Diğer bir deyişle, bunlar için herhangi bir hesaplama iş yükünü gerçekten hızlı. 
 
 Daha düşük bir saat başına listesi fiyattan Fsv2 serisi fiyat-performans üzerinde Azure işlem birimi (ACU) vCPU başına tabanlı Azure Portföyünde en iyi değerdir. 
@@ -14,7 +16,7 @@ Fs serisi, Premium depolamaya ek olarak F serisinin tüm avantajlarını sağlar
 
 ACU: 195-210
 
-| Boyut             | vCPU'ın | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maks NIC / Beklenen ağ performansı (Mbps) |
+| Boyut             | vCPU'ın | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Orta                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Orta                                       |
@@ -29,7 +31,7 @@ ACU: 195-210
 
 ACU: 210 - 250
 
-| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / Beklenen ağ performansı (Mbps) |
+| Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4000/32 (12) |3200/48 |2 / 750 |
 | Standard_F2s |2 |4 |8 |8 |8000/64 (24) |6400/96 |2 / 1500 |
@@ -48,7 +50,7 @@ MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
 
 ACU: 210 - 250
 
-| Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / Beklenen ağ performansı (Mbps) |
+| Boyut         | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3000/46/23                                           | 4/4x500                         | 2 / 750                 |
 | Standard_F2  | 2         | 4           | 32             | 6000/93/46                                           | 8/8x500                         | 2 / 1500                     |

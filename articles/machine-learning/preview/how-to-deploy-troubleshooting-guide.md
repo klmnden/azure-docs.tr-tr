@@ -10,21 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
-ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/16/2017
+ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Hizmet dağıtımı ve ortam Kurulumu sorunlarını giderme
 Aşağıdaki bilgiler model yönetim ortamını ayarlarken hatalarının nedeninin belirlenmesine yardımcı olabilir.
 
 ## <a name="model-management-environment"></a>Model yönetim ortamı
-### <a name="owner-permission-required"></a>Sahibi izin gerekiyor
-Machine Learning işlem kaydetmek için Azure aboneliğine sahip izninizin olması gerekir.
-
-Ayrıca bir küme dağıtımı, web hizmetleri için ayarlamak üzere sahibi izni gerekir.
+### <a name="contributor-permission-required"></a>Katkıda bulunan izin gerekiyor
+Abonelik veya kaynak grubu, bir küme dağıtımı, web hizmetleri için ayarlamak üzere katkıda bulunan erişmeniz gerekir.
 
 ### <a name="resource-availability"></a>Kaynak kullanılabilirliği
 Ortam kaynakları sağlamak için aboneliğinizde kullanılabilir yeterli kaynak olması gerekir.
@@ -89,6 +87,7 @@ Python örnek:
 ```
 
 ## <a name="other-common-problems"></a>Diğer yaygın sorunlar
+- Azure CLI ml PIP yüklemesi şu hata ile başarısız olursa `cannot find the path specified` bir Windows makinesinde uzun yol desteği etkinleştirmeniz gerekir. Https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/NET-4-6-2-and-Long-paths-on-Windows-10/ bakın. 
 - Varsa `env setup` komutu başarısız ile `LocationNotAvailableForResourceType`, öğrenme kaynakları makine için büyük olasılıkla yanlış konum (bölge) kullanıyorsanız. İle belirtilen konumunuz emin olun `-l` parametresi `eastus2`, `westcentralus`, veya `australiaeast`.
 - Varsa `env setup` komutu başarısız ile `Resource quota limit exceeded`, aboneliğinizde kullanılabilir yeterli çekirdek varsa ve kaynaklarınızı kullanılmayan yukarı diğer işlemleri emin olun.
 - Varsa `env setup` komutu başarısız ile `Invalid environment name. Name must only contain lowercase alphanumeric characters`, hizmet adı büyük harfler, simgeler veya alt çizgi (_) içermediğinden emin olun (olarak *my_environment*).

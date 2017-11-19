@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 3f6a47a15b74a7ceb6504b2834be62e76ab70bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81814ef07cfab06855b3bfbf0eb6ef51b8dfce4f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Yazma ve Service Fabric uygulamaları yönetme basitleştirmek için Visual Studio kullanma
 Azure Service Fabric uygulamaları ve Hizmetleri Visual Studio aracılığıyla yönetebilirsiniz. Seçtiğiniz sonra [geliştirme ortamınızı ayarlama](service-fabric-get-started.md), Service Fabric uygulamaları oluşturmak, hizmetleri veya paket, kayıt eklemek ve yerel geliştirme kümenizdeki uygulamaları dağıtmak için Visual Studio'yu kullanabilirsiniz.
@@ -32,7 +32,7 @@ Varsayılan olarak, bir uygulama dağıtımı aşağıdaki adımları basit bir 
 4. Herhangi bir kaldırma uygulama örnekleri çalıştırma
 5. Uygulama örneğini oluşturma
 
-Visual Studio'da tuşuna basarak **F5** uygulamanızı dağıtır ve tüm uygulama örneklerine hata ayıklayıcısını ekleyin. Kullanabileceğiniz **Ctrl + F5** hata ayıklama veya bir uygulamayı dağıtmak için yerel veya uzak bir küme için yayımlama profili kullanarak yayımlayabilirsiniz. Daha fazla bilgi için bkz: [Visual Studio kullanarak uzak bir küme için bir uygulama yayımlamak](service-fabric-publish-app-remote-cluster.md).
+Visual Studio'da tuşuna basarak **F5** uygulamanızı dağıtır ve tüm uygulama örneklerine hata ayıklayıcısını ekleyin. Kullanabileceğiniz **Ctrl + F5** hata ayıklama veya bir uygulamayı dağıtmak için yerel veya uzak bir küme için yayımlama profili kullanarak yayımlayabilirsiniz. 
 
 ### <a name="application-debug-mode"></a>Uygulama hata ayıklama modu
 Visual Studio sağlamak adlı bir özellik **uygulama hata ayıklama modu**, uygulama dağıtımı hata ayıklama bir parçası olarak işlemek için görsel stüdyoları istediğiniz kontrol eder.

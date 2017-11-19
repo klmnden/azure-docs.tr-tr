@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-custom-domain-name-portal.md)
-> * [Klasik Azure Portalı](cloud-services-custom-domain-name.md)
-> 
-> 
-
 Azure bulut hizmeti oluşturduğunuzda, bir alt etki alanı için atar **cloudapp.net**. Örneğin, bulut hizmetinizin "contoso" ise, kullanıcılarınız uygulamanızda http://contoso.cloudapp.net gibi bir URL erişebilir olacaktır. Azure de bir sanal IP adresi atar.
 
 Ancak, aynı zamanda uygulamanız kendi etki alanı adınızı gibi getirebilir **contoso.com**. Bu makalede, ayırmak veya Bulut hizmeti web rolleri için bir özel etki alanı adı yapılandırma açıklanmaktadır.
@@ -62,7 +56,7 @@ Bir *A* kaydı bir etki alanı gibi eşler **contoso.com** veya **www.contoso.co
 > [!NOTE]
 > Bir A kaydı bir statik IP adresine eşlenmiş olduğundan, bu değişiklikleri otomatik olarak bulut hizmetinizin IP adresi çözümlenemiyor. Bulut hizmeti tarafından kullanılan IP adresi boş bir yuvaya (üretim veya hazırlama.) dağıtmak ilk kez ayrılır Dağıtım yuvası için silerseniz, IP adresi Azure tarafından yayımlanan ve gelecekteki tüm dağıtımlar yuvaya verilen yeni bir IP adresi.
 > 
-> Uygun şekilde, bir belirtilen dağıtım yuvası (üretim veya hazırlama) IP adresini hazırlama ve üretim dağıtımları veya varolan bir dağıtım yerinde yükseltme gerçekleştirme arasında takası zaman kalıcıdır. Bu eylemler gerçekleştirme hakkında daha fazla bilgi için bkz: [bulut hizmetlerini yönetmek nasıl](cloud-services-how-to-manage.md).
+> Uygun şekilde, bir belirtilen dağıtım yuvası (üretim veya hazırlama) IP adresini hazırlama ve üretim dağıtımları veya varolan bir dağıtım yerinde yükseltme gerçekleştirme arasında takası zaman kalıcıdır. Bu eylemler gerçekleştirme hakkında daha fazla bilgi için bkz: [bulut hizmetlerini yönetmek nasıl](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -139,7 +133,7 @@ Bu örnekte, kök etki alanı için bir A kaydı oluşturmayı gösterir. Tüm a
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage.md)
+* [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage-portal.md)
 * [CDN İçeriğini Özel Etki Alanı ile Eşleme](../cdn/cdn-map-content-to-custom-domain.md)
 * [Genel yapılandırma bulut hizmetinizin](cloud-services-how-to-configure-portal.md).
 * Bilgi edinmek için nasıl [bir bulut hizmetinin dağıtılacağı](cloud-services-how-to-create-deploy-portal.md).

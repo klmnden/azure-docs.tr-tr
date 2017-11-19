@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a965f9773524a36bedc3d040bf1a1ca391507f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanarak Azure panoları paylaşmak
 Bir Pano yapılandırdıktan sonra yayımlayabilir ve kuruluşunuzdaki diğer kullanıcılarla paylaşmak. Diğerlerinin Azure kullanarak panonuz görüntülemesine izin vermek [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md). Bir kullanıcı veya kullanıcılar grubunun bir role atayın ve bu rol kullanıcılarla değiştirebilir veya görüntüleyebilirsiniz yayımlanan Pano olup olmadığını tanımlar. 
@@ -33,9 +33,9 @@ Tüm yayımlanan panolar Azure kaynakları yönetilebilir öğeleri aboneliğini
 ## <a name="understanding-access-control-for-dashboards"></a>Panolar için erişim Denetimi'ni anlama
 Rol tabanlı erişim denetimi (RBAC) ile kullanıcıları kapsamının üç farklı düzeylerde roller atayabilirsiniz:
 
-* aboneliği
+* abonelik
 * kaynak grubu
-* Kaynak
+* kaynak
 
 Atadığınız izinler kaynak aşağıya doğru abonelikten devralınır. Yayımlanan Pano bir kaynaktır. Bu nedenle, aynı zamanda yayımlanan Pano çalışan rollerine abonelik için atanan kullanıcılar zaten sahip olabilir. 
 
@@ -44,7 +44,7 @@ Bir örnek verilmiştir.  Bir Azure aboneliğiniz varsa ve çeşitli ekibinizin 
 Ancak, aynı zamanda izinleri birkaç panolar içeren kaynak grubunu veya tek bir Pano atayabilirsiniz. Örneğin, bir kullanıcı grubuna izinleri abonelik ancak belirli bir Panoda daha fazla erişim arasında sınırlı olmalıdır, karar verebilirsiniz. Kullanıcılar bu Pano için bir rol atayın. 
 
 ## <a name="publish-dashboard"></a>Pano yayımlama
-Şimdi, aboneliğinizde kullanıcı grubuyla paylaşmak istediğiniz bir Pano yapılandırmayı tamamladıktan varsayalım. Depolama yöneticileri adlı özel bir grup aşağıdaki adımları tarif, ancak ne olursa olsun ister misiniz grubunuzun adı verebilirsiniz. Bir Active Directory grubu oluşturma ve bu gruba kullanıcı ekleme hakkında daha fazla bilgi için bkz: [Azure Active Directory içinde grupları yönetme](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Şimdi, aboneliğinizde kullanıcı grubuyla paylaşmak istediğiniz bir Pano yapılandırmayı tamamladıktan varsayalım. Depolama yöneticileri adlı özel bir grup aşağıdaki adımları tarif, ancak ne olursa olsun ister misiniz grubunuzun adı verebilirsiniz. Bir Active Directory grubu oluşturma ve bu gruba kullanıcı ekleme hakkında daha fazla bilgi için bkz: [Azure Active Directory içinde grupları yönetme](../active-directory/active-directory-groups-create-azure-portal.md).
 
 1. Panoda seçin **paylaşımı**.
    

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: 31e35432ecc10b06c7a6400a1e0904e7bc2cd8c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fb32ef2881bdc1e88bb3f54446163c0feac5da9b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Azure sanal ağda bir doku Windows hizmeti kümesini dağıtma
-Bu öğretici bir dizi birini bir parçasıdır. Mevcut bir Azure sanal ağı (VNET) Windows Service Fabric kümesine dağıtmak ve PowerShell kullanarak alt net öğreneceksiniz. İşlemi tamamladığınızda, uygulamaları dağıtabileceğiniz bulutta çalıştıran bir kümeye sahip.  Azure CLI kullanarak bir Linux kümesi oluşturmak için bkz: [Azure'da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Bu öğretici bir dizi birini bir parçasıdır. Mevcut bir Azure sanal ağı (VNET) Windows çalıştıran bir Service Fabric kümesi dağıtma ve PowerShell kullanarak alt net öğreneceksiniz. İşlemi tamamladığınızda, uygulamaları dağıtabileceğiniz bulutta çalıştıran bir kümeye sahip.  Azure CLI kullanarak bir Linux kümesi oluşturmak için bkz: [Azure'da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -36,6 +36,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Bu öğretici serisinde öğrenin nasıl yapılır:
 > [!div class="checklist"]
 > * Azure üzerinde güvenli bir küme oluşturun
+> * [Bir küme veya ölçeklendirme](/service-fabric-tutorial-scale-cluster.md)
 > * [API Management Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -45,6 +46,22 @@ Bu öğreticiye başlamadan önce:
 - Yükleme [Azure Powershell modülü sürümü 4.1 veya üzeri](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
 Aşağıdaki yordamlar, beş düğümlü Service Fabric kümesi oluşturun. Service Fabric kümesi Azure kullanımda çalıştırarak ücrete maliyeti hesaplamak için [Azure fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/).
+
+## <a name="introduction"></a>Giriş
+Bu öğretici, bir tek düğümlü türdeki beş düğümden oluşan bir küme Azure sanal ağında içine dağıtır.
+
+[Service Fabric kümesi](service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir. Kümeleri makineler binlerce ölçeklendirebilirsiniz. Bir makine ya da bir kümenin parçasıysa VM düğüm denir. Her düğüme bir düğüm adı (dize) atanır. Düğümleri yerleşim özellikleri gibi özelliklere sahiptir.
+
+Düğüm türü küme boyutu, sayı ve sanal makineler kümesinin özelliklerini tanımlar. Her tanımlanan düğüm türü olarak ayarlanan bir [sanal makine ölçek kümesi](/azure/virtual-machine-scale-sets/), Azure işlem kaynağı dağıtmak ve sanal makinelerin bir koleksiyon kümesi olarak yönetmek için kullanın. Her düğüm türü sonra ölçeklendirilebilir veya Aşağı bağımsız olarak, farklı bağlantı noktalarının açık olması ve farklı kapasite ölçümlerini olabilir. Düğüm türleri, küme düğümleri, "ön uç" veya "arka uç" gibi bir dizi için rolleri tanımlamak için kullanılır.  Kümenizi birden fazla düğüm türü olabilir, ancak en az beş VM'ler üretim kümeleri (veya test kümeleri için en az üç sanal makineleri) için birincil düğüm türü olmalıdır.  [Service Fabric Sistem Hizmetleri](service-fabric-technical-overview.md#system-services) birincil düğüm türü düğümlerinde yerleştirilir.
+
+## <a name="cluster-capacity-planning"></a>Küme kapasitesi planlama
+Bu öğretici, bir tek düğümlü türdeki beş düğümden oluşan bir küme dağıtır.  Tüm üretim Küme dağıtımı için kapasite planlamasının önemli bir adımdır. Bu işlemin bir parçası olarak dikkate alınması gereken bazı şeyleri burada bulabilirsiniz.
+
+- Düğüm sayısı kümeniz türleri 
+- Her bir düğüm türü (örneğin boyutu, birincil, İnternete ve VM'ler) özellikleri
+- Küme güvenilirlik ve dayanıklılık özellikleri
+
+Daha fazla bilgi için bkz: [küme kapasite planlama konuları](service-fabric-cluster-capacity.md).
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Azure'da oturum açın ve aboneliğinizi seçin
 Bu kılavuz, Azure PowerShell'i kullanır. Yeni bir PowerShell oturumu başlattığınızda, Azure hesabınızda oturum açın ve Azure komutları çalıştırmadan önce aboneliğinizi seçin.
@@ -67,7 +84,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 ```
 
 ## <a name="deploy-the-network-topology"></a>Ağ topolojisi dağıtmak
-Ardından, ağ topolojisini için API Management ve Service Fabric kümesi dağıtılacak ayarlayın. [Network.json] [ network-arm] Resource Manager şablonu yapılandırılmış bir sanal ağ (VNET) ve ayrıca bir alt ağ ve ağ güvenlik grubu (NSG) ve bir alt ağ ve NSG Service Fabric için API Management oluşturmak için . Daha fazla hakkında sanal ağlar, alt ağları ve Nsg'ler öğrenin [burada](../virtual-network/virtual-networks-overview.md).
+Ardından, ağ topolojisini için API Management ve Service Fabric kümesi dağıtılacak ayarlayın. [Network.json] [ network-arm] Resource Manager şablonu yapılandırılmış bir sanal ağ (VNET) ve ayrıca bir alt ağ ve ağ güvenlik grubu (NSG) ve bir alt ağ ve NSG Service Fabric için API Management oluşturmak için . API Management daha sonra Bu öğreticide dağıtılır. Daha fazla hakkında sanal ağlar, alt ağları ve Nsg'ler öğrenin [burada](../virtual-network/virtual-networks-overview.md).
 
 [Network.parameters.json] [ network-parameters-arm] parametreler dosyası alt ağları ve Service Fabric ve API Management dağıtmak Nsg'ler adlarını içerir.  API Management dağıtıldığı [öğretici aşağıdaki](service-fabric-tutorial-deploy-api-management.md). Bu kılavuz, parametre değerlerini değiştirilmesi gerekmez. Service Fabric Resource Manager şablonları bu değerleri kullanın.  Değerler burada değiştirildiyse, onları bu öğreticide kullanılan diğer Resource Manager şablonları olarak değiştirmeniz gerekir ve [dağıtmak API Management Öğreticisi](service-fabric-tutorial-deploy-api-management.md). 
 

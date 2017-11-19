@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0b014fe57f3e9d2ceeac94f3570353a9a07b27
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="data-source-wizard"></a>Veri kaynağı Sihirbazı #
 
@@ -29,7 +29,7 @@ Veri kaynağı Sihirbazı'nı kullanarak bir projeye verileri getirmek için. Se
 ![1. adım](media/data-source-wizard/step1.png)
 
 ## <a name="step-3-select-data-file"></a>3. adım: veri dosyası seçin ##
-Bir dosya/dizin için dosya yolunu belirtin. Aşağı açılır listeden verilerin konumu seçin – bir yerel dosya yolu, Azure Blob Storage veya Azure Data Lake olabilir. 
+Bir dosya/dizin için dosya yolunu belirtin. Aşağı açılır listeden verilerin konumu seçin – bir yerel dosya yolu veya Azure Blob Storage olabilir. 
 
 İçine yazarak veya tıklayarak yolunu belirtin **Gözat...** Bunun için gözatmak için düğmeyi. Bir dizin veya bir veya daha fazla göz atabilirsiniz.
 

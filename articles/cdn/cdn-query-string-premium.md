@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2021b5b7602605a7c264e9cd575399077691da34
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>Denetim Azure CDN önbelleğe alma davranışını sorgu dizeleriyle - Premium
+# <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings---premium"></a>Denetim Azure içerik teslim ağı önbelleğe alma davranışını sorgu dizeleriyle - Premium
 > [!div class="op_single_selector"]
 > * [Standart](cdn-query-string.md)
 > * [Verizon'dan Azure CDN Premium](cdn-query-string-premium.md)
@@ -28,34 +28,32 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Sorgu dizesini dosyaları nasıl sorgu dizeleri içerdiğinde önbelleğe alınacağını denetimleri önbelleğe alma.
+Azure içerik teslim ağı (CDN), dosyaları bir sorgu dizesi içeren bir web isteği için nasıl önbelleğe kontrol edebilirsiniz. Sorgu dizesi olan bir web isteğinde sorgu dizesi, bir soru işareti (?) sonra oluşan istek bölümüdür. Bir sorgu dizesi alan adını ve değerini bir eşittir işareti (=) tarafından ayrılır bir veya daha fazla anahtar-değer çiftleri içerebilir. Her anahtar-değer çifti ampersan tarafından ayrılmış (&). Örneğin `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Bir isteğin sorgu dizesi içinde birden fazla anahtar-değer çifti varsa, bunların sırası önemli değildir. 
 
 > [!IMPORTANT]
-> Standart ve Premium CDN ürünleri için önbelleğe alma işlevinin aynı sorgu dizesi sağlasa da, kullanıcı arabirimi farklıdır.  Arabirim için bu belgede açıklanan **verizon'dan Azure CDN Premium**.  İle sorgu dizesi önbelleğe alma için **akamai'den Azure CDN standart** ve **verizon'dan Azure CDN standart**, bkz: [CDN önbelleğe alma davranışını denetleme, sorgu dizeleri içeren istekleri](cdn-query-string.md).
-> 
-> 
+> Standart ve premium CDN ürünü için aynı sorgu dizesini önbelleğe alma işlevinin sağlasa da, kullanıcı arabirimi farklıdır.  Bu makalede arabirim için **verizon'dan Azure CDN Premium**. İle sorgu dizesi önbelleğe alma için **akamai'den Azure CDN standart** ve **verizon'dan Azure CDN standart**, bkz: [CDN önbelleğe alma davranışını denetleme, sorgu dizeleri içeren istekleri](cdn-query-string.md).
+>
 
-Üç modu kullanılabilir:
+Üç sorgu dizesi modu kullanılabilir:
 
-* **Standart önbellek**: Bu varsayılan moddur.  CDN kenar düğümüne sorgu dizesi istek sahibi kaynağa ilk istek ve önbellek varlık geçer.  Önbelleğe alınan varlık süresi doluncaya kadar kenar düğümden sunulan tüm istekler bu varlık için sorgu dizesi göz ardı eder.
-* **Hayır-cache**: Bu modda, CDN kenar düğümüne sorgu dizeleri içeren istekleri önbelleğe alınmaz.  Kenar düğümüne doğrudan kaynaktan varlığı alır ve bunu her istek ile istek sahibi geçirir.
-* **Önbellek benzersiz**: Bu mod, kendi önbelleği ile benzersiz bir varlık olarak bir sorgu dizesi her bir istekle değerlendirir.  Örneğin, bir istek için başlangıç yanıttan *foo.ashx?q=bar* o aynı sorgu dizesi ile sonraki önbellekler için döndürülen ve kenar düğümüne önbelleğe.  Bir istek için *foo.ashx?q=somethingelse* canlı bir ayrı varlık kendi süresiyle önbelleğe alınması.
+- **Standart önbellek**: varsayılan mod. Bu modda, CDN kenar düğümüne sorgu dizeleri istek sahibi kaynağa yapılan ilk istek geçirir ve varlık önbelleğe alır. Önbelleğe alınan varlık süresi doluncaya kadar kenar düğümden sunulan tüm sonraki istekleri varlığı için sorgu dizelerini yoksayabilir.
+- **Hayır-cache**: Bu modda, CDN kenar düğümüne sorgu dizeleri içeren istekleri önbelleğe alınmaz. Kenar düğümüne doğrudan kaynaktan varlığı alır ve bunu her istek ile istek sahibi geçirir.
+- **Önbellek benzersiz**: Bu modda, sorgu dizesi dahil olmak üzere benzersiz bir URL'ye sahip her isteği kendi önbelleği ile benzersiz bir varlık olarak kabul edilir. Örneğin, bir istek için başlangıç yanıttan `example.ashx?q=test1` kenar düğümüne önbelleğe ve sonraki önbellekleri ile aynı sorgu dizesi döndürdü. Bir istek için `example.ashx?q=test2` ayrı bir varlık kendi yaşam süresi ayarı ile önbelleğe alınır.
 
 ## <a name="changing-query-string-caching-settings-for-premium-cdn-profiles"></a>Sorgu dizesini önbelleğe alma premium CDN profili ayarlarını değiştirme
-1. CDN profili dikey penceresinden tıklayın **Yönet** düğmesi.
+1. CDN profili açın ve ardından **Yönet**.
    
-    ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-query-string-premium/cdn-manage-btn.png)
+    ![CDN profili Yönet düğmesi](./media/cdn-query-string-premium/cdn-manage-btn.png)
    
     CDN Yönetim Portalı'nı açar.
-2. Üzerine gelerek **HTTP büyük** sekmesini ve ardından üzerine gelerek **önbellek ayarları** çıkma.  Tıklayın **sorgu dizesi önbelleğe alma**.
+2. Üzerine gelerek **HTTP büyük** sekmesini ve ardından üzerine gelerek **önbellek ayarları** açılır menüsü. Tıklatın **sorgu dizesi önbelleğe alma**.
    
     Sorgu dizesini önbelleğe alma seçenekleri görüntülenir.
    
     ![CDN sorgu dizesini önbelleğe alma seçenekleri](./media/cdn-query-string-premium/cdn-query-string.png)
-3. Seçiminizi yaptıktan sonra tıklatın **güncelleştirme** düğmesi.
+3. Bir sorgu dizesi modunu seçin ve ardından **güncelleştirme**.
 
 > [!IMPORTANT]
-> Kaydın yayılması zaman yararlanırken ayar değişiklikleri hemen görünür olmayabilir.  <b>Verizon'dan Azure CDN</b> profilleri için yayma işlemi genellikle 90 dakika içinde tamamlanır ancak bazı durumlarda daha uzun sürebilir.
-> 
-> 
+> Kaydın yayılması zaman alır çünkü önbelleği dize ayarları değişiklikleri hemen görünür olmayabilir. İçin **verizon'dan Azure CDN Premium** profilleri yayma işlemi genellikle 90 dakika içinde tamamlanır, ancak bazı durumlarda daha uzun sürebilir.
+ 
 

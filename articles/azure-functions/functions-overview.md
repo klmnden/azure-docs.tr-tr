@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 41f26a4b03a6431aaad21bda6336b8840d2d923f
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: d60c898225b944801504f38d536262134a31e021
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure İşlevleri'ne giriş  
 Azure İşlevleri, küçük kod parçalarını veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Tüm uygulama veya bunu çalıştıracak altyapı hakkında endişelenmeden elinizdeki sorun için ihtiyacınız olan kodu yazabilirsiniz. Geliştirme işlevlerini daha da verimli hale getirebilir ve C#, F #, Node.js, Java veya PHP gibi tercih ettiğiniz geliştirme dilini kullanabilirsiniz. Yalnızca kodunuzun çalıştığı zaman için ödeme yapın ve ihtiyaca göre ölçekleme konusunda Azure'a güvenin. Azure işlevleri geliştirmenize olanak tanır [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) Microsoft Azure üzerinde uygulamalar.
@@ -31,7 +31,7 @@ Bu konu başlığında, Azure İşlevlerine üst düzey bir genel bakış sağla
 ## <a name="features"></a>Özellikler
 İşlevlerinin önemli özelliklerinden bazıları şunlardır:
 
-* **Dil Seçimi** - C#, F #, Node.js, Java, PHP, batch, bash veya herhangi bir yürütülebilir dosya kullanarak işlevleri yazın.
+* **Dil Seçimi** - seçiminizi C#, F # ve Javascript kullanarak işlevleri yazın. Bkz: [desteklenen diller](supported-languages.md) diğer seçenekler için.
 * **Kullandıkça ödeme fiyatlandırma modeli** - Yalnızca kodunuzu çalıştırmaya harcanan zaman için ödeme yapın. [Fiyatlandırma bölümünde](#pricing) Tüketim barındırma planı seçeneğine bakın.  
 * **Kendi bağımlılıklarınızı getirin** - İşlevler NuGet ve NPM'yi desteklediğinden, sık kullandığınız kitaplıklarınızı kullanabilirsiniz.  
 * **Tümleşik güvenlik** - Azure Active Directory, Facebook, Google, Twitter ve Microsoft Hesabı gibi OAuth sağlayıcılarıyla HTTP tetiklemeli işlevleri koruyun.  

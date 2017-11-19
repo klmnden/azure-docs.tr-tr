@@ -1,5 +1,5 @@
 ---
-title: "Azure bulut Kabuğu (Önizleme) Bash'te için dosyaları kalıcı | Microsoft Docs"
+title: "Azure bulut Kabuk Bash'te için dosyaları kalıcı | Microsoft Docs"
 description: "Azure bulut Kabuk Bash'te dosyaları nasıl devam ederse gözden geçirme."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8b8a82e1c1328d952a85ea5afd975a95f5a6e740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>Bulut Kabuk depolama nasıl çalışır? 
-Bulut kabuk dosyalar aşağıdaki yöntemlerin her ikisi de ile devam eder: 
+## <a name="how-bash-in-cloud-shell-storage-works"></a>Bulut Kabuk depolama Bash'te nasıl çalışır? 
+Bulut Kabuk bash'te dosyalar aşağıdaki yöntemlerin her ikisi de ile devam eder: 
 * Bir disk görüntüsünü oluşturma, `$Home` dizini içindeki tüm içeriği kalıcı hale getirmek için dizin. Disk görüntüsü, belirtilen dosya paylaşımı olarak kaydedilir `acc_<User>.img` adresindeki `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, ve değişiklikleri otomatik olarak eşitlenir. 
 * Belirtilen dosya paylaşımı olarak takma `clouddrive` içinde `$Home` doğrudan dosya paylaşımı etkileşim için dizin. `/Home/<User>/clouddrive`eşlenmiş `fileshare.storage.windows.net/fileshare`.
  
@@ -91,6 +91,6 @@ justin@Azure:~$
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bulut Kabuk hızlı başlangıç](quickstart.md) <br>
-[Azure File storage hakkında bilgi edinin](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Bulut Kabuk hızlı başlangıcı bash](quickstart.md) <br>
+[Microsoft Azure dosyaları depolama hakkında bilgi edinin](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Depolama etiketler hakkında bilgi edinin](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

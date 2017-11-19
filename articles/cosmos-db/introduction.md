@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: d5ae2a68f749310d4d6a2514055fb258978eec9c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
@@ -42,8 +42,9 @@ Genel olarak dağıtılan bir veritabanı hizmeti olarak Azure Cosmos DB, ölçe
     * Aşağıdaki veri modellerinin API'leri, birden çok dilde sağlanan SDK'larla desteklenir:
         * [DocumentDB API](documentdb-introduction.md): özellikleri sorgulama SQL Şeması daha az JSON veritabanı altyapısıyla.
         * [MongoDB API](mongodb-introduction.md): Cosmos DB üstünde oluşturulmuş bir MongoDB veritabanı hizmeti. Varolan MongoDB kitaplıkları, sürücüleri, Araçlar ve uygulamaları ile uyumludur.
-        * [Tablo API](table-introduction.md): Azure Table depolama uygulamaları için premium özellikleri sağlamak için yerleşik bir anahtar-değer depolama veritabanı hizmeti.
+        * [Tablo API](table-introduction.md): Azure Table depolama uygulamaları için premium özellikleri sağlamak için yerleşik bir anahtar-değer veritabanı hizmeti.
         * [(Gremlin) API grafik](graph-introduction.md): grafik veritabanı yerleşik hizmeti aşağıdaki [Apache TinkerPop belirtimi](http://tinkerpop.apache.org/).
+        * [Cassandra API](cassandra-introduction.md): üzerinde oluşturulan bir anahtar/değer deposu [Apache Cassandra](https://cassandra.apache.org/) uygulaması. 
         * Ek veri modelleri çok yakında!
 
 * **Aktarım hızı ve depolamayı dünyanın dört bir yanında, talep üzerine esnek bir şekilde ölçeklendirin**
@@ -55,7 +56,7 @@ Genel olarak dağıtılan bir veritabanı hizmeti olarak Azure Cosmos DB, ölçe
     * Cosmos DB, tipik bir 1 KB’lik öğe için aynı Azure bölgesindeki 99. yüzdebirlik dilimde 10 ms’nin altında okumalar ve 15 ms’nin altında dizini oluşturulmuş yazmalar için uçtan uca gecikme süresi garanti eder. Ortalama gecikme süreleri çok daha düşüktür (5 ms’nin altında).
 
 * **"Her zaman açık" özelliği ile kullanılabilirlik endişeniz olmaz**
-    * Tek bir bölge içinde %99,99 kullanılabilirlik.
+    * tüm tek bölge ve gevşek tutarlılık ve %99.999 tüm bölgeli hesapları için % 99,99 kullanılabilirlik SLA'sı kullanılabilirlik tüm bölgeli veritabanı hesaplarda okuyun.
     * Daha yüksek kullanılabilirlik için dilediğiniz sayıda [Azure bölgesine](https://azure.microsoft.com/regions) dağıtın.
     * Sıfır veri kaybı garantisi ile bir veya daha fazla bölgenin [hata benzetimini gerçekleştirin](regional-failover.md). 
 

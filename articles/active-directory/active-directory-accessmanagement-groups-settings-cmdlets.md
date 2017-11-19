@@ -4,7 +4,7 @@ description: "Azure Active Directory cmdlet'lerini kullanarak gruplar için ayar
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
@@ -12,20 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/16/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri
+Bu makale Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanarak oluşturma ve güncelleştirme gruplarına yönelik yönergeleri içerir. Bu içerik yalnızca Office 365 grupları için geçerlidir. 
 
 > [!IMPORTANT]
-> Bu içerik yalnızca Office 365 grupları için geçerlidir. Güvenlik grupları oluşturmak kullanıcıların konusunda daha fazla bilgi için `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` açıklandığı gibi [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+> Bazı ayarları bir Azure Active Directory Premium P1 lisansı gerektirir. Daha fazla bilgi için bkz: [şablonu ayarlarını](#template-settings) tablo.
+
+Güvenlik grupları oluşturmak kullanıcıların konusunda daha fazla bilgi için `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` açıklandığı gibi [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Office 365 grupları ayarları, bir ayar nesnesi ve SettingsTemplate nesnesi kullanılarak yapılandırılır. Başlangıçta, dizininize varsayılan ayarlarla yapılandırıldığından dizininizde, tüm ayarları nesnelerini görmüyorum. Varsayılan ayarları değiştirmek için ayarları şablon kullanarak yeni bir ayarları nesnesi oluşturmanız gerekir. Ayarları şablonları Microsoft tarafından tanımlanır. Birkaç farklı ayarlar şablonu vardır. Dizininiz için Office 365 Grup ayarlarını yapılandırmak için "Group.Unified" adlı şablonu kullanın. Tek bir grup Office 365 Grup ayarlarını yapılandırmak için "Group.Unified.Guest" adlı şablonunu kullanın. Bu şablon, bir Office 365 Grup Konuk erişimi yönetmek için kullanılır. 
 
@@ -85,11 +88,12 @@ Başarıyla tamamlandığında, yeni ayarları nesnesinin kimliği cmdlet dönd�
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
-Group.Unified SettingsTemplate tanımlanan ayarlar aşağıda verilmiştir.
+## <a name="template-settings"></a>Şablon ayarları
+Group.Unified SettingsTemplate tanımlanan ayarlar aşağıda verilmiştir. Aksi belirtilmediği sürece, bu özellikler bir Azure Active Directory Premium P1 lisansı gerektirir. 
 
 | **Ayar** | **Açıklama** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Tür: Boolean<li>Varsayılan: True |Unified grubu oluşturma dizinde yönetici olmayan kullanıcılar tarafından izin verilip verilmediğini belirten bayrak. |
+|  <ul><li>EnableGroupCreation<li>Tür: Boolean<li>Varsayılan: True |Unified grubu oluşturma dizinde yönetici olmayan kullanıcılar tarafından izin verilip verilmediğini belirten bayrak. Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Türü: Dize<li>Varsayılan: "" |Kendisi için üyeleri verilir birleşik grupları oluşturmak için güvenlik grubunun GUID bile EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Türü: Dize<li>Varsayılan: "" |Grup kullanım yönergeleri için bir bağlantı. |
 |  <ul><li>ClassificationDescriptions<li>Türü: Dize<li>Varsayılan: "" | Sınıflandırma açıklamaları virgülle ayrılmış listesi. |
@@ -98,7 +102,7 @@ Group.Unified SettingsTemplate tanımlanan ayarlar aşağıda verilmiştir.
 | <ul><li>CustomBlockedWordsList<li>Türü: Dize<li>Varsayılan: "" | Kullanmayın. Henüz uygulanmadı. |
 | <ul><li>EnableMSStandardBlockedWords<li>Tür: Boolean<li>Varsayılan: "False" | Kullanmayın
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tür: Boolean<li>Varsayılan: False | Konuk kullanıcı gruplarının sahibi olması olup olmadığını gösteren bir Boole değeri. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Tür: Boolean<li>Varsayılan: True | Konuk kullanıcı Unified grupları içeriğe erişmeye sahip olup olmadığını gösteren bir Boole değeri. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Tür: Boolean<li>Varsayılan: True | Konuk kullanıcı Unified grupları içeriğe erişmeye sahip olup olmadığını gösteren bir Boole değeri.  Bu ayar, bir Azure Active Directory Premium P1 lisansı gerektirmez.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Türü: Dize<li>Varsayılan: "" | Konuk kullanım yönergeleri bağlantı URL'si. |
 |  <ul><li>AllowToAddGuests<li>Tür: Boolean<li>Varsayılan: True | Boole konuklar bu dizine ekleme izni olup olmadığını belirten bir.|
 |  <ul><li>ClassificationList<li>Türü: Dize<li>Varsayılan: "" |Birleşik gruplarına uygulanabilir geçerli sınıflandırma değerleri virgülle ayrılmış listesi. |

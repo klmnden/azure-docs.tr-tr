@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 4dfe9c755f3e7d5414ae04dd4027defd6cef2e4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ab36a16ca87ae7a3e7b26571fc6aadd108841c9
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Xamarin ve Azure Cosmos DB mobil uygulamaları derleme
 Çoğu mobil uygulamaların bulutta verileri depolamak gerekir ve Azure Cosmos DB mobil uygulamaları için bir bulut veritabanıdır. Her şeyi mobil geliştiricinin ihtiyacı vardır. Bu tam olarak yönetilen isteğe bağlı olarak ölçeklenen bir hizmet olarak veritabanıdır. Kullanıcılarınızın dünya bulunan her yerde, verilerinizi uygulamanıza saydam, kullanıma sunabilirsiniz. Kullanarak [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md), orta katman olmadan Azure Cosmos DB ile doğrudan etkileşim kurmak Xamarin mobil uygulamaları etkinleştirebilirsiniz.
@@ -31,7 +31,7 @@ Azure Cosmos DB mobil uygulama geliştiricileri için aşağıdaki anahtar yeten
 ![Mobil uygulamaları için Azure Cosmos DB özellikleri](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
 * Şemasız verileri üzerinden zengin sorgular. Azure Cosmos DB verileri heterojen koleksiyonları şemasız JSON belgeleri olarak depolar. Sunduğu [zengin ve hızlı sorguları](documentdb-sql-query.md) şemaları veya dizinleri hakkında endişelenmeye gerek kalmadan.
-* Hızlı işleme. Okuma ve yazma Azure Cosmos DB belgeler için yalnızca birkaç milisaniye olarak alır. İsteğe bağlı olarak Azure Cosmos DB yüzde 99,99 SLA ile geliştirir ve geliştiricilerin ihtiyaç duydukları verimlilik belirtebilirsiniz.
+* Hızlı işleme. Okuma ve yazma Azure Cosmos DB belgeler için yalnızca birkaç milisaniye olarak alır. Geliştiriciler ihtiyaç duydukları, üretilen iş belirtebilirsiniz ve Azure Cosmos DB, tüm tek bölge ve tüm bölgeli hesapları için % 99,99 kullanılabilirlik SLA ile gevşek tutarlılığı geliştirir ve kullanılabilirlik tüm bölgeli veritabanı hesaplarda %99.999 okuma .
 * Sınırsız ölçekleme. Azure Cosmos DB koleksiyonlarınızı [uygulamanız büyüdükçe büyümesine](partition-data.md). Küçük boyutlu veriler ve saniye başına istek yüzlerce verimi ile başlayabilirsiniz. Koleksiyonunuz için veri ve büyük verimi petabaytlarca istekleri saniye başına milyonlarca yüzlerce büyüyebilir.
 * Genel olarak dağıtılmış. Mobil uygulama hareket, genellikle dünya genelindeki kullanıcılardır. Azure Cosmos veritabanı bir [Genel dağıtılmış veritabanı](distribute-data-globally.md). Verilerinizi kullanıcılarınıza erişilebilir olması için Eşlem'i tıklatın.
 * Yerleşik zengin yetkilendirme. Azure Cosmos DB ile gibi popüler düzenleri kolayca uygulayabilirsiniz [kullanıcı başına veri](https://aka.ms/documentdb-xamarin-todouser) veya çok kullanıcılı paylaşılan karmaşık özel yetkilendirme kodu olmadan veri.

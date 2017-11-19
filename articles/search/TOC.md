@@ -3,7 +3,6 @@
 
 # Kullanmaya Başlama
 
-## [SKU seçme](search-sku-tier.md)
 ## [Hizmet oluşturma](search-create-service-portal.md)
 ## [Dizin oluşturma](search-what-is-an-index.md)
 ### [Azure Portal](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # Öğreticiler
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [.NET eş anlamlıları önizleme](search-synonyms-tutorial-sdk.md)
-## [Portal](search-get-started-portal.md)
+## [.NET’te geliştirme](search-howto-dotnet-sdk.md)
+## [.NET’te eş anlamlılar önizlemesi](search-synonyms-tutorial-sdk.md)
+## [.NET’te SQL veri dizini oluşturucu](search-indexer-tutorial.md)
+## [Portal kılavuzu](search-get-started-portal.md)
 ## [Yarı yapılandırılmış verileri arama](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [REST API’yi keşfedin](search-fiddler.md)
 
 # Nasıl yapılır?
 
 ## Planlama ve tasarım
+### [SKU seçme](search-sku-tier.md)
 ### [Hizmet sınırlamaları](search-limits-quotas-capacity.md)
 ### [Hizmet ölçeklenebilirliği](search-capacity-planning.md)
 ### [Çoklu müşteri mimarisi için tasarım desenleri](search-modeling-multitenant-saas-applications.md)
 ## Geliştirme
 ### [API sürümleri](search-api-versions.md)
+### [Node.js’de geliştirme](search-get-started-nodejs.md)
+### [Java’da geliştirme](search-get-started-java.md)
 ### [SDK’yı yükseltme](search-dotnet-sdk-migration.md)
 ### [REST API’yi yükseltme](search-api-migration.md)
 ### [Karmaşık veri türlerini modelleme](search-howto-complex-data-types.md)

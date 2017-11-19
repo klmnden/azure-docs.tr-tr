@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 66dbc9c2c3ba9b9f0c7eb405dbafbd002ce50fbc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -30,10 +30,7 @@ Bir sanal ağ kuralı oluşturmak için öncelikle olmalıdır bir [sanal ağ hi
 
 
 > [!NOTE]
-> Azure SQL veritabanı için bu özellik aşağıdaki Azure bölgeler için Önizleme'de mevcuttur:
->
-> - WestCentralUS, WestUS2 ve EastUS.
-
+> Azure SQL veritabanı için bu özellik Önizleme Azure genel bulut tüm bölgelerde kullanılabilir.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Bir sanal ağ kuralı oluşturma
 
@@ -141,6 +138,9 @@ Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınır
 - Her Azure SQL veritabanı sunucusu, belirli herhangi bir sanal ağ için 128 ACL girişleri kadar olabilir.
 
 - Sanal ağ kuralları yalnızca Azure Resource Manager sanal ağlar için geçerlidir; ve değil [Klasik dağıtım modeli] [ arm-deployment-model-568f] ağlar.
+
+- Azure SQL veritabanı kapatma ON sanal ağ hizmet uç noktaları ayrıca MySQL ve PostGres Azure Hizmetleri için uç noktaları sağlar. Ancak, uç noktaları ON ile MySQL veya Postgres örneklerine uç noktalarından bağlanma girişimi başarısız olur.
+    - Bu MySQL temel nedeni ve PostGres başarısız şu anda desteklemiyor.
 
 - Güvenlik Duvarı'nda, IP adres aralıklarını aşağıdaki ağ öğelere uygulanır, ancak sanal ağ kuralları yapın:
     - [Siteden siteye (S2S) sanal özel ağ (VPN)][vpn-gateway-indexmd-608y]
@@ -267,7 +267,7 @@ Azure SQL veritabanı için Microsoft Azure sanal ağ hizmeti uç noktaları öz
 
 <!-- Link references, to text, Within this same Github repo. -->
 
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics
+[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 

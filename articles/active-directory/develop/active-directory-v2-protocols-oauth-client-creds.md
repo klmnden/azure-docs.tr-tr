@@ -21,7 +21,7 @@ ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
-# Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışının
+# <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışının
 Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri vermenizi](http://tools.ietf.org/html/rfc6749#section-4.4)bazen adlı *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web bulunan kaynaklara erişmek için. Yaygın olarak grant bu tür bir kullanıcıyla hemen etkileşimi olmadan arka planda çalıştırılmalıdır server sunucusu etkileşimleri için kullanılır. Bu tür uygulamalar genellikle denir *deamon'lar* veya *hizmet hesapları*.
 
 > [!NOTE]
@@ -31,22 +31,22 @@ Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri vermenizi](http://tools.
 
 Daha fazla tipik *üç bacaklı OAuth*, bir istemci uygulaması belirli bir kullanıcı adına bir kaynağa erişim izni verilir. İzni kullanıcıdan uygulamaya genellikle sırasında temsilci [onayı](active-directory-v2-scopes.md) işlemi. Ancak, istemci kimlik bilgileri akışının, uygulamanın kendisinin doğrudan izinler verilir. Bir kaynak, kaynak için bir belirteç zorlar uygulama sunar uygulamanın kendi bir eylem ve değil, gerçekleştirme yetkisi varsa kullanıcı yetkilendirme sahiptir.
 
-## Protokol diyagramı
+## <a name="protocol-diagram"></a>Protokol diyagramı
 Tüm istemci kimlik bilgileri akışının sonraki diyagrama benzer. Biz bu makalenin sonraki bölümlerinde adımların her biri açıklanmaktadır.
 
 ![İstemci kimlik bilgileri akışının](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
-## Doğrudan yetkilendirme Al
+## <a name="get-direct-authorization"></a>Doğrudan yetkilendirme Al
 Bir uygulama genellikle iki yoldan biriyle bir kaynağa erişmek için doğrudan yetkilendirme alır: Azure Active Directory'de (Azure AD) uygulama izni atama veya kaynakta bir erişim denetimi listesi (ACL) üzerinden. Bu iki yöntem Azure AD'de en yaygın olarak bulunur ve bunları istemciler ve istemci gerçekleştirmek kaynakları için kimlik bilgileri akışını öneririz. Bir kaynak istemcilerine başka yollarla ancak yetkilendirmek seçebilirsiniz. Her kaynak sunucu, uygulama için en anlamlı yöntemi seçebilirsiniz.
 
-### Erişim denetimi listeleri
+### <a name="access-control-lists"></a>Erişim denetimi listeleri
 Bir kaynak sağlayıcısı bilir ve belirli düzeyde bir erişim verir uygulama kimlikleri listesini dayalı bir yetkilendirme onay zorlayabilir. Kaynak v2.0 uç noktasından belirteç aldığında, bu belirteç kodunu çözer ve istemcinin uygulama kimliği ayıklamak `appid` ve `iss` talep. Ardından uygulamaya sakladığı bir ACL karşı karşılaştırır. Önemli ölçüde ACL'leri ayrıntı düzeyi ve yöntemi kaynaklar arasında değişebilir.
 
 Genel kullanım örneği, bir web uygulaması veya Web API'si testleri çalıştırmak için bir ACL kullanmaktır. Web API tam izinleri yalnızca bir kısmı için belirli bir istemci için izin verebilir. API uçtan uca testleri çalıştırmak için belirteçleri v2.0 uç noktasından alır ve bunları API için gönderen bir test istemci oluşturun. API test istemcinin uygulama kimliği tam erişim API'nin tüm işlevselliği için ACL arar. Bu tür bir ACL kullanırsanız, yalnızca arayanın doğrulamak mutlaka `appid` değeri. Ayrıca doğrulamak `iss` belirteç değeri güvenilir.
 
 Bu tür bir kimlik doğrulama, arka plan programları ve kişisel Microsoft hesabına sahip tüketici kullanıcılara ait verilere erişmek için gereken hizmet hesapları için yaygındır. Kuruluşlar tarafından ait verileri için uygulama izinleri aracılığıyla gerekli yetki alma öneririz.
 
-### Uygulama izinleri
+### <a name="application-permissions"></a>Uygulama izinleri
 ACL'ler kullanmak yerine, uygulama izinleri kullanıma sunmak için API'ler kullanabilirsiniz. Bir uygulama izni bir uygulamaya bir kuruluşun Yöneticisi tarafından verilir ve yalnızca belirli bir kuruluş ve çalışanlarının tarafından ait veri erişimi için kullanılabilir. Örneğin, Microsoft Graph aşağıdakileri yapmak için birkaç uygulama izinleri sunar:
 
 * Tüm posta kutularındaki postaları okuma
@@ -58,17 +58,17 @@ Uygulama izinleri hakkında daha fazla bilgi için Git [Microsoft Graph](https:/
 
 Uygulama izinlerini uygulamanızda kullanmak için sonraki bölümlerde aşağıdakiler ele adımları yapın.
 
-#### Uygulama kayıt Portalı'nda izinleri iste
+#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Uygulama kayıt Portalı'nda izinleri iste
 1. Uygulamanızda gidin [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya [bir uygulama oluşturmak](active-directory-v2-app-registration.md), henüz yapmadıysanız. Uygulamanızı oluşturduğunuzda en az bir uygulama gizli anahtarı kullanmanız gerekir.
 2. Bulun **doğrudan uygulama izinleri** bölümünde ve uygulamanızın gerektirdiği izinleri ekleyin.
 3. **Kaydet** uygulama kaydı.
 
-#### Önerilir: kullanıcı uygulamanızda oturum
+#### <a name="recommended-sign-the-user-in-to-your-app"></a>Önerilir: kullanıcı uygulamanızda oturum
 Genellikle, uygulama izinleri kullanan bir uygulama oluşturduğunuzda, uygulamanın bir sayfa ya da görünüm üzerinde yönetici uygulamanın izinleri onaylar gerektirir. Bu sayfa uygulamanın oturum açma akışını, uygulamanın ayarlarının bir parçası parçası olabilir veya özel bir "Bağlan" akış olabilir. Çoğu durumda, "yalnızca bir kullanıcı bir iş veya Okul Microsoft hesabı oturum imzaladığı sonra uygulamanın bunu göstermek için bağlantı görünümü" mantıklıdır.
 
 Kullanıcının uygulamanıza oturum açarsanız, uygulama izinleri onaylamak için kullanıcıya sor önce kullanıcının ait olduğu kuruluş tanımlayabilirsiniz. Kesinlikle gerekli olmasa da, kullanıcılarınızın daha sezgisel bir deneyim oluşturmanıza yardımcı olabilir. Kullanıcıyla oturum açmak için izleyin bizim [v2.0 protokol öğreticileri](active-directory-v2-protocols.md).
 
-#### Bir dizin yönetici olarak izinleri iste
+#### <a name="request-the-permissions-from-a-directory-admin"></a>Bir dizin yönetici olarak izinleri iste
 Kuruluş yönetici olarak izinleri istemek hazır olduğunuzda, kullanıcıyı v2.0 yönlendirebilirsiniz *yönetici onayı uç noktası*.
 
 ```
@@ -97,7 +97,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 Bu noktada, Azure AD yalnızca bir kiracı Yöneticisi isteği tamamlamak oturum açabildiğinizi zorlar. Yönetici uygulama kayıt Portalı'nda, uygulamanız için istenen tüm doğrudan uygulama izinleri onaylamanız istenir.
 
-##### Başarılı yanıt
+##### <a name="successful-response"></a>Başarılı yanıt
 Yönetici, uygulamanızın izinlerini onaylarsa, başarılı yanıtı şuna benzer:
 
 ```
@@ -110,7 +110,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | durum |Ayrıca belirteci yanıtta döndürülen istek yer aldığı bir değer. İstediğiniz herhangi bir içerik dizesi olabilir. Durum, uygulama kullanıcının durumu hakkında bilgi sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce kodlamak için kullanılır. |
 | admin_consent |Kümesine **doğru**. |
 
-##### Hata yanıtı
+##### <a name="error-response"></a>Hata yanıtı
 Yönetici, uygulamanızın izinlerini onaylamaz, başarısız yanıtı şuna benzer:
 
 ```
@@ -124,10 +124,10 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 Uygulama sağlama uç noktasından başarılı bir yanıt aldık sonra uygulamanızı istendiğinde doğrudan uygulama izinleri kazanmıştır. Şimdi istediğiniz kaynak için bir belirteç talep edebilirsiniz.
 
-## Belirteç alın
+## <a name="get-a-token"></a>Belirteç alın
 Uygulamanız için gerekli yetkilendirmeyi edindiğiniz sonra erişim belirteçleri API'ler alınırken ile devam edin. Kimlik bilgileri sağlama istemcisini kullanarak bir belirteç almak üzere bir POST isteği Gönder `/token` v2.0 uç noktası:
 
-### İlk durumda: bir paylaşılan gizlilik ile erişim belirteci isteği
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>İlk durumda: bir paylaşılan gizlilik ile erişim belirteci isteği
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -148,7 +148,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | client_secret |Gerekli |Uygulama uygulama kayıt Portalı'nda, uygulamanız için oluşturulan gizli anahtarı. |
 | grant_type |Gerekli |Olmalıdır `client_credentials`. |
 
-### İkinci durumda: bir sertifika ile erişim belirteci isteği
+### <a name="second-case-access-token-request-with-a-certificate"></a>İkinci durumda: bir sertifika ile erişim belirteci isteği
 
 ```
 POST /common/oauth2/v2.0/token HTTP/1.1
@@ -168,7 +168,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizliliği isteğiyle durumunda olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
 
-### Başarılı yanıt
+### <a name="successful-response"></a>Başarılı yanıt
 Başarılı yanıt şöyle görünür:
 
 ```
@@ -185,7 +185,7 @@ Başarılı yanıt şöyle görünür:
 | token_type |Belirteç türü değeri gösterir. Azure AD destekler yalnızca türü `bearer`. |
 | expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
 
-### Hata yanıtı
+### <a name="error-response"></a>Hata yanıtı
 Bir hata yanıtı şuna benzer:
 
 ```
@@ -210,7 +210,7 @@ Bir hata yanıtı şuna benzer:
 | trace_id |Tanılama ile yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
 | correlation_id |Tanılama ile bileşenlerinde yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
 
-## Bir belirteci kullanın
+## <a name="use-a-token"></a>Bir belirteci kullanın
 Bir belirteç edindiğiniz, kaynağa isteği yapmak için belirteci kullanın. Belirtecin süresi dolduğunda, isteği tekrarlayın `/token` yeni erişim belirteci alması için uç noktası.
 
 ```
@@ -227,5 +227,5 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## Kod örneği
+## <a name="code-sample"></a>Kod örneği
 İstemci kimlik bilgileri vermenizi yönetici kullanarak uygulayan uç nokta onayı bir örnek uygulamanın görmek için bkz: bizim [v2.0 arka plan kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

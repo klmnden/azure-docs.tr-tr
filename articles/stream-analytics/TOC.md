@@ -2,6 +2,7 @@
 ## [Akış Analizi nedir?](stream-analytics-introduction.md)
 ## [Storm ve Akış Analizi Karşılaştırması](stream-analytics-comparison-storm.md)
 
+
 # Başlarken
 ## [IoT akış verilerini işleme](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md)
@@ -13,7 +14,9 @@
 ### [Sosyal medya](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Machine Learning ile gerçek zamanlı puanlama](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Gerçek zamanlı olay işleme](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [IoT Edge üzerinde Stream Analytics (önizleme)](stream-analytics-edge.md)
 ### [Azure kullanım kılavuzunda (önizleme) anomali algılama](stream-analytics-machine-learning-anomaly-detection.md)
+### [Stream Analytics ile yüksek frekanslı alım-satım simülasyonu](stream-analytics-high-frequency-trading.md)
 
 ## İş oluşturma
 ### [Girdileri oluştur](stream-analytics-define-inputs.md)

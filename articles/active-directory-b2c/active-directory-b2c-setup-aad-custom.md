@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b91c75ec73a8b47a67241e3b69c2ed68d5f9b2a
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Azure AD hesapları kullanarak oturum açın
 
@@ -52,6 +52,9 @@ Oturum açma için belirli bir kullanıcılardan etkinleştirmek için Azure AD 
 1. Uygulamanız için bir ad girin (örneğin, `Azure AD B2C App`).
 1. Seçin **Web uygulaması / API** uygulama türü için.
 1. İçin **oturum açma URL'si**, aşağıdaki URL'yi girin nerede `yourtenant` Azure AD B2C kiracınızın adıyla değiştirilen (`fabrikamb2c.onmicrosoft.com`):
+
+    >[!NOTE]
+    >"Yourtenant" değeri, tüm küçük harfli olması gerektiğini **oturum açma URL'si**.
 
     ```
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
@@ -212,7 +215,7 @@ Tamamladığınızda uzantısının değiştirme. Dosyayı kaydedin. Ardından, 
 1. Değiştirme `ReferenceId` özniteliğini `<DefaultUserJourney>` (SignUpOrSignUsingContoso) oluşturulan yeni kullanıcı gezisine Kimliğini eşleşecek şekilde.
 1. Yaptığınız değişiklikleri kaydedin ve dosyayı karşıya yükleyin.
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshooting"></a>Sorun Giderme
 
 Yalnızca kendi dikey penceresini açıp tıklatarak karşıya özel ilkesini test **Şimdi Çalıştır**. İlgili sorunları tanılamak için okuma [sorun giderme](active-directory-b2c-troubleshoot-custom.md).
 

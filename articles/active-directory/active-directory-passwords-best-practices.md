@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-successfully-rollout-self-service-password-reset"></a>Self servis parola sıfırlamayı başarıyla kullanıma sunma
 
@@ -38,8 +38,8 @@ ms.lasthandoff: 10/31/2017
 10. Zaman geçtikçe, [Azure AD tarafından sağlanan raporları](active-directory-passwords-reporting.md) görüntüleyerek kullanıcılarınızın kayıt işlemlerini ve kullanımını gözden geçirin.
 11. Hazır olduğunuzda, tüm kullanıcılar için parola sıfırlamayı etkinleştirin ve **Self Servis Parola Sıfırlama Etkin** ayarını **Tümü** olarak değiştirin. 
 
-    > [!IMPORTANT]
-    > Microsoft, Azure yönetici hesapları için güçlü kimlik doğrulama gereksinimleri uyguladığından, SSPR özelliğini yönetici olmayan bir kullanıcıyla test edin. Yönetici parolası ilkesiyle ilgili daha fazla bilgi için [ayrıntılı makalemize](active-directory-passwords-how-it-works.md) bakın.
+   > [!IMPORTANT]
+   > Microsoft, Azure yönetici hesapları için güçlü kimlik doğrulama gereksinimleri uyguladığından, SSPR özelliğini yönetici olmayan bir kullanıcıyla test edin. Yönetici parolası ilkesiyle ilgili daha fazla bilgi için [parola ilkesi makalemize](active-directory-passwords-policy.md#administrator-password-policy-differences) bakın.
 
 ## <a name="email-based-rollout"></a>E-posta tabanlı kullanıma sunma
 

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 11/10/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 52026a58a5b6e26a660f9e1374e67036c67ac525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için izin verilen en yüksek değerleri içerir.
@@ -27,22 +27,22 @@ Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için iz
 ## <a name="workload-management"></a>İş yükü yönetimi
 | Kategori | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| [Veri ambarı birimi (DWU)][Data Warehouse Units (DWU)] |Tek bir SQL Data Warehouse için en fazla DWU |6000 |
-| [Veri ambarı birimi (DWU)][Data Warehouse Units (DWU)] |Tek bir SQL server için en fazla DWU |Varsayılan olarak 6000<br/><br/> Varsayılan olarak, en çok 6000 DWU sağlayan bir DTU kota 45,000, her bir SQL server (örneğin myserver.database.windows.net) sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Tarafından kotayı artırabilir [bir destek bileti oluşturma] [ creating a support ticket] ve seçerek *kota* istek türü olarak.  DTU hesaplamak için 7.5 DWU gerektiği ve toplam Çarp gerekir. Geçerli DTU tüketiminizi portaldaki SQL server dikey penceresinden görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. |
-| Veritabanı bağlantısı |Eşzamanlı açık oturum |1024<br/><br/>En fazla 1024 etkin bağlantı, her biri aynı anda SQL veri ambarı veritabanına istekleri gönderebilirsiniz destekliyoruz. Aslında aynı anda çalışabilecek olan sorgu sayısını sınırlandırır olduğunu unutmayın. Eşzamanlılık sınırı aşıldığında, istek bir iç sıra burada işlenmeyi bekleyen gider. |
+| [Veri ambarı birimi (DWU)][Data Warehouse Units (DWU)] |Tek bir SQL Data Warehouse için en fazla DWU | Esneklik için en iyi duruma getirilmiş [performans katmanı](performance-tiers.md): DW6000<br></br>İşlem için en iyi duruma getirilmiş [performans katmanı](performance-tiers.md): DW30000c |
+| [Veri ambarı birimi (DWU)][Data Warehouse Units (DWU)] |Sunucu başına DTU varsayılan |54,000<br></br>Varsayılan olarak, her bir SQL server (örneğin, myserver.database.windows.net) kadar DW6000c sağlayan bir DTU kota olarak 54.000, sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Tarafından kotayı artırabilir [bir destek bileti oluşturma] [ creating a support ticket] ve seçerek *kota* istek türü olarak.  DTU hesaplamak için 7.5 DWU gerektiği ve toplam çarpın veya gerekli toplam cDWU tarafından 9.0 Çarp gerekir. Örneğin:<br></br>7.5 = 45,000 x DW6000 Dtu'lar<br></br>9.0 = olarak 54.000 x DW600c Dtu'lar.<br></br>SQL server seçeneği, geçerli DTU tüketimi Portalı'nda görüntüleyebilirsiniz. Duraklatıldı ve gezinti veritabanları doğru DTU kota sayısı. |
+| Veritabanı bağlantısı |Eşzamanlı açık oturum |1024<br/><br/>Her 1024 etkin oturumlar aynı anda SQL veri ambarı veritabanına istekleri gönderebilirsiniz. Not, aynı anda yürütebilir sorgu sayısı sınırlamaları vardır. Eşzamanlılık sınırı aşıldığında, istek bir iç sıra burada işlenmeyi bekleyen gider. |
 | Veritabanı bağlantısı |Hazırlanmış deyimleri için en fazla belleği |20 MB |
-| [İş yükü yönetimi][Workload management] |En fazla eş zamanlı sorgular |32<br/><br/> Varsayılan olarak, SQL Data Warehouse en fazla 32 eş zamanlı sorgular ve sorguları kalan sıraları yürütebilir.<br/><br/>Kullanıcılar daha yüksek bir kaynak sınıfına veya SQL Data Warehouse ile düşük DWU yapılandırıldığında atandığında eşzamanlılık düzeyi düşebilir. DMV sorgu gibi bazı sorgular çalıştırmak için her zaman izin verilir. |
-| [Tempdb][Tempdb] |Tempdb en büyük boyutu |DW100 başına 399 GB. Bu nedenle DWU1000 Tempdb 3,99 TB boyuta sahip |
+| [İş yükü yönetimi][Workload management] |En fazla eş zamanlı sorgular |32<br/><br/> Varsayılan olarak, SQL Data Warehouse en fazla 32 eş zamanlı sorgular ve sorguları kalan sıraları yürütebilir.<br/><br/>Kullanıcılar daha yüksek kaynak sınıfları veya SQL Data Warehouse düşük olduğunda atanmış descrease eşzamanlı sorgu sayısı yapabilirsiniz [hizmet düzeyi](performance-tiers.md#service-levels). DMV sorgu gibi bazı sorgular çalıştırmak için her zaman izin verilir. |
+| [tempdb][Tempdb] |En çok GB |DW100 başına 399 GB. Bu nedenle DWU1000 tempdb 3,99 TB boyuta sahip olmadığından |
 
 ## <a name="database-objects"></a>Veritabanı nesneleri
 | Kategori | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| Database |En büyük boyutu |Disk üzerinde sıkıştırılmış 240 TB<br/><br/>Bu alan, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış olabilir.  Kümelenmiş columnstore sıkıştırma 5 X tahmin.  Bu sıkıştırma yaklaşık 1 büyümeye veritabanı sağlayan tüm tabloları kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. |
+| Veritabanı |En büyük boyutu |Disk üzerinde sıkıştırılmış 240 TB<br/><br/>Bu alan, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış olabilir.  Kümelenmiş columnstore sıkıştırma 5 X tahmin.  Bu sıkıştırma yaklaşık 1 büyümeye veritabanı sağlayan tüm tabloları kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. |
 | Tablo |En büyük boyutu |60 disk üzerinde sıkıştırılmış TB |
 | Tablo |Her bir veritabanı tabloları |2 milyara |
 | Tablo |Tablo başına sütun |1024 sütunları |
 | Tablo |Sütun başına bayt sayısı |Sütun bağımlı [veri türü][data type].  Karakter veri türleri için 8000 nvarchar 4000 ya da en büyük veri türleri için 2 GB sınırıdır. |
-| Tablo |Satır, tanımlanmış boyut başına bayt sayısı |Açıklama 8060 baytlık<br/><br/>Satır başına bayt sayısı, sayfa sıkıştırması ile SQL Server için olduğu gibi aynı şekilde hesaplanır. SQL Server gibi SQL veri ambarı sağlayan satır taşma depolama destekleyen **değişken uzunluğu sütununa** satır dışı edilmesini. Değişken uzunlukta satır satır dışı basıldığında yalnızca 24-bayt kök ana kayıtta depolanır. Daha fazla bilgi için bkz: [satır taşma veri aşan 8 KB] [ Row-Overflow Data Exceeding 8 KB] MSDN makalesi. |
+| Tablo |Satır, tanımlanmış boyut başına bayt sayısı |Açıklama 8060 baytlık<br/><br/>Satır başına bayt sayısı, sayfa sıkıştırması ile SQL Server için olduğu gibi aynı şekilde hesaplanır. SQL Server gibi SQL veri ambarı etkinleştirir satır taşma depolama destekleyen **değişken uzunluğu sütununa** satır dışı edilmesini. Değişken uzunlukta satır satır dışı basıldığında yalnızca 24-bayt kök ana kayıtta depolanır. Daha fazla bilgi için bkz: [veri satırı taşma aşan 8 KB'lik][Row-Overflow Data Exceeding 8 KB]. |
 | Tablo |Tablo başına bölüm |15,000<br/><br/>Yüksek performans, sayısını en aza indirmenizi öneririz bölümlerini hala iş gereksinimlerinizi destekleyen while. Bölüm sayısı arttıkça, ek yükü veri tanımlama dili (DDL) ve veri işleme dili (DML) işlemleri için büyür ve performans neden olur. |
 | Tablo |Karakter başına bölüm sınır değeri. |4000 |
 | Dizin |Tablo başına olmayan Kümelenmiş dizinler. |999<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
@@ -58,7 +58,7 @@ Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için iz
 ## <a name="loads"></a>Yükler
 | Kategori | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| Polybase yükler |Satır başına MB |1<br/><br/>Polybase yükleri satırları iki 1 MB'tan küçük yüklemeye sınırlıdır ve VARCHR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) yüklenemiyor.<br/><br/> |
+| Polybase yükler |Satır başına MB |1<br/><br/>1 MB'tan küçük ve VARCHAR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) yüklenemiyor satırlara Polybase yükler.<br/><br/> |
 
 ## <a name="queries"></a>Sorgular
 | Kategori | Açıklama | Maksimum |

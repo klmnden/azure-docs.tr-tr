@@ -9,11 +9,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.custom: devops
 ms.author: routlaw
-ms.openlocfilehash: f5ab85c346119f52ce8c7ab7a8bda48c6672f35c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 23d79fa4a1794a6dea69e6ae24da714babf54e62
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Modül Kayıt Defteri'ni kullanarak Terraform ile VM küme oluşturma
 
@@ -91,14 +91,14 @@ output "vm_private_ips" {
 
 Çalıştırma `terraform plan` şablonu tarafından oluşturulan sanal makine altyapısı önizlemek için.
 
-![Terraform planı](media/terraformPlanVmsWithModules.png)
+![Terraform planı](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
 ## <a name="create-the-virtual-machines-with-apply"></a>Sanal makineler Uygula ile oluşturma
 
 Çalıştırma `terraform apply` Azure Vm'lerinde sağlamak için.
 
-![Terraform Uygula](media/terraformApplyVmsWithModules.png)
+![Terraform Uygula](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

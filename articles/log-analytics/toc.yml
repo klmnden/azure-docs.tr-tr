@@ -28,7 +28,13 @@
 - name: Kavramlar
   items:
     - name: Çalışma alanı yükseltme
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: Yükseltmeye genel bakış
+          href: log-analytics-log-search-upgrade.md
+        - name: Değişikliklerin özeti
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: Yükseltme hakkında SSS
+          href: log-analytics-log-search-faq.md
     - name: Log Analytics SSS
       href: log-analytics-faq.md
     - name: Veri tüketimi
@@ -41,8 +47,6 @@
       items:
         - name: Günlük aramalarına genel bakış
           href: log-analytics-log-search-new.md
-        - name: Günlük Arama Hakkında SSS
-          href: log-analytics-log-search-faq.md
         - name: Günlük Araması portalları
           href: log-analytics-log-search-portals.md
 - name: Nasıl yapılır kılavuzları
@@ -61,6 +65,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Azure kaynakları
               href: log-analytics-azure-storage.md
+            - name: Azure PaaS kaynakları
+              href: log-analytics-collect-azurepass-posh.md
             - name: Azure depolama biriminden tanılama veya günlük verileri
               href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager

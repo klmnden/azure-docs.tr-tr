@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 903fbe376cb3d75eb5ddc1eed4838cd10f3c6a28
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Web uygulaması için Azure CLI kullanarak kapsayıcıları yönetme
 
 Bu makalede komutları kullanarak oluşturmak ve bir Web uygulaması için Azure CLI 2.0 kullanarak kapsayıcıları yönetmek kullanabilirsiniz.
 CLI yeni sürümünü kullanarak iki yolla başlatabilirsiniz:
 
-* [Azure CLI 2.0 yükleme](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) makinenizde.
+* [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) makinenizde.
 * Kullanarak [Azure bulut Kabuğu (Önizleme)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Linux uygulama hizmeti planı oluştur
@@ -104,7 +104,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Linux üzerinde Azure App Service nedir?](app-service-linux-intro.md)
-* [Azure CLI 2.0 yükleyin](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Azure CLI 2.0 yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure bulut Kabuğu (Önizleme)](../../cloud-shell/overview.md)
 * [Hazırlık Azure App Service ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Web uygulaması ile sürekli dağıtımın kapsayıcıları için](app-service-linux-ci-cd.md)

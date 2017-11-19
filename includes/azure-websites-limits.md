@@ -18,7 +18,7 @@
 | Özel etki alanı [SSL desteği](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Sınırsız SNI SSL bağlantıları |Sınırsız SNI SSL ve 1 IP SSL bağlantılar dahil |Sınırsız SNI SSL ve 1 IP SSL bağlantılar dahil |
 | Tümleşik Yük Dengeleyici | |X |X |X |X |
 | [Her zaman açık](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Zamanlanmış yedeklemeleri](../articles/app-service/web-sites-backup.md) | | | |Günde bir kez |Her 5 dakikada<sup>8</sup> |
+| [Zamanlanmış yedeklemeleri](../articles/app-service/web-sites-backup.md) | | | |gün başına 12 |Her 5 dakikada<sup>8</sup> |
 | [Otomatik ölçeklendirme](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [Web işleri](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Azure Zamanlayıcı](https://azure.microsoft.com/services/scheduler/) desteği | |X |X |X |X |

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Azure AD'de ayrıcalıklı erişimi güvenli hale getirme
 Ayrıcalıklı erişimi güvenli hale getirme iş varlıklar modern bir kuruluşta korunmasına yardımcı olmak için bir kritik ilk adımdır. Ayrıcalıklı hesapları yönetmek ve BT sistemleri yöneten hesaplarıdır. Siber saldırganların bir kuruluşun veriler ve sistemlerle erişmek için bu hesaplar hedef. Ayrıcalıklı erişim güvenliğini sağlamak için hesapları ve kötü niyetli bir kullanıcı için maruz kalma riskini sistemlerden yalıtmak.
@@ -57,7 +57,7 @@ Ayrıcalıkları Etkilenme süresini azaltmak ve bunların kullanılması, gör�
 ## <a name="attack-detection"></a>Saldırı algılama
 [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) risk olaylarına ve olası güvenlik açıklarını kuruluşunuzdaki kimlikleri etkileyen birleştirilmiş bir görünüm sağlar. Risk olaylara göre risk tabanlı ilkeleri, kuruluşunuzun kimlikleri otomatik olarak korunacak yapılandırmanızı sağlayacak şekilde her bir kullanıcı için bir kullanıcı risk düzeyi kimlik koruması hesaplar. Azure Active Directory ve EMS tarafından sağlanan diğer koşullu erişim denetimlerle birlikte bu ilkeler, otomatik olarak kullanıcı engelleme veya parola sıfırlama ve çok faktörlü kimlik doğrulaması zorlama dahil öneriler sunar.
 
-![Azure AD Kimlik Koruması][3]
+![Azure AD Identity Protection][3]
 
 ## <a name="conditional-access"></a>Koşullu erişim
 Koşullu erişim denetimi ile bir kullanıcı bir uygulamaya erişimine izin vermeden önce kimlik doğrulaması sırasında seçtiğiniz belirli koşullar Azure Active Directory denetler. Bu koşullar sağlandığında, kullanıcı kimlik doğrulaması ve uygulamaya erişim izni.
@@ -66,7 +66,7 @@ Koşullu erişim denetimi ile bir kullanıcı bir uygulamaya erişimine izin ver
 * Etkinleştirme [Azure çok faktörlü kimlik doğrulaması](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Etkinleştirme [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Etkinleştirme [Azure AD kimlik koruması](../active-directory-identityprotection.md)
-* Etkinleştirme [koşullu erişim denetimleri](../active-directory-conditional-access.md)
+* Etkinleştirme [koşullu erişim denetimleri](../active-directory-conditional-access-azure-portal.md)
 
 Tüm güvenlik yol haritası oluşturma ile ilgili daha fazla bilgi için "Müşteri sorumlulukları ve yol haritası" bölümüne bakın [Microsoft Cloud Security Kurumsal Mimarlar için](http://aka.ms/securecustomer) belge. Aşağıdaki konulardan birini yardımcı olmak için Microsoft Hizmetleri katılımcılarını sürece dahil etme hakkında daha fazla bilgi için Microsoft temsilcinize başvurun veya ziyaret bizim [siber güvenlik çözümleri sayfa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 

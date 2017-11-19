@@ -67,6 +67,18 @@
       href: site-recovery-faq.md
 - name: Nasıl Yapılır Kılavuzları
   items:
+    - name: Ağ
+      items:
+        - name: Azure VM’lerinde olağanüstü durum kurtarma için ağı ayarlama (Önizleme)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Azure VM’lerinde olağanüstü durum kurtarma için ağ eşlemesini ayarlama (Önizleme)
+          href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Hyper-V sanal makinelerini Azure’a çoğaltma işlemi için ağ eşlemesini hazırlama
+          href: site-recovery-network-mapping.md
+        - name: Yük devretmenin ardından Azure'a erişim için IP adresini ayarlama
+          href: concepts-on-premises-to-azure-networking.md
+        - name: Yük devretmenin ardından ikincil siteye erişim için IP adresini ayarlama
+          href: concepts-on-premises-to-on-premises-networking.md
     - name: Olağanüstü durum kurtarma
       items:
         - name: Hyper-V VM’lerinden Azure’a
@@ -81,14 +93,43 @@
           href: tutorial-dr-drill-azure.md
         - name: İkincil sitede olağanüstü durum kurtarma tatbikatı çalıştırma
           href: tutorial-dr-drill-secondary.md
+        - name: Birden çok kiracıyı destekleyen VMware VM’lerinden Azure’a
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+    - name: Yük devretme ve yeniden çalışma
+      items:
+        - name: Kurtarma planları oluşturma
+          href: site-recovery-create-recovery-plans.md
+          items:
+            - name: Kurtarma planlarına Azure runbook ekleme
+              href: site-recovery-runbook-automation.md
+        - name: Yük devretme testi çalıştırma
+          items:
+            - name: Azure’a yük devretme testi çalıştırma
+              href: site-recovery-test-failover-to-azure.md
+            - name: VMM bulutları arasında yük devretme testi çalıştırma
+              href: site-recovery-test-failover-vmm-to-vmm.md
+        - name: Yük devretme korumalı makineler
+          href: site-recovery-failover.md
         - name: Fiziksel sunucular için yük devretme ve yeniden çalışma işlemi başlatma
           href: tutorial-vmware-to-azure-failover-failback.md
         - name: Hyper-V VM’leri için yük devretme ve yeniden çalışma işlemi başlatma
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Şirket içi siteler arasında yük devretme ve yeniden çalışma işlemi başlatma
           href: tutorial-vmm-to-vmm-failover-failback.md
-        - name: Birden çok kiracıyı destekleyen VMware VM’lerinden Azure’a
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
+        - name: Yük devretme işleminden sonra makineleri yeniden koruma
+          items:
+            - name: Bir Azure ikincil bölgesinden birincil bölgeye yeniden koruma
+              href: site-recovery-how-to-reprotect-azure-to-azure.md
+            - name: Azure’dan şirket içi ortama yeniden koruma
+              href: site-recovery-how-to-reprotect.md
+        - name: Azure’dan yeniden çalışma
+          items:
+            - name: Azure’dan VMware’e geçerek yeniden çalışma
+              href: site-recovery-how-to-failback-azure-to-vmware.md
+            - name: Azure’dan Hyper-V’ye geçerek yeniden çalışma
+              href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: Yeniden çalışma için bir Linux ana hedef sunucusu ayarlama
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: Kapasite ve ölçeklendirme
       items:
         - name: Azure’a VMware çoğaltması için kapasite planlama
@@ -105,16 +146,6 @@
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Yapılandırma
       items:
-        - name: Azure VM’lerinde olağanüstü durum kurtarma için ağı ayarlama (Önizleme)
-          href: site-recovery-azure-to-azure-networking-guidance.md
-        - name: Azure'a yük devretmenin ardından erişim için IP adresini ayarlama
-          href: concepts-on-premises-to-azure-networking.md
-        - name: İkincil siteye yük devretmenin ardından erişim için IP adresini ayarlama
-          href: concepts-on-premises-to-on-premises-networking.md
-        - name: Azure VM’lerinde olağanüstü durum kurtarma için ağ eşlemesini ayarlama (Önizleme)
-          href: site-recovery-network-mapping-azure-to-azure.md
-        - name: Hyper-V sanal makinelerini Azure’a çoğaltma işlemi için ağ eşlemesini hazırlama
-          href: site-recovery-network-mapping.md
         - name: Kaynak ortamı ayarlama
           items:
             - name: VMware-Azure arası için kaynak ortam
@@ -127,7 +158,7 @@
               href: site-recovery-prepare-target-vmware-to-azure.md
             - name: Fiziksel ortam-Azure arası için hedef ortam
               href: site-recovery-prepare-target-physical-to-azure.md
-        - name: Çoğaltma ayarlarını yapılandırma
+        - name: VMware’den Azure’a çoğaltma ayarlarını yapılandırma
           href: site-recovery-setup-replication-settings-vmware.md
         - name: Diskleri çoğaltmanın dışında tutma
           href: site-recovery-exclude-disk.md
@@ -144,35 +175,6 @@
               href: site-recovery-replicate-azure-to-azure.md
             - name: VMware-Azure arası çoğaltmayı etkinleştirme
               href: site-recovery-replicate-vmware-to-azure.md
-    - name: Yük devretme ve ilk duruma döndürme
-      items:
-        - name: Kurtarma planları oluşturma
-          href: site-recovery-create-recovery-plans.md
-          items:
-            - name: Kurtarma planlarına Azure runbook ekleme
-              href: site-recovery-runbook-automation.md
-        - name: Yük devretme testi çalıştırma
-          items:
-            - name: Azure’a yük devretme testi çalıştırma
-              href: site-recovery-test-failover-to-azure.md
-            - name: VMM bulutları arasında yük devretme testi çalıştırma
-              href: site-recovery-test-failover-vmm-to-vmm.md
-        - name: Yük devretme korumalı makineler
-          href: site-recovery-failover.md
-        - name: Yük devretme işleminden sonra makineleri yeniden koruma
-          items:
-            - name: Bir Azure ikincil bölgesinden birincil bölgeye yeniden koruma
-              href: site-recovery-how-to-reprotect-azure-to-azure.md
-            - name: Azure’dan şirket içi ortama yeniden koruma
-              href: site-recovery-how-to-reprotect.md
-        - name: Azure’dan yeniden çalışma
-          items:
-            - name: Azure’dan VMware’e geçerek yeniden çalışma
-              href: site-recovery-how-to-failback-azure-to-vmware.md
-            - name: Azure’dan Hyper-V’ye geçerek yeniden çalışma
-              href: site-recovery-failback-from-azure-to-hyper-v.md
-        - name: Yeniden çalışma için bir Linux ana hedef sunucusu ayarlama
-          href: site-recovery-how-to-install-linux-master-target.md
     - name: Otomatikleştirme
       items:
         - name: Azure’a Hyper-V çoğaltma işlemini (VMM olmadan) PowerShell kullanarak ayarlama
@@ -213,7 +215,7 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Yönet
       items:
-        - name: Site Recovery kasanızı Kurtarma Hizmetleri kasasına yükseltme
+        - name: Kurtarma Hizmetleri kasasına yükseltme
           href: upgrade-site-recovery-vaults.md
         - name: Azure’da işlem sunucularını yönetme
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
@@ -223,7 +225,7 @@
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: Sunucuları kaldırma ve korumayı devre dışı bırakma
           href: site-recovery-manage-registration-and-protection.md
-        - name: Kurtarma Hizmetleri kasasını silme
+        - name: Bir kasayı silme
           href: delete-vault.md
     - name: Sorun giderme
       items:
@@ -231,7 +233,7 @@
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
         - name: Şirket içinden Azure’a çoğaltma sorunları
           href: site-recovery-vmware-to-azure-protection-troubleshoot.md
-        - name: Mobility hizmeti yükleme sorunları
+        - name: Mobility hizmeti sorunları
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Azure'a yük devretme sorunları
           href: site-recovery-failover-to-azure-troubleshoot.md

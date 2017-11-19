@@ -1,5 +1,5 @@
 ---
-title: "Azure işlevleri Zamanlayıcı tetikleyicisi | Microsoft Docs"
+title: "Azure işlevleri Zamanlayıcı tetikleyicisi"
 description: "Azure işlevleri Zamanlayıcı Tetikleyicileri kullanmayı öğrenme."
 services: functions
 documentationcenter: na
@@ -17,42 +17,159 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure işlevleri Zamanlayıcı tetikleyicisi
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
-
-Bu makalede nasıl yapılandırılacağı ve kod Zamanlayıcı Tetikleyicileri Azure işlevleri açıklanmaktadır. Azure işlevleri tanımlanmış bir zamanlamaya göre işlevi kodunuzu çalıştırmak olanak sağlayan zamanlayıcı tetikleyicisi bağlama sahiptir. 
-
-Zamanlayıcı tetikleyicisi çok örnekli genişleme destekler. Belirli Zamanlayıcı işlevi tek bir örneğini boyunca tüm örneklerde çalıştırılır.
+Bu makalede Azure işlevleri Tetikleyicileri Zamanlayıcı ile nasıl çalışılacağını açıklar. Zamanlayıcı tetikleyicisi bir işlev bir zamanlamaya göre çalışmasını sağlar. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a id="trigger"></a>
+## <a name="example"></a>Örnek
 
-## <a name="timer-trigger"></a>Zamanlayıcı tetikleyicisi
-Aşağıdaki JSON nesnesinde bir işleve Zamanlayıcı tetikleyicisi kullanan `bindings` function.json dizisi:
+Dile özgü örneğe bakın:
+
+* [Önceden derlenmiş C#](#trigger---c-example)
+* [C# betiği](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="c-example"></a>C# örnek
+
+Aşağıdaki örnekte gösterildiği bir [C# işlevi önceden derlenmiş](functions-dotnet-class-library.md) , beş dakikada bir çalışır:
+
+```cs
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+### <a name="c-script-example"></a>C# kod örneği
+
+Aşağıdaki örnek, bağlama Zamanlayıcı tetikleyicisi gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlev, bu işlev çağrısını kaçırılan zamanlama oluşması nedeniyle olup olmadığını belirten bir günlüğe yazar.
+
+Veri bağlama işte *function.json* dosyası:
 
 ```json
 {
-    "schedule": "<CRON expression - see below>",
-    "name": "<Name of trigger parameter in function signature>",
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
     "type": "timerTrigger",
     "direction": "in"
 }
 ```
 
-Değeri `schedule` olan bir [CRON ifade](http://en.wikipedia.org/wiki/Cron#CRON_expression) altı bu alanları içerir: 
+C# betik kod aşağıdaki gibidir:
 
-    {second} {minute} {hour} {day} {month} {day-of-week}
-&nbsp;
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+### <a name="f-example"></a>F # örnek
+
+Aşağıdaki örnek, bağlama Zamanlayıcı tetikleyicisi gösterir bir *function.json* dosyası ve bir [F # betik işlevi](functions-reference-fsharp.md) bağlama kullanır. İşlev, bu işlev çağrısını kaçırılan zamanlama oluşması nedeniyle olup olmadığını belirten bir günlüğe yazar.
+
+Veri bağlama işte *function.json* dosyası:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+F # betik kod aşağıdaki gibidir:
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+### <a name="javascript-example"></a>JavaScript örneği
+
+Aşağıdaki örnek, bağlama Zamanlayıcı tetikleyicisi gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev, bu işlev çağrısını kaçırılan zamanlama oluşması nedeniyle olup olmadığını belirten bir günlüğe yazar.
+
+Veri bağlama işte *function.json* dosyası:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+F # betik kod aşağıdaki gibidir:
+
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="attributes-for-precompiled-c"></a>Önceden derlenmiş C# öznitelikleri
+
+İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+
+Aşağıdaki örnekte gösterildiği gibi özniteliğin Oluşturucusu CRON ifade alır:
+
+```csharp
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+ ```
+
+Belirleyebileceğiniz bir `TimeSpan` işlevi uygulamanıza bir uygulama hizmeti planı (tüketim plan değil) çalıştırıyorsa CRON ifade yerine.
+
+## <a name="configuration"></a>Yapılandırma
+
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `TimerTrigger` özniteliği.
+
+|Function.JSON özelliği | Öznitelik özelliği |Açıklama|
+|---------|---------|----------------------|
+|**türü** | yok | "TimerTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**adı** | yok | İşlev kodu Zamanlayıcı nesneyi temsil eden değişken adı. | 
+|**zamanlama**|**ScheduleExpression**|Tüketim plan üzerinde CRON ifade ile zamanlama tanımlayabilirsiniz. Bir uygulama hizmeti planı kullanıyorsanız, ayrıca kullanabileceğiniz bir `TimeSpan` dize. Aşağıdaki bölümlerde CRON ifadeler açıklanmaktadır. Bir uygulama ayarı zamanlama ifadeyi ve bu özellik sarmalanmış bir değere ayarlayın  **%**  Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithCRONExpression %". Yerel olarak geliştirirken, uygulama ayarları değerlerini gidin [local.settings.json dosya](functions-run-local.md#local-settings-file).|
+
+### <a name="cron-format"></a>CRON biçimi 
+
+A [CRON ifade](http://en.wikipedia.org/wiki/Cron#CRON_expression) için Azure işlevleri Zamanlayıcı tetikleyicisi bu altı alanları içerir: 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
 >[!NOTE]   
->Birçok çevrimiçi Bul cron ifadelerin atlayın `{second}` alan. Bunlardan birini kopyalarsanız, ek için ayarlamanız gereken `{second}` alan. Belirli örnekler için bkz: [zamanlama örnekler](#examples) aşağıda.
+>Birçok çevrimiçi Bul CRON ifadelerin atlayın `{second}` alan. Bunlardan birini kopyalarsanız, eksik Ekle `{second}` alan.
+
+### <a name="cron-time-zones"></a>CRON saat dilimleri
 
 CRON ifadelerle kullanılan varsayılan saat dilimini Eşgüdümlü Evrensel Saat (UTC) ' dir. CRON İfadenizde başka bir saat dilimini temel olmasını adlı işlev uygulamanız için yeni bir uygulama ayarı oluşturmak `WEBSITE_TIME_ZONE`. İstenen saat dilimini adına gösterildiği gibi değeri [Microsoft saat dilimi dizin](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
 
@@ -67,12 +184,9 @@ Alternatif olarak, adlı işlev uygulamanız için yeni bir uygulama ayarı ekle
 ```json
 "schedule": "0 0 10 * * *",
 ``` 
+### <a name="cron-examples"></a>CRON örnekleri
 
-
-<a name="examples"></a>
-
-## <a name="schedule-examples"></a>Zamanlama örnekleri
-CRON ifadeler için kullanabileceğiniz bazı örnekleri şunlardır `schedule` özelliği. 
+CRON ifadeleri Azure işlevlerinde Zamanlayıcı tetikleyicisi için kullanabileceğiniz bazı örnekleri aşağıda verilmiştir. 
 
 Her beş dakikada tetiklemek için:
 
@@ -110,9 +224,8 @@ Saatte 09: 00'dan 18: 00 için tetiklemek için:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-<a name="usage"></a>
+## <a name="usage"></a>Kullanım
 
-## <a name="trigger-usage"></a>Tetikleyici kullanımı
 Bir zamanlayıcı tetikleyicisi işlevi çağrıldığında, [Zamanlayıcı nesne](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) işlevdeki geçirilir. Aşağıdaki JSON timer nesnesi bir örnek gösterimidir. 
 
 ```json
@@ -127,68 +240,14 @@ Bir zamanlayıcı tetikleyicisi işlevi çağrıldığında, [Zamanlayıcı nesn
 }
 ```
 
-<a name="sample"></a>
+## <a name="scale-out"></a>Ölçeklendirme
 
-## <a name="trigger-sample"></a>Tetikleyici örnek
-Aşağıdaki Zamanlayıcı tetikleyicisi olduğunu varsayalım `bindings` function.json dizisi:
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-Geç çalışıp çalışmadığını görmek için timer nesnesini okur dile özgü örneğe bakın.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Tetikleyici örnek C# #
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    if(myTimer.IsPastDue)
-    {
-        log.Info("Timer is running late!");
-    }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
-
-<a name="triggerfsharp"></a>
-
-### <a name="trigger-sample-in-f"></a>F # tetikleyici örnek #
-```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
-    if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-sample-in-nodejs"></a>Node.js tetikleyici örnek
-```JavaScript
-module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
-
-    context.done();
-};
-```
+Zamanlayıcı tetikleyicisi çok örnekli genişleme destekler. Belirli Zamanlayıcı işlevi tek bir örneğini boyunca tüm örneklerde çalıştırılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [Zamanlayıcı tetikleyicisi kullanan bir hızlı başlangıç gidin](functions-create-scheduled-function.md)
+
+> [!div class="nextstepaction"]
+> [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)

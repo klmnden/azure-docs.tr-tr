@@ -1,11 +1,11 @@
 ---
-title: "Uygulama hizmeti planları Azure App Service Web Apps | Microsoft Docs"
+title: "Azure uygulama hizmeti planı genel bakış | Microsoft Docs"
 description: "Azure uygulama hizmeti iş için nasıl uygulama hizmeti planları ve bunların, yönetim deneyimi nasıl yararlı öğrenin."
-keywords: "app service, azure app service, ölçek, ölçeklenebilir, app service planı, app service maliyeti"
+keywords: "uygulama hizmeti, azure app service, Ölçek, ölçeklenebilir, ölçeklenebilirlik, uygulama hizmeti planı, app service maliyeti"
 services: app-service
 documentationcenter: 
-author: btardif
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
@@ -13,151 +13,108 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
-ms.author: byvinyal
-ms.openlocfilehash: fb5b782f09bdd8c8a862eddfbd65b0f86ef8d08c
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.date: 11/09/2017
+ms.author: cephalin
+ms.openlocfilehash: 0815c4d826d9ee09f2e787d9b27258149c55d400
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="app-service-plans-in-azure-app-service-web-apps"></a>Azure App Service Web Apps uygulama hizmeti planları
+# <a name="azure-app-service-plan-overview"></a>Azure uygulama hizmeti planı genel bakış
 
-Uygulama hizmeti planları, uygulamalarınızı barındırmak için kullanılan fiziksel kaynakları koleksiyonunu temsil eder.
+Bir uygulamayı App Service'te çalışan bir _uygulama hizmeti planı_. Bir uygulama hizmeti planı çalıştırmak bir web uygulaması için işlem kaynaklarını kümesini tanımlar. Bu kaynaklar benzer işlem [ _sunucu grubu_ ](https://wikipedia.org/wiki/Server_farm) geleneksel web barındırma. Bir veya daha fazla uygulama aynı bilgi işlem kaynakları (veya, aynı uygulama hizmeti planındaki) çalıştırmak için yapılandırılabilir. 
 
-App Service planları şunları tanımlar:
+(Örneğin, Batı Avrupa) belirli bir bölgede bir uygulama hizmeti planı oluşturduğunuzda, bir işlem kaynak grubu bu bölgede Bu plan için oluşturulur. Uygulama hizmeti planınızı tarafından tanımlandığı şekilde işlem kaynaklarını hangi uygulamaları, bunları çalıştırmak bu uygulama hizmeti planı yerleştirin. Her uygulama hizmeti planı tanımlar:
 
 - Bölge (Batı ABD, Doğu ABD, vb.)
-- Ölçek sayısı (bir, iki, üç örnekleri, vb.)
-- (Küçük, Orta, büyük) örnek boyutu
-- SKU (ücretsiz, paylaşılan, temel, standart, Premium, PremiumV2, yalıtılmış)
+- VM örneği sayısı
+- VM örneklerinin (küçük, Orta, büyük)
+- Fiyatlandırma Katmanı (serbest, paylaşılan, temel, standart, Premium, PremiumV2, Isolated, kullanımı)
 
-İçinde Apps, Mobile Apps, API uygulamaları, işlev uygulamalarının (veya işlevler), web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) bir uygulama hizmeti planındaki tüm çalışma.  Aynı abonelikte ve bölgede uygulamalarda uygulama hizmeti planı paylaşabilir. 
+_Fiyatlandırma katmanı_ size hangi uygulama hizmeti özellikleri ve plan için ödeme ne kadar bir uygulama hizmeti planı belirler. Fiyatlandırma katmanlarını birkaç kategoriye ayrılır:
 
-Tüm uygulamalar için atanan bir **uygulama hizmeti planı** tanımladığı kaynakları paylaşır. Bu paylaşımı para birden fazla uygulama tek bir uygulama hizmeti planında barındırdığında kaydeder.
+- **Paylaşılan işlem**: **serbest** ve **paylaşılan**, iki temel katmanları, bir uygulama aynı Azure VM diğer müşteri uygulamalar dahil olmak üzere diğer uygulama hizmeti uygulamalar gibi çalışır. Bu katmanlar CPU kotaları paylaşılan kaynakları üzerinde çalışan her uygulamanın ayırabilir ve kaynakları ölçeğini olamaz.
+- **Adanmış bir işlem**: **temel**, **standart**, **Premium**, ve **PremiumV2** katmanları ayrılmış Azure üzerinde uygulamaları çalıştırma VM'ler. Yalnızca aynı uygulama hizmeti planındaki uygulamaları aynı işlem kaynakları paylaşır. Daha yüksek katman daha fazla VM örnekleri genişleme için kullanılabilir.
+- **Yalıtılmış**: Bu katmanı ayrılmış Azure sanal ağlarda ağ yalıtımı işlem yalıtım uygulamalarınızı en üstünde sağlayan, ayrılmış Azure sanal makineleri çalıştırır. En büyük genişletme yetenekleri sağlar.
+- **Tüketim**: Bu katmanda yalnızca kullanılabilir [işlev uygulamaları](../azure-functions/functions-overview.md). İşlevlerini iş yükü dinamik olarak bağlı olarak ölçeklendirir. Daha fazla bilgi için bkz: [Azure işlevleri barındırma planları karşılaştırma](../azure-functions/functions-scale.md).
 
-**Uygulama hizmeti planı** gelen ölçeklendirebilirsiniz **serbest** ve **paylaşılan** için katmanlarını **temel**, **standart**,  **Premium**, ve **Isolated** katmanları. Daha yüksek her katman için daha fazla kaynakları ve Özellikler erişmenizi sağlar.
+Her katman, belirli bir alt kümesini App Service özellikleri de sağlar. Bu özellikler, özel etki alanları ve SSL sertifikaları, otomatik ölçeklendirmeyi, dağıtım yuvaları, yedeklemeler, trafik Yöneticisi tümleştirme ve daha fazla bilgi içerir. Daha yüksek katman daha fazla özelliği kullanılabilir. Her fiyatlandırma katmanının hangi özelliklerin desteklendiği bulmak için bkz: [uygulama hizmeti plan ayrıntılarını](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
-Uygulama hizmeti planınızı ayarlanmışsa **temel** katmanı veya üzeri, ardından denetleyebilirsiniz **boyutu** ve ölçeklendirme VM'ler sayısı.
+<a name="new-pricing-tier-premiumv2"></a>
 
-Planınız iki "küçük" durumlarda kullanmak üzere yapılandırılmışsa, örneğin, **standart** katmanı, bu planı tüm uygulamaları hem örneklerinde çalıştırın. Uygulamalara erişimi de **standart** katmanı özellikleri. Plan örneği uygulamaları çalıştırdığınız tam olarak yönetilen ve yüksek oranda kullanılabilir.
+> [!NOTE]
+> Yeni **PremiumV2** fiyatlandırma katmanı sağlar [Dv2-serisi VM'ler](../virtual-machines/windows/sizes-general.md#dv2-series) daha hızlı işlemcilerde, SSD depolama ve Karşılaştırılan çift bellek çekirdek oranı ile **standart** katmanı. **PremiumV2** hala standart plana bulunan tüm gelişmiş özellikleri sağlarken daha yüksek ölçek artan örnek sayısı üzerinden de destekler. Varolan kullanılabilen tüm özellikleri **Premium** katmanı dahil edilmiştir **PremiumV2**.
+>
+> Benzer şekilde diğer ayrılmış katmanları, üç VM boyutları için bu katmanı kullanılabilir:
+>
+> - Küçük (bir CPU çekirdek, 3.5 Gib'den bellek) 
+> - Orta (iki CPU çekirdek, 7 Gib'den bellek) 
+> - Büyük (dört CPU çekirdek, 14 Gib'den bellek)  
+>
+> İçin **PremiumV2** fiyatlandırma bilgileri, bkz: [App Service fiyatlandırması](/pricing/details/app-service/).
+>
+> Yeni ile çalışmaya başlamak için **PremiumV2** fiyatlandırma katmanı, bkz: [uygulama hizmetin yapılandırma PremiumV2 katmanı](app-service-configure-premium-tier.md).
 
-> [!IMPORTANT]
-> Uygulama hizmeti planının fiyatlandırma Katmanı (SKU), maliyet ve içinde barındırılan uygulamalar sayısını değil belirler.
+## <a name="how-does-my-app-run-and-scale"></a>Nasıl Uygulamam, Ölçek çalıştırmak ve?
 
-Bu makalede fiyatlandırma katmanlarına ve ölçek ve uygulamalarınızı yönetirken nasıl çalıştıkları gibi bir uygulama hizmeti planı anahtar özelliklerini inceler.
+İçinde **serbest** ve **paylaşılan** katmanları, bir uygulama CPU dakika paylaşılan VM örneği üzerinde alır ve ölçeğini olamaz. Diğer katmanlarında uygulama çalışır ve şu şekilde ölçeklendirir.
 
-## <a name="new-pricing-tier-premiumv2"></a>Yeni fiyatlandırma katmanı: PremiumV2
+App Service içinde bir uygulama oluşturduğunuzda, bir uygulama hizmeti planı konur. Uygulama çalıştırıldığında, uygulama hizmeti planında yapılandırılmış tüm VM örnekleri üzerinde çalışır. Birden çok uygulama aynı uygulama hizmeti planında varsa, bunların tümü aynı VM örnekleri paylaşır. Bir uygulama için birden çok dağıtım yuvası varsa, tüm dağıtım yuvalarını de aynı VM örnekleri üzerinde çalıştırın. Tanılama günlüklerini etkinleştirme, yedeklemeler gerçekleştirmek veya Web işleri çalıştırmak, ayrıca CPU döngülerini ve bellek bu VM örneklerinde kullanırlar.
 
-Yeni **PremiumV2** fiyatlandırma katmanı sağlar [Dv2-serisi VM'ler](../virtual-machines/windows/sizes-general.md#dv2-series) daha hızlı işlemcilerde, SSD depolama ve Karşılaştırılan çift bellek çekirdek oranı ile **standart** katmanı. **PremiumV2** hala standart plana bulunan tüm gelişmiş özellikleri sağlarken daha yüksek ölçek artan örnek sayısı üzerinden de destekler. Varolan kullanılabilen tüm özellikleri **Premium** katmanı dahil edilmiştir **PremiumV2**.
+Bu şekilde, uygulama hizmeti planı App Service uygulamalarının ölçek birimidir. Plan beş VM örnekleri çalıştırmak için yapılandırılmışsa, plandaki tüm uygulamaları tüm beş örneklerinde çalıştırın. Plandaki tüm uygulamaları çıkışı birlikte ölçeklenir sonra planı otomatik ölçeklendirmeyi için yapılandırılmışsa, otomatik ölçeklendirme ayarlara göre.
 
-Benzer şekilde diğer ayrılmış katmanları, üç VM boyutları için bu katmanı kullanılabilir:
+Bir uygulama ölçeklendirme hakkında daha fazla bilgi için bkz [örnek sayısı el ile veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
-- Küçük (1 CPU çekirdek, 3.5 Gib'den bellek) 
-- Orta (2 CPU çekirdek, 7 Gib'den bellek) 
-- Büyük (4 CPU çekirdek, 14 Gib'den bellek)  
+<a name="cost"></a>
 
-İçin **PremiumV2** fiyatlandırma bilgileri, bkz: [App Service fiyatlandırması](/pricing/details/app-service/).
+## <a name="how-much-does-my-app-service-plan-cost"></a>Nasıl my uygulama hizmeti planı maliyeti nedir?
 
-Yeni ile çalışmaya başlamak için **PremiumV2** fiyatlandırma katmanı, bkz: [uygulama hizmetin yapılandırma PremiumV2 katmanı](app-service-configure-premium-tier.md).
+Bu bölümde, App Service uygulamalarının nasıl faturalandırılır açıklanmaktadır. Ayrıntılı, bölgeye özgü fiyatlandırma bilgileri için bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
-## <a name="apps-and-app-service-plans"></a>Uygulamalar ve uygulama hizmeti planları
+Dışında **serbest** katmanı, bir uygulama hizmeti planı taşıyan saatlik bir ücret işlem kaynakları kullanır.
 
-Uygulama hizmeti bir uygulamada verilen herhangi bir zamanda yalnızca bir uygulama hizmeti plan ile ilişkili olabilir.
+- İçinde **paylaşılan** katmanı, her uygulama alır kota CPU dakika, bu nedenle _her uygulama_ saatlik CPU kotasına doludur.
+- Ayrılmış katmanları işlem (**temel**, **standart**, **Premium**, **PremiumV2**), uygulama hizmeti planı tanımlar VM sayısı uygulamalar için ölçeklenir örnekleri için _her VM örneği_ App Service'te bir saatlik ücret planı vardır. Bu VM örnekleri aynı bakılmaksızın kaç uygulamaları bunlar üzerinde çalışan sizden ücret kesilir. Beklenmeyen ücretlerden kaçınmak için bkz: [bir uygulama hizmeti planı temiz](app-service-plan-manage.md#delete).
+- İçinde **Isolated** katmanı, uygulama hizmeti ortamı tanımlar, uygulamalarınızı çalıştırmak yalıtılmış çalışan sayısı ve _her çalışan_ saatlik doludur. Ayrıca, çalıştırmak için saatlik bir temel ücret yoktur uygulama hizmeti ortamı kendisi. 
+- (Yalnızca azure işlevleri) **Tüketim** katmanı dinamik olarak VM örnekleri işlevi uygulamanın iş yükü hizmet ayırır ve saniyede Azure tarafından dinamik olarak ücretlendirilir. Daha fazla bilgi için bkz: [Azure işlevleri fiyatlandırma](https://azure.microsoft.com/pricing/details/functions/).
 
-Uygulamaları ve planları içerdiği bir **kaynak grubu**. Bir kaynak grubu içinde olan her kaynak için yaşam döngüsü sınırı olarak görev yapar. Bir uygulamanın tüm parçaları birlikte yönetmek için kaynak gruplarını kullanabilirsiniz.
+(Özel etki alanlarını, SSL sertifikaları, dağıtım yuvaları, yedeklemeler vb. yapılandırılıyor.) kullanılabilen App Service özellikleri kullanmak için ücret yok. Özel durumlar şunlardır:
 
-Tek bir kaynak grubu birden çok uygulama hizmeti planları olduğundan farklı uygulamalar farklı fiziksel kaynaklara tahsis edebilirsiniz.
+- Azure ve ne zaman, her yıl yenilemeniz birinde satın aldığınızda app Service etki alanları -, ücret ödersiniz.
+- Azure ve ne zaman, her yıl yenilemeniz birinde satın aldığınızda uygulama hizmeti sertifikaları -, ücret ödersiniz.
+- IP tabanlı SSL bağlantılarını - orada kullanıcının her IP tabanlı SSL bağlantısı, ancak bazı saatlik bir ücret alınmaz **standart** katmanı veya yukarıdaki size bir IP tabanlı SSL bağlantısı ücretsiz. SNI tabanlı SSL bağlantılarını ücretsizdir.
 
-Örneğin, geliştirme, test ve üretim ortamları arasında kaynakları ayırabilirsiniz. Üretim ve geliştirme ve test için ayrı ortamlara sahip kaynakları ayırmanıza olanak tanır. Bu şekilde, uygulamalarınızı yeni bir sürümü karşı test yük gerçek müşteriler hizmet veren, üretim uygulamalarınızı aynı kaynaklara için rekabet edemez.
+> [!NOTE]
+> Uygulama hizmeti başka bir Azure hizmeti ile tümleştirirseniz, diğer hizmetlerin ücretlerden dikkate almanız gerekebilir. Örneğin, Azure trafik uygulamanızı coğrafi olarak ölçeklendirmek için Yöneticisi Azure Traffic Manager ücretleri de kullanıyorsanız, kullanımınıza bağlı. Azure arası Hizmetleri maliyetini tahmin etmek için bkz: [fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/). 
+>
+>
 
-Tek bir kaynak grubu içinde birden çok planına sahip olduğunuzda, coğrafi bölgeler kapsayan bir uygulama da tanımlayabilirsiniz.
+## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Ne Uygulamam özellik veya yeteneklerini gerekiyor?
 
-Örneğin, iki bölgelerde çalışan yüksek oranda kullanılabilir bir uygulama, en az iki planları, her bölge için bir tane ve her plan ile ilişkili bir uygulama içerir. Böyle bir durumda, uygulamanın tüm kopyalarını ardından tek bir kaynak grubu içinde yer alır. Birden çok planları ve birden çok uygulama ile bir kaynak grubu olması yönetmek, denetlemek ve uygulama durumunu görüntülemek kolaylaştırır.
+Uygulama hizmeti planınızı yukarı ve aşağı herhangi bir zamanda genişletilebilir. Planının fiyatlandırma katmanı değiştirilirse olarak kadar basittir. İlk daha düşük bir fiyatlandırma katmanı seçin ve daha fazla App Service özellikleri gerektiğinde daha sonra ölçeği.
 
-## <a name="create-an-app-service-plan-or-use-existing-one"></a>Bir uygulama hizmeti planı oluşturun veya varolan bir kullanın
+Örneğin, web uygulamanızı test etme başlatabilir bir **serbest** uygulama hizmeti planı ve hiçbir şey ödeme. Eklemek istediğiniz zaman, [özel DNS ad](app-service-web-tutorial-custom-domain.md) web uygulaması için yalnızca planınızı kadar ölçeklendirin **paylaşılan** katmanı. Daha sonra eklemek istediğiniz zaman bir [özel SSL sertifikası](app-service-web-tutorial-custom-ssl.md), planınızı kadar ölçeklendirin **temel** katmanı. Olmasını istediğinizde [hazırlık ortamları](web-sites-staged-publishing.md), en fazla ölçek **standart** katmanı. Daha fazla çekirdekleri, bellek veya depolamayla gerektiğinde, daha büyük bir VM boyutuyla aynı katmanındaki ölçeklendirme.
 
-App Service içinde yeni bir Web uygulaması oluştururken, varolan bir uygulama hizmeti planı uygulama koyarak barındırma kaynakları paylaşabilirsiniz. Yeni uygulama gerekli kaynaklara sahip olup olmadığını belirlemek için var olan uygulama hizmeti planı beklenen yükü ve kapasite yeni uygulama için anlamanız gerekir. Kaynaklarını aşırı ayırma yeni ve mevcut uygulamalar için kapalı kalma süresi neden olabilir.
+Aynı geriye doğru çalışır. Artık eşitleyerek daha yüksek bir katmanı özellikleri ve yetenekleri gerekir,, tasarruf bir alt katmanına ölçeklendirebilirsiniz.
 
-Yeni bir uygulama hizmeti uygulamanızı yalıtma öneririz ne zaman planlama:
+Uygulama hizmeti planı ölçeklendirme hakkında daha fazla bilgi için bkz: [Azure bir uygulamada ölçeklendirin](web-sites-scale.md).
+
+Uygulamanızı diğer uygulamalarla aynı uygulama hizmeti planındaki ise, işlem kaynaklarını yalıtarak uygulamanın performansını artırmak isteyebilirsiniz. Bu uygulamayı ayrı bir uygulama hizmeti planına taşıyarak yapabilirsiniz. Daha fazla bilgi için bkz: [bir uygulamayı başka bir uygulama hizmeti planına taşıma](app-service-plan-manage.md#move).
+
+## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>Bir uygulamayı yeni bir plan veya var olan bir planı koyabilir?
+
+Uygulama hizmeti planınız için bilgi işlem kaynaklarını ödeme beri ayırır (bkz [ne kadar my uygulama hizmeti planı maliyet mu?](#cost)), bir uygulama hizmeti planına birden fazla uygulama koyarak para potansiyel olarak kaydedebilirsiniz. Plan yükünü işlemek için yeterli kaynağa sahip olduğu sürece var olan bir planı uygulamaları eklemeye devam edebilirsiniz. Ancak, işlem kaynaklarını aynı herkes aynı uygulama hizmeti planındaki uygulamaları göz önünde bulundurun. Yeni uygulama gerekli kaynaklara sahip olup olmadığını belirlemek için var olan uygulama hizmeti planı beklenen yükü ve kapasite yeni uygulama için anlamanız gerekir. Bir uygulama hizmeti planı aşırı yüklemesi, yeni ve mevcut uygulamalar için kapalı kalma süresi neden olabilir.
+
+Yeni bir uygulama hizmeti uygulamanıza planlama ayır:
 
 - Yoğun bir kaynak uygulamasıdır.
-- Uygulama, var olan bir planı barındırılan diğer uygulamalardan farklı ölçeklendirme Etkenler vardır.
+- Varolan bir planı bağımsız olarak diğer uygulamalardan uygulama ölçeklendirme istiyorsunuz.
 - Uygulamanın farklı bir coğrafi bölgede kaynak gerekir.
 
 Böylece uygulamanız için yeni bir kaynak kümesini ayırmak ve uygulamalarınızın daha fazla denetim kazanmak.
 
-## <a name="create-an-app-service-plan"></a>App Service planı oluşturma
+## <a name="manage-an-app-service-plan"></a>Bir uygulama hizmeti planı yönetme
 
-> [!TIP]
-> Bir uygulama hizmeti ortamı varsa bkz [bir uygulama hizmeti ortamı'nda bir uygulama hizmeti planı oluştur](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
-
-Boş bir uygulama hizmeti planı oluşturabilirsiniz veya uygulama oluşturmanın bir parçası olarak.
-
-İçinde [Azure portal](https://portal.azure.com), tıklatın **yeni** > **Web + mobil**ve ardından **Web uygulaması** veya diğer uygulama hizmeti uygulaması türü.
-
-![Azure Portalı'nda bir uygulama oluşturun.][createWebApp]
-
-Ardından, seçin veya yeni uygulaması için uygulama hizmeti planı oluşturun.
-
- ![Bir uygulama hizmeti planı oluşturun.][createASP]
-
-Bir uygulama hizmeti planı oluşturmak için tıklatın **[+] oluştur yeni**, türü **uygulama hizmeti planı** adlandırın ve ardından uygun bir seçin **konumu**. Tıklatın **fiyatlandırma katmanı**ve ardından hizmet için uygun bir fiyatlandırma katmanı seçin. Seçin **tüm görüntüle** daha seçenekleri gibi fiyatlandırma görünümüne **serbest** ve **paylaşılan**. Fiyatlandırma katmanı seçtikten sonra tıklatın **seçin** düğmesi.
-
-## <a name="move-an-app-to-a-different-app-service-plan"></a>Bir uygulama için farklı bir uygulama hizmeti planı taşıma
-
-Bir uygulama farklı bir uygulama hizmeti planında taşıyabilirsiniz [Azure portal](https://portal.azure.com). Planları bulundukları sürece, uygulamaları planları arasında taşıyabilirsiniz _aynı kaynak grubunu ve coğrafi bölge_.
-
-Bir uygulamayı başka bir plana taşımak için:
-
-- Taşımak istediğiniz uygulamaya gidin.
-- İçinde **menü**, Ara **App Service planı** bölümü.
-- Seçin **değişiklik uygulama hizmeti planı** işlemini başlatmak için.
-
-**Uygulama hizmeti planını Değiştir** açılır **uygulama hizmeti planı** Seçici. Bu noktada, bu uygulamaya taşımak için var olan bir planı seçebilirsiniz. Aynı kaynak grubunu ve bölge yalnızca planlarda görüntülenir.
-
-![Uygulama hizmeti planı Seçici.][change]
-
-Her plan kendi fiyatlandırma katmanı vardır. Örneğin, bir site ücretsiz katmanından bir taşıma için standart katmanı, özellikleri ve kaynakları standart katmanı kullanmak için atanmış tüm uygulamaları etkinleştirir.
-
-## <a name="clone-an-app-to-a-different-app-service-plan"></a>Bir uygulama için farklı bir uygulama hizmeti plan kopyalama
-
-Farklı bir bölgeye uygulama taşımak istiyorsanız, bir uygulama alternatiftir kopyalama. Kopyalama, yeni veya var olan uygulama hizmeti planındaki tüm bölgelerdeki uygulamanızı bir kopyasını oluşturur.
-
-Bulabileceğiniz **kopya uygulama** içinde **geliştirme araçları** menüsünün bölümünde.
-
-> [!IMPORTANT]
-> Kopyalama sırasında hakkında bilgi edinebilirsiniz bazı sınırlamalara sahiptir [Azure uygulama hizmeti kopyalama](app-service-web-app-cloning.md).
-
-## <a name="scale-an-app-service-plan"></a>Ölçek bir uygulama hizmeti planı
-
-Bir planı ölçeklendirmek için üç yolu vardır:
-
-- **Fiyatlandırma katmanı değişikliği plan**. Bir planı temel katmandaki, standart ve standart katmanı özellikleri kullanmak için atanmış tüm uygulamalar için dönüştürülebilir.
-- **Planın örnek boyutunu değiştirin**. Örnek olarak, büyük örnekleri kullanmak için bir plan küçük örnekleri kullanan temel katmandaki değiştirilebilir. Şimdi bu planla ilişkili tüm uygulamalar, büyük örnek boyutu sunar CPU kaynaklarını ve ek bellek kullanabilirsiniz.
-- **Planın örnek sayısı değiştirme**. Örneğin, üç örneklerine giden ölçeklendirilmiş bir standart planı 10 örneklerine genişletilebilir. Premium planı 20 örneklerine (tabi kullanılabilirlik) genişletilebilir. Şimdi bu planla ilişkili tüm uygulamalar, büyük örnek sayısı sunar CPU kaynaklarını ve ek bellek kullanabilirsiniz.
-
-Fiyatlandırma katmanı ve örnek boyutunu tıklatarak değiştirebilirsiniz **ölçeği Artır** uygulamayı veya uygulama hizmeti planı ayarları altında öğesi. Değişiklikler için uygulama hizmeti planı uygulamak ve onu barındıran tüm uygulamaları etkiler.
-
- ![Bir uygulama ölçeklendirmek için değerleri ayarlayın.][pricingtier]
-
-## <a name="app-service-plan-cleanup"></a>Uygulama hizmeti planı temizleme
-
-> [!IMPORTANT]
-> **Uygulama hizmeti planları** sahip olan işlem kapasitesini yedek devam beri hala ücretlendirme kendileri için ilişkilendirilmiş uygulama yok.
-
-Bir uygulama hizmeti planında barındırılan son uygulama silindiğinde beklenmeyen ücretlerden kaçınmak için sonuç boş uygulama hizmeti planı varsayılan olarak da silinir.
-
-## <a name="summary"></a>Özet
-
-Uygulama hizmeti planları, bir özellik kümesini ve Web siteleriniz arasında paylaşabileceğiniz kapasite temsil eder. Uygulama hizmeti planları bir kaynak grubu için belirli uygulamaları ayırmak ve daha fazla Azure kaynak kullanımınızı iyileştirmek için esneklik sağlar. Bu şekilde, test ortamınızda, tasarruf istiyorsanız bir planı birden çok uygulama arasında paylaşabilirsiniz. Ayrıca verimlilik, üretim ortamınız için birden çok bölgeler ve planları arasında ölçeklendirme tarafından en üst düzeye çıkarabilirsiniz.
-
-## <a name="whats-changed"></a>Yapılan değişiklikler
-
-- Sitelerinden App Service'e değiştirme kılavuzu için bkz: [Azure App Service ve mevcut Azure hizmetlerine etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
-[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
-[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
-[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
-[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+> [!div class="nextstepaction"]
+> [Bir Azure uygulamasında ölçeklendirin](app-service-plan-manage.md)

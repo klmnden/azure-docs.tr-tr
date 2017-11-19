@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>Azure IoT Paketi nedir?
 
@@ -85,9 +85,12 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 | Cosmos DB            | Evet                | Evet                    | Evet               |
 | Azure Tabloları         |                    | Evet                    | Evet               |
 
+> [!NOTE]
+> Önceden yapılandırılmış uzaktan izleme çözümünde dağıtılmış kaynaklar hakkında daha fazla bilgi için GitHub’daki bu [makaleye](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) bakın.
+
 * [Azure IoT Hub](../iot-hub/index.md). Bu hizmet cihaz-bulut arası ve bulut-cihaz arası ileti gönderme özellikleri sağlar ve buluta ve diğer temel IoT Paketi hizmetlerine ağ geçidi görevi görür. Hizmet cihazınızdan ölçekte mesajlar almanızı ve cihazlarınıza komutlar göndermenizi sağlar. Hizmet ayrıca [cihazlarınızı yönetmenizi](../iot-hub/iot-hub-device-management-overview.md) sağlar. Örneğin hub'a bağlı bir veya daha fazla cihazı yapılandırabilir, yeniden başlatabilir veya fabrika ayarlarına döndürebilirsiniz.
 * [Azure Event Hubs](../event-hubs/index.md). Bu hizmet, bulutta yüksek hacimli olay alımı sağlar. Şu konuyu inceleyin: [Azure IoT Hub ile Azure Event Hubs Karşılaştırması](../iot-hub/iot-hub-compare-event-hubs.md).
-* [Azure Time Series Insights](../time-series-insights/index.md). Önceden yapılandırılmış çözümler, cihazlarınızın telemetri verilerini görüntülemek için bu hizmeti kullanır.
+* [Azure Time Series Insights](../time-series-insights/index.yml). Önceden yapılandırılmış çözümler, cihazlarınızın telemetri verilerini görüntülemek için bu hizmeti kullanır.
 * [Azure Container Service](../container-service/index.yml). Bu hizmet, önceden yapılandırılmış çözümlerde mikro hizmetleri barındırır ve yönetir.
 * Veri depolama için [Azure Cosmos DB](../cosmos-db/index.yml) ve [Azure Depolama](../storage/index.yml).
 * [Azure Stream Analytics](../stream-analytics/index.md). Tahmin dayalı bakım önceden yapılandırılmış çözümü, gelen telemetri işlemek, toplama gerçekleştirmek ve olayları algılamak için bu hizmeti kullanır. Önceden yapılandırılmış bu çözüm, meta veriler ya da cihazlardan alınan komut yanıtları gibi verileri içeren bilgi iletilerini işlemek için de akış analizini kullanır.
@@ -124,7 +127,7 @@ Bu mikro hizmet mimarisi, bulut çözümleri için aşağıdaki özelliklere sah
 Uzaktan izlemenin yeni sürümünü dağıttığınızda, aşağıdaki dağıtım seçeneklerinden birini belirlemeniz gerekir:
 
 * **Temel:** Tanıtım için veya bir dağıtımı test etmek için daha düşük maliyetli sürüm. Tüm mikro hizmetler tek bir Azure sanal makinesine dağıtılır.
-* **Kurumsal:** Bir üretim dağıtımı geliştirmek için genişletilmiş altyapı dağıtımı. Azure Container Service, mikro hizmetleri birden fazla Azure sanal makinesine dağıtır. Kubernetes mikro hizmetleri tek tek barındıran Docker kapsayıcılarını düzenler.
+* **Standart:** Bir üretim dağıtımı geliştirmek için genişletilmiş altyapı dağıtımı. Azure Container Service, mikro hizmetleri birden fazla Azure sanal makinesine dağıtır. Kubernetes mikro hizmetleri tek tek barındıran Docker kapsayıcılarını düzenler.
 
 ### <a name="language-choices-java-and-net"></a>Dil seçimleri: Java ve .NET
 

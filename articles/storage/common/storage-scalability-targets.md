@@ -12,29 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 07/12/2017
+ms.date: 10/24/2017
 ms.author: tamram
-ms.openlocfilehash: 805b0eee46846345ee1f33faf0c28393c3e8ebb1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: f62f2020d40e473886cb679cdfe1c164b95f7114
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure Depolama Ölçeklenebilirlik ve Performans Hedefleri
 ## <a name="overview"></a>Genel Bakış
-Bu konuda, Microsoft Azure Storage ölçeklenebilirlik ve performans konuları açıklanmaktadır. Diğer Azure sınırları özeti için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md).
+Bu makalede, Azure Storage ölçeklenebilirlik ve performans konuları açıklanmaktadır. Diğer Azure sınırları özeti için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md).
 
 > [!NOTE]
-> Tüm depolama hesaplarının yeni düz ağ topolojisine çalıştırın ve ne zaman oluşturulduğu bağımsız olarak, aşağıda açıklanan ölçeklenebilirlik ve performans hedefleri destekler. Ölçeklenebilirlik ve Azure depolama düz ağ mimarisi üzerinde daha fazla bilgi için bkz: [Microsoft Azure Storage: yüksek oranda kullanılabilir bulut depolama hizmet güçlü tutarlılık](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+> Tüm depolama hesaplarının yeni düz ağ topolojisine çalıştırın ve oluşturuldukları zaman bağımsız olarak, bu makalede açıklanan ölçeklenebilirlik ve performans hedefleri destekler. Ölçeklenebilirlik ve Azure depolama düz ağ mimarisi üzerinde daha fazla bilgi için bkz: [Microsoft Azure Storage: yüksek oranda kullanılabilir bulut depolama hizmet güçlü tutarlılık](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 > 
+
 > [!IMPORTANT]
 > Burada listelenen ölçeklenebilirlik ve performans hedefleri Gelişmiş hedefleri, ancak ulaşılabilir. Uygulamanızı iş yükü türünü gerçekleştirir ve tüm durumlarda, istek hızı ve bant genişliği, depolama birimi tarafından elde saklanan nesneleri kullanılan, erişim desenlerini boyutuna bağlı hesap bağlıdır. Hizmetinizin performansını gereksinimlerinizi karşılayıp karşılamadığını belirlemek için test emin olun. Mümkünse, trafiğinin oranını içindeki ani ani önlemek ve bölümler trafiği iyi dağıtılmış olduğundan emin olun.
 > 
-> Uygulamanızın ne bir bölüm için iş yükünü işleyebilir, sınırına ulaştığında, Azure depolama hata kodu 503 (Sunucu meşgul) veya hata kodu 500 (işlemi zaman aşımı) yanıtları döndürülecek başlar. Bu durumda, uygulama için yeniden deneme üstel geri alma İlkesi kullanmanız gerekir. Üstel geri alma yükü azaltmak ve o bölümün trafiğinin ani çıkışı kolaylaştırmak için bölüm olanak tanır.
+> Uygulamanızın ne bir bölüm için iş yükünü işleyebilir, sınırına ulaştığında, hata kodu 503 (Sunucu meşgul) ya da hata kodu 500 (işlemi zaman aşımı) yanıtları döndürmek Azure Storage başlar. Bu hatalar ortaya çıkan, uygulamanız için yeniden deneme üstel geri alma İlkesi kullanmalısınız. Üstel geri alma yükü azaltmak ve o bölümün trafiğinin ani çıkışı kolaylaştırmak için bölüm olanak tanır.
 > 
 > 
 
-Uygulamanızın gereksinimlerine tek bir depolama hesabı ölçeklenebilirlik hedeflerini aşarsa, birden çok depolama hesabı kullanmak için uygulamanızı oluşturmak ve bu depolama hesapları arasında veri nesnelerinizi bölüm. Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) birim fiyatlandırma hakkında bilgi için.
+Uygulamanızın gereksinimlerine tek bir depolama hesabı ölçeklenebilirlik hedeflerini aşarsa, birden çok depolama hesabı kullanmak için uygulamanızı oluşturabilirsiniz. Ardından bu depolama hesapları arasında veri nesnelerinizi bölüm. Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) birim fiyatlandırma hakkında bilgi için.
 
 ## <a name="scalability-targets-for-a-storage-account"></a>Bir depolama hesabı için ölçeklenebilirlik hedefleri
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
@@ -45,7 +46,7 @@ Uygulamanızın gereksinimlerine tek bir depolama hesabı ölçeklenebilirlik he
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
 ## <a name="azure-files-scale-targets"></a>Azure dosyaları ölçek hedefleri
-Azure dosyaları ve Azure dosya eşitleme için ölçek ve performans hedefleri hakkında daha fazla bilgi için lütfen bkz [Azure dosyaları ölçeklenebilirlik ve performans hedefleri](../files/storage-files-scale-targets.md).
+Azure dosyaları ve Azure dosya eşitleme ölçek ve performans hedefleri hakkında daha fazla bilgi için bkz: [Azure dosyaları ölçeklenebilirlik ve performans hedefleri](../files/storage-files-scale-targets.md).
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -58,25 +59,9 @@ Azure dosyaları ve Azure dosya eşitleme için ölçek ve performans hedefleri 
 ## <a name="azure-table-storage-scale-targets"></a>Azure tablo depolama ölçek hedefleri
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-<!-- conceptual info about disk limits -- applies to unmanaged and managed -->
-## <a name="scalability-targets-for-virtual-machine-disks"></a>Sanal makine disklerini için ölçeklenebilirlik hedefleri
-[!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
-
-Bkz: [Windows VM boyutları](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [Linux VM boyutları](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ek ayrıntılar için.
-
-## <a name="managed-virtual-machine-disks"></a>Yönetilen sanal makine disklerini
-
-[!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
-
-## <a name="unmanaged-virtual-machine-disks"></a>Yönetilmeyen sanal makine disklerini
-[!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
-
-[!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
-
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Depolama fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/storage/)
 * [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md)
-* [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../../virtual-machines/windows/premium-storage.md)
 * [Azure Storage çoğaltma](../storage-redundancy.md)
 * [Microsoft Azure depolama performans ve ölçeklenebilirlik Yapılacaklar listesi](../storage-performance-checklist.md)
 * [Microsoft Azure Storage: Yüksek oranda kullanılabilir depolama sahip bulut hizmeti güçlü tutarlılık](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

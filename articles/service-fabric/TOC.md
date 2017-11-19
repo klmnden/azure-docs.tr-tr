@@ -250,8 +250,6 @@
 ### [Eclipse’te Java hizmeti hata ayıklaması](service-fabric-debugging-your-application-java.md)
 ### [Yerel olarak izleme ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [Azure’a API Management ve Service Fabric dağıtma](service-fabric-api-management-quick-start.md)
-
 ## Cloud Services’tan geçiş
 ### [Cloud Services ile Service Fabric karşılaştırması](service-fabric-cloud-services-migration-differences.md)
 ### [Service Fabric’e geçme](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -265,7 +263,6 @@
 #### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API’leri](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Uygulamaları yükseltme
@@ -281,11 +278,8 @@
 ##### [İş yükleri sırasında](service-fabric-testability-workload-tests.md)
 ##### [Test senaryolarını kullanma](service-fabric-testability-scenarios.md)
 ##### [Düğüm geçişi API’lerini kullanma](service-fabric-node-transition-apis.md)
-#### [Uygulamanıza yük testi yapma](service-fabric-vso-load-test.md)
 
-### Sürekli tümleştirme kurulumu
-#### [VSTS ile sürekli tümleştirmeyi ayarlama](service-fabric-set-up-continuous-integration.md)
-#### [Jenkins kullanarak Linux Java uygulamanızı dağıtma](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Jenkins kullanarak Linux Java uygulamanızı dağıtma](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Küme oluşturma ve yönetme
 ### Azure’da kümeler
@@ -319,21 +313,6 @@
 ### [Küme görselleştirme](service-fabric-visualizing-your-cluster.md)
 ### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
 ### [Küme düğümleri yamalama](service-fabric-patch-orchestration-application.md)
-
-### Küme kaynaklarını yönetme ve düzenleme
-#### [Cluster Resource Manager’a genel bakış](service-fabric-cluster-resource-manager-introduction.md)
-#### [Cluster Resource Manager mimarisi](service-fabric-cluster-resource-manager-architecture.md)
-#### [Bir kümeyi tanımlama](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Uygulama gruplarına genel bakış](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Cluster Resource Manager ayarlarını yapılandırma](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Kaynak tüketimi ölçümleri](service-fabric-cluster-resource-manager-metrics.md)
-#### [Hizmet benzeşimi kullanımı](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Hizmet yerleştirme ilkeleri](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Küme yönetme](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Küme birleştirme](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [Küme Dengeleme](service-fabric-cluster-resource-manager-balancing.md)
-#### [Azaltma](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Hizmet taşıma](service-fabric-cluster-resource-manager-movement-cost.md)
 
 ## İzleme ve tanılama
 ### OMS

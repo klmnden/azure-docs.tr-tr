@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71adbca34390bda3a7d4067742ffb3a28201449
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Rol yapılandırma ayarlarını XPath olan bir ortam değişkeni olarak kullanıma sunma
 Bulut hizmeti çalışan ya da web rolü hizmet tanımı dosyası ortam değişkenleri olarak çalışma zamanı yapılandırma değerlerini getirebilir. Aşağıdaki XPath değerleri (hangi API değerlerine karşılık gelen) desteklenir.
@@ -166,5 +166,5 @@ Daha fazla bilgi edinmek [ServiceConfiguration.cscfg](cloud-services-model-and-p
 
 Oluşturma bir [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) paket.
 
-Etkinleştirme [Uzak Masaüstü](cloud-services-role-enable-remote-desktop.md) bir rol için.
+Etkinleştirme [Uzak Masaüstü](cloud-services-role-enable-remote-desktop-new-portal.md) bir rol için.
 

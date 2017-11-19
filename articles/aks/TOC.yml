@@ -51,12 +51,14 @@
       href: /rest/api/aks
 - name: Kaynaklar
   items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Bölge kullanılabilirliği
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Ürün geri bildirimi sağlayın
+      href: 'https://github.com/Azure/AKS/issues'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Videolar

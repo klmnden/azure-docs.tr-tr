@@ -11,27 +11,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/16/2017
 ms.author: bradsev;
-ms.openlocfilehash: 8c318f87243d0c98b6a42bebcdffb433f9cc456e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1015a9f24ca2c175ff367b1748f05bb3e464457f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="execution-of-data-science-projects"></a>Veri bilimi projeleri yürütülmesi
 
-Bu belgede, nasıl bir veri Bilimcisi veri bilimi projesinde bir sistematik, sürüm denetimli ve proje ekibi içinde işbirliği yolu kullanarak yürütebilirsiniz açıklanmaktadır [takım veri bilimi işlemi](overview.md) (TDSP). TDSP etkinlikleri bulut tabanlı, Tahmine dayalı analiz çözümleri verimli bir şekilde çalıştırmak için yapılandırılmış bir dizi sağlayan Microsoft tarafından geliştirilen bir çerçevedir. Personel rolleri ve bir veri bilimi takım bu işlemi Standartlaştırma tarafından işlenen ilişkilendirilen görevlerinin ana hattı için bkz: [takım veri bilimi işlemi rolleri ve görevleri](roles-tasks.md). 
+Bu belgede, nasıl geliştiriciler veri bilimi projesinde bir sistematik, sürüm denetimli ve proje ekibi içinde işbirliği biçimini kullanarak yürütebilirsiniz açıklanmaktadır [takım veri bilimi işlemi](overview.md) (TDSP). TDSP etkinlikleri bulut tabanlı, Tahmine dayalı analiz çözümleri verimli bir şekilde çalıştırmak için yapılandırılmış bir dizi sağlayan Microsoft tarafından geliştirilen bir çerçevedir. Personel rolleri ve bir veri bilimi takım bu işlemi Standartlaştırma tarafından işlenen ilişkilendirilen görevlerinin ana hattı için bkz: [takım veri bilimi işlemi rolleri ve görevleri](roles-tasks.md). 
 
-Bu konu için yönergeler içerir: 
+Bu makale için yönergeler içerir: 
 
-1. yapmak **sprint planlama** bir proje ile ilgili iş öğeleri için.<br> Sprint planlama konusunda bilginiz yoksa, aşağıdaki Ayrıntılar ve genel bilgiler bulabilirsiniz [burada](https://en.wikipedia.org/wiki/Sprint_(software_development) "burada"). 
+1. yapmak **sprint planlama** bir proje ile ilgili iş öğeleri için.<br> Sprint planlama konusunda bilginiz yoksa ayrıntıları ve genel bilgiler bulabileceğiniz [burada](https://en.wikipedia.org/wiki/Sprint_(software_development) "burada"). 
 2. **İş öğesi ekleme** sprint için.
 3. **Etkinlikler kodlama ile iş öğelerini bağlama** git tarafından izlenir.
 4. yapmak **kod gözden geçirme**. 
 
-
->[AZURE.NOTE] Aşağıdaki yönergeler kümesini Visual Studio Team Services (VSTS) kullanarak bir TDSP takım ortamı kurmak için gerekli adımları ana hatlarını vermektedir. Biz, biz Microsoft'taki TDSP nasıl uygulamak olduğundan bu görevlerin VSTS ile nasıl gerçekleştirileceğini belirtin. Öğeleri (3) ve (4) doğal VSTS kullanmayı tercih ederseniz aldığınız avantajları önceki listede yer almaktadır. Grubunuz için başka bir kod barındırma platformu kullanılıyorsa, ekip lideri tarafından genellikle tamamlanması gereken görevler değiştirmeyin. Ancak bu görevleri tamamlamak için yol farklı olacak. Örneğin, öğe bölümünde altı, **git dala sahip bir iş öğesi bağlantı**, VSTS üzerinde olduğu gibi kolay olmayabilir.
+> [!NOTE]
+> Visual Studio Team Services (VSTS) kullanarak bir TDSP takım ortamını ayarlamak için gerekli olan adımları aşağıdaki yönergeler kümesini özetlenmiştir. Bunlar, Microsoft'ta TDSP uygulamak nasıl olduğundan VSTS bu görevleri gerçekleştirmek nasıl belirtin.  VSTS, öğeleri (3) ve (4) önceki listede kullanmayı tercih ederseniz doğal olarak alma yararlar şunlardır. Grubunuz için başka bir kod barındırma platformu kullanılıyorsa, ekip lideri tarafından genellikle tamamlanması gereken görevler değiştirmeyin. Ancak bu görevleri tamamlamak için yol farklı olacak. Örneğin, öğe bölümünde altı, **git dala sahip bir iş öğesi bağlantı**, VSTS üzerinde olduğu gibi kolay olmayabilir.
+>
+>
 
 Tipik bir sprint planlama, kodlama aşağıdaki şekilde gösterilmiştir ve veri bilimi projesi uygulama kaynak denetimi iş akışı söz konusu:
 
@@ -53,9 +55,15 @@ Planlama framework TDSP sprint, sık kullanılan dört tür **iş öğelerini**:
 - **Görev**: görevlerdir atanabilir kodu veya belge iş öğeleri ya da belirli bir hikayesini tamamlamak için yapılması gereken diğer etkinlikler. Örneğin, yazıdaki görevleri *veri alma* olabilir:
     -  SQL Server'ın kimlik bilgilerini alma 
     -  SQL veri ambarı'na karşıya veri yükleme. 
-- **Hata**: hatalar genellikle bir görevi tamamlarken yapılan bir var olan kodu veya belge için gerekli olan düzeltmelere bakın. Öykü ya da bir görev aşamaları veya görevleri sırasıyla eksik hataya neden oluyorsa olmaya taşıyarak. 
+- **Hata**: hatalar genellikle bir görevi tamamlarken yapılan bir var olan kodu veya belge için gerekli olan düzeltmelere bakın. Aşamaları veya görevleri sırasıyla eksik hataya neden olursa, bir hikayesi veya bir görev olmaya taşıyarak. 
 
->[AZURE.NOTE] Biz, özellikleri, hikayeleri, görevler ve yazılım kod Yönetimi veri bilimi kullanılacak (SCM) hatalardan kavramlarını ödünç. Bunlar kendi geleneksel SCM tanımları biraz farklı olabilir.
+> [!NOTE]
+> Kavramlar, özellikleri, hikayeleri, görevler ve yazılım kod Yönetimi veri bilimi kullanılacak (SCM) hatalardan ödünç. Bunlar kendi geleneksel SCM tanımları biraz farklı olabilir.
+>
+>
+
+Veri bilimcilerine özellikle ile TDSP yaşam döngüsünün aşamaları hizalar Çevik bir şablonu kullanarak daha rahat açabilir. Aklınızda bir Çevik türetilmiş sprint planlama şablonu, Destanlar vb. hikayeleri TDSP yaşam döngüsünün aşamaları veya substages tarafından nerede değiştirilir oluşturuldu. Çevik bir şablonun nasıl oluşturulacağını belgelerinde bulunabilir [burada](https://msdata.visualstudio.com/AlgorithmsAndDataScience/TDSP/_git/TDSP?path=%2FDocs%2Fteam-data-science-process-agile-template.md&version=GBxibingao&_a=preview).
+
 
 ##  2. <a name='SprintPlanning-2'></a>Sprint planlama 
 
@@ -74,7 +82,7 @@ Bir özellik biriktirme listesine eklemek için tıklatın **biriktirme listeler
 
 ![3](./media/project-execution/project-execution-3-sprint-team-add-work.png)
 
-Yeni oluşturduğunuz özelliği çift tıklayın. Açıklamasında doldurun, takım üyeleri bu özellik için atayın ve planlama bu özellik için parametreleri ayarlayın. 
+Oluşturduğunuz özelliği çift tıklayın. Açıklamasında doldurun, takım üyeleri bu özellik için atayın ve planlama bu özellik için parametreleri ayarlayın. 
 
 Ayrıca, bu özellik Proje depoya bağlayabilirsiniz. Tıklatın **Bağlantı Ekle** altında **geliştirme** bölümü. Özellik düzenlemeyi bitirdikten sonra tıklatın **Kaydet ve Kapat** çıkmak için.
 
@@ -196,7 +204,7 @@ Ana dala çalışma dalı birleştirme ve birleştirme sonra çalışma dalı si
 
 ##  10. <a name='DataQualityReportUtility-10'></a>Etkileşimli veri keşfi, analiz ve Raporlama (IDEAR) yardımcı programı
 
-R markdown tabanlı kullanılmasından değerlendirmek ve veri kümelerini keşfetmek için esnek ve etkileşimli bir araç sağlar. Kullanıcıların hızlı bir şekilde minimal kodlama ile veri kümesinden raporları da oluşturabilirsiniz. Kullanıcılar, istemcilere teslim veya sonraki model adımda eklemek için hangi değişkenleri hakkında kararlar almak için kullanılan bir son rapora etkileşimli aracında görür araştırması sonuçlarını dışarı aktarmak için düğmelerini tıklatabilirsiniz.
+R markdown tabanlı kullanılmasından değerlendirmek ve veri kümelerini keşfetmek için esnek ve etkileşimli bir araç sağlar. Kullanıcıların hızlı bir şekilde minimal kodlama ile veri kümesinden raporları da oluşturabilirsiniz. Kullanıcıların etkileşimli aracı araştırması sonuçlarında istemcilere teslim veya sonraki model adımda eklemek için hangi değişkenleri hakkında kararlar almak için kullanılan bir son rapor vermek için düğmelerini tıklatabilirsiniz.
 
 Şu anda aracı yalnızca veri çerçevelerini bellekte üzerinde çalışır. .Yaml dosya incelenecek veri kümesi parametrelerini belirtmek için gereklidir. Daha fazla bilgi için bkz: [TDSP veri bilimi yardımcı programları IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils).
 
@@ -229,7 +237,7 @@ Veri bilimi grup yöneticileri, takım müşteri adayları ve proje müşteri ad
 
 VSTS veri Power BI bağlandıktan sonra Git deposu etkinliklerinizi ve iş öğelerini izlemek için Power BI panolar ve raporlar oluşturmayı öğrenmek için bkz: [oluşturma Power BI panoları ve raporları](https://www.visualstudio.com/en-us/docs/report/powerbi/report-on-vso-with-power-bi-vs). 
 
-Burada, biz Git etkinlikleri izlemek ve iş öğeleri için yapı iki basit bir örnek panolar bulunmaktadır. İlk örnek Panoda git taahhüt etkinlikler farklı tarihler ve farklı depoları farklı kullanıcılar tarafından listelenir. Kolayca dilim ve ilgilendiğiniz olanları filtrelemek için inin.
+Burada, Git etkinlikleri izlemek ve iş öğeleri için oluşturulmuş iki basit bir örnek panolar bulunmaktadır. İlk örnek Panoda git taahhüt etkinlikler farklı tarihler ve farklı depoları farklı kullanıcılar tarafından listelenir. Kolayca dilim ve ilgilendiğiniz olanları filtrelemek için inin.
 
 ![23](./media/project-execution/project-execution-23-powerbi-git.png)
 
@@ -240,6 +248,6 @@ Burada, biz Git etkinlikleri izlemek ve iş öğeleri için yapı iki basit bir 
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Tam işlem için tüm adımları gösteren uçtan uca talimatlara **belirli senaryolar** de sağlanır. Listelenen ve küçük resim açıklamasında ile bağlantılı [örnek izlenecek yollar](walkthroughs.md) konu. Bunlar, bulut, şirket içi araçları ve Hizmetleri bir iş akışı veya akıllı bir uygulama oluşturmak için ardışık düzen birleştirmek nasıl koruduğu gösterilmiştir. 
+Tam işlem için tüm adımları gösteren uçtan uca talimatlara **belirli senaryolar** de sağlanır. Listelenen ve küçük resim açıklamasında ile bağlantılı [örnek izlenecek yollar](walkthroughs.md) makalesi. Bunlar, bulut, şirket içi araçları ve Hizmetleri bir iş akışı veya akıllı bir uygulama oluşturmak için ardışık düzen birleştirmek nasıl koruduğu gösterilmiştir. 
 
 Azure Machine Learning Studio'da kullanmak adımları takım veri bilimi işlemde çalışan örnekler için bkz: [ile Azure ML](http://aka.ms/datascienceprocess) öğrenme yolu.

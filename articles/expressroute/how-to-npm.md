@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 35dd3c6be2fb2fa5ec4d14eefce1c16005210364
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Ağ Performans İzleyicisi'ni (Önizleme) ExpressRoute için yapılandırma
 
@@ -39,21 +39,27 @@ Ağ Performans İzleyicisi'ni (NPM) izleme Azure bulut dağıtımları ve şirke
 
 * Zaman içinde önceki bir noktaya ExpressRoute sistem durumundan bakın
 
-**Nasıl çalışır?**
+## <a name="regions"></a>Desteklenen bölgeler
+
+ExpressRoute bağlantı hatları dünya herhangi bir parçası olarak barındırılan bir çalışma alanı aşağıdaki bölgeler birini kullanarak izleyebilirsiniz:
+
+* Batı Avrupa 
+* Doğu ABD 
+* Güneydoğu Asya 
+
+## <a name="workflow"></a>İş akışı
 
 İzleme aracıları birden fazla sunucuda, yüklü olduğu her iki şirket içi ve Azure. Aracıları birbirleri ile iletişim kurmak, ancak veri gönderme, TCP el sıkışma paketleri gönderir. Ağ topolojisi ve trafik alabilir yolu eşlemek Azure aracılar arasındaki iletişimi sağlar.
 
-**İş akışı**
-
-1. Batı Orta ABD bölgesinde bir NPM çalışma alanı oluşturun. Şu anda bu Önizleme burada desteklenen tek bölge budur.
+1. Bir NPM çalışma birinde oluşturmak [bölgeler desteklenen](#regions).
 2. Yükleme ve yazılım aracıları yapılandırma: 
     * Şirket içi sunucular ve Azure sanal makinelerini izleme aracıları yükleyin.
     * İzleme aracılarıyla iletişim kurmak için izin vermek için izleme Aracısı sunucularında ayarlarını yapılandırın. (Güvenlik Duvarı bağlantı noktaları, vb. açın.)
 3. İzleme Aracısı ile şirket içi iletişim kurmak için Azure vm'lerinde yüklü izin vermek için ağ güvenlik grubu (NSG) kurallarını yapılandırma izleme aracıları.
-4. Beyaz liste ile NPM çalışma alanınızı isteği
+4. Beyaz liste ile NPM çalışma alanınızı isteyin.
 5. İzleme işlevini ayarlama: Otomatik bulma ve hangi ağların NPM içinde görünür yönetin.
 
-Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zaten kullanıyorsanız ve Batı Orta ABD Workspace'te zaten varsa, adım 1 ve 2. adımı atlayın ve yapılandırmanızı 3. adım ile başlayın.
+Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zaten kullanıyorsanız ve çalışma alanı desteklenen bölgelerinden birinde zaten varsa, adım 1 ve 2. adımı atlayın ve yapılandırmanızı 3. adım ile başlayın.
 
 ## <a name="configure"></a>1. adım: bir çalışma alanı oluşturma
 
@@ -66,8 +72,13 @@ Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zat
   * OMS çalışma alanı - çalışma alanınız için bir ad yazın.
   * Abonelik - yeni çalışma alanı ile ilişkilendirmek istediğiniz seçin, birden çok aboneliğiniz varsa.
   * Kaynak grubu - bir kaynak grubu oluşturabilir veya mevcut bir kullanabilirsiniz.
-  * Konumu - Batı Orta ABD Bu önizleme için seçmeniz gerekir
+  * Konumu - seçmelisiniz bir [bölge desteklenen](#regions).
   * Fiyatlandırma katmanı - seçin 'ücretsiz'
+  
+  >[!NOTE]
+  >Expressroute bağlantı hattı dünyada herhangi bir yerde olabilir ve çalışma alanı ile aynı bölgede olması gerekmez.
+  >
+
 
   ![Çalışma alanı](.\media\how-to-npm\4.png)<br><br>
 4. Tıklatın **Tamam** kaydetmek ve ayarları şablonu dağıtmak için. Şablon doğrular sonra tıklayın **oluşturma** çalışma dağıtmak için.
@@ -168,7 +179,7 @@ NSG hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-n
 >
 >
 
-NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma alanı Güvenilenler listesine sahip istemeniz gerekir. [Sayfasına gidin ve istek formu doldurmak için burayı tıklatın](https://go.microsoft.com/fwlink/?linkid=862263). (İpucu: bir yeni penceresinde veya sekmesinde bu bağlantıyı açmak istediğiniz). Uygulamaları güvenilir listeye almayı işlemi, bir iş günü veya daha fazla sürebilir. Uygulamaları güvenilir listeye almayı tamamlandıktan sonra bir e-posta alacaksınız.
+NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma alanı Güvenilenler listesine sahip istemeniz gerekir. [Sayfasına gidin ve istek formu doldurmak için burayı tıklatın](https://aka.ms/npmcohort). (İpucu: bir yeni penceresinde veya sekmesinde bu bağlantıyı açmak istediğiniz). Uygulamaları güvenilir listeye almayı işlemi, bir iş günü veya daha fazla sürebilir. Uygulamaları güvenilir listeye almayı tamamlandıktan sonra bir e-posta alacaksınız.
 
 ## <a name="setupmonitor"></a>Adım 5: ExpressRoute izleme için NPM yapılandırma
 

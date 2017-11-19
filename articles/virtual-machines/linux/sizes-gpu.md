@@ -1,6 +1,6 @@
 ---
 title: "Azure Linux VM boyutları - GPU | Microsoft Docs"
-description: "Listeleri farklı GPU Azure Linux sanal makineler için kullanılabilir boyutları en iyi duruma getirilmiş."
+description: "Listeleri farklı GPU Azure Linux sanal makineler için kullanılabilir boyutları en iyi duruma getirilmiş. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 645f69e71c5a13bb70edabfd22f51ed5df619693
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6650bb2620f43053836a49f39337852d94d8dbc5
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Sanal makine boyutlarını GPU en iyi duruma getirilmiş
 

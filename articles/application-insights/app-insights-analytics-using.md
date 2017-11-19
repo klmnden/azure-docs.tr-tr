@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 50161c71443a3cc0192ab2db771bb258058e233c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Application Insights'ta Analytics kullanma
 [Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfaları günlük analizi sorgu dili açıklanmaktadır.
@@ -38,7 +38,7 @@ Var olan bir [burada daha kapsamlı Turu](app-insights-analytics-tour.md).
 ### <a name="write-a-query"></a>Bir sorgu yazın
 ![Şema görüntüleme](./media/app-insights-analytics-using/150.png)
 
-Sol tarafta listelenen tablolardan herhangi birini adları ile başlar (veya [aralığı](https://docs.loganalytics.io/queryLanguage/query_language_rangeoperator.html) veya [UNION](https://docs.loganalytics.io/queryLanguage/query_language_unionoperator.html) işleçleri). Kullanım `|` bir kanalı oluşturmak için [işleçleri](https://docs.loganalytics.io/learn/cheatsheets/useful_operators.html). 
+Sol tarafta listelenen tablolardan herhangi birini adları ile başlar (veya [aralığı](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/range-operator) veya [UNION](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/union-operator) işleçleri). Kullanım `|` bir kanalı oluşturmak için [işleçleri](https://docs.loganalytics.io/docs/Learn/References/Useful-operators). 
 
 IntelliSense işleçler ve kullanabileceğiniz ifade öğeleri ister. Bilgi simgesini tıklatın (veya CTRL + ARA ÇUBUĞU tuşlarına basın) daha uzun bir açıklama ve her öğesinin nasıl kullanılacağını örnekleri alınamadı.
 
@@ -49,7 +49,7 @@ Bkz: [Analytics dil Turu](app-insights-analytics-tour.md) ve [dil başvurusu](ap
 
 1. Sorguda tek satır sonları kullanabilirsiniz.
 2. İmleci içinde veya sorguyu çalıştırmak istediğiniz sonuna yerleştirin.
-3. Sorgunuz zaman aralığını denetleyin. (Bunu değiştirmek veya kendi dahil ederek geçersiz kılma [ `where...timestamp...` ](https://docs.loganalytics.io/concepts/concepts_datatypes_timespan.html) yan tümcesinde, sorgunuzu.)
+3. Sorgunuz zaman aralığını denetleyin. (Bunu değiştirmek veya kendi dahil ederek geçersiz kılma [ `where...timestamp...` ](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations) yan tümcesinde, sorgunuzu.)
 3. Sorguyu çalıştırmak için Git'i tıklatın.
 4. Boş satırlar sorgunuzda koymayın. Boş satırlar ile ayırarak bir sorgu sekmede birkaç ayrılmış sorguları kullanmaya devam edebilir. İmleç olan sorguyu çalıştırır.
 
@@ -71,7 +71,7 @@ Sıralama, filtre, sayfalara bölme ve Grup sorgudan döndürülen sonuçları.
 > [!NOTE]
 > Sıralama, gruplandırma ve tarayıcıda filtreleme sorgunuzu yeniden çalıştırmayın. Bunlar yalnızca son sorgu tarafından döndürülen sonuçları yeniden düzenleyin. 
 > 
-> Sonuçların döndürülmesini önce sunucuda bu görevleri gerçekleştirmek için sorgunuzu ile yazma [sıralama](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html), [özetlemek](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) ve [burada](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) işleçler.
+> Sonuçların döndürülmesini önce sunucuda bu görevleri gerçekleştirmek için sorgunuzu ile yazma [sıralama](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator), [özetlemek](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) ve [burada](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) işleçler.
 > 
 > 
 
@@ -99,7 +99,7 @@ Beklediğiniz tüm sonuçları görmüyorsanız düşünüyorsanız, birkaç ola
 
     Bununla birlikte, zaman aralığını değiştirebilirsiniz açılan menüsünü kullanarak filtre.
 
-    Ya da kendi ekleyerek otomatik aralık geçersiz kılabilirsiniz [ `where  ... timestamp ...` yan tümcesi](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) sorgunuzu içine. Örneğin:
+    Ya da kendi ekleyerek otomatik aralık geçersiz kılabilirsiniz [ `where  ... timestamp ...` yan tümcesi](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) sorgunuzu içine. Örneğin:
 
     `requests | where timestamp > ago('2d')`
 
@@ -107,21 +107,21 @@ Beklediğiniz tüm sonuçları görmüyorsanız düşünüyorsanız, birkaç ola
 
     Sınır basarsa önlemek için iyi bir uygulamadır. Zaman aralığı filtresi veya işleçleri gibi kullanın:
 
-  * [zaman damgası tarafından ilk 100](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 
-  * [100 alın](https://docs.loganalytics.io/queryLanguage/query_language_takeoperator.html)
-  * [Özetle](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html) 
-  * [Burada zaman damgası > ago(3d)](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html)
+  * [zaman damgası tarafından ilk 100](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) 
+  * [100 alın](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/take-operator)
+  * [Özetle](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 
+  * [Burada zaman damgası > ago(3d)](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator)
 
 (10'dan fazla k satırları istiyorsunuz? Kullanmayı [sürekli verme](app-insights-export-telemetry.md) yerine. Analytics alınırken ham verileri yerine analiz için tasarlanmıştır.)
 
-## <a name="diagrams"></a>Diyagramları
+## <a name="diagrams"></a>Diyagramlar
 İstediğiniz diyagram türünü seçin:
 
 ![Bir diyagram türü seçin](./media/app-insights-analytics-using/230.png)
 
 Sağ türlerinin birkaç sütun varsa, x ve y eksenleri ve bir sütun sonuçlarına göre bölme boyutlarının seçebilirsiniz.
 
-Varsayılan olarak, sonuçlar başlangıçta tablo olarak görüntülenir ve diyagram el ile seçin. Ancak kullanabilirsiniz [yönergesi işleme](https://docs.loganalytics.io/queryLanguage/query_language_renderoperator.html) bir diyagram seçmek için bir sorgu sonunda.
+Varsayılan olarak, sonuçlar başlangıçta tablo olarak görüntülenir ve diyagram el ile seçin. Ancak kullanabilirsiniz [yönergesi işleme](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) bir diyagram seçmek için bir sorgu sonunda.
 
 ### <a name="analytics-diagnostics"></a>Analytics tanılama
 

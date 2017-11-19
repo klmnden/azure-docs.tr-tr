@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: b6047528b56c220a410a602422604c1453024903
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>Uygulamanızı Azure’a yedekleme
 Yedekleme ve geri yükleme özelliği [Azure App Service](app-service-web-overview.md) el ile veya bir zamanlamaya göre uygulama yedeklemeleri kolayca oluşturmanıza olanak sağlar. Uygulama mevcut uygulamanın üzerine veya başka bir uygulamaya geri anlık görüntü önceki bir duruma geri yükleyebilirsiniz. 
@@ -38,7 +38,6 @@ Uygulama hizmeti bir Azure depolama hesabı ve kullanmak için uygulamanızı ya
    - [SQL Veritabanı](https://azure.microsoft.com/en-us/services/sql-database/)
    - [Azure veritabanı için MySQL (Önizleme)](https://azure.microsoft.com/en-us/services/mysql)
    - [Azure veritabanı için PostgreSQL (Önizleme)](https://azure.microsoft.com/en-us/services/postgres)
-   - [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
    - [Uygulama MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

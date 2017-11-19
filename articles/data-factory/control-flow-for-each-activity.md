@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: 10c0dd2156e850b421d80901b6f0b40c7d384cef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory ForEach etkinlik
 ForEach etkinliği, yinelenen bir denetim akışı ardışık düzeninde tanımlar. Bu etkinlik bir koleksiyon üzerinde yinelemek için kullanılır ve bir döngüde belirtilen etkinlikleri yürütür. Bu etkinliğin döngü uygulaması, programlama dillerindeki Foreach döngü yapısına benzer.
@@ -34,7 +34,10 @@ ForEach etkinliği, yinelenen bir denetim akışı ardışık düzeninde tanıml
    "type":"ForEach",
    "typeProperties":{  
       "isSequential":"true",
-      "items":"@pipeline().parameters.mySinkDatasetFolderPathCollection",
+        "items": {
+            "value": "@pipeline().parameters.mySinkDatasetFolderPathCollection",
+            "type": "Expression"
+        },
       "activities":[  
          {  
             "name":"MyCopyActivity",
@@ -73,7 +76,7 @@ ForEach etkinliği, yinelenen bir denetim akışı ardışık düzeninde tanıml
 -------- | ----------- | -------------- | --------
 ad | İçin-her etkinliğin adını. | Dize | Evet
 type | Ayarlanmalıdır **ForEach** | Dize | Evet
-isSequential | Döngü sırayla veya paralel gerçekleştirilip gerçekleştirilmeyeceğini belirtir.  En fazla 20 döngüsü yinelemeleri aynı anda paralel olarak çalıştırılabilir). Örneğin, bir ForEach etkinlik üzerinde kopyalama etkinliği ile 10 farklı kaynak ve havuz veri kümeleriyle yineleme varsa **isSequential** False olarak ayarlanırsa, tüm kopyalarını aynı anda çalıştırılır. False varsayılan değerdir. <br/><br/> "İsSequential" False olarak ayarlanırsa, birden fazla yürütülebilir dosyaları çalıştırmak için doğru bir yapılandırma olduğundan emin olun. Aksi takdirde, bu özellik dikkatli yazma çakışmaları oluşmasını önlemek için kullanılmalıdır. Daha fazla bilgi için bkz: [Paralel yürütme](#parallel-execution) bölümü. | Boole değeri | Hayır. False varsayılan değerdir.
+isSequential | Döngü sırayla veya paralel gerçekleştirilip gerçekleştirilmeyeceğini belirtir.  En fazla 20 döngüsü yinelemeleri aynı anda paralel olarak çalıştırılabilir). Örneğin, bir ForEach etkinlik üzerinde kopyalama etkinliği ile 10 farklı kaynak ve havuz veri kümeleriyle yineleme varsa **isSequential** False olarak ayarlanırsa, tüm kopyalarını aynı anda çalıştırılır. False varsayılan değerdir. <br/><br/> "İsSequential" False olarak ayarlanırsa, birden fazla yürütülebilir dosyaları çalıştırmak için doğru bir yapılandırma olduğundan emin olun. Aksi takdirde, bu özellik dikkatli yazma çakışmaları oluşmasını önlemek için kullanılmalıdır. Daha fazla bilgi için bkz: [Paralel yürütme](#parallel-execution) bölümü. | Boole | Hayır. False varsayılan değerdir.
 Öğeler | Bir JSON dizisi üzerinden yinelendiğinde döndürür bir ifade. | (Bir JSON dizisi döndürür) ifade | Evet
 Etkinlikler | Yürütülecek etkinlikler. | Etkinlikler listesi | Evet
 
@@ -98,7 +101,10 @@ ForEach etkinliğinde üzerinden özelliği için yinelendiğinde için bir dizi
                 "type": "ForEach",
                 "typeProperties": {
                     "isSequential": "true",
-                    "items": "@pipeline().parameters.mySinkDatasetFolderPath",
+                    "items": {
+                        "value": "@pipeline().parameters.mySinkDatasetFolderPath",
+                        "type": "Expression"
+                    },
                     "activities": [
                         {
                             "name": "MyCopyActivity",

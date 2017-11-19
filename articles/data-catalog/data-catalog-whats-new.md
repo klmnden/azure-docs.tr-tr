@@ -13,16 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure veri Kataloğu'ndaki Yenilikler
 Güncelleştirmeleri **Azure veri Kataloğu** düzenli olarak kullanıma sunulur. Bazı sürümler arka uç hizmeti özellikleri üzerine odaklanan gibi her sürüm yeni kullanıcı yönelik özellikler içerir. Bu sayfa Azure veri Kataloğu hizmetine eklenen yeni kullanıcı dönük özelliklerini vurgular.
+
+## <a name="whats-new-for-november-2017"></a>Kasım 2017 yenilikler nelerdir? 
+Kasım 2017'ten itibaren Azure veri kataloğu için aşağıdaki özellikleri eklenmiştir:
+
+* Belirli iş sözlük terimlerini veri Kataloğu portalında doğrudan bağlamak için destek. Kullanıcılar iş sözlüğünden bağlantılar kopyalayın ve bunları belgeleri, e-postalar, raporları veya başka bir konuma sözlüğü terim tanımı doğrudan bağlantı katıştırma.
+* Azure Active Directory hizmet asıl adı için destek. Veri Kataloğu Yöneticiler Kataloğu'na erişmek için hizmet asıl adı kullanan istemci uygulamalar yetki verebilir ve yalnızca bunlar kullanıcılar ve güvenlik grupları için izinler verebilirsiniz gibi bu uygulamalara belirli izinler verebilirsiniz. Ek bilgi için bkz: [uygulama ve hizmet asıl nesneler Azure Active Directory'de](../active-directory/develop/active-directory-application-objects.md).
+* Veri Kataloğu veri kaynağı kayıt aracını kullanarak Azure SQL Database ve Azure SQL veri ambarı veri kaynaklarına bağlanırken Azure Active Directory kimlik doğrulaması için destek. Ek bilgi için bkz: [Azure Active Directory kimlik doğrulamasını kullan SQL Database veya SQL Data Warehouse ile kimlik doğrulaması için](../sql-database/sql-database-aad-authentication.md).
+
 
 ## <a name="whats-new-for-september-2017"></a>Eylül 2017 yenilikler nelerdir? 
 Eylül 2017'ten itibaren Azure veri kataloğu için aşağıdaki özellikleri eklenmiştir:

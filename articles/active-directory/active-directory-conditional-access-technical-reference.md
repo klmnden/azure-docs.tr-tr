@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/11/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 0bb79929a431a81c1618e09ee76fcb8415480655
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory koşullu erişim Teknik Başvurusu
 
@@ -119,20 +119,19 @@ Denetim tarayıcı erişimi kullanarak **tarayıcı** koşullu erişim ilkenizi 
 Koşullu erişim ilkenizi aşağıdaki tarayıcılarda desteklenir: 
 
 
-| İşletim Sistemi                     | Tarayıcılar                    | Destek     |
-| :--                    | :--                         | :-:         |
-| Windows 10             | Internet Explorer, sınır     | ![İşaretli][1] |
-| Windows 10             | Chrome                      | ![İşaretli][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome   | ![İşaretli][1] |
-| Windows 7              | Internet Explorer, Chrome   | ![İşaretli][1] |
-| iOS                    | Safari, Intune yönetilen tarayıcı                      | ![İşaretli][1] |
-| Android                | Chrome, Intune yönetilen tarayıcı                      | ![İşaretli][1] |
-| Windows Phone          | Internet Explorer, sınır     | ![İşaretli][1] |
-| Windows Server 2016    | Internet Explorer, sınır     | ![İşaretli][1] |
-| Windows Server 2016    | Chrome                      | Çok yakında |
-| Windows Server 2012 R2 | Internet Explorer, Chrome   | ![İşaretli][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome   | ![İşaretli][1] |
-| macOS                  | Chrome, Safari              | ![İşaretli][1] |
+| İşletim Sistemi                     | Tarayıcılar                            | Destek     |
+| :--                    | :--                                 | :-:         |
+| Windows 10             | Internet Explorer, kenar, Chrome     | ![Onay işareti][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Onay işareti][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![Onay işareti][1] |
+| iOS                    | Safari, Intune yönetilen tarayıcı      | ![Onay işareti][1] |
+| Android                | Chrome, Intune yönetilen tarayıcı      | ![Onay işareti][1] |
+| Windows Phone          | Internet Explorer, sınır             | ![Onay işareti][1] |
+| Windows Server 2016    | Internet Explorer, sınır             | ![Onay işareti][1] |
+| Windows Server 2016    | Chrome                              | Çok yakında |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Onay işareti][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Onay işareti][1] |
+| macOS                  | Chrome, Safari                      | ![Onay işareti][1] |
 
 
 > [!NOTE]

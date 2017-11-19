@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c309c7c25a3ed75e96dec8046934530e24890f38
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ekleme, değiştirme veya bir Azure ağ arabirimi için IP adreslerini kaldırın
 
@@ -52,7 +52,7 @@ Kadar ekleyebilirsiniz [özel](#private) ve [ortak](#public) [IPv4](#ipv4) adres
     |---|---|---|
     |Ad|Evet|Ağ arabirimi için benzersiz olmalıdır|
     |Tür|Evet|Varolan bir ağ arabirimine bir IP yapılandırması ekleme ve her bir ağ arabirimine sahip olmalıdır bu yana bir [birincil](#primary) IP yapılandırması, tek seçenektir **ikincil**.|
-    |Özel IP adres ataması yöntemi|Evet|[**Dinamik** ](#dynamic) adresleri durduruldu (serbest bırakıldığında) durumda bırakıldı sonra sanal makineyi yeniden başlatılırsa değiştirebilirsiniz. Azure, gelen ağ arabiriminin bağlı olduğu alt ağ adres alanında kullanılabilir bir adresi atar. [**Statik** ](#static) ağ arabirimi silinene kadar adresleri serbest değil. Bir IP adresi şu anda başka bir IP yapılandırması tarafından kullanılmadığından alt ağ adres alanı aralığı belirtin.|
+    |Özel IP adres ataması yöntemi|Evet|[**Dinamik**](#dynamic): Azure ağ arabirimi dağıtılır alt ağ adres aralığı için sonraki kullanılabilir adresi atar. [**Statik**](#static): ağ arabirimi dağıtılır alt ağ adres aralığı için kullanılmayan bir adresi atayın.|
     |Genel IP adresi|Hayır|**Devre dışı:** hiçbir ortak IP adresi kaynağı şu anda IP yapılandırmasıyla ilişkilendirilmiş. **Etkin:** var olan bir IPv4 ortak IP adresi seçin veya yeni bir tane oluşturun. Bir ortak IP adresi oluşturmayı öğrenmek için okuma [ortak IP adresleri](virtual-network-public-ip-address.md#create-a-public-ip-address) makalesi.|
 7. Yönergeleri izleyerek ikincil özel IP adresleri için sanal makine işletim sistemini el ile eklemeniz [sanal makine işletim sistemleri için birden çok IP adresi atamak](virtual-network-multiple-ip-addresses-portal.md#os-config) makalesi. Bkz: [özel](#private) el ile bir sanal makine işletim sistemine IP adreslerini eklemeden önce özel konular için IP adresi. Herhangi bir ortak IP adresi sanal makine işletim sistemine eklemeyin.
 
@@ -133,7 +133,7 @@ Aşağıdaki IP adreslerine türlerini atayabilirsiniz bir [IP yapılandırması
 
 Özel [IPv4](#ipv4) adresleri sanal ağ veya diğer bağlı ağlara diğer kaynakları ile iletişim kurmak bir sanal makine etkinleştirin. Bir sanal makine için gelen iletilen olamaz ya da sanal makineyi bir özel olan giden iletişim kurabilir [IPv6](#ipv6) adresiyle bir özel durum. Bir sanal makine, bir IPv6 adresi kullanarak Azure yük dengeleyici ile iletişim kurabilir. Daha fazla bilgi için bkz: [ayrıntıları ve IPv6 için sınırlamalar](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations). 
 
-Varsayılan olarak, Azure DHCP sunucuları için özel bir IPv4 adresi atamak [birincil IP yapılandırmasının](#primary) ağ arabiriminin ağ arabirimi sanal makine işletim sistemi içinde. Sürece gerekirse, hiçbir zaman el ile sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini ayarlamanız. 
+Varsayılan olarak, Azure DHCP sunucuları için özel bir IPv4 adresi atamak [birincil IP yapılandırmasının](#primary) ağ arabirimi sanal makine işletim sistemi içinde Azure ağ arabiriminin. Sürece gerekirse, hiçbir zaman el ile sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini ayarlamanız. 
 
 > [!WARNING]
 > IPv4 adresi birincil bir sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini olarak ayarlarsanız birincil ağ arabirimi birincil IP yapılandırmasının atanan özel bir IPv4 adresi herhangi bir zamanda farklı bir sanal makineye bağlı Azure içinde sanal makine bağlantısı kesilir.
@@ -148,28 +148,34 @@ Sanal makinenin işletim sistemi içinde bir ağ arabiriminin IP adresini el ile
  
 İzleyerek önceki adımlar, Azure içinde ve bir sanal makinenin işletim sistemi içinde ağ arabirimine atanmış özel IP adresi aynı kalır. Hangi sanal makinelerin IP adresleri için bir işletim sistemi içinde el ile ayarladınız, abonelik içindeki izlemek için Azure eklemeyi düşünün [etiketi](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) sanal makinelere. Kullanabileceğinize "IP adresi ataması: statik", örneğin. Bu şekilde, işletim sistemi içinde IP adresini el ile ayarladınız, abonelik içindeki sanal makineleri kolayca bulabilirsiniz.
 
-Diğer kaynaklar aynı ya da bağlı sanal ağlar ile iletişim kurmak bir sanal makine etkinleştirmeye ek olarak, özel IP adresini de Internet'e giden iletişim kurmak bir sanal makine sağlar. Giden bağlantılar, Azure tarafından beklenmeyen bir ortak IP adresi çevrilmiş kaynak ağ adresi gerçekleştirilir. Azure giden Internet bağlantısı hakkında daha fazla bilgi için okuma [Azure giden Internet bağlantısı](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. Gelen bir sanal makinenin özel IP adresi Internet üzerinden iletişim kuramıyor.
+Diğer kaynaklar aynı ya da bağlı sanal ağlar ile iletişim kurmak bir sanal makine etkinleştirmeye ek olarak, özel IP adresini de Internet'e giden iletişim kurmak bir sanal makine sağlar. Giden bağlantılar, Azure tarafından beklenmeyen bir ortak IP adresi çevrilmiş kaynak ağ adresi gerçekleştirilir. Azure giden Internet bağlantısı hakkında daha fazla bilgi için okuma [Azure giden Internet bağlantısı](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. Gelen bir sanal makinenin özel IP adresi Internet üzerinden iletişim kuramıyor. Giden bağlantılar tahmin edilebilir bir ortak IP adresi gerekiyorsa, bir ağ arabirimi genel bir IP adresi kaynağı ilişkilendirin.
 
 ### <a name="public"></a>Genel
 
-Genel IP adresleri, Internet'ten bir sanal makineye gelen bağlantı etkinleştirin. İnternet giden bağlantılar tahmin edilebilir bir IP adresi kullanın. Bkz: [azure'da giden bağlantılar anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Ayrıntılar için. Bir ortak IP adresi bir IP yapılandırmasına atayabilir, ancak gerekli değildir. Bir sanal makine için bir ortak IP adresi atamazsanız, bunu hala özel IP adresini kullanarak Internet'e giden iletişim kurabilir. Genel IP adresleri hakkında daha fazla bilgi için okuma [genel IP adresi](virtual-network-public-ip-address.md) makalesi.
+Genel bir IP adresi kaynağı atanmış ortak IP adresleri, Internet'ten bir sanal makineye gelen bağlantı etkinleştirin. İnternet giden bağlantılar tahmin edilebilir bir IP adresi kullanın. Bkz: [azure'da giden bağlantılar anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Ayrıntılar için. Bir ortak IP adresi bir IP yapılandırmasına atayabilir, ancak gerekli değildir. Genel bir IP adresi kaynağı ilişkilendirerek bir sanal makine için bir ortak IP adresi atamazsanız, sanal makine hala internet giden iletişim kurabilir. Bu durumda, özel IP adresi Azure tarafından beklenmeyen bir ortak IP adresi çevrilmiş kaynak ağ adresi değil. Genel IP adresi kaynakları hakkında daha fazla bilgi için bkz: [genel IP adresi kaynağı](virtual-network-public-ip-address.md).
 
 Bir ağ arabirimine atayabilirsiniz özel ve genel IP adresi sayısı sınırı vardır. Ayrıntılar için [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesi.
 
 > [!NOTE]
-> Azure genel bir IP adresi için bir sanal makinenin özel IP adresi çevirir. Sonuç olarak, işletim sistemi; böylece herhangi bir zamanda el ile işletim sistemi içinde genel bir IP adresi atamak için gerekli kendisine atanmış tüm ortak IP adresleri farkında değildir.
+> Azure genel bir IP adresi için bir sanal makinenin özel IP adresi çevirir. Sonuç olarak, bir sanal makinenin işletim sistemi; böylece herhangi bir zamanda el ile işletim sistemi içinde genel bir IP adresi atamak için gerekli kendisine atanmış bir ortak IP adresinin farkında değildir.
 
 ## <a name="assignment-methods"></a>Atama yöntemleri
 
-Ortak ve özel IP adreslerini aşağıdaki atama yöntemler kullanılarak atanır:
+Ortak ve özel IP adreslerini aşağıdaki atama yöntemlerden birini kullanarak atanır:
 
 ### <a name="dynamic"></a>Dinamik
 
-(İsteğe bağlı) dinamik özel IPv4 ve IPv6 adresleri varsayılan olarak atanır. Sanal makine durduruldu (serbest bırakıldığında) duruma yeniden başlatılan dinamik adresler değiştirebilirsiniz. Sanal makine süresince değiştirmek için IPv4 adresleri istemiyorsanız, statik yöntemini kullanarak adresleri atayın. Yalnızca dinamik atama yöntemini kullanarak özel bir IPv6 adresi atayabilirsiniz. Her iki yöntemi kullanarak bir IP yapılandırması için genel bir IPv6 adresi atanamıyor.
+(İsteğe bağlı) dinamik özel IPv4 ve IPv6 adresleri varsayılan olarak atanır. 
+
+- **Yalnızca ortak**: Azure her bir Azure bölgesine benzersiz bir aralıktan adına atar. Hangi aralıkları her bölgeye atanan öğrenmek için bkz: [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Bir sanal makine (serbest bırakıldığında) yeniden başlatıldı durdurulduğunda adres değiştirebilirsiniz. Atama yöntemlerden birini kullanarak bir IP yapılandırması için genel bir IPv6 adresi atanamıyor.
+- **Yalnızca özel**: Azure her alt ağ adres aralığındaki ilk dört adresini ayırır ve adresleri atamaz. Azure sonraki kullanılabilir adres alt ağı adres aralığından bir kaynağa atar. Örneğin, alt ağın adres aralığı 10.0.0.0/16 adresleri 10.0.0.0.4-10.0.0.14 zaten atanmış ise (.0.3 ayrılmış), Azure kaynağı 10.0.0.15 atar. Varsayılan ayırma yöntemi dinamik bir işlemdir. Atanan sonra dinamik IP adresleri yalnızca aynı sanal ağ içindeki farklı bir alt atanmış bir ağ arabirimi silinir veya ayırma yöntemi statik olarak değiştirilir ve farklı bir IP adresi belirtilmişse yayımlanmıştır. Ayırma yöntemi dinamik statik olarak değiştirdiğinizde, varsayılan olarak, önceki dinamik olarak atanan adresi Azure statik adresi olarak atar. Yalnızca dinamik atama yöntemini kullanarak özel bir IPv6 adresi atayabilirsiniz.
 
 ### <a name="static"></a>Statik
 
-Bir sanal makine silinene kadar statik yöntemini kullanarak atanan adresler değiştirmeyin. El ile adres alanı alt ağ arabirimi için bir IP yapılandırması için adresinden bulunduğu statik özel bir IPv4 atanır. (İsteğe bağlı olarak), bir IP yapılandırması için genel veya özel statik bir IPv4 adresi atayabilirsiniz. Bir IP yapılandırması için bir statik genel veya özel bir IPv6 adresi atanamıyor. Azure statik genel IPv4 adresi nasıl atar hakkında daha fazla bilgi için bkz: [genel IP adresi](virtual-network-public-ip-address.md) makalesi.
+(İsteğe bağlı olarak), bir IP yapılandırması için genel veya özel statik bir IPv4 adresi atayabilirsiniz. Bir IP yapılandırması için bir statik genel veya özel bir IPv6 adresi atanamıyor. Azure statik genel IPv4 adresi nasıl atar hakkında daha fazla bilgi için bkz: [genel IP adresi](virtual-network-public-ip-address.md) makalesi.
+
+- **Yalnızca ortak**: Azure her bir Azure bölgesine benzersiz bir aralıktan adına atar. Hangi aralıkları her bölgeye atanan öğrenmek için bkz: [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Adres için atanan ortak IP adresi kaynağı silinmiş veya atama yöntemi dinamik değiştirildiğinde kadar değiştirmez. Bir IP yapılandırması için genel bir IP adresi kaynağı ilişkiliyse, kendi atama yöntemi değiştirmeden önce IP yapılandırmasından ilişkisi gerekir.
+- **Yalnızca özel**: seçin ve alt ağın adres aralığından bir adresi atayın. Atadığınız adresi alt ağ adres aralığındaki bir alt ağın adres aralığındaki ilk dört adres değil ve şu anda alt ağdaki diğer herhangi bir kaynağa atanmamış herhangi bir adresi olabilir. Bir ağ arabirimi silinirse statik adresleri yalnızca serbest bırakılır. Ayırma yöntemi statik olarak değiştirirseniz, adres alt ağın adres aralığındaki sonraki kullanılabilir adrese olmasa bile Azure daha önce atanan statik IP adresi dinamik adresi olarak dinamik olarak atar. Adres, ağ arabirimi, aynı sanal ağ içinde farklı bir alt atanmış, ancak farklı bir alt ağ arabirimi atamak için önce ayırma yöntemi statik olan dinamik olarak değiştirmeniz gerekir da değişir. Farklı bir alt ağ arabirimi atadığınız sonra ayırma yöntemi geri statik olarak değiştirin ve yeni alt ağın adres aralığından bir IP adresi atayın.
 
 ## <a name="ip-address-versions"></a>IP adresi sürümleri
 

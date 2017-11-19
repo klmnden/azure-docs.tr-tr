@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim için Geliştirici Kılavuzu
 
 Azure Active Directory (AD), uygulamanızın güvenli ve bir hizmet korumak için çeşitli yollar sunar.  Bu benzersiz özellikleri koşullu erişim biridir.  Geliştiricilerin ve kurumsal müşteriler dahil olmak üzere çok sayıda hizmetlerini korumak koşullu erişim sağlar:
 
-* Multi-factor authentication
+* Multi-Factor Authentication
 * Kayıtlı cihazlar belirli hizmetlere erişmek için yalnızca Intune izin verme
 * Kullanıcı konumları ve IP kısıtlama aralıkları
 
-Koşullu erişim özelliklerinin hakkında daha fazla bilgi için bkz: [Klasik Azure portalındaki koşullu erişim](../active-directory-conditional-access.md). 
+Koşullu erişim özelliklerinin hakkında daha fazla bilgi için bkz: [Klasik Azure portalındaki koşullu erişim](../active-directory-conditional-access-azure-portal.md). 
 
 Bu makalede, geliştiriciler için Azure AD uygulamaları oluşturmak için hangi koşullu erişim gelir odaklanın.  Bilgisi varsayar [tek](active-directory-integrating-applications.md) ve [çok kiracılı](active-directory-devhowto-multi-tenant-overview.md) uygulamaları ve [ortak kimlik doğrulama desenler](active-directory-authentication-scenarios.md).
 
@@ -48,7 +48,7 @@ En yaygın durumlarda, koşullu erişim bir uygulamanın davranışı değiştir
 * Tek sayfa uygulamaları ADAL.js kullanma
 * Web uygulamaları bir kaynak çağırma
 
-Koşullu erişim ilkeleri uygulama için geçerli, ancak aynı zamanda bir web API uygulanabilir uygulamanızı erişir. Koşullu erişim ilkesini yapılandırma hakkında daha fazla bilgi için lütfen bkz [Azure Active Directory koşullu erişimi kullanmaya başlama](../active-directory-conditional-access-azuread-connected-apps.md).
+Koşullu erişim ilkeleri uygulama için geçerli, ancak aynı zamanda bir web API uygulanabilir uygulamanızı erişir. Koşullu erişim ilkesini yapılandırma hakkında daha fazla bilgi için lütfen bkz [Azure Active Directory koşullu erişimi kullanmaya başlama](../active-directory-conditional-access-azure-portal-get-started.md).
 
 Bağlı olarak senaryo, bir kurumsal müşteri uygulanır ve herhangi bir zamanda koşullu erişim ilkelerini kaldırın.  Yeni bir ilke uygulandığında çalışmaya devam edebilmesi, uygulamanızın "sınama" işleme uygulamak gerekir. Aşağıdaki örnekler sınama işleme gösterir. 
 
@@ -74,7 +74,7 @@ Geliştiriciler, bu sorunu ele ve Azure ad ile yeni bir istek üzerine ekleyin. 
 
 ## <a name="scenarios"></a>Senaryolar
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Azure AD koşullu erişim, bulunan bir özelliktir [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Lisans gereksinimleri hakkında daha fazla bilgiyi [lisanssız kullanım raporu](../active-directory-conditional-access-unlicensed-usage-report.md).  Geliştiriciler birleştirme [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), Azure AD Premium içeren Enterprise Mobility Suite için ücretsiz bir abonelik içerir.
 
@@ -218,7 +218,7 @@ Bu senaryo denemek için bkz: bizim [JS SPA üzerinde-adına-kodunu örnek](http
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* Özellikleri hakkında daha fazla bilgi edinmek için [Azure AD'de koşullu erişim](../active-directory-conditional-access.md).
+* Özellikleri hakkında daha fazla bilgi edinmek için [Azure AD'de koşullu erişim](../active-directory-conditional-access-azure-portal.md).
 * Daha fazla Azure AD kod örnekleri için bkz: [Github deposuna kod örnekleri](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * ADAL SDK'ın ve erişim başvuru belgeleri hakkında daha fazla bilgi için bkz: [kitaplığı Kılavuzu](active-directory-authentication-libraries.md).
 * Çok kiracılı senaryoları hakkında daha fazla bilgi için bkz: [çok kiracılı desenini kullanarak kullanıcılar oturum nasıl](active-directory-devhowto-multi-tenant-overview.md).

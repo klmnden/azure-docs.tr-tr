@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>Onaylar (Önizleme)
+# <a name="approvals"></a>Onaylar
 
 ## <a name="overview"></a>Genel Bakış
 
 Privileged Identity Management için onayları sayesinde, etkinleştirme için onay gerektirmesini rollerini yapılandırın ve bir veya birden çok kullanıcı veya grup temsilci onaylayanlar olarak seçin. Rollerini yapılandırın ve onaylayanlar seçin öğrenmek için okuma tutun.
 
->[!NOTE]
-Lütfen bu özelliği geliştirilme aşamasındadır göz önünde bulundurun ve hatalar karşılaşabilirsiniz. İşlevselliği metin dahil ve adlandırma kuralları değiştirilebilir ve son düşünülmemelidir.
 
-
-## <a name="key-terminology"></a>Anahtar terminolojisi
+## <a name="new-terminology"></a>Yeni terminolojisi
 
 *Uygun rol kullanıcı* – kuruluşunuzdaki uygun olarak bir Azure AD rolüne atanmış bir kullanıcı bir uygun rol olduğu (Rol etkinleştirmesi gerekir).
 
-*Onaylayan temsilci* – bir temsilci onaylayan bir veya birden çok kişiler rol etkinleştirme isteklerini onaylama için sorumlu olan grupları, Azure AD içinde mi.
+*Onaylayan temsilci* – bir temsilci onaylayan bir veya birden çok kişiler veya gruplar onaylama için sorumlu Azure AD içinde istek rolleri etkinleştirmek için.
 
 ## <a name="scenarios"></a>Senaryolar
 

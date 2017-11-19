@@ -4,7 +4,7 @@ description: "Basit bir Java uygulaması dağıtarak App Service'te web uygulama
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 6/7/2017
+ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ac8ef479be5a93b2c4baa76279c8d3e53389409a
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 3d9a4d72d348b4fe631f075debb6198462f24c56
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure’da ilk Java web uygulamanızı oluşturma
 
 Azure [Web Apps](app-service-web-overview.md) düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web barındırma hizmeti sağlar. Bu hızlı başlangıçta, [Java EE Geliştiricileri için Eclipse IDE](http://www.eclipse.org/) kullanarak App Service’e nasıl Java web uygulaması dağıtılacağı gösterilmektedir.
+
+Bu hızlı başlangıç tamamladıktan sonra bir web tarayıcısında görüntülediğinizde, uygulamanızın aşağıdaki çizime şuna benzer:
 
 !["Merhaba Azure!" örnek web uygulaması](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -32,7 +34,7 @@ Azure [Web Apps](app-service-web-overview.md) düzeyde ölçeklenebilir, otomati
 Bu hızlı başlangıcı tamamlamak için şunları yükleyin:
 
 * Ücretsiz [Java EE Geliştiricileri için Eclipse IDE](http://www.eclipse.org/downloads/). Bu hızlı başlangıçta Eclipse Neon kullanılır.
-* [Eclipse için Azure Araç Takımı](/azure/azure-toolkit-for-eclipse-installation).
+* [Eclipse için Azure Araç Takımı](/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -167,9 +169,9 @@ Proje Gezgini’nde projeye sağ tıklayın ve **Azure** > **Azure Web App olara
 
 **Web Uygulaması Dağıtma** iletişim kutusu açılır ve daha önce oluşturduğunuz uygulama hizmetini gösterir. 
 
-> [!NOTE]
-> Her yayımlama işleminde **Köke dağıt**’ı seçin.
->
+> [!NOTE] 
+> Her yayımlama işleminde **Köke dağıt**’ı seçin. 
+> 
 
 Web uygulamasını seçip **Dağıt**’ı seçin. Bunu yaptığınızda değişiklikler yayımlanır.
 

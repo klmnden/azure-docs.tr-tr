@@ -8,13 +8,13 @@ ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 5a0d25d698ddb15b4ba88d322c07a28b329c4add
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ace0eb671556dc980836464a365731d6100eab25
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
 ---
-# <a name="monitor-azure-sql-data-sync-preview-with-oms-log-analytics"></a>OMS günlük analizi ile İzleyici Azure SQL veri eşitleme (Önizleme) 
+# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>OMS günlük analizi ile İzleyici SQL veri eşitleme (Önizleme) 
 
 SQL veri eşitleme Etkinlik günlüğünü denetleyin ve hataları ve Uyarıları algılamak için daha önce SQL veri eşitleme Azure portalında el ile denetleyin veya PowerShell veya REST API'yi kullanın zorunda kalındı. İzleme deneyimine veri eşitleme artıran özel bir çözümü yapılandırmak için bu makaledeki adımları izleyin. Bu çözüm senaryonuza uyacak şekilde özelleştirebilirsiniz.
 
@@ -92,7 +92,7 @@ Bir runbook oluşturma hakkında daha fazla bilgi için bkz: [ilk PowerShell run
 
     2.  Eşitleme grubu bilgileri.
 
-    3.  OMS bilgileri. Bu bilgi OMS portalında | Ayarları | Bağlı kaynakları. Günlük analizi veri gönderme hakkında daha fazla bilgi için bkz: [HTTP veri toplayıcı API (genel Önizleme) ile günlük analizi veri Gönder](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
+    3.  OMS bilgileri. Bu bilgi OMS portalında | Ayarları | Bağlı kaynakları. Günlük analizi veri gönderme hakkında daha fazla bilgi için bkz: [HTTP veri toplayıcı API (genel Önizleme) ile günlük analizi veri Gönder](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Runbook Test Bölmesi'nde çalıştırın. Başarılı olup olmadığını denetleyin.
 
@@ -192,7 +192,7 @@ Bu makalede aşağıdaki konumlardan açıklanan kod örnekleri indirin:
 SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 
 -   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](sql-database-sync-data.md)
--   [Azure SQL veri eşitlemeye başlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL veri eşitleme ayarı](sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL veri eşitleme için en iyi yöntemler](sql-database-best-practices-data-sync.md)
 -   [Azure SQL veri eşitleme ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)
 

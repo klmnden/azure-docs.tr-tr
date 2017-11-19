@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Ölçümleri ve günlükleri izlemek için Linux tanılama uzantısını kullanın
 
@@ -163,7 +163,7 @@ Oluşturulan SAS storageAccountSasToken alana kopyalayın; önde gelen soru işa
 
 Bu isteğe bağlı bir bölüm, uzantı topladığı bilgileri gönderdiği ek hedefleri tanımlar. "Havuz" dizi her ek veri havuzu için bir nesne içeriyor. "Tür" özniteliği nesnesindeki diğer öznitelikleri belirler.
 
-Öğesi | Değer
+Öğe | Değer
 ------- | -----
 ad | Bu havuz başka bir uzantı yapılandırmasındaki başvurmak için kullanılan bir dize.
 type | Tanımlanan Havuz türü. Diğer değerler, bu tür durumlarda (varsa) belirler.
@@ -225,7 +225,7 @@ Bu yapı çeşitli bloklarını uzantısı tarafından toplanan bilgiler denetle
 }
 ```
 
-Öğesi | Değer
+Öğe | Değer
 ------- | -----
 StorageAccount | Veri uzantısı tarafından yazılmış depolama hesabı adı. Belirtilen ada olmalıdır [ayarların korumalı](#protected-settings).
 mdsdHttpProxy | (isteğe bağlı) Aynı olarak [ayarların korumalı](#protected-settings). Ortak değeri, varsa özel değer tarafından geçersiz ayarlayın. Bir parola gibi bir gizlilik bulunması proxy ayarlarını yerleştirin [ayarların korumalı](#protected-settings).
@@ -248,7 +248,7 @@ Kalan öğeleri aşağıdaki bölümlerde ayrıntılı olarak açıklanmıştır
 
 Bu isteğe bağlı yapısı denetimleri ölçümleri ve Azure ölçümleri hizmetine ve diğer veri teslimi için günlükleri toplama iç havuzlar. Ya da belirtmeniz gerekir `performanceCounters` veya `syslogEvents` veya her ikisini de. Belirtmeniz gerekir `metrics` yapısı.
 
-Öğesi | Değer
+Öğe | Değer
 ------- | -----
 eventVolume | (isteğe bağlı) Depolama tablo içinde oluşturulan bölümlere sayısını denetler. Biri olmalıdır `"Large"`, `"Medium"`, veya `"Small"`. Belirtilmezse, varsayılan değer: `"Medium"`.
 sampleRateInSeconds | (isteğe bağlı) Ham (unaggregated) ölçümleri topluluğu arasındaki varsayılan zaman aralığı. En küçük desteklenen örnek hızı 15 saniyedir. Belirtilmezse, varsayılan değer: `15`.
@@ -265,7 +265,7 @@ sampleRateInSeconds | (isteğe bağlı) Ham (unaggregated) ölçümleri toplulu�
 }
 ```
 
-Öğesi | Değer
+Öğe | Değer
 ------- | -----
 resourceId | VM ait olduğu Azure Resource Manager kaynak kimliği VM veya sanal makine ölçek kümesi. Bu ayar olmalıdır herhangi JsonBlob havuz yapılandırmada kullanılırsa da belirtilmiş.
 scheduledTransferPeriod | Hesaplanan ve Azure 8601 olduğu zaman aralığı ifade edilen ölçümleri, aktarılan toplam ölçümleri olan sıklığı. En küçük aktarım süresi 60, diğer bir deyişle, PT1M saniyedir. En az bir scheduledTransferPeriod belirtmeniz gerekir.
@@ -305,7 +305,7 @@ Bu isteğe bağlı bir bölüm ölçümleri koleksiyonunu denetler. Ham örnekle
 * Son toplanan değeri
 * Toplama hesaplamak için kullanılan ham örneklerin sayısı
 
-Öğesi | Değer
+Öğe | Değer
 ------- | -----
 İç havuzlar | (isteğe bağlı) Hangi LAD gönderir ölçüm sonuçlarını toplanan havuzlarını adlarının virgülle ayrılmış listesi. Tüm toplanan ölçümler için listelenen her havuz yayımlanır. Bkz: [sinksConfig](#sinksconfig). Örnek: `"EHsink1, myjsonsink"`.
 type | Ölçümün gerçek sağlayıcısını tanımlar.
@@ -319,7 +319,7 @@ Görünen adı | Etiket (ilişkili yerel ayarı tarafından belirtilen dilde) bu
 
 CounterSpecifier rasgele bir tanımlayıcıdır. Tüketiciler ölçümleri, Azure portal grafik ister ve özelliği, uyarı counterSpecifier "bir ölçüm veya bir ölçüm örneğini tanımlayan anahtar olarak" kullanın. İçin `builtin` ölçümleri, öneririz ile başlayan counterSpecifier değerleri kullandığınız `/builtin/`. Ölçüm belirli bir örneği topluyorsanız counterSpecifier değerine örneğinin tanıtıcısı ekleme öneririz. Bazı örnekler:
 
-* `/builtin/Processor/PercentIdleTime`-Tüm çekirdek arasında ortalaması boşta kalma süresi
+* `/builtin/Processor/PercentIdleTime`-Boşta kalma süresi tüm Vcpu'lar ortalaması
 * `/builtin/Disk/FreeSpace(/mnt)`-/Mnt dosya sistemi boş alan
 * `/builtin/Disk/FreeSpace`-Boş alan tüm takılı bağlanan dosya sistemlerinin ortalaması
 
@@ -351,7 +351,7 @@ Bu isteğe bağlı bir bölüm syslog günlük olayları koleksiyonu denetler. B
 
 SyslogEventConfiguration koleksiyon her syslog özelliğini ilgi için bir giriş içeriyor. MinSeverity "Hiçbiri" için belirli bir özellik varsa veya bu tesis öğesinde hiç görünmüyorsa, bu tesis hiçbir olaylarından yakalanır.
 
-Öğesi | Değer
+Öğe | Değer
 ------- | -----
 İç havuzlar | Ayrı günlük olayları yayımlanan havuzlarını adlarının virgülle ayrılmış listesi. SyslogEventConfiguration kısıtlamalarına eşleşen tüm günlük olayları için listelenen her havuz yayımlanır. Örnek: "EHforsyslog"
 facilityName | Bir syslog tesis adı (gibi "günlük\_kullanıcı" veya "günlük\_LOCAL0"). "Özelliği" bölümüne bakın [syslog adam sayfa](http://man7.org/linux/man-pages/man3/syslog.3.html) tam listesi için.
@@ -380,7 +380,7 @@ Bu isteğe bağlı bir bölüm rasgele yürütülmesi denetimleri [OMI](https://
 ]
 ```
 
-Öğesi | Değer
+Öğe | Değer
 ------- | -----
 Namespace | (isteğe bağlı) Sorgu içinde yürütülmesi gereken OMI ad alanı. Belirtilmezse, "kök/tarafından uygulanan scx", varsayılan değer: [System Center platformlar arası sağlayıcıları](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 sorgu | Yürütülecek OMI sorgu.
@@ -404,7 +404,7 @@ Günlük dosyalarının yakalama denetler. LAD dosyasına yazılır gibi yeni me
 ]
 ```
 
-Öğesi | Değer
+Öğe | Değer
 ------- | -----
 Dosya | İzlenen ve yakalanan için günlük dosyasının tam yol adı. Yol, tek bir dosya adı olmalıdır; bir dizin adı veya joker karakterler içeriyor.
 Tablo | (isteğe bağlı) İçine yeni dosya "kuyruğu" satırlarından yazılır belirtilen depolama hesabında (belirtildiği şekilde korumalı yapılandırma), Azure depolama tablo.
@@ -424,7 +424,7 @@ Yerleşik ölçüm ölçümleri geniş bir kullanıcı kümesi için en ilgi çe
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>İşlemci sınıfı için yerleşik ölçümleri
 
-Ölçümleri işlemci sınıfının VM'deki işlemci kullanımı hakkında bilgi sağlar. Yüzdeleri toplanırken ortalama tüm CPU'lar arasında sonucudur. Bir iki çekirdek VM, bir çekirdek % 100 meşgul ve diğer % 100 boşta şeklindeydi durumunda bildirilen PercentIdleTime 50 olur. Her çekirdek % 50 aynı dönem için meşgul ise, bildirilen sonuç da 50 olur. Bir çekirdek % 100 meşgul ve diğerleri boşta ile dört çekirdek VM içinde bildirilen PercentIdleTime 75 olacaktır.
+Ölçümleri işlemci sınıfının VM'deki işlemci kullanımı hakkında bilgi sağlar. Yüzdeleri toplanırken ortalama tüm CPU'lar arasında sonucudur. İki vCPU VM ile bir vCPU % 100 meşgul ve diğer % 100 boşta şeklindeydi durumunda bildirilen PercentIdleTime 50 olur. Her vCPU % 50 aynı dönem için meşgul ise, bildirilen sonuç da 50 olur. Bir vCPU % 100 meşgul ve diğerleri boşta olan bir dört vCPU VM bildirilen PercentIdleTime 75 olacaktır.
 
 Sayaç | Anlamı
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | Boş olmayan süresini yüzde ayrıcalıklı (çekirdek)
 
 İlk dört sayaçları % 100'e sum. Son üç sayaçlar da toplam % 100; Bunlar PercentProcessorTime, PercentIOWaitTime ve PercentInterruptTime toplamını ayırabilir.
 
-Tüm işlemciler arasında toplanan tek bir ölçüm elde etmek için ayarlama `"condition": "IsAggregate=TRUE"`. Bir dört ikinci mantıksal İşlemci çekirdek VM gibi belirli bir işlemci için bir ölçüm elde etmek için ayarlama `"condition": "Name=\\"1\\""`. Mantıksal işlemci numaralarıdır aralığında `[0..n-1]`.
+Tüm işlemciler arasında toplanan tek bir ölçüm elde etmek için ayarlama `"condition": "IsAggregate=TRUE"`. İkinci mantıksal işlemci dört vCPU VM gibi belirli bir işlemci için bir ölçüm elde etmek için ayarlama `"condition": "Name=\\"1\\""`. Mantıksal işlemci numaralarıdır aralığında `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>Bellek sınıfı için yerleşik ölçümleri
 

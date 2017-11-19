@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Aktarım nesneleri/Python kullanarak Azure Blob depolama biriminden
 Bu hızlı başlangıç Python karşıya yükleyin, indirin ve blok blobları Azure Blob Depolama birimindeki bir kapsayıcıda listelemek için nasıl kullanılacağını öğrenin. 
@@ -73,7 +73,11 @@ Bir aracı gibi kullanabilir [Azure Storage Gezgini](http://storageexplorer.com)
 
 Dosyaları doğrulandıktan sonra tanıtım ve test dosyalarını silmeniz herhangi bir tuşa basın. Örnek yaptığı bildiğinize göre kodu aramak için example.py dosyasını açın. 
 
-## <a name="get-references-to-the-storage-objects"></a>Depolama nesneleri başvuruları alma
+## <a name="understand-the-sample-code"></a>Örnek kodu anlama
+
+Ardından, böylece nasıl çalıştığını anlamanız biz örnek kodda yol.
+
+### <a name="get-references-to-the-storage-objects"></a>Depolama nesneleri başvuruları alma
 Yapılacak ilk şey erişmek ve Blob Depolama yönetmek için kullanılan nesnelerin referansları oluşturmaktır. Bu nesneler birbirine oluşturun ve her bir sonraki listesinde tarafından kullanılır.
 
 * Örneği **BlockBlobService** depolama hesabınızdaki Blob hizmetine işaret nesnesi. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>BLOB kapsayıcıya karşıya yükle
+### <a name="upload-blobs-to-the-container"></a>BLOB kapsayıcıya karşıya yükle
 
 Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları en yaygın olarak kullanılır ve bu hızlı başlangıç içinde kullanılan olmasıdır.  
 
@@ -128,7 +132,7 @@ Blob storage ile kullanabileceğiniz çeşitli karşıya yükleme yöntemler var
 
 Blok blobları 4.7 TB büyüklüğünde olabilir ve herhangi bir şeyin büyük video dosyaları için Excel elektronik tablolar olabilir. Sayfa blobları Iaas sanal makineleri yedeklemek için kullanılan VHD dosyalarını için birincil olarak kullanılır. Ekleme blobları gibi bir dosyaya yazmak ve daha fazla bilgi ekleme tutmak istediğiniz günlük için kullanılır. BLOB storage'da depolanan çoğu blok blobları nesneleridir.
 
-## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
+### <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
 Kapsayıcı kullanarak dosyaların bir listesini almak **list_blobs** yöntemi. Bu yöntem bir oluşturucuyu döndürür. Aşağıdaki kod BLOB'lar listesini alır ve ardından bunları bir kapsayıcıda bulunan blobların adlarını gösteren döngü.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>BLOB'ları indirme
+### <a name="download-the-blobs"></a>BLOB'ları indirme
 
 Kullanarak yerel disk blobları indirmek **almak\_blob\_için\_yolu** yöntemi. Aşağıdaki kod, önceki bölümde karşıya blob indirir. Her iki dosyaları yerel diskteki görebilmek için "_DOWNLOADED" blob adı sonek olarak eklenir. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+### <a name="clean-up-resources"></a>Kaynakları temizleme
 Bu hızlı başlangıcı karşıya BLOB'ları artık ihtiyacınız varsa, tüm kapsayıcı kullanarak silebilirsiniz **silmek\_kapsayıcı**. Oluşturulan dosyalar artık gerekirse, kullandığınız **silmek\_blob** dosyaları silmek için yöntem.
 
 ```python

@@ -1,5 +1,5 @@
 ---
-title: "Dayanıklı işlevlerine genel bakış - Azure"
+title: "Dayanıklı işlevlerine genel bakış - Azure (Önizleme)"
 description: "Azure işlevleri dayanıklı işlevleri uzantısı için giriş."
 services: functions
 author: cgillum
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>Dayanıklı işlevlerine genel bakış (Azure işlevleri)
+# <a name="durable-functions-overview-preview"></a>Dayanıklı işlevlerine genel bakış (Önizleme)
 
 *Dayanıklı işlevleri* uzantısıdır [Azure işlevleri](functions-overview.md) ve [Azure Web işleri](../app-service/web-sites-create-web-jobs.md) olanak tanıyan sunucusuz bir ortamda durum bilgisi olan işlevler yazma. Uzantı durumu, kontrol noktaları ve yeniden başlatmalar sizin için yönetir.
 
@@ -31,7 +31,7 @@ Uzantı, durum bilgisi olan iş akışları işlevi adlı yeni bir tür tanımla
 * Bunlar otomatik olarak denetim noktası işlevi bekler her kendi devam ediyor. Yerel durumu, hiçbir zaman işlemi geri dönüştürüldüğünde veya VM yeniden kaybolur.
 
 > [!NOTE]
-> Dayanıklı işlevleri Azure işlevleri için Gelişmiş bir uzantısıdır ve tüm uygulamalar için uygun değil. Bu makalenin geri kalanında, güçlü bir aşina sahibi olduğunuzu varsayar [Azure işlevleri](functions-overview.md) kavramları ve sorunları söz konusu sunucusuz bir uygulama geliştirme.
+> Dayanıklı işlevleri Önizleme aşamasındadır ve tüm uygulamalar için uygun değil Azure işlevleri için Gelişmiş bir uzantısıdır. Bu makalenin geri kalanında, güçlü bir aşina sahibi olduğunuzu varsayar [Azure işlevleri](functions-overview.md) kavramları ve sorunları söz konusu sunucusuz bir uygulama geliştirme.
 
 Dayanıklı işlevler için birincil kullanım durumu sunucusuz uygulamalardaki karmaşık, durum bilgisi olan koordinasyon sorunları basitleştirir. Aşağıdaki bölümlerde dayanıklı işlevlerinden yararlanabilirsiniz bazı tipik uygulama düzenleri açıklanmaktadır.
 

@@ -197,9 +197,6 @@
         - name: Kullanıcıları Ambari Views için yetkilendirme
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-        - name: Dosya ve klasör düzeyinde kullanıcı izinlerini yönetme
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Yönet
       items:
         - name: Küme kapasitesi planlama

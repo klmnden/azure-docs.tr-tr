@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Güvenilir hizmetler ile hizmet uzaktan iletişim
 Belirli bir iletişim protokolü veya Webapı, Windows Communication Foundation (WCF) veya diğerleri gibi yığın bağlanmayan Hizmetleri için uzak yordam çağrısı için hızlı ve kolay bir şekilde ayarlamak için uzaktan iletişim mekanizması Reliable Services çerçevesi sağlar Hizmetler.
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 Remoting framework istemciye hizmet sırasında oluşturulan özel durumları yayar. Bu nedenle özel durum işleme mantığı kullanarak istemcide `ServiceProxy` doğrudan hizmet oluşturur özel durumlar işleyebilir.
 
 ## <a name="service-proxy-lifetime"></a>Hizmet Proxy ömrü
-ServiceProxy oluşturma hafif bir işlem olduğundan, kullanıcıların ihtiyaç duydukları kadar oluşturabilirsiniz. Kullanıcıların ihtiyaç sürece hizmeti proxy'si yeniden kullanılabilir. Uzak API özel durum oluşturursa, kullanıcılar aynı proxy yeniden kullanabilirsiniz. Her ServiceProxy kablo üzerinden ileti göndermek için kullanılan iletişim istemcisi içerir. API istenirken kullanılan iletişim istemci geçerli olup olmadığını görmek için iç onay sunuyoruz. Bu sonuca bağlı olarak, iletişim istemci yeniden oluşturuyoruz. Özel durum oluşursa, bu nedenle kullanıcılar serviceproxy yeniden oluşturmanız gerekmez.
+ServiceProxy oluşturma hafif bir işlem olduğundan, kullanıcıların ihtiyaç duydukları kadar oluşturabilirsiniz. Kullanıcıların ihtiyaç sürece hizmeti proxy'si örneği yeniden kullanılabilir. Uzaktan yordam çağrısı bir özel durum oluşturursa, kullanıcılar aynı proxy örneği yeniden kullanabilirsiniz. Her ServiceProxy kablo üzerinden ileti göndermek için kullanılan bir iletişim istemcisi içerir. Uzak çağrılar istenirken biz dahili iletişimi istemci geçerli olup olmadığını denetleyin. Bu sonuca bağlı olarak, iletişim istemci gerektiğinde yeniden oluşturuyoruz. Bu nedenle bir özel durum oluşursa, kullanıcılar serviceproxy yeniden oluşturmanız gerekmez ancak bunu şeffaf bir şekilde yapılır.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory yaşam süresi
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) farklı remoting arabirimleri için proxy oluşturan bir üreteci değil. Proxy oluşturmak için API ServiceProxy.Create kullanırsanız, framework ServiceProxyFactory singleton oluşturur.
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) farklı remoting arabirimleri için proxy örnekleri oluşturan bir üreteci değil. API kullanırsanız `ServiceProxy.Create` proxy oluşturmak için daha sonra framework ServiceProxy tek oluşturur.
 Geçersiz kılmak gerektiğinde el ile oluşturmak kullanışlıdır [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) özellikleri.
-Fabrika pahalı bir işlemdir. ServiceProxyFactory iletişimi istemci önbelleğini korur.
+Fabrika oluşturma pahalı bir işlemdir. ServiceProxyFactory iletişimi istemci, dahili bir önbelleğini korur.
 Mümkün olduğunca uzun bir süredir ServiceProxyFactory önbelleğe en iyi uygulamadır.
 
 ## <a name="remoting-exception-handling"></a>Remoting özel durum işleme

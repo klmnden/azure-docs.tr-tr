@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e5e0a852ae9b245ef69fcbff2e87712a31197790
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5dae5ef260d975e00d3bdaa9aff73fd5807bb839
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Varolan NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -50,7 +50,7 @@ Yeni Azure MFA etkin NPS sunucularını bilmeniz gereken şekilde VPN sunucular�
 
 NPS uzantısı, mevcut altyapınızı ile çalışmak için tasarlanmıştır. Başlamadan önce aşağıdaki önkoşullara sahip olduğunuzdan emin olun.
 
-### <a name="licenses"></a>Lisansları
+### <a name="licenses"></a>Lisanslar
 
 Azure MFA için NPS uzantısı sahip müşteriler için kullanılabilir [Azure multi-Factor Authentication için lisans](multi-factor-authentication.md) (Azure AD Premium, EMS veya MFA abonelik dahil). Tüketim tabanlı lisansları kullanıcı başına veya başına kimlik doğrulama lisansı gibi Azure MFA için NPS uzantısı ile uyumlu değildir. 
 
@@ -81,7 +81,7 @@ NPS uzantısını yüklemeden önce kimlik doğrulama trafiğini işlemek için 
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>Etki alanına katılmış bir sunucudaki NPS rolü etkinleştir
 
-NPS sunucusu, Azure Active Directory'ye bağlanır ve MFA isteklerin kimliğini doğrular. Bu rol için bir sunucu seçin. Hataları RADIUS olmayan tüm istekler için NPS uzantısı oluşturur çünkü diğer hizmetler gelen istekleri işleyemez bir sunucu seçme öneririz.
+NPS sunucusu, Azure Active Directory'ye bağlanır ve MFA isteklerin kimliğini doğrular. Bu rol için bir sunucu seçin. Hataları RADIUS olmayan tüm istekler için NPS uzantısı oluşturur çünkü diğer hizmetler gelen istekleri işleyemez bir sunucu seçme öneririz. Ortamınız için birincil ve ikincil kimlik doğrulama sunucusu olarak NPS sunucusunu ayarlanmış olması gerekir; proxy RADIUS istekleri başka bir sunucuya uygulanamaz.
 
 1. Sunucunuzda açmak **Ekle roller ve Özellikler Sihirbazı** Sunucu Yöneticisi'ni Hızlı Başlangıç menüsünde.
 2. Seçin **rol tabanlı veya özellik tabanlı yükleme** için yükleme türü.
@@ -193,7 +193,7 @@ MFA için kayıtlı olmayan kullanıcılar varsa, kimlik doğrulaması yapmaya �
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | (TRUE eşdeğer) ayarlanmadı |
 
-Bu ayarın amacı kullanıcı MFA'ya kayıtlı olmayan ne yapacakları belirlemektir. Ne zaman anahtarı yok, ayarlı değil veya olan TRUE olarak ayarlayın ve kullanıcı kayıtlı olmayan, ardından uzantısı MFA sınama başarısız olur. Anahtar FALSE olarak ayarlayın ve kullanıcının kayıtlı olmayan, kimlik doğrulaması MFA yapmadan devam eder.
+Bu ayarın amacı kullanıcı MFA'ya kayıtlı olmayan ne yapacakları belirlemektir. Ne zaman anahtarı yok, ayarlı değil veya olan TRUE olarak ayarlayın ve kullanıcı kayıtlı olmayan, ardından uzantısı MFA sınama başarısız olur. Anahtar FALSE olarak ayarlayın ve kullanıcının kayıtlı olmayan, kimlik doğrulaması MFA yapmadan devam eder. Bir kullanıcı MFA'kaydedilmişse REQUIRE_USER_MATCH FALSE olarak ayarlansa bile MFA ile kimlik doğrulaması gerekir.
 
 Bu anahtarı oluşturun ve FALSE, kullanıcılar ekleme ve tüm henüz Azure MFA için kaydedilebilir sırada ayarlayın seçebilirsiniz. Ancak, anahtarı ayarı oturum açmak mfa kayıtlı olmayan kullanıcılar verdiğinden üretime geçmeden önce bu anahtarı kaldırmanız gerekir.
 

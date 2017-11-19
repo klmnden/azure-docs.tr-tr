@@ -2,10 +2,10 @@ Cloud Shell içinde [az group create](/cli/azure/group#create) komutuyla bir kay
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 
-Aşağıdaki örnek *Batı Avrupa* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Aşağıdaki örnek *Batı Avrupa* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur. Uygulama hizmeti için desteklenen tüm konumları görmek için Çalıştır `az appservice list-locations` komutu.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-Genellikle kaynak grubunuzu ve kaynakları kendinize yakın bir bölgede oluşturursunuz. App Service planları için desteklenen tüm konumları görüntülemek için `az appservice list-locations` komutunu çalıştırın.
+Genellikle kaynak grubunuzu ve kaynakları kendinize yakın bir bölgede oluşturursunuz. 

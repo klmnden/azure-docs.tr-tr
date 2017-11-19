@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Azure Site Recovery ile ikincil siteye çoğaltma için destek matrisi
 
@@ -28,7 +28,7 @@ Bu makalede kullandığınızda nelerin desteklendiği özetlenmektedir [Azure S
 
 **Dağıtım** | **Ayrıntılar** 
 --- | ---
-**Vmware'den vmware'e** | İkincil VMware sitesi için olağanüstü durum kurtarma şirket içi VMware vm'lerinin.<br/><br/> Karşıdan [Inmage Scout Kullanıcı Kılavuzu](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**Vmware'den vmware'e** | İkincil VMware sitesi için olağanüstü durum kurtarma şirket içi VMware vm'lerinin.<br/><br/> Karşıdan [Inmage Scout Kullanıcı Kılavuzu](https://aka.ms/asr-scout-user-guide)
 **Hyper-V'den Hyper-V'ye** | İkincil VMM bulutu için olağanüstü durum kurtarma VMM bulutlarındaki şirket içi Hyper-V vm'lerinde.<br></br> VMM desteklenmiyor.
 
 
@@ -39,7 +39,7 @@ Bu makalede kullandığınızda nelerin desteklendiği özetlenmektedir [Azure S
 
 **Dağıtım** | **Destek**
 --- | ---
-**VMware sanal/fiziksel sunucu** | vCenter 5.5 veya 6.0 (yalnızca 5.5 özellikleri için destek)
+**VMware sanal/fiziksel sunucu** | vCenter 5.5, 6.0 ve 6.5 (yalnızca 5.5 özellikleri için destek)
 **VMM ile Hyper-V** | Son güncelleştirmeleri içeren Windows Server 2012 R2 ve Windows Server 2016.<br/><br/> Windows Server 2016 konaklar VMM 2016 tarafından yönetilmelidir.<br/><br/> Windows Server 2016 ve 2012 R2 ana bilgisayarları karışımına sahip VMM 2016 Bulutlar şu anda desteklenmiyor.<br/><br/> Şu anda System Center 2016 için mevcut bir VMM 2012 R2'in yükseltmenin dahil dağıtım desteklenmez.
 
 
@@ -49,7 +49,7 @@ Site Recovery ile çoğaltılan makineler için işletim sistemi desteği aşağ
 
 **VMware/fiziksel sunucu** | **Hyper-V (VMM ile)**
 --- | ---
-64-bit Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle 6.4 veya 6.5 çalıştıran Red Hat Enterprise Linux uyumlu çekirdek veya kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Herhangi bir işletim sistemi Konuk [Hyper-V tarafından desteklenen](https://technet.microsoft.com/library/mt126277.aspx)
+64-bit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6,8 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6 6.7, 6,8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, Red Hat uyumlu çekirdek veya kesilemeyen kurumsal çekirdek sürüm 3 (UEK3) çalıştıran 6,8 <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Herhangi bir işletim sistemi Konuk [Hyper-V tarafından desteklenen](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Linux makine depolama
 
@@ -104,15 +104,15 @@ VHD/VHDX | Yok | Evet (en fazla 16 disk)
 Gen 2 VM | Yok | Evet
 Küme diskini paylaşılan | Evet  | Hayır
 Şifrelenmiş disk | Hayır | Hayır
-UEFI| Hayır | Yok
+UEFI| Evet | Yok
 NFS | Hayır | Hayır
 SMB 3.0 | Hayır | Hayır
 RDM | Evet | Yok
-Disk > 1 TB | Hayır | Evet
+Disk > 1 TB | Evet | Evet
 Şeritli disk > 1 TB birimle<br/><br/> LVM | Evet | Evet
 Depolama alanları | Hayır | Evet
-Sık kullanılan Ekle/Kaldır disk | Hayır | Hayır
-Diski hariç tutma | Hayır | Evet
+Sık kullanılan Ekle/Kaldır disk | Evet | Hayır
+Diski hariç tutma | Evet | Evet
 Çok yollu (MPIO) | Yok | Evet
 
 ## <a name="vaults"></a>kasaları

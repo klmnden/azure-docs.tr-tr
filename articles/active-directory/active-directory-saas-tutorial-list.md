@@ -3,23 +3,23 @@ title: "Itanium tabanlı sistemler için SaaS uygulama tümleştirmesi öğretic
 description: "Azure Active Directory tek oturum açma ile tümleştirme çeşitli üçüncü taraf yazılımlar hizmet uygulamaları olarak yapılandırın."
 services: active-directory
 documentationcenter: 
-author: MicrosoftGuyJFlo
-manager: femila
+author: daveba
+manager: mtillman
 ms.assetid: 08c0c52b-76d9-4250-936a-6bec0edb8816
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2017
-ms.author: joflore
+ms.date: 11/14/2017
+ms.author: daveba
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 1c8e05fb3b6fbb4e7fb5c328638aee821ea5200e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 55da67499cfbe30f182f55895a1f164c602391a9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Azure Active Directory ile SaaS uygulama tümleştirmesi
 
@@ -55,6 +55,7 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_AmazonWebServices.png)| [Amazon Web Hizmetleri (AWS)](active-directory-saas-amazon-web-service-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_Anaplan.png)| [Anaplan](active-directory-saas-anaplan-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_AnswerHub.png)| [AnswerHub](active-directory-saas-answerhub-tutorial.md)|
+| ![logosu](media/active-directory-saas-tutorial-list/active-directory-apexportal-tutorial.png)| [Tepesindeki portalı](active-directory-saas-apexportal-tutorial.md)
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_AppBlade.png)| [AppBlade](active-directory-saas-appblade-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_AppDynamics.png)| [AppDynamics](active-directory-saas-appdynamics-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_Aravo.png)| [Aravo](active-directory-saas-aravo-tutorial.md)|
@@ -233,12 +234,14 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_MaxxPoint.png)| [MaxxPoint](active-directory-saas-maxxpoint-tutorial.md)
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-mcm-tutorial.png)| [MCM](active-directory-saas-mcm-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/saasapp_menlosecurity.png)| [Menlo güvenlik](active-directory-saas-menlosecurity-tutorial.md)|
+| ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-mercerhrs-tutorial.png)| [Mercer BenefitsCentral](active-directory-saas-mercerhrs-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-merchlogix-tutorial.png)| [MerchLogix](active-directory-saas-merchlogix-tutorial.md)||
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-m-files-tutorial.png)| [M-dosyaları](active-directory-saas-m-files-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.png)| [Mimecast Yönetim Konsolu](active-directory-saas-mimecast-admin-console-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-mimecast-personal-portal-tutorial.png)| [Mimecast kişisel portalı](active-directory-saas-mimecast-personal-portal-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-mindflash-tutorial.png)| [Mindflash](active-directory-saas-mindflash-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-mixpanel-tutorial.png)| [Mixpanel](active-directory-saas-mixpanel-tutorial.md)|
+| ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-mobileiron-tutorial.png)| [MobileIron](active-directory-saas-mobileiron-tutorial.md)
 | ![logosu](./media/active-directory-saas-tutorial-list/saasapp_mobilexpense.png)| [MobileXpense](active-directory-saas-mobilexpense-tutorial.md)
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-moveittransfer-tutorial.png)| [MOVEit aktarımı](active-directory-saas-moveittransfer-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/saasapp_moxiengage.png)| [Moxi Engage](active-directory-saas-moxiengage-tutorial.md)|
@@ -337,6 +340,7 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-skydeskemail-tutorial.png)| [SkyDesk e-posta](active-directory-saas-skydeskemail-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](active-directory-saas-slack-tutorial.md)| [Kayma - kullanıcı hazırlama](active-directory-saas-slack-provisioning-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-smallimprovements-tutorial.png)| [Küçük geliştirmeleri](active-directory-saas-smallimprovements-tutorial.md)|
+| ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-smartrecruiters-tutorial.png)| [SmartRecruiters](active-directory-saas-smartrecruiters-tutorial.md)
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_SmarterU.png)| [SmarterU](active-directory-saas-smarteru-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-softeon-tutorial.png)| [Softeon WMS](active-directory-saas-softeon-tutorial.md)
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-soonr-tutorial.png)| [Soonr çalışma](active-directory-saas-soonr-tutorial.md)|
@@ -399,6 +403,7 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-workrite-tutorial.png)| [Workrite](active-directory-saas-workrite-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_WorksMobile.png)| [WORKS MOBİL](active-directory-saas-worksmobile-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-workstars-tutorial.png)| [Workstars](active-directory-saas-workstars-tutorial.md)||
+| ![logosu](media/active-directory-saas-tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](active-directory-saas-xaitporter-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-xmatters-ondemand-tutorial.png)| [xMatters OnDemand](active-directory-saas-xmatters-ondemand-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/SaaSApp_Yardi.png)| [Yardi öğrenim](active-directory-saas-yardielearning-tutorial.md)|
 | ![logosu](./media/active-directory-saas-tutorial-list/active-directory-saas-yonyx-tutorial.png)| [Yonyx etkileşimli kılavuzları](active-directory-saas-yonyx-tutorial.md)|

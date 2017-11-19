@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/13/2017
+ms.date: 11/17/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db04f8c6ab61d33df80cd442abc5636867e5809a
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: d6682bf5e4b0b64d5309f939379906efff6e017d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Sanal makineleri yedeklemek için AzureRM.RecoveryServices.Backup cmdlet'leri kullanın
 > [!div class="op_single_selector"]
@@ -266,7 +266,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Bir Azure VM geri yükleme
-Azure Portalı'nı kullanarak bir VM geri yükleme ve PowerShell kullanarak bir VM'i geri arasındaki en önemli fark yoktur. PowerShell ile diskleri ve yapılandırma bilgilerini kurtarma noktasından oluşturulduktan sonra geri yükleme işlemi tamamlanır.
+Azure Portalı'nı kullanarak bir VM geri yükleme ve PowerShell kullanarak bir VM'i geri arasındaki en önemli fark yoktur. PowerShell ile diskleri ve yapılandırma bilgilerini kurtarma noktasından oluşturulduktan sonra geri yükleme işlemi tamamlanır. Geri yüklemek veya bir Azure VM yedekten birkaç dosyaları kurtarmak istiyorsanız, başvurmak [dosya kurtarma bölümü](backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 
 > [!NOTE]
 > Geri yükleme işlemi, bir sanal makine oluşturmaz.
@@ -507,6 +507,76 @@ Diskleri geri yükledikten sonra oluşturup diskten sanal makine yapılandırmak
     ```    
     PS C:\> New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
+
+## <a name="restore-files-from-an-azure-vm-backup"></a>Dosyaları bir Azure VM yedekten geri yükleyin
+
+Diskleri geri ek olarak, bir Azure VM yedekten tek dosyalar da geri yükleyebilirsiniz. Geri yükleme dosyaları işlevselliğini bir kurtarma noktası tüm dosyalarda erişmelerini sağlar ve normal dosyalar için yaptığınız gibi bunları dosya Gezgini yönetebilirsiniz.
+
+Bir dosyayı Azure VM yedekten geri yüklemek için temel adımlar şunlardır:
+
+* VM seçin
+* Bir kurtarma noktası seçin
+* Kurtarma noktası disklerinin bağlama
+* Gerekli dosyaları kopyalama
+* Disk çıkarın
+
+
+### <a name="select-the-vm"></a>VM seçin
+Doğru yedekleme öğesi tanımlayan PowerShell nesnesini almak için kasadaki kapsayıcısından başlatın ve nesne hiyerarşide aşağı, şekilde çalışır. VM'yi temsil kapsayıcı seçmek için kullanın  **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)**  cmdlet'i ve için kanal  **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**  cmdlet'i.
+
+```
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+```
+
+### <a name="choose-a-recovery-point"></a>Bir kurtarma noktası seçin
+Kullanım  **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)**  yedekleme öğesi için tüm kurtarma noktalarını listelemek için cmdlet. Daha sonra geri yüklemek için kurtarma noktası seçin. Kullanılacak olan kurtarma noktasını konusunda emin değilseniz, en son RecoveryPointType seçmek için iyi bir uygulamadır AppConsistent noktası listesinde =.
+
+Aşağıdaki komut, değişken **$rp**, seçili yedek öğesini, son yedi gün için kurtarma noktalarını dizisidir. Dizi en son kurtarma noktası dizin 0 konumunda ile süreyi ters sırada sıralanır. Standart PowerShell dizi dizin kurtarma noktası seçmek için kullanın. Örnekte, $rp [0], en son kurtarma noktası seçer.
+
+```
+PS C:\> $startDate = (Get-Date).AddDays(-7)
+PS C:\> $endDate = Get-Date
+PS C:\> $rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+PS C:\> $rp[0]
+RecoveryPointAdditionalInfo :
+SourceVMStorageType         : NormalStorage
+Name                        : 15260861925810
+ItemName                    : VM;iaasvmcontainer;RGName1;V2VM
+RecoveryPointId             : /subscriptions/XX/resourceGroups/ RGName1/providers/Microsoft.RecoveryServices/vaults/testvault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainer;RGName1;V2VM/protectedItems/VM;iaasvmcontainer; RGName1;V2VM/recoveryPoints/15260861925810
+RecoveryPointType           : AppConsistent
+RecoveryPointTime           : 4/23/2016 5:02:04 PM
+WorkloadType                : AzureVM
+ContainerName               : IaasVMContainer;iaasvmcontainer; RGName1;V2VM
+ContainerType               : AzureVM
+BackupManagementType        : AzureVM
+```
+
+### <a name="mount-the-disks-of-recovery-point"></a>Kurtarma noktası disklerinin bağlama
+
+Kullanım  **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)**  cmdlet'ini kurtarma noktası tüm diskleri bağlamak için betik alın.
+
+> [!NOTE]
+> Diskler, komut dosyası çalıştırdığı makineye iSCSI bağlı diskleri olarak bağlanır. Bu nedenle neredeyse anında ve herhangi bir ücret doğurur değil
+>
+>
+
+```
+PS C:\> Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+
+OsType  Password        Filename
+------  --------        --------
+Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
+```
+Komut dosyaları kurtarmak istediğiniz makinede çalıştırın. Komut dosyası yürütme, yukarıda gösterilen parola girmeniz gerekir. Diskleri ekli sonra Windows dosya Gezgini yeni birimleri ve dosyaları göz atmak için kullanın. Daha fazla bilgi için bkz [dosya kurtarma belgeleri](backup-azure-restore-files-from-vm.md)
+
+### <a name="unmount-the-disks"></a>Diskleri çıkarın
+Gerekli dosyaları kopyaladıktan sonra diskleri kullanarak dosyayı çıkarın  **[devre dışı bırakma AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)**  cmdlet'i. Kurtarma noktası dosyalara erişim kaldırıldığından emin getirir bu özellikle önerilir
+
+```
+PS C:\> Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+```
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure kaynaklarınızı bulunmaya PowerShell kullanmayı tercih ederseniz, PowerShell makalesine bakın. [dağıtma ve yönetme yedekleme için Windows Server](backup-client-automation.md). DPM yedeklemelerini yönetiyorsanız makalesine bakın [dağıtma ve yönetme yedekleme DPM için](backup-dpm-automation.md). Bu makaleler her ikisi de Resource Manager dağıtımları ve klasik dağıtımları için bir sürümüne sahipsiniz.  

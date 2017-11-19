@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 11/17/2017
 ms.author: bwren
-ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Günlük analizi özel günlükleri
 Günlük analizi özel günlükleri veri kaynağında Windows ve Linux bilgisayarlarda metin dosyalarından olayları toplamanızı sağlar. Birçok uygulama bilgileri Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerini yerine metin dosyaları oturum açın.  Toplandığında, her kayıt günlüğünde kullanarak tek tek alanlara ayrıştıramıyor [özel alanlar](log-analytics-custom-fields.md) günlük analizi özelliğidir.
@@ -56,10 +56,6 @@ Toplanacak günlük dosyaları aşağıdaki ölçütlere uyan gerekir.
 
 Bir zaman damgası ayırıcısı kullanılırsa, OMS içinde depolanan her kayıt TimeGenerated özelliği bu giriş günlük dosyası için belirtilen tarih/saat ile doldurulur.  Yeni satır ayırıcı kullanılırsa, TimeGenerated tarih ve saat günlük analizi giriş toplanan ile doldurulur.
 
-> [!NOTE]
-> Günlük analizi, şu anda bir zaman damgası ayırıcısı UTC olarak kullanarak bir oturum toplanan tarih/saat değerlendirir.  Bu kısa saat dilimi Aracısı'nı kullanacak şekilde değiştirilir.
->
->
 
 1. Tıklatın **Gözat** ve bir örnek dosyasına göz atın.  Bu düğme Not etiketli **Dosya Seç** bazı tarayıcılarda.
 2. **İleri**’ye tıklayın.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: e584a9adb75510c92fc2a25b657f55df88372e6b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9a941ce5c6f0989749c5a6db4348757f898a46f1
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight üzerinde R Server kullanmaya başlayın
 
@@ -784,6 +784,5 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 R Server içeren yeni bir HDInsight kümesi oluşturmayı ve SSH oturumuyla R konsolunu kullanmanın temel adımlarını kavramış olmanız gerekiyor. Aşağıdaki konularda HDInsight üzerinde R Server yönetimi ve çalışması için diğer yöntemler açıklanmaktadır:
 
-* [HDInsight’a RStudio Server Ekleme (küme oluşturma sırasında yüklenmediyse)](r-server-install-r-studio.md)
 * [HDInsight üzerinde R Server için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
 * [HDInsight üzerinde R Server için Azure Depolama seçenekleri](r-server-storage.md)

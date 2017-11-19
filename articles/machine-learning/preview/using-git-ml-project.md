@@ -2,19 +2,19 @@
 title: "Bir Azure Machine çalışma ekranı proje Learning Git deposuna kullanarak | Microsoft Docs"
 description: "Bu makale bir Azure Machine Learning çalışma ekranı proje ile birlikte bir Git deposu kullanmayı açıklar."
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: hning86
+author: hning86
+ms.author: haining
+manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 59b07c9834904e01256b75344ba2e6892e56438c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.openlocfilehash: c91eadd69eaf16b2496f4d7247e5b0121904e172
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Git deposu bir Azure Machine Learning çalışma ekranı project ile kullanma
 Bu belge, Azure Machine Learning çalışma ekranı Git veri bilimi denemenizi içinde yeniden Üretilebilirlik emin olmak için kullanma hakkında bilgi sağlar. Projenizin bulutla Git deposu ilişkilendirmek yönergeler de sağlanır.
@@ -66,27 +66,29 @@ Doğrudan yeni oluşturduğunuz takım projesine gitmek için bir URL'dir `https
 > Şu anda, Azure Machine Learning yalnızca boş Git depoları hiçbir ana dala ile destekler. Komut satırı arabiriminden kullandığınız zorla bağımsız değişkeni, ana dala silmelisiniz. 
 
 ## <a name="step-3-create-a-new-azure-ml-project-with-a-remote-git-repo"></a>3. Adım Uzak bir Git deposu ile yeni bir Azure ML projesi oluşturma
-Azure ML çalışma ekranı başlatın ve yeni bir proje oluşturun. Git deposu metin kutusuna, adım 2'den alma VSTS Git deposu URL'si ile doldurun. Genellikle şöyle görünür: http://<vsts_account_name>.visualstudio.com/_git/<project_name>
+Azure ML çalışma ekranı başlatın ve yeni bir proje oluşturun. Git deposu metin kutusuna, adım 2'den alma VSTS Git deposu URL'si ile doldurun. Genellikle şu şekildedir:`http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
 
 ![Git deposu ile Azure ML projesi oluşturma](media/using-git-ml-project/create_project_with_git_rep.png)
 
 Şimdi yeni bir Azure ML proje ile uzak Git deposu tümleştirme etkin ve hazırsınız oluşturulur. Proje klasöründeki her zaman yerel bir Git deposu Git ile başlatılmıştır. Ve Git _uzak_ uzak VSTS Git deposuna işlemeleri uzak Git deposu gönderilemez şekilde ayarlanır.
 
-## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>3.a ilişkilendirme var olan Azure ML projesinde VSTS Git deposu ile adım
+## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Adım 3a. Mevcut bir Azure ML projesini VSTS Git deposu ile ilişkilendirme
 İsteğe bağlı olarak, Azure ML projeyi VSTS Git deposuna olmadan da oluşturabilir ve yalnızca yerel Git deposu çalıştırma geçmişi anlık görüntüleri için kullanır. Ve aşağıdaki komutu kullanarak bu var olan Azure ML proje ile daha sonra VSTS Git deposuna ilişkilendirebilirsiniz:
 
 ```azurecli
 # make sure you are in the project path so CLI has context of your current project
-az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name
+$ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
 ```
 
 ## <a name="step-4-capture-project-snapshot-in-git-repo"></a>4. Adım. Git deposu içinde proje anlık görüntü yakalama
-Projede birkaç çalıştırır yürütebilir artık, bazı değişiklikler ortası çalıştırır olun. Masaüstü uygulaması, veya CLI kullanarak bunu yapabilirsiniz `az ml experiment submit` komutu. Daha fazla ayrıntı için izleyebileceğiniz [sınıflandırma Iris Öğreticisi](tutorial-classifying-iris-part-1.md). Her çalıştırma için proje klasöründeki tüm dosyalar yapılan herhangi bir değişiklik varsa tüm proje klasörünün bir anlık görüntü kaydedilen ve uzak Git deposu gönderilir. Dal ve işlemeleri VSTS Git deposu URL'sini göz atarak görüntüleyebilirsiniz.
+Projede birkaç çalıştırır yürütebilir artık, bazı değişiklikler ortası çalıştırır olun. Masaüstü uygulaması, veya CLI kullanarak bunu yapabilirsiniz `az ml experiment submit` komutu. Daha fazla ayrıntı için izleyebileceğiniz [sınıflandırma Iris Öğreticisi](tutorial-classifying-iris-part-1.md). Her çalıştırma için proje klasöründeki tüm dosyalar yapılan herhangi bir değişiklik varsa tüm proje klasörünün bir anlık görüntü kaydedilen ve adlı bir dal altında uzaktaki Git deposuna içine gönderilen `AzureMLHistory/<Project_GUID>`. VSTS Git deposu URL'sini göz atarak dallar ve işlemlerini görüntülemek ve bu dal bulun. 
 
 ![çalıştırma geçmişi şube](media/using-git-ml-project/run_history_branch.png)
 
+Daha iyi Not değil çalıştırma geçmişi dalında kendiniz. Bunun yapılması ile çalıştırma geçmişi uğraşmanız. Ana dala kullanabilir veya diğer dalların kullanılabilirliği etkilenmeden yerine kendi Git işlemleri için oluşturabilirsiniz.
+
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>5. Adım. Önceki bir proje anlık görüntü geri yükleme 
-Tüm proje klasöründeki AML çalışma ekranından, bir önceki çalıştırma geçmişi proje durumu anlık görüntü durumuna geri yüklemek için.
+Tüm proje klasöründeki Azure ML çalışma ekranından, bir önceki çalıştırma geçmişi proje durumu anlık görüntü durumuna geri yüklemek için:
 1. Tıklayın **çalışır** etkinliğinde (cam saatlik simgesi) çubuğu.
 2. Gelen **çalışma listesi** görüntülemek için geri yüklemek istediğiniz Çalıştır'ı tıklatın.
 3. Gelen **çalıştırmak ayrıntı** görüntülemek için tıklayın **geri**.
@@ -97,29 +99,29 @@ Alternatif olarak, Azure ML çalışma ekranı CLI penceresinden aşağıdaki ko
 
 ```azurecli
 # discover the run I want to restore snapshot from:
-az ml history list -o table
+$ az ml history list -o table
 
 # restore the snapshot from a particular run
-az ml project restore --run-id <run_id>
+$ az ml project restore --run-id <run_id>
 ```
 
-Bu komutu yürüterek biz tüm proje klasörünü belirli çalıştıran başlayacağı zamana olduğunda alınan anlık görüntü ile üzerine yazar. Bu, olacağı anlamına gelir **tüm değişiklikleri kaybetmek** geçerli proje klasörünüzdeki. Bu nedenle bu komutu çalıştırdığınızda, lütfen çok dikkatli olun.
+Bu komutu yürüterek biz tüm proje klasörünü belirli çalıştıran başlayacağı zamana olduğunda alınan anlık görüntü ile üzerine yazar. Ancak, projenizin geçerli dalı üzerinde kalır. Bu, olacağı anlamına gelir **tüm değişiklikleri kaybetmek** geçerli proje klasörünüzdeki. Bu nedenle bu komutu çalıştırdığınızda, lütfen çok dikkatli olun.
 
 ## <a name="step-6-use-the-master-branch"></a>6. Adım. Ana dala kullanın
-Geçerli proje durumu yanlışlıkla kaybetmemek için bir yoludur proje Git deposuna ana dala kaydedilemedi. Git doğrudan ana dala üzerinde çalışması için komut satırını (veya diğer sık kullanılan Git istemci seçeceğiniz araç) de kullanabilirsiniz. Örneğin:
+Yanlışlıkla önlemek için bir geçerli proje durumu kaybetme ana dala (veya kendi başınıza oluşturduğunuz herhangi bir dal) proje gerçekleştirmeyi Git deposuna yoludur. Git doğrudan ana dala üzerinde çalışması için komut satırını (veya diğer sık kullanılan Git istemci seçeceğiniz araç) de kullanabilirsiniz. Örneğin:
 
 ```
-# make sure you are on the master branch
-git checkout master
+# make sure you are on the master branch (or branch of your choice)
+$ git checkout master
 
 # stage all changes
-git add -A
+$ git add -A
 
 # commit all changes locally on the master branch
-git commit -m 'this is my updates so far'
+$ git commit -m 'this is my updates so far'
 
 # push changes into the remote VSTS Git repo master branch.
-git push origin master
+$ git push origin master
 ```
 
 Proje güvenli bir şekilde daha önceki bir anlık görüntüye geri yükleyebilirsiniz artık aşağıdaki adım 5 ', her zaman geri uygulanmak üzere, yalnızca gelebilir olduğunu bilmek ana dal yapılan.

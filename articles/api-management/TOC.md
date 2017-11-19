@@ -53,7 +53,7 @@
 ### [Yönetilen Hizmet Kimliğini Kullanma](api-management-howto-use-managed-service-identity.md)
 ### Service Fabric ile tümleştirme
 #### [Genel Bakış](../service-fabric/service-fabric-api-management-overview.md)
-#### [Hızlı başlangıç](../service-fabric/service-fabric-api-management-quick-start.md)
+#### [Öğretici](../service-fabric/service-fabric-tutorial-deploy-api-management.md)
 
 # Başvuru
 ## [Azure PowerShell](/powershell/azure/overview)

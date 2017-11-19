@@ -12,16 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/14/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77bb769a094c2a619c0c75363e23ae3ee561c1e4
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF Geçişini kullanan karma .NET şirket içi uygulama/bulut uygulaması
-## <a name="introduction"></a>Giriş
 
 Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması derleyeceğinizi gösterir. Öğretici Azure kullanımına ilişkin deneyim sahibi olmadığınızı varsayar. 30 dakikadan kısa sürede, birden çok Azure kaynağını kullanan ve bulutta çalışan bir uygulamaya sahip olacaksınız.
 
@@ -52,7 +51,7 @@ Bu öğreticide, ürün stoğu sayfasındaki ürünlerin listesini görmenize ol
 Azure uygulamalarını geliştirmeye başlamadan önce, araçları indirip geliştirme ortamınızı ayarlayın:
 
 1. SDK [indirme sayfasından](https://azure.microsoft.com/downloads/) .NET için Azure SDK'sını yükleyin.
-2. **.NET** sütununda, kullandığınız [Visual Studio](http://www.visualstudio.com) sürümüne tıklayın. Bu öğreticideki adımlar Visual Studio 2015 kullanır, ancak Visual Studio 2017 ile de çalışır.
+2. **.NET** sütununda, kullandığınız [Visual Studio](http://www.visualstudio.com) sürümüne tıklayın. Bu öğreticideki adımlarda Visual Studio 2017 kullanılır.
 3. Yükleyiciyi çalıştırmanız veya kaydetmeniz istendiğinde **Çalıştır**'a tıklayın.
 4. **Web Platformu Yükleyicisi**'nde **Yükle**'ye tıklayın ve kuruluma devam edin.
 5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir.
@@ -77,7 +76,7 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
 4. **ProductsServer** projesini oluşturmak için **Tamam** seçeneğine tıklayın.
 5. Visual Studio'ya yönelik NuGet paketi yöneticisini zaten yüklediyseniz bir sonraki adımı atlayın. Yükleme yapmadıysanız [NuGet][NuGet] bölümünü ziyaret edin ve [NuGet'i Yükle](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)'ye tıklayın. NuGet paketi yöneticisini yüklemek için gereken istemleri gerçekleştirin ve Visual Studio'yu yeniden başlatın.
 6. Çözüm Gezgini'nde **ProductsServer** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
-7. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus` için arama yapın. **WindowsAzure.ServiceBus** paketini seçin.
+7. **Gözat** sekmesine tıklayıp **WindowsAzure.ServiceBus** için arama yapın. **WindowsAzure.ServiceBus** paketini seçin.
 8. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
 
    ![][13]
@@ -198,6 +197,8 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
       </behaviors>
     </system.serviceModel>
     ```
+    "transportClientEndpointBehavior" davranışının neden olduğu hata yalnızca bir uyarıdır ve bu örnek için engelleyici bir sorun değildir.
+    
 13. App.config dosyasından çıkmadan, `<appSettings>` öğesinde bağlantı dizesi değerini portaldan daha önce edindiğiniz bağlantı dizesiyle değiştirin.
 
     ```xml
@@ -230,7 +231,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
     ![][18]
 
 7. MVC uygulamasını oluşturmak üzere **New ASP.NET Web Uygulaması** iletişim kutusunda **Tamam**'a tıklayın.
-8. Şimdi yeni bir web uygulaması için Azure kaynaklarını yapılandırmanız gerekir. [Bu makalenin Azure'da Yayımlama bölümündeki](../app-service/app-service-web-get-started-dotnet.md) adımları uygulayın. Daha sonra, bu öğreticiye geri dönün ve sonraki adıma geçin.
+8. Şimdi yeni bir web uygulaması için Azure kaynaklarını yapılandırmanız gerekir. [Bu makalenin Azure'da Yayımlama bölümündeki](../app-service/app-service-web-get-started-dotnet.md#publish-to-azure) adımları uygulayın. Daha sonra, bu öğreticiye geri dönün ve sonraki adıma geçin.
 10. Çözüm Gezgini'nde **Modeller**'e sağ tıklayıp **Ekle**’ye ve ardından **Sınıf**’a tıklayın. **Ad** kutusuna **Product.cs** yazın. Daha sonra **Ekle**'ye tıklayın.
 
     ![][17]
@@ -274,7 +275,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
     }
     ```
 4. Çözüm Gezgini'nde, Görünümler/Paylaşılan klasörünü genişletin ve ardından **_Layout.cshtml** öğesine tıklayarak Visual Studio düzenleyicisinde açın.
-5. **My ASP.NET Application** uygulamasının tüm örneklerini **LITWARE's Products** olarak değiştirin.
+5. **My ASP.NET Application** uygulamasının tüm örneklerini **Northwind Traders Products** olarak değiştirin.
 6. **Home**, **About** ve **Contact** bağlantılarını kaldırın. Aşağıdaki örnekte vurgulanmış kodu silin.
 
     ![][41]
@@ -332,7 +333,7 @@ Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birl
 
 1. Açık değilse [ASP.NET uygulaması oluşturma](#create-an-aspnet-application) bölümünde oluşturduğunuz **ProductsPortal** projesini Visual Studio'da yeniden açın.
 2. "Şirket İçi Sunucu Oluşturma" bölümündeki adıma benzer şekilde proje başvurularına NuGet paketini ekleyin. Çözüm Gezgini'nde **ProductsPortal** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
-3. "Service Bus" için arama yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlayıp iletişim kutusunu kapatın.
+3. **WindowsAzure.ServiceBus** araması yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlayıp iletişim kutusunu kapatın.
 4. Çözüm Gezgini'nde **ProductsPortal** projesine sağ tıklayın ve ardından **Ekle** ve **Var Olan Öğe** seçeneklerine tıklayın.
 5. **ProductsServer** konsol projesinden **ProductsContract.cs** dosyasına gidin. ProductsContract.cs dosyasına tıklayarak dosyayı vurgulayın. **Ekle** seçeneğinin yanındaki aşağı oka ve ardından **Bağlantı Olarak Ekle** seçeneğine tıklayın.
 
@@ -455,7 +456,7 @@ Uygulamayı bulutta çalıştırmadan önce **ProductsPortal** öğesinin Visual
 Azure Geçiş hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:  
 
 * [Azure Geçiş nedir?](relay-what-is-it.md)  
-* [Geçiş nasıl kullanılır?](service-bus-dotnet-how-to-use-relay.md)  
+* [Azure Geçişini kullanma](relay-wcf-dotnet-get-started.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png

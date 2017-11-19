@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9a9baa457729bdc4d70a8f9f45701dbdb875d3ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>İletileri teslim Azure hizmetleri arasında seçim
 
@@ -32,20 +32,16 @@ Olay teslim hizmetleri ve bir ileti teslim hizmetleri arasında dikkat edilecek 
 
 Bir olay, bir eylem veya bir durum değişikliği basit bir bildirimidir. Olay verileri ne hakkında bilgi içerir ancak olay tetiklenen veri yok. Örneğin, bir olay, bir dosyanın oluşturulduğu aboneleri bildirir. Dosya hakkında genel bilgiler içerebilir, ancak dosya içermiyor. Genellikle, olayları olay işleyicileri gerçek zamanlı olarak davranacak şekilde tetikler.
 
-Olay kılavuz bir olay hizmetidir.
-
 ### <a name="message"></a>İleti
 
-Bir ileti tüketilen veya başka bir yerde depolanan bir hizmet tarafından üretilen işlenmemiş verilerdir. İleti, ileti işlem hattını tetiklenen verileri içerir. Bu ileti bir e-ticaret sipariş kullanıcı telemetri için herhangi bir şey olabilir. Bir olay bildirimi bir ileti yayımcısı yanıt bekleyebilir. Örneğin, bir ileti ham verileri içeren ancak sistem bu verilerden bir dosya oluşturmak için sonraki bölümü bekliyor. 
-
-Hizmetleri, olay hub'ları ve Service Bus Mesajlaşma varlıklarıdır.
+Bir ileti tüketilen veya başka bir yerde depolanan bir hizmet tarafından üretilen işlenmemiş verilerdir. İleti, ileti işlem hattını tetiklenen verileri içerir. Bu ileti bir e-ticaret sipariş kullanıcı telemetri için herhangi bir şey olabilir. Bir olay bildirimi bir ileti yayımcısı yanıt bekleyebilir. Örneğin, bir ileti ham verileri içeren ancak sistem bu verilerden bir dosya oluşturmak için sonraki bölümü bekliyor.
 
 ## <a name="comparison-of-services"></a>Hizmetleri karşılaştırması
 
 | Hizmet | Amaç | Tür | Kullanılması gereken durumlar |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Geriye dönük programlama | Olay | Durum değişiklikleri tepki |
-| Event Hubs | Büyük veri ardışık düzen | İleti | Telemetri ve Dağıtılmış veri akışı |
+| Event Grid | Geriye dönük programlama | Olay dağıtım | Durum değişiklikleri tepki |
+| Event Hubs | Büyük veri ardışık düzen | Olay akışı | Telemetri ve Dağıtılmış veri akışı |
 | Service Bus | Yüksek değerli Kurumsal Mesajlaşma | İleti | Sipariş işleme ve finansal işlemler |
 
 ### <a name="event-grid"></a>Event Grid
@@ -62,7 +58,7 @@ Aşağıdaki özelliklere sahiptir:
 
 ### <a name="event-hubs"></a>Event Hubs
 
-Azure Event Hubs büyük veri işlem hattı ' dir. Yakalama, bekletme ve yeniden yürütme telemetri ve olay akışı veri kolaylaştırır. Veriler çok sayıda eş zamanlı kaynaklardan gelebilir. Olay hub'ları akış işleme altyapılar ve Analiz Hizmetleri, çeşitli için kullanılabilir duruma getirilmek üzere telemetri ve olay verilerini sağlar. Veri akışları veya ile birlikte gelen olay toplu olarak kullanılabilir. Bu hizmet yinelenen yeniden yürütme saklı ham verilerin yanı sıra, gerçek zamanlı işleme için hızlı veri alma sağlayan tek bir çözüm sağlar.
+Azure Event Hubs büyük veri işlem hattı ' dir. Yakalama, bekletme ve yeniden yürütme telemetri ve olay akışı veri kolaylaştırır. Veriler çok sayıda eş zamanlı kaynaklardan gelebilir. Olay hub'ları akış işleme altyapılar ve Analiz Hizmetleri, çeşitli için kullanılabilir duruma getirilmek üzere telemetri ve olay verilerini sağlar. Veri akışları veya ile birlikte gelen olay toplu olarak kullanılabilir. Bu hizmet yinelenen yeniden yürütme saklı ham verilerin yanı sıra, gerçek zamanlı işleme için hızlı veri alma sağlayan tek bir çözüm sağlar. Veri akışı, bir dosyaya işleme ve analizi için yakalayabilirsiniz.
 
 Aşağıdaki özelliklere sahiptir:
 
@@ -72,6 +68,8 @@ Aşağıdaki özelliklere sahiptir:
 ### <a name="service-bus"></a>Service Bus
 
 Hizmet veri yolu geleneksel Kurumsal uygulamalara yöneliktir. Bu kurumsal uygulamalar işlemleri, sıralama, yinelenen algılama ve anlık tutarlılık gerektirir. Hizmet veri yolu bulut yerel uygulamaları iş süreçlerini güvenilir durumu geçişi Yönetimi sağlamak için etkinleştirir. Kayıp veya yinelenen yüksek değerli iletilerini işlerken Azure hizmet veri yolu kullanın. Hizmet veri yolu ayrıca karma bulut çözümleri arasında yüksek güvenlikli iletişimi kolaylaştırır ve mevcut şirket içi sistemlerde bulut çözümleri bağlanabilir.
+
+Service Bus aracılı Mesajlaşma system ' dir. Kullanıcı taraf iletileri almaya hazır olana kadar iletileri bir "aracıda" (örneğin, bir kuyruk) depolar.
 
 Aşağıdaki özelliklere sahiptir:
 

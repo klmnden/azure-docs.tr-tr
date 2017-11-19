@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 9a8ba64f1d4b2d638f156c0dfc20d6686312daa5
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 441bb0a269de400c82abc083118f5e0642523640
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Sanal Ağ eşlemesi bir - farklı oluşturmak dağıtım modelleri ve abonelikleri
 
@@ -33,17 +33,17 @@ Sanal ağlar aynı ya da farklı olup, abonelikleri ve hangi bağlı olarak fark
 |[Her iki kaynak yöneticisi](create-peering-different-subscriptions.md) |Farklı|
 |[Bir kaynak yöneticisi, bir Klasik](create-peering-different-deployment-models.md) |Aynı|
 
-Klasik dağıtım modeli aracılığıyla dağıtılan iki sanal ağ arasında bir sanal ağ eşlemesi oluşturulamıyor. Klasik dağıtım modeli aracılığıyla her ikisi de oluşturulan sanal ağlara bağlanmak gerekiyorsa, Azure kullanabilirsiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlara bağlanma. 
+Klasik dağıtım modeli aracılığıyla dağıtılan iki sanal ağ arasında bir sanal ağ eşlemesi oluşturulamıyor. Farklı Aboneliklerde mevcut farklı dağıtım modeli üzerinden oluşturulan sanal ağlar arası özelliği şu anda önizlemede değil. Bu öğreticiyi tamamlamak için öncelikle [kaydetmek](#register) yeteneği kullanmak için. Bu öğretici, mevcut sanal ağlar aynı bölgede kullanır. Sanal ağlar farklı bölgelerde eş olanağı da önizlemede değil. Bu özelliği kullanmak için ayrıca gerekir [kaydetmek](#register) onun için. İki yetenekleri bağımsızdır. Bu öğreticiyi tamamlamak için yalnızca farklı Aboneliklerde mevcut farklı dağıtım modeli üzerinden oluşturulan sanal ağlar arası kapasitesi için kaydetmeniz gerekir. 
 
-Bu öğretici, sanal ağlar aynı bölgede eşlere. Sanal ağlar farklı bölgelerde eş yeteneği şu anda önizlemede değil. Bölümündeki adımları tamamlamanız [kaydetmek genel sanal ağ eşlemesi için](#register) sanal ağlar farklı bölgelerde veya eşleme başarısız eş denemeden önce. İle bir Azure sanal ağlar farklı bölgelerde bağlanma özelliği [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genel olarak kullanılabilir ve kayıt gerektirmez.
+Farklı Aboneliklerde bulunan sanal ağlar arasında eşleme sanal bir ağ oluştururken, abonelikler her ikisi de aynı Azure Active Directory Kiracı ilişkilendirilmiş olması gerekir. Azure Active Directory kiracısı zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). 
 
-Farklı Aboneliklerde bulunan sanal ağlar arasında eşleme sanal bir ağ oluştururken, abonelikler her ikisi de aynı Azure Active Directory Kiracı ilişkilendirilmiş olması gerekir. Azure Active Directory kiracısı zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch). Her ikisi de oluşturulmuş Klasik dağıtım modeli aracılığıyla veya farklı Azure bölgelerinde mevcut ya da farklı Azure Active Directory kiracıları için ilişkili Aboneliklerde mevcut sanal ağlara bağlanmak gerekiyorsa, Azure kullanabilirsiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlara bağlanma.
+Sanal ağlara bağlanma özelliği oluşturulan dağıtım modeli, farklı dağıtım modeli, farklı bölgelerde veya aynı ilişkili abonelik aracılığıyla ya da farklı Azure Active Directory Kiracı Azure kullanarak [VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Önizleme sürümü ve kayıt gerektirmez.
 
 Kullanabileceğiniz [Azure portal](#portal), Azure [komut satırı arabirimi](#cli) (CLI) veya Azure [PowerShell](#powershell) bir sanal ağ eşlemesi oluşturmak için. Doğrudan seçeceğiniz araç kullanarak bir sanal ağ eşlemesi oluşturma adımlarını gitmek için önceki aracı bağlantılardan herhangi birine tıklayın.
 
 ## <a name="portal"></a>Eşlemesi - oluşturmak Azure portalı
 
-Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, portal dışında günlüğü için adımları atlayın ve sanal ağlar için başka bir kullanıcı izinlerini atamak için adımları atlayın. Aşağıdaki adımları gerçekleştirmeden önce önizleme için kaydetmeniz gerekir. Kaydetmek için adımları tamamlamanız [Önizleme için kaydetmek](#register) bu makalenin. Her iki aboneliğin Önizleme için kayıtlı kadar kalan adımlara devam etmeyin.
+Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, portal dışında günlüğü için adımları atlayın ve sanal ağlar için başka bir kullanıcı izinlerini atamak için adımları atlayın. Aşağıdaki adımları gerçekleştirmeden önce önizleme için kaydetmeniz gerekir. Kaydetmek için adımları tamamlamanız [Önizleme için kaydetmek](#register) bu makalenin. Önizleme için her iki abonelikler kaydettirmezseniz kalan adımları başarısız.
  
 1. Oturum [Azure portal](https://portal.azure.com) UserA olarak. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. Bkz: [izinleri](#permissions) Ayrıntılar için bu makalenin.
 2. Tıklatın **+ yeni**, tıklatın **ağ**, ardından **sanal ağ**.
@@ -100,7 +100,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
 
 Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, günlük Azure dışında için adımları atlayın ve rol atamalarını kullanıcı oluşturma komut satırlarını kaldırın. Değiştir UserA@azure.com ve UserB@azure.com tüm UserA ve userb adlı için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler. 
 
-Aşağıdaki adımları gerçekleştirmeden önce önizleme için kaydetmeniz gerekir. Kaydetmek için adımları tamamlamanız [Önizleme için kaydetmek](#register) bu makalenin. Her iki aboneliğin Önizleme için kayıtlı kadar kalan adımlara devam etmeyin.
+Aşağıdaki adımları gerçekleştirmeden önce önizleme için kaydetmeniz gerekir. Kaydetmek için adımları tamamlamanız [Önizleme için kaydetmek](#register) bu makalenin. Önizleme için her iki abonelikler kaydettirmezseniz kalan adımları başarısız.
 
 1. [Yükleme](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağ (Klasik) oluşturmak için Azure CLI 1.0.
 2. CLI oturumu açın ve Azure'a UserB kullanarak olarak oturum açma `azure login` komutu.
@@ -187,7 +187,7 @@ Aşağıdaki adımları gerçekleştirmeden önce önizleme için kaydetmeniz ge
 
 Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, günlük Azure dışında için adımları atlayın ve rol atamalarını kullanıcı oluşturma komut satırlarını kaldırın. Değiştir UserA@azure.com ve UserB@azure.com tüm UserA ve userb adlı için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler. 
 
-Aşağıdaki adımları gerçekleştirmeden önce önizleme için kaydetmeniz gerekir. Kaydetmek için adımları tamamlamanız [Önizleme için kaydetmek](#register) bu makalenin. Her iki aboneliğin Önizleme için kayıtlı kadar kalan adımlara devam etmeyin.
+Aşağıdaki adımları gerçekleştirmeden önce önizleme için kaydetmeniz gerekir. Kaydetmek için adımları tamamlamanız [Önizleme için kaydetmek](#register) bu makalenin. Önizleme için her iki abonelikler kaydettirmezseniz kalan adımları başarısız.
 
 1. PowerShell'ın en son sürümünü yüklemek [Azure](https://www.powershellgallery.com/packages/Azure) ve [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modüller. Azure PowerShell'i kullanmaya yeni başladıysanız [Azure PowerShell'e genel bakış](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) sayfasını inceleyin.
 2. Bir PowerShell oturumu başlatın.
@@ -268,7 +268,7 @@ Aşağıdaki adımları gerçekleştirmeden önce önizleme için kaydetmeniz ge
       | Format-Table VirtualNetworkName, PeeringState
     ```
 
-    Durumu **bağlı**. Dönüşür **bağlı** myVnetA için myVnetB eşlemeyi kurman sonra.
+    Durumu **bağlı**. Dönüşür **bağlı** myVnetA için eşliği myVnetB ayarladıktan sonra.
 
     Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini birbirleri ile iletişim kuramıyor. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, sanal ağlarda bulunan kaynaklar sanal ağlar arasında adlarını çözmek mümkün değildir. Bir eşlemesindeki sanal ağlar arasında adları çözümlemek dilerseniz kendi DNS sunucusu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
@@ -342,11 +342,11 @@ Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide 
     > [!WARNING]
     > Değiştirilen ağ yapılandırma dosyasını içeri varolan sanal ağlar (aboneliğinizde Klasik) yapılan değişiklikler neden olabilir. Önceki sanal ağı yalnızca kaldırmak ve verme değiştirir veya diğer varolan sanal ağlara aboneliğinizden kaldırırsanız, emin olun. 
 
-## <a name="register"></a>Genel sanal ağ eşleme Önizleme için kaydolun
+## <a name="register"></a>Önizleme için kaydolun
 
-Sanal ağlar farklı bölgelerde eş yeteneği şu anda önizlemede değil. Yetenek sınırlı sayıda bölgeler (başlangıçta, ABD Batı Orta Kanada merkezi ve ABD Batı 2) içinde kullanılabilir. Sanal ağlar farklı bölgelerde arasında oluşturulan sanal ağ eşlemesi bulunabilir, kullanılabilirliği ve güvenilirliği aynı bölgede bulunan sanal ağlar arasında eşleme olarak aynı düzeyde olmayabilir. Bu özelliğin kullanılabilirliği ve durumuyla ilgili en güncel bildirimler için, [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasına bakın.
+Farklı Aboneliklerde bulunan farklı Azure dağıtım modelleri aracılığıyla oluşturulan sanal ağlar arası özelliği şu anda önizlemede değil. Önizleme özellikleri genel yayın aynı düzeyde kullanılabilirlik ve güvenilirlik özellikleri olarak olmayabilir. Kullanılabilirlik ve önizleme özellikleri durumunu en güncel bildirimleri için denetleme [Azure sanal ağı güncelleştirir](https://azure.microsoft.com/updates/?product=virtual-network) sayfası. 
 
-Sanal ağlar bölgeler arasında eş için önce önizleme için (içinde eş istediğiniz her bir sanal ağı olduğundan, abonelik) aşağıdaki adımları tamamlayarak kaydetmeniz gerekir Azure PowerShell veya Azure CLI kullanarak:
+Kullanabilmeniz için önce çapraz abonelik arası dağıtım modelini özelliği için kaydetmeniz gerekir. Azure PowerShell veya Azure CLI kullanarak eş istediğiniz her sanal ağ kullanılıyor abonelik içindeki aşağıdaki adımları tamamlayın:
 
 ### <a name="powershell"></a>PowerShell
 
@@ -356,7 +356,7 @@ Sanal ağlar bölgeler arasında eş için önce önizleme için (içinde eş is
 
     ```powershell
     Register-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
     
     Register-AzureRmResourceProvider `
@@ -366,11 +366,14 @@ Sanal ağlar bölgeler arasında eş için önce önizleme için (içinde eş is
 
     ```powershell    
     Get-AzureRmProviderFeature `
-      -FeatureName AllowGlobalVnetPeering `
+      -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
     ```
 
-    Bu makalenin kadar Portal, Azure CLI, PowerShell veya Resource Manager şablonu bölümlerdeki adımları tamamlamayın **RegistrationState** önceki komutunu girdikten sonra aldığınız çıktı **kayıtlı**  hem abonelikler için.
+    Bu makalenin kadar Portal, Azure CLI, PowerShell veya Resource Manager şablonu bölümlerdeki adımları tamamlamayın **RegistrationState** önceki komutların girdikten sonra aldığınız çıktı  **Kayıtlı** hem abonelikler için.
+
+> [!NOTE]
+> Bu öğretici, mevcut sanal ağlar aynı bölgede kullanır. Sanal ağlar farklı bölgelerde eş olanağı da önizlemede değil. Çapraz bölge veya genel eşliği kaydetmek için adım 1-4 yeniden kullanarak tamamlamak `-FeatureName AllowGlobalVnetPeering` yerine `-FeatureName AllowClassicCrossSubscriptionPeering`. İki yetenekleri birbirinden bağımsızdır. Her ikisi de kullanmak istemediğiniz sürece her ikisi için kaydetmek gerekmez. Yetenek sınırlı sayıda bölgeler (başlangıçta, ABD Batı Orta Kanada merkezi ve ABD Batı 2) içinde kullanılabilir.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -391,6 +394,9 @@ Sanal ağlar bölgeler arasında eş için önce önizleme için (içinde eş is
     ```
 
     Bu makalenin kadar Portal, Azure CLI, PowerShell veya Resource Manager şablonu bölümlerdeki adımları tamamlamayın **RegistrationState** önceki komutunu girdikten sonra aldığınız çıktı **kayıtlı**  hem abonelikler için.
+
+> [!NOTE]
+> Bu öğretici, mevcut sanal ağlar aynı bölgede kullanır. Sanal ağlar farklı bölgelerde eş olanağı da önizlemede değil. Çapraz bölge veya genel eşliği kaydetmek için adımları 1-5 yeniden kullanarak tamamlamak `--name AllowGlobalVnetPeering` yerine `--name AllowClassicCrossSubscriptionPeering`. İki yetenekleri birbirinden bağımsızdır. Her ikisi de kullanmak istemediğiniz sürece her ikisi için kaydetmek gerekmez. Yetenek sınırlı sayıda bölgeler (başlangıçta, ABD Batı Orta Kanada merkezi ve ABD Batı 2) içinde kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

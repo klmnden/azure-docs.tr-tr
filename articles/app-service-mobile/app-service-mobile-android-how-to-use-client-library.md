@@ -11,13 +11,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 3ccd892cf693ed959f71845c3571601825c90cf2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac5cbb51a5ed340a6cbf2eeefa41feb337d28fb9
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android için Azure Mobile Apps SDK'sını kullanma
 
@@ -65,10 +65,10 @@ Her ikisi de değiştirme **build.gradle** dosyaları:
 2. Bu kodu ekleyin *modülü uygulama* düzeyi **build.gradle** içinde dosya *bağımlılıkları* etiketi:
 
     ```text
-    compile 'com.microsoft.azure:azure-mobile-android:3.3.0'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    Şu anda son 3.3.0 sürümüdür. Desteklenen sürümleri listelenir [bintray'deki üzerinde][14].
+    Şu anda son 3.4.0 sürümüdür. Desteklenen sürümleri listelenir [bintray'deki üzerinde][14].
 
 ### <a name="enable-internet"></a>Internet izin etkinleştir
 
@@ -234,8 +234,8 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("version")
     private String mVersion;
-    public String getText() { return mVersion; }
-    public final void setText(String version) { mVersion = version; }
+    public String getVersion() { return mVersion; }
+    public final void setVersion(String version) { mVersion = version; }
 
     public ToDoItem() { }
 
@@ -982,7 +982,7 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.android.support:customtabs:23.0.1'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.microsoft.azure:azure-mobile-android:3.2.0@aar'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
 }
 ```

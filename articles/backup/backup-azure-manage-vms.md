@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure sanal makine yedeklemelerini yönetme
 > [!div class="op_single_selector"]
@@ -32,10 +32,10 @@ Bu makalede VM yedekleri yönetmeyle ilgili yönergeler sağlar ve portal panosu
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Kasa ve korumalı sanal makineleri yönetme
 Azure portalında kurtarma Hizmetleri kasa Panosu erişim kasası hakkında bilgi sağlar:
 
-* Ayrıca en son geri yükleme noktası olan en son yedek anlık görüntüsü < br\>
-* Yedekleme İlkesi < br\>
-* tüm yedekleme anlık görüntülerinin boyutunu toplam < br\>
-* Kasa ile korunan sanal makineler sayısı < br\>
+* Ayrıca en son geri yükleme noktası olan en son yedek anlık görüntüsü
+* Yedekleme İlkesi
+* tüm yedekleme anlık görüntülerinin toplam boyutu
+* Kasa ile korunan bir sanal makine sayısı
 
 Bir sanal makine yedekleme ile çok sayıda yönetim görevi, kasa panosunda açma ile başlar. Ancak, kasalarını birden çok öğe (veya birden çok VM), belirli bir VM hakkındaki ayrıntıları görüntülemek için korumak için kullanılabilir olduğundan, kasa öğesi panosunu açın. Aşağıdaki yordamda nasıl açılacağı gösterilmektedir *kasa Panosu* ve ardından Devam *kasa öğesi Panosu*. Kasa ekleme ve PIN Pano komutu kullanarak Azure panoya öğesi kasa çıkış noktası her iki yordamı "ipuçları" yoktur. Panoya Sabitle kasa veya öğe bir kısayol oluşturma yoludur. Ayrıca, sık kullanılan komutlar kısayoldan yürütebilir.
 
@@ -50,11 +50,11 @@ Bir sanal makine yedekleme ile çok sayıda yönetim görevi, kasa panosunda aç
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın.
 
-    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
     Kurtarma Hizmetleri kasalarının listesi görüntülenir.
 
-    ![Liste kurtarma Hizmetleri kasaları ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![Liste kurtarma Hizmetleri kasaları ](./media/backup-azure-manage-vms/list-o-vaults.png)
 
    > [!TIP]
    > Azure Panoya bir kasa sabitlerseniz, Azure portal'ı açtığınızda, kasa hemen erişilebilir. Kasa listesinde bir kasa panoya sabitlemek için kasaya sağ tıklatın ve seçin **panoya Sabitle**.
@@ -89,13 +89,13 @@ Bir sanal makine yedekleme ile çok sayıda yönetim görevi, kasa panosunda aç
 
     Kasa öğe panodan gibi birçok önemli yönetim görevleri gerçekleştirebilirsiniz:
 
-   * ilkeleri değiştirebilir veya yeni bir yedekleme ilkesi oluşturabilirsiniz < br\>
-   * geri yükleme noktaları görüntülemek ve tutarlılık durumlarına bakın < br\>
-   * İsteğe bağlı bir sanal makinenin yedeğini < br\>
-   * sanal makineler korunmasını durdurmayı < br\>
-   * bir sanal makine korumayı sürdürmek < br\>
-   * Yedekleme verilerini (veya kurtarma noktası) silme < br\>
-   * [Yedekleme diskleri geri](backup-azure-arm-restore-vms.md#restore-backed-up-disks) < br\>
+   * ilkeleri değiştirin veya yeni bir yedekleme İlkesi Oluştur
+   * geri yükleme noktaları görüntülemek ve tutarlılık durumlarına bakın
+   * Bir sanal makinenin talep üzerine yedekleme
+   * Sanal makineleri koruma Durdur
+   * Bir sanal makine korumayı Sürdür
+   * Yedekleme verilerini (veya kurtarma noktası) silme
+   * [Yedekleme disklerini geri yükle](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
 Aşağıdaki yordamlar için başlangıç noktası kasası öğesi panosunu ' dir.
 
@@ -110,7 +110,7 @@ Aşağıdaki yordamlar için başlangıç noktası kasası öğesi panosunu ' di
     ![Yedekleme İlkesi dikey penceresi](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. Gelen **yedekleme ilkesi seçin** menüsü:
 
-   * İlkeleri değiştirmek için başka bir ilke seçin ve **kaydetmek**. Yeni ilke hemen kasaya uygulanır. < br\>
+   * İlkeleri değiştirmek için başka bir ilke seçin ve **kaydetmek**. Yeni ilke hemen kasaya uygulanır.
    * Bir ilke oluşturmak için seçin **Yeni Oluştur**.
 
      ![Sanal makine yedekleme](./media/backup-azure-manage-vms/backup-policy-create-new.png)
@@ -148,7 +148,7 @@ Bir sanal makinenin bir talep üzerine yedekleme tetiklemek için:
 Bir sanal makine korumayı durdurmak seçerseniz, Kurtarma noktalarını korumak istiyorsanız istenir. Sanal makineler korumayı durdurmak için iki yolu vardır:
 
 * sonraki tüm yedekleme işleri durdurun ve tüm kurtarma noktalarını silin veya
-* sonraki tüm yedekleme işleri durdurmak, ancak kurtarma noktaları bırakın <br/>
+* sonraki tüm yedekleme işleri durdurmak, ancak kurtarma noktaları bırakın
 
 Depolama birimindeki kurtarma noktaları bırakarak ile ilişkili bir maliyeti yoktur. Ancak, Kurtarma noktaları bırakarak yararı daha sonra sanal makineyi geri isterseniz olur. Kurtarma noktaları bırakarak, maliyeti hakkında bilgi için [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/backup/). Tüm kurtarma noktalarını silmeye karar verirseniz, sanal makine geri yükleyemezsiniz.
 

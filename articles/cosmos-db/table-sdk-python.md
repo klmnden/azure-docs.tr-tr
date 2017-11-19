@@ -1,6 +1,6 @@
 ---
-title: "Azure tablo depolaması için Python SDK'sı | Microsoft Docs"
-description: "Yayın tarih, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere, Python için tüm Azure tablo depolaması hakkında SDK öğrenin."
+title: "Python için Azure Cosmos DB tablo API | Microsoft Docs"
+description: "Tüm Azure Cosmos DB tablo yayın tarih, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere API hakkında bilgi edinin."
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -12,18 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 11/15/2017
 ms.author: mimig1
 ms.custom: 
-ms.openlocfilehash: 6f6528498c26ff79b6c35891e93e4dbcffb322f5
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a68b24fe91d3acb0f18d3d06d6252317bd671be4
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-table-storage-sdk-for-python-release-notes-and-resources"></a>Azure tablo depolaması için Python SDK'sı: sürüm notları ve kaynakları
+# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Cosmos DB tablo API Python için Azure SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [Java](table-sdk-java.md)
+> * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
  
 
@@ -37,6 +39,10 @@ ms.lasthandoff: 11/06/2017
 
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Genel kullanılabilirlik sürümü
+
 ### <a name="a-name03710371"></a><a name="0.37.1"/>0.37.1
 * Yayın öncesi SDK'sı
 
@@ -49,6 +55,7 @@ Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yaln�
 
 | Sürüm | Sürüm tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |15 Kasım 2017 |--- |
 | [0.37.1](#0.37.1) |05 Ekim 2017 |--- |
 
 

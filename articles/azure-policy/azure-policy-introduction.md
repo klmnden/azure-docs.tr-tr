@@ -3,18 +3,18 @@ title: "Azure ilkesine genel bakış | Microsoft Docs"
 description: "Azure ilke oluşturmak, atamak ve ilke tanımları Azure ortamınızda yönetmek için kullandığınız Azure, bir hizmettir."
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark; nini
+author: bandersmsft
+ms.author: banders; nini
 ms.date: 11/06/2017
 ms.topic: overview
 ms.service: azure-policy
-manager: jochan
+manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 82c3f4629da635d1006db91e236d38b1aa16695c
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="what-is-azure-policy"></a>Azure ilke nedir?
 
@@ -51,7 +51,7 @@ Azure İlkesi'nde, varsayılan olarak kullanabileceğiniz bazı yerleşik ilkele
 
 Azure portal, PowerShell veya Azure CLI aracılığıyla bu ilkeleri atayabilirsiniz.
 
-İlke tanımları yapılar hakkında daha fazla bilgi için bu makalenin - Ara [ilke tanımı yapısını](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+İlke tanımları yapılar hakkında daha fazla bilgi için bu makalenin - Ara [ilke tanımı yapısını](policy-definition.md).
 
 ## <a name="policy-assignment"></a>İlke ataması
 
@@ -68,7 +68,7 @@ Parametreleri tanımlı/bir ilke tanımı oluşturulurken oluşturulur. Bir para
 <!--
 Next link should point to new Concept page for Parameters
 -->
-İlke parametreleri hakkında daha fazla bilgi için bkz: [kaynak ilkesine genel bakış - parametreleri](../azure-resource-manager/resource-manager-policy.md#parameters).
+İlke parametreleri hakkında daha fazla bilgi için bkz: [kaynak ilkesine genel bakış - parametreleri](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Girişimi tanımı
 Bir girişimi tanımı tekil değerlendiriyoruz elde doğrultusunda uyarlanabilir ilke tanımları koleksiyonudur. Girişimi tanımları, yönetme ve ilke tanımları atama basitleştirin. Bunlar, bir ilke kümesi tek bir öğe olarak gruplandırarak basitleştirin. Örneğin, başlıklı bir girişimi oluşturabilirsiniz **Azure Güvenlik Merkezi'nde izlemesini etkinleştir**, Azure Güvenlik Merkezi tüm kullanılabilir güvenlik önerileri izlemek için bir hedefi.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7cadb45202c7221876d377546e7c17199ec15809
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure Data Lake Store içinde depolanan verilerin güvenliğini sağlama
 Azure Data Lake Store'da verilerin güvenliğini sağlama üç adımlık bir yaklaşımdır.
@@ -30,14 +30,14 @@ Azure Data Lake Store'da verilerin güvenliğini sağlama üç adımlık bir yak
 
 Bu makalede yukarıdaki görevleri gerçekleştirmek için Azure portalını kullanma hakkında yönergeler sağlar. Data Lake Store hesabı ve veri düzeyinde güvenlik nasıl uyguladığını hakkında ayrıntılı bilgi için bkz: [Azure Data Lake Store'da güvenlik](data-lake-store-security-overview.md). ACL'ler Azure Data Lake Store içinde nasıl uygulandığını derin Dalış hakkında bilgi için bkz: [Data Lake Store'da erişim denetimine genel bakış](data-lake-store-access-control.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Azure Active Directory'de güvenlik grupları oluşturma
-AAD güvenlik gruplarının nasıl oluşturulacağı ve gruba kullanıcı ekleme hakkında yönergeler için bkz: [Azure Active Directory'de güvenlik gruplarını yönetme](../active-directory/active-directory-accessmanagement-manage-groups.md).
+AAD güvenlik gruplarının nasıl oluşturulacağı ve gruba kullanıcı ekleme hakkında yönergeler için bkz: [Azure Active Directory'de güvenlik gruplarını yönetme](../active-directory/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
 > Azure portalını kullanarak Azure AD'de bir gruba hem kullanıcı hem de diğer grupları ekleyebilirsiniz. Ancak, bir hizmet sorumlusu bir gruba eklemek için kullanmak [Azure AD PowerShell Modülü](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 11/16/2017
 ms.author: raiye
-ms.openlocfilehash: b94001e16068f1163beaac81053a03600af5f768
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizmetlerini yayımları sağlar. Bu bilgiler, bir konuk işletim sistemi devre dışı önce yükseltme yolunuza planlamanıza yardımcı olur. Rollerinizi kullanacak şekilde yapılandırırsanız, *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı gibi [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -88,7 +88,7 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-01 |8 Kasım 2017 |POST 5.14 |TBD |
+| WA-GUEST-OS-5.12_201710-02 |8 Kasım 2017 |POST 5.14 |TBD |
 | WA-GUEST-OS-5.11_201709-01 |6 Ekim 2017 |POST 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |24 Ağustos 2017 |POST 5.12 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
@@ -111,7 +111,7 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-01 |8 Kasım 2017 |POST 4.49 |TBD |
+| WA-GUEST-OS-4.47_201710-02 |8 Kasım 2017 |POST 4.49 |TBD |
 | WA-GUEST-OS-4.46_201709-01 |6 Ekim 2017 |POST 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |24 Ağustos 2017 |POST 4.47 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
@@ -134,7 +134,7 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-01 |8 Kasım 2017 |POST 3.56 |TBD |
+| WA-GUEST-OS-3.54_201710-02 |8 Kasım 2017 |POST 3.56 |TBD |
 | WA-GUEST-OS-3.53_201709-01 |6 Ekim 2017 |POST 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |24 Ağustos 2017 |POST 3.54 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
@@ -157,7 +157,7 @@ Güvenlik hata nedeniyle, biz aşağıdaki aralık 2016 ve Ocak 2017 devre dış
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-01 |8 Kasım 2017 |POST 2.69 |TBD |
+| WA-GUEST-OS-2.67_201710-02 |8 Kasım 2017 |POST 2.69 |TBD |
 | WA-GUEST-OS-2.66_201709-01 |6 Ekim 2017 |POST 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |24 Ağustos 2017 |POST 2.67 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
@@ -227,7 +227,7 @@ Konuk işletim sistemi desteklenebilirlik ve kullanımdan kaldırma İlkesi aç�
 
 [konuk işletim sistemi güncelleştirme RSS akışı]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
-[Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
+[Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
 [ssl3-fixit]: http://go.microsoft.com/?linkid=9863266

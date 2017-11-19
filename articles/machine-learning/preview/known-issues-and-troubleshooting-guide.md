@@ -10,19 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
 
-> [!IMPORTANT]
-> Destek Ekibi ile iletişim kurarken yapı numarası olması önemlidir. Tıklayarak uygulamayı yapı numarası bulabilirsiniz **yardımcı** menüsü. Yapı numarası tıklatarak panonuza kopyalar. Destek forumları rapor çözmeye yardımcı olması için ya da e-postalara yapıştırın.
-
-![sürüm numarasını kontrol edin](media/known-issues-and-troubleshooting-guide/buildno.png)
+## <a name="find-the-workbench-build-number"></a>Çalışma ekranı yapı numarası Bul
+Destek Ekibi ile iletişim kurarken, çalışma ekranı uygulamanın yapı numarası eklemek önemlidir. Windows üzerinde tıklayarak yapı numarası bulabilirsiniz **yardımcı** menü ve **hakkında Azure ML çalışma ekranı**. MacOS üzerinde tıklatabilirsiniz **Azure ML çalışma ekranı** menü ve **hakkında Azure ML çalışma ekranı**.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN Forumu
 Sorular nakledebilirsiniz bir MSDN Forumu sunuyoruz. Ürün ekibi forum etkin olarak izler. URL Forumu [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
@@ -75,17 +73,37 @@ Azure ML çalışma ekranı içinde çalışırken, ayrıca bize bir kaş çatma
     >Bu sınır uygulanmaz `.git`, `docs` ve `outputs` klasörler. Bu klasör adları büyük/küçük harfe duyarlıdır. Büyük dosyalarla çalışıyorsanız, başvurmak [kalıcı değişiklikler ve çok büyük dosyalarla anlaşma](how-to-read-write-files.md).
 
 - İzin verilen maks. deneme yürütme süresi: yedi gün
+
 - İzlenen dosyasının en büyük boyutu `outputs` sonra bir çalışma klasörü: 512 MB
   - Bu komut çıkış klasöründeki 512 MB daha büyük bir dosya oluşturur, var. toplanmaz anlamına gelir. Büyük dosyalarla çalışıyorsanız, başvurmak [kalıcı değişiklikler ve çok büyük dosyalarla anlaşma](how-to-read-write-files.md).
 
 - SSH anahtarları bir uzak makine ya da Spark kümesi SSH üzerinden bağlanırken desteklenmez. Yalnızca kullanıcı adı/parola modu şu anda desteklenir.
 
+- Hedef işlem olarak Hdınsight kümesi kullanırken, Azure kullanmalısınız blob birincil depolama olarak. Azure Data Lake Storage kullanılması desteklenmez.
+
 - Metin kümeleme dönüşümler Mac üzerinde desteklenmez.
 
 - RevoScalePy kitaplığı yalnızca Windows ve Linux (Docker kapsayıcılardaki) desteklenir. MacOS üzerinde desteklenmiyor.
 
-## <a name="delete-experimentation-account"></a>Deneme hesabı silme
-Bir deneme hesabı silmek için CLI kullanabilirsiniz, ancak alt çalışma alanları ve bu alt çalışma içinde alt projeleri silmeniz gerekir.
+## <a name="cant-update-workbench"></a>Çalışma ekranı güncelleştirilemiyor
+Yeni bir güncelleştirme kullanılabilir olduğunda, çalışma ekranı uygulama giriş sayfası yeni güncelleştirme hakkında bildiren bir ileti görüntüler. Sol alt köşesindeki uygulama zil simgesine görünen bir güncelleştirme rozet görmeniz gerekir. Gösterge üzerinde tıklatın ve güncelleştirmeyi yüklemek için yükleyici Sihirbazı izleyin. 
+
+![Güncelleştirme resmi](./media/known-issues-and-troubleshooting-guide/update.png)
+
+Bildirim görmüyorsanız, uygulamanın yeniden başlatmayı deneyin. Yeniden başlatma işleminden sonra güncelleştirme bildirimi hala görmüyorsanız, birkaç nedeni olabilir.
+
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Görev çubuğunda sabitlenmiş kısayoldan çalışma ekranı başlatma
+Güncelleştirme zaten yüklenmiş. Ancak sabitlenmiş kısayolu hala eski BITS diskteki işaret. Bunu göz atarak doğrulamak `%localappdata%/AmlWorkbench` klasörü ve en son sürümü yüklü varsa ve burada işaret ettiğinden görmek için sabitlenmiş kısayol özelliğini inceleyin bakın. Doğrulandı, yalnızca eski kısayol kaldırın, çalışma ekranı Başlat menüsünden başlatın ve isteğe bağlı olarak görev çubuğunda yeni sabitlenmiş bir kısayol oluşturun.
+
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Bir Windows DSVM "Azure ML çalışma ekranı Yükle" bağlantıyı kullanarak çalışma ekranı yüklü
+Ne yazık ki bu bir kolay düzeltme yoktur. Yüklü BITS kaldırın ve çalışma ekranı yeni yükleme için en son yükleyici indirmek için aşağıdaki adımları uygulamanız gerekir: 
+   - klasörü kaldırın`C:\Users\<Username>\AppData\Local\amlworkbench`
+   - komut dosyasını kaldırma`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - Yukarıdaki komut dosyasını başlatır masaüstü kısayolu
+   - Yükleyici https://aka.ms/azureml-wb-msi indirin ve yükleyin.
+
+## <a name="cant-delete-experimentation-account"></a>Deneme hesabı silinemiyor
+Bir deneme hesabı silmek için CLI kullanabilirsiniz, ancak alt çalışma alanları ve bu alt çalışma içinde alt projeleri silmeniz gerekir. Aksi takdirde, bir hata görürsünüz.
 
 ```azure-cli
 # delete a project
@@ -100,9 +118,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 Ayrıca, projeler ve çalışma ekranı uygulama içinde çalışma alanlarından silebilirsiniz.
 
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>Onedrive'da projesiyse dosyası açılamıyor
+Windows 10 sonbaharda oluşturucuları güncelleştirme varsa ve projenizin OneDrive eşlenmiş yerel bir klasörde oluşturulur, çalışma ekranı içinde herhangi bir dosyayı açamıyor bulabilirsiniz. Bu node.js kodu OneDrive klasöründe başarısız olmasına neden olan sonbaharda oluşturucuları Update tarafından sunulan bir hatadan kaynaklanır. Hatanın en kısa sürede Windows update tarafından ancak o kadar düzeltilecektir, lütfen projeleri OneDrive klasöründe oluşturmayın.
 
 ## <a name="file-name-too-long-on-windows"></a>Windows dosya adı çok uzun
-Windows çalışma ekranı kullanıyorsa, bir biraz "Sistem belirtilen yol bulunamıyor" hatası yanıltıcı olarak yüzey varsayılan en fazla 260 karakter dosya adı uzunluğu sınırı içinde çalıştırabilirsiniz. Çok uzun dosya yolu adı izin vermek için bir kayıt defteri anahtarı ayarı değiştirebilirsiniz. Gözden geçirme [bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) nasıl ayarlanacağı hakkında daha fazla ayrıntı için _MAX_PATH_ kayıt defteri anahtarı.
+Windows çalışma ekranı kullanıyorsanız, "Sistem belirtilen yol bulunamıyor" hata olarak yüzey varsayılan en fazla 260 karakter dosya adı uzunluğu sınırı içinde çalıştırabilirsiniz. Çok uzun dosya yolu adı izin vermek için bir kayıt defteri anahtarı ayarı değiştirebilirsiniz. Gözden geçirme [bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) nasıl ayarlanacağı hakkında daha fazla ayrıntı için _MAX_PATH_ kayıt defteri anahtarı.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker hata "okuma: bağlantı reddedildi"
 Bazen yerel bir Docker kapsayıcısı karşı çalıştırırken şu hatayı görebilirsiniz: 

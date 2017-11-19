@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps içinde SOAP bağlayıcılar kaydetme
 
@@ -82,7 +82,7 @@ WSDL dosyaya veya URL'ye Bağlayıcınızı Bağlayıcınızı kullanır, kimlik
 
       ![API için WSDL dosyası sağlayın](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
 
-      | Seçenek | Biçimi |Açıklama | 
+      | Seçenek | Biçim |Açıklama | 
       | ------ | ------ | ----------- | 
       | **WSDL dosya karşıya yükleme** | *WSDL dosyası* | WSDL dosya konumuna göz atın ve bu dosyayı seçin. | 
       | **URL'den WSDL karşıya yükle** | http://*yol için wsdl dosyası* | URL için hizmetinizin WSDL dosyası sağlar. | 
@@ -95,7 +95,7 @@ WSDL dosyaya veya URL'ye Bağlayıcınızı Bağlayıcınızı kullanır, kimlik
 
       ![Bağlayıcı ayrıntıları](./media/logic-apps-soap-connector-create-register/add-general-details.png)
 
-      | Seçenek veya ayarı | Biçimi | Açıklama | 
+      | Seçenek veya ayarı | Biçim | Açıklama | 
       | ----------------- | ------ | ----------- | 
       | **Simgeyi karşıya yükleyin** | *PNG-or-jpg-File-Under-1-MB* | Bağlayıcınızı temsil eden bir simge <p>Renk: Tercihen beyaz logosu arka plan rengi. <p>Boyutlar: 230 piksel kare içinde ~ 160 piksel logosu bir | 
       | **Simge arka plan rengi** | *simge-brand-renk-onaltılık-code* | <p>Arka plan rengi, simge dosyanızdaki eşleşen simge arkasındaki rengi. <p>Biçim: onaltılık. Örneğin, #007ee5 mavi rengi temsil eder. | 
@@ -149,6 +149,12 @@ Kayıtlı ancak onaylı olmayan özel bağlayıcılar Microsoft tarafından yön
 Bağlayıcınızı harici kullanıcılar bu bu gibi bir durumda sınırları dışında tüm Logic Apps kullanıcılarla paylaşmak için [Bağlayıcınızı Microsoft sertifika için gönderme](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>SSS
+
+**S:** SOAP Bağlayıcısı genel olarak kullanılabilir (GA)? </br>
+**Y:** SOAP Bağlayıcıdır içinde **Önizleme**, ve GA hizmeti henüz değil.
+
+**S:** tüm kısıtlamaları ve SOAP Bağlayıcısı için bilinen sorunlar vardır? </br>
+**Y:** Evet, bkz: [SOAP bağlayıcı kısıtlamaları ve bilinen sorunlar](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **S:** özel bağlayıcıların herhangi bir sınır vardır? </br>
 **Y:** Evet, bkz: [özel bağlayıcı sınırlar burada](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

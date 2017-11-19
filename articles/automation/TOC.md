@@ -71,7 +71,7 @@
 ## Çözümler
 ### [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)
 #### [Birden çok VM için güncelleştirmeleri yönetme](manage-update-multi.md)
-#### [OMS Güncelleştirme Yönetimi ile SCCMr’yi tümleştirme](oms-solution-updatemgmt-sccmintegration.md)
+#### [SCCM’yi OMS Güncelleştirme Yönetimi ile Tümleştirme](oms-solution-updatemgmt-sccmintegration.md)
 ### [Değişiklik izleme](../log-analytics/log-analytics-change-tracking.md)
 ### [VM'lerinizdeki değişiklikleri izleme](automation-vm-change-tracking.md)
 ### [Stok koleksiyonuyla VM yönetme](automation-vm-inventory.md)

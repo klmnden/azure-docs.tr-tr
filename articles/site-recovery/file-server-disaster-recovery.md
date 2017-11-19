@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: a746ace47c4f1190b7a695014543670a1a9cf879
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Azure Site Recovery kullanarak bir dosya sunucusu koruma 
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti tarafından iş uygulamalarınızı çalışır halde tutmaktan planlanan ve planlanmayan kesintiler sırasında kullanılabilir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı. Site Recovery yönetir ve olağanüstü durum kurtarma çoğaltma, yük devretme ve kurtarma, çeşitli iş yükleri de dahil olmak üzere şirket içi makineler ve Azure sanal makineleri (VM'ler) düzenler.
 
-Bu makalede, Azure Site Recovery ve diğer öneriler ortamlarla uyacak şekilde kullanarak bir dosya sunucusunu koruyabilmeniz açıklar. 
+Bu makalede, Azure Site Recovery ve diğer öneriler ortamlarla uyacak şekilde kullanarak bir dosya sunucusunu koruyabilmeniz açıklar.     
 
 - [Azure Iaas dosya sunucusu makine koru](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
 - [Şirket içi dosya sunucularını koruma](#replicate-an-onpremises-file-server-using-azure-site-recovery)
@@ -51,7 +51,7 @@ Yukarıdaki başvurusunda birden çok dosya sunucuları arasında bir çoğaltma
 
 Diyagram, dosya sunucu ortamınıza kullanmak için hangi stratejisi karar kolaylaştırma adresindeki amaçlayan resimsel temsili sağlar.
 
-![karar ağacı](media/site-recovery-file-server/decisiontree.png)
+![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>Olağanüstü durum kurtarma karar verirken göz önünde bulundurmanız gereken Etkenler

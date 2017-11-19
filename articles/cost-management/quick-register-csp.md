@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Görünüm veri maliyet ve CSP iş ortağı programı ile kaydetme
 
@@ -22,7 +22,13 @@ CSP iş ortağı olarak, Azure maliyeti Yönetimi Cloudyn tarafından ile kayded
 
 
 >[!NOTE]
->Kayıt işlemini tamamlamak için iş ortağı merkezi API erişimi olan bir iş ortağı programı yönetici olması gerekir. İş ortağı merkezi API kimlik doğrulama ve veri erişimi için gerekli yapılandırmadır. Daha fazla bilgi için bkz: [iş ortağı merkezi API Bağlan](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Ayrıca, doğrudan kendi CSP satıcı müşterileri ve abonelikler için erişim sağlamak için Cloudyn ile kaydettiğinde dolaylı CSP kullanıcılar yalnızca Cloudyn kullanabilirsiniz.
+
+>Yalnızca CSP doğrudan iş ortakları ve CSP dolaylı sağlayıcıları Cloudyn kayıt tamamlayabilirsiniz.
+>
+>İş ortağı merkezi API yapılandırma, kimlik doğrulama ve veri erişimi için gereklidir. Bir iş ortağı merkezi genel yönetici hesabını API erişimini sağlamak için gereklidir.
+Daha fazla bilgi için bkz: [iş ortağı merkezi API Bağlan](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>CSP dolaylı sağlayıcılarına Cloudyn ile kaydolduktan sonra Cloudyn erişimi CSP dolaylı yetkili satıcılar için kullanılabilir hale getirilebilir. CSP dolaylı satıcılar, ardından Azure müşteriler ve abonelikleri Cloudyn erişim sağlayabilir.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Çözümünüzü sanal cihazlar ile test
 
@@ -39,6 +39,10 @@ Aşağıdaki tabloda, bir veri akışı olarak buluta ligthbulb raporları veri 
 | Ad   | Değerler      |
 | ------ | ----------- |
 | Durum | "açık", "kapalı" |
+| Çevrimiçi | TRUE, false |
+
+> [!NOTE]
+> **Çevrimiçi** telemetri değeri tüm sanal türleri için zorunludur.
 
 *Yöntemleri*
 
@@ -267,7 +271,11 @@ Test etmek için **ampul** aygıt türü, ilk test edebilirsiniz, cihaz türün�
 
 Test ve değişikliklerinizi yerel olarak hata ayıklama için bkz: [cihaz benzetimi genel bakış](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Yeni kopyalamak için projeyi yapılandırmak **ampul** aygıt dosyalar çıkış dizinine.
+Yeni kopyalamak için projeyi yapılandırmak **ampul** çıktı dizinine cihaz dosyaları:
+
+* Visual Studio kullanıyorsanız, önceki bölümde oluşturduğunuz üç yeni ampul dosyalarını eklediğinizden emin olun **Hizmetleri** çözümde projesine. Ardından **Çözüm Gezgini** bunları çıkış dizinine kopyalanacağını işaretlenecek.
+
+* Visual Studio Code kullanıyorsanız, açık **Services.csproj** dosya ve önceki bölümde oluşturduğunuz üç yeni ampul dosyalarını ekleyin. Var olan aygıt modeli dosyası girdileri bkz **Services.csproj** dosyası örnekleri olarak.
 
 Yeni cihaz dağıtılan bir çözümde sınamak için aşağıdakilerden birini bakın:
 

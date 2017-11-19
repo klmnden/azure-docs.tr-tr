@@ -1,6 +1,6 @@
 ---
-title: "SAP NetWeaver HA yüklemesinde Windows Yük devretme kümesi ve dosya paylaşımı için SAP (A) Azure SCS örneğinde | Microsoft Docs"
-description: "Itanium tabanlı sistemler için SAP NetWeaver HA yükleme Windows Yük devretme kümesi ve dosya paylaşımı için SAP (A) SCS örneği"
+title: "SAP NetWeaver yüksek kullanılabilirlik yüklemesi Azure üzerinde SAP ASCS/SCS örnekleri için Windows Yük devretme kümesi ve dosya paylaşımında | Microsoft Docs"
+description: "SAP NetWeaver Windows Yük devretme kümesi ve dosya paylaşımında SAP ASCS/SCS örnekleri için yüksek kullanılabilirlik yüklemesi"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec7888cfb9b0d288b5b25f580c852ee32306684c
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: fc957ece0250d233db9cec4f1fdd8b063c13a136
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="sap-netweaver-ha-installation-on-windows-failover-cluster-and-file-share-for-sap-ascs-instance-on-azure"></a>Itanium tabanlı sistemler için SAP NetWeaver HA yükleme Windows Yük devretme kümesi ve dosya paylaşımı için Azure SCS örneğinde SAP (A)
+# <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure üzerinde SAP ASCS/SCS örnekleri için bir Windows Yük devretme kümesi ve dosya paylaşımı SAP NetWeaver yüksek kullanılabilirlik yükleyin.
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -33,6 +33,8 @@ ms.lasthandoff: 10/16/2017
 [1596496]:https://launchpad.support.sap.com/#/notes/1596496
 
 [sap-installation-guides]:http://service.sap.com/instguides
+
+[sap-powershell-scrips]:https://github.com/Azure-Samples/sap-powershell
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -194,70 +196,69 @@ ms.lasthandoff: 10/16/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-Bu belge yüklemek ve Azure, yüksek kullanılabilir SAP sistemde yapılandırmak nasıl açıklayan **Windows Yük devretme kümesi (WSFC)** ve **ölçek genişletme dosya paylaşımı** SAP (A) SCS kümeleme için bir seçenek olarak örneği.
+Bu makalede, yükleme ve Windows Server Yük devretme kümesi (WSFC) ve genişleme dosya sunucusu SAP ASCS/SCS örnekleri kümeleme için bir seçenek olarak ile azure'da yüksek kullanılabilirlik SAP sistem yapılandırma açıklar.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Yükleme işlemine başlamadan önce bu belgeleri gözden geçirdiğinizden emin olun:
+Yüklemeye başlamadan önce aşağıdaki makaleleri gözden geçirin:
 
-* [Kümeleme Mimarisi Kılavuzu - SAP (A) SCS örneği üzerinde **Windows Yük devretme kümesi** kullanarak **dosya paylaşımı**][sap-high-availability-guide-wsfc-file-share]
+* [Mimari Kılavuzu: dosya paylaşımı kullanarak bir SAP ASCS/SCS örneği Windows Yük devretme kümesinde Küme][sap-high-availability-guide-wsfc-file-share]
 
-* [SAP HA kullanmak için Azure altyapı hazırlık **Windows Yük devretme kümesi** ve **paylaşılan dosya** SAP (A) SCS örneği için][sap-high-availability-infrastructure-wsfc-file-share]
+* [Azure altyapı SAP yüksek kullanılabilirlik için SAP ASCS/SCS örnek bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak hazırlama][sap-high-availability-infrastructure-wsfc-file-share]
 
+Aşağıdaki yürütülebilir dosyalar ve SAP DLL'lerden gerekir:
+* SAP yazılım sağlama Yöneticisi (SWPM) yükleme Aracı sürüm SPS21 veya sonraki bir sürümü.
+* En son NTCLUST indirin. Yeni SAP ile ÖİB arşiv küme kaynağı DLL. Yeni SAP küme DLL'leri SAP ASCS/SCS yüksek kullanılabilirlik dosya paylaşımı ile Windows Server Yük devretme kümesinde destekler.
 
-Yürütülebilir dosyalar aşağıdaki gereksinim / SAP DLL'lerden:
-* SAP **yazılım sağlama Yöneticisi** (**SWPM**) yükleme Aracı sürüm **SPS21 (veya sonrası)**.
-* Karşıdan **son NTCLUST. ÖİB** yeni SAP küme kaynağı dll dosyası arşive. Yeni SAP küme DLL'leri SAP (A) SCS yüksek kullanılabilirlik dosya paylaşımı ile Windows Server Yük devretme kümesinde destekler.
+  Bu blog yeni SAP küme kaynağı DLL hakkında daha fazla bilgi için bkz: [yeni SAP küme kaynağı DLL kullanılabilir!] [sap-blog-new-sap-cluster-resource-dll].
 
-  Yeni SAP küme kaynağı DLL üzerinde daha fazla oluşturulması için bu Web Günlüğü denetleyin: [yeni SAP küme kaynağı DLL kullanılabilir!][sap-blog-new-sap-cluster-resource-dll]
+Kurulumları kullandığınız DBMS bağlı olarak farklılık gösterdiğinden biz veritabanı yönetim sistemi (DBMS) Kurulumu tanımlamaz. Ancak, çeşitli DBMS satıcılar için Azure desteği işlevler ile DBMS ile yüksek kullanılabilirlik sorunlarının giderilmesini varsayalım. Bu tür işlevler AlwaysOn veya Oracle veritabanları için SQL Server ve Oracle Data Guard için veritabanı yansıtma içerir. Bu makalede kullanırız senaryosunda, size daha fazla koruma DBMS ekleyemiyor.
 
-Kurulumları DBMS sistemine bağlı olarak farklılık gösterdiğinden biz DBMS Kurulum tanımlamaz. Ancak, farklı DBMS satıcılar için Azure desteği işlevler ile DBMS ile yüksek kullanılabilirlik sorunlarının giderilmesini varsayalım. Örneğin, her zaman açık veya Oracle veritabanları için SQL Server ve Oracle Data Guard için veritabanı yansıtma. Bu makalede kullanırız senaryosunda, size daha fazla koruma DBMS ekleyemiyor.
-
-Bu tür bir Azure kümelenmiş SAP ASCS/SCS yapılandırmasında farklı DBMS Hizmetleri etkileşim, özel durumlar vardır.
+Bu tür bir Azure kümelenmiş SAP ASCS/SCS yapılandırmada çeşitli DBMS Hizmetleri etkileşim, özel durumlar vardır.
 
 > [!NOTE]
 > SAP NetWeaver ABAP sistemleri, Java sistemleri ve ABAP + Java sistemleri yükleme yordamları neredeyse aynıdır. En önemli fark, bir SAP ABAP sistemi bir ASCS örneği sahip olur. SAP Java sistem bir SCS örneği vardır. SAP ABAP + Java sistem bir ASCS örneği ve aynı Microsoft yük devretme küme grubunda çalışan bir SCS örneğine sahip. Her SAP NetWeaver yükleme yığınının yükleme farkları açıkça belirtilen. Diğer tüm bölümleri aynı olduğunu kabul edilebilir.  
 >
 >
 
-## <a name="install-ascs-instance-on-ascs-cluster"></a>(A) SCS kümede (A) SCS örneğini yükleyin
+## <a name="install-an-ascsscs-instance-on-an-ascsscs-cluster"></a>Bir ASCS/SCS kümede ASCS/SCS örneğini yükleyin
 
 > [!IMPORTANT]
 >
->Şu anda bir dosya paylaşımı yapılandırması HA ayarıyla SAP yükleme aracı yazılım sağlama Yöneticisi (SWPM) tarafından desteklenmiyor. Bu nedenle, bazı el ile benimseme bir SAP sistemi örneğin yüklemek için yüklemek ve SAP (A) SCS örnek küme ve ayrı SAP GLOBALHOST yapılandırmak gereklidir.  
+> Şu anda yüksek oranda kullanılabilirlik ayarı bir dosya paylaşımı yapılandırmasıyla SAP SWPM yükleme aracı tarafından desteklenmiyor. Bu nedenle, bazı el ile benimseme (örneğin, yükleme ve SAP ASCS/SCS örneği küme ve ayrı bir SAP genel ana yapılandırma) bir SAP sistemini yüklemek gereklidir.  
 >
->Diğer yükleme adımlarını yükleme (ve küme) DBMS örneği ve SAP uygulama sunucuları için herhangi bir değişiklik yoktur.
+> DBMS yüklemenin (ve küme için) diğer yükleme adımları değişiklik yok örneği ve SAP uygulama sunucuları.
 >
 
-### <a name="install-ascs-instance-on-local-drive"></a>(A) SCS örneği yerel sürücüsüne yükleyin
+### <a name="install-an-ascsscs-instance-on-your-local-drive"></a>Yerel diskinize ASCS/SCS örneğini yükleyin
 
-Yükleme SAP (A) SCS örnek **her ikisi de** (A) SCS küme düğümlerinin. Yüklemeniz **yerel** sürücü. Bizim örneğimizde, yerel sürücüdür C: olan seçtik\\. Herhangi bir yerel sürücüye seçebilirsiniz.  
+SAP ASCS/SCS örneğini yükleyin *her ikisi de* ASCS/SCS küme düğümlerinin. Yerel sürücüsüne yükleyin. Bizim örneğimizde, yerel C: sürücüdür\\, ancak herhangi bir yerel sürücüye seçebilirsiniz.  
 
-Yüklemek için SAP yüklemede gezinmek için SWPM aracı:
+SAP SWPM yükleme aracı örneği yüklemek için şuraya gidin:
 
-&lt;Ürün&gt; -> &lt;DBMS&gt; yükleme -> Uygulama -> sunucu ABAP (veya Java) -> Dağıtılmış Sistem -> (A) SCS örneği
+**\<Ürün >** > **\<DBMS >** > **yükleme** > **uygulama sunucusu ABAP**(veya **Java**) > **dağıtılmış sistemi** > **ASCS/SCS örneği**
 
 > [!IMPORTANT]
->Şu anda, dosya paylaşımı senaryo değil henüz SAP yükleme aracı SWPM tarafından desteklenen **kullanamazsınız** yükleme yolu:
+> Şu anda, dosya paylaşımı senaryo SAP SWPM yükleme aracı tarafından desteklenmiyor. *Kullanamazsınız* aşağıdaki yükleme yolu:
 >
->&lt;Ürün&gt; -> &lt;DBMS&gt; yükleme -> Uygulama -> sunucu ABAP (veya Java) yüksek kullanılabilirlik-> Sistem ->...
+> **\<Ürün >** > **\<DBMS >** > **yükleme** > **uygulama sunucusu ABAP**(veya **Java**) > **yüksek kullanılabilirlik sistem** >...
 >
 
-### <a name="remove-sapmnt-and-create-saploc-file-share"></a>SAPMNT kaldırın ve SAPLOC dosya paylaşımı oluşturma
+### <a name="remove-sapmnt-and-create-an-saploc-file-share"></a>SAPMNT kaldırın ve SAPLOC dosya paylaşımı oluşturma
 
-C'de SWMP oluşturulan SAPMNT yerel paylaşıma\\usr\\sap klasör.
+SWMP oluşturulan SAPMNT yerel paylaşıma C:\\usr\\sap klasör.
 
-SAPMNT dosya paylaşımı kaldırmak **her ikisi de** (A) SCS küme düğümleri:
+SAPMNT dosya paylaşımı kaldırmak *her ikisi de* ASCS/SCS küme düğümleri.
 
-PowerShell betiğini yürütün:
+Aşağıdaki PowerShell betiğini yürütün:
 
 ```PowerShell
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
-SAPLOC paylaşımı yoksa, HEM ASCS küme düğümleri üzerinde bir tane oluşturun.
+SAPLOC paylaşımı yoksa, bir oluşturma *her ikisi de* ASCS/SCS küme düğümleri.
 
-PowerShell betiğini yürütün:
+Aşağıdaki PowerShell betiğini yürütün:
 
 ```PowerShell
 #Create SAPLOC share and set security
@@ -272,25 +273,25 @@ $SAPusrSapPath = "$SAPDisk\usr\sap"
 New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName , $SAPLocalAdminGroupName  
  ```
 
-## <a name="prepare-sap-global-host-on-sofs-cluster"></a>SAP genel SOFS küme KONAKTA hazırlama
+## <a name="prepare-an-sap-global-host-on-the-sofs-cluster"></a>SOFS küme bir SAP genel konakta hazırlama
 
-Bu adımda, SOFS kümede aşağıdaki birim ve dosya paylaşımı oluştur:
+Aşağıdaki birim ve dosya paylaşımını SOFS kümede oluşturun:
 
-* SAP GLOBALHOST dosya C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS\ yapısına SOFS Küme Paylaşılan birimi (CSV)
+* SAP GLOBALHOST dosya C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ yapısına SOFS Küme Paylaşılan birimi (CSV)
 
-* SAPMNT dosya paylaşımı oluşturma
+* SAPMNT dosya paylaşımı
 
 * Güvenlik SAPMNT dosya paylaşım ve klasör için tam denetim ayarlayın:
-    * **&lt;Etki alanı&gt;\SAP_&lt;SID&gt;_GlobalAdmin** kullanıcı grubu
-    * (A) SCS küme düğümleri bilgisayar SAP **nesneleri &lt;etki alanı&gt;\ClusterNode1$ ve &lt;etki alanı&gt;\ClusterNode2$**
+    * \<Etki alanı > \SAP_\<SID > _GlobalAdmin kullanıcı grubu
+    * SAP ASCS/SCS küme düğümü bilgisayar nesnelerini \<etki alanı > \ClusterNode1$ ve \<etki alanı > \ClusterNode2$
 
-Bölümde tanımlanan bir yansıtma dayanıklılığı ile CSV birim oluşturmak için **SOFS azure'da - Bağlantı Ekle SAP önkoşulları**, aşağıdaki SOFS küme düğümlerinden birinin PowerShell cmdlet'ini yürütün:
+Bir CSV birimi yansıtma dayanıklılığı ile oluşturmak için SOFS küme düğümlerinden biri üzerinde aşağıdaki PowerShell cmdlet'ini yürütün:
 
 
 ```PowerShell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
-SAPMNT oluşturmak ve klasörü ve paylaşımı güvenlik ayarlamak için PowerShell Betiği SOFS küme düğümlerinden biri üzerinde aşağıdaki yürütün:
+SAPMNT oluşturmak ve klasörü ve paylaşımı güvenlik ayarlamak için SOFS küme düğümlerinden biri üzerinde aşağıdaki PowerShell betiğini yürütün:
 
 ```PowerShell
 # Create SAPMNT on file share
@@ -298,11 +299,11 @@ $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# SAP (A)SCS cluster nodes
+# SAP ASCS/SCS cluster nodes
 $ASCSClusterNode1 = "ascs-1"
 $ASCSClusterNode2 = "ascs-2"
 
-# Define SAP (A)SCS cluster node computer objects
+# Define SAP ASCS/SCS cluster node computer objects
 $ASCSClusterObjectNode1 = "$DomainName\$ASCSClusterNode1$"
 $ASCSClusterObjectNode2 = "$DomainName\$ASCSClusterNode2$"
 
@@ -312,99 +313,95 @@ New-Item -Path $SAPGlobalFOlder -ItemType Directory
 
 $UsrSAPFolder = "C:\ClusterStorage\Volume1\usr\sap\"
 
-# Create SAPMNT file share and set share security
+# Create a SAPMNT file share and set share security
 New-SmbShare -Name sapmnt -Path $UsrSAPFolder -FullAccess "BUILTIN\Administrators", $SAPSIDGlobalAdminGroupName, $ASCSClusterObjectNode1, $ASCSClusterObjectNode2 -ContinuouslyAvailable $false -CachingMode None -Verbose
 
 # Get SAPMNT file share security settings
 Get-SmbShareAccess sapmnt
 
-# Set files & folder security
+# Set file and folder security
 $Acl = Get-Acl $UsrSAPFolder
 
-# Add file security object of SAP_<sid>_GlobalAdmin group
+# Add a file security object of SAP_<sid>_GlobalAdmin group
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($SAPSIDGlobalAdminGroupName,"FullControl", 'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode1$ computer object
+# Add  a security object of the clusternode1$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode1,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
-# Add security object of clusternode2$ computer object
+# Add a security object of the clusternode2$ computer object
 $Ar = New-Object  system.security.accesscontrol.filesystemaccessrule($ASCSClusterObjectNode2,"FullControl",'ContainerInherit,ObjectInherit', 'None', 'Allow')
 $Acl.SetAccessRule($Ar)
 
 # Set security
 Set-Acl $UsrSAPFolder $Acl -Verbose
  ```
-## <a name="stop-ascs-instances-and-sap-services"></a>Durdur (A) SCS örnekleri ve SAP Hizmetleri
+## <a name="stop-ascsscs-instances-and-sap-services"></a>ASCS/SCS örnekleri ve SAP Hizmetleri Durdur
 
 Aşağıdaki adımları yürütün:
-* SAP (A) SCS örnekleri hem (A) SCS küme düğümleri üzerinde Durdur
-* SAP (A) SCS Windows hizmetlerini durdurmak **SAP&lt;SID&gt;_&lt;InstanceNumber&gt;**  her iki küme düğümlerinde
+1. SAP ASCS/SCS örnekleri hem ASCS/SCS küme düğümlerinde durdurun.
+2. SAP ASCS/SCS Windows hizmetlerini durdurmak **SAP\<SID > _\<InstanceNumber >** her iki küme düğümlerinde.
 
-## <a name="move-sys-folder-to-sofs-cluster"></a>\SYS taşıma\.... SOFS küme klasöre
+## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>\SYS taşıma\... SOFS kümeye klasörü
 
 Aşağıdaki adımları yürütün:
-* SYS Klasör Kopyala (örneğin C:\usr\sap\\&lt;SID&gt;\SYS) (A) SCS birinden küme düğümleri için SOFS kümeye örn C:\ClusterStorage\Volume1\usr\sap\\&lt;SID&gt;\SYS
-* C:\usr\sap Sil\\&lt;SID&gt;(A) SCS küme düğümlerinin her ikisi de \SYS klasöründen
+1. SYS klasörünü kopyalayın (örneğin, C:\usr\sap\\<SID>\SYS) SOFS kümeye ASCS/SCS birinden küme düğümleri (örneğin, C:\ClusterStorage\Volume1\usr\sap için\\<SID>\SYS).
+2. C:\usr\sap Sil\\<SID>hem ASCS/SCS küme düğümünden \SYS klasörü.
 
-## <a name="update-cluster-security-setting-on-sap-ascs-cluster"></a>SAP (A) SCS kümede küme güvenlik ayarını güncelleştirin
+## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>SAP ASCS/SCS kümede küme güvenlik ayarını güncelleştir
 
-Aşağıdaki PowerShell betiğini SAP (A) SCS küme düğümlerinden birinin yürütün:
+Aşağıdaki PowerShell betiğini SAP ASCS/SCS küme düğümlerinden birinin yürütün:
 
 ```PowerShell
-# Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to cluster
+# Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
 $SAPSIDGlobalAdminGroupName = "$DomainName\SAP_" + $SAPSID + "_GlobalAdmin"
 
-# Set full access for <DOMAIn>\SAP_<SID>_GlobalAdmin group
+# Set full access for the <DOMAIN>\SAP_<SID>_GlobalAdmin group
 Grant-ClusterAccess -User $SAPSIDGlobalAdminGroupName -Full
 
 #Check security settings
 Get-ClusterAccess
 ```
 
-## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascs-instance"></a>Kümelenmiş SAP (A) SCS örneği için bir sanal ana bilgisayar adı oluşturma
+## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı oluşturma
 
-Bölümde açıklandığı gibi [kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı oluşturmak] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] , örn. SAP (A) SCS küme ağ adı oluşturma **pr1 ascs [10.0.6.7]**
+Bir SAP ASCS/SCS küme ağ adı oluşturun (örneğin, **pr1 ascs [10.0.6.7]**) konusunda açıklandığı üzere [kümelenmiş SAP ASCS/SCS örneği için bir sanal ana bilgisayar adı oluşturmak] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
 
-## <a name="update-default-and-sap-ascs-instance-profile"></a>Varsayılan güncelleştirin ve (A) SCS örneği profili SAP
+## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>Varsayılan ve SAP ASCS/SCS örneği profil güncelleştirme
 
-Varsayılan güncelleştirmeniz gerekir ve SAP (A) SCS örneği profili &lt;SID&gt;_(A) SCS<Nr>_  <Host> kullanmak için:
-
-* Yeni SAP (A) SCS sanal ana bilgisayar adı
-
-* Yeni SAP genel ana bilgisayar adı
+Yeni SAP ASCS/SCS sanal ana bilgisayar adı kullanın ve genel ana bilgisayar adı SAP için varsayılan ve SAP ASCS/SCS örneği profil güncelleştirme \<SID >_ASCS/SCS\<n >_<Host>.
 
 
 | Eski değerleri |  |
 | --- | --- |
-| (A) SCS hostname SAP SAP genel ana bilgisayar = | ascs-1 |
-| (A) SCS örnek profil adı SAP | PR1_ASCS00_ascs-1 |
+| SAP ASCS/SCS ana bilgisayar adı SAP genel ana bilgisayar = | ascs-1 |
+| SAP ASCS/SCS örnek profil adı | PR1_ASCS00_ascs-1 |
 
 | Yeni değerler |  |
 | --- | --- |
-| (A) SCS hostname SAP | **pr1 ascs** |
+| SAP ASCS/SCS ana bilgisayar adı | **pr1 ascs** |
 | SAP genel ana bilgisayar | **sapglobal** |
-| (A) SCS örnek profil adı SAP | PR1\_ASCS00\_**pr1 ascs** |
+| SAP ASCS/SCS örnek profil adı | PR1\_ASCS00\_**pr1 ascs** |
 
 ### <a name="update-sap-default-profile"></a>SAP varsayılan profilini güncelleştir
 
 
-| Parametre Adı | Parametre değeri |
+| Parametre adı | Parametre değeri |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
 | rdisp/mshost | **pr1 ascs** |
 | CLR'yi/serverhost | **pr1 ascs** |
 
-### <a name="update-sap-ascs-instance-profile"></a>SAP (A) SCS örneği profilini güncelleştir
+### <a name="update-the-sap-ascsscs-instance-profile"></a>SAP ASCS/SCS örneği profilini güncelleştir
 
-| Parametre Adı | Parametre değeri |
+| Parametre adı | Parametre değeri |
 | --- | --- |
 | SAPGLOBALHOST | **sapglobal** |
-| DIR_PROFILE | \\\\**sapglobal**\sapmnt\PR1\SYS\profile |
+| DIR_PROFILE | \\\sapglobal\sapmnt\PR1\SYS\profile |
 | _PF | $(DIR_PROFILE) \PR1\_ASCS00_ pr1-ascs |
 | Restart_Program_02 local$(_MS) pf=$(_PF) = | **Başlat**_Program_02 local$(_MS) pf=$(_PF) = |
 | SAPLOCALHOST | **pr1 ascs** |
@@ -414,28 +411,28 @@ Varsayılan güncelleştirmeniz gerekir ve SAP (A) SCS örneği profili &lt;SID&
 | Hizmet/ha_check_node | **1** |
 
 > [!IMPORTANT]
->Kullanabileceğiniz **güncelleştirme SAPASCSSCSProfile** profil güncelleştirme otomatikleştirmek için PowerShell cmdlet
+>Kullanabileceğiniz **güncelleştirme SAPASCSSCSProfile** profil güncelleştirme otomatikleştirmek için PowerShell cmdlet.
 >
->SAP ABAP ASCS ve SAP Java SCS örnek PowerShell cmdlet'ini destekler.
+>SAP ABAP ASCS ve SAP Java SCS örnekleri PowerShell cmdlet'ini destekler.
 >
 
-Kopya **SAPScripts.ps1** C:\tmp yerel sürücü ve PowerShell cmdlet'ini çalıştırın:
+Kopya [ **SAPScripts.psm1** ] [ sap-powershell-scrips] C:\tmp için yerel sürücü ve aşağıdaki PowerShell cmdlet'ini çalıştırın:
 
 ```PowerShell
-Import-Module C:\tmp\SAPScripts.ps1
+Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
 ```
 
-![Şekil 1: SAPScripts.ps1 çıkış][sap-ha-guide-figure-8012]
+![Şekil 1: SAPScripts.psm1 çıkış][sap-ha-guide-figure-8012]
 
-_**Şekil 1:** SAPScripts.ps1 çıkış_
+_**Şekil 1**: SAPScripts.psm1 çıkış_
 
-## <a name="update-ltsidgtadm-user-environment-variable"></a>Güncelleştirme &lt;SID&gt;adm kullanıcı ortam değişkeni
+## <a name="update-the-sidadm-user-environment-variable"></a>Güncelleştirme \<SID > adm kullanıcı ortam değişkeni
 
-Güncelleştirme &lt;SID&gt;adm kullanıcı ortamı yeni GLOBALHOST UNC yolu HEM (A) SCS küme düğümlerinde.
-Oturum açma &lt;SID&gt;adm kullanıcı ve başlangıç Regedit.exe aracı.
-Git **HKEY_CURRENT_USER** -> **ortam** ve değişkenleri yeni değere güncelleştirin:
+1. Güncelleştirme \<SID > adm kullanıcı ortamı yeni GLOBALHOST UNC yolu üzerindeyse *her ikisi de* ASCS/SCS küme düğümleri.
+2. Oturum açma \<SID > adm kullanıcı ve Regedit.exe Aracı'nı başlatın.
+3. Git **HKEY_CURRENT_USER** > **ortam**ve ardından yeni değere değişkenleri güncelleştirin:
 
 | Değişken | Değer |
 | --- | --- |
@@ -445,31 +442,25 @@ Git **HKEY_CURRENT_USER** -> **ortam** ve değişkenleri yeni değere güncelle�
 | SAPLOCALHOST  | **pr1 ascs** |
 
 
-## <a name="install-new-saprcdll"></a>Yeni SAPRC yükleyin. DLL
+## <a name="install-a-new-saprcdll-file"></a>Yeni bir saprc.dll dosyasını yükleyin
 
-Dosya Paylaşımı senaryoyu destekler SAP küme kaynağı yeni bir sürümünü yüklemeniz gerekir.
+1. Dosya Paylaşımı senaryoyu destekler SAP küme kaynağının yeni bir sürümünü yükleyin.
 
-İndirme son **NTCLUST. ÖİB** paket SAP gelen hizmet markette.
+2. En son NTCLUST indirin. SAP hizmet Market ÖİB paketi.
 
-NTCLUS ayıklayın. (A) SCS birinde ÖİB küme düğümleri ve komut yeni saprc.dll yüklemek için komut isteminden aşağıdaki çalıştırın:
+3. NTCLUS ayıklayın. ÖİB ASCS/SCS birinde, küme düğümleri ve ardından yeni saprc.dll dosyasını yüklemek için komut isteminden aşağıdaki komutu çalıştırın:
 
 ```
 .\NTCLUST\insaprct.exe -yes -install
 ```
 
-Yeni saprc.dll hem (A) SCS küme düğümlerine yüklenir.
+Yeni saprc.dll dosyası, her iki ASCS/SCS küme düğümlerine yüklenir.
 
-Daha fazla bilgi için bkz: [SAP Not 1596496 - SAP kaynak türü DLL'ler küme kaynağı İzleyicisi için güncelleştirme konusunda][1596496].
+Daha fazla bilgi için bkz: [SAP Not 1596496 - SAP kaynak türü DLL'leri küme kaynağı İzleyicisi için güncelleştirme konusunda][1596496].
 
-## <a name="create-sap-sid-cluster-group-network-name-and-ip"></a>SAP oluşturmak <SID> küme grubu, ağ adı ve IP
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>SAP oluşturmak <SID> küme grubu, ağ adı ve IP
 
-Oluşturmanız gerekir:
-
-* SAP &lt;SID&gt; küme grubu
-* < SCSNetworkName (a) >
-* ve karşılık gelen IP adresi
-
-PowerShell cmdlet'ini çalıştırın:
+SAP oluşturmak için \<SID > Küme grubu, bir ASCS/SCS ağ adı ve karşılık gelen bir IP adresi, aşağıdaki PowerShell cmdlet'ini çalıştırın:
 
 ```PowerShell
 # Create SAP Cluster Group
@@ -480,23 +471,23 @@ $SAPASCSNetworkName = "pr1-ascs"
 $SAPASCSIPAddress = "10.0.6.7"
 $SAPASCSSubnetMask = "255.255.255.0"
 
-# Create SAP ASCS instance Virtual IP cluster resource
+# Create an SAP ASCS instance virtual IP cluster resource
 Add-ClusterGroup -Name $SAPClusterGroupName -Verbose
 
-#Create SAP ASCS Virtual IP Address
+#Create an SAP ASCS virtual IP address
 $SAPIPClusterResource = Add-ClusterResource -Name $SAPIPClusterResourceName -ResourceType "IP Address" -Group $SAPClusterGroupName -Verbose
 
-# Set static IP Address
+# Set a static IP address
 $param1 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,Address,$SAPASCSIPAddress
 $param2 = New-Object Microsoft.FailoverClusters.PowerShell.ClusterParameter $SAPIPClusterResource,SubnetMask,$SAPASCSSubnetMask
 $params = $param1,$param2
 $params | Set-ClusterParameter
 
-# Create corresponding network name
+# Create a corresponding network name
 $SAPNetworkNameClusterResourceName = $SAPASCSNetworkName
 Add-ClusterResource -Name $SAPNetworkNameClusterResourceName -ResourceType "Network Name" -Group $SAPClusterGroupName -Verbose
 
-# Set Network DNS Name
+# Set a network DNS name
 $SAPNetworkNameClusterResource = Get-ClusterResource $SAPNetworkNameClusterResourceName
 $SAPNetworkNameClusterResource | Set-ClusterParameter -Name Name -Value $SAPASCSNetworkName
 
@@ -506,17 +497,17 @@ $SAPNetworkNameClusterResource | Get-ClusterParameter
 #Set resource dependencies
 Set-ClusterResourceDependency -Resource $SAPNetworkNameClusterResourceName -Dependency "[$SAPIPClusterResourceName]" -Verbose
 
-#Start SAP <SID> Cluster Group
+#Start an SAP <SID> cluster group
 Start-ClusterGroup -Name $SAPClusterGroupName -Verbose
 ```
 
-## <a name="register-sap-start-service-on-both-nodes"></a>Her iki düğüm SAP başlangıç hizmet kaydı
+## <a name="register-the-sap-start-service-on-both-nodes"></a>Her iki düğüm SAP başlangıç hizmet kaydı
 
-Yeni bir profil ve profil yolu pint SAP (A) SCS sapstart hizmetine yeniden kaydetmeniz gerekir.
+Yeni bir profil ve profil yolunu işaret edecek şekilde SAP ASCS/SCS başlangıç hizmeti yeniden kaydedin.
 
-HIS HEM (A) SCS küme düğümlerinde yürütmeniz gerekir.
+Bu yeniden kayıt yürütmeniz gerekir *her ikisi de* ASCS/SCS küme düğümleri.
 
-Çalışma form yükseltilmiş komut istemi aşağıdaki komutu:
+Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırın:
 
 ```
 C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_pr1-ascs -s PR1 -n 00 -U SAPCLUSTER\SAPServicePR1 -P mypasswd12 -e SAPCLUSTER\pr1adm
@@ -524,20 +515,20 @@ C:\usr\sap\PR1\ASCS00\exe\sapstartsrv.exe -r -p \\sapglobal\sapmnt\PR1\SYS\profi
 
 ![Şekil 2: SAP hizmetini yeniden yükle][sap-ha-guide-figure-8013]
 
-_**Şekil 2:** REINSTALL SAP hizmeti_
+_**Şekil 2**: yeniden SAP hizmeti_
 
-Parametreleri doğru olduğundan ve seçin emin yapar **el ile** başlangıç türü olarak.
+Parametrelerin doğru olduğundan ve ardından emin olun **el ile** olarak **başlangıç türü**.
 
-## <a name="stop-ascs-service"></a>(A) SCS hizmetini durdurun
+## <a name="stop-the-ascsscs-service"></a>ASCS/SCS hizmetini durdurun
 
-SAP (A) SCS hizmetini durdurun **SAP&lt;SID&gt;_ &lt;InstanceNumber&gt;**  (A) hem SCS üzerinde küme düğümleri.
+SAP SAP ASCS/SCS hizmetini durdurun\<SID > _\<InstanceNumber > her iki ASCS/SCS küme düğümleri.
 
-## <a name="create-new-sap-service-and-sap-instance-resources"></a>Yeni SAP hizmet oluşturup SAP örnek kaynaklar
+## <a name="create-a-new-sap-service-and-sap-instance-resources"></a>Yeni bir SAP hizmet ve SAP örneği kaynakları oluşturun
 
-SAP SAP kaynakların oluşturulmasını Sonlandır artık&lt;SID&gt; küme grubu, örneğin kaynakları oluşturmanız gerekir:
+SAP SAP kaynakların oluşturma işlemini sonlandırmak için\<SID > Küme grubu, aşağıdaki kaynakları oluşturun:
 
-* **SAP &lt;SID&gt; &lt;InstanceNumber&gt; hizmet** ve
-* **SAP &lt;SID&gt; &lt;InstanceNumber&gt; örneği**
+* SAP \<SID > \<InstanceNumber > hizmeti
+* SAP \<SID > \<InstanceNumber > örneği
 
 Aşağıdaki PowerShell cmdlet'ini çalıştırın:
 
@@ -559,10 +550,10 @@ Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Depende
 
 $SAPInstanceClusterResourceName = "SAP $SAPSID $SAPInstanceNumber Instance"
 
-# Create SAP Instance cluster resource
+# Create SAP instance cluster resource
 $SAPASCSServiceClusterResource = Add-ClusterResource -Name $SAPInstanceClusterResourceName -Group $SAPClusterGroupName -ResourceType "SAP Resource" -SeparateMonitor -Verbose
 
-#Set SAP Instance cluster resource parameters
+#Set SAP instance cluster resource parameters
 $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystemName -Value $SAPSID -Verbose
 $SAPASCSServiceClusterResource  | Set-ClusterParameter  -Name SAPSystem -Value $SAPInstanceNumber -Verbose
 
@@ -572,25 +563,24 @@ Set-ClusterResourceDependency -Resource $SAPASCSServiceClusterResource  -Depende
 
 ## <a name="add-a-probe-port"></a>Bir araştırma bağlantı noktası ekleme
 
-Bu adımda, PowerShell kullanarak bir SAP küme kaynağı SAP SID IP sonda bağlantı noktası yapılandırmış olursunuz. Açıklandığı gibi bu yapılandırmayı SAP ASCS/SCS küme düğümlerinden biri üzerinde yürütme [burada][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
+PowerShell kullanarak bir SAP küme kaynağı, SAP SID IP sonda bağlantı noktası yapılandırın. Açıklandığı gibi bu yapılandırmayı SAP ASCS/SCS küme düğümlerinden biri üzerinde yürütme [bu makalede][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
 
-## <a name="install-ers-instance-on-both-cluster-nodes"></a>Her iki küme düğümlerinde ERS örneğini yükleyin
+## <a name="install-an-ers-instance-on-both-cluster-nodes"></a>Her iki küme düğümlerine ERS örneğini yükleyin
 
-Sonraki adımda, (A) her iki düğümde ERS (kuyruğa çoğaltma sunucusu) örneği yüklemelisiniz SCS küme.
-Yükleme seçeneği SWPM menüde bulunabilir:
+Sıraya alma çoğaltma sunucusuna (ERS) örneğini yükleyin *her ikisi de* ASCS/SCS küme düğümlerinin. Bu yükleme yolunda SWPM menüsünde izleyin:
 
-&lt;Ürün&gt; -> &lt;DBMS&gt; yükleme -> ek SAP örnekleri -> Sistem -> **kuyruğa çoğaltma sunucusu örneği**
+**\<Ürün >** > **\<DBMS >** > **yükleme** > **ek SAP sistem örnekleri**  >  **Kuyruğa çoğaltma sunucusu örneği**
 
-## <a name="install-dbms-instance-and-sap-application-servers"></a>Yükleme DBMS örneği ve SAP uygulama sunucuları
+## <a name="install-a-dbms-instance-and-sap-application-servers"></a>DBMS örneği ve SAP uygulama sunucuları yükleme
 
 SAP sistem yüklemenizi yükleyerek son şeklini verin:
-* DBMS örneği
-* Birincil SAP uygulama sunucusu
-* Ek SAP uygulama sunucusu
+* DBMS örneği.
+* Birincil bir SAP uygulama sunucusu.
+* Ek bir SAP uygulama sunucusu.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Resmi SAP yönergeleri HA dosya paylaşımı için bir yük devretme kümesindeki hiçbir (A) SCS örneği yüklemesini Paylaşılan diskleri -][sap-official-ha-file-share-document]:
+* [Bir yük devretme kümesinde paylaşılan diskleri - yüksek oranda kullanılabilir dosya paylaşımı için resmi SAP yönergeleri olmayan ASCS/SCS örneğini yükleyin][sap-official-ha-file-share-document]
 
 * [Depolama alanları doğrudan Windows Server 2016][s2d-in-win-2016]
 

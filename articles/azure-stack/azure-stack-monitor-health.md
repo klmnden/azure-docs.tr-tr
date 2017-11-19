@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Sistem durumu ve Uyarıları Azure yığınında izleme
 
@@ -36,7 +36,7 @@ Azure yığın altyapı izleme durumunu ve bir Azure yığın bölge için uyar�
  
  Bir Azure yığın operatör olarak, Yönetici portalı'nda ve REST API ve PowerShell aracılığıyla bileşenleri sistem durumunu görüntüleyebilirsiniz.
  
-Portalda sistem durumu görüntülemek için görüntülemek istediğiniz bölgeyi tıklatın **bölge Yönetimi** döşeme. Sistem durumu altyapı rollerini ve kaynak sağlayıcıları görüntüleyebilirsiniz. Bu sürümde, işlem kaynak sağlayıcısı sistem durumu bildirmiyor.
+Portalda sistem durumu görüntülemek için görüntülemek istediğiniz bölgeyi tıklatın **bölge Yönetimi** döşeme. Sistem durumu altyapı rollerini ve kaynak sağlayıcıları görüntüleyebilirsiniz.
 
 ![Altyapı rollerinin listesi](media/azure-stack-monitor-health/image2.png)
 

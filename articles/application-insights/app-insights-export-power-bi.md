@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Power BI Application Insights akış
 [Power BI](http://www.powerbi.com/) yardımcı iş analiz araçları dizisi verileri çözümlemek ve paylaşmak Öngörüler. Zengin panolar her cihazda kullanılabilir. Analytics sorgularından dahil olmak üzere pek çok kaynaktan veri birleştirebilirsiniz [Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 Power BI için Application Insights verileri dışarı aktarma, önerilen üç yöntem vardır. Bunları ayrı olarak veya birlikte kullanabilirsiniz.
 
 * [**Power BI bağdaştırıcısı** ](#power-pi-adapter) -uygulamanızdan telemetrinin bir tam Pano ayarlayın. Grafikler dizi önceden tanımlanmış, ancak diğer kaynaklardan gelen kendi sorgularınızı ekleyebilirsiniz.
-* [**Analitik sorguları dışarı** ](#export-analytics-queries) -herhangi bir yazma analizi kullanarak istediğiniz ve Power BI için dışarı aktarma sorgu. Bu sorgu, diğer verilerin bir Panoda yerleştirebilirsiniz.
+* [**Analitik sorguları dışarı** ](#export-analytics-queries) -herhangi bir yazma analizi kullanarak istediğiniz sorgu veya kullanım Funnels ve Power BI için dışarı aktarma. Bu sorgu, diğer verilerin bir Panoda yerleştirebilirsiniz.
 * [**Sürekli dışarı aktarma ve akış analizi** ](app-insights-export-stream-analytics.md) -bu ayarlamak için daha fazla iş içerir. Uzun süre boyunca verilerinizi korumak istiyorsanız kullanışlıdır. Aksi takdirde, diğer yöntemleri önerilir.
 
 ## <a name="power-bi-adapter"></a>Power BI bağdaştırıcısı
@@ -48,7 +48,7 @@ Application Insights grafikler olanla diğer kaynakları ve analiz sorguları bi
 İlk içeri aktardıktan sonra günlük güncelleştirmek panoyu ve raporları devam. Veri kümesi üzerinde yenileme zamanlamasını kontrol edebilirsiniz.
 
 ## <a name="export-analytics-queries"></a>Analitik sorguları dışarı aktarma
-Bu yol, istediğiniz herhangi bir Analytics sorgu yazma ve, Power BI panosuna dışarı aktarma olanak sağlar. (Bağdaştırıcı tarafından oluşturulan Panoda ekleyebilirsiniz.)
+Bu yol, kullanım Funnels ' dışarı aktarma veya gibi tüm Analytics sorgu yazın ve ardından, bir Power BI panosuna vermek sağlar. (Bağdaştırıcı tarafından oluşturulan Panoda ekleyebilirsiniz.)
 
 ### <a name="one-time-install-power-bi-desktop"></a>Bir kez: Power BI Desktop yükleyin
 Application Insights sorgunuzu içeri aktarmak için Power BI'ın Masaüstü sürümünü kullanın. Ancak daha sonra onu Web veya Power BI bulut çalışma alanınızı yayımlayabilirsiniz. 
@@ -82,10 +82,32 @@ Yükleme [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Görselleştirme seçin](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Raporun aralıklarla el ile yenileme veya zamanlanan yenileme seçenekleri sayfasında ayarlayın.
 
+### <a name="export-a-funnel"></a>Bir huni dışarı aktarma
+1. [Huni olun](usage-funnels.md)
+2. Power BI düğmesini tıklatın 
+
+   ![Powerbı düğmesi](./media/app-insights-export-power-bi/button.png)
+   
+3. Power BI Desktop seçin **Veri Al, boş sorgu** ve ardından sorgu Düzenleyicisi'nde altında **Görünüm** seçin **Gelişmiş sorgu düzenleyici**.
+
+   ![Boş sorgu](./media/app-insights-export-power-bi/blankquery.png)
+
+   Dışarı aktarılan M Dil komut dosyası Gelişmiş sorgu düzenleyicisine yapıştırın. 
+
+   ![Gelişmiş Sorgu Düzenleyici](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. Sorgudan öğeleri seçin ve Huni görselleştirmeyi seçin
+
+   ![Sıralı ve Huni seçin](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. Anlamlı ve Power BI bulut alanınıza raporunuzu yayımlamak için başlığını değiştirin. 
+
+   ![Başlık değiştirme](./media/app-insights-export-power-bi/changetitle.png)
+
 ## <a name="troubleshooting"></a>Sorun giderme
 
 ### <a name="401-or-403-unauthorized"></a>401 veya 403 yetkisiz 
-Refesh belirtecinizi güncelleştirilmez bu durum meydana gelebilir. Hala erişiminiz olduğundan emin olmak için aşağıdaki adımları deneyin. Erişim ve kimlik bilgileri çalışmıyor refershing varsa, Lütfen bir destek bileti açın.
+Yenileme belirteci güncelleştirilmez bu durum meydana gelebilir. Hala erişiminiz olduğundan emin olmak için aşağıdaki adımları deneyin. Erişiminiz ve kimlik bilgilerini yenileme işe yaramazsa, Lütfen bir destek bileti açın.
 
 1. Azure portalında oturum açın ve kaynak erişebildiğinden emin olun
 2. Kimlik bilgileri Pano yenilemeyi deneyin

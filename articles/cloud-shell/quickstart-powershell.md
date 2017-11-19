@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: fd1d340bc0408eaeb0b7b18235df109224eae5f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>PowerShell Azure bulut kabuğu için hızlı başlangıç
+# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>PowerShell Azure bulut Kabuğu (Önizleme) için hızlı başlangıç
 
 Bu belge PowerShell bulut Kabuğu'nda kullanmak nasıl ayrıntıları [Azure portal](https://aka.ms/PSCloudPreview).
 
@@ -227,7 +227,7 @@ Ayrıca gidebilirsiniz `virtualMachines` ilk ve çalışma dizinini `Enter-Azure
 
 ### <a name="discover-webapps"></a>WebApps Bul
 
-İçine girerek `WebApps` kolayca gezinmenizi depolama kaynaklarınıza klasörü
+İçine girerek `WebApps` kolayca gezinmenizi web apps kaynaklarınızı klasörü
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> dir .\WebApps\
@@ -243,15 +243,15 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 
 
-# You can use Azure cmdlets to Start/Stop your web apps for example,
+# You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
 
 Name           State    ResourceGroup        EnabledHostNames                   Location
 ----           -----    -------------        ----------------                   --------
 mywebapp1      Running  MyResourceGroup1     {mywebapp1.azurewebsites.net ...   West US
 
-# Refresh the current state with -force
-PS Azure:\MySubscriptionName\WebApps> dir -force
+# Refresh the current state with -Force
+PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
@@ -266,7 +266,7 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="list-available-commands"></a>Liste kullanılabilir komutlar
 
-Altında `Azure` sürücü, yazın `Get-AzureRmCommand` bağlam belirli Azure komutları almak için.
+Altında `Azure` sürücü, yazın `Get-AzureRmCommand` bağlamı özgü Azure komutları almak için.
 
 Alternatif olarak, her zaman kullanabilirsiniz `Get-Command *azurerm* -Module AzureRM.*` kullanılabilir Azure komutları bulunamıyor.
 
@@ -282,7 +282,7 @@ Tür `Get-Help` Azure bulut Kabuğu'nda PowerShell hakkında bilgi almak için.
 PS Azure:\> Get-Help
 ```
 
-Belirli bir komut için hala Get-Help cmdlet'i tarafından izlenen örneğin yapabileceğiniz
+Belirli bir komut için Get-Help cmdlet'i tarafından izlenen hala yapabilirsiniz.
 
 ``` Powershell
 PS Azure:\> Get-Help Get-AzureRmVM
@@ -290,7 +290,7 @@ PS Azure:\> Get-Help Get-AzureRmVM
 
 ## <a name="use-azure-file-storage-to-store-your-data"></a>Verilerinizi depolamak için Azure File Storage kullanma
 
-Bir komut dosyası deyin oluşturabilirsiniz `helloworld.ps1`ve Kabuk oturumlarında kullanmak için clouddrive kaydedin.
+Bir komut dosyası deyin oluşturabilirsiniz `helloworld.ps1`ve kaydetmesi, `CloudDrive` Kabuk oturumlarında kullanmak için.
 
 ``` Powershell
 cd C:\users\ContainerAdministrator\CloudDrive
@@ -310,13 +310,13 @@ Profil oluşturma, başvurmak için [hakkında profilleri][profile].
 
 ## <a name="use-git"></a>Git kullanın
 
-Oluşturmanıza gerek CloudShell içinde bir git deposuna kopyalamak için bir [kişisel erişim belirteci] [ githubtoken] ve kullanıcı adı olarak kullanın. Bir kez, belirteç, kopya deposu gibi vardır:
+Oluşturmanıza gerek bulut Kabuğu'nda bir git deposuna kopyalamak için bir [kişisel erişim belirteci] [ githubtoken] ve kullanıcı adı olarak kullanın. Bir kez, belirteç, kopya deposu gibi vardır:
 
  ``` PowerShell
   git clone https://<your-access-token>@github.com/username/repo.git
 
 ```
-CloudShell oturumlarında oturumu veya oturum zaman aşımına uğramadan devam etmeyen olduğundan, Git yapılandırma dosyası sonraki oturum açma sırasında mevcut olmaz. Kalıcı, Git config sağlamak için .gitconfig kaydedin, `CloudDrive` ve kopyalama veya bir simgesel oluşturmak zaman `CloudShell` başlatılan. Aşağıdaki kod parçacığında, profile.ps1 içinde bir simgesel oluşturulacağı `CloudDrive`.
+Bulut Kabuk oturumlarında oturumu veya oturum zaman aşımına uğramadan devam etmeyen olduğundan, Git yapılandırma dosyası sonraki oturum açma sırasında mevcut olmaz. Kalıcı, Git config sağlamak için .gitconfig kaydedin, `CloudDrive` ve kopyalama veya Bulut Kabuk başlatıldığında bir simgesel oluşturun. Aşağıdaki kod parçacığında, profile.ps1 içinde bir simgesel oluşturulacağı `CloudDrive`.
 
  ``` PowerShell
  

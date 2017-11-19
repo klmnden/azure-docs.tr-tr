@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 10/13/2017
 ms.author: carlrab
-ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 SQL veritabanı kullanarak veritabanı kurtarma için bu seçenekleri sağlar [veritabanı yedeklemeleri otomatik](sql-database-automated-backups.md) ve [uzun vadeli bekletme yedeklemeleri](sql-database-long-term-retention.md). Bir veritabanı yedeğinden geri yükleyebilirsiniz:
@@ -54,7 +54,14 @@ Otomatik veritabanı yedeklerini kullanarak bir veritabanını geri yüklemek i�
 * Hedef bölgede işlenmekte olan eşzamanlı geri yükleme isteği sayısı. 
   
   İçin çok büyük ve/veya etkin bir veritabanı, geri yükleme birkaç saat sürebilir. Bir bölgede uzun süren kesinti ise, çok sayıda coğrafi geri yükleme isteği ülkeler tarafından işlenmekte olan mümkündür. Birçok istek olduğunda, bu bölgedeki veritabanları için kurtarma süresini artırabilir. Çoğu veritabanı 12 saat içinde tam geri yükler.
-  
+
+Tek bir abonelik için kaldığı (geri yükleme, coğrafi geri yükleme ve uzun vadeli bekletme yedekten geri yükleme noktası dahil) eşzamanlı geri yükleme isteklerinin sayısı bazı sınırlamalar gönderildi ve proceeded:
+|  | **En fazla işlenmekte olan eşzamanlı istek sayısı** | **Max gönderilmesini eşzamanlı istek sayısı** |
+| :--- | --: | --: |
+|Tek veritabanı (her abonelik)|10|60|
+|Esnek havuz (her havuzu)|4|200|
+||||
+
 Geri yükleme toplu olarak yerleşik bir işlevi yoktur. [Azure SQL Database: tam sunucu kurtarma](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) komut dosyası bu görevi gerçekleştirmeye bir yolu bir örnektir.
 
 > [!IMPORTANT]

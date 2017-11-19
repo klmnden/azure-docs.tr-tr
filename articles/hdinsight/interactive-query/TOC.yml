@@ -107,9 +107,6 @@
         - name: Kümeleri yönetme
           href: ../domain-joined/apache-domain-joined-manage.md
           maintainContext: true
-        - name: Kullanıcı izinlerini yönetme
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
-          maintainContext: true
     - name: Büyük verileri çözümleme
       items:
         - name: Power Query kullanarak çözümleme
@@ -188,9 +185,6 @@
           maintainContext: true
         - name: Kullanıcıları Ambari Views için yetkilendirme
           href: ../hdinsight-authorize-users-to-ambari.md
-          maintainContext: true
-        - name: Dosya ve klasör düzeyinde kullanıcı izinlerini yönetme
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
           maintainContext: true
     - name: Yönet
       items:

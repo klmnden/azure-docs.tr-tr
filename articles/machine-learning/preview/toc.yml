@@ -41,6 +41,8 @@
           href: roaming-and-collaboration.md
     - name: AI için Visual Studio Code Araçları kullanma
       href: quickstart-visual-studio-tools.md
+    - name: Azure IoT Edge Yapay Zeka Araç Setini kullanma
+      href: use-azure-iot-edge-ai-toolkit.md
     - name: İşlem ortamını yapılandırma
       items:
         - name: Deneme yapılandırma
@@ -88,6 +90,8 @@
           href: how-to-scale-clusters.md
         - name: Bir web hizmetini dağıtma
           href: model-management-service-deploy.md
+        - name: IoT Edge cihazına dağıtma
+          href: deploy-to-iot-edge-device.md
         - name: Bir web hizmetini kullanma
           href: model-management-consumption.md
         - name: Model verileri toplama
@@ -102,7 +106,7 @@
           href: scenario-qna-matching.md
         - name: Tahmine dayalı bakım
           href: scenario-predictive-maintenance.md
-        - name: Havadan görüntü sınıflandırma
+        - name: Havadan görünüm sınıflandırması
           href: scenario-aerial-image-classification.md
         - name: Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
           href: scenario-big-data.md
@@ -110,7 +114,7 @@
           href: scenario-time-series-forecasting.md
         - name: Hiperparametreleri dağıtılmış bir şekilde ayarlama
           href: scenario-distributed-tuning-of-hyperparameters.md
-        - name: Müşteri karmaşası tahmini
+        - name: Müşteri kaybı tahmini
           href: scenario-churn-prediction.md
         - name: Derin öğrenme ile yaklaşım analizi
           href: scenario-sentiment-analysis-deep-learning.md
@@ -118,6 +122,8 @@
           href: scenario-tdsp-biomedical-recognition.md
         - name: ABD içi gelirleri sınıflandırma - TDSP projesi
           href: scenario-tdsp-classifying-us-incomes.md
+        - name: CNTK kullanarak görüntü sınıflandırması
+          href: scenario-image-classification-using-cntk.md
 - name: Başvuru
   items:
     - name: Veri hazırlama
@@ -162,6 +168,8 @@
       items:
         - name: Sprint 0 - Ekim 2017
           href: release-notes-sprint-0.md
+        - name: Sprint 1 - Kasım 2017
+          href: release-notes-sprint-1.md
 - name: Kaynaklar
   items:
     - name: Sık sorulan sorular

@@ -63,6 +63,7 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Sanal makineler
+#### [Sanal makine ağ aktarım hızı](virtual-machine-network-throughput.md)
 #### Statik genel IP adresiyle VM oluşturma
 ##### [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)

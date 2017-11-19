@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2237f2e5cb67df019d0975e764602babe7f4c8f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme
 
@@ -293,7 +293,7 @@ Aşağıdaki tabloda, kullanım örneklerine boyutları kategorilere ayırır.
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | Genel amaçlı         |DSv2, Dv2, DS, D, Av2, A0-7| Dengeli CPU bellekten. Geliştirme için ideal / test ve küçük ve orta uygulamaları ve verileri çözümler.  |
 | İşlem için iyileştirilmiş      | FS, F             | Yüksek CPU bellekten. Orta düzey trafik uygulamalar, ağ uygulamaları ve toplu işlemler için iyidir.        |
-| Bellek için iyileştirilmiş       | GS, G, DSv2, DS, Dv2, D   | Yüksek bellek için-çekirdek. İlişkisel veritabanları, Orta ve büyük önbellekler ve bellek içi analizi için mükemmel.                 |
+| Bellek için iyileştirilmiş       | GS, G, DSv2, DS, Dv2, D   | Yüksek bellek için-CPU. İlişkisel veritabanları, Orta ve büyük önbellekler ve bellek içi analizi için mükemmel.                 |
 | Depolama için iyileştirilmiş       | Ls                | Yüksek disk aktarım hızı ve GÇ. Büyük Veri, SQL ve NoSQL veritabanları için ideal.                                                         |
 | GPU           | NV, NC            | Yoğun Grafik işleme ve video düzenleme için hedeflenen özel VM'ler.       |
 | Yüksek performans | H, A8-11          | Bizim en güçlü CPU VM'ler isteğe bağlı yüksek verimlilik ağ arabirimlerine (RDMA) sahip. 
@@ -347,7 +347,7 @@ Bir Azure VM birçok güç durumlarını birine sahip. Bu durum, hiper yönetici
 | Çalışıyor | Sanal makinenin çalıştığını gösterir. |
 | Durduruluyor | Sanal makinenin durdurulması olduğunu gösterir. | 
 | Durduruldu | Sanal makine durdurulduğunda gösterir. Sanal makine durdurulmuş durumunda hala bilgi işlem ücretleri olduğunu unutmayın.  |
-| Ayırmayı kaldırma | Sanal makine ayırması olduğunu gösterir. |
+| Serbest bırakılıyor | Sanal makine ayırması olduğunu gösterir. |
 | Serbest bırakıldı | Sanal makine hiper yönetici alanından tamamen kaldırılacak, ancak denetim düzeyi hala kullanılabilir olduğunu gösterir. Deallocated durumunda sanal makineler bilgi işlem ücretleri değil. |
 | - | Sanal makinenin güç durumunun bilinmediğini gösterir. |
 

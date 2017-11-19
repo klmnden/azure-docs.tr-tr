@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 07/10/2017
 ms.author: rickbyh
-ms.openlocfilehash: d1a73da7ba3e92f5229faf73cb932dd50b50dfe1
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f0c9578217beff22b4a322b363c7499943311d88
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulaması yönetme
 
@@ -32,7 +32,7 @@ Bu makalede oluşturun ve Azure AD doldurmak ve Azure SQL Database ve SQL Data W
 ## <a name="create-and-populate-an-azure-ad"></a>Oluşturma ve Azure AD doldurma
 Azure AD oluşturabilir ve kullanıcılar ve gruplar ile doldurabilirsiniz. Azure AD, ilk Azure AD olabilir yönetilen etki alanı. Azure AD, bir şirket içi Active Directory etki alanı birleştirildiyse Hizmetleri'nde Azure AD ile de olabilir.
 
-Daha fazla bilgi edinmek için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/active-directory-aadconnect.md), [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-add-domain.md), [Microsoft Azure artık Windows Server Active Directory ile federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure AD'yi Windows PowerShell kullanarak yönetme](/powershell/azure/overview?view=azureadps-2.0) ve [Karma Kimlik için gerekli bağlantı noktaları ve protokoller](../active-directory/active-directory-aadconnect-ports.md).
+Daha fazla bilgi edinmek için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/active-directory-aadconnect.md), [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure artık Windows Server Active Directory ile federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure AD'yi Windows PowerShell kullanarak yönetme](/powershell/azure/overview?view=azureadps-2.0) ve [Karma Kimlik için gerekli bağlantı noktaları ve protokoller](../active-directory/active-directory-aadconnect-ports.md).
 
 ## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>İsteğe bağlı: İlişkilendir ya da şu anda Azure aboneliğinizle ilişkili olan active directory değiştirme
 Kuruluşunuz için Azure AD dizini veritabanınızı ilişkilendirmek için dizin veritabanını barındıran Azure aboneliği için güvenilen bir dizin oluşturun. Daha fazla bilgi için bkz. [Azure aboneliklerinin Azure AD ile ilişkisi](https://msdn.microsoft.com/library/azure/dn629581.aspx).
@@ -73,7 +73,7 @@ Azure Active Directory coğrafi çoğaltma ile kullanırken, Azure Active Direct
 
 Aşağıdaki iki yordamdan Azure portalında ve PowerShell kullanarak Azure SQL server için Azure Active Directory yönetici sağlama gösterir.
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 1. İçinde [Azure portal](https://portal.azure.com/), sağ üst köşede, açılan olası etkin dizinlerin bir liste için bağlantınızı tıklatın. Doğru Active Directory varsayılan olarak Azure AD seçin. Bu adım, her ikisi için aynı abonelik kullanılır emin Azure SQL server ile Active Directory ile abonelik ilişkisi bağlar. Azure AD ve SQL Server. (Azure SQL Azure SQL Database veya Azure SQL Data Warehouse barındırma sunucusu olması.)   
     ![ad seçin][8]   
     

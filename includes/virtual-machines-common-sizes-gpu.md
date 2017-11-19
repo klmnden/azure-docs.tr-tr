@@ -1,5 +1,5 @@
 
-GPU en iyi duruma getirilmiş VM yoğun grafik işleme ve video düzenleme için hedeflenen özelleştirilmiş sanal makineler boyutlarıdır. Tek veya birden çok GPU ile kullanılabilir. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyut için depolama üretilen iş ve ağ performansı sayısı hakkında bilgi sağlar. 
+GPU en iyi duruma getirilmiş VM yoğun grafik işleme ve video düzenleme için hedeflenen özelleştirilmiş sanal makineler boyutlarıdır. Tek veya birden çok GPU ile kullanılabilir. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar. 
 
 
 NC ve NV boyutları, GPU özellikli örnekler olarak da bilinir. Bunlar farklı senaryolar ve kullanım durumları için en iyi duruma getirilmiş NVIDIA GPU kartlarına içeren özelleştirilmiş sanal makine boyutlarıdır. NV boyutları uzaktan görselleştirme, içerik akışı, oyun ve kodlamanın yanı sıra OpenGL ve DirectX gibi çerçeveleri kullanan VDI senaryoları için tasarlanmış ve iyileştirilmiştir. NC boyutları ise CUDA ve OpenCL tabanlı uygulama ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar ve algoritmalar için iyileştirilmiştir. 

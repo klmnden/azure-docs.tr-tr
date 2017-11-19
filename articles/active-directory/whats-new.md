@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: a44faec6c21c338dfc6b1507af6f716e089c7038
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
@@ -49,7 +49,7 @@ Lütfen bu sayfayı yeniden ziyaret biz aylık olarak güncelleştirdiğiniz gib
 
 <a name="acs-retirement"></a>
 
-Microsoft Azure Active Directory erişim denetimi (erişim denetimi hizmeti veya ACS olarak da bilinir) içinde geç 2018 devre dışı bırakıldı.  Daha fazla ayrıntılı zamanlama & yüksek düzey Geçiş Kılavuzu gibi bilgi sonraki birkaç hafta içinde sağlanan. Bu arada, lütfen açıklamaları bu sayfada ACS ilgili herhangi bir sorunuz ile bırakın ve ekibimiz üyesi sorunuza yanıt almanıza yardımcı ulaşmak.
+Microsoft Azure Active Directory erişim denetimi (erişim denetimi hizmeti veya ACS olarak da bilinir) Kasım 2018 devre dışı bırakıldı.  Yüksek düzey Geçiş Kılavuzu & ayrıntılı zamanlama dahil olmak üzere daha fazla bilgi bulunabilir [bu sayfadaki](./develop/active-directory-acs-migration.md).
 
 ---
 
