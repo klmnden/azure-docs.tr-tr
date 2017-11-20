@@ -29,8 +29,14 @@
       href: project-ic-tasks.md
 - name: Proje yapısı
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Proje yürütme
-  href: project-execution.md
+- name: Proje planlama ve yürütme
+  items:
+    - name: Proje planlama
+      href: team-data-science-process-project-templates.md
+    - name: Proje yürütme
+      items:
+        - name: Veri bilimi projeleri
+          href: project-execution.md
 - name: Örnekler
   href: walkthroughs.md
   items:

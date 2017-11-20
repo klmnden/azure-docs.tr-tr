@@ -80,15 +80,21 @@
           href: sizes-general.md
     - name: Bakım ve güncelleştirmeler
       href: maintenance-and-updates.md
-    - name: Depolama
+    - name: Disk depolama
       href: about-disks-and-vhds.md
       items:
+        - name: Yönetilen Diskler
+          href: managed-disks-overview.md
         - name: Premium depolama
           href: premium-storage.md
         - name: Premium depolama performansı
           href: premium-storage-performance.md
         - name: Standart depolama
           href: standard-storage.md
+        - name: Diskler için ölçeklenebilirlik hedefleri
+          href: disk-scalability-targets.md
+        - name: Diskler için yedekleme ve olağanüstü durum kurtarma
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Ağ
       href: network-overview.md
     - name: Uygulamaları otomatik ölçeklendirme
@@ -113,6 +119,8 @@
       items:
         - name: 'C# kullanma'
           href: csharp.md
+        - name: Özelleştirilmiş disk kullanma
+          href: create-vm-specialized.md
         - name: 'C# ile şablon kullanma'
           href: csharp-template.md
         - name: Chef ile VM oluşturma
@@ -154,6 +162,8 @@
           href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: VM’leri yönetme
       items:
+        - name: VM’ler için önceden ödeme yapma - Ayrılmış Örnekler
+          href: prepay-reserved-vm-instances.md
         - name: Ortak PowerShell görevleri
           href: ps-common-ref.md
         - name: Bir VM'yi taşıma
@@ -186,12 +196,10 @@
           href: cli-ps-findimage.md
         - name: VM’yi karşıya yükleme işlemine hazırlama
           href: prepare-for-upload-vhd-image.md
-        - name: Genelleştirilmiş görüntü kullanma
-          href: create-vm-generalized-managed.md
-        - name: Özelleştirilmiş disk kullanma
-          href: create-vm-specialized.md
         - name: VM görüntüsü yakalama
           href: capture-image-resource.md
+        - name: Genelleştirilmiş görüntü kullanma
+          href: create-vm-generalized-managed.md
         - name: Packer ile görüntü derleme
           href: build-image-with-packer.md
         - name: Windows istemci görüntülerini kullanma
@@ -241,8 +249,6 @@
               href: excel-cluster-hpcpack.md
     - name: Depolamayı yönetme
       items:
-        - name: Yönetilen Diskler hakkında bilgi edinin
-          href: managed-disks-overview.md
         - name: Disklerle ilgili SSS
           href: faq-for-disks.md
         - name: Disk ekleme
@@ -255,8 +261,6 @@
           href: detach-disk.md
         - name: Bir diski yeniden boyutlandırma
           href: expand-os-disk.md
-        - name: Diskler için yedekleme ve olağanüstü durum kurtarma
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Bir diskin anlık görüntüsünü alma
           href: snapshot-copy-managed-disk.md
         - name: Yönetilmeyen diskleri yedekleme

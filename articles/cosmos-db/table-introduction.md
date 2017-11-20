@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 87e5555b282ca8efb8d8d3ed7938df94faffb102
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB: Tablo API’sine Giriş
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB Tablo API’sine Giriş
 
-[Azure Cosmos DB](introduction.md), Azure Tablo depolaması için yazılmış olan ve aşağıdaki gibi üst düzey özelliklere ihtiyaç duyan uygulamalar için Tablo API'si (önizleme) sunar:
+[Azure Cosmos DB](introduction.md), Azure Tablo depolaması için yazılmış olan ve aşağıdaki gibi üst düzey özelliklere ihtiyaç duyan uygulamalar için Tablo API'sini sunar:
 
 * [Anahtar teslimi genel dağıtım](distribute-data-globally.md).
 * Dünya genelinde [adanmış aktarım hızı](partition-data.md).
@@ -39,9 +39,9 @@ Aravind Ramachandran'ın Azure Cosmos DB Tablo API'si ile çalışmaya başlama 
 > 
 
 ## <a name="table-offerings"></a>Tablo teklifleri
-Şu anda Azure Tablo Depolama hizmetini kullanıyorsanız, Azure Cosmos DB Tablo API’sine (önizleme) geçerek aşağıdaki avantajlara sahip olabilirsiniz:
+Şu anda Azure Tablo Depolama hizmetini kullanıyorsanız, Azure Cosmos DB Tablo API’sine geçerek aşağıdaki avantajlara sahip olabilirsiniz:
 
-| | Azure Tablo depolama | Azure Cosmos DB Tablo API’si (önizleme) |
+| | Azure Tablo depolama | Azure Cosmos DB Tablo API’si |
 | --- | --- | --- |
 | Gecikme süresi | Hızlıdır, ancak gecikme süresi için üst sınır yoktur. | Herhangi bir ölçekte, dünyanın her yerinde okuma ve yazma işlemleri için tek haneli milisaniyelik gecikme (99. yüzdebirlik dilimde okumalar için 10 ms'den az, yazma için 15 ms'den az gecikme süresiyle desteklenir). |
 | Aktarım hızı | Değişken aktarım hızı modeli. Tabloların 20.000 işlem/sn'lik bir ölçeklenebilirlik sınırı vardır. | SLA'lar ile desteklenen [tablo başına adanmış, ayrılmış aktarım hızı](request-units.md) ile yüksek düzeyde ölçeklenebilir. Hesapların aktarım hızı açısından üst sınırı yoktur ve tablo başına saniyede 10 milyondan fazla işlem desteklenir. |
@@ -50,7 +50,7 @@ Aravind Ramachandran'ın Azure Cosmos DB Tablo API'si ile çalışmaya başlama 
 | Sorgu | Sorgu yürütme birincil anahtar için dizini kullanır, aksi durumda tarar. | Sorgular, hızlı sorgu süreleri için özelliklerde otomatik dizin oluşturma avantajından yararlanabilir. Azure Cosmos DB'nin veritabanı altyapısı, toplamaları, jeo-uzamsal aramayı ve sıralamayı destekleme özelliğine sahiptir. |
 | Tutarlılık | Birincil bölge içinde güçlü. İkincil bölge içinde nihai. | Uygulama gereksinimlerinize bağlı olarak kullanılabilirlik, gecikme süresi, aktarım hızı ve tutarlılık arasında denge sağlamak için [iyi tanımlanmış beş tutarlılık düzeyi](consistency-levels.md). |
 | Fiyatlandırma | Depolama açısından iyileştirilmiş. | Aktarım hızı açısından iyileştirilmiş. |
-| SLA’lar | %99,99 kullanılabilirlik. | Tek bir bölge içinde %99,99 kullanılabilirlik ve daha yüksek kullanılabilirlik için daha fazla bölge ekleme olanağı. Genel kullanılabilirlik aşamasında [sektör lideri kapsamlı SLA'lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/). |
+| SLA’lar | %99,99 kullanılabilirlik. | Rahat bir tutarlılıkla tek tek tüm bölge hesapları ve çok bölgeli tüm hesaplar için %99,99 kullanılabilirlik SLA'sı ve çok bölgeli tüm veritabanı hesaplarında %99,999 okunabilirlik Genel kullanıma sunulma aşamasında [endüstri lideri kapsamlı SLA'lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/). |
 
 ## <a name="get-started"></a>başlarken
 
@@ -64,5 +64,7 @@ Aravind Ramachandran'ın Azure Cosmos DB Tablo API'si ile çalışmaya başlama 
 * [Tablo API’sini kullanarak tablo verilerini sorgulama](tutorial-query-table.md)
 * [Tablo API'sini kullanarak Azure Cosmos DB genel dağıtımını ayarlamayı öğrenin](tutorial-global-distribution-table.md)
 * [Azure Cosmos DB Tablosu .NET API'si](table-sdk-dotnet.md)
-
+* [Azure Cosmos DB Tablosu Java API'si](table-sdk-java.md)
+* [Azure Cosmos DB Tablosu Node.js API'si](table-sdk-nodejs.md)
+* [Python için Azure Cosmos DB Tablosu SDK'sı](table-sdk-python.md)
 

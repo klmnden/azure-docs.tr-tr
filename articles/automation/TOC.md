@@ -32,6 +32,7 @@
 ### [Runbook giriş parametrelerini yapılandırma](automation-runbook-input-parameters.md)
 ### [Grafik runbook'larında hata işleme](automation-runbook-graphical-error-handling.md)
 ### [Runbook işini izleme](automation-runbook-execution.md)
+### [İzleyici görevi oluşturma](automation-watchers-tutorial.md)
 ### [Runbook ayarlarını değiştirme](automation-runbook-settings.md)
 ### [Azure Otomasyonu verilerini yönetme](automation-managing-data.md)
 ### [Log Analytics uyarısından Azure Otomasyonu Runbook’u çağırma](automation-invoke-runbook-from-omsla-alert.md)

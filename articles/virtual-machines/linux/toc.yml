@@ -88,15 +88,21 @@
       href: endorsed-distros.md
     - name: Bakım ve güncelleştirmeler
       href: maintenance-and-updates.md
-    - name: Depolama
-      href: azure-vm-storage-overview.md
+    - name: Disk depolama
+      href: about-disks-and-vhds.md
       items:
+        - name: Yönetilen Diskler
+          href: managed-disks-overview.md
         - name: Premium depolama
           href: premium-storage.md
         - name: Premium depolama performansı
           href: premium-storage-performance.md
         - name: Standart depolama
           href: standard-storage.md
+        - name: Diskler için ölçeklenebilirlik hedefleri
+          href: disk-scalability-targets.md
+        - name: Diskler için yedekleme ve olağanüstü durum kurtarma
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Ağ
       href: network-overview.md
     - name: Uygulamaları otomatik ölçeklendirme
@@ -156,6 +162,8 @@
           href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: VM’leri yönetme
       items:
+        - name: VM’ler için önceden ödeme yapma - Ayrılmış Örnekler
+          href: prepay-reserved-vm-instances.md
         - name: Ortak CLI görevleri
           href: cli-manage.md
         - name: Bir VM'yi taşıma
@@ -312,8 +320,6 @@
               href: n-series-driver-setup.md
     - name: Depolamayı yönetme
       items:
-        - name: Yönetilen Diskler hakkında bilgi edinin
-          href: managed-disks-overview.md
         - name: Disklerle ilgili SSS
           href: faq-for-disks.md
         - name: Disk ekleme
@@ -328,8 +334,6 @@
           href: expand-disks.md
         - name: Bir diskin anlık görüntüsünü alma
           href: snapshot-copy-managed-disk.md
-        - name: Diskler için yedekleme ve olağanüstü durum kurtarma
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Yönetilmeyen diskleri yedekleme
           href: incremental-snapshots.md
         - name: Yönetilen Disklere dönüştürme

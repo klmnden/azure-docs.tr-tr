@@ -55,6 +55,9 @@
 ### [Sanal ağları yapılandırma](devtest-lab-configure-vnet.md)
 ### [IP yapılandırma seçeneği belirleme](devtest-lab-shared-ip.md)
 
+## Veri disklerini yönetme
+### [Veri diski ekleme ve çıkarma](devtest-lab-attach-detach-data-disk.md)
+
 ## [Laboratuvarınızı ölçeklendirme](devtest-lab-scale-lab.md)
 
 # Başvuru

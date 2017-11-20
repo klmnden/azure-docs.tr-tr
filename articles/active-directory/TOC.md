@@ -248,12 +248,12 @@
 ## Dizininizi yönetme
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Özel etki alanı adları
-#### [Genel Bakış](active-directory-domains-manage-azure-portal.md)
-#### [Etki alanı adlarını yönetme](active-directory-domains-manage-azure-portal.md)
+#### [Hızlı Başlangıç](add-custom-domain.md)
+#### [Özel etki alanı adı ekleme](active-directory-domains-manage-azure-portal.md)
 ### [Dizininizi yönetme](active-directory-administer.md)
 ### [Birden fazla dizin](active-directory-licensing-directory-independence.md)
 ### [Self servise kaydolma](active-directory-self-service-signup.md)
-#### [Yönetilmeyen bir dizini devralma](domains-admin-takeover.md)
+### [Yönetilmeyen bir dizini devralma](domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Etkinleştirme](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Grup ilkesi ayarları](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)

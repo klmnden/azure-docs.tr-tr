@@ -61,6 +61,7 @@
 ### [WebApi ile çalışmaya başlama](vs-active-directory-webapi-getting-started.md)
 ### [Web API projeme ne oldu?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
+## [ACS Geçişi](active-directory-acs-migration.md)
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Kimlik doğrulama kitaplıkları (ADAL)](active-directory-authentication-libraries.md)
