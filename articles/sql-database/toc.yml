@@ -370,6 +370,8 @@
           items:
             - name: Örnek uygulamayı dağıtma
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Kiracı sağlama
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Veritabanı performansını izleme
               href: saas-multitenantdb-performance-monitoring.md
             - name: Geçici sorgular çalıştırma

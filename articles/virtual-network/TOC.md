@@ -24,15 +24,13 @@
 ## Dağıtma
 ### [Sanal ağlar](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-vnet-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [Şablon](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Ağ güvenlik grupları
 #### [Azure portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-networks-create-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-networks-create-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Şablon](virtual-networks-create-nsg-arm-template.md)
 #### [Uygulama güvenliği grupları](create-network-security-group-preview.md)
 #### Klasik
@@ -42,8 +40,7 @@
 ### Kullanıcı tanımlı yollar
 #### [Azure portal](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-create-udr-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
+#### [Azure CLI](virtual-network-create-udr-arm-cli.md)
 #### [Şablon](virtual-network-create-udr-arm-template.md)
 #### Klasik
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
@@ -67,8 +64,7 @@
 #### Statik genel IP adresiyle VM oluşturma
 ##### [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-##### [Azure CLI 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+##### [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Şablon](virtual-network-deploy-static-pip-arm-template.md)
 ##### Klasik
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -84,8 +80,7 @@
 
 #### Birden çok ağ arabirimi ile VM oluşturma
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [Azure CLI 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Şablon](virtual-network-deploy-multinic-arm-template.md)
 
 ##### Klasik
@@ -137,7 +132,7 @@
 #### Klasik
 ##### Statik IP adresleri
 ###### [PowerShell](virtual-networks-reserved-private-ip.md)
-###### [CLI](virtual-networks-static-private-ip-cli-nodejs.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 ##### [Örnek düzeyinde ortak IP adresi](virtual-networks-instance-level-public-ip.md)
 
 ### Klasik
@@ -155,8 +150,7 @@
 ### Ağ güvenlik grupları
 #### [Azure portal](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [Azure CLI 2.0](virtual-network-manage-nsg-arm-cli.md)
-#### [Azure CLI 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+#### [Azure CLI](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Günlükler](virtual-network-nsg-manage-log.md)
 ### Ağ arabirimleri (NIC’ler)

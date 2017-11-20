@@ -3,7 +3,7 @@
 ## [Azure IoT seçeneklerini karşılaştırma](iot-suite-options.md)
 ## [Önceden yapılandırılmış çözümlere genel bakış](iot-suite-what-are-preconfigured-solutions.md)
 
-# Kullanmaya Başlama
+# başlarken
 ## Uzaktan izleme
 ### [Önceden yapılandırılmış çözümü dağıtma](iot-suite-remote-monitoring-deploy.md)
 ### [Önceden yapılandırılmış çözümü çalıştırma](iot-suite-remote-monitoring-explore.md)
@@ -25,11 +25,8 @@
 ###### [Sanal veriler](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Gerçek algılayıcılar kullanma](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Üretici yazılımı güncelleştirmesini uygulama](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Intel NUC ağ geçidinizi bağlama
-##### [Sanal veriler](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Gerçek algılayıcı kullanma](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Nasıl yapılır?
+### Nasıl yapılır kılavuzları
 #### Sanal cihaza bağlanma
 ##### [Windows üzerinde C](iot-suite-v1-connecting-devices.md)
 ##### [Linux üzerinde C](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Bağlı fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
 ### [Bağlı fabrika çözümü kılavuzu](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır kılavuzları
 ## Uzaktan izleme
 ### [Gelişmiş izleme gerçekleştirme](iot-suite-remote-monitoring-monitor.md)
 ### [Sorunları algılamak için kuralları kullanma](iot-suite-remote-monitoring-automate.md)

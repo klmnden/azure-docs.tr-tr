@@ -2,8 +2,9 @@
 
 ## Genel Bakış
 ### [Çözüm nedir?](storsimple-ova-overview.md)
+### [Bölge kullanılabilirliği](storsimple-regions.md)
 
-## Başlarken
+## başlarken
 ### Planlama
 #### [Gereksinimleri inceleme](storsimple-ova-system-requirements.md)
 #### [Sınırları anlama](storsimple-ova-limits.md)
@@ -59,6 +60,7 @@
 ### [Çözüm nedir?](storsimple-overview.md)
 ### [StorSimple öğrenme haritası](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](storsimple-8000-security.md)
+### [Bölge kullanılabilirliği](storsimple-regions.md)
 ### [SSS: Azure portalına taşıma](storsimple-8000-move-azure-portal-faq.md)
 
 ## başlarken
