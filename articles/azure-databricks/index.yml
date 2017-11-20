@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Databricks Önizleme Belgeleri
 metadata:
   title: Azure Databricks Belgeleri - Öğreticiler | Microsoft Docs
-  description: Microsoft Azure’da Databricks’i kullanma hakkında bilgi edinin.
+  description: 'Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin. Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur.'
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/15/2017
   ms.author: nitinme
 abstract:
-  description: 'Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur. Apache Spark’ın kurucuları ile birlikte tasarlanan Databricks, tek tıklama ile kurulum olanağı ve kolaylaştırılmış iş akışlarının yanı sıra veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliği sağlayan etkileşimli bir çalışma alanı sunmak amacıyla Azure ile tümleştirilmiştir. Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin.'
+  description: 'Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin. Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur. Apache Spark’ın kurucuları ile birlikte tasarlanan Databricks, tek tıklama ile kurulum olanağı ve kolaylaştırılmış iş akışlarının yanı sıra veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliği sağlayan etkileşimli bir çalışma alanı sunmak amacıyla Azure ile tümleştirilmiştir.'
 sections:
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:

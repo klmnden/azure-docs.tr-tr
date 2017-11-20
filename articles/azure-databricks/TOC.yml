@@ -11,6 +11,8 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Kaynaklar
   items:
+    - name: Sık sorulan sorular
+      href: frequently-asked-questions-databricks.md
     - name: Databricks belgeleri
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Azure Yol Haritası

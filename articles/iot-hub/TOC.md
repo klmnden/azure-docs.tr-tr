@@ -3,7 +3,7 @@
 ## [Azure IoT Hub nedir?](iot-hub-what-is-iot-hub.md)
 ## [Cihaz yönetimine genel bakış](iot-hub-device-management-overview.md)
 
-# [Kullanmaya Başlama](iot-hub-get-started.md)
+# [Kullanmaya başlama](iot-hub-get-started.md)
 
 ## Cihazınızı kurma
 ### [Bilgisayarınızda bir cihazı benzetme](iot-hub-get-started-simulated.md)
@@ -28,12 +28,6 @@
 #### [Arduino IDE ile Sparkfun ESP8266 Thing Dev](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 #### [Arduino IDE ile Adafruit Feather M0](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
-#### IoT Gateway Başlangıç Paketini kullanma
-##### [Intel NUC cihazını ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
-##### [Ağ geçidini IoT Hub’a bağlama](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-##### [Veri dönüştürme için ağ geçidi kullanma](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-##### [Sorun giderme](iot-hub-gateway-kit-c-troubleshooting.md)
-
 ## Genişletilmiş IoT senaryoları
 ### [iothub-explorer ile bulut cihaz mesajlaşmasını yönetme](iot-hub-explorer-cloud-device-messaging.md)
 ### [IoT Hub iletilerini Azure veri depolamaya kaydetme](iot-hub-store-data-in-azure-table-storage.md)
@@ -43,7 +37,7 @@
 ### [iothub-explorer ile cihaz yönetimi](iot-hub-device-management-iothub-explorer.md)
 ### [Logic Apps ile uzaktan izleme ve bildirimler](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır kılavuzları
 ## Planlama
 ### [IoT Hub ile Event Hubs karşılaştırması](iot-hub-compare-event-hubs.md)
 ### [Çözümünüzü ölçeklendirme](iot-hub-scaling.md)
@@ -147,30 +141,6 @@
 ##### [X.509 CA sertifika güvenliği kavramları](iot-hub-x509ca-concept.md)
 #### [X.509 CA sertifika güvenliğini kullanmaya başlama](iot-hub-security-x509-get-started.md)
 ##### [Sertifika oluşturma - PowerShell](iot-hub-security-x509-create-certificates.md)
-
-## Azure IoT Edge
-### [Genel Bakış](iot-hub-iot-edge-overview.md)
-### başlarken
-#### [Linux](iot-hub-linux-iot-edge-get-started.md)
-#### [Windows](iot-hub-windows-iot-edge-get-started.md)
-### Cihazı benzetme
-#### [Linux](iot-hub-linux-iot-edge-simulated-device.md)
-#### [Windows](iot-hub-windows-iot-edge-simulated-device.md)
-### [Gerçek cihaz kullanma](iot-hub-iot-edge-physical-device.md)
-### Bir modül oluşturma
-#### [Java](iot-hub-iot-edge-create-module-java.md)
-#### [.NET Framework](https://github.com/Azure-Samples/iot-edge-samples#how-to-run-the-net-module-sample-windows-10)
-#### [.NET Standard](iot-hub-iot-edge-create-module-dotnet-core.md)
-#### [Node.js](iot-hub-iot-edge-create-module-js.md)
-### Oluşturma
-#### [.NET Framework](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_binding_sample)
-#### [.NET Core modülü](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_module_sample)
-#### [.NET Core yönetilen ağ geçidi](https://github.com/Azure/iot-edge/tree/master/samples/dotnet_core_managed_gateway)
-#### [Java](https://github.com/Azure/iot-edge/tree/master/samples/java_sample)
-#### [Node.js](https://github.com/Azure/iot-edge/tree/master/samples/nodejs_simple_sample)
-#### [Modülü dinamik olarak ekleme](https://github.com/Azure/iot-edge/tree/master/samples/dynamically_add_module_sample)
-#### [İşlem dışı ara sunucu modülü](https://github.com/Azure/iot-edge/tree/master/samples/proxy_sample)
-#### [Yerel modül konağı](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)

@@ -65,6 +65,8 @@
       href: functions-triggers-bindings.md
     - name: Diller
       items:
+        - name: Desteklenen diller
+          href: supported-languages.md
         - name: 'C# betiği'
           href: functions-reference-csharp.md
         - name: .NET sınıf kitaplığı
