@@ -6,6 +6,7 @@
 ## [Office 365 hesabıyla kaydolma](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Azure hesabı ile Office 365 için kaydolun](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Yönetim gruplarıyla kaynakları düzenleme](billing-enterprise-mgmt-group-overview.md)
+## [Ayrılmış VM Örnekleri ile tasarruf etme](billing-save-compute-costs-reservations.md)
 ## [Limitler ve kotalar](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Nasıl yapılır?
@@ -17,9 +18,13 @@
 ### [Kullanımınızla ilgili koşulları anlama](billing-understand-your-usage.md)
 ### [Dış hizmet ücretlerini anlama](billing-understand-your-azure-marketplace-charges.md)
 ### [Ücretsiz hizmet ölçer eşlemesini anlama](billing-understand-free-service-meter-mapping.md)
+### [VM Örnekleri Ayırma Windows masrafları](billing-reserved-instance-windows-software-costs.md)
+### [Ayrılmış VM Örneklerinde uygulanan indirimi anlama](billing-understand-vm-reservation-charges.md)
 ### [Harcama limitini anlama](billing-spending-limit.md)
 ### [Fatura uyarılarını ayarlama](billing-set-up-alerts.md)
 ### [Vadesi geçmiş bakiye sorunlarını çözme](billing-azure-subscription-past-due-balance.md)
+### [Kullandıkça Öde seçeneği için Ayrılmış Örnek kullanımını anlama](billing-understand-reserved-instance-usage.md)
+### [Kurumsal seçeneği için Ayrılmış Örnek kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 
 ## Abonelikleri yönetme
 ### [Yönetici rollerini yönetme](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [Ödeme bilgilerini güncelleştirme](billing-how-to-change-credit-card.md)
 ### [Office 365 kiracısını bağlama](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Abonelikler için fatura ile ödeme](billing-how-to-pay-by-invoice.md)
+## [Ayrılmış VM Örneklerini yönetme](billing-manage-reserved-vm-instance.md)
 ## Sorun giderme
 ### [Kaydolma sorunları](https://support.microsoft.com/en-us/help/4042959)
 ### [Reddedilen kart](https://support.microsoft.com/en-us/help/4042960)
