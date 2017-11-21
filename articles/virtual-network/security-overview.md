@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: d4a216b612274ff1de499bd4892ff7422c66b4d0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="network-security"></a>Ağ güvenliği
 
@@ -55,13 +55,6 @@ Bir ağ güvenlik grubunda Azure abonelik [limitleri](../azure-subscription-serv
 |Yön| Kuralın gelen veya giden trafiğe uygulanma seçeneği.|
 |Bağlantı noktası aralığı     |Tek bir bağlantı noktası veya aralık belirtebilirsiniz. Örneğin 80 veya 10000-10005 değerini kullanabilirsiniz. Aralık belirterek oluşturmanız gereken güvenlik kuralı sayısını azaltabilirsiniz. Bir kural içinde birden fazla bağlantı noktası ve bağlantı noktası aralığı belirtme özelliği önizleme sürümündedir ve genişletilmiş güvenlik kuralı olarak adlandırılır. Genişletilmiş güvenlik kurallarını kullanmadan önce [Önizleme özellikleri](#preview-features) bölümündeki önemli bilgileri inceleyin. Genişletilmiş güvenlik kuralları yalnızca Resource Manager dağıtım modeliyle oluşturulmuş olan ağ güvenlik gruplarında oluşturulabilir. Klasik dağıtım modeliyle oluşturulmuş olan ağ güvenlik gruplarında aynı güvenlik kuralı içinde birden fazla bağlantı noktası ve bağlantı noktası aralığı belirtemezsiniz.   |
 |Eylem     | İzin ver veya reddet        |
-
-**Dikkat edilmesi gerekenler**
-
-- **Ana bilgisayar düğümünün sanal IP'si:** DHCP, DNS ve sistem durumunu izleme gibi temel altyapı hizmetleri, 168.63.129.16 ve 169.254.169.254 numaralı sanallaştırılmış ana bilgisayar IP adresleri yoluyla sağlanır. Bu genel IP adresleri Microsoft'a aittir ve tüm bölgelerde bu amaç için kullanılan tek sanallaştırılmış IP adresleri olarak kullanılır. Bu adres, sanal makineyi barındıran sunucu makinesinin (ana bilgisayar düğümü) fiziksel IP adresiyle eşleşir. Ana bilgisayar düğümü, yük dengeleyici durum araştırması ve makine durumu araştırması için araştırma kaynağı, DNS özyinelemeli çözümleyici ve DHCP geçişi olarak görev yapar. Bu IP adresleri ile iletişim bir saldırı değildir. Bu IP adreslerine giden veya oradan gelen trafiği engellerseniz sanal makine düzgün çalışmayabilir.
-- **Lisanslama (Anahtar Yönetimi Hizmeti):** Sanal makinelerde çalışan Windows görüntülerinin lisanslanması gerekir. Lisanslama için, lisans isteği sorgularını işleyen Anahtar Yönetimi Hizmeti ana bilgisayar sunucularına bir lisans isteği gönderilir. İstek, bağlantı noktası 1688 üzerinden gönderilir.
-- **Yük dengelenmiş havuzlardaki sanal makineler**: Uygulanan kaynak bağlantı noktası ve adres aralığı, yük dengeleyiciye değil kaynak bilgisayara aittir. Hedef bağlantı noktası ve adres aralığı, yük dengeleyici değil, hedef bilgisayar içindir.
-- **Azure hizmet örnekleri**: HDInsight, Uygulama Servisi Ortamları ve Sanal Makine Ölçek Kümeleri gibi sanal ağ alt ağlarına dağıtılmış olan farklı Azure hizmeti örnekleri. Bir ağ güvenlik grubunu kaynağın dağıtılmış olduğu alt ağa uygulamadan önce hizmetlerle ilgili olan bağlantı noktası gereksinimlerini öğrendiğinizden emin olun. Gerekli bağlantı noktalarını reddetmeniz halinde hizmet düzgün çalışmaz. 
 
 Güvenlik kuralları durum bilgisine sahiptir. Örneğin 80 numaralı bağlantı noktasından tüm adreslere doğru giden bir güvenlik kuralı belirtirseniz giden trafiğe yanıt olarak bir gelen güvenlik kuralı belirtmeniz gerekli değildir. Yalnızca iletişimin dışarıdan başlatılması halinde bir gelen güvenlik kuralı belirtmeniz gerekir. Bunun tersi de geçerlidir. Gelen trafiğe bir bağlantı noktası üzerinden izin verilmesi halinde bağlantı noktasından geçen trafiğe yanıt olarak bir giden güvenlik belirtmeniz gerekli değildir. Güvenlik kuralı oluştururken geçerli olan limitler hakkında bilgi edinmek için bkz. [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -157,6 +150,24 @@ Uygulama güvenlik grupları önizleme sürümündedir. Uygulama güvenlik grupl
 - Uygulama güvenlik gruplarını bir güvenlik kuralında kaynak ve hedef olarak belirtirseniz iki uygulama güvenlik grubundaki ağ arabirimlerinin de aynı sanal ağda bulunması gerekir. Örneğin ASG1 içinde VNet1 içinde bulunan ağ arabirimleri, ASG2 içinde de VNet2 içinde bulunan ağ arabirimleri varsa bir kural içinde ASG1 grubunu kaynak, ASG2 grubunu da hedef olarak belirleyemezsiniz. Tüm ağ arabirimlerinin VNet1 içinde olması gerekir. 
 
 Önizleme sürümündeki özellikler, genel sürümdeki özelliklerle aynı kullanılabilirlik ve güvenilirlik seviyesine sahip değildir. Uygulama güvenlik gruplarını kullanmadan önce kullanmak üzere kaydolmanız gerekir. Özellikler yalnızca şu bölgelerde kullanılabilir: Batı Orta ABD.
+
+
+## <a name="azure-platform-considerations"></a>Azure platformunda dikkat edilmesi gerekenler
+
+- **Ana bilgisayar düğümünün sanal IP'si:** DHCP, DNS ve sistem durumunu izleme gibi temel altyapı hizmetleri, 168.63.129.16 ve 169.254.169.254 numaralı sanallaştırılmış ana bilgisayar IP adresleri yoluyla sağlanır. Bu genel IP adresleri Microsoft'a aittir ve tüm bölgelerde bu amaç için kullanılan tek sanallaştırılmış IP adresleri olarak kullanılır. Bu adres, sanal makineyi barındıran sunucu makinesinin (ana bilgisayar düğümü) fiziksel IP adresiyle eşleşir. Ana bilgisayar düğümü, yük dengeleyici durum araştırması ve makine durumu araştırması için araştırma kaynağı, DNS özyinelemeli çözümleyici ve DHCP geçişi olarak görev yapar. Bu IP adresleri ile iletişim bir saldırı değildir. Bu IP adreslerine giden veya oradan gelen trafiği engellerseniz sanal makine düzgün çalışmayabilir.
+- **Lisanslama (Anahtar Yönetimi Hizmeti):** Sanal makinelerde çalışan Windows görüntülerinin lisanslanması gerekir. Lisanslama için, lisans isteği sorgularını işleyen Anahtar Yönetimi Hizmeti ana bilgisayar sunucularına bir lisans isteği gönderilir. İstek, bağlantı noktası 1688 üzerinden gönderilir.
+- **Yük dengelenmiş havuzlardaki sanal makineler**: Uygulanan kaynak bağlantı noktası ve adres aralığı, yük dengeleyiciye değil kaynak bilgisayara aittir. Hedef bağlantı noktası ve adres aralığı, yük dengeleyici değil, hedef bilgisayar içindir.
+- **Azure hizmet örnekleri**: HDInsight, Uygulama Servisi Ortamları ve Sanal Makine Ölçek Kümeleri gibi sanal ağ alt ağlarına dağıtılmış olan farklı Azure hizmeti örnekleri. Sanal ağlara dağıtabileceğiniz hizmetlerin tam listesi için bkz. [Azure hizmetleri için sanal ağ](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Bir ağ güvenlik grubunu kaynağın dağıtılmış olduğu alt ağa uygulamadan önce hizmetlerle ilgili olan bağlantı noktası gereksinimlerini öğrendiğinizden emin olun. Gerekli bağlantı noktalarını reddetmeniz halinde hizmet düzgün çalışmaz.
+- **Giden e-posta gönderme**: Microsoft, Azure Sanal Makineler'den e-posta göndermek için kimliği doğrulanmış SMTP geçiş hizmetlerini (normalde TCP bağlantı noktası 587 üzerinden bağlanır, ama sıklıkla başkalarını da kullanır) kullanmanızı önerir. SMTP geçiş hizmetleri, üçüncü taraf e-posta sağlayıcılarının iletileri reddetme olasılığını en aza indirmek için gönderen saygınlığı konusunda uzmanlaşmıştır. Bu tür SMTP geçiş hizmetleri Exchange Online Protection ve SendGrid'i içerir ancak bunlarla sınırlı değildir. Abonelik türünüz ne olursa olsun, Azure'da SMTP geçiş hizmetlerinin kullanımına hiçbir kısıtlama getirilmez. 
+
+  Azure aboneliğinizi 15 Kasım 2017'den önce oluşturduysanız, SMTP geçiş hizmetlerini kullanabileceğiniz gibi, doğrudan TCP bağlantı noktası 25 üzerinden de e-posta gönderebilirsiniz. Aboneliğinizi 15 Kasım 2017'den sonra oluşturduysanız, doğrudan bağlantı noktası 25 üzerinden e-posta gönderemeyebilirsiniz. Bağlantı noktası 25 üzerinden giden iletişimin davranışı, sahip olduğunuz aboneliğe bağlıdır:
+
+     - **Kurumsal Anlaşma**: Giden bağlantı noktası 25 iletişimine izin verilir. Azure platformundan hiçbir kısıtlama uygulanmadan, giden e-postaları doğrudan sanal makinelerden dış e-posta sağlayıcılarına gönderebilirsiniz. 
+     - **Kullandıkça öde:** Tüm kaynaklardan giden bağlantı noktası 25 iletişimi engellenir. Sanal makineden doğrudan dış e-posta sağlayıcılarına (kimliği doğrulanmış SMTP geçişi kullanmadan) e-posta göndermeniz gerekirse, kısıtlamanın kaldırılması için istekte bulunabilirsiniz. İstekler gözden geçirilip Microsoft'un takdirine bağlı olarak onaylanır ve yalnızca dolandırıcılık önleme denetimleri yapıldıktan sonra kabul edilir. İstekte bulunmak için, sorun türü *Teknik*, *Sanal Ağ Bağlantısı*, *E-posta gönderilemiyor (SMTP/Bağlantı Noktası 25)* olan bir destek olayı açın. Destek olayınıza, aboneliğinizin neden kimliği doğrulanmış SMTP geçişi üzerinden değil de doğrudan posta sağlayıcılarına e-posta göndermesi gerektiği konusundaki ayrıntıları da ekleyin. Aboneliğiniz muaf tutulursa, yalnızca muafiyet tarihinden sonra oluşturulmuş sanal makineler bağlantı noktası 25 üzerinden giden iletişimi kurabilir.
+     - **MSDN, Azure Pass, Azure in Open, Education, BizSpark ve Ücretsiz deneme**: Tüm kaynaklardan giden bağlantı noktası 25 iletişimi engellenir. Kısıtlamayı kaldırmaya yönelik istekte bulunulamaz çünkü istekler kabul edilmez. Sanal makinenizden e-posta göndermeniz gerekirse, SMTP geçiş hizmetini kullanmalısınız.
+
+  Azure bağlantı noktası 25 üzerinde e-posta göndermenize izin verirse, Microsoft e-posta sağlayıcılarının sanal makinenizden gelen e-postayı kabul edeceğini garanti edemez. Belirli bir sağlayıcı sanal makinenizden gelen postayı reddederse, tüm ileti teslimi veya istenmeyen posta filtreleme sorunlarını çözmek için doğrudan sağlayıcıyla çalışmanız veya kimliği doğrulanmış SMTP geçiş hizmeti kullanmanız gerekir. 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
