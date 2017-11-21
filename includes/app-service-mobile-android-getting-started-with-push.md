@@ -1,96 +1,105 @@
-1. İçinde **uygulama** projesi, dosyayı açma `AndroidManifest.xml`. Sonraki iki adımda kodla  *`**my_app_package**`*  projeniz için uygulama paketi adıyla. Bu değeri `package` özniteliği `manifest` etiketi.
-2. Varolan sonra aşağıdaki yeni izinleri ekleyin `uses-permission` öğe:
+1. İçinde **uygulama** projesi, dosyayı açma `AndroidManifest.xml`. Sonra aşağıdaki kodu ekleyin `application` etiketi açma:
 
-        <permission android:name="**my_app_package**.permission.C2D_MESSAGE"
-            android:protectionLevel="signature" />
-        <uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" />
-        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-        <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-        <uses-permission android:name="android.permission.WAKE_LOCK" />
-3. Sonra aşağıdaki kodu ekleyin `application` etiketi açma:
+    ```xml
+    <service android:name=".ToDoMessagingService">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+    </service>
+    <service android:name=".ToDoInstanceIdService">
+        <intent-filter>
+            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+    </service>
+    ```
 
-        <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-                                         android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="**my_app_package**" />
-            </intent-filter>
-        </receiver>
-4. Dosyayı açmak *ToDoActivity.java*ve aşağıdaki içeri aktarma deyimini ekleyin:
+2. Dosyayı açmak `ToDoActivity.java`ve aşağıdaki değişiklikleri yapın:
 
-        import com.microsoft.windowsazure.notifications.NotificationsManager;
-5. Aşağıdaki özel değişken sınıfına ekleyin. Değiştir  *`<PROJECT_NUMBER>`*  önceki yordamda ve uygulamanızın Google tarafından atanan proje numarası ile.
+    - İçeri aktarma deyimini ekleyin:
 
-        public static final String SENDER_ID = "<PROJECT_NUMBER>";
-6. Tanımını değiştirin *MobileServiceClient* gelen **özel** için **ortak statik**, şimdi şöyle görünür:
+        ```java
+        import com.google.firebase.iid.FirebaseInstanceId;
+        ```
 
-        public static MobileServiceClient mClient;
-7. Bildirimleri işlemek için yeni bir sınıf ekleyin. Proje Gezgini'nde Aç **src** > **ana** > **java** düğümler ve paket adı düğümünü sağ tıklatın. Tıklatın **yeni**ve ardından **Java sınıfı**.
-8. İçinde **adı**, türü `MyHandler`ve ardından **Tamam**.
+    - Tanımını değiştirin `MobileServiceClient` gelen **özel** için **özel statik**, şimdi şöyle görünür:
 
-    ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
+        ```java
+        private static MobileServiceClient mClient;
+        ```
 
-9. MyHandler dosyasında, sınıf bildirimi ile değiştirin:
+    - Ekleme `registerPush` yöntemi:
 
-        public class MyHandler extends NotificationsHandler {
-10. İçin aşağıdaki içeri aktarma deyimlerini ekleyin `MyHandler` sınıfı:
+        ```java
+        public static void registerPush() {
+            final String token = FirebaseInstanceId.getInstance().getToken();
+            if (token != null) {
+                new AsyncTask<Void, Void, Void>() {
+                    protected Void doInBackground(Void... params) {
+                        mClient.getPush().register(token);
+                        return null;
+                    }
+                }.execute();
+            }
+        }
+        ```
 
-        import com.microsoft.windowsazure.notifications.NotificationsHandler;
-        import android.app.NotificationManager;
-        import android.app.PendingIntent;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.os.AsyncTask;
-        import android.os.Bundle;
-        import android.support.v4.app.NotificationCompat;
-11. Bu üye sonraki eklemek `MyHandler` sınıfı:
+    - Güncelleştirme **onCreate** yöntemi `ToDoActivity` sınıfı. Sonra bu kodu eklediğinizden emin olun `MobileServiceClient` örneği.
 
-        public static final int NOTIFICATION_ID = 1;
-12. İçinde `MyHandler` sınıfı, geçersiz kılmak için aşağıdaki kodu ekleyin **onRegistered** Cihazınızı mobil hizmet bildirim hub'ı ile kaydeder yöntemi.
+        ```java
+        registerPush();
+        ```
 
-        @Override
-        public void onRegistered(Context context,  final String gcmRegistrationId) {
-           super.onRegistered(context, gcmRegistrationId);
+3. Bildirimleri işlemek için yeni bir sınıf ekleyin. Proje Gezgini'nde Aç **uygulama** > **java** > **proje ad bilgisayarınızı** düğümler ve paket adı düğümünü sağ tıklatın. Tıklatın **yeni**ve ardından **Java sınıfı**. Adı yazın `ToDoMessagingService`ve ardından Tamam'ı tıklatın. Ardından, sınıf bildirimi ile değiştirin:
 
-           new AsyncTask<Void, Void, Void>() {
+    ```java
+    import android.app.Notification;
+    import android.app.NotificationManager;
+    import android.app.PendingIntent;
+    import android.content.Context;
+    import android.content.Intent;
 
-               protected Void doInBackground(Void... params) {
-                   try {
-                       ToDoActivity.mClient.getPush().register(gcmRegistrationId);
-                       return null;
-                   }
-                   catch(Exception e) {
-                       // handle error                
-                   }
-                   return null;              
-               }
-           }.execute();
-       }
-13. İçinde `MyHandler` sınıfı, geçersiz kılmak için aşağıdaki kodu ekleyin **onReceive** , alındığında görüntülemek için bildirime neden olan yöntemi.
+    import com.google.firebase.messaging.FirebaseMessagingService;
+    import com.google.firebase.messaging.RemoteMessage;
+
+    public class ToDoMessagingService extends FirebaseMessagingService {
+
+        private static final int NOTIFICATION_ID = 1;
 
         @Override
-        public void onReceive(Context context, Bundle bundle) {
-               String msg = bundle.getString("message");
+        public void onMessageReceived(RemoteMessage remoteMessage) {
+            String message = remoteMessage.getData().get("message");
+            if (message != null) {
+                sendNotification("Notification Hub Demo", message);
+            }
+        }
 
-               PendingIntent contentIntent = PendingIntent.getActivity(context,
-                       0, // requestCode
-                       new Intent(context, ToDoActivity.class),
-                       0); // flags
+        private void sendNotification(String title, String messageBody) {
+            PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, ToDoActivity.class), 0);
+            Notification.Builder notificationBuilder = new Notification.Builder(this)
+                    .setSmallIcon(R.drawable.ic_launcher)
+                    .setContentTitle(title)
+                    .setContentText(messageBody)
+                    .setContentIntent(contentIntent);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (notificationManager != null) {
+                notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
+            }
+        }
+    }
+    ```
 
-               Notification notification = new NotificationCompat.Builder(context)
-                       .setSmallIcon(R.drawable.ic_launcher)
-                       .setContentTitle("Notification Hub Demo")
-                       .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                       .setContentText(msg)
-                       .setContentIntent(contentIntent)
-                       .build();
+4. Belirteç güncelleştirmeleri işlemek için başka bir sınıf ekleyin. Oluşturma `ToDoInstanceIdService` java sınıfı ve sınıf bildirimi ile değiştirin:
 
-               NotificationManager notificationManager = (NotificationManager)
-                       context.getSystemService(Context.NOTIFICATION_SERVICE);
-               notificationManager.notify(NOTIFICATION_ID, notification);
-       }
-14. Geri TodoActivity.java dosyasında güncelleştirme **onCreate** yöntemi *ToDoActivity* bildirim işleyici sınıfını sınıfı. Sonra bu kodu eklediğinizden emin olun *MobileServiceClient* örneği.
+    ```java
+    import com.google.firebase.iid.FirebaseInstanceIdService;
 
-        NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+    public class ToDoInstanceIdService extends FirebaseInstanceIdService {
 
-    Uygulamanıza anında iletme bildirimlerini desteklemek üzere güncelleştirilmiştir.
+        @Override
+        public void onTokenRefresh() {
+            ToDoActivity.registerPush();
+        }
+    }
+    ```
+
+Uygulamanıza anında iletme bildirimlerini desteklemek üzere güncelleştirilmiştir.

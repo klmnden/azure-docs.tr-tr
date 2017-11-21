@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 08e59fda2ea439b2272121cf8bfee76fe4f96fc3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET API tabloda geliştirin
 
@@ -88,7 +88,7 @@ Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.
 2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulaması bir kopyasını oluşturur. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Ardından çözüm dosyasını Visual Studio'da açın. 
@@ -99,24 +99,32 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 1. İçinde [Azure portal](http://portal.azure.com/), tıklatın **bağlantı dizesi**. 
 
-    BAĞLANTI DİZESİNİ kopyalayın için ekranın sağ tarafta kopyalama düğmelerini kullanın.
+    BİRİNCİL bağlantı DİZESİNİ kopyalayın için ekranın sağ tarafta kopyalama düğmelerini kullanın.
 
     ![Görüntüleyin ve bağlantı dizesi Bölmesi'nde bağlantı DİZESİNİ kopyalayın](./media/create-table-dotnet/connection-string.png)
 
 2. Visual Studio'da app.config dosyasını açın. 
 
-3. BAĞLANTI DİZESİ değeri CosmosDBStorageConnectionString değeri olarak app.config dosyasına yapıştırın. 
+3. Bu öğretici depolama öykünücüsünü kullanmaz gibi satır 8 ve yorum 7 satırındaki StorageConnectionString çıkışı StorageConnectionString açıklamadan çıkarın. Satır 7 ve 8 gibi görünmelidir:
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+    ```
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+    ```
 
-    > [!NOTE]
-    > Azure Table storage'ı bu uygulamayı kullanmak için bağlantı dizesinde değiştirmeniz gerekir `app.config file`. Hesap adı, Azure depolama birincil anahtarı olarak tablo hesap adı ve anahtar kullanın. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
+4. StorageConnectionString değerini satırında 8 Portalı'ndan birincil bağlantı DİZESİNİ yapıştırın. Tırnak işaretleri içine dizesini yapıştırın.
+   
+    > [!IMPORTANT]
+    > Uç noktanız Önizleme hesabına sahip olduğunuz anlamına gelir, documents.azure.com, kullanıyorsa ve oluşturmak gereken bir [yeni tablo API hesabı](#create-a-database-account) genel olarak kullanılabilir tablo API SDK'sı ile çalışmak için. 
     >
 
-4. App.config dosyasını kaydedin.
+    Satır 8 benzer şekilde görünmelidir:
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+5. App.config dosyasını kaydedin.
 
 Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
@@ -128,7 +136,7 @@ Bazı işlevleri, bir bağlantı İlkesi ve tutarlılık düzeyi belirtmenizi sa
 | Tablo bağlantı ayarları | Açıklama |
 | --- | --- |
 | Bağlantı modu  | Azure Cosmos DB iki bağlantı modunu destekler. İçinde `Gateway` modunda her zaman yapılan istekler Azure Cosmos DB ağ geçidi, karşılık gelen veri bölümleri iletir. İçinde `Direct` bağlantı modunu istemci tabloları eşleme bölümlere getirir ve istekleri doğrudan veri bölümlerini karşı yapılır. Öneririz `Direct`, varsayılan değer.  |
-| Bağlantı protokolü | Azure Cosmos DB destekleyen iki bağlantı protokol - `Https` ve `Tcp`. `Tcp`varsayılan ayardır ve daha basit olduğu için önerilir. |
+| Bağlantı Protokolü | Azure Cosmos DB destekleyen iki bağlantı protokol - `Https` ve `Tcp`. `Tcp`varsayılan ayardır ve daha basit olduğu için önerilir. |
 | Tercih edilen konumları | Tercih edilen (çok girişli) konumları okuma için virgülle ayrılmış listesi. Her Azure Cosmos DB hesabı 1 ile ilişkili olabilir-30 + bölgeleri. Her bir istemci örnek bir alt kümesini Bu bölgeler düşük gecikme süresi okuma tercih edilen sırayı belirtebilirsiniz. Bölgeleri kullanma şeklinde adlandırılmalıdır kendi [görünen adları](https://msdn.microsoft.com/library/azure/gg441293.aspx), örneğin, `West US`. Ayrıca bkz. [birden çok giriş API'leri](tutorial-global-distribution-table.md). |
 | Tutarlılık Düzeyi | Devre dışı gecikme, tutarlılık ve kullanılabilirlik arasında beş iyi tanımlanmış tutarlılık düzeyleri arasında seçerek ticari: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix`, ve `Eventual`. Varsayılan değer `Session`. Tutarlılık düzeyi seçimi önemli performans farkı bölgeli kurulumlarında yapar. Bkz: [tutarlılık düzeylerini](consistency-levels.md) Ayrıntılar için. |
 
@@ -316,12 +324,9 @@ CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu öğretici tarafından oluşturulan tüm kaynakları silin:   
-
-1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın adına tıklayın.  
-2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın. 
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

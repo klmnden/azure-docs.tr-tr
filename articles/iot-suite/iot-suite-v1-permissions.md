@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 4c4916037ad762dbb9dee803dfd45ec2fd89272b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 17d9e496aedfdf98423e821e7f379dc481ffa0a5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com sitesindeki izinler
 
@@ -105,11 +105,7 @@ Bir kullanıcının rollerini değiştirmek için AAD genel yöneticisi olmanız
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Hizmet yöneticisiyim ve aboneliğim ile belirli bir AAD kiracısı arasında dizin eşlemesini değiştirmek istiyorum. Bu görevi nasıl tamamlamak?
 
-1. Git [Klasik Azure portalı][lnk-classic-portal], tıklatın **ayarları** sol taraftaki Hizmet listesinde.
-2. Dizin eşlemesini değiştirmek istediğiniz aboneliği seçin.
-3. **Dizini Düzenle**’ye tıklayın.
-4. Açılır listede kullanmak istediğiniz **Dizin**’i seçin. İleri okuna tıklayın.
-5. Dizin eşlemesini ve etkilenen ortak yöneticileri onaylayın. Başka bir dizinden taşıyorsanız, özgün dizindeki tüm ortak Yöneticiler kaldırılır.
+Bkz: [Azure AD dizininiz için mevcut bir aboneliğe eklemek için](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>AAD kiracısı üzerinde etki alanı kullanıcısı/üyesiyim ve önceden yapılandırılmış bir çözüm oluşturdum. Uygulamam için bana nasıl rol atanır?
 
@@ -151,7 +147,6 @@ IOT paketi hakkında bilgi almaya devam etmek için işlemine bakın [önceden y
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md

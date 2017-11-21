@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Azure portalını kullanarak cihazları yönetme
 
@@ -32,7 +32,30 @@ Bu konuda:
 
 - Azure Portalı'nı kullanarak, aygıtları yönetme hakkında bilgi sağlar
 
+## <a name="manage-devices"></a>Cihazları yönetme 
 
+Azure portal, cihazlarınızı yönetmek için merkezi bir konum sağlar. Her iki kullanarak bu konuma alabilirsiniz bir [doğrudan bağlantı](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) veya el ile şu adımları izleyin:
+
+1. Oturum açma [Azure portal](https://portal.azure.com) yönetici olarak.
+
+2. Sol gezinti çubuğu üzerinde tıklatın **Active Directory**.
+
+    ![Aygıt ayarlarını yapılandır](./media/device-management-azure-portal/01.png)
+
+3. İçinde **Yönet** 'yi tıklatın **aygıtları**.
+
+    ![Aygıt ayarlarını yapılandır](./media/device-management-azure-portal/11.png)
+ 
+**Aygıtları** sayfası olanak sağlar:
+
+- Aygıt yönetimi ayarlarını yapılandır
+
+- Aygıtlar bulunamadı
+
+- Aygıt yönetim görevlerini gerçekleştirme
+
+- İlgili cihaz yönetimi gözden denetim günlükleri  
+  
 
 ## <a name="configure-device-settings"></a>Aygıt ayarlarını yapılandır
 
@@ -167,7 +190,7 @@ Bir yöneticiyseniz, görüntüleyebilir ve kullanıcıların kendi şifreli sü
 
 
 
-## <a name="audit-logs"></a>Denetleme günlükleri
+## <a name="audit-logs"></a>Denetim günlükleri
 
 
 Cihaz etkinliklerini, etkinlik günlükleri ile kullanılabilir. Bu cihaz Kayıt Hizmeti'ni ve kullanıcılar tarafından tetiklenen etkinliklerin içerir:
@@ -180,7 +203,7 @@ Cihaz etkinliklerini, etkinlik günlükleri ile kullanılabilir. Bu cihaz Kayıt
  
 Giriş noktanızdır denetim verilere **denetim günlüklerini** içinde **etkinlik** bölümünü **aygıtları** sayfası.
 
-![Denetleme günlükleri](./media/device-management-azure-portal/61.png)
+![Denetim günlükleri](./media/device-management-azure-portal/61.png)
 
 
 Denetim günlüklerinin aşağıdakileri gösteren bir varsayılan liste görünümü vardır:
@@ -193,11 +216,11 @@ Denetim günlüklerinin aşağıdakileri gösteren bir varsayılan liste görün
 
 - Etkinlik (ne)
 
-![Denetleme günlükleri](./media/device-management-azure-portal/63.png)
+![Denetim günlükleri](./media/device-management-azure-portal/63.png)
 
 Araç çubuğunda **Sütunlar**’a tıklayarak liste görünümünü özelleştirebilirsiniz.
  
-![Denetleme günlükleri](./media/device-management-azure-portal/64.png)
+![Denetim günlükleri](./media/device-management-azure-portal/64.png)
 
 
 Raporlanan verileri istediğiniz düzeye gelecek şekilde daraltmak için, aşağıdaki alanları kullanarak denetim verilerini filtreleyebilirsiniz:
@@ -207,11 +230,11 @@ Raporlanan verileri istediğiniz düzeye gelecek şekilde daraltmak için, aşa�
 - Etkinlik
 - Tarih aralığı
 - Hedef
-- (Aktör) tarafından başlatılan
+- Başlatan (Aktör)
 
 Filtreler yanı sıra belirli girişleri için arama yapabilirsiniz.
 
-![Denetleme günlükleri](./media/device-management-azure-portal/65.png)
+![Denetim günlükleri](./media/device-management-azure-portal/65.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

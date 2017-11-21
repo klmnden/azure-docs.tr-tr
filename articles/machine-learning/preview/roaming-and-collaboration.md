@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 856348c07a198a8c53c6661441d5c49196ef3af5
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Gezici ve Azure Machine Learning çalışma ekranı işbirliği
 Bu belge, nasıl Azure Machine Learning çalışma ekranı kodunuza etkinleştir işbirliğiyle yanı sıra makineler üzerinden projelerinizin dolaşan yardımcı olabileceği aracılığıyla açıklanmaktadır. 
@@ -28,10 +28,14 @@ Uzak bir Git deposu (depo) bağlantı ile bir Azure Machine Learning projesi olu
 
 ## <a name="create-a-new-azure-machine-learning-project"></a>Yeni bir Azure Machine Learning projesi oluşturma
 Azure Machine Learning çalışma ekranı başlatın ve yeni bir proje oluşturun (örneğin, _iris_). Dolgu **Visualstudio.com GIT deposu URL'sini** geçerli bir VSTS Git deposu URL'si kutusuyla. 
->[!IMPORTANT]
->Git deposu üzerinde okuma/yazma erişimi yoksa proje oluşturma başarısız olur ve Git deposuna boş değil, yani ana dala zaten sahip.
+
+> [!IMPORTANT]
+> Boş proje şablonu seçerseniz, seçtiğiniz zaten Git deposu varsa, bu normaldir bir _ana_ dal. Azure ML yalnızca klonlar _ana_ yerel olarak dallandırma ve ekleme `aml_config` klasörü ve diğer meta veri dosyaları yerel proje klasöre proje. Ancak herhangi bir proje şablonu seçerseniz, Git deposu zaten gerekir bir _ana_ şube veya bir hata görürsünüz. Alternatif kullanmaktır `az ml project create` proje oluşturma ve sağlama için komut satırı aracı bir `--force` geçin. Bu, özgün ana dala dosyalarını siler ve bunları seçtiğiniz şablona yeni dosyalar ile değiştirin.
 
 Proje oluşturulduktan sonra proje içindeki herhangi bir komut dosyası birkaç çalışır gönderin. Bu eylem, uzak Git deposu 's çalıştırma geçmişi dala proje durumunu kaydeder. 
+
+> [!NOTE] 
+> Yalnızca komut dosyası çalıştırma geçmişi dalı için tetikleyici yürütme çalışır. Veri Yürütme prep veya dizüstü bilgisayar çalıştırır çalıştırma geçmişi şube proje anlık görüntü tetikleyicisi yok.
 
 Kurulum Git kimlik doğrulaması varsa, yapabilir açıkça ana dala çalışmayabilir, veya bir dalı oluşturabilirsiniz. 
 
@@ -71,7 +75,8 @@ MacOS üzerinde aşağıda verilmiştir:`/home/<username>/Documents/AzureML`
 
 Bir hedef klasör seçin olanak tanımak için işlevselliğini geliştirmek planlıyoruz gelecekteki bir sürümde. 
 
->Azure ML dizininde projesi indirme başarısız tam aynı ada sahip bir klasör için durum meydana unutmayın. Süresi olan, bu sorunu çözmek için varolan bir klasörü yeniden adlandırmanız gerekir.
+> [!NOTE]
+> Azure ML dizininde projeyi tam aynı ada sahip bir klasör bilgisine yükleme başarısız olur. Süresi olan, bu sorunu çözmek için varolan bir klasörü yeniden adlandırmanız gerekir.
 
 
 ### <a name="work-on-the-downloaded-project"></a>İndirilen projedeki çalışma 

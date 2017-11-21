@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma Jupyter Not Defteri kullanma
 
 Azure Machine Learning çalışma ekranı etkileşimli veri bilimi deneme Jupyter Not Defteri, kendi tümleştirme yoluyla destekler. Bu makalede, oranı ve etkileşimli veri bilimi deneme kalitesini artırmak için bu özellik etkili kullanımını sağlamak açıklar.
 
 ## <a name="prerequisites"></a>Ön koşullar
-- [Yükleme ve Azure Machine Learning oluşturma](/machine-learning/preview/quickstart-installation.md).
+- [Yükleme ve Azure Machine Learning oluşturma](quickstart-installation.md).
 - Tanımanız [Jupyter not defteri](http://jupyter.org/), bu makalede Jupyter kullanmayı öğretmek hakkında olmadığından.
 
 ## <a name="jupyter-notebook-architecture"></a>Jupyter not defteri mimarisi

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 943e0849b03debaa47022b5cb6d0df43d82ac230
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablo .NET API: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -34,6 +34,10 @@ ms.lasthandoff: 11/18/2017
 |**Hızlı Başlangıç**|[Azure Cosmos DB: .NET ve tablo API ile uygulama oluşturma](create-table-dotnet.md)|
 |**Öğretici**|[Azure Cosmos DB: .NET API tabloda geliştirin](tutorial-develop-table-dotnet.md)|
 |**Geçerli desteklenen çerçevelerden**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
+
+> [!IMPORTANT]
+> Önizleme sırasında bir tablo API hesabı oluşturduysanız, lütfen oluşturun bir [yeni tablo API hesabı](create-table-dotnet.md#create-a-database-account) genel olarak kullanılabilir tablo API SDK'ları ile çalışmak için.
+>
 
 ## <a name="release-notes"></a>Sürüm notları
 
@@ -64,6 +68,7 @@ Hata iletisi alırsanız
 Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
 'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
 ```
+
 Microsoft.Azure.CosmosDB.Table NuGet paketini kullanmak çalışırken, sorunu düzeltmek için iki seçeneğiniz vardır:
 
 * Microsoft.Azure.CosmosDB.Table paketi ve bağımlılıklarını yüklemek için paket yönetmek konsolunu kullanın. Bunu yapmak için Paket Yöneticisi konsolunda, çözümünüz için aşağıdaki komutu yazın. 
@@ -74,6 +79,7 @@ Microsoft.Azure.CosmosDB.Table NuGet paketini kullanmak çalışırken, sorunu d
 * Tercih edilen Nuget paketi Yönetim Aracı'nı kullanarak, Microsoft.Azure.CosmosDB.Table yüklemeden önce Microsoft.Azure.Storage.Common Nuget paketini yükleyin.
 
 ## <a name="faq"></a>SSS
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.

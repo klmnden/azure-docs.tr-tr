@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 52645f7d7934c9b9cf628fec1c0edc763ce98796
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>Önceden yapılandırılmış bir çözümü özelleştirme
 
@@ -228,55 +228,6 @@ Bellenim güncelleştirme sabitlerini aşağıdaki adımları gerçekleştirir:
 
 Varsayılan değer 10 dakikadır. Bu değeri değiştirebilirsiniz [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
-## <a name="manually-set-up-application-roles"></a>Uygulama rolleri el ile ayarlamanız
-
-Aşağıdaki yordam nasıl ekleneceğini açıklar **yönetici** ve **ReadOnly** uygulama rolleri önceden yapılandırılmış bir çözüm için. Azureiotsuite.com sitesinden zaten sağlanan önceden yapılandırılmış çözümler içerdiğini unutmayın **yönetici** ve **ReadOnly** rolleri.
-
-Üyeleri **ReadOnly** rolü Pano ve cihaz listesini görebilirsiniz ancak cihazları eklemek, cihaz özniteliklerine değiştirmek veya komutlarını göndermek için izin verilmiyor.  Üyeleri **yönetici** rol Çözümdeki tüm işlevlere tam erişimi vardır.
-
-1. Git [Klasik Azure portalı][lnk-classic-portal].
-2. **Active Directory**’yi seçin.
-3. Çözümünüzü sağlarken kullandığınız AAD Kiracı adına tıklayın.
-4. **Uygulamalar**'a tıklayın.
-5. Önceden yapılandırılmış çözümünüzün adıyla eşleşen uygulamanın adına tıklayın. Uygulamanızı listede görmüyorsanız, seçin **Şirketimin sahip olduğu uygulamalar** içinde **Göster** onay işareti açılır ve'ı tıklatın.
-6. Sayfanın alt kısmındaki tıklatın **yönetmek bildirim** ve ardından **karşıdan bildirim**.
-7. Bu yordam bir .json dosyası yerel makinenize indirir. Tercih ettiğiniz bir metin düzenleyicisinde düzenlemek için bu dosyayı açın.
-8. .Json dosyası üçüncü satırında, görebilirsiniz:
-
-   ```json
-   "appRoles" : [],
-   ```
-   Bu satırı aşağıdaki kodla değiştirin:
-
-   ```json
-   "appRoles": [
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Administrator access to the application",
-   "displayName": "Admin",
-   "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
-   "isEnabled": true,
-   "value": "Admin"
-   },
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Read only access to device information",
-   "displayName": "Read Only",
-   "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
-   "isEnabled": true,
-   "value": "ReadOnly"
-   } ],
-   ```
-
-9. (Mevcut dosyanın üzerine yazabilirsiniz) güncelleştirilmiş .json dosyasını kaydedin.
-10. Klasik Azure portalı, sayfanın sonundaki seçin **yönetmek bildirim** sonra **karşıya bildirim** önceki adımda kaydettiğiniz .json dosyası karşıya yüklemek için.
-11. Artık eklemiş olduğunuz **yönetici** ve **ReadOnly** uygulamanız için rolleri.
-12. Bu rollerden birinin dizininizdeki bir kullanıcı atamak için bkz: [azureiotsuite.com sitesindeki izinler][lnk-permissions].
-
 ## <a name="feedback"></a>Geri Bildirim
 
 Bir özelleştirme zorunda görmek bu belgedeki kapsanan istiyorsunuz? Özellik önerileri eklemek [kullanıcı sesi](https://feedback.azure.com/forums/321918-azure-iot), ya da bu makaleye yorum. 
@@ -300,6 +251,5 @@ Bir özelleştirme zorunda görmek bu belgedeki kapsanan istiyorsunuz? Özellik 
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-cf-customize]: iot-suite-connected-factory-customize.md

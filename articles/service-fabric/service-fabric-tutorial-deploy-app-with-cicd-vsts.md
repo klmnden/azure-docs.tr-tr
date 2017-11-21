@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d0f67b1a63c36e878ed5f7c9aa1c45267e5b156c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acfeb5a3f27f6451309017bad88c687b408872b6
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Bir uygulamayı CI/CD ile bir Service Fabric kümesi dağıtma
 Bu öğretici üç bir serinin bir parçasıdır ve sürekli tümleştirme ve Visual Studio Team Services kullanarak bir Azure Service Fabric uygulaması için dağıtım nasıl ayarlanacağını açıklar.  Var olan bir Service Fabric uygulaması gereklidir, uygulamayı oluşturduğunuz [bir .NET uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bir örnek olarak kullanılır.
@@ -45,7 +45,7 @@ Bu öğreticiye başlamadan önce:
 - [Visual Studio 2017 yükleme](https://www.visualstudio.com/) yükleyip **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
 - [Service Fabric SDK yükleme](service-fabric-get-started.md)
 - Service Fabric uygulaması, örneğin oluşturun [Bu öğreticiyi izleyerek](service-fabric-tutorial-create-dotnet-app.md). 
-- Azure üzerinde bir Windows Service Fabric kümesi tarafından örneğin oluşturma [Bu öğreticiyi izleyerek](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Azure üzerinde bir Windows Service Fabric kümesi tarafından örneğin oluşturma [Bu öğreticiyi izleyerek](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - Oluşturma bir [Team Services hesabı](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
 
 ## <a name="download-the-voting-sample-application"></a>Oylama örnek uygulamayı indirin

@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/17/2017
 ms.author: glenga
-ms.openlocfilehash: b89e9af55342d5d7473d848956996f846250b4b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6882a7b1864d511e70495e1d1d782aa0f03beca3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Android uygulamanızı anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -56,12 +56,12 @@ Bu bölümde, istemci Android uygulamanızı anında iletme bildirimleri işleme
 ### <a name="verify-android-sdk-version"></a>Android SDK sürümünü doğrula
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Sonraki adımınız, Google Play hizmetlerini yüklemektir. Google Cloud Messaging sahip bazı en az API düzeyi gereksinimlerini geliştirme ve test, hangi **minSdkVersion** bildiriminde özellik için uygun olmalıdır.
+Sonraki adımınız, Google Play hizmetlerini yüklemektir. Firebase Cloud Messaging sahip bazı en az API düzeyi gereksinimlerini geliştirme ve test, hangi **minSdkVersion** bildiriminde özellik için uygun olmalıdır.
 
-Eski bir aygıtla sınıyorsanız başvurun [ayarlayın yukarı Google Play Hizmetleri SDK] nasıl düşük bu değeri ayarlayabilir ve uygun şekilde ayarlanmış belirlemek için.
+Eski bir aygıtla sınıyorsanız başvurun [ekleme Firebase Android projenize için] nasıl düşük bu değeri ayarlayabilir ve uygun şekilde ayarlanmış belirlemek için.
 
-### <a name="add-google-play-services-to-the-project"></a>Projeye Google Play hizmetlerini ekleme
-[!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
+### <a name="add-firebase-cloud-messaging-to-the-project"></a>Firebase Cloud Messaging projeye ekleyin
+[!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
 ### <a name="add-code"></a>Kod ekleme
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
@@ -79,5 +79,4 @@ Bu öğreticiyi tamamladığınıza göre aşağıdaki öğreticiler birini aç�
 
 <!-- URLs -->
 [Android Hızlı Başlangıç]: app-service-mobile-android-get-started.md
-
-[ayarlayın yukarı Google Play Hizmetleri SDK]:https://developers.google.com/android/guides/setup
+[ekleme Firebase Android projenize için]:https://firebase.google.com/docs/android/setup

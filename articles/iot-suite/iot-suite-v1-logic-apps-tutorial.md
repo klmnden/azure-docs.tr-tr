@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Öğretici: Mantıksal uygulama, Azure IOT paketi uzaktan önceden yapılandırılmış izleme çözümüne bağlama
 [Microsoft Azure IOT paketi] [ lnk-internetofthings] IOT çözümünü exemplifies bir uçtan uca özellik kümesini hızlıca başlamak için harika bir uzaktan izleme çözümü yoludur. Bu öğreticide, mantıksal uygulama, Microsoft Azure IOT paketi Uzaktan izleme çözümü ekleme konusunda açıklanmaktadır. Bu adımlarda, bir iş sürecini bağlanarak daha IOT çözümünüzü nasıl yararlanabileceğinizi gösterilmektedir.
@@ -33,7 +33,7 @@ Bu öğretici başlamadan önce aşağıdakileri yapmanız gerekir:
 
 Bu öğreticiyi tamamlamak için Visual Studio 2015 veya Visual Studio 2017 önceden yapılandırılmış çözüm arka ucu Eylemler değiştirmeniz gerekir.
 
-Önceden yapılandırılmış Çözüm zaten sağladığınız Uzaktan izleme varsayıldığında, bu çözüm için kaynak grubuna gidin [Azure portal][lnk-azureportal]. Kaynak grubu çözüm adı ile aynı ada sahip seçtiğiniz zaman Uzaktan izleme çözümünüz sağlandı. Kaynak grubu, Azure Klasik Portalı'nda bulabilirsiniz Azure Active Directory Uygulama dışında çözümünüz için tüm sağlanmış Azure kaynaklarını görebilirsiniz. Aşağıdaki ekran görüntüsünde bir örneği gösterir **kaynak grubu** Uzaktan izleme için dikey önceden yapılandırılmış çözüm:
+Önceden yapılandırılmış Çözüm zaten sağladığınız Uzaktan izleme varsayıldığında, bu çözüm için kaynak grubuna gidin [Azure portal][lnk-azureportal]. Kaynak grubu çözüm adı ile aynı ada sahip seçtiğiniz zaman Uzaktan izleme çözümünüz sağlandı. Kaynak grubunda çözümünüz için tüm sağlanmış Azure kaynaklarını görebilirsiniz. Aşağıdaki ekran görüntüsünde bir örneği gösterir **kaynak grubu** Uzaktan izleme için dikey önceden yapılandırılmış çözüm:
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

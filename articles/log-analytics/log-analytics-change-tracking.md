@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümü ile ortamınızdaki yazılım değişiklikleri izle
 
@@ -44,7 +44,7 @@ Linux bilgisayarları izlemek için dosyaları yapılandırmak için aşağıdak
 4. **Kaydet** düğmesine tıklayın.  
 
 > [!NOTE]
-> Linux dosya izleme dizini izleme, dizinler ve izleme joker aracılığıyla recrusion dahil olmak üzere ek özellikleri vardır.
+> Linux dosya izleme dizini izleme, dizinler ve izleme joker aracılığıyla özyineleme dahil olmak üzere ek özellikleri vardır.
 
 ### <a name="configure-windows-files-to-track"></a>Windows dosyaları izlemek için yapılandırma
 Windows bilgisayarlarda izlemek için dosyaları yapılandırmak için aşağıdaki adımları kullanın.
@@ -69,7 +69,7 @@ Windows bilgisayarlarda izlemek için kayıt defteri anahtarlarını yapılandı
    * **Dosya** (rapor dosya meta verileri - boyutu, değiştirilme tarihi, karma, vs.)
    * **Dizin** (rapor dizini meta verilerinin - boyutu, değiştirilme tarihi vb..)
 2. **Bağlantılar** (diğer dosyaları veya dizinleri simgesel başvurular işleme Linux)
-   * **Yoksay** (simgesel bağlantı başvurulan dosya veya dizinlerin içermeyecek şekilde recurions sırasında yoksay)
+   * **Yoksay** (simgesel bağlantı başvurulan dosya veya dizinlerin içermeyecek şekilde özyineleme sırasında yoksay)
    * **İzleyin** (simgesel bağlantı da başvurulan dosya veya dizinlerin içerecek şekilde özyineleme sırasında izleyin)
    * **Yönetme** (simgesel bağlantı izleyin ve döndürülen içeriği işlenmesi alter)
 
@@ -87,7 +87,7 @@ Değişiklik izleme çözümü aşağıdaki öğeler şu anda desteklemiyor:
 * Joker karakterler Windows dosya izleme
 * Yol değişkenleri
 * Ağ dosya sistemleri
-* Dosya içeriği
+* Dosya İçeriği
 
 Diğer sınırlamaları:
 
@@ -96,6 +96,10 @@ Diğer sınırlamaları:
 * Ağ trafiği yüksek olduğunda, değişikliği kayıtları en fazla altı saat için görüntülenecek kadar sürebilir.
 * Bilgisayar, bir bilgisayar kapalıyken yapılandırmasını değiştirirseniz, önceki yapılandırmaya ait dosya değişiklikleri sonrasında.
 
+### <a name="known-issues"></a>Bilinen sorunlar
+Değişiklik izleme çözümü şu anda aşağıdaki sorunları yaşıyor:
+* Windows 10 oluşturucuları Update ve Windows Server 2016 çekirdek RS3 makineleri için düzeltme güncelleştirmelerini toplanmadı.
+
 ## <a name="change-tracking-data-collection-details"></a>Veri toplama ayrıntılı izleme değiştirme
 Değişiklik izleme, yazılım envanteri ve etkinleştirdiğiniz aracıları kullanarak Windows hizmeti meta verileri toplar.
 
@@ -103,7 +107,7 @@ Aşağıdaki tabloda, veri toplama yöntemleri ve değişiklik izleme verileri n
 
 | Platform | Doğrudan Aracısı | Operations Manager Aracısı | Linux Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager Aracısı verilerinin yönetim grubu gönderilen | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows ve Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | değişiklik türüne bağlı olarak 50 dakika için 5 dakika. Daha fazla bilgi için aşağıdaki tabloya bakın. |
+| Windows ve Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | değişiklik türüne bağlı olarak 50 dakika için 5 dakika. Daha fazla bilgi için aşağıdaki tabloda görüntüleyin. |
 
 
 Aşağıdaki tabloda değişiklik türleri için veri toplama sıklığını gösterir.

@@ -13,140 +13,84 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: billgib;genemi
-ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.author: billgib
+ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Wingtip biletleri örnek SaaS Azure SQL veritabanı kiralama uygulaması'na Hoş Geldiniz
+# <a name="the-wingtip-tickets-saas-application"></a>Wingtip biletleri SaaS uygulaması
 
-Wingtip biletleri örnek SaaS Azure SQL veritabanı Kiracı uygulama ve onun öğreticiler Hoş Geldiniz. Veritabanı kiralama uygulamanızda barındırılması için ödeme istemcileriniz uygulamanızı sağlayan veri yalıtım modunu gösterir. Diğer istemci ile bir veritabanını paylaşan veya üzerinde şu anda basitleştirmek için kendisi için tam bir veritabanı ya da her istemci sahip.
+Aynı *Wingtip biletleri* uygulama her üç örnekleri uygulanır. Uygulama listesi ve küçük görebildikleri - tiyatrolar, Sinek vb. hedefleme SaaS uygulama raporlama basit bir olaydır. Her salonundan uygulamanın bir kiracı olduğunu ve kendi verilerini: salonundan ayrıntıları, olaylar, müşteriler, bilet siparişler, vb. listesi.  Uygulama Yönetimi komut dosyaları ve öğreticiler, birlikte bir uçtan uca SaaS senaryosunu gösterir. Bu, izleme ve performans, şema yönetimi ve çapraz Kiracı raporlama ve analiz yönetme sağlama kiracılar içerir.
 
-## <a name="wingtip-tickets-app"></a>Wingtip biletleri uygulama
+## <a name="three-saas-application-patterns"></a>Üç SaaS uygulama düzenleri
 
-Wingtip biletleri örnek uygulama farklı veritabanı kiralama modelleri tasarımına etkilerini ve yönetimi için çok kiracılı SaaS uygulamaları gösterir. Eşlik eden öğreticileri doğrudan bu aynı etkileri açıklanmaktadır. Wingtip biletleri Azure SQL veritabanı oluşturulur.
+Uygulamanın üç vesions kullanılabilir; Her Azure SQL veritabanı farklı bir veritabanı kiralama düzeni araştırır.  İlk yalıtılmış bir tek Kiracı veritabanı ile tek kiracılı uygulama kullanır. İkinci bir çok kiracılı uygulama Kiracı başına bir veritabanı kullanır. Üçüncü örnek bir çok kiracılı uygulama parçalı çok Kiracı veritabanları ile kullanır.
 
-Wingtip biletleri gerçek SaaS istemcileri tarafından kullanılan çeşitli tasarım ve yönetim senaryoları işlemek için tasarlanmıştır. Desenler ortaya çıktı kullanım için Wingtip anahtarların hesaba.
+![Üç kiralama desenleri][image-three-tenancy-patterns]
 
-Kendi Azure aboneliğinize beş dakika içinde Wingtip biletleri uygulamayı yükleyebilir. Örnek veri ekleme çeşitli kiracılar için yüklemeyi içerir. Yüklemeleri olmamasından etkileşim veya birbiriyle müdahale güvenle modelleri için yönetim komut dosyaları ve uygulama yükleyebilirsiniz.
+ Her örnek yönetim komut dosyaları ve tasarım çeşitli keşfedin öğreticiler ve yönetim desenleri, kendi uygulamanızda kullanabilirsiniz içerir.  Her örnek daha düşük bir değer, en fazla beş dakika dağıtır.  Tasarım ve yönetim farklılıkları karşılaştırmak için üç dağıtılan yan yana olabilir.
 
-#### <a name="code-in-github"></a>Github'da kodu
+## <a name="standalone-application-pattern"></a>Tek başına uygulama düzeni
 
-Uygulama kodu ve yönetim komut dosyaları, Github'da bulunmaktadır:
+Tek başına uygulama deseni, her bir kiracı için tek bir kiracı veritabanı ile tek kiracılı uygulama kullanır. Her bir kiracının uygulaması ayrı Azure kaynak grubuna dağıtılır. Bu hizmet sağlayıcısının abonelik veya kiracının abonelik olabilir ve kiracının adınıza sağlayıcısı tarafından yönetilir. Bu deseni en büyük Kiracı yalıtımı sağlar, ancak en tipik olan kaynakları birden çok Kiracı arasında paylaşmak için fırsat olarak pahalı.
 
-- **Tek başına app** modeli: [WingtipTicketsSaaS StandaloneApp deposu](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-- **Kiracı başına veritabanı** modeli: [WingtipTicketsSaaS DbPerTenant depo](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
-- **Parçalı çok kiracılı** modeli: [WingtipTicketsSaaS MultiTenantDB depo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
+Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-sa] ve github'daki kod [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
-Wingtip biletleri uygulama için temel aynı bir kod tüm listelenen önceki modelleri için yeniden kullanılır. Kendi SaaS projeleri başlatmak için kod github'dan kullanabilirsiniz.
+## <a name="database-per-tenant-pattern"></a>Kiracı deseni başına veritabanı
 
+Kiracı deseni başına Kiracı yalıtımı ile ilgili bir kaygınız ve paylaşılan kaynakları ekonomik kullanılmasına merkezi bir hizmeti çalıştırmak istediğiniz hizmet sağlayıcıları için etkili bir veritabanıdır. Her salonundan veya Kiracı için bir veritabanı oluşturulur ve tüm veritabanları merkezi olarak yönetilir. Veritabanları, maliyet tasarrufu sağlamak için esnek havuzlar ve kiracıların öngörülemeyen iş yükü desenlerinden yararlanır kolay performans yönetimi barındırılabilir. Katalog veritabanına kiracılar ve kendi veritabanlarını arasındaki eşlemeyi tutar. Bu eşleme parça eşleme yönetim özelliklerini kullanarak yönetilen [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md), uygulamaya verimli bağlantı yönetimi sağlar.
 
+Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-dpt] ve github'daki kod [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="major-database-tenancy-models"></a>Ana veritabanı kiralama modelleri
+## <a name="sharded-multi-tenant-database-pattern"></a>Parçalı çok Kiracı veritabanı düzeni
 
-Wingtip anahtarları listeleme ve SaaS uygulama raporlama bir olay olur. Wingtip görebildikleri tarafından gerekli hizmetleri sağlar. Aşağıdaki öğeler her salonundan için geçerlidir:
+Çok Kiracı veritabanı, Kiracı ve azaltılmış Kiracı yalıtımı ile kurulumunuza göre daha düşük maliyetli arayan hizmet sağlayıcıları için geçerlidir. Bu desen aşağı Kiracı başına maliyet yürüten tek bir veritabanı içine kiracılar çok sayıda paket sağlar. Yakın sonsuz ölçek tarafından parçalama mümkündür kiracılar birden fazla veritabanı üzerinden.  Katalog veritabanına kiracılar veritabanlarını yeniden eşler.  
 
-- Uygulamanızda barındırılması için ödeme yapar.
-- Olan bir *Kiracı* Wingtip içinde.
-- Olayları barındırır. Aşağıdaki olaylar oynayan:
-    - Bilet fiyatları.
-    - Bilet satış.
-    - Bilet satın müşteriler.
+Bu deseni, bir veritabanında birden çok kiracıya maliyetle en iyi duruma getirme veya için yalıtım kendi veritabanında tek bir kiracı ile en iyi duruma getirme karma modeli de sağlar. Seçimi bir kiracı tarafından Kiracı temelinde ya da Kiracı sağlanan ya da daha sonra uygulama üzerinde hiçbir etkisi olmadan olduğunda yapılabilir.
 
-Uygulama Yönetimi komut dosyaları ve öğreticiler, birlikte tam bir SaaS senaryo gösterir. Senaryo, aşağıdaki etkinliklerin içerir:
-
-- Kiracılar sağlama.
-- İzleme ve performansı yönetme.
-- Şema Yönetimi.
-- Çapraz Kiracı raporlama ve analiz.
-
-Bu etkinlikler ne olursa olsun ölçek gerekli adresindeki sağlanır.
-
-
-
-## <a name="code-samples-for-each-tenancy-model"></a>Her bir kiracı modeli için kod örnekleri
-
-Uygulama modelleri kümesi vurgulanmış. Ancak, diğer uygulamalardan iki veya daha fazla model öğelerini karışımı.
-
-#### <a name="standalone-app-model"></a>Tek başına uygulama modeli
-
-![Tek başına uygulama modeli][standalone-app-model-62s]
-
-Bu model tek kiracılı uygulama kullanır. Bu nedenle, bu model yalnızca bir veritabanı gerekir ve yalnızca bir kiracı için verileri depolar. Kiracı veritabanında diğer kiracıdan tam yalıtımı özgürlüğüne.
-
-Kendi çalıştırmak her istemci için birçok farklı istemcilere uygulamanızı örneklerini satış yaparken, bu model kullanabilirsiniz. İstemci yalnızca Kiracı olur. Veritabanı yalnızca bir istemci için veri depolarken veritabanının istemci birçok müşteri için verileri depolar.
-
-#### <a name="database-per-tenant"></a>Kiracı başına veritabanı
-
-![Her Kiracı model veritabanı][database-per-tenant-model-35d]
-
-Bu model uygulama örneğinde birden çok kiracıya sahiptir. Henüz yeni her bir kiracı için başka bir veritabanı yalnızca yeni Kiracı tarafından kullanım için ayrılır.
-
-Bu model, her bir kiracı için tam veritabanı yalıtım sağlar. Azure SQL veritabanı hizmetinin bu modeli yatkýn yapmak için açıdan çok yönlülük sahiptir.
-
-- [Bir SQL veritabanı çok kiracılı SaaS uygulama örneği giriş] [ saas-dbpertenant-wingtip-app-overview-15d] -bu modeli hakkında daha fazla bilgi yer almaktadır.
-
-#### <a name="sharded-multi-tenant-databases-the-hybrid"></a>Parçalı çok Kiracı veritabanı, karma
-
-![Parçalı çok Kiracı veritabanı modeli, karma][sharded-multitenantdb-model-hybrid-79m]
-
-Bu model uygulama örneğinde birden çok kiracıya sahiptir. Bu model, birden çok kiracıya bazı veya tüm veritabanlarını da sahiptir. Bu model, böylece veritabanı yalıtım değeri tam değilse istemciler daha fazla ödeme yapabildiği farklı hizmet katmanları sunarak için uygundur.
-
-Her veritabanı şeması, bir kiracı tanımlayıcı içerir. Yalnızca bir kiracı depolayan bile bu veritabanları Kiracı tanımlayıcısıdır.
-
-- [Bir SQL veritabanı çok kiracılı SaaS uygulama örneği giriş][saas-multitenantdb-get-started-deploy-89i]
-
-
-
-## <a name="tutorials-for-each-tenancy-model"></a>Her bir kiracı modeli için eğitim
-
-Her bir kiracı modeli tarafından aşağıdaki belgelenmiştir:
-
-- Eğitmen makaleler kümesidir.
-- Kaynak kodu modele adanmış bir Github deposuna depolanır:
-    - Wingtip biletleri uygulama kodu.
-    - Yönetim senaryoları için komut dosyası kodu.
-
-#### <a name="tutorials-for-management-scenarios"></a>Öğreticileri yönetim senaryoları için
-
-Eğitmen makaleler her model için aşağıdaki yönetim senaryoları kapsar:
-
-- Kiracı sağlama.
-- Performans izleme ve yönetim.
-- Şema Yönetimi.
-- Çapraz Kiracı raporlama ve analiz.
-- Bir kiracı zaman içinde önceki bir noktaya geri yükleme.
-- Olağanüstü durum kurtarma.
-
-
+Kullanıma [öğreticileri] [ docs-tutorials-for-wingtip-mt] ve github'daki kod [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bir SQL veritabanı çok kiracılı SaaS uygulama örneği giriş] [ saas-dbpertenant-wingtip-app-overview-15d] -bu modeli hakkında daha fazla bilgi yer almaktadır.
+#### <a name="conceptual-descriptions"></a>Kavramsal açıklamaları
 
-- [Çok kiracılı SaaS veritabanı kiralama desenleri][multi-tenant-saas-database-tenancy-patterns-60p]
+- Uygulama kiralama düzenleri daha ayrıntılı bir açıklaması için bkz. [çok kiracılı SaaS veritabanı kiralama desenleri][saas-tenancy-app-design-patterns-md]
+
+#### <a name="tutorials-and-code"></a>Öğreticiler ve kod
+
+- Tek başına uygulama:
+    - [Tek başına uygulama öğreticileri][docs-tutorials-for-wingtip-sa].
+    - [Github'da tek başına kodunu][github-code-for-wingtip-sa].
+
+- Veritabanı Kiracı başına:
+    - [Kiracı başına veritabanı için öğreticileri][docs-tutorials-for-wingtip-dpt].
+    - [Veritabanı github'da Kiracı başına kodunu][github-code-for-wingtip-dpt].
+
+- Parçalı çok kiracılı:
+    - [Öğreticileri parçalı çoklu kiracı için][docs-tutorials-for-wingtip-mt].
+    - [Github'da parçalı çoklu kiracı için kod][github-code-for-wingtip-mt].
 
 
 
 <!-- Image references. -->
 
-[standalone-app-model-62s]: media/saas-tenancy-welcome-wingtip-tickets-app/model-standalone-app.png "Tek başına uygulama modeli"
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Üç kiralama desenleri."
 
-[database-per-tenant-model-35d]: media/saas-tenancy-welcome-wingtip-tickets-app/model-database-per-tenant.png "Her Kiracı model veritabanı"
+<!-- Docs.ms.com references. -->
 
-[sharded-multitenantdb-model-hybrid-79m]: media/saas-tenancy-welcome-wingtip-tickets-app/model-sharded-multitenantdb-hybrid.png "Parçalı çok Kiracı veritabanı modeli, karma"
+[saas-tenancy-app-design-patterns-md]: saas-tenancy-app-design-patterns.md
 
+<!-- WWWeb http references. -->
 
+[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-<!-- Article references. -->
+[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
-
-[multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
-
-[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
-
+[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
 

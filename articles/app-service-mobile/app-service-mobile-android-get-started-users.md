@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Android uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ Bu öğreticide, kimlik doğrulama todolist hızlı başlangıç projesi Android
 
 Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir. Bu kimlik doğrulama işlemi tamamlandıktan sonra uygulamanıza geri yönlendirmek bir kimlik doğrulama sistemi sağlar. Bu öğreticide, URL şemasının kullanırız _appname_ boyunca. Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz. Mobil uygulamanız için benzersiz olmalıdır. Sunucu tarafında yeniden yönlendirmeyi etkinleştirmek için:
 
-1. [Azure portalında] uygulama hizmetinizi seçin.
+1. İçinde [Azure portal], uygulama hizmetinizi seçin.
 
 2. Tıklatın **kimlik doğrulama / yetkilendirme** menü seçeneği.
 
@@ -50,7 +50,7 @@ Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrula
 
      Uygulama Kimliği doğrulanmamış bir kullanıcı olarak arka uçtaki erişmeye çünkü bu özel durumun olur ancak *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
 
-Ardından, Mobile Apps arka uçtan kaynakları istemeden önce kullanıcıların kimliklerini doğrulamak için uygulamayı güncelleştirme. 
+Ardından, Mobile Apps arka uçtan kaynakları istemeden önce kullanıcıların kimliklerini doğrulamak için uygulamayı güncelleştirme.
 
 ## <a name="add-authentication-to-the-app"></a>Kimlik doğrulaması için uygulama ekleme
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -79,3 +79,4 @@ Bu temel kimlik doğrulaması öğreticisini tamamladığınıza göre aşağıd
 
 <!-- URLs. -->
 [Mobile Apps'i kullanmaya başlamak]: app-service-mobile-android-get-started.md
+[Azure portal]: https://portal.azure.com/

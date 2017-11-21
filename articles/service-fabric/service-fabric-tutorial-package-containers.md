@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Paket ve bir Service Fabric uygulaması olarak kapsayıcıları dağıtın
 
@@ -218,7 +218,7 @@ Uygulamayı Azure'daki bir kümeye dağıtmak için kendi kümenizi veya bir Gru
 
 Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Burada herkes uygulamaları dağıtabilir ve platform hakkında bilgi edinin Service Fabric ekibi tarafından korunur. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
 
-Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da ilk Service Fabric kümenizi oluşturma](service-fabric-get-started-azure-cluster.md).
+Kendi küme oluşturma hakkında daha fazla bilgi için bkz: [Azure üzerinde bir Service Fabric kümesi oluştur](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Derleme ve uygulamayı kümeye dağıtma
 Service Fabric CLI kullanarak Azure küme uygulama dağıtabilirsiniz. Service Fabric CLI makinenize yüklü değilse, yönergeleri izleyin [burada](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) yükleyin. 
