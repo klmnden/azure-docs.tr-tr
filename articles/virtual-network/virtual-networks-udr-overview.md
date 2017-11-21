@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -84,7 +84,7 @@ Kullanıcı tanımlı bir yol oluştururken belirtebileceğiniz sonraki atlama t
 
 - **Sanal gereç**: Sanal gereç genellikle güvenlik duvarı gibi bir ağ uygulaması çalıştıran sanal makinedir. Bir sanal ağa dağıtabileceğiniz önceden yapılandırılmış çeşitli ağ sanal gereçleri hakkında bilgi edinmek için [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)’e bakın. **Sanal gereç** atlama türü ile bir rota oluşturduğunuzda, sonraki atlama IP adresi de belirtirsiniz. IP adresi şu özelliklerde olabilir:
 
-    - Bir sanal makineye bağlı ağ arabiriminin [özel IP adresi](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses). Ağ trafiğini kendi adresi dışında bir adrese ileten bir sanal makineye bağlı olan tüm ağ arabirimlerinde *IP iletimini etkinleştir* seçeneği açık olmalıdır. Ayar, bir ağ arabirimi için Azure’ın kaynak ve hedef denetimini devre dışı bırakır. [Bir ağ arabirimi için IP iletimini etkinleştirme](virtual-network-network-interface.md#enable-or-disable-ip-forwarding) hakkında daha fazla bilgi edinin. *IP iletimini etkinleştir* seçeneği bir Azure ayarı olmasına rağmen, sanal makinenin ağ arabirimleri arasındaki trafiği iletmesi için sanal makinenin işletim sistemi içinde IP iletimini etkinleştirmeniz de gerekebilir. Sanal makine içindeki gerekli ayarları belirlemek için işletim sisteminize veya ağ uygulamanıza ait belgelere bakın.
+    - Bir sanal makineye bağlı ağ arabiriminin [özel IP adresi](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses). Ağ trafiğini kendi adresi dışında bir adrese ileten bir sanal makineye bağlı olan tüm ağ arabirimlerinde *IP iletimini etkinleştir* seçeneği açık olmalıdır. Ayar, bir ağ arabirimi için Azure’ın kaynak ve hedef denetimini devre dışı bırakır. [Bir ağ arabirimi için IP iletimini etkinleştirme](virtual-network-network-interface.md#enable-or-disable-ip-forwarding) hakkında daha fazla bilgi edinin. *IP iletimini etkinleştir* seçeneği bir Azure ayarı olmasına rağmen, cihazın Azure ağ arabirimlerine atanmış özel IP adresleri arasındaki trafiği iletmesi için sanal makinenin işletim sistemi içinde IP iletimini etkinleştirmeniz de gerekebilir. Cihazın trafiği bir genel IP adresine yönlendirmesi gerekirse, trafiği ara sunucuyla yönlendirmelidir veya ağ adresi kaynağın özel IP adresini kendi özel IP adresine çevirmelidir (ardından, trafiği İnternet'e göndermeden önce Azure'da ağ adresi genel IP adresine çevrilir). Sanal makine içindeki gerekli ayarları belirlemek için işletim sisteminize veya ağ uygulamanıza ait belgelere bakın. Azure'da giden bağlantıları anlamak için, bkz. [Giden bağlantıları anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     > [!NOTE]
     > Sanal gereci, sanal gereçten yönlendirilen kaynakların dağıtıldığı alt ağdan farklı bir alt ağa yönlendirin. Sanal gerecin aynı alt ağa dağıtılması ve sonra sanal gereçten trafiği yönlendiren alt ağa bir yol tablosunun uygulanması, trafiğin alt ağdan asla ayrılmadığı yönlendirme döngüleri ile sonuçlanabilir.

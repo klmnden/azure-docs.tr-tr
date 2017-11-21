@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: 6dcc5c55fae5e2494526c492a1453747b4d6e179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b5552bbb3a56a95e616a79bf9adeabe68d01216
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory’de işlem hatları ve etkinlikler 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,11 +75,12 @@ Denetim etkinliği | Açıklama
 [WebActivity](control-flow-web-activity.md) | Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz. 
 [Arama Etkinliği](control-flow-lookup-activity.md) | Arama Etkinliği herhangi bir dış kaynaktan bir record/ table name/ değerini okumak veya aramak için kullanılabilir. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
 [Meta Veri Alma Etkinliği](control-flow-get-metadata-activity.md) | GetMetadata etkinliği, Azure Data Factory içindeki herhangi bir verinin meta verilerini almak için kullanılabilir. 
-Do Until Etkinliği | Programlama dillerindeki Do-Until döngü yapısına benzer bir Do-Until döngüsü uygular.
-If Condition Etkinliği | If Condition, true veya false olarak değerlendirme yapan koşula göre dallanmak için kullanılabilir. 
+[Bitiş Etkinliği](control-flow-until-activity.md) | Programlama dillerindeki Do-Until döngü yapısına benzer bir Do-Until döngüsü uygular. Etkinlikle ilişkilendirilmiş olan koşul doğru sonucunu verene kadar bir dizi etkinliği döngüsel olarak yürütür. Data Factory'de bitiş etkinliği için bir zaman aşımı değeri belirtebilirsiniz.
+[If Koşulu Etkinliği](control-flow-if-condition-activity.md) | If Koşulu, doğru veya yanlış sonucunu vermesi temelinde dallanmak için kullanılabilir. If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği sağlar. Koşul `true` sonucunu verdiğinde bir dizi etkinliği, `false` sonucu verdiğinde ise başka bir dizi etkinliği değerlendirmeye alır.
+[Bekleme Etkinliği](control-flow-wait-activity.md) | İşlem hattında Bekleme etkinliğini kullandığınızda, işlem hattı izleyen etkinlikleri yürütmeye devam etmeden önce belirtilen süre kadar bekler. 
 
 ## <a name="pipeline-json"></a>İşlem Hattı JSON
-Bir işlem hattının JSON biçiminde nasıl tanımlandığına daha yakından bakalım. Bir işlem hattının genel yapısı şu şekilde görünür:
+JSON biçiminde işlem hattı şöyle tanımlanır: 
 
 ```json
 {
@@ -175,7 +176,7 @@ retry | En fazla yeniden deneme sayısı | Tamsayı | Hayır. Varsayılan değer
 retryIntervalInSeconds | Yeniden deneme girişimleri arasında saniye cinsinden gecikme | Tamsayı | Hayır. Varsayılan değer 20 saniyedir
 
 ### <a name="control-activity"></a>Denetim etkinliği
-Denetim etkinlikleri aşağıdaki üst düzey yapıya sahiptir.
+Denetim etkinlikleri aşağıdaki üst düzey yapıya sahiptir:
 
 ```json
 {

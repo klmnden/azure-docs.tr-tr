@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: e7b32aa2de5d6501e8d7894a936e9ab8b2f4f42f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage’a Giriş
 
@@ -80,7 +80,7 @@ Azure Kuyruk hizmeti, iletileri depolamak ve almak için kullanılır. Kuyruk il
 
 ## <a name="table-storage"></a>Table Storage
 
-Standart Azure Tablo Depolama artık Cosmos DB’nin bir parçasıdır. Belgeleri görmek için bkz. [Azure Tablo Depolamaya Genel Bakış](../../cosmos-db/table-storage-overview.md). Ayrıca Azure Tablo depolama için aktarım hızı iyileştirilmiş tablolar, global dağıtım ve otomatik ikincil dizinler sunan Premium Tablolar seçeneği vardır. Daha fazla bilgi edinmek ve yeni premium deneyimi denemek için lütfen [Azure Cosmos DB: Tablo API’si](https://aka.ms/premiumtables) konusunu inceleyin.
+Azure Tablo depolama artık Azure Cosmos DB’nin bir parçasıdır. Azure Tablo depolama belgelerini görmek için bkz. [Azure Tablo Depolamaya Genel Bakış](../../cosmos-db/table-storage-overview.md). Mevcut Azure Tablo depolama hizmetine ek olarak, aktarım hızı için iyileştirilmiş tablolar, genel dağıtım ve otomatik ikincil dizinler sağlayan yeni bir Azure Cosmos DB Tablo API'si teklifi vardır. Daha fazla bilgi edinmek ve yeni premium deneyimini denemek için lütfen [Azure Cosmos DB Tablo API’si](https://aka.ms/premiumtables) konusunu inceleyin.
 
 ## <a name="disk-storage"></a>Disk depolama
 

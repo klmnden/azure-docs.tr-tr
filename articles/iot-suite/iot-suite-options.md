@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure IoT seçenekleri | Microsoft Docs"
-description: "IoT Paketi, IoT Central veya IoT Hub kullanarak Azure IoT çözümünüzü nasıl uygulayacağınızı seçin."
+description: "Azure IoT Paketi, Microsoft IoT Central veya Azure IoT Hub'ı kullanarak IoT çözümünüzü nasıl uygulayacağınızı seçin."
 services: 
 suite: iot-suite
 author: dominicbetts
@@ -8,14 +8,14 @@ manager: timlt
 ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.topic: get-started-article
-ms.date: 09/21/2017
+ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd98d42ab391d471d2302066dc2baf2c64f56f55
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e00dd828ef24b9bc97665f0f5fe8d7e14f4e4630
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="compare-azure-iot-options"></a>Azure IoT seçeneklerini karşılaştırma
 
@@ -33,18 +33,18 @@ Bu mimariyi uygulamak için Azure IoT her biri farklı müşteri gereksinimlerin
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub'ı
 
-Azure IoT Hub, hem IoT Central hem de IoT Paketinin yararlandığı temel Azure Hizmet Olarak Platformudur. IoT Hub, milyonlarca IoT cihazı ile bir bulut çözümü arasında güvenilir ve güvenli çift yönlü iletişimler sağlar. IoT Hub aşağıdaki gibi IoT uygulama sorunlarını gidermenize yardımcı olur:
+Azure IoT Hub, hem Microsoft IoT Central hem de Azure IoT Paketi'nin yararlandığı temel Azure Hizmet Olarak Platformudur. IoT Hub, milyonlarca IoT cihazı ile bir bulut çözümü arasında güvenilir ve güvenli çift yönlü iletişimler sağlar. IoT Hub aşağıdaki gibi IoT uygulama sorunlarını gidermenize yardımcı olur:
 
 * Yüksek hacimli cihaz bağlantısı ve yönetimi.
 * Yüksek hacimli telemetri alımı.
 * Cihazların komuta ve denetimi.
 * Cihaz güvenliği uygulama.
 
-## <a name="compare-iot-suite-and-iot-central"></a>IoT Paketi ile IoT Central Karşılaştırması
+## <a name="compare-azure-iot-suite-and-microsoft-iot-central"></a>Azure IoT Paketi ile Microsoft IoT Central'ı karşılaştırma
 
-Azure IoT ürününüzün seçilmesi, IoT çözümünüzü planlamanın önemli bir parçasıdır. IoT Hub, kendi başına uçtan uca bir IoT çözümü sağlamayan bir Azure hizmetidir. IoT Hub herhangi bir IoT çözümü için başlangıç noktası olarak kullanılabilir ve onu kullanmak için Azure IoT Paketi veya Microsoft IoT Central kullanmanız gerekmez. Hem IoT Paketi hem de IoT Central, diğer Azure hizmetleriyle birlikte IoT Hub’ı kullanır. Aşağıdaki tabloda, gereksinimleriniz için doğru ürünü seçmenize yardımcı olmak üzere IoT Suite ile IoT Central arasındaki temel farklılıklar özetlenmiştir:
+Azure IoT ürününüzün seçilmesi, IoT çözümünüzü planlamanın önemli bir parçasıdır. IoT Hub, kendi başına uçtan uca bir IoT çözümü sağlamayan bir Azure hizmetidir. IoT Hub herhangi bir IoT çözümü için başlangıç noktası olarak kullanılabilir ve onu kullanmak için Azure IoT Paketi veya Microsoft IoT Central kullanmanız gerekmez. Hem Azure IoT Paketi hem de Microsoft IoT Central, diğer Azure hizmetleriyle birlikte IoT Hub’ı kullanır. Aşağıdaki tabloda, gereksinimleriniz için doğru ürünü seçmenize yardımcı olmak üzere Azure IoT Paketi ile Microsoft IoT Central arasındaki temel farklılıklar özetlenmiştir:
 
-|                        | IoT Paketi | IoT Central |
+|                        | Azure IoT Paketi | Microsoft IoT Central |
 | ---------------------- | --------- | ----------- |
 | Birincil kullanım | En üst düzeyde esneklik gerektiren özel bir IoT çözümünün geliştirilmesini hızlandırma. | Ayrıntılı hizmet özelleştirmesi gerektirmeyen basit IoT çözümleri için pazarlama süresini kısaltma. |
 | Temel alınan PaaS hizmetlerine erişim          | Temel alınan Azure hizmetlerini yönetmek veya gerektiğinde değiştirmek için bu hizmetlere erişebilirsiniz. | SaaS. Tam olarak yönetilen çözüm, temel alınan hizmetler kullanıma sunulmaz. |
@@ -63,6 +63,6 @@ IoT çözümünüzü oluşturmak için kullanılacak ürün son olarak şununla 
 
 Seçtiğiniz ürün ve yaklaşıma bağlı olarak, önerilen sonraki adımlar şunlardır:
 
-* **IoT Paketi**: [Önceden yapılandırılmış Azure IoT çözümleri nelerdir?](iot-suite-what-are-preconfigured-solutions.md)
-* **IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
+* **Azure IoT Paketi**: [Önceden yapılandırılmış Azure IoT çözümleri nelerdir?](iot-suite-what-are-preconfigured-solutions.md)
+* **Microsoft IoT Central**: [Microsoft IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub**: [Azure IoT Hub hizmetine genel bakış](../iot-hub/iot-hub-what-is-iot-hub.md).

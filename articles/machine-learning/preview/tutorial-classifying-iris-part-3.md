@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/2/2017
-ms.openlocfilehash: b6cdd135d2d264c8b4ede1592c686cdeea3d0a59
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.date: 11/14/2017
+ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Iris sınıflandırma bölüm 3: Model dağıtma
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
@@ -119,8 +119,7 @@ Web hizmetini model dosyasıyla birlikte dağıtmak için puanlama betiğine ve 
 
 Artık ortamınızı modeli kullanıma hazır hale getirmeye hazırsınız.
 
->[!NOTE]
->Modelleri dağıtmak için bir Azure aboneliğine sahip erişiminiz olması gerekir.
+
 
 ## <a name="prepare-to-operationalize-locally"></a>Yerel olarak kullanıma hazır hale getirme
 Yerel bilgisayarınızdaki Docker kapsayıcılarında çalıştırmak için _yerel mod_ dağıtımını kullanın.
@@ -162,7 +161,9 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
 
    Çıktının üçüncü satırında **"registrationState": "Registering"** ifadesi gösterilir. Birkaç dakika bekleyin ve çıktıda **"registrationState": "Registered"** gösterilene kadar **show** komutunu tekrarlayın.
 
-3. Ortamı oluşturun. Bu adımı her ortam için bir kez çalıştırmanız gerekir. Örneğin, geliştirme ortamı için bir kez ve üretim için bir kez çalıştırın. Bu ilk ortam için _yerel modu_ kullanın. Aşağıdaki komutta `-c` veya `--cluster` anahtarını kullanarak daha sonra _küme modunda_ bir ortam oluşturabilirsiniz:
+3. Ortamı oluşturun. Bu adımı her ortam için bir kez çalıştırmanız gerekir. Örneğin, geliştirme ortamı için bir kez ve üretim için bir kez çalıştırın. Bu ilk ortam için _yerel modu_ kullanın. Aşağıdaki komutta `-c` veya `--cluster` anahtarını kullanarak daha sonra _küme modunda_ bir ortam oluşturabilirsiniz.
+
+Aşağıdaki kurulum komutu için, abonelik üzerinde Katkıda Bulunan erişimine sahip olmanız gerektiğini aklınızda bulundurun. Bu erişiminiz yoksa, en azından içine dağıtım yaptığınız kaynak grubu üzerinde Katkıda Bulunan erişime ihtiyacınız vardır. İkincisini yapmak için, kurulum komutunun içinde `-g` bayrağını kullanıp kaynak grubunu adını belirtmelisiniz. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>

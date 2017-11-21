@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,7 +75,7 @@ Azure Data Factory sürüm 2, özgün Azure Data Factory veri taşıma ve dönü
 
 Sürüm 1 yayınından sonra müşterilerin veri taşıma ve bulutta, şirket içinde ve bulut VM'lerde işleme gerektiren karmaşık karma veri tümleştirme senaryoları tasarlamaya ihtiyaç duyduğunu fark ettik. Bu gereksinimler, verileri güvenli sanal ağ ortamlarında aktarma ve işlemenin yanı sıra talep üzerine işleme gücü ile ölçek artırma gereksinimini doğurdu.
 
-Veri işlem hatları bir iş analizi stratejisinin kritik bir parçası haline geldiğinden, bu kritik veri etkinliklerinin artımlı veri yüklerini ve olayla tetiklenen yürütmeleri desteklemek için esnek zamanlama gerektirdiğini gördük. Son olarak, bu işlemlerin karmaşıklıkları arttıkça, hizmetin dallanma, döngü ve koşullu işleme gibi yaygın iş akışı paradigmalarını destekleme gereksinimi artmıştır.
+Veri işlem hatları bir iş analizi stratejisinin kritik bir parçası haline geldiğinden, bu kritik veri etkinliklerinin artımlı veri yüklerini ve olayla tetiklenen yürütmeleri desteklemek için esnek zamanlama gerektirdiğini gördük. Son olarak, bu işlemlerin karmaşıklıkları arttıkça, hizmetin dallanma, döngü ve koşullu işleme gibi yaygın iş akışı paradigmalarını destekleme gereksinimi de artmıştır.
 
 Sürüm 2 ile var olan SSIS paketlerini de buluta geçirebilirsiniz. Yeni "Integration Runtime" (IR) özelliğini kullanarak SSIS hizmetini ADF içinde yönetilen bir Azure hizmeti haline getirebilirsiniz. Sürüm 2’de bir SSIS IR’yi çalıştırarak, SSIS paketlerini bulutta yürütebilir, yönetebilir, izleyebilir ve oluşturabilirsiniz.
 
@@ -172,11 +172,11 @@ Data Factory kavramları hakkında daha fazla bilgi için aşağıdaki makaleler
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
-Şu anda Doğu ABD ve Doğu ABD 2 bölgelerinde veri fabrikaları oluşturabilirsiniz. Ancak, verileri veri depoları arasında taşımak ve işlem hizmetlerini kullanarak verileri işlemek amacıyla data factory başka Azure bölgelerindeki veri depolarına ve işlem hizmetlerine erişebilir.
+Şu anda Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde veri fabrikaları oluşturabilirsiniz. Ancak, verileri veri depoları arasında taşımak ve işlem hizmetlerini kullanarak verileri işlemek amacıyla data factory başka Azure bölgelerindeki veri depolarına ve işlem hizmetlerine erişebilir.
 
 Azure Data Factory’nin kendisi verileri depolamaz. Veri taşımayı desteklenen veri depoları arasında, verilerin işlenmesini de başka bölgelerde veya şirket içi bir ortamda işlem hizmetleri kullanarak düzenlemek için veri temelinde iş akışları oluşturmanızı sağlar. Hem programlama, hem de kullanıcı arabirimi mekanizmalarını kullanarak iş akışlarını izlemenizi ve yönetmenizi de sağlar.
 
-Data Factory yalnızca Doğu ABD ve Doğu ABD 2 bölgelerinde kullanılabilir olsa da, Data Factory'de veri taşımayı destekleyen hizmet birçok bölgede küresel olarak kullanılabilmektedir. Veri deposunun güvenlik duvarı ardında kaldığı durumlarda şirket içi ortamınızda yüklü bir Veri Yönetimi Ağ Geçidi bunun yerine verileri taşır.
+Data Factory yalnızca Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde kullanılabilir olsa da, Data Factory'de veri taşımayı destekleyen hizmet birçok bölgede küresel olarak kullanılabilmektedir. Veri deposunun güvenlik duvarı ardında kaldığı durumlarda şirket içi ortamınızda yüklü bir Veri Yönetimi Ağ Geçidi bunun yerine verileri taşır.
 
 Örneğin, Azure HDInsight kümesi ve Azure Machine Learning gibi işlem ortamlarınızın Batı Avrupa bölgesinde çalıştığını varsayalım. Kuzey Avrupa’da bir Azure Data Factory örneği oluşturup geliştirebilir ve bunu Batı Avrupa’daki işlem ortamlarınızda iş zamanlamak için kullanabilirsiniz. Data Factory'nin işlem ortamınızda işi tetiklemesi birkaç milisaniye alsa da, bilgi işlem ortamınızda işin çalıştırılma süresi değişmez.
 
