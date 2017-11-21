@@ -1,6 +1,6 @@
 ---
-title: "Azure Search dizininizi oluşturma | Microsoft Azure | Barındırılan bulut arama hizmeti"
-description: "Azure Search dizini nedir ve nasıl kullanılır?"
+title: Azure Search'te dizinler | Microsoft Docs
+description: "Azure Search'de dizin kavramlarını ve dizinlerin nasıl kullanıldığını öğrenin."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -10,15 +10,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 11/08/2017
 ms.author: ashmaka
-ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-an-azure-search-index"></a>Bir Azure Search dizini oluşturma
+# <a name="indexes-in-azure-search"></a>Azure Search'te dizinler
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -27,8 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="what-is-an-index"></a>Dizin nedir?
-Bir *dizin*, Azure Search hizmeti tarafından kullanılan kalıcı bir *belge* ve diğer yapıların deposudur. Bir belge, dizininizdeki aranabilir verilerin tek bir birimidir. Örneğin, bir e-ticaret satıcısında sattığı her bir öğe için bir belge, bir haber kuruluşunda her bir makale için bir belge, vb. olabilir. Bu kavramları daha çok bilinen veritabanı eşdeğerlerine eşleyen bir *dizin*, kavramsal olarak bir *tabloya* benzer ve *belgeler* de bir tablodaki *satırlarla* kabaca eşdeğerdir.
+Azure Search'te *dizin*, *belgeler* ve Azure Search hizmeti tarafından kullanılan diğer yapılar için kalıcı bir depodur. Bir belge, dizininizdeki aranabilir verilerin tek bir birimidir. Örneğin, bir e-ticaret satıcısında sattığı her bir öğe için bir belge, bir haber kuruluşunda her bir makale için bir belge, vb. olabilir. Bu kavramları daha çok bilinen veritabanı eşdeğerlerine eşleyen bir *dizin*, kavramsal olarak bir *tabloya* benzer ve *belgeler* de bir tablodaki *satırlarla* kabaca eşdeğerdir.
 
 Azure Search'te belge eklediğinizde/yüklediğinizde ve arama sorguları gönderdiğinizde, isteklerinizi arama hizmetinizdeki belirli bir dizine gönderirsiniz.
 

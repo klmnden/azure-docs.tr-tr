@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/1/2017
+ms.date: 11/9/2017
 ms.author: guybo
-ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3679ca32af5cee82660bbfda70046a0202d47c3e
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Büyük sanal makine ölçek kümeleri ile çalışma
 Artık, 1000 adede kadar VM kapasiteli Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/) oluşturabilirsiniz. Bu belgede _büyük bir sanal makine ölçek kümesi_, 100’den fazla VM'yi ölçeklendirme kapasitesine sahip bir ölçek kümesi olarak tanımlanır. Bu özellik bir ölçek kümesi özelliği ile ayarlanır (_singlePlacementGroup=False_). 
@@ -37,7 +37,7 @@ Uygulamanızın büyük ölçek kümelerini etkili bir şekilde kullanıp kullan
 - Büyük ölçek kümeleri Azure Yönetilen Diskleri gerektirir. Yönetilen Diskler ile oluşturulmayan ölçek kümeleri birden fazla depolama hesabı (her 20 VM için bir tane) gerektirir. Büyük ölçek kümeleri, depolama yönetimi yükünüzü azaltmak ve depolama hesaplarının abonelik sınırlarını aşma riskini önlemek üzere yalnızca Yönetilen Disklerle çalışacak şekilde tasarlanmıştır. Yönetilen Diskleri kullanmazsanız, ölçek kümeniz 100 VM ile sınırlı olur.
 - Azure Market’te oluşturulan ölçek kümeleri 1.000 VM’ye kadar ölçeklendirilebilir.
 - Özel görüntülerden oluşturulan ölçek kümeleri (kendi oluşturduğunuz ve yüklediğiniz VM görüntüleri) şu anda en fazla 300 VM’ye kadar ölçeklendirilebilir.
-- Azure Load Balancer ile 4. katman yük dengeleme, birden fazla yerleştirme grubundan oluşan ölçek kümeleri için henüz desteklenmemektedir. Azure Load Balancer’ı kullanmanız gerekirse, ölçek kümesinin tek bir yerleştirme grubu kullanacak şekilde (varsayılan ayar) yapılandırıldığından emin olun.
+- Birden fazla yerleştirme grubundan oluşan ölçek kümeleriyle Katman-4 yük dengelemesi için [Azure Load Balancer Standart SKU'su](../load-balancer/load-balancer-standard-overview.md) gerekir. Load Balancer Standart SKU'su, birden çok ölçek kümesi arasında yük dengeleme özelliği gibi ek avantajlar sağlar. Standart SKU ayrıca, ölçek kümesinin kendisiyle ilişkilendirilmiş bir Ağ Güvenlik Grubu olmasını da gerektirir; aksi takdirde NAT havuzları düzgün çalışmaz. Azure Load Balancer Temel SKU'sunu kullanmanız gerekirse, ölçek kümesinin tek bir yerleştirme grubu kullanacak şekilde (varsayılan ayar) yapılandırıldığından emin olun.
 - Azure Application Gateway ile 7. katman yük dengeleme tüm ölçek kümeleri için desteklenir.
 - Ölçek kümesi tek bir alt ağ ile tanımlanır; alt ağınızın gereken tüm VM’ler için yeterince geniş bir adres alanına sahip olduğundan emin olun. Varsayılan olarak, dağıtım güvenilirliğini ve performansını artırmak için ölçek kümesi fazla sağlama yapar (dağıtım sırasında veya ölçeklendirme sırasında fazladan VM oluşturur, bunlar için ücret alınmaz). Ölçeklendirmeyi planladığınız VM sayısından %20 daha fazla adres alanı ayırın.
 - Çok sayıda VM dağıtmayı planlıyorsanız, İşlem çekirdek kotası sınırlarınızın artırılması gerekebilir.
@@ -83,6 +83,6 @@ Büyük bir ölçek kümesi şablonunun tam örneği için bkz. [https://github.
 Mevcut bir VM ölçek kümesini 100’den fazla VM ölçeklendirebilecek kapasiteye getirmek için, ölçek kümesi modelinde _singplePlacementGroup_ özelliğini _false_ olarak ayarlamanız gerekir. Bu özelliğin değiştirilmesini [Azure Kaynak Gezgini](https://resources.azure.com/) ile test edebilirsiniz. Mevcut bir ölçek kümesini bulun, _Düzenle_’yi seçin ve _singlePlacementGroup_ özelliğini değiştirin. Bu özelliği görmüyorsanız, ölçek kümesini Microsoft.Compute API’sinin daha eski bir sürümüyle görüntülüyor olabilirsiniz.
 
 >[!NOTE] 
-Tek bir yerleştirme grubunu destekleyen bir ölçek kümesini (varsayılan davranış), birden fazla yerleştirme grubunu destekleyecek şekilde değiştirebilirsiniz, ancak zıt yönde değiştiremezsiniz. Bu nedenle, dönüştürmeden önce büyük ölçek kümelerinin özelliklerini anladığınızdan emin olun. Özellikle, Azure Load Balancer ile 4. katman yük dengelemenin gerekli olmadığından emin olun.
+Tek bir yerleştirme grubunu destekleyen bir ölçek kümesini (varsayılan davranış), birden fazla yerleştirme grubunu destekleyecek şekilde değiştirebilirsiniz, ancak zıt yönde değiştiremezsiniz. Bu nedenle, dönüştürmeden önce büyük ölçek kümelerinin özelliklerini anladığınızdan emin olun.
 
 
