@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 80e8e85f058a5cec2e3ae6a6cff5cb8a363370e1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Azure CDN kullanmaya başlama
 Bu makalede yeni bir CDN profili ve uç noktası oluşturarak Azure CDN'yi nasıl etkinleştireceğiniz anlatılmaktadır.
@@ -82,7 +82,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
    > CDN içeriğine HTTPS kullanarak erişilmesi şu kısıtlamalara tabidir:
    > 
    > * CDN tarafından sağlanan SSL sertifikasını kullanmanız gerekir. Üçüncü taraf sertifikalar desteklenmez.
-   > * Azure CDN özel etki alanları için HTTPS desteği yalnızca **Azure CDN from Verizon** ürünleri (Standard ve Premium) için mevcuttur. **Azure CDN from Akamai** ürünlerinde desteklenmez. Daha fazla bilgi için bkz. [Azure CDN özel etki alanı üzerinde HTTPS'yi etkinleştirme veya devre dışı bırakma](cdn-custom-ssl.md).
+   > * Azure CDN özel etki alanları için HTTPS desteği yalnızca **Azure CDN from Verizon** ürünleri (Standard ve Premium) için mevcuttur. **Azure CDN from Akamai** ürünlerinde desteklenmez. Daha fazla bilgi için bkz. [Azure CDN özel etki alanı üzerinde HTTPS'yi yapılandırma](cdn-custom-ssl.md).
   
 9. Yeni uç noktayı oluşturmak için **Ekle** düğmesine tıklayın.
    
