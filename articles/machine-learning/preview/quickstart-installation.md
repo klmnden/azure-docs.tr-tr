@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 07d06e4de95fcc562bcc76ac5cc4f5cd3483ba6d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Azure Machine Learning Önizleme hesapları oluşturma ve Azure Machine Learning Workbench'i yükleme
 Azure Machine Learning tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm uzman veri bilimcilerin bulut ölçeğinde veri hazırlamasına, deneme geliştirmesine ve model dağıtmasına yardımcı olur.
@@ -93,33 +93,20 @@ Azure Machine Learning Workbench'i Windows 10, Windows Server 2016 veya daha yen
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## <a name="install-azure-machine-learning-workbench-on-macos"></a>macOS’ta Azure Machine Learning Workbench Yükleme
-Azure Machine Learning Workbench’i macOS Sierra çalıştıran bilgisayarınıza yükleyin.
+Azure Machine Learning Workbench’i macOS Sierra veya üstünü çalıştıran bilgisayarınıza yükleyin.
 
-1. [Homebrew](http://brew.sh) kullanarak openssl kitaplığını yükleyin. Daha fazla bilgi için bkz. [Mac üzerinde .NET Core Önkoşulları](https://docs.microsoft.com/dotnet/core/macos-prerequisites).
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. En son Azure Machine Learning Workbench yükleyicisi [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg) dosyasını indirin.
+1. En son Azure Machine Learning Workbench yükleyicisi [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg) dosyasını indirin.
 
    >[!IMPORTANT]
    >Yükleyiciyi diske tam olarak indirip oradan çalıştırın. Doğrudan tarayıcınızın indirme penceresinden çalıştırmayın.
 
-3. İndirilen **AmlWorkbench.dmg** yükleyicisine Finder’da çift tıklayın.
+2. İndirilen **AmlWorkbench.dmg** yükleyicisine Finder’da çift tıklayın.
 
-4. Ekrandaki yönergeleri izleyerek yüklemeyi tamamlayın.
+3. Ekrandaki yönergeleri izleyerek yüklemeyi tamamlayın.
 
    Yükleyici Python, Miniconda ve diğer ilgili kitaplıklar gibi gereken tüm bağımlı bileşenleri indirir. Yüklemenin tüm bileşenleri tamamlaması yaklaşık yarım saat sürebilir. 
 
-5. Azure Machine Learning Workbench aşağıdaki dizine yüklenir: 
+4. Azure Machine Learning Workbench aşağıdaki dizine yüklenir: 
 
    `/Applications/AmlWorkbench.app`
 

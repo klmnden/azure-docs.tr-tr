@@ -63,6 +63,8 @@
           href: azure-stack-integrate-identity.md
         - name: Uç noktalarını yayımlama
           href: azure-stack-integrate-endpoints.md
+        - name: Dış izleme
+          href: azure-stack-integrate-monitor.md
         - name: Güvenlik
           href: azure-stack-integrate-security.md
     - name: Yönet

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
-ms.openlocfilehash: cabba8ce04d62d35ca40b3ae35d9d40a6ec7b2b9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Iris Sınıflandırma bölüm 1: Verileri hazırlama
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
@@ -69,7 +69,9 @@ Azure Machine Learning Workbench uygulamasını yüklemek için [Yükleme ve Olu
    ![Iris seçme](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >Bu alıştırma için geçerli proje dizininden **iris.csv** dosyasını seçtiğinizden emin olun. Aksi takdirde sonraki adımlar başarısız olabilir. 
+   >Bu alıştırma için geçerli proje dizininden **iris.csv** dosyasını seçtiğinizden emin olun. Aksi takdirde sonraki adımlar başarısız olabilir.
+   
+4. Dosyayı seçtikten sonra **Son** düğmesini seçin.
 
 4. **iris-1.dsource** adlı yeni bir dosya oluşturulur. Örnek proje zaten numaralandırılmamış bir **iris.dsource** dosyası ile birlikte geldiğinden dosya bir tire-1 ile benzersiz şekilde adlandırılmıştır.  
 
