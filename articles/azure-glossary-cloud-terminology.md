@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure sözlüğü: Azure platformunda bulut terimler sözlüğü
 
@@ -87,13 +87,13 @@ Fiyatlandırma, kredi ve ilgili koşulların bir Azure aboneliğine uygulanabili
 Bkz: [Azure Teklifi Ayrıntıları sayfası](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
-Dağıtma ve Azure hizmetleri yönetmek için kullanılan güvenli web portalı.  İki portalı vardır: [Azure portal](http://portal.azure.com/) ve [Klasik portal](http://manage.windowsazure.com/). Başkalarının yalnızca birini veya diğerini kullanılabilir ancak bazı hizmetler hem portallarında kullanılabilir. [Azure portal kullanılabilirlik grafik](https://azure.microsoft.com/features/azure-portal/availability/) hangi hizmetlerin hangi portalında kullanılabilir listeler.
+Dağıtma ve Azure hizmetleri yönetmek için kullanılan güvenli web portalı.
 
-## <a name="region"></a>Bölge
+## <a name="region"></a>bölge
 Çapraz Ulusal sınırların vermez ve bir veya daha fazla veri merkezleri içeren bir coğrafi içindeki bir alanı. Fiyatlandırma, bölgesel Hizmetleri ve teklif türleri bölge düzeyinde sunulur. Bir bölge genellikle birkaç yüz mil kadar uzakta olabilir başka bir bölge ile eşleştirilmiş. Bölgesel çiftleri, olağanüstü durum kurtarma ve yüksek kullanılabilirlik senaryoları için bir mekanizma olarak kullanılabilir. Olarak da adlandırılan *konumu*.  
 Bkz: [Azure bölgeleri](best-practices-availability-paired-regions.md)
 
-## <a name="resource"></a>Kaynak
+## <a name="resource"></a>kaynak
 Azure çözümünüzü parçası olan bir öğe. Her Azure hizmet, farklı türdeki veritabanları ya da sanal makineleri gibi kaynakların dağıtmanıza olanak tanır.   
 Bkz: [Azure Resource Manager'a genel bakış](azure-resource-manager/resource-group-overview.md)
 

@@ -1,23 +1,23 @@
 ---
 title: "Azure Active Directory ile HPC paketi küme | Microsoft Docs"
-description: "Azure HPC Pack 2016 kümede Azure Active Directory ile tümleştirme öğrenin"
+description: "Azure Microsoft HPC Pack 2016 kümede Azure Active Directory ile tümleştirme öğrenin"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.assetid: 9edf9559-db02-438b-8268-a6cba7b5c8b7
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 11/16/2017
 ms.author: danlep
-ms.openlocfilehash: c5a06a9c810349b1bcce01c7f73563941a5af0ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb0e878c4e987d111a535603cede25c639087ca7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak Azure HPC Pack kümede yönetme
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) ile tümleştirmeyi destekleyen [Azure Active Directory](../../active-directory/index.md) (Azure AD) Azure HPC Pack kümede dağıtmak Yöneticiler için.
@@ -59,69 +59,66 @@ HPC Pack küme Azure AD ile tümleştirilmesi, aşağıdaki hedeflere ulaşmak y
 
 
 ## <a name="step-1-register-the-hpc-cluster-server-with-your-azure-ad-tenant"></a>1. adım: Azure AD kiracınıza HPC küme sunucusu kaydetme
-1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
-2. Tıklatın **Active Directory** soldaki menüde ve istenen dizin aboneliğinizde'ı tıklatın. Dizindeki kaynaklara erişim izni olması gerekir.
-3. Tıklatın **kullanıcılar**ve kullanıcı hesapları zaten oluşturuldu veya yapılandırılmış olmadığından emin olun.
-4. Tıklatın **uygulamaları** > **Ekle**ve ardından **kuruluşumun geliştirmekte olduğu bir uygulama Ekle**. Sihirbazı'nda aşağıdaki bilgileri girin:
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Hesabınız için birden fazla Azure AD kiracısı erişmenizi, sağ üst köşedeki hesabınızda'ı tıklatın. Sonra portal oturumunuz istenen Kiracı ayarlayın. Dizindeki kaynaklara erişim izni olması gerekir. 
+3. Tıklatın **Azure Active Directory** sol Hizmetleri Gezinti bölmesinde **kullanıcılar ve gruplar**ve kullanıcı hesapları zaten oluşturuldu veya yapılandırılmış olmadığından emin olun.
+4. İçinde **Azure Active Directory**, tıklatın **uygulama kayıtlar** > **yeni uygulama kaydı**. Aşağıdaki bilgileri girin:
     * **Ad** -HPCPackClusterServer
-    * **Tür** - seçin **Web uygulaması ve/veya Web API'si**
+    * **Uygulama türü** - seçin **Web uygulaması / API**
     * **URL oturum açma**-varsayılan örnek için temel URL`https://hpcserver`
-    * **Uygulama Kimliği URI'si** - `https://<Directory_name>/<application_name>`. Değiştir `<Directory_name`> Azure AD kiracınız, örneğin, tam adıyla `hpclocal.onmicrosoft.com`ve yerine `<application_name>` daha önce seçtiğiniz ada sahip.
+    * **Oluştur**'a tıklayın.
+5. Uygulama eklendikten sonra seçin **uygulama kayıtlar** listesi. Ardından **ayarları** > **özellikleri**. Aşağıdaki bilgileri girin:
+    * Seçin **Evet** için **çoklu kiralanan**.
+    * Değişiklik **uygulama kimliği URI'si** için `https://<Directory_name>/<application_name>`. Değiştir `<Directory_name`> Azure AD kiracınız, örneğin, tam adıyla `hpclocal.onmicrosoft.com`ve yerine `<application_name>` daha önce seçtiğiniz ada sahip.
+6. **Kaydet** düğmesine tıklayın. Kaydetme tamamlandığında uygulama sayfasında tıklayın **bildirim**. Bildirim bularak Düzenle `appRoles` ayarlama ve aşağıdaki uygulama rolü ekleme ve ardından **kaydetmek**:
 
-5. Uygulama eklendikten sonra tıklatın **yapılandırma**. Aşağıdaki özellikleri yapılandırın:
-    * Seçin **Evet** için **uygulamasıdır çok kiracılı**
-    * Seçin **Evet** için **uygulamaya erişmek için gerekli kullanıcı ataması**.
-
-6. **Kaydet** düğmesine tıklayın. Kaydetme tamamlandığında tıklayın **yönetmek bildirim**. Bu eylem, uygulamanızın bildirim JavaScript nesne gösterimi (JSON) dosyası indirir. İndirilen bildirimi bularak Düzenle `appRoles` ayarlama ve aşağıdaki uygulama rolü ekleme:
-    ```json
-    "appRoles": [
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "displayName": "HpcAdminMirror",
-        "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "description": "HpcAdminMirror",
-        "value": "HpcAdminMirror"
-        },
-        {
-        "allowedMemberTypes": [
-            "User",
-            "Application"
-        ],
-        "description": "HpcUsers",
-        "displayName": "HpcUsers",
-        "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
-        "isEnabled": true,
-        "value": "HpcUsers"
-        }
-    ],
-    ```
-7. Dosyayı kaydedin. Portalda, ardından **yönetmek bildirim** > **karşıya bildirim**. Düzenlenen bildirimi ardından karşıya yükleyebilirsiniz.
-8. Tıklatın **kullanıcılar**, bir kullanıcı seçin ve ardından **atamak**. Kullanılabilir roller (HpcUsers veya HpcAdminMirror) birini kullanıcıya atayın. Dizinde ek kullanıcılar ile bu adımı yineleyin. Küme kullanıcılar hakkında bilgi için bkz: [küme kullanıcıları yönetme](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
-
-   > [!NOTE] 
-   > Kullanıcıları yönetmek için Azure Active Directory Önizleme dikey penceresinde kullanmanızı öneririz [Azure portal](https://portal.azure.com).
-   >
+  ```json
+  "appRoles": [
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "displayName": "HpcAdminMirror",
+     "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "description": "HpcAdminMirror",
+     "value": "HpcAdminMirror"
+     },
+     {
+     "allowedMemberTypes": [
+         "User",
+         "Application"
+     ],
+     "description": "HpcUsers",
+     "displayName": "HpcUsers",
+     "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
+     "isEnabled": true,
+     "value": "HpcUsers"
+     }
+  ],
+  ```
+7. İçinde **Azure Active Directory**, tıklatın **kurumsal uygulamalar** > **tüm uygulamaları**. Seçin **HPCPackClusterServer** listeden.
+8. Tıklatın **özellikleri**, değiştirip **gerekli kullanıcı ataması** için **Evet**. **Kaydet** düğmesine tıklayın.
+9. Tıklatın **kullanıcılar ve gruplar** > **Kullanıcı Ekle**. Bir kullanıcı seçin ve bir rol seçin ve ardından **atamak**. Kullanılabilir roller (HpcUsers veya HpcAdminMirror) birini kullanıcıya atayın. Dizinde ek kullanıcılar ile bu adımı yineleyin. Küme kullanıcılar hakkında bilgi için bkz: [küme kullanıcıları yönetme](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 
 
 ## <a name="step-2-register-the-hpc-cluster-client-with-your-azure-ad-tenant"></a>2. adım: Azure AD kiracınıza HPC küme istemci Kaydet
 
-1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
-2. Tıklatın **Active Directory** soldaki menüde ve istenen dizin aboneliğinizde'ı tıklatın. Dizindeki kaynaklara erişim izni olması gerekir.
-3. Tıklatın **uygulamaları** > **Ekle**ve ardından **kuruluşumun geliştirmekte olduğu bir uygulama Ekle**. Sihirbazı'nda aşağıdaki bilgileri girin:
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Hesabınız için birden fazla Azure AD kiracısı erişmenizi, sağ üst köşedeki hesabınızda'ı tıklatın. Sonra portal oturumunuz istenen Kiracı ayarlayın. Dizindeki kaynaklara erişim izni olması gerekir. 
+3. İçinde **Azure Active Directory**, tıklatın **uygulama kayıtlar** > **yeni uygulama kaydı**. Aşağıdaki bilgileri girin:
 
-    * **Ad** -HPCPackClusterClient
-    * **Tür** - seçin **yerel istemci uygulaması**
+    * **Ad** -HPCPackClusterClient    
+    * **Uygulama türü** - seçin **yerel**
     * **Yeniden yönlendirme URI'si** - `http://hpcclient`
+    * **Oluştur**'a tıklayın
 
-4. Uygulama eklendikten sonra tıklatın **yapılandırma**. Kopya **istemci kimliği** değer ve kaydedin. Bu daha sonra uygulamanızın yapılandırırken gerekir.
+4. Uygulama eklendikten sonra seçin **uygulama kayıtlar** listesi. Kopya **uygulama kimliği** değer ve kaydedin. Bu daha sonra uygulamanızın yapılandırırken gerekir.
 
-5. İçinde **diğer uygulamalara izinler**, tıklatın **uygulama Ekle**. Arayın ve (1. adımda oluşturduğunuz) HpcPackClusterServer uygulama ekleyin.
+5. Tıklatın **ayarları** > **gerekli izinleri** > **Ekle** > **bir API seçin**. Arama ve (1. adımda oluşturduğunuz) HpcPackClusterServer uygulamayı seçin.
 
-6. İçinde **izinlere temsilci** açılan listesinde, select **erişim HpcClusterServer**. Daha sonra **Kaydet**'e tıklayın.
+6. İçinde **erişimi etkinleştir** sayfasında, **erişim HpcClusterServer**. Sonra da **Bitti**’ye tıklayın.
 
 
 ## <a name="step-3-configure-the-hpc-cluster"></a>3. adım: HPC küme yapılandırma
@@ -134,21 +131,23 @@ HPC Pack küme Azure AD ile tümleştirilmesi, aşağıdaki hedeflere ulaşmak y
 
     ```powershell
 
-    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
+    Set-HpcClusterRegistry -SupportAAD true -AADInstance https://login.microsoftonline.com/ -AADAppName HpcPackClusterServer -AADTenant <your AAD tenant name> -AADClientAppId <client ID> -AADClientAppRedirectUri http://hpcclient
     ```
     Burada
 
     * `AADTenant`Azure AD Kiracı adı gibi belirtir`hpclocal.onmicrosoft.com`
-    * `AADClientAppId`2. adımda oluşturduğunuz uygulama istemci Kimliğini belirtir.
+    * `AADClientAppId`2. adımda oluşturduğunuz uygulamanın uygulama Kimliğini belirtir.
 
-4. HpcSchedulerStateful hizmetini yeniden başlatın.
+4. Baş düğüm yapılandırmasına bağlı olarak aşağıdakilerden birini yapın:
 
-    Birden çok baş düğümü olan bir kümede baş düğüm birincil çoğaltma HpcSchedulerStateful hizmeti için geçiş yapmak için aşağıdaki PowerShell komutları çalıştırabilirsiniz:
+    * Bir tek baş düğüm HPC Pack kümede HpcScheduler hizmetini yeniden başlatın.
+
+    * Birden çok baş düğümü olan bir HPC Pack kümesinde baş düğümünde HpcSchedulerStateful hizmetini yeniden başlatmak için aşağıdaki PowerShell komutlarını çalıştırın:
 
     ```powershell
     Connect-ServiceFabricCluster
 
-    Move-ServiceFabricPrimaryReplica –ServiceName “fabric:/HpcApplication/SchedulerStatefulService”
+    Move-ServiceFabricPrimaryReplica –ServiceName "fabric:/HpcApplication/SchedulerStatefulService"
 
     ```
 
@@ -161,7 +160,7 @@ Yükleme sırasında kullanılan sertifika istemci bilgisayarı hazırlamak içi
 Şimdi, HPC Pack komutları çalıştırmak veya HPC Pack İş Yöneticisi'ni GUI göndermek ve Azure AD hesabının kullanarak küme işlerini yönetmek için kullanın. İş gönderme seçenekleri için bkz: [bir HPC paketi için gönderme HPC işleri küme Azure'da](hpcpack-cluster-submit-jobs.md#step-3-run-test-jobs-on-the-cluster).
 
 > [!NOTE]
-> İlk olarak Azure HPC Pack kümede bağlanmaya çalıştığında, açılır pencereleri görüntülenir. Oturum açmak için Azure AD kimlik bilgilerinizi girin. Belirteç sonra önbelleğe alınır. Kimlik doğrulaması değişiklikleri veya önbelleğe alınmış temizlenmediği sürece Azure kümedeki sonraki bağlantılar önbelleğe alınmış belirteci kullanın.
+> İlk olarak Azure HPC Pack kümede bağlanmaya çalıştığında, açılır pencereleri görüntülenir. Oturum açmak için Azure AD kimlik bilgilerinizi girin. Belirteç sonra önbelleğe alınır. Kimlik doğrulaması değişiklikleri veya önbellek temizlenmediği sürece Azure kümedeki sonraki bağlantılar önbelleğe alınmış belirteci kullanın.
 >
   
 Örneğin, yukarıdaki adımları tamamladıktan sonra bir şirket içi istemci işlerden şu şekilde sorgulayabilirsiniz:
@@ -174,7 +173,7 @@ Get-HpcJob –State All –Scheduler https://<Azure load balancer DNS name> -Own
 
 ### <a name="manage-the-local-token-cache"></a>Yerel belirteç önbelleği yönetme
 
-HPC Pack 2016 yerel belirteç önbelleği yönetmek için iki yeni HPC PowerShell cmdlet'lerini sağlar. Bu cmdlet, işleri etkileşimsiz göndermek için faydalıdır. Aşağıdaki örneğe bakın:
+HPC Pack 2016 yerel belirteç önbelleği yönetmek için aşağıdaki HPC PowerShell cmdlet'lerini sağlar. Bu cmdlet, işleri etkileşimsiz göndermek için faydalıdır. Aşağıdaki örneğe bakın:
 
 ```powershell
 Remove-HpcTokenCache
@@ -191,9 +190,9 @@ Bazı durumlarda, işi HPC küme kullanıcıdan (çalıştıran bir etki alanı 
 1. Kimlik bilgilerini ayarlamak için aşağıdaki komutları kullanın:
 
     ```powershell
-    $localUser = “<username>”
+    $localUser = "<username>"
 
-    $localUserPassword=”<password>”
+    $localUserPassword="<password>"
 
     $secpasswd = ConvertTo-SecureString $localUserPassword -AsPlainText -Force
 

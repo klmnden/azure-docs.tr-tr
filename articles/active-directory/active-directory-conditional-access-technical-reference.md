@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/11/2017
+ms.date: 11/19/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0bb79929a431a81c1618e09ee76fcb8415480655
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: c9e44a696010541ab153597bb1ab5d556c2e7b65
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory koşullu erişim Teknik Başvurusu
 
@@ -121,17 +121,17 @@ Koşullu erişim ilkenizi aşağıdaki tarayıcılarda desteklenir:
 
 | İşletim Sistemi                     | Tarayıcılar                            | Destek     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, kenar, Chrome     | ![Onay işareti][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Onay işareti][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Onay işareti][1] |
-| iOS                    | Safari, Intune yönetilen tarayıcı      | ![Onay işareti][1] |
-| Android                | Chrome, Intune yönetilen tarayıcı      | ![Onay işareti][1] |
-| Windows Phone          | Internet Explorer, sınır             | ![Onay işareti][1] |
-| Windows Server 2016    | Internet Explorer, sınır             | ![Onay işareti][1] |
+| Windows 10             | Internet Explorer, kenar, Chrome     | ![İşaretli][1] |
+| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![İşaretli][1] |
+| Windows 7              | Internet Explorer, Chrome           | ![İşaretli][1] |
+| iOS                    | Safari, Intune yönetilen tarayıcı      | ![İşaretli][1] |
+| Android                | Chrome, Intune yönetilen tarayıcı      | ![İşaretli][1] |
+| Windows Phone          | Internet Explorer, sınır             | ![İşaretli][1] |
+| Windows Server 2016    | Internet Explorer, sınır             | ![İşaretli][1] |
 | Windows Server 2016    | Chrome                              | Çok yakında |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Onay işareti][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Onay işareti][1] |
-| macOS                  | Chrome, Safari                      | ![Onay işareti][1] |
+| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![İşaretli][1] |
+| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![İşaretli][1] |
+| macOS                  | Chrome, Safari                      | ![İşaretli][1] |
 
 
 > [!NOTE]
@@ -177,25 +177,20 @@ Denetim istemci bağlantıları kullanarak **onaylanmış istemci uygulaması ge
 
 Aşağıdaki istemci uygulamaları ile onaylanmış istemci uygulama gereksinimi kullanılabilir:
 
+
+- Microsoft Azure Information Protection
 - Microsoft Excel
-
 - Microsoft OneDrive
-
-- Microsoft Outlook
-
 - Microsoft OneNote
-
+- Microsoft Outlook
+- Microsoft Planlayıcısı
 - Microsoft PowerPoint
-
 - Microsoft SharePoint
-
 - Microsoft Skype Kurumsal
-
 - Microsoft Teams
-
 - Microsoft Visio
-
 - Microsoft Word
+
 
 
 **Açıklamalar**

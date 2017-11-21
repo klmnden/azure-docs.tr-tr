@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
-ms.openlocfilehash: 9781fc75b3820a9248e495ccd63870c06472fa20
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1097b853ca0f461300f294e9f5baabf2ae4e15a1
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Node.js için Azure Cosmos DB tablo API: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -34,6 +34,10 @@ ms.lasthandoff: 11/15/2017
 |**SDK yükleme**|[NPM](https://www.npmjs.com/package/azure-storage)|
 |**API belgeleri**|[Node.js API başvuru belgeleri](http://azure.github.io/azure-storage-node/)|
 |**SDK katkıda bulunan**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
+
+> [!IMPORTANT]
+> Önizleme sırasında bir tablo API hesabı oluşturduysanız, lütfen oluşturun bir [yeni tablo API hesabı](create-table-dotnet.md#create-a-database-account) genel olarak kullanılabilir tablo API SDK'ları ile çalışmak için.
+>
 
 ## <a name="release-notes"></a>Sürüm notları
 

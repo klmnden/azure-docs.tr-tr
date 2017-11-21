@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 5bf995cba884ff9910ce000195c8fa0e3da2d332
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Hızlı Başlangıç: bir tablo Python ve Azure Cosmos DB ile API uygulaması oluşturma
 
@@ -38,6 +38,10 @@ Buna ek olarak:
 * [python.org](https://www.python.org/downloads/release/python-2712/) adresinden Python 2.7
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
+
+> [!IMPORTANT] 
+> Genel olarak kullanılabilir tablo API SDK'ları ile çalışmak için yeni bir tablo API hesabı oluşturmanız gerekir. Önizleme sırasında oluşturulan tablo API hesaplarını genel olarak kullanılabilir SDK'ları tarafından desteklenmez.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 

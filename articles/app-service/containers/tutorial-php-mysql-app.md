@@ -16,10 +16,10 @@ ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 11e8708987f4e085fc8bf1db10144283a9a17d2e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Azure'da PHP ve MySQL bir web uygulaması oluşturma
 
@@ -441,7 +441,7 @@ Bu adımda, bir basit değişiklik `task` veri modeli ve webapp ve güncelleşti
 
 Görevler senaryo için bir görev tamamlandı olarak işaretleyebilirsiniz şekilde uygulama değiştirin.
 
-### <a name="add-a-column"></a>Bir sütun ekleyin
+### <a name="add-a-column"></a>Sütun ekle
 
 Terminale Git deposu kök dizinine gidin.
 

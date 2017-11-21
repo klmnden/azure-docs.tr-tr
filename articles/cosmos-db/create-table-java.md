@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/16/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: ce5c1c25a73bdc02d7e66768752c6942144de517
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Hızlı Başlangıç: bir tablo API uygulamasını Java ve Azure Cosmos DB ile derleme
 
@@ -43,6 +43,10 @@ Buna ek olarak:
     * Ubuntu’da Git’i yüklemek için `sudo apt-get install git` komutunu çalıştırabilirsiniz.
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
+
+> [!IMPORTANT] 
+> Genel olarak kullanılabilir tablo API SDK'ları ile çalışmak için yeni bir tablo API hesabı oluşturmanız gerekir. Önizleme sırasında oluşturulan tablo API hesaplarını genel olarak kullanılabilir SDK'ları tarafından desteklenmez.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -98,7 +102,11 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```
 
-6. 2. satır StorageConnectionString değerinde birincil bağlantı DİZENİZİ portalından yapıştırın. Bağlantı dizenizi uç noktası bölümünü documents.azure.com kullanıyorsa, bunun yerine table.cosmosdb.azure.com kullanmak için bu bölümü düzeltin.
+6. 2. satır StorageConnectionString değerinde birincil bağlantı DİZENİZİ portalından yapıştırın. 
+
+    > [!IMPORTANT]
+    > Uç noktanız Önizleme hesabına sahip olduğunuz anlamına gelir, documents.azure.com, kullanıyorsa ve oluşturmak gereken bir [yeni tablo API hesabı](#create-a-database-account) genel olarak kullanılabilir tablo API SDK'sı ile çalışmak için.
+    >
 
 7. Config.properties dosyasını kaydedin.
 

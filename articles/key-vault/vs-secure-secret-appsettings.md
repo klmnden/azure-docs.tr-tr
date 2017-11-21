@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 61540aeb0f1ac7c55b064c81494208e58aeaa2e0
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 
@@ -156,7 +156,7 @@ Microsoft.Configuration.ConfigurationBuilders.Azure.1.0.0-alpha1.nupkg
     </configSections>
     <configBuilders>
         <builders>
-            <add name="KeyVault" vaultName="Test911" clientId="13c7e116-eb8d-4c12-920a-0093e5f6e33e" clientSecret="8EnMWiciE0wNinNGW7mbylZ3BnaNu7ZeafaC3x+wdCc=" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="KeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
         </builders>
     </configBuilders>
     ```

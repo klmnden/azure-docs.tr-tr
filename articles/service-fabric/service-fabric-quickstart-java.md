@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c8e598159d2139397952a5c11eac54dc38939f47
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b58d6be3d6412b5357aa405269aac4563a7a33a9
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-java-application"></a>Bir Java uygulaması oluşturma
 Azure Service Fabric mikro ve kapsayıcıları dağıtma ve yönetme için bir dağıtılmış sistemler platformudur. 
@@ -83,7 +83,7 @@ Azure kümesinde uygulamayı dağıtmak için kendi küme oluşturun veya bir ta
 
 Grup kümeleri Azure üzerinde barındırılan ücretsiz ve sınırlı süreli Service Fabric kümeleridir. Burada herkes uygulamaları dağıtabilir ve platform hakkında bilgi edinin Service Fabric ekibi tarafından çalıştırılır. Bir Grup Kümesine erişmek için [yönergeleri takip edin](http://aka.ms/tryservicefabric). 
 
-Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da ilk Service Fabric kümenizi oluşturma](service-fabric-get-started-azure-cluster.md).
+Kendi küme oluşturma hakkında daha fazla bilgi için bkz: [Azure üzerinde bir Service Fabric kümesi oluştur](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
 > Web ön uç hizmeti 8080 bağlantı noktasından gelen trafiği dinleyecek şekilde yapılandırılır. Kümenizde bu bağlantı noktasının açık olduğundan emin olun. Taraf küme kullanıyorsanız, bu bağlantı noktasının açık olduğundan.

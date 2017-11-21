@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: Doğrudan kimlik doğrulaması - akıllı kilitleme | Microsoft Docs"
-description: "Bu makalede, şirket içi hesaplarınızı Azure Active Directory (Azure AD) doğrudan kimlik doğrulama bulutta yanılma parola saldırılarından nasıl koruduğunu açıklanmaktadır."
+description: "Şirket içi hesaplarınızı Azure Active Directory (Azure AD) doğrudan kimlik doğrulama bulutta yanılma parola saldırılarından nasıl koruduğunu bu makalede"
 services: active-directory
 keywords: "Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma"
 documentationcenter: 
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2e1468c6a576ab71b85e3f69e5914df6ee9e4d5a
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory doğrudan kimlik doğrulaması: Akıllı kilitleme
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure AD yanılma parola saldırılarına karşı korur ve Office 365 ve SaaS uygulamalarını dışında kilitli orijinal kullanıcıların engeller. Adlı bu özelliği, **akıllı kilitleme**, oturum açma yönteminiz olarak doğrudan kimlik doğrulaması kullandığınızda desteklenir. Akıllı kilitleme tüm kiracılar için varsayılan olarak etkindir ve her zaman kullanıcı hesaplarınızı koruyorsanız; etkinleştirmek için gerek yoktur.
+Azure Active Directory (Azure AD) yanılma parola saldırılarına karşı korur ve Office 365 ve SaaS uygulamalarını dışında kilitli orijinal kullanıcıların engeller. Adlı bu özelliği, *akıllı kilitleme*, oturum açma yönteminiz olarak doğrudan kimlik doğrulaması kullandığınızda desteklenir. Akıllı kilitleme tüm kiracılar için varsayılan olarak etkindir ve kullanıcı hesaplarınızı sürekli olarak korur.
 
-Başarısız oturum açma girişimleri izlemek tarafından ve belirli bir sonra Akıllı kilitleme çalışır **kilitleme eşiği**başlayan bir **kilitleme süresi**. Bir saldırgan kilitleme süresi sırasında oturum açma denemeleri reddedilir. Saldırı devam ederse, sonraki başarısız oturum açma uzun kilitleme süreleri sonucunda kilitleme süresi sona erdikten sonra çalışır.
-
->[!NOTE]
->Kilitleme eşiği 10 başarısız oturum açma girişimlerinin varsayılandır ve kilitleme süresi varsayılan değer 60 saniyedir.
-
-Akıllı kilitleme, oturum açma işlemleri orijinal kullanıcılar ve saldırganların ve çoğu durumda saldırganlar çıkışı yalnızca kilitleri arasında ayırır. Bu işlevsellik, orijinal kullanıcıları kötü amaçlı olarak kilitleme saldırganlar engeller. Oturum açma davranışı, kullanıcıların aygıtlarını & tarayıcılar ve diğer sinyaller orijinal kullanıcılar saldırganlar arasında ayrım yapmak için kullanırız. Biz sürekli bizim algoritmaları geliştirme.
-
-Parola doğrulama isteklerini, şirket içi Active Directory (AD) üzerine doğrudan kimlik doğrulama ileten olduğundan, kullanıcılarınızın AD hesapları kilitleme saldırganların önlemek gerekir. Kendi AD hesap kilitleme ilkeleri olduğundan (özellikle [ **hesap kilitleme eşiği** ](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) ve [ **hesap kilitleme sayaç sonra sıfırlamailkeleri** ](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx)), Azure AD kilitleme eşiği ve kilitleme süresi değerleri uygun şekilde saldırıları bulutta şirket içi düşmeden önce filtrelemek için yapılandırmanız gereken AD.
+Akıllı kilitleme, başarısız oturum açma denemeleri izler. Belirli bir sonra *kilitleme eşiği*, başladığı bir *kilitleme süresi*. Akıllı kilitleme kilitleme süresi sırasında kullanıcılardan oturum girişimleri reddeder. Saldırı devam ederse, sonraki başarısız oturum açma kilitleme süresi sonucu uzun kilitleme süreleri sona erdikten sonra çalışır.
 
 >[!NOTE]
->Akıllı kilitleme özelliğini ücretsiz ve _üzerinde_ tüm müşteriler için varsayılan olarak. Ancak, Azure AD kilitleme eşiği ve grafik API'sini kullanarak kilitleme süresi değerleri değiştirme kiracınız en az bir Azure AD Premium P2 lisansına sahip olması gerekir. Bir Azure AD Premium P2 lisansı gerekmez _kullanıcı başına_ doğrudan kimlik doğrulaması ile akıllı kilitleme özelliğini almak için.
+>Varsayılan kilitleme eşiği 10 başarısız denemedir. Varsayılan kilitleme süresi 60 saniyedir.
 
-Kullanıcılarınızın emin olmak için şirket içi AD hesapları iyi korumalı, emin olmanız gerekir:
+Akıllı kilitleme, oturum açma işlemleri orijinal kullanıcıların oturum açmalardan saldırganlar arasındaki ayırır. Çoğu durumda, yalnızca saldırganlar kilitler. Bu işlevsellik, orijinal kullanıcıları kötü amaçlı olarak kilitleme saldırganlar engeller. Oturum açma davranışı, kullanıcıların aygıtlarını ve tarayıcılar akıllı kilitleme kullanır ve orijinal kullanıcılar saldırganlar arasında ayrım yapmak diğer işaret eder. Algoritmalar sürekli geliştirildi.
 
-1.  Azure AD kilitleme eşiği _daha az_ Reklamın hesap kilitleme eşiği değerinden. AD'ın hesap kilitleme eşiği en az iki ya da Azure AD kilitleme eşiği üç kez şekilde değerleri ayarlamanızı öneririz.
-2.  Azure AD kilitleme süresi (saniye cinsinden gösterilir) _uzun_ Reklamın sıfırlama hesap kilitleme sayaç (dakika cinsinden gösterilir) sonra daha.
+Yani, kullanıcılarınızın Active Directory hesapları kilitleme saldırganlar engellemeniz gerekiyor geçişli kimlik doğrulaması parola doğrulama isteklerini şirket içi Active Directory'ye iletir. Active Directory sahip kendi hesap kilitleme ilkeleri, özellikle [hesap kilitleme eşiği](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) ve [sıfırlama hesap kilitleme sayacını](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx) ilkeleri. Azure AD kilitleme eşiği ve kilitleme süresi değerleri saldırıları bulutta şirket içi Active Directory düşmeden önce filtrelemek için uygun şekilde yapılandırın.
+
+>[!NOTE]
+>Akıllı kilitleme özelliğini ücretsiz ve _üzerinde_ tüm müşteriler için varsayılan olarak. Ancak, Kiracı grafik API'sini kullanarak Azure AD kilitleme eşiği ve kilitleme süresi değerleri değiştirmek istiyorsanız, en az bir Azure AD Premium P2 lisansına sahip olması gerekiyor. Bir Azure AD Premium P2 lisansı gerekmez _kullanıcı başına_ doğrudan kimlik doğrulaması ile akıllı kilitleme özelliğini almak için.
+
+Kullanıcılarınızın şirket içi Active Directory hesapları da korunduğundan emin olmak için emin olmanız gerekir:
+
+   * Azure AD kilitleme eşiği _daha az_ Active Directory hesap kilitleme eşiği değerinden. Böylece Active Directory hesap kilitleme eşiği en az iki veya üç kez Azure AD kilitleme eşikten daha uzun değerlerini ayarlayın.
+   * Azure AD kilitleme süresi (saniye cinsinden gösterilir) _uzun_ Active Directory (dakika cinsinden gösterilir) süreden sonra Hesap kilidi sayacını sıfırla daha.
 
 >[!IMPORTANT]
->Şu anda Akıllı kilitleme yeteneği bunlar kilitlenen, yönetici kullanıcıların bulut hesaplarının kilidini açamazsınız. Kilitleme süresi dolmak üzere beklemeniz gerekecektir.
+>Şu anda Akıllı kilitleme yeteneği bunlar kilitlenen, yönetici kullanıcıların bulut hesaplarının kilidini açamazsınız. Yönetici kilitleme süresi dolmak üzere beklemeniz gerekir.
 
-## <a name="verify-your-ad-account-lockout-policies"></a>AD hesap kilitleme ilkeleri doğrulayın
+## <a name="verify-your-active-directory-account-lockout-policies"></a>Active Directory hesap kilitleme ilkeleri doğrulayın
 
-AD hesap kilitleme ilkeleri doğrulamak için aşağıdaki yönergeleri kullanın:
+Active Directory hesap kilitleme ilkeleri doğrulamak için aşağıdaki yönergeleri kullanın:
 
 1.  Grup İlkesi yönetim aracını açın.
-2.  Tüm kullanıcılar, örneğin, varsayılan etki alanı ilkesi uygulanan Grup İlkesi düzenleyin.
-3.  Bilgisayar Yapılandırması\İlkeler\Windows Ayarları\Güvenlik Ayarları\Hesap İlkeleri\Hesap kilitleme ilkesi için gidin.
-4.  Hesap kilitleme eşiği ve hesap kilitleme sayaç sonra sıfırlama değerleri doğrulayın.
+2.  Örneğin, tüm kullanıcılara uygulanan Grup İlkesi düzenleme **varsayılan etki alanı ilkesi**.
+3.  Gözat **Bilgisayar Yapılandırması** > **ilkeleri** > **Windows ayarları** > **güvenlik ayarları**   >  **Hesap ilkeleri** > **hesap kilitleme ilkesi**.
+4.  Doğrulayın, **hesap kilitleme eşiği** ve **sıfırlama hesap kilitleme sayacını** değerleri.
 
-![AD ve hesap kilitleme ilkeleri](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
+![Active Directory hesap kilitleme ilkeleri](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-needs-premium-license"></a>Kiracı'nın akıllı kilitleme değerleri yönetme (Premium lisansı gerekir) grafik API'sini kullanın
+## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-requires-a-premium-license"></a>Kiracı'nın akıllı kilitleme değerleri yönetme (Premium lisansı gerekir) grafik API'sini kullanın
 
 >[!IMPORTANT]
->Azure AD kilitleme eşiği ve grafik API'sini kullanarak kilitleme süresi değerleri değiştirerek bir Azure AD Premium P2 özelliğidir. Ayrıca, kiracınızın genel yönetici olmanız gerekir.
+>Grafik API'sini kullanarak Azure AD kilitleme eşiği ve kilitleme süresi değerleri değiştirerek bir Azure AD Premium P2 özelliğidir. Ayrıca, kiracınızın genel yönetici olmanız gerekir.
 
-Kullanabileceğiniz [Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) okuyun, ayarlayın ve Azure AD akıllı kilitleme değerleri güncelleştirmek için. Ancak, bu işlemlerin program aracılığıyla da yapabilirsiniz.
+Kullanabileceğiniz [Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) okuyun, ayarlayın ve Azure AD akıllı kilitleme değerleri güncelleştirmek için. Bu işlemler program aracılığıyla da yapabilirsiniz.
 
-### <a name="read-smart-lockout-values"></a>Okuma akıllı kilitleme değerleri
+### <a name="view-smart-lockout-values"></a>Akıllı kilitleme değerlerini görüntüleme
 
-Kiracı'nın akıllı kilitleme değerleri okumak için aşağıdaki adımları izleyin:
+Kiracı'nın akıllı kilitleme değerlerini görüntülemek için aşağıdaki adımları izleyin:
 
 1. Graph Explorer'a kiracınızın genel yönetici olarak oturum açın. İstenirse, istenen izinler için erişim verin.
-2. "Değiştirme izinleri"'i tıklatın ve "Directory.ReadWrite.All" izni seçin.
-3. Grafik API'si istek gibi yapılandırma: kümesi versiyonunu "BETA", istek türü için "GET" ve URL `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Kiracı'nın akıllı kilitleme değerleri görmek için "Sorgu Çalıştır"'i tıklatın. Önce kiracının değerleri ayarlamadıysanız boş bakın.
+2. Seçin **değiştirme izinleri**ve ardından **Directory.ReadWrite.All** izni.
+3. Grafik API'si istek gibi yapılandırma: sürüm kümesine **BETA**, istek türü **almak**ve URL `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
+4. Seçin **sorgu çalıştırma** , kiracının akıllı kilitleme değerleri görmek için. Önce kiracının değerleri ayarlamadıysanız boş bakın.
 
 ### <a name="set-smart-lockout-values"></a>Akıllı kilitleme değerlerini Ayarla
 
-(İlk kez yalnızca), kiracının akıllı kilitleme değerlerini ayarlamak için aşağıdaki adımları izleyin:
+(Yalnızca ilk kez gereken), kiracının akıllı kilitleme değerlerini ayarlamak için aşağıdaki adımları izleyin:
 
 1. Graph Explorer'a kiracınızın genel yönetici olarak oturum açın. İstenirse, istenen izinler için erişim verin.
-2. "Değiştirme izinleri"'i tıklatın ve "Directory.ReadWrite.All" izni seçin.
-3. Grafik API'si istek gibi yapılandırma: sürüm "BETA" olarak ayarlamak, istek türü "POST" ve URL `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Kopyalayın ve aşağıdaki JSON isteği "İstek gövdesi" alanına yapıştırın.
-5. Kiracı'nın akıllı kilitleme değerlerini ayarlamak için "Sorgu Çalıştır"'i tıklatın.
+2. Seçin **değiştirme izinleri**ve ardından **Directory.ReadWrite.All** izni.
+3. Grafik API'si istek gibi yapılandırma: sürüm kümesine **BETA**, istek türü **POST**ve URL `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
+4. Kopyalama ve yapıştırma içine aşağıdaki JSON istek **istek gövdesi** alan.
+5. Seçin **sorgu çalıştırma** , kiracının akıllı kilitleme değerlerini ayarlamak için.
 
 ```
 {
@@ -108,20 +108,20 @@ Kiracı'nın akıllı kilitleme değerleri okumak için aşağıdaki adımları 
 ```
 
 >[!NOTE]
->Bunları kullanmıyorsanız, bırakabilirsiniz **BannedPasswordList** ve **EnableBannedPasswordCheck** değerler boş olarak ("") ve "false" sırasıyla.
+>Bunları kullanmıyorsanız, bırakabilirsiniz **BannedPasswordList** ve **EnableBannedPasswordCheck** değerler boş olarak (**""**) ve **yanlış** sırasıyla.
 
-Doğru kullanarak, kiracının akıllı kilitleme değerleri ayarladığınızdan emin olun [adımları](#read-smart-lockout-values).
+Size, kiracının akıllı kilitleme değerleri doğru adımları kullanarak ayarladığınızı doğrulayın [görünüm akıllı kilitleme değerleri](#view-smart-lockout-values).
 
 ### <a name="update-smart-lockout-values"></a>Akıllı kilitleme değerleri güncelleştirin
 
-(Önceden daha önce ayarlamış olmanız durumunda), kiracının akıllı kilitleme değerleri güncelleştirmek için aşağıdaki adımları izleyin:
+(Daha önce ayarlarsanız), kiracının akıllı kilitleme değerleri güncelleştirmek için aşağıdaki adımları izleyin:
 
 1. Graph Explorer'a kiracınızın genel yönetici olarak oturum açın. İstenirse, istenen izinler için erişim verin.
-2. "Değiştirme izinleri"'i tıklatın ve "Directory.ReadWrite.All" izni seçin.
-3. [Bu adımları, kiracının akıllı kilitleme değerleri okumak için](#read-smart-lockout-values). Kopya `id` "PasswordRuleSettings" olarak "görünen adı" öğesinin değeri (GUID).
-4. Grafik API'si istek gibi yapılandırma: kümesi versiyonunu "BETA", istek türü için "Düzeltme Eki" ve URL `https://graph.microsoft.com/beta/<your-tenant-domain>/settings/<id>` -adım 3 için GUID kullanmak `<id>`.
-5. Kopyalayın ve aşağıdaki JSON isteği "İstek gövdesi" alanına yapıştırın. Akıllı kilitleme değerleri uygun şekilde değiştirin.
-6. Kiracı'nın akıllı kilitleme değerleri güncelleştirmek için "Sorgu Çalıştır"'i tıklatın.
+2. Seçin **değiştirme izinleri**ve ardından **Directory.ReadWrite.All** izni.
+3. [Kiracı'nın akıllı kilitleme değerlerini görüntülemek için bu adımları](#view-smart-lockout-values). Kopya `id` öğeyle (GUID) değerini **displayName** olarak **PasswordRuleSettings**.
+4. Grafik API'si istek gibi yapılandırma: sürüm kümesine **BETA**, istek türü **düzeltme eki**ve URL `https://graph.microsoft.com/beta/<your-tenant-domain>/settings/<id>`. 3. adımındaki için GUID kullanmak `<id>`.
+5. Kopyalama ve yapıştırma içine aşağıdaki JSON istek **istek gövdesi** alan. Akıllı kilitleme değerleri uygun şekilde değiştirin.
+6. Seçin **sorgu çalıştırma** , kiracının akıllı kilitleme değerleri güncelleştirmek için.
 
 ```
 {
@@ -146,7 +146,7 @@ Doğru kullanarak, kiracının akıllı kilitleme değerleri ayarladığınızda
 }
 ```
 
-Doğru kullanarak, kiracının akıllı kilitleme değerleri güncelleştirilmiş doğrulamak [adımları](#read-smart-lockout-values).
+Kiracı'nın akıllı kilitleme değerleri doğru adımları kullanarak güncelleştirdikten olduğunu doğrulayın [görünüm akıllı kilitleme değerleri](#view-smart-lockout-values).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - yeni özellik istekleri dosyalama için.
+[UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): yeni özellik istekleri dosya için Azure Active Directory Forumu kullanın.

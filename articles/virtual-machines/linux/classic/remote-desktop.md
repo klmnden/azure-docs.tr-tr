@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.openlocfilehash: 2ad497a0244f9c7cdad34faf807cc9ed10ea704d
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 228f3153f47e0b147688fe958a767660976b08be
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Uzak Masaüstü kullanarak bir Microsoft Azure Linux VM’ye bağlanma
 > [!IMPORTANT] 
@@ -49,18 +49,23 @@ Linux VM bağlanmak `putty`, yükleyip `Gnome Desktop`.
 
 Ubuntu için kullanın:
 
-    #sudo apt-get update
-    #sudo apt-get install ubuntu-desktop
-
+```bash
+sudo apt-get update
+sudo apt-get install ubuntu-desktop
+```
 
 OpenSUSE için kullanın:
 
-    #sudo zypper install gnome-session
+```bash
+sudo zypper install gnome-session
+```
 
 ## <a name="install-xrdp"></a>Xrdp yükleyin
 Ubuntu için kullanın:
 
-    #sudo apt-get install xrdp
+```bash
+sudo apt-get install xrdp
+```
 
 OpenSUSE için kullanın:
 
@@ -69,15 +74,18 @@ OpenSUSE için kullanın:
 > 
 > 
 
-    #sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
-    #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
-
+```bash
+sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
+```
 
 ## <a name="start-xrdp-and-set-xdrp-service-at-boot-up"></a>Xrdp başlatın ve önyükleme yukarı xdrp hizmeti ayarlayın
 OpenSUSE için kullanın:
 
-    #sudo systemctl start xrdp
-    #sudo systemctl enable xrdp
+```bash
+sudo systemctl start xrdp
+sudo systemctl enable xrdp
+```
 
 Ubuntu için xrdp başlatıldı ve olması önyükleme-yukarı yüklemeden sonra otomatik olarak etkinleştirilir.
 
@@ -86,22 +94,29 @@ Xrdp geçerli sürümü Gnome Masaüstü Ubuntu sürümleri için daha sonraki U
 
 Yüklemek için `xfce`, bu komutu kullanın:
 
-    #sudo apt-get install xubuntu-desktop
+```bash
+sudo apt-get install xubuntu-desktop
+```
 
 Daha sonra etkinleştirin `xfce` bu komutu kullanma:
 
-    #echo xfce4-session >~/.xsession
+```bash
+echo xfce4-session >~/.xsession
+```
 
 Yapılandırma dosyası Düzenle `/etc/xrdp/startwm.sh`:
 
-    #sudo vi /etc/xrdp/startwm.sh   
+```bash
+sudo vi /etc/xrdp/startwm.sh   
+```
 
 Satırı ekleyin `xfce4-session` satırından önce `/etc/X11/Xsession`.
 
 Xrdp hizmetini yeniden başlatmak için bunu kullanın:
 
-    #sudo service xrdp restart
-
+```bash
+sudo service xrdp restart
+```
 
 ## <a name="connect-your-linux-vm-from-a-windows-machine"></a>Bir Windows makineden Linux VM Bağlan
 Bir Windows makinesine uzak masaüstü istemcisini başlatın ve Linux VM DNS adı girin. Veya Azure portalında, VM panoya gidin ve tıklayın `Connect` Linux VM'nize bağlanmak için. Bu durumda, oturum açma penceresi görürsünüz:

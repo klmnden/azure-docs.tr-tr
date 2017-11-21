@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Azure Service Fabric Windows kapsayıcısında .NET uygulaması dağıtma
 
@@ -39,11 +39,14 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 4. Yükleme [Azure PowerShell][link-azure-powershell-install]
 5. Yükleme [Visual Studio 2017 için sürekli teslim araçları uzantısı][link-visualstudio-cd-extension]
 6. Oluşturma bir [Azure aboneliği] [ link-azure-subscription] ve [Visual Studio Team Services hesabı][link-vsts-account]. 
-7. [Azure üzerinde bir küme oluşturun](service-fabric-tutorial-create-cluster-azure-ps.md)
+7. [Azure üzerinde bir küme oluşturun](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+
+## <a name="create-a-cluster-on-azure"></a>Azure’da küme oluşturma
+Service Fabric uygulamaları bir küme, ağa bağlı bir sanal veya fiziksel makineler kümesi çalıştırın. [Azure'da çalışan Service Fabric kümesi Kurulum](service-fabric-tutorial-create-vnet-and-windows-cluster.md) oluşturup Uygulamanızı dağıtmadan önce. Küme oluştururken, çalışan kapsayıcılar (örneğin, Windows Server 2016 Datacenter kapsayıcılarla) destekleyen bir SKU seçin.
 
 ## <a name="containerize-the-application"></a>Uygulama containerize
 
-Sahip olduğunuza göre bir [Service Fabric kümesi Azure'da çalışan](service-fabric-tutorial-create-cluster-azure-ps.md) oluşturup kapsayıcılı uygulama dağıtmak hazır olursunuz. Uygulamamız bir kapsayıcıda çalışan başlatmak için eklemek ihtiyacımız **Docker Destek** Visual Studio'da projeye. Eklediğinizde **Docker Destek** uygulamaya iki şey olur. İlk olarak, bir _Dockerfile_ projeye eklenir. Bu yeni dosya nasıl kapsayıcı görüntünün oluşturulması açıklanmaktadır. Ardından ikinci, yeni bir _docker compose'u_ proje çözüme eklenir. Yeni Proje birkaç içeren dosyaları docker compose'u. Docker compose'u dosyaları kapsayıcı nasıl yürütüleceğini tanımlamak için kullanılabilir.
+Azure'da çalışan Service Fabric kümesi sahip olduğunuza göre oluşturup kapsayıcılı uygulama dağıtmak hazır olursunuz. Uygulamamız bir kapsayıcıda çalışan başlatmak için eklemek ihtiyacımız **Docker Destek** Visual Studio'da projeye. Eklediğinizde **Docker Destek** uygulamaya iki şey olur. İlk olarak, bir _Dockerfile_ projeye eklenir. Bu yeni dosya nasıl kapsayıcı görüntünün oluşturulması açıklanmaktadır. Ardından ikinci, yeni bir _docker compose'u_ proje çözüme eklenir. Yeni Proje birkaç içeren dosyaları docker compose'u. Docker compose'u dosyaları kapsayıcı nasıl yürütüleceğini tanımlamak için kullanılabilir.
 
 İle çalışma hakkında daha fazla bilgi [Visual Studio kapsayıcı Araçları][link-visualstudio-container-tools].
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 5ca9b8ed40a1e58a0aea4de87995caf5f9a9212b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB Apache Cassandra API için giriş
 
@@ -78,7 +78,7 @@ Bir Azure aboneliğiniz zaten varsa, Cassandra API (Önizleme) programa katılma
 
     İsteği gönderirseniz sonra durum değişikliklerini **onay bekleyen** yeni hesap bölmesinde. 
 
-İsteği gönderdikten sonra isteğiniz onaylandıktan e-posta bildirimi için bekleyin. İsteği tamamlamak için bir destek bileti oluşturun gerekmez. Sıraya alınmış olan istekleri incelenecektir. 
+İsteği gönderdikten sonra isteğiniz onaylandıktan e-posta bildirimi için bekleyin. İsteği nedeniyle yüksek hacimli bir hafta içinde bildirim almanız gerekir. İsteği tamamlamak için bir destek bileti oluşturun gerekmez. Sıraya alınmış olan istekleri incelenecektir. 
 
 ## <a name="how-to-get-started"></a>Nasıl kullanmaya başlarım
 Önizleme programına katıldıktan sonra Cassandra API'sini kullanarak bir uygulama oluşturmak için Cassandra API quickstarts izleyin:

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: d36cc43889c190544b9a2735ce00e718c11fd216
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 4a796920d5ff76d4ff4d41afe2ec14aa89ae2265
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 **Azure etkinlik günlüğü** , Azure'da oluşan abonelik düzeyinde olaylar hakkında bilgi sağlayan bir abonelik günlüktür. Bu verileri, Azure Resource Manager işlemsel veri hizmeti sistem durumu olayları güncelleştirmeleri için bir aralığı içerir. Etkinlik günlüğü önceden aboneliklerinizi yönetim kategorisi raporları denetim düzlemi olayları itibaren "Denetim günlüklerini" veya "İşlem günlükleri," olarak bilinirdi. Etkinlik günlüğü kullanarak, belirleyebilirsiniz ' ne, kimin, ne zaman ve ' herhangi yazma işlemleri (PUT, POST, DELETE) aboneliğinizi kaynaklarında alınan için. İşleminin durumunu ve ilgili diğer özellikleri de anlayabilirsiniz. Etkinlik günlüğü okuma (GET) işlemleri veya işlemleri kullanan Klasik kaynakları için içermeyen / "RDFE" modeli.
@@ -49,7 +49,8 @@ Etkinlik günlüğü verileri çeşitli kategorileri içerir. Bu kategoriler şe
 * **Uyarı** -bu kategorideki tüm etkinleştirmeleri Azure uyarıların kaydını içerir. Bu kategorideki görür olay türü "myVM CPU % 80'den son 5 dakika için bırakıldı." örneğidir Azure sistemleri çeşitli sahip bir uyarı verme kavramı--bir kural çeşit tanımlayabilir ve bu kural için koşullara uyan bir bildirim alıyorsunuz. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar, bir kayıt etkinleştirme etkinlik günlüğü bu kategoriyi de gönderilir.
 * **Otomatik ölçeklendirme** -bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçeklendirme ayarı göre otomatik ölçeklendirme altyapısı işlemi ile ilgili olayları kaydını içerir. Bu kategorideki görür olayın türünü, "Otomatik ölçeklendirme ölçek büyütme eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme'ni kullanarak, otomatik olarak ölçeğini veya ölçeklendirin desteklenen kaynak türü örneği sayısı bir otomatik ölçeklendirme ayarı kullanarak gün ve/veya yük (ölçüm) verileri zamanında temel. Zaman ölçek yukarı veya aşağı, başlangıç ve başarılı veya başarısız olaylar için koşullar kaydedilir bu kategorideki.
 * **Öneri** -öneri olaylarından web siteleri ve SQL sunucuları gibi bazı kaynak türleri bu kategorisi içerir. Bu olaylar daha iyi kaynaklarınızı kullanmalarını ilişkin öneriler sunar. Öneriler yayma kaynaklarınız varsa, yalnızca bu tür olayları alırsınız.
-* **İlke, güvenlik ve kaynak durumu** -Bu kategorilerden tüm olaylar içermez; gelecekte kullanılmak üzere ayrılmıştır.
+* **Güvenlik** -Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları kaydını bu kategorisi içerir. Bu kategorideki görür olayın türünü, "yürütülen şüpheli çift uzantısının." örneğidir
+* **İlke ve kaynak durumu** -Bu kategorilerden tüm olaylar içermez; gelecekte kullanılmak üzere ayrılmıştır.
 
 ## <a name="event-schema-per-category"></a>Her kategori şeması
 [Etkinlik günlüğü olay şemanın her kategori anlamak için bu makaleye bakın.](monitoring-activity-log-schema.md)

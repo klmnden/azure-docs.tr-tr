@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Platform düzeyi olay ve günlük oluşturma
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 Donanım ve küme beklendiği gibi davranmakta olup olmadığını belirlemek için platform düzeyinde izlemek önemlidir. Service Fabric bir donanım hatası sırasında çalışan uygulamaları kullanmaya devam edebilir, ancak yine de bir hata yaşamadığınızı gerekiyorsa rağmen bir uygulama veya altyapının oluşmalıdır. Daha iyi, kapasiteyi planlamak üzere kümelerinizi ekleme veya kaldırma donanım hakkında kararlar yardımcı ayrıca izlemeniz gerekir.
 
-Service Fabric beş farklı günlük kanalları out-of--aşağıdaki olaylar oluşturan box sağlar:
-
-* İşletimsel kanal: Service Fabric ve gelen dağıtılmakta olan yeni bir uygulama, bir düğüm için olaylar dahil olmak üzere, küme tarafından gerçekleştirilen üst düzey işlemler veya geri alma, vb. yükseltme BT.
+Service Fabric aşağıdaki günlük kanalları out-of--box sağlar:
+* İşletimsel kanal: Service Fabric ve yaklaşan bir düğüm, dağıtılmakta olan yeni bir uygulama veya bir yükseltme geri alma için olaylar dahil olmak üzere, küme tarafından gerçekleştirilen üst düzey işlemler vs.
 * İşletimsel kanal - ayrıntılı: sistem durumu raporları ve Yük Dengeleme kararları
-* Veri & Mesajlaşma kanalı: kritik günlükleri ve bizim (şu anda yalnızca ReverseProxy) Mesajlaşma oluşturulan olaylar ve veri yolu (güvenilir hizmetler modeller)
+* Veri & Mesajlaşma kanalı: kritik günlükleri ve mesajlaşma (şu anda yalnızca ReverseProxy) oluşturulan olaylar ve veri yolu (güvenilir hizmetler modeller)
 * Ayrıntılı veri & Mesajlaşma kanalı -: veriler ve mesajlaşma (Bu kanal sahip çok yüksek hacimli olayları) kümedeki tüm kritik olmayan günlükleri içeren kapsamlı kanal   
+
+Bunlara ek olarak, var. iki sağlanan yapılandırılmış EventSource kanalları yanı sıra destek amaçlarıyla topladığımız günlükleri
 * [Güvenilir hizmetler olayları](service-fabric-reliable-services-diagnostics.md): programlama modeli belirli olayları
 * [Güvenilir aktörler olayları](service-fabric-reliable-actors-diagnostics.md): programlama modeli belirli olayları ve performans sayaçları
 * Günlükleri destekler: yalnızca tarafımızca desteği sağlama kullanılacak Service Fabric tarafından oluşturulan sistem günlükleri
