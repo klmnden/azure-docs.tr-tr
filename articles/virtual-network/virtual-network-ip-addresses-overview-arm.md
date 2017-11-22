@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: d243455be9439a686ecdf6dfa3aadf2802a0714d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -145,29 +145,22 @@ Azure Resource Manager dağıtım modelinde, özel IP adresleri aşağıdaki Azu
 
 ### <a name="allocation-method"></a>Ayırma yöntemi
 
-Kaynağın bağlı olduğu alt ağın adres aralığından özel bir IP adresi ayrılır. Alt ağın adres aralığı sanal ağın adres aralığının bir kısmıdır.
+Kaynağın dağıtıldığı sana alt ağın adres aralığından özel bir IP adresi ayrılır. Özel IP adresi ayırmak için kullanılan iki yöntem vardır:
 
-Özel IP adresi ayırmak için kullanılan iki yöntem vardır: *Dinamik* veya *statik*. Varsayılan ayırma yöntemi olan *dinamik* yönteminde, IP adresi kaynağın alt ağından otomatik olarak (DHCP kullanılarak) ayrılır. Kaynağı durdurup başlattığınızda bu IP adresi değişebilir.
-
-IP adresinin aynı kalmasını sağlamak için ayırma yöntemini *statik* olarak ayarlayabilirsiniz. *Statik* seçeneğini belirlediğinizde kaynağın alt ağının bir parçası olan geçerli bir IP adresi de belirtmeniz gerekir.
-
-Statik özel IP adresleri yaygın olarak şunlar için kullanılır:
-
-* Etki alanı denetleyicisi veya DNS sunucusu olarak çalışan sanal makineler.
-* IP adreslerini kullanan güvenlik duvarı kuralları gerektiren kaynaklar.
-* Bir IP adresi üzerinden diğer uygulamalar/kaynaklar tarafından erişilen kaynaklar.
+- **Dinamik**: Azure her alt ağ adres aralığında ilk dört adresi ayırır ve bu adresleri atamaz. Azure, alt ağ adres aralığından sonraki kullanılabilir adresi bir kaynağa atar. Örneğin, alt ağ adres aralığının 10.0.0.0/16 olduğunu varsayarsak ve 10.0.0.0.4-10.0.0.14 adresleri zaten atanmışsa (.0-.3 ayrılmıştır), Azure kaynağa 10.0.0.15 adresini atar. Dinamik, varsayılan ayırma yöntemidir. Dinamik IP adresleri bir kez atandıktan sonra, ancak ağ arabirimi silinirse, aynı sanal ağ içinde farklı bir alt ağa atanırsa veya ayırma yöntemi statik olarak değiştirilip farklı bir IP adresi belirtilirse serbest bırakılır. Varsayılan olarak, dinamik olan ayırma yöntemini statik olarak değiştirdiğinizde Azure dinamik olarak atanmış önceki adresi statik adres olarak atar.
+- **Statik**: Alt ağın adres aralığından siz bir adres seçe ve atarsınız. Alt ağ adres aralığından atadığınız adres, alt ağa adres aralığının ilk dört adresi dışında kalan ve şu anda alt ağda başka bir kaynağa atanmamış olan herhangi bir adres olabilir. Statik adresler ancak ağ arabirimi silindiğinde serbest bırakılır. Ayırma yöntemini dinamik olarak değiştirirseniz, Azure daha önce statik IP adresi olarak atanmış olan adresi dinamik adres olarak atar. Bu adres, alt ağ adres aralığında bir sonraki kullanılabilir adres olmayabilir. Ağ arabirimi aynı sanal ağ içinde farklı bir alt ağa atandığında da adres değişir; ama ağ arabirimini farklı bir alt ağa atamak için, önce statik ayırma yöntemini dinamik olarak değiştirmeniz gerekir. Ağ arabirimini farklı bir alt ağa atadıktan sonra, ayırma yöntemini yine statik yapabilir ve yeni alt ağ adres aralığından bir IP adresi atayabilirsiniz.
 
 ### <a name="virtual-machines"></a>Sanal makineler
 
-Bir [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makinesinin **ağ arabirimine** özel bir IP adresi atanır. Sanal makinenin birden fazla ağ arabirimi varsa ağ arabirimlerinin her birine özel bir IP adresi atanır. Bir ağ arabirimi için ayırma yöntemini dinamik veya statik olarak belirtebilirsiniz.
+[Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal makinesinin bir veya birden çok **ağ arabirimine** bir veya birden çok özel IP adresi atanır. Her özel IP adresi için ayırma yöntemini dinamik veya statik olarak belirtebilirsiniz.
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>İç DNS ana bilgisayar adı çözümlemesi (sanal makineler için)
 
 Siz açıkça özel DNS sunucuları yapılandırmadığınız sürece, tüm Azure sanal makineleri varsayılan olarak [Azure tarafından yönetilen DNS sunucuları](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) ile yapılandırılmıştır. Bu DNS sunucuları aynı sanal ağda bulunan sanal makineler için iç ad çözümleme sağlar.
 
-Bir sanal makine oluşturduğunuzda, Azure tarafından yönetilen DNS sunucularına ana bilgisayar adı için özel IP adresine yönelik bir eşleme eklenir. Bir sanal makinenin birden çok ağ arabirimi olması durumunda, ana bilgisayar adı birincil ağ arabiriminin özel IP adresiyle eşleştirilir.
+Bir sanal makine oluşturduğunuzda, Azure tarafından yönetilen DNS sunucularına ana bilgisayar adı için özel IP adresine yönelik bir eşleme eklenir. Sanal makinenin birden çok ağ arabirimi veya ağ arabirimi için birden çok IP yapılandırması olması durumunda, ana bilgisayar adı birincil ağ arabirimine ilişkin birincil IP yapılandırmasının özel IP adresiyle eşlenir.
 
-Azure tarafından yönetilen DNS sunucularıyla yapılandırılan sanal makineler kendi sanal ağındaki tüm sanal makinelerin ana bilgisayar adlarını bu sanal makinelerin özel IP adreslerine çözümleyebilir.
+Azure tarafından yönetilen DNS sunucularıyla yapılandırılan sanal makineler kendi sanal ağındaki tüm sanal makinelerin ana bilgisayar adlarını bu sanal makinelerin özel IP adreslerine çözümleyebilir. Bağlı sanal ağlarda sanal makinelerin ana bilgisayar adlarını çözümlemek için, özel DNS sunucusu kullanmalısınız.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>İç yük dengeleyiciler (ILB) ve Uygulama ağ geçitleri
 
