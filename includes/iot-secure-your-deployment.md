@@ -50,22 +50,6 @@ IOT Hub ile güvenli TLS bağlantı kurulurken IOT cihaz IOT Hub'ın cihaz SDK's
 ## <a name="securing-the-connection"></a>Bağlantının güvenliğini sağlama
 Internet bağlantısı IOT hub'ı ve IOT cihaz arasında Aktarım Katmanı Güvenliği (TLS) standardını kullanarak güvenlik altına alınır. Azure IOT destekler [TLS 1.2][lnk-tls12], TLS 1.1 ve TLS 1.0, bu sırada. TLS 1.0 desteği yalnızca geriye dönük uyumluluk için sağlanır. En yüksek güvenliği sağlar beri TLS 1.2 kullanılması önerilir.
 
-Azure IOT paketi aşağıdaki şifre paketleri, bu sırada destekler.
-
-| Şifre paketi | uzunluğu |
-| --- | --- |
-| TLS\_ECDHE\_RSA\_ile\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (eq. 7680 bit RSA) FS |256 |
-| TLS\_ECDHE\_RSA\_ile\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (eq. 3072 bit RSA) FS |128 |
-| TLS\_ECDHE\_RSA\_ile\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (eq. 7680 bit RSA) FS |256 |
-| TLS\_ECDHE\_RSA\_ile\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (eq. 3072 bit RSA) FS |128 |
-| TLS\_RSA\_ile\_AES\_256\_GCM\_SHA384 (0x9d) |256 |
-| TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256 (0x9c) |128 |
-| TLS\_RSA\_ile\_AES\_256\_CBC\_SHA256 (0x3d) |256 |
-| TLS\_RSA\_ile\_AES\_128\_CBC\_SHA256 (0x3c) |128 |
-| TLS\_RSA\_ile\_AES\_256\_CBC\_SHA (0x35) |256 |
-| TLS\_RSA\_ile\_AES\_128\_CBC\_SHA (0x2f) |128 |
-| TLS\_RSA\_ile\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
-
 ## <a name="securing-the-cloud"></a>Bulut güvenliğini sağlama
 Azure IOT Hub verir tanımını [erişim denetimi ilkeleri] [ lnk-protocols] her güvenlik anahtarı için. Her IOT Hub'ın uç noktalar için erişim vermek için aşağıdaki izinler kümesini kullanır. İzinleri işlevselliğine dayalı bir IOT Hub'ına erişimi sınırlayın.
 

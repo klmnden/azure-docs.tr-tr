@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: a73df89d5f97d2d6aa295d7efdd46abc15f81de7
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Azure içerik teslim ağı varlıklar belirteci kimlik doğrulaması ile güvenli hale getirme
 
@@ -96,12 +96,12 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
        > </tr>
        > <tr>
        >    <td><b>ec_expire</b></td>
-       >    <td>Bir süre sonra belirtecinin süresi dolmadan bir belirteç için atar. Sona erme zamanı engellenir sonra gönderilen istek sayısı. Bu parametre standart dönem saniyesi sayısına dayalı bir UNIX zaman damgası kullanan `1/1/1970 00:00:00 GMT`. (Çevrimiçi araçlarını UNIX zaman Standart Saati arasında dönüştürmek için kullanabileceğiniz.)> 
+       >    <td>Bir süre sonra belirtecinin süresi dolmadan bir belirteç için atar. Sona erme zamanı engellenir sonra gönderilen istek sayısı. Bu parametre standart UNIX dönem saniyesi sayısına dayalı bir UNIX zaman damgası kullanan `1/1/1970 00:00:00 GMT`. (Çevrimiçi araçlarını UNIX zaman Standart Saati arasında dönüştürmek için kullanabileceğiniz.)> 
        >    Örneğin, belirtecin anda süresi dolacak şekilde istiyorsanız `12/31/2016 12:00:00 GMT`, UNIX zaman damgası değeri girin `1483185600`. 
        > </tr>
        > <tr>
        >    <td><b>ec_url_allow</b></td> 
-       >    <td>Belirli bir varlık veya yolu belirteçleri uyarlamak olanak tanır. URL'si Başlat belirli bir göreli yol isteklerine erişimi sınırlandırır. URL'leri büyük/küçük harfe duyarlıdır. Her yol virgül ile ayırarak birden fazla yol girin. Gereksinimlerinize bağlı olarak, farklı erişim düzeyini sağlamak için farklı değerlerini ayarlayabilirsiniz.> 
+       >    <td>Belirli bir varlık veya yolu belirteçleri uyarlamak olanak tanır. URL'si Başlat belirli bir göreli yol isteklerine erişimi sınırlandırır. URL'leri büyük/küçük harfe duyarlıdır. Her yol virgül ile ayırarak birden fazla yol giriş; boşluk eklemeyin. Gereksinimlerinize bağlı olarak, farklı erişim düzeyini sağlamak için farklı değerlerini ayarlayabilirsiniz.> 
        >    Örneğin, URL `http://www.mydomain.com/pictures/city/strasbourg.png`, bu istekleri için aşağıdaki giriş değerlerine izin verilir: 
        >    <ul>
        >       <li>Giriş değeri `/`: tüm isteklerine izin verilir.</li>
@@ -116,11 +116,11 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
        > </tr>
        > <tr>
        >    <td><b>ec_country_allow</b></td> 
-       >    <td>Yalnızca bir veya daha fazla belirtilen ülkelerden kaynaklanan isteklere izin verir. Diğer tüm ülkelerden kaynaklanan istekleri reddedilir. Kullanım [ülke kodlarına](https://msdn.microsoft.com/library/mt761717.aspx) ve her birini virgül ile ayırın. Örneğin, yalnızca Amerika Birleşik Devletleri ve Fransa erişime izin verecek şekilde istiyorsanız girin `US,FR`.</td>
+       >    <td>Yalnızca bir veya daha fazla belirtilen ülkelerden kaynaklanan isteklere izin verir. Diğer tüm ülkelerden kaynaklanan istekleri reddedilir. İki harfli kullanmak [ISO 3166 ülke kodu](https://msdn.microsoft.com/library/mt761717.aspx) her ülke ve her birini virgül ile ayırın; boşluk eklemeyin. Örneğin, yalnızca Amerika Birleşik Devletleri ve Fransa erişime izin verecek şekilde istiyorsanız girin `US,FR`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_country_deny</b></td> 
-       >    <td>Bir veya daha fazla belirtilen ülkelerden kaynaklanan isteklerini reddeder. Diğer tüm ülkelerden kaynaklanan isteklerine izin verilir. Ülke kodlarına kullanın ve her birini virgül ile ayırın. Örneğin, Amerika Birleşik Devletleri ve Fransa erişimini engellemek istiyorsanız, girin `US,FR`.</td>
+       >    <td>Bir veya daha fazla belirtilen ülkelerden kaynaklanan isteklerini reddeder. Diğer tüm ülkelerden kaynaklanan isteklerine izin verilir. Aynı uygulamasıdır <b>ec_country_allow</b> parametresi. Bir ülke kodu hem de varsa, <b>ec_country_allow</b> ve <b>ec_country_deny</b> parametreleri <b>ec_country_allow</b> parametresi önceliklidir.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_ref_allow</b></td>
@@ -128,27 +128,27 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
        >    Giriş aşağıdaki türleri kullanılabilir:
        >    <ul>
        >       <li>Bir ana bilgisayar adı veya bir ana bilgisayar adı ve yolu.</li>
-       >       <li>Birden çok başvuran. Birden çok başvuran eklemek için her başvuran virgül ile ayırın. Başvuran değeri belirtin, ancak tarayıcı yapılandırması nedeniyle isteği başvuran bilgi gönderilmez, istek varsayılan olarak reddedilir.</li> 
-       >       <li>Başvuran bilgileri eksik olan istek sayısı. Bu tür istekleri izin vermek için metin "eksik" girin veya boş bir değer girin.</li> 
+       >       <li>Birden çok başvuran. Birden çok başvuran eklemek için her başvuran virgülle ayırın; bir alanı eklemeyin. Başvuran değeri belirtin, ancak tarayıcı yapılandırması nedeniyle isteği başvuran bilgi gönderilmez, istek varsayılan olarak reddedilir.</li> 
+       >       <li>Eksik veya boş başvuran bilgilerle istek sayısı. Varsayılan olarak, <b>ec_ref_allow</b> parametresi bu tür istekleri engeller. Bu isteklere izin vermek için "eksik" ya da bir metin girin veya (Sondaki virgül kullanarak) boş bir değer girin.</li> 
        >       <li>Alt etki alanları. Alt etki alanları izin vermek için bir yıldız işareti girin (\*). Örneğin, tüm alt etki alanlarına izin vermek için `contoso.com`, girin `*.contoso.com`.</li>
-       >    </ul> 
+       >    </ul>     
        >    Örneğin, gelen istekleri için erişime izin verecek şekilde `www.contoso.com`, altındaki tüm alt etki `contoso2.com`, boş veya eksik başvuran istekleriyle girin `www.contoso.com,*.contoso.com,missing`.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_ref_deny</b></td>
-       >    <td>Belirtilen başvuran istekleri reddeder. Aynı uygulamasıdır <b>ec_ref_allow</b> parametresi.</td>
+       >    <td>Belirtilen başvuran istekleri reddeder. Aynı uygulamasıdır <b>ec_ref_allow</b> parametresi. Bir başvuran ikisi de varsa, <b>ec_ref_allow</b> ve <b>ec_ref_deny</b> parametreleri <b>ec_ref_allow</b> parametresi önceliklidir.</td>
        > </tr>
        > <tr> 
        >    <td><b>ec_proto_allow</b></td> 
-       >    <td>Yalnızca belirtilen protokol gelen isteklere izin verir. Örneğin, HTTP veya HTTPS.</td>
+       >    <td>Yalnızca belirtilen protokol gelen isteklere izin verir. Geçerli değerler `http`, `https`, veya `http,https`.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_proto_deny</b></td>
-       >    <td>Belirtilen protokolünden isteklerini reddeder. Örneğin, HTTP veya HTTPS.</td>
+       >    <td>Belirtilen protokolünden isteklerini reddeder. Aynı uygulamasıdır <b>ec_proto_allow</b> parametresi. Bir protokol hem de varsa, <b>ec_proto_allow</b> ve <b>ec_proto_deny</b> parametreleri <b>ec_proto_allow</b> parametresi önceliklidir.</td>
        > </tr>
        > <tr>
        >    <td><b>ec_clientip</b></td>
-       >    <td>Belirtilen sahibinin IP adresine olan erişimi sınırlandırır. IPv4 ve IPv6 desteklenir. Bir tek istek IP adresi veya bir IP alt ağı belirtebilirsiniz. Örneğin, `11.22.33.0/22`.</td>
+       >    <td>Belirtilen sahibinin IP adresine olan erişimi sınırlandırır. IPv4 ve IPv6 desteklenir. Bir tek istek IP adresi ya da belirli bir alt ağ ile ilişkili IP adreslerini belirtebilirsiniz. Örneğin, `11.22.33.0/22` 11.22.32.1 için 11.22.35.254 IP adreslerinden isteklere izin verir.</td>
        > </tr>
        > </table>
 
@@ -160,11 +160,11 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
 
     Belirteç oluşturulduktan sonra görüntülenir **oluşturulan belirteç** kutusu. Belirteç kullanmak için URL yolu dosyasında sonuna bir sorgu dizesi olarak ekleyin. Örneğin, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    8. İsteğe bağlı olarak, belirteç şifre çözme aracıyla sınayın. Belirteç değeri yapıştırın **belirteç şifre çözme için** kutusu. Kullanmak için şifreleme anahtarını seçin **anahtarın şifresini çözüp** listeleyin ve ardından **şifresini**.
+    8. İsteğe bağlı olarak, belirtecin parametreleri görüntüleyebilmesi için belirtecinizi şifresini çözme aracıyla test edin. Belirteç değeri yapıştırın **belirteç şifre çözme için** kutusu. Kullanmak için şifreleme anahtarını seçin **anahtarın şifresini çözüp** listeleyin ve ardından **şifresini**.
 
     Belirteç şifresi sonra parametrelerini görüntülenen **özgün parametreleri** kutusu.
 
-    9. İsteğe bağlı olarak, bir istek reddedildiğinde, döndürülen yanıt kodu türünü özelleştirin. Seçin **etkin**, yanıt kodu ile seçip **yanıt kodu** listesi. Ardından **kaydetmek**. Belirli yanıt kodları, ayrıca, hata sayfasının URL'sini girmelisiniz **üstbilgi değeri** kutusu. **403** yanıt kodu (Yasak), varsayılan olarak seçilidir. 
+    9. İsteğe bağlı olarak, bir istek reddedildiğinde, döndürülen yanıt kodu türünü özelleştirin. Seçin **etkin**, yanıt kodu ile seçip **yanıt kodu** listesi. **Üstbilgi adı** ayarlandığında otomatik olarak **konumu**. Tıklatın **kaydetmek** yeni yanıt kodu uygulamak için. Belirli yanıt kodları, ayrıca, hata sayfasının URL'sini girmelisiniz **üstbilgi değeri** kutusu. **403** yanıt kodu (Yasak), varsayılan olarak seçilidir. 
 
 3. Altında **HTTP büyük**, tıklatın **kurallar altyapısı**. Kurallar altyapısı özelliği geçerli, belirteç kimlik doğrulama özelliğini etkinleştirmek ve ek belirteç kimlik doğrulamayla ilgili özellikler etkinleştirmek için yollarını tanımlamak için kullanın. Daha fazla bilgi için bkz: [kurallar altyapısı başvuru](cdn-rules-engine-reference.md).
 

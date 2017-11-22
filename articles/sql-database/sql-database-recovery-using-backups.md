@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 10/13/2017
+ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: cb9b1296ced73c123faa0c682e9ef55d4b46ac11
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 SQL veritabanı kullanarak veritabanı kurtarma için bu seçenekleri sağlar [veritabanı yedeklemeleri otomatik](sql-database-automated-backups.md) ve [uzun vadeli bekletme yedeklemeleri](sql-database-long-term-retention.md). Bir veritabanı yedeğinden geri yükleyebilirsiniz:
@@ -80,7 +80,7 @@ Veritabanı tüm hizmet katmanı veya performans düzeyini ve tek veritabanı ol
 
 Genellikle daha önceki bir noktaya kurtarma amacıyla bir veritabanını geri. Bunun yapılması, geri yüklenen veritabanının özgün veritabanı için bir yedek olarak kabul eder ya da verilerin alınacağı ve özgün veritabanını güncelleştirmek için kullanın. 
 
-* ***Veritabanı değiştirme:*** geri yüklenen veritabanının özgün veritabanı için bir yedek olarak amaçlanıyorsa, performans düzeyinin doğrulamanız gerekir ve/veya hizmet katmanı uygundur ve gerekirse, veritabanı ölçeklendirme. Özgün veritabanını yeniden adlandırın ve ardından geri yüklenen veritabanı T-SQL ALTER DATABASE komutunu kullanarak özgün ad verin. 
+* ***Veritabanı değiştirme:*** geri yüklenen veritabanının özgün veritabanı için bir yedek olarak amaçlanıyorsa, performans düzeyinin doğrulamanız gerekir ve/veya hizmet katmanı uygundur ve gerekirse, veritabanı ölçeklendirme. Özgün veritabanını yeniden adlandırın ve ardından özgün adı kullanarak geri yüklenen veritabanı verin [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL komutu. 
 * ***Veri kurtarma:*** bir kullanıcı veya uygulama hatadan kurtarmak için geri yüklenen veritabanından veri almak planlıyorsanız, yazma ve özgün veritabanına geri yüklenen veritabanından veri ayıklamak için gerekli verileri kurtarma betikleri çalıştırmak gerekir. Geri yükleme işleminin tamamlanması uzun zaman alabilir ancak geri yükleme veritabanı geri yükleme işlemi boyunca veritabanı listesinde görünür olur. Veritabanını geri yükleme sırasında silerseniz, geri yükleme işlemi iptal edilir ve geri yükleme tamamlanmadı veritabanı için sizden ücret istenmese. 
 
 ### <a name="azure-portal"></a>Azure portalına

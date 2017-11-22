@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 5a793abdc24387ae2b758d29b9dfb25f134097d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b36de6bce597569b4e1eaa615860acdf28dfa798
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir belge veritabanı oluşturma
 
@@ -97,13 +97,19 @@ Veri Gezgini bizim işlerinde tamamlanan. Şu kod ile birlikte çalışmaya deva
 
 Şimdi kod ile çalışmaya geçelim. GitHub'dan bir DocumentDB API uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
-1. Git bash gibi bir git terminal penceresi açın ve kullanmak `cd` örnek uygulamayı yüklemek için bir klasör olarak değiştirmek için komutu. 
+1. Bir komut istemi açın, git-samples adlı yeni bir klasör oluşturun ve sonra komut istemini kapatın.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Git bash gibi bir git terminal penceresi açın ve kullanmak `cd` örnek uygulamayı yüklemek için yeni klasör olarak değiştirmek için komutu. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulaması bir kopyasını oluşturur.
+3. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulaması bir kopyasını oluşturur.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -209,13 +215,25 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
     cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
     ```
 
-2. Git terminal penceresinde `mvn package` yazarak gerekli Java paketlerini yükleyin.
+2. Git terminal penceresi gerekli Java paketlerini yüklemek için aşağıdaki komutu kullanın.
 
-3. Git terminal penceresinden çalıştırmak `mvn exec:java -D exec.mainClass=GetStarted.Program` Java uygulaması başlatmak için.
+    ```
+    mvn package
+    ```
 
-    Terminal penceresi FamilyDB veritabanı oluşturulmuş bir bildirim görüntüler. Koleksiyonu oluşturmak için bir tuşa basın, sonra veri Gezginine ve şimdi FamilyDB veritabanı içerdiği görürsünüz.
+3. Git terminal penceresinde Java uygulaması başlatmak için aşağıdaki komutu kullanın.
+
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    Terminal penceresi FamilyDB veritabanı oluşturulmuş bir bildirim görüntüler. 
     
-    Belgeleri oluşturmak ve bir sorgu gerçekleştirmek için tuşlarına devam edin.
+4. Koleksiyonu oluşturmak için bir tuşa basın. 
+
+5. Geçiş Veri Gezgini ve şimdi FamilyDB veritabanı içerdiği görürsünüz.
+    
+6. Konsol penceresinde belgeleri oluşturabilir ve bir sorguyu gerçekleştirmek için aşağıdaki kod tuşlarına devam edin.
     
     Böylece herhangi bir ücrete tabi olmayan program sonunda hesabınızdan bu uygulama tüm kaynaklar silinir. 
 

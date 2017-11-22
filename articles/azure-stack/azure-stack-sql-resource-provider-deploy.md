@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığın üzerinde SQL veritabanları kullanın
 
@@ -30,7 +30,7 @@ SQL veritabanları hizmet olarak kullanıma sunmak için SQL Server Kaynak sağl
 
 Kaynak sağlayıcısı tüm veritabanı yönetim özelliklerini desteklemez [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/). Örneğin, esnek veritabanı havuzları ve veritabanı performansını yukarı ve aşağı otomatik arama özelliği kullanılabilir değil. Ancak, kaynak sağlayıcısı yoksa desteği benzer oluşturma, okuma, güncelleştirme ve Sil (CRUD) işlemleridir. API SQL DB ile uyumlu değil.
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>SQL Server Kaynak sağlayıcısı bağdaştırıcısı mimarisi
+## <a name="sql-resource-provider-adapter-architecture"></a>SQL kaynak sağlayıcısı bağdaştırıcısı mimarisi
 Kaynak sağlayıcısı üç bileşenlerden oluşur:
 
 - **SQL kaynak sağlayıcısı bağdaştırıcısı VM**, hangi sağlayıcı hizmetlerini çalıştıran bir Windows sanal makine.
@@ -50,6 +50,9 @@ Siz bir (veya daha fazla) SQL Server'lar oluşturun veya dış SQL örnekleri er
     b. Birden çok düğümlü sistemlerde konak ayrıcalıklı uç noktasına erişebildiğinden bir sistem olmalıdır.
 
 3. [SQL kaynak sağlayıcısı ikili dosya indirme](https://aka.ms/azurestacksqlrp) ve geçici bir dizine içeriği ayıklamak için ayıklayıcısı yürütün.
+
+    > [!NOTE]
+    > Bir Azure yığın üzerinde çalışan 20170928.3 oluşturursanız veya önceki sürümleri, [bu sürümü yüklemek](https://aka.ms/azurestacksqlrp1709).
 
 4. Azure yığın kök sertifikası ayrıcalıklı uç noktasından alınır. ASDK için bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Birden çok düğümlü için uygun bir sertifika sağlamanız gerekir.
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametreleri
@@ -141,27 +153,25 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbi
       ![SQL RP dağıtımını doğrulayın](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>SQL bağdaştırıcısı kaynak sağlayıcısı kaldırılıyor
+## <a name="remove-the-sql-resource-provider-adapter"></a>SQL kaynak sağlayıcısı bağdaştırıcısını Kaldır
 
 Kaynak sağlayıcısı kaldırmak için önce tüm bağımlılıklarını kaldırmanız gereklidir.
 
-1. Kaynak Sağlayıcısı'nın bu sürümü için indirdiğiniz özgün dağıtım paketi olduğundan emin olun.
+1. SQL kaynak sağlayıcısı bağdaştırıcısı bu sürümü için indirdiğiniz özgün dağıtım paketi olduğundan emin olun.
 
 2. Tüm kullanıcı veritabanlarında (Bu verileri silmez) kaynak Sağlayıcısı'ndan silinmesi gerekir. Bu kullanıcılar tarafından gerçekleştirilmelidir.
 
-3. Yönetici barındırma sunucuları SQL bağdaştırıcısından silmeniz gerekir
+3. Yönetici barındırma sunucuları SQL kaynak sağlayıcısı bağdaştırıcısından silmeniz gerekir
 
-4. Yönetici SQL bağdaştırıcısı başvuru herhangi bir plan silmeniz gerekir.
+4. Yönetici SQL kaynak sağlayıcısı bağdaştırıcısı başvuru herhangi bir plan silmeniz gerekir.
 
-5. Yönetici, tüm SKU'ları ve SQL bağdaştırıcıya ilişkili kotaları silmeniz gerekir.
+5. Yönetici, tüm SKU'ları ve SQL kaynak sağlayıcısı bağdaştırıcıya ilişkili kotaları silmeniz gerekir.
 
 6. Dağıtım betiği ile yeniden parametresi, Azure Resource Manager uç noktaları, DirectoryTenantID ve hizmet yönetici hesabının kimlik bilgilerini kaldırın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+[Barındırma sunucuları ekleme](azure-stack-sql-resource-provider-hosting-servers.md) ve [oluşturma veritabanları](azure-stack-sql-resource-provider-databases.md).
 
 Diğer deneyin [PaaS Hizmetleri](azure-stack-tools-paas-services.md) gibi [MySQL Server Kaynak sağlayıcısı](azure-stack-mysql-resource-provider-deploy.md) ve [uygulama hizmetleri kaynak sağlayıcı](azure-stack-app-service-overview.md).

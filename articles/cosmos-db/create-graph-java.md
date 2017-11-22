@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/20/2017
+ms.date: 11/20/2017
 ms.author: denlee
-ms.openlocfilehash: 4470b5adb52debce1492b084ce71100da77da046
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir grafik veritabanı oluşturma
 
@@ -72,13 +72,19 @@ Bir grafik veritabanı oluşturmadan önce Azure Cosmos DB ile bir Gremlin (Graf
 
 Şimdi kod ile çalışmaya geçelim. Şimdi bir grafik API uygulaması github'dan bağlantı dizesini ayarlamak ve çalıştırın kopyalayın. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz.  
 
-1. Git bash gibi bir git terminal penceresi açın ve kullanmak `cd` örnek uygulamayı yüklemek için bir klasör olarak değiştirmek için komutu.  
+1. Bir komut istemi açın, git-samples adlı yeni bir klasör oluşturun ve sonra komut istemini kapatın.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Git bash gibi bir git terminal penceresi açın ve kullanmak `cd` örnek uygulamayı yüklemek için bir klasör olarak değiştirmek için komutu.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulaması bir kopyasını oluşturur. 
+3. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulaması bir kopyasını oluşturur. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -86,7 +92,7 @@ Bir grafik veritabanı oluşturmadan önce Azure Cosmos DB ile bir Gremlin (Graf
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturulduğunu öğrenmek isterseniz, aşağıdaki kod parçacıkları gözden geçirebilirsiniz. Kod parçacıkları tüm gelen alınır `Program.java` C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted klasördeki dosya. Aksi takdirde, atlayabilirsiniz [bağlantı dizenizi güncelleştirme](#update-your-connection-string). 
+Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturulduğunu öğrenmek isterseniz, aşağıdaki kod parçacıkları gözden geçirebilirsiniz. Kod parçacıkları tüm gelen alınır `Program.java` C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted klasördeki dosya. Aksi takdirde, atlayabilirsiniz [bağlantı dizenizi güncelleştirme](#update-your-connection-information). 
 
 * Gremlin `Client`, `src/remote.yaml` içinde bulunan yapılandırmadan başlatılır.
 
@@ -148,11 +154,23 @@ Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturuldu�
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. Git terminal penceresinde `mvn package` yazarak gerekli Java paketlerini yükleyin.
+2. Git terminal penceresi gerekli Java paketlerini yüklemek için aşağıdaki komutu kullanın.
 
-3. Git terminal penceresinden çalıştırmak `mvn exec:java -D exec.mainClass=GetStarted.Program` Java uygulamanızı başlatmak için.
+   ```
+   mvn package
+   ```
 
-    Terminal penceresinde grafiğe eklenmekte olan köşeler gösterilir. Programı durdurur sonra Internet tarayıcınız Azure Portalı'na geri çevirin. 
+3. Git terminal penceresinde Java uygulaması başlatmak için aşağıdaki komutu kullanın.
+    
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    Terminal penceresinde grafiğe eklenmekte olan köşeler gösterilir. 
+    
+    Zaman aşımı hatalarıyla karşılaşırsanız, bağlantı bilgilerinin doğru bir şekilde güncelleştirilmiş denetleyin [bağlantı bilgilerinizi güncelleştirmek](#update-your-connection-information)ve ayrıca son komutu yeniden çalıştırmayı deneyin. 
+    
+    Programı durdurur, Enter tuşuna basın sonra Internet tarayıcınız Azure Portalı'na geri sonra geçin. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Örnek verileri inceleme ve ekleme
@@ -200,11 +218,11 @@ Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturuldu�
 
 10. **Tamam** düğmesine tıklayın. 
 
-11. Tıklatın **Filtre Uygula** varsayılan `g.V()` grafikte tüm değerleri görüntülemek için filtre. Tüm kullanıcılar **Sonuç listesinde** gösterilir. 
+11. Tıklatın **Filtre Uygula** varsayılan düğme `g.V()` grafikte tüm değerleri görüntülemek için filtre. Tüm kullanıcılar **Sonuç listesinde** gösterilir. 
 
     Daha fazla veri ekledikçe sonuçlarınızı sınırlamak için filtreleri kullanabilirsiniz. Varsayılan olarak, Veri Gezgini kullanır `g.V()` Grafikteki tüm köşeleri alınamadı. Farklı bir değiştirebilirsiniz [grafik sorgu](tutorial-query-graph.md), gibi `g.V().count()`, JSON biçiminde Grafikteki tüm köşeleri sayısını dönün. Filtre filtre başa değişiklik değiştirdiyseniz `g.V()` tıklatıp **Filtre Uygula** yeniden tüm sonuçları görüntülemek için.
 
-12. Artık rakesh ve ashley arasında bağlantı kurabiliriz. **Sonuç listesinde** **ashley**’in seçili olduğundan emin olun ve ardından sağ alttaki **Hedefler**’in yanında bulunan Düzenle düğmesine tıklayın. **Özellikler** alanını görmek için pencerenizi genişletmeniz gerekebilir.
+12. Artık rakesh ve ashley arasında bağlantı kurabiliriz. Olun **ashley** seçildiyse **sonuçları** listeleyin ve ardından Düzenle düğmesini tıklatın **hedefleri** alt sağ tarafında. **Özellikler** alanını görmek için pencerenizi genişletmeniz gerekebilir.
 
    ![Hedef grafikteki bir köşeyi değiştirme](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

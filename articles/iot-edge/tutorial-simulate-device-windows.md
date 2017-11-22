@@ -10,15 +10,22 @@ ms.reviewer: elioda
 ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9c9bf2df078bfebb23ad549c7053f12b62fab59b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Bir sanal cihaz Windows Azure IOT kenar dağıtın - Önizleme
 
-Azure IOT kenar bulut gücünü nesnelerin interneti (IOT) aygıtlarınızı taşır. Bu öğretici, algılayıcı verilerini oluşturur sanal bir IOT kenar cihaz oluşturmada size yol gösterir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Azure IOT kenar, tüm verileri buluta itme zorunda kalmak yerine cihazlarınızda analizi ve veri işleme gerçekleştirmenizi sağlar. IOT kenar öğreticileri Azure hizmetlerine veya özel kod yerleşik modülleri, farklı türlerde dağıtmak nasıl gerçekleştirileceğini gösterir ancak önce test etmek için bir aygıt gerekir. 
+
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+
+1. IOT Hub oluşturma
+2. Bir IOT sınır cihazı kaydetme
+3. IOT kenar çalışma zamanı Başlat
+4. Bir modül dağıtma
 
 ![Öğretici mimarisi][2]
 

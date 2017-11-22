@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3b51276fe074282339d30d075547160277bee53f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cd321531c99f14e93d8cab2acb7844ae79be2158
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Azure’da giden bağlantıları anlama
 
@@ -72,18 +72,21 @@ VM, sistem durumu araştırma isteklerine Azure yük Dengeleyiciden aldığında
 
 ## <a name="snatexhaust"></a>SNAT Tükenme yönetme
 
-Snat Uygulamanız için kullanılan kısa ömürlü bağlantı noktaları: exhaustible kaynak açıklandığı gibi [örnek düzeyinde ortak IP adresi olmayan tek başına VM](#standalone-vm-with-no-instance-level-public-ip-address) ve [hiçbir örnek düzeyinde ortak IP adresine sahip yük dengeli VM](#standalone-vm-with-no-instance-level-public-ip-address).  
+Snat Uygulamanız için kullanılan kısa ömürlü bağlantı noktaları: exhaustible kaynak açıklandığı gibi [örnek düzeyinde ortak IP adresi olmayan tek başına VM](#standalone-vm-with-no-instance-level-public-ip-address) ve [hiçbir örnek düzeyinde ortak IP adresine sahip yük dengeli VM](#standalone-vm-with-no-instance-level-public-ip-address).
 
-Başlatma aynı hedefe birçok giden bağlantılar biliyorsanız, giden bağlantılar başarısız izleyebilmenizi veya önerilir tükettiğini SNAT bağlantı noktalarının tarafından desteği, birkaç genel azaltma seçeneğiniz vardır.  Bu seçenekleri gözden geçirin ve senaryonuz için en iyi nedir karar verin.  Olası bir olan veya daha fazla bu senaryo yönetmenize yardımcı olabilir.
+Başlatma aynı hedef IP adresi ve bağlantı noktası için birçok giden bağlantılar biliyorsanız, giden bağlantılar başarısız izleyebilmenizi veya önerilir tükettiğini SNAT bağlantı noktalarının tarafından desteği, birkaç genel azaltma seçeneğiniz vardır.  Bu seçenekleri gözden geçirin ve senaryonuz için en iyi nedir karar verin.  Olası bir olan veya daha fazla bu senaryo yönetmenize yardımcı olabilir.
 
-### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Her VM için bir örnek düzeyinde ortak IP atayın
-Bu senaryonuza değiştirir [örnek düzeyinde ortak IP bir VM](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Her VM için kullanılan genel IP tüm kısa ömürlü bağlantı noktaları (aksine, burada bir genel IP kısa ömürlü bağlantı noktaları tüm VM ile ilgili arka uç havuzu ile ilişkili paylaşılan senaryoları) VM kullanılabilir.
+### <a name="modify-application-to-reuse-connections"></a>Bağlantılarını yeniden uygulamasını değiştirme 
+Uygulamanızdaki bağlantıları yeniden kullanarak snat Uygulamanız için kullanılan kısa ömürlü bağlantı noktaları için isteğe bağlı azaltabilir.  Burada açıkça destekleniyorsa özellikle HTTP/1.1 gibi protokoller için geçerlidir.  Ve taşıma (yani REST) için HTTP kullanan diğer protokolleri sırayla yararlı olabilir.  Yeniden her zaman tek tek, atomik TCP bağlantıları her istek için daha iyi olur.
 
 ### <a name="modify-application-to-use-connection-pooling"></a>Bağlantı havuzu kullanmak için uygulamasını değiştirme
-Uygulamanızda bağlantı havuzu kullanarak snat Uygulamanız için kullanılan kısa ömürlü bağlantı noktaları için isteğe bağlı azaltabilir.  Aynı hedefe ek akışları ek bağlantı noktalarını kullanır.  Birden çok istek için aynı akışı yeniden kullanırsanız, birden çok isteklerinizi tek bir bağlantı noktası tüketir.
+Bir bağlantı, uygulamanızda sabit kümesi (her mümkün olduğunca yeniden) bağlantıları istekleri dahili olarak dağıtıldığı düzeni havuzu tercih edebilirsiniz.  Birden çok istek için aynı akışı yeniden kullanırsanız, birden çok isteklerinizi ek bağlantı noktalarını harcayan ve koşullar tüketmesine yol aynı hedefe ek akışları yerine tek bir bağlantı noktası tüketir.
 
 ### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>Uygulamanızı daha az agresif yeniden deneme mantığı kullanacak şekilde değiştirin
 Daha az agresif bir yeniden deneme mantığı kullanarak kısa ömürlü bağlantı noktaları için isteğe bağlı azaltabilir.  Kısa ömürlü bağlantı noktaları için SNAT kullanılan tükendiği zaman agresif ya da kaba kuvvet kalıcı hale getirmek için decay ve geri Çekilme mantığı neden Tükenme yeniden dener.  Kısa ömürlü bağlantı noktaları 4 dakikalık boşta kalma zaman aşımı (ayarlanamıyor) varsa ve deneme çok agresif varsa, Tükenme, kendi temizlenir fırsatı.
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Her VM için bir örnek düzeyinde ortak IP atayın
+Bu senaryonuza değiştirir [örnek düzeyinde ortak IP bir VM](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Her VM için kullanılan genel IP tüm kısa ömürlü bağlantı noktaları (aksine, burada bir genel IP kısa ömürlü bağlantı noktaları tüm VM ile ilgili arka uç havuzu ile ilişkili paylaşılan senaryoları) VM kullanılabilir.  Ek bir maliyet IP adreslerinin ve olası etkisini uygulamaları güvenilir listeye almayı çok sayıda tek tek IP adresleri gibi göz önünde bulundurmanız dengelemeler vardır.
 
 ## <a name="limitations"></a>Sınırlamalar
 
