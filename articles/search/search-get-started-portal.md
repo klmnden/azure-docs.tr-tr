@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Portalda ilk Azure Search dizininizi oluşturma | Microsoft Docs"
+title: "Azure Search portal sayfalarında dizin, sorgu ve filtre | Microsoft Docs"
 description: "Azure portalında önceden tanımlanmış örnek verileri kullanarak bir dizin oluşturun. Tam metin arama, filtreler, modeller, belirsiz arama, coğrafi arama ve daha fazlasını keşfedin."
 services: search
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Öğretici: Portalda ilk Azure Search dizininizi oluşturma
+# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Portalda Azure Search dizinini oluşturma, sorgulama ve filtreleme
 
 Azure portalında **Verileri içeri aktar** sihirbazını kullanarak hızla bir dizin oluşturmak için önceden tanımlanmış bir örnek veri kümesiyle çalışmaya başlayın. **Search Gezgini** ile tam metin arama, filtreler, modeller, belirsiz arama ve coğrafi aramayı keşfedin.  
 
-Bu kodsuz giriş yazısı, hemen ilginç sorgular yazmaya başlayabilmeniz için önceden tanımlanmış verileri kullanmaya başlamanızı sağlar. Portal araçları kodun yerini alamayacak olsa da aşağıdaki görevler için kullanışlıdır:
+Bu kodsuz giriş yazısı, hemen ilginç sorgular yazmaya başlayabilmeniz için önceden tanımlanmış verileri kullanmaya başlamanızı sağlar. Portal aracı kodun yerini alamayacak olsa da, aşağıdaki görevler için kullanışlı olduğunu düşünebilirsiniz:
 
 + Olabildiğince az artışla uygulamalı eğitim
 + **Verileri içeri aktarma**’da kod yazmadan önce bir dizin prototipi oluşturma
@@ -128,7 +128,7 @@ Artık sorgulamaya hazır bir arama dizininiz var. **Arama gezgini**, portalda y
 
 **`search=seattle`**
 
-+ Bu durumda tam metin aramak üzere anahtar sözcük arama girişi yapmak için `search` parametresi kullanılmıştır ve belgedeki aranabilir alanların herhangi birinde *Seattle* ifadesini içeren Washington eyaletinin King County bölgesindeki listelemeler döndürülmüştür. 
++ Bu durumda tam metin aramak üzere anahtar sözcük arama girişi yapmak için **search**` parametresi kullanılmıştır ve belgedeki aranabilir alanların herhangi birinde *Seattle* ifadesini içeren Washington eyaletinin King County bölgesindeki listelemeler döndürülmüştür. 
 
 + **Search gezgini** sonuçları JSON biçiminde döndürülür. Bu biçim ayrıntılı olmakla birlikte, belgelerin yoğun bir yapısı varsa okunması zordur. Belgelerinize bağlı olarak, önemli öğeleri ayrıştırmak amacıyla arama sonuçlarını işleyen kod yazmanız gerekebilir. 
 
@@ -136,35 +136,48 @@ Artık sorgulamaya hazır bir arama dizininiz var. **Arama gezgini**, portalda y
 
 **`search=seattle&$count=true&$top=100`**
 
-+ `&` simgesi, herhangi bir sırada belirtilebilen arama parametreleri eklemek için kullanılır. 
++ **&** simgesi, herhangi bir sırada belirtilebilen arama parametreleri eklemek için kullanılır. 
 
-+  `$count=true` parametresi, döndürülen tüm belgelerin toplam sayısını döndürür. `$count=true` tarafından bildirilen değişiklikleri izleyerek filtre sorgularını doğrulayabilirsiniz. 
++  **$count=true** parametresi, döndürülen tüm belgelerin toplam sayısını döndürür. **$count=true** tarafından bildirilen değişiklikleri izleyerek filtre sorgularını doğrulayabilirsiniz. 
 
-+ `$top=100`, tüm belgelerin arasından en yüksek puana sahip 100 belgeyi döndürür. Azure Search varsayılan olarak ilk 50 en iyi eşleşmeyi döndürür. `$top` ile bu miktarı artırabilir veya azaltabilirsiniz.
++ **$top=100**, tüm belgelerin arasından en yüksek puana sahip 100 belgeyi döndürür. Azure Search varsayılan olarak ilk 50 en iyi eşleşmeyi döndürür. **$top** ile bu miktarı artırabilir veya azaltabilirsiniz.
 
-**`search=*&facet=city&$top=2`**
 
-+ `search=*` boş bir aramadır. Boş aramalar her şeyi arar. Boş sorgu göndermenin nedenlerinden biri, belge kümesinin tamamını filtrelemek veya görüntülemektir. Örneğin, dizindeki tüm şehirleri içeren bir gezinme yapısı görünümü oluşturmak isteyebilirsiniz.
+## <a name="filter-query"></a> Sorguyu filtreleme
 
-+  `facet`, bir kullanıcı arabirimi denetimine geçirebileceğiniz bir gezinti yapısı döndürür. Kategorileri ve bir sayımı döndürür. Bu durumda, kategoriler şehir sayısını temel alır. Azure Search'te toplama yoktur ancak her kategorideki belge sayısını veren `facet` ile tahmini bir toplama gerçekleştirebilirsiniz.
-
-+ `$top=2` iki belge getirir ve sonuçları azaltmak veya artırmak için `top` kullanabileceğinizi gösterir.
-
-**`search=seattle&facet=beds`**
-
-+ Bu sorgu *Seattle* için yapılan metin aramasında yatakların görünümüdür. `"beds"` alan dizinde getirilebilen, filtrelenebilen ve görünüm oluşturulabilen bir alan olarak işaretlendiğinden bir model olarak belirtilebilir ve içerdiği değerler (sayısal, 1'den 5'e kadar), listelemelerin gruplar (3 yatak odalı, 4 yatak odalı listelemeler) halinde kategorilere ayrılması için uygundur. 
-
-+ Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir. Yalnızca getirilebilir alanlar sonuçlarda döndürülebilir.
+**$filter** parametresini eklediğinizde, arama isteklerine filtreler de eklenir. 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ `filter` parametresi, sağladığınız ölçütlerle eşleşen sonuçları döndürür. Bu durumda yatak odası sayısı 3’ten büyük olanlar. 
++ **$filter** parametresi, sağladığınız ölçütlerle eşleşen sonuçları döndürür. Bu durumda yatak odası sayısı 3’ten büyük olanlar. 
 
 + Filtre söz dizimi bir OData yapısıdır. Daha fazla bilgi edinmek için bkz. [OData söz dizimini filtreleme](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
+## <a name="facet-query"></a> Sorguyu modelleme
+
+Model filtreleri arama isteklerine dahil edilir. Sağladığınız model değeriyle eşleşen belgelerin toplam sayısını döndürmek için facet parametresini kullanabilirsiniz. 
+
+**`search=*&facet=city&$top=2`**
+
++ **search=*** boş bir aramadır. Boş aramalar her şeyi arar. Boş sorgu göndermenin nedenlerinden biri, belge kümesinin tamamını filtrelemek veya görüntülemektir. Örneğin, dizindeki tüm şehirleri içeren bir gezinme yapısı görünümü oluşturmak isteyebilirsiniz.
+
++  **facet**, bir kullanıcı arabirimi denetimine geçirebileceğiniz bir gezinti yapısı döndürür. Kategorileri ve bir sayımı döndürür. Bu durumda, kategoriler şehir sayısını temel alır. Azure Search'te toplama yoktur ancak her kategorideki belge sayısını veren `facet` ile tahmini bir toplama gerçekleştirebilirsiniz.
+
++ **$top=2** iki belge getirir ve sonuçları azaltmak veya artırmak için `top` kullanabileceğinizi gösterir.
+
+**`search=seattle&facet=beds`**
+
++ Bu sorgu *Seattle* için yapılan metin aramasında yatakların görünümüdür. *beds* terimi alan dizinde getirilebilen, filtrelenebilen ve görünüm oluşturulabilen bir alan olarak işaretlendiğinden bir model olarak belirtilebilir ve içerdiği değerler (sayısal, 1'den 5'e kadar), listelemelerin gruplar (3 yatak odalı, 4 yatak odalı listelemeler) halinde kategorilere ayrılması için uygundur. 
+
++ Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir. Yalnızca getirilebilir alanlar sonuçlarda döndürülebilir.
+
+## <a name="highlight-query"></a> Vurgulama ekleme
+
+İsabet vurgulama, belirli bir alanda eşleşme bulunduğunda anahtar sözcükle eşleşen metinlere biçimlendirme eklenmesini ifade eder. Arama teriminiz uzun bir açıklamanın belirsiz bir yerindeyse, terimi bulmayı kolaylaştırmak için isabet vurgulama ekleyebilirsiniz. 
+
 **`search=granite countertops&highlight=description`**
 
-+ İsabet vurgulama, belirli bir alanda eşleşme bulunduğunda anahtar sözcükle eşleşen metinlere biçimlendirme eklenmesini ifade eder. Arama teriminiz uzun bir açıklamanın belirsiz bir yerindeyse, terimi bulmayı kolaylaştırmak için isabet vurgulama ekleyebilirsiniz. Bu durumda, açıklama alanında biçimlendirilen `"granite countertops"` ifadesini görmek daha kolaydır.
++ Bu örnekte biçimlendirilmiş *granit mutfak tezgahları* tümceciği açıklama alanında daha kolay göze çarpar.
 
 **`search=mice&highlight=description`**
 
@@ -172,25 +185,31 @@ Artık sorgulamaya hazır bir arama dizininiz var. **Arama gezgini**, portalda y
 
 + Azure Search, Lucene ve Microsoft’tan 56 çözümleyiciyi destekler. Azure Search tarafından standart olarak Lucene çözümleyici kullanılır. 
 
+## <a name="fuzzy-search"></a> Belirsiz aramayı kullanma
+
+Seattle bölgesindeki Samammish platosu için *samamish* yazılması örneğindeki gibi yazım hatası yapılan normal aramalarda bir eşleşme döndürülmez. Yazım hatalarını işlemek için bir sonraki örnekte açıklanan belirsiz aramayı kullanabilirsiniz.
+
 **`search=samamish`**
 
-+ Seattle bölgesindeki Samammish platosu için "samamish" yazılması örneğindeki gibi yazım hatası yapılan normal aramalarda bir eşleşme döndürülmez. Yazım hatalarını işlemek için bir sonraki örnekte açıklanan belirsiz aramayı kullanabilirsiniz.
++ Bu örnekte Seattle alanında bir mahalle yanlış yazılmıştır.
 
 **`search=samamish~&queryType=full`**
 
-+ `~` sembolünü belirttiğinizde ve tam sorgu ayrıştırıcıyı kullandığınızda belirsiz arama etkinleştirilir ve `~` söz dizimi yorumlanıp doğru bir şekilde ayrıştırılır. 
++ **~** sembolünü belirttiğinizde ve tam sorgu ayrıştırıcıyı kullandığınızda belirsiz arama etkinleştirilir ve **~** söz dizimi yorumlanıp doğru bir şekilde ayrıştırılır. 
 
-+ Belirsiz arama, `queryType=full` belirttiğinizde gerçekleşen tam sorgu ayrıştırıcı ile kullanılabilir. Tam sorgu ayrıştırıcı tarafından etkinleştirilen sorgu senaryoları hakkında daha fazla bilgi edinmek için bkz. [Azure Search’te Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++ Belirsiz arama, **queryType=full** belirttiğinizde gerçekleşen tam sorgu ayrıştırıcı ile kullanılabilir. Tam sorgu ayrıştırıcı tarafından etkinleştirilen sorgu senaryoları hakkında daha fazla bilgi edinmek için bkz. [Azure Search’te Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-+ `queryType` belirtildiğinde varsayılan basit sorgu ayrıştırıcı kullanılır. Basit sorgu ayrıştırıcı daha hızlıdır ancak belirsiz arama, normal ifadeler, yakınlık araması ya da diğer gelişmiş sorgu türlerini kullanmanız gerekiyorsa tam söz dizimi gereklidir. 
++ **queryType** belirtildiğinde varsayılan basit sorgu ayrıştırıcı kullanılır. Basit sorgu ayrıştırıcı daha hızlıdır ancak belirsiz arama, normal ifadeler, yakınlık araması ya da diğer gelişmiş sorgu türlerini kullanmanız gerekiyorsa tam söz dizimi gereklidir. 
+
+## <a name="geo-search"></a> Jeo-uzamsal aramayı deneme
+
+Koordinat içeren bir alanda [edm.GeographyPoint veri türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) aracılığıyla jeo-uzamsal arama desteklenir. Coğrafi arama, [OData söz dizimini filtrele](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) seçeneğinde belirtilen bir tür filtredir. 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ Koordinat içeren bir alanda [edm.GeographyPoint veri türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) aracılığıyla jeo-uzamsal arama desteklenir. Coğrafi arama, [OData söz dizimini filtrele](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) seçeneğinde belirtilen bir tür filtredir. 
++ Örnek sorgu tüm sonuçları konumsal verilere göre filtreler ve belirli bir noktaya 5 kilometreden daha yakın olan sonuçlar (enlem ve boylam koordinatları olarak belirtilir) döndürülür. **$count** ekleyerek mesafeyi veya koordinatları değiştirdiğinizde döndürülen sonuç sayısını görebilirsiniz. 
 
-+ Örnek sorgu tüm sonuçları konumsal verilere göre filtreler ve belirli bir noktaya 5 kilometreden daha yakın olan sonuçlar (enlem ve boylam koordinatları olarak belirtilir) döndürülür. `$count` ekleyerek mesafeyi veya koordinatları değiştirdiğinizde döndürülen sonuç sayısını görebilirsiniz. 
-
-+ Arama uygulamanız ‘yakınımda bul’ özelliği içeriyorsa ya da harita navigasyonu kullanıyorsa jeo-uzamsal arama kullanışlıdır. Ancak tam metin arama değildir. Bir şehir veya ülkede ada göre arama yapmak için kullanıcı gereksinimleriniz varsa koordinatlara ek olarak şehir veya bölge adlarını içeren alanlar ekleyin.
++ Arama uygulamanız "yakınımda bul" özelliği içeriyorsa ya da harita navigasyonu kullanıyorsa jeo-uzamsal arama kullanışlıdır. Ancak tam metin arama değildir. Bir şehir veya ülkede ada göre arama yapmak için kullanıcı gereksinimleriniz varsa koordinatlara ek olarak şehir veya bölge adlarını içeren alanlar ekleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
