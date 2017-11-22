@@ -378,6 +378,8 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: Kiracı şemasını yönetme
               href: saas-multitenantdb-schema-management.md
+            - name: Analiz için ETL
+              href: saas-multitenantdb-tenant-analytics.md
     - name: Uygulamaları geliştirme
       items:
         - name: C ve C++

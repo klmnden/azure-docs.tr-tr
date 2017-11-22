@@ -49,7 +49,7 @@ sections:
         style: unordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Bir .NET uygulaması dağıtma</a>
-          - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Mevcut bir .NET uygulamasını kapsayıcılı hale getirme</a>
+          - html: <a href="service-fabric-host-app-in-a-container">Mevcut bir .NET uygulamasını kapsayıcılı hale getirme</a>
           - html: <a href="service-fabric-tutorial-create-container-images">Bir Linux kapsayıcı uygulaması oluşturma</a>
           - html: <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> veya <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a> kümesi oluşturma ve yönetme
   - title: Ücretsiz Pluralsight Video Eğitimi
