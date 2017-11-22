@@ -157,10 +157,10 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: SQL kaynak sağlayıcısı dağıtma
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: SQL veritabanı oluşturma
-              href: azure-stack-sql-resource-provider-databases.md
             - name: Barındırma sunucuları ekleme
               href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: SQL veritabanı oluşturma
+              href: azure-stack-sql-resource-provider-databases.md
         - name: PaaS olarak App Service teklifi
           items:
             - name: Azure Stack’te App Service’e genel bakış
@@ -183,11 +183,11 @@
               href: azure-stack-marketplace.md
             - name: Market öğelerini indirme
               href: azure-stack-download-azure-marketplace-item.md
-            - name: Azure Stack için Azure market öğeleri
+            - name: Azure yığınının Azure Market öğesi
               href: azure-stack-marketplace-azure-items.md
             - name: Market öğesi oluşturma ve yayımlama
               href: azure-stack-create-and-publish-marketplace-item.md
-            - name: Market’te Yayımlama aracını kullanma
+            - name: Market yayımlama aracını kullanın
               href: azure-stack-marketplace-publisher.md
             - name: Özel bir sanal makine görüntüsü ekleme
               href: azure-stack-add-vm-image.md
