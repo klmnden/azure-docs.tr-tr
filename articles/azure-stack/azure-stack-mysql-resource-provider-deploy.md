@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığında MySQL veritabanları kullanın
 
@@ -40,13 +40,14 @@ Bu sürüm, artık bir MySQL örneği oluşturur. Siz bunları oluşturmanız ve
 - sizin için bir MySQL server oluşturun
 - indirin ve MySQL Server marketten dağıtın.
 
-! [NOT] Barındırma sunucuları bir çok düğümlü Azure yığında yüklü bir kiracı abonelikten oluşturulması gerekir. Varsayılan sağlayıcı abonelikten oluşturulamıyor. Diğer bir deyişle, Kiracı portalından veya uygun bir oturum açma ile bir PowerShell oturumu oluşturulmalıdır. Tüm barındırma sunucuları ücrete tabi VM'ler ve uygun izinlere sahip olmalıdır. Hizmet Yöneticisi, bu aboneliğin sahibi olabilir.
+> [!NOTE]
+> Barındırma sunucuları bir çok düğümlü Azure yığında yüklü bir kiracı abonelikten oluşturulması gerekir. Varsayılan sağlayıcı abonelikten oluşturulamıyor. Diğer bir deyişle, Kiracı portalından veya uygun bir oturum açma ile bir PowerShell oturumu oluşturulmalıdır. Tüm barındırma sunucuları ücrete tabi VM'ler ve uygun izinlere sahip olmalıdır. Hizmet Yöneticisi, bu aboneliğin sahibi olabilir.
 
 ### <a name="required-privileges"></a>Gerekli ayrıcalıklar
 Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
 
 1.  Veritabanı: Oluşturma, bırakma
-2.  Oturum açma: Oluşturma, ayarlayın, bırakma, vermek, iptal etme
+2.  Oturum açma: Oluşturma, ayarlama, bırakma, vermek, iptal etme
 
 ## <a name="deploy-the-resource-provider"></a>Kaynak sağlayıcısı dağıtma
 
@@ -60,6 +61,9 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
     b. Birden çok düğümlü sistemlerde konak ayrıcalıklı uç noktasına erişebildiğinden bir sistem olmalıdır.
 
 3. [MySQL kaynak sağlayıcı ikili dosya indirme](https://aka.ms/azurestackmysqlrp) ve geçici bir dizine içeriği ayıklamak için ayıklayıcısı yürütün.
+
+    > [!NOTE]
+    > Bir Azure yığın üzerinde çalışan 20170928.3 oluşturursanız veya önceki sürümleri, [bu sürümü yüklemek](https://aka.ms/azurestackmysqlrp1709).
 
 4.  Azure yığın kök sertifikası ayrıcalıklı uç noktasından alınır. ASDK için bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Birden çok düğümlü için uygun bir sertifika sağlamanız gerekir.
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,17 +130,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>DeployMySqlProvider.ps1 parametreleri
 
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametreleri
 Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli olanları sağlamanız istenir.
 
 | Parametre Adı | Açıklama | Açıklama veya varsayılan değeri |
@@ -153,7 +162,7 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmanız veya hiçbi
 Sistem performansı ve indirme hızına bağlı olarak, yükleme olarak birkaç saat 20 dakika veya uzun olarak biraz sürebilir. MySQLAdapter dikey kullanılabilir durumda değilse, Yönetici portalı yenileyin.
 
 > [!NOTE]
-> Yükleme 90 dakikadan uzun sürerse, başarısız olabilir ve ekranında ve günlük dosyasında bir hata iletisi görürsünüz. Dağıtımı başarısız olan adımdan denenir. Önerilen bellek ve vCPU belirtimleri karşılamıyor sistemleri MySQL RP dağıtmak mümkün olmayabilir.
+> Yükleme 90 dakikadan uzun sürerse, başarısız olabilir ve ekranında ve günlük dosyasında bir hata iletisi görürsünüz. Dağıtımı başarısız olan adımdan denenir. Önerilen bellek ve çekirdek belirtimleri karşılamıyor sistemleri MySQL RP dağıtmak mümkün olmayabilir.
 
 
 
@@ -187,16 +196,17 @@ Sistem performansı ve indirme hızına bağlı olarak, yükleme olarak birkaç 
 4. Sunucu eklemek gibi ayrıştırması hizmet tekliflerinin izin vermek için bir yeni veya var olan SKU'ya atamanız gerekir.
   Örneğin, bir kuruluş örneği sağlama sahip olabilir:
     - Veritabanı kapasite
-    - otomatik yedekleme
+    - Otomatik yedekleme
     - tek tek departmanlar için yüksek performanslı sunucuları
-    - ve benzeri.
-    Böylece kiracılar kendi veritabanlarını uygun şekilde yerleştirebilirsiniz SKU adı özelliklerini yansıtmalıdır. Bir SKU tüm barındırma sunucuları aynı olanaklara sahip olmalıdır.
+ 
 
-    ![Bir MySQL SKU oluşturma](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+Böylece kiracılar kendi veritabanlarını uygun şekilde yerleştirebilirsiniz SKU adı özelliklerini yansıtmalıdır. Bir SKU tüm barındırma sunucuları aynı olanaklara sahip olmalıdır.
+
+![Bir MySQL SKU oluşturma](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-SKU'ları portalında görünür olması için bir saat sürebilir. SKU oluşturulana kadar bir veritabanı oluşturulamıyor.
+> SKU'ları portalında görünür olması için bir saat sürebilir. SKU oluşturulana kadar bir veritabanı oluşturulamıyor.
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>Dağıtımınızı test etmek için ilk MySQL veritabanınızı oluşturma
@@ -231,17 +241,17 @@ SKU'ları portalında görünür olması için bir saat sürebilir. SKU oluştur
 Kapasite Azure yığın Portalı'nda ek MySQL sunucuları ekleyerek ekleyin. Ek sunucu için yeni veya varolan bir SKU eklenebilir. Sunucu özellikleri aynı olduğundan emin olun.
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>MySQL veritabanları kiracılar için kullanılabilir hale getirme
+## <a name="make-mysql-databases-available-to-tenants"></a>MySQL veritabanları kiracılar için kullanılabilir hale
 Planları ve MySQL veritabanlarını kiracıların kullanımına sunmak için teklifleri oluşturun. Microsoft.MySqlAdapter hizmeti eklemek, kota, vb. ekleyin.
 
 ![Planları ve veritabanlarını içerecek şekilde teklifleri oluştur](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>Yönetici parolasını güncelleştiriliyor
+## <a name="update-the-administrative-password"></a>Yönetici parolasını güncelleştirin
 Parola ilk, MySQL server örneğinde değiştirerek değiştirebilirsiniz. Gözat **yönetim KAYNAKLARININ** &gt; **MySQL barındırma sunucuları** &gt; ve barındırma sunucusundaki'ı tıklatın. Parola Ayarları panelinde tıklayın.
 
 ![Yönetici parolasını güncelleştirin](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>MySQL bağdaştırıcısı kaynak sağlayıcısı kaldırılıyor
+## <a name="remove-the-mysql-resource-provider-adapter"></a>MySQL kaynak sağlayıcı bağdaştırıcısını Kaldır
 
 Kaynak sağlayıcısı kaldırmak için önce tüm bağımlılıklarını kaldırmanız gereklidir.
 
@@ -263,6 +273,5 @@ Kaynak sağlayıcısı kaldırmak için önce tüm bağımlılıklarını kaldı
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
 
 Diğer deneyin [PaaS Hizmetleri](azure-stack-tools-paas-services.md) gibi [SQL Server Kaynak sağlayıcısı](azure-stack-sql-resource-provider-deploy.md) ve [uygulama hizmetleri kaynak sağlayıcı](azure-stack-app-service-overview.md).

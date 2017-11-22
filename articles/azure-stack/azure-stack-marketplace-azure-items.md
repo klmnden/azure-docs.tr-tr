@@ -1,6 +1,6 @@
 ---
 title: "Azure Market öğesi için Azure yığınına kullanılabilir | Microsoft Docs"
-description: "Bu Azure Marketplace öğeler Azure yığın içinde kullanılabilir."
+description: "Bu Azure Market öğesi Azure yığın içinde kullanılabilir."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,30 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: erikje
-ms.openlocfilehash: 09177c3d036c38c366253f9291d0096994cc123b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d04a96e061c4f25e10b1582736012a3ada6f6a6b
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Microsoft Azure yığın aşağıdaki Azure Market öğesi destekler:
+Microsoft Azure yığın Azure Marketi aşağıdakileri destekler:
 
 |  | Öğe adı | Açıklama | Yayımcı |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Linux sanal makineleri için docker uzantısı. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [R Server yalnızca SQL Server 2016 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.RServerOnlySQLServer2016Enterprise?tab=Overview) | R Server yalnızca SQL Server 2016 Enterprise. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makinesi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makine. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine CentOS Linux 7.2 9.2.1 sunucuda öğrenme](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft Server 9.2.1 CentOS Linux 7.2 öğrenme makine. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Uzak Masaüstü Hizmetleri (RDS) dağıtım](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/rds.remote-desktop-services-basic-deployment?tab=Overview) | Temel bir Uzak Masaüstü Hizmetleri (RDS) dağıtım oluşturun. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 deneme sürümü](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2013Trial?tab=Overview) | Microsoft SharePoint Server 2013 deneme sürümü Windows Server 2012 Datacenter ve Visual Studio 2017 community Edition. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 deneme sürümü](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SharePointServer2016Trial?tab=Overview) | Microsoft SharePoint Server 2016 deneme sürümü Windows Server 2016 Datacenter üzerinde. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2'de SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 Service Pack 2. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 SQL Server 2016 SP1](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Veritabanı platform akıllı, görev açısından kritik uygulamalar için. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 SQL Server 2016 SP1 Geliştirici](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | SQL Server 2016 SP1 Geliştirici sürümü için işlem, veri ambarı, business Intelligence ve analytics iş yükleri. | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 SQL Server 2016 SP1 Express](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | SQL Server 2016 SP1 sürümü express | Microsoft |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 SQL Server 2016 SP1 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Veritabanı platform akıllı, görev açısından kritik uygulamalar için. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2'de SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2?tab=Overview) | SQL Server 2014 Service Pack 2.  **Gerekli yükleme:** SQL Iaas uzantısı. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 SQL Server 2016 SP1](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Veritabanı platform akıllı, görev açısından kritik uygulamalar için. **Gerekli yükleme:** SQL Iaas uzantısı. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 SQL Server 2016 SP1 Geliştirici](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1DeveloperWindowsServer2016?tab=Overview) | SQL Server 2016 SP1 Geliştirici sürümü için işlem, veri ambarı, business Intelligence ve analytics iş yükleri.  **Gerekli yükleme:** SQL Iaas uzantısı. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 SQL Server 2016 SP1 Express](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeLicenseSQLServer2016SP1ExpressWindowsServer2016?tab=Overview) | SQL Server 2016 SP1 Express sürümü. **Gerekli yükleme:** SQL Iaas uzantısı. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 SQL Server 2016 SP1 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQL2016SP1-WS2016?tab=Overview) | Veritabanı platform akıllı, görev açısından kritik uygulamalar için.  **Gerekli yükleme:** SQL Iaas uzantısı. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) | Basit dağıtmak, uygun maliyetli, uygulama odaklı ve kullanıcı merkezli kurumsal sınıf çözümleri. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.abantecart?tab=Overview) | Kaynak e-ticaret alışveriş sepeti açın. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.activemq?tab=Overview) | Kaynak ileti Aracısı Java'da açın. | Bitnami |
@@ -154,18 +156,22 @@ Microsoft Azure yığın aşağıdaki Azure Market öğesi destekler:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine satış CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compact pazarlama, satış ve müşteri hizmeti uygulaması. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS ve Web portalı Program'de, dinamik Web siteleri oluşturur.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Açık kaynak CRM sistemine: Mobil sosyal ve Gamified. | Bitnami |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Denetim noktası vSEC güvenlik yönetimi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Denetim noktası vSEC Azure müşteri varlıkları kötü amaçlı yazılım ve Gelişmiş tehditlerine karşı korumak için Gelişmiş, çok katmanlı tehdit önleme sunar. | Denetim Noktası |
 | ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef otomatikleştirme](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Derleme, dağıtma ve Chef otomatikleştirmek, sürekli Otomasyon Platform ile yönetin. | Chef yazılımı, Inc |
-| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie" backports çekirdek ile](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview) | Debian GNU/Linux en popüler Linux dağıtımları biridir. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS tarafından kapsayıcı Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Kapsayıcı Linux modern ve en az Linux dağıtım kapsayıcıları çalıştırmak, kümelerin yönetimi ve sorunsuz bir şekilde sunucularınızı güncelleştirmek için kolay bir yol sağlayarak - ambar ölçekli etkinleştirmek tüm bileşenleri işlem. | CoreOS |
+| ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu, dünyanın en popüler Linux bulut ortamları için sunucusudur. | Canonical |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux en popüler Linux dağıtımları biridir. | credativ |
+| ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Esnetme"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian9?tab=Overview) | Debian GNU/Linux en popüler Linux dağıtımları biridir. | credativ |
 | ![](media/azure-stack-marketplace-azure-items/kemp.png) | [LoadMaster yük dengeleyici ADC içerik anahtarı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kemptech.vlm-azure?tab=Overview) | Katman 4-7 uygulama teslim denetleyici (ADC) yük dengeleyici, içerik anahtarı ve trafik Yöneticisi. | KEMP Technologies Inc. |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 6.9](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased69?tab=Overview) | Bu dağıtım Linux dolandırıcı Wave yazılımı tarafından sağlanan ve CentOS üzerinde temel alır. | Yanlış Wave yazılım (önceki adıyla OpenLogic)  |
 | ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.3 centOS tabanlı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased73?tab=Overview) | Bu dağıtım Linux dolandırıcı Wave yazılımı tarafından sağlanan ve CentOS üzerinde temel alır. | Yanlış Wave yazılım (önceki adıyla OpenLogic) |
+| ![](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4 centOS tabanlı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOSbased74?tab=Overview) | Bu dağıtım Linux dolandırıcı Wave yazılımı tarafından sağlanan ve CentOS üzerinde temel alır. | Yanlış Wave yazılım (önceki adıyla OpenLogic) |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription?tab=Overview) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Yöneticisi 3.0 Proxy (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription?tab=Overview) | En iyi sınıf kaynak altyapı Yönetimi'ni açın. | SUSE |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Linux için ayrıntılı güvenlik aracısı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Linux için eğilim mikro derin güvenlik uzantısı. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Windows için ayrıntılı güvenlik aracısı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Windows için eğilim mikro derin güvenlik uzantısı. | Trend Micro |
-| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown yazılım aracı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown yazılım aracı v7.1 - geçirmek + HA. | SUSE |
+| ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown yazılım aracı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown yazılım aracı v7.1 - geçirmek + HA. | ZeroDown yazılım |
 
 
 ### <a name="next-steps"></a>Sonraki adımlar
 [Market öğesi indirin](azure-stack-download-azure-marketplace-item.md)
-

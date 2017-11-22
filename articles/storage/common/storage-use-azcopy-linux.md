@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
-ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux'ta AzCopy ile veri aktarımı
 Linux üzerinde AzCopy en uygun performans ile basit komutları kullanarak Microsoft Azure Blob ve dosya depolama gelen ve giden veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Verileri bir nesneden diğerine depolama hesabınızda veya depolama hesapları arasında kopyalayabilirsiniz.
@@ -559,7 +559,7 @@ azcopy \
     --recursive
 ```
 
-AzCopy şu anda yalnızca destekler Not [hesap SAS](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+AzCopy şu anda yalnızca destekler Not [hesap SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Günlük dosyası klasörü
 AzCopy için bir komut sorun her zaman varsayılan klasöründe bir günlük dosyası var olup var veya bu seçeneği belirtilen bir klasörde varolup denetler. Günlük dosyası her iki yerde mevcut değilse, AzCopy işlemi yeni olarak değerlendirir ve yeni bir günlük dosyası oluşturur.
@@ -673,7 +673,7 @@ Azure Storage ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklara
 ### <a name="azure-storage-documentation"></a>Azure Storage belgeleri:
 * [Azure Storage'a giriş](../storage-introduction.md)
 * [Depolama hesabı oluşturma](../storage-create-storage-account.md)
-* [BLOB Depolama Gezgini ile yönetme](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
+* [BLOB Depolama Gezgini ile yönetme](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Azure Storage ile Azure CLI 2.0 kullanma](../storage-azure-cli.md)
 * [C++ içinden BLOB storage kullanma](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Java'da Blob Depolama'yı kullanma](../blobs/storage-java-how-to-use-blob-storage.md)

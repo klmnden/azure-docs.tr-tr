@@ -10,17 +10,22 @@ ms.reviewer: elioda
 ms.date: 10/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 11353ef93455a47f9f1c252fc5e192c111d87dd7
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Linux sanal bir cihaz üzerinde Azure IOT kenar dağıtma - Önizleme
 
 Azure IOT kenar, tüm verileri buluta itme zorunda kalmak yerine cihazlarınızda analizi ve veri işleme gerçekleştirmenizi sağlar. IOT kenar öğreticileri Azure hizmetlerine veya özel kod yerleşik modülleri, farklı türlerde dağıtmak nasıl gerçekleştirileceğini gösterir ancak önce test etmek için bir aygıt gerekir. 
 
-Bu öğretici, algılayıcı verilerini oluşturan bir modül dağıtma sanal IOT kenar cihazı oluşturmada size yol gösterir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+
+1. IOT Hub oluşturma
+2. Bir IOT sınır cihazı kaydetme
+3. IOT kenar çalışma zamanı Başlat
+4. Bir modül dağıtma
 
 ![Öğretici mimarisi][2]
 
