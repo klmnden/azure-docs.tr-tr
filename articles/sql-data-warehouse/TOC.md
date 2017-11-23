@@ -5,7 +5,7 @@
 
 # Kullanmaya Başlama
 
-## [Başlangıç öğreticisi](sql-data-warehouse-get-started-tutorial.md)
+## [Veri öğreticisini yükleme](load-data-from-azure-blob-storage-using-polybase.md)
 ## [Esnek Sorgu öğreticisi](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [En iyi uygulamalar](sql-data-warehouse-best-practices.md)
 ## [Yönetme](sql-data-warehouse-overview-manage.md)

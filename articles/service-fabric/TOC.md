@@ -16,9 +16,8 @@
 ### [4- İzleme ve Tanılama](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Mevcut bir .NET uygulamasını kapsayıcılı hale getirme
-### [1- Azure’da güvenli bir küme oluşturma](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2 - Docker Compose kullanarak bir .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md)
-### [3 - Kapsayıcınızı izleme](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1- Docker Compose kullanarak bir .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md)
+### [2- Kapsayıcınızı izleme](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Linux kapsayıcı uygulaması oluşturma
 ### [1 - Kapsayıcı görüntüleri oluşturma](service-fabric-tutorial-create-container-images.md)
@@ -284,7 +283,6 @@
 ## Küme oluşturma ve yönetme
 ### Azure’da kümeler
 #### Oluştur
-##### [Azure’da ilk kümenizi oluşturma](service-fabric-get-started-azure-cluster.md)
 ##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Ölçek
