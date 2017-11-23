@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/26/2017
+ms.date: 11/21/2017
 ms.author: asgang
-ms.openlocfilehash: 6ebec2e06566b1e2d6834fdd81c0d8b2801b80b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a8cd09731ccdf7ad7385f7e707125c3902ebdf2
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Şirket içi VMware/fiziksel sunucu çoğaltma sorunlarını giderme
 VMware sanal makineleri veya fiziksel sunucuları Azure Site RECOVERY'yi kullanarak korurken, belirli bir hata iletisi alabilirsiniz. Bu makalede bazı karşılaştı, sorun giderme bunları gidermek için adımları yanı sıra daha sık karşılaşılan hata iletileri ayrıntılarını verir.
@@ -26,11 +26,11 @@ VMware sanal makineleri veya fiziksel sunucuları Azure Site RECOVERY'yi kullana
 
 ## <a name="initial-replication-is-stuck-at-0"></a>İlk çoğaltma %0 takıldı
 Kaynak sunucu işlemi sunucu veya işlem sunucusu Azure arasında bağlantı sorunları sizi desteğe karşılaştığınız ilk çoğaltma hataların çoğu kaynaklanır.
-Çoğu durumda, kendi kendini yapabilecekleriniz aşağıda listelenen adımları izleyerek bu sorunları giderme.
+Çoğu durumda, aşağıda listelenen adımları izleyerek bu sorunları giderebilirsiniz.
 
 ###<a name="check-the-following-on-source-machine"></a>Kaynak makinede aşağıdakileri denetleyin
 * Kaynak sunucu makine komut satırından Telnet https bağlantı noktası (varsayılan 9443) işlem sunucusuyla herhangi bir ağ bağlantısı sorunları veya güvenlik duvarı bağlantı noktası engelleme sorunları olup olmadığını görmek için aşağıda gösterildiği gibi ping işlemi yapmak için kullanın.
-     
+
     `telnet <PS IP address> <port>`
 > [!NOTE]
     > Telnet kullanın, PING bağlantısını test etme için kullanmayın.  Telnet yüklü değilse, adımları listesini izleyen [burada](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
@@ -38,16 +38,16 @@ Kaynak sunucu işlemi sunucu veya işlem sunucusu Azure arasında bağlantı sor
 Alınamazsa bağlanmak, bağlantı noktasının 9443 işlem sunucusundaki izin ve sorun hala çıkar olmadığını denetleyin. İşlem sunucusu bu soruna neden olan DMZ olduğu bazı durumlarda açıldı.
 
 * Hizmetinin durumunu denetlemek `InMage Scout VX Agent – Sentinel/OutpostStart` sorun devam ederse çalıştığından ve onay değilse.   
- 
+
 ###<a name="check-the-following-on-process-server"></a>İŞLEM sunucusunda aşağıdakileri denetleyin
 
-* **İşlem sunucusu etkin olarak veri Azure'a dağıtmaya olmadığını denetleyin** 
+* **İşlem sunucusu etkin olarak veri Azure'a dağıtmaya olmadığını denetleyin**
 
 İşlem sunucusu makineden Görev Yöneticisi'ni (Ctrl-Shift-Esc tuşuna basın) açın. Performans sekmesine gidin ve 'Açık Kaynak İzleyicisi' bağlantısını tıklatın. Kaynak Yöneticisi'nden ağ sekmesine gidin. Cbengine.exe 'Ağ etkinliği işlemlerle' ın büyük miktarda veri (MB) cinsinden etkin olarak gönderme olmadığını denetleyin.
 
 ![Çoğaltmayı etkinleştirme](./media/site-recovery-protection-common-errors/cbengine.png)
 
-Aksi halde aşağıda listelenen adımları izleyin:
+Aksi halde, aşağıda listelenen adımları izleyin:
 
 * **İşlem sunucusu Azure Blob bağlanabiliyor olup olmadığını denetle**: seçin ve 'TCP Azure Storage blobu URL işlem sunucusu bağlantısını olup olmadığını görmek için bağlantıları' görüntülemek için cbengine.exe denetleyin.
 
@@ -60,8 +60,8 @@ Ardından gidin, Denetim Masası'na > Hizmetleri, aşağıdaki hizmetleri hazır
      * Microsoft Azure Recovery Services Agent
      * Microsoft Azure Site Recovery Service
      * tmansvc
-     * 
-(Re) Hangi çalışmıyor herhangi bir hizmeti başlatın ve sorunu hala olup olmadığını kontrol edin.
+     *
+(Re) Sorun devam ederse çalışmıyor hizmeti ve onay başlatın.
 
 * **İşlem sunucusu bağlantı noktası 443 aracılığıyla Azure genel IP adresine bağlanabiliyor olup olmadığını denetleyin**
 
@@ -75,10 +75,10 @@ Sorun varsa, işlem sunucusunu komut satırından 443 numaralı bağlantı nokta
 Bağlanma sorunu, güvenlik duvarı veya bir sonraki adımda açıklandığı gibi Proxy nedeniyle erişim sorunu olup olmadığını denetleyin.
 
 
-* **IP adresi tabanlı Güvenlik Duvarı'nı işlem sunucusu engellemediğini varsa erişimi denetleme**: sunucu üzerinde bir IP adresi tabanlı güvenlik duvarı kuralları kullanıyorsanız, Microsoft Azure veri merkezi IP aralıkları tam listesi karşıdan [burada](https://www.microsoft.com/download/details.aspx?id=41653) ve bunları Azure (ve HTTPS (443 numaralı) bağlantı noktası) iletişimi sağlarlar emin olmak için güvenlik duvarı yapılandırmanızı ekleyin.  Aboneliğinizin Azure bölgesi ve Batı ABD (Access Control ve Identity Management için kullanılır) için IP adresi aralıklarına izin verin.
+* **IP adresi tabanlı Güvenlik Duvarı'nı işlem sunucusu erişimi engellemediğini varsa denetleyin**: sunucu üzerinde bir IP adresi tabanlı güvenlik duvarı kuralları kullanıyorsanız, Microsoft Azure veri merkezi IP aralıkları tam listesi karşıdan [burada](https://www.microsoft.com/download/details.aspx?id=41653) ve bunları Azure (ve HTTPS (443 numaralı) bağlantı noktası) iletişimi sağlarlar emin olmak için güvenlik duvarı yapılandırmanızı ekleyin.  Aboneliğinizin Azure bölgesi ve Batı ABD (Access Control ve Identity Management için kullanılır) için IP adresi aralıklarına izin verin.
 
-* **İşlem sunucusu URL'si tabanlı güvenlik duvarının erişimi engellemediğini varsa denetleyin**: sunucu üzerinde temel URL güvenlik duvarı kuralları kullanıyorsanız, aşağıdaki URL'ler için güvenlik duvarı yapılandırmasını eklenir olduğundan emin olun. 
-     
+* **İşlem sunucusu URL'si tabanlı güvenlik duvarının erişimi engellemediğini varsa denetleyin**: sunucuda URL tabanlı güvenlik duvarı kuralları kullanıyorsanız aşağıdaki URL'ler için güvenlik duvarı yapılandırmasını eklenmiş olduğundan emin olun.
+
   `*.accesscontrol.windows.net:` Erişim denetimi ve kimlik yönetimi için kullanılır
 
   `*.backup.windowsazure.com:` Çoğaltma veri aktarımı ve düzenlemesi için kullanılır
@@ -97,7 +97,7 @@ URL'ler için **Azure Bulutu**:
 
 `* .ugi.hypervrecoverymanager.windowsazure.us`
 
-`* .ugi.backup.windowsazure.us` 
+`* .ugi.backup.windowsazure.us`
 
 * **İşlem sunucusundaki proxy ayarlarını erişim engellemediğinden varsa denetleyin**.  Bir Proxy sunucu kullanıyorsanız, proxy sunucu adı DNS sunucusu tarafından çözülürken emin olun.
 Yapılandırma sunucusu Kurulum sırasında sağlanan denetlemek için. Kayıt defteri anahtarına gidin
@@ -105,7 +105,7 @@ Yapılandırma sunucusu Kurulum sırasında sağlanan denetlemek için. Kayıt d
     `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
 
 Şimdi aynı ayarları Azure Site Recovery aracısı tarafından veri göndermek için kullanıldığından emin olun.
-Arama Microsoft Azure yedekleme 
+Arama Microsoft Azure yedekleme
 
 ![Çoğaltmayı etkinleştirme](./media/site-recovery-protection-common-errors/mab.png)
 
@@ -116,4 +116,4 @@ Bunu açıp eylemini tıklatın > özelliklerini değiştir. Proxy Yapılandırm
 * **Bant genişliği azaltma işlemi sunucu üzerinde sınırlı değildir, denetleme**: bant genişliğini artırmak ve sorunu hala olup olmadığını kontrol edin.
 
 ##<a name="next-steps"></a>Sonraki adımlar
-Daha fazla yardıma gereksinim duyarsanız, sorgunuza sonrası [ASR Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Etkin bir topluluk sahibiz ve bizim mühendisleri biri size yardımcı olmak mümkün olacaktır.
+Daha fazla yardıma gereksinim duyarsanız, sorgunuza sonrası [Azure Site Recovery Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Etkin bir topluluk sahibiz ve bizim mühendisleri biri size yardımcı olmak mümkün olacaktır.

@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d797b83e2ab7f1b567588ca8e884aed97b49cf45
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Node.js web uygulaması oluşturma
 
@@ -33,8 +33,8 @@ Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirs
 
 Bu hızlı başlangıcı tamamlamak için:
 
-* [Git'i yükleyin](https://git-scm.com/)
-* [Node.js ve NPM'yi yükleyin](https://nodejs.org/)
+* <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
+* <a href="https://nodejs.org/" target="_blank">Node.js ve NPM'yi yükleyin</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

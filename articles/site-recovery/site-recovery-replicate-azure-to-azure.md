@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/22/2017
+ms.date: 11/21/2017
 ms.author: asgang
-ms.openlocfilehash: f9f97cf840b722c8cfee169dd1640e0682f287ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Başka bir Azure bölgesine çoğaltma Azure sanal makineler
 
@@ -32,7 +32,7 @@ Bu makalede, başka bir Azure bölgesine bir Azure bölgesinde çalışan sanal 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Makaleyi zaten Site kurtarma ve kurtarma Hizmetleri kasası hakkında bildiğinizi varsayar. Oluşturulan bir 'Kurtarma Hizmetleri Kasası' öncesi olması gerekir.
+* Makaleyi zaten Site kurtarma ve kurtarma Hizmetleri kasası hakkında bildiğinizi varsayar. 'Önceden oluşturulmuş bir kurtarma Hizmetleri Kasası' olması gerekir.
 
     >[!NOTE]
     >
@@ -53,7 +53,7 @@ Bu çizim için biz 'Doğu Asya' çalışan sanal makineler çoğaltılacak ' G�
 
 1. **Kaynak:** , bu durumda olan kaynak makinelerin noktasına başvurduğu **Azure**.
 
-2. **Kaynak Konum:** sanal makinelerinizi korumak istediğiniz Azure bölgesidir. Bu çizim için kaynak konumu 'Doğu Asya' olacaktır
+2. **Kaynak Konum:** sanal makinelerinizi korumak istediğiniz Azure bölgesidir. Bu çizim için kaynak konum 'Doğu Asya' değil.
 
 3. **Dağıtım modeli:** kaynak makinelerden Azure dağıtım modeline başvuruyor. Her iki Klasik seçebilir veya bir sonraki adımda koruma için kaynak yöneticisi ve belirli modele ait makineler listelenir.
 
@@ -76,27 +76,27 @@ Ayarları bölümü altında hedef site özelliklerini yapılandırabilirsiniz.
     > [!TIP]
     > Hedef konumu tutmanız önerilir aynı itibariyle, Kurtarma Hizmetleri kasası.
 
-2. **Hedef kaynak grubu:** hangi tüm çoğaltılmış sanal makinelere ait olur kaynak grubu değil. Varsayılan olarak ASR yeni bir kaynak grubu hedef bölgede "asr" sonekine sahip adıyla oluşturur. ASR tarafından önceden oluşturulmuş kaynak grubu mevcut olmaması durumunda, yeniden kullanılır. Aşağıdaki bölümde gösterildiği gibi özelleştirmek seçebilirsiniz.    
-3. **Hedef sanal ağ:** varsayılan olarak, ASR yeni bir sanal ağ hedef bölgede "asr" sonekine sahip adıyla oluşturur. Bu kaynak ağınıza eşlenecek ve gelecekteki tüm koruma için kullanılır.
+2. **Hedef kaynak grubu:** hangi tüm çoğaltılmış sanal makinelere ait olur kaynak grubu değil. Varsayılan olarak Azure Site Recovery yeni bir kaynak grubu hedef bölgede "asr" sonekine sahip adıyla oluşturur. Azure Site Recovery tarafından önceden oluşturulmuş kaynak grubu mevcut olmaması durumunda, yeniden kullanılır. Aşağıdaki bölümde gösterildiği gibi özelleştirmek seçebilirsiniz.    
+3. **Hedef sanal ağ:** varsayılan olarak, Azure Site Recovery yeni bir sanal ağ hedef bölgede "asr" sonekine sahip adıyla oluşturur. Bu kaynak ağınıza eşlenecek ve gelecekteki tüm koruma için kullanılır.
 
     > [!NOTE]
     > [Ağ ayrıntıları denetlemek](site-recovery-network-mapping-azure-to-azure.md) ağ eşlemesi hakkında daha fazla bilgi için.
 
-4. **Depolama hesapları hedef:** varsayılan olarak, ASR kaynak VM depolama yapılandırmanızı mimicking yeni hedef depolama hesabı oluşturacak. ASR tarafından önceden oluşturulmuş depolama hesabı mevcut olmaması durumunda, yeniden kullanılır.
+4. **Depolama hesapları hedef:** varsayılan olarak, Azure Site Recovery kaynak VM depolama yapılandırmanızı mimicking yeni hedef depolama hesabı oluşturacak. Azure Site Recovery tarafından önceden oluşturulmuş depolama hesabı mevcut olmaması durumunda, yeniden kullanılır.
 
-5. **Depolama hesapları önbelleğe:** ASR önbellek depolama kaynağı bölgede adlı ek depolama alanı hesabı gerekiyor. Kaynak sanal makinelerin gerçekleştiği tüm değişiklikleri izlenen ve bu hedef konumuna çoğaltma önce önbellek depolama hesabına gönderilir.
+5. **Depolama hesapları önbelleğe:** Azure Site Recovery önbellek depolama kaynağı bölgede adlı ek depolama alanı hesabı gerekiyor. Kaynak sanal makinelerin gerçekleştiği tüm değişiklikleri izlenen ve bu hedef konumuna çoğaltma önce önbellek depolama hesabına gönderilir.
 
-6. **Kullanılabilirlik kümesi:** varsayılan olarak, hedef bölgede kümesi "asr" sonekine sahip adı ile yeni bir kullanılabilirlik ASR oluşturur. Kullanılabilirlik kümesi zaten ASR tarafından oluşturulan mevcut olmaması durumunda, yeniden kullanılır.
+6. **Kullanılabilirlik kümesi:** varsayılan olarak, Azure Site Recovery hedef bölgede kümesi "asr" sonekine sahip adı ile yeni bir kullanılabilirlik oluşturur. Kullanılabilirlik kümesi zaten Azure Site Recovery tarafından oluşturulan mevcut olmaması durumunda, yeniden kullanılır.
 
-7.  **Çoğaltma İlkesi:** kurtarma noktası bekletme geçmişi ve uygulama tutarlılığı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, ASR ' 24 saattir kurtarma noktası bekletme ve ' 60 dakika uygulama tutarlılığı anlık görüntü sıklığı için varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur.
+7.  **Çoğaltma İlkesi:** kurtarma noktası bekletme geçmişi ve uygulama tutarlılığı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery, ' 24 saattir kurtarma noktası bekletme ve ' 60 dakika uygulama tutarlılığı anlık görüntü sıklığı için varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
 ## <a name="customize-target-resources"></a>Hedef kaynakları özelleştirme
 
-ASR tarafından kullanılan varsayılan değerleri değiştirmek istemeniz durumunda, gereksinimlerinize göre ayarlarını değiştirebilirsiniz.
+Azure Site Recovery tarafından kullanılan varsayılan değerleri değiştirmek istemeniz durumunda, gereksinimlerinize göre ayarlarını değiştirebilirsiniz.
 
-1. **Özelleştir:** ASR tarafından kullanılan varsayılan değerleri değiştirmek için tıklatın.
+1. **Özelleştir:** Azure Site Recovery tarafından kullanılan varsayılan değerleri değiştirmek için tıklatın.
 
 2. **Hedef kaynak grubu:** abonelik içindeki hedef konumda var olan tüm kaynak gruplarının listesini kaynak grubunu seçebilirsiniz.
 
@@ -112,7 +112,7 @@ ASR tarafından kullanılan varsayılan değerleri değiştirmek istemeniz durum
 Korunan sanal makine sonra altında VM'ler sağlık durumunu kontrol edebilirsiniz **çoğaltılan öğeler**
 
 >[!NOTE]
->İlk çoğaltma süre boyunca durum yenilemesinin zaman almasıdır ve biraz zaman ilerleme görmüyorsanız olasılığı verebilir. En son durumunu almak için dikey pencerenin üst kısmında Yenile düğmesini tıklatabilirsiniz.
+>İlk çoğaltma süre boyunca olabilir durumunu yenilemek için süren olasılığı ve biraz zaman ilerleme görmüyorsanız. En son durumunu almak için dikey pencerenin üst kısmında Yenile düğmesini tıklatabilirsiniz.
 >
 
 ![Çoğaltmayı etkinleştirme](./media/site-recovery-replicate-azure-to-azure/replicateditems.PNG)

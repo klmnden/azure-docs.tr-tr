@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1adf5935e7fc01a24db6ada3c4cfe4ac0a4d55
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış ormandaki tüm etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için Exchange Online ve Skype Kurumsal, gibi Office 365 iş yükleri kullanarak kullanıcıların tam genel adres listesinden yararlanır. Varsayılan yapılandırma ile kullanıcılar bir şirket içi Exchange veya Lync uygulamasıyla olurdu aynı deneyimi gerekir.
@@ -296,7 +296,14 @@ Memnun kaldığınızda, değişiklikler için Azure AD verin.
 ## <a name="group-based-filtering"></a>Grup tabanlı filtreleme
 Grup tabanlı filtreleme kullanarak Azure AD Connect yükleme ilk kez yapılandırabilirsiniz [özel yükleme](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Eşitlenecek nesneleri, yalnızca küçük bir kümesini istediğiniz, pilot dağıtımlar için tasarlanmıştır. Grup tabanlı filtreleme devre dışı bıraktığınızda, yeniden etkinleştirilemez. Bunun *desteklenmiyor* grup tabanlı filtreleme özel bir yapılandırmada kullanılacak. Yalnızca bu özellik, Yükleme Sihirbazı'nı kullanarak yapılandırmak için desteklenir. Pilot uygulamanızı tamamladıktan sonra diğer filtreleme seçenekleri birini bu konudaki kullanın. OU dayalı birlikte grup tabanlı ile filtreleme kullanırken, Grup ve üyelerini bulunduğu OU(s) dahil edilmelidir.
 
-Birden fazla AD ormanına eşitlerken her AD Bağlayıcısı için farklı bir grubu belirterek grup tabanlı filtreleme yapılandırabilirsiniz. İsterseniz, bir kullanıcı bir AD içinde eşitlemek için orman ve aynı kullanıcı olan bir ya da diğer AD ormanlarda daha ilgili FSP (yabancı güvenlik sorumlusu) nesneleri, kullanıcı nesnesi ve karşılık gelen tüm FSP nesnelerini grup tabanlı filtreleme içinde olduğundan emin olun kapsamı. Grup tabanlı filtreleme tarafından bir veya daha fazla FSP nesneleri hariç, kullanıcı nesnesi Azure AD ile eşitlenmiş değil.
+Birden fazla AD ormanına eşitlerken her AD Bağlayıcısı için farklı bir grubu belirterek grup tabanlı filtreleme yapılandırabilirsiniz. İsterseniz, bir kullanıcı bir AD içinde eşitlemek için orman ve aynı kullanıcı olan bir ya da daha fazla karşılık gelen diğer AD ormanlarda nesneleri, kullanıcı nesnesi ve tüm ilgili nesneleri kapsam grup tabanlı içinde'nin filtreleme emin olmalısınız. Örnekler için:
+
+* Karşılık gelen bir FSP (yabancı güvenlik sorumlusu) nesnesini başka bir ormanda olan bir ormandaki bir kullanıcı sahip. Her iki nesneleri Grup tabanlı içinde kapsam filtreleme gerekir. Aksi takdirde, kullanıcının Azure AD ile eşitlenmeyecek.
+
+* Karşılık gelen bir kaynak hesabı (örneğin, bağlı posta kutusu) başka bir ormanda olan bir ormandaki bir kullanıcı sahip. Ayrıca, kaynak hesabı kullanıcıyla bağlamak için Azure AD Connect yapılandırdınız. Her iki nesneleri Grup tabanlı içinde kapsam filtreleme gerekir. Aksi takdirde, kullanıcının Azure AD ile eşitlenmeyecek.
+
+* Karşılık gelen bir posta olan bir ormandaki bir kullanıcı sahip başka bir ormanda başvurun. Ayrıca, kullanıcının posta kişiyle bağlamak için Azure AD Connect yapılandırdınız. Her iki nesneleri Grup tabanlı içinde kapsam filtreleme gerekir. Aksi takdirde, kullanıcının Azure AD ile eşitlenmeyecek.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinmek [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.

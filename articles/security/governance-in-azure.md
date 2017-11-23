@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="governance-in-azure"></a>Azure Yönetimi
 
 Güvenlik bulutta iş ve nasıl önemli Azure güvenliği hakkında doğru ve güncel bilgi bulma olduğunu olduğunu biliyoruz. Çeşitli güvenlik araçları ve yetenekleri yararlanmak için uygulamalar ve hizmetler için Azure kullanmak için en iyi nedenlerinden biridir. Bu araçları ve yetenekleri güvenli Azure platformunda güvenli çözümler oluşturmak mümkün kılar yardımcı olur.
 
-Müşterinin ve Microsoft operations perspektiften Microsoft Azure içinde uygulanan idare denetimleri dizisi daha iyi anlamanıza yardımcı olması için bu makalede, "İdare içinde Azure", kapsamlı bir bakış sağlayan yazılır İdare özellikleri Microsoft Azure ile kullanılabilir.
+İdare dizisi daha iyi anlamanıza yardımcı olması için Müşteri'nin ve Microsoft operations perspektiften, bu makalede, "İdare içinde Azure", Microsoft Azure içinde uygulanan denetimleri yazılır idare kapsamlı bir bakış sağlar Microsoft Azure ile kullanılabilen özellikleri.
 
 ## <a name="azure-platform"></a>Azure platformu
 
@@ -175,7 +175,7 @@ Ayrıca [özel bir rol oluşturmak](https://docs.microsoft.com/azure/active-dire
 
 Her abonelikte en fazla 2000 rol ataması verebilirsiniz.
 
-## <a name="resource-management"></a>Kaynak Yönetimi
+## <a name="resource-management"></a>Kaynak yönetimi
 
 Azure başlangıçta yalnızca klasik dağıtım modeli sağlanan. Bu modelde, bağımsız olarak her bir kaynağın var; İlgili kaynaklar gruplamak için hiçbir yolu yoktu. Bunun yerine, el ile çözüm ya da uygulama yapılan hangi kaynaklara izlemek ve eşgüdümlü bir yaklaşım yönetmeyi unutmayın zorunda kaldı.
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/14/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aeb3820667f264e4a26860913e3f7b0e22e4c4a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performans ve ayarlama Kılavuzu kopyalayın
 > [!NOTE]
@@ -49,6 +49,8 @@ Bir başvuru olarak aşağıdaki tabloyu şirket içi testlere göre verilen kay
 
 ![Performans Matrisi](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
+>[!IMPORTANT]
+>Azure Data Factory sürüm 1, en az bulut veri taşıma Bulutu bulut kopyalama birimidir iki. Belirtilmezse, varsayılan veri taşıma birimleri kullanıldığına bakın [bulut veri taşıma birimleri](#cloud-data-movement-units).
 
 **Dikkat edilecek noktalar:**
 * Verimlilik, aşağıdaki formül kullanılarak hesaplanır: [verilerin boyutu okuma kaynağından] / [kopyalama çalışma süresini etkinliği].
@@ -90,9 +92,16 @@ Etki alanları bu hiyerarşi sıralamasıyla devam eder.
 Bu örnekte, zaman **eşzamanlılık** değeri 2'ye ayarlanır **etkinliği çalıştırmak 1** ve **etkinliği çalıştırmak 2** iki etkinlik Windows'dan veri kopyalama **eşzamanlı olarak** veri taşıma performansını artırmak için. Birden çok dosya 1 Çalıştır etkinliği ile ilişkiliyse, ancak veri taşıma hizmeti dosyaları kaynak sunucudan hedef bir dosya için birer birer kopyalar.
 
 ### <a name="cloud-data-movement-units"></a>Bulut veri taşıma birimleri
-A **bulut veri taşıma birimi (DMU)** veri fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüdür. Bir DMU Bulut Bulut kopyalama işlemi, ancak bir karma kopyalama kullanılıyor olabilir.
+A **bulut veri taşıma birimi (DMU)** veri fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüdür. DMU uygun Bulut Bulut kopyalama işlemleri için ancak bir karma kopyalama.
 
-Varsayılan olarak, veri fabrikası çalıştıran tek bir kopyalama etkinliği gerçekleştirmek için tek bulut DMU kullanır. Bu varsayılanı geçersiz kılmak için için bir değer belirtin **cloudDataMovementUnits** şekilde özelliği. Daha fazla birimi belirli kopya kaynak ve havuz için yapılandırdığınızda alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
+**Kopyalama etkinliği çalıştırmak güçlendirmeniz en az bulut veri taşıma birimleri iki olur.** Belirtilmezse, aşağıdaki tabloda farklı kopyalama senaryosunda kullanılan varsayılan DMUs listelenmektedir:
+
+| Kopyalama senaryosu | Hizmeti tarafından belirlenen varsayılan DMUs |
+|:--- |:--- |
+| Dosya tabanlı depoları arasında veri kopyalama | 2 ile 16 sayısı ve dosya boyutuna bağlı olarak arasında. |
+| Diğer tüm kopyalama senaryoları | 2 |
+
+Bu varsayılanı geçersiz kılmak için için bir değer belirtin **cloudDataMovementUnits** şekilde özelliği. **İzin verilen değerler** için **cloudDataMovementUnits** özelliği olan 2, 4, 8, 16 ve 32. **Bulut DMUs gerçek sayısını** eşit veya bu değerden azsa yapılandırılan, veri deseni bağlı olarak, kopyalama işlemini çalışma zamanında kullanır. Daha fazla birimi belirli kopya kaynak ve havuz için yapılandırdığınızda alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
 
 ```json
 "activities":[  
@@ -114,7 +123,6 @@ Varsayılan olarak, veri fabrikası çalıştıran tek bir kopyalama etkinliği 
     }
 ]
 ```
-**İzin verilen değerler** için **cloudDataMovementUnits** özelliği olan 1 (varsayılan), 2, 4, 8, 16 ve 32. **Bulut DMUs gerçek sayısını** eşit veya bu değerden azsa yapılandırılan, veri deseni bağlı olarak, kopyalama işlemini çalışma zamanında kullanır.
 
 > [!NOTE]
 > Daha fazla bulut DMUs için daha yüksek işleme gerekiyorsa başvurun [Azure Destek](https://azure.microsoft.com/support/). 8 ayarlama ve yukarıdaki şu anda yalnızca çalışır, **Blob Depolama/Data Lake Store/Azure için Blob Depolama/Data Lake Store/Amazon S3/bulut FTP/bulut SFTP birden çok dosya kopyalama SQL veritabanı**.

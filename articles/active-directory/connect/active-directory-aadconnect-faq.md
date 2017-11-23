@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect için sık sorulan sorular
 
@@ -43,8 +43,14 @@ Tüm ağ yazılımı, fiziksel aygıtların ya da başka bir şey bağlantılar�
 **S: desteklenen SLD'ler (tek etiketli etki alanları) misiniz?**  
 Hayır, Azure AD Connect, şirket içi ormanlar/SLD'ler kullanarak etki alanları desteklemez.
 
+**S: desteklenen ayrık AD etki alanları ile ormanları misiniz?**  
+Hayır, Azure AD Connect, şirket içi ormanları ayrık ad alanları içeren desteklemez.
+
 **S: "noktalı" adlı NetBIOS desteklenir?**  
 Hayır, Azure AD Connect, şirket içi ormanlar/etki, NetBIOS adını içerdiği bir süre desteklemiyor "." adında.
+
+**S: desteklenen saf IPv6 ortam mi?**  
+Hayır, Azure AD Connect saf IPv6 ortamında desteklemez.
 
 ## <a name="federation"></a>Federasyon
 **S: t, bana my Office 365 sertifikayı yenilemek için isteyen bir e-posta almaya devam ederseniz ne yapmalıyım**  

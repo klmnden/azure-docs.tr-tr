@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5ba922175a25776c6e27ee03fae9b2941235881
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0320cb33dcab63ea394cf8e13e9aef5cc75951fa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Azure AD self servis parola sıfırlama hızlı dağıtımı
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 Self servis parola sıfırlama (SSPR), BT uzmanlarının kullanıcılara parolalarını veya hesaplarını sıfırlama ya da bunların kilidini açma yetkisi vermesi için basit bir yol sunar. Sistem, kullanıcıların sisteme erişimini izleyen ayrıntılı raporlama içerir, ayrıca kötüye kullanım veya uygunsuz kullanım konusunda uyaran bildirimler sağlar.
 
-Bu kılavuz, çalışan bir deneme sürümü ya da lisanslı bir Azure Active Directory (Azure AD) kiracısına zaten sahip olduğunuzu varsayar. Azure AD’yi ayarlarken yardım gerekiyorsa bkz. [Azure AD ile çalışmaya başlama](https://azure.microsoft.com/trial/get-started-active-directory/).
+Bu kılavuz, çalışan bir deneme sürümü ya da lisanslı bir Azure Active Directory (Azure AD) kiracısına zaten sahip olduğunuzu varsayar. Azure AD’yi ayarlarken yardım gerekiyorsa bkz. [Azure AD ile çalışmaya başlama](get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Azure AD kiracınız için SSPR etkinleştirme
 
@@ -73,7 +73,7 @@ Azure AD ile şirket içi kimlik eşitlemesini etkinleştirmek için [Azure AD C
 
 * [DirSync veya Azure AD Eşitleme’den Azure AD Connect’e yükseltme](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama](./connect/active-directory-aadconnect-get-started-express.md)
-* Azure AD'deki izinleri şirket içi dizininize geri yazmak için [parola geri yazmayı yapılandırın](active-directory-passwords-writeback.md#configuring-password-writeback)
+* Azure AD'deki izinleri şirket içi dizininize geri yazmak için [parola geri yazmayı yapılandırın](active-directory-passwords-writeback.md#configure-password-writeback)
 
 ### <a name="on-premises-policy-change"></a>Şirket içi ilke değişikliği
 

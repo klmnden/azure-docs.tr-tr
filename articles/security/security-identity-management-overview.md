@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 6e816f151ea1f71770f00d6d77b65395fe080da3
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 85ea328bdea1aad28765712e3639f6719deab7e2
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure Kimlik Yönetimi güvenliğine genel bakış
 Microsoft kimlik ve erişim yönetimi çözümlerini Yardım BT doğrulama çok faktörlü kimlik doğrulama ve koşullu erişim gibi ek düzeylerini etkinleştirme uygulamaları ve kaynaklara erişim kurumsal veri merkezi genelinde ve buluta koruma ilkeleri. Raporlama, Denetim ve yardımcı olası güvenlik sorunlarını azaltmak uyarı Gelişmiş Güvenlik ile izleme şüpheli etkinlik. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) çoklu oturum açma bulut binlerce (SaaS) uygulamaları sağlar ve web uygulamaları için şirket içi erişebilirsiniz.
@@ -36,7 +36,7 @@ Makaleyi aşağıdaki çekirdek Azure kimlik yönetimi özellikleri üzerine oda
 
 * Çoklu oturum açma
 * Ters proxy
-* Multi-Factor Authentication
+* Multi-factor authentication
 * Güvenlik İzleme, uyarılar ve makine öğrenme tabanlı raporlar
 * Tüketici kimliği ve erişim yönetimi
 * Cihaz kaydı
@@ -69,7 +69,7 @@ Daha fazla bilgi edinin:
 * [Çoklu oturum açma uygulama proxy'si ile uygulama](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
 * [Koşullu erişim ile çalışma](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Multi-factor authentication
 Azure çok faktörlü kimlik doğrulaması (MFA), birden fazla doğrulama yöntemi kullanılmasını gerektiren ve kullanıcı oturum açmalarına ve işlemlerine önemli bir ikinci güvenlik katmanı ekleyen kimlik doğrulama yöntemidir. MFA yardımcı olan veri ve basit bir oturum açma işlemi için kullanıcı talebine toplantı sırasında uygulamalara erişimi korumaya. Güçlü kimlik doğrulama seçeneklerini çeşitli aracılığıyla sunar — telefon araması, SMS mesajı veya mobil uygulama bildirimi veya doğrulama kodu ve üçüncü taraf OAuth belirteçleri.
 
 Daha fazla bilgi edinin:

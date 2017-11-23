@@ -1,0 +1,1 @@
+Hesabınızı gereken kaynak oluşturulması ve rol yönetimi gerçekleştirmek için uygun kapsamındaki (, abonelik veya kaynak grubu), verilen "sahip" izinleri olması gerekir. Bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek üzere Use Role-Based erişim denetimi](../articles/active-directory/role-based-access-control-configure.md) rol ataması yardıma ihtiyacınız varsa.

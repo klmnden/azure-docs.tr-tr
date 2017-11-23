@@ -35,4 +35,5 @@
 | &nbsp; |[Genel OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Genel ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Salesforce hizmet bulut](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Web Tablosu (HTML tablosu)](../articles/data-factory/connector-web-table.md) |✓ | |✓ |✓  |

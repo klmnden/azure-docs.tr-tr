@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6c61d99f1d023ac643455faae10ef284f1f5bb14
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: af27d01108cbfb3bd71023ffbce85f348abb0cfe
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Azure Container Service (AKS) ile hizmet sorumluları
 
@@ -82,7 +82,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
 Önceden oluşturulmuş bir hizmet sorumlusunu kullanırken `appId` ve `password` değerlerini `az aks create` komutunda bağımsız değişken değerleri olarak girin.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-princal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
 ```
 
 AKS kümesini Azure portalından dağıtıyorsanız bu değerleri AKS kümesi yapılandırma formuna girin.
