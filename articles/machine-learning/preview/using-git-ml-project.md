@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: fe2a302a32f1b9ec474416704c6cb613cd384a0e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 0cd447a52964578dd2348a786dd57a45ea87516e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Git deposu bir Azure Machine Learning çalışma ekranı project ile kullanma
 Bu belge, Azure Machine Learning çalışma ekranı Git sürüm denetimi sağlar ve veri bilimi denemenizi içinde yeniden Üretilebilirlik sağlamak için kullanma hakkında bilgi sağlar. Projenizin bulutla Git deposu ilişkilendirmek yönergeler de sağlanır.
@@ -121,7 +121,7 @@ Bu komutu yürüterek biz tüm proje klasörünü belirli çalıştıran başlay
 ## <a name="step-6-use-the-master-branch"></a>6. Adım. Ana dala kullanın
 Yanlışlıkla önlemek için bir geçerli proje durumu kaybetme ana dala (veya kendi başınıza oluşturduğunuz herhangi bir dal) proje gerçekleştirmeyi Git deposuna yoludur. Git doğrudan ana dala üzerinde çalışması için komut satırını (veya diğer sık kullanılan Git istemci seçeceğiniz araç) de kullanabilirsiniz. Örneğin:
 
-```
+```sh
 # check status to make sure you are on the master branch (or branch of your choice)
 $ git status
 

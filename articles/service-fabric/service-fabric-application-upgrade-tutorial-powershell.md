@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 845e459a0c829ed8e737d687108e3bda48dab9ad
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 54ca664a29ed8c6337bb27fe1fa17276e480c911
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell kullanarak Service Fabric uygulama yükseltme
 > [!div class="op_single_selector"]
@@ -98,8 +98,7 @@ Uygulama paketi Service Fabric SDK - sıkıştırılmamış burada aşağıdaki 
 Şimdi şimdi güncelleştirilmiş uygulama paketi (uygulama paketleri depolandığı Service Fabric tarafından) Service Fabric görüntü kopyalayın. Parametre *ApplicationPackagePathInImageStore* Service Fabric burada da bulabilir uygulama paketi bildirir. Biz güncelleştirilmiş uygulamayı yerleştirdiğiniz "VisualObjects\_V2" (yolları yeniden uygun şekilde değiştirin gerekebilir) aşağıdaki komutu.
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
--ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
 Bu uygulama ile gerçekleştirilebilir Service Fabric ile kaydetmek için sonraki adımdır [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) komutu:

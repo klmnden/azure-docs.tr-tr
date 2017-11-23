@@ -4,7 +4,7 @@ description: "Azure blob kapsayıcısında Panda Python paket depolanan veriler 
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Panda kullanarak Azure blob depolama verilerinin özelliklerini oluşturma
 Bu belgede Azure blob kapsayıcısını kullanarak depolanan veriler için özellikler oluşturmayı gösteren [Pandas](http://pandas.pydata.org/) Python paket. Veriler Panda veri çerçeveye yükleme anahat oluşturma sonra gösterge değerlerle Python komut dosyalarını kullanarak ve özellikleri binning kategorik özellikleri oluşturmak nasıl gösterir.
@@ -31,7 +31,7 @@ Bu **menü** özellikleri veriler için çeşitli ortamlar oluşturmak nasıl a�
 Bu makale bir Azure blob storage hesabı oluşturduysanız ve verilerinizi var. depoladığınız varsayar. Bir hesabı ayarlamak için yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Pandas veri çerçeveye verileri yükleme
-Keşfetmek ve bir veri kümesini değiştirmek için onu blob kaynağından Pandas veri çerçevede yüklenebilir yerel bir dosyaya yüklenmelidir. Bu yordam için izlemeniz gereken adımlar şunlardır:
+Keşfetmek ve bir veri kümesini değiştirmek için blob kaynaktan yerel bir dosyaya indirilir. Ardından Pandas veri çerçeveye yükleyin. Bu yordam için izlemeniz gereken adımlar şunlardır:
 
 1. Verileri Azure blob'tan blob hizmeti kullanarak aşağıdaki örnek Python kodu ile indirme. Aşağıdaki kodda değişkeni belirli değerleriniz ile değiştirin:
    
@@ -60,7 +60,7 @@ Keşfetmek ve bir veri kümesini değiştirmek için onu blob kaynağından Pand
 ## <a name="blob-featuregen"></a>Özellik oluşturma
 Sonraki iki bölümde göstergesi değerlerle kategorik özellikleri ve Python komut dosyalarını kullanarak binning özellikleri üretmeyi gösteririz.
 
-### <a name="blob-countfeature"></a>Gösterge değeri özellik nesil dayalı
+### <a name="blob-countfeature"></a>Gösterge değeri tabanlı özelliği oluşturma
 Kategorik özellikler aşağıdaki gibi oluşturulabilir:
 
 1. Kategorik sütunun dağılımını inceleyin:
@@ -80,7 +80,7 @@ Kategorik özellikler aşağıdaki gibi oluşturulabilir:
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
 ### <a name="blob-binningfeature"></a>Binning özelliği oluşturma
-Binned özellikleri oluşturmak için size aşağıdaki gibi ilerleyin:
+Binned özellikleri oluşturmak için aşağıdaki gibi ilerleyin:
 
 1. Sayısal bir sütun bin sütunların sırası Ekle
    
@@ -93,8 +93,8 @@ Binned özellikleri oluşturmak için size aşağıdaki gibi ilerleyin:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>Verileri Azure blob geri yazma ve Azure Machine Learning ile kullanma
-Veri denedikten sonra gerekli özellikleri oluşturulan, verilerini karşıya yükleyebilir (örneklenen veya featurized) bir Azure blob ve aşağıdaki adımları kullanarak Azure Machine Learning ile kullanabilir: ek özellikler Azure Machine Learning Studio'da de oluşturulabilir unutmayın.
+## <a name="sql-featuregen"></a>Azure Machine Learning ile kullanmak için Azure blob'a veri geri yazma
+Keşfedilen Azure Machine learning'de verileri kullanmak üzere örneklenen veya featurized, verileri bir Azure blobuna yükle. Ek özellikler, Azure Machine Learning Studio'da de oluşturulabilir. Aşağıdaki adımlarda nasıl veri yükleyeceğiniz gösterilmektedir:
 
 1. Veri çerçevesi yerel dosyasına yazma
    
@@ -120,7 +120,7 @@ Veri denedikten sonra gerekli özellikleri oluşturulan, verilerini karşıya y�
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Verileri Azure Machine Learning kullanarak blobundan okunabilir artık [veri içeri aktarma](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) aşağıdaki ekranda gösterildiği gibi Modülü:
+3. Verileri Azure Machine Learning kullanarak blobundan okunabilir artık [veri içeri aktarma](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) aşağıdaki ekran görüntüsünde gösterildiği gibi Modülü:
 
 ![Okuyucu blob](./media/data-blob/reader_blob.png)
 

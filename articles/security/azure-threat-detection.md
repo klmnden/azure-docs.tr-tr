@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Gelişmiş tehdit algılama
 ## <a name="introduction"></a>Giriş
@@ -41,7 +41,7 @@ Ne zaman kuruluş verilerinizin korunmasına ve güvenlik ve sistem geçici idar
 
 Azure altyapısı tesisten uygulamalara kadar milyonlarca müşteriye aynı anda hizmet verecek şekilde tasarlanmıştır ve işletmelerin güvenlik ihtiyaçlarını karşılayabilecek güvenilir bir temel sunar. Azure çok çeşitli yapılandırmak ve güvenlik, uygulama dağıtımları gereksinimlerini karşılamak için özelleştirmek için seçenekler sağlar. Bu belge, bu gereksinimleri karşılayan yardımcı olur.
 
-### <a name="abstract"></a>Özet
+### <a name="abstract"></a>Soyut
 
 Microsoft Azure teklifleri Hizmetleri aracılığıyla Gelişmiş tehdit algılama işlevselliği yerleşik Azure Active Directory, Azure Operations Management Suite (OMS) ve Azure Güvenlik Merkezi gibi. Bu koleksiyon güvenlik hizmetlerini ve özellikleri Azure dağıtımlarınızı içinde neler olduğunu anlamak için basit ve hızlı bir yol sağlar.
 
@@ -368,7 +368,7 @@ Gölge BT ortaya çıkarmaya, riskleri değerlendirmeye, ilkeleri zorunlu tutman
 
  </tr>
  <tr>
-   <td>denetimi</td>
+   <td>Denetim</td>
    <td>İlkeleri ve ağ bulut trafiği üzerinde en yüksek düzeyde denetim elde etmek için uyarılar ayarlayarak riski azaltın. Cloud App Security kullanıcılarınız için güvenli, tasdikli bulut uygulaması alternatiflerine geçirmek için kullanın.</td>
 
  </tr>
@@ -378,7 +378,7 @@ Gölge BT ortaya çıkarmaya, riskleri değerlendirmeye, ilkeleri zorunlu tutman
 
  </tr>
  <tr>
-   <td>denetimi</td>
+   <td>Denetim</td>
    <td>İlkeleri ve ağ bulut trafiği üzerinde en yüksek düzeyde denetim elde etmek için uyarılar ayarlayarak riski azaltın. Cloud App Security kullanıcılarınız için güvenli, tasdikli bulut uygulaması alternatiflerine geçirmek için kullanın.</td>
 
  </tr>

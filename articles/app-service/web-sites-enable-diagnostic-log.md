@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -34,18 +34,18 @@ App Service web uygulamalarının web sunucusu ve web uygulamasının içinden b
 ### <a name="web-server-diagnostics"></a>Web sunucu tanıları
 Etkinleştirmek veya günlükleri şu tür devre dışı bırakabilirsiniz:
 
-* **Hata günlüğü ayrıntılı** -ayrıntılı hata bilgileri (durum kodu 400 veya daha büyük) hatası olduğunu gösteren HTTP durum kodları için. Bu neden sunucu döndürülen hata kodu belirlemek yardımcı olabilecek bilgiler içerebilir.
-* **Başarısız istek izleme** -ayrıntılı izleme istek ve her bileşenin geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız istekler hakkında bilgi. Bu site performansını artırabilir ya da döndürülecek belirli bir HTTP hata neden olan yalıtmak çalıştığınız durumlarda yararlı olabilir.
-* **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemler hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Bu, belirli bir IP adresinden işlenen isteklerin ya da kaç istek sayısı gibi genel site ölçümleri belirlerken yararlıdır.
+* **Hata günlüğü ayrıntılı** -ayrıntılı hata bilgileri (durum kodu 400 veya daha büyük) hatası olduğunu gösteren HTTP durum kodları için. Neden sunucu döndürülen hata kodu belirlemek yardımcı olabilecek bilgiler içerebilir.
+* **Başarısız istek izleme** -ayrıntılı izleme istek ve her bileşenin geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız istekler hakkında bilgi. Site performansı artırmak veya döndürülecek belirli bir HTTP hata neden olan yalıtmak çalışıyorsanız yararlı olacaktır.
+* **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemler hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Belirli bir IP adresinden işlenen isteklerin ya da kaç istek sayısı gibi genel site ölçümleri belirlerken yararlı olacaktır.
 
-### <a name="application-diagnostics"></a>Uygulama tanılama
+### <a name="application-diagnostics"></a>Uygulama tanılamaları
 Uygulama Tanılama web uygulama tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamaları kullanabileceğiniz [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) bilgi uygulama tanılama günlüğüne sınıfı. Örneğin:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 Çalışma zamanında, sorun giderme konusunda yardımcı olmak için bu günlükleri alabilirsiniz. Daha fazla bilgi için bkz: [Visual Studio'daki sorun giderme Azure web uygulamaları](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-Bir web uygulaması için içerik yayımladığınızda, app Service web apps dağıtım bilgileri de oturum açın. Bu otomatik olarak gerçekleşir ve dağıtım günlüğü için herhangi bir yapılandırma ayarları. Dağıtım günlüğü neden bir dağıtımı başarısız belirlemenize olanak tanır. Örneğin, bir özel dağıtım komut dosyası kullanıyorsanız, komut dosyası neden başarısız olduğunu belirlemek için dağıtım günlüğü kullanabilirsiniz.
+Bir web uygulaması için içerik yayımladığınızda, app Service web apps dağıtım bilgileri de oturum açın. Otomatik olarak gerçekleşir ve dağıtım günlüğü için herhangi bir yapılandırma ayarları. Dağıtım günlüğü neden bir dağıtımı başarısız belirlemenize olanak tanır. Örneğin, bir özel dağıtım komut dosyası kullanıyorsanız, komut dosyası neden başarısız olduğunu belirlemek için dağıtım günlüğü kullanabilirsiniz.
 
 ## <a name="enablediag"></a>Tanılama etkinleştirme
 Tanılama'etkinleştirmek için [Azure portal](https://portal.azure.com), web uygulamanız için sayfasına gidin ve tıklatın **Ayarları > tanılama günlükleri**.
@@ -53,21 +53,20 @@ Tanılama'etkinleştirmek için [Azure portal](https://portal.azure.com), web uy
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Günlükleri bölümü](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Etkinleştirdiğinizde **uygulama tanılama**, aynı zamanda seçtiğiniz **düzeyi**. Bu ayar için yakalanan bilgilerin filtrelemenizi sağlar **bilgilendirme**, **uyarı**, veya **hata** bilgi. Bu ayar **ayrıntılı** uygulama tarafından üretilen tüm bilgileri günlüğe kaydeder.
+Etkinleştirdiğinizde **uygulama tanılama**, aynı zamanda seçtiğiniz **düzeyi**. Bu ayar için yakalanan bilgilerin filtrelemenizi sağlar **bilgilendirme**, **uyarı**, veya **hata** bilgi. Ayar **ayrıntılı** uygulama tarafından üretilen tüm bilgileri günlüğe kaydeder.
 
 > [!NOTE]
 > Web.config dosyasını değiştirme farklı olarak, uygulama Tanılama'yı etkinleştirme ya da tanılama günlük düzeylerini değiştirme içinde uygulamanın çalıştığı uygulama etki alanı dönüştürülmeyeceği.
 >
 >
 
-İçinde [Klasik portal](https://manage.windowsazure.com) Web uygulaması **yapılandırma** seçebileceğiniz sekmesinde **depolama** veya **dosya sistemi** için **web sunucusu günlüğü**. Seçme **depolama** bir depolama hesabı ve günlüklere yazılır bir blob kapsayıcısını seçmenize olanak sağlar. İçin tüm diğer günlükler **site tanılama** yalnızca dosya sistemine yazılır.
+İçin **uygulama günlüğü**, hata ayıklama amacıyla geçici olarak dosya sistemi seçeneği açabilirsiniz. Bu seçenek otomatik olarak 12 saat içindeki devre dışı bırakır. Blog kapsayıcı günlüklere yazılır seçmek için blob depolama seçeneği de açabilirsiniz.
 
-[Klasik portal](https://manage.windowsazure.com) Web uygulaması **yapılandırma** sekmesinde de uygulama tanılama için ek ayarlar vardır:
+İçin **Web sunucusu günlüğü**, seçebileceğiniz **depolama** veya **dosya sistemi**. Seçme **depolama** bir depolama hesabı ve günlüklere yazılır bir blob kapsayıcısını seçmenize olanak sağlar. 
 
-* **Dosya sistemi** -web uygulama dosya sistemi için uygulama tanılama bilgilerini depolar. Bu dosyalar FTP tarafından erişilen veya Zip arşivini Azure PowerShell veya Azure komut satırı arabirimi (Azure CLI) kullanılarak indirilir.
-* **Tablo depolama** -belirtilen Azure depolama hesabı ve tablo adı uygulama tanılama bilgilerini depolar.
-* **BLOB Depolama** -belirtilen Azure depolama hesabı ve blob kapsayıcısında uygulama tanılama bilgilerini depolar.
-* **Saklama dönemi** -varsayılan olarak, günlükleri otomatik olarak silinir değil **blob depolama**. Seçin **ayarlamak bekletme** ve otomatik olarak günlükleri silmek isterseniz, günlükleri tutulacağı gün sayısı girin.
+Dosya sisteminde günlüklerini saklıyorsanız, dosyaları FTP tarafından erişilen veya Zip arşivini Azure PowerShell veya Azure komut satırı arabirimi (Azure CLI) kullanılarak indirilir.
+
+Varsayılan olarak, günlükleri otomatik olarak silinmez (dışında **uygulama günlüğü (dosya sistemi)**). Günlükleri otomatik olarak silmek üzere ayarlanmış **saklama dönemi (gün)** alan.
 
 > [!NOTE]
 > Varsa, [depolama hesabınızın erişim anahtarlarını yeniden](../storage/common/storage-create-storage-account.md), güncelleştirilmiş anahtarları kullanmak için ilgili günlük yapılandırmasını sıfırlamanız gerekir. Bunu yapmak için:
@@ -101,12 +100,10 @@ Günlükleri depolanmış dizin yapısı aşağıdaki gibidir:
 * **Dağıtım günlükleri** -/ LogFiles/Git. Bu klasör Azure web uygulamaları tarafından kullanılan iç dağıtım işlemler tarafından oluşturulan günlükleri içeren, aynı zamanda Git dağıtımları için günlüğe kaydeder.
 
 ### <a name="ftp"></a>FTP
-FTP kullanarak tanılama bilgilerine erişmek için ziyaret **Pano** , web uygulamanızın [Klasik portal](https://manage.windowsazure.com). İçinde **Hızlı Bakış** bölümünde, kullanmak **FTP tanılama günlükleri** FTP kullanarak günlük dosyalarına erişmek için bağlantı. **Dağıtım/FTP kullanıcısı** girişi FTP sitesine erişmek için kullanılması gereken kullanıcı adını listeler.
 
-> [!NOTE]
-> Varsa **dağıtım/FTP kullanıcısı** girişi ayarlanmamışsa, veya bu kullanıcı için parolanızı unuttuysanız, yeni bir kullanıcı ve parola kullanarak oluşturabilirsiniz **sıfırlama dağıtım kimlik bilgileri** bağlamak **Hızlı Bakış** bölümünü **Pano**.
->
->
+Uygulamanızın FTP sunucusuna bir FTP bağlantısı açmak için bkz: [FTP/S kullanarak Azure App Service için uygulamanızı dağıtma](app-service-deploy-ftp.md).
+
+Web uygulamanızın FTP/S sunucusuna bağlandıktan sonra açmak **LogFiles** günlük dosyalarının depolandığı klasöre.
 
 ### <a name="download-with-azure-powershell"></a>Azure PowerShell ile indirme
 Günlük Dosyaları indirmek için Azure PowerShell yeni bir örneğini başlatın ve aşağıdaki komutu kullanın:
@@ -145,7 +142,7 @@ Visual Studio Application Insights filtreleme ve günlükleri arama ve günlükl
 [Application Insights ile izleme performansı hakkında daha fazla bilgi edinin](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a>Nasıl yapılır: akış günlükleri
-Bir uygulama geliştirirken, genellikle neredeyse gerçek zamanlı günlük bilgileri görmek yararlı olacaktır. Bu günlük kaydı bilgileri Azure PowerShell veya Azure komut satırı arabirimi kullanarak geliştirme ortamınıza akış tarafından gerçekleştirilebilir.
+Bir uygulama geliştirirken, genellikle neredeyse gerçek zamanlı günlük bilgileri görmek yararlı olacaktır. Azure PowerShell veya Azure komut satırı arabirimi kullanarak geliştirme ortamınız için günlük kaydı bilgileri akışını sağlayabilirsiniz.
 
 > [!NOTE]
 > Günlük arabellek bazı türleri akış bozuk olayları sonuçlanabilir günlük dosyasına yazar. Örneğin, bir kullanıcı bir sayfayı ziyaret ettiğinde oluşan bir uygulama günlük girişi sayfa isteği için karşılık gelen HTTP günlük girişi önce akışında görüntülenebilir.
@@ -207,7 +204,7 @@ Dosya sistemine oturum veya akış kullanılarak alınan her satırın aşağıd
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-Örneğin, bir hata olayı aşağıdakine benzer görünür:
+Örneğin, bir hata olayı aşağıdaki örneğe benzer görünür:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
@@ -221,13 +218,13 @@ Tablo depolama için oturum açarken ek özellikler Tablo yanı sıra olay hakk�
 | --- | --- |
 | PartitionKey |Tarih/saat yyyyMMddHH biçiminde olay |
 | RowKey |Bu varlık benzersiz olarak tanımlayan bir GUID değeri |
-| zaman damgası |Olayın saat ve tarihi |
+| Zaman damgası |Olayın saat ve tarihi |
 | EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
 | ApplicationName |Web uygulaması adı |
-| Düzey |Olay düzeyi (uyarı, bilgi örneğin hata) |
+| Düzey |Olay düzeyi (uyarı, bilgi Örneğin, hata) |
 | Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
-| örnek kimliği |Hatta oluştu. web uygulaması örneği |
-| PID |İşlem kimliği |
+| Örnek kimliği |Hatta oluştu. web uygulaması örneği |
+| PID |İşlem Kimliği |
 | komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
 | İleti |Olay Ayrıntısı iletisi |
 
@@ -238,16 +235,16 @@ Blob depolama için oturum açarken verileri virgülle ayrılmış değerler (CS
 | Özellik adı | Değer/biçimi |
 | --- | --- |
 | Tarih |Olayın saat ve tarihi |
-| Düzey |Olay düzeyi (uyarı, bilgi örneğin hata) |
+| Düzey |Olay düzeyi (uyarı, bilgi Örneğin, hata) |
 | ApplicationName |Web uygulaması adı |
-| örnek kimliği |Olayın oluştuğu web uygulaması örneği |
+| Örnek kimliği |Olayın oluştuğu web uygulaması örneği |
 | EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
 | Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
-| PID |İşlem kimliği |
+| PID |İşlem Kimliği |
 | komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
 | İleti |Olay Ayrıntısı iletisi |
 
-Blob içinde depolanan verileri aşağıdakine benzer görünür:
+Blob içinde depolanan verileri aşağıdaki örneğe benzer görünür:
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -258,7 +255,7 @@ Blob içinde depolanan verileri aşağıdakine benzer görünür:
 >
 
 ### <a name="failed-request-traces"></a>İstek izlemelerin başarısız oldu
-Başarısız istek izlemelerin adlı XML dosyalarında saklanır **fr ### .xml**. Günlüğe kaydedilen bilgileri görüntülemek kolaylaştırmak için bir XSL stil adlı **freb.xsl** XML dosyaları ile aynı dizinde sağlanır. XML dosyalarından birini Internet Explorer'da açın, Internet Explorer XSL stil sayfası izleme bilgilerini biçimlendirilmiş bir görünümünü sağlamak için kullanır. Bu, aşağıdakine benzer görünür:
+Başarısız istek izlemelerin adlı XML dosyalarında saklanır **fr ### .xml**. Günlüğe kaydedilen bilgileri görüntülemek kolaylaştırmak için bir XSL stil adlı **freb.xsl** XML dosyaları ile aynı dizinde sağlanır. XML dosyalarından birini Internet Explorer'da açın, Internet Explorer XSL stil sayfası aşağıdaki örneğe benzer izleme bilgilerini biçimlendirilmiş bir görünümünü sağlamak için kullanır:
 
 ![tarayıcıda görüntülenen başarısız istek](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 

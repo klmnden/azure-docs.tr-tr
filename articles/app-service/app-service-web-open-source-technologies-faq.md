@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: c0872619a4897b0ac40629df00053f3e49768f64
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Açık kaynak teknolojileri Azure Web uygulamaları için sık sorulan sorular
 
@@ -32,14 +32,6 @@ Bu makale için açık kaynak teknolojileri ile ilgili sorunlar hakkında sık s
 Veritabanı ile ilgili sorunlar için başvurun [ClearDB Destek](https://www.cleardb.com/developers/help/support). 
 
 ClearDB hakkında sık sorulan soruların yanıtları için bkz: [ClearDB SSS](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## <a name="why-isnt-my-cleardb-database-listed-in-the-portal"></a>ClearDB veritabanı Portalı'nda neden listede yok?
-
-Bir ClearDB veritabanı oluşturursanız [Azure portal](http://portal.azure.com/), veritabanı içinde görünmüyor [Klasik Azure portalı](http://manage.windowsazure.com/). Bu sorunu çözmek için el ile web uygulaması'na veritabanınızı bağlayabilirsiniz.
-
-Benzer şekilde, bir ClearDB veritabanı oluşturursanız [Klasik Azure portalı](http://manage.windowsazure.com/), veritabanınızdaki görmezsiniz [Azure portal](http://portal.azure.com/). Bu durumda, geçici bir çözüm kullanılabilir değildir. 
-
-Daha fazla bilgi için bkz: [ClearDB MySQL veritabanları için SSS Azure uygulama hizmeti ile](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>Neden ClearDB veritabanı my abonelik geçişi sırasında geçirilen değildi?
 

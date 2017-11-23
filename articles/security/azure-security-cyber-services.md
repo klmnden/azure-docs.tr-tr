@@ -4,7 +4,7 @@ description: "Makaleyi siber güvenlik ve bu hizmetler hakkında daha fazla bilg
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 925ba3c6-fe35-413a-98ea-e1a1461f3022
 ms.service: security
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 058cda5dd2e7e8026410a14d08d5714ce92822cd
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Siber güvenlik Microsoft Hizmetleri
-Microsoft Services güvenlik, kimlik ve siber güvenlik kapsamlı bir yaklaşım sağlar. Microsoft Services güvenlik dizisi sağlar ve stratejisi, planlama, uygulama ve kurumsal müşterilerimizin yardımcı olabilecek devam eden destek arasında kimlik hizmetlerine stratejik hedeflerine Hizala bütünsel güvenlik çözümleri uygulayın.
+Microsoft Services güvenlik, kimlik ve siber güvenlik kapsamlı bir yaklaşım sağlar. Microsoft Services stratejisi, planlama, uygulama ve devam eden destek güvenlik ve kimlik hizmetler dizisi sağlar. Bu hizmetleri kurumsal müşteriler stratejik hedeflerine Hizala bütünsel güvenliği çözümlerini uygulamayı yardımcı olabilir.
 
 Ürün geliştirme ekiplerinin, doğrudan erişim ile biz tümleştirme çözümleri oluşturma ve bizim müşterinin iş ve sürücüyü yeniliklerle korunmasına yardımcı olmak için kimlik yeteneklerine Ürünlerimizin ve en son güvenlik geliştirmek.
 

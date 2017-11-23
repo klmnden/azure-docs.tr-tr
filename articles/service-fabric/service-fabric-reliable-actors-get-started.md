@@ -12,139 +12,160 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 7e24cb902cb3f863931fc0be5e0f178707e806b6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C#](service-fabric-reliable-actors-get-started.md)
 > * [Linux üzerinde Java](service-fabric-reliable-actors-get-started-java.md)
-> 
-> 
 
-Bu makalede, Azure Service Fabric Reliable Actors temelleri açıklanır ve oluşturma, hata ayıklama ve Visual Studio basit bir güvenilir aktör uygulama dağıtma size yol gösterir.
+Bu makalede oluşturma ve basit bir güvenilir aktör uygulaması Visual Studio'da hata ayıklama anlatılmaktadır. Reliable Actors hakkında daha fazla bilgi için bkz: [Service Fabric Reliable Actors giriş](service-fabric-reliable-actors-introduction.md).
 
-## <a name="installation-and-setup"></a>Yükleme ve Kurulum
-Başlamadan önce makinenizde ayarlanan Service Fabric geliştirme ortamı olduğundan emin olun.
-Ayrıntılı yönergeler ayarlamanız gerekiyorsa, bakın [geliştirme ortamını ayarlama konusunda](service-fabric-get-started.md).
+## <a name="prerequisites"></a>Ön koşullar
 
-## <a name="basic-concepts"></a>Temel kavramlar
-Reliable Actors hizmetini kullanmaya başlamak için anlamanız gereken birkaç temel kavram vardır:
-
-* **Aktör hizmeti**. Reliable Actors, Service Fabric altyapısında dağıtılabilen Reliable Services ile paketlenmiştir. Aktör örnekleri adlandırılmış hizmet örneğinde etkinleştirilir.
-* **Aktör kaydı**. Reliable Services gibi Reliable Actor hizmetinin de Service Fabric çalışma zamanıyla kaydedilmesi gerekir. Ayrıca aktör türü de Actor çalışma zamanına kaydedilmelidir.
-* **Aktör arabirimi**. Aktör arabirimi, bir aktörün baskın türdeki genel arabirimini tanımlamak için kullanılır. Reliable Actor model terminolojisinde aktör arabirimi, aktörün anlayıp işleyebileceği ileti türlerini tanımlamak için kullanılır. Aktör arabirimi diğer aktörler ve istemci uygulamaları tarafından aktöre ileti "göndermek" (zaman uyumsuz) amacıyla kullanılır. Reliable Actors birden fazla arabirim uygulayabilir.
-* **ActorProxy sınıfı**. ActorProxy sınıfı, istemci uygulamaları tarafından aktör arabirimi aracılığıyla kullanıma sunulan yöntemleri çağırmak için kullanılır. ActorProxy sınıfı iki önemli işlev sunar:
-  
-  * Ad çözümlemesi: Aktörü kümenin konumunu belirleyebilir (kümenin barındırıldığı düğümü bulabilir).
-  * Hata işleme: Yöntem çağrılarını yeniden deneyebilir ve ardından aktör konumunu yeniden çözümleyebilir. Örnek olarak aktörün küme içindeki başka bir düğüme alınmasını gerektiren hata verilebilir.
-
-Aktör arabirimlerinde geçerli olan önemli kurallar aşağıda verilmiştir:
-
-* Aktör arabirim yöntemlerine aşırı yükleme yapılamaz.
-* Aktör arabirimi yöntemleri çıkış, başvuru veya isteğe bağlı parametrelere sahip olmamalıdır.
-* Genel arabirimler desteklenmez.
+Başlamadan önce Visual Studio, makinenizde ayarlama dahil olmak üzere Service Fabric geliştirme ortamı olduğundan emin olun. Ayrıntılar için bkz [geliştirme ortamını ayarlama konusunda](service-fabric-get-started.md).
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Visual Studio'da yeni proje oluşturma
-Visual Studio 2015 veya Visual Studio 2017 yönetici olarak başlatın ve yeni bir Service Fabric uygulaması projesi oluşturun:
+
+Visual Studio 2015 veya sonraki bir yönetici olarak başlatın ve ardından yeni bir **Service Fabric uygulaması** proje:
 
 ![Visual Studio - yeni proje için Service Fabric araçları][1]
 
-Sonraki iletişim kutusunda, oluşturmak istediğiniz proje türünü seçebilirsiniz.
+Sonraki iletişim kutusunda seçin **aktör hizmeti** ve hizmet için bir ad girin.
 
 ![Service Fabric proje şablonları][5]
 
-HelloWorld projesi için Service Fabric Reliable Actors hizmet kullanalım.
-
-Çözüm oluşturduktan sonra aşağıdaki yapısını görmeniz gerekir:
+Oluşturulan proje aşağıdaki yapısını gösterir:
 
 ![Service Fabric Proje yapısı][2]
 
-## <a name="reliable-actors-basic-building-blocks"></a>Reliable Actors temel parçaları
-Tipik bir Reliable Actors çözümü üç projeyi oluşur:
+## <a name="examine-the-solution"></a>Çözüm inceleyin
 
-* **Uygulama projesi (MyActorApplication)**. Bu, tüm hizmetlerin birlikte dağıtım paketleri projesidir. İçerdiği *ApplicationManifest.xml* ve uygulama yönetmek için PowerShell komut dosyaları.
-* **Arabirim proje (MyActor.Interfaces)**. Aktör arabirim tanımı içeren projeye budur. MyActor.Interfaces projesinde çözümdeki aktör tarafından kullanılacak olan arabirimler tanımlayabilirsiniz. Aktör uygulaması tarafından paylaşılan aktör sözleşme arabirimi tanımlar ancak aktör arabirimlerinizi herhangi bir ad ile herhangi bir projeye tanımlanabilir ve aktör çağırma istemcileri, bu nedenle genellikle aktör uygulamasından ayrıdır ve diğer birden çok proje tarafından paylaşılan bir bütünleştirilmiş tanımlamak için mantıklıdır.
+Çözümü üç projeleri içerir:
+
+* **Uygulama projesi (MyApplication)**. Bu proje tüm hizmetlerin birlikte dağıtım paketleri. İçerdiği *ApplicationManifest.xml* ve uygulama yönetmek için PowerShell komut dosyaları.
+
+* **Arabirim proje (HelloWorld.Interfaces)**. Bu proje aktör arabirimi tanımını içerir. Aktör arabirimleri, herhangi bir ad ile herhangi bir projede tanımlanabilir.  Aktör uygulama ve aktör çağırma istemcileri tarafından paylaşılan aktör sözleşme arabirimi tanımlar.  İstemci projeleri bağımlı çünkü genellikle aktör uygulamasından farklı bir derlemede tanımlamak mantıklıdır.
+
+* **Aktör hizmeti projesi (HelloWorld)**. Bu proje aktör barındırmak için giderek Service Fabric hizmeti tanımlar. Aktör uyarlamasını içeren *HellowWorld.cs*. Taban türünden türeyen bir sınıf bir aktör uygulamasıdır `Actor` ve içinde tanımlanan arabirimlerini uygular *MyActor.Interfaces* projesi. Aktör sınıfı da kabul eden bir oluşturucu uygulamalıdır bir `ActorService` örneği ve bir `ActorId` ve tabanına geçirir `Actor` sınıfı.
+    
+    Bu projede de içeren *Program.cs*, böylece aktör sınıflarını kullanarak Service Fabric çalışma zamanı `ActorRuntime.RegisterActorAsync<T>()`. `HelloWorld` Sınıf zaten kayıtlı. Projeye eklenen ek aktör belirtilmesinden ayrıca kaydedilmelidir `Main()` yöntemi.
+
+## <a name="customize-the-helloworld-actor"></a>HelloWorld aktör özelleştirme
+
+Proje şablonu bazı yöntemleri tanımlar `IHelloWorld` arabirim ve bunları uygulayan `HelloWorld` aktör uygulama.  Bu yöntemlerin aktör hizmeti basit bir "Hello World" dize döndürecek şekilde değiştirin.
+
+İçinde *HelloWorld.Interfaces* içinde proje *IHelloWorld.cs* dosya, arabirim tanımı aşağıdaki gibi değiştirin:
 
 ```csharp
-public interface IMyActor : IActor
+public interface IHelloWorld : IActor
 {
-    Task<string> HelloWorld();
+    Task<string> GetHelloWorldAsync();
 }
 ```
 
-* **Aktör hizmeti projesi (MyActor)**. Aktör barındırmak için giderek Service Fabric hizmeti tanımlamak için kullanılan proje budur. Aktör uygulamasını içerir. Taban türünden türeyen bir sınıf bir aktör uygulamasıdır `Actor` ve MyActor.Interfaces projesinde tanımlanan arabirimlere uygulanır. Aktör sınıfı da kabul eden bir oluşturucu uygulamalıdır bir `ActorService` örneği ve bir `ActorId` ve tabanına geçirir `Actor` sınıfı. Bu oluşturucu bağımlılık ekleme platform bağımlılıklar için sağlar.
+İçinde **HelloWorld** içinde proje **HelloWorld.cs**, tüm sınıf tanımını aşağıdaki gibi değiştirin:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
+internal class HelloWorld : Actor, IHelloWorld
 {
-    public MyActor(ActorService actorService, ActorId actorId)
+    public HelloWorld(ActorService actorService, ActorId actorId)
         : base(actorService, actorId)
     {
     }
 
-    public Task<string> HelloWorld()
+    public Task<string> GetHelloWorldAsync()
     {
-        return Task.FromResult("Hello world!");
+        return Task.FromResult("Hello from my reliable actor!");
     }
 }
 ```
 
-Aktör hizmetinin Service Fabric çalışma zamanındaki bir hizmet türüne kaydedilmesi gerekir. Aktör hizmetinin aktör örneklerinizi çalıştırması için aktör türünüzün de aktör hizmetine kaydedilmesi gerekir. `ActorRuntime` kayıt yöntemi bu işi aktörlerin yerine gerçekleştirir.
+Tuşuna **Ctrl-Shift-B** projeyi oluşturun ve her şeyi emin olmak için derler.
 
-```csharp
-internal static class Program
-{
-    private static void Main()
+## <a name="add-a-client"></a>Bir istemci ekleyin
+
+Aktör hizmeti çağırmak için basit bir konsol uygulaması oluşturun.
+
+1. Çözüm Gezgini'ndeki çözüme sağ tıklayın > **Ekle** > **yeni proje...** .
+
+2. Altında **.NET Core** proje türleri, seçin **konsol uygulaması (.NET Core)**.  Proje adı *ActorClient*.
+    
+    ![Yeni Proje iletişim kutusu ekleme][6]    
+    
+    > [!NOTE]
+    > Bir konsol uygulaması genellikle istemci Service Fabric olarak kullanacağınız uygulama türü değil, ancak hata ayıklama ve yerel Service Fabric öykünücüsü kullanarak test etme için kullanışlı bir örnek sağlar.
+
+3. Konsol uygulaması arabirimi proje ve başka bir bağımlılık uyumluluğu korumak için 64 bit bir uygulama olmalıdır.  Çözüm Gezgini'nde sağ **ActorClient** proje ve ardından **özellikleri**.  Üzerinde **yapı** sekmesinde, ayarlamak **Platform hedefi** için **x64**.
+    
+    ![Özellikleri oluşturma][8]
+
+4. İstemci projesi güvenilir aktörler NuGet paketi gerektirir.  **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**’na tıklayın.  Paket Yöneticisi konsolunda aşağıdaki komutu girin:
+    
+    ```powershell
+    Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient
+    ```
+
+    NuGet paketi ve tüm bağımlılıklarını ActorClient projesinde yüklenir.
+
+5. İstemci projesi ayrıca arabirimleri projesine bir başvuru gerektirir.  ActorClient projeye sağ tıklayın **bağımlılıkları** ve ardından **Başvuru Ekle...** .  Seçin **projeleri > Çözüm** (seçili değilse) ve onay kutusunun yanındaki değer **HelloWorld.Interfaces**.  **Tamam** düğmesine tıklayın.
+    
+    ![Başvurusu Ekle iletişim kutusu][7]
+
+6. Tüm içeriğini ActorClient projesinde değiştirin *Program.cs* aşağıdaki kod ile:
+    
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using Microsoft.ServiceFabric.Actors;
+    using Microsoft.ServiceFabric.Actors.Client;
+    using HelloWorld.Interfaces;
+    
+    namespace ActorClient
     {
-        try
+        class Program
         {
-            ActorRuntime.RegisterActorAsync<MyActor>(
-                (context, actorType) => new ActorService(context, actorType, () => new MyActor())).GetAwaiter().GetResult();
-
-            Thread.Sleep(Timeout.Infinite);
-        }
-        catch (Exception e)
-        {
-            ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
-            throw;
+            static void Main(string[] args)
+            {
+                IHelloWorld actor = ActorProxy.Create<IHelloWorld>(ActorId.CreateRandom(), new Uri("fabric:/MyApplication/HelloWorldActorService"));
+                Task<string> retval = actor.GetHelloWorldAsync();
+                Console.Write(retval.Result);
+                Console.ReadLine();
+            }
         }
     }
-}
+    ```
 
-```
+## <a name="running-and-debugging"></a>Çalıştıran ve hata ayıklama
 
-Visual Studio'da yeni bir proje başlangıç ve yalnızca bir aktör tanımı varsa, kayıt Visual Studio'nun oluşturduğu kodu varsayılan olarak dahil edilir. Diğer aktörler hizmetinde tanımlarsanız kullanarak aktör kayıt eklemeniz gerekir:
+Tuşuna **F5** oluşturmak için dağıtmak ve Service Fabric geliştirme kümede uygulamayı yerel olarak çalıştırın.  Dağıtım işlemi sırasında devam eden görebilirsiniz **çıkış** penceresi.
 
-```csharp
- ActorRuntime.RegisterActorAsync<MyOtherActor>();
+![Service Fabric hata ayıklama çıktı penceresi][3]
 
-```
+Çıktı metin içerdiğinde *uygulama hazır*, ActorClient uygulaması kullanarak hizmeti test mümkündür.  Çözüm Gezgini'nde sağ tıklayın **ActorClient** proje ve ardından **hata ayıklama** > **başlangıç yeni örnek**.  Komut satırı uygulaması aktör hizmeti çıktısını görüntülemelidir.
+
+![Uygulama çıktısı][9]
 
 > [!TIP]
 > Service Fabric aktör çalışma zamanı bazı yayar [olaylar ve performans sayaçları ilgili aktör yöntemler](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Bunlar, tanılama ve performans izlemesi kullanışlıdır.
-> 
-> 
-
-## <a name="debugging"></a>Hata ayıklama
-Visual Studio için Service Fabric araçları yerel makinenizde hata ayıklama desteği. F5 tuşuna basmak tarafından bir hata ayıklama oturumu başlatabilirsiniz. Derlemeler (gerekirse) Visual Studio paketler. Ayrıca, yerel Service Fabric kümesi uygulamayı dağıtır ve hata ayıklayıcı ekler.
-
-Dağıtım işlemi sırasında devam eden görebilirsiniz **çıkış** penceresi.
-
-![Service Fabric hata ayıklama çıktı penceresi][3]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinmek [Reliable Actors Service Fabric platformundan kullanma](service-fabric-reliable-actors-platform.md).
 
-<!--Image references-->
+
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
+[6]: ./media/service-fabric-reliable-actors-get-started/new-console-app.png
+[7]: ./media/service-fabric-reliable-actors-get-started/add-reference.png
+[8]: ./media/service-fabric-reliable-actors-get-started/build-props.png
+[9]: ./media/service-fabric-reliable-actors-get-started/app-output.png

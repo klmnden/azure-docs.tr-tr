@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2017
-ms.author: elkuzmen
-ms.openlocfilehash: d0b7b34c64692110c1c0d54d4a4d8b9d4186449b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.date: 11/20/2017
+ms.author: bryanla
+ms.openlocfilehash: 8096ef553f6e425a7e872ce33120ba2f41c6475d
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Azure depolama erişim tuşu erişmek için bir Linux VM yönetilen hizmet kimliği kullanın
 
@@ -30,8 +30,11 @@ Bu öğretici bir Linux sanal makine için Yönetilen hizmet kimliği (MSI) etki
 > * Depolama hesabı erişim anahtarlarını Kaynak Yöneticisi'nde, VM erişim 
 > * VM kimliğini kullanarak bir erişim belirteci alın ve Kaynak Yöneticisi'nden depolama erişim tuşlarını almak için kullanın  
 
+## <a name="prerequisites"></a>Ön koşullar
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 Oturum açmak için Azure portalında [https://portal.azure.com](https://portal.azure.com).

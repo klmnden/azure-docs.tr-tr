@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/15/2017
 ms.author: eamono
-ms.openlocfilehash: 7cd6bebcaa1ed263b9854f7307cf22fba006748e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0ddd31f7ce2217c1136eccd391bb30bd4461c3e5
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-watcher-tasks-enable-you-to-respond-to-events-happening-in-your-local-datacenter"></a>Azure Otomasyonu İzleyici görevleri, yerel veri merkezinizde gerçekleştiği olaylara yanıt olanak sağlar
 
@@ -64,7 +64,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 ## <a name="create-a-watcher-task-that-selects-the-watcher-runbook-and-action-runbook"></a>Eylem runbook ve İzleyici runbook seçer bir izleyici görev oluşturma
 1.  İzleyici görevleri sayfasını açın ve "bir izleyici Görev Ekle" düğmesini tıklatın.
 ![İzleyici listeden kullanıcı Arabirimi](media/automation-watchers-tutorial/WatchersList.png)
-2.  "Yeni dosya adı olarak izleme" girin.
+2.  "WatchMyFolder" adı olarak girin.
 3.  "Yapılandırma İzleyicisi" ve "Watch-NewFile" runbook'u seçin.
 ![UI gelen İzleyici yapılandırma](media/automation-watchers-tutorial/ConfigureWatcher.png)
 4.  Aşağıdaki değerleri parametrelerini girin:
@@ -86,7 +86,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 2.  İzleyici görev tarafından izlenen klasörü için yeni bir metin dosyası ekleyin.
 
 ## <a name="inspect-the-output-from-the-action-runbook-that-shows-information-on-the-new-file"></a>Yeni dosyasını bilgileri gösterir eylem runbook çıkışı inceleyin.
-1.  İzleyici görev "İzleme yeni dosyalar" için tıklayın
+1.  İzleyici görevde "WatchMyFolder" için tıklatın
 2.  ' I tıklatın, "Görünüm İzleyici akışların" İzleyici yeni dosya bulundu ve eylem runbook'u başlatan görmek için.
 3.  Tıklayın "görünümü İzleyici eylem işlere" eylemi runbook işi görmek için.
 ![UI eylem işlerden İzleyicisi](media/automation-watchers-tutorial/WatcherActionJobs.png)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.openlocfilehash: 52cd6de5b6caa215ff1726d3099cb7c49576774f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 05b57a065f6d92c7c285ef5178b465dc8f419dbc
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle Service Fabric hakkında bilgi edinmek istiyorsunuz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, büyük bir yüzey alanı Service Fabric sahiptir ve öğrenmek için çok yok.  Bu makale, Service Fabric özeti sağlar ve modeller, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme programlama temel kavramlarını açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro nelerdir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro oluşturmak için nasıl kullanılabilir. Bu makalede kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve her Service Fabric alanı için Başlarken makaleleri bağlayın. 
@@ -91,7 +91,7 @@ Varsayılan olarak, Service Fabric dağıtır ve Hizmetleri işlemler olarak etk
 ### <a name="reliable-actors"></a>Reliable Actors
 Güvenilir hizmetler üstünde oluşturulmuş [güvenilir aktör](service-fabric-reliable-actors-introduction.md) çerçevedir aktör tasarım deseni temel alınarak sanal aktör deseni uygulayan bir uygulama çerçevesi. Güvenilir aktör çerçevesi yürütme aktörler olarak adlandırılan tek iş parçacıklı işlem ve durumunun bağımsız bir birim kullanır. Güvenilir bir çerçeve sağlar aktör iletişimi aktörler için yerleşik ve durumu kalıcılığını ve genişleme yapılandırmaları önceden ayarlanmış.
 
-### <a name="aspnet-core"></a>ASP.NET Core
+### <a name="aspnet-core"></a>ASP.NET Çekirdeği
 Service Fabric tümleşir [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) web ve API uygulamaları oluşturmak için birinci sınıf bir programlama modeli olarak.  ASP.NET Core Service Fabric iki farklı şekillerde kullanılabilir:
 
 - Bir konuk yürütülebilir dosya barındırılan. Bu, öncelikle hiçbir kod değişikliklerle Service Fabric mevcut ASP.NET Core uygulamaları çalıştırmak için kullanılır.
@@ -103,7 +103,7 @@ A [Konuk yürütülebilir](service-fabric-deploy-existing-app.md) olduğu diğer
 ## <a name="application-lifecycle"></a>Uygulama yaşam döngüsü
 Diğer platformlar ile bir uygulama Service Fabric genellikle aşağıdaki aşamaları geçtikçe: tasarım, geliştirme, test, dağıtım, yükseltme, Bakım ve kaldırma. Service Fabric, nihai yetkisini için bulut uygulamalarından, geliştirme aşamasından dağıtım, günlük yönetim ve Bakım tam uygulama yaşam döngüsü için birinci sınıf destek sağlar. Hizmet modeli bağımsız olarak uygulama yaşam döngüsü katılmak birçok farklı rol sağlar. [Service Fabric uygulama yaşam döngüsü](service-fabric-application-lifecycle.md) API'ler ve Service Fabric uygulama yaşam döngüsü aşamaları boyunca farklı rolleri tarafından nasıl kullanıldıkları hakkında genel bir bakış sağlar. 
 
-Tüm uygulama yaşam döngüsü kullanılarak yönetilebilir [PowerShell cmdlet'leri](/powershell/module/ServiceFabric/), [C# API'leri](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/system.fabric._application_management_client), ve [REST API'leri](/rest/api/servicefabric/). Gibi araçları kullanılarak sürekli tümleştirme/sürekli dağıtım ardışık düzen de ayarlayabilirsiniz [Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) veya [Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md).
+Tüm uygulama yaşam döngüsü kullanılarak yönetilebilir [PowerShell cmdlet'leri](/powershell/module/ServiceFabric/), [C# API'leri](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/system.fabric._application_management_client), ve [REST API'leri](/rest/api/servicefabric/). Gibi araçları kullanılarak sürekli tümleştirme/sürekli dağıtım ardışık düzen de ayarlayabilirsiniz [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) veya [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 Aşağıdaki Microsoft Virtual Academy video, uygulama yaşam döngüsü açıklar:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

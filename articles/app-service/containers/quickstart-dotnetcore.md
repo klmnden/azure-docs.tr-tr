@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1638c652c3508e9bc0e6ea95545d07a71d9e1b97
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c01b55e9548f9b2e2c7aca161afda42c2c248379
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux üzerinde App Service'te bir .NET Core web uygulaması oluşturma
 
@@ -34,8 +34,8 @@ Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirs
 
 Bu hızlı başlangıcı tamamlamak için:
 
-* [Git'i yükleyin](https://git-scm.com/)
-* [.NET Core SDK yükleme](https://www.microsoft.com/net/download/core)
+* <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
+* <a href="https://www.microsoft.com/net/download/core" target="_blank">.NET Core SDK yükleme</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

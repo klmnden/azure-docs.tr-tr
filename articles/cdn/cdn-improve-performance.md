@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN dosyaları sıkıştırarak performansı
 Sıkıştırma, dosya aktarım hızını artırmak ve sunucudan gönderilmeden önce dosya boyutunu azaltarak sayfa yükleme performansı artırmak için basit ve etkili bir yöntemdir. Bant genişliği maliyetlerini düşürür ve kullanıcılarınız için daha esnek bir deneyim sağlar.
@@ -100,7 +100,7 @@ Bu tablo her senaryo için Azure CDN sıkıştırma davranışı açıklar.
 > * 128 bayttan büyük olmalıdır.
 > * 1 MB'tan küçük olmalıdır.
 > 
-> Bu profiller Destek **gzip** (GNU zip) **deflate**, **bzıp2**, veya **br** (Brotli) kodlama. Brotli kodlama için sıkıştırma yalnızca sınırında yapılır. İstemci/tarayıcı Brotli kodlama için istek göndermesi gerekir ve sıkıştırılmış varlık kaynak tarafında ilk sıkıştırılmış gerekir. 
+> Bu profiller Destek **gzip** (GNU zip) **deflate**, **bzıp2**, veya **br** (Brotli) kodlama. Brotli kodlama için sıkıştırma sırasında kaynak yapılmalıdır. İstemci/tarayıcı Brotli kodlama için istek göndermesi gerekir ve sıkıştırılmış varlık kaynak tarafında ilk sıkıştırılmış gerekir. 
 
 > [!IMPORTANT]
 > İçin **akamai'den Azure CDN** profilleri, tüm dosyaları sıkıştırma için uygun. Ancak, bir dosya bırakıldı bir MIME türü olmalıdır [sıkıştırma için yapılandırılmış](#enabling-compression).

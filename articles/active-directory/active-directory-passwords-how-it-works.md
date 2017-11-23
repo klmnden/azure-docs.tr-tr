@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 19518ad8dc2d697f1716750adc3f0ad7d7f8a875
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self Servis parola sıfırlama Azure AD derin Dalış
 
@@ -207,7 +207,7 @@ Bu seçenek belirlenirse, **Evet**, ardından *tüm yöneticiler* Azure AD için
 
 ## <a name="on-premises-integration"></a>Şirket içi tümleştirme
 
-Yükleme, yapılandırma ve Azure AD Connect etkinleştirirseniz, şirket içi tümleştirmeler için aşağıdaki ek seçeneğiniz vardır. Bu seçenekler griyse sonra geri yazma düzgün yapılandırılmamış. Daha fazla bilgi için bkz: [parola geri yazma yapılandırma](active-directory-passwords-writeback.md#configuring-password-writeback).
+Yükleme, yapılandırma ve Azure AD Connect etkinleştirirseniz, şirket içi tümleştirmeler için aşağıdaki ek seçeneğiniz vardır. Bu seçenekler griyse sonra geri yazma düzgün yapılandırılmamış. Daha fazla bilgi için bkz: [parola geri yazma yapılandırma](active-directory-passwords-writeback.md#configure-password-writeback).
 
 ![Geri yazma][Writeback]
 
@@ -217,7 +217,7 @@ Bu sayfa bir hızlı geçerli yapılandırmasını temel alarak aşağıdaki ile
 * Azure AD çevrimiçi olduğundan ve şirket içi geri yazma istemciniz bağlanır. Ancak, Azure AD Connect yüklü olan sürümü güncel değil gibi görünüyor. Göz önünde bulundurun [yükseltme Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) önemli hata düzeltmeleri ve en son bağlantı özellikleri olmasını sağlamak için.
 * Ne yazık ki, Azure AD Connect yüklü olan sürümü güncel olduğundan biz şirket içi geri yazma istemci durumunuzu denetlenemiyor. [Azure AD Connect yükseltme](./connect/active-directory-aadconnect-upgrade-previous-version.md) bağlantı durumunuzu denetlemek için.
 * Ne yazık ki, şirket içi geri yazma istemciniz şu an bağlanamıyoruz gibi görünüyor. [Azure AD Connect sorun giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.
-* Ne yazık ki, parola geri yazma düzgün yapılandırılmamış olduğundan, şirket içi geri yazma istemciye bağlanamıyoruz. [Parola geri yazma yapılandırma](active-directory-passwords-writeback.md#configuring-password-writeback) bağlantı geri yüklemek için.
+* Ne yazık ki, parola geri yazma düzgün yapılandırılmamış olduğundan, şirket içi geri yazma istemciye bağlanamıyoruz. [Parola geri yazma yapılandırma](active-directory-passwords-writeback.md#configure-password-writeback) bağlantı geri yüklemek için.
 * Ne yazık ki, şirket içi geri yazma istemciniz şu an bağlanamıyoruz gibi görünüyor. Bu bizim uçtaki geçici sorunlardan dolayı olabilir. Sorun devam ederse [sorun giderme Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) bağlantı geri yüklemek için.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Şirket içi dizininize parolaları geri Yaz
@@ -248,12 +248,12 @@ Bu senaryoyu test etmek için bu iş ortağı kullanıcılar biriyle http://pass
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki makaleler parola sıfırlama Azure AD ile ilgili ek bilgiler sağlar:
+Aşağıdaki makaleler, Azure AD aracılığıyla parola sıfırlama konusunda ek bilgiler sağlar:
 
 * [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
 * [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
 * [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
-* [Lisans soru var mı?](active-directory-passwords-licensing.md)
+* [Lisansla ilgili bir sorunuz mu var?](active-directory-passwords-licensing.md)
 * [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
 * [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)

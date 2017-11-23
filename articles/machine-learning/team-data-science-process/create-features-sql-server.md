@@ -4,7 +4,7 @@ description: "SQL Azure işlem verileri"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;fashah;garye
-ms.openlocfilehash: 06c165d25361694cf660f391b3d221ad1d63e95d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd919e7f87080b8c4ad1f8d3de26d6f71470a264
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL ve Python kullanarak SQL Server’daki verilerin özelliklerini oluşturma
-Bu belgede daha verimli bir şekilde verilerden öğrenmeyi algoritmaları Yardım Azure üzerinde bir SQL Server VM depolanan veriler için özellikleri oluşturmak nasıl gösterir. Bu SQL kullanarak veya Python, her ikisi de aşağıda gösterildiği gibi bir programlama dili kullanılarak yapılabilir.
+Bu belgede daha verimli bir şekilde verilerden öğrenmeyi algoritmaları Yardım Azure üzerinde bir SQL Server VM depolanan veriler için özellikleri oluşturmak nasıl gösterir. SQL veya Python gibi bir programlama dili, bu görevi gerçekleştirmek için kullanabilirsiniz. Her iki yaklaşımın burada gösterilmiştir.
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
@@ -50,7 +50,7 @@ Bu bölümde, SQL kullanarak özellik oluşturmanın yolları açıklanmaktadır
 > 
 > 
 
-### <a name="sql-countfeature"></a>Özellik oluşturma sayısına dayalı
+### <a name="sql-countfeature"></a>Temel sayısı özelliği oluşturma
 Bu belge sayısı özellikleri oluşturmanın iki yolu gösterir. İlk yöntem Koşullu Toplama ve ikinci yöntem 'where' yan tümcesi kullanır. Bunlar ardından (birincil anahtar sütunlarını kullanarak) özgün tabloyla özgün verilerin yanı sıra sayısı özelliğiniz katılabilir.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
@@ -65,22 +65,22 @@ Aşağıdaki örnek, bir özellik olarak bunun yerine kullanılabilir sayısal b
 
 
 ### <a name="sql-featurerollout"></a>Tek bir sütundan özellikleri alınıyor
-Bu bölümde, nasıl tek bir sütun ek özellikler oluşturmak için bir tabloda üretimini gösterilmektedir. Örnek özellikleri Oluştur çalıştığınız tabloda enlem veya boylam bir sütun olduğunu varsayar.
+Bu bölümde nasıl ek özellikler oluşturmak için bir tablo tek bir sütunda çıkışı alınacağı gösterilmektedir. Örnek özellikleri Oluştur çalıştığınız tabloda enlem veya boylam bir sütun olduğunu varsayar.
 
-Enlem/boylam konumu verileri kısa öncü İşte (stackoverflow kaynak var `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Bu konum alanı önce featurizing anlamak kullanışlıdır:
+Enlem/boylam konumu verileri kısa öncü İşte (stackoverflow kaynak var `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Konum verileri hakkında alanından özellikleri oluşturmadan önce anlamak için yararlı bazı şeyleri burada bulabilirsiniz:
 
-* Oturum açma bize olup olmadığını biz Kuzey Güney, Doğu ya veya Batı üzerinde dünya söyler.
-* Sıfır olmayan bir yüzlerce basamağın yuvarlanacağını belirtir bize biz boylam değil enlem kullanmakta olduğunuz!
-* On basamak yaklaşık 1.000 kilometre için bir konum sağlar. Bize ne kıtada veya üzerinde duyuyoruz Okyanusu hakkında yararlı bilgiler sağlar.
-* Birimleri basamak (bir ondalık derece) 111 kilometre (60 Deniz mili, yaklaşık 69 mil) bir konum sağlar. Bu kabaca hangi büyük durumunun veya biz bulunan ülke bize.
+* Oturum açma olup olmadığını biz Kuzey Güney, Doğu ya veya Batı dünya üzerindeki gösterir.
+* Sıfır olmayan bir yüzlerce basamak boylam gösterir, değil enlem kullanılıyor.
+* On basamak yaklaşık 1.000 kilometre için bir konum sağlar. Hangi kıtada veya üzerinde duyuyoruz Okyanusu hakkında yararlı bilgiler sağlar.
+* Birimleri basamak (bir ondalık derece) 111 kilometre (60 Deniz mili, yaklaşık 69 mil) bir konum sağlar. Bu, kabaca, hangi büyük durumu veya biz bulunan ülke gösterir.
 * En fazla 11.1 km ilk ondalık yerdir: komşu büyük Şehir'dan büyük bir şehir konumunu ayırt edebilirsiniz.
 * İkinci ondalık en fazla 1.1 km yerdir: sonraki bir village ayırabilirsiniz.
 * Üçüncü ondalık en fazla 110 m: büyük agricultural alan veya Kurumsal kampüs tanımlayabilirsiniz yerdir.
 * Dördüncü ondalık 11 m: kara paket tanımlayabilirsiniz yerdir. Hiçbir girişim ile karşılaştırılabilir bir düzeltilemeyen GPS birimi tipik doğruluğu için.
-* En fazla 1.1 m: beşinci ondalık basamak olduğu ağaçlar birbirinden ayırt etmek. Bu düzey ticari GPS birimleri ile doğruluğu yalnızca fark düzeltmeyle elde edilebilir.
+* Beşinci ondalık en fazla 1.1 m: ağaçları birbirinden ayırt yerdir. Bu düzey ticari GPS birimleri ile doğruluğu yalnızca fark düzeltmeyle elde edilebilir.
 * Altıncı ondalık en fazla 0.11 m: Bu yapıları Windows'un, tasarlamak için ayrıntılı yerleştirmek için yollar oluşturma kullanabilirsiniz yerdir. Glaciers ve rivers hareketlerini izlemek için birden çok iyi yeterli olmalıdır. Bu differentially düzeltilmiş GPS gibi GPS ile painstaking ölçüleri gerçekleştirerek elde edilebilir.
 
-Konum bilgileri featurized gibi bölge, konum ve Şehir bilgilerini ayırma olabilir. Bir kez Bing Haritalar API'si adresinde gibi bir REST uç noktası da çağırabilir Not `https://msdn.microsoft.com/library/ff701710.aspx` bölge/bölge bilgileri alınacak.
+Konum bilgileri, bölge, konum ve Şehir bilgilerini ayırarak featurized olabilir. Bir kez Bing Haritalar API'si adresinde gibi bir REST uç noktası da çağırabilir Not `https://msdn.microsoft.com/library/ff701710.aspx` bölge/bölge bilgileri alınacak.
 
     select
         <location_columnname>
@@ -93,10 +93,10 @@ Konum bilgileri featurized gibi bölge, konum ve Şehir bilgilerini ayırma olab
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Yukarıdaki göre konumuna özellikleri daha fazla ek sayısı özellikleri daha önce açıklandığı gibi oluşturmak için kullanılabilir.
+Bu konum tabanlı özellikleri daha fazla ek sayısı özellikleri daha önce açıklandığı gibi oluşturmak için kullanılabilir.
 
 > [!TIP]
-> Program aracılığıyla dilinizi tercih kullanarak kayıtları ekleyebilirsiniz. Veri yazma verimliliğini artırmak için yığınlar halinde eklemek gerekebilir [pyodbc burada kullanarak bunu nasıl örnek denetleyin](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> Program aracılığıyla dilinizi tercih kullanarak kayıtları ekleyebilirsiniz. Veri yazma verimliliğini artırmak için yığınlar halinde eklemek gerekebilir. [Örneği pyodbc kullanarak bunu nasıl](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 > Verileri kullanarak veritabanı eklemek için başka bir alternatiftir [BCP yardımcı programı](https://msdn.microsoft.com/library/ms162802.aspx)
 > 
 > 
@@ -104,10 +104,10 @@ Yukarıdaki göre konumuna özellikleri daha fazla ek sayısı özellikleri daha
 ### <a name="sql-aml"></a>Azure Machine Learning ile bağlanma
 Yeni oluşturulan özellik bir sütun olarak var olan bir tabloya eklenebilir veya yeni bir tabloda depolanır ve machine learning için özgün tabloyla katılmış. Özellikler oluşturulan ya da zaten oluşturduysanız, kullanılarak erişilir [veri içeri aktarma](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) aşağıda gösterildiği gibi Azure ML modülünde:
 
-![azureml okuyucuları](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
+![Azure ML okuyucuları](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
 ## <a name="python"></a>Python gibi programlama dilini kullanma
-Veriler SQL Server'da olduğunda özellikleri oluşturmak için Python kullanarak benzer açıklandığı gibi Python kullanarak Azure blob veri işleme için [, veri bilimi ortamında işlem Azure Blob verileri](data-blob.md). Veriler veritabanından pandas veri çerçeveye yüklenmesi gerektiğini ve ardından daha fazla işlenebilir. Biz, veritabanına bağlanmak ve bu bölümdeki verileri çerçevesine veri yükleme işleminde belge.
+Veriler SQL Server'da olduğunda özellikleri oluşturmak için Python kullanarak Python kullanarak Azure blob veri işleme için benzer. Karşılaştırma için bkz: [veri bilimi ortamınızdaki işlem Azure Blob veri](data-blob.md). Verileri veritabanından daha fazla işlem için bir pandas veri çerçevesine yükleyin. Veritabanına bağlanma ve verileri çerçeveye veri yükleme işlemi, bu bölümünde belgelenmiştir.
 
 Aşağıdaki bağlantı dizesi biçimi Python pyodbc (Değiştir servername, dbname, kullanıcı adı ve parola, belirli değerleri içeren) kullanarak bir SQL Server veritabanına bağlanmak için kullanılabilir:
 

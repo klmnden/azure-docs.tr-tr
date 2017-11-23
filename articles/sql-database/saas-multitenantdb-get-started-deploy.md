@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: bc96221abf62677b53df43daa44a925ac5792043
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulama keşfedin
 
@@ -120,7 +120,7 @@ Uygulama, etkinliklerin düzenlendiği konser salonları, caz kulüpleri, spor k
 Merkezi bir **olay hub'ı** belirli dağıtımınızdaki kiracılar bağlantıların listesini sağlar.
 
 1. Açık *olay hub'ı* web tarayıcınızda:
-    - http://Events.Wingtip. &lt;Kullanıcı&gt;. trafficmanager.net &nbsp; *(dağıtımınızın kullanıcı değerle değiştirin.)*
+    - http://Events.Wingtip-MT.&lt;kullanıcı&gt;. trafficmanager.net &nbsp; *(dağıtımınızın kullanıcı değerle değiştirin.)*
 
     ![olay hub’ı](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Merkezi bir **olay hub'ı** belirli dağıtımınızdaki kiracılar bağlantıla
 
 Gelen istekleri, uygulamanın kullandığı dağıtımını denetlemek için [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Kiracı özgü, olayları sayfaları URL'de Kiracı adını içerir. URL'leri de belirli, kullanıcı değeri içerir ve bu biçim izleyin:
 
-- http://Events.Wingtip. &lt;Kullanıcı&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://Events.Wingtip-MT.&lt;kullanıcı&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 Olayları uygulama URL'den Kiracı adı ayrıştırır ve Kataloğu'nu kullanarak erişmek için bir anahtar oluşturmak üzere karma hale [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md). Katalog kiracının veritabanı konumu için anahtar eşler. **Olay hub'ı** ve kataloğa kayıtlı tüm kiracılar listeler. **Olay hub'ı** URL'leri oluşturmak için her eşleme ile ilişkili kiracının adını almak için katalogda genişletilmiş meta verilerini kullanır.
 
@@ -156,7 +156,7 @@ Farklı parametre değerleri kullanmak için yük Oluşturucu oturumu yeniden is
 
 İlk üç örnek kiracılar içeren *Tenants1* veritabanı. Bu dağıtılmış uygulamanın nasıl etkilediğini görmek için başka bir kiracı oluşturalım. Bu adımda, yeni bir kiracı hızla oluşturun.
 
-1. Aç... \\Modules\Provision ve Katalog öğrenme\\*Demo ProvisionTenants.ps1* içinde *PowerShell ISE*.
+1. Aç... \\Modules\ProvisionTenants öğrenme\\*Demo ProvisionTenants.ps1* içinde *PowerShell ISE*.
 2. Tuşuna **F5** komut dosyasını çalıştırmak için (şu an için varsayılan değerleri bırakın).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ Parçalı çok kiracılı bir model, bir veritabanında yeni bir kiracı sağlam
 
 Şimdi biz başka bir kiracı, bu süre, kendi veritabanındaki sağlayın.
 
-1. İçinde... \\Öğrenme modülleri\\sağlamak ve Katalog\*Demo-ProvisionTenants.ps1* değiştirme *$TenantName* için **Salix Salsa**, *$VenueType*  için **dance** ve *$Scenario* için **2**.
+1. İçinde... \\Öğrenme modülleri\\ProvisionTenants\\*Demo ProvisionTenants.ps1*, değişiklik *$TenantName* için **Salix Salsa**,  *$VenueType* için **dance** ve *$Scenario* için **2**.
 
 2. Tuşuna **F5** betiği yeniden çalıştırmak için.
     - Bu F5 tuşuna ayrı bir veritabanında yeni Kiracı sağlar. Veritabanı ve Kiracı katalogda kaydedilir. Ardından tarayıcı Kiracı olayları sayfası açılır.
@@ -239,7 +239,7 @@ Bu öğreticide şunları öğrendiniz:
 > - Kiracı etkinliğini izlemek için havuz kullanımını görüntüleme
 > - İlgili faturalandırmayı durdurmak için örnek kaynakları silme
 
-Şimdi deneyin [sağlamak ve kataloğu Öğreticisi](sql-database-saas-tutorial-provision-and-catalog.md).
+Şimdi deneyin [sağlama kiracılar Öğreticisi](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 

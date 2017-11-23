@@ -4,7 +4,7 @@ description: "Bir Azure Hdınsight Hadoop kümesinde depolanan verilerin özelli
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: a967a8fccfe0dc051a7cf3a4a2fcefad2a2f187f
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 91ea23b732f520b02af7e9a9dd77ee62190a520c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Hive sorgularını kullanarak bir Hadoop kümesindeki verilerin özelliklerini oluşturma
-Bu belge Hive sorgularını kullanarak, Azure Hdınsight Hadoop kümesi depolanan verilerin özelliklerini oluşturulacağını gösterir. Bu Hive sorguları katıştırılmış Hive kullanıcı tanımlı olduğu için komut dosyalarını sağlanan işlevler (UDF'ler) kullanın.
+# <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive sorgularını kullanarak bir Hadoop kümesinde veri özellikleri oluşturma
+Bu belge Hive sorgularını kullanarak, Azure Hdınsight Hadoop kümesi depolanan verilerin özelliklerini oluşturulacağını gösterir. Bu Hive sorguları katıştırılmış Hive User-Defined olduğu için komut dosyalarını sağlanan işlevler (UDF'ler) kullanın.
 
 Özellikleri oluşturmak için gereken işlem bellek yoğun olabilir. Hive sorguları performansını bu gibi durumlarda daha önemli hale gelir ve belirli parametreleri ayarlama tarafından geliştirilebilir. Bu parametreleri ayarlama son bölümünde ele alınmıştır.
 
@@ -36,7 +36,7 @@ Bu makalede, sahip olduğunuz varsayılmaktadır:
 
 * Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 * Özelleştirilmiş bir Hadoop kümesine Hdınsight hizmetiyle sağlandı.  Yönergeler gerekiyorsa bkz [Advanced Analytics için Azure Hdınsight Hadoop kümeleri özelleştirme](customize-hadoop-cluster.md).
-* Azure Hdınsight Hadoop kümeleri Hive tabloları için verileri karşıya yüklendi. Bunu henüz yoksa, lütfen izleyin [Hive tabloları oluşturma ve yük verileri](move-hive-tables.md) verileri ilk Hive tablolara yüklemek için.
+* Azure Hdınsight Hadoop kümeleri Hive tabloları için verileri karşıya yüklendi. Henüz gelmemiş izleyin [Hive tabloları oluşturma ve yük verileri](move-hive-tables.md) verileri ilk Hive tablolara yüklemek için.
 * Küme uzak erişim etkin. Yönergeler gerekiyorsa bkz [Hadoop küme baş düğümü erişim](customize-hadoop-cluster.md).
 
 ## <a name="hive-featureengineering"></a>Özellik oluşturma
@@ -63,7 +63,7 @@ Genellikle, bir kategorik değişken düzeylerini sıklıkları veya birden çok
 
 
 ### <a name="hive-riskfeature"></a>İkili sınıflandırma kategorik değişkenlerin riskleri
-İkili sınıflandırma biz yalnızca kullanılan modelleri sayısal özellikleri zaman sayısal olmayan kategorik değişkenleri sayısal özelliklerini dönüştürmeniz gerekir. Bu, her bir sayısal olmayan düzeyi ile sayısal bir risk değiştirerek gerçekleştirilir. Bu bölümde bir kategorik değişkenin risk değerleri (günlük büyük olasılıkla) hesaplama bazı genel Hive sorguları gösterir.
+Yalnızca kullanılan modelleri sayısal özellikleri zaman ikili sınıflandırmasında sayısal olmayan kategorik değişkenleri sayısal özelliklerini dönüştürülmesi gerekir. Bu dönüştürme ile sayısal bir risk her sayısal olmayan düzeyi değiştirerek yapılır. Bu bölümde bir kategorik değişkenin risk değerleri (günlük büyük olasılıkla) hesaplama bazı genel Hive sorguları gösterir.
 
         set smooth_param1=1;
         set smooth_param2=20;
@@ -134,34 +134,44 @@ Bu sorguda kullanılan adlı, toplama ve dropoff konumları GPS koordinatları a
         and dropoff_latitude between 30 and 90
         limit 10;
 
-İki GPS koordinatları arasındaki uzaklığı hesaplamak matematiksel denklemini bulunabilir <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">taşınabilir tür betikleri</a> Peter Lapisu tarafından yazılan site. Kendi JavaScript'te işlevi `toRad()` tıpkı *lat_or_lon*pi/180 *, radyan için derece dönüştürür. Burada, *lat_or_lon* enlem veya boylam. Hive işlevi sağlamadığından `atan2`, ancak işlev sağlar `atan`, `atan2` işlevi tarafından gerçekleştirilir `atan` sağlanan tanımı kullanılarak yukarıdaki Hive sorgusu işlevinde <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+İki GPS koordinatları arasındaki uzaklığı hesaplamak matematiksel denklemini bulunabilir <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">taşınabilir tür betikleri</a> Peter Lapisu tarafından yazılan site. Bu Javascript işlevi içinde `toRad()` tıpkı *lat_or_lon*pi/180 *, radyan için derece dönüştürür. Burada, *lat_or_lon* enlem veya boylam. Hive işlevi sağlamadığından `atan2`, ancak işlev sağlar `atan`, `atan2` işlevi tarafından gerçekleştirilir `atan` sağlanan tanımı kullanılarak yukarıdaki Hive sorgusu işlevinde <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Çalışma alanı oluşturma](./media/create-features-hive/atan2new.png)
 
 Katıştırılmış UDF'ler bulunabilir Hive tam listesi **yerleşik işlevler** bölümünde <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a>Gelişmiş konular: ayarlama Hive parametreleri sorgu hızını artırmak için
-Varsayılan parametre ayarları Hive kümesinin Hive sorguları ve sorguları işlerken veri için uygun olmayabilir. Bu bölümde, Hive sorguları performansını kullanıcılar ayarlayabilirsiniz bazı parametreler açıklanmaktadır. Kullanıcıların veri işleme sorguları önce sorguları ayarlama parametresini eklemeniz gerekir.
+## <a name="tuning"></a>Gelişmiş konular: Sorgu hızını artırmak için ayarlama Hive parametreleri
+Varsayılan parametre ayarları Hive kümesinin Hive sorguları ve sorguları işlerken veri için uygun olmayabilir. Bu bölümde, kullanıcıların Hive sorguları performansını artırmak için ayarlayabilirsiniz bazı parametreler açıklanmaktadır. Kullanıcıların veri işleme sorguları önce sorguları ayarlama parametresini eklemeniz gerekir.
 
-1. **Java yığın alanı**: büyük veri kümeleri katılma veya uzun kayıtlarının işlenmesinden içeren sorgular için **yığın alana sahip** sık karşılaşılan biridir. Bu parametreleri ayarlayarak ayarlanabilecek *mapreduce.map.java.opts* ve *mapreduce.task.io.sort.mb* istenen değerleri için. Örnek aşağıda verilmiştir:
+1. **Java yığın alanı**: büyük veri kümeleri katılma veya uzun kayıtlarının işlenmesinden içeren sorgular için **yığın alana sahip** sık karşılaşılan biridir. Bu hata parametrelerini ayarlayarak önlenebilir *mapreduce.map.java.opts* ve *mapreduce.task.io.sort.mb* istenen değerleri için. Örnek aşağıda verilmiştir:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Bu parametre, Java yığın alanı için 4 GB bellek ayırır ve ayrıca sıralama daha verimli daha fazla bellek ayırarak hale getirir. Başarısızlık hatalarını yığın alanı ilgili herhangi bir işi varsa bu ayırma ile yürütmek için iyi bir fikirdir.
 
-1. **DFS bloğu boyutunu**: Bu parametre en küçük birim dosya sistemi depolar veri ayarlar. DFS blok boyutu 128 MB, ardından tüm veri boyutuna ve kadar küçükse örnek olarak, 128 MB ek blokları ayrılan büyük veriler tek bir blok 128MB depolanır. Dosyaya ilgili ilgili blok bulmak için çok daha fazla isteklerini işlemek ad düğümü olduğu için çok küçük blok boyutu seçme büyük ek yüklerini Hadoop neden olur. Bir önerilen ilgilenme gigabayt ile (veya daha büyük olduğunda) ayarı veriler:
-   
+1. **DFS bloğu boyutunu**: Bu parametre en küçük birim dosya sistemi depolar veri ayarlar. DFS blok boyutu 128 MB, ardından tüm veri boyutuna ve kadar küçükse örnek olarak, tek bir blok 128 MB depolanır. 128 MB ek blokları ayrılan büyük veriler. 
+2. Dosyaya ilgili ilgili blok bulmak için çok daha fazla isteklerini işlemek ad düğümü olduğu için bir küçük blok boyutu seçme büyük ek yüklerini Hadoop neden olur. Bir önerilen ilgilenme gigabayt ile (veya daha büyük olduğunda) ayarı veriler:
+
         set dfs.block.size=128m;
+
 2. **Hive katılma işleminde en iyi duruma getirme**: birleştirme işlemleri harita/azaltın Framework'te azaltın aşamasında, bazen yer genellikle alırken muazzam kazançlar ("mapjoins" olarak da bilinir) harita aşamasında birleştirmeler zamanlayarak sağlanabilir. Mümkün olduğunda bunun için Hive yönlendirecek şekilde ayarlayın:
    
-        set hive.auto.convert.join=true;
+       set hive.auto.convert.join=true;
+
 3. **Hive mappers sayısını belirterek**: sırada Hadoop reducers sayısını ayarlamak kullanıcı sağlar, mappers sayısı genellikle kullanıcı tarafından değil ayarlanabilir. Bu sayı denetiminde bazı derecesini izin veren bir eli Hadoop değişkenleri seçmektir *mapred.min.split.size* ve *mapred.max.split.size* her eşleme boyutu görev tarafından belirlenir:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    
-    Genellikle, varsayılan değeri *mapred.min.split.size* 0 ' dır, *mapred.max.split.size* olan **Long.MAX** ve *dfs.block.size* 64 MB'tır. Veri boyutu verilen görebiliriz gibi "ayarlayarak" Bu parametreleri ayarlama sağlar bize kullanılan mappers sayısını ayarlamak.
-4. Diğer birkaç daha **Gelişmiş Seçenekler** Hive en iyi duruma getirme için performans belirtilen aşağıda. Bu harita ve görevleri azaltmak için ayrılan bellek ayarlamanıza olanak sağlar ve performans uyguladıkça yararlı olabilir. Lütfen aklınızda *mapreduce.reduce.memory.mb* Hadoop kümesindeki her bir çalışan düğümünün fiziksel bellek boyutundan büyük olamaz.
+    Genellikle, varsayılan değeri:
+    
+    - *mapred.Min.split.size* 0 ' dır,
+    - *mapred.max.split.size* olan **Long.MAX** ve 
+    - *DFS.Block.size* 64 MB'tır.
+
+    Veri boyutu verilen görebiliriz gibi "ayarlayarak" Bu parametreleri ayarlama sağlar bize kullanılan mappers sayısını ayarlamak.
+
+4. İşte birkaç daha **Gelişmiş Seçenekler** Hive performansını iyileştirmek için. Bu harita ve görevleri azaltmak için ayrılan bellek ayarlamanıza olanak sağlar ve performans uyguladıkça yararlı olabilir. Aklınızda *mapreduce.reduce.memory.mb* Hadoop kümesindeki her bir çalışan düğümünün fiziksel bellek boyutundan büyük olamaz.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

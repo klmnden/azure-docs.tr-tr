@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ec9e0fc7d67537a47d5c0d3bb376b60dc6ccffcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8528eeb4eac8397beaa3d0dca37ce9eb33167b32
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-operational-security"></a>Azure işlem güvenliği
 ## <a name="introduction"></a>Giriş
@@ -35,7 +35,7 @@ Oluşturmanıza veya BT varlıklarına geçirmek, uygulamalar ve hizmetler ve de
 
 Azure'nın altyapı tesis aynı anda milyonlarca müşteri barındırmak için uygulamalar için tasarlanmıştır ve güvenlik gereksinimlerine bağlı işletmeler karşılayabilecek güvenilir bir temel sağlar. Ayrıca, Azure ile geniş bir yelpazesini yapılandırılabilir güvenlik seçenekleri ve kuruluşunuzun dağıtımları benzersiz gereksinimlerini karşılamak için güvenlik özelleştirebilirsiniz böylece bunları denetleme olanağı sağlar. Bu belge, nasıl Azure güvenliği anlamanıza yardımcı özellikler, bu gereksinimleri karşılamak yardımcı.
 
-### <a name="abstract"></a>Özet
+### <a name="abstract"></a>Soyut
 Azure işletimsel güvenlik hizmetleri, denetimleri ve kullanıcılar için kullanılabilir özellikler verilerini, uygulamaları ve diğer Microsoft Azure varlıkları korumak için ifade eder. Azure işlem güvenliği Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center programı da dahil olmak üzere Microsoft'a özgü çeşitli özellikleri aracılığıyla elde edilen bilgilerden içerir çerçevesi üzerine inşa edilmiştir, ve siber güvenlik tehdit derin farkındalığınızı.
 
 Bu teknik incelemede Azure işletimsel güvenlik Microsoft'un yaklaşımı Microsoft Azure bulut platformu içinde özetler ve hizmetleri içerir:
@@ -263,7 +263,7 @@ Storage Analytics tarafından gerçekleştirilen aşağıdaki eylemler Faturalan
 
 Kimliği doğrulanmış ve anonim istek aşağıdaki türlerini günlüğe kaydedilir.
 
-| Kimlik doğrulaması  | Anonim|
+| Kimliği Doğrulandı  | Anonim|
 | :------------- | :-------------|
 | Başarılı istekler | Başarılı istekler |
 |İstek zaman aşımı, azaltma, ağ, yetkilendirme ve başka hatalar da dahil olmak üzere, başarısız oldu | Başarılı ve başarısız istekleri dahil olmak üzere paylaşılan erişim imzası (SAS), kullanarak istekleri |

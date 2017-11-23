@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 87d65479960cd6b5977fd7ac31cbb71afc0959e2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Azure içerik teslim ağı'nda web içeriğinin kullanım süresini yönetme
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/16/2017
 Kendi yaşam süresi (TTL) geçen kadar herhangi bir genel olarak erişilebilir kaynak web sunucusuna dosyalarından Azure içerik teslim ağı (CDN) önbelleğe alınabilir. TTL değeri tarafından belirlenir `Cache-Control` kaynak sunucudan HTTP yanıt üstbilgisi. Bu makalede nasıl ayarlanacağını açıklar `Cache-Control` Microsoft Azure App Service, Azure bulut Hizmetleri, ASP.NET uygulamaları ve bunların tümü benzer şekilde yapılandırılmış, Internet Information Services (IIS) siteleri Web Apps özelliği için üstbilgiler. Ayarlayabileceğiniz `Cache-Control` üstbilgisi yapılandırma dosyalarını kullanarak veya program aracılığıyla.
 
 > [!TIP]
-> Bir dosyada hiçbir TTL ayarlamayı da seçebilirsiniz. Bu durumda, Azure CDN varsayılan TTL yedi gün otomatik olarak uygular.
+> Bir dosyada hiçbir TTL ayarlamayı da seçebilirsiniz. Bu durumda, Azure CDN varsayılan TTL yedi gün otomatik olarak uygular. Bu varsayılan TTL yalnızca genel web teslim iyileştirmeler için geçerlidir. Büyük dosya en iyi duruma getirme, varsayılan TTL bir gündür ve en iyi duruma getirme akış medya için TTL bir yıl varsayılandır.
 > 
 > Azure CDN dosyaları ve diğer kaynaklara erişimi hızlandırmak için nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure içerik teslim ağı'ne genel bakış](cdn-overview.md).
 > 

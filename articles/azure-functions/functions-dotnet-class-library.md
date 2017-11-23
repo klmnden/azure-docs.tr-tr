@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Azure işlevleriyle .NET sınıf kitaplıkları kullanma
 
@@ -37,7 +37,7 @@ Bu makalede aşağıdaki önkoşullar vardır:
 
 Visual Studio'da yeni bir Azure işlevleri projesi oluşturun. Yeni Proje şablonu dosyaları oluşturur *host.json* ve *local.settings.json*. Yapabilecekleriniz [host.json Azure işlevleri çalışma zamanı ayarlarınızı özelleştirme](functions-host-json.md). 
 
-Dosya *local.settings.json* uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları ayarlarını saklar. Yapısı hakkında daha fazla bilgi için bkz: [kod ve yerel olarak Azure işlevlerini test](functions-run-local.md#local-settings).
+Dosya *local.settings.json* uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları ayarlarını saklar. Yapısı hakkında daha fazla bilgi için bkz: [kod ve yerel olarak Azure işlevlerini test](functions-run-local.md#local-settings-file).
 
 ### <a name="functionname-attribute"></a>FunctionName özniteliği
 

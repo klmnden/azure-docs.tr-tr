@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect eşitleme: işletimsel görevleri ve değerlendirme
 Bu konunun amacı, Azure AD Connect eşitleme için işletimsel görevleri açıklar sağlamaktır.
@@ -33,6 +33,11 @@ Hazırlama modu dahil olmak üzere çeşitli senaryoları için kullanılabilir:
 Hazırlama modunda bir sunucuyla yapılandırma değişiklikleri yapın ve sunucunun etkin hale getirmeden önce önizleme değişiklikleri. Ayrıca, tam içeri aktarma ve üretim ortamınıza bu değişiklikleri yapmadan önce tüm değişiklikleri beklenen doğrulamak için tam eşitleme çalıştırmanızı sağlar.
 
 Yükleme sırasında sunucuyu içinde olacak şekilde seçebileceğiniz **hazırlama modu**. Bu eylem sunucunun içeri aktarma ve eşitleme için etkin hale getirir, ancak hiçbir dışarı aktarma çalışmaz. Bu özellikler yüklemesi sırasında seçilen olsa bile sunucu hazırlama modunda bir parola eşitleme ya da parola geri yazma çalışmıyor. Hazırlama modunu devre dışı bıraktığınızda, sunucu dışarı aktarma başlatır, parola eşitleme sağlar ve parola geri yazma özelliğini etkinleştirir.
+
+> [!NOTE]
+> Parola karma Eşitlemesi özelliği etkin bir Azure AD Connect olduğunu varsayalım. Hazırlama modunu, eşitleme parola değişiklikleri sunucusu vermiyor etkinleştirdiğinizde şirket içi AD. Hazırlama modunu devre dışı bıraktığınızda, sunucunun son kaldığı yerden gelen parola değişikliklerini eşitlemeyi sürdürür. Sunucu uzun bir süre için hazırlama modunda bırakılırsa sunucusunun süre içinde oluşan tüm parola değişiklikleri eşitlemek biraz zaman alabilir.
+>
+>
 
 Eşitleme Hizmeti Yöneticisi'ni kullanarak bir verme hala zorlayabilirsiniz.
 

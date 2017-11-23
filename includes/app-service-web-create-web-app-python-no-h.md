@@ -1,6 +1,6 @@
-Bulut Kabuğu'nda bir web uygulaması oluşturmak `myAppServicePlan` uygulama hizmeti planıyla [az webapp oluşturmak](/cli/azure/webapp#create) komutu. Değiştirmeyi unutmayın `<app_name>` benzersiz bir uygulama adına sahip.
+Bulut Kabuğu'nda bir web uygulaması oluşturmak `myAppServicePlan` uygulama hizmeti planıyla [az webapp oluşturmak](/cli/azure/webapp#create) komutu. 
 
-Aşağıdaki komutta çalışma kümesine `python|3.4`. Desteklenen tüm çalışma zamanları görmek için çalıştırın [az webapp listesi-çalışma zamanları](/cli/azure/webapp#list-runtimes). 
+Aşağıdaki örnekte `<app_name>` bir genel benzersiz uygulama adıyla (geçerli karakterler `a-z`, `0-9`, ve `-`). Çalışma zamanı kümesine `python|3.4`. Desteklenen tüm çalışma zamanları görmek için çalıştırın [az webapp listesi-çalışma zamanları](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "python|3.4" --deployment-local-git

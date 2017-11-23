@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 059576e28b0b74700b5e4fbad06e74606c893af7
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 02e2d07eb29d0d5d436afed1cdab4fe710674a8c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="system-and-communications-protection-sc"></a>Sistem ve iletişim Koruması (SC)
+
 > [!NOTE]
 > Bu denetimler NIST ve ABD tarafından tanımlanır Ticaret Bakanlığı NIST özel yayını 800-53 düzeltme 4 bir parçası olarak. NIST 800 53 düzeltme 4 yordamları ve yönergeler her denetim için test etme hakkında bilgi için lütfen bakın.
-    
-    
-
-# <a name="system-and-communications-protection-sc"></a>Sistem ve iletişim Koruması (SC)
 
 ## <a name="nist-800-53-control-sc-1"></a>NIST 800 53 denetim SC-1
 

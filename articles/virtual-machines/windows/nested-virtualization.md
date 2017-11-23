@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c7ee06a00488b3f958127f6d7f57324c7ed14ab4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>İç içe geçmiş sanallaştırma Azure VM'deki etkinleştirme
 
@@ -49,7 +49,7 @@ Sanal makine ile bir uzak masaüstü bağlantısı oluşturun.
 Bu ayarları yapılandırabilirsiniz el ile veya yapılandırma otomatikleştirmek için bir PowerShell komut dosyası sağladık.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Seçenek 1: iç içe geçmiş sanallaştırma yapılandırmak için bir PowerShell betiğini kullanın.
-İç içe geçmiş bir Windows Server 2016 konak sanallaştırmayı etkinleştirmek için bir PowerShell Betiği kullanılabilir [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Komut dosyası, önkoşulları denetler ve iç içe geçmiş sanallaştırma Azure VM'de yapılandırır. Azure VM yeniden yapılandırmayı tamamlamak gereklidir. Bu komut diğer ortamlarda çalışabilir ancak garanti edilmez. İç içe geçmiş sanallaştırma Azure üzerinde çalışan bir canlı video Tanıtımı ile Azure blog gönderisine göz atın! https://aka.MS/AzureNVblog.
+İç içe geçmiş bir Windows Server 2016 konak sanallaştırmayı etkinleştirmek için bir PowerShell Betiği kullanılabilir [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Komut dosyası, önkoşulları denetler ve iç içe geçmiş sanallaştırma Azure VM'de yapılandırır. Azure VM yeniden yapılandırmayı tamamlamak gereklidir. Bu komut diğer ortamlarda çalışabilir ancak garanti edilmez. İç içe geçmiş sanallaştırma Azure üzerinde çalışan bir canlı video Tanıtımı ile Azure blog gönderisine göz atın! https://aka.MS/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Seçenek 2: iç içe geçmiş sanallaştırma el ile yapılandırma
 

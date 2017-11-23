@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
-ms.author: elkuzmen
-ms.openlocfilehash: e3f9fa3e543851e79d9aed9c80ae4a8d2dd3420d
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.date: 11/20/2017
+ms.author: bryanla
+ms.openlocfilehash: f1f51f59a86c7815b5a18aa84dfb315345debcd9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Azure anahtar kasası erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın 
 
@@ -33,8 +33,11 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 > * Bir anahtar kasasında depolanan bir gizli anahtar, VM erişim 
 > * VM kimliğini kullanarak bir erişim belirteci alın ve gizli anahtar Kasası'nı almak için kullanın 
 
+## <a name="prerequisites"></a>Ön koşullar
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

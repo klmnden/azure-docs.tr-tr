@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: efb0cfa4b7950a2d9418282965a23498a67cbffc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7a46f73cc076ff9efb91da8041c4a785b1d1975
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="security-architecture-overview"></a>Güvenlik mimarisine genel bakış
 Azure çözüm dağıtımlarda güvenli hale geldiğinde güçlü bir mimari temel sahip başarılı anahtarları biridir. Bu bilgiyle sormak için doğru soruları ve daha fazlasını sağa sorularınızın yanıtlarını bulmak için donatılmış öğrenerek gereksinimlerinizi daha iyi anlamak kullanabilirsiniz. Sağa doğru soruların yanıtlarını alma dağıtımlarınızı güvenlik en iyi duruma getirme doğru uzun bir yol gider.

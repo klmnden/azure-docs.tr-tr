@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af1f683f08ff6b70b23ff265f39b9a76f92f4be2
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager ile hizmet Haritası tümleştirme
   > [!NOTE]
@@ -30,7 +30,7 @@ Operations Management Suite hizmet Haritası otomatik olarak sistemlerde, Window
 İle tümleştirme arasında hizmet Haritası ve System Center Operations Manager, Operations Manager'da, hizmet eşlemesinde dinamik bağımlılık eşlemeleri temel alan dağıtılmış uygulama diyagramları otomatik olarak oluşturabilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
-* Sunucular kümesi yönetme bir Operations Manager yönetim grubu.
+* Bir Operations Manager yönetim grubu (2012 R2 veya sonrası) sunucular kümesi yönetme.
 * Bir Operations Management Suite çalışma alanı etkin hizmet Haritası çözümle.
 * Operations Manager ve hizmet eşlemesi için verileri gönderilirken tarafından yönetilen sunucular kümesi (en az bir tane). Windows ve Linux sunucuları desteklenir.
 * Operations Management Suite çalışma alanı ile ilişkili Azure abonelik erişimi olan bir hizmet sorumlusu. Daha fazla bilgi için Git [bir hizmet sorumlusu oluşturma](#creating-a-service-principal).

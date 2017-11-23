@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Blob depolama olaylarını bir özel web uç noktasına (önizleme) yönlendirme
 
@@ -32,6 +32,8 @@ Bu makalede açıklanan adımları tamamladıktan sonra olay verilerinin bir uç
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI’nın en son sürümünü (2.0.14 veya sonraki) kullanıyor olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli).
+
+Cloud Shell kullanmıyorsanız önce `az login` kullanarak oturum açmanız gerekir.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -86,7 +88,7 @@ az eventgrid resource event-subscription create \
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Blob depolama biriminden bir olay tetikler
 
-Şimdi, Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. İlk olarak, depolama hesabı için anahtarı ve adını yapılandıralım, ardından bir kapsayıcı oluşturacağız ve bir dosyayı oluşturup karşıya yükleyeceğiz. `<storage_account_name>` ve `<resource_group_name>` için yine daha önce oluşturduğunuz değerleri kullanın.
+Şimdi, Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. İlk olarak, şimdi biz bir kapsayıcı oluşturmak sonra oluşturacak ve bir dosyayı karşıya yüklemeyi daha sonra depolama hesabı için anahtarı ve adını yapılandırın. `<storage_account_name>` ve `<resource_group_name>` için yine daha önce oluşturduğunuz değerleri kullanın.
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>

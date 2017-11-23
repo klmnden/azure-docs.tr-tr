@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b58d6be3d6412b5357aa405269aac4563a7a33a9
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-a-java-application"></a>Bir Java uygulaması oluşturma
 Azure Service Fabric mikro ve kapsayıcıları dağıtma ve yönetme için bir dağıtılmış sistemler platformudur. 
@@ -147,5 +147,5 @@ Bu hızlı başlangıçta şunları öğrendiniz:
 > * Genişleme uygulama birden çok düğüm arasında
 
 * Daha fazla bilgi edinmek [Eclipse kullanarak Java hizmetlerinde hata ayıklama](service-fabric-debugging-your-application-java.md)
-* Hakkında bilgi edinin [sürekli integreation & Jenkins kullanarak dağıtım ayarlama](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* Hakkında bilgi edinin [sürekli integreation & Jenkins kullanarak dağıtım ayarlama](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 * Checkout diğer [Java örnekleri](https://github.com/Azure-Samples/service-fabric-java-getting-started)
