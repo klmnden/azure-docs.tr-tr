@@ -41,16 +41,20 @@
           href: functions-integrate-store-unstructured-data-cosmosdb.md
 - name: Öğreticiler
   items:
-    - name: 1 - Logic Apps ile İşlevler
+    - name: Logic Apps ile İşlevler
       href: functions-twitter-email.md
-    - name: 2 - Sunucusuz API oluşturma
+    - name: Sunucusuz API oluşturma
       href: functions-create-serverless-api.md
-    - name: 3 - OpenAPI tanımı oluşturma
+    - name: OpenAPI tanımı oluşturma
       href: functions-openapi-definition.md
-    - name: 4 - Event Grid ile görüntüyü yeniden boyutlandırma
+    - name: Event Grid ile görüntüyü yeniden boyutlandırma
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: 5 - Özel bir görüntüdeki işlevler
-      href: functions-create-function-linux-custom-image.md
+    - name: Linux üzerinde İşlevler
+      items:
+        - name: Özel görüntü
+          href: functions-create-function-linux-custom-image.md
+        - name: IoT Edge cihazı
+          href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Örnekler
   items:
     - name: Kod örnekleri
