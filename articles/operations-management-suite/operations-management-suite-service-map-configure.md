@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c56a59a648b90c59e6e1a5e0fb6a26cd1dba4dfc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite içinde hizmet Haritası yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -228,14 +228,14 @@ Bir yönetici için bağımlılık Aracısı Windows Denetim Masası'ndan kaldı
 Bir yönetici, %Programfiles%\Microsoft Agent\Uninstall.exe bağımlılık Aracısı'nı kaldırmak için bağımlılık olarak da çalıştırabilirsiniz.
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Linux üzerinde bağımlılık Aracısı'nı kaldırın
-Bağımlılık Aracısı'nı Linux tamamen kaldırmak için aracı ve otomatik olarak bir aracı yüklü bağlayıcı kaldırmanız gerekir. Aşağıdaki komutu kullanarak her ikisi de kaldırabilirsiniz.
+Aşağıdaki komutla Linux bağımlılık aracısını kaldırabilirsiniz.
 <br>RHEL, CentOs veya Oracle:
 ```
-sudo rpm -e dependency-agent dependency-agent-connector
+sudo rpm -e dependency-agent
 ```
 Ubuntu:
 ```
-sudo dpkg --purge dependency-agent dependency-agent-connector
+sudo dpkg --purge dependency-agent
 ```
 ## <a name="troubleshooting"></a>Sorun giderme
 Yükleme veya hizmet Haritası çalıştıran herhangi bir sorun varsa, bu bölümde, yardımcı olabilir. Sorununuzu hala çözümleyemiyorsa, lütfen Microsoft Support başvurun.

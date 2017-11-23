@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
 Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler etkinleştirmek için Gelişmiş kurallar oluşturabilirsiniz. Bu makalede, öznitelikleri ve kullanıcılar veya cihazlar için dinamik Üyelik kuralları oluşturmak için sözdizimi ayrıntıları.
@@ -72,7 +72,7 @@ Desteklenen parametreler ve ifade kural işleçleri tam listesi için aşağıda
 Gelişmiş kural gövdesi toplam uzunluğu 2048 karakterden uzun olamaz.
 
 > [!NOTE]
-> Dize ve regex işlemlerinin büyük küçük harfe duyarlı değildir. Ayrıca gerçekleştirebilirsiniz Null denetimleri, örneğin bir sabit değer olarak $null kullanarak, user.department - eq $null.
+> Dize ve regex işlemlerinin büyük küçük harfe duyarlı değildir. Kullanarak Null denetimleri gerçekleştirebilirsiniz *null* sabit, örneğin, user.department - eq olarak *null*.
 > Tırnak işareti içeren bir dizeler "kullanarak kaçışlı ' karakter, örneğin, user.department - eq \`"Satış".
 
 ## <a name="supported-expression-rule-operators"></a>Desteklenen ifade kural işleçleri
@@ -158,31 +158,31 @@ Gelişmiş kuralınız kullanabileceğiniz tüm kullanıcı özellikleri şunlar
 
 | Özellikler | İzin verilen değerler | Kullanım |
 | --- | --- | --- |
-| city |Herhangi bir dize değeri veya $null |(user.city - eq "value") |
-| Ülke |Herhangi bir dize değeri veya $null |(Resource.country - eq "value") |
-| Şirket adı | Herhangi bir dize değeri veya $null | (user.companyName - eq "value") |
-| Bölüm |Herhangi bir dize değeri veya $null |(user.department - eq "value") |
+| city |Herhangi bir dize değeri veya *null* |(user.city - eq "value") |
+| Ülke |Herhangi bir dize değeri veya *null* |(Resource.country - eq "value") |
+| Şirket adı | Herhangi bir dize değeri veya *null* | (user.companyName - eq "value") |
+| Bölüm |Herhangi bir dize değeri veya *null* |(user.department - eq "value") |
 | Görünen adı |Herhangi bir dize değeri |(user.displayName - eq "value") |
-| facsimileTelephoneNumber |Herhangi bir dize değeri veya $null |(user.facsimileTelephoneNumber - eq "value") |
-| givenName |Herhangi bir dize değeri veya $null |(user.givenName - eq "value") |
-| İş Unvanı |Herhangi bir dize değeri veya $null |(user.jobTitle - eq "value") |
-| Posta |Herhangi bir dize değeri veya $null (kullanıcının SMTP adresi) |(user.mail - eq "value") |
+| facsimileTelephoneNumber |Herhangi bir dize değeri veya *null* |(user.facsimileTelephoneNumber - eq "value") |
+| givenName |Herhangi bir dize değeri veya *null* |(user.givenName - eq "value") |
+| İş Unvanı |Herhangi bir dize değeri veya *null* |(user.jobTitle - eq "value") |
+| Posta |Herhangi bir dize değeri veya *null* (kullanıcının SMTP adresi) |(user.mail - eq "value") |
 | mailNickName |Herhangi bir dize değeri (kullanıcı diğer adı posta) |(user.mailNickName - eq "value") |
-| Mobil |Herhangi bir dize değeri veya $null |(user.mobile - eq "value") |
+| Mobil |Herhangi bir dize değeri veya *null* |(user.mobile - eq "value") |
 | objectID |Kullanıcı nesnesinin GUID |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Güvenlik tanımlayıcısı (SID) şirket içi buluta eşitlenmiş olan kullanıcılar için şirket içi. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Hiçbiri DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Herhangi bir dize değeri veya $null |(user.physicalDeliveryOfficeName - eq "value") |
-| posta kodu |Herhangi bir dize değeri veya $null |(user.postalCode - eq "value") |
+| physicalDeliveryOfficeName |Herhangi bir dize değeri veya *null* |(user.physicalDeliveryOfficeName - eq "value") |
+| posta kodu |Herhangi bir dize değeri veya *null* |(user.postalCode - eq "value") |
 | preferredLanguage |ISO 639-1 kodu |(user.preferredLanguage - eq "en-US") |
-| sipProxyAddress |Herhangi bir dize değeri veya $null |(user.sipProxyAddress - eq "value") |
-| durum |Herhangi bir dize değeri veya $null |(user.state - eq "value") |
-| StreetAddress |Herhangi bir dize değeri veya $null |(user.streetAddress - eq "value") |
-| Soyadı |Herhangi bir dize değeri veya $null |(user.surname - eq "value") |
-| telephoneNumber |Herhangi bir dize değeri veya $null |(user.telephoneNumber - eq "value") |
+| sipProxyAddress |Herhangi bir dize değeri veya *null* |(user.sipProxyAddress - eq "value") |
+| durum |Herhangi bir dize değeri veya *null* |(user.state - eq "value") |
+| StreetAddress |Herhangi bir dize değeri veya *null* |(user.streetAddress - eq "value") |
+| Soyadı |Herhangi bir dize değeri veya *null* |(user.surname - eq "value") |
+| telephoneNumber |Herhangi bir dize değeri veya *null* |(user.telephoneNumber - eq "value") |
 | usageLocation |İki harflerin ülke kodu |(user.usageLocation - eq "ABD") |
 | userPrincipalName |Herhangi bir dize değeri |(user.userPrincipalName - eq "alias@domain") |
-| UserType |üye Konuk $null |(user.userType - eq "Üye") |
+| UserType |üye Konuk *null* |(user.userType - eq "Üye") |
 
 ### <a name="properties-of-type-string-collection"></a>Türü dize koleksiyonunun özellikleri
 İzin verilen işleçleri
@@ -225,14 +225,10 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Null değerleri kullanımı
 
-Bir kuralda boş bir değer belirtmek için "null" ya da $null kullanabilirsiniz. Örnek:
+Bir kuralda boş bir değer belirtmek için kullanabileceğiniz *null* değeri. Word tırnak kullanmamaya özen gösterin *null* -bunu yaparsanız, onu bir değişmez dize değeri olarak yorumlanır. Null değer başvurmak için doğru bir şekilde aşağıdaki gibidir:
 ```
    user.mail –ne null
 ```
-eşdeğerdir
-```
-   user.mail –ne $null
-   ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Uzantı öznitelikleri ve özel öznitelikler
 Uzantı öznitelikleri ve özel öznitelikler dinamik üyelik kurallarında desteklenir.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Bir Azure CDN uç noktasını temizleme
 ## <a name="overview"></a>Genel Bakış
@@ -68,7 +68,7 @@ Bu öğreticide, bir uç nokta tüm kenar düğümlerinden varlıklar temizleme 
     ![Düğme Temizle](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Temizleme istekleri almak yaklaşık 2-3 ile işlemek için dakika **verizon'dan Azure CDN** (standart ve Premium) ve yaklaşık 7 dakika ile **akamai'den Azure CDN**.  Azure CDN 50 eş zamanlı istekleri herhangi bir anda temizleme bir sınıra sahiptir. 
+> Temizleme istekleri almak yaklaşık 2-3 ile işlemek için dakika **verizon'dan Azure CDN** (standart ve Premium) ve yaklaşık 7 dakika ile **akamai'den Azure CDN**.  Azure CDN profili düzeyinde herhangi bir anda istekleri Temizle 50 eşzamanlı bir sınıra sahiptir. 
 > 
 > 
 

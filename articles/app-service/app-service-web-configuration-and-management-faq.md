@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: e5fc1933efcaa9c6eaa7ab0021c3362e0714a3d5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web uygulamalarının yapılandırması ve Yönetimi SSS
 
@@ -147,7 +147,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>Çözüm
 
-Bu sorunu gidermek için karma Bağlantı Yöneticisi'ni güncelleştirmek için çalışıyoruz. Geçici çözümler için bkz: [SQL Server ile karma bağlantılar hatası: System.OverflowException: Aritmetik işlem taşması ile sonuçlandı](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+Özel, karma bağlantı beri sabit Yöneticisi ile ilgili bir sorun neden oldu. Şunları yaptığınızdan emin olun [karma Bağlantı Yöneticisi'ni güncelleştirmek](https://go.microsoft.com/fwlink/?LinkID=841308) bu sorunu gidermek için.
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Nasıl eklemek veya bir URL yeniden yazma kuralı düzenleme?
 

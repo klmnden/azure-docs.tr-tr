@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması hakkında sık sorulan sorular
 Bu SSS, Azure multi-Factor Authentication ve çok faktörlü kimlik doğrulama hizmeti kullanma hakkında sık sorulan soruları yanıtlar. Bu hizmet hakkında sorular içine genel olarak, modelleri, kullanıcı deneyimleri, faturalama ve sorun giderme ayrılmıştır.
@@ -95,7 +95,7 @@ Dizininizde varsa bir *kimlik doğrulaması başına* Azure çok faktörlü kiml
 
 **S: kuruluşumun kullanın ve Azure çok faktörlü kimlik doğrulaması kullanacak şekilde kimlikleri eşitlemek sahip?**
 
-Kuruluşunuz tüketim tabanlı faturalama modeli kullanıyorsa, Azure Active Directory isteğe bağlıdır, ancak gerekli değildir. Azure AD kiracısı için MFA sağlayıcınızı bağlı değilse, yalnızca Azure multi-Factor Authentication sunucusu veya Azure multi-Factor Authentication SDK'sı şirket içi dağıtabilirsiniz.
+Kuruluşunuz tüketim tabanlı faturalama modeli kullanıyorsa, Azure Active Directory isteğe bağlıdır, ancak gerekli değildir. Azure AD kiracısı için MFA sağlayıcınızı bağlı değilse, yalnızca Azure multi-Factor Authentication sunucusu şirket içi dağıtabilirsiniz.
 
 Lisansları satın almak ve bunları dizininde kullanıcılara atamak için Azure AD kiracısı eklendiğinden azure Active Directory için lisans modeli gereklidir.
 

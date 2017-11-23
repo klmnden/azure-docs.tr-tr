@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 31142fa2ab06b7479aa93f9ece14f4dd51fa28ef
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: b6bc12c407a32388b7155a815b099b3b285fef18
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Yerel kod ve test Azure işlevleri
 
@@ -86,7 +86,7 @@ func init MyFunctionProj
 
 ## <a name="create-a-local-functions-project"></a>Bir yerel işlevler projesi oluşturma
 
-Yerel olarak çalıştırırken, işlevleri proje dosyaları içeren bir dizindir [host.json](functions-host-json.md) ve [local.settings.json](#local-settings). Bu dizinde bir işlev uygulaması Azure eşdeğeridir. Azure işlevleri klasör yapısı hakkında daha fazla bilgi için bkz: [Azure işlevleri Geliştirici Kılavuzu](functions-reference.md#folder-structure).
+Yerel olarak çalıştırırken, işlevleri proje dosyaları içeren bir dizindir [host.json](functions-host-json.md) ve [local.settings.json](#local-settings-file). Bu dizinde bir işlev uygulaması Azure eşdeğeridir. Azure işlevleri klasör yapısı hakkında daha fazla bilgi için bkz: [Azure işlevleri Geliştirici Kılavuzu](functions-reference.md#folder-structure).
 
 Terminal penceresi veya bir komut isteminden, proje ve yerel Git deposu oluşturmak için aşağıdaki komutu çalıştırın:
 
@@ -105,8 +105,6 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
 Yerel bir Git deposu olmadan projesi oluşturmak için kullanın `--no-source-control [-n]` seçeneği.
-
-<a name="local-settings"></a>
 
 ## <a name="local-settings-file"></a>Yerel ayarlar dosyası
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f2153e783adb955cf9055b09ba9aa2592f51e4b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-operational-security-overview"></a>Azure operational güvenliğine genel bakış
 Azure işletimsel güvenlik hizmetleri, denetimleri ve kullanıcılar için kullanılabilir özellikler verilerini, uygulamaları ve diğer Microsoft Azure varlıkları korumak için ifade eder. [Azure işlem güvenliği](https://docs.microsoft.com/azure/security/azure-operational-security) bilgi içeren bir çerçeve Microsoft Security Development Lifecycle (SDL), Microsoft Güvenlik Yanıt dahil olmak üzere Microsoft'a benzersiz yeteneklerini çeşitli elde edilen Merkezi program ve siber güvenlik tehdit derin tanıma.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation runbook türleri
 Azure Otomasyonu aşağıdaki tabloda çeşitli kısaca açıklanmıştır runbook'ları destekler.  Aşağıdaki bölümlerde zaman her kullanılacağı hakkında dikkat edilecek noktalar dahil olmak üzere her tür hakkında daha fazla bilgi verilmektedir.
@@ -30,7 +30,6 @@ Azure Otomasyonu aşağıdaki tabloda çeşitli kısaca açıklanmıştır runbo
 | [PowerShell](#powershell-runbooks) |Windows PowerShell komut dosyasına dayalı metin runbook. |
 | [PowerShell İş Akışı](#powershell-workflow-runbooks) |Windows PowerShell iş akışı tabanlı metin runbook. |
 | [Python](#python-runbooks) |Python üzerinde temel metin runbook. |
-| [Bash](#bash-runbooks) |Bash üzerinde temel metin runbook. |
 
 ## <a name="graphical-runbooks"></a>Grafik runbook'lar
 [Grafik](automation-runbook-types.md#graphical-runbooks) ve grafik PowerShell iş akışı runbook'ları oluşturulur ve Azure portalında grafik Düzenleyicisi ile düzenlenemez.  Bir dosyaya aktarın ve ardından başka bir Otomasyon hesaba içeri aktarmak, ancak oluşturamaz veya bunları başka bir araçla düzenleyin.  PowerShell kodu grafik runbook'ları oluşturmak, ancak doğrudan görüntüleyemez veya kodu değiştirin. Grafik runbook'lar birine dönüştürülemiyor [metin biçimleri](automation-runbook-types.md), veya bir metin runbook grafik biçimine dönüştürülebilir. Grafik runbook'lar grafik PowerShell iş akışı runbook'larına içeri aktarma ve tam tersini sırasında dönüştürülebilir.
@@ -39,7 +38,7 @@ Azure Otomasyonu aşağıdaki tabloda çeşitli kısaca açıklanmıştır runbo
 * INSERT bağlantısını yapılandırmak görsel geliştirme modeli  
 * Veri sürecinde nasıl akacağını odaklanın  
 * Yönetim işlemlerini görsel olarak temsil eder  
-* Yüksek düzey iş akışları oluşturmak için alt runbook'lar olarak diğer runbook'lar içerir  
+* Üst düzey iş akışları oluşturmak için alt runbook'lar olarak diğer runbook'lar içerir  
 * Modüler programlama teşvik eder  
 
 
@@ -64,7 +63,7 @@ PowerShell runbook'ları Windows PowerShell üzerinde temel alır.  Doğrudan Az
 ### <a name="known-issues"></a>Bilinen sorunlar
 PowerShell runbook'ları bilinen geçerli sorunlar aşağıda verilmiştir.
 
-* PowerShell runbook'ları olamaz alamıyor bir şifrelenmemiş [değişken varlığı](automation-variables.md) null değerine sahip.
+* PowerShell runbook'ları bir şifrelenmemiş alamıyor [değişken varlığı](automation-variables.md) null değerine sahip.
 * PowerShell runbook'ları alamıyor bir [değişken varlığı](automation-variables.md) ile  *~*  adı.
 * Get-Process döngü olarak bir PowerShell runbook yaklaşık 80 yinelemeden sonra kilitlenebilir. 
 * Çok büyük miktarda veri yazma çıkış akışına aynı anda kullanmaya çalışırsa, bir PowerShell runbook başarısız olabilir.   Bu sorunu çözmek büyük nesneler ile çalışırken gerekli bilgileri kayıt çıkarma genellikle çalışabilir.  Örneğin, aşağıdakine benzer çıktısı yerine *Get-Process*, yalnızca gerekli alanları ile çıkış *Get-Process | İşlem adı, CPU seçin*.
@@ -76,7 +75,7 @@ PowerShell iş akışı runbook'ları olan temel metin runbook'lar [Windows Powe
 * PowerShell iş akışı kodu ile tüm karmaşık mantığı uygular.
 * Kullanım [kontrol noktaları](automation-powershell-workflow.md#checkpoints) runbook hata durumunda devam etmek için.
 * Kullanım [paralel işleme](automation-powershell-workflow.md#parallel-processing) paralel olarak birden çok eylemleri gerçekleştirmek için.
-* Diğer grafik runbook'lar ve PowerShell iş akışı runbook'ları yüksek düzey iş akışları oluşturmak için alt runbook'lar olarak dahil edebilirsiniz.
+* Üst düzey iş akışları oluşturmak için alt runbook'lar olarak diğer grafik runbook'lar ve PowerShell iş akışı runbook'ları dahil edebilirsiniz.
 
 ### <a name="limitations"></a>Sınırlamalar
 * Yazar PowerShell iş akışı ile bilgi sahibi olmanız gerekir.

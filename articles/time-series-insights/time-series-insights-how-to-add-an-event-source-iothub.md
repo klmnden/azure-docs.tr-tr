@@ -1,5 +1,5 @@
 ---
-title: "Azure zaman serisi Öngörüler ortamınız için bir IOT hub'ı olay kaynağı ekleme | Microsoft Docs"
+title: "Azure zaman serisi Öngörüler'e bir IOT hub'ı olay kaynağı ekleme | Microsoft Docs"
 description: "Bu makalede bir IOT hub'ına zaman serisi Öngörüler ortamınıza bağlı bir olay kaynağı ekleme"
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 29b617422810480f5f8cbcd5b78ebe8605734bbf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 11/21/2017
+ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Zaman serisi Öngörüler ortamına bir IOT hub'ı olay kaynağı ekleme
 Bu makalede, IOT Hub'ından zaman serisi Öngörüler ortamınıza verilerini okuyan bir olay kaynağı eklemek için Azure Portalı'nı kullanmayı açıklar.

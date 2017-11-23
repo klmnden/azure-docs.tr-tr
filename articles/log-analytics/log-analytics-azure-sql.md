@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL veritabanı günlük analizi Azure SQL analizi (Önizleme) kullanarak izleme
 
@@ -29,6 +29,11 @@ Azure günlük analizi Azure SQL analizi çözümde toplar ve önemli SQL Azure 
 Şu anda en fazla 150.000 Azure SQL veritabanları ve çalışma alanı başına 5.000 SQL esnek havuzlar Bu önizleme çözümünü destekler.
 
 Günlük analizi için bulunan diğerleri gibi Azure SQL analiz çözümü izlemenize ve Azure kaynaklarınızı durumu hakkında bildirim almak yardımcı olur; bu durumda, Azure SQL veritabanı. Microsoft Azure SQL veritabanı Azure bulutta çalışan uygulamalar için tanıdık SQL Server gibi özellikleri sağlayan bir ölçeklenebilir ilişkisel veritabanı hizmetidir. Günlük analizi toplamak, bağıntılı ve yapılandırılmış ve yapılandırılmamış verileri görselleştirmek için yardımcı olur.
+
+Gömülü video Azure SQL analiz çözümü kullanarak uygulamalı bir genel bakış ve tipik kullanım senaryoları için bkz:
+          
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
@@ -115,7 +120,7 @@ Her bir perspektif abonelik, sunucu, esnek havuz ve veritabanı düzeyi özetler
 
 ### <a name="intelligent-insights-report"></a>Akıllı Öngörüler raporu
 
-Tüm akıllı toplanan Öngörüler görselleştirilen ve Öngörüler perspektif erişilebilir. 
+Azure SQL veritabanı [akıllı Öngörüler](../sql-database/sql-database-intelligent-insights.md) veritabanı performansınızı bilmeniz olanlar sağlar. Tüm akıllı toplanan Öngörüler görselleştirilen ve Öngörüler perspektif erişilebilir.
 
 ![Azure SQL analizi Öngörüler](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
