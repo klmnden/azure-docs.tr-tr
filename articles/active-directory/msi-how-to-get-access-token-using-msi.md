@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 168b2ab3676d3f3e2830966f850e14adbe579f85
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>Bir Azure VM yönetilen hizmet kimliği (MSI) için oturum açma ve belirteç edinme kullanma 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Azure VM'de MSI etkinleştirdikten sonra oturum açma için ve bir erişim belirteci istemek için MSI kullanabilirsiniz. Bu makalede, bir MSI kullanmak için çeşitli yollar gösterilmektedir [hizmet sorumlusu](develop/active-directory-dev-glossary.md#service-principal-object) için oturum açma ve edinmek bir [yalnızca uygulama erişim belirteci](develop/active-directory-dev-glossary.md#access-token) dahil olmak üzere diğer kaynaklarına erişmek için:
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Bu makalede PowerShell örneklerini kullanmayı planlıyorsanız, yüklediğinizden emin olun [Azure PowerShell sürüm 4.3.1](https://www.powershellgallery.com/packages/AzureRM) veya daha büyük. Bu makalede Azure CLI örnekler kullanmayı planlıyorsanız, üç seçeneğiniz vardır:
 - Kullanım [Azure bulut Kabuk](../cloud-shell/overview.md) Azure portalından.
@@ -150,7 +150,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Öğesi | Açıklama |
+| Öğe | Açıklama |
 | ------- | ----------- |
 | `GET` | Uç noktasından verileri almak istediğiniz belirten HTTP fiili. Bu durumda, bir OAuth belirteç erişin. | 
 | `http://localhost:50342/oauth2/token` | Burada 50342 varsayılan bağlantı noktası ve yapılandırılabilir MSI endpoint. |
@@ -173,7 +173,7 @@ Content-Type: application/json
 }
 ```
 
-| Öğesi | Açıklama |
+| Öğe | Açıklama |
 | ------- | ----------- |
 | `access_token` | İstenen erişim belirteci. Belirteç katıştırılmış olduğu bir REST API'si çağrılırken `Authorization` isteği üstbilgisi alanının arayan kimliğini doğrulamak API izin verme "bearer" Token olarak. | 
 | `refresh_token` | MSI tarafından kullanılmaz. |

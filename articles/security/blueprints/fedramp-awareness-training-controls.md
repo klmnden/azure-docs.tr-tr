@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 0ed68f90a11d2517e02f3d8f55d32c7ad48a8058
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b8749238bc8b673503fa1b3627de11d923cfe892
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="awareness-and-training-at"></a>Farkındalık ve eğitim (AT)
+
 > [!NOTE]
 > Bu denetimler NIST ve ABD tarafından tanımlanır Ticaret Bakanlığı NIST özel yayını 800-53 düzeltme 4 bir parçası olarak. NIST 800 53 düzeltme 4 yordamları ve yönergeler her denetim için test etme hakkında bilgi için lütfen bakın.
-    
-    
-
-# <a name="awareness-and-training-at"></a>Farkındalık ve eğitim (AT)
 
 ## <a name="nist-800-53-control-at-1"></a>NIST 800 53 denetim AT-1
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutunda yalıtımı
 ##  <a name="introduction"></a>Giriş
@@ -38,7 +38,7 @@ Oluşturmanıza veya BT varlıklarına geçirmek, genel bulut hizmeti sağlayıc
 
 Azure altyapısı tesisten uygulamalara kadar milyonlarca müşteriye aynı anda hizmet verecek şekilde tasarlanmıştır ve işletmelerin güvenlik ihtiyaçlarını karşılayabilecek güvenilir bir temel sunar. Buna ek olarak, Azure’da çok çeşitli ve yapılandırılabilir güvenlik seçenekleri ile bunlar üzerinde denetim imkanı sunulmaktadır. Böylece, dağıtımlarınıza özel gereksinimleri karşılamak için güvenlik özelliklerini uyarlayabilirsiniz. Bu belge, bu gereksinimleri karşılayan yardımcı olur.
 
-### <a name="abstract"></a>Özet
+### <a name="abstract"></a>Soyut
 
 Microsoft Azure, uygulamalar ve sanal makineleri (VM'ler) paylaşılan fiziksel altyapı üzerinde çalıştırmasına olanak sağlar. Uygulamalar bulut ortamında çalıştırmanın ekonomik prime sözleri de birden çok müşteri arasında paylaşılan kaynakların maliyeti dağıtmak yeteneğidir. Bu yöntem, çok kiracılı çoğullama kaynaklar arasında düşük maliyetler farklı müşterilerine tarafından verimliliği artırır. Ne yazık ki, aynı zamanda fiziksel sunucuları ve diğer altyapı kaynakları duyarlı uygulamalar ve rasgele ve kötü amaçlı bir kullanıcı ait olabilir sanal makineleri çalıştırmak için paylaşımı riski sunar.
 
@@ -90,7 +90,7 @@ Azure RBAC tüm kaynak türleri için geçerli üç temel rol vardır:
 
 - **Okuyucu** mevcut Azure kaynaklarını görüntüleyebilirsiniz.
 
-![Azure rol tabanlı erişim denetimi](./media/azure-isolation/azure-isolation-fig3.png)
+![Azure Rol Tabanlı Erişim Denetimi](./media/azure-isolation/azure-isolation-fig3.png)
 
 Azure RBAC rollerin geri kalanı belirli Azure kaynaklarının yönetimini sağlar. Örneğin, sanal makine katılımcı rolü oluşturmak ve sanal makineleri yönetmek kullanıcının sağlar. Bu onları erişimi Azure sanal ağı veya sanal makine bağlandığı alt sağlamaz.
 

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1848e15a2be8d89315657a6eabdb94617bd1b5bf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Dağıtma ve Azure kapsayıcı kayıt defteri kullanma
 
@@ -56,7 +56,7 @@ Azure kapsayıcı kayıt defteri ile oluşturma [az acr oluşturmak](/cli/azure/
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Bu öğreticinin geri kalanını, kullandığımız `<acrname>` kapsayıcı kayıt defteri adı için bir yer tutucu olarak.
+Bu öğreticinin geri kalanını, kullandığımız `<acrName>` kapsayıcı kayıt defteri adı için bir yer tutucu olarak.
 
 ## <a name="container-registry-login"></a>Kapsayıcı kayıt defteri oturum açma
 

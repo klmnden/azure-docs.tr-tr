@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
-ms.author: glenga
-ms.openlocfilehash: 1594a27d50df9abdac27b342ad18363b974c8972
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
+ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service'te Web işleri ile arka plan görevleri Çalıştır
 
@@ -36,7 +36,7 @@ Azure işlevleri, programları ve betikleri çalıştırmak için başka bir yol
 Aşağıdaki tabloda arasındaki farklar açıklanmaktadır *sürekli* ve *tetiklenen* WebJobs.
 
 
-|Sürekli  |Tetiklendi  |
+|Sürekli  |Tetiklenmiş  |
 |---------|---------|
 | Web işi oluşturulduktan hemen başlar. İş öğesinden bitiş tutmak için program veya komut dosyası genellikle kendi sonsuz bir döngüde içinde çalışır. İş sonlandırırsanız yeniden başlatabilirsiniz. | Yalnızca el ile veya bir zamanlamaya göre tetiklendiğinde başlatır. |
 | Web uygulaması üzerinde çalışan tüm örneklerinde çalışır. İsteğe bağlı olarak, tek örnekli bir Web işi kısıtlayabilirsiniz. |Yük Dengeleme için Azure seçer tek bir örneğinde çalışır.|
@@ -120,7 +120,7 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Ad** | myTriggeredWebJob | İçinde bir uygulama hizmeti uygulamayı benzersiz bir ad. Bir harf veya sayı ile başlamalı ve özel karakterler içeremez "-" ve "_".|
    | **Karşıya dosya yükleme** | ConsoleApp.zip | A *.zip* program veya komut dosyasını çalıştırmak için gerekli tüm destekleyici dosyaları yanı sıra, yürütülebilir dosya veya komut dosyanızı içeren dosya. Desteklenen yürütülebilir dosya veya komut dosyası türlerini de listelenen [desteklenen dosya türleri](#acceptablefiles) bölümü. |
-   | **Tür** | Tetiklendi | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
+   | **Tür** | Tetiklenmiş | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
    | **Tetikleyiciler** | El ile | |
 
 4. **Tamam** düğmesine tıklayın.
@@ -131,7 +131,7 @@ when making changes in one don't forget the other two.
 
 7. Web işi çalıştırmak için listenin adını sağ tıklatıp **çalıştırmak**.
    
-    ![Web işini çalıştırma](./media/web-sites-create-web-jobs/runondemand.png)
+    ![WebJob'ı çalıştır](./media/web-sites-create-web-jobs/runondemand.png)
 
 ## <a name="CreateScheduledCRON"></a>Zamanlanmış WebJob oluşturma
 
@@ -158,8 +158,8 @@ when making changes in one don't forget the other two.
    | ------------ | ----------------- | ------------ |
    | **Ad** | myScheduledWebJob | İçinde bir uygulama hizmeti uygulamayı benzersiz bir ad. Bir harf veya sayı ile başlamalı ve özel karakterler içeremez "-" ve "_". |
    | **Karşıya dosya yükleme** | ConsoleApp.zip | A *.zip* program veya komut dosyasını çalıştırmak için gerekli tüm destekleyici dosyaları yanı sıra, yürütülebilir dosya veya komut dosyanızı içeren dosya. Desteklenen yürütülebilir dosya veya komut dosyası türlerini de listelenen [desteklenen dosya türleri](#acceptablefiles) bölümü. |
-   | **Tür** | Tetiklendi | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
-   | **Tetikleyiciler** | Zamanlanmış | Güvenilir bir şekilde çalışması için zamanlama için her zaman açık özelliğini etkinleştirin. Her zaman yalnızca temel, standart ve Premium fiyatlandırma katmanlarına edinilebilir.|
+   | **Tür** | Tetiklenmiş | [WebJob türleri](#webjob-types) bu makalenin önceki bölümlerinde açıklanmıştır. |
+   | **Tetikleyiciler** | Zamanlandı | Güvenilir bir şekilde çalışması için zamanlama için her zaman açık özelliğini etkinleştirin. Her zaman yalnızca temel, standart ve Premium fiyatlandırma katmanlarına edinilebilir.|
    | **CRON ifade** | 0 0/20 * * * * | [CRON ifadeleri](#cron-expressions) aşağıdaki bölümde açıklanmıştır. |
 
 4. **Tamam** düğmesine tıklayın.

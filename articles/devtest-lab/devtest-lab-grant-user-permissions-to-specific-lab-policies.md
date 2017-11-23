@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Belirli Laboratuvar ilkeleri kullanıcı izinleri
 ## <a name="overview"></a>Genel Bakış
@@ -87,9 +87,9 @@ Bulduktan sonra **objectID** kullanıcı ve özel rol adı için kullanıcı bu 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir kez dikkate alınması gereken bazı sonraki adımlar şunlardır belirli Laboratuvar ilkeleri için kullanıcı izinleri verilen:
 
-* [Laboratuvara erişimin güvenliğini sağlama](devtest-lab-add-devtest-user.md).
-* [Laboratuvar ilkeleri belirleme](devtest-lab-set-lab-policy.md).
-* [Laboratuvar şablonu oluşturma](devtest-lab-create-template.md).
-* [VM'leriniz için özel yapılar oluşturma](devtest-lab-artifact-author.md).
-* [Yapı içeren bir VM'yi laboratuvara ekleme](devtest-lab-add-vm-with-artifacts.md).
+* [Bir laboratuvar güvenli erişim](devtest-lab-add-devtest-user.md)
+* [Laboratuvar ilkeleri ayarlarsanız](devtest-lab-set-lab-policy.md)
+* [Laboratuvar şablonu oluşturma](devtest-lab-create-template.md)
+* [Vm'leriniz için özel yapılar oluşturma](devtest-lab-artifact-author.md)
+* [Bir VM'yi laboratuvara ekleme](devtest-lab-add-vm.md)
 

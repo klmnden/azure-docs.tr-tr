@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısını kullanarak VPN altyapınız Azure MFA ile tümleştirme
 
@@ -108,7 +108,7 @@ Ağ İlkesi ve Erişim Hizmetleri rolünü yükleme hakkında bilgi için Window
 
 ### <a name="azure-mfa-license"></a>Azure MFA lisans
 
-Azure çok faktörlü kimlik doğrulaması için bir lisansı gereklidir ve bir Azure AD Premium, Enterprise Mobility + güvenlik veya çok faktörlü kimlik doğrulaması abonelik ile kullanılabilir. Tüketim tabanlı lisansları kullanıcı başına veya başına kimlik doğrulama lisansı gibi Azure MFA için NPS uzantısı ile uyumlu değildir. Daha fazla bilgi için bkz: [Azure çok faktörlü kimlik doğrulama alma](multi-factor-authentication-versions-plans.md). Test amacıyla bir deneme aboneliği kullanabilirsiniz.
+Azure çok faktörlü kimlik doğrulaması için bir lisansı gereklidir ve Azure AD Premium, Enterprise Mobility + güvenlik veya çok faktörlü kimlik doğrulaması tek başına lisans kullanılabilir. Tüketim tabanlı lisansları kullanıcı başına veya başına kimlik doğrulama lisansı gibi Azure MFA için NPS uzantısı ile uyumlu değildir. Daha fazla bilgi için bkz: [Azure çok faktörlü kimlik doğrulama alma](multi-factor-authentication-versions-plans.md). Test amacıyla bir deneme aboneliği kullanabilirsiniz.
 
 ### <a name="windows-server-software"></a>Windows Server yazılımı
 
@@ -310,7 +310,7 @@ VPN sunucusu kimlik doğrulama ve yetkilendirme için merkezi bir RADIUS sunucus
 
 Bu sorunları gidermek için başlatmak için bir ideal RADIUS sunucusunda güvenlik olay günlüklerini incelemek için yerdir. Zaman olayları arama kaydetmek için rol tabanlı ağ ilkesi ve erişim sunucusu özel görünüm Olay Görüntüleyicisi'nde, aşağıda gösterildiği gibi kullanabilirsiniz. "Olay kimliği 6273" nerede NPS bir kullanıcının erişimini reddetti olayları gösterir. 
 
-![Olay Görüntüleyicisi](./media/nps-extension-vpn/image22.png)
+![Olay Görüntüleyici](./media/nps-extension-vpn/image22.png)
  
 ## <a name="configure-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulamasını yapılandırma
 Bu bölümde, mfa ve iki aşamalı doğrulama için hesapları kurma için kullanıcıları etkinleştirme için yönergeler sağlar. 

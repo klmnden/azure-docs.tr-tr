@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="pen-testing"></a>Kalem test etme
-Uygulama test ve dağıtım için Microsoft Azure kullanma hakkında harika şeylerden geliştirmek, test ve uygulamalarınızı dağıtmak için bir şirket içi altyapı araya gerekmez biridir. Tüm altyapı tarafından Microsoft Azure platform hizmetlerini hallolduğuna. Requisitioning, alma, "racking ve yığınlama hakkında" endişelenmenize gerek yoktur, kendi şirket içi donanım.
+Azure uygulama test ve dağıtım için kullanmanın avantajları oluşturulan ortamları hızlı bir şekilde alabilir biridir.  Requisitioning, alma, "racking ve yığınlama hakkında" endişelenmenize gerek yoktur, kendi şirket içi donanım.
 
 Bu harika –, ancak yine de normal güvenlik gerçekleştirdiğiniz emin olun gerekiyorsa durum tespitlerini. Yapmanız gereken şeyleri biri sızma Azure'da dağıttığınız uygulamaları sınayın.
 
-Microsoft yaptığı zaten biliyor olabilirsiniz [bizim Azure ortamının sızma testi](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Bu bizim platform geliştirmemize yardımcı olur ve güvenlik denetimleri geliştirme, yeni güvenlik denetimleri tanıtımı ve bizim güvenlik işlemleri geliştirme açısından bizim Eylemler size yol gösterir.
+Microsoft yaptığı zaten biliyor olabilirsiniz [bizim Azure ortamının sızma testi](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Bu yardımcı Azure geliştirmeleri sürücü. 
 
 Kalem yok, uygulamanızı test etmek, ancak biz, istediğiniz ve kendi uygulamalarınızı test etme kalem gerçekleştirmek gerekiyor, anlama. Uygulamalarınızın güvenliğini, tüm Azure ekosistemi daha güvenli olmasına yardımcı olmak için iyi bir şey olmasıdır.
 
@@ -33,7 +33,8 @@ Uygulamalarınızı, kalem test ettiğinizde, saldırının gibi bize görünebi
 
 Ne yapmanız gerekir?
 
-Kalem için hazır olduğunuzda Azure barındırılan uygulamalarınızı test, bir seçeneğine sahip [bize bildirin](https://portal.msrc.microsoft.com/en-us/engage/pentest). Biliyoruz sonra belirli sınamalar gerçekleştirmek oluşturacağız, biz yanlışlıkla (test ettiğiniz IP adresi engelleme gibi) kapattığınız kalmaz, testlerinizi koşulları sınama Azure kalem uygun ve koşullar açıklanan sürece [Microsoft bulut birleşik sızma sınama kuralları of katılım](https://technet.microsoft.com/en-us/mt784683).
+Kalem için hazır olduğunuzda Azure barındırılan uygulamalarınızı test, bir seçeneğine sahip [bize bildirin](https://portal.msrc.microsoft.com/en-us/engage/pentest). Bildirim sonra Microsoft Hayır yanlışlıkla, (test ettiğiniz IP adresi engelleme gibi) kapanır. Testlerinizi koşulları sınama Azure kalem uymalıdır ve koşullar açıklanan [Microsoft bulut birleşik sızma sınama kuralları of katılım](https://technet.microsoft.com/en-us/mt784683).
+
 Standart testler gerçekleştirebileceğiniz içerir:
 
 * Ortaya çıkarmaya noktalarınızı testleri [açık Web uygulaması güvenlik proje (OWASP) ilk 10 güvenlik açıkları](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
@@ -42,4 +43,6 @@ Standart testler gerçekleştirebileceğiniz içerir:
 
 Bir işlemi gerçekleştiremezsiniz test türünde herhangi bir tür [hizmet reddi (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) saldırı. Bu bir DoS saldırısı başlatmasını veya belirlemek, göstermek veya DoS saldırısı herhangi bir türde benzetimini ilgili testleri gerçekleştirme içerir.
 
-Kalem ile çalışmaya başlamak hazır, Microsoft Azure üzerinde barındırılan uygulamalarınızı test ediyorsunuz? Bunu yeniden baş üzerinde üzerinden için [sızma testi genel bakış](https://technet.microsoft.com/library/mt784683.aspx) sayfa (ve test etme isteği düğmesine sayfanın sonundaki Oluştur'u tıklatın. Ayrıca, hüküm ve koşullar ve Azure veya herhangi bir Microsoft hizmeti ile ilgili güvenlik açıkları nasıl rapor üzerinde yardımcı bağlantılar sınama kalem hakkında daha fazla bilgi bulabilirsiniz.
+## <a name="next-steps"></a>Sonraki adımlar
+
+- Kalem ile çalışmaya başlamak hazır, Microsoft Azure üzerinde barındırılan uygulamalarınızı test ediyorsunuz? Bunu yeniden baş üzerinde üzerinden için [sızma testi genel bakış](https://technet.microsoft.com/library/mt784683.aspx) sayfa (ve test etme isteği düğmesine sayfanın sonundaki Oluştur'u tıklatın. 

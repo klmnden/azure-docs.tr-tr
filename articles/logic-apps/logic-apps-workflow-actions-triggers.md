@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 7e0266cdc477715a5d2f9067c6dcea73da9ba763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Tetikleyiciler ve Eylemler mantığı uygulama iş akışları için
 
@@ -115,7 +115,7 @@ Bu tetikleyicinin tanımı aşağıda verilmiştir:
 | ------------ | -------- | ---- | ----------- | 
 | frequency | Evet | Dize | Ne sıklıkta tetiği harekete için zaman birimi. Bu değerlerden yalnızca birini kullanın: "ikinci", "dakika", "saat", "gün", "hafta" veya "ay" | 
 | interval | Evet | Tamsayı | İş akışı sıklığı temel alarak çalışan ne sıklıkta açıklar pozitif bir tamsayı. <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "ay" ise, yineleme 6 ayda olur. | 
-| saat dilimi | Hayır | Dize | Bu tetikleyici kabul etmez olduğundan yalnızca bir başlangıç saati belirttiğinizde uygulanır [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Uygulamak istediğiniz saat dilimini belirtin. | 
+| timeZone | Hayır | Dize | Bu tetikleyici kabul etmez olduğundan yalnızca bir başlangıç saati belirttiğinizde uygulanır [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Uygulamak istediğiniz saat dilimini belirtin. | 
 | startTime | Hayır | Dize | Başlangıç tarihi ve saati bu biçimde belirtin: <p>YYYY-MM-ddTHH saat dilimini belirtirseniz, <p>-veya- <p>YYYY-MM-saat dilimi belirtmezseniz: ssZ <p>2: 00'dan 18 Eylül 2017 istiyorsanız, bu nedenle örneğin sonra belirtin "2017-09-18T14:00:00" ve "Pasifik Standart Saati" gibi bir saat dilimini belirtin. Ya da belirtin "2017-09-18T14:00:00Z" bir saat dilimi olmadan. <p>**Not:** bu başlangıç saati izlemelisiniz [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçimini](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi belirtmezseniz, boşluk olmadan sonunda harf "Z" eklemeniz gerekir. Bu "Z" eşdeğer başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). <p>Basit zamanlama için başlangıç saatini ilk oluşum olduğu sırada karmaşık zamanlamalar, tetikleyici herhangi erken başlangıç saatinden harekete değil. Başlangıç tarih ve saat hakkında daha fazla bilgi için bkz: [oluşturma ve zamanlama düzenli olarak çalışan görevlerin](../connectors/connectors-native-recurrence.md). | 
 | weekDays | Hayır | Dize veya dize dizisi | İçin "Hafta" belirtirseniz `frequency`, iş akışını çalıştırmak istediğinizde, virgülle ayrılmış bir veya daha fazla gün belirtebilirsiniz: "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi" ve "Pazar" | 
 | hours | Hayır | Tamsayı veya tamsayı dizisi | İçin "Gün" veya "Hafta" belirtirseniz, `frequency`, bir veya daha fazla tamsayılara 0'dan 23, iş akışını çalıştırmak istediğinizde gün saat virgülle ayırarak belirtebilirsiniz. <p>Örneğin, "10", "12" ve "14" belirtin, 10'da, 12 PM ve 2 PM saat işaretleri olarak alırsınız. | 
@@ -194,21 +194,11 @@ HTTP Tetikleyicileri belirtilen uç nokta yoklamak ve iş akışı çalıştır�
 | Yöntemi | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | URI | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| Üstbilgileri | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Gövde | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. | 
+| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
+| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). <p>Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
 ||||| 
-
-A *yeniden deneme ilkesi* 408, 429 ve tüm bağlantı özel durumları yanı sıra 5xx aralıklı hatalar, HTTP durum kodları işlemleri için geçerlidir. Bu ilkeyle tanımlayabilirsiniz `retryPolicy` nesnesini aşağıda gösterildiği gibi:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
  
 İyi mantığı uygulamanızın üzerinde çalışmak için belirli bir desen ile uygun olması HTTP API HTTP tetikleyicisi gerektirir. Tetikleyici bu özellikleri tanır:  
   
@@ -221,7 +211,7 @@ A *yeniden deneme ilkesi* 408, 429 ve tüm bağlantı özel durumları yanı sı
 
 Farklı türde istekleri için bazı örnek davranışları şunlardır:
   
-| Yanıt kodu | Süre sonunda yeniden dene | Davranışı | 
+| Yanıt kodu | Süre sonunda yeniden dene | Davranış | 
 | ------------- | ----------- | -------- | 
 | 200 | {none} | İş akışı çalıştırın, sonra için daha fazla veri tanımlanmış yinelenme sonra yeniden denetleyin. | 
 | 200 | 10 saniye | İş akışı çalıştırın, sonra daha fazla veri için 10 saniye sonra yeniden denetleyin. |  
@@ -234,8 +224,8 @@ HTTP tetikleyicisi çıkışları şunlardır:
   
 | Öğe adı | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| Üstbilgileri | Nesne | HTTP yanıtı üstbilgileri | 
-| Gövde | Nesne | HTTP yanıt gövdesi | 
+| headers | Nesne | HTTP yanıtı üstbilgileri | 
+| body | Nesne | HTTP yanıt gövdesi | 
 |||| 
 
 ## <a name="api-connection-trigger"></a>API bağlantı tetikleyici  
@@ -267,9 +257,9 @@ API bağlantı tetikleyici temel işlevselliğini HTTP tetikleyicinin benzer. Bu
 | ana bilgisayar | Evet | Nesne | Barındırılan ağ geçidi ve API uygulaması için kimliği | 
 | Yöntemi | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| Üstbilgileri | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Gövde | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. | 
+| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
+| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
@@ -281,22 +271,12 @@ API bağlantı tetikleyici temel işlevselliğini HTTP tetikleyicinin benzer. Bu
 | Bağlantı adı |  | İş akışının kullandığı yönetilen API bağlantı adı. Adlı bir parametre başvurmalıdır `$connection`. |
 |||| 
 
-A *yeniden deneme ilkesi* 408, 429 ve tüm bağlantı özel durumları yanı sıra 5xx aralıklı hatalar, HTTP durum kodları işlemleri için geçerlidir. Bu ilkeyle tanımlayabilirsiniz `retryPolicy` nesnesini aşağıda gösterildiği gibi:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
-
 Bir API bağlantısı tetikleyicisi çıktıların şunlardır:
   
 | Öğe adı | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| Üstbilgileri | Nesne | HTTP yanıtı üstbilgileri | 
-| Gövde | Nesne | HTTP yanıt gövdesi | 
+| headers | Nesne | HTTP yanıtı üstbilgileri | 
+| body | Nesne | HTTP yanıt gövdesi | 
 |||| 
   
 ## <a name="httpwebhook-trigger"></a>HTTPWebhook tetikleyici  
@@ -360,8 +340,8 @@ HTTPWebhook çıkışlarından tetikleyebilir ve gelen istek içeriği şunlard�
   
 | Öğe adı | Tür | Açıklama |
 | ------------ | ---- | ----------- |
-| Üstbilgileri | Nesne | HTTP yanıtı üstbilgileri | 
-| Gövde | Nesne | HTTP yanıt gövdesi | 
+| headers | Nesne | HTTP yanıtı üstbilgileri | 
+| body | Nesne | HTTP yanıt gövdesi | 
 |||| 
 
 ## <a name="conditions"></a>Koşullar  
@@ -527,22 +507,13 @@ Burada, `inputs` nesnesini bir HTTP çağrısıyla oluşturmak için gereken bu 
 | Yöntemi | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | URI | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| Üstbilgileri | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Gövde | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. | 
+| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
+| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Hayır | Dize | Geçersiz kılmak için özel davranışları kümesini tanımlar. | 
 | Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). <p>Zamanlayıcı daha desteklenen bir özellik yok: `authority`. Varsayılan olarak, bu değer `https://login.windows.net` belirtilmediğinde, ancak farklı bir değer gibi kullanabilir`https://login.windows\-ppe.net`. | 
 ||||| 
 
-HTTP eylemleri ve Destek APIConnection Eylemler *ilkeleri yeniden*. 408, 429 ve tüm bağlantı özel durumları yanı sıra 5xx aralıklı hatalar, HTTP durum kodları işlemleri için bir yeniden deneme ilkesi uygulanır. Bu ilkeyle tanımlayabilirsiniz `retryPolicy` nesnesini aşağıda gösterildiği gibi:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 Bu örnek HTTP eylemi üç yürütmeleri ve 30 saniyelik gecikme her denemesi arasındaki toplam aralıklı hatalar varsa, en son haberleri iki kez getirme yeniden deneme sayısı:
   
 ```json
@@ -629,22 +600,12 @@ APIConnection eylemi örneği aşağıdadır:
 | Yöntemi | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | Yol | Evet | Dize | API işlem için yolu | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| Üstbilgileri | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Gövde | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. | 
+| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
+| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Hayır | Dize | Geçersiz kılmak için özel davranışları kümesini tanımlar. | 
 | Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
-
-408, 429 ve tüm bağlantı özel durumları yanı sıra 5xx aralıklı hatalar, HTTP durum kodları işlemleri için bir yeniden deneme ilkesi uygulanır. Bu ilkeyle tanımlayabilirsiniz `retryPolicy` nesnesini aşağıda gösterildiği gibi:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## <a name="apiconnection-webhook-action"></a>APIConnection Web kancası eylemi
 
@@ -682,9 +643,9 @@ Microsoft tarafından yönetilen bir bağlayıcı APIConnectionWebhook eylem ba�
 | ana bilgisayar | Evet | Nesne | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
 | Yol | Evet | Dize | API işlem için yolu | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| Üstbilgileri | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Gövde | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
-| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. | 
+| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
+| retryPolicy | Hayır | Nesne | Bu nesne 4xx veya 5xx hataları yeniden deneme davranışını özelleştirmek için kullanın. Daha fazla bilgi için bkz: [yeniden deneme ilkelerini](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Hayır | Dize | Geçersiz kılmak için özel davranışları kümesini tanımlar. | 
 | Kimlik doğrulaması | Hayır | Nesne | İstek kimlik doğrulaması için kullanması gereken yöntemi temsil eder. Daha fazla bilgi için bkz: [Scheduler giden bağlantı kimlik doğrulaması](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
@@ -750,8 +711,8 @@ Bu eylemi temsil eder ve çağrı sağlayan bir [Azure işlevi](../azure-functio
 | İşlev kimliği | Evet | Dize | Aramak istediğiniz Azure işlevi için kaynak kimliği. | 
 | Yöntemi | Hayır | Dize | Bir işlevi çağırmak için kullanılan HTTP yöntemi. Belirtilmezse, "POST" varsayılan yöntemdir. | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| Üstbilgileri | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Gövde | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
+| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
 |||||
 
 Mantıksal uygulamanızı kaydettiğinizde, Azure Logic Apps başvurulan işlev üzerinde denetimleri gerçekleştirir:
@@ -839,8 +800,8 @@ Bu eylemin çıkış ne de tanımladığınız üzerinde dayalı `response` alt 
 | ana bilgisayar kimliği | Evet | Dize| Aramak istediğiniz iş akışı için kaynak kimliği | 
 | ana bilgisayar tetikleyiciadı | Evet | Dize | Çağrılacak istediğiniz Tetikleyici adı | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
-| Üstbilgileri | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| Gövde | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
+| headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
 |||||   
 
 ## <a name="compose-action"></a>Eylem oluşturma
@@ -880,7 +841,7 @@ Bu eylem, yeni bir değer dizideki her öğe proje olanak tanır.
 
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- | 
-| Kaynak | Evet | Dizi | Kaynak dizi |
+| başlangıç | Evet | Dizi | Kaynak dizi |
 | seçin | Evet | Herhangi biri | Kaynak dizideki her öğe için uygulanan projeksiyonu |
 ||||| 
 
@@ -907,7 +868,7 @@ Bu eylem, bir dizi koşula göre filtre olanak tanır. Bu örnek ikiden büyük 
 
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- | 
-| Kaynak | Evet | Dizi | Kaynak dizi |
+| başlangıç | Evet | Dizi | Kaynak dizi |
 | Burada | Evet | Dize | Kaynak diziden her öğeye uygulanan koşulu |
 ||||| 
 
@@ -972,7 +933,7 @@ Bu örnek sonucundan HTML tablosu gibi görünür:
 
 | Ad | Gerekli | Tür | Açıklama | 
 | ---- | -------- | ---- | ----------- | 
-| Kaynak | Evet | Dizi | Kaynak dizi. Varsa `from` özellik değeri boş bir dizi, çıktı boş bir tablo. | 
+| başlangıç | Evet | Dizi | Kaynak dizi. Varsa `from` özellik değeri boş bir dizi, çıktı boş bir tablo. | 
 | Biçimi | Evet | Dize | Ya da istediğiniz tablo biçiminde **CSV** veya **HTML** | 
 | sütunları | Hayır | Dizi | İstediğiniz tablo sütunları. Varsayılan Tablo Şekil geçersiz kılmak için kullanın. | 
 | sütun başlığı | Hayır | Dize | Sütun başlığı | 
@@ -1160,7 +1121,7 @@ Bu döngü eylem iç Eylemler kadar bir koşul true olarak sonuçları çalışt
 | Eylemler | Evet | Nesne | Döngünün içinde çalıştırmak için iç eylemleri | 
 | ifade | Evet | Dize | Her yinelemeden sonra değerlendirilecek ifade | 
 | Sınırı | Evet | Nesne | Döngünün sınırlar. En az bir sınır tanımlamanız gerekir. | 
-| Sayısı | Hayır | Tamsayı | Gerçekleştirmek için yineleme sayısı sınırı | 
+| sayı | Hayır | Tamsayı | Gerçekleştirmek için yineleme sayısı sınırı | 
 | timeout | Hayır | Dize | Zaman aşımı sınırını [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601) ne kadar döngü çalışması gerektiğini belirtir |
 ||||| 
 

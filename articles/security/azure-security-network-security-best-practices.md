@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Azure ağı en iyi güvenlik uygulamaları
-Microsoft Azure sanal makineleri ve cihazları diğer ağ bağlantılı cihazlar için Azure sanal ağlarda koyarak bağlamanıza olanak sağlar. Bir Azure sanal ağı etkin ağ aygıtları arasındaki TCP tabanlı iletişime izin vermek için sanal bir ağa sanal ağ arabirim kartları bağlanmanıza olanak sağlayan bir sanal ağ yapıdır. Bir Azure sanal ağına bağlı Azure sanal makineler, aynı Azure sanal ağı, farklı Azure sanal ağlar, Internet'te veya kendi şirket içi ağlarda bile cihazlarda bağlanabiliyor.
+Microsoft Azure sanal makineleri ve cihazları diğer ağ bağlantılı cihazlar için Azure sanal ağlarda koyarak bağlamanıza olanak sağlar. Bir Azure sanal ağı etkin ağ aygıtları arasındaki TCP tabanlı iletişime izin vermek için sanal bir ağa sanal ağ arabirim kartları bağlanmanıza olanak sağlayan bir yapıdır. Bir Azure sanal ağına bağlı Azure sanal makineler, aynı Azure sanal ağı, farklı Azure sanal ağlar, Internet'te veya kendi şirket içi ağlarda bile cihazlarda bağlanabiliyor.
 
 Bu makalede en iyi güvenlik uygulamaları, Azure ağ koleksiyonu aşağıdakiler ele alınacaktır. Bu en iyi uygulamaları Azure ağ ile deneyimi bizim türetilmiş ve müşteri deneyimleri bulunun.
 
@@ -50,9 +50,9 @@ Bu makalede ele alınan azure ağ en iyi yöntemler şunlardır:
 * Veri merkeziniz Azure genişletme
 
 ## <a name="logically-segment-subnets"></a>Mantıksal kesim alt ağlar
-[Azure sanal ağlar](https://azure.microsoft.com/documentation/services/virtual-network/) , şirket içi ağınızda LAN benzerdir. Üzerinde yerleştirebileceğiniz tüm tek bir özel IP adresi alanı tabanlı ağı oluşturma fikirdir bir Azure sanal ağı arkasında, [Azure sanal makineleri](https://azure.microsoft.com/services/virtual-machines/). Kullanılabilir özel IP adres alanlarından (10.0.0.0/8) Sınıf A, sınıf B (172.16.0.0/12) ve C sınıfı (192.168.0.0/16) aralıktır.
+[Azure sanal ağlar](https://azure.microsoft.com/documentation/services/virtual-network/) , şirket içi ağınızda LAN benzerdir. Üzerinde yerleştirebileceğiniz tüm tek bir özel IP adresi alanı tabanlı ağı oluşturma fikirdir bir Azure sanal ağı arkasında, [Azure sanal makineleri](https://azure.microsoft.com/services/virtual-machines/). Sınıf A (10.0.0.0/8), sınıf B (172.16.0.0/12), özel IP adres alanlarının kullanılabilir olduğundan ve C sınıfı (192.168.0.0/16) aralıkları.
 
-Benzer şekilde ne şirket içi yapmak için büyük bir adres alanı alt ağlara ayırabilir istersiniz. Kullanabileceğiniz [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) , alt ağlar oluşturmak için alt ağları kurallara göre.
+Benzer şekilde ne şirket içi yapmak için büyük bir adres alanı alt ağlara ayırabilir. Kullanabileceğiniz [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) , alt ağlar oluşturmak için alt ağları kurallara göre.
 
 Alt ağlar arasında yönlendirme otomatik olarak gerçekleşir ve yönlendirme tablolarını el ile yapılandırmanız gerekmez. Ancak, varsayılan ayarı vardır hiçbir ağ erişim denetimlerini Azure sanal ağ oluşturma alt ağlar arasında olmasıdır. Alt ağlar arasında ağ erişim denetimleri oluşturmak için alt ağlar arasında bir şey put gerekir.
 
@@ -82,7 +82,7 @@ Kullanıcı tanımlı yollar ve bunların makalesini okuyarak nasıl yapılandı
 
 ## <a name="enable-forced-tunneling"></a>Zorlanan tünel etkinleştir
 Zorlamalı tünel daha iyi anlamak için hangi "bölünmüş tünel" olduğunu anlamak kullanışlıdır.
-Bölünmüş tünel en yaygın örnek VPN bağlantıları ile görülür. Şirket ağınıza, otel oda VPN bağlantısı kuracak düşünün. Bu bağlantı, şirket ağındaki kaynaklara bağlanmanıza olanak verir ve şirket ağınızdaki kaynaklara yapılan tüm bağlantılar VPN tünelinden gidin.
+Bölünmüş tünel en yaygın örnek VPN bağlantıları ile görülür. Şirket ağınıza, otel oda VPN bağlantısı kuracak düşünün. Bu bağlantı, şirket kaynaklarına erişmek için şirket ağınıza yapılan tüm bağlantılar VPN tünelinden gidip verir.
 
 Internet üzerindeki kaynaklara bağlanmak istediğiniz ne olur? Bölünmüş tünel etkinleştirildiğinde, bu bağlantılar doğrudan Internet'e ve VPN tünelinden gidin. Bazı güvenlik Uzmanları bu potansiyel bir risk olmasını ve bu nedenle bölünmüş tüneli devre dışı önerilir ve tüm bağlantıları, bu Internet için hedefleyen olanlar şirket kaynakları için hedeflenen gidin ve VPN tüneli göz önünde bulundurun. Bunu yapmanın avantajı, Internet bağlantısı VPN istemcisi VPN tüneli dışında Internet'e bağlı olduğu durumda olmayacaktır şirket ağı güvenlik aygıtları aracılığıyla sonra zorlanır ' dir.
 
@@ -144,10 +144,9 @@ Gizlilik, bütünlük ve kullanılabilirlik (CIA) bugünün en etkili güvenlik 
 Kullanılabilirlik, açık kalma süresi ve performans hakkında olduğu düşünülebilir. Bir hizmeti çalışmıyorsa, bilgi erişilemiyor. Performans verileri kullanılamaz hale konusunda kadar düşük olduğunda, biz verilerin erişilemez düşünebilirsiniz. Bu nedenle, güvenlik açısından bakıldığında, biz hizmetlerimizle en iyi çalışır durumda kalma süresi ve performans emin olmak için ne olursa olsun kuruluşunuzun yöneticisiyle yapmanız gerekir.
 Kullanılabilirlik ve performansı artırmak için kullanılan popüler ve etkili bir yöntemi, Yük Dengeleme kullanmaktır. Yük Dengeleme, bir hizmetin parçası olan sunucular arasında ağ trafiğini dağıtmanın bir yöntemdir. Ön uç web sunucuları, hizmetin bir parçası varsa, örneğin, Yük Dengeleme, birden çok ön uç web sunucusu arasında trafiği dağıtmak için kullanabilirsiniz.
 
-Web sunuculardan biri kullanılamaz duruma gelirse, yük dengeleyici bu sunucuya trafik göndermeyi durdurması ve hala çevrimiçi olduğu sunucularına trafiği yönlendirmek için bu dağıtım trafik kullanılabilirliğini artırır. İşlemci ve ağ tüm yük yükünü isteklere hizmet vermek için Dağıtılmış bellek sunucuları dengeli çünkü Yük Dengeleme de performans, yardımcı olur.
+Web sunuculardan biri kullanılamaz duruma gelirse, yük dengeleyici bu sunucuya trafik göndermeyi durdurur ve hala çevrimiçi olduğu sunucuya yeniden çünkü bu dağıtım trafik kullanılabilirliğini artırır. İşlemci ve ağ tüm yük yükünü isteklere hizmet vermek için Dağıtılmış bellek sunucuları dengeli çünkü Yük Dengeleme de performans, yardımcı olur.
 
-Yük Dengeleme yapabilecekleriniz olduğunda ve hizmetleriniz için uygun şekilde kullanması önerilir. Biz, aşağıdaki bölümlerde site adresi.
-Azure sanal ağ düzeyinde Azure üç birincil sizinle Yük Dengeleme seçeneklerini sağlar:
+Yük Dengeleme yapabilecekleriniz olduğunda ve hizmetleriniz için uygun şekilde kullanması önerilir. Aşağıdaki bölümlerde site adres: Azure sanal ağ düzeyinde Azure üç birincil sizinle Yük Dengeleme seçenekleri sağlar:
 
 * HTTP tabanlı Yük Dengeleme
 * Dış Yük Dengeleme
@@ -162,7 +161,7 @@ HTTP tabanlı Yük Dengeleme özelliklerini HTTP protokolünü kullanarak bağla
 * Web sunucusu gruplarında SSL sonlandırma gelen ek yükü uygulama ağ geçidi yararlanarak serbest bırakmak istediğiniz uygulamaları [SSL boşaltma](https://f5.com/glossary/ssl-offloading) özelliği.
 * Uygulamalar, bir içerik teslim ağı gibi farklı arka uç sunucularına yönlendirilmesini veya yüklemek için aynı uzun süre çalışan TCP bağlantısı birden çok HTTP isteklerini dengeli gerektirir.
 
-Azure uygulama ağ geçidi nasıl çalıştığı ve nasıl dağıtımlarınızda kullanabileceğiniz hakkında daha fazla bilgi için lütfen makaleyi okuyun [uygulama ağ geçidi'ne genel bakış](../application-gateway/application-gateway-introduction.md).
+Azure uygulama ağ geçidi nasıl çalıştığı ve nasıl dağıtımlarınızda kullanabileceğiniz hakkında daha fazla bilgi için makaleyi okuyun [uygulama ağ geçidi'ne genel bakış](../application-gateway/application-gateway-introduction.md).
 
 ## <a name="external-load-balancing"></a>Dış Yük Dengeleme
 Internet'ten gelen bağlantıları bir Azure sanal ağınızda bulunan, sunucular arasında dengeli olduğunda dış Yük Dengeleme gerçekleşir. Azure dış yük dengeleyici, bu özellik sağlayabilirsiniz ve gerektiğinde bunu Yapışkan oturumları gerektirmeyen ya da SSL boşaltma kullanmanızı öneririz.
@@ -176,7 +175,7 @@ Nasıl Azure dış yük dengeleyici çalışır ve onu nasıl dağıtabileceğin
 ## <a name="internal-load-balancing"></a>İç Yük Dengeleme
 İç Yük Dengeleme dış Yük Dengeleme için benzer ve Bakiye bağlantıları arkasına sunuculara yüklemek için aynı mekanizmayı kullanır. Yük Dengeleyici, bu durumda Internet'te olmayan sanal makineleri gelen bağlantıları kabul yalnızca farktır. Çoğu durumda, Yük Dengeleme için kabul edilen bağlantılarda bir Azure sanal ağı üzerindeki cihazlar tarafından başlatılır.
 
-İç Yük Dengeleme Bakiye bağlantıları SQL veya iç web sunucularındaki yük gerektiğinde gibi bu özelliği, yararlı olacak senaryoları için kullanmanızı öneririz.
+İç Yük Dengeleme Bakiye bağlantıları SQL veya iç web sunucularındaki yük gerektiğinde gibi bu özelliği, yararlı senaryoları için kullanmanızı öneririz.
 
 Azure iç Yük Dengeleme nasıl çalıştığını ve nasıl dağıtabileceğiniz hakkında daha fazla bilgi için lütfen makaleyi okuyun [PowerShell kullanarak bir iç yük dengeleyici oluşturmaya başlamak](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
 

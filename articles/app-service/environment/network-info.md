@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 121dd1a90e9bde66f1c3b752412a657a67295084
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Uygulama hizmeti ortamı için ağ konuları #
 
@@ -47,7 +47,7 @@ Bir ILB ana varsa, ILB'nin IP adresini HTTP/S, FTP/sn, web dağıtımı ve uzakt
 
 Normal uygulama erişim bağlantı noktaları şunlardır:
 
-| Kullanım | Kaynak | Alıcı |
+| Kullanım | Başlangıç | Alıcı |
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Kullanıcı tarafından yapılandırılabilir |  80, 443 |
 |  FTP/FTPS    | Kullanıcı tarafından yapılandırılabilir |  21, 990, 10001-10020 |
@@ -59,7 +59,7 @@ Bu, bir dış ana ya da bir ILB ana iseniz geçerlidir. Bir dış ana üzerinde 
 
 Bir ana gelen erişim bağımlılık:
 
-| Kullanım | Kaynak | Alıcı |
+| Kullanım | Başlangıç | Alıcı |
 |-----|------|----|
 | Yönetim | App Service management adresleri | ANA alt: 454, 455 |
 |  ANA iç iletişim | ANA alt: tüm bağlantı noktaları | ANA alt: tüm bağlantı noktaları
@@ -76,7 +76,7 @@ Atanmış IP adresleri uygulamalarınızı ana alt ağa atanan IP gelen trafiğe
 
 Giden erişim için bir ana birden çok dış sistemlerde bağlıdır. Bu sistem bağımlılıkların DNS adları ile tanımlanır ve sabit bir IP adresleri kümesini eşleme yok. Bu nedenle, ana çeşitli bağlantı noktaları tüm dış IP ana alt ağdan giden erişim gerektirir. Bir ana aşağıdaki giden bağımlılıklara sahiptir:
 
-| Kullanım | Kaynak | Alıcı |
+| Kullanım | Başlangıç | Alıcı |
 |-----|------|----|
 | Azure Storage | ANA alt ağ | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 yalnızca gereklidir ASEv1 için.) |
 | Azure SQL Database | ANA alt ağ | Database.Windows.NET: 1433 11000 11999, 14000 14999 (daha fazla bilgi için bkz: [SQL Database V12 bağlantı noktası kullanımı](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
@@ -103,7 +103,7 @@ ANA işlevsel bağımlılıkları ek olarak, portal deneyimiyle ilgili birkaç e
 
 -   Web işleri
 -   İşlevler
--   Akış günlüğü
+-   Günlük akışı
 -   Kudu
 -   Uzantılar
 -   İşlem Gezgini
@@ -164,7 +164,7 @@ Aşağıdaki giden kurallar gösterilen tüm öğeler, son öğenin dışında g
 
 ![Giden güvenlik kuralları][5]
 
-Nsg'lerinizi tanımlandıktan sonra ana açıktır alt ağa atayın. Ana sanal ağ veya alt ağ hatırlamıyorsanız ana Yönetim Portalı'ndan görebilirsiniz. Alt ağınız NSG atamak için kullanıcı Arabirimi alt ağa gidin ve NSG seçin.
+Nsg'lerinizi tanımlandıktan sonra ana açıktır alt ağa atayın. Ana sanal ağ veya alt ağ hatırlamıyorsanız ana portal sayfasından görebilirsiniz. Alt ağınız NSG atamak için kullanıcı Arabirimi alt ağa gidin ve NSG seçin.
 
 ## <a name="routes"></a>Yollar ##
 

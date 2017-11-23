@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b22ad29e593a9293a98acebca065f19ab2d9d5be
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenlik giriş
 ## <a name="overview"></a>Genel Bakış
@@ -40,7 +40,7 @@ Ayrıca, Azure ile geniş bir yelpazesini yapılandırılabilir güvenlik seçen
 >
 > Biz bazı genel bir bakış sağlar, ancak sağlanan bilgileri nasıl Microsoft Azure platformu güvenliğini sağlama ile ilgili ayrıntılı bilgi için bkz: [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
 
-### <a name="abstract"></a>Özet
+### <a name="abstract"></a>Soyut
 Başlangıçta, genel bulut geçişler maliyet tasarrufu ve çeviklik tarafından yenilik için güdümlü. Güvenlik süre ve hatta bir Göster stopper, genel bulut geçiş için başlıca sorunlardan olarak kabul edildi. Ancak, genel bulutun güvenlik buluta geçiş için sürücülerin birine başlıca sorunlardan çözümlemeye geçmiş. Yanıtın bu arkasındaki mantığı uygulamaların koruma üstün yeteneğini büyük genel bulut hizmeti sağlayıcıları ve bulut tabanlı varlıklar veri ' dir.
 
 Azure altyapısı tesisten uygulamalara kadar milyonlarca müşteriye aynı anda hizmet verecek şekilde tasarlanmıştır ve işletmelerin güvenlik ihtiyaçlarını karşılayabilecek güvenilir bir temel sunar. Ayrıca, Azure çok çeşitli yapılandırılabilir güvenlik seçenekleri sağlar ve böylece BT karşılamak üzere dağıtımlarınızı benzersiz gereksinimlerini karşılamak için güvenlik özelleştirebilirsiniz bunları denetleme olanağı ilkeleri denetlemek ve dış düzenlemelere uygun.
@@ -139,7 +139,7 @@ Etkinleştirmek veya günlükleri şu tür devre dışı bırakabilirsiniz:
 
 -   Web sunucu günlüğü - HTTP işlemlerini W3C Genişletilmiş günlük dosyası biçimi kullanma hakkında bilgi. Bu, belirli bir IP adresinden işlenen isteklerin ya da kaç istek sayısı gibi genel site ölçümleri belirlerken yararlıdır.
 
-#### <a name="application-diagnostics"></a>Uygulama tanılama
+#### <a name="application-diagnostics"></a>Uygulama tanılamaları
 [Uygulama tanılama](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) bir web uygulaması tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamaları kullanabileceğiniz [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) bilgi uygulama tanılama günlüğüne sınıfı. Uygulama tanılamada, olayları, uygulama performansı ile ilgili olanlar ve uygulama arızaları ve hataları ile ilgili olanlar başlıca iki türde vardır. Arızalar ve hatalar ayrılabilir bağlantı, güvenlik ve arıza sorunları daha. Arıza sorunları genellikle uygulama kodundaki bir sorunla ilgilidir.
 
 Uygulama tanılamada, bu şekilde gruplandırılmış olayları görebilirsiniz:

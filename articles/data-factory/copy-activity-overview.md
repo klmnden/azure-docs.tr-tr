@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 11/22/2017
 ms.author: jingwang
-ms.openlocfilehash: 36443ec86c15edce27bdc4f50cabcaf2e14936bc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory kopyalama etkinliği
 
@@ -134,7 +134,7 @@ Aşağıdaki şablonu kopyalama etkinliği, desteklenen özelliklerin kapsamlı 
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği tür özelliği ayarlamak: **Kopyala** | Evet |
 | Girişleri | Kaynak verileri için hangi noktaları oluşturulan veri kümesi belirtin. Kopyalama etkinliği yalnızca tek bir giriş destekler. | Evet |
-| Çıkışları | Hangi havuz veri noktalarına oluşturulan veri kümesi belirtin. Kopyalama etkinliği yalnızca tek bir çıktı destekler. | Evet |
+| çıkışlar | Hangi havuz veri noktalarına oluşturulan veri kümesi belirtin. Kopyalama etkinliği yalnızca tek bir çıktı destekler. | Evet |
 | typeProperties | Kopyalama etkinliği yapılandırmak için özellikler grubu. | Evet |
 | kaynak | Kopya kaynak türü ve karşılık gelen özelliklere verileri nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
 | Havuz | Kopya Havuz türü ve karşılık gelen özelliklere veri yazma nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
@@ -144,7 +144,7 @@ Aşağıdaki şablonu kopyalama etkinliği, desteklenen özelliklerin kapsamlı 
 | enableStaging<br/>stagingSettings | Geçici verileri doğrudan kopyalama veri havuzu kaynağından yerine aa blob storage'da hazırlamak bu seçeneği seçin.<br/><br/>Yararlı senaryoları ve yapılandırma ayrıntılarını öğrenmek [kopyalama hazırlanan](copy-activity-performance.md#staged-copy). | Hayır |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Uyumsuz satır veri havuzu kaynağından kopyalarken ne yapılacağını seçin.<br/><br/>Ayrıntıları öğrenmek [hataya dayanıklılık](copy-activity-fault-tolerance.md). | Hayır |
 
-## <a name="monitoring"></a>Monitoring (İzleme)
+## <a name="monitoring"></a>İzleme
 
 Kopya etkinliği yürütme ayrıntıları ve performans özellikleri kopyalama etkinliği çalıştırma sonucu döndürülür çıkış bölümü ->. Bir tükendi listesi aşağıdadır. Çalıştırma etkinliğini izlemek öğrenin [hızlı başlangıç bölümünde izleme](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). Performans ve senaryonuz için kopyalama etkinliği'nin yapılandırılmasını karşılaştırabilirsiniz [Performans başvurusu](copy-activity-performance.md#performance-reference) şirket içi sınama gelen.
 

@@ -5,19 +5,18 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2017
+ms.date: 11/21/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: a01d8d1ed0f5234f4950d448b54087767353c8ef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure maliyeti yönetimi için sık sorulan sorular
-
 
 Bu makalede Azure maliyeti Yönetimi (Cloudyn olarak da bilinir) hakkında bazı sık sorulan soruları giderir. Maliyet yönetimi hakkında sorularınız varsa, onları sorabilirsiniz [SSS Azure maliyeti Cloudyn yönetimine](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
 
@@ -125,3 +124,15 @@ Verileri Azure'dan Cloudyn için gönderme gecikme olursa, verileri Azure içind
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Nasıl doğrudan bir CSP Cloudyn erişim dolaylı CSP müşterileri ve ortakları için yapılandırabilir miyim?
 
 Yönergeler için bkz: [Cloudyn içinde dolaylı CSP erişimi yapılandırma](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn).
+
+## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>İyileştirici menü öğesi görünmesine nedeni nedir?
+
+Azure Resource Manager erişimi ve veri ekledikten sonra görmeniz gerekir, toplanır **iyileştirici** seçeneği. Azure Resource Manager erişimi etkinleştirmek için bkz: [nasıl Azure kimlik etkinleştirilmemiş hesaplarıyla etkinleştirebilirim?](#how-do-i-activate-unactivated-accounts-with-azure-credentials)
+
+## <a name="is-cost-managementcloudyn-agent-based"></a>Tabanlı maliyet Yönetimi/Cloudyn aracı?
+
+Hayır. Aracıları kullanılmaz. Azure sanal makine ölçüm verilerini VM'ler için Microsoft Öngörüler API'SİNDEN toplanır. Azure VM'lerin ölçüm verilerini toplamak istiyorsanız, tanılama ayarlarının etkin olması gerekir.
+
+## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn raporlarını, rapor başına birden fazla AD Kiracı Göster?
+
+Evet. Yapabilecekleriniz [karşılık gelen bir bulut hesap varlık oluşturursanız](tutorial-user-access.md#create-entities) sahip olduğunuz her bir AD Kiracı için. Ardından, tüm Azure AD Kiracı verilerinizi ve Amazon Web Hizmetleri ve Google Cloud Platform'un gibi diğer bulut platformu sağlayıcılarını görüntüleyebilirsiniz.

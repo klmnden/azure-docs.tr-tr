@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2017
-ms.author: elkuzmen
-ms.openlocfilehash: a2ccae76ff548847b331c7993013f22a098525ce
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.date: 11/20/2017
+ms.author: bryanla
+ms.openlocfilehash: cf69470beb8e466ba0b9807d8bff5813a88b7c41
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ne erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -30,8 +30,11 @@ Bu öğretici bir Linux sanal makine için Yönetilen hizmet kimliği (MSI) etki
 > * Bir kaynak grubu Azure Kaynak Yöneticisi'nde, VM erişim 
 > * VM kimliğini kullanarak bir erişim belirteci alın ve Azure Resource Manager çağırmak için kullanın 
 
+## <a name="prerequisites"></a>Ön koşullar
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -43,7 +46,7 @@ Bu öğretici için yeni bir Linux VM oluşturun. Mevcut bir VM'yi üzerinde MSI
 
 1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin.
-3. Sanal makine bilgilerini girin. İçin **kimlik doğrulama türü**seçin **SSH ortak anahtarını** veya **parola**. Oluşturulan kimlik bilgileri, VM'ye oturum açmaya izin verir.
+3. Sanal makine bilgilerini girin. İçin **kimlik doğrulama türü**seçin **SSH ortak anahtarını** veya **parola**. Oluşturulan kimlik bilgileri, VM'ye oturum açmak izin verir.
 
     ![Alt görüntü metin](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
@@ -57,12 +60,12 @@ Bir sanal makine MSI erişim belirteçleri, kimlik bilgileri kodunuza koyma gere
 
 1. Seçin **sanal makine** MSI etkinleştirmek istediğiniz.
 2. Sol gezinti çubuğunda **yapılandırma**.
-3. Göreceğiniz **yönetilen hizmet kimliği**. Kaydolun ve MSI etkinleştirmek için seçin **Evet**, devre dışı bırakmak istiyorsanız seçin No
+3. Gördüğünüz **yönetilen hizmet kimliği**. Kaydolun ve MSI etkinleştirmek için seçin **Evet**, devre dışı bırakmak istiyorsanız seçin No
 4. Tıklattığınız olun **kaydetmek** yapılandırmayı kaydetmek için.
 
     ![Alt görüntü metin](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Bu bilgisayarda hangi uzantıların olduğunu denetlemek istiyorsanız **Linux VM**, tıklatın **uzantıları**. MSI etkinleştirilirse, **ManagedIdentityExtensionforLinux** listesinde görünür.
+5. Bu bilgisayarda hangi uzantıların olduğunu denetlemek istiyorsanız **Linux VM**, tıklatın **uzantıları**. MSI etkinleştirilirse, **ManagedIdentityExtensionforLinux** listede görünür.
 
     ![Alt görüntü metin](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
@@ -102,13 +105,19 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
     Yanıtı:  
 
     ```bash
-    {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEPfpXZRLwrBNd607AzX0KVmLFrwA1vYJnCV-sSV8bwTh2t6CVEj240t0iyeVWVc2usJ0NY2rxPzKd_UckQ_zzrECG3kS4vuYePKz6GqNJFVzm2w2c61lX0-O1CwvQ9w","refresh_token":"","expires_in":"3599","expires_on":"1504130527","not_before":"1504126627","resource":"https://management.azure.com","token_type":"Bearer"} 
+    {"access_token":"eyJ0eXAiOi...",
+    "refresh_token":"",
+    "expires_in":"3599",
+    "expires_on":"1504130527",
+    "not_before":"1504126627",
+    "resource":"https://management.azure.com",
+    "token_type":"Bearer"} 
     ```
     
     Örneğin kaynak grubu için daha önce bu VM erişim izni ayrıntılarını okumak Azure Kaynak Yöneticisi'ne erişmek için bu erişim belirteci kullanabilirsiniz. Değerlerini değiştirmek \<ABONELİK kimliği\>, \<kaynak grubu\>, ve \<erişim BELİRTECİ\> daha önce oluşturduğunuz fiyatlarla. 
     
     > [!NOTE]
-    > URL'nin büyük küçük harfe duyarlı olduğundan, bu nedenle kaynak grubu ve büyük harf "G" "kaynak grubu" adlı başlattığınızda, daha önce kullanılan tam aynı durumda kullanıyorsanız olun.  
+    > URL büyük/küçük harfe duyarlıdır, bu nedenle kaynak grubu ve büyük harf "G" "kaynak grubu" adlı başlattığınızda, daha önce kullanılan tam aynı durumda kullanıyorsanız olun.  
     
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 

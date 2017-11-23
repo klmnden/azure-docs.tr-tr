@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management ilkeleri Gelişmiş
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -137,7 +137,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |seçin|Kök öğesi.|Evet|  
 |ne zaman|Koşul için kullanılacak `if` veya `ifelse` bölümlerini `choose` ilkesi. Varsa `choose` ilkesine sahip birden çok `when` bölümler, sıralı olarak değerlendirilir. Bir kez `condition` öğe ne zaman değerlendiren `true`, daha fazla `when` koşullar değerlendirilir.|Evet|  
@@ -249,7 +249,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |İletme isteği|Kök öğesi.|Evet|  
   
@@ -258,7 +258,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
 |zaman aşımı = "tamsayı"|Arka uç hizmetine çağırmadan önce saniye cinsinden zaman aşımı aralığı başarısız olur.|Hayır|Hiçbir zaman aşımı|  
-|yeniden yönlendirmeleri izleyin = "true &#124; false"|Arka uç hizmetinden yeniden yönlendirmeleri gateway tarafından izlenen veya yapana olup olmadığını belirtir.|Hayır|False|  
+|yeniden yönlendirmeleri izleyin = "true &#124; false"|Arka uç hizmetinden yeniden yönlendirmeleri gateway tarafından izlenen veya yapana olup olmadığını belirtir.|Hayır|yanlış|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -268,26 +268,26 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   **İlke kapsamları:** tüm kapsamlar  
   
 ##  <a name="LimitConcurrency"></a>Sınır eşzamanlılık  
- `limit-concurrency` İlke birden çok belirtilen istek sayısının tarafından belirli bir zamanda yürütülmesini kapalı ilkeleri engeller. Eşiği aşan bağlı maksimum kuyruk uzunluğu elde kadar yeni istekler bir kuyruğa eklenir. Sıra Tükenme yeni istekleri hemen başarısız olur.
+ `limit-concurrency` İlke birden çok belirtilen istek sayısının tarafından belirli bir zamanda yürütülmesini kapalı ilkeleri engeller. Bu sayının aşılması üzerine yeni istekleri hemen 429 çok fazla istek durum kodu ile başarısız olur.
   
 ###  <a name="LimitConcurrencyStatement"></a>İlke bildirimi  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>Örnekler  
   
-####  <a name="ChooseExample"></a>Örnek  
+#### <a name="example"></a>Örnek  
  Aşağıdaki örnek, bir bağlam değişkeni değere göre bir arka uç iletilir isteklerinin sayısını sınırlamak gösterilmiştir.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -297,7 +297,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|    
 |sınır eşzamanlılık|Kök öğesi.|Evet|  
   
@@ -307,10 +307,8 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |---------------|-----------------|--------------|--------------|  
 |anahtar|Bir dize. İzin verilen ifade. Eşzamanlılık kapsamı belirler. Birden çok ilke tarafından paylaşılabilir.|Evet|Yok|  
 |en yüksek sayısı|Bir tam sayı. En fazla bir ilke girmesine izin verilen istek sayısını belirtir.|Evet|Yok|  
-|timeout|Bir tam sayı. İzin verilen ifade. Bir isteği ile başarısız olmadan önce bir kapsam girmek için beklemesi gereken saniye sayısını belirtir "429 çok fazla istek"|Hayır|Infinity|  
-|en büyük sıra uzunluğu|Bir tam sayı. İzin verilen ifade. Maksimum kuyruk uzunluğu belirtir. Bu ilke girmek gelen istekleri ile sonlandırılacak "429 çok fazla istek" hemen zaman sıranın tükendi.|Hayır|Infinity|  
   
-###  <a name="ChooseUsage"></a>Kullanım  
+### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen, giden arka uç, hata  
@@ -349,7 +347,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |Günlük eventhub|Kök öğesi. Bu öğenin değerini event hub'ına oturum dizedir.|Evet|  
   
@@ -392,7 +390,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |mock yanıt|Kök öğesi.|Evet|  
   
@@ -448,7 +446,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |retry|Kök öğesi. Diğer ilkeleri ve alt öğeleri içerebilir.|Evet|  
   
@@ -457,7 +455,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
 |Koşul|Boole bir hazır değer veya [ifade](api-management-policy-expressions.md) yeniden deneme durmuş olup belirtme (`false`) veya devam (`true`).|Evet|Yok|  
-|Sayısı|Denemek için yeniden deneme sayısını belirten pozitif bir sayı.|Evet|Yok|  
+|sayı|Denemek için yeniden deneme sayısını belirten pozitif bir sayı.|Evet|Yok|  
 |interval|Yeniden deneme bekleme aralığını belirterek saniye cinsinden pozitif bir sayı çalışır.|Evet|Yok|  
 |en fazla aralığı|Yeniden deneme girişimleri arasındaki aralığı saniye cinsinden maksimum belirten pozitif bir sayı bekleyin. Üstel yeniden deneme algoritması uygulamak için kullanılır.|Hayır|Yok|  
 |Delta|Saniye olarak bekleme aralığı artırma belirten pozitif bir sayı. Doğrusal ve üstel yeniden deneme algoritmaları uygulamak için kullanılır.|Hayır|Yok|  
@@ -503,7 +501,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |return yanıt|Kök öğesi.|Evet|  
 |set üstbilgisi|A [set üstbilgisi](api-management-transformation-policies.md#SetHTTPheader) ilke bildirimi.|Hayır|  
@@ -569,13 +567,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |bir şekilde İsteği Gönder|Kök öğesi.|Evet|  
 |URL|İstek URL'si.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |Yöntemi|İstek HTTP yöntemi.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |üst bilgi|İstek üstbilgisi. Birden çok üstbilgi öğeleri için birden çok istek üstbilgileri kullanın.|Hayır|  
-|Gövde|İstek gövdesi.|Hayır|  
+|body|İstek gövdesi.|Hayır|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
@@ -648,13 +646,13 @@ status code and media type. If no example or schema found, the content is empty.
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |Gönderme isteği|Kök öğesi.|Evet|  
 |URL|İstek URL'si.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |Yöntemi|İstek HTTP yöntemi.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |üst bilgi|İstek üstbilgisi. Birden çok üstbilgi öğeleri için birden çok istek üstbilgileri kullanın.|Hayır|  
-|Gövde|İstek gövdesi.|Hayır|  
+|body|İstek gövdesi.|Hayır|  
   
 ### <a name="attributes"></a>Öznitelikler  
   
@@ -663,7 +661,7 @@ status code and media type. If no example or schema found, the content is empty.
 |modu = "dize"|Yeni bir istek veya bir kopyasını geçerli istek olup olmadığını belirler. Giden modunda modu = kopyalama istek gövdesi başlatamadı.|Hayır|Yeni|  
 |yanıt değişkeni adı = "dize"|Yoksa, `context.Response` kullanılır.|Hayır|Yok|  
 |zaman aşımı = "tamsayı"|URL çağırmadan önce saniye cinsinden zaman aşımı aralığı başarısız olur.|Hayır|60|  
-|Hatayı Yoksay|Varsa true ve istek sonuçları hata:<br /><br /> -Eğer bir null değer içerecek yanıt değişkeni adı belirtildi.<br />-Yanıt değişkeni adı belirtilmedi Eğer bağlamı. İstek güncelleştirilmez.|Hayır|False|  
+|Hatayı Yoksay|Varsa true ve istek sonuçları hata:<br /><br /> -Eğer bir null değer içerecek yanıt değişkeni adı belirtildi.<br />-Yanıt değişkeni adı belirtilmedi Eğer bağlamı. İstek güncelleştirilmez.|Hayır|yanlış|  
 |ad|Ayarlanacak üstbilginin adını belirtir.|Evet|Yok|  
 |Mevcut eylem|Üstbilgi zaten belirtildiğinde gerçekleştirilecek eylemi belirtir. Bu öznitelik aşağıdaki değerlerden birine sahip olmalıdır.<br /><br /> -Geçersiz Kıl - varolan üstbilgisinin değerini değiştirir.<br />-skip - varolan üstbilgi değeri değiştirmez.<br />-Ekle - Varolan üstbilgi değeri değer ekler.<br />-delete - istekten üstbilgiyi kaldırır.<br /><br /> Ayarlandığında `override` aynı ada sahip birden çok girdi kaydetme sonuçları (birden çok kez listelenir) tüm girdisi göre ayarlanan üstbilgisinde; yalnızca listelenen değerler sonuç ayarlanır.|Hayır|geçersiz kılma|  
   
@@ -694,7 +692,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |Proxy|Kök öğesi|Evet|  
 
@@ -754,7 +752,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |Set yöntemi|Kök öğesi. Öğenin değerini HTTP yöntemini belirtir.|Evet|  
   
@@ -794,7 +792,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |durumunu ayarla|Kök öğesi.|Evet|  
   
@@ -830,7 +828,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |değişken Ayarla|Kök öğesi.|Evet|  
   
@@ -928,7 +926,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |İzleme|Kök öğesi.|Evet|  
   
@@ -936,7 +934,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
-|Kaynak|Dize değişmez değeri izleme Görüntüleyicisi'ni ve iletinin kaynağını belirterek anlamlı.|Evet|Yok|  
+|kaynak|Dize değişmez değeri izleme Görüntüleyicisi'ni ve iletinin kaynağını belirterek anlamlı.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
@@ -995,7 +993,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |bekleme|Kök öğesi. Yalnızca alt öğeleri içerebilir `send-request`, `cache-lookup-value`, ve `choose` ilkeleri.|Evet|  
   
@@ -1003,7 +1001,7 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
-|için|Belirler olup olmadığını `wait` ilke tüm hemen alt ilkeleri tamamlanan veya yalnızca bir olmasını bekler. İzin verilen değerler:<br /><br /> -   `all`-Tüm hemen alt ilkeleri tamamlanması bekleyin<br />-any - tamamlamak hemen alt ilke bekleyin. İlk anında alt ilke tamamlandıktan sonra `wait` ilkeyi tamamladıktan ve diğer hemen alt ilkeleri yürütülmesi biter.|Hayır|Tüm|  
+|için|Belirler olup olmadığını `wait` ilke tüm hemen alt ilkeleri tamamlanan veya yalnızca bir olmasını bekler. İzin verilen değerler:<br /><br /> -   `all`-Tüm hemen alt ilkeleri tamamlanması bekleyin<br />-any - tamamlamak hemen alt ilke bekleyin. İlk anında alt ilke tamamlandıktan sonra `wait` ilkeyi tamamladıktan ve diğer hemen alt ilkeleri yürütülmesi biter.|Hayır|tümü|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

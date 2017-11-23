@@ -14,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9be948a7328b0f535d8683e6cdc695a01654a94
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Yapı multi-Factor Authentication özel uygulamalar (SDK)
+
+> [!IMPORTANT]
+> Kullanımdan kaldırma, Azure çok faktörlü kimlik doğrulaması Yazılım Geliştirme Seti (SDK) açıklandı. Bu özellik artık yeni müşteriler için desteklenmez. Geçerli müşteriler, 14 Kasım 2018 kadar SDK'sını kullanmaya devam edebilirsiniz. Bundan sonra SDK çağrıları başarısız olur. 
 
 Azure çok faktörlü kimlik doğrulaması Yazılım Geliştirme Seti (SDK) iki aşamalı doğrulama özelliklerini doğrudan oturum açma veya işlem işlemler Azure AD kiracınıza uygulamaların oluşturmanıza olanak sağlar.
 
@@ -35,30 +38,7 @@ API'ler Azure Active Directory'de kayıtlı kullanıcılara erişimi olmadığı
 
 
 ## <a name="download-the-sdk"></a>SDK'sını indirin
-Azure çok faktörlü SDK'sını indirme gerektiren bir [Azure multi-Factor Auth sağlayıcısı](multi-factor-authentication-get-started-auth-provider.md).  Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları ait olsa bile bu tam Azure aboneliği gerektirir.  SDK'yi karşıdan yüklemek için çok faktörlü Yönetim Portalı'na gidin. Portal ya da multi-Factor Auth sağlayıcısı doğrudan yönetme veya tıklatarak ulaşabilirsiniz **"Portal'a Git"** MFA hizmet ayarları sayfasında bağlantı.
-
-### <a name="download-from-the-azure-classic-portal"></a>Azure Klasik Portalı'ndan indirin
-1. [Klasik Azure portalında](https://manage.windowsazure.com) Yönetici olarak oturum açın.
-2. Sol taraftaki **Active Directory** öğesini seçin.
-3. Active Directory sayfasında, en üst seçin **çok faktörlü kimlik doğrulama sağlayıcıları**
-4. Pencerenin alt seçin **Yönet**. Yeni bir sayfa açılır.
-5. Alt, sol tıklayın **SDK**.
-   <center>![İndirme](./media/multi-factor-authentication-sdk/download.png)</center>
-6. İstediğiniz ve ilişkili indirme bağlantıları tıklatın dili seçin.
-7. İndirmeyi kaydedin.
-
-### <a name="download-from-the-service-settings"></a>Hizmet ayarlarını indirme
-1. [Klasik Azure portalında](https://manage.windowsazure.com) Yönetici olarak oturum açın.
-2. Sol taraftaki **Active Directory** öğesini seçin.
-3. Azure AD örneğinize çift tıklayın.
-4. Üst kısımda **Yapılandır**’a tıklayın
-5. Çok faktörlü kimlik doğrulaması altında seçin **hizmet ayarlarını Yönet**
-   ![indirin](./media/multi-factor-authentication-sdk/download2.png)
-6. Hizmetleri ayarları sayfasında, ekranın alt kısmında **Portal'a git**’e tıklayın. Yeni bir sayfa açılır.
-   ![İndir](./media/multi-factor-authentication-sdk/download3a.png)
-7. Alt, sol tıklayın **SDK**.
-8. İstediğiniz ve ilişkili indirme bağlantıları tıklatın dili seçin.
-9. İndirmeyi kaydedin.
+Azure çok faktörlü SDK'sını indirme gerektiren bir [Azure multi-Factor Auth sağlayıcısı](multi-factor-authentication-get-started-auth-provider.md).  Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları ait olsa bile bu tam Azure aboneliği gerektirir. SDK kullanım beri SDK indirilmesi genel yöntemler kullanımdan çıkarıldı olmuştur. SDK'sını indirin gerekiyorsa, Microsoft ile bir destek servis talebi açmanız gerekir.
 
 ## <a name="whats-in-the-sdk"></a>SDK'ın nedir
 SDK'yı aşağıdaki öğeleri içerir:

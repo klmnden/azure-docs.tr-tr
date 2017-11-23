@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Ağ Performans İzleyicisi'ni (Önizleme) ExpressRoute için yapılandırma
 
@@ -96,7 +96,7 @@ Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zat
 1. Üzerinde **ağ Performans İzleyicisi'ni yapılandırma - TCP Kurulum sayfasında** , kaynak için de **OMS aracıları Yükle** bölümünde, sunucunuzun işlemci ve indirme karşılık gelen Aracısı'nı tıklatın Kurulum dosyasını çalıştırın.
 
   >[!NOTE]
-  >ExpressRoute için Linux Aracısı şu anda desteklenmiyor izleme.
+  >Aracı bir Windows sunucusuna yüklenmesi gerekir (2008 SP1 veya üstü). Windows masaüstü işletim sistemi ve Linux işletim sistemi kullanarak ExpressRoute bağlantı hatları izleme desteklenmiyor. 
   >
   >
 2. Ardından, kopyalama **çalışma alanı kimliği** ve **birincil anahtar** Defteri'ne.
@@ -105,6 +105,8 @@ Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zat
   ![PowerShell betiği](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: İzleme Aracısı her izleme sunucusuna yükleyin
+
+Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağlar) her tarafında en az iki aracı yüklemenizi öneririz. Aracıları yüklemek için aşağıdaki adımları kullanın:
 
 1. Çalıştırma **Kurulum** ExpressRoute izleme için kullanmak istediğiniz her sunucuda aracıyı yüklemek için. İzleme için kullanacağınız sunucu bir VM ya da şirket içi ya da olabilir ve Internet erişimi olması gerekir. Azure'da izlemek istediğiniz her ağ kesimindeki en az bir aracı şirket içi ve bir aracı yüklemeniz gerekir.
 2. Üzerinde **Hoş Geldiniz** sayfasında, **sonraki**.

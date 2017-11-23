@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect ile ilgili bağlantı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasında bağlantı nasıl çalıştığını ve bağlantı sorunlarının nasıl giderileceği açıklanmaktadır. Bu sorunları bir proxy sunucusu olan bir ortamda görüntülenmesine olasılığı daha yüksektir.
@@ -90,10 +90,13 @@ Alırsanız **uzak sunucuya bağlanılamıyor**, proxy kullanmadan doğrudan ara
 Proxy doğru yapılandırılmamışsa, bir hata alıyorsunuz: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Hata | Hata metni | Açıklama |
+| Hata | Hata metni | Yorum |
 | --- | --- | --- |
 | 403 |Yasak |İstenen URL için proxy açılmadı. Proxy yapılandırmasını tekrar ziyaret edip emin olun [URL'leri](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) açılmış. |
 | 407 |Proxy kimlik doğrulaması gerekli |Proxy sunucu bir oturum açma gerekli ve sağlanmadı. Proxy sunucusu kimlik doğrulaması gerektiriyorsa, bu ayar machine.config içinde yapılandırılmış emin olun. Ayrıca Sihirbazı çalıştıran kullanıcı ve hizmet hesabı için etki alanı hesapları kullandığınızdan emin olun. |
+
+### <a name="proxy-idle-timeout-setting"></a>Proxy boşta kalma zaman aşımı ayarı
+Azure AD Connect için Azure AD dışarı aktarma isteği gönderdiğinde, Azure AD yanıt oluşturmadan önce isteğini işlemek için 5 dakika sürebilir. Özellikle büyük grup üyelikleri aynı verme isteğine dahil olan grup nesne sayısı varsa bu durum oluşabilir. 5 dakikadan fazla olacak şekilde yapılandırılmış bir Proxy boşta kalma zaman aşımı olun. Aksi takdirde, aralıklı bağlantı sorunu Azure AD ile Azure AD Connect sunucuda gözlenen.
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect ve Azure AD arasındaki iletişim düzeni
 Bu önceki adımları izlediğinizde ve yine bağlanamıyorsanız, ağ günlüklerine arayan bu noktada başlayabilir. Bu bölümde, normal ve başarılı bağlantısı düzeni belgeleme. Ayrıca ağ günlükleri okunurken, göz ardı edilebilir ortak kırmızı herrings listeleme.

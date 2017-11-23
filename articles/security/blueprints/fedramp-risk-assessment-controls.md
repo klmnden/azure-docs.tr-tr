@@ -14,18 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: 3f435efc54a007723c07e1e9a51c90785f683e2e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 1c6bc0bc120c6ad80ff28155f73d127352a8bdc3
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="risk-assessment-ra"></a>Risk değerlendirmesi (RA)
+
 > [!NOTE]
 > Bu denetimler NIST ve ABD tarafından tanımlanır Ticaret Bakanlığı NIST özel yayını 800-53 düzeltme 4 bir parçası olarak. NIST 800 53 düzeltme 4 yordamları ve yönergeler her denetim için test etme hakkında bilgi için lütfen bakın.
-    
-    
-
-# <a name="risk-assessment-ra"></a>Risk değerlendirmesi (RA)
 
 ## <a name="nist-800-53-control-ra-1"></a>NIST 800 53 denetim RA-1
 

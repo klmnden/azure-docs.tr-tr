@@ -14,17 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: jomolesk
-ms.openlocfilehash: cac5e65485fcc9790ef2110fe3b48f99f1b4c14d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 24c3e53d12f1479ba2d6b17bf28ebb7e5912206e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
+# <a name="security-assessment-and-authorization-ca"></a>Güvenlik değerlendirmesi ve yetkilendirme (CA)
+
 > [!NOTE]
 > Bu denetimler NIST ve ABD tarafından tanımlanır Ticaret Bakanlığı NIST özel yayını 800-53 düzeltme 4 bir parçası olarak. NIST 800 53 düzeltme 4 yordamları ve yönergeler her denetim için test etme hakkında bilgi için lütfen bakın.
-
-
-# <a name="security-assessment-and-authorization-ca"></a>Güvenlik değerlendirmesi ve yetkilendirme (CA)
 
 ## <a name="nist-800-53-control-ca-1"></a>NIST 800 53 denetim CA-1
 

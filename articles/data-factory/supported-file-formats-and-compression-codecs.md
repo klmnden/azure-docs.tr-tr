@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/21/2017
 ms.author: jingwang
-ms.openlocfilehash: f2675a0af82640925b837ae80e751fcab5972321
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure veri fabrikası'nda sıkıştırma codec bileşenleri
 
@@ -29,6 +29,9 @@ ms.lasthandoff: 11/04/2017
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory version1 desteklenen dosya ve sıkıştırma biçimleri](v1//data-factory-supported-file-and-compression-formats.md).
+
+> [!TIP]
+> Kopyalama etkinliği gelen havuz için kaynak verilerinizi nasıl eşlendiğini öğrenin [şema eşleme kopyalama etkinliğinde](copy-activity-schema-and-type-mapping.md)nasıl meta veri dosyasının biçimi ayarlarınıza göre belirlendiği ve etkin olduğunda belirtmek ipuçları dahil olmak üzere [dataset `structure` ](concepts-datasets-linked-services.md#dataset-structure) bölümü.
 
 ## <a name="text-format"></a>Metin biçimi
 

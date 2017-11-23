@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-policy-expressions"></a>API Management ilke ifadeleri
 İlke ifadeleri sözdizimi C# 6.0 şeklindedir. Her bir ifadenin örtük olarak sağlanan erişimi [bağlamı](api-management-policy-expressions.md#ContextVariables) değişkeni ve bir izin verilen [alt](api-management-policy-expressions.md#CLRTypes) .NET Framework türü.  
@@ -174,7 +174,7 @@ ms.lasthandoff: 10/11/2017
 |----------------------|-------------------------------------------------------|  
 |bağlam|API: IApi<br /><br /> Dağıtım<br /><br /> Son hata<br /><br /> İşlem<br /><br /> Ürün<br /><br /> İstek<br /><br /> RequestId: GUID<br /><br /> Yanıt<br /><br /> Abonelik<br /><br /> İzleme: bool<br /><br /> Kullanıcı<br /><br /> Değişkenleri: IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|  
 |bağlamı. API|Kimliği: dize<br /><br /> Ad: dize<br /><br /> Yol: dize<br /><br /> ServiceUrl: IUrl|  
-|bağlamı. Dağıtım|Bölge: dize<br /><br /> ServiceName: dize|  
+|bağlamı. Dağıtım|Bölge: dize<br /><br /> ServiceName: dize<br /><br /> Sertifikalar: IReadOnlyDictionary < string, X509Certificate2 >|  
 |bağlamı. Son hata|Kaynak: dize<br /><br /> Neden: dize<br /><br /> İleti: dize<br /><br /> Kapsam: dize<br /><br /> Bölüm: dize<br /><br /> Yol: dize<br /><br /> Policyıd: dize<br /><br /> İçerik hakkında daha fazla bilgi için. Son hata, bkz: [hata işleme](api-management-error-handling-policies.md).|  
 |bağlamı. İşlemi|Kimliği: dize<br /><br /> Yöntem: dize<br /><br /> Ad: dize<br /><br /> UrlTemplate: dize|  
 |bağlamı. Ürün|API: IEnumerable < IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Gruplar: IEnumerable < IGroup\><br /><br /> Kimliği: dize<br /><br /> Ad: dize<br /><br /> Durum: enum ProductState {NotPublished, yayımlanan}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
@@ -199,6 +199,12 @@ ms.lasthandoff: 10/11/2017
 |bool TryParseJwt (giriş: Bu dize, sonuç: Jwt Giden)|Giriş: dize<br /><br /> Sonuç: Jwt çıkışı<br /><br /> Yöntem giriş parametresi geçerli bir JWT belirteci değeri içerip içermediğini döndürür `true` ve sonuç parametresinin türünde bir değer içeren `Jwt`; Aksi takdirde yöntemi döndürür `false`.|  
 |Jwt|Algoritma: dize<br /><br /> İzleyici: IEnumerable < dize\><br /><br /> Talepleri: IReadOnlyDictionary < dize, string [] ><br /><br /> ExpirationTime: DateTime?<br /><br /> Kimliği: dize<br /><br /> Sertifikayı veren: dize<br /><br /> NotBefore: DateTime?<br /><br /> Konu: dize<br /><br /> Türü: dize|  
 |Jwt.Claims.GetValueOrDefault dize (claimName: string, defaultValue: dize)|claimName: dize<br /><br /> defaultValue: dize<br /><br /> Virgülle ayrılmış talep değerleri döndürür veya `defaultValue` üstbilgi bulunmazsa.|
+|Byte [] şifrele (giriş: Bu byte [], algoritma: string, anahtarı: byte [], iv:byte[])|Giriş - şifrelenmesi için düz metin<br /><br />algoritma - bir simetrik şifreleme algoritması adı<br /><br />anahtar - şifreleme anahtarı<br /><br />IV - başlatma vektörü<br /><br />Şifrelenmiş düz metin döndürür.|
+|Byte [] şifrele (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm)|Giriş - şifrelenmesi için düz metin<br /><br />algoritma - şifreleme algoritması<br /><br />Şifrelenmiş düz metin döndürür.|
+|Byte [] şifrele (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm, anahtarı: byte [], iv:byte[])|Giriş - şifrelenmesi için düz metin<br /><br />algoritma - şifreleme algoritması<br /><br />anahtar - şifreleme anahtarı<br /><br />IV - başlatma vektörü<br /><br />Şifrelenmiş düz metin döndürür.|
+|Byte [] şifresini çözme (giriş: Bu byte [], algoritma: string, anahtarı: byte [], iv:byte[])|Giriş - şifresinin çözülmesini cyphertext<br /><br />algoritma - bir simetrik şifreleme algoritması adı<br /><br />anahtar - şifreleme anahtarı<br /><br />IV - başlatma vektörü<br /><br />Düz metin döndürür.|
+|Byte [] şifresini çözme (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm)|Giriş - şifresinin çözülmesini cyphertext<br /><br />algoritma - şifreleme algoritması<br /><br />Düz metin döndürür.|
+|Byte [] şifresini çözme (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm, anahtarı: byte [], iv:byte[])|Şifresi çözülecek giriş - giriş - cyphertext<br /><br />algoritma - şifreleme algoritması<br /><br />anahtar - şifreleme anahtarı<br /><br />IV - başlatma vektörü<br /><br />Düz metin döndürür.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 İlkeleriyle çalışma daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  

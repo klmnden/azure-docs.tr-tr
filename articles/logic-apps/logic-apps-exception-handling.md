@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hataları ve Azure Logic Apps içinde özel durumları işleme
 
@@ -26,38 +26,74 @@ Desenler, tümleştirmeler emin olun yardımcı olmak için güçlü ve hatalar�
 
 ## <a name="retry-policies"></a>İlkeleri yeniden deneyin
 
-Bir yeniden deneme ilkesi özel durumu ve hata işleme en temel türüdür. İlk istek zaman aşımına uğradı ya da başarısız olursa (bir 429 sonuçları herhangi bir istek veya 5xx yanıtı), bu ilkeyi eylemi yeniden denemeniz gerekir olup olmadığını tanımlar. Varsayılan olarak, tüm eylemler 20 saniye aralıklarında 4 ek defa yeniden deneyin. İlk istek alırsa, bunu bir `500 Internal Server Error` yanıt, iş akışı altyapısının duraklatır 20 saniye ve isteği yeniden dener. Tüm yeniden denemeler yapıldıktan sonra yanıt hala bir özel durum ya da hata ise, iş akışı devam eder ve eylem durumu olarak işaretler `Failed`.
+Bir yeniden deneme ilkesi özel durumu ve hata işleme en temel türüdür. İlk istek zaman aşımına uğradı ya da başarısız olursa (bir 429 sonuçları herhangi bir istek veya 5xx yanıtı), bu ilkeyi tanımlar ve nasıl eylemi yeniden deneyin. Yeniden deneme ilkelerini üç tür vardır `exponential`, `fixed`, ve `none`. Bir yeniden deneme ilkesi iş akışı tanımı'nda sağlanmazsa, varsayılan ilke kullanılır. Yeniden deneme ilkelerini yapılandırabilirsiniz **girişleri** belirli bir eylem veya yeniden denenebilir ise tetikleyici için. Benzer şekilde, mantıksal Uygulama Tasarımcısı yeniden ilkeleri (varsa) altında yapılandırılabilir **ayarları** verilen bloğu.
 
-Yeniden deneme ilkelerini yapılandırabilirsiniz **girişleri** belirli bir eylem için. Örneğin, 1 saat aralıklarında olarak en fazla 4 kez denemek için bir yeniden deneme ilkesi yapılandırabilirsiniz. Giriş özellikleri hakkında ayrıntılar için bkz: [iş akışı eylemleri ve Tetikleyicileri][retryPolicyMSDN].
+Yeniden deneme ilkelerini sınırlamaları hakkında daha fazla bilgi için bkz: [Logic Apps sınırlarını ve yapılandırmasını](../logic-apps/logic-apps-limits-and-config.md) ve desteklenen sözdizimi hakkında daha fazla bilgi için bkz: [iş akışı eylemleri ve Tetikleyicileriyenidendenemeilkesibölümüne][retryPolicyMSDN].
+
+### <a name="exponential-interval"></a>Üstel aralığı
+`exponential` İlke türü bir rastgele bir zaman aralığı katlanarak büyüyen bir aralıktan sonra başarısız bir istek deneyecek. Yeniden deneme girişimlerinden değerinden daha büyük bir rastgele aralıkta gönderilmek üzere garanti **minimumInterval** ve değerinden **maximumInterval**. Bir Tekdüzen rastgele değişkende dahil için her yeniden deneme aralığını altına oluşturulmayacak **sayısı**:
+<table>
+<tr><th> Rastgele değişkeni aralığı </th></tr>
+<tr><td>
+
+| Yeniden deneme sayısı | Minimum aralık | En fazla aralığı |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max (0, **minimumInterval**) | Min (aralığı **maximumInterval**) |
+| 2 | Max (aralığı **minimumInterval**) | Min (2 * aralığı **maximumInterval**) |
+| 3 | Max (2 * aralığı **minimumInterval**) | Min (4 * aralığı **maximumInterval**) |
+| 4 | Max (4 * aralığı **minimumInterval**) | Min (8 * aralığı **maximumInterval**) |
+| ... |
+
+</td></tr></table>
+
+İçin `exponential` yazın ilkeleri **sayısı** ve **aralığı** sırasında gerekli olan **minimumInterval** ve **maximumInterval** olabilir varsayılan değerleri PT5S ve PT1D sırasıyla geçersiz kılmak için isteğe bağlı olarak sağlanan.
+
+| Öğe adı | Gerekli | Tür | Açıklama |
+| ------------ | -------- | ---- | ----------- |
+| type | Evet | Dize | `exponential` |
+| sayı | Evet | Tamsayı | sayısı yeniden deneme sayısı, 1 ile 90 arasında olmalıdır  |
+| interval | Evet | Dize | yeniden deneme aralığı içinde [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), PT5S ile PT1D arasında olmalıdır |
+| minimumInterval | Hayır| Dize | Minimum aralık içinde yeniden dene [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), PT5S arasında olmalıdır ve **aralığı** |
+| maximumInterval | Hayır| Dize | Minimum aralık içinde yeniden dene [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), arasında olmalıdır **aralığı** ve PT1D |
+
+### <a name="fixed-interval"></a>Sabit aralık
+
+`fixed` İlke türü, başarısız bir istek sağlanan sonraki istek göndermeden önce zaman aralığını bekleyerek deneyecek.
+
+| Öğe adı | Gerekli | Tür | Açıklama |
+| ------------ | -------- | ---- | ----------- |
+| type | Evet | Dize | `fixed`|
+| sayı | Evet | Tamsayı | sayısı yeniden deneme sayısı, 1 ile 90 arasında olmalıdır |
+| interval | Evet | Dize | yeniden deneme aralığı içinde [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), PT5S ile PT1D arasında olmalıdır |
+
+### <a name="none"></a>None
+`none` İlke türü, başarısız bir istek değil deneyecek.
+
+| Öğe adı | Gerekli | Tür | Açıklama |
+| ------------ | -------- | ---- | ----------- |
+| type | Evet | Dize | `none`|
+
+### <a name="default"></a>Varsayılan
+Yeniden deneme ilkesi belirtilmezse, varsayılan ilke kullanılır. Varsayılan ilke katlanarak 7.5 saniye ölçeği ve için 5-45 saniye arasında tutulabilir aralıkları artırma sırasında en fazla 4 deneme gönderen bir üstel aralığı ilkesidir. Bu varsayılan ilke (kullanılır **retryPolicy** tanımsızdır) HTTP iş akışı tanımı bu örnekteki ilke eşdeğerdir:
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-4 kez yeniden deneyin ve her denemesi arasındaki 10 dakika bekleyin, HTTP eylemi istediyseniz, aşağıdaki tanımını kullanırsınız:
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-Desteklenen sözdizimi hakkında daha fazla bilgi için bkz: [iş akışı eylemleri ve Tetikleyicileri yeniden deneme ilkesi bölümüne][retryPolicyMSDN].
 
 ## <a name="catch-failures-with-the-runafter-property"></a>RunAfter özelliğiyle hatalarını yakalama
 

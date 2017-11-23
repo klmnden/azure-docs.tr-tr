@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: c5ebc3cb13359d824f022859078e4feb2b6869a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy Azure güvenlik kursları
 Microsoft Virtual Academy sağlar geliştiriciler, yardımcı olmak ücretsiz, çevrimiçi eğitim BT ve veri uzmanları ve öğrenciler en son teknoloji öğrenin, kendi becerilerinizi ve bunların gelişme alanları ilerleyin.
