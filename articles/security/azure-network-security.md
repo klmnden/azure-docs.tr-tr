@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-network-security"></a>Azure ağ güvenliği
 
@@ -36,7 +36,7 @@ Oluşturmanıza veya BT varlıklarına geçirmek, genel bulut hizmeti sağlayıc
 
 Azure'nın altyapı tesis aynı anda milyonlarca müşteri barındırmak için uygulamalar için tasarlanmıştır ve güvenlik gereksinimlerine bağlı işletmeler karşılayabilecek güvenilir bir temel sağlar. Ayrıca, Azure ile yapılandırılabilir güvenlik seçenekleri ve kuruluşunuzun dağıtımları benzersiz gereksinimlerini karşılamak için güvenlik özelleştirebilirsiniz böylece bunları denetleme olanağı kapsamlı bir koleksiyon sağlar.
 
-## <a name="abstract"></a>Özet
+## <a name="abstract"></a>Soyut
 
 Microsoft Genel bulut Hizmetleri hiper ölçekli hizmetler ve altyapı, Kurumsal düzeydeki özellikleri ve karma bağlantı için birçok seçenek sunar. Internet üzerinden veya özel ağ bağlantısı sağlayan Azure ExpressRoute ile bu hizmetlere erişmek seçebilirsiniz. Microsoft Azure platformu, çok katmanlı mimarileri oluşturmak ve sorunsuz bir şekilde altyapınızı buluta genişletmek olanak sağlar. Ayrıca, üçüncü tarafların güvenlik hizmetleri ve sanal gereçler sunarak Gelişmiş özellikleri etkinleştirebilirsiniz.
 
