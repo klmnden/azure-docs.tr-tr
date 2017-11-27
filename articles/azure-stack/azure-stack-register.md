@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/21/2017
 ms.author: erikje
-ms.openlocfilehash: 977630741b8424c4c6bd5f5d492e33b9981b9cb5
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6ce8f86592ece59e338578be86c2cb673c35dbc1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Azure yığını, Azure aboneliğiniz ile kaydetme
 
@@ -42,22 +42,6 @@ Azure ile Azure yığın kaydetmeden önce şunlara sahip olmalısınız:
 Bu gereksinimleri karşılayan bir Azure aboneliğiniz yoksa, şunları yapabilirsiniz [buradan ücretsiz bir Azure hesabı oluşturma](https://azure.microsoft.com/en-us/free/?b=17.06). Azure yığın kaydetme, Azure aboneliğinizin üzerinde hiçbir ücret doğurur.
 
 
-
-## <a name="register-azure-stack-resource-provider-in-azure"></a>Azure'a Azure yığın kaynak sağlayıcısı kaydetme
-> [!NOTE] 
-> Bu adım yalnızca bir kez Azure yığın ortamında tamamlanmalıdır.
->
-
-1. Bir Powershell oturumu yönetici olarak başlatın.
-2. (Login-AzureRmAccount cmdlet'i, oturum açtığınızda "AzureCloud" - EnvironmentName parametresi ayarladığınızdan emin olun ve oturum açma için kullanabileceğiniz) Azure abonelik sahibi Azure hesabı için oturum açın.
-3. Kayıt Azure kaynak sağlayıcısı "Microsoft.AzureStack."
-
-**Örnek:** 
-```Powershell
-Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
-```
-
 ## <a name="register-azure-stack-with-azure"></a>Azure ile Azure yığın kaydedin
 
 > [!NOTE]
@@ -66,7 +50,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 
 1. Bir yönetici olarak bir PowerShell konsolu açın ve [PowerShell için Azure Yığın Yükle](azure-stack-powershell-install.md).  
 
-2. Azure yığın kaydetmek için kullanacağı Azure hesabı ekleyin. Bunu yapmak için çalıştırın `Add-AzureRmAccount` cmdlet parametre olmadan. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz.  
+2. Azure yığın kaydetmek için kullanacağı Azure hesabı ekleyin. Bunu yapmak için çalıştırın `Add-AzureRmAccount` EnvironmentName parametresi cmdlet'iyle "AzureCloud" ayarlayın. Azure hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz. 
+
+   ```Powershell
+   Add-AzureRmAccount -EnvironmentName "AzureCloud"
+   ```
 
 3. Birden çok aboneliğiniz varsa, kullanmak istediğiniz birini seçmek için aşağıdaki komutu çalıştırın:  
 
@@ -74,22 +62,28 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-4. Varolan kayda karşılık gelen Powershell modülleri sürümlerini silecek ve [Github'dan en son sürümünü indirme](azure-stack-powershell-download.md).  
+4. Azure aboneliğinizde kayıt AzureStack kaynak sağlayıcısı. Bunu yapmak için aşağıdaki komutu çalıştırın:
 
-5. Önceki adımda oluşturduğunuz "AzureStack araçları yönetici" dizininden "Kayıt" klasörüne gidin ve ".\RegisterWithAzure.psm1" modülünü içeri aktarın:  
+   ```Powershell
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. Varolan kayda karşılık gelen Powershell modülleri sürümlerini silecek ve [Github'dan en son sürümünü indirme](azure-stack-powershell-download.md).  
+
+6. Önceki adımda oluşturduğunuz "AzureStack araçları yönetici" dizininden "Kayıt" klasörüne gidin ve ".\RegisterWithAzure.psm1" modülünü içeri aktarın:  
 
    ```powershell 
    Import-Module .\RegisterWithAzure.psm1 
    ```
 
-6. Aynı PowerShell oturumunda, aşağıdaki komut dosyasını çalıştırın. Kimlik bilgileri istendiğinde belirtin `azurestack\cloudadmin` kullanıcıyı ve parolayı yerel yönetici için dağıtım sırasında kullandığınız ile aynıdır.  
+7. Aynı PowerShell oturumunda, aşağıdaki komut dosyasını çalıştırın. Kimlik bilgileri istendiğinde belirtin `azurestack\cloudadmin` kullanıcıyı ve parolayı yerel yönetici için dağıtım sırasında kullandığınız ile aynıdır.  
 
    ```powershell
    $AzureContext = Get-AzureRmContext
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
    Add-AzsRegistration `
        -CloudAdminCredential $CloudAdminCred `
-       -AzureSubscriptionId $AzureContext.Subscription.Id `
+       -AzureSubscriptionId $AzureContext.Subscription.SubscriptionId `
        -AzureDirectoryTenantName $AzureContext.Tenant.TenantId `
        -PrivilegedEndpoint AzS-ERCS01 `
        -BillingModel Development 
@@ -103,7 +97,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    | PrivilegedEndpoint | Dağıtım görevleri günlük toplama ve diğer posta gibi özellikleriyle sağlayan bir önceden yapılandırılmış Uzaktan PowerShell Konsolu. Geliştirme Seti için ayrıcalıklı endpoint "AzS-ERCS01" sanal makine üzerinde barındırılır. Tümleşik bir sistem kullanıyorsanız, bu değer almak için Azure yığın operatörünüze başvurun. Daha fazla bilgi edinmek için bkz [kullanan ayrıcalıklı uç noktasını](azure-stack-privileged-endpoint.md) konu.|
    | BillingModel | Aboneliğinizi kullanan faturalama modeli. İzin verilen değerler bu parametre are-"Kapasitesi", "PayAsYouUse" ve "Geliştirme". Geliştirme Seti için bu değer "Geliştirme" ayarlanır. Tümleşik bir sistem kullanıyorsanız, bu değer almak için Azure yığın operatörünüze başvurun. |
 
-7. Komut tamamlandığında bir ileti görür "etkinleştirme Azure yığın (Bu adımı tamamlamak için 10 dakika sürebilir)." 
+8. Komut tamamlandığında bir ileti görür "etkinleştirme Azure yığın (Bu adımı tamamlamak için 10 dakika sürebilir)." 
 
 ## <a name="verify-the-registration"></a>Kayıt doğrulayın
 

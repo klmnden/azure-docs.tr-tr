@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Iris sınıflandırma bölüm 2: Model derleme
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
@@ -291,7 +291,7 @@ Machine Learning sayesinde Docker gibi ek yürütme ortamlarını kolayca yapıl
    `run.py` tamamlandığında Workbench'teki çalıştırma geçmişi liste görünümünde bir grafik görüntülenir.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Uzak makinedeki bir Docker kapsayıcısında yürütme
-Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütmek için ilgili uzak makineye SSH erişimine (kullanıcı adı ve parola) sahip olmanız gerekir. Ayrıca, uzak makinede Docker altyapısı yüklü ve çalışır durumda olmalıdır. Böyle bir Linux makineye sahip olmanın en kolay yolu Azure'da bir [Ubuntu tabanlı Veri Bilimi Sanal Makinesi (DSVM)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) oluşturmaktır. 
+Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütmek için ilgili uzak makineye SSH erişimine (kullanıcı adı ve parola) sahip olmanız gerekir. Ayrıca, uzak makinede Docker altyapısı yüklü ve çalışır durumda olmalıdır. Böyle bir Linux makineye sahip olmanın en kolay yolu Azure'da bir Ubuntu tabanlı Veri Bilimi Sanal Makinesi (DSVM) oluşturmaktır. [Azure ML Workbench’te kullanılacak bir Ubuntu DSVM oluşturma](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal) hakkında bilgi edinin.
 
 >[!NOTE] 
 >CentOS tabanlı DSVM *desteklenmez*.
@@ -343,7 +343,9 @@ Betiğinizi bir Linux uzak makinesinde bulunan Docker kapsayıcısında yürütm
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Betiği bir HDInsight kümesinde yürütme
-Bu betiği gerçek bir Spark kümesinde de çalıştırabilirsiniz. 
+Bu betiği bir HDInsight Spark kümesinde de çalıştırabilirsiniz. [Azure ML Workbench’te kullanılacak bir HDInsight Spark Kümesi oluşturma](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) hakkında bilgi edinin.
+
+>![NOT] HDInsight kümesi birincil depolama olarak Azure Blob kullanmalıdır. Azure Data Lake depolamanın kullanılması henüz desteklenmemektedir.
 
 1. Azure HDInsight Spark kümesine erişiminiz varsa burada gösterilen şekilde bir HDInsight çalıştırma yapılandırması oluşturun. Parametrelere HDInsight kümesinin adını, HDInsight kullanıcı adınızı ve parolanızı girin. Aşağıdaki komutu kullanın:
 

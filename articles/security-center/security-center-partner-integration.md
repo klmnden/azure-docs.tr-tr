@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri
 Bu belge Azure Güvenlik Merkezi'ne bağlanmış olan güvenlik çözümlerini yönetmenize ve yenilerini eklemenize yardımcı olur.
@@ -44,7 +44,7 @@ Uç nokta koruma tümleştirme deneyimi, çözüme göre farklılık gösterebil
 | Windows Defender (Microsoft Kötü Amaçlı Yazılım Koruması)                  | Windows Server 2016                   | Hayır, işletim sisteminde yerleşik           | Evet                       |
 | System Center Endpoint Protection (Microsoft Kötü Amaçlı Yazılım Koruması) | Windows Server 2012 R2, 2012, 2008 R2 | Uzantı ile                | Evet                       |
 | Trend Micro – Tüm sürümler         | Windows Server Ailesi                 | Uzantı ile                | Evet                       |
-| Symantec v12+                     | Windows Server Ailesi                 | Hayır                           | Evet                        |
+| Symantec v12.1.1100+                     | Windows Server Ailesi                 | Hayır                           | Evet                        |
 | MacAfee                           | Windows Server Ailesi                 | Hayır                           | Hayır                        |
 | Kaspersky                         | Windows Server Ailesi                 | Hayır                           | Hayır                        |
 | Sophos                            | Windows Server Ailesi                 | Hayır                           | Hayır                        |

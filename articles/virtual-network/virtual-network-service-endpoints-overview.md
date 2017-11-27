@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Sanal Ağ Hizmet Uç Noktaları (Önizleme)
 
@@ -28,7 +28,7 @@ Sanal Ağ hizmet uç noktaları, sanal ağ özel adres alanınızı ve sanal ağ
 Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için önizleme sürümündedir:
 
 - **Azure Depolama**: Azure genel bulutundaki tüm bölgeler.
-- **Azure SQL Veritabanı**: WestCentralUS, WestUS2 ve EastUS.
+- **Azure SQL**: Azure genel bulutundaki tüm bölgeler.
 
 En güncel önizleme bildirimleri için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 
@@ -122,4 +122,5 @@ Bir Azure hizmet kaynağında (Azure Depolama hesabı gibi), hizmetler kaynağı
 - [Bir Azure Depolama hesabını bir sanal ağ ile nasıl sınırlandıracağınızı](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) öğrenin
 - [Bir Azure SQL Veritabanını bir sanal ağ ile nasıl sınırlandıracağınızı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) öğrenin
 - [Sanal ağlar için Azure hizmet tümleştirmesi](virtual-network-for-azure-services.md) hakkında bilgi edinin
+-  Hızlı başlangıç: Bir sanal ağın alt ağında hizmet uç noktası ve bu alt ağda güvenli Azure Depolama hesabı oluşturmak için [Azure resource manager şablonu](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration).
 

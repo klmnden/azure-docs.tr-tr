@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory Kullanım Koşulları özelliği (Önizleme)
-Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar.  Böylece kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesini sağlanır.
+Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar.  Böylece kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlanır.
 
-Azure AD Kullanım Koşulları, içerik sunmak için PDF biçimini kullanır.   Bu PDF, kullanıcıların oturum açtığı sırada son kullanıcı sözleşmelerini toplamanıza olanak sağlayan herhangi bir içerik (örneğin mevcut sözleşme belgeleri) olabilir.  Kullanım koşullarını uygulamalar veya kullanıcı grupları için ya da farklı amaçlarla birden çok kullanım koşullarınız olduğunda kullanabilirsiniz.
+Azure AD Kullanım Koşulları, içerik sunmak için PDF biçimini kullanır.   Bu PDF, kullanıcıların oturum açtığı sırada son kullanıcı sözleşmelerini toplamanıza olanak sağlayan herhangi bir içerik (örneğin mevcut sözleşme belgeleri) olabilir.  Kullanım koşullarını uygulamalar veya kullanıcı grupları için ya da farklı amaçlarla birden çok kullanım koşulları belgeniz olduğunda kullanabilirsiniz.
 
 Bu belgenin geri kalanında Azure AD Kullanım Koşulları’nı nasıl kullanmaya başlayabileceğiniz açıklanmaktadır.  
 
 ## <a name="why-use-azure-ad-terms-of-use"></a>Neden Azure AD Kullanım Koşulları’nı kullanmalısınız?
-Çalışanların veya ziyaretçilerin erişim sağlamadan önce koşullarınızı kabul etmesi konusunda zorluklarla mı karşılaşıyorsunuz? Şirket kullanım koşullarınızı kabul eden ve etmeyen kişileri belirlemek için yardıma mı ihtiyacınız var?  Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar.  Böylece kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesini sağlanır.
+Çalışanların veya ziyaretçilerin erişim sağlamadan önce koşullarınızı kabul etmesi konusunda zorluklarla mı karşılaşıyorsunuz? Şirket kullanım koşullarınızı kabul eden ve etmeyen kişileri belirlemek için yardıma mı ihtiyacınız var?  Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar.  Böylece kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlanır.
 
 Azure AD Kullanım Koşulları aşağıdaki senaryolarda kullanılabilir:
 -   Kuruluşunuzdaki tüm kullanıcılar için genel kullanım koşulları.
@@ -40,15 +40,16 @@ Azure AD Kullanım Koşulları aşağıdaki senaryolarda kullanılabilir:
 Azure AD Kullanım Koşullarını yapılandırmak için aşağıdaki adımları kullanın:
 
 1. Azure AD Kullanım Koşulları’nı yapılandırmak istediğiniz dizin için Azure AD’de bir genel yönetici, güvenlik yöneticisi veya koşullu erişim yöneticisi hesabını kullanarak oturum açın.
-2. Dizinde bir Azure AD Premium P1, P2, EMS E3, veya EMS E5 aboneliği olduğundan emin olun.  Yoksa, [Azure AD Premium’u edinin](active-directory-get-started-premium.md) veya [bir deneme sürümü başlatın](https://azure.microsoft.com/trial/get-started-active-directory/).
+2. Dizinde bir Azure AD Premium P1, P2, EMS E3 veya EMS E5 aboneliği olduğundan emin olun.  Yoksa, [Azure AD Premium’u edinin](active-directory-get-started-premium.md) veya [bir deneme sürümü başlatın](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. [https://aka.ms/catou](https://aka.ms/catou) adresinde yer alan Azure AD Kullanıcı Koşulları panosunu görüntüleyin.
 
-
+>[!IMPORTANT]
+>Koşullu erişim ilkesi denetimleri (kullanım koşulları dahil), hizmet hesaplarında uygulamayı desteklemez.  Tüm hizmet hesaplarının koşullu erişim ilkesinden hariç tutulması önerilir.
 
 ## <a name="add-company-terms-of-use"></a>Şirket Kullanım Koşulları ekleme
 Kullanım Koşullarınıza son şeklini verdikten sonra, bunları eklemek için aşağıdaki yordamı kullanın.
 
-### <a name="to-add-terms-of-use"></a>Kullanım Koşulları ekleme
+### <a name="to-add-terms-of-use"></a>Kullanım Koşulları eklemek için
 1. [https://aka.ms/catou](https://aka.ms/catou) adresindeki panoya gidin
 2. Ekle'ye tıklayın.</br>
 ![Kullanım Koşulları ekleme](media/active-directory-tou/tou2.png)
@@ -79,24 +80,23 @@ Azure AD Kullanım Koşulları, kullanım koşullarınızın kimler tarafından 
 1. [https://aka.ms/catou](https://aka.ms/catou) adresindeki panoya gidin
 2. Denetim Olayı’na tıklayın.</br>
 ![Denetim Olayı](media/active-directory-tou/tou8.png)
-3.  Azure AD denetim günlükleri ekranında, belirli denetim günlüğü bilgilerini hedeflemek için bilgileri sağlanan açılır menüleri kullanarak filtreleyebilirsiniz.
+3.  Azure AD denetim günlükleri ekranında sağlanan açılır kutuları kullanarak belirli denetim günlüğü bilgilerini hedeflemek için bilgileri filtreleyebilirsiniz.
 ![Denetim Olayı](media/active-directory-tou/tou9.png)
 4.  Ayrıca bilgileri yerel olarak kullanmak için bir .csv dosyasında indirebilirsiniz.
 
 ## <a name="what-users-see"></a>Kullanıcıların gördükleri
-Kapsam dahilindeki kullanıcılar bir kullanım koşulları oluşturulup uygulandığında aşağıdakileri görür.  Oturum açma sırasında bu ekranları görürler.
+Kapsam dahilindeki kullanıcılar bir kullanım koşulları belgesi oluşturulup uygulandığında aşağıdakileri görür.  Oturum açma sırasında bu ekranları görürler.
 -   PDF içinde 24 yazı tipi boyutunun kullanılması önerilir.
 ![Denetim Olayı](media/active-directory-tou/tou10.png)
 -   Mobil cihazlarda bu ekrandaki gibi görünür</br></br>
 ![Denetim Olayı](media/active-directory-tou/tou11.png)
 
 ## <a name="additional-information"></a>Ek bilgiler
-Aşağıdaki bilgiler göz önünde bulundurulmalıdır ve kullanım koşullarının kullanılmasında faydalı olabilir.
-
+Aşağıdaki bilgiler göz önünde bulundurulmalıdır; bunlar kullanım koşullarının kullanılmasında faydalı olabilir.
 
 Aşağıdaki durumlarda kapsam dahilindeki kullanıcıların yeni bir ilkeyi karşılamak için oturumu kapatıp yeniden oturum açmaları gerekir:
  - Kullanım koşullarında bir koşullu erişim ilkesi etkinleştirildiğinde
- - veya ikinci bir kullanım koşulları oluşturulduğunda
+ - veya ikinci bir kullanım koşulları belgesi oluşturulduğunda
 
 Bunun nedeni koşullu erişim ilkelerinin hemen etkili olmasıdır. Bu durum gerçekleştiğinde, yönetici “üzgün bulutlar” veya “Azure AD belirteç sorunları” ile karşılaşmaya başlar. Yöneticinin yeni ilkeyi karşılamak için oturumu kapatıp yeniden oturum açması gerekir.
 
@@ -106,7 +106,7 @@ Bunun nedeni koşullu erişim ilkelerinin hemen etkili olmasıdır. Bu durum ger
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-**S: Kullanım koşullarını kabul edip etmediğini/ne zaman kabul ettiğini nasıl görebilirim?**</br>
+**S: Kullanıcının kullanım koşullarını kabul edip etmediğini veya ne zaman kabul ettiğini nasıl görebilirim?**</br>
 C: Kullanım koşullarını kabul eden bir kullanıcı denetim günlüğüne yazılır. Sonuçları görmek için Azure AD denetim günlüğünde arama yapabilirsiniz.  
 
 **S: Kullanım koşulları değiştirilirse kullanıcıların tekrar kabul etmesi gerekir mi?**</br>
@@ -121,7 +121,7 @@ C: Kullanım koşulları oturum açma deneyimi sırasında tetiklenir.
 **S: Kullanım koşulları ile hangi uygulamaları hedefleyebilirim?**</br>
 C: Modern kimlik doğrulaması kullanarak kurumsal uygulamalar üzerinde bir koşullu erişim ilkesi oluşturabilirsiniz.  Daha fazla bilgi için bkz. [Kurumsal uygulamalar](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
 
-**S: Belirli bir kullanıcı veya uygulamaya birden çok kullanım koşulu ekleyebilir miyim?**</br>
+**S: Belirli bir kullanıcı veya uygulamaya birden çok kullanım koşulları belgesi ekleyebilir miyim?**</br>
 C: Evet, bu grup veya uygulamaları hedefleyen birden çok koşullu erişim ilkesi oluşturarak bunu gerçekleştirebilirsiniz. Birden çok kullanım koşulları belgesinin kapsamında olan bir kullanıcı, bunları tek tek kabul eder.
  
 **S: Bir kullanıcı kullanım koşullarını reddederse ne olur?**</br>

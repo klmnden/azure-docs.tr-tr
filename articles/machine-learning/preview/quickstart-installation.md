@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Azure Machine Learning Önizleme hesapları oluşturma ve Azure Machine Learning Workbench'i yükleme
-Azure Machine Learning tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm uzman veri bilimcilerin bulut ölçeğinde veri hazırlamasına, deneme geliştirmesine ve model dağıtmasına yardımcı olur.
+Azure Machine Learning hizmetleri (önizleme) tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm uzman veri bilimcilerin bulut ölçeğinde veri hazırlamasına, deneme geliştirmesine ve model dağıtmasına yardımcı olur.
 
 Bu Hızlı Başlangıç, Azure Machine Learning Önizlemesi'nde deneme ve model yönetim hesapları oluşturma işlemini göstermektedir. Ayrıca, Azure Machine Learning Workbench masaüstü uygulamasını ve CLI araçlarını yükleme adımları gösterilmektedir. Ardından, bazı fiziksel özelliklerine göre iris türünü tahmin eden bir model oluşturmak üzere [Iris çiçek veri kümesini](https://en.wikipedia.org/wiki/iris_flower_data_set) kullanarak Azure Machine Learning önizleme özelliklerinde hızlı bir tura çıkacaksınız.  
 
@@ -108,7 +108,7 @@ Azure Machine Learning Workbench’i macOS Sierra veya üstünü çalıştıran 
 
 4. Azure Machine Learning Workbench aşağıdaki dizine yüklenir: 
 
-   `/Applications/AmlWorkbench.app`
+   `/Applications/Azure ML Workbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-sign-in-for-the-first-time"></a>İlk kez oturum açmak üzere Azure Machine Learning Workbench'i çalıştırma
 1. Yükleme işlemi tamamlandıktan sonra, yükleyicinin son ekranındaki **Workbench'i Başlat** düğmesine tıklayın. Yükleyiciyi kapattıysanız, masaüstü ve **Başlat** menüsünde **Azure Machine Learning Workbench** adlı Machine Learning Workbench kısayolunu bularak uygulamayı çalıştırın.

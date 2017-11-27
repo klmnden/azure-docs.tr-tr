@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 18d5cd8f3904a0c6ea89df440d917785510409cb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0b05cc76f8d8b2d14ac87fa3c55479bf0cf2377b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Size uygun Azure Multi-Factor Authentication çözümünü seçin
 Azure Multi-Factor Authentication’ın (MFA) birçok modeli olduğundan, hangi sürümü kullanmanın uygun olacağını belirlemek için birkaç soruyu yanıtlamamız gerekir.  Bu sorular şunlardır:
@@ -60,7 +60,7 @@ Aşağıdaki tabloda, bulutta Multi-Factor Authentication ile kullanılabilen ö
 | İkinci öğe olarak mobil uygulama doğrulama kodu | ● | ● |
 | İkinci öğe olarak telefon araması | ● | ● |
 | İkinci öğe olarak tek yönlü SMS | ● | ● |
-| İkinci öğe olarak iki yönlü SMS | | ● |
+| İkinci öğe olarak iki yönlü SMS | | ●  (Kullanım Dışı)| 
 | İkinci öğe olarak Donanım Belirteçleri | | ● |
 | MFA'yı desteklemeyen Office 365 istemcileri için uygulama parolaları | ● | |
 | Kimlik doğrulama yöntemleri üzerinde yönetici denetimi | ● | ● |

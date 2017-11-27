@@ -46,7 +46,7 @@
         - name: Dağıtma
           href: azure-stack-run-powershell-script.md
         - name: PowerShell yükleme
-          href: azure-stack-powershell-configure-quickstart.md
+          href: azure-stack-powershell-install.md
         - name: Kaydolma
           href: azure-stack-register.md
         - name: Azure Stack'e Bağlanma

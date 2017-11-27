@@ -11,34 +11,36 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/14/2017
+ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 254dcb6642afc19f434df837c9073d2dd7314313
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>PowerShell kullanarak Azure veri fabrikası oluşturma 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1 - Genel Kullanım](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Sürüm 2 - Önizleme](quickstart-create-data-factory-powershell.md)
 
-Bu hızlı başlangıç, PowerShell kullanarak bir Azure veri fabrikası oluşturma işlemini açıklar. Bu veri fabrikasında oluşturduğunuz işlem hattı, verileri Azure blob depolama alanındaki bir klasörden başka bir klasöre kopyalar. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğretici: Spark kullanarak verileri dönüştürme](transform-data-using-spark.md). 
-
-Bu makale, Data Factory hizmetine ayrıntılı giriş bilgileri sağlamaz. Azure Data Factory hizmetine giriş bilgileri için bkz. [Azure Data Factory'ye giriş](introduction.md).
+Bu hızlı başlangıç, PowerShell kullanarak bir Azure veri fabrikası oluşturma işlemini açıklar. Bu veri fabrikasında oluşturduğunuz işlem hattı, verileri Azure blob depolama alanındaki bir klasörden başka bir klasöre **kopyalar**. Azure Data Factory kullanarak verileri **dönüştürme** hakkında bir öğretici için bkz. [Öğretici: Spark kullanarak verileri dönüştürme](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
-
+>
+> Bu makale, Data Factory hizmetine ayrıntılı giriş bilgileri sağlamaz. Azure Data Factory hizmetine giriş bilgileri için bkz. [Azure Data Factory'ye giriş](introduction.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="azure-subscription"></a>Azure aboneliği
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
+### <a name="azure-roles"></a>Azure rolleri
+Data Factory örnekleri oluşturmak için, Azure'da oturum açarken kullandığınız kullanıcı hesabı **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır. Abonelikte sahip olduğunuz izinleri görüntülemek için Azure portalında sağ üst köşedeki **kullanıcı adınıza** tıklayın ve **İzinler**’i seçin. Birden çok aboneliğe erişiminiz varsa doğru aboneliği seçin. Bir role kullanıcı eklemeye ilişkin örnek yönergeler için [Rol ekleme](../billing/billing-add-change-azure-subscription-administrator.md) makalesine bakın.
+
 ### <a name="azure-storage-account"></a>Azure Depolama Hesabı
-Bu hızlı başlangıçta, genel amaçlı Azure Depolama Hesabı'nı (özel olarak Blob Depolama) hem **kaynak** hem de **havuz/hedef** veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+Bu hızlı başlangıçta, genel amaçlı Azure Depolama Hesabı'nı (özel olarak Blob Depolama) hem **kaynak** hem de **hedef** veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Depolama hesabı adını ve hesap anahtarını alma
 Bu hızlı başlangıçta, Azure depolama hesabınızın adını ve anahtarını kullanırsınız. Aşağıdaki yordam, depolama hesabınızın adını ve anahtarını alma adımlarını sağlar. 
@@ -54,43 +56,42 @@ Bu hızlı başlangıçta, Azure depolama hesabınızın adını ve anahtarını
 5. **Depolama hesabı adı** ve **key1** alanlarının değerlerini panoya kopyalayın. Bunları not defterine veya başka bir düzenleyici yapıştırın ve kaydedin.  
 
 #### <a name="create-input-folder-and-files"></a>Giriş klasörünü ve dosyaları oluşturma
-Bu bölümde, Azure blob depolamanızda adftutorial adlı bir blob kapsayıcısı oluşturursunuz. Ardından, kapsayıcıda giriş adlı bir klasör oluşturur ve giriş klasörüne örnek bir dosya yüklersiniz. 
+Bu bölümde, Azure blob depolamanızda **adftutorial** adlı bir blob kapsayıcısı oluşturursunuz. Ardından, kapsayıcıda **giriş** adlı bir klasör oluşturur ve giriş klasörüne örnek bir dosya yüklersiniz. 
 
-1. Makinenizde [Azure Depolama gezgini](https://azure.microsoft.com/features/storage-explorer/) yoksa yükleyin. 
-2. Makinenizde **Microsoft Azure Depolama Gezgini**'ni başlatın.   
-3. **Azure Depolamaya Bağlan** penceresinde, **Depolama hesap adı ve anahtarı kullan**'ı seçin ve **İleri**'ye tıklayın. **Azure Depolamaya Bağlan** penceresini görmüyorsanız, ağaç görünümünde **Depolama Hesapları**'na sağ tıklayın ve **Azure depolamaya bağlan**'a tıklayın. 
+1. **Depolama hesabı** sayfasında **Genel Bakış**’a geçin ve sonra **Bloblar**’a tıklayın. 
 
-    ![Azure depolamaya bağlanma](media/quickstart-create-data-factory-powershell/storage-explorer-connect-azure-storage.png)
-4. **Ad ve Anahtar kullanarak ekle** penceresinde, önce adımda kaydettiğiniz **Hesap adı** ve **Hesap anahtarı** değerlerini yapıştırın. Ardından **İleri**'ye tıklayın. 
-5. **Bağlantı Özeti** penceresinde **Bağlan**'a tıklayın.
-6. Ağaç görünümünde **(Yerel ve Bağlı)** -> **Depolama Hesapları**'nın altında depolama hesabınızı gördüğünüzü doğrulayın. 
-7. **Blob Kapsayıcıları**'nı genişletin ve **adftutorial** blob kapsayıcısının olmadığını doğrulayın. Zaten varsa, kapsayıcıyı oluşturma adımlarını atlayın. 
-8. **Blob Kapsayıcıları**'na sağ tıklayın ve **Blob Kapsayıcısı Oluştur**'u seçin.
+    ![Bloblar seçeneğini belirleyin](media/quickstart-create-data-factory-powershell/select-blobs.png)
+2. **Blob hizmeti** sayfasında, araç çubuğundaki **+ Kapsayıcı**’ya tıklayın. 
 
-    ![Blob kapsayıcısı oluşturma](media/quickstart-create-data-factory-powershell/stroage-explorer-create-blob-container-menu.png)
-9. Ad olarak **adftutorial** girin ve **ENTER** tuşuna basın. 
-10. Ağaç görünümünde **adftutorial** kapsayıcısının seçildiğini doğrulayın. 
-11. Araç çubuğunda **Yeni Klasör**'e tıklayın. 
+    ![Kapsayıcı ekle düğmesi](media/quickstart-create-data-factory-powershell/add-container-button.png)    
+3. **Yeni kapsayıcı** iletişim kutusuna ad olarak **adftutorial** girin ve **Tamam**’a tıklayın. 
 
-    ![Klasör oluştur düğmesi](media/quickstart-create-data-factory-powershell/stroage-explorer-new-folder-button.png)
-12. **Yeni Sanal Dizin Oluştur** penceresinde **Ad** olarak **giriş** girin ve **Tamam**'a tıklayın. 
+    ![Kapsayıcı adı girme](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
+4. Kapsayıcılar listesinde **adftutorial** öğesine tıklayın. 
 
-    ![Dizin oluştur iletişim kutusu](media/quickstart-create-data-factory-powershell/storage-explorer-create-new-directory-dialog.png)
-13. **Not Defteri**'ni başlatın ve aşağıdakileri içeren **emp.txt** adlı bir dosya oluşturun: 
+    ![Kapsayıcı seçme](media/quickstart-create-data-factory-powershell/seelct-adftutorial-container.png)
+1. **Kapsayıcı** sayfasında araç çubuğundaki **Karşıya Yükle** öğesine tıklayın.  
+
+    ![Karşıya yükle düğmesi](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
+6. **Blobu karşıya yükleme** sayfasında **Gelişmiş**’e tıklayın.
+
+    ![Gelişmiş bağlantısına tıklayın](media/quickstart-create-data-factory-powershell/upload-blob-advanced.png)
+7. **Not Defteri**’ni başlatın ve şu içeriğe sahip **emp.txt** adlı bir dosya oluşturun: **c:\ADFv2QuickStartPSH** klasörüne kaydedin: Henüz yoksa **ADFv2QuickStartPSH** klasörünü oluşturun.
     
     ```
     John, Doe
     Jane, Doe
     ```    
-    Bu dosyayı **c:\ADFv2QuickStartPSH** klasörüne kaydedin: **ADFv2QuickStartPSH** klasörü yoksa, oluşturun. 
-14. Araç çubuğunda **Karşıya Yükle** düğmesine tıklayın ve **Dosyaları Karşıya Yükle**'yi seçin. 
+8. Azure portalında **Blobu karşıya yükleme** sayfasından **Dosyalar** alanı için **emp.txt** dosyasına göz atıp seçin. 
+9. **Klasöre yükle** değeri olarak **input** girin. 
 
-    ![Karşıya yükle düğmesi](media/quickstart-create-data-factory-powershell/storage-explorer-upload-button.png)
-15. **Dosyaları karşıya yükle** penceresinde, **Dosyalar** için `...` öğesini seçin. 
-16. **Karşıya yüklenecek dosyaları seçin** penceresinde, **emp.txt** dosyasını içeren klasöre gidin ve dosyayı seçin. 
+    ![Blobu karşıya yükleme ayarları](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
+10. Klasörün **input**, dosyanın ise **emp.txt** olduğunu onaylayıp **Karşıya Yükle**’ye tıklayın.
+11. Listede **emp.txt** dosyasını ve karşıya yükleme durumunu görmeniz gerekir. 
+12. Köşedeki **X** simgesine tıklayarak **Blobu karşıya yükleme** sayfasını kapatın. 
 
-    ![Dosyaları karşıya yükle iletişim kutusu](media/quickstart-create-data-factory-powershell/storage-explorer-upload-files-dialog.png)
-17. **Dosyaları karşıya yükle** penceresinde **Karşıya Yükle**'ye tıklayın. 
+    ![Blobu karşıya yükleme sayfasını kapatma](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
+1. **Kapsayıcı** sayfasını açık tutun. Bu hızlı başlangıcın sonundaki çıktıyı doğrulamak için bu sayfayı kullanırsınız. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -104,9 +105,11 @@ En son Azure PowerShell makinenizde yüklü değilse, yükleyin.
 Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps). 
 
 #### <a name="log-in-to-azure-powershell"></a>Azure PowerShell'de oturum açma
-Makinenizde **PowerShell**'i başlatın. Bu hızlı başlangıcın sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız, bu komutları yeniden çalıştırmanız gerekir.
 
-1. Aşağıdaki komutu çalıştırın ve Azure Portal'da oturum açmak için kullandığınız Azure kullanıcı adını ve parolasını girin:
+1. Makinenizde **PowerShell**'i başlatın. Bu hızlı başlangıcın sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız, bu komutları yeniden çalıştırmanız gerekir.
+
+    ![PowerShell’i başlatın](media/quickstart-create-data-factory-powershell/search-powershell.png)
+1. Aşağıdaki komutu çalıştırın ve Azure Portal'da oturum açmak için kullandığınız aynı Azure kullanıcı adını ve parolasını girin:
        
     ```powershell
     Login-AzureRmAccount
@@ -123,12 +126,12 @@ Makinenizde **PowerShell**'i başlatın. Bu hızlı başlangıcın sonuna kadar 
     ```
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
-1. Daha sonra PowerShell komutlarında kullanacağınız kaynak grubu adı için bir değişken tanımlayın. Aşağıdaki komut metnini PowerShell'e kopyalayın [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) için çift tırnak içinde bir ad belirtin ve ardından komutu çalıştırın. 
+1. Daha sonra PowerShell komutlarında kullanacağınız kaynak grubu adı için bir değişken tanımlayın. Aşağıdaki komut metnini PowerShell'e kopyalayın [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) için çift tırnak içinde bir ad belirtin ve ardından komutu çalıştırın. Örneğin: `"adfrg"`.
    
      ```powershell
     $resourceGroupName = "<Specify a name for the Azure resource group>";
     ```
-2. Daha sonra PowerShell komutlarında kullanabileceğiniz veri fabrikası adı için bir değişken tanımlayın. 
+2. Veri fabrikasının adı için bir değişken tanımlayın. 
 
     ```powershell
     $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
@@ -143,7 +146,7 @@ Makinenizde **PowerShell**'i başlatın. Bu hızlı başlangıcın sonuna kadar 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
-    Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$resourceGroupName` değişkenine farklı bir değer atayın ve yeniden deneyin. Kaynak grubunu diğeriyle paylaşmak isterseniz, sonraki adımdan devam edin. 
+    Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$resourceGroupName` değişkenine farklı bir değer atayın ve komutu yeniden çalıştırın. 
 5. Veri fabrikası oluşturmak için aşağıdaki **Set-AzureRmDataFactoryV2** cmdlet’ini çalıştırın: 
     
     ```powershell       
@@ -157,13 +160,12 @@ Aşağıdaki noktalara dikkat edin:
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
-
-* Data Factory örnekleri oluşturmak için Azure aboneliğinde **katkıda bulunan** veya **yönetici** rolünüz olmalıdır.
+* Data Factory örnekleri oluşturmak için, Azure'da oturum açarken kullandığınız kullanıcı hesabı **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır.
 * Data Factory sürüm 2 şu anda Doğu ABD, Doğu ABD2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
 ## <a name="create-a-linked-service"></a>Bağlı hizmet oluşturma
 
-Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için veri fabrikasında bağlı hizmetler oluşturun. Bu hızlı başlangıçta yalnızca bir Azure Depolama bağlı hizmetini örnekte "AzureStorageLinkedService" olarak adlandırılmış bir kaynak ve havuz deposu olarak kullanılmak üzere oluşturmanız gerekir.
+Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için veri fabrikasında bağlı hizmetler oluşturun. Bu hızlı başlangıçta hem kaynak hem de havuz deposu olarak kullanılan bir Azure Depolama bağlı hizmeti oluşturursunuz. Bağlı hizmetler, Data Factory hizmetinin bunlara bağlanmak için çalışma zamanında kullandığı bağlantı bilgilerini içerir.
 
 1. **C:\ADFv2QuickStartPSH** klasöründe aşağıdaki içeriğe sahip **AzureStorageLinkedService.json** adlı bir JSON dosyası oluşturun: (Henüz yoksa ADFv2QuickStartPSH adlı bir klasör oluşturun.). 
 
@@ -177,7 +179,7 @@ Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için 
             "type": "AzureStorage",
             "typeProperties": {
                 "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net",
                     "type": "SecureString"
                 }
             }
@@ -203,8 +205,7 @@ Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için 
     ```
 
 ## <a name="create-a-dataset"></a>Veri kümesi oluşturma
-
-Bir kaynaktan havuza kopyalanacak verileri temsil eden bir veri kümesi tanımlayın. Bu örnekte, bu Blob veri kümesi önceki adımda oluşturduğunuz Azure Depolama bağlı hizmetini ifade eder. Veri kümesi, değeri veri kümesini kullanan bir etkinlikte tanımlanmış bir parametre alır. Parametre, verilerin bulunduğu/depolandığı yeri işaret eden **folderPath** öğesini oluşturmak için kullanılır.
+Bu adımda, bir kaynaktan havuza kopyalanacak verileri temsil eden bir veri kümesi tanımlarsınız. Veri kümesi **AzureBlob** türündedir. Önceki adımda oluşturduğunuz **Azure Depolama bağlı hizmetini** ifade eder. **folderPath** özelliğini oluşturmak için bir parametre alır. Bir giriş veri kümesi için işlem hattındaki kopyalama etkinliği bu parametrenin değeri olarak giriş yolunu geçirir. Benzer şekilde, bir çıkış veri kümesi için kopyalama etkinliği bu parametrenin değeri olarak çıkış yolunu geçirir. 
 
 1. **C:\ADFv2QuickStartPSH** klasöründe aşağıdaki içeriğe sahip **BlobDataset.json** adlı bir JSON dosyası oluşturun:
 
@@ -250,7 +251,7 @@ Bir kaynaktan havuza kopyalanacak verileri temsil eden bir veri kümesi tanımla
 
 ## <a name="create-a-pipeline"></a>İşlem hattı oluşturma
   
-Bu örnekte, işlem hattı bir etkinlik içerir ve giriş blob yolu ve çıkış blob yolu şeklinde iki parametre alır. Bu parametrelerin değerleri, işlem hattı tetiklendiğinde/çalıştırıldığında ayarlanır. Kopyalama etkinliği, önceki adımda girdi ve çıktı olarak oluşturulmuş blob veri kümesini kullanır. Veri kümesi bir girdi veri kümesi olarak kullanıldığında girdi yolu belirtilir. Ayrıca, veri kümesi bir çıktı veri kümesi olarak kullanıldığında çıktı yolu belirtilir. 
+Bu hızlı başlangıçta etkinlik içeren ve giriş blob yolu ve çıkış blob yolu şeklinde iki parametre alan bir işlem hattı oluşturursunuz. Bu parametrelerin değerleri, işlem hattı tetiklendiğinde/çalıştırıldığında ayarlanır. Kopyalama etkinliği, önceki adımda girdi ve çıktı olarak oluşturulmuş blob veri kümesini kullanır. Veri kümesi bir girdi veri kümesi olarak kullanıldığında girdi yolu belirtilir. Ayrıca, veri kümesi bir çıktı veri kümesi olarak kullanıldığında çıktı yolu belirtilir. 
 
 1. **C:\ADFv2QuickStartPSH** klasöründe aşağıdaki içeriğe sahip **Adfv2QuickStartPipeline.json** adlı bir JSON dosyası oluşturun:
 
@@ -324,24 +325,21 @@ Bu adımda, **inputPath** ve **outputPath** işlem hattı parametrelerinin değe
 
 1. **C:\ADFv2QuickStartPSH** klasöründe aşağıdaki içeriğe sahip **PipelineParameters.json** adlı bir JSON dosyası oluşturun:
 
-    Farklı kapsayıcılar ve klasörler kullanıyorsanız, **inputPath** ve **outputPath** değerlerini verilerin kopyalanacağı kaynak ve havuz blob yolunuzla değiştirin.
-
     ```json
     {
         "inputPath": "adftutorial/input",
         "outputPath": "adftutorial/output"
     }
     ```
-
-2. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet’ini çalıştırarak bir işlem hattı çalıştırması oluşturun ve parametre değerlerini geçirin. Ayrıca, gelecekte izlemek üzere işlem hattı çalıştırma kimliğini yakalar.
+2. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet’ini çalıştırarak bir işlem hattı çalıştırması oluşturun ve parametre değerlerini geçirin. Cmdlet, gelecekte izlemek üzere işlem hattı çalıştırma kimliğini döndürür.
 
     ```powershell
     $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
     ```
 
-## <a name="monitor-a-pipeline-run"></a>İşlem hattı çalıştırmasını izleme
+## <a name="monitor-the-pipeline-run"></a>İşlem hattı çalıştırmasını izleme
 
-1. İşlem hattı çalıştırma durumunu, verileri kopyalama işlemi tamamlanıncaya kadar sürekli olarak denetlemek için aşağıdaki betiği çalıştırın.
+1. İşlem hattı çalıştırma durumunu, verileri kopyalama işlemi tamamlanıncaya kadar sürekli olarak denetlemek için aşağıdaki PowerShell betiğini çalıştırın. Aşağıdaki betiği kopyalayıp PowerShell penceresine yapıştırın ve ENTER tuşuna basın. 
 
     ```powershell
     while ($True) {
@@ -356,7 +354,7 @@ Bu adımda, **inputPath** ve **outputPath** işlem hattı parametrelerinin değe
             Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
         }
 
-        Start-Sleep -Seconds 30
+        Start-Sleep -Seconds 10
     }
     ```
 
@@ -379,7 +377,26 @@ Bu adımda, **inputPath** ve **outputPath** işlem hattı parametrelerinin değe
     Message           :
     ```
 
-2. Kopyalama etkinliği çalıştırma ayrıntılarını (örneğin, okunan/yazılan verilerin boyutu) almak için aşağıdaki betiği çalıştırın.
+    Şu hatayı görürseniz:
+    ```
+    Activity CopyFromBlobToBlob failed: Failed to detect region of linked service 'AzureStorage' : 'AzureStorageLinkedService' with error '[Region Resolver] Azure Storage failed to get address for DNS. Warning: System.Net.Sockets.SocketException (0x80004005): No such host is known
+    ```
+    aşağıdaki adımları uygulayın: 
+    1. AzureStorageLinkedService.json dosyasında Azure Depolama Hesabınızın ad ve anahtarının doğru olduğunu onaylayın. 
+    2. Bağlantı dizesi biçiminin doğru olduğundan emin olun. AccountName ve AccountKey gibi özellikler noktalı virgül (`;`) karakteriyle ayrılır. 
+    3. Hesap adı ve hesap anahtarının çevresinde köşeli ayraç varsa bunları kaldırın. 
+    4. Örnek bir bağlantı dizesi aşağıda gösterilmiştir: 
+
+        ```json
+        "connectionString": {
+            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageacountkey;EndpointSuffix=core.windows.net",
+            "type": "SecureString"
+        }
+        ```
+    5. [Bağlı hizmet oluşturma](#create-a-linked-service) bölümündeki adımları izleyerek bağlı hizmeti yeniden oluşturun. 
+    6. [İşlem hattı çalıştırması oluşturma](#create-a-pipeline-run) bölümündeki adımları izleyerek işlem hattını yeniden çalıştırın. 
+    7. Yeni işlem hattı çalıştırmasını izlemek için geçerli izleme komutunu tekrar çalıştırın. 
+1. Kopyalama etkinliği çalıştırma ayrıntılarını (örneğin, okunan/yazılan verilerin boyutu) almak için aşağıdaki betiği çalıştırın.
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
@@ -421,17 +438,25 @@ Bu adımda, **inputPath** ve **outputPath** işlem hattı parametrelerinin değe
     ```
 
 ## <a name="verify-the-output"></a>Çıktıyı doğrulama
-İşlem hattı adftutorial blob kapsayıcısında çıktı klasörünü otomatik olarak oluşturur. Ardından, giriş klasöründeki emp.txt dosyasını çıktı klasörüne kopyalar. inputBlobPath içindeki blobların outputBlobPath yoluna kopyalandığından emin olmak için [Azure Depolama gezginini](https://azure.microsoft.com/features/storage-explorer/) kullanın. 
+İşlem hattı adftutorial blob kapsayıcısında çıktı klasörünü otomatik olarak oluşturur. Ardından, giriş klasöründeki emp.txt dosyasını çıktı klasörüne kopyalar. 
+
+1. Çıktı klasörünü görmek için, Azure portalındaki **adftutorial** kapsayıcı sayfasında **Yenile**’ye tıklayın. 
+    
+    ![Yenile](media/quickstart-create-data-factory-powershell/output-refresh.png)
+2. Klasör listesinde **output** öğesine tıklayın. 
+2. **emp.txt** dosyasının output klasörüne kopyalandığını onaylayın. 
+
+    ![Yenile](media/quickstart-create-data-factory-powershell/output-file.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Hızlı başlangıç bölümünde oluşturduğunuz kaynakları iki şekilde temizleyebilirsiniz. Kaynak grubundaki tüm kaynakları içeren [Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silebilirsiniz. Diğer kaynakları korumak istiyorsanız yalnızca bu öğreticide oluşturduğunuz veri kaynağını silin.
 
-Kaynak grubunun tamamını silmek için şu komutu çalıştırın: 
+Bir kaynak grubunun silinmesi, içindeki veri fabrikaları dahil olmak üzere tüm kaynakları siler. Kaynak grubunun tamamını silmek için şu komutu çalıştırın: 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-Yalnızca veri fabrikası tablosunu silmek için aşağıdaki komutu çalıştırın: 
+Tüm kaynak grubu yerine yalnızca veri fabrikasını silmek istiyorsanız aşağıdaki aşağıdaki komutu çalıştırın: 
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName

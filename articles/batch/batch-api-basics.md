@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
@@ -75,7 +75,7 @@ Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir var
 Tek bir Batch hesabında birden fazla Batch iş yükü çalıştırabilir ya da iş yüklerinizi aynı abonelik ve farklı Azure bölgelerindeki Batch hesapları arasında dağıtabilirsiniz.
 
 > [!NOTE]
-> Batch hesabı oluştururken genelde varsayılan **Batch hizmeti** modunu seçmeniz gerekir. Bu mod kullanıldığında havuzlar Azure tarafından yönetilen aboneliklerde, arka planda ayrılır. Kullanılması artık önerilmeyen alternatif **Kullanıcı aboneliği** modunda bir havuz oluşturulduğunda Batch VM'leri ve diğer kaynaklar doğrudan aboneliğinizde oluşturulur. Kullanıcı aboneliği modunda Batch hesabı oluşturmak için hesabı bir Azure Key Vault ile ilişkilendirmeniz de gerekir.
+> Batch hesabı oluştururken genelde varsayılan **Batch hizmeti** modunu seçmeniz gerekir. Bu mod kullanıldığında havuzlar Azure tarafından yönetilen aboneliklerde, arka planda ayrılır. Kullanılması artık çoğu senaryo için önerilmeyen alternatif **kullanıcı aboneliği** modunda bir havuz oluşturulduğunda Batch VM'leri ve diğer kaynaklar doğrudan aboneliğinizde oluşturulur. Kullanıcı aboneliği modunda bir Batch hesabı oluşturmak için aboneliğinizi Azure Batch hizmetine kaydetmeniz ve hesabı bir Azure Key Vault ile ilişkilendirmeniz de gerekir.
 >
 
 
@@ -150,7 +150,9 @@ Ayrıntılı gereksinimler ve adımlar için bkz. [Sanal makine havuzu oluşturm
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Sanal Makine havuzlarında kapsayıcı desteği
 
-Batch API'lerini kullanarak Sanal Makine Yapılandırma havuzu oluştururken havuzu görevleri Docker kapsayıcılarında çalıştıracak şekilde ayarlayabilirsiniz. Şu anda havuzu Azure Market'teki Windows Server 2016 Datacenter with Containers görüntüsünü kullanarak oluşturmanız veya Docker Community Edition ile gerekli sürücüleri içeren özel bir VM görüntüsü sağlamanız gerekir. Havuz ayarları, kapsayıcı görüntülerini havuz oluşturulduğunda VM'lere kopyalayan bir [kapsayıcı yapılandırması](/rest/api/batchservice/pool/add#definitions_containerconfiguration) içermelidir. Havuzda çalışan görevler, kapsayıcı görüntülerine ve kapsayıcı çalıştırma seçeneklerine başvurabilir.
+Batch API'lerini kullanarak Sanal Makine Yapılandırma havuzu oluştururken havuzu görevleri Docker kapsayıcılarında çalıştıracak şekilde ayarlayabilirsiniz. Şu anda Docker kapsayıcılarını destekleyen bir görüntü kullanarak havuz oluşturmanız gerekir. Azure Market'teki Windows Server 2016 Datacenter with Containers görüntüsünü kullanın veya Docker Community Edition ya da Enterprise Edition ile gerekli sürücüleri içeren özel bir VM görüntüsü sağlayın. Havuz ayarları, kapsayıcı görüntülerini havuz oluşturulduğunda VM'lere kopyalayan bir [kapsayıcı yapılandırması](/rest/api/batchservice/pool/add#definitions_containerconfiguration) içermelidir. Havuzda çalışan görevler, kapsayıcı görüntülerine ve kapsayıcı çalıştırma seçeneklerine başvurabilir.
+
+Daha fazla bilgi için bkz. [Azure Batch’te Docker kapsayıcı uygulamaları çalıştırma](batch-docker-container-workloads.md).
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>İşlem düğümü türü ve hedef düğüm sayısı
 

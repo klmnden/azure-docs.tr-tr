@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 41279502c16d0b23c91739dcb62e8f94f3b8bd67
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4f5e249238020429b6c6e0d39c580c83bc43969e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure portalında Siteden Siteye bağlantı oluşturma
 
@@ -50,15 +50,13 @@ Yapılandırmanıza başlamadan önce aşağıdaki ölçütleri karşıladığı
 Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bunlara bakabilirsiniz. Genel olarak VPN Gateway ayarları hakkında daha fazla bilgi için [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md) konusunu inceleyin.
 
 * **VNet Name:** TestVNet1
-* **Adres Alanı:** 
-  * 10.11.0.0/16
-  * 10.12.0.0/16 (bu alıştırma için isteğe bağlı)
-* **Alt ağlar:**
-  * FrontEnd: 10.11.0.0/24
-  * BackEnd: 10.12.0.0/24 (bu alıştırma için isteğe bağlı)
-* **GatewaySubnet:** 10.11.255.0/27
+* **Adres Alanı:** 10.11.0.0/16 ve 10.12.0.0/16 (bu alıştırma için isteğe bağlı)
+* **Abonelik:** Kullanmak istediğiniz abonelik
 * **Kaynak Grubu:** TestRG1
 * **Konum:** Doğu ABD
+* **Alt ağ:** FrontEnd: 10.11.0.0/24, BackEnd: 10.12.0.0/24 (bu alıştırma için isteğe bağlı)
+* **Ağ Geçidi Alt Ağ adı:** GatewaySubnet (bu alan portalda otomatik doldurulacaktır)
+* **Ağ Geçidi Alt Ağ adres aralığı:** 10.11.255.0/27
 * **DNS Sunucusu:** İsteğe bağlıdır. DNS sunucunuzun IP adresidir.
 * **Sanal Ağ Geçidi Adı: VNet1GW**
 * **Genel IP:** VNet1GWIP
@@ -67,6 +65,7 @@ Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kul
 * **Ağ Geçidi Türü:** VPN
 * **Yerel Ağ Geçidi Adı:** Site2
 * **Bağlantı Adı:** VNet1toSite2
+* **Ortak anahtar:** Bu örnekte abc123 kullanılır. Ancak, VPN donanımınızla uyumlu herhangi bir seçeneği kullanabilirsiniz. Önemli olan, değerin bağlantının her iki tarafında eşleşmesidir.
 
 ## <a name="CreatVNet"></a>1. Sanal ağ oluşturma
 
@@ -125,10 +124,21 @@ Bir veya daha fazla Siteden Siteye VPN tünelinde şirketler arası VPN bağlant
 
 Bir ağ geçidi SKU'sunu değiştirme adımları için bkz. [Ağ geçidi SKU'ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
+## <a name="addconnect"></a>Bir VPN ağ geçidine başka bağlantı ekleme
+
+Hiçbir adres alanının bağlantılar arasında çakışmaması şartıyla başka bağlantılar ekleyebilirsiniz.
+
+1. Başka bir bağlantı eklemek için VPN ağ geçidine gidin, ardından **Bağlantılar**’a tıklayarak Bağlantılar sayfasını açın.
+2. Bağlantınızı eklemek için **+Ekle**’ye tıklayın. Bağlantı türünü VNet-VNet (başka bir VNet ağ geçidine bağlanılıyorsa) veya Site-site ayarını yansıtacak şekilde ayarlayın.
+3. Site-site ile bağlantı kuruyorsanız ve bağlanmak istediğiniz site için henüz bir yerel ağ geçidi oluşturmadıysanız yeni bir tane oluşturabilirsiniz.
+4. Kullanmak istediğiniz paylaşılan anahtarı belirtin, ardından **Tamam**’a tıklayarak bağlantıyı oluşturun.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.
-* Zorlamalı Tünel Oluşturma hakkında bilgi için bkz. [Zorlamalı Tünel Oluşturma Hakkında](vpn-gateway-forced-tunneling-rm.md).
+* Zorlamalı tünel oluşturma hakkında bilgi için bkz. [Zorlamalı tünel oluşturma hakkında](vpn-gateway-forced-tunneling-rm.md).
 * Yüksek Oranda Kullanılabilir Etkin-Etkin bağlantılar hakkında bilgi için bkz. [Yüksek Oranda Kullanılabilir Şirket İçi ve Dışı ile Sanal Ağdan Sanal Ağa Bağlantı](vpn-gateway-highlyavailable.md).
+* Ağ trafiğini bir sanal ağ içindeki kaynaklarla sınırlama hakkında bilgi için bkz. [Ağ Güvenliği](../virtual-network/security-overview.md).
+* Azure, şirket içi ve İnternet kaynakları arasındaki trafiğin Azure tarafından nasıl yönlendirdiği hakkında bilgi için bkz. [Sanal ağ trafiği yönlendirme](../virtual-network/virtual-networks-udr-overview.md).
 * Azure Resource Manager şablonunu kullanarak siteden siteye VPN bağlantısı oluşturma hakkında bilgi için bkz. [Siteden Siteye VPN Bağlantısı Oluşturma](https://azure.microsoft.com/resources/templates/101-site-to-site-vpn-create/).
 * Azure Resource Manager şablonunu kullanarak sanal ağlar arası VPN bağlantısı oluşturma hakkında bilgi için bkz. [HBase coğrafi çoğaltmayı dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -118,7 +118,7 @@ Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile 
 
 Şirket içi ağ geçidi, sınır ağ geçidi protokolünü (BGP) kullanarak bir Azure sanal ağ geçidi ile yolları değiştirebilir. BGP’nin bir Azure sanal ağ geçidi ile kullanılması, ağ geçidini oluştururken seçtiğiniz türe bağlıdır. Seçtiğiniz tür aşağıdakilerden biri ise:
 
-- **ExpressRoute**: Yolları Microsoft uç yönlendiricisinde tanıtmak için BGP kullanmanız gerekir. ExpressRoute türünde dağıtılan bir sanal ağ geçidi dağıtıyorsanız kullanıcı tanımlı yollar oluşturamazsınız.
+- **ExpressRoute**: Şirket içi yolları Microsoft uç yönlendiricisinde tanıtmak için BGP kullanmanız gerekir. ExpressRoute türünde dağıtılan bir sanal ağ geçidi dağıtıyorsanız trafiği ExpressRoute sanal ağ geçidine zorlamak için kullanıcı tanımlı yollar oluşturamazsınız. Örneğin, Express Route’tan bir Sanal Ağ Gerecine trafiği zorlamak için kullanıcı tanımlı yolları kullanabilirsiniz. 
 - **VPN**: İsteğe bağlı olarak BGP kullanabilirsiniz. Ayrıntılar için [Siteden siteye VPN bağlantıları ile BGP](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) konusunu inceleyin.
 
 BGP kullanarak Azure ile yolları değiştirdiğinizde, tanıtılan her ön ek için bir sanal ağdaki tüm alt ağların yol tablosuna ayrı bir yol eklenir. Yol, kaynak ve sonraki atlama türü olarak *Sanal ağ geçidi* listelenerek eklenir. 
