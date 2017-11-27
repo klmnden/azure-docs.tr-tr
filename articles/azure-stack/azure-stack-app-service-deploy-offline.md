@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/23/2017
 ms.author: anwestg
-ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure yığın ortam için bir uygulama hizmeti kaynak Sağlayıcısı Ekle
 
@@ -75,7 +75,7 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda dağıtmak için ilk Intern
         - Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin, cloudadmin@azurestack.local. Parolanızı girin ve tıklayın **oturum**.
     2. İçinde **Azure yığın abonelikleri** kutusunda, aboneliğinizi seçin.
     3. İçinde **Azure yığın konumu** kutusunda, dağıtımına bölgeyi karşılık gelen konumu seçin. Örneğin, seçin **yerel** varsa Azure yığın Geliştirme Seti dağıtma.
-    4. Girin bir **kaynak grubu adı** uygulama hizmeti dağıtımınız için. Varsayılan olarak ayarlanır **APPSERVICE\<mobil\>**.
+    4. Girin bir **kaynak grubu adı** uygulama hizmeti dağıtımınız için. Varsayılan olarak ayarlanır **APPSERVICE yerel**.
     5. Girin **depolama hesabı adı** yüklemesinin bir parçası oluşturmak için uygulama hizmeti istiyor. Varsayılan olarak ayarlanır **appsvclocalstor**.
     6. **İleri**’ye tıklayın.
 

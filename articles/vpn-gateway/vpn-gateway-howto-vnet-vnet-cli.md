@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
@@ -59,11 +59,17 @@ Sanal ağlar arası bağlantılar hakkında daha fazla bilgi için bu makalenin 
 
 ### <a name="which-set-of-steps-should-i-use"></a>Hangi adımları tamamlamalıyım? 
 
-Bu makalede iki farklı adım kümesi görürsünüz. Bir adım kümesi [Aynı abonelikte bulunan sanal ağlar](#samesub), diğer adım kümesi ise [Farklı aboneliklerde bulunan sanal ağlar](#difsub) içindir.
-
-## <a name="samesub"></a>Aynı abonelikte olan sanal ağları bağlanma
+Bu makalede iki farklı adım kümesi görürsünüz. [Aynı abonelikte bulunan sanal ağlar](#samesub) için adım kümesi. Bu yapılandırmanın adımları TestVNet1 ve TestVNet4'ü kullanır.
 
 ![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+[Farklı aboneliklerde bulunan sanal ağlar](#difsub) için ayrı bir makale mevcuttur. O yapılandırmaya ilişkin adımlar TestVNet1 ve TestVNet5’i kullanır.
+
+![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+İsterseniz yapılandırmaları birleştirebilir veya yalnızca birlikte çalışmak istediğiniz yapılandırmayı seçebilirsiniz.
+
+## <a name="samesub"></a>Aynı abonelikte olan sanal ağları bağlanma
 
 ### <a name="before-you-begin"></a>Başlamadan önce
 
@@ -88,7 +94,7 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
 * Public IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (Farklı aboneliklerde bulunan sanal ağlar için)
 * ConnectionType: VNet2VNet
 
 **Değerler TestVNet4 için:**
@@ -255,8 +261,6 @@ Artık VPN ağ geçitleri olan iki sanal ağınız var. Bir sonraki adım, sanal
 
 ## <a name="difsub"></a>Farklı aboneliklerdeki VNet'leri bağlama
 
-![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 Bu senaryoda TestVNet1 ve TestVNet5 bağlanır. VNet’ler farklı aboneliklerde yer alır. Aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. Bu yapılandırmanın adımları TestVNet1’i TestVNet5’e bağlamak için Sanal Ağdan Sanal Ağa bir bağlantı daha ekler.
 
 ### <a name="TestVNet1diff"></a>5. Adım - TestVNet1’i oluşturma ve yapılandırma
@@ -362,7 +366,7 @@ Bu örnekteki ağ geçitleri farklı aboneliklerde olduğundan, bu adımı **[1.
 ## <a name="verify"></a>Bağlantıları doğrulama
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Sanal ağlar arası bağlantılar hakkında SSS
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

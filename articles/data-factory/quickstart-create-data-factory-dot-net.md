@@ -13,33 +13,101 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
-ms.openlocfilehash: e27c1a8e130d20eb0ba0e5c001fc9a435e07c1cd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 5345c0fa6212127e9821adccc8cb4c339ce7ae28
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK’sını kullanarak veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1 - Genel Kullanım](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Sürüm 2 - Önizleme](quickstart-create-data-factory-dot-net.md)
 
-Azure Data Factory, bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz. 
-
-Bu hızlı başlangıç, .NET SDK’sı kullanarak bir Azure veri fabrikası oluşturma işlemini açıklar. Bu veri fabrikasındaki işlem hattı, verileri Azure blob depolama alanındaki bir klasörden başka bir klasöre kopyalar.
+Bu hızlı başlangıç, .NET SDK’sı kullanarak bir Azure veri fabrikası oluşturma işlemini açıklar. Bu veri fabrikasında oluşturduğunuz işlem hattı, verileri Azure blob depolama alanındaki bir klasörden başka bir klasöre **kopyalar**. Azure Data Factory kullanarak verileri **dönüştürme** hakkında bir öğretici için bkz. [Öğretici: Spark kullanarak verileri dönüştürme](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
+>
+> Bu makale, Data Factory hizmetine ayrıntılı giriş bilgileri sağlamaz. Azure Data Factory hizmetine giriş bilgileri için bkz. [Azure Data Factory'ye giriş](introduction.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
-* **Azure Depolama hesabı**. Blob depolama alanını hem **kaynak** hem de **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Blob Depolama içinde bir **blob kapsayıcısı** oluşturun, kapsayıcıda bir giriş **klasörü** oluşturun ve bazı dosyaları klasöre yükleyin. [Azure Depolama gezgini](https://azure.microsoft.com/features/storage-explorer/) gibi araçları kullanarak Azure Blob depolama hesabına bağlanabilir, bir blob kapsayıcısı oluşturabilir, giriş dosyasını karşıya yükleyebilir ve çıktı dosyasını doğrulayabilirsiniz.
-* **Visual Studio** 2013, 2015 veya 2017. Bu makaledeki kılavuzda Visual Studio 2017 kullanılır.
-* **[Azure .NET SDK](http://azure.microsoft.com/downloads/)** indirip yükleyin.
-* **Azure Active Directory’de** [bu adımları](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) izleyerek bir uygulama oluşturun. Daha sonra kullandığınız şu değerleri not edin: **uygulama kimliği**, **kimlik doğrulama anahtarı** ve **kiracı kimliği**. Aynı makalede bulunan yönergeleri izleyerek uygulamayı "**Katkıda bulunan**" rolüne atayın. 
-*  
+
+### <a name="azure-subscription"></a>Azure aboneliği
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+
+### <a name="azure-roles"></a>Azure rolleri
+Data Factory örnekleri oluşturmak için, Azure'da oturum açarken kullandığınız kullanıcı hesabı **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır. Abonelikte sahip olduğunuz izinleri görüntülemek için Azure portalında sağ üst köşedeki **kullanıcı adınıza** tıklayın ve **İzinler**’i seçin. Birden çok aboneliğe erişiminiz varsa doğru aboneliği seçin. Bir role kullanıcı eklemeye ilişkin örnek yönergeler için [Rol ekleme](../billing/billing-add-change-azure-subscription-administrator.md) makalesine bakın.
+
+### <a name="azure-storage-account"></a>Azure Depolama Hesabı
+Bu hızlı başlangıçta, genel amaçlı Azure Depolama Hesabı'nı (özel olarak Blob Depolama) hem **kaynak** hem de **hedef** veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+
+#### <a name="get-storage-account-name-and-account-key"></a>Depolama hesabı adını ve hesap anahtarını alma
+Bu hızlı başlangıçta, Azure depolama hesabınızın adını ve anahtarını kullanırsınız. Aşağıdaki yordam, depolama hesabınızın adını ve anahtarını alma adımlarını sağlar. 
+
+1. Web tarayıcısını açın ve [Azure Portal](https://portal.azure.com)'a gidin. Azure kullanıcı adınız ve parolanızla oturum açın. 
+2. Sol taraftaki menüde **Diğer hizmetler >** öğesine tıklayın, **Depolama** anahtar sözcüğüyle filtreleyin ve **Depolama hesapları**'nı seçin.
+
+    ![Depolama hesabını arama](media/quickstart-create-data-factory-dot-net/search-storage-account.png)
+3. Depolama hesapları listesinde, depolama hesabınız için filtre uygulayın (gerekirse) ve ardından **depolama hesabınızı** seçin. 
+4. **Depolama hesabı** sayfasında, menüden **Erişim anahtarları**'nı seçin.
+
+    ![Depolama hesabı adını ve anahtarını alma](media/quickstart-create-data-factory-dot-net/storage-account-name-key.png)
+5. **Depolama hesabı adı** ve **key1** alanlarının değerlerini panoya kopyalayın. Bunları not defterine veya başka bir düzenleyici yapıştırın ve kaydedin.  
+
+#### <a name="create-input-folder-and-files"></a>Giriş klasörünü ve dosyaları oluşturma
+Bu bölümde, Azure blob depolamanızda **adftutorial** adlı bir blob kapsayıcısı oluşturursunuz. Ardından, kapsayıcıda **giriş** adlı bir klasör oluşturur ve giriş klasörüne örnek bir dosya yüklersiniz. 
+
+1. **Depolama hesabı** sayfasında **Genel Bakış**’a geçin ve sonra **Bloblar**’a tıklayın. 
+
+    ![Bloblar seçeneğini belirleyin](media/quickstart-create-data-factory-dot-net/select-blobs.png)
+2. **Blob hizmeti** sayfasında, araç çubuğundaki **+ Kapsayıcı**’ya tıklayın. 
+
+    ![Kapsayıcı ekle düğmesi](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
+3. **Yeni kapsayıcı** iletişim kutusuna ad olarak **adftutorial** girin ve **Tamam**’a tıklayın. 
+
+    ![Kapsayıcı adı girme](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
+4. Kapsayıcılar listesinde **adftutorial** öğesine tıklayın. 
+
+    ![Kapsayıcı seçme](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
+1. **Kapsayıcı** sayfasında araç çubuğundaki **Karşıya Yükle** öğesine tıklayın.  
+
+    ![Karşıya yükle düğmesi](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
+6. **Blobu karşıya yükleme** sayfasında **Gelişmiş**’e tıklayın.
+
+    ![Gelişmiş bağlantısına tıklayın](media/quickstart-create-data-factory-dot-net/upload-blob-advanced.png)
+7. **Not Defteri**’ni başlatın ve şu içeriğe sahip **emp.txt** adlı bir dosya oluşturun: **c:\ADFv2QuickStartPSH** klasörüne kaydedin: Henüz yoksa **ADFv2QuickStartPSH** klasörünü oluşturun.
+    
+    ```
+    John, Doe
+    Jane, Doe
+    ```    
+8. Azure portalında **Blobu karşıya yükleme** sayfasından **Dosyalar** alanı için **emp.txt** dosyasına göz atıp seçin. 
+9. **Klasöre yükle** değeri olarak **input** girin. 
+
+    ![Blobu karşıya yükleme ayarları](media/quickstart-create-data-factory-dot-net/upload-blob-settings.png)    
+10. Klasörün **input**, dosyanın ise **emp.txt** olduğunu onaylayıp **Karşıya Yükle**’ye tıklayın.
+11. Listede **emp.txt** dosyasını ve karşıya yükleme durumunu görmeniz gerekir. 
+12. Köşedeki **X** simgesine tıklayarak **Blobu karşıya yükleme** sayfasını kapatın. 
+
+    ![Blobu karşıya yükleme sayfasını kapatma](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
+1. **Kapsayıcı** sayfasını açık tutun. Bu hızlı başlangıcın sonundaki çıktıyı doğrulamak için bu sayfayı kullanırsınız.
+
+### <a name="visual-studio"></a>Visual Studio
+Bu makaledeki kılavuzda Visual Studio 2017 kullanılır. Visual Studio 2013 veya 2015 de kullanabilirsiniz.
+
+### <a name="azure-net-sdk"></a>Azure .NET SDK’sı
+[Azure .NET SDK’sını](http://azure.microsoft.com/downloads/) indirip makinenize yükleyin.
+
+### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
+Aşağıdaki görevleri gerçekleştirmek için [bu makaledeki](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) yönergeleri izleyin: 
+
+1. **Azure Active Directory uygulaması oluşturma**. Azure Active Directory'de, bu öğreticide oluşturduğunuz .NET uygulamasını temsil eden bir uygulama oluşturma. Oturum açma URL'si için, makalede gösterildiği gibi bir işlevsiz URL sağlayabilirsiniz (`https://contoso.org/exampleapp`).
+2. Makaledeki **Uygulama kimliği ve kimlik doğrulama anahtarını alma** bölümünde bulunan yönergeleri kullanarak **uygulama kimliği** ve **kimlik doğrulama anahtarını**** alın. Bu öğreticide daha sonra kullanacağınız için bu değerleri not alın. 
+3. Makaledeki **Kiracı kimliği alma** bölümünde verilen yönergeleri kullanarak **kiracı kimliğini** alın. Bu değeri not edin. 
+4. Uygulamanın abonelikte veri fabrikaları oluşturabilmesi için uygulamayı **Katkıda Bulunan** rolüne atayın. Makaledeki **Uygulamayı role atama** bölümünde yer alan yönergeleri izleyin. 
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
@@ -253,7 +321,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>İşlem hattı çalıştırmasını izleme
 
-1. İşlem hattı çalıştırmasını veri kopyalama işlemi tamamlanıncaya kadar sürekli olarak izlemek için aşağıdaki kodu **Main** yöntemine ekleyin.
+1. Veri kopyalama işlemi tamamlanıncaya kadar durumu sürekli olarak denetlemek için aşağıdaki kodu **Main** yöntemine ekleyin.
 
     ```csharp
     // Monitor the pipeline run
@@ -397,8 +465,18 @@ Checking copy activity run details...
 }
 
 Press any key to exit...
-
 ```
+
+## <a name="verify-the-output"></a>Çıktıyı doğrulama
+İşlem hattı adftutorial blob kapsayıcısında çıktı klasörünü otomatik olarak oluşturur. Ardından, giriş klasöründeki emp.txt dosyasını çıktı klasörüne kopyalar. 
+
+1. Çıktı klasörünü görmek için, Azure portalındaki **adftutorial** kapsayıcı sayfasında **Yenile**’ye tıklayın. 
+    
+    ![Yenile](media/quickstart-create-data-factory-dot-net/output-refresh.png)
+2. Klasör listesinde **output** öğesine tıklayın. 
+2. **emp.txt** dosyasının output klasörüne kopyalandığını onaylayın. 
+
+    ![Yenile](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Veri fabrikasını programlı olarak silmek için aşağıdaki kod satırlarını programa ekleyin: 

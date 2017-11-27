@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
@@ -36,7 +36,7 @@ Klasik dağıtım modeliyle ilgili bilginiz varsa [klasik ve Resource Manager IP
 
 ## <a name="public-ip-addresses"></a>Genel IP adresleri
 
-Genel IP adresleri, Azure kaynaklarının İnternet ile ve [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Olay Hub’ları](https://azure.microsoft.com/services/event-hubs), [SQL veritabanları](../sql-database/sql-database-technical-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Azure depolama alanı](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) gibi genel kullanıma yönelik Azure hizmetleriyle iletişim kurmasını sağlar.
+Genel IP adresleri, İnternet kaynaklarının Azure kaynakları ile gelen iletişimi kurmasına izin verir. Genel IP adresleri ayrıca Azure kaynaklarının İnternet ve kaynağa atanmış bir IP adresi ile genel kullanıma yönelik Azure hizmetleri ile giden iletişimi kurmasını sağlar. Adres sizin atamayı kaldırmanıza kadar kaynağa ayrılmıştır. Bir genel IP adresi herhangi bir kaynağa atanmamışsa, kaynak yine de İnternet ile giden iletişim kurabilir, ancak Azure kaynağa ayrılmamış kullanılabilir bir IP adresini dinamik olarak atar. Azure’da giden bağlantılar hakkında daha fazla bilgi için bkz. [Giden bağlantıları anlama](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Azure Resource Manager’daki bir [genel IP](virtual-network-public-ip-address.md) adresi, kendi özelliklerine sahip olan bir kaynaktır. Genel bir IP adresini ilişkilendirebileceğiniz kaynakların bazıları şunlardır:
 
@@ -98,7 +98,7 @@ Statik genel IP adresleri yaygın olarak aşağıdaki senaryolarda kullanılır:
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS ana bilgisayar adı çözümlemesi
-Bir genel IP kaynağı için DNS etki alanı ad etiketi belirtebilirsiniz; bu durumda, Azure tarafından yönetilen DNS sunucularında genel IP adresine yönelik olarak *etkialanıadetiketi*.*konum*.cloudapp.azure.com için bir eşleme oluşturulur. Örneğin, **Batı ABD** Azure *konumunda* *etkialanıadetiketi* olarak **contoso** değerini içeren bir genel IP kaynağı oluşturursanız, **contoso.westus.cloudapp.azure.com** şeklindeki tam etki alanı adı (FQDN), kaynağın genel IP adresi olarak çözümlenir. Bu FQDN'yi kullanarak Azure'daki genel IP adresini işaret eden özel bir etki alanı CNAME kaydı oluşturabilirsiniz.
+Bir genel IP kaynağı için DNS etki alanı ad etiketi belirtebilirsiniz; bu durumda, Azure tarafından yönetilen DNS sunucularında genel IP adresine yönelik olarak *etkialanıadetiketi*.*konum*.cloudapp.azure.com için bir eşleme oluşturulur. Örneğin, **Batı ABD** Azure *konumunda* *etkialanıadetiketi* olarak **contoso** değerini içeren bir genel IP kaynağı oluşturursanız, **contoso.westus.cloudapp.azure.com** şeklindeki tam etki alanı adı (FQDN), kaynağın genel IP adresi olarak çözümlenir. Bu FQDN'yi kullanarak Azure'daki genel IP adresini işaret eden özel bir etki alanı CNAME kaydı oluşturabilirsiniz. Varsayılan son ek ile DNS ad etiketini kullanmak yerine veya buna ek olarak, genel IP adresine çözümlenen bir özel son ek ile DNS adını yapılandırmak için Azure DNS hizmetini kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure genel IP adresiyle Azure DNS kullanma](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
 
 > [!IMPORTANT]
 > Oluşturulan her bir etki alanı ad etiketi kendi Azure konumunda benzersiz olmalıdır.  
@@ -110,7 +110,7 @@ Genel bir IP adresini bir [Windows](../virtual-machines/windows/overview.md?toc=
 
 ### <a name="internet-facing-load-balancers"></a>İnternet'e yönelik yük dengeleyiciler
 
-Herhangi bir [SKU](#SKU) ile oluşturulmuş genel bir IP adresini bir [Azure Load Balancer](../load-balancer/load-balancer-overview.md)'ın **ön uç** yapılandırmasına atayarak yük dengeleyiciyle ilişkilendirebilirsiniz. Genel IP adresi yükü dengelenmiş bir sanal IP adresi (VIP) olarak işlev görür. Bir yük dengeleyici ön ucuna dinamik veya statik bir genel IP adresi atayabilirsiniz. Ayrıca, SSL tabanlı web sitelerinde çok kiracılı bir ortam gibi [çok VIP'li](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) senaryoları mümkün kılmak için bir yük dengeleyici ön ucuna birden çok genel IP adresi de atayabilirsiniz. Azure yük dengeleyici SKU'ları hakkında daha fazla bilgi edinmek için bkz. [Azure yük dengeleyici standart SKU'su](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Herhangi bir [SKU](#SKU) ile oluşturulmuş genel bir IP adresini bir [Azure Load Balancer](../load-balancer/load-balancer-overview.md)'ın **ön uç** yapılandırmasına atayarak yük dengeleyiciyle ilişkilendirebilirsiniz. Genel IP adresi yükü dengelenmiş bir sanal IP adresi (VIP) olarak işlev görür. Bir yük dengeleyici ön ucuna dinamik veya statik bir genel IP adresi atayabilirsiniz. Ayrıca, SSL tabanlı web sitelerinde çok kiracılı bir ortam gibi [çok VIP’li](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) senaryoları mümkün kılmak için bir yük dengeleyici ön ucuna birden çok genel IP adresi de atayabilirsiniz. Azure yük dengeleyici SKU'ları hakkında daha fazla bilgi edinmek için bkz. [Azure yük dengeleyici standart SKU'su](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="vpn-gateways"></a>VPN ağ geçitleri
 
@@ -145,10 +145,12 @@ Azure Resource Manager dağıtım modelinde, özel IP adresleri aşağıdaki Azu
 
 ### <a name="allocation-method"></a>Ayırma yöntemi
 
-Kaynağın dağıtıldığı sana alt ağın adres aralığından özel bir IP adresi ayrılır. Özel IP adresi ayırmak için kullanılan iki yöntem vardır:
+Kaynağın dağıtıldığı sana alt ağın adres aralığından özel bir IP adresi ayrılır. Azure her alt ağ adres aralığında ilk dört adresi ayırır, bu nedenle adresler kaynaklara atanamaz. Örneğin, alt ağın adres aralığı 10.0.0.0/16 ise 10.0.0.0-10.0.0.3 adresleri kaynaklara atanamaz. Alt ağın adres aralığı aynı anda yalnızca bir kaynağa atanabilir. 
 
-- **Dinamik**: Azure her alt ağ adres aralığında ilk dört adresi ayırır ve bu adresleri atamaz. Azure, alt ağ adres aralığından sonraki kullanılabilir adresi bir kaynağa atar. Örneğin, alt ağ adres aralığının 10.0.0.0/16 olduğunu varsayarsak ve 10.0.0.0.4-10.0.0.14 adresleri zaten atanmışsa (.0-.3 ayrılmıştır), Azure kaynağa 10.0.0.15 adresini atar. Dinamik, varsayılan ayırma yöntemidir. Dinamik IP adresleri bir kez atandıktan sonra, ancak ağ arabirimi silinirse, aynı sanal ağ içinde farklı bir alt ağa atanırsa veya ayırma yöntemi statik olarak değiştirilip farklı bir IP adresi belirtilirse serbest bırakılır. Varsayılan olarak, dinamik olan ayırma yöntemini statik olarak değiştirdiğinizde Azure dinamik olarak atanmış önceki adresi statik adres olarak atar.
-- **Statik**: Alt ağın adres aralığından siz bir adres seçe ve atarsınız. Alt ağ adres aralığından atadığınız adres, alt ağa adres aralığının ilk dört adresi dışında kalan ve şu anda alt ağda başka bir kaynağa atanmamış olan herhangi bir adres olabilir. Statik adresler ancak ağ arabirimi silindiğinde serbest bırakılır. Ayırma yöntemini dinamik olarak değiştirirseniz, Azure daha önce statik IP adresi olarak atanmış olan adresi dinamik adres olarak atar. Bu adres, alt ağ adres aralığında bir sonraki kullanılabilir adres olmayabilir. Ağ arabirimi aynı sanal ağ içinde farklı bir alt ağa atandığında da adres değişir; ama ağ arabirimini farklı bir alt ağa atamak için, önce statik ayırma yöntemini dinamik olarak değiştirmeniz gerekir. Ağ arabirimini farklı bir alt ağa atadıktan sonra, ayırma yöntemini yine statik yapabilir ve yeni alt ağ adres aralığından bir IP adresi atayabilirsiniz.
+Özel IP adresi ayırmak için kullanılan iki yöntem vardır:
+
+- **Dinamik**: Azure alt ağın adres aralığında sonraki kullanılabilir atanmamış veya ayrılmamış IP adresini atar. Örneğin Azure, 10.0.0.4-10.0.0.9 aralığındaki adresler diğer kaynaklara zaten atanmışsa 10.0.0.10 adresini yeni bir kaynağa atar. Dinamik, varsayılan ayırma yöntemidir. Dinamik IP adresleri bir kez atandıktan sonra, ancak ağ arabirimi silinirse, aynı sanal ağ içinde farklı bir alt ağa atanırsa veya ayırma yöntemi statik olarak değiştirilip farklı bir IP adresi belirtilirse serbest bırakılır. Varsayılan olarak, dinamik olan ayırma yöntemini statik olarak değiştirdiğinizde Azure dinamik olarak atanmış önceki adresi statik adres olarak atar.
+- **Statik**: Alt ağın adres aralığında sonraki kullanılabilir atanmamış veya ayrılmamış IP adresini seçip atarsınız. Örneğin, bir alt ağın adres aralığı 10.0.0.0/16 ise ve 10.0.0.4-10.0.0.9 adresleri diğer kaynaklara zaten atanmışsa, 10.0.0.10 - 10.0.255.254 aralığındaki herhangi bir adresi atayabilirsiniz. Statik adresler ancak ağ arabirimi silindiğinde serbest bırakılır. Ayırma yöntemini dinamik olarak değiştirirseniz, Azure daha önce statik IP adresi olarak atanmış olan adresi dinamik adres olarak atar. Bu adres, alt ağ adres aralığında bir sonraki kullanılabilir adres olmayabilir. Ağ arabirimi aynı sanal ağ içinde farklı bir alt ağa atandığında da adres değişir; ama ağ arabirimini farklı bir alt ağa atamak için, önce statik ayırma yöntemini dinamik olarak değiştirmeniz gerekir. Ağ arabirimini farklı bir alt ağa atadıktan sonra, ayırma yöntemini yine statik yapabilir ve yeni alt ağ adres aralığından bir IP adresi atayabilirsiniz.
 
 ### <a name="virtual-machines"></a>Sanal makineler
 

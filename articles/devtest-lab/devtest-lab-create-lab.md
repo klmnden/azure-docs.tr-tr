@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c2c6cbff31f5d4992163d3fb46e4f1e13a58024
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de laboratuvar oluşturma
 Azure DevTest Labs'deki bir laboratuvar, Sanal Makineler (VM'ler) gibi kaynaklardan oluşan grupları kapsayan ve limitlerin yanı sıra kotalar belirleyerek söz konusu kaynakları daha iyi yönetmenizi sağlayan bir altyapıdır. Bu makalede, Azure portalını kullanarak laboratuvar oluşturma işlemi ayrıntılı olarak açıklanmıştır.
@@ -59,9 +59,9 @@ Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bi
 ## <a name="next-steps"></a>Sonraki adımlar
 Laboratuvarınızı oluşturduktan sonra dikkate alınması gereken sonraki adımlardan birkaçı şu şekildedir:
 
-* [Laboratuvara erişimin güvenliğini sağlama](devtest-lab-add-devtest-user.md).
-* [Laboratuvar ilkeleri belirleme](devtest-lab-set-lab-policy.md).
-* [Laboratuvar şablonu oluşturma](devtest-lab-create-template.md).
-* [VM'leriniz için özel yapılar oluşturma](devtest-lab-artifact-author.md).
-* [Yapı içeren bir VM'yi laboratuvara ekleme](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/).
+* [Laboratuvara erişimin güvenliğini sağlama](devtest-lab-add-devtest-user.md)
+* [Laboratuvar ilkeleri belirleme](devtest-lab-set-lab-policy.md)
+* [Laboratuvar şablonu oluşturma](devtest-lab-create-template.md)
+* [VM'leriniz için özel yapıtlar oluşturma](devtest-lab-artifact-author.md)
+* [VM'yi bir laboratuvara ekleme](devtest-lab-add-vm.md)
 

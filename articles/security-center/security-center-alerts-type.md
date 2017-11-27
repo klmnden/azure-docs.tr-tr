@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama
 Bu makale Azure Güvenlik Merkezi'nde bulunan farklı güvenlik uyarısı türlerini ve ilgili öngörüleri anlamanıza yardımcı olur. Uyarıların ve olayların nasıl yönetileceği hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md).
@@ -53,6 +53,45 @@ Aşağıdaki alanlar, bu makalenin sonraki bölümlerinde görüntülenen kilitl
 * DUMPFILE: Kilitlenme döküm dosyasının adı.
 * PROCESSNAME: Kilitlenen işlemin adı.
 * PROCESSVERSION: Kilitlenen işlemin sürümü.
+
+### <a name="code-injection-discovered"></a>Kod Ekleme Bulundu
+Kod ekleme, çalışmakta olan işlemlere veya iş parçacıklarına yürütülebilir modüllerin eklenmesidir.  Bu teknik, kötü amaçlı yazılımlar tarafından verilere erişmek, yazılımı gizlemek ya da kaldırılmasını önlemek (örn. kalıcılık) için kullanılır. Bu uyarı, eklenen bir modülün kilitlenme bilgi dökümünde mevcut olduğunu belirtir. Yasal yazılım geliştiricileri, var olan bir uygulama ya da işletim sistemi bileşenini değiştirme ya da genişletme gibi nadir durumlarda kötü amaçlı olmayan amaçlar için kod ekleme gerçekleştirir.  Güvenlik Merkezi, kötü amaçlı olan ve olmayan eklenen modülleri birbirinden ayırt etmenize yardımcı olmak için eklenen modülün bir şüpheli davranış profiline uygun olup olmadığını denetler. Bu denetimin sonucu, uyarının “SIGNATURE” alanı tarafından gösterilir ve uyarının önem derecesi, uyarı açıklaması ve uyarı düzeltme adımlarında yansıtılır. 
+
+Bu uyarı tarafından aşağıdaki ek alanlar sağlanır:
+
+- ADDRESS: Eklenen modülün bellekteki konumu
+- IMAGENAME: Eklenen modülün adı. Görüntüde görüntü adı sağlanmadıysa bu alanın boş olabileceğini unutmayın.
+- SIGNATURE: Eklenen modülün bir şüpheli davranış profiline uygun olup olmadığını gösterir. 
+
+Aşağıdaki tabloda örnek sonuçlar ve bunların açıklaması gösterilmektedir:
+
+| İmza değeri                      | Açıklama                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Şüpheli yansıtıcı yükleyici açığından yararlanma | Bu şüpheli davranış çoğunlukla eklenen kodun işletim sistemi yükleyicisinden bağımsız olarak yüklenmesiyle bağıntılıdır |
+| Şüpheli eklenen kod açığından yararlanma          | Genellikle belleğe kod eklenmesiyle bağıntılı olan kötü amaçlılığı gösterir                                       |
+| Şüpheli ekleme açığından yararlanma         | Genellikle belleğe eklenen kodun kullanımıyla bağıntılı olan kötü amaçlılığı gösterir                                   |
+| Şüpheli eklenen hata ayıklayıcı açığından yararlanma | Genellikle bir hata ayıklayıcının algılanmasıyla veya aşılmasıyla bağıntılı olan kötü amaçlılığı gösterir                         |
+| Şüpheli eklenen kodun uzaktan yürütülmesi açığından yararlanma   | Genellikle komut ve denetim (C2) senaryolarıyla bağıntılı olan kötü amaçlılığı gösterir                                 |
+
+Bu tür bir uyarı örneği aşağıda verilmiştir:
+
+![Kod ekleme uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>Şüpheli Kod Kesimi
+Şüpheli kod kesimi bir kod kesiminin yansıtmalı ekleme ve boş işlem gibi standart olmayan yöntemler kullanılarak ayrıldığını belirtir.  Ayrıca, bu uyarı bildirilen kod kesiminin özellik ve davranışlarıyla ilgili bağlamak sağlamak için kod kesiminin ek özelliklerini işleme alır.
+
+Bu uyarı tarafından aşağıdaki ek alanlar sağlanır:
+
+- ADDRESS: Eklenen modülün bellekteki konumu
+- SIZE: Şüpheli kod kesiminin boyutu
+- STRINGSIGNATURES: Bu alan, işlev adları kod kesimi içinde bulunan API'lerin özelliklerini listeler. Örnekler özellikler şunlardır:
+    - Görüntü Bölümü Tanımlayıcılar, x64 için Dinamik Kod Yürütme, Bellek ayırma ve yükleyici özelliği, Uzak kod ekleme özelliği, Ele geçirme denetimi özelliği, Ortam değişkenlerini okuma, Rastgele işlem belleğini okuma, Belirteç ayrıcalıklarını sorgulama veya değiştirme, HTTP/HTTPS ağ iletişimi ve Ağ yuvası iletişimi.
+- IMAGEDETECTED: Bu alan, bir PE görüntüsünün şüpheli kod kesiminin algılandığı işleme eklenip eklenmediğini ve eklenen modülün hangi adreste başladığını gösterir.
+- SHELLCODE: Bu alan, güvenliğe duyarlı ek işletim sistemi işlevlerine erişim elde etmek üzere kötü amaçlı yükler tarafından yaygın olarak kullanılan davranışların varlığını gösterir. 
+
+Bu tür bir uyarı örneği aşağıda verilmiştir:
+
+![Şüpheli kod kesimi uyarısı](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>Kabuk kodu bulundu
 Kabuk Kodu, kötü amaçlı yazılım bir yazılım güvenlik açığından yararlandıktan sonra çalıştırılan yüktür. Bu uyarı, kilitlenme dökümü analizinin kötü amaçlı yükler tarafından yaygın olarak gerçekleştirilen davranışları sergileyen yürütülebilir kodlar algıladığını belirtir. Bu davranış kötü amaçlı olmayan yazılımlar tarafından gerçekleştiriliyor olabilir, ancak normal yazılım geliştirme uygulamaları için alışıldık bir davranış değildir.

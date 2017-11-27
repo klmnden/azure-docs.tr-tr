@@ -1,6 +1,6 @@
 ---
-title: "Web, mobil ve API uygulamaları Azure yığın kullanıcılarınız için kullanılabilir hale | Microsoft Docs"
-description: "Uygulama hizmeti kaynak Sağlayıcısı'nı yüklemek ve oluşturmak için Öğreticisi, Azure yığın kullanıcılarınızın API uygulamaları ve web, mobil, oluşturma olanağı vermek sunar."
+title: "Web ve API uygulamaları Azure yığın kullanıcılarınız için kullanılabilir hale | Microsoft Docs"
+description: "Uygulama hizmeti kaynak Sağlayıcısı'nı yüklemek ve oluşturmak için Öğreticisi, Azure yığın kullanıcılarınızın web ve API uygulamalarınızı oluşturma vermek sunar."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Web, mobil ve API uygulamaları Azure yığın kullanıcılarınızın kullanımına sunun
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Web ve API uygulamaları Azure yığın kullanıcılarınızın kullanımına sunun
 
-Azure yığın bulut yönetici olarak, kullanıcılarınıza teklifleri oluşturabilirsiniz (kiracılar) Azure işlevleri ve web, mobil ve API uygulamaları oluşturun. Kullanıcılarınız için bu isteğe bağlı, bulut tabanlı uygulamalara erişim sağlayarak bunları zaman ve kaynak kaydedebilirsiniz. Bunu ayarlamak için şunları yapacaksınız:
+Azure yığın bulut yönetici olarak, kullanıcılarınıza teklifleri oluşturabilirsiniz (kiracılar) Azure işlevleri ve web ve API uygulamaları oluşturun. Kullanıcılarınız için bu isteğe bağlı, bulut tabanlı uygulamalara erişim sağlayarak bunları zaman ve kaynak kaydedebilirsiniz. Bunu ayarlamak için şunları yapacaksınız:
 
 > [!div class="checklist"]
 > * Uygulama hizmeti kaynak sağlayıcısı dağıtma

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -294,8 +294,7 @@ Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > Hyperv yalıtım modu, iç içe sanallaştırma desteğine sahip Ev3 ve Dv3 Azure SKU’ları üzerinde kullanılabilir. 
-   >
+   > Hyperv yalıtım modu, iç içe sanallaştırma desteğine sahip Ev3 ve Dv3 Azure SKU’ları üzerinde kullanılabilir. Hyperv rolünün ana bilgisayarlara yüklü olduğundan emin olun. Ana bilgisayarlara bağlanarak bu doğrulamayı yapın.
    >
 
 ## <a name="configure-resource-governance"></a>Kaynak idaresini yapılandırma
@@ -325,7 +324,7 @@ Uygulamanın ```Ready``` durumu ![Hazır][2] olduğunda uygulama hazırdır
 Bir tarayıcı açıp http://containercluster.westus2.cloudapp.azure.com:8081 adresine gidin. "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
 
 ## <a name="clean-up"></a>Temizleme
-Küme çalışırken size ücret yansımaya devam edebilir, bu nedenle [kümenizi silmeyi](service-fabric-get-started-azure-cluster.md#remove-the-cluster) düşünün.  [Taraf kümeleri](https://try.servicefabric.azure.com/) birkaç saat sonra otomatik olarak silinir.
+Küme çalışırken size ücret yansımaya devam edebilir, bu nedenle [kümenizi silmeyi](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources) düşünün.  [Taraf kümeleri](https://try.servicefabric.azure.com/) birkaç saat sonra otomatik olarak silinir.
 
 Görüntüyü kapsayıcı kayıt defterine gönderdikten sonra yerel görüntüyü geliştirme bilgisayarınızdan silebilirsiniz:
 

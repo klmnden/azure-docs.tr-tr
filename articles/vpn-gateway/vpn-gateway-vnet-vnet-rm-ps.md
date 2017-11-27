@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
@@ -59,13 +59,17 @@ Sanal ağlar arası bağlantılar hakkında daha fazla bilgi için bu makalenin 
 
 ## <a name="which-set-of-steps-should-i-use"></a>Hangi adımları tamamlamalıyım? 
 
-Bu makalede iki farklı adım kümesi görürsünüz. Bir adım kümesi [Aynı abonelikte bulunan sanal ağlar](#samesub), diğer adım kümesi ise [Farklı aboneliklerde bulunan sanal ağlar](#difsub) içindir. Kümeler arasındaki temel farklılık, tüm sanal ağ ve ağ geçidi kaynaklarını oluşturma ve yapılandırma işlemini aynı PowerShell oturumunda yapıp yapamayacağınızdadır.
-
-Bu makaledeki adımlar her bölümün başında bildirilen değişkenleri kullanır. Zaten var olan Vnet'ler ile çalışıyorsanız değişkenleri kendi ortamınızdaki ayarları yansıtacak şekilde değiştirin. Sanal ağlarınız için ad çözümlemesi istiyorsanız bkz. [Ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-## <a name="samesub"></a>Aynı abonelikte olan Vnet'ler bağlanma
+Bu makalede iki farklı adım kümesi görürsünüz. [Aynı abonelikte bulunan sanal ağlar](#samesub) için adım kümesi. Bu yapılandırmanın adımları TestVNet1 ve TestVNet4'ü kullanır.
 
 ![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+[Farklı aboneliklerde bulunan sanal ağlar](#difsub) için ayrı bir makale mevcuttur. O yapılandırmaya ilişkin adımlar TestVNet1 ve TestVNet5’i kullanır.
+
+![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+Kümeler arasındaki temel farklılık, tüm sanal ağ ve ağ geçidi kaynaklarını oluşturma ve yapılandırma işlemini aynı PowerShell oturumunda yapıp yapamayacağınızdadır. Farklı aboneliklerde bulunan sanal ağlar için bağlantıları yapılandırırken ayrı PowerShell oturumları kullanmanız gerekir. İsterseniz yapılandırmaları birleştirebilir veya yalnızca birlikte çalışmak istediğiniz yapılandırmayı seçebilirsiniz.
+
+## <a name="samesub"></a>Aynı abonelikte olan Vnet'ler bağlanma
 
 ### <a name="before-you-begin"></a>Başlamadan önce
 
@@ -90,7 +94,7 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
 * Public IP: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (Farklı aboneliklerde bulunan sanal ağlar için)
 * ConnectionType: VNet2VNet
 
 **Değerler TestVNet4 için:**
@@ -279,8 +283,6 @@ TestVNet1 yapılandırıldıktan sonra TestVNet4’ü oluşturun. Aşağıdaki a
 4. Bağlantınızı doğrulayın. [Bağlantınızı doğrulama](#verify) bölümüne bakın.
 
 ## <a name="difsub"></a>Farklı abonelikleri olan Vnet'ler bağlanma
-
-![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 Bu senaryoda TestVNet1 ve TestVNet5 bağlanır. TestVNet1 ve TestVNet5 farklı bir abonelikte bulunur. Aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. Bu adımlar ve önceki adım kümesi arasındaki fark, yapılandırma adımlarının bir kısmının ikinci abonelik bağlamında farklı bir PowerShell oturumunda tamamlanması gerektiğidir. Bu durum özellikle iki aboneliğin farklı kuruluşlara ait olduğu durumlarda geçerlidir.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.openlocfilehash: 5abc325a6e7c019dc3cb84f7f6ff63c3eb2ff76c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a4ca742e232a19cd890552bec08f4d11cca52020
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure yığın kullanım verileri Azure'a raporu 
 
@@ -53,7 +53,7 @@ Kullanım verileri raporlama yukarı ayarlamak için şunları yapmalısınız [
 
 ## <a name="view-usage---csp-subscriptions"></a>CSP abonelikleri - kullanımını görüntüleyin
 
-Bir CSP aboneliği kullanarak Azure yığın kaydettiyseniz, Azure tüketim görüntülemek aynı şekilde kullanımı ve ücretleri görüntüleyebilirsiniz. Azure yığın kullanımı, fatura ve aracılığıyla kullanılabilen uzlaştırma dosya dahil olacak [ortağı Merkezi'nde](https://partnercenter.microsoft.com/en-us/partner/home). Uzlaştırma dosyası aylık güncelleştirilir. En son Azure yığın kullanım bilgileri erişmeniz gerekiyorsa, iş ortağı merkezi API'ları kullanabilirsiniz.
+Bir CSP aboneliği kullanarak Azure yığın kaydettiyseniz, Azure tüketim görüntülemek aynı şekilde kullanımı ve ücretleri görüntüleyebilirsiniz. Azure yığın kullanımı, fatura ve aracılığıyla kullanılabilen uzlaştırma dosya dahil olacak [ortağı Merkezi'nde](https://partnercenter.microsoft.com/partner/home). Uzlaştırma dosyası aylık güncelleştirilir. En son Azure yığın kullanım bilgileri erişmeniz gerekiyorsa, iş ortağı merkezi API'ları kullanabilirsiniz.
 
    ![iş ortağı Merkezi](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -82,7 +82,7 @@ Kullanıcılar yalnızca Kiracı aboneliklerine altında Çalıştır VM'ler iç
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Azure yığında kullanacağınız bir Windows Server Lisans sahip, bunu nasıl yaparım?
 
-Varolan lisanslarla kullanım ölçümler oluşturma önler. Var olan Windows Server lisansları "mevcut yazılım Azure yığın ile kullanarak" bölümünde açıklandığı gibi Azure yığınında kullanılabilir [Azure yığın lisans Kılavuzu](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Müşteriler ihtiyaç açıklandığı gibi Windows Server sanal makineleri dağıtmak [Windows Server Lisans için karma avantajı](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) varolan lisanslarını kullanmak için konu.
+Varolan lisanslarla kullanım ölçümler oluşturma önler. Var olan Windows Server lisansları "mevcut yazılım Azure yığın ile kullanarak" bölümünde açıklandığı gibi Azure yığınında kullanılabilir [Azure yığın lisans Kılavuzu](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Müşteriler ihtiyaç açıklandığı gibi Windows Server sanal makineleri dağıtmak [Windows Server Lisans için karma avantajı](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) varolan lisanslarını kullanmak için konu.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Kullanılan kaynaklar için hangi abonelik doludur?
 Ne zaman sağlanan abonelik [Azure ile Azure yığın kaydetme](azure-stack-register.md) doludur.
@@ -97,7 +97,7 @@ Azure yığın Development Kit'te kullanım verileri raporlama genel Azure siste
 
 ## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Nasıl kullanıcılar Azure yığın kullanım verilerini Azure fatura Portalı'nda belirleyebilir misiniz?
 
-Kullanıcılar, Azure yığın kullanım verileri kullanım ayrıntılarını dosyasında görebilirsiniz. Kullanım ayrıntılarını dosya elde etme hakkında bilmeniz başvurmak [Azure hesap merkezi makaleden kullanım dosyasını karşıdan](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Kullanım ayrıntılarını dosyasını Azure yığın depolama ve sanal makineleri belirlemek Azure yığın ölçümler içerir. Azure yığında kullanılan tüm kaynakları "Azure yığını." adlı bölge altında bildirilir
+Kullanıcılar, Azure yığın kullanım verileri kullanım ayrıntılarını dosyasında görebilirsiniz. Kullanım ayrıntılarını dosya elde etme hakkında bilmeniz başvurmak [Azure hesap merkezi makaleden kullanım dosyasını karşıdan](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Kullanım ayrıntılarını dosyasını Azure yığın depolama ve sanal makineleri belirlemek Azure yığın ölçümler içerir. Azure yığında kullanılan tüm kaynakları "Azure yığını." adlı bölge altında bildirilir
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Neden Azure yığınında bildirilen kullanım Azure hesap Merkezi'nden oluşturulan rapor eşleşmiyor?
 
