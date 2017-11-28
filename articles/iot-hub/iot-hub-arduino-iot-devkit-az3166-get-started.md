@@ -12,13 +12,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: deb362796966524ec2db5808623d2f92a1bf44e1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Bulutta Azure IOT Hub'ına IOT DevKit AZ3166 Bağlan
 
@@ -197,42 +197,45 @@ Yüklediğiniz .zip dosyasını tüm gerekli araçları ve DevKit geliştirme i�
 
 Bir Bulucu .zip bulun ve ayıklayın:
 
+![macOS Bulucu](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-finder.png)
+
 Terminal uygulamasını başlatın, .zip dosyasını ayıklayın ve Çalıştır klasörü bulun:
 
 ```bash
 ./install.sh
 ```
 
+![macOS yükleme](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-install-sh.png)
+
 > [!NOTE] 
 > Homebrew izin hatası karşılıyorsa çalıştırmak `brew doctor` sabit elde edin. Denetleme [SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos) daha fazla ayrıntı için.
 
 Artık tüm gerekli araçları ve macOS için yüklü olan paketleri vardır.
 
-## <a name="open-the-project-folder"></a>Proje klasörünü açın
 
-Azure IOT Hub oluşturma, DevKit, bağlanmak ve algılayıcılar sıcaklık ve nem veri toplamak ve IOT hub'ına veri göndermek için başlatın.
+## <a name="open-the-project-folder"></a>Proje klasörünü açın
 
 ### <a name="start-vs-code"></a>VS Code'u başlatın
 
 DevKit bağlı emin olun. İlk VS Code'u başlatın ve DevKit bilgisayarınıza bağlayın. VS Code otomatik olarak DevKit bulur ve bir giriş sayfasını açar:
 
-![Giriş sayfası](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
+![Giriş sayfası](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 > [!NOTE] 
-> Bazen, VS Code'u başlatın, Arduino IDE veya ilgili Panosu paketi bulunamadı hatasıyla istenir. Kapat VS Code, bir kez yeniden başlatma Arduino IDE ve VS Code Arduino IDE yolu doğru bulun.
+> Bazen, VS Code başlattığınızda, onu Arduino IDE veya ilgili Panosu paketi bulamıyor hatayla istenir. VS Code kapatıp Arduino IDE yeniden başlatın. VS kodu sonra bulun Arduino IDE yolun doğru.
 
 
 ### <a name="open-the-arduino-examples-folder"></a>Arduino örnekler klasörünü açın
 
-Sol tarafta genişletin **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 örnekler > AzureIoT**seçip **GetStarted**. Bu proje klasöründe yeni bir VS Code penceresini açar.
+Üzerinde **Arduino örnekler** sekmesinde, Gözat **örnekler MXCHIP AZ3166 için** > **AzureIoT**seçip **GetStarted**.
 
-![Arduino örnekler sekmesi](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
+![Arduino örnekler sekmesi](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 Bölmesini kapatmak için görülüyorsa yeniden açabilirsiniz. Kullanım `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komutu paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: örnekler**.
 
 ## <a name="provision-azure-services"></a>Azure hizmetlerini hazırlamanız
 
-Çözüm penceresinde göreviniz çalıştırın `Ctrl+P` (macOS: `Cmd+P`) girerek `task cloud-provision`:
+Çözüm penceresinde göreviniz çalıştırın `Ctrl+P` (macOS: `Cmd+P`) girerek `task cloud-provision`.
 
 VS Code terminal etkileşimli bir komut satırı aracılığıyla gerekli Azure hizmetleri sağlama sırasında size kılavuzluk eder:
 
@@ -240,25 +243,23 @@ VS Code terminal etkileşimli bir komut satırı aracılığıyla gerekli Azure 
 
 ## <a name="build-and-upload-the-arduino-sketch"></a>Derleme ve Arduino taslak karşıya yükle
 
-### <a name="install-the-required-library"></a>Gerekli kitaplığını yükle
+### <a name="windows"></a>Windows
 
-1. Tuşuna `F1` veya `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) komutu paletini açmak için şunu yazın **Arduino**ve ardından bulmak ve seçmek **Arduino: Kitaplığı Yöneticisi**.
-
-2. Arama **ArduinoJson** kitaplığı ve select **yüklemek**: ![yükleme Arduino kitaplığı](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png)
-
-### <a name="build-and-upload-the-device-code-windows"></a>Derleme ve aygıt kodu (Windows) yükleyin
 1. Kullanım `Ctrl+P` çalıştırmak için `task device-upload`.
 2. Terminal yapılandırma modu girmenizi ister. Bunu yapmak için A düğmesini basılı tutun sonra push ve Sıfırla düğmesini bırakın. Ekran DevKit kimliği ve 'Configuration' görüntüler.
 
 Bu alır bağlantı dizesini belirlemek için olduğundan `task cloud-provision` adım.
 
-Ardından terminal doğrulama ve Arduino taslak karşıya yükleme başlar:
+Ardından VS Code doğrulama ve Arduino taslak karşıya yükleme başlar:
 
 ![Doğrulama ve Arduino taslağın karşıya yükle](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
 
 DevKit yeniden başlatır ve kod çalışmaya başlar.
 
-### <a name="build-and-upload-the-device-code-mac"></a>Derleme ve aygıt kodu (Mac) yükleyin
+> [!NOTE] 
+> Bazen, alma hatası "hata: AZ3166: Bilinmeyen Paket". Bu panosudur nedeniyle paket dizini yenilenmedi. Bu kontrol [SSS adımları](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) çözmek için.
+
+### <a name="macos"></a>macOS
 
 1. DevKit yapılandırma moduna: düğmesi A, sonra anında iletme ve yayın Sıfırla düğmesini basılı tutun. Ekran 'Configuration' görüntüler.
 2. Kullanım `Cmd+P` çalıştırmak için `task device-upload`.
@@ -271,13 +272,17 @@ Ardından VS Code doğrulama ve Arduino taslak karşıya yükleme başlar:
 
 DevKit yeniden başlatır ve kod çalışmaya başlar.
 
+> [!NOTE] 
+> Bazen, alma hatası "hata: AZ3166: Bilinmeyen Paket". Bu panosudur nedeniyle paket dizini yenilenmedi. Bu kontrol [SSS adımları](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) çözmek için.
+
+
 ## <a name="test-the-project"></a>Projeyi test
 
 VS açıp seri İzleyicisi ayarlamak için aşağıdaki adımları izleyerek kod içinde:
 
 1. Tıklatın `COM[X]` sağ COM bağlantı noktası ile ayarlamak için durum çubuğunda word `STMicroelectronics`: ![com bağlantı noktası](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
 
-2. Seri İzleyicisi'ni açmak için durum çubuğunda güç Tak simgesine tıklayın: ![seri İzleyicisi](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)
+2. Seri İzleyicisi'ni açmak için durum çubuğunda güç Tak simgesine tıklayın: ![seri İzleyicisi](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution//connect-iothub/serial-monitor.png)
 
 3. Durum çubuğu Baud hızı temsil eden sayı tıklatın ve kümesine `115200`: ![baud hızı](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
 

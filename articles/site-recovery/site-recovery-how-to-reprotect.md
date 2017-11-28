@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Azure'dan şirket içi siteye yeniden koruyun.
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Bu makalede, Azure sanal makinelerden Azure bir şirket içi siteye koruyun açıklar. Başarısız olmaya hazır olduğunuzda, bu makaledeki yönergeleri için Azure site bunlar şirket içi devredilir sonra fiziksel sunucuları, VMware sanal makineleri veya Windows/Linux geri izleyin (açıklandığı gibi [çoğaltmak VMware sanal makineler ve fiziksel sunucuları Azure Site Recovery ile azure'a](site-recovery-failover.md)).
 
 > [!WARNING]
-> Ya da sonra geri dönme olamaz [tamamlandı geçiş](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), bir sanal makine başka bir kaynak grubuna taşınmış veya Azure sanal makine silindi. Sanal makinenin korumasını devre dışı bırakırsanız, yeniden çalışma yapamazsınız.
+> Ya da sonra geri dönme olamaz [tamamlandı geçiş](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), bir sanal makine başka bir kaynak grubuna taşınmış veya Azure sanal makine silindi. Sanal makinenin korumasını devre dışı bırakırsanız, yeniden çalışma yapamazsınız. Sanal makine (cloud doğacak) azure'da önce oluşturulduysa sonra yeniden geri şirket içi korumanız olamaz. Makine başlangıçta korunan şirket içi edilmiş ve Azure'a önce yeniden koruma devredilir gerekir.
 
 
 Yükü tamamlandıktan sonra korumalı sanal makineleri çoğaltma, şirket içi siteye getirmek için sanal makinelerde geri dönme başlatabilirsiniz.
@@ -63,7 +63,10 @@ Sanal makineler yeniden korumak hazırlarken alın veya aşağıdaki önkoşul e
     * [Linux sanal makine bir Linux ana hedef sunucusunun gerekiyor](site-recovery-how-to-install-linux-master-target.md).
     * Windows sanal makine bir Windows ana hedef sunucusu gerekir. Şirket içi işlem sunucusu ve ana hedef makinelere yeniden kullanabilirsiniz.
 
-    Ana hedef listelenen diğer Önkoşullar sahip [bir ana hedef yeniden koruma önce denetlemek için ortak interneti](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> Bir çoğaltma grubundaki tüm sanal makineleri aynı işletim sistemi türünü (tüm Windows veya tüm Linux) olmalıdır. Karma işletim sistemleri olan bir çoğaltma grubu, yeniden koruma ve şirket içi yeniden çalışma için şu anda desteklenmiyor. Bir çoğaltma grubunun tüm sanal makineleri aynı ana hedefi olmalıdır ve ana hedef sanal makine aynı işletim sisteminin olması gerekir çünkü budur. 
+
+    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 * Geri başarısız olduğunda bir yapılandırma gerekli şirket içi sunucusudur. Yeniden çalışma sırasında sanal makine yapılandırma sunucusu veritabanında mevcut olması gerekir. Aksi takdirde, yeniden çalışma başarısız olur. 
 
@@ -170,6 +173,8 @@ Bir ana hedef sunucusu yükleme hakkında daha fazla bilgi için bkz:
 * Ana hedef sunucusu anlık görüntüleri disklerde sahip olamaz. Anlık görüntüler varsa, yükü ve yeniden çalışma başarısız.
 
 * Ana hedef Paravirtual SCSI denetleyicisine sahip olamaz. Denetleyici yalnızca bir LSI Logic denetleyicisi olabilir. LSI Logic denetleyicisi, yükü başarısız olur.
+
+* Belirli bir örneğe bağlı atmst 60 disk ana hedef olabilir. Şirket içi ana hedef korunmuş sanal makine sayısı diskleri 60'den fazla Toplamı toplam sayısı sahip sonra ana hedefe yeniden korunmasını sağlayan, başarısız olan başlatılır. Disk yuvaları hedef veya ek ana hedef sunucusu dağıtın yeterli ana olduğundan emin olun.
 
 <!--
 ### Failback policy

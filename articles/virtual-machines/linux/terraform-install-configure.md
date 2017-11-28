@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: a2810d13d40272269341751b19b3010a8b135139
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: c156776103a466af8923ba7249d96835ff339268
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Yükleme ve Azure'da VM'ler ve diğer altyapıya sağlamak için Terraform yapılandırma
  
 Terraform tanımlamak, Önizleme ve bulut altyapısını kullanarak dağıtmak için kolay bir yol sağlayan bir [basit şablon dili](https://www.terraform.io/docs/configuration/syntax.html). Bu makalede Azure sağlama kaynaklara Terraform kullanmak için gereken adımları açıklar. 
 
 > [!TIP]
-Azure ile Terraform kullanma hakkında daha fazla bilgi için ziyaret [Terraform Hub](/azure/terraform). Varsayılan olarak yüklü Terraform [bulut Kabuk](/terraform/terraform-cloud-shell). Bulut Kabuğu'nu kullanarak, bu belge yükleme/kurulum bölümünü atlayabilirsiniz.
+Azure ile Terraform kullanma hakkında daha fazla bilgi için ziyaret [Terraform Hub](/azure/terraform). Varsayılan olarak yüklü Terraform [bulut Kabuk](/azure/terraform/terraform-cloud-shell). Bulut Kabuğu'nu kullanarak, bu belge yükleme/kurulum bölümünü atlayabilirsiniz.
 
 ## <a name="install-terraform"></a>Terraform yükleyin
 

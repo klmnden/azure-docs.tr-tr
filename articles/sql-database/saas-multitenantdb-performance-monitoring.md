@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>İzleme ve bir çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanı performansını yönetme
 
@@ -59,7 +59,7 @@ Burada çalıştığınız birçok kaynaklarla, yüksek hacimli senaryolar için
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip biletleri SaaS çok Kiracı veritabanı uygulama kaynak koduna ve komut dosyaları alma
 
-Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) github depo. <!--Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts(saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 
 ## <a name="provision-additional-tenants"></a>Ek kiracılar sağlama
 

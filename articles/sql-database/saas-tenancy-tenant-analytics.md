@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 54aa3d9982ff5cd99be2eb145e223397ca8d6a3f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Ayıklanan verileri kullanarak çapraz Kiracı analizi
 
@@ -73,7 +73,7 @@ Her bir kiracı hizmetini nasıl tutarlı bir şekilde kullanarak anlama kendi g
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
 - Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama dağıtılır. Beş dakikadan daha kısa bir süre içinde dağıtmak için bkz: [dağıtma ve Wingtip SaaS uygulamasına keşfedin.](saas-dbpertenant-get-started-deploy.md)
-- Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama [kaynak kodu](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) Github'dan indirilir. Bkz: yükleme yönergeleri. Yaptığınızdan emin olun *zip dosyası engellemesini* içeriğinin ayıklanıyor önce.
+- Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama [kaynak kodu](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) Github'dan indirilir. Bkz: yükleme yönergeleri. Yaptığınızdan emin olun *zip dosyası engellemesini* içeriğinin ayıklanıyor önce. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 - Power BI Desktop yüklenir. [Power BI Desktop'u indirin](https://powerbi.microsoft.com/downloads/)
 - Ek kiracılar toplu sağlanması için bkz: [ **sağlama kiracılar öğretici**](saas-dbpertenant-provision-and-catalog.md).
 - Bir iş hesabı ve iş hesabı veritabanı oluşturuldu. Uygun açıklanan adımları izleyerek [ **şema yönetimi öğretici**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).

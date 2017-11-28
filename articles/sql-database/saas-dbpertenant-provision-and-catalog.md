@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Yeni kiracılar sağlamak ve kataloğa kaydetme hakkında bilgi edinin
 
@@ -68,9 +68,9 @@ Kullandığınız sağlama yaklaşım, yeni veritabanları ile en son şema sağ
 Kiracı uygulama başına Wingtip biletleri SaaS veritabanı adlı bir şablon veritabanı kopyalayarak yeni kiracılar hazırlar _basetenantdb_, katalog sunucusunda dağıtılmış.  Sağlama bir kayıt deneyimi bir parçası olarak uygulamaya tümleşik ve/veya desteklenen komut dosyalarını kullanarak çevrimdışı. Bu öğretici, PowerShell kullanarak sağlama araştırır. Sağlama komut dosyalarını bir esnek havuzda yeni bir kiracı veritabanı oluşturmak sonra Kiracı özgü bilgiyle başlatmak ve Katalog parça eşlemesinde kaydetmek için basetenantdb veritabanı kopyalayın.  Wingtip biletleri SaaS veritabanı başına Kiracı uygulamada, Kiracı veritabanları Kiracı adına göre adları verilir, ancak bu deseni önemli bir parçası değildir – veritabanlarını Kiracı atanacak herhangi bir ad katalog kullanılmasına izin verir. + 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>Wingtip uygulama betiklerini alma
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama komut dosyaları alma
 
-Wingtip SaaS komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. [Wingtip biletleri SaaS komut dosyalarını karşıdan yüklemek için adımları](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Sağlama ve kataloğa kaydetme ile ilgili ayrıntılı kılavuz

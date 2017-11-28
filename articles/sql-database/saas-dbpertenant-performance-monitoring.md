@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>İzleme ve Azure SQL veritabanı ve bir çok kiracılı SaaS uygulama havuzlarında performansını yönetme
 
@@ -62,9 +62,9 @@ Havuzları ve havuzları, veritabanları, kabul edilebilir performans aralıklar
 
 Burada çalıştığınız birçok kaynaklarla, yüksek hacimli senaryolar için [günlük analizi (OMS)](saas-dbpertenant-log-analytics.md) kullanılabilir. Verilmiş tanılama günlüklerini ve günlük analizi çalışma alanındaki toplanan telemetri üzerinden analytics sağlayan ayrı bir Azure hizmet budur. Günlük analizi telemetri birçok Hizmetleri'nden toplayabilir ve sorgu ve uyarıları ayarlamak için kullanılır.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama kaynak koduna ve komut dosyaları alma
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama komut dosyaları alma
 
-Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github depo. [Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını karşıdan yüklemek için adımları](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 
 ## <a name="provision-additional-tenants"></a>Ek kiracılar sağlama
 
@@ -220,7 +220,7 @@ Bu alıştırmada, popüler bir konser için biletler satışa çıktığında y
 
 Yüksek yük contosoconcerthall veritabanında subsides sonra hemen kendi maliyetini azaltmak havuzuna döndürmelidir. Belirsiz ise, ayarladığınız uyarı veritabanı üzerinde ne zaman olacağını tetiklemek DTU kullanımı veritabanı başına düştüğünde havuzunda maks. Veritabanını havuza taşıma işlemi 5. alıştırmada açıklanmıştır.
 
-## <a name="other-performance-management-patterns"></a>Diğer Performans Yönetimi Düzenleri
+## <a name="other-performance-management-patterns"></a>Diğer performans yönetim desenleri
 
 **Önleyici ölçeklendirme** incelediniz burada yalıtılmış bir veritabanı ölçeklendirme alıştırmada yukarıdaki aranacak hangi veritabanı biliyorduk. Contoso birlikte Hall yönetim yaklaşan bilet satış Wingtips haberdar değilse, veritabanı dışında havuzu pre-emptively taşınmış. Aksi takdirde, neler olduğunu belirlemek için havuz veya veritabanı üzerinde bir uyarı verilmesini isteyebilirdi. Bu durumu, havuzda performans düşüklüğünden şikayetçi olan diğer kiracılardan öğrenmek istemezsiniz. Kiracı ek kaynaklara ne süreyle ihtiyaç duyduğunu öngörebiliyorsa, tanımlanmış bir zamanlamaya göre veritabanını havuz dışına ve sonra tekrar içine taşımak için bir Azure Otomasyonu runbook'u ayarlayabilirsiniz.
 

@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event kılavuzunda kavramları
 
@@ -20,7 +20,7 @@ Azure olay kılavuzunda ana kavramları şunlardır:
 
 ## <a name="events"></a>Olaylar
 
-Bir olay sistem içinde gerçekleşen tam olarak bir şey açıklayan bilgileri küçük miktarıdır.  Her olay gibi genel bilgiler vardır: olay kaynağı olay yerinde ve benzersiz tanımlayıcı geçen süre.  Her olay da yalnızca belirli olay ilgili belirli bilgiler sahiptir. Örneğin, Azure depolama alanında oluşturulan yeni bir dosya ile ilgili bir olay lastTimeModified değeri gibi dosya hakkındaki ayrıntıları içerir. Veya bir sanal makine yeniden başlatılıyor hakkında bir olay sanal makine ve yeniden başlatma nedenini adını içerir. Her olay verilerinin 64 KB ile sınırlıdır.
+Bir olay sistem içinde gerçekleşen tam olarak bir şey açıklayan bilgileri küçük miktarıdır.  Her olay gibi genel bilgiler vardır: olay kaynağı olay yerinde ve benzersiz tanımlayıcı geçen süre.  Her bir olay da yalnızca belirli olay türü için uygun olan belirli bilgileri yok. Örneğin, Azure depolama alanında oluşturulan yeni bir dosya ile ilgili bir olay ayrıntıları dosyayla ilgili gibi içeriyor `lastTimeModified` değeri. Veya bir sanal makine yeniden başlatılıyor hakkında bir olay sanal makine ve yeniden başlatma nedenini adını içerir. Her olay verilerinin 64 KB ile sınırlıdır.
 
 ## <a name="event-sourcespublishers"></a>Olay kaynakları/yayımcıları
 
@@ -46,7 +46,7 @@ Bir konuya abone olurken uç noktasına gönderilen olaylar için filtre uygulay
 
 ## <a name="security"></a>Güvenlik
 
-Olay konularına abone olma ve konuları yayımlamak için güvenlik sağlar. Abone olduğunda, kaynak veya konu yeterli izinleriniz olmalıdır. Yayımlarken, konu için anahtar kimlik doğrulaması ya da SAS belirteci olması gerekir. Daha fazla bilgi için bkz: [olay kılavuz güvenlik ve kimlik doğrulama](security-authentication.md).
+Olay kılavuz konularına abone olma ve konuları yayımlamak için güvenlik sağlar. Abone olduğunda, kaynak veya konu yeterli izinleriniz olmalıdır. Yayımlarken, konu için anahtar kimlik doğrulaması ya da SAS belirteci olması gerekir. Daha fazla bilgi için bkz: [olay kılavuz güvenlik ve kimlik doğrulama](security-authentication.md).
 
 ## <a name="failed-delivery"></a>Başarısız teslim
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: billgib
-ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 2a36df0e45af5bcce5338d04b7e1ba44221ae964
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip biletleri SaaS uygulaması
 
@@ -27,7 +27,7 @@ Aynı *Wingtip biletleri* uygulama her üç örnekleri uygulanır. Uygulama list
 
 ## <a name="three-saas-application-patterns"></a>Üç SaaS uygulama düzenleri
 
-Uygulamanın üç vesions kullanılabilir; Her Azure SQL veritabanı farklı bir veritabanı kiralama düzeni araştırır.  İlk yalıtılmış bir tek Kiracı veritabanı ile tek kiracılı uygulama kullanır. İkinci bir çok kiracılı uygulama Kiracı başına bir veritabanı kullanır. Üçüncü örnek bir çok kiracılı uygulama parçalı çok Kiracı veritabanları ile kullanır.
+Uygulamanın üç sürümlerinde kullanılabilir; Her Azure SQL veritabanı farklı bir veritabanı kiralama düzeni araştırır.  İlk yalıtılmış bir tek Kiracı veritabanı ile tek kiracılı uygulama kullanır. İkinci bir çok kiracılı uygulama Kiracı başına bir veritabanı kullanır. Üçüncü örnek bir çok kiracılı uygulama parçalı çok Kiracı veritabanları ile kullanır.
 
 ![Üç kiralama desenleri][image-three-tenancy-patterns]
 

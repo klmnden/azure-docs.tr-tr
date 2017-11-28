@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Azure Web uygulamaları için özel etki alanı adı satın alma
 
@@ -31,6 +31,7 @@ Bu makalede Azure uygulama hizmeti (Web Apps, API Apps, Mobile Apps, Logic Apps)
 Bu öğreticiyi tamamlamak için:
 
 * [Bir App Service uygulaması oluşturma](/azure/app-service/), veya başka bir öğretici için oluşturduğunuz bir uygulama kullanın.
+* [Aboneliğiniz harcama sınırını kaldırmak](../billing/billing-spending-limit.md#remove). Uygulama hizmeti etki alanları ücretsiz abonelik KREDİLERİ ile satın alamıyor.
 
 ## <a name="prepare-the-app"></a>Uygulamayı hazırlayın
 
@@ -82,15 +83,25 @@ Açık [Azure portal](https://portal.azure.com/) ve Azure hesabınızla oturum a
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-İçinde **özel etki alanları** sayfasında, **satın etki alanları**.
+İçinde **özel etki alanları** sayfasında, **etki alanı satın**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> Göremiyorsanız **uygulama hizmet alanları** bölümünde ihtiyacınız Azure hesabınızda harcama sınırını kaldırmak (bkz [Önkoşullar](#prerequisites)).
+>
+>
+
 ### <a name="configure-the-domain-purchase"></a>Etki alanı satın alma yapılandırın
 
-İçinde **uygulama hizmeti etki alanı** sayfasında **etki alanı Ara** satın alın ve yazmak için istediğiniz etki alanı adını yazın `Enter`. Önerilen kullanılabilir etki alanlarının hemen altındaki metin kutusuna gösterilir. Satın almak istediğiniz bir veya daha fazla etki alanı seçin. 
+İçinde **uygulama hizmeti etki alanı** sayfasında **etki alanı Ara** satın alın ve yazmak için istediğiniz etki alanı adını yazın `Enter`. Önerilen kullanılabilir etki alanlarının hemen altındaki metin kutusuna gösterilir. Satın almak istediğiniz bir veya daha fazla etki alanı seçin.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> Aşağıdaki [üst düzey etki alanları](https://wikipedia.org/wiki/Top-level_domain) uygulama hizmeti etki alanı tarafından desteklenir: _com_, _net_, _co.uk_, _org_, _nl_, _içinde_, _biz_, _org.uk_, ve _co.in_.
+>
+>
 
 Tıklatın **iletişim bilgileri** ve etki alanı bilgilerini formu doldurun. Tamamlandığında tıklatarak **Tamam** uygulama hizmeti etki alanı sayfaya geri dönün.
    
@@ -100,8 +111,7 @@ Ardından, etki alanınız için istediğiniz seçenekleri seçin. Açıklamalar
 
 | Ayar | Önerilen Değer | Açıklama |
 |-|-|-|
-|Otomatik yenileme | **Etkinleştirme** | Uygulama hizmeti etki alanınızın her yıl otomatik olarak yeniler. Kredi kartınız yenileme aynı anda aynı satın alma ücretinin ücretlendirilir. |
-|Gizlilik Koruması | Etkinleştirme | "Satın alma fiyatına dahil Gizlilik Koruması" kabul _ücretsiz_ (kayıt defterine desteklemediği gizlilik korumasını gibi üst düzey etki alanları dışında _. co.in_, _. co.uk_, vb.). |
+|Gizlilik koruması | Etkinleştirme | "Satın alma fiyatına dahil Gizlilik Koruması" kabul _ücretsiz_. Bazı üst düzey etki alanları gizlilik korumasını desteklemeyen kaydedicilerin tarafından yönetilir ve üzerinde listelenen **Gizlilik Koruması** sayfası. |
 | Varsayılan ana bilgisayar adları atama | **www** ve**@** | İstenen konak adı bağlamaları isterseniz seçin. Etki alanı satın alma işlemi tamamlandığında, web uygulamanızı sırasında seçilen ana bilgisayar adları erişilebilir. Web uygulamasının arkasında ise [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), kök etki alanının atama seçeneğiniz görmüyorum (@), çünkü destek A kayıtlarını trafik Yöneticisi yapar. Etki alanı satın alma işlemi tamamlandıktan sonra ana bilgisayar adı atamaları değişiklik yapabilirsiniz. |
 
 ### <a name="accept-terms-and-purchase"></a>Koşulları kabul etmek ve satın alma
@@ -125,7 +135,7 @@ Web uygulamanıza varsayılan ana bilgisayar adları atanmışsa seçilen her an
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Seçilen konak adları Ayrıca bkz: **özel etki alanları** sayfasında **ana bilgisayar adları** bölümü. 
+Seçilen konak adları Ayrıca bkz: **özel etki alanları** sayfasında **özel ana bilgisayar adları** bölümü. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -182,7 +192,25 @@ Yeni atanan hostname(s), uygulamanızın içinde görmelisiniz **özel etki alan
 
 Tarayıcıda listelenen ana bilgisayar adları gidin. Önceki ekran örnekte giderek deneyin _abc.kontoso.net_.
 
-<a name="custom" />
+## <a name="renew-the-domain"></a>Etki alanı yenileme
+
+Satın aldığınız uygulama hizmeti etki alanı satın alma zamandan itibaren bir yıl için geçerlidir. Varsayılan olarak, etki alanı sonraki yıl için Ödeme yönteminizi şarj tarafından otomatik olarak yenilemek için yapılandırılır. Otomatik yenilemeyi devre dışı bırakmak isterseniz veya etki alanınızda el ile yenilemek istiyorsanız, burada adımları izleyin.
+
+İçinde **Web Apps** sekmesini seçin, web uygulamanızın adını tıklatın, **ayarları**ve ardından **özel etki alanları**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+İçinde **uygulama hizmet alanları** bölümünde, yapılandırmak istediğiniz etki alanını seçin.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+Etki alanı sol gezinti bölmesinden seçin **etki alanı yenileme**. Etki alanınızı otomatik yenileme durdurmayı seçin **kapalı**ve ardından **kaydetmek**. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+Etki alanınızı el ile yenilemek için seçin **yenileme etki alanı**. Ancak, bu düğme etki alanının geçerliliği sona ermeden önce 90 güne kadar etkin değil.
+
+<a name="custom"></a>
 
 ## <a name="manage-custom-dns-records"></a>Özel DNS kayıtlarını yönetme
 
@@ -236,6 +264,14 @@ Satın alınan etki alanında iptal süresi geçti değil, seçin **iptal satın
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Seçin **Tamam** işlemini onaylamak için. Devam etmek istemiyorsanız onay iletişim kutusu dışında herhangi bir yere tıklayın.
+İşlemi onaylamak için seçin **Evet**.
 
 İşlem tamamlandıktan sonra etki alanı aboneliğiniz yayımlanan herkes yeniden satın almak için kullanılabilir. 
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Özel bir dizin için doğrudan varsayılan URL
+
+Varsayılan olarak, uygulama hizmeti, uygulama kodunuzun kök dizininin web isteği yönlendirir. Gibi bir alt dizine yönlendirmek için `public`, bkz: [doğrudan özel bir dizin için varsayılan URL](app-service-web-tutorial-custom-domain.md#virtualdir).
+
+## <a name="more-resources"></a>Diğer kaynaklar
+
+[Sık sorulan sorular: Uygulama hizmeti etki alanı (Önizleme) ve özel etki alanları](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

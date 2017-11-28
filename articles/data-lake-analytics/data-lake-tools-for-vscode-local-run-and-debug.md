@@ -1,7 +1,7 @@
 ---
 title: "Azure Data Lake araçları: U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama | Microsoft Docs"
 description: "Azure Data Lake araçları için Visual Studio Code yerel çalıştırma ve yerel hata ayıklama için nasıl kullanılacağını öğrenin."
-Keywords: "VScode, Azure Data Lake araçları, yerel çalıştırma, yerel hata ayıklama, yerel hata ayıklama, Önizleme depolama dosyası, depolama birimi yolu için karşıya yükleme"
+Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview storage file,upload to storage path
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -16,11 +16,11 @@ ms.tgt_pltfrm:
 ms.workload: big-data
 ms.date: 07/14/2017
 ms.author: jejiang
-ms.openlocfilehash: 78a5efb19f73192dcc95103abc70c14a3ce2e29a
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: d109e4d57f4ad5ab2be73805ba41bf9ed362cccb
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="u-sql-local-run-and-local-debug-for-windows-with-visual-studio-code"></a>U-SQL yerel çalıştırma ve Visual Studio Code ile Windows için yerel hata ayıklama
 Bu belgede, erken kodlama aşama hızlandırmak için ya da Visual Studio Code yerel kodda hata ayıklamak için bir yerel geliştirme makinede U-SQL işleri çalıştırma öğrenin. Visual Studio Code ile Azure Data Lake aracı hakkında yönergeler için bkz [kullanım Azure Data Lake araçları Visual Studio Code için](data-lake-analytics-data-lake-tools-for-vscode.md). 
@@ -33,9 +33,9 @@ Bu belgede, erken kodlama aşama hızlandırmak için ya da Visual Studio Code y
    ![ADL LocalRun bağımlılık paketlerini yükleyin](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/DownloadLocalRun.png)
 
 2. Gösterilen yolundan bağımlılık paketlerini bulun **çıkış** bölmesinde ve sonra BuildTools ve Win10SDK 10240 yükleyin. Bir örnek yolu şöyledir:  
-`C:\Users\xxx\.vscode\extensions\usqlextpublisher.usql-vscode-ext-x.x.x\LocalRunDependency
-`  
-  ![Bağımlılık paketlerini bulun](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
+`C:\Users\xxx\AppData\Roaming\LocalRunDependency` 
+
+   ![Bağımlılık paketlerini bulun](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/LocateDependencyPath.png)
 
    2.1 yüklemeye **BuildTools**, visualcppbuildtools_full.exe LocalRunDependency klasöründe ve ardından sihirbazdaki yönergeleri izleyin.   
 
@@ -46,11 +46,8 @@ Bu belgede, erken kodlama aşama hızlandırmak için ya da Visual Studio Code y
     ![Win10SDK yükleme 10240](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/InstallWin10SDK.png)
 
 3. Ortam değişkeni ayarlayın. Ayarlama **SCOPE_CPP_SDK** ortam değişkenine:  
-`C:\Users\xxx\.vscode\extensions\usqlextpublisher.usql-vscode-ext-x.x.x\LocalRunDependency\CppSDK_3rdparty
-`  
-4. Ortam değişkeni ayarlarının etkili emin olmak için işletim sistemi yeniden başlatın.  
+`C:\Users\XXX\AppData\Roaming\LocalRunDependency\CppSDK_3rdparty`  
 
-   ![SCOPE_CPP_SDK ortam değişkeni yüklendiğinden emin olun](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/ConfigScopeCppSDk.png)
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>Yerel çalışma hizmetini başlatın ve yerel bir hesap için U-SQL işi gönderin 
 İlk kez kullanıcı için kullanması **ADL: yerel çalıştırma bağımlılık indirme** yüklemediyseniz yerel çalıştırma paketlerini indirmek için [U-SQL yerel çalıştırma ortamını ayarlama](#set-up-the-u-sql-local-run-environment).
@@ -92,7 +89,10 @@ Yerel hata ayıklama gerçekleştirmek için aşağıdaki adımları izleyin:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Azure Data Lake araçları için Visual Studio Code kullanmak için bkz: [kullanım Azure Data Lake araçları Visual Studio Code için](data-lake-analytics-data-lake-tools-for-vscode.md).
-- Data Lake Analytics başlatılan bilgi almak için bkz: [Öğreticisi: Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md).
-- Visual Studio için Data Lake araçları hakkında bilgi için bkz: [öğretici: Visual Studio için Data Lake araçları kullanarak geliştirme U-SQL betikleri](data-lake-analytics-data-lake-tools-get-started.md).
-- Derlemeler geliştirme hakkında bilgi için bkz: [Azure Data Lake Analytics işleri için U-SQL geliştirmek derlemeleri](data-lake-analytics-u-sql-develop-assemblies.md).
+* [Visual Studio Code için Azure Data Lake Araçları’nı kullanma](data-lake-analytics-data-lake-tools-for-vscode.md)
+* [U-SQL Python, R ve Azure Data Lake Analytics VSCode içinde CSharp ile geliştirme](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+* [Azure Data Lake Analytics işleri için U-SQL derlemeleri geliştirin](data-lake-analytics-u-sql-develop-assemblies.md)
+* [PowerShell kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-powershell.md)
+* [Azure Portalı'nı kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md)
+* [U-SQL uygulamalarını geliştirmek için Visual Studio için Data Lake araçları kullanın](data-lake-analytics-data-lake-tools-get-started.md)
+* [Kullanım Data Lake Analytics(U-SQL) Kataloğu](data-lake-analytics-use-u-sql-catalog.md)

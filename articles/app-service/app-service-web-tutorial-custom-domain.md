@@ -1,6 +1,7 @@
 ---
 title: "Azure Web uygulamaları için var olan bir özel DNS ad eşleme | Microsoft Docs"
 description: "Bir web uygulaması, mobil uygulama arka ucu veya Azure App Service'teki API uygulamasına varolan özel DNS etki alanı adı (gösterim etki alanında) eklemeyi öğrenin."
+keywords: "uygulama hizmeti, azure uygulama hizmeti, etki alanı eşleme, etki alanı adı, varolan etki alanı, ana bilgisayar adı"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d7c99b1b02a0450cae406e2bc70a7e5563e2ac2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Harita Azure Web uygulamaları için varolan bir özel DNS adı
 
@@ -269,6 +270,27 @@ Seçin  **+**  yeniden joker karakter etki alanıyla eşleşen başka bir ana bi
 Daha önce yapılandırılmış DNS adları göz atın (örneğin, `contoso.com`, `www.contoso.com`, `sub1.contoso.com`, ve `sub2.contoso.com`).
 
 ![Azure App portalında gezinme](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
+
+## <a name="resolve-404-error-web-site-not-found"></a>404 hatası "bulunamadı Web Site" çözümlenemiyor
+
+Özel etki alanınızı URL'sine göz atarken bir HTTP 404 (bulunamadı) hata alırsanız, etki alanınız için IP adresini kullanarak uygulamanızın çözümler doğrulayın <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Aksi durumda, aşağıdaki nedenlerden biri olabilir:
+
+- Yapılandırılmış özel etki alanı, bir A kaydı ve/veya bir CNAME kaydı eksik.
+- Tarayıcı istemci eski IP adresi, etki alanınızın önbelleğe. Önbellek ve test DNS çözümlemesi yeniden temizleyin. Bir Windows makinesinde önbellek ile temizleyin `ipconfig /flushdns`.
+
+<a name="virtualdir"></a>
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Özel bir dizin için doğrudan varsayılan URL
+
+Varsayılan olarak, uygulama hizmeti, uygulama kodunuzun kök dizininin web isteği yönlendirir. Ancak, bazı web çerçeveleri kök dizininde başlatmayın. Örneğin, [Laravel](https://laravel.com/) başlayacağını `public` alt dizin. Devam etmek için `contoso.com` DNS örnek, bu tür bir uygulama olacaktır, erişilebilir `http://contoso.com/public`, ancak doğrudan istediğinizden emin `http://contoso.com` için `public` dizin yerine. Bu adım, DNS çözümlemesi, ancak sanal dizin özelleştirme kullanılmaz.
+
+Bunu yapmak için seçin **uygulama ayarları** , web uygulama sayfasının sol gezinti içinde. 
+
+Sayfasında, kök sanal dizini altındaki `/` işaret `site\wwwroot` varsayılan olarak, uygulama kodunuzun kök dizini olan. İşaret edecek şekilde değiştirmeniz `site\wwwroot\public` bunun yerine, örneğin ve değişikliklerinizi kaydedin. 
+
+![Sanal dizin özelleştirme](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
+
+İşlemi tamamlandıktan sonra uygulamayı sağ sayfa (örneğin, http://contoso.com) kök yolundaki döndürmelidir.
 
 ## <a name="automate-with-scripts"></a>Komut dosyalarıyla otomatikleştirme
 

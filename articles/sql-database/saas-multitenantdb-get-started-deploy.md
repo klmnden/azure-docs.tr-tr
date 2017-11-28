@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulama keşfedin
 
@@ -35,7 +35,7 @@ Aşağıdaki dağıtım bölümde **Azure'a Dağıt** düğmesi. Düğmeye bası
 
 Uygulama verileri üç örnek kiracılar için dağıtılır. Kiracılar birlikte bir çok kiracılı veritabanında depolanır.
 
-C# ve PowerShell kaynak kodu herkes için Wingtip anahtarlarından indirebilirsiniz [Github depomuzda][link-github-wingtip-multitenantdb-55g].
+C# ve PowerShell kaynak kodu herkes için Wingtip anahtarlarından indirebilirsiniz [GitHub depomuzda][link-github-wingtip-multitenantdb-55g].
 
 #### <a name="learn-in-this-tutorial"></a>Bu öğreticide öğrenin
 
@@ -93,7 +93,7 @@ Uygulama dağıtımı sırasında uygulama kaynak kodu ve yönetim komut dosyala
 > [!IMPORTANT]
 > ZIP dosyaları bir dış kaynaktan yüklediğiniz ve açtığınız zaman yürütülebilir içeriği (komut dosyaları, DLL'ler) Windows tarafından engellenmiş olabilir. Komut dosyaları zip dosyasından çıkarılırken, .zip dosyasını ayıklanıyor önce engellemesini kaldırmak için aşağıdaki adımları kullanın. .Zip dosyasını engellemelerini kaldırma tarafından komut dosyalarını çalıştırmak için izin verildiğinden emin olun.
 
-1. Gözat [WingtipTicketsSaaS MultiTenantDb github deposuna](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+1. Gözat [WingtipTicketsSaaS MultiTenantDb GitHub deposuna](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Tıklatın **Kopyala veya indir**.
 3. Tıklatın **ZIP'i indir** ve dosyayı kaydedin.
 4. Sağ **WingtipTicketsSaaS MultiTenantDb master.zip** dosya ve seçin **özellikleri**.
@@ -120,7 +120,7 @@ Uygulama, etkinliklerin düzenlendiği konser salonları, caz kulüpleri, spor k
 Merkezi bir **olay hub'ı** belirli dağıtımınızdaki kiracılar bağlantıların listesini sağlar.
 
 1. Açık *olay hub'ı* web tarayıcınızda:
-    - http://Events.Wingtip-MT.&lt;kullanıcı&gt;. trafficmanager.net &nbsp; *(dağıtımınızın kullanıcı değerle değiştirin.)*
+    - http://Events.Wingtip. &lt;Kullanıcı&gt;. trafficmanager.net &nbsp; *(dağıtımınızın kullanıcı değerle değiştirin.)*
 
     ![olay hub’ı](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Merkezi bir **olay hub'ı** belirli dağıtımınızdaki kiracılar bağlantıla
 
 Gelen istekleri, uygulamanın kullandığı dağıtımını denetlemek için [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Kiracı özgü, olayları sayfaları URL'de Kiracı adını içerir. URL'leri de belirli, kullanıcı değeri içerir ve bu biçim izleyin:
 
-- http://Events.Wingtip-MT.&lt;kullanıcı&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://Events.Wingtip. &lt;Kullanıcı&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 Olayları uygulama URL'den Kiracı adı ayrıştırır ve Kataloğu'nu kullanarak erişmek için bir anahtar oluşturmak üzere karma hale [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md). Katalog kiracının veritabanı konumu için anahtar eşler. **Olay hub'ı** ve kataloğa kayıtlı tüm kiracılar listeler. **Olay hub'ı** URL'leri oluşturmak için her eşleme ile ilişkili kiracının adını almak için katalogda genişletilmiş meta verilerini kullanır.
 
@@ -156,7 +156,7 @@ Farklı parametre değerleri kullanmak için yük Oluşturucu oturumu yeniden is
 
 İlk üç örnek kiracılar içeren *Tenants1* veritabanı. Bu dağıtılmış uygulamanın nasıl etkilediğini görmek için başka bir kiracı oluşturalım. Bu adımda, yeni bir kiracı hızla oluşturun.
 
-1. Aç... \\Modules\ProvisionTenants öğrenme\\*Demo ProvisionTenants.ps1* içinde *PowerShell ISE*.
+1. Aç... \\Modules\Provision ve Katalog öğrenme\\*Demo ProvisionTenants.ps1* içinde *PowerShell ISE*.
 2. Tuşuna **F5** komut dosyasını çalıştırmak için (şu an için varsayılan değerleri bırakın).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ Parçalı çok kiracılı bir model, bir veritabanında yeni bir kiracı sağlam
 
 Şimdi biz başka bir kiracı, bu süre, kendi veritabanındaki sağlayın.
 
-1. İçinde... \\Öğrenme modülleri\\ProvisionTenants\\*Demo ProvisionTenants.ps1*, değişiklik *$TenantName* için **Salix Salsa**,  *$VenueType* için **dance** ve *$Scenario* için **2**.
+1. İçinde... \\Öğrenme modülleri\\sağlamak ve Katalog\*Demo-ProvisionTenants.ps1* değiştirme *$TenantName* için **Salix Salsa**, *$VenueType*  için **dance** ve *$Scenario* için **2**.
 
 2. Tuşuna **F5** betiği yeniden çalıştırmak için.
     - Bu F5 tuşuna ayrı bir veritabanında yeni Kiracı sağlar. Veritabanı ve Kiracı katalogda kaydedilir. Ardından tarayıcı Kiracı olayları sayfası açılır.
@@ -239,7 +239,7 @@ Bu öğreticide şunları öğrendiniz:
 > - Kiracı etkinliğini izlemek için havuz kullanımını görüntüleme
 > - İlgili faturalandırmayı durdurmak için örnek kaynakları silme
 
-Şimdi deneyin [sağlama kiracılar Öğreticisi](sql-database-saas-tutorial-provision-and-catalog.md).
+Şimdi deneyin [sağlamak ve kataloğu Öğreticisi](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 

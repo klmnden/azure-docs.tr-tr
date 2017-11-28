@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics olarak IOT kenarında (Önizleme)
 
@@ -61,6 +61,11 @@ ASA kenar işleri aygıtlara dağıtmak için IOT hub'ı kullanır. Hakkında da
 
 #### <a name="create-an-asa-edge-job"></a>Bir ASA kenar işi oluşturma
 1. Azure Portal'dan yeni "Stream Analytics işi" oluşturun. [Burada yeni bir ASA işi oluşturmak için doğrudan bağlantı](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+
+> [!Note]
+> ASA tarafından desteklenen tüm bölgelerde kenar işleri oluşturabilirsiniz **dışındaki "Batı ABD 2" bölgede**.
+> Bu sınırlama kısa bir süre sonra kaldırılacaktır.
+
 2. Oluşturma ekranında şunları seçin **kenar** olarak **barındırma ortamı** (aşağıdaki resme bakın) ![proje oluşturma](media/stream-analytics-edge/ASAEdge_create.png)
 3. İş tanımı
     1. **Giriş Stream(s) tanımlamak**. Bir veya birkaç giriş akışları işinizi tanımlayın.

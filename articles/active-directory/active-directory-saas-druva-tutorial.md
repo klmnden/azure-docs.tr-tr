@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b23e73c47b9a00893e036b67826e4b7ead819a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52212c44c925598b2c19df1b20eb4e8123f974ba
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Öğretici: Azure Active Directory Tümleştirme Druva ile
 
@@ -104,23 +104,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. Üzerinde **Druva etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Druva etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **IDP** modu tarafından başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
+    İçinde **tanımlayıcısı** metin kutusuna, dize değeri yazın:`druva-cloud`
+    
+4. Denetleme **Göster Gelişmiş URL ayarları**. Uygulamada yapılandırmak istiyorsanız **SP** modu tarafından başlatılan:
+
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    
     İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://cloud.druva.com/home`
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. Özel öznitelik eşlemelerini eklemenizi gerektirir belirli bir biçimde SAML onaylar Druva uygulamanızı bekler, **SAML belirteci öznitelikleri** yapılandırma. 
+6. Özel öznitelik eşlemelerini eklemenizi gerektirir belirli bir biçimde SAML onaylar Druva uygulamanızı bekler, **SAML belirteci öznitelikleri** yapılandırma. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, önceki görüntüde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
+7. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, önceki görüntüde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Öznitelik adı      | Öznitelik değeri      |
+    | Öznitelik Adı      | Öznitelik Değeri      |
     | ------------------- | -------------------- |
     | insync\_auth\_belirteci |Oluşturulan belirteç değerini girin |
     
@@ -136,47 +142,47 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     d. **Tamam**’a tıklayın.    
 
-7. Tıklatın **kaydetmek** düğmesi.
+8. Tıklatın **kaydetmek** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. Üzerinde **Druva yapılandırma** 'yi tıklatın **yapılandırma Druva** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+9. Üzerinde **Druva yapılandırma** 'yi tıklatın **yapılandırma Druva** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. Farklı web tarayıcısı penceresinde Druva şirket sitenize yönetici olarak oturum açın.
+10. Farklı web tarayıcısı penceresinde Druva şirket sitenize yönetici olarak oturum açın.
 
-10. Git **yönetmek \> ayarları**.
+11. Git **yönetmek \> ayarları**.
 
     ![Ayarları](./media/active-directory-saas-druva-tutorial/ic795091.png "ayarları")
 
-11. Çoklu oturum açma ayarları iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+12. Çoklu oturum açma ayarları iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açma ayarları](./media/active-directory-saas-druva-tutorial/ic795092.png "tek oturum açma ayarları")
     
-    a. Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri **kimlik sağlayıcısı oturum açma URL'si** metin kutusu.
-    
-    b. Yapıştır **Sign-Out URL** Azure portalından kopyaladığınız değeri **kimlik sağlayıcısı oturum kapatma URL'si** metin kutusu.
-    
-     c. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **kimlik sağlayıcısının sertifikasını** metin kutusu
+    a. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
+        
+    b. İçinde **kimlik sağlayıcısı oturum kapatma URL'si** metin değerini yapıştırın **Sign-Out URL**, Azure portalından kopyalanan
+        
+    c. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **kimlik sağlayıcısının sertifikasını** metin kutusu
      
-     d. Açmak için **ayarları** sayfasında, **kaydetmek**.
+    d. Açmak için **ayarları** sayfasında, **kaydetmek**.
 
-12. Üzerinde **ayarları** sayfasında, **SSO belirteç Oluştur**.
+13. Üzerinde **ayarları** sayfasında, **SSO belirteç Oluştur**.
 
     ![Ayarları](./media/active-directory-saas-druva-tutorial/ic795093.png "ayarları")
 
-13. Üzerinde **tek oturum açma kimlik doğrulaması belirteci** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+14. Üzerinde **tek oturum açma kimlik doğrulaması belirteci** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![SSO belirteci](./media/active-directory-saas-druva-tutorial/ic795094.png "SSO belirteci")
     
-    a. Tıklatın **kopya**, Yapıştır kopyaladığınız değeri **değeri** metin kutusuna **özniteliği eklemek** bölümü.
+    a. Tıklatın **kopya**, Yapıştır kopyaladığınız değeri **değeri** metin kutusuna **özniteliği eklemek** Azure portalı bölümünde.
     
     b. **Kapat**’a tıklayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -280,8 +286,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

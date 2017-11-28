@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: billgib
-ms.openlocfilehash: 346177be29ec196464f4f441858222ac5d5eb8c3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e4b8e38d20ec408869f2228597afdf2f9620515b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database kullanan çok kiracılı bir uygulama içinde birden çok Kiracı için şema yönetme
 
@@ -45,7 +45,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 * SQL Server Management Studio’nun (SSMS) en son sürümünün yüklendiğinden. [SSMS’yi İndirin ve Yükleyin](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> *Bu öğretici, SQL Veritabanı hizmetinin sınırlı önizleme (Elastik Veritabanı işleri) olarak sunulan özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun SaaSFeedback@microsoft.com ile ilgili sorular veya destek.*
+> Bu öğretici bir sınırlı (esnek veritabanı iş) önizlemede SQL veritabanı hizmetinin özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun SaaSFeedback@microsoft.com ile ilgili sorular veya destek.
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS Şema Yönetimi düzenlerine giriş
@@ -58,9 +58,9 @@ Bu örnekte kullanılan parçalı çok Kiracı veritabanı modeli kiracıların 
 
 Esnek İşler’in artık Azure SQL Veritabanı’nın (ek hizmet veya bileşen gerektirmeyen) tümleşik bir özelliği olan yeni bir sürümü vardır. Esnek İşler’in bu yeni sürümü, şu anda sınırlı önizlemeyle sunulmaktadır. Bu sınırlı önizleme, iş hesapları oluşturmak için PowerShell’i ve işleri oluşturmak ve yönetmek için T-SQL’i desteklemektedir.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Wingtip biletleri SaaS çok Kiracı veritabanı uygulama komut dosyaları alma
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip biletleri SaaS çok Kiracı veritabanı uygulama kaynak koduna ve komut dosyaları alma
 
-Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub depo. <!-- [Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts](saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak. 
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>İş hesabı veritabanı ve yeni bir iş hesabı oluşturma
 
@@ -89,13 +89,14 @@ Yeni bir iş oluşturmak için iş hesabı oluşturulduğunda jobaccount veritab
 6. Deyim değiştirin: ayarlamak @User = &lt;kullanıcı&gt; ve Wingtip biletleri SaaS çok Kiracı veritabanı uygulama dağıtıldığında kullanılan kullanıcı değeri değiştirin.
 7. Betiği çalıştırmak için **F5**'e basın.
 
-    * **SP\_ekleme\_hedef\_grup** hedef grubu oluşturur ad DemoServerGroup, artık hedef üyeleri gruba ekleyin.
-    * **SP\_ekleme\_hedef\_grup\_üye** ekler bir *server* hedef sunucu içindeki tüm veritabanları uymak açısından gerekli olduğunu üye türü (Bu tenants1 Not - mt - &lt;kullanıcı&gt; kiracılar veritabanını içeren sunucu) işe dahil edilecek iş yürütme zaman bir *veritabanı* hedef bulunduğu 'Altın' veritabanı (basetenantdb) için üye türü Katalog-mt -&lt;kullanıcı&gt; sunucusu ve son olarak bir *veritabanı* hedef sonraki öğreticide kullanılan adhocreporting veritabanına eklemek için üye türü.
-    * **SP\_ekleme\_iş** "Başvuru veri dağıtımı" adlı bir işi oluşturur.
-    * **SP\_ekleme\_iş** VenueTypes başvuru tablosu güncelleştirmek için T-SQL komut metni içeren işi adımı oluşturur.
-    * Betikteki kalan görünümler, nesnelerin varlığını gösterir ve işin yürütülüşünü izler. Durum değeri gözden geçirmek için bu sorguları kullanmak **yaşam döngüsü** zaman işi başarıyla kiracılar veritabanı ve başvuru tablosu içeren iki ek veritabanları tamamlandı belirlemek için sütun.
+Aşağıdakileri gözlemlemek *DeployReferenceData.sql* komut dosyası:
+* **SP\_ekleme\_hedef\_grup** hedef grubu oluşturur ad DemoServerGroup, artık hedef üyeleri gruba ekleyin.
+* **SP\_ekleme\_hedef\_grup\_üye** ekler bir *server* hedef sunucu içindeki tüm veritabanları uymak açısından gerekli olduğunu üye türü (Bu tenants1 Not - mt - &lt;kullanıcı&gt; kiracılar veritabanını içeren sunucu) işe dahil edilecek iş yürütme zaman bir *veritabanı* hedef bulunduğu 'Altın' veritabanı (basetenantdb) için üye türü Katalog-mt -&lt;kullanıcı&gt; sunucusu ve son olarak bir *veritabanı* hedef sonraki öğreticide kullanılan adhocreporting veritabanına eklemek için üye türü.
+* **SP\_ekleme\_iş** "Başvuru veri dağıtımı" adlı bir işi oluşturur.
+* **SP\_ekleme\_iş** VenueTypes başvuru tablosu güncelleştirmek için T-SQL komut metni içeren işi adımı oluşturur.
+* Betikteki kalan görünümler, nesnelerin varlığını gösterir ve işin yürütülüşünü izler. Durum değeri gözden geçirmek için bu sorguları kullanmak **yaşam döngüsü** zaman işi başarıyla kiracılar veritabanı ve başvuru tablosu içeren iki ek veritabanları tamamlandı belirlemek için sütun.
 
-1. SSMS, Kiracı veritabanına gözatın *tenants1-mt -&lt;kullanıcı&gt;*  sunucusunda ve sorgu *VenueTypes* doğrulamak için tablo *Motosikletinizinyarış* ve *yüzme kulübü* artık **eklenen* tablosu.
+SSMS, Kiracı veritabanına gözatın *tenants1-mt -&lt;kullanıcı&gt;*  sunucusunda ve sorgu *VenueTypes* doğrulamak için tablo *Motosikletinizinyarış* ve *yüzme kulübü* artık **eklenen* tablosu.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Başvuru tablosu dizinini yönetmek için bir iş oluşturma
@@ -105,11 +106,12 @@ Yeni bir iş oluşturmak için iş hesabı oluşturulduğunda jobaccount veritab
 
 1. SSMS, kataloğunda jobaccount veritabanına bağlanın-mt -&lt;kullanıcı&gt;. database.windows.net sunucu.
 2. SSMS içinde Aç... \\Modülleri öğrenme\\Şema Yönetimi\\OnlineReindex.sql.
-3. Tuşuna **F5** komut dosyasını çalıştırmak için
+3. Betiği çalıştırmak için **F5**'e basın.
 
-    * **SP\_ekleme\_iş** adlı yeni bir iş oluşturur "çevrimiçi arat PK\_\_VenueTyp\_\_265E44FD7FD4C885".
-    * **SP\_ekleme\_iş** dizini güncelleştirmek için T-SQL komut metni içeren işi adımı oluşturur.
-    * Kalan görünümlerde betik iş yürütme izleyin. Durum değeri gözden geçirmek için bu sorguları kullanmak **yaşam döngüsü** zaman işi başarıyla üzerindeki tüm hedef grup üyeleri tamamlandı belirlemek için sütun.
+Aşağıdakileri gözlemlemek *OnlineReindex.sql* komut dosyası:
+* **SP\_ekleme\_iş** adlı yeni bir iş oluşturur "çevrimiçi arat PK\_\_VenueTyp\_\_265E44FD7FD4C885".
+* **SP\_ekleme\_iş** dizini güncelleştirmek için T-SQL komut metni içeren işi adımı oluşturur.
+* Kalan görünümlerde betik iş yürütme izleyin. Durum değeri gözden geçirmek için bu sorguları kullanmak **yaşam döngüsü** zaman işi başarıyla üzerindeki tüm hedef grup üyeleri tamamlandı belirlemek için sütun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -121,7 +123,7 @@ Bu öğreticide, şunları öğrendiniz:
 > * Tüm kiracı veritabanlarında verileri güncelleştirme
 > * Tüm kiracı veritabanlarında bir tabloda dizin oluşturma
 
-[Geçici analizler öğreticisi](saas-multitenantdb-adhoc-reporting.md)
+Ardından, deneyin [geçici raporlama Öğreticisi](saas-multitenantdb-adhoc-reporting.md).
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 50d185294131e42aaf8b541ab17495fcb40c89dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="sfctl-replica"></a>sfctl çoğaltma
 Hizmet bölümlerini ait çoğaltmaları yönetin.
@@ -29,8 +29,7 @@ Hizmet bölümlerini ait çoğaltmaları yönetin.
 | --- | --- |
 |    Dağıtılan  | Service Fabric düğümde dağıtılan çoğaltma ayrıntılarını alır.|
 |    dağıtılan listesi| Service Fabric düğümde dağıtılan çoğaltmaların listesini alır.|
-|    Sistem durumu    | Bir Service Fabric durum bilgisi olan hizmet çoğaltma ya da durum bilgisi olmayan hizmetin durumunu alır
-                   örneği.|
+|    sistem durumu    | Service Fabric durum bilgisi olan hizmet çoğaltma veya durum bilgisiz hizmet örneği durumunu alır.|
 |    bilgileri      | Service Fabric bölümü bir çoğaltma bilgilerini alır.|
 |    Liste      | Bir Service Fabric hizmeti bölüm çoğaltmaları bilgilerini alır.|
 |    Kaldır    | Bir düğüm üzerinde çalışan bir hizmet çoğaltmaları kaldırır.|

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure'dan şirket içi siteye başarısız
 
@@ -135,3 +135,17 @@ Yeniden koruma işi tamamlandıktan sonra geri Azure için sanal makinenin çoğ
 
 ## <a name="common-issues"></a>Genel sorunlar
 Bir yeniden çalışma yapmadan önce vCenter bağlı durumda olduğundan emin olun. Aksi takdirde, diskleri kesme ve sanal makineye ekleme başarısız olur.
+
+### <a name="common-error-codes"></a>Genel hata kodları
+
+#### <a name="error-code-8038"></a>Hata kodu 8038
+
+*Şirket içi sanal makineyi hata nedeniyle getirilemedi*
+
+Böyle olduğunda 
+1. Şirket içi sanal makine sağlanan yeterli belleğe sahip değil bir konakta hazırlanmıştır.
+
+Bu sorunu gidermek için
+1. Daha fazla bellek ESXi ana bilgisayarda sağlayabilirsiniz.
+2. VMotion'ı sanal makine önyüklemesi için yeterli belleğe sahip başka bir ESXi ana VM'ye.
+

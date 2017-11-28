@@ -1,5 +1,5 @@
 ---
-title: "Kimlik doğrulama ve yetkilendirme API'leri Azure zaman serisi öngörü yapılandırma"
+title: "Kimlik doğrulaması ve Azure zaman serisi Insights API'si tarafından yetkilendirmek nasıl"
 description: "Bu makalede, kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulama için nasıl yapılandırılacağı açıklanmaktadır."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Kimlik doğrulama ve yetkilendirme Azure zaman serisi Insights API'si
 
@@ -32,7 +32,7 @@ Erişim zaman serisi Öngörüler gerekir bir uygulamanız varsa, Azure Active D
 * Sizin Sorumluluklarınız değiştirirseniz uygulamanın kimlik bilgilerini değiştirmek zorunda değilsiniz.
 * Katılımsız betik çalışırken kimlik doğrulaması otomatikleştirmek için bir sertifika veya bir uygulama anahtarı kullanın.
 
-Bu konu Azure Portalı aracılığıyla bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluşta çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle, kuruluşunuzda çalıştırmak satır iş kolu uygulamaları için tek Kiracı uygulamaları kullanın.
+Bu makalede Azure Portalı aracılığıyla bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluşta çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle, kuruluşunuzda çalıştırmak satır iş kolu uygulamaları için tek Kiracı uygulamaları kullanın.
 
 Kurulum akışında üç üst düzey adımları içerir:
 

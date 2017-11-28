@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: d6409ac490f530d49f82c93b07b0fd22adbec4de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a7e94fe2cd2db398ab2afa9a6492cea144071114
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Yönetilen bir genelleştirilmiş bir VM görüntüsü oluşturma
 
@@ -111,7 +111,7 @@ Daha fazla bilgi için bkz: [Azure PowerShell sürüm](/powershell/azure/overvie
     ``` 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>PowerShell kullanarak yönetilen bir diskten görüntü oluşturma
 
-Yalnızca işletim sistemi diski görüntüsünü oluşturmak istiyorsanız, ayrıca bir görüntü işletim sistemi diski olarak yönetilen disk kimliği belirterek crate.
+İşletim sistemi diski olarak yönetilen disk kimliği belirterek, yalnızca işletim sistemi diski görüntüsünü oluşturmak istiyorsanız, bir görüntü oluşturabilirsiniz.
 
     
 1. Bazı değişkenler oluşturun. 

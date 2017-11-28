@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: 6b48b98e87d5317c7e673977b87417210a595d6b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 9ad160377a8779ae917e6fd2d605ee01b12c3e2a
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Azure Event hubs'tan (C#) hdınsight'ta Storm işlem olayları
 
@@ -36,6 +36,9 @@ Bu belgede yer alan adımlar SCP.NET, C# topolojileri ve bileşenleri kullanmak 
 > Bu belgede yer alan adımlar Windows geliştirme ortamına Visual Studio ile kullanır, ancak derlenmiş proje Linux kullanan Hdınsight kümesi üzerinde Storm gönderilebilir. Yalnızca Linux tabanlı kümelerde 28 Ekim 2016'dan sonra oluşturulan SCP.NET topolojileri destekler.
 
 Hdınsight 3.4 ve büyük Mono C# topolojileri çalıştırmak için kullanabilirsiniz. Bu belgede kullanılan örnekte, Hdınsight 3.6 ile çalışır. Hdınsight için kendi .NET çözümleri oluşturma üzerinde planlıyorsanız, denetleme [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/) olası uyumsuzlukları belge.
+
+> [!WARNING]
+> SCP.NET sürüm kullanan projeleri oluşturma sorunları karşılaşmanız halinde 1.0.0.x, lütfen Yardım için Microsoft Destek'e başvurun.
 
 ### <a name="cluster-versioning"></a>Küme sürüm oluşturma
 

@@ -16,11 +16,11 @@ ms.date: 10/26/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 260462e57c53d2d41bb2bfd8381a1c184303eea1
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -30,7 +30,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 * **Faturalama Yöneticisi**: satın alma işlemleri yapar, abonelikleri yönetir, destek biletlerini yönetir ve hizmetin sistem durumunu izler.
 
-* **Uyumluluk Yöneticisi**: Bu rolüne sahip kullanıcılar Office 365 güvenlik ve Uyumluluk Merkezi ve Exchange yönetici merkezini içinde yönetim izinlerine sahip. Daha fazla bilgi "[Office 365 Yönetici rolleri hakkında](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)."
+* **Uyumluluk Yöneticisi**: Bu rolüne sahip kullanıcılar Office 365 güvenlik ve Uyumluluk Merkezi ve Exchange yönetici merkezini içinde yönetim izinlerine sahip. Daha fazla bilgi "[Office 365 Yönetici rolleri hakkında](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)."
 
 * **Koşullu Erişim Yöneticisi**: kullanıcılar bu rol ile Azure Active Directory koşullu erişim ayarlarını yönetme olanağı.
   > [!NOTE]
@@ -55,7 +55,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
   >
   >
 
-* **Konuk davet eden**: Bu roldeki kullanıcılar, Azure Active Directory B2B Konuk kullanıcı davetleri yönetebilir, "Üyeleri davet edebilirsiniz" Kullanıcı ayarı Hayır olarak ayarlandığında geçerlidir B2B işbirliğinin hakkında daha fazla bilgi [hakkında Azure AD B2B işbirliği Önizleme](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Diğer izinler içermez.
+* **Konuk davet eden**: Bu roldeki kullanıcılar, Azure Active Directory B2B Konuk kullanıcı davetleri yönetebilir, "Üyeleri davet edebilirsiniz" Kullanıcı ayarı Hayır olarak ayarlandığında geçerlidir B2B işbirliğinin hakkında daha fazla bilgi [hakkında Azure AD B2B işbirliği Önizleme](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Diğer izinler içermez.
 
 * **Intune hizmet yöneticisinin**: Bu rolü olan kullanıcılar hizmet mevcut olduğunda Microsoft Intune çevrimiçi içinde genel izinlere sahiptir. Ayrıca, bu rol İlkesi ilişkilendirme yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme becerisini içerir.
 
@@ -72,13 +72,13 @@ Aşağıdaki yönetici rolleri kullanılabilir:
   >
   >
   
-* **Power BI Hizmet Yöneticisi**: Bu rol ile kullanıcınız içinde Microsoft Power BI hizmeti mevcut olduğunda, genel izinleri yanı sıra, destek biletlerini yönetme ve hizmet sistem durumu izleme olanağı. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
+* **Power BI Hizmet Yöneticisi**: Bu rol ile kullanıcınız içinde Microsoft Power BI hizmeti mevcut olduğunda, genel izinleri yanı sıra, destek biletlerini yönetme ve hizmet sistem durumu izleme olanağı. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Ayrıcalıklı Rol Yöneticisi**: Bu rolüne sahip kullanıcılar, Azure Active Directory'de yanı sıra Azure AD Privileged Identity Management içinde rol atamalarını yönetebilir. Ayrıca, bu rolün tüm yönlerini Privileged Identity Management yönetilmesine izin verir.
 
-* **Güvenlik Yöneticisi**: Bu rol ile kullanıcınız tüm güvenlik okuyucu rolüne yanı sıra güvenlikle ilgili hizmetler için yapılandırma yönetme olanağı salt okunur izinleri: Azure Active Directory kimlik koruması, Privileged Identity Management ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Güvenlik Yöneticisi**: Bu rol ile kullanıcınız tüm güvenlik okuyucu rolüne yanı sıra güvenlikle ilgili hizmetler için yapılandırma yönetme olanağı salt okunur izinleri: Azure Active Directory kimlik koruması, Privileged Identity Management ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Güvenlik okuyucu**: kullanıcılar bu rol ile Azure Active Directory, kimlik koruması, Privileged Identity Management, aynı zamanda Özelliği Azure Active Directory oturum açma raporları okuma ve Denetim günlükleri için tüm bilgileri de dahil olmak üzere genel salt okunur erişim. Rol, ayrıca Office 365 güvenlik ve Uyumluluk Merkezi salt okunur izni verir. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Güvenlik okuyucu**: kullanıcılar bu rol ile Azure Active Directory, kimlik koruması, Privileged Identity Management, aynı zamanda Özelliği Azure Active Directory oturum açma raporları okuma ve Denetim günlükleri için tüm bilgileri de dahil olmak üzere genel salt okunur erişim. Rol, ayrıca Office 365 güvenlik ve Uyumluluk Merkezi salt okunur izni verir. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Hizmet desteği Yöneticisi**: Bu rolü olan kullanıcılar açabilir destek istekleri ile Microsoft Azure ve Office 365 Hizmetleri ve hizmet panosunu ve ileti merkezi Azure portal ve Office 365 Yönetici portalı görünümler için. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -95,7 +95,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 ## <a name="administrator-permissions"></a>Yönetici izinleri
 
-### <a name="billing-administrator"></a>Faturalama Yöneticisi
+### <a name="billing-administrator"></a>Faturalama yöneticisi
 
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
@@ -112,12 +112,12 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 | --- | --- |
 |<p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Kullanıcı parolalarını sıfırlama</p><p>Diğer yönetici parolalarını sıfırlama</p> <p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |Yok |
 
-### <a name="password-administrator"></a>Parola Yöneticisi
+### <a name="password-administrator"></a>Parola yöneticisi
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
 | <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcı parolalarını sıfırlama</p> <p>Diğer yönetici parolalarını sıfırlama</p>|<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Raporları görüntüleme</p>|
 
-### <a name="service-administrator"></a>Hizmet Yöneticisi
+### <a name="service-administrator"></a>Hizmet yöneticisi
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
 | <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p> |<p>Kullanıcı parolalarını sıfırlama</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Denetim günlüklerini görüntüleme</p> |

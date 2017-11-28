@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: d9816f53e1d0e09f938452a022c75a3d20a43da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Uygulamaları Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -178,7 +178,7 @@ Aşağıdaki bölümde kaynak uygulama bildirimi değiştirerek erişim kapsamla
   }
   ```
   > [!NOTE]
-  > "İd" değeri bir GUID oluşturma aracı [GUIDgen] gibi kullanılarak oluşturulan gerekir] (https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) veya program aracılığıyla. Bu web API'si tarafından gösterilen kapsamı için benzersiz bir tanımlayıcı temsil eder. Bir istemci web API'nize erişmek için gerekli izinlere sahip uygun şekilde yapılandırıldıktan sonra Azure AD tarafından bir OAuth2.0 erişim belirteci verilir. İstemci web API çağrıları, bu kapsamı (scp) erişim belirteci gösterdiğinde talep kendi uygulama kaydı istenen izinleri ayarlayın.
+  > "İd" değeri bir GUID oluşturma aracı kullanılarak oluşturulması gerektiğini [GUIDgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) veya program aracılığıyla. Bu web API'si tarafından gösterilen kapsamı için benzersiz bir tanımlayıcı temsil eder. Bir istemci web API erişim izinleriyle birlikte uygun şekilde yapılandırıldıktan sonra Azure AD tarafından bir OAuth2.0 erişim belirteci verilir. İstemci web API çağrıları, bu kapsamı (scp) erişim belirteci gösterdiğinde talep kendi uygulama kaydı istenen izinleri ayarlayın.
   >
   > Ek kapsamlar daha sonra gerektikçe getirebilir. Web API çeşitli farklı işlevler ile ilişkili birden çok kapsam doğurabilir göz önünde bulundurun. Kaynağınız kapsamı değerlendirerek çalışma zamanında web API erişimi denetleyebilirsiniz (`scp`) talepleri alınan OAuth 2.0 erişim belirteci.
   > 

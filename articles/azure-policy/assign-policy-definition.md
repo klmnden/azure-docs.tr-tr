@@ -9,11 +9,11 @@ ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a1b2f72cf33c740a52cf817766e9950a04886141
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure ortamınızda uyumlu olmayan kaynakları tanımlamak için bir ilke atamasını oluşturma
 Azure'da anlama uyumluluk ilk adımı, kendi geçerli kaynaklarla göze burada bilmektir. Bu hızlı başlangıç yönetilen diskleri kullanmıyorsanız sanal makineleri tanımak amacıyla bir ilke atamasını oluşturma sürecinde adımları.
@@ -62,7 +62,7 @@ Bu hızlı başlangıç biz bir ilke ataması oluşturmak ve atamak *yönetilen 
 5. Bir görüntü sağlamak **adı** ilke ataması için. Bu durumda, kullanalım *yönetilen diskleri kullanmayın denetim VM'ler*. Ayrıca, isteğe bağlı bir ekleyebilirsiniz **açıklama**. Açıklama, bu ilke ataması tüm bu ortamda oluşturulan sanal yönetilen diskleri kullanmayan makineleri nasıl tanımlayan hakkında ayrıntılı bilgi sağlar.
 6. Fiyatlandırma katmanını değiştirmek **standart** ilkesi var olan kaynaklara uygulanma emin olmak için.
 
-   Azure ilke içinde– iki fiyatlandırma katmanı vardır *serbest* ve *standart*. Ücretsiz katmanı ile ilkeleri yalnızca uygulayabilirsiniz gelecekteki kaynaklardaki standart sırada, ayrıca bunları uyumluluk durumu daha iyi anlamak için var olan kaynakların zorunlu kılabilir. Biz sınırlı önizlemede olduğundan seçmek için bir fatura almaz için henüz bir fiyatlandırma modelini yayımlandı değil *standart*. Daha fazla bilgi için fiyatlandırma hakkında bakın: [fiyatlandırma Azure İlkesi](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Azure ilke içinde– iki fiyatlandırma katmanı vardır *serbest* ve *standart*. Ücretsiz katmanı ile ilkeleri yalnızca uygulayabilirsiniz gelecekteki kaynaklardaki standart sırada, ayrıca bunları uyumluluk durumu daha iyi anlamak için var olan kaynakların zorunlu kılabilir. Biz sınırlı önizlemede olduğundan seçmek için bir fatura almaz için henüz bir fiyatlandırma modelini yayımlandı değil *standart*. Daha fazla bilgi için fiyatlandırma hakkında bakın: [fiyatlandırma Azure İlkesi](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Seçin **kapsam** uygulanacak ilke istiyorsunuz.  Kaynakları gruplandırma ilke ataması üzerinde zorlanan ya da hangi kaynakların bir kapsamı belirler. Bir abonelik için kaynak gruplarını aralığında.
 8. Abonelik (veya kaynak grubu) seçin, daha önce Azure ilkesine tercih ettiğinizde kayıtlı. Bu örnekte, bu abonelik - kullanıyoruz **Azure Analytics kapasite geliştirme**, ancak seçeneklerinizi farklılık gösterir.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 14f73322701dffea283432bf2a25b5e6cd3e9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Anlama ve akış birimi Ayarla
 
@@ -59,7 +59,6 @@ SUs doğru sayıda seçme hakkında daha fazla bilgi için bu sayfaya bakın: [v
 
 > [!Note]
 > Kaç tane SUs seçme girişleri için bölüm yapılandırmasını ve iş için tanımlanan sorgusu belirli bir işin bağlıdır için gereklidir. SUs kota bir iş için en fazla seçebilirsiniz. Varsayılan olarak, belirli bir bölgede en fazla 200 SUs tüm analytics işleri kotası her Azure aboneliği sahiptir. SUs ötesinde Bu kota, abonelikler için artırmak için başvurun [Microsoft Support](http://support.microsoft.com). İş başına SUs için geçerli değerler: 1, 3, 6 ve 6'ın artışlarla yukarı.
-> 1 SU kullanarak üretim işleri önerilmez unutmayın. Biz yalnızca 1 SU işleri prototip oluşturma ve test için kullanmak üzere öneriler genellikle işler.
 
 
 

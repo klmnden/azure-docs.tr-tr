@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/31/2017
+ms.date: 11/23/2017
 ms.author: bsiva
-ms.openlocfilehash: aa7a32ace8354f615a8b8cc137f6bdf48fbadf48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2c5377f7193f8357a7e99ed1ef1a61b066b8ce5f
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Hedef (VMware Azure için) hazırlama
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları (x 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Makalede aşağıdaki varsayılmaktadır:
+Makaleyi varsayılır:
 - Fiziksel sunucuyu korumak için bir kurtarma Hizmetleri kasası oluşturdunuz. Kurtarma Hizmetleri Kasası'nı oluşturabilirsiniz [Azure portal](http://portal.azure.com "Azure portal").
 - Sahip olduğunuz [, şirket içi ortamınızın Kurulumu](./site-recovery-set-up-physical-to-azure.md) fiziksel sunucuları Azure'a çoğaltma için.
 
@@ -39,14 +39,14 @@ Tamamladıktan sonra **adım 1:Select koruma hedefi** ve **2. adım: kaynak haz�
 
 ![Hedef hazırlama](./media/site-recovery-prepare-target-physical-to-azure/prepare-target-physical-to-azure.png)
 
-1. **Abonelik:** açılan menüsünde, fiziksel sunucularınızı çoğaltmak istediğiniz aboneliği seçin.
+1. **Abonelik:** aşağı açılır menüden, fiziksel sunucuları çoğaltmak istediğiniz aboneliği seçin.
 2. **Dağıtım modeli:** (Klasik veya Resource Manager) dağıtım modeli seçin
 
 Seçilen dağıtım modelini temel alan bir doğrulama fiziksel sunucularınızın en az bir uyumlu depolama hesabı ve sanal ağ çoğaltmak için hedef abonelik ve yük devretme olmasını sağlamak için çalıştırılır.
 
 Doğrulamaları başarıyla tamamlandığında, sonraki adıma dönmek için Tamam'ı tıklatın.
 
-Uyumlu Resource Manager depolama hesabı veya sanal ağ yok ya da daha fazla eklemek istediğiniz, tıklayarak bunu yapabilirsiniz **+ depolama hesabı** veya **+ ağ** düğmelerini dikey pencerenin üst kısmında.
+Uyumlu Resource Manager depolama hesabı veya sanal ağ yoksa, tıklatarak bir oluşturabilirsiniz **+ depolama hesabı** veya **+ ağ** sayfanın üst kısmındaki düğmeler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Çoğaltma ayarlarını yapılandırın](./site-recovery-setup-replication-settings-vmware.md).

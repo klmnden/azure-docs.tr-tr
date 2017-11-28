@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage’a ve Azure Storage’da veri taşıma
 Şirket içi verileri Azure Storage (veya tersi) taşımak istiyorsanız, çeşitli yollarla Bunu yapmak için vardır. En uygun bir yaklaşım, senaryoya bağlıdır. Bu makalede farklı senaryolar ve her biri için uygun teklifleri hızlı bir genel bakış sağlar.
@@ -76,4 +76,4 @@ Bkz: [StorSimple](../../storsimple/storsimple-overview.md) daha fazla bilgi içi
 Bkz: [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) daha fazla bilgi için.
 ### <a name="moving-data-faq"></a>Veri SSS taşıma:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>VHD bir bölgesinden diğerine kopyalamadan geçişini sağlayabilir miyim?
-VHD'ler bölge arasında kopyalamak için yalnızca her bölge depolama hesapları arasında veri kopyalamak için yoludur. AZCopy için bunu kullanabilirsiniz. AzCopy komut satırı daha fazla bilgi için yardımcı programı ile veri aktarımı bakın. İçin çok büyük miktarlarda verinin Azure içeri/dışarı aktarma de kullanabilirsiniz. Bkz: [Azure içeri/dışarı aktarma](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) daha fazla bilgi için.
+VHD'ler bölge arasında kopyalamak için yalnızca her bölge depolama hesapları arasında veri kopyalamak için yoludur. AZCopy için bunu kullanabilirsiniz. AzCopy komut satırı daha fazla bilgi için yardımcı programı ile veri aktarımı bakın. İçin çok büyük miktarlarda verinin Azure içeri/dışarı aktarma de kullanabilirsiniz. Bkz: [Azure içeri/dışarı aktarma](https://docs.microsoft.com/azure/storage/storage-import-export-service) daha fazla bilgi için.

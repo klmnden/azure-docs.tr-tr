@@ -12,13 +12,13 @@ ms.devlang: powershell
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
+ms.date: 11/28/2017
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 064a6782970b950543f93c24800998c1f104c8df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af5de1c262bc55b1aa7513ca91b68eb50b44dbb7
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Otomasyon çalışma kitabı kurtarma planlara Ekle
 Bu makalede, Azure Site Recovery kurtarma planlarınızı genişletmek amacıyla Azure Automation ile nasıl tümleşik çalıştığını açıklar. Kurtarma planları korunan sanal makineleri kurtarma Site Recovery ile düzenleyebilirsiniz. Kurtarma planları hem ikincil bulutu için çoğaltma ve çoğaltma Azure için çalışır. Kurtarma planları de yardımcı kurtarma yapmak **tutarlı bir şekilde doğru**, **yinelenebilir**, ve **otomatik**. Vm'lerinizi Azure üzerinden başarısız olursa, Azure Automation tümleştirme kurtarma planlarınızı genişletir. Runbook'ları, ama güçlü bir otomatikleştirme görevleri teklif çalıştırmak için kullanabilirsiniz.

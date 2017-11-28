@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>İç içe geçmiş sanallaştırma Azure VM'deki etkinleştirme
 
@@ -140,7 +140,7 @@ DHCP ana bilgisayar sanal makine dinamik adres ataması için yapılandırmak i�
   
 2. Sihirbazı'nda tıklatın **sonraki** sunucu rollerini sayfasında kadar.
   
-3. Seçmek için tıklatın **DHCP sunucusu** onay kutusunu tıklatın **Özellik Ekle**ve ardından**sonraki** Sihirbazı tamamlanana kadar.
+3. Seçmek için tıklatın **DHCP sunucusu** onay kutusunu tıklatın **Özellik Ekle**ve ardından **sonraki** Sihirbazı tamamlanana kadar.
   
 4. **Yükle**'ye tıklayın.
 
@@ -159,7 +159,7 @@ DHCP ana bilgisayar sanal makine dinamik adres ataması için yapılandırmak i�
 6. Tıklatın **sonraki** sihirbaz tamamlanana kadar tüm varsayılan değerler, bırakarak ardından **son**.
     
 ### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>Seçenek 2: Statik bir IP adresi Konuk sanal makineye el ile ayarlayın.
-Bir IP adresi toe Konuk sanal makinesi dinamik olarak atamak için DHCP yapılandırmadıysanız, statik IP adresi ayarlamak için aşağıdaki adımları izleyin.
+Dinamik olarak Konuk sanal makineye bir IP adresi atamak için DHCP yapılandırmadıysanız, statik IP adresi ayarlamak için aşağıdaki adımları izleyin.
 
 1. Azure VM'de, bir yönetici olarak PowerShell'i açın.
 

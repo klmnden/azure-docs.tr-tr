@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı ile Kiracı deseni başına veritabanı kullanan bir çok kiracılı SaaS uygulaması keşfedin
 
@@ -173,11 +173,11 @@ Bir yük kiracılar koleksiyonu karşı çalışan başladıktan, dağıtılan k
 
 Yük oluşturucu birkaç dakikadır çalışıyorsa havuz ve veritabanlarında yerleşik olarak bulunan izleme olanaklarının bazılarını incelemeye başlamak için yeteri kadar verinin bulunması gerekir.
 
-1. Sunucuya Gözat **tenants1-dpt -&lt;kullanıcı&gt;**, tıklatıp **Pool1** (yük oluşturucuyu çalışan bir saat için aşağıdaki grafiklerde) havuz için kaynak kullanımı görüntülemek için:
+Sunucuya Gözat **tenants1-dpt -&lt;kullanıcı&gt;**, tıklatıp **Pool1** (yük oluşturucuyu çalışan bir saat için aşağıdaki grafiklerde) havuz için kaynak kullanımı görüntülemek için:
 
    ![havuzu izleme](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
-Alt grafik ilk 5 veritabanlarının eDTU utiization havuzda gösterirken, havuz eDTU kullanımı, üst grafik gösterir.  Bu iki grafik, elastik havuzların ve SQL Veritabanı’nın SaaS uygulaması iş yükleri için ne kadar uygun olduğunu gösterir. Her biri 40 eDTU’ya kadar geçiş yapabilen dört veritabanı, 50 eDTU havuzunda kolayca desteklenmektedir. Tek başına veritabanı olarak sağlanan varsa, her bir S2 olması gerekiyor yaptıkları (WINS'e desteklemek için 50 DTU). 4 tek başına S2 veritabanları maliyetini yaklaşık 3 kez fiyat havuzunun olacaktır ve havuzunun hala yeterli boş alan çok daha fazla veritabanı için vardır. Gerçek dünya durumlarda, SQL veritabanı müşteriler 200 eDTU havuzu 500 veritabanlarında kadar şu anda çalışmıyor. Daha fazla bilgi için [Performans izleme öğreticisini](saas-dbpertenant-performance-monitoring.md) inceleyin.
+Alt grafik ilk 5 veritabanları eDTU kullanımı havuzda gösterirken, havuz eDTU kullanımı, üst grafik gösterir.  Bu iki grafik, elastik havuzların ve SQL Veritabanı’nın SaaS uygulaması iş yükleri için ne kadar uygun olduğunu gösterir. Her biri 40 eDTU’ya kadar geçiş yapabilen dört veritabanı, 50 eDTU havuzunda kolayca desteklenmektedir. Tek başına veritabanı olarak sağlanan varsa, her bir S2 olması gerekiyor yaptıkları (WINS'e desteklemek için 50 DTU). 4 tek başına S2 veritabanları maliyetini yaklaşık 3 kez fiyat havuzunun olacaktır ve havuzunun hala yeterli boş alan çok daha fazla veritabanı için vardır. Gerçek dünya durumlarda, SQL veritabanı müşteriler 200 eDTU havuzu 500 veritabanlarında kadar şu anda çalışmıyor. Daha fazla bilgi için [Performans izleme öğreticisini](saas-dbpertenant-performance-monitoring.md) inceleyin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

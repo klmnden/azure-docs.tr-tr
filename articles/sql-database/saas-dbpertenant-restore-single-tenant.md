@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Bir çok kiracılı SaaS uygulaması bir tek kiracılar Azure SQL veritabanını geri yükleyin
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Bir çok kiracılı SaaS uygulaması tek bir kiracının Azure SQL veritabanını geri yükleyin
 
-Wingtip SaaS uygulama, her bir kiracı kendi veritabanına sahip olduğu bir kiracı başına veritabanı modeli kullanılarak oluşturulur. Bu modelin avantajlarından biri, diğer kiracılar etkilemeden yalıtım tek bir kiracının verileri geri yüklemek kolay olmasıdır.
+Wingtip biletleri SaaS uygulama, her bir kiracı kendi veritabanına sahip olduğu bir kiracı başına veritabanı modeli kullanılarak oluşturulur. Bu modelin avantajlarından biri, diğer kiracılar etkilemeden yalıtım tek bir kiracının verileri geri yüklemek kolay olmasıdır.
 
 Bu öğreticide iki veri kurtarma desenleri öğrenin:
 
@@ -53,9 +53,9 @@ Kiracı geri yükleme düzeni için tek bir kiracının verileri geri yüklemek 
 
 Kiracı kaybı veya veri bozulması karşılaştığını kabul eder, ikinci desende kiracının üretim veritabanını zamandaki önceki bir noktaya geri yüklendi. Veritabanını geri ve tekrar çevrimiçi duruma geri yükleme yeri düzeninde, Kiracı kısa bir süre için çevrimdışı hale getirilir. Özgün veritabanı silinir, ancak zaman içinde daha önceki bir noktaya geri dönmek gerekiyorsa hala gelen geri yüklenebilir. Bu desen çeşitlemesi silmeden yerine veritabanını yeniden adlandırın, veritabanının yeniden adlandırılmasına rağmen hiçbir ek avantajı veri güvenliği açısından sunar.
 
-## <a name="get-the-wingtip-application-scripts"></a>Wingtip uygulama betiklerini alma
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama komut dosyaları alma
 
-Wingtip SaaS komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) github depo. [Wingtip SaaS komut dosyalarını karşıdan yüklemek için adımları](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Yanlışlıkla veri silme Kiracı benzetimi
 
@@ -146,6 +146,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* Ek [Wingtip SaaS uygulamasına yapı öğreticileri](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Wingtip SaaS uygulamasına yapı ek öğreticileri](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure SQL Database iş sürekliliğine genel bakış](sql-database-business-continuity.md)
 * [SQL veritabanı yedeklemeleri hakkında bilgi edinin](sql-database-automated-backups.md)

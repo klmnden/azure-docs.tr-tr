@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
 ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: db8a079c76f38bbf7b90f8d914ce1bbf192343d7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ddad47ccac57ddbb9387709ababbc5be6bad3462
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Birden çok Azure SQL veritabanları arasında geçici analitik sorguları çalıştırma
 
-Bu öğreticide, dağıtılmış sorgular geçici etkileşimli raporlamayı etkinleştirmek için veritabanlarını Kiracı kümesinin tamamını çalıştırın. Bu sorguları Wingtip biletleri SaaS uygulamasının işlemsel günlük veri kaçınma Öngörüler ayıklayabilirsiniz. Bunu yapmak için bir ek analiz veritabanı katalog sunucusuna dağıtır ve esnek sorgu dağıtılmış sorgular etkinleştirmek için kullanın.
+Bu öğreticide, dağıtılmış sorgular geçici etkileşimli raporlamayı etkinleştirmek için veritabanlarını Kiracı kümesinin tamamını çalıştırın. Bu sorguları Wingtip biletleri SaaS uygulamasının işlemsel günlük veri kaçınma Öngörüler ayıklayabilirsiniz. Bunu yapmak için bir ek analiz veritabanı katalog sunucusuna dağıtın ve esnek sorgu dağıtılmış sorgular etkinleştirmek için kullanın.
 
 
 Bu öğreticide şunları öğrenirsiniz:
@@ -57,7 +57,7 @@ Kiracı veritabanları arasında sorguları dağıtarak, esnek sorgu Canlı üre
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama komut dosyaları alma
 
-Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant github deposuna](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/). Engellemesini Benioku özetlenen adımları izlediğinizden emin olun.
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 
 ## <a name="create-ticket-sales-data"></a>Bilet satış verileri oluşturma
 
@@ -71,9 +71,9 @@ Daha ilginç bir veri kümesi karşı sorguları çalıştırmak için bilet Olu
 
 Her bir kiracı başına Wingtip biletleri SaaS veritabanı Kiracı uygulamada bir veritabanı verilir. Bu nedenle, veritabanında tablolarda bulunan verileri tek bir kiracı perspektife kapsamlıdır. Ancak, tüm veritabanları arasında sorgularken, tek bir mantıksal veritabanı parçalı Kiracı tarafından parçası ise gibi esnek sorgu verileri davranabilirsiniz önemlidir. 
 
-Bu deseni benzetimini yapmak için 'global' görünüm kümesi eklenir Kiracı veritabanı proje Kiracı kimliği her genel sorgulanır tablolar. Örneğin, *VenueEvents* görünüm ekler bir hesaplanan *VenueId* gelen öngörülen sütunlara *olayları* tablo. Benzer şekilde, *VenueTicketPurchases* ve *VenueTickets* görünümler ekleyebilir bir hesaplanan *VenueId* sütun öngörülen kendi ilgili tablolardan. Bu görünümler sorgular ve anında iletme bunları uygun uzak Kiracı aşağıya doğru veritabanı ne zaman paralel hale esnek sorgu tarafından kullanılan bir *VenueId* sütundur mevcut. Bu iade edilir ve çok sayıda sorgu performansını önemli bir artış sonuçlanır veri miktarını önemli ölçüde azaltır. Bu genel görünümler tüm Kiracı veritabanları önceden oluşturulmuştur.
+Bu desen benzetimini yapmak için 'global' görünüm kümesi eklenir Kiracı veritabanı bu projeye Kiracı kimliği genel sorgulanır tabloların her biri. Örneğin, *VenueEvents* görünüm ekler bir hesaplanan *VenueId* gelen öngörülen sütunlara *olayları* tablo. Benzer şekilde, *VenueTicketPurchases* ve *VenueTickets* görünümler ekleyebilir bir hesaplanan *VenueId* sütun öngörülen kendi ilgili tablolardan. Bu görünümler sorgular ve anında iletme bunları uygun uzak Kiracı aşağıya doğru veritabanı ne zaman paralel hale esnek sorgu tarafından kullanılan bir *VenueId* sütundur mevcut. Bu iade edilir ve çok sayıda sorgu performansını önemli bir artış sonuçlanır veri miktarını önemli ölçüde azaltır. Bu genel görünümler tüm Kiracı veritabanları önceden oluşturulmuştur.
 
-1. SSMS açın ve [tenants1 için bağlantı&lt;kullanıcı&gt; server](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. SSMS açın ve [tenants1 için bağlantı&lt;kullanıcı&gt; server](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Genişletme **veritabanları**, sağ **contosoconcerthall**seçip **yeni sorgu**.
 3. Tek Kiracı tablolar ve genel görünümler arasındaki farkı keşfetmek için aşağıdaki sorgular çalıştırın:
 
@@ -95,7 +95,7 @@ Bu görünümlerdeki *VenueId* Salonundan adı, ancak herhangi bir yaklaşım ka
 
 Tanımını incelemek için *görebildikleri* görünümü:
 
-1. İçinde **Object Explorer**, genişletin **contosoconcethall** > **görünümleri**:
+1. İçinde **Object Explorer**, genişletin **contosoconcerthall** > **görünümleri**:
 
    ![Görünümler](media/saas-tenancy-adhoc-analytics/views.png)
 
@@ -121,13 +121,13 @@ Bu alıştırmada tüm Kiracı veritabanları arasında sorgulama sağlayan geç
 
 1. SQL Server Management Studio'yu açın ve önceki adımda oluşturduğunuz geçici raporlama veritabanına bağlanın. Veritabanı adı *adhocreporting*.
 2. Açık ...\Learning Modules\Operational Analytics\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* SSMS içinde.
-3. SQL komut dosyasını gözden geçirin ve aşağıdakilere dikkat edin:
+3. Not ve SQL komut dosyasını gözden geçirin:
 
    Esnek sorgu veritabanı kapsamlı bir kimlik bilgisi her bir kiracı veritabanı erişmek için kullanır. Bu kimlik bilgileri tüm veritabanlarında kullanılabilir olması ve genellikle verilen en düşük hakları bu geçici sorgular etkinleştirmek için gerekli olması.
 
     ![kimlik bilgisi oluşturma](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
-   Kiracı parça eşleme katalog veritabanında kullanmak için tanımlanan dış veri kaynağı. Bu dış veri kaynağı olarak kullanarak, sorguları sorgu çalıştığında ve kataloğa kayıtlı tüm veritabanları için dağıtılır. Sunucu adları için her bir dağıtım farklı olduğundan, bu başlatma betiği Katalog veritabanı konumunu geçerli sunucu alarak alır (@@servername) komut dosyası yürütüldüğü.
+   Dış veri kaynağı olarak Katalog veritabanı kullanarak, sorguları sorgu çalıştığında ve kataloğa kayıtlı tüm veritabanları için dağıtılır. Sunucu adları için her bir dağıtım farklı olduğundan, bu başlatma betiği Katalog veritabanı konumunu geçerli sunucu alarak alır (@@servername) komut dosyası yürütüldüğü.
 
     ![Dış veri kaynağı oluşturun](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
@@ -151,7 +151,7 @@ Bu alıştırmada tüm Kiracı veritabanları arasında sorgulama sağlayan geç
 
 Yürütme planı incelerken, Ayrıntılar için plan simgeleri üzerine gelerek. 
 
-Dikkat edilecek önemli olduğundan, ayar **dağıtım SHARDED(VenueId) =** biz dış veri kaynağına tanımlandığında, çok sayıda senaryoları için performansı geliştirir. Çünkü her *VenueId* eşlemeleri tek bir veritabanı için filtreleme kolayca yapılır uzaktan ihtiyacımız yalnızca veriyor.
+Dikkat edilecek önemli olduğundan, ayar **dağıtım SHARDED(VenueId) =** dış veri kaynağı zaman tanımlanan birçok senaryo için performansı geliştirir. Her *VenueId* eşlemeleri tek bir veritabanı için filtreleme kolayca yapılır uzaktan, yalnızca gerekli verileri döndürüyor.
 
 1. Aç... \\Modülleri öğrenme\\işletimsel Analytics\\geçici raporlama\\*Demo AdhocReportingQueries.sql* SSMS içinde.
 2. Bağlı olduğunuzdan emin olun **adhocreporting** veritabanı.
@@ -160,7 +160,7 @@ Dikkat edilecek önemli olduğundan, ayar **dağıtım SHARDED(VenueId) =** biz 
 
    Sorgu nasıl hızlı gösteren tüm salonundan listesini döndürür ve onu tüm kiracılar arasında sorgulamak ve her bir kiracı verileri döndürmek için kolaydır.
 
-   Plan inceleyebilir ve geçerli yalnızca her bir kiracı veritabanı için giderek, salonundan bilgi seçme çünkü tüm maliyetini uzak sorgu olduğunu görürsünüz.
+   Plan inceleyebilir ve her bir kiracı veritabanı salonundan bilgilerini döndürür ve kendi sorgu işler çünkü tüm maliyetini uzak sorgu olduğunu görürsünüz.
 
    ![SEÇİN * dbo gelen. Görebildikleri](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
@@ -168,13 +168,13 @@ Dikkat edilecek önemli olduğundan, ayar **dağıtım SHARDED(VenueId) =** biz 
 
    Bu sorgu Kiracı veritabanları ve yerel verileri birleştirir *VenueTypes* tablosu (olarak yerel bir tablo *adhocreporting* veritabanı).
 
-   Plan inceleyin ve her bir kiracının salonundan bilgisi (dbo. Biz sorgulamak için maliyet çoğunluğu uzak sorgu olmadığını bakın Görebildikleri) ve yerel ile hızlı yerel bir birleşme yapın *VenueTypes* kolay adını görüntülemek için tablo.
+   Plan inceleyebilir ve maliyet çoğunluğu uzak sorgu olduğunu görürsünüz. Her Kiracı veritabanı salonundan bilgilerini döndürür ve yerel ile yerel bir birleşme gerçekleştirir *VenueTypes* kolay adını görüntülemek için tablo.
 
    ![Uzak ve yerel verileri birleştirme](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. Şimdi seçin *hangi gününde en bilet satış yapıldığını?* sorgu ve tuşuna **F5**.
 
-   Bu sorgu, biraz daha karmaşık birleştirme ve toplama işlemlerini gerçekleştirir. Dikkat edilecek önemli işlemlerin çoğunu uzaktan yapılır ve yine de geri getirmek biz yalnızca, her salonundan 's toplama bilet satış sayısı her gün için yalnızca tek bir satır döndürme ihtiyacımız satırları ' dir.
+   Bu sorgu, biraz daha karmaşık birleştirme ve toplama işlemlerini gerçekleştirir. Dikkat edilecek önemli işlemlerin çoğunu uzaktan yapılır ve bir kez daha, yalnızca satır döndürür gerekli gün başına her salonundan 's toplama bilet satış sayısı için tek bir satır var.
 
    ![sorgu](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 
@@ -189,7 +189,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Bir ad hoc raporlama veritabanı dağıtmak ve dağıtılmış sorgular çalıştırmak için şema ekleyin.
 
 
-Şimdi deneyin [Kiracı Analytics öğretici](saas-tenancy-tenant-analytics.md) daha karmaşık analitik işleme için ayrı analytics veritabanı ayıklanan verileri araştırmak için...
+Şimdi deneyin [Kiracı Analytics öğretici](saas-tenancy-tenant-analytics.md) daha karmaşık analitik işleme için ayrı analytics veritabanı ayıklanan verileri araştırmak için.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
