@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 701a7296368cd8150eedf8cc50b989fdf6112101
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: c3eaa4d490b61b746e427d2fe2640ae5cdd6032c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Veritabanı’nı kullanan çok kiracılı bir uygulamada birden fazla kiracı için Şemayı yönetme
+# <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database kullanan çok kiracılı bir uygulama içinde birden çok Kiracı için şema yönetme
 
 [İlk başına Wingtip biletleri SaaS veritabanı Kiracı öğretici](saas-dbpertenant-get-started-deploy.md) nasıl uygulama bir kiracı veritabanı sağlamak ve kataloğa kaydetmek gösterir. Herhangi bir uygulama gibi başına Wingtip biletleri SaaS veritabanı Kiracı uygulama zamanla gelişmesi ve bazen, veritabanı için değişiklik yapılmasını gerektirir. Değişiklikler; yeni veya değiştirilmiş şema, yeni ya da değiştirilmiş başvuru verileri ve en iyi uygulama performansını sağlayan rutin veritabanı bakım görevlerini içerebilir. SaaS uygulamasıyla, bu değişikliklerin oldukça büyük olabilecek bir kiracı veritabanı filosunda eşgüdümlü şekilde dağıtılması gerekir. Bu değişiklikler Kiracı veritabanları gelecekte olmasını sağlama işlemine yapılması ihtiyaç duyar.
 
@@ -44,10 +44,10 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 * Azure PowerShell’in yüklendiğinden. Ayrıntılar için bkz. [Azure PowerShell’i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * SQL Server Management Studio’nun (SSMS) en son sürümünün yüklendiğinden. [SSMS’yi İndirin ve Yükleyin](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
-*Bu öğretici, SQL Veritabanı hizmetinin sınırlı önizleme (Elastik Veritabanı işleri) olarak sunulan özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun SaaSFeedback@microsoft.com ile ilgili sorular veya destek.*
+> [!NOTE]
+> Bu öğretici bir sınırlı (esnek veritabanı iş) önizlemede SQL veritabanı hizmetinin özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun SaaSFeedback@microsoft.com ile ilgili sorular veya destek.
 
-
-## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS Şema Yönetimi düzenlerine giriş
+## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS şema yönetimi desenleri giriş
 
 Veritabanı başına tek kiracı SaaS düzeni, elde edilen veri yalıtımından birçok farklı şekilde yararlanır, ancak aynı zamanda çok sayıda veritabanının korunması ve yönetilmesi için süreci daha karmaşık hâle getirir. [Esnek işler](sql-database-elastic-jobs-overview.md), SQL veri katmanının yönetimini kolaylaştırır. İşler, bir veritabanı grubuna yönelik kullanıcı etkileşimi veya girişlerinden bağımsız olarak güvenilir bir şekilde görev (T-SQL betikleri) çalıştırmanıza imkan tanır. Bu yöntemi kullanılarak bir uygulamadaki tüm kiracılara şema ve ortak başvuru verisi değişikliklerini dağıtılabilir. Esnek İşler, yeni kiracı oluşturmak amacıyla kullanılan veritabanının *altın* kopyasını tutmak ve her zaman en yeni şemaya ve başvuru verilerine sahip olmasını sağlamak için de kullanılabilir.
 
@@ -59,11 +59,11 @@ Veritabanı başına tek kiracı SaaS düzeni, elde edilen veri yalıtımından 
 Esnek İşler’in artık Azure SQL Veritabanı’nın (ek hizmet veya bileşen gerektirmeyen) tümleşik bir özelliği olan yeni bir sürümü vardır. Esnek İşler’in bu yeni sürümü, şu anda sınırlı önizlemeyle sunulmaktadır. Bu sınırlı önizleme, iş hesapları oluşturmak için PowerShell’i ve işleri oluşturmak ve yönetmek için T-SQL’i desteklemektedir.
 
 > [!NOTE]
-> *Bu öğretici, SQL Veritabanı hizmetinin sınırlı önizleme (Elastik Veritabanı işleri) olarak sunulan özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun SaaSFeedback@microsoft.com ile ilgili sorular veya destek.*
+> Bu öğretici bir sınırlı (esnek veritabanı iş) önizlemede SQL veritabanı hizmetinin özelliklerini kullanır. Bu öğreticiyi tamamlamak istiyorsanız konu satırına Esnek İşler Önizlemesi yazarak abonelik kimliğinizi SaaSFeedback@microsoft.com adresine gönderin. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun SaaSFeedback@microsoft.com ile ilgili sorular veya destek.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama komut dosyaları alma
 
-Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github depo. [Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını karşıdan yüklemek için adımları](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>İş hesabı veritabanı ve yeni bir iş hesabı oluşturma
 
@@ -91,13 +91,14 @@ Yeni bir iş oluşturmak için iş hesabı oluşturulduğunda jobaccount veritab
 1. Deyim değiştirin: AYARLAMAK @wtpUser = &lt;kullanıcı&gt; ve başına Wingtip biletleri SaaS veritabanı Kiracı uygulama dağıtıldığında kullanılan kullanıcı değerini değiştirin
 1. jobaccount veritabanına bağlandığınızdan emin olun ve betiği çalıştırmak için **F5**’e basın
 
+Aşağıdakileri gözlemlemek *DeployReferenceData.sql* komut dosyası:
 * **sp\_add\_target\_group**, hedef grubu adı DemoServerGroup’u oluşturur, artık hedef üyeleri eklememiz gerekiyor.
 * **SP\_ekleme\_hedef\_grup\_üye** ekler bir *server* hedef sunucu içindeki tüm veritabanları uymak açısından gerekli olduğunu üye türü (Bu tenants1 Not - dpt - &lt;Kullanıcı&gt; server Kiracı veritabanları içeren) işi aynı anda yürütme işinde ikinci ekleme eklenmesi gereken bir *veritabanı* hedef üye türü, özellikle 'Altın' Kataloğu'nda bulunan veritabanı (basetenantdb)-dpt -&lt;kullanıcı&gt; sunucusu ve son olarak başka bir *veritabanı* hedef sonraki bir kullanılan adhocanalytics veritabanına eklemek için grubu üye türü öğretici.
 * **sp\_add\_job**, “Başvuru Verileri Dağıtımı” adında bir iş oluşturur
 * **SP\_ekleme\_iş** VenueTypes başvuru tablosu güncelleştirmek için T-SQL komut metni içeren işi adımı oluşturur
 * Betikteki kalan görünümler, nesnelerin varlığını gösterir ve işin yürütülüşünü izler. Durum değeri gözden geçirmek için bu sorguları kullanmak **yaşam döngüsü** zaman işi başarıyla tüm Kiracı veritabanları ve başvuru tablosu içeren iki ek veritabanları tamamlandı belirlemek için sütun.
 
-1. SSMS, Gözat *contosoconcerthall* üzerinde veritabanı *tenants1-dpt -\<kullanıcı\>*  sunucusunda ve sorgu *VenueTypes* tablosu onaylayın *Motosikletinizin yarış* ve *yüzme kulübü* **olan** artık sonuçlar listesinde.
+SSMS, Gözat *contosoconcerthall* üzerinde veritabanı *tenants1-dpt -\<kullanıcı\>*  sunucusunda ve sorgu *VenueTypes* tablosu onaylayın *Motosikletinizin yarış* ve *yüzme kulübü* **olan** artık sonuçlar listesinde.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Başvuru tablosu dizinini yönetmek için bir iş oluşturma
@@ -111,9 +112,10 @@ Aynı iş “sistem” saklı yordamlarını kullanarak bir iş oluşturun.
 1. Sağ tıklayın, bağlantıyı seçin ve kataloğa bağlanması-dpt -&lt;kullanıcı&gt;. database.windows.net sunucusu zaten bağlıysa,
 1. jobaccount veritabanına bağlandığınızdan emin olun ve betiği çalıştırmak için F5’e basın
 
-* sp\_add\_job, “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885” adlı yeni bir iş oluşturur
-* sp\_add\_jobstep, dizini güncelleştirecek T-SQL komut metnini içeren iş adımını oluşturur
-
+Aşağıdakileri gözlemlemek *OnlineReindex.sql* komut dosyası:
+* **SP\_ekleme\_iş** adlı yeni bir iş oluşturur "çevrimiçi arat PK\_\_VenueTyp\_\_265E44FD7FD4C885"
+* **SP\_ekleme\_iş** dizini güncelleştirmek için T-SQL komut metni içeren işi adımı oluşturur
+* Kalan görünümlerde betik iş yürütme izleyin. Durum değeri gözden geçirmek için bu sorguları kullanmak **yaşam döngüsü** zaman işi başarıyla üzerindeki tüm hedef grup üyeleri tamamlandı belirlemek için sütun.
 
 
 
@@ -127,7 +129,7 @@ Bu öğreticide, şunları öğrendiniz:
 > * Tüm kiracı veritabanlarında verileri güncelleştirme
 > * Tüm kiracı veritabanlarında bir tabloda dizin oluşturma
 
-[Geçici analizler öğreticisi](saas-tenancy-adhoc-analytics.md)
+Ardından, deneyin [geçici raporlama Öğreticisi](saas-tenancy-adhoc-analytics.md).
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar

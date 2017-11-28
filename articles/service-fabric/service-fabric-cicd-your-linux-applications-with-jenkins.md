@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 4e1f2f7d63666315f363caa8fec272ec2b6f18fc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8fcce0e3fea8f0789e198d19754f93dcdf0c84f9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins Linux uygulamaları geliştirmek ve dağıtmak için kullanın
 Jenkins, uygulamanızın sürekli tümleştirme ve dağıtımı için yaygın olarak kullanılan bir araçtır. Jenkins kullanarak Azure Service Fabric uygulamanızı derleme ve dağıtma işlemi aşağıda açıklanmaktadır.
@@ -42,24 +42,24 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
    > [!NOTE]
    > 8081 bağlantı noktası küme üzerinde özel bir uç noktası olarak belirtildiğinden emin olun.
    >
-2. Uygulama, aşağıdaki adımları kullanarak kopyalama:
 
+2. Uygulama, aşağıdaki adımları kullanarak kopyalama:
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-cd service-fabric-java-getting-started/Services/JenkinsDocker/
-```
+  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  ```
 
 3. Bir dosya paylaşımı Jenkins kapsayıcısında durumunu Sürdür:
   * Bir Azure depolama hesabı oluşturun **aynı bölgede** kümeniz gibi bir adla ``sfjenkinsstorage1``.
   * Oluşturma bir **dosya paylaşımı** altında depolama hesap adı ile gibi ``sfjenkins``.
   * Tıklayın **Bağlan** Not ve dosya paylaşımı için değerleri altında görüntülediği **Linux bağlanma**, değer birine benzer görünmelidir:
-```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
-```
+  ```sh
+  sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+  ```
 
-> [!NOTE]
-> Bağlama CIFS paylaşımlar için küme düğümlerinde yüklü CIFS yardımcı programları paketi olması gerekir.         
->
+  > [!NOTE]
+  > Bağlama CIFS paylaşımlar için küme düğümlerinde yüklü CIFS yardımcı programları paketi olması gerekir.       
+  >
 
 4. Yer tutucu değerlerini güncelleştirmek ```setupentrypoint.sh``` 3. adımındaki azure depolama ayrıntılarla komut dosyası.
 ```sh
@@ -68,16 +68,33 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
   * Değiştir ``[REMOTE_FILE_SHARE_LOCATION]`` değerle ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` Bağlan çıktısından Yukarıdaki 3. adım.
   * Değiştir ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` değerle ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` gelen Yukarıdaki 3. adım.
 
-5. Kümeye bağlanın ve kapsayıcı uygulamayı yükleyin.
-```sh
-sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
-bash Scripts/install.sh
-```
-Bu işlem, kümeye bir Jenkins kapsayıcısı yükler ve küme, Service Fabric Explorer kullanılarak izlenebilir.
+5. **Yalnızca güvenli küme:** Jenkins güvenli bir kümeden üzerinde uygulamalarının dağıtımını yapılandırmak için sertifika Jenkins kapsayıcı içinde erişilebilir olmalıdır. Linux kümelerinde certificates(PEM) yalnızca kopyalanır üzerinden kapsayıcı X509StoreName tarafından belirtilen deposundan. ContainerHostPolicies altında ApplicationManifest içinde bu sertifika başvurusu ekleyin ve parmak izi değerini güncelleştirin. Parmak izi değeri bir sertifika, düğümde bulunduğundan emin olması gerekir.
+  ```xml
+  <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
+  ```
+  > [!NOTE]
+  > Parmak izi değeri güvenli kümeye bağlanmak için kullanılan sertifika ile aynı olması gerekir. 
+  >
 
-   > [!NOTE]
-   > Birkaç kümede indirilmesi Jenkins görüntüsü için dakika sürebilir.
-   >
+6. Kümeye bağlanın ve kapsayıcı uygulamayı yükleyin.
+
+  **Güvenli küme**
+  ```sh
+  sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  **Güvenli olmayan küme**
+  ```sh
+  sfctl cluster select --endpoint http://PublicIPorFQDN:19080 # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  Bu işlem, kümeye bir Jenkins kapsayıcısı yükler ve küme, Service Fabric Explorer kullanılarak izlenebilir.
+
+    > [!NOTE]
+    > Birkaç kümede indirilmesi Jenkins görüntüsü için dakika sürebilir.
+    >
 
 ### <a name="steps"></a>Adımlar
 1. Tarayıcınızdan ``http://PublicIPorFQDN:8081`` sayfasına gidin. Bu işlem, oturum açmak için gereken ilk yönetici parolasının yolunu sağlar. 
@@ -176,13 +193,19 @@ Burada, bir eklentiyi karşıya yükleyebilirsiniz. Seçin **dosya**ve ardından
 
     ![Service Fabric Jenkins Derleme eylemi][build-step-dotnet]
   
-   h. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. Burada, Jenkins tarafından derlenen Service Fabric uygulamasının dağıtılacağı kümenin ayrıntılarını sağlamanız gerekir. Uygulamayı dağıtmak için kullanılan ek uygulama ayrıntıları da sağlayabilirsiniz. Bunun nasıl göründüğüne ilişkin bir örnek için aşağıdaki ekran görüntüsüne bakın:
+   h. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. Burada, Jenkins tarafından derlenen Service Fabric uygulamasının dağıtılacağı kümenin ayrıntılarını sağlamanız gerekir. Sertifika yolunu Yankı kapsayıcı içindeki Certificates_JenkinsOnSF_Code_MyCert_PEM ortam değişkeni değeri Yankı tarafından bulunabilir. Bu yol, istemci anahtarı ve istemci sertifikası alanları için kullanılabilir.
+
+      ```sh
+      echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
+      ```
+   
+    Uygulamayı dağıtmak için kullanılan ek uygulama ayrıntıları da sağlayabilirsiniz. Bunun nasıl göründüğüne ilişkin bir örnek için aşağıdaki ekran görüntüsüne bakın:
 
     ![Service Fabric Jenkins Derleme eylemi][post-build-step]
 
-    > [!NOTE]
-    > Burada küme, Jenkins kapsayıcı görüntüsünü dağıtmak için Service Fabric kullandığınız durumda Jenkins kapsayıcı uygulamasını barındıran kümeyle aynı olabilir.
-    >
+      > [!NOTE]
+      > Burada küme, Jenkins kapsayıcı görüntüsünü dağıtmak için Service Fabric kullandığınız durumda Jenkins kapsayıcı uygulamasını barındıran kümeyle aynı olabilir.
+      >
 
 ## <a name="next-steps"></a>Sonraki adımlar
 GitHub ve Jenkins yapılandırılmıştır. https://github.com/sayantancs/SFJenkins depo örneğinde, ``MyActor`` projenizde bazı örnek değişiklikler yapmayı düşünün. Değişikliklerinizi uzak ``master`` dalına (veya birlikte çalışmak üzere yapılandırdığınız herhangi bir dala) gönderin. Bunun yapılması, yapılandırmış olduğunuz ``MyJob`` Jenkins işini tetikler. Bu işlem GitHub’dan değişiklikleri getirir, derler ve derleme sonrası eylemlerde belirttiğiniz küme uç noktasına uygulamayı dağıtır.  

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD cloud App Discovery ayarlayın
 
@@ -37,7 +37,7 @@ Azure ad cloud App Discovery, artık Microsoft Cloud App Security kullanılabili
 
 2. [Set up sürekli reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker) Cloud App Security günlük Toplayıcı kullanarak ağ üzerinden iletilen tüm günlüklerini çözümlemek için. Yeni uygulamalar ve kullanım eğilimleri belirlemek için kullanabilirsiniz.
 
-3. Günlüklerinizi şu anda desteklenmemektedir, [özel günlük ayrıştırıcı kümesi](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser) böylece Cloud App Discovery analiz edebilirsiniz.
+3. Günlüklerinizi şu anda desteklenmemektedir, [özel günlük ayrıştırıcı kümesi](https://docs.microsoft.com/cloud-app-security/custom-log-parser) böylece Cloud App Discovery analiz edebilirsiniz.
   
 ## <a name="log-processing-flow"></a>Günlük akışı işlemi
 

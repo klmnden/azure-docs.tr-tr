@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6eb37ef4e836bd33a77180ef5aa8589ca5139af
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux Azure dosyaları sorunlarını giderme
 
@@ -154,6 +154,21 @@ Bu sorunun olası nedenler şunlardır:
 ### <a name="solution"></a>Çözüm
 
 Sorunu gidermek için [Azure Linux üzerinde hataları takma dosyaları için sorun giderme aracı](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Bu araç, ortam çalıştıran istemcide doğrulamak için Azure dosyaları için erişim hatası neden olacağından için kendi kendine düzeltme tavsiyeler sağlar ve diğer tanılama izlemelerini toplar uyumsuz istemci yapılandırmasını algılama yardımcı olur.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: erişemiyor '&lt;yolu&gt;': Giriş/Çıkış hatası
+
+Azure dosya paylaşımının liste dosyalarında ls komutunu kullanarak çalıştığınızda, aşağıdaki hatayı alırsınız:
+
+**ls: erişemiyor '&lt;yolu&gt;': Giriş/Çıkış hatası**
+
+
+### <a name="solution"></a>Çözüm
+Bu sorun için düzeltme olan aşağıdaki sürümleri için Linux çekirdek yükseltme:
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- Büyük veya eşit 4.13 tüm sürümler
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 

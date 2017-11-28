@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: ec93bbb477a047a028328964d3e152c1ab4bb58f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Ayıklanan verileri kullanarak çapraz Kiracı analizi
 
@@ -73,7 +73,7 @@ Her bir kiracı hizmetini nasıl tutarlı bir şekilde kullanarak anlama kendi g
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
 - Wingtip biletleri SaaS çok Kiracı veritabanı uygulama dağıtılır. Beş dakikadan daha kısa bir süre içinde dağıtmak için bkz: [dağıtma ve Wingtip biletleri SaaS çok Kiracı veritabanı uygulama keşfedin.](saas-multitenantdb-get-started-deploy.md)
-- Wingtip SaaS komut dosyalarını ve uygulama [kaynak kodu](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) Github'dan indirilir. Yaptığınızdan emin olun *zip dosyası engellemesini* içeriğinin ayıklanıyor önce.
+- Wingtip SaaS komut dosyalarını ve uygulama [kaynak kodu](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) Github'dan indirilir. Yaptığınızdan emin olun *zip dosyası engellemesini* içeriğinin ayıklanıyor önce. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 - Power BI Desktop yüklenir. [Power BI Desktop'u indirin](https://powerbi.microsoft.com/downloads/)
 - Ek kiracılar toplu sağlanması için bkz: [ **sağlama kiracılar öğretici**](saas-multitenantdb-provision-and-catalog.md).
 - Bir iş hesabı ve iş hesabı veritabanı oluşturuldu. Uygun açıklanan adımları izleyerek [ **şema yönetimi öğretici**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -212,7 +212,7 @@ Yeniden bu mad sağladığından bu görebildikleri tarafından barındırılan 
 
 Desenler satış bilet Öngörüler Wingtip kendi iş modeli en iyi duruma getirme biletleri neden olabilir. Tüm kiracılar eşit şarj yerine, belki de Wingtip hizmet katmanları farklı performans düzeyleriyle eklemeniz gerekir. Gün başına daha fazla bilet satabilir gerek büyük görebildikleri daha yüksek bir hizmet düzeyi sözleşmesi (SLA) ile daha yüksek bir katmanı sunulabilecek. Bu görebildikleri daha yüksek veritabanı başına kaynak sınırları havuzuyla yerleştirilen kendi veritabanlarını olabilir. Her hizmet katmanında bir saatlik satış ayırma ayırma aşan için sizden ücret ek ücretler ile sahip olabilir. Satış düzenli WINS'e sahip büyük görebildikleri daha yüksek katman yararlanabileceğini ve Wingtip biletleri kendi hizmet daha verimli bir şekilde paraya çevirme.
 
-Bu sırada, bazı Wingtip biletleri müşterilerin servis maliyeti yaslamak için yeterli bilet satabilir güçlük şikayetçi. Belki de bu Öngörüler görebildikleri underperforming için bilet satış artırmak için bir fırsat yok. Daha yüksek satış hizmet algılanan değerini artırır. Fact_Tickets sağ tıklatın ve seçin **yeni ölçü**. Aşağıdaki adlı yeni bir ölçü ifadesi girin **AverageTicketsSold**:
+Bu sırada, bazı Wingtip biletleri müşterilerin servis maliyeti yaslamak için yeterli bilet satabilir güçlük şikayetçi. Belki de bu Öngörüler bilet satış görebildikleri gerçekleştirme altında artırmak için bir fırsat yok. Daha yüksek satış hizmet algılanan değerini artırır. Fact_Tickets sağ tıklatın ve seçin **yeni ölçü**. Aşağıdaki adlı yeni bir ölçü ifadesi girin **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))

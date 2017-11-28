@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1b10887bcfa7f7c25375bd990ec5e97d0fefbacf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d0e95014f6ebfc4e0286d3a12999c918f831b489
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Hdınsight Windows tabanlı kümeler için betik eylemi betikleri geliştirme
 Hdınsight için betik eylemi betikler yazma hakkında bilgi edinin. Betik eylemi komut dosyalarını kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md). Linux tabanlı Hdınsight kümeleri için yazılmış aynı makale için bkz: [Hdınsight betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).
@@ -245,7 +245,8 @@ Biz bu komut dosyaları dağıtmak hazırlarken sürdü adımlar şunlardır:
 
 ## <a name="debug-custom-scripts"></a>Özel komut dosyaları hata ayıklama
 Komut dosyası hata günlüklerini oluşturulduktan konumundaki küme için belirtilen varsayılan depolama hesabındaki diğer çıktı birlikte depolanır. Günlükler, adı olan bir tabloda depolanır *u < \cluster-name-fragment >< \time-stamp > setuplog*. Tüm betik kümede çalışan düğümleri (baş düğüm ve çalışan düğümleri) kayıtları toplanmış günlükleri şunlardır.
-Günlükleri denetlemek için kolay bir yol, Visual Studio için Hdınsight araçları kullanmaktır. Araçları yüklemek için bkz: [Visual Studio Hadoop araçlarını için Hdınsight kullanmaya başlama](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+
+Günlükleri denetlemek için kolay bir yol, Visual Studio için Hdınsight araçları kullanmaktır. Araçları yüklemek için bkz: [Visual Studio Hadoop araçlarını için Hdınsight kullanmaya başlama](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-and-upgrade-data-lake-tools-for-visual-studio)
 
 **Visual Studio kullanarak günlüğünü denetlemek için**
 

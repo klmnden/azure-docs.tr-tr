@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Bir Azure bölgesine geri birincil bölge üzerinden gelen yeniden koruma başarısız oldu
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>Genel Bakış
 Olduğunda, [yük devretme](site-recovery-failover.md) diğerine sanal makineleri bir Azure bölgesinden korumasız bir durumda sanal makinelerdir. Birincil bölgesine getirmek istiyorsanız, önce sanal makineleri ve ardından Yük devretme yeniden korumanız gerekir. Nasıl arasında fark yoktur, yük devretme bir yönü veya diğer. Benzer şekilde, sanal makinelerin korumasını etkinleştir işlemleri sonrasında, yeniden koruma post yük devretme veya sonrası yeniden çalışma arasında fark yoktur.
-İş akışlarını yeniden koruma açıklayan ve Karışıklığı önlemek için birincil sitenin korunan makinelerin Doğu Asya bölge ve kurtarma sitesini makinelerin Güneydoğu Asya bölgesinde kullanacağız. Yük devretme sırasında Güneydoğu Asya bölge sanal makinelere yük devretme olur. Yeniden çalışma önce sanal makinelere gelen Güneydoğu Asya geri Doğu Asya koruyun gerekir. Bu makalede koruyun nasıl adımları açıklanmaktadır.
+İş akışlarını yeniden koruma açıklayan ve Karışıklığı önlemek için Doğu Asya bölge ile korunan makinelerin birincil site ve makineler kurtarma sitesi Güneydoğu Asya bölge olarak bakın. Yük devretme sırasında Güneydoğu Asya bölgesinde sanal makineler önyükleme yapmaz. Yeniden çalışma önce sanal makinelere gelen Güneydoğu Asya geri Doğu Asya koruyun gerekir. Bu makalede koruyun nasıl adımları açıklanmaktadır.
 
 > [!WARNING]
-> Varsa [tamamlandı geçiş](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), sanal makineyi başka bir kaynak grubuna taşınmış veya Azure sanal makine silinmiş geri dönme bundan sonra olamaz.
+> Varsa [tamamlandı geçiş](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), sanal makineyi başka bir kaynak grubuna taşınmış veya Azure sanal makine silinmiş koruyun olamaz ya da sanal makineyi yeniden çalışma.
 
 Yeniden koruma tamamlandıktan sonra korumalı sanal makineleri çoğaltmak, Doğu Asya bölge'ye getirmek için sanal makinelerde yük devretme işlemi başlatabilirsiniz.
 
@@ -72,7 +72,7 @@ Yeniden koruma sırasında he hedef sanal makine aşağıdaki özelliklerini öz
 |Özellik |Notlar  |
 |---------|---------|
 |Hedef kaynak grubu     | Th sanal makine oluşturulacak hedef kaynak grubu değiştirmek seçebilirsiniz. Parçası olarak yeniden koruma, hedef sanal makine silinir, bu nedenle, yeni bir kaynak grubu altında VM post yük devretme oluşturabilirsiniz seçebilirsiniz         |
-|Hedef sanal ağ     | Ağ yeniden koruma sırasında değiştirilemez. Ağ değiştirmek için Ağ eşlemesi yineleyin.         |
+|Hedef sanal ağ     | Ağ yeniden koruma sırasında değiştirilemez jb. Ağ değiştirmek için Ağ eşlemesi yineleyin.         |
 |Hedef depolama     | Sanal makine post yük devretme oluşturulacak depolama hesabı değiştirebilirsiniz.         |
 |Önbellek depolama     | Çoğaltma sırasında kullanılacak bir önbellek depolama hesabı belirtebilirsiniz. Varsayılan değerlerle giderseniz, zaten yoksa, yeni bir önbellek depolama hesabı oluşturulur.         |
 |Kullanılabilirlik Kümesi     |Doğu Asya sanal makineyi bir kullanılabilirlik kümesinin parçası ise, Güneydoğu Asya hedef sanal makine için ayarlanmış kullanılabilirlik seçebilirsiniz. Varsayılanları varolan SEA kullanılabilirlik kümesini bulun ve onu kullanmayı deneyin. Özelleştirme sırasında tamamen yeni bir AV kümesi belirtebilirsiniz.         |
@@ -80,7 +80,7 @@ Yeniden koruma sırasında he hedef sanal makine aşağıdaki özelliklerini öz
 
 ### <a name="what-happens-during-reprotect"></a>Yeniden koruma sırasında ne olur?
 
-Tıpkı koruma ilk etkinleştirdikten sonra Varsayılanları kullanıyorsanız, oluşturulan artefacts aşağıda verilmiştir.
+İlk etkinleştirdikten sonra koruma, tıpkı aşağıdaki Varsayılanları kullanıyorsanız, oluşturulan ürünleridir.
 1. Önbellek depolama hesabı Doğu Asya bölgesinde oluşturulan.
 2. Hedef depolama hesabı (Güneydoğu Asya VM özgün depolama hesabı) mevcut değilse yeni bir tane oluşturulur. Adı "ile asr" sonekine Doğu Asya sanal makinenin depolama hesabıdır.
 3. Hedef AV kümesi yok ve Varsayılanları algılayan varsa, yeni bir AV kümesi oluşturmak için gereken sonra yeniden koruma işi bir parçası olarak oluşturulur. Daha sonra yeniden koruma özelleştirdiyseniz, seçili AV kümesini kullanılacaktır.
@@ -88,7 +88,7 @@ Tıpkı koruma ilk etkinleştirdikten sonra Varsayılanları kullanıyorsanız, 
 
 Bir yeniden koruma işi tetikleyeceğinden yükleyen durum adımlarının listesi verilmiştir. Hedef tarafı sanal makinenin mevcut durumda budur.
 
-1. Gerekli artefacts yeniden koruma bir parçası olarak oluşturulur. Ardından zaten varsa, bunlar yeniden kullanılır.
+1. Gerekli yapıları yeniden koruma bir parçası olarak oluşturulur. Ardından zaten varsa, bunlar yeniden kullanılır.
 2. Çalışıyorsa hedef tarafı (Güneydoğu Asya) sanal makine önce devre dışı bırakılır.
 3. Hedef tarafı sanal makinenin disk Azure Site Recovery tarafından bir kapsayıcıya çekirdek blob olarak kopyalanır.
 4. Hedef tarafı sanal makine ardından silinir.
@@ -99,7 +99,7 @@ Bir yeniden koruma işi tetikleyeceğinden yükleyen durum adımlarının listes
 > [!NOTE]
 > Bir kurtarma planı düzeyde koruyamaz. Konumundaki yalnızca koruyun bir VM gerçekleştiriliyordu.
 
-Yeniden koruma başarılı sonra sanal makinenin korumalı bir duruma girer.
+Yeniden koruma işi başarılı sonra sanal makinenin korumalı bir duruma girer.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

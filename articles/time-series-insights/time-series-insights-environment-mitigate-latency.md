@@ -1,5 +1,5 @@
 ---
-title: "İzleme ve Azure zaman serisi Öngörüler gecikme önlemek için azaltma azaltmak nasıl | Microsoft Docs"
+title: "İzleme ve Azure zaman serisi öngörü azaltma azaltmak nasıl | Microsoft Docs"
 description: "Bu makalede, izleme, tanılama ve gecikme süresi ve azaltma Azure zaman serisi öngörü neden performans sorunlarını azaltmak açıklar."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/15/2017
-ms.openlocfilehash: 9d53cd0ee8e15d47ac1daa122331b3145f936adb
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: ec16f20723e4a613c953363da6cf6b463de829a9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>İzleme ve Azure zaman serisi Öngörüler gecikmesini azaltmak için azaltma azaltmak
 Gelen veri miktarına, ortam yapılandırma aşarsa, gecikme veya Azure zaman serisi öngörü azaltma karşılaşabilirsiniz.

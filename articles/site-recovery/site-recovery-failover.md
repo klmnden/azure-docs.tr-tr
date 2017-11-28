@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery'de yük devretme
 Bu makalede, yük devretme sanal makinelere ve fiziksel sunucuları Site Recovery tarafından korunan nasıl açıklanmaktadır.
@@ -70,7 +70,7 @@ Bu yordamda, bir yük devretme için çalıştırmak açıklanmaktadır bir [kur
 1. Başarısız oldu memnun sonra sanal makine üzerinde yapabilecekleriniz **yürütme** yük devretme. Yürütme hizmeti ile kullanılabilen tüm kurtarma noktalarını siler ve **değiştirmek kurtarma noktası** seçeneği artık kullanılabilir.
 
 ## <a name="planned-failover"></a>Planlanan yük devretme
-Site Recovery da destek kullanarak korunan sanal makinelerini/fiziksel sunucuları **planlanan yük devretme**. Planlanan yük devretme bir sıfır veri kaybı yük devretme seçeneğidir. Planlanmış bir yük devretme tetiklendiğinde, kaynak sanal makinelerden önce kapatmak, henüz eşitlenecek verileri eşitlenir ve ardından bir yük devretme tetiklenir.
+Site Recovery da destek kullanarak korunan sanal makinelerini/fiziksel sunucuları **planlanan yük devretme**. Planlanan yük devretme bir sıfır veri kaybı yük devretme seçeneğidir. Planlanmış bir yük devretme tetiklendiğinde, kaynak sanal makinelerden önce kapatmak, en son verileri eşitlenir ve ardından bir yük devretme tetiklenir.
 
 > [!NOTE]
 > Bir yük devretme Hyper-v sanal makineleri başka bir şirket içi siteye site içi içi birincil siteye geri dönün, öncelikle gerekir **ters çoğaltmak** sanal makine birincil siteye yedekleyin ve ardından bir yük devretmeyi tetikler. Birincil sanal makine için önce başlangıç kullanılabilir değilse, **ters çoğaltmak** sanal makine bir yedekten geri yüklemek zorunda.   

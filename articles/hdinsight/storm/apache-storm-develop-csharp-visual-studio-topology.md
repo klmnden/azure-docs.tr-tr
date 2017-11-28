@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2017
+ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d972def582ff8fee74c2eae59f4756eb1dcd0a70
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Apache Storm için C# topolojileri geliştirme
 
@@ -42,6 +42,9 @@ Linux tabanlı bir kümeyle bir C# topolojisi kullanmak için sürüm 0.10.0.6 i
 
 > [!IMPORTANT]
 > Linux tabanlı kümelerdeki C# topolojilerinin .NET 4.5 kullanması ve HDInsight kümesi üzerinde çalışması için Mono kullanması gerekir. Denetleme [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/) olası uyumsuzlukları için.
+
+> [!WARNING]
+> SCP.NET sürüm kullanan projeleri oluşturma sorunları karşılaşmanız halinde 1.0.0.x, lütfen Yardım için Microsoft Destek'e başvurun.
 
 ## <a name="install-visual-studio"></a>Visual Studio yükleme
 

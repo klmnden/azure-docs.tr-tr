@@ -1,6 +1,6 @@
 ---
 title: "Geçiş ve bir Azure bulut hizmeti Visual Studio'dan bir Web uygulaması yayımlama | Microsoft Docs"
-description: "Geçirmek ve web uygulamanıza bir Azure bulut hizmeti Visual Studio kullanarak yayımlama hakkında bilgi edinin."
+description: "Geçirmek ve web uygulamanıza bir Azure bulut hizmeti Visual Studio kullanarak yayımlama hakkında bilgi edinin"
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -12,192 +12,119 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5de4f5a7357cf5adde7773867356d47ad447bab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Nasıl yapılır: geçirmek ve bir Azure bulut hizmeti Visual Studio'dan bir Web uygulaması yayımlama
-Barındırma hizmetleri ve Azure ölçeklenebilirliğini yararlanacak şekilde geçirmek ve web uygulamanıza bir Azure bulut hizmetinde yayımlama isteyebilirsiniz. Bir web uygulaması Azure'da, varolan bir uygulamaya küçük değişiklikler çalıştırabilirsiniz.
 
-> [!NOTE]
-> Bu konuda, web siteleri için bulut Hizmetleri dağıtma hakkında ' dir. Web sitelerine dağıtma hakkında daha fazla bilgi için bkz: [Azure App Service'te bir web uygulaması dağıtma](app-service/app-service-deploy-local-git.md).
->
->
+Barındırma hizmetleri ve ölçeklendirme Özelliği Azure yararlanacak şekilde geçirmek ve web uygulamanızı Azure bulut hizmeti dağıtmak isteyebilirsiniz. Sadece küçük değişiklikler gereklidir. Bu makale, yalnızca bulut hizmetlerine dağıtma kapsamaktadır; Uygulama hizmeti için bkz: [Azure App Service'te bir web uygulaması dağıtma](app-service/app-service-deploy-local-git.md).
 
-Bölüm hem Visual C# ve Visual Basic için desteklenen belirli şablonları listesi için bkz: **desteklenen proje şablonları** bu konuda daha sonra.
+> [!Important]
+> Bu geçiş, yalnızca belirli ASP.NET, Silverlight, WCF ve WCF iş akışı projeleri için desteklenir. ASP.NET Core projeleri için desteklenmiyor. Bkz: [proje şablonları desteklenen](#supported-project-templates).
 
-İlk web uygulamanız için Azure Visual Studio'dan etkinleştirmeniz gerekir. Dağıtımı için kullanılacak bir Azure projesi ekleyerek varolan web uygulamanızı yayımlamak için temel adımlar aşağıda gösterilmiştir. Bu işlem, çözümünüz için gerekli web rolüne sahip bir Azure projesi ekler. Sahip olduğunuz web projesi türüne bağlı olarak, hizmet paketi dağıtım için ek derlemeler gerektiriyorsa derlemeler için proje özelliklerini de güncellenir.
+## <a name="migrate-a-project-to-cloud-services"></a>Bulut Hizmetleri için bir proje geçirme
 
-![Microsoft Azure Web uygulaması yayımlama](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
+1. Web uygulaması projesine sağ tıklatın ve **Dönüştür > Microsoft Azure bulut hizmeti projesine dönüştürme**. (Bir web rolü projesi çözümde zaten varsa bu komut görünmediğini.)
+1. Visual Studio gerekli web rolü içeren çözümdeki bulut hizmeti projesi oluşturur. Uygulama projenizi ile hem soneki bu projenin adı aynı olan `.Azure`.
+1. Visual Studio ayrıca ayarlar **kopya yerel** özelliğinin MVC 2, MVC 3, MVC 4 ve Silverlight iş uygulamaları için gerekli olan tüm derlemeler için true. Bu özellik bu derlemeler dağıtımı için kullanılan hizmet paketi ekler.
 
-> [!NOTE]
-> **Dönüştür**, **Azure bulut hizmeti projesine dönüştürme** komutu yalnızca çözümünüzdeki web projesi için görüntülenir. Örneğin, komut, çözümünüz içinde Silverlight projesi için kullanılabilir değil.
-> Bir hizmet paketi oluşturduğunuzda ya da uygulamanızı Azure'a yayımlama uyarılar veya hatalar oluşabilir. Bu uyarıları ve hataları Azure'a dağıtmadan önce sorunları çözmenize yardımcı olabilir. Örneğin, eksik bir derleme hakkında bir uyarı alabilirsiniz. Tüm uyarıları hata ele hakkında daha fazla bilgi için bkz: [bir Azure bulut hizmeti projesi ile Visual Studio'yu yapılandırma](vs-azure-tools-configuring-an-azure-project.md). Uygulamanızı çalıştırın işlem öykünücüsü kullanarak yerel olarak veya Azure'a yayımlayacaksınız, aşağıdaki hatayı görebilirsiniz **hata listesi** penceresi: **belirtilen yol, dosya adı veya her ikisini birden çok uzun**. Tam Azure proje adı çok uzun olduğundan bu hata oluşur. Tam yolunu da içeren proje adının uzunluğu birden fazla 146 karakterler olamaz. Örneğin, bu Silverlight uygulaması için oluşturulmuş bir Azure projesi için dosya yolu da dahil olmak üzere tam proje adıdır: `c:\users\<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Çözümünüzü tam proje adının uzunluğu azaltmak için daha kısa yola sahip başka bir dizine taşımanız gerekebilir.
->
->
+   > [!Important]
+   > Diğer derlemeler veya bu web uygulaması için gerekli olan dosyalar varsa, bu dosyalar için özellikleri el ile ayarlamanız gerekir. Bu özellikleri ayarlama hakkında daha fazla bilgi için bkz: [dosyaları içerir hizmet paketinde](#include-files-in-the-service-package).
 
-Geçiş ve Azure Visual Studio'dan bir web uygulamasına yayımlamak için aşağıdaki adımları izleyin.
+### <a name="errors-and-warnings"></a>Hatalar ve uyarılar
 
-## <a name="enable-a-web-application-for-deployment-to-azure"></a>Bir Web uygulaması Azure dağıtım için etkinleştir
-### <a name="to-enable-a-web-application-for-deployment-to-azure"></a>Bir web uygulaması için Azure dağıtımına etkinleştirmek için
-1. Web uygulamanızı azure'a etkinleştirmek için çözümünüz içinde bir web projesi için kısayol menüsünü açın ve Azure dağıtım projesi eklemek seçin.
+Herhangi bir uyarı veya oluşan hataları gibi eksik derlemeleri Azure'a dağıtmadan önce düzeltmek için sorunları gösterir.
 
-    Aşağıdaki eylemler gerçekleşir:
+Uygulamanızı çalıştırın işlem öykünücüsü kullanarak yerel olarak veya Azure'a yayımlama, hatayla görebilirsiniz: "Belirtilen yol, dosya adı veya her ikisini birden çok uzun." Bu hata, tam Azure proje adının uzunluğu 146 karakteri aşıyor gösterir. Sorunu gidermek için çözümünüzün daha kısa yola sahip başka bir klasöre taşıyın.
 
-   * Bir Azure projesi adlı `<name of the web project>.Azure` uygulamanız için çözümü eklenir.
-   * Web projesinin bir web rolü bu Azure projesi eklenir.
-   * **Kopya yerel** özelliği MVC 2, MVC 3, MVC için gerekli olan tüm derlemeler için 4 ve Silverlight iş uygulamaları true olarak ayarlanmış. Bu dağıtım için kullanılan hizmet paketi için bu derlemeler ekler.
+Tüm uyarıları hata ele hakkında daha fazla bilgi için bkz: [bir Azure bulut hizmeti projesi ile Visual Studio'yu yapılandırma](vs-azure-tools-configuring-an-azure-project.md).
 
-   > [!IMPORTANT]
-   > Diğer derlemeler veya bu web uygulaması için gerekli olan dosyalar varsa, bu dosyalar için özellikleri el ile ayarlamanız gerekir. Bu özellikleri ayarlama hakkında daha fazla bilgi için bkz **dosyaları içerir hizmet paketinde** bu makalenin ilerisinde yer.
-   >
-   > [!NOTE]
-   > Web rolü belirli web projesi için bir Azure projesi çözümde zaten varsa **Dönüştür**, **Azure bulut hizmeti projesine dönüştürme** bu web projesi için kısayol menüsünde gösterilmez.
-   >
-   >
+### <a name="test-the-migration-locally"></a>Geçiş yerel olarak test
 
-   Birden çok web projeleri, web uygulamanızda varsa ve her web projesi için web rolleri oluşturmak istediğiniz her web projesi için bu yordamdaki adımları gerçekleştirmeniz gerekir. Bu, her bir web rolü için ayrı Azure proje oluşturur. Her web projesi ayrı olarak yayımlanabilir. Alternatif olarak, el ile başka bir web rolü için mevcut bir Azure projesi web uygulamanızda ekleyebilirsiniz. Bunu yapmak için kısayol menüsünü açın **rolleri** Azure projenizdeki klasörü seçin **Ekle**, ardından **çözüm Web rolü projesinde**, bir web rolü olarak eklemek için proje seçin ve ardından **Tamam** düğmesi.
+1. Visual Studio'da **Çözüm Gezgini**, eklenen bulut hizmeti projesine sağ tıklatın ve **başlangıç projesi olarak ayarla**.
+1. Seçin **hata ayıklama > hata ayıklamayı Başlat** Azure hata ayıklama ortamı başlatmak için (F5). Bu ortamın özellikle öykünmesi çeşitli Azure hizmetleri sağlar.
 
-## <a name="use-an-azure-sql-database-for-your-application"></a>Uygulamanız için bir Azure SQL veritabanını kullan
-Şirket içinde bir SQL Server veritabanını kullanan web uygulamanız için bir bağlantı dizesi varsa, Azure barındıran bir SQL veritabanı örneğini kullanması için bu bağlantı dizesi yerine değiştirmeniz gerekir.
+### <a name="use-an-azure-sql-database-for-your-application"></a>Uygulamanız için bir Azure SQL veritabanını kullan
 
-> [!IMPORTANT]
-> Aboneliğiniz, SQL veritabanını kullanmak etkinleştirmeniz gerekir. Aboneliğinizden erişirseniz [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885), aboneliğinizi sağlar hangi hizmetlerin belirleyebilirsiniz. Aşağıdaki yönergeler yayımlanan için geçerli [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885). Kullanıyorsanız [Azure portal](http://portal.microsoft.com), bir sonraki yordamı atlayın.
->
->
+Bir şirket içi SQL Server veritabanı kullanan web uygulamanız için bir bağlantı dizesi varsa, veritabanınızı Azure SQL veritabanına geçirilmesini ve bağlantı dizesini güncellemeniz gerekir. Bu işlem hakkında yönergeler için aşağıdaki konulara bakın:
 
-### <a name="to-use-a-sql-database-instance-in-your-web-role-for-your-connection-string"></a>Bir SQL veritabanı örneği web rolünüz için bağlantı dizesi kullanmak için
-1. SQL veritabanı'nda bir örneğini oluşturmak için [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885), aşağıdaki makalesindeki adımları izleyin: [bir SQL veritabanı sunucusu oluşturmak](http://go.microsoft.com/fwlink/?LinkId=225109).
+- [Bulutta SQL veritabanı için SQL Server veritabanı geçirme](sql-database/sql-database-cloud-migrate.md)
+- [.NET (C#) bağlanma ve sorgulama için Visual Studio ve Azure SQL veritabanı ile kullanmayı](sql-database/sql-database-connect-query-dotnet-visual-studio.md).
 
-   > [!NOTE]
-   > SQL veritabanı Örneğiniz için güvenlik duvarı kuralları ayarlamak, seçmelisiniz **bu sunucuya erişmek diğer Azure hizmetleriyle izin** onay kutusu.
-   >
-   >
-2. SQL veritabanı için bağlantı dizesi kullanmak için bir örneğini oluşturmak için sonraki bölümde yer alan aşağıdaki makalede adımları izleyin: [bir SQL veritabanı oluşturma](http://go.microsoft.com/fwlink/?LinkId=225110).
-3. Bağlantı dizenizi için kullanılacak ADO.NET bağlantı dizesi kopyalamak için aşağıdaki adımları gerçekleştirin [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885).  
+## <a name="publish-the-application-to-azure-cloud-service"></a>Azure bulut hizmeti uygulamayı yayımlama
 
-   1. Seçin **veritabanı** düğmesine tıklayın ve ardından SQL veritabanını, örneği oluşturmak için kullanılan abonelik düğümünü açın.
-   2. SQL veritabanı kullanılabilir örneklerini görüntülemek için seçin **SQL veritabanları** düğümü.
-   3. Veritabanının özelliklerini görüntülemek için veritabanını seçin. **Özellikleri** görünümü görüntülenir.
-
-      > [!NOTE]
-      > Varsa **özellikleri** görünüm görünmüyor, ayırıcıyı kullanarak açmanız gerekebilir.
-      >
-      >
-   4. Bağlantı dizeleri görüntülenecek Görünüm'ün yanındaki üç nokta (...) düğmesini seçin.
-
-      **Bağlantı dizeleri** iletişim kutusu görüntülenir.
-   5. ADO.NET bağlantı dizesi kopyalamak için metni vurgulayın ve Ctrl + C tuşlarını seçin.
-   6. İletişim kutusunu kapatmak için tercih **kapatmak** düğmesi.
-4. SQL veritabanı, bu örneği kullanmak için web.config dosyasında bağlantı dizesini değiştirmek için web.config dosyasını açın, varolan bağlantı dizesi girişi vurgulayın ve ardından Ctrl + V tuşlarını seçin. SQL veritabanı örneği için ADO.NET bağlantı dizesi mevcut bağlantı dizesi değiştirir.
-5. Parametresini eklemeniz gerekir `MultipleActiveResultSets=True` bağlantı dizesi. Bağlantı dizesi şu biçimde olmalıdır:
-
-    ```
-    connectionString=”Server=tcp:<database_server>.database.windows.net,1433;Database=<database_name>;User ID=<user_name>@<database_server>;Password=<myPassword>;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True"
-    ```
-6. (İsteğe bağlı) Doğrudan web.config dosyasında bağlantı dizesini değiştirmek için alternatif bir yöntem web.config dönüşümü dosyaların, hizmet paketi oluşturmak için kullandığınız yapı yapılandırmasına bağlı olarak tek bir bölüm eklemektir. Web.Debug.Config dosya veya Web.Release.Config dosyasını açın. Aşağıdaki bölümde bu dosyaya ekleyin:
-
-    ```
-    XMLCopy<connectionStrings><addname="DefaultConnection"connectionString="Server=tcp:<database_server>.database.windows.net,1433;Database=<database_name>;User ID=<user_name>@<database_server>;Password=<myPassword>;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True"xdt:Transform="SetAttributes"xdt:Locator="Match(name)"/></connectionStrings>
-    ```
-7. Değiştirdiğiniz dosyayı kaydedin ve uygulamanızı yeniden yayımlayın.
-
-### <a name="to-use-an-instance-of-sql-database-by-using-the-azure-classic-portal"></a>Klasik Azure portalı kullanarak SQL veritabanı örneği kullanmak için
-1. İçinde [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885), SQL veritabanları düğümünü seçin.
-
-   * Açmak kullanmak istediğiniz SQL veritabanı örneği varsa, seçin.
-   * Hiç örneği oluşturmadıysanız, uygun bağlantıyı seçin ve ardından bir örneği oluşturun.
-2. Sonra açın veya bir veritabanı örneği oluşturmayı seçin **bağlantı dizeleri** bağlantı.
-3. Sayfanın alt kısmındaki güvenlik duvarı ayarlarını yapılandırmak ve varsayılan değerleri kabul edin veya gereksinim duyduğunuz değerleri yapılandırmak için bağlantıyı seçin.
-4. ADO.NET bağlantı dizesini kopyalayın, üzerinden şirket içi veritabanı için eski bağlantı dizesi web.config dosyasına yapıştırın ve eklediğinizden emin olun `MultipleActiveResultSets=True`.
-
-## <a name="publish-a-web-application-to-azure"></a>Azure Web uygulaması yayımlama
-### <a name="to-publish-a-web-application-to-azure"></a>Bir Azure Web uygulamasına yayımlamak için
-1. Uygulamayı yerel geliştirme test etmek için Azure kullanarak ortamı işlem öykünücüsü, web rolü için Azure projesi için kısayol menüsünü açın ve seçin **başlangıç projesi olarak ayarla**. Ardından **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: **F5**).
-
-    **Hata ayıklama Azure ortamı başlatmak** iletişim kutusu açılır ve tarayıcıda uygulamayı başlatır. İşlem öykünücüsü, web uygulamasında her tür nasıl başlatılacağı hakkında belirli Ayrıntılar için bu bölümdeki tablosuna bakın.
-2. Uygulamanız için Azure Yayımlama hizmetlerini ayarlamak için bir Microsoft hesabı ve bir Azure aboneliğiniz olmalıdır. Services'i ayarlamak için şu konudaki adımları kullanın: [yayımlamak veya Visual Studio'dan Azure bir uygulamayı dağıtmak hazırlama](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
-3. Azure web uygulamasına yayımlamak için web projesinin kısayol menüsünü açın ve seçin **Azure Yayımla**.
-
-    **Azure uygulamasını Yayımla** iletişim kutusu açılır ve Visual Studio dağıtım işlemi başlatır. Uygulama yayımlama hakkında daha fazla bilgi için bkz **Visual Studio'dan Azure uygulamasını Yayımla** içinde [yayımlama Azure araçlarını kullanarak bir bulut hizmeti](vs-azure-tools-publishing-a-cloud-service.md).
-
-   > [!NOTE]
-   > Azure projesi web uygulamasından yayımlayabilirsiniz. Bunu yapmak için Azure projesi için kısayol menüsünü açın ve seçin **Yayımla**.
-   >
-   >
-4. Dağıtımın ilerleme durumunu görmek için görüntüleyebileceğiniz **Azure etkinlik günlüğü** penceresi. Bu günlük, dağıtım işlemi başlatıldığında otomatik olarak görüntülenir. Aşağıdaki çizimde gösterildiği gibi ayrıntılı bilgileri görüntülemek için etkinlik günlüğünde satır öğeyi genişletebilirsiniz:
+1. Gerekli bulut hizmeti ve depolama hesaplarını Azure aboneliğinizde açıklandığı gibi oluşturmak [yayımlamak veya Visual Studio'dan Azure bir uygulamayı dağıtmak hazırlama](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+1. Visual Studio'da Uygulama projesine sağ tıklatın ve **Microsoft Azure Yayımla...**  (Bu, "Yayımla..." komutunu farklıdır.).
+1. İçinde **Azure uygulamasını Yayımla** görüntülenir, Azure aboneliğinizle hesabı kullanarak oturum açın ve seçin **sonraki >**.
+1. İçinde **ayarlar > Genel ayarları** sekmesinde, hedef bulut hizmetini seçin **bulut hizmeti** seçilen ortamınıza ve yapılandırmalarınıza birlikte açılır listesi. 
+1. İçinde **ayarlar > Gelişmiş ayarları**, kullanın ve sonra seçmek için depolama hesabı seçin **sonraki >**.
+1. İçinde **tanılama**, Application Insights'a bilgileri göndermek isteyip istemediğinizi seçin.
+1. Seçin **sonraki >** özeti görüntülemek için ardından **Yayımla** dağıtımı başlatmak için.
+1. Visual Studio burada ilerleme durumunu izleyebilirsiniz bir etkinlik günlüğü penceresi açar:
 
     ![VST_AzureActivityLog](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744149.png)
-5. (İsteğe bağlı) Dağıtım işlemi iptal etmek için etkinlik günlüğünde satır öğesi için kısayol menüsünü açın ve seçin **iptal edin ve kaldırma**. Bu dağıtım işlemi durdurur ve Azure'dan dağıtım ortamı siler.
 
-   > [!NOTE]
-   > Bunu dağıtıldıktan sonra bu dağıtım ortamı kaldırmak için kullanmanız gerekir [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885).
-   >
-   >
-6. (İsteğe bağlı) Rolü örneklerinizi başlattıktan sonra Visual Studio otomatik olarak dağıtım ortamında gösterir **Azure işlem** düğümünde **Cloud Explorer** veya **Sunucu Gezgini**. Buradan, tek tek rol örneklerinin durumunu görüntüleyebilirsiniz.
+1. (İsteğe bağlı) Dağıtım işlemini iptal etmek için etkinlik günlüğünde satır öğeyi sağ tıklatın ve seçin **iptal edin ve kaldırma**. Bu komut, dağıtım işlemi durdurur ve Azure'dan dağıtım ortamı siler. Not: Bu dağıtıldıktan sonra bu dağıtım ortamı kaldırmak için kullanmanız gerekir [Azure portal](https://portal.azure.com).
+1. (İsteğe bağlı) Rolü örneklerinizi başlattıktan sonra Visual Studio otomatik olarak dağıtım ortamında gösterir **Sunucu Gezgini > bulut Hizmetleri** düğümü. Buradan, tek tek rol örneklerinin durumunu görüntüleyebilirsiniz.
+1. Dağıtımdan sonra uygulamaya erişmek için dağıtımınızın durumunu zaman yanındaki oka seçin **tamamlandı** görünür **Azure etkinlik günlüğü** URL ile birlikte. Azure'dan belirli türdeki bir web uygulaması başlangıç hakkında ayrıntılı bilgi için aşağıdaki tabloya bakın.
 
-    Rol örnekleri aşağıda gösterilmiştir **Sunucu Gezgini** hala başlatılıyor durumda çalışırken:
+## <a name="using-the-compute-emulator-and-starting-application-in-azure"></a>İşlem öykünücüsü kullanarak ve Azure'da uygulama başlatma
 
-    ![VST_DeployComputeNode](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744134.png)
-7. Dağıtımdan sonra uygulamaya erişmek için dağıtımınızın durumunu zaman yanındaki oka seçin **tamamlandı** görünür **Azure etkinlik günlüğü**. Bu, Azure içinde web uygulamanız için URL'yi görüntüler. Azure'dan belirli türdeki bir web uygulaması başlangıç hakkında ayrıntılı bilgi için aşağıdaki tabloya bakın.
+Tüm uygulama türleri için Visual Studio hata ayıklayıcısı seçerek bağlı bir tarayıcıda başlatılabilir **hata ayıklama > hata ayıklamayı Başlat** (F5). Bir ASP.NET boş Web uygulaması projesi ile ilk eklemelisiniz bir `.aspx` sayfasında uygulamanızda ve web projeniz için başlangıç sayfası olarak ayarla.
 
-    Azure'dan belirli web uygulamalarını başlatmak için çalıştırın veya bir web uygulamasını Azure işlem öykünücüsü kullanarak yerel olarak hata ayıklama hakkında ayrıntılar aşağıdaki tabloda listelenmektedir:
+Aşağıdaki tabloda Azure'da uygulama başlatma hakkında ayrıntılar verilmiştir:
 
-   | Web uygulaması türü | İşlem öykünücüsü kullanarak yerel olarak çalıştır/Hata Ayıkla | Azure'da çalışan |
+   | Web uygulaması türü | Azure'da çalışan |
    | --- | --- | --- |
-   | ASP.NET Web uygulaması |Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |Görüntülenen URL köprü seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü** başlangıç sayfasını tarayıcıda yüklenemiyor. |
-   | ASP.NET MVC 2 Web uygulaması |Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |Görüntülenen URL köprü seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü** başlangıç sayfasını tarayıcıda yüklenemiyor. |
-   | ASP.NET MVC 3 Web uygulaması |Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |Görüntülenen URL köprü seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü** başlangıç sayfasını tarayıcıda yüklenemiyor. |
-   | ASP.NET MVC 4 Web uygulaması |Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |Görüntülenen URL köprü seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü** başlangıç sayfasını tarayıcıda yüklenemiyor. |
-   | ASP.NET boş Web uygulaması |Web projeniz için başlangıç sayfası olarak ayarlamak, uygulamanızdaki bir .aspx sayfasında eklemeniz gerekir. Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |Uygulamanıza varsayılan bir .aspx sayfası varsa, görüntülenen URL köprü seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü** ve bu sayfayı tarayıcıda yüklenir. Farklı .aspx sayfa varsa, URL'nizi için aşağıdaki biçimi kullanarak bu belirli sayfasına gitmeniz gerekir:`<url for deployment>/<name of page>.aspx` |
-   | Silverlight uygulaması |Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |URL'niz için aşağıdaki biçimi kullanarak, uygulamanız için belirli bir sayfaya gitmek gerekir:`<url for deployment>/<name of page>.aspx` |
-   | Silverlight iş uygulaması |Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |URL'niz için aşağıdaki biçimi kullanarak, uygulamanız için belirli bir sayfaya gitmek gerekir:`<url for deployment>/<name of page>.aspx` |
-   | Silverlight gezinti uygulaması |Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |URL'niz için aşağıdaki biçimi kullanarak, uygulamanız için belirli bir sayfaya gitmek gerekir:`<url for deployment>/<name of page>.aspx` |
-   | WCF hizmet uygulaması |WCF Hizmeti projeniz için .svc dosyasındaki başlangıç sayfası olarak ayarlamanız gerekir. Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |URL'niz için aşağıdaki biçimi kullanarak, uygulamanız için svc dosyaya gidin gerekir:`<url for deployment>/<name of service file>.svc` |
-   | WCF iş akışı hizmeti uygulaması |WCF Hizmeti projeniz için .svc dosyasındaki başlangıç sayfası olarak ayarlamanız gerekir. Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |URL'niz için aşağıdaki biçimi kullanarak, uygulamanız için svc dosyaya gidin gerekir:`<url for deployment>/<name of service file>.svc` |
-   | ASP.NET dinamik varlıklar |Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |Bağlantı dizesini güncellemeniz gerekir (sonraki bölüme bakın). Ayrıca, url için aşağıdaki biçimi kullanarak, uygulamanız için belirli bir sayfaya gitmek gerekir:`<url for deployment>/<name of page>.aspx` |
-   | ASP.NET dinamik veri LINQ-SQL |Menü çubuğunda seçin **hata ayıklama**, **hata ayıklamayı Başlat** (klavye: seçin **F5** anahtar.). |Bu yordamdaki adımları izlemelisiniz: uygulamanız için bir SQL Azure veritabanı kullanın (Bu konuda önceki bölüme bakın). Ayrıca, url için aşağıdaki biçimi kullanarak, uygulamanız için belirli bir sayfaya gitmek gerekir:`<url for deployment>/<name of page>.aspx` |
+   | ASP.NET Web uygulaması<br/>(MVC 2, MVC 3, MVC 4 dahil) | URL'de seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü**. |
+   | ASP.NET boş Web uygulaması | Varsayılan varsa `.aspx` sayfasında uygulamanızda, URL'de seçin **dağıtım** sekmesinde **Azure etkinlik günlüğü**. Farklı bir sayfaya gitmek için bir tarayıcıda bir URL aşağıdaki biçimde girin:`<deployment_url>/<page_name>.aspx` |
+   | Silverlight uygulaması<br/>Silverlight iş uygulaması<br/>Silverlight gezinti uygulaması | Şu URL biçimi kullanarak, uygulamanız için belirli bir sayfaya gidin:`<deployment_url>/<page_name>.aspx` |
+    WCF hizmet uygulaması<br/>WCF iş akışı hizmeti uygulaması | Ayarlama `.svc` WCF Hizmeti projeniz için başlangıç sayfası olarak dosya. Ardından gidin`<deployment_url>/<service_file>.svc` |
+   | ASP.NET dinamik varlıklar<br/>ASP.NET dinamik veri LINQ-SQL | Bağlantı dizesi bir sonraki bölümde açıklandığı gibi güncelleştirin. Ardından gidin `<deployment_url>/<page_name>.aspx`. LINQ-SQL, Azure SQL veritabanını kullanmanız gerekir. |
 
 ## <a name="update-a-connection-string-for-aspnet-dynamic-entities"></a>ASP.NET dinamik varlıklar için bir bağlantı dizesi güncelleştir
-### <a name="to-update-a-connection-string-for-aspnet-dynamic-entities"></a>ASP.NET dinamik varlıklar için bir bağlantı dizesi güncelleştirmek için
-1. ASP.NET dinamik varlıklar web uygulaması için kullanılabilir bir SQL Azure veritabanı oluşturmak için yordamdaki adımları **uygulamanız için bir SQL Azure veritabanı kullan** bu konuda daha önce.
-2. Tabloları ve bu veritabanından için gereksinim duyduğunuz alanları ekleme [Klasik Azure portalı](http://go.microsoft.com/fwlink/?LinkID=213885).
-3. Bu tür bir uygulama için bağlantı dizesi web.config dosyasında aşağıdaki biçime sahiptir:  
 
-    ```
+1. ASP.NET dinamik varlıklar web uygulaması için bir SQL Azure veritabanı, daha önce (#use-an-azuresql-database-for-your-application) açıklandığı gibi oluşturun.
+1. Tabloları ve Azure portalından bu veritabanı için gereksinim duyduğunuz alanları ekleyin.
+1. Bağlantı dizesinde belirtin `web.config` dosya aşağıdaki biçimde ve dosyayı kaydedin:
+
+    ```xml
     <addname="tempdbEntities"connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=<server name>\SQLEXPRESS;initial catalog=<database name>;integrated security=True;multipleactiveresultsets=True;App=EntityFramework&quot;"providerName="System.Data.EntityClient"/>
     ```
 
     Güncelleştirme *connectionString* SQL Azure veritabanı ADO.NET bağlantı dizesiyle gibi değer:
 
-    ```
+    ```xml
     XMLCopy<addname="tempdbEntities"connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;Server=tcp:<SQL Azure server name>.database.windows.net,1433;Database=<database name>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;multipleactiveresultsets=True;App=EntityFramework&quot;"providerName="System.Data.EntityClient"/>
     ```
-4. Web.config dosyasında bağlantı dizesine yaptığınız değişiklikleri kaydetmek için menü çubuğunda seçin **dosya**, **web.config kaydetmek**.
 
 ## <a name="supported-project-templates"></a>Desteklenen proje şablonları
-Bir Azure web uygulamasına yayımlamak için uygulama proje şablonlarından birini C# veya Visual Basic, aşağıdaki tabloda listelenen için kullanmanız gerekir.
 
-| Proje şablonu grubu | Proje şablonu |
+Geçiş ve bulut hizmetlerine yayımlanan uygulamaları aşağıdaki tabloda şablonlarından birini kullanmanız gerekir. ASP.NET Core desteklenmiyor.
+
+| Şablon grubu | Proje şablonu |
 | --- | --- |
-| Web |ASP.NET Web uygulaması |
-| Web |ASP.NET MVC 2 Web uygulaması |
-| Web |ASP.NET MVC 3 Web uygulaması |
-| Web |ASP.NET MVC4 Web uygulaması |
-| Web |ASP.NET boş Web uygulaması |
-| Web |ASP.NET MVC 2 boş Web uygulaması |
-| Web |ASP.NET dinamik veri varlıkları Web uygulaması |
-| Web |ASP.NET dinamik veri LINQ-SQL Web uygulaması |
-| Silverlight |Silverlight uygulaması |
-| Silverlight |Silverlight iş uygulaması |
-| Silverlight |Silverlight gezinti uygulaması |
-| WCF |WCF hizmet uygulaması |
-| WCF |WCF iş akışı hizmeti uygulaması |
-| İş akışı |WCF iş akışı hizmeti uygulaması |
+| Web | ASP.NET Web uygulaması (.NET Framework) |
+| Web | ASP.NET MVC 2 Web uygulaması |
+| Web | ASP.NET MVC 3 Web uygulaması |
+| Web | ASP.NET MVC4 Web uygulaması |
+| Web | ASP.NET boş Web uygulaması (veya Site) |
+| Web | ASP.NET MVC 2 boş Web uygulaması |
+| Web | ASP.NET dinamik veri varlıkları Web uygulaması |
+| Web | ASP.NET dinamik veri LINQ-SQL Web uygulaması |
+| Silverlight | Silverlight uygulaması |
+| Silverlight | Silverlight iş uygulaması |
+| Silverlight | Silverlight gezinti uygulaması |
+| WCF | WCF hizmet uygulaması |
+| WCF | WCF iş akışı hizmeti uygulaması |
+| İş akışı | WCF iş akışı hizmeti uygulaması |
 
-## <a name="next-steps"></a>Sonraki Adımlar
-Yayımlama hakkında daha fazla bilgi için bkz: [yayımlamak veya Visual Studio'dan Azure uygulama dağıtmak hazırlama](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Ayrıca kullanıma [ayarı yukarı adlı kimlik doğrulama bilgilerini](vs-azure-tools-setting-up-named-authentication-credentials.md).
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [Yayımlamak veya Visual Studio'dan Azure bir uygulamayı dağıtmak hazırlama](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)
+- [Adlı kimlik doğrulama kimlik bilgilerini ayarlama](vs-azure-tools-setting-up-named-authentication-credentials.md).

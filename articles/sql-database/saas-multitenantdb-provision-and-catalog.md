@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: ec753027c8ce8040cbc574279a44eb24590fcb05
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 93a2f8aa8890f40a8ef9b88fe172efa24aac7811
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-sql-database"></a>Parçalı çok kiracılı SQL veritabanı kullanarak bir SaaS uygulaması sağlama ve Katalog yeni kiracılar
 
@@ -78,10 +78,9 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 * Wingtip biletleri SaaS çok Kiracı veritabanı uygulaması dağıtılır. Beş dakikadan daha kısa bir süre içinde dağıtmak için bkz: [dağıtma ve Wingtip biletleri SaaS çok Kiracı veritabanı uygulama keşfedin.](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell’in yüklendiğinden. Ayrıntılar için bkz. [Azure PowerShell’i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-## <a name="get-the-wingtip-tickets-management-scripts"></a>Wingtip biletleri yönetim komut dosyaları alma
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip biletleri SaaS çok Kiracı veritabanı uygulama kaynak koduna ve komut dosyaları alma
 
-Yönetim komut dosyaları ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub depo. <!--See [Steps to download the Wingtip SaaS scripts](saas-tenancy-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).-->
-
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak. 
 
 ## <a name="provision-a-tenant-in-a-shared-database-with-other-tenants"></a>Paylaşılan veritabanında bir kiracı ile diğer kiracılar sağlama
 

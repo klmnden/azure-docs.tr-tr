@@ -13,24 +13,25 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 39cb2464eb593a29c4436afb5c14419b704ebff4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 811769443e322af3a2981c58979040a1e33b06e9
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux üzerinde tarafından Azure destekli dağıtımlar
 İş ortakları Azure Marketi Linux görüntüleri sağlar. Daha fazla özellikleri destekli dağıtım listesine eklemek için çeşitli Linux toplulukları ile çalışıyoruz. Bu arada, Market görüntüsünden kullanılabilir değil dağıtımları için her zaman kendi Linux yönergeleri izleyerek getirebilir [oluşturma ve Linux işletim sistemini içeren bir sanal sabit disk karşıya](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## <a name="supported-distributions-and-versions"></a>Desteklenen dağıtımları ve sürümleri
-Aşağıdaki tabloda Linux dağıtımları ve Azure üzerinde desteklenen sürümleri listelenmektedir. Başvurmak [Linux desteği görüntüleri Microsoft Azure'da](https://support.microsoft.com/en-us/kb/2941892) daha ayrıntılı bilgi için.
+Aşağıdaki tabloda Linux dağıtımları ve Azure üzerinde desteklenen sürümleri listelenmektedir. Başvurmak [desteklemek için Microsoft Azure Linux görüntülerinde](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi Azure desteği hakkında daha ayrıntılı bilgi için.
 
 Hyper-V ve Microsoft Azure Linux Tümleştirme hizmetleri (LIS) sürücülerini Yukarı Akış Linux çekirdek doğrudan Microsoft katkı çekirdek modülleri ' dir.  Bazı LIS sürücüleri dağıtım 's çekirdeğe varsayılan olarak oluşturulur. Red Hat Enterprise (RHEL) tabanlı eski dağıtımları / CentOS ayrı bir yükleme olarak kullanılabilir [Hyper-V için Linux Tümleştirme hizmetleri sürümü 4.1](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409). Bkz: [Linux çekirdek gereksinimleri](create-upload-generic.md#linux-kernel-requirements) LIS sürücüleri hakkında daha fazla bilgi için.
 
 Azure Linux Aracısı'nı Azure Marketi görüntülerinde önceden yüklü olduğu ve dağıtım ait paket depodan genellikle kullanılabilir. Kaynak kodu bulunabilir [GitHub](https://github.com/azure/walinuxagent).
 
+  
 | Dağıtım | Sürüm | Sürücüler | Aracı |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS indirin](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: çekirdek |Paketi: İçinde [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) "WALinuxAgent" altında <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -39,8 +40,11 @@ Azure Linux Aracısı'nı Azure Marketi görüntülerinde önceden yüklü oldu�
 | Oracle Linux |6.4+, 7.0+ |Çekirdek |Paketi: "WALinuxAgent" altında bağlantıların bulunması <br/>Kaynak kodu: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7 + 7.1 + |Çekirdek |Paketi: "WALinuxAgent" altında bağlantıların bulunması <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES SAP için<br>11 SP4<br>12 SP1 +|Çekirdek |Paketi:<p> 11 inç için [bulut: Araçlar](https://build.opensuse.org/project/show/Cloud:Tools) deposu<br>için "Genel bulut" modülünde "python-azure-agent" altında bulunan 12<br/>Kaynak kodu: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE artık 42.1 + |Çekirdek |Paketi: İçinde [bulut: Araçlar](https://build.opensuse.org/project/show/Cloud:Tools) "python-azure-agent" altında deposu <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04, 14.04, 16.04, 16.10 |Çekirdek |Paketi: "walinuxagent" altında bağlantıların bulunması <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE |openSUSE artık 42.2 + |Çekirdek |Paketi: İçinde [bulut: Araçlar](https://build.opensuse.org/project/show/Cloud:Tools) "python-azure-agent" altında deposu <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04 +  **<sup>1</sup>** |Çekirdek |Paketi: "walinuxagent" altında bağlantıların bulunması <br/>Kaynak kodu: [GitHub](https://github.com/Azure/WALinuxAgent) |
+
+  - **<sup>1</sup>**  Ubuntu 12.04 için destek almak için Azure Lütfen başvurmak için [EOL bildirimi](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/).
+
 
 ## <a name="partners"></a>İş Ortakları
 
@@ -59,7 +63,7 @@ Credativ bağımsız danışmanlık ve ücretsiz yazılımlar kullanarak gelişt
 ### <a name="oracle"></a>Oracle
 [http://www.Oracle.com/technetwork/topics/cloud/FAQ-1963009.HTML](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
-Oracle'nın genel ve özel bulut çözümleri geniş bir yelpazesini sunmaya stratejidir. Stratejisi müşteriler seçim ve bunlar Oracle bulutlarındaki Oracle yazılım ve diğer Bulutları nasıl dağıtıldığına esneklik sağlar. Microsoft Oracle'nın yöneticileriyle, müşterilerin Microsoft Genel ve özel Bulutlar sertifika güvenle Oracle yazılım dağıtma ve Oracle kaynağından destek sağlar.  Oracle'nın taahhüt ve Oracle ortak ve özel bulut çözümleri yatırım değişmez.
+Oracle'nın genel ve özel bulut çözümleri geniş bir yelpazesini sunmaya stratejidir. Stratejisi müşteriler seçim ve bunlar Oracle bulutlarındaki Oracle yazılım ve diğer Bulutları nasıl dağıtıldığına esneklik sağlar. Oracle ile Microsoft arasındaki iş ortaklığı sayesinde müşteriler, Oracle tarafından sağlanan sertifika ve desteğin verdiği güvenle Microsoft’un genel ve özel bulutlarında Oracle yazılımlarını dağıtabilir.  Oracle'nın taahhüt ve Oracle ortak ve özel bulut çözümleri yatırım değişmez.
 
 ### <a name="red-hat"></a>Red Hat
 [http://www.RedHat.com/en/partners/Strategic-Alliance/Microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)

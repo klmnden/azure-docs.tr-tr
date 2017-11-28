@@ -2,207 +2,229 @@
 title: "Öğretici: Azure Active Directory Tümleştirme Wizergos üretkenlik ile | Microsoft Docs"
 description: "Çoklu oturum açma Azure Active Directory ile Wizergos üretkenlik arasında yapılandırmayı öğrenin."
 services: active-directory
-documentationcenter: 
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: 
+ms.reviewer: joflore
 ms.assetid: acc04396-13c5-4c24-ab9a-30fbc9234ebd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2017
+ms.date: 11/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 73b3bc05aeb337c12acb7e47c0dbebe6d0196530
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bcdf8d1a7b275b6075d9fd50924de98b65d9c32
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>Öğretici: Azure Active Directory Tümleştirme ile Wizergos üretkenlik
-Bu öğreticinin amacı Wizergos üretkenlik Azure Active Directory (Azure AD) ile tümleştirme Göster sağlamaktır.
+
+Bu öğreticide, Azure Active Directory (Azure AD) ile Wizergos üretkenlik tümleştirmek öğrenin.
 
 Wizergos üretkenlik Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-* Wizergos üretkenlik erişimi, Azure AD'de kontrol edebilirsiniz
-* Otomatik olarak Wizergos üretkenlik çoklu oturum açma (SSO) ile Azure AD hesaplarına için açan kullanıcılarınıza etkinleştirebilirsiniz
-* Hesaplarınızı bir merkezi konumda - Klasik Azure portalı Yönet
+- Wizergos üretkenlik erişimi, Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına otomatik olarak Wizergos üretkenlik için (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
+
 Azure AD tümleştirme Wizergos üretkenlik ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
-* Bir Azure AD aboneliği
-* Abonelik Wizergos üretkenlik yazılım SSO etkin
+- Bir Azure AD aboneliği
+- Bir Wizergos üretkenlik çoklu oturum açma abonelik etkin
 
->[!NOTE]
->Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz. 
-> 
+> [!NOTE]
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
-* Bu gerekli olmadığı sürece, üretim ortamınızın kullanmamanız gerekir.
-* Bir Azure AD deneme ortam yoksa, alabileceğiniz bir [bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticinin amacı, Azure AD SSO bir test ortamında test etmenizi hale getirmektir.
-
-Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
 1. Galeriden Wizergos üretkenlik ekleme
-2. Yapılandırma ve Azure AD SSO test etme
+2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
 ## <a name="adding-wizergos-productivity-software-from-the-gallery"></a>Galeriden Wizergos üretkenlik ekleme
 Azure AD Wizergos üretkenlik tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Wizergos üretkenlik eklemeniz gerekir.
 
 **Galeriden Wizergos üretkenlik eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Klasik Azure portalı**, sol gezinti bölmesinde tıklatın **Active Directory**. 
-   
-    ![Active Directory][1]
-2. Gelen **Directory** listesinde, directory tümleştirmesini etkinleştirmek istediğiniz dizini seçin.
-3. Dizin görünümünde uygulamaları görünümü açmak için **uygulamaları** üst menüde.
-   
-    ![Uygulamalar][2]
-4. Tıklatın **Ekle** sayfanın sonundaki.
-   
-    ![Uygulamalar][3]
-5. Üzerinde **ne yapmak istiyorsunuz** iletişim kutusunda, tıklatın **Galeriden bir uygulama eklemek**.
-   
-    ![Uygulamalar][4]
-6. Arama kutusuna **Wizergos üretkenlik**.
-   
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_01.png)
-7. Sonuçlar panelinde seçin **Wizergos üretkenlik**ve ardından **tam** uygulama eklemek için.
-   
-    ![Uygulama galerisinde seçme](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_001.png)
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-## <a name="configure-and-test-azure-ad-sso"></a>Yapılandırma ve Azure AD SSO test etme
-Bu bölümün amacı, size nasıl yapılandırılacağı ve Azure AD "Britta Simon" adlı bir test kullanıcı tabanlı Wizergos üretkenlik SSO'su test göstermektir.
+    ![Azure Active Directory düğmesi][1]
 
-Çalışmak SSO için Azure AD Wizergos üretkenlik Azure AD'de bir kullanıcıya karşılık gelen kullanıcı ne olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Wizergos üretkenlik ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** Wizergos üretkenlik yazılım.
+    ![Kurumsal uygulamalar dikey penceresi][2]
+    
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-Yapılandırma ve Azure AD çoklu oturum açma BynWizergos üretkenlik Softwareder ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+    ![Yeni Uygulama düğmesi][3]
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Wizergos üretkenlik test kullanıcısı oluşturma](#creating-a-wizergos-productivity-software-test-user)**  - Britta Simon, karşılık gelen Wizergos Azure AD gösterimini her için bağlantılı üretkenlik sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+4. Arama kutusuna **Wizergos üretkenlik**seçin **Wizergos üretkenlik** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-### <a name="configuring-azure-ad-sso"></a>Azure AD SSO yapılandırma
-Bu bölümde, Azure AD çoklu oturum açma Klasik portalında etkinleştirin ve çoklu oturum açma Wizergos üretkenlik uygulamanızda yapılandırın.
+    ![Sonuçlar listesinde Wizergos üretkenlik](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
+
+Bu bölümde, yapılandırmak ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Wizergos üretkenlik sınayın.
+
+Tekli çalışmaya oturum için Azure AD Wizergos üretkenlik karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Wizergos üretkenlik ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+
+Değeri Wizergos üretkenlik atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+
+Yapılandırma ve Azure AD çoklu oturum açma Wizergos üretkenlik ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Wizergos üretkenlik test kullanıcısı oluşturma](#create-a-wizergos-productivity-software-test-user)**  - Britta Simon, karşılık gelen Wizergos kullanıcı Azure AD gösterimini bağlantılı üretkenlik sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
+
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Wizergos üretkenlik uygulamanızda yapılandırın.
 
 **Azure AD çoklu oturum açma Wizergos üretkenlik ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Klasik Portalı'ndaki üzerinde **Wizergos üretkenlik** uygulama tümleştirme sayfası, tıklatın **çoklu oturum açma yapılandırmak** açmak için **yapılandırma çoklu oturum açma**  iletişim kutusu.
-   
-    ![Çoklu oturum açmayı yapılandırın][6] 
-2. Üzerinde **Wizergos üretkenlik oturum açmasını nasıl istiyorsunuz** sayfasında, **Azure AD çoklu oturum açma**ve ardından **sonraki**:
-   
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_03.png)
-3. Üzerinde **uygulama ayarlarını yapılandır** iletişim sayfasında, tıklatın **sonraki**:
-   
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_04.png)
-4. Üzerinde **çoklu oturum açma sırasında Wizergos üretkenlik yapılandırma** sayfasında, **indirme sertifika**ve ardından dosyayı bilgisayarınıza kaydedin:
-   
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_05.png)
-5. Farklı web tarayıcısı penceresinde Wizergos üretkenlik kiracınız yönetici olarak oturum.
-6. Hamburger menüsünden seçin **yönetici**.
-   
+1. Azure portalında üzerinde **Wizergos üretkenlik** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+ 
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_samlbase.png)
+
+3. Üzerinde **Wizergos üretkenlik yazılım etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Wizergos üretkenlik yazılım etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_url.png)
+
+    İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`http://www.wizergos.net`
+
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika** ve sertifika dosyayı bilgisayarınıza kaydedin.
+
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_certificate.png) 
+
+5. Tıklatın **kaydetmek** düğmesi.
+
+    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_400.png)
+
+6. Üzerinde **Wizergos üretkenlik yazılım yapılandırma** 'yi tıklatın **yapılandırma Wizergos üretkenlik** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+
+    ![Wizergos üretkenlik yazılım yapılandırma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_configure.png) 
+
+7. Farklı web tarayıcısı penceresinde Wizergos üretkenlik kiracınız yönetici olarak oturum.
+
+8. Hamburger menüsünden seçin **yönetici**.
+
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_000.png)
-7. Sol taraftaki menüsünde Yönetim sayfasında seçin **kimlik doğrulaması** ve tıklayın **Azure AD**.
-   
+
+9. Sol taraftaki menüsünde Yönetim sayfasında seçin **kimlik doğrulaması** ve tıklayın **Azure AD**.
+
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_002.png)
-8. Aşağıdaki adımları gerçekleştirin **kimlik doğrulaması** bölümü.
-   
+
+10. Aşağıdaki adımları gerçekleştirin **kimlik doğrulaması** bölümü.
+
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
-  1. Tıklatın **karşıya** Azure AD'den indirilen sertifikayı karşıya yüklemek için düğmeyi. 
-  2. İçinde **veren URL'si** textbox değeri put **veren URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
-  3. İçinde **çoklu oturum açma URL'si** textbox değeri put **çoklu oturum açma hizmet URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
-  4. İçinde **tek Sign-Out URL** textbox değeri put **tek Sign-out hizmeti URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
-  5. Tıklatın **kaydetmek** düğmesi.
-9. Klasik Portalı'ndaki tek oturum açma yapılandırması onay seçin ve ardından **sonraki**.
-   
-    ![Azure AD çoklu oturum açma][10]
-10. Üzerinde **tek oturum açma onay** sayfasında, **tam**.  
     
-    ![Azure AD çoklu oturum açma][11]
+    a. Tıklatın **karşıya** Azure AD'den indirilen sertifikayı karşıya yüklemek için düğmeyi.
+    
+    b. İçinde **veren URL'si** metin kutusuna, Yapıştır **SAML varlık kimliği** Azure portalından kopyaladığınız değeri.
+    
+    c. İçinde **çoklu oturum açma URL'si** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri.
+    
+    d. İçinde **tek Sign-Out URL** metin kutusuna, Yapıştır **Sign-Out URL** Azure portalından kopyaladığınız değeri.
+    
+    e. Tıklatın **kaydetmek** düğmesi.
+
+> [!TIP]
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Klasik portalda bir test kullanıcı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][20]
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Klasik Azure portalı**, sol gezinti bölmesinde tıklatın **Active Directory**.
-   
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_09.png)
-2. Gelen **Directory** listesinde, directory tümleştirmesini etkinleştirmek istediğiniz dizini seçin.
-3. Üstteki menüde kullanıcıların listesini görüntülemek için tıklatın **kullanıcılar**.
-   
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_03.png)
-4. Açmak için **Kullanıcı Ekle** iletişim kutusunda, araç çubuğunda alt tıklatın **Kullanıcı Ekle**.
-   
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_04.png)
-5. Üzerinde **bu kullanıcı hakkında bize** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
-   
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_05.png) 
-  1. Kullanıcı türü olarak, kuruluşunuzdaki yeni kullanıcı seçin.
-  2. Kullanıcı adı **textbox**, türü **BrittaSimon**.
-  3. **İleri**’ye tıklayın.
-6. Üzerinde **kullanıcı profili** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
-   
-   ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_06.png)
-  1. İçinde **ad** metin kutusuna, türü **Britta**.  
-  2. İçinde **Soyadı** metin kutusuna, türü, **Simon**.
-  3. İçinde **görünen adı** metin kutusuna, türü **Britta Simon**.
-  4. İçinde **rol** listesinde **kullanıcı**.
-  5. **İleri**’ye tıklayın.
-7. Üzerinde **Get geçici parola** iletişim sayfasında, tıklatın **oluşturma**.
-   
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_07.png)
-8. Üzerinde **Get geçici parola** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
-   
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_08.png)
-  1. Değerini yazmak **yeni parola**.
-  2. **Tamamla**’ya tıklayın.   
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_01.png)
+
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_02.png)
+
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+
+    ![Ekle düğmesi](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_03.png)
+
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_04.png)
+
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+
+    d. **Oluştur**'a tıklayın.
+ 
 ### <a name="create-a-wizergos-productivity-software-test-user"></a>Wizergos üretkenlik test kullanıcısı oluşturma
-Bu bölümde, Britta Simon Wizergos üretkenlik adlı bir kullanıcı oluşturun. Lütfen Wizergos üretkenlik destek ekibi ile çalışmak [ support@wizergos.com ](emailTo:support@wizergos.com) Wizergos üretkenlik platform kullanıcıları eklemek için.
+
+Bu bölümde, Britta Simon Wizergos üretkenlik adlı bir kullanıcı oluşturun. Lütfen çalışmak [Wizergos üretkenlik destek ekibi](mailTo:support@wizergos.com) Wizergos üretkenlik platform kullanıcıları eklemek için.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
-Bu bölümün amacı Britta Wizergos üretkenlik her erişim vererek Azure SSO kullanılacak Simon için etkinleştirmektir.
 
-  ![Kullanıcı atama][200]
+Bu bölümde, Britta Wizergos üretkenlik erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+
+![Kullanıcı rolü atayın][200] 
 
 **Britta Simon Wizergos üretkenlik atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Klasik portalı üzerinde dizin görünümünde uygulamaları görünümü açmak için tıklatın **uygulamaları** üst menüde.
-   
-    ![Kullanıcı atama][201]
-2. Uygulamalar listesinde **Wizergos üretkenlik**.
-   
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_50.png)
-3. Üstteki menüde tıklatın **kullanıcılar**.
-   
-    ![Kullanıcı atama][203]
-4. Kullanıcılar listesinden seçin **Britta Simon**.
-5. Araç çubuğunda alt tıklatın **atamak**.
-   
-    ![Kullanıcı atama][205]
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
+    ![Kullanıcı atama][201] 
+
+2. Uygulamalar listesinde **Wizergos üretkenlik**.
+
+    ![Uygulamalar listesinde Wizergos üretkenlik bağlantı](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_app.png)  
+
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
+
+4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+
+    ![Ekleme atama bölmesi][203]
+
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+
+6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+
+7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+    
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
-Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.
+
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli Wizergos üretkenlik parçasında tıklattığınızda, otomatik olarak Wizergos üretkenlik uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
+
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
@@ -213,13 +235,10 @@ Erişim paneli Wizergos üretkenlik parçasında tıklattığınızda, otomatik 
 [3]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_100.png
+[100]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_100.png
 
 [200]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_200.png
 [201]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_205.png
+

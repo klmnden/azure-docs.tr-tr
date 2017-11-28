@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 11/27/2017
 ms.author: bryanla
-ms.openlocfilehash: c166d5d4e0ae054e89eb3a5728f1d86f4e008c12
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: adad9bcb210281a3cd782dbfa63687602ed343fc
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Bir VM yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma
 
@@ -31,7 +31,7 @@ Bu makalede, etkinleştirme ve Azure PowerShell kullanarak VM için MSI kaldırm
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Ayrıca, yükleme [Azure PowerShell sürüm 4.3.1](https://www.powershellgallery.com/packages/AzureRM/4.3.1) yapmadıysanız.
+Ayrıca, yükleme [Azure PowerShell'in en son sürümünü](https://www.powershellgallery.com/packages/AzureRM) (sürüm 4.3.1 veya sonrası) yapmadıysanız.
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Bir Azure VM oluşturma sırasında MSI etkinleştir
 

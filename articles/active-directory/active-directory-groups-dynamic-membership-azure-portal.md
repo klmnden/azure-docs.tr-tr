@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
 Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler etkinleştirmek için Gelişmiş kurallar oluşturabilirsiniz. Bu makalede, öznitelikleri ve kullanıcılar veya cihazlar için dinamik Üyelik kuralları oluşturmak için sözdizimi ayrıntıları.
@@ -163,6 +163,7 @@ Gelişmiş kuralınız kullanabileceğiniz tüm kullanıcı özellikleri şunlar
 | Şirket adı | Herhangi bir dize değeri veya *null* | (user.companyName - eq "value") |
 | Bölüm |Herhangi bir dize değeri veya *null* |(user.department - eq "value") |
 | Görünen adı |Herhangi bir dize değeri |(user.displayName - eq "value") |
+| EmployeeID |Herhangi bir dize değeri |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Herhangi bir dize değeri veya *null* |(user.facsimileTelephoneNumber - eq "value") |
 | givenName |Herhangi bir dize değeri veya *null* |(user.givenName - eq "value") |
 | İş Unvanı |Herhangi bir dize değeri veya *null* |(user.jobTitle - eq "value") |

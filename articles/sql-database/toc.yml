@@ -337,8 +337,10 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Çok kiracılı SaaS
       items:
-        - name: Wingtips’e hoş geldiniz
+        - name: Wingtip Tickets örneği
           href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Genel kılavuz
+          href: saas-tenancy-wingtip-app-guidance-tips.md
         - name: Tek başına uygulama
           items:
             - name: Örnek uygulamayı dağıtma

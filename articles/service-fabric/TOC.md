@@ -243,6 +243,7 @@
 ### [Visual Studio’da .NET hizmetinde hata ayıklama](service-fabric-debugging-your-application.md)
 ### [Genel hatalar ve özel durumlar](service-fabric-errors-and-exceptions.md)
 ### [Yerel olarak izleme ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Windows'ta Linux kümesi ayarlama](service-fabric-local-linux-cluster-windows.md)
 
 ## Bir Linux geliştirme ortamında çalışma
 ### [Java ile geliştirme için Eclipse eklentisini kullanmaya başlama](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [Test senaryolarını kullanma](service-fabric-testability-scenarios.md)
 ##### [Düğüm geçişi API’lerini kullanma](service-fabric-node-transition-apis.md)
 
-### [Jenkins kullanarak Linux Java uygulamanızı dağıtma](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### Sürekli tümleştirme kurulumu
+#### [VSTS ile sürekli tümleştirmeyi ayarlama](service-fabric-set-up-continuous-integration.md)
+#### [Jenkins kullanarak Linux uygulamalarınızı dağıtma](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Küme oluşturma ve yönetme
 ### Azure’da kümeler

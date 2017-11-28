@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: c036901bde5fff0d63ee2494de87e49410662099
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 48e8eb91a5febcc1109bee3404bb534bd0391f88
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Kurulum ve bir çok kiracılı Azure SQL veritabanı SaaS uygulaması ile günlük analizi (OMS) kullanın
+# <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Ayarlama ve bir çok kiracılı Azure SQL veritabanı SaaS uygulaması ile günlük analizi (OMS) kullanma
 
 Bu öğreticide ayarlama ve kullanma *günlük analizi ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* esnek havuzlar ve veritabanları izleme. Bu öğretici derlemeler [performans izleme ve yönetim Öğreticisi](saas-dbpertenant-performance-monitoring.md). Nasıl kullanılacağını gösterir *günlük analizi* izleme ve Azure Portal'da sağlanan uyarı büyütmek için. Günlük analizi, izleme ve havuzları yüzlerce ve yüz binlerce veritabanları desteklediğinden ölçekte uyarı için uygundur. Ayrıca, birden fazla Azure aboneliği genelinde farklı uygulamaların ve Azure hizmetlerinin izlenmesini tümleştiren tek bir izleme çözümü sağlar.
 
@@ -59,7 +59,7 @@ Log Analytics çalışma alanları ve analiz çözümleri, hem Azure portalında
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama komut dosyaları alma
 
-Başına Wingtip biletleri SaaS veritabanı Kiracı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) github depo. Betik dosyaları, [Öğrenme Modülleri klasöründe](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/master/Learning%20Modules) yer alır. **Öğrenme Modülleri** klasörünü, klasör yapısını koruyarak yerel bilgisayarınıza indirin.
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Log Analytics’i ve Azure SQL Analytics çözümünü yükleme ve yapılandırma
 
@@ -85,7 +85,8 @@ Bu alıştırmada, veritabanları ve havuzları için toplanan telemetri bakmak 
 1. Azure portalında Log Analytics çözümünü açmak için **Genel Bakış**’ı seçin.
    ![genel bakış-bağlantı](media/saas-dbpertenant-log-analytics/click-overview.png)
 
-    **ÖNEMLİ**: Çözümün etkinleştirilmesi birkaç dakikayı bulabilir. Sabırlı olun!
+    > [!IMPORTANT]
+    > Birkaç çözüm etkinleştirilmeden önce dakika sürebilir. Sabırlı olun!
 
 1. Açmak için Azure SQL Analytics kutucuğuna tıklayın.
 

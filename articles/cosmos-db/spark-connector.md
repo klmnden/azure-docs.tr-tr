@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: ba824ed1bad49c71f8de9f2da8249945d9430222
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 1efdda867703613e4f85e6994004df32e70ccb3d
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark ile gerçek zamanlı büyük veri analizi Azure Cosmos DB bağlayıcıya hızlandırmak
 
@@ -79,7 +79,7 @@ Spark Azure Cosmos DB arasındaki iletişimi, Spark ana düğüm ve Azure Cosmos
 ### <a name="install-pydocumentdb"></a>PyDocumentDB yükleyin
 Kullanarak, sürücü düğümde pyDocumentDB yükleyebilirsiniz **PIP**, örneğin:
 
-```
+```bash
 pip install pyDocumentDB
 ```
 
@@ -89,7 +89,7 @@ Basitlik iletişim taşıma bir sorgu yürütme Spark'tan Azure Cosmos DB pyDocu
 
 Aşağıdaki kod parçacığını bir Spark bağlamında pyDocumentDB kullanmayı gösterir.
 
-```
+```python
 # Import Necessary Libraries
 import pydocumentdb
 from pydocumentdb import document_client
@@ -117,7 +117,7 @@ Kod parçacığında belirtildiği gibi:
 ### <a name="execute-spark-queries-via-pydocumentdb"></a>PyDocumentDB Spark sorgularını Yürüt
 Aşağıdaki örnekler önceki kod parçacığında belirtilen salt okunur anahtarları kullanılarak oluşturulmuş Azure Cosmos DB örneği kullanın. Aşağıdaki kod parçacığını bağlandığı **airports.codes** DoctorWho hesabıyla koleksiyonunda daha önce belirtilen ve Washington durumu havaalanı şehirlerde ayıklamak için bir sorgu çalıştırır.
 
-```
+```python
 # Configure Database and Collections
 databaseId = 'airports'
 collectionId = 'codes'
@@ -141,7 +141,7 @@ elements = list(query)
 
 Aracılığıyla sorgu yürütüldükten sonra **sorgu**, sonuç bir **query_iterable. QueryIterable** Python listesini dönüştürülür. Python listesini, aşağıdaki kodu kullanarak bir Spark DataFrame kolayca dönüştürülebilir:
 
-```
+```python
 # Create `df` Spark DataFrame from `elements` Python list
 df = spark.createDataFrame(elements)
 ```
@@ -183,7 +183,7 @@ spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-wi
 
 Bağımlılıklar olmadan JAR çalıştırmak istiyorsanız, aşağıdaki kodu kullanın:
 
-```
+```bash
 spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
 ```
 

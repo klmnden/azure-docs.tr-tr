@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect: Sorunsuz çoklu oturum açma sorunlarını giderme | Microsoft Docs"
-description: "Bu konuda, Azure Active Directory sorunsuz çoklu oturum açma (Azure AD sorunsuz SSO) ile ilgili sorunları giderme açıklanmaktadır."
+title: "Azure Active Directory Connect: Sorunsuz çoklu oturum açma sorunlarını giderme | Microsoft Docs"
+description: "Bu konu, Azure Active Directory sorunsuz çoklu oturum açma giderileceğini açıklar"
 services: active-directory
 keywords: "Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma"
 documentationcenter: 
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: b383a21500c753d8d2fe6747756541a3ff94ef02
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: b4efb457a58d8b54c9ebb126a8d84fdef01b3847
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma sorunlarını giderme
 
-Bu makale size yardımcı olacak sorun giderme ilişkin Azure AD sorunsuz çoklu oturum açma ortak sorunlar hakkında bilgileri bulabilirsiniz.
+Bu makale size yardımcı olacak sorun giderme bilgileri ilgili sık karşılaşılan sorunları ile ilgili Azure Active Directory (Azure AD) sorunsuz çoklu oturum açma (sorunsuz SSO) bulun.
 
-## <a name="known-issues"></a>Bilinen sorunlar
+## <a name="known-problems"></a>Bilinen sorunlar
 
 - Bazı durumlarda, sorunsuz SSO etkinleştirme 30 dakika kadar sürebilir.
 - Edge tarayıcı desteği kullanılamıyor.
-- Office istemcileri başlatılıyor, özellikle paylaşılan bir bilgisayar senaryolarında kullanıcılar için fazladan oturum açma ister neden. Kullanıcılar kendi kullanıcı adları, ancak değil parolaları sık girmeniz gerekir.
-- Sorunsuz SSO başarılı olursa, kullanıcı "Oturumumu açık bırak" seçme imkanınız verilmedi. Bu davranış nedeniyle, SharePoint ve OneDrive eşlemesi senaryoları çalışmıyor.
+- Office istemcileri, özellikle paylaşılan bir bilgisayar senaryolarda başlangıç kullanıcılar için fazladan oturum açma ister neden olur. Kullanıcıların kendi kullanıcı adları sık, ancak kullanıcıların parolalarını girmeleri gerekir.
+- Sorunsuz SSO başarılı olursa, kullanıcının seçmek için Fırsat yok **Oturumumu açık bırak**. Bu davranış nedeniyle, SharePoint ve OneDrive eşleme senaryolar çalışmaz.
 - Sorunsuz SSO Firefox özel gözatma modunda çalışmıyor.
-- Geliştirilmiş koruma modu etkinken sorunsuz SSO Internet Explorer'da işe yaramaz.
+- Geliştirilmiş korumalı mod açıldığında sorunsuz SSO Internet Explorer'da işe yaramaz.
 - Sorunsuz SSO iOS ve Android mobil tarayıcılar işe yaramaz.
-- 30 veya daha fazla AD ormanına eşitleme, Azure AD Connect'i kullanarak sorunsuz SSO etkinleştiremezsiniz. Geçici bir çözüm olarak, şunları yapabilirsiniz [el ile etkinleştirmeniz](#manual-reset-of-azure-ad-seamless-sso) kiracınız özelliği.
-- Azure AD hizmeti URL'leri (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) yerine "Yerel intranet" bölgesine "Güvenilen siteler" bölgesine ekleyerek **kullanıcıların açmasını engelleyen**.
+- 30 veya daha fazla Active Directory ormanları eşitliyorsanız, Azure AD Connect ile sorunsuz SSO etkinleştiremezsiniz. Geçici bir çözüm olarak, şunları yapabilirsiniz [el ile etkinleştirmeniz](#manual-reset-of-azure-ad-seamless-sso) kiracınız özelliği.
+- Azure AD hizmeti URL'leri (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) yerel intranet bölgesine yerine Güvenilen siteler bölgesine ekleme *kullanıcıların açmasını engelleyen*.
 
-## <a name="check-status-of-the-feature"></a>Özellik durumunu denetleme
+## <a name="check-the-status-of-the-feature"></a>Özellik durumunu denetleme
 
-Sorunsuz SSO özelliği hala olduğundan emin olun **etkin** kiracınız üzerinde. Giderek durumunu denetleyebilirsiniz **Azure AD Connect** dikey penceresinde [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/).
+Sorunsuz SSO özelliği hala olduğundan emin olun **etkin** kiracınız üzerinde. Giderek durumunu denetleyebilirsiniz **Azure AD Connect** bölmesinde [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/).
 
-![Azure Active Directory Yönetim Merkezi - Azure AD Connect dikey penceresi](./media/active-directory-aadconnect-sso/sso10.png)
+![Azure Active Directory Yönetim Merkezi: Azure AD Connect bölmesi](./media/active-directory-aadconnect-sso/sso10.png)
 
-## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Oturum açma hatası nedeniyle Azure Active Directory Yönetim Merkezi (Premium lisansı gerekir)
+## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Oturum açma hatası nedeniyle Azure Active Directory Yönetim Merkezi'nden (Premium lisansı gerekir)
 
-Kiracı kendisiyle ilişkili bir Azure AD Premium lisansı varsa, aynı zamanda bakabilirsiniz [oturum açma etkinliği raporu](../active-directory-reporting-activity-sign-ins.md) üzerinde [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/).
+Kiracı kendisiyle ilişkili bir Azure AD Premium lisansı varsa, aynı zamanda bakabilirsiniz [oturum açma etkinliği raporu](../active-directory-reporting-activity-sign-ins.md) içinde [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/).
 
-![Azure Active Directory Yönetim Merkezi - oturum açma işlemleri raporu](./media/active-directory-aadconnect-sso/sso9.png)
+![Azure Active Directory Yönetim Merkezi: oturum açma işlemleri raporu](./media/active-directory-aadconnect-sso/sso9.png)
 
-Gidin **Azure Active Directory** -> **oturum açma işlemleri** üzerinde [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/) ve belirli bir kullanıcının oturum açma etkinliği tıklatın. Ara **oturum açmayı hata kodu** alan. Bu alanın değeri bir başarısızlık nedeniyle ve aşağıdaki tabloda kullanılarak çözümleme eşleyin:
+Gözat **Azure Active Directory** > **oturum açma işlemleri** içinde [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com/)ve ardından belirli bir kullanıcının oturum açma etkinliği seçin. Ara **oturum açmayı hata kodu** alan. Bu alanın değeri bir hata nedeni ve çözümü için aşağıdaki tabloyu kullanarak eşleyin:
 
 |Oturum açma hata kodu|Oturum açma hatası nedeni|Çözüm
 | --- | --- | ---
@@ -57,31 +57,31 @@ Gidin **Azure Active Directory** -> **oturum açma işlemleri** üzerinde [Azure
 | 81003 | Kullanıcının Kerberos anahtarı doğrulanamadı. | Bkz: [denetim listesi sorun giderme](#troubleshooting-checklist).
 | 81004 | Kerberos kimlik doğrulaması girişimi başarısız oldu. | Bkz: [denetim listesi sorun giderme](#troubleshooting-checklist).
 | 81008 | Kullanıcının Kerberos anahtarı doğrulanamadı. | Bkz: [denetim listesi sorun giderme](#troubleshooting-checklist).
-| 81009 | "Kullanıcının Kerberos anahtarı doğrulanamadı. | Bkz: [denetim listesi sorun giderme](#troubleshooting-checklist).
+| 81009 | Kullanıcının Kerberos anahtarı doğrulanamadı. | Bkz: [denetim listesi sorun giderme](#troubleshooting-checklist).
 | 81010 | Kullanıcının Kerberos anahtarının süresi dolduğu veya anahtar geçersiz olduğu için sorunsuz SSO başarısız oldu. | Kullanıcı etki alanına katılmış bir CİHAZDAN Kurumsal ağınızdaki oturum açması gerekiyor.
-| 81011 | Kullanıcının Kerberos anahtarındaki bilgiler temel alınarak kullanıcı nesnesi bulunamadı. | Azure AD Connect, Azure AD kullanıcı bilgilerini eşitlemek için kullanın.
-| 81012 | Azure AD'de oturum açmaya çalışan kullanıcı, cihazda oturum açmış olan kullanıcıdan farklıdır. | Farklı bir CİHAZDAN oturum açın.
-| 81013 | Kullanıcının Kerberos anahtarındaki bilgiler temel alınarak kullanıcı nesnesi bulunamadı. |Azure AD Connect, Azure AD kullanıcı bilgilerini eşitlemek için kullanın. 
+| 81011 | Kullanıcının Kerberos bileti içindeki bilgileri temel kullanıcı nesnesi bulunamıyor. | Azure AD Connect, Azure AD kullanıcı bilgilerini eşitlemek için kullanın.
+| 81012 | Azure AD ile oturum açmaya çalışan kullanıcıya, cihaza açtığınız kullanıcı farklıdır. | Kullanıcı, farklı bir CİHAZDAN oturum açması gerekiyor.
+| 81013 | Kullanıcının Kerberos bileti içindeki bilgileri temel kullanıcı nesnesi bulunamıyor. |Azure AD Connect, Azure AD kullanıcı bilgilerini eşitlemek için kullanın. 
 
 ## <a name="troubleshooting-checklist"></a>Sorun giderme denetim listesi
 
-Sorunsuz SSO sorunları gidermek için aşağıdaki denetim listesini kullanın:
+Sorunsuz SSO sorunlarını gidermek için aşağıdaki denetim listesini kullanın:
 
-- Sorunsuz SSO Özelliği Azure AD Connect etkin olup olmadığını denetleyin. Özelliği (örneğin, nedeniyle engellenen bir bağlantı noktası) etkinleştiremezsiniz tümüne sahip olun [ön koşullar](active-directory-aadconnect-sso-quick-start.md#step-1-check-prerequisites) yerinde.
-- Her iki bu Azure AD URL'leri (https://autologon.microsoftazuread-sso.com ve https://aadg.windows.net.nsatc.net) kullanıcının Intranet bölgesi ayarlarının bir parçası olup olmadığını denetleyin.
-- Kurumsal cihaz AD etki alanına katılmış emin olun.
-- Kullanıcının aygıtına bir AD etki alanı hesabı kullanarak oturum emin olun.
-- Kullanıcı hesabının sorunsuz SSO burada bırakıldı bir AD ormandan kurulduğundan emin olun.
-- Cihaz şirket ağına bağlı olduğundan olun.
-- Cihazın zaman Active Directory'nin ve etki alanı denetleyicileri süresiyle eşitlenir ve beş dakikalık olduğundan emin olun.
-- Aygıt kullanarak mevcut Kerberos anahtarları listesinde **klist** bir komut isteminden komutu. Biletleri için verilen varsa denetleyin `AZUREADSSOACCT` bilgisayar hesabı. Kullanıcıların Kerberos biletleri için 12 saat genellikle geçerlidir. Active Directory'de farklı ayarlara sahip olabilir.
-- Cihazı kullanarak mevcut Kerberos anahtarları Temizleme **klist Temizleme** komut ve yeniden deneyin.
-- JavaScript ile ilgili bir sorun varsa belirlemek için (altında "Geliştirici Araçları") tarayıcının konsol günlüklerini gözden geçirin.
-- Gözden geçirme [etki alanı denetleyicisi](#domain-controller-logs) de.
+- Azure AD Connect sorunsuz SSO özelliği etkin olduğundan emin olun. Özelliği (örneğin, nedeniyle engellenen bir bağlantı noktası) etkinleştiremezsiniz tümüne sahip olun [Önkoşullar](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites) yerinde.
+- Bu Azure AD URL'ler (https://autologon.microsoftazuread-sso.com ve https://aadg.windows.net.nsatc.net) kullanıcının Intranet bölgesi ayarlarının bir parçası olduğundan emin olun.
+- Kurumsal cihaz Active Directory etki alanına katılmış emin olun.
+- Kullanıcı aygıt bir Active Directory etki alanı hesabıyla oturum açmış emin olun.
+- Kullanıcı hesabının sorunsuz SSO burada bırakıldı bir Active Directory ormanından kurulduğundan emin olun.
+- Cihazın şirket ağına bağlı olduğundan emin olun.
+- Cihazın zaman zaman Active Directory ve etki alanı denetleyicileri ile eşitlenir ve beş dakikalık olduklarından emin olun.
+- Cihazda mevcut Kerberos anahtarları kullanarak listesinde `klist` bir komut isteminden komutu. Çıkarılan biletleri emin `AZUREADSSOACCT` bilgisayar hesabı. Kullanıcıların Kerberos biletleri için 12 saat genellikle geçerlidir. Active Directory'de farklı ayarlara sahip olabilir.
+- Mevcut Kerberos anahtarları kullanarak aygıttan Temizleme `klist purge` komut ve yeniden deneyin.
+- JavaScript ile ilgili sorunlar olup olmadığını belirlemek için tarayıcının konsol günlüklerini gözden geçirin (altında **Geliştirici Araçları**).
+- Gözden geçirme [etki alanı denetleyicisi günlükleri](#domain-controller-logs).
 
-### <a name="domain-controller-logs"></a>Etki alanı denetleyicisi
+### <a name="domain-controller-logs"></a>Etki alanı denetleyicisi günlükleri
 
-Etki alanı denetleyicinizde, ardından sorunsuz SSO kullanarak kullanıcının oturum açtığı her zaman başarı denetimi etkinse, güvenlik girişi olay günlüğüne kaydedilir. Aşağıdaki sorguyu kullanarak bu güvenlik olaylarını Bul (olayını arayın **4769** bilgisayar hesabıyla ilişkilendirilmiş **AzureADSSOAcc$**):
+Etki alanı denetleyicinizde, ardından sorunsuz SSO ile bir kullanıcı oturum açtığında her zaman Başarı Denetimi etkinleştirirseniz, güvenlik girişi olay günlüğüne kaydedilir. Bu güvenlik olayları aşağıdaki sorguyu kullanarak bulabilirsiniz. (Olayını arayın **4769** bilgisayar hesabıyla ilişkilendirilmiş **AzureADSSOAcc$**.)
 
 ```
     <QueryList>
@@ -93,31 +93,31 @@ Etki alanı denetleyicinizde, ardından sorunsuz SSO kullanarak kullanıcının 
 
 ## <a name="manual-reset-of-the-feature"></a>Özelliğin elle sıfırlama
 
-Sorun giderme işe yaramazsa, Kiracı ' özelliğini el ile sıfırlayabilirsiniz. Azure AD Connect çalıştırdığınız şirket içi sunucu üzerinde aşağıdaki adımları izleyin:
+Sorun giderme işe yaramazsa, Kiracı ' özelliğini el ile sıfırlayabilirsiniz. Azure AD Connect kullanmakta olduğunuz nerede şirket içi sunucu üzerinde aşağıdaki adımları izleyin.
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>1. adım: sorunsuz SSO PowerShell modülünü içeri aktarın
 
-1. İlk olarak, indirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Ardından karşıdan yükleyip [64-bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Gidin `%programfiles%\Microsoft Azure Active Directory Connect` klasör.
+1. İndirme ve yükleme [Microsoft Online Services oturum açma Yardımcısı](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. İndirme ve yükleme [64-bit Windows PowerShell için Azure Active Directory Modülü](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Gözat `%programfiles%\Microsoft Azure Active Directory Connect` klasör.
 4. Bu komutu kullanarak sorunsuz SSO PowerShell modülünü içeri aktarın: `Import-Module .\AzureADSSO.psd1`.
 
-### <a name="step-2-get-the-list-of-ad-forests-on-which-seamless-sso-has-been-enabled"></a>2. adım: AD ormanına sorunsuz SSO etkinleştirildiği listesini al
+### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>2. adım: Active Directory ormanları sorunsuz SSO etkinleştirildiği listesini al
 
 1. PowerShell'i yönetici olarak çalıştırın. PowerShell'de, çağrı `New-AzureADSSOAuthenticationContext`. İstendiğinde, kiracının genel Yöneticisi kimlik bilgilerini girin.
-2. Çağrı `Get-AzureADSSOStatus`. Bu komut bu özellik etkinleştirildiği üzerinde AD ormanına ("Etki alanları" listesi bakın) listesini sağlar.
+2. Çağrı `Get-AzureADSSOStatus`. Bu komut, Active Directory ormanına ("Etki alanları" listesi bakın) listesini bu özellik etkinleştirildiği üzerinde sağlar.
 
-### <a name="step-3-disable-seamless-sso-for-each-ad-forest-that-it-was-set-it-up-on"></a>3. adım: Bunu üzerinde oluşturulduğuna her AD ormanı için sorunsuz SSO devre dışı bırak
+### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>3. adım: Özelliği burada ayarladığınız her Active Directory ormanı için sorunsuz SSO devre dışı bırak
 
-1. Çağrı `$creds = Get-Credential`. İstendiğinde, hedeflenen AD orman için etki alanı yönetici kimlik bilgilerini girin.
-2. Çağrı `Disable-AzureADSSOForest -OnPremCredentials $creds`. Bu komut kaldırır `AZUREADSSOACCT` bu belirli AD ormanı için şirket içi etki alanı denetleyicisinden bilgisayar hesabı.
-3. Özelliği ayarladığınız her bir AD orman için önceki adımları yineleyin.
+1. Çağrı `$creds = Get-Credential`. İstendiğinde, hedeflenen Active Directory orman için etki alanı yönetici kimlik bilgilerini girin.
+2. Çağrı `Disable-AzureADSSOForest -OnPremCredentials $creds`. Bu komut kaldırır `AZUREADSSOACCT` bu belirli Active Directory ormanı için şirket içi etki alanı denetleyicisinden bilgisayar hesabı.
+3. Özelliği burada ayarladığınız her Active Directory ormanı için önceki adımları yineleyin.
 
-### <a name="step-4-enable-seamless-sso-for-each-ad-forest"></a>4. adım: Her bir AD orman için sorunsuz SSO etkinleştir
+### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>4. adım: Her Active Directory ormanı için sorunsuz SSO etkinleştirme
 
-1. Çağrı `Enable-AzureADSSOForest`. İstendiğinde, hedeflenen AD orman için etki alanı yönetici kimlik bilgilerini girin.
-2. Üzerinde özelliği ayarlamak istediğiniz her bir AD orman için önceki adımları yineleyin.
+1. Çağrı `Enable-AzureADSSOForest`. İstendiğinde, hedeflenen Active Directory orman için etki alanı yönetici kimlik bilgilerini girin.
+2. Özelliği ayarlamak istediğiniz her bir Active Directory ormanı için önceki adımı yineleyin.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>5. Adım. Kiracı özelliğini etkinleştir
 
-Çağrı `Enable-AzureADSSO` "true" yazın `Enable: ` kiracınızda özelliğini etkinleştirmek komut istemi.
+Kiracı özelliğini etkinleştirmek için arama `Enable-AzureADSSO` ve girin **true** adresindeki `Enable:` istemi.

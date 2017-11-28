@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak şirket içi koşullu erişimi ayarlama
 Azure Active Directory (Azure AD) cihaz kayıt hizmeti için kişisel cihazlarını çalışma alanına katılma kullanıcılara ihtiyaç duyduğunuzda, cihazlarını kuruluşunuza bilinen olarak işaretlenebilir. Aşağıda, Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimi etkinleştirmek için adım adım yönergeler verilmektedir.
@@ -166,9 +166,9 @@ Bu URL'yi, kullanıcılarınıza iletmenin birçok farklı yolu vardır. Örneğ
 4. İstendiğinde, kimlik bilgilerinizle oturum açın. Cihaz artık birleştirilir.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak bir Windows 7 aygıtı birleştirme
-Windows 7 etki alanına katılmış cihazları kaydetmek için cihaz kayıt yazılım paketini dağıtmak için gerekir. Yazılım paketini Windows 7 için çalışma alanına katılma ve onun yükleme için kullanılabilir adlandırılır [Microsoft Connect Web](https://connect.microsoft.com/site1164). 
+Windows 7 etki alanına katılmış cihazları kaydetmek için dağıtmak gereken [cihaz kayıt yazılım paketini](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Paketin nasıl kullanılacağı hakkında yönergeler bulunan [Azure Active Directory ile etki alanına katılmış Windows cihazlarının otomatik kaydını yapılandırma](active-directory-conditional-access-automatic-device-registration-setup.md).
+Paketin nasıl kullanılacağı hakkında yönergeler için bkz: [Windows 10 bilgisayarları için Windows Installer paketleri](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Kayıtlı cihazlar için Active Directory geri yazılır doğrulayın
 Görüntüleyebilir ve aygıt nesneleri geri Active Directory'ye LDP.exe veya ADSI Düzenleyicisi kullanılarak yazılan olduğunu doğrulayın. Her ikisi de, Active Directory Yöneticisi Araçları ile kullanılabilir.

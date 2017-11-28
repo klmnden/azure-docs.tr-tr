@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/29/2017
 ms.author: rickbyh
-ms.openlocfilehash: bd5a7a117ec6c4a4b75fcced3f2b5987004c83d0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cdf78a3c64933f5f01642d5ef8fe1fca64cb1fbb
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database ve SQL Data Warehouse (MFA desteği SSMS) ile Evrensel kimlik doğrulaması
 Azure SQL Database ve Azure SQL Data Warehouse desteği SQL Server Management Studio (SSMS) kullanarak bağlantıları *Active Directory Evrensel kimlik doğrulaması*. 
@@ -63,4 +63,4 @@ Konuk kullanıcı olarak Azure AD B2B senaryolarını desteklenen azure AD kulla
 - [Yeni bir Azure SQL veritabanı için bir BACPAC dosyasını içeri aktarın](../sql-database/sql-database-import.md)  
 - [Bir Azure SQL veritabanı bir BACPAC dosyasına dışarı aktarma](../sql-database/sql-database-export.md)  
 - C# arabirimi [IUniversalAuthProvider arabirimi](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
-- Kullanırken **Active Directory - Evrensel MFA ile** kimlik doğrulaması, ADAL izleme kullanılabilir başlayarak olduğunu [SSMS 17,3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Varsayılan olarak, ADAL izlemeyi kullanarak devre dışı bırakabilirsiniz **Araçları**, **seçenekleri** menüsü altında **Azure Hizmetleri**, **Azure bulut**,  **ADAL çıkış penceresi izleme düzeyini**, izlenen etkinleştirerek **çıkış** içinde **Görünüm** menüsü. İzlemeler çıktı penceresinde seçerken kullanılabilir **Azure Active Directory seçeneği**.  
+- Kullanırken **Active Directory - Evrensel MFA ile** kimlik doğrulaması, ADAL izleme kullanılabilir başlayarak olduğunu [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Varsayılan olarak, ADAL izlemeyi kullanarak devre dışı bırakabilirsiniz **Araçları**, **seçenekleri** menüsü altında **Azure Hizmetleri**, **Azure bulut**,  **ADAL çıkış penceresi izleme düzeyini**, izlenen etkinleştirerek **çıkış** içinde **Görünüm** menüsü. İzlemeler çıktı penceresinde seçerken kullanılabilir **Azure Active Directory seçeneği**.  

@@ -68,9 +68,9 @@
       href: walkthroughs-sql-data-warehouse.md
 - name: Eğitim
   items:
-    - name: Veri bilim insanlarına yönelik TDSP
+    - name: Veri bilim insanlarına yönelik
       href: team-data-science-process-for-data-scientists.md
-    - name: DevOps’a yönelik TDSP
+    - name: DevOps’a yönelik
       href: team-data-science-process-for-devops.md
 - name: Nasıl yapılır?
   items:

@@ -1,7 +1,7 @@
 ---
 title: "Azure Data Lake araçları: Kullanım Azure Data Lake araçları Visual Studio kodunu | Microsoft Docs"
 description: "Visual Studio Code için Azure Data Lake araçları oluşturun, test ve U-SQL betikleri çalıştırmak için nasıl kullanılacağını öğrenin. "
-Keywords: "VScode, Azure Data Lake araçları, yerel çalıştırma, yerel hata ayıklama, yerel hata ayıklama, Önizleme depolama dosyası, depolama alanı yolu, indirme, yükleme için karşıya yükleme"
+Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/10/2017
+ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: e724a8db4424a1e608ae7ee5625cd4cc16f6078f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake araçları Visual Studio kodunu kullanın
 
 Visual Studio Code (VS oluşturun, test kodu) için Azure Data Lake araçları öğrenin ve U-SQL betikleri çalıştırın. Bilgiler aşağıdaki videoda da ele alınmıştır:
 
-<a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
+<a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -86,33 +86,20 @@ U-SQL dosya veya U-SQL ile çalışmak için bir klasör açın.
 
     Komut dosyası/Output klasöründe bulunan bazı veriler içeren bir departments.csv dosyası oluşturur.
 
-5. Dosyayı Farklı Kaydet **myUSQL.usql** açılan klasörde. Bir adltools_settings.json yapılandırma dosyası projeye de eklenir.
-4. Açın ve aşağıdaki özelliklere sahip adltools_settings.json yapılandırın:
+5. Dosyayı Farklı Kaydet **myUSQL.usql** açılan klasörde. Bir xxx_settings.json yapılandırma dosyası, klasöre de eklenir.
+6. Açın ve aşağıdaki özelliklere sahip xxx_settings.json yapılandırın:
 
-    - : Bir Data Lake Analytics hesabı, Azure aboneliğinizin altında.
+    - : Bir Data Lake Analytics hesabı Azure aboneliğinizdeki derlemek ve U-SQL işleri, derleme ve U-SQL işleri çalıştırma önce bilgisayar hesabını yapılandırmanız çalıştırmak için gereklidir.
     - Veritabanı: Hesabınız altındaki bir veritabanı. Varsayılan değer **ana**.
     - Şema: Veritabanınızı altında bir şema. Varsayılan değer **dbo**.
     - İsteğe bağlı ayarlar:
         - Öncelik: Öncelik 1 ile-1 ile 1000 en yüksek öncelikli olarak aralıktır. Varsayılan değer **1000**.
         - Paralellik: Paralellik 1 ila 150 için aralıktır. Azure Data Lake Analytics hesabınızı izin verilen maksimum paralellik varsayılan değerdir. 
         
-        > [!NOTE] 
-        > Ayarları geçersiz varsa, varsayılan değerler kullanılır.
-
         ![Visual Studio Code yapılandırma dosyası için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-configuration-file.png)
-
-        İşlem Data Lake Analytics hesabı derlemek ve U-SQL işleri çalıştırmak için gereklidir. Derleme ve U-SQL işleri çalıştırma önce bilgisayar hesabını yapılandırmanız.
-    
-        Yapılandırma kaydedildikten sonra hesap, veritabanı ve şema bilgilerini karşılık gelen .usql dosyası sol alt köşesindeki durum çubuğunda görünür. 
- 
- 
-Yapabilecekleriniz bir klasörü açtığınızda, bir dosyanın açılması için karşılaştırıldığında:
-
-- Arka plan kodu dosyasını kullanın. Tek dosya modunda arka plan kodu desteklenmiyor.
-- Bir yapılandırma dosyası kullanın. Bir klasörü açtığınızda, çalışma klasörü komut tek yapılandırma dosya paylaşımı.
-
-
-U-SQL betiği Data Lake Analytics hizmeti aracılığıyla uzaktan derler. Çıkarırsanız **derleme** komutu, U-SQL betiği, Data Lake Analytics hesabınızı gönderilir. Daha sonra Visual Studio Code derleme sonucu alır. Uzak derleme nedeniyle, Data Lake Analytics hesabınızı yapılandırma dosyasındaki bağlanma bilgilerini listesinde Visual Studio Code gerektirir.
+      
+        > [!NOTE] 
+        > Yapılandırma kaydedildikten sonra hesap, veritabanı ve şema bilgilerini karşılık gelen .usql dosyası sol alt köşesindeki durum çubuğunda görünür.
 
 **U-SQL betiği derlemek için**
 
@@ -129,29 +116,8 @@ U-SQL işi gönderdikten sonra gönderme günlükleri görünür **çıkış** V
 
 İş ayrıntılarını çıktısını etkinleştirmek için ayarlanmış **jobInformationOutputPath** içinde **vs code için u sql_settings.json** dosya.
  
-## <a name="use-a-code-behind-file"></a>Bir arka plan kod dosyası kullanın
-
-Tek bir U-SQL betiği ile ilişkili bir C# dosyasına bir arka plan kodu dosyasıdır. UDO, UDA, UDT ve arka plan kod dosyasına UDF için adanmış bir komut dosyası tanımlayabilirsiniz. UDO, UDA, UDT ve UDF doğrudan komut dosyası derleme ilk kaydettirmeden kullanılabilir. Kendi eşleme U-SQL komut dosyası ile aynı klasörde arka plan kod dosyasına yerleştirin. Komut dosyası xxx.usql olarak adlandırılmışsa, arka plan kodu xxx.usql.cs adlandırılır. Arka plan kodu dosyasını el ile silin, arka plan kodu özelliği, ilişkili U-SQL betiği için devre dışı bırakılır. U-SQL betiği için müşteri kod yazma hakkında daha fazla bilgi için bkz: [yazma ve özel kodda kullanarak U-SQL: kullanıcı tanımlı işlevler]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
-
-Arka plan kodu desteklemek için bir çalışma klasörü açmanız gerekir. 
-
-**Bir arka plan kod dosyası oluşturmak için**
-
-1. Bir kaynak dosyasını açın. 
-2. Komut paletini açmak için Ctrl + Shift + P seçin.
-3. Girin **ADL: arka plan kod oluşturmak**. Arka plan kod dosyası, aynı klasörde oluşturulur. 
-
-Ayrıca bir komut dosyasını sağ tıklatın ve ardından **ADL: kod arkasında oluşturmak**. 
-
-Derleme ve U-SQL betiği bir arka plan kodu dosya göndermek için tek başına U-SQL betiği ile aynıdır.
-
-Aşağıdaki iki ekran görüntüleri bir arka plan kod dosyası ve onun ilişkili U-SQL komut dosyası gösterilmektedir:
- 
-![Visual Studio Code arka plan kod için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind.png)
-
-![Visual Studio Code arka plan kodu komut dosyası için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
-
-Destekliyoruz yerel çalıştırma ve yerel hata ayıklama, yönergelere bakın [U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md).
+## <a name="use-python-r-and-csharp-code-behind-file"></a>Python, R ve CSharp arka plan kod dosyası kullanın
+Azure Data Lake aracı destekleyen birden çok özel kod yönergelere bakın [geliştirmek U-SQL ile Python, R ve Azure Data Lake Analytics VSCode içinde CSharp](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## <a name="use-assemblies"></a>Derlemeleri kullanma
 
@@ -277,14 +243,14 @@ Azure'a bağlandıktan sonra U-SQL Kataloğu'na erişmek için aşağıdaki adı
 Azure Data Lake Store ile ilgili komutları kullanabilirsiniz:
  - Azure Data Lake Storage kaynaklara göz atın. [Depolama alanı yolu listesinde](#list-the-storage-path). 
  - Azure Data Lake Storage dosyanın önizlemesini görüntüleyin. [Depolama dosya önizleme](#preview-the-storage-file). 
- - VS code'da Azure Data Lake Storage için doğrudan dosyası yükleyin. [Dosyayı karşıya yüklemeyi](#upload-file).
+ - VS code'da Azure Data Lake Storage için doğrudan dosyası yükleyin. [Dosya veya klasör karşıya](#upload-file-or-folder).
  - Dosyayı doğrudan Azure Data Lake Storage VS code'da indirir. [Dosya indirme](#download-file).
 
 ## <a name="list-the-storage-path"></a>Depolama alanı yolu listesi 
 
 **Komut palet depolama yolundan listelemek için**
 
-Kod Düzenleyicisi'ni sağ tıklatın ve seçin **ADL: listesi depolama yolu**.
+Kod Düzenleyicisi'ni sağ tıklatın ve seçin **ADL: listesi yolu**.
 
 Listede klasörü seçin veya tıklatın **yolu girin** veya **kökünden Gözat** (kullanan bir yolu girin örnek olarak). Select ->, **ADLA hesap**. Depolama klasör yolu girin veya Bul -> (örneğin: / çıkış /). Komut palet listeleri -> girişlerini temel yol bilgileri.
 
@@ -294,55 +260,40 @@ Sağ bağlam menüsü göreli yolu listelemek için daha kullanışlı bir yolud
 
 **Sağ depolama yolundan listelemek için**
 
-Seçmek için yol dizesi sağ **listesi depolama yolu** devam etmek için.
+Seçmek için yol dizesi sağ **listesi yolu** devam etmek için.
 
 ![Visual Studio Code için Data Lake Araçları bağlam menüsü sağ tıklayın](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-right-click-path.png)
 
 
 ## <a name="preview-the-storage-file"></a>Depolama dosya önizleme
 
-Kod Düzenleyicisi'ni sağ tıklatın ve seçin **ADL: Önizleme depolama dosyası**.
+Kod Düzenleyicisi'ni sağ tıklatın ve seçin **ADL: Önizleme dosya**.
 
 Seçin, **ADLA hesap**. Bir Azure depolama dosya yolu (örneğin, /output/SearchLog.txt) ENTER ->. Result ->: dosya içinde VSCode açılır.
 
    ![Visual Studio Code için Data Lake araçları dosya sonucu Önizleme](./media/data-lake-analytics-data-lake-tools-for-vscode/preview-storage-file.png)
 
-Başka bir depolama dosya önizlemesi için dosyanın tam yolunu veya dosyanın göreli yolu komut dosyası Düzenleyicisi'nde sağ tıklatma menüsünden aracılığıyla yoludur. 
+Başka bir dosya önizlemesi için dosyanın tam yolunu veya dosyanın göreli yolu komut dosyası Düzenleyicisi'nde sağ tıklatma menüsünden aracılığıyla yoludur. 
 
-## <a name="upload-file"></a>Dosya yükleme 
+## <a name="upload-file-or-folder"></a>Dosya veya klasör karşıya yükle
 
-Komutları girerek dosyaları karşıya yükleyebilir **ADL: dosyasını karşıya yükle** veya **ADL: yapılandırma yoluyla dosyasını karşıya yükle**.
+1. Kod Düzenleyicisi'ni sağ tıklatın ve seçin **dosyasını karşıya yükle** veya **karşıya yükleme klasörü**.
 
-**Karşıya yüklemek için yine de ADL dosyaları: yapılandırma komutu aracılığıyla dosyasını karşıya yükle**
-1.  Kod Düzenleyicisi'ni sağ tıklatın ve ardından **yapılandırma yoluyla dosyasını karşıya yükle**.
-2.  VS Code'da JSON dosyasını görüntüler. Dosya yolları girin ve aynı anda birden çok dosya yükleyin. Yönergeler görüntülenir **çıkış** penceresi. Dosyayı karşıya yüklemeye devam etmek için (Ctrl + S) JSON dosyasını kaydedin.
+2. Bir dosya veya birden çok dosya seçin yüklerseniz dosya ya da seçin klasörü sonra yüklerseniz tüm klasörü tıklatın seçin seçin **karşıya**. Listesinden depolama klasörü Seç ->'yi tıklatın **yolu girin** veya **kökünden Gözat** (kullanan bir yolu girin örnek olarak). Select ->, **ADLA hesap**. Depolama klasör yolu girin veya Bul -> (örneğin: / çıkış /). Click -> **geçerli klasör seç** karşıya yükleme Hedefinizi belirtmek için.
 
-       ![Visual Studio Code dosya yolu için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-file.png)
+   ![Visual Studio Code için Data Lake araçları karşıya yükleme durumu](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
 
-3.  Sonuçları: **çıkış** penceresi dosya karşıya yükleme durumunu görüntüler.
 
-       ![Visual Studio Code için Data Lake araçları karşıya yükleme durumu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-upload-status.png)     
+   Başka bir karşıya yükleme dosyalarının depolama için dosyanın tam yolunu veya dosyanın göreli yolu komut dosyası Düzenleyicisi'nde sağ tıklatma menüsünden aracılığıyla yoludur.
 
 Aynı zamanda, izlediğiniz [karşıya yükleme durumu](#check-storage-tasks-status).
 
-**Karşıya yüklemek için yine de ADL dosyaları: karşıya dosya komutu**
-
-Kod Düzenleyicisi'ni sağ tıklatın ve seçin **dosyasını karşıya yükle**.
-
-Giriş, **yerel dosya yolu**. Listesinden klasörü Seç ->'yi tıklatın **yolu girin** veya **kökünden Gözat** (kullanan bir yolu girin örnek olarak). Select ->, **ADLA hesap**. Depolama klasör yolu girin veya Bul -> (örneğin: / çıkış /). Click -> **geçerli klasör seç** karşıya yükleme Hedefinizi belirtmek için.
-
-![Visual Studio Code için Data Lake araçları karşıya yükleme durumu](./media/data-lake-analytics-data-lake-tools-for-vscode/upload-file.png)    
-
-
-Başka bir karşıya yükleme dosyalarının depolama için dosyanın tam yolunu veya dosyanın göreli yolu komut dosyası Düzenleyicisi'nde sağ tıklatma menüsünden aracılığıyla yoludur.
-
-Aynı zamanda, izlediğiniz [karşıya yükleme durumu](#check-storage-tasks-status).
 
 ## <a name="download-file"></a>Dosya indirme 
-Komutları girerek dosyalarını indirebilirsiniz **ADL: depolama dosyası karşıdan** veya **ADL: karşıdan depolama dosya yapılandırma yoluyla**.
+Komutları girerek dosyalarını indirebilirsiniz **ADL: karşıdan dosya** veya **ADL: karşıdan dosya (Gelişmiş)**.
 
-**Ancak ADL indirmek için dosyaları: karşıdan dosya yapılandırma komutu**
-1. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **karşıdan depolama dosya yapılandırma yoluyla**.
+**Ancak ADL indirmek için dosyaları: karşıdan dosya (Gelişmiş)**
+1. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **karşıdan dosya (Gelişmiş)**.
 2. VS Code'da JSON dosyasını görüntüler. Dosya yolları girin ve aynı anda birden çok dosyalarını yükleyin. Yönergeler görüntülenir **çıkış** penceresi. Dosyayı yüklemeye devam etmek için (Ctrl + S) JSON dosyasını kaydedin.
 
     ![Yapılandırma dosyaları Visual Studio kodu indirme için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/download-multi-files.png)
@@ -353,17 +304,16 @@ Komutları girerek dosyalarını indirebilirsiniz **ADL: depolama dosyası karş
 
 Aynı zamanda, izlediğiniz [karşıdan yükleme durumu](#check-storage-tasks-status).
 
-**Dosyaları yine de ADL indirmek için: depolama dosya indirme komutu**
+**Dosyaları yine de ADL indirmek için: dosya indirme**
 
-Kod Düzenleyicisi'ni sağ tıklatın ve ardından **karşıdan depolama dosya**.
+1. Komut Dosyası Düzenleyicisi'ni sağ tıklayın, **karşıdan dosya**ve ardından hedef klasöründen **Klasör Seç** iletişim.
 
-Listede klasörü seçin veya tıklatın **yolu girin** veya **kökünden Gözat** (kullanan bir yolu girin örnek olarak). Select ->, **ADLA hesap**. Depolama klasör yolu girin veya Bul -> (örneğin: / çıkış /) -> indirmek için bir dosya seçin.
+2. Listede klasörü seçin veya tıklatın **yolu girin** veya **kökünden Gözat** (kullanan bir yolu girin örnek olarak). Select ->, **ADLA hesap**. Depolama klasör yolu girin veya Bul -> (örneğin: / çıkış /) -> indirmek için bir dosya seçin.
 
    ![Data Lake araçları Visual Studio Code için karşıdan yükleme durumu](./media/data-lake-analytics-data-lake-tools-for-vscode/download-file.png) 
 
-   Sonuç resim dosyası temp klasörü olarak kaydedilir. Varsayılan bir yol parametresi için indirme ayarlayabilirsiniz **usql.defaultLocalFolderForDownload** tarafınızdan VSCode menüsü aracılığıyla **dosya** -> **Tercihler**  ->  **Ayarı**.
-
-Depolama dosyaları indirme başka bir dosyanın tam yolunu veya dosyanın göreli yolu komut dosyası Düzenleyicisi'nde sağ tıklatma menüsünden aracılığıyla yoludur.
+   
+   Depolama dosyaları indirme başka bir dosyanın tam yolunu veya dosyanın göreli yolu komut dosyası Düzenleyicisi'nde sağ tıklatma menüsünden aracılığıyla yoludur.
 
 Aynı zamanda, izlediğiniz [karşıdan yükleme durumu](#check-storage-tasks-status).
 
@@ -373,12 +323,20 @@ Aynı zamanda, izlediğiniz [karşıdan yükleme durumu](#check-storage-tasks-st
 
    ![Visual Studio kod denetleyin depolama durumu için Data Lake araçları](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
+## <a name="vscode-explorer-integration-with-azure-data-lake"></a>Azure Data Lake ile VSCode Explorer Tümleştirme
+1. Oturum açtıktan sonra sol panelinde listelenen tüm Azure hesaplarını göreceksiniz **DataLake Explorer**. Bir veritabanını genişletin, görüntüleyebileceğiniz **şemaları**, **tabloları**, **derlemeleri** düğümünün altında ve benzeri.
 
-## <a name="open-azure-storage-explorer"></a>Açık Azure storage Gezgini
-Açabilirsiniz **Azure Storage Gezgini** komutu girerek **ADL: Web Azure Storage Gezgini açmak** veya sağ tıklama bağlam menüsünden seçerek.
+   ![DataLake Gezgini](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**Azure Depolama Gezgini'ni açmak için**
+2. Komut gerçekleştirebilirsiniz **kaydetmek derleme** sağ tıklayarak **derlemeleri** düğümü.
 
+    ![DataLake Gezgini](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
+
+3. Gidin **depolama hesabı**, karşıya yükleme veya klasöre veya dosyaya sağ tıklayarak dosyasını indirin. Ve ayrıca **Önizleme** bir dosya **karşıdan**, **göreli yol Kopyala**, **tam yol Kopyala** bağlam menüsü tarafından.
+
+   ![DataLake Gezgini](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+## <a name="open-adl-storage-explorer-in-portal"></a>Portalı'nda Aç ADL Depolama Gezgini
 1. Komut paletini açmak için Ctrl + Shift + P seçin.
 2. Girin **açık Web Azure Storage Gezgini** veya göreli bir yol veya tam yolunu komut dosyası Düzenleyicisi'nde sağ tıklayın ve ardından **açık Web Azure Storage Gezgini**.
 3. Bir Data Lake Analytics hesabı seçin.
@@ -420,11 +378,12 @@ VS Code'da için Data Lake araçları aşağıdaki özellikleri destekler:
     ![Visual Studio Code sözdizimi için Data Lake araçları vurgular](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+- [U-SQL Python, R ve Azure Data Lake Analytics VSCode içinde CSharp ile geliştirme](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+- [U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md)
+- [Öğretici: Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md)
+- [Öğretici: Visual Studio için Data Lake araçları kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md)
+- [Azure Data Lake Analytics işleri için U-SQL derlemeleri geliştirin](data-lake-analytics-u-sql-develop-assemblies.md)
 
-- U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama için bkz: [U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md).
-- Başlama Data Lake Analytics hakkında bilgi için bkz: [Öğreticisi: Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md).
-- Visual Studio için Data Lake araçları hakkında bilgi için bkz: [öğretici: Visual Studio için Data Lake araçları kullanarak geliştirme U-SQL betikleri](data-lake-analytics-data-lake-tools-get-started.md).
-- Derlemeler geliştirme hakkında daha fazla bilgi için bkz: [Azure Data Lake Analytics işleri için U-SQL geliştirmek derlemeleri](data-lake-analytics-u-sql-develop-assemblies.md).
 
 
 

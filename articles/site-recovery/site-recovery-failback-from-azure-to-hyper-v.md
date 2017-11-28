@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00fc7588834de016a6d6118474a033b8cd3a0117
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Site kurtarma Hyper-V sanal makineleri için yeniden çalışma
 

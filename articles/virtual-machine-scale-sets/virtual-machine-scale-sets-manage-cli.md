@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 2348db8f19391292f79608092a3c2482216493c6
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0 ile ayarlanmış bir sanal makine ölçek yönetme
 Bir sanal makine ölçek kümesi yaşam döngüsü boyunca, bir veya daha fazla yönetim görevleri çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevleri otomatikleştiren komut dosyaları oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak sağlayan ortak Azure CLI 2.0 komutları bazıları ayrıntılarını verir.
@@ -36,7 +36,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Görünüm VM ölçek kümesindeki
-Ölçek kümesindeki VM örneği listesini görüntülemek için kullanın [az vmss listesi-örneklerini](/cli/azure/vmss#list-instances). Aşağıdaki örnek ölçeği adlandırılmış Ayarla tüm VM örnekleri listesi *myScaleSet* ve *myResourceGroup* kaynak grubu. Bu adları için kendi değerlerinizi girin:
+Ölçek kümesindeki VM örneği listesini görüntülemek için kullanın [az vmss listesi-örneklerini](/cli/azure/vmss#list-instances). Aşağıdaki örnek ölçeği adlandırılmış Ayarla tüm VM örnekleri listesi *myScaleSet* içinde *myResourceGroup* kaynak grubu. Bu adları için kendi değerlerinizi girin:
 
 ```azurecli
 az vmss list-instances \

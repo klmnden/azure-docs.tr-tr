@@ -4,7 +4,7 @@ description: "Oluşturma, şifresini ve StorSimple 8000 serisi cihazınız için
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Oluşturma ve StorSimple 8000 serisi için bir destek paketi yönetme
 
@@ -58,14 +58,14 @@ E-posta Microsoft Support el ile oluşturulan destek paketinizi paylaşabilirsin
    
    * Parola korumalı ağ paylaşımları için girin:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+       `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       (Destek Paketi şifrelendiğinden) bir ağ paylaşılan klasörüne ve bir şifreleme parolası yoluna bir parola istenir. Bir destek paketi sonra belirtilen klasörde oluşturulur.
+       (Destek Paketi şifrelendiğinden) için bir parola ve bir şifreleme parolası istenir. Bir destek paketi sonra (aygıt adı geçerli tarih ve saat ile eklenen) varsayılan klasöründe oluşturulur.
    * Parola korumalı olmayan paylaşımlar için ihtiyacınız olmayan `-Credential` parametresi. Aşağıdakileri girin:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+       `Export-HcsSupportPackage`
      
-       Destek paketini hem denetleyicileri belirtilen ağ paylaşılan klasöründe oluşturulur. Bu sorun giderme için Microsoft Support gönderilebilecek bir şifrelenmiş ve sıkıştırılmış dosyasıdır. Daha fazla bilgi için bkz: [Microsoft Destek birimine başvurun](storsimple-8000-contact-microsoft-support.md).
+       Destek paketini hem denetleyicileri varsayılan klasöründe oluşturulur. Sorun giderme için Microsoft Support gönderilebilecek bir şifrelenmiş ve sıkıştırılmış dosya paketidir. Daha fazla bilgi için bkz: [Microsoft Destek birimine başvurun](storsimple-8000-contact-microsoft-support.md).
 
 ### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Dışarı aktarma HcsSupportPackage cmdlet parametreleri
 

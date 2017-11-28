@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Birden çok Azure SQL veritabanları arasında geçici analitik sorguları çalıştırma
 
@@ -52,12 +52,11 @@ Bu verilere tek bir çok kiracılı veritabanında erişim kolaydır, ancak binl
 
 Kiracı veritabanları arasında sorguları dağıtarak, esnek sorgu Canlı üretim verileri daha iyi sağlar. Esnek sorgu potansiyel olarak birçok veritabanı veri çeker, ancak sorgu gecikmesi bazen tek bir çok kiracılı veritabanına gönderilen eşdeğer sorgular için daha yüksek olabilir. Döndürülen veri en aza indirmek için tasarım sorguları emin olun. Esnek sorgu genellikle en küçük miktarda sık kullanılan yapı veya karmaşık analitik sorguları ya da raporları aksine gerçek zamanlı veri sorgulama için uygundur. Sorguları da gerçekleştirmezseniz bakmak [yürütme planı](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) sorgu hangi kısmının uzak veritabanına gönderilen görmek için. Ve ne kadar veri döndürülmüyor değerlendirin. Karmaşık analitik işleme daha iyi gerektiren sorguları analitik sorguları için en iyi hale getirilmiş bir veritabanı içine ayıklanan Kiracı verileri kaydederek sundu. SQL Database ve SQL Data Warehouse böyle bir analytics veritabanını barındırabilir.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+Analiz için bu deseni açıklandığı [Kiracı analytics Öğreticisi](saas-multitenantdb-tenant-analytics.md).
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Wingtip biletleri SaaS çok Kiracı veritabanı uygulama komut dosyaları alma
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip biletleri SaaS çok Kiracı veritabanı uygulama kaynak koduna ve komut dosyaları alma
 
-Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS MultitenantDB github deposuna](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Benioku özetlenen engellemeyi kaldırma adımları izlediğinizden emin olun.
+Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama kaynak koduna kullanılabilir olan [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub depo. Kullanıma [genel rehberlik](saas-tenancy-wingtip-app-guidance-tips.md) adımların indirin ve Wingtip biletleri SaaS betikleri engellemesini kaldırmak.
 
 ## <a name="create-ticket-sales-data"></a>Bilet satış verileri oluşturma
 
@@ -96,7 +95,7 @@ Bu alıştırmada tüm Kiracı veritabanları arasında sorgulama sağlar ad hoc
 
     ![kimlik bilgisi oluşturma](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   Kiracı parça eşleme katalog veritabanında kullanmak için tanımlanan dış veri kaynağı. Bu dış veri kaynağı olarak kullanarak, sorguları sorgu çalıştığında ve kataloğa kayıtlı tüm veritabanları için dağıtılır. Sunucu adları için her bir dağıtım farklı olduğundan, bu başlatma betiği Katalog veritabanı konumunu geçerli sunucu alarak alır (@@servername) komut dosyası yürütüldüğü.
+   Dış veri kaynağı olarak Katalog veritabanı kullanarak, sorguları sorgu çalıştığında ve kataloğa kayıtlı tüm veritabanları için dağıtılır. Sunucu adları için her bir dağıtım farklı olduğundan, bu başlatma betiği Katalog veritabanı konumunu geçerli sunucu alarak alır (@@servername) komut dosyası yürütüldüğü.
 
     ![Dış veri kaynağı oluşturun](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ Bu alıştırmada tüm Kiracı veritabanları arasında sorgulama sağlar ad hoc
 
 Yürütme planı incelerken, Ayrıntılar için plan simgeleri üzerine gelerek. 
 
-1. Aç... \\Modülleri öğrenme\\işletimsel Analytics\\geçici raporlama\\*Demo AdhocReportingQueries.sql* SSMS içinde.
+1. İçinde *SSMS*açın... \\Modülleri öğrenme\\işletimsel Analytics\\geçici raporlama\\*Demo AdhocReportingQueries.sql*.
 2. Bağlı olduğunuzdan emin olun **adhocreporting** veritabanı.
 3. Seçin **sorgu** menüsüne ve ardından **gerçek Execution Plan Ekle**
 4. Vurgula *hangi görebildikleri şu anda kayıtlı olan?* sorgu ve tuşuna **F5**.
@@ -155,9 +154,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Tüm kiracı veritabanlarında dağıtılmış sorguları çalıştırma
 > * Bir ad hoc raporlama veritabanı dağıtmak ve dağıtılmış sorgular çalıştırmak için şema ekleyin.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Şimdi deneyin [Kiracı Analytics öğretici](saas-multitenantdb-tenant-analytics.md) daha karmaşık analitik işleme için ayrı analytics veritabanı ayıklanan verileri araştırmak için.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

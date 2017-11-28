@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma
 Azure bulut hizmeti oluşturduğunuzda, bir alt etki alanı için atar **cloudapp.net**. Örneğin, bulut hizmetinizin "contoso" ise, kullanıcılarınız uygulamanızda http://contoso.cloudapp.net gibi bir URL erişebilir olacaktır. Azure de bir sanal IP adresi atar.
@@ -28,7 +28,7 @@ Ancak, aynı zamanda uygulamanız kendi etki alanı adınızı gibi getirebilir 
 CNAME ve A kayıtlarını nelerdir zaten biliyor musunuz? [Açıklama geçmiş atlama](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Bu görevde yordamlar Azure bulut Hizmetleri için geçerlidir. Uygulama hizmetleri için bkz: [bu](../app-service/app-service-web-tutorial-custom-domain.md). Depolama hesapları için bkz: [bu](../storage/blobs/storage-custom-domain-name.md).
+> Bu görevde yordamlar Azure bulut Hizmetleri için geçerlidir. Uygulama hizmetleri için bkz: [Azure Web uygulamaları için var olan bir özel DNS ad eşleme](../app-service/app-service-web-tutorial-custom-domain.md). Depolama hesapları için bkz: [Azure Blob storage uç noktanız için özel etki alanı adı yapılandırma](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

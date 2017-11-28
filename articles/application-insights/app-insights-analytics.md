@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: 80a9e248ca50c11ef61a5c50c4986c4f8f4ead9d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights analizleri
 Analytics araçtır güçlü arama ve sorgu, [Application Insights](app-insights-overview.md). Kurulum nedenle analytics web aracıdır. Zaten Application Insights uygulamalarınızı biri için yapılandırdıktan sonra uygulamanızın analizi açarak uygulamanızın verileri çözümleyebilir [genel bakış dikey penceresinde](app-insights-dashboards.md).
@@ -49,7 +49,7 @@ Dil çok çekici özelliklere sahiptir:
 
 * [Filtre](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) ölçümleri ve özel özellikler de dahil olmak üzere herhangi bir sorgu tarafından ham uygulama telemetrinizi.
 * [Katılma](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) birden çok tabloları – sayfa görünümleri, bağımlılık çağrıları, özel durumlar ve günlük izlemelerini ile ilişkilendirmek ister.
-* Güçlü istatistiksel [toplamalar](https://docs.loganalytics.io/learn/tutorials/aggregations.html).
+* Güçlü istatistiksel [toplamalar](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions).
 * Anında ve güçlü görselleştirmeler.
 * [REST API](https://dev.applicationinsights.io/) sorguları program aracılığıyla, örneğin Powershell'den çalıştırmak için kullanabilirsiniz.
 

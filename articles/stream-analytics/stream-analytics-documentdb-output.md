@@ -4,7 +4,7 @@ description: "Stream Analytics Veri arşivleme ve düşük gecikme süreli sorgu
 keywords: "JSON çıktısını"
 documentationcenter: 
 services: stream-analytics,documentdb
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
@@ -14,19 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Hedef Azure Stream Analytics JSON çıktısını Cosmos DB
 Akış analizi hedef [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) veri arşivleme ve düşük gecikme süreli sorguları yapılandırılmamış JSON verileri JSON çıktısını için etkinleştirme. Bu belgede, bu yapılandırmayı uygulamak için bazı en iyi yöntemler kapsar.
 
 Kişiler için Cosmos DB ile iyi tanımıyorsanız, bir göz atalım [Azure Cosmos veritabanı öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/) başlamak için. 
 
-Not: Mongo DB API Cosmos DB dayalı koleksiyonlar şu anda desteklenmiyor. 
+> [!Note]
+> Şu anda Azure akış analizi yalnızca CosmosDB kullanarak bağlantı destekler **DocumentDB (SQL) API**.
+> Diğer Azure Cosmos DB API'leri henüz desteklenmiyor. Noktası Azure akış analizi Azure Cosmos DB hesaplarına diğer API'leri ile oluşturduysanız, verilerin düzgün depolanabilir değil. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Cosmos DB bir çıktı hedefi olarak temelleri
 Stream Analytics Azure Cosmos DB çıktısında sonuçları, Cosmos DB collection(s) JSON çıkış olarak işleme akışınızı yazılmasını etkinleştirir. Akış analizi koleksiyonları, veritabanınızda, bunun yerine, bunları önceden oluşturmak gerektiren oluşturmaz. Cosmos DB koleksiyonların fatura maliyetleri size saydam; böylece ve böylece performans, tutarlılık ve kapasite kullanarak doğrudan koleksiyonlarınızı ince ayar budur [Cosmos DB API'leri](https://msdn.microsoft.com/library/azure/dn781481.aspx). Koleksiyonunuz için bir iş akışında mantıksal olarak ayırmak için iş akışında başına tek bir Cosmos DB veritabanı kullanmanızı öneririz.
@@ -67,5 +69,5 @@ Bölümlenmiş koleksiyonu | Birden çok "Tek bölüm" koleksiyonları
 * **Koleksiyon adı deseni** – koleksiyon adını veya kendi deseni kullanılacak koleksiyonlar için. Koleksiyon adı biçimi, burada bölümlerin 0'dan başlar isteğe bağlı {partition} belirteci kullanılarak oluşturulabilir. Örnek geçerli girişler şunlardır:  
   1\) MyCollection – "MyCollection" adlı bir koleksiyon bulunmalıdır.  
   2\) – böyle koleksiyonları bulunmalıdır – MyCollection {partition} "MyCollection0", "MyCollection1", "MyCollection2" ve benzeri.  
-* **Anahtar bölüm** – isteğe bağlıdır. Bu, yalnızca, koleksiyon adı deseni {bölümlendirmesini} belirteci kullanıyorsanız gereklidir. Çıkışın koleksiyonlar üzerinde bölümlenmesine yönelik anahtarın belirtilmesi için kullanılan çıkış olaylarındaki alanın adı. Tek koleksiyon çıktı için herhangi bir rastgele çıkış sütunu olabilir örneğin PartitionID kullanılır.  
+* **Anahtar bölüm** – isteğe bağlıdır. Bu, yalnızca, koleksiyon adı deseni {partition} belirteci kullanıyorsanız gereklidir. Çıkışın koleksiyonlar üzerinde bölümlenmesine yönelik anahtarın belirtilmesi için kullanılan çıkış olaylarındaki alanın adı. Tek koleksiyon çıktı için herhangi bir rastgele çıkış sütunu olabilir örneğin PartitionID kullanılır.  
 * **Belge Kimliği** – isteğe bağlıdır. Hangi ekleme veya güncelleştirme işlemleri dayalı birincil anahtarın belirtilmesi için kullanılan çıkış olaylarındaki alanın adı.  
