@@ -185,19 +185,10 @@
 #### [Kapsayıcı ağ modları](service-fabric-networking-modes.md)
 
 ### Reliable Services hizmeti oluşturma
-#### [Genel Bakış](service-fabric-reliable-services-introduction.md)
-#### Kavramlar
-##### [Reliable Services yaşam döngüsü - C#](service-fabric-reliable-services-lifecycle.md)
-##### [Reliable Services yaşam döngüsü - Java](service-fabric-reliable-services-lifecycle-java.md)
-
 #### Güvenilir Koleksiyonlar
-##### [Güvenilir Koleksiyonlar](service-fabric-reliable-services-reliable-collections.md)
-##### [Güvenilir Koleksiyon ile ilgili kılavuzlar ve öneriler](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Güvenilir Koleksiyonlar ile çalışma](service-fabric-work-with-reliable-collections.md)
-##### [İşlemler ve kilitler](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [Güvenilir Eşzamanlı Sıra](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Güvenilir Koleksiyonu serileştirme](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Güvenilir Durum Yöneticisi ve Güvenilir Koleksiyon iç işlevleri](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### başlarken
 ##### [Windows üzerinde C#](service-fabric-reliable-services-quick-start.md)
