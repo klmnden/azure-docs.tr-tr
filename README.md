@@ -7,7 +7,7 @@ Daha fazla bilgi için [Kullanım Kuralları SSS](https://opensource.microsoft.c
 ## <a name="contribute-to-azure-technical-documentation"></a>Azure teknik belgelerine katkıda bulunun
 Topluluklarımızdan (kullanıcılar, müşteriler, iş ortakları, çekirdek Azure ürün birimleri dışındaki MSFT çalışanları vb) ve çekirdek Azure ürün birimlerinde çalışanlardan gelen katkıları memnuniyetle karşılıyoruz. Nasıl katkıda bulunabileceğiniz üyesi olduğunuz topluluğa göre değişir:
 
-* **Topluluk - küçük güncelleştirmeler**: kalbinizin güzelliğinden dolayı ufak katkılarda bulunmak istiyorsanız makaleyi bu depoda bulabilir veya makaleyi sitesinde ziyaret edip [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) **Düzenle** düğmesine tıklayarak GitHub'daki yerine ulaşabilirsiniz. Ardından, katkıda bulunmak için yalnızca GitHub kullanıcı arabirimini kullanabileceğiniz gibi isterseniz depoyu forklayarak değişiklikleri çekme isteği olarak da gönderebilirsiniz. 
+* **Topluluk - küçük güncelleştirmeler**: Küçük katkılar yapmak istiyorsanız makaleyi bu depoda bulabilir veya [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) adresinde makaleye gidebilirsiniz. Daha sonra makaledeki **Düzenle** bağlantısına tıklayarak GitHub'da makalenin kaynağına gidin. Güncelleştirmelerinizi GitHub kullanıcı arabirimini kullanarak yapabilirsiniz. İsterseniz depo için çatal oluşturarak güncelleştirmeleri bu çataldan da gönderebilirsiniz. 
 
 
 * **Topluluk - yeni makaleler**: Eğer yeni bir makale oluşturmak istiyorsanız ve Azure Topluluğumuzun bir üyesiyseniz bir çalışan ile beraber ilerleyerek dışarıya açık ve kapalı depolarda çalışmalar yapmanız gerekecektir. 
@@ -31,22 +31,22 @@ azure-docs deposundaki tüm içerik https://docs.microsoft.com/azure adresindeki
 ### <a name="articles"></a>\articles
 *\articles* klasörü *.md* uzantılı markdown dosyaları olarak biçimlendirilmiş belge makaleleri içerir. Bu makaleler, genellikle Azure hizmetine göre gruplandırılır.
 
-*\articles* klasörü kök dizindeki makalelerin medya dosyaları için *\media* adlı bir klasör içerir. Bu klasörün içinde her makalenin resim dosyalarını içeren alt klasörler bulunur.  Hizmet klasörlerinde her bir hizmet klasöründeki makaleler için ayrı bir medya klasörü vardır.  Makale resim klasörleri, *.md* dosya uzantısı dışında makale dosyaları ile aynı ada sahiptir. 
+*\articles* klasörü kök dizindeki makalelerin medya dosyaları için *\media* adlı bir klasör içerir. Bu klasörün içinde her makalenin resim dosyalarını içeren alt klasörler bulunur. Hizmet klasörlerinde her bir hizmet klasöründeki makaleler için ayrı bir medya klasörü vardır. Makale resim klasörleri, *.md* dosya uzantısı dışında makale dosyaları ile aynı ada sahiptir. 
 
 ### <a name="includes"></a>\includes
 Bir veya daha fazla makaleye dahil etmek üzere oluşturduğunuz yeniden kullanılabilir içerik bölümleri burada bulunur. 
 
 ## <a name="how-to-use-markdown-to-format-your-topic"></a>Konunuzu biçimlendirmek için markdown kullanma
-Bu depodaki tüm makaleler GitHub’a uygun markdown kullanır.  Gerekli bilgileri aşağıdaki kaynaklardan edinebilirsiniz.
+Bu depodaki tüm makaleler GitHub’a uygun markdown kullanır. Gerekli bilgileri aşağıdaki kaynaklardan edinebilirsiniz. 
 
 * [Markdown temel bilgileri](https://help.github.com/articles/markdown-basics/)
 * [Yazdırılabilir markdown ipucu sayfası](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
 ## <a name="labels"></a>Etiketler
 
-Genel kullanıma açık azure-docs.tr-tr deposunda, çekme istekleri iş akışını yönetmemize yardımcı olması için çekme isteklerine otomatik etiketler atanır. Bu etiketler aynı zamanda çekme isteğinde bulunanlara isteklerinin durumu ile ilgili bilgi vermeye de olanak sağlar.
+Genel kullanıma açık azure-docs deposunda, çekme istekleri iş akışını yönetmemize yardımcı olması için çekme isteklerine otomatik etiketler atanır. Bu etiketler aynı zamanda çekme isteğinde bulunanlara isteklerinin durumu ile ilgili bilgi vermeye de olanak sağlar.
 
-* Katılım Lisans Sözleşmesi (CLA) ile ilgili etiketler
+* Katılım Lisans Sözleşmesi (CLA) ile ilgili etiketler	
   * cla-not-required: değişiklik görece küçük olduğu için CLA gerektirmez.
   * cla-required: değişikliğin kapsamı görece büyük olduğu için bir CLA imzalanması gerekir.
   * cla-signed: Hali hazırda imzalı CLA bulunduğu için çekme isteği değerlendirmeye alınabilir. 
