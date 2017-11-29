@@ -83,7 +83,7 @@
         - name: Yüksek performanslı işlem
           href: sizes-hpc.md
         - name: Azure işlem birimleri (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Doğrulanan dağıtımlar
       href: endorsed-distros.md
     - name: Bakım ve güncelleştirmeler
