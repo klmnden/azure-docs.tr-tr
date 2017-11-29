@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 40cd76e1aacb68d6051cae4a3c90a8970f5449f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd44fd0c9cbfab2365b1552e3cd90e84a5348d7
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="available-event-hubs-apis"></a>Kullanılabilir olay hub'ları API'leri
+
+Bu makalede olay hub'ları kaynakları yönetmek için kullanabileceğiniz API istemciler tarafından kullanılabilmesini açıklar.
 
 ## <a name="runtime-apis"></a>Çalışma zamanı API'leri
 
@@ -28,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 Bkz: [ek bilgi](#additional-information) her çalışma zamanı kitaplığı geçerli durumu hakkında daha fazla ayrıntı için.
 
-| Dil/Platform | İstemci paketi | EventProcessorHost paketi | Depo |
+| Dil/Platform | İstemci paketi | EventProcessorHost paketi | Havuz |
 | --- | --- | --- | --- |
 | .NET standart | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | Yok |
@@ -49,7 +51,7 @@ Node.js kitaplığı şu anda önizlemede ve yan projesi olarak Microsoft çalı
 
 Tüm şu anda kullanılabilir yönetim belirli kitaplıkları bir listesi verilmiştir. Bu kitaplıklar hiçbiri çalışma zamanı işlemleri içerir ve Event Hubs varlıkları yönetme tek amacı olan.
 
-| Dil/Platform | Yönetim Paketi | Depo |
+| Dil/Platform | Yönetim Paketi | Havuz |
 | --- | --- | --- | --- |
 | .NET standart | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 

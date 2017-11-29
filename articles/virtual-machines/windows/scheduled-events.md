@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 76179b6a8eb7066c90828d33729b557f5e37c17a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f872972135f43efd1fbfdedcf9697c3e8100ebde
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure meta veri hizmeti: Windows VM'ler zamanlanmış olaylar (Önizleme)
 
@@ -27,31 +27,38 @@ ms.lasthandoff: 11/03/2017
 > Kullanım koşullarını kabul ediyorum koşuluyla önizlemeleri için kullanılabilir hale getirilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Zamanlanmış olaylar biridir alt Servisleri Azure meta veri hizmeti altında. Yaklaşan olayları ile ilgili bilgiler görünmesini sorumludur (örneğin, yeniden başlatma) uygulamanız için hazırlamak ve sınırlamak için kesintisi. PaaS ve Iaas dahil olmak üzere tüm Azure sanal makine türleri için kullanılabilir. Zamanlanmış olayları olay etkisini en aza indirmek için önleyici görevleri gerçekleştirmek için sanal makine zaman verir. 
+Zamanlanmış olaylar hizmettir bir Azure meta verileri, sanal makine bakımı için hazırlamak için uygulama zaman verir. Yaklaşan Bakımı olaylar hakkında bilgi sağlar (örn. yeniden başlatma) uygulamanız için hazırlamak ve sınırlamak için kesintisi. PaaS ve hem Windows hem de Linux Iaas dahil olmak üzere tüm Azure sanal makine türleri kullanılabilir. 
 
-Zamanlanmış olaylar hem Linux hem de Windows VM'ler için kullanılabilir. Linux üzerinde zamanlanmış olaylar hakkında bilgi için bkz: [Linux VM'ler için zamanlanmış olayları](../linux/scheduled-events.md).
+Linux üzerinde zamanlanmış olaylar hakkında bilgi için bkz: [Linux VM'ler için zamanlanmış olayları](../linux/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>Neden zamanlanmış olayları?
 
-Zamanlanmış olaylarla platform intiated Bakım veya hizmetinizi kullanıcı tarafından başlatılan Eylemler etkisini sınırlamak üzere adım atabilirsiniz. 
+Birçok uygulama, sanal makine bakımı için hazırlama zamandan yararlı olabilir. Zamanı kullanılabilirliği, güvenilirlik ve Bakım yapılabilirliğini dahil olmak üzere geliştirmek uygulama belirli görevler gerçekleştirmek üzere kullanılabilir: 
 
-Durumunu korumak için çoğaltma tekniklerini kullanın, çok örnekli iş yükleri arasında birden çok örneği gerçekleştiği kesintileri etkilenebilir. Bu tür kayıpları, pahalı görevler (örneğin, yeniden dizinler) veya çoğaltma kaybına neden olabilir. 
+- Denetim noktası ve geri yükleme
+- Bağlantı boşaltma
+- Birincil çoğaltma yük devri 
+- Yük Dengeleyici havuzu kaldırma
+- Olay günlüğü
+- Kapama 
 
-Çoğu durumda, genel hizmet kullanılabilirliği geliştirilmiş bir kapama sırası gibi gerçekleştirerek (el ile yük devretme) kümedeki diğer Vm'lerle görevlere yeniden atama ya da sanal kaldırılması Tamamlanıyor (veya iptal etme) yürütülen işlemler, Ağ Yük Dengeleyici havuzuna makineden. 
+Zamanlanmış olayları, uygulamanızın kullanarak bakım zaman ve ortaya etkisini sınırlamak için görevlerini tetikleyin bulabilir.  
 
-Burada yöneticinin yaklaşan bir olay hakkında bilgilendirmek veya böyle bir olay günlüğü yardımcı bakım yapılabilirliğini bulutta barındırılan uygulamalar geliştirme durumlar vardır.
-
-Azure meta veri hizmeti zamanlanmış olayları aşağıdaki kullanım örneklerini ortaya çıkarır:
--   Başlatılan platform Bakım (örneğin, ana bilgisayar işletim sistemi dağıtımı)
--   Kullanıcı tarafından başlatılan çağrıları (örneğin, kullanıcı yeniden başlatma veya yeniden dağıtır VM)
-
+Zamanlanmış olayları aşağıdaki kullanım durumlarda olayları sağlar:
+- Başlatılan platform Bakım (örn. ana bilgisayar işletim sistemi güncelleştirmesi)
+- Kullanıcı (örn. kullanıcı yeniden başlatır veya bir VM'yi yeniden dağıtır) bakım başlatılan
 
 ## <a name="the-basics"></a>Temel bilgiler  
 
 Azure meta veri hizmeti REST uç noktasını VM içinden erişilebilen kullanarak sanal makineleri çalıştırma hakkında bilgi gösterir. Böylece dışında VM gösterilmeyen bilgileri yönlendirilemeyen bir IP kullanılabilir.
 
 ### <a name="scope"></a>Kapsam
-Zamanlanmış olaylar, tüm sanal makineler bir bulut hizmetinde veya bir kullanılabilirlik kümesindeki tüm sanal makineleri çıkmış. Sonuç olarak, denetlemelisiniz `Resources` hangi VM'ler etkilenir olacak tanımlamak için olay alanındaki. 
+Zamanlanmış olayları teslim edilir:
+- Bir bulut hizmetindeki tüm sanal makineler
+- Tüm sanal makinelerin bir kullanılabilirlik kümesi
+- Bir ölçek kümesi yerleştirme grubundaki tüm sanal makineler. 
+
+Sonuç olarak, denetlemelisiniz `Resources` hangi VM'ler etkilenir olacak tanımlamak için olay alanındaki. 
 
 ### <a name="discovering-the-endpoint"></a>Uç nokta keşfetme
 Bir sanal makine bir sanal ağ (VNet) içinde oluşturulduğu olduğu durumda meta veri hizmeti bir statik yönlendirilemeyen bir IP, kullanılabilir `169.254.169.254`.
@@ -73,9 +80,6 @@ Zamanlanmış olaylar, istekte ilk kez Azure örtük olarak sanal makinenizde ö
 Sanal makine Bakımı Azure portalı üzerinden, API, CLI, kullanıcı tarafından başlatılan veya PowerShell zamanlanmış bir olayı sonuçlanır. Bu bakım hazırlık mantığı uygulamanıza test etmenizi sağlar ve kullanıcı tarafından başlatılan bakım için hazırlamak uygulamanızı sağlar.
 
 Bir sanal makinenin yeniden başlatılması zamanlar türüne sahip bir olay `Reboot`. Bir sanal makineyi dağıtarak zamanlar türüne sahip bir olay `Redeploy`.
-
-> [!NOTE] 
-> Şu anda en fazla 10 kullanıcı tarafından başlatılan bakım işlemleri aynı anda zamanlanabilir. Bu sınır zamanlanmış olayları genel kullanılabilirlik önce rahat olmalıdır.
 
 > [!NOTE] 
 > Şu anda zamanlanmış olayları kaynaklanan kullanıcı tarafından başlatılan bakım yapılandırılabilir değildir. Yapılandırılabilirlik gelecekteki bir sürümde planlanmaktadır.

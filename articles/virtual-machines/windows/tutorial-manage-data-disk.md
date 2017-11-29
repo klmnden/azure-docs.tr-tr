@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b994cfd09156ae8e1662f4947241aa1a4672df98
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>PowerShell ile Azure diskleri yönetme
 
@@ -41,13 +41,13 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, 
 
 Bir Azure sanal makine oluşturulduğunda, iki disk otomatik olarak sanal makineye bağlanmış. 
 
-**İşletim sistemi diski** -işletim sistemi disklerinde en fazla 1 terabayttan küçük boyuta sahip ve VM'ler işletim sistemi barındırır.  İşletim sistemi diski bir sürücü harfi atanmış *c:* varsayılan olarak. İşletim sistemi disk yapılandırması önbelleğe alma disk işletim sistemi performans için optimize edilmiştir. İşletim sistemi diski **vermemelisiniz** konak uygulamalar veya veri. Uygulamalar ve veriler için bu makalenin sonraki bölümlerinde ayrıntılı bir veri diski kullanın.
+**İşletim sistemi diski** -işletim sistemi disklerinde en fazla 4 terabayt boyutlandırılabilir ve VM'ler işletim sistemi barındırır.  İşletim sistemi diski bir sürücü harfi atanmış *c:* varsayılan olarak. İşletim sistemi disk yapılandırması önbelleğe alma disk işletim sistemi performans için optimize edilmiştir. İşletim sistemi diski **vermemelisiniz** konak uygulamalar veya veri. Uygulamalar ve veriler için bu makalenin sonraki bölümlerinde ayrıntılı bir veri diski kullanın.
 
 **Geçici disk** -geçici diskleri VM ile aynı Azure konakta bulunan bir katı hal sürücüsü kullanın. Temp disklerinin yüksek oranda kullanıcı durumda ve geçici veri işleme gibi işlemler için kullanılabilir. Ancak, VM yeni bir ana bilgisayara taşındığında, geçici bir diskte depolanan tüm verileri kaldırılır. Geçici disk boyutunu VM boyutu tarafından belirlenir. Geçici diskleri bir sürücü harfi atanmış *d:* varsayılan olarak.
 
 ### <a name="temporary-disk-sizes"></a>Geçici disk boyutları
 
-| Tür | VM boyutu | En büyük geçici disk boyutu (GB) |
+| Tür | VM Boyutu | En büyük geçici disk boyutu (GB) |
 |----|----|----|
 | [Genel amaçlı](sizes-general.md) | A ve D serisi | 800 |
 | [İşlem için iyileştirilmiş](sizes-compute.md) | F serisi | 800 |
@@ -62,7 +62,7 @@ Uygulama yükleme ve verilerini depolamak için ek veri disklerinin eklenebilir.
 
 ### <a name="max-data-disks-per-vm"></a>VM başına en fazla veri diski
 
-| Tür | VM boyutu | VM başına en fazla veri diski |
+| Tür | VM Boyutu | VM başına en fazla veri diski |
 |----|----|----|
 | [Genel amaçlı](sizes-general.md) | A ve D serisi | 32 |
 | [İşlem için iyileştirilmiş](sizes-compute.md) | F serisi | 32 |
@@ -81,7 +81,7 @@ Standart Depolama, HDD’ler ile desteklenir ve yüksek performans sunarken uygu
 
 ### <a name="premium-disk"></a>Premium disk
 
-Premium diskler, SSD tabanlı yüksek performanslı, düşük gecikme süreli disk tarafından desteklenir. Üretim iş yükü çalıştıran VM'ler için mükemmel. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi ve FS-serisi VM'ler. Üç tür (P10, P20, P30) Premium diskleri gelir, disk türü disk boyutunu belirler. Disk boyutu değeri seçerken, sonraki türü yuvarlanır. 128 GB boyutu ise, örneğin, disk türünü P10, 129 ve 512 P20 ve üzerinde 512 P30 arasında olacaktır. 
+Premium diskler, SSD tabanlı yüksek performanslı, düşük gecikme süreli disk tarafından desteklenir. Üretim iş yükü çalıştıran VM'ler için mükemmel. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi ve FS-serisi VM'ler. Premium diskleri üç türde (P10, P20, P30, P40, P50) gelir, disk türü disk boyutunu belirler. Disk boyutu değeri seçerken, sonraki türü yuvarlanır. Boyutu 128 GB'ın altında Örneğin, disk türünü P10, 129 512 P20, 512 P30, 2 TB ve P50 P40 arasındaki olur 4TB. 
 
 ### <a name="premium-disk-performance"></a>Premium disk performansı
 

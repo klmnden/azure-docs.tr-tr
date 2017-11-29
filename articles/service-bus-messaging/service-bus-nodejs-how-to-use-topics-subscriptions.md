@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5e758e831765ba2762b7efe7c3a10f10e59a5ddc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9e463273fff0ecc198b0574443c4241dde7be79
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Kullanım Service Bus konuları ve abonelikleri Node.js ile nasıl
 
@@ -61,7 +61,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Hizmet veri yolu bağlantı kurma
-Ortam değişkenleri Azure modül okur `AZURE_SERVICEBUS_NAMESPACE` ve `AZURE_SERVICEBUS_ACCESS_KEY` Service Bus hizmetine bağlanmak için gerekli bilgileri için. Bu ortam değişkenleri ayarlanmamışsa çağrılırken hesap bilgileri belirtmelisiniz `createServiceBusService`.
+Ortam değişkeni Azure modül okur `AZURE_SERVICEBUS_CONNECTION_STRING` önceki adımda elde ettiğiniz bağlantı dizesi için "kimlik bilgilerini alma". Bu ortam değişkenini ayarlanmamışsa çağrılırken hesap bilgileri belirtmelisiniz `createServiceBusService`.
 
 Azure bulut hizmeti için ortam değişkenlerini ayarlama örneği için bkz: [depolama Node.js bulut hizmetiyle][Node.js Cloud Service with Storage].
 

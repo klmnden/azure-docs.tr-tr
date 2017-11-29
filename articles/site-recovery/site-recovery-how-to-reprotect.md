@@ -3,7 +3,7 @@ title: "Azure'dan şirket içi siteye yeniden koruyun. | Microsoft Docs"
 description: "Azure VM'ler, yük devretme sonrasında geri şirket içi sanal makineleri getirmek için yeniden çalışma başlatabilirsiniz. Yeniden çalışma önce koruyun öğrenin."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: ba68df3df33a357db4d97ff65c9cc5995cd51caa
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 06/05/2017
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
@@ -62,16 +62,20 @@ Sanal makineler yeniden korumak hazırlarken alın veya aşağıdaki önkoşul e
   * **Ana hedef sunucusu**: ana hedef sunucusu yeniden çalışma verileri alır. Oluşturduğunuz şirket içi yönetim sunucusu varsayılan olarak yüklenen bir ana hedef sunucusu vardır. Ancak, başarısız geri trafik hacmi bağlı olarak, ayrı ana hedef sunucusu yeniden çalışma için oluşturmanız gerekebilir.
     * [Linux sanal makine bir Linux ana hedef sunucusunun gerekiyor](site-recovery-how-to-install-linux-master-target.md).
     * Windows sanal makine bir Windows ana hedef sunucusu gerekir. Şirket içi işlem sunucusu ve ana hedef makinelere yeniden kullanabilirsiniz.
+    * Ana hedef listelenen diğer Önkoşullar sahip [bir ana hedef yeniden koruma önce denetlemek için ortak interneti](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
 > [!NOTE]
 > Bir çoğaltma grubundaki tüm sanal makineleri aynı işletim sistemi türünü (tüm Windows veya tüm Linux) olmalıdır. Karma işletim sistemleri olan bir çoğaltma grubu, yeniden koruma ve şirket içi yeniden çalışma için şu anda desteklenmiyor. Bir çoğaltma grubunun tüm sanal makineleri aynı ana hedefi olmalıdır ve ana hedef sanal makine aynı işletim sisteminin olması gerekir çünkü budur. 
 
-    The master target has other prerequisites that are listed in [Common things to check on a master target before reprotect](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+    
 
 * Geri başarısız olduğunda bir yapılandırma gerekli şirket içi sunucusudur. Yeniden çalışma sırasında sanal makine yapılandırma sunucusu veritabanında mevcut olması gerekir. Aksi takdirde, yeniden çalışma başarısız olur. 
 
 > [!IMPORTANT]
 > Yapılandırma sunucunuzun düzenli olarak zamanlanmış yedeklemeler ele emin olun. Bir olağanüstü durum varsa, böylece geri dönme çalışır sunucusuyla aynı IP adresini geri yükleyin.
+
+> [!WARNING]
+> Replictaion grubundaki tüm sanal makineleri kullandığından aynı ana hedef sunucusu ve Linux VM bir Linux ana hedef sunucusu gerektirir ve Windows VM için akıllıca ister bir çoğaltma grubu yalnızca Windows VM'ler veya Linux VM'ler ve değil bir karışımını her ikisi de sahip olmalıdır.
 
 * Ayarlama `disk.EnableUUID=true` VMware ana hedef sanal makine yapılandırma parametrelerini ayarlama. Bu satır mevcut değilse, bunu ekleyin. Bu ayar, böylece doğru bağlar (VMDK) sanal makine diski için tutarlı bir UUID sağlamak için gereklidir.
 

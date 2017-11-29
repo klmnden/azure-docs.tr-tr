@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5d2c581b25d34ea1b83f54292b5b65b2286e5a9d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 4428f3da5dd9423aa60daa697e4ea15c99f92188
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory doğrudan kimlik doğrulaması güvenlik derinlemesine bakış
 
@@ -39,7 +39,7 @@ Bu özellik anahtar güvenlik yönleri şunlardır:
 - Yalnızca standart (80 ve 443 bağlantı noktalarını), Azure AD kimlik doğrulama aracılardan gelen giden iletişim için kullanılır. Güvenlik duvarını gelen bağlantı noktalarını açmanız gerekmez. 
   - Bağlantı noktası 443 tüm kimliği doğrulanmış giden iletişim için kullanılır.
   - Bağlantı noktası 80, bu özellik tarafından kullanılan sertifikaların hiçbirinin iptal edilmiş olduğundan emin olmak için yalnızca sertifika iptal listeleri (CRL'ler) yüklemek için kullanılır.
-  - Ağ gereksinimleri tam listesi için bkz: [Azure Active Directory doğrudan kimlik doğrulaması: Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+  - Ağ gereksinimleri tam listesi için bkz: [Azure Active Directory doğrudan kimlik doğrulaması: Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Şirket içi kimlik doğrulama Aracısı bunlara karşı doğrulama Active Directory kabul etmeden önce bulutta oturum açma sırasında kullanıcılara sağlamak parolaları şifrelenir.
 - Azure AD arasında HTTPS kanal ve şirket içi kimlik doğrulama Aracısı karşılıklı kimlik doğrulaması kullanılarak güvenlik altına alınır.
 - Özellik sorunsuz bir şekilde koşullu erişim ilkeleri, (Azure çok faktörlü kimlik doğrulaması dahil) gibi Azure AD bulut koruması özelliklerine sahip kimlik koruması ve akıllı kilitleme tümleştirir.

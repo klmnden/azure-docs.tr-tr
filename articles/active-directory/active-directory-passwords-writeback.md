@@ -6,21 +6,21 @@ keywords: "Active directory parola yönetimi, Azure AD parola yönetimi self ser
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="password-writeback-overview"></a>Parola geri yazma genel bakış
 
@@ -108,8 +108,8 @@ Emin değilseniz ne açıklanan hesabın hesap, Azure Active Directory Connect y
 
 Bu izinleri ayarlarsanız, her orman için MA hizmet hesabının bu orman içindeki kullanıcı hesapları adına parolaları yönetebilirsiniz. 
 
->[!IMPORTANT]
->Bu izinleri atamazsanız geri yazma doğru yapılandırılmış gibi görünüyor olsa bile kullanıcılar buluttan şirket içi parolalarını yönetme girişiminde bulunduğunuzda daha sonra kullanıcılar hataları karşılaşır.
+> [!IMPORTANT]
+> Bu izinleri atamazsanız geri yazma doğru yapılandırılmış gibi görünüyor olsa bile kullanıcılar buluttan şirket içi parolalarını yönetme girişiminde bulunduğunuzda daha sonra kullanıcılar hataları karşılaşır.
 >
 
 > [!NOTE]
@@ -125,7 +125,6 @@ Parola geri yazmanın gerçekleşmesini sağlamak için gerekli izinleri ayarlam
 5. İzinler (Azure AD Connect kurulum) uygulanmakta olan hesabı seçin.
 6. İçinde **uygulandığı** aşağı açılan listesinden, **Descendent kullanıcı** nesneleri.
 7. Altında **izinleri**, aşağıdaki kutularını seçin:
-    * **Süresi dolmasın parola**
     * **Parola sıfırlama**
     * **Parola değiştirme**
     * **LockoutTime yazma**
@@ -224,7 +223,7 @@ Her biri daha önce açıklanan ileti boyutu genellikle altında 1 KB'tır. Aş�
 * [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
 * [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md).
 * [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md).
-* [Lisans soru var mı?](active-directory-passwords-licensing.md)
+* [Lisansla ilgili bir sorunuz mu var?](active-directory-passwords-licensing.md)
 * [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
 * [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)

@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: nitinme
-ms.openlocfilehash: 6677b0b3ed047ce011bfbb72c25e45195859830a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ca2cf642cfff2961dcb0dd18f0e712f61d6915c2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Hdınsight kümeleri izlemek için Azure günlük analizi kullanın
 
@@ -44,7 +44,7 @@ Hdınsight'ta Hadoop küme işlemlerini izlemek için Azure günlük analizi kul
 
 * **Günlük analizi çalışma alanı**. Bu çalışma alanında, kendi veri deposu, veri kaynakları ve çözümlerle benzersiz bir günlük analizi ortamı olarak düşünebilirsiniz. Önceden oluşturulmuş bu tür bir çalışma olmalıdır, Azure Hdınsight kümeleri ile ilişkilendirebilirsiniz. Yönergeler için bkz: [günlük analizi çalışma alanı oluşturma](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
 
-## <a name="configure-hdinsight-cluster-to-use-log-analytics"></a>Günlük analizi kullanmak için Hdınsight kümesi yapılandırın
+## <a name="enable-log-analytics-by-using-the-portal"></a>Günlük analizi Portalı'nı kullanarak etkinleştirin
 
 Bu bölümde, işler, hata ayıklama günlükleri, vb. izlemek üzere bir Azure günlük analizi çalışma alanı kullanmak için mevcut bir Hdınsight Hadoop kümesi yapılandırın.
 
@@ -62,6 +62,25 @@ Bu bölümde, işler, hata ayıklama günlükleri, vb. izlemek üzere bir Azure 
 6. İstenirse Azure kimlik bilgilerinizi girin.
 
     ![Operations Management Suite portalına](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring-oms-portal.png "Operations Management Suite portalına")
+
+## <a name="enable-log-analytics-by-using-azure-powershell"></a>Günlük analizi Azure PowerShell kullanarak etkinleştirme
+
+Günlük analizi Azure PowerShell kullanarak etkinleştirebilirsiniz. Cmdlet şöyledir:
+
+```powershell
+Enable-AzureRmHDInsightOperationsManagementSuite
+```
+
+Bkz: [etkinleştir AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/Enable-AzureRmHDInsightOperationsManagementSuite?view=azurermps-5.0.0).
+
+Devre dışı bırakmak için cmdlet şöyledir. 
+
+```powershell
+Disable-AzureRmHDInsightOperationsManagementSuite
+```
+
+Bkz: [devre dışı bırakma AzureRmHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/disable-azurermhdinsightoperationsmanagementsuite?view=azurermps-5.0.0).
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Hdınsight küme yönetim çözümleri için günlük analizi Ekle](hdinsight-hadoop-oms-log-analytics-management-solutions.md)

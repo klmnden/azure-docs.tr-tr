@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>PowerShell Azure bulut Kabuğu (Önizleme) için hızlı başlangıç
 
@@ -135,7 +135,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 
 ```
 
-Bağlantı dizesi ile Azure dosya paylaşımını bağlama için aşağıdaki komutu kullanabilirsiniz.
+Bağlantı dizesi ile Azure dosya paylaşımı bağlamak için aşağıdaki komutu kullanabilirsiniz.
         
 ``` PowerShell
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
@@ -288,7 +288,7 @@ Belirli bir komut için Get-Help cmdlet'i tarafından izlenen hala yapabilirsini
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-file-storage-to-store-your-data"></a>Verilerinizi depolamak için Azure File Storage kullanma
+## <a name="use-azure-files-to-store-your-data"></a>Azure dosyaları verilerinizi depolamak için kullanın
 
 Bir komut dosyası deyin oluşturabilirsiniz `helloworld.ps1`ve kaydetmesi, `CloudDrive` Kabuk oturumlarında kullanmak için.
 

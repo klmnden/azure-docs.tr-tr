@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Azure işlevleri izleme
 
@@ -50,7 +50,7 @@ Application Insights işlev uygulaması üzerinde etkinleştirmek **oluşturma**
 
 ### <a name="existing-function-app"></a>Varolan işlev uygulaması
 
-Bir izleme anahtarı edinme ve bir işlev uygulaması kaydedin:
+İzleme anahtarı edinme ve bir işlev uygulaması kaydedin:
 
 1. Application Insights örneği oluşturun. Uygulama türü ayarlayın **genel**.
 
@@ -60,7 +60,7 @@ Bir izleme anahtarı edinme ve bir işlev uygulaması kaydedin:
 
    ![Application Insights izleme anahtarını kopyalama](media/functions-monitoring/copy-ai-key.png)
 
-1. İşlev uygulamasının **uygulama ayarları** sayfasında [bir uygulama ayarı ekleme](functions-how-to-use-azure-function-app-settings.md#settings) appınsıghts_ınstrumentatıonkey adlı ve izleme anahtarını yapıştırın.
+1. İşlev uygulamasının **uygulama ayarları** sayfasında [bir uygulama ayarı ekleme](functions-how-to-use-azure-function-app-settings.md#settings) tıklayarak **yeni ayar Ekle**. Yeni bir ayar appınsıghts_ınstrumentatıonkey adlandırın ve kopyalanan izleme anahtarını yapıştırın.
 
    ![Uygulama ayarlarına izleme anahtarı Ekle](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Bir izleme anahtarı edinme ve bir işlev uygulaması kaydedin:
 
 ## <a name="view-telemetry-data"></a>Telemetri verileri görüntüleme
 
-Application Insights portalında işlevi uygulamasından gitmek için seçin **Application Insights** işlevi uygulamanın bağlantısını **genel bakış** sayfası.
+Portalda işlevi uygulamasından bağlı Application Insights örneğine gitmek için seçin **Application Insights** işlevi uygulamanın bağlantısını **genel bakış** sayfası.
 
 Application Insights kullanma hakkında daha fazla bilgi için bkz: [Application Insights belgelerine](https://docs.microsoft.com/azure/application-insights/). Bu bölüm, verileri Application Insights'ta görüntülemenin nasıl bazı örnekler göstermektedir. Application Insights ile bilginiz varsa, doğrudan gidebilirsiniz [yapılandırma ve telemetri verilerini özelleştirme hakkında bölümleri](#configure-categories-and-log-levels).
 
@@ -84,7 +84,7 @@ Application Insights kullanma hakkında daha fazla bilgi için bkz: [Application
 
 ![Performans](media/functions-monitoring/performance.png)
 
-**Sunucuları** sekmesi, kaynak kullanımı ve sunucu başına gösterir. Bu veriler işlevleri temel kaynaklarınıza nerede bogging senaryoları hata ayıklama için yararlı olabilir. Sunucuları denir *bulut rolü örnekleri*. 
+**Sunucuları** sekmesi, kaynak kullanımı ve sunucu başına gösterir. Bu veriler işlevleri temel kaynaklarınıza nerede bogging senaryoları hata ayıklama için yararlı olabilir. Sunucuları denir **bulut rolü örnekleri**.
 
 ![Sunucular](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ Application Insights kullanma hakkında daha fazla bilgi için bkz: [Application
 
 ## <a name="query-telemetry-data"></a>Telemetri verileri Sorgulama
 
-[Uygulama Öngörüler Analytics](../application-insights/app-insights-analytics.md) erişmenizi tüm telemetri verilerini bir veritabanındaki tabloların biçiminde. Analytics çıkartmak ve verileri yönlendirmek için bir sorgu dili sağlar.
+[Uygulama Öngörüler Analytics](../application-insights/app-insights-analytics.md) erişmenizi tüm telemetri verilerini bir veritabanındaki tabloların biçiminde. Analytics ayıklanması, düzenleme ve verileri görselleştirmek için bir sorgu dili sağlar.
 
 ![Analytics seçin](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ traces
 
 ## <a name="configure-categories-and-log-levels"></a>Ve düzeyleri günlük kategorileri yapılandırabilirsiniz
 
-Application Insights herhangi bir özel yapılandırma kullanabilirsiniz ancak varsayılan yapılandırmayı yüksek miktarda veriyi neden olabilir. Visual Studio Azure aboneliği kullanıyorsanız, veri cap için App Insights isabet. Bu makalenin sonraki bölümlerinde, yapılandırma ve özelleştirme işlevlerinizi Application Insights'a gönderme veri gösterilmektedir.
+Application Insights herhangi bir özel yapılandırma kullanabilirsiniz ancak varsayılan yapılandırmayı yüksek miktarda veriyi neden olabilir. Visual Studio Azure aboneliği kullanıyorsanız, Application Insights için veri uç isabet. Bu makalenin sonraki bölümlerinde, yapılandırma ve özelleştirme işlevlerinizi Application Insights'a gönderme veri gösterilmektedir.
 
 ### <a name="categories"></a>Kategoriler
 
@@ -178,7 +178,7 @@ Günlük düzeyi `None` sonraki bölümde açıklanmıştır.
 
 Bu örnekte aşağıdaki kuralları ayarlar:
 
-1. Kategori "Host.Results" veya "İşlev" ile günlükleri için yalnızca gönderme `Error` düzeyi ve yukarıdaki Application Insights için. Günlükleri `Information` düzey ve aşağıda göz ardı edilir.
+1. Kategori "Host.Results" veya "İşlev" ile günlükleri için yalnızca gönderme `Error` düzeyi ve yukarıdaki Application Insights için. Günlükleri `Warning` düzey ve aşağıda göz ardı edilir.
 2. Ana bilgisayar kategorisiyle günlükleri için. Toplayıcı, yalnızca gönderme `Information` düzeyi ve yukarıdaki Application Insights için. Günlükleri `Debug` düzey ve aşağıda göz ardı edilir.
 3. Diğer tüm günlükler için yalnızca gönderme `Information` düzeyi ve yukarıdaki Application Insights için.
 
@@ -217,7 +217,7 @@ Bu günlüklerin adresindeki yazılır `Information` düzey, bunu, filtre uygula
 
 Bu günlükler üzerinden sayısı ve işlev çağrılarını ortalamalar sağlayan bir [yapılandırılabilir](#configure-the-aggregator) dönem süre. Varsayılan süre 30 saniye veya 1.000 sonuçları, hangisi önce gelirse. 
 
-Application Insights "customMetrics" olarak günlükleri gösterin. Örnekler sayı çalıştırır, başarı oranı ve süre.
+Günlükleri kullanılabilir **customMetrics** Application Insights tablosunda. Örnekler sayı çalıştırır, başarı oranı ve süre.
 
 ![customMetrics sorgu](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Bu günlüklerin adresindeki yazılır `Information` düzey, bunu, filtre uygula
 
 ### <a name="other-categories"></a>Diğer kategorileri
 
-Tüm günlükler dışındaki kategorileri için zaten Göster "izlemeleri" Application Insights'ta listelenir.
+Listelenen tüm günlükleri zaten dışındaki kategorileri için kullanılabilir olan **izlemeleri** Application Insights tablosunda.
 
 ![izlemeler sorgu](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ Aynı ileti dizesi tutmak ve parametre sırasını tersine, sonuçta elde edilen
 
 Yapılandırılmış günlük kaydı yapabilmesi için yer tutucuları bu şekilde işlenir. Application Insights parametresi ad-değer çiftleri ileti dizesi ek olarak depolar. İleti bağımsız değişkenler üzerinde sorgulayabilirsiniz alanları hale sonucudur.
 
-Örneğin, alan sorgu Günlükçü yöntem çağrısı önceki örnek gibi görünüyorsa, `customDimensions.prop__rowKey`. Önek hiçbir çakışmaları çalışma zamanı ekler ve işlev kodunuzu ekler alanları arasında olduğundan emin olmak için eklenir.
+Örneğin, alan sorgu Günlükçü yöntem çağrısı önceki örnek gibi görünüyorsa, `customDimensions.prop__rowKey`. `prop__` Öneki hiçbir çakışmaları çalışma zamanı ekler ve işlev kodunuzu alanları alanlar arasında olduğundan emin olmak için ekler eklenir.
 
 Alan başvurarak üzerinde özgün ileti dizesi sorgulayabilirsiniz `customDimensions.prop__{OriginalFormat}`.  
 
@@ -454,7 +454,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>Bağımlılıklar
 
-Bağımlılıklar otomatik olarak gösterme, ancak bağımlılıkları göstermek için özel kod yazabilirsiniz. Örnek kodda [C# özel telemetri bölüm](#custom-telemetry-in-c-functions) gösterir nasıl. Örnek kod sonuçlanıyor bir *uygulama eşlemesi* Application ınsights'ta aşağıdakine benzer:
+Diğer hizmetlere işlevi olan bağımlılıkları otomatik olarak gösterme, ancak bağımlılıkları göstermek için özel kod yazabilirsiniz. Örnek kodda [C# özel telemetri bölüm](#custom-telemetry-in-c-functions) gösterir nasıl. Örnek kod sonuçlanıyor bir *uygulama eşlemesi* Application ınsights'ta aşağıdakine benzer:
 
 ![Uygulama eşlemesi](media/functions-monitoring/app-map.png)
 
@@ -473,10 +473,10 @@ Seçin **İzleyici** bir işlev ve sekmesini işlevi yürütmeleri listesini al�
 
 ### <a name="real-time-monitoring"></a>Gerçek zamanlı izleme
 
-Gerçek zamanlı izleme kullanılabilir tıklayarak **canlı olay akışının** işlevi üzerinde **İzleyici** sekmesi. Canlı olay akışında bir grafik tarayıcıda yeni bir sekmede görüntülenir
+Gerçek zamanlı izleme kullanılabilir tıklayarak **canlı olay akışı** işlevi üzerinde **İzleyici** sekmesi. Canlı olay akışında bir grafikte yeni bir tarayıcı sekmesinde görüntülenir.
 
 > [!NOTE]
-> Verilerinizi doldurulmalıdır başarısız olmasına neden olabilecek bilinen bir sorun yoktur. Canlı olay akışının içeren tarayıcı sekmesini kapatın ve ardından gerekebilir **canlı olay akışının** olay akışı verilerinizi düzgün bir şekilde doldurmak yeniden izin vermek için. 
+> Verilerinizi doldurulmalıdır başarısız olmasına neden olabilecek bilinen bir sorun yoktur. Canlı olay akışının içeren tarayıcı sekmesini kapatın ve ardından gerekebilir **canlı olay akışı** olay akışı verilerinizi düzgün bir şekilde doldurmak yeniden izin vermek için. 
 
 Bu istatistikler gerçek zamanlı ancak gerçek yürütme verileri Grafikleme yaklaşık 10 saniye gecikme süresi olabilir.
 

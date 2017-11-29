@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 59aec1cb6433e90caf683b4bce98c92e9f79fd18
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 233569303ea3651192aafe9681f58a9582625d29
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Azure bulut Kabuk sorunlarını giderme
 
@@ -64,8 +64,9 @@ Bilinen çözümler için Azure bulut Kabuğu sorunları şunları içerir:
 
 ### <a name="gui-applications-are-not-supported"></a>GUI uygulamaları desteklenmez.
 
-- **Ayrıntılar**: bir kullanıcı bir GUI uygulaması başlarsa, istemi döndürmez. Bir kullanıcı iki faktörlü kimlik doğrulaması etkin olan özel bir GitHub deposuna klonlar, örneğin, bir iletişim kutusu iki faktörlü kimlik doğrulamasını tamamlamak için görüntülenir.
-- **Çözümleme**: `Ctrl+C` komutu çıkmak için.
+- **Ayrıntılar**: bir kullanıcı bir GUI uygulaması başlarsa, istemi döndürmez. Bir kullanıcı iki faktörlü kimlik doğrulaması etkin olan özel bir GitHub deposuna klonlar, örneğin, bir iletişim kutusu iki faktörlü kimlik doğrulamasını tamamlamak için görüntülenir.  
+- **Çözümleme**: kapatıp Kabuk.
+
 
 ### <a name="get-help--online-does-not-open-the-help-page"></a>Get-Help - çevrimiçi yardım sayfasına açmaz
 

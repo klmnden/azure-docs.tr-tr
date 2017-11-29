@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: e787cd6746b53c28fc1495b9a3ac62f2aa08f639
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: a8a8cee327dac8adfb0ae53d101c382ef20599d2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="dependency-visualization"></a>Bağımlılık Görselleştirme
 
@@ -43,7 +43,7 @@ Bağımlılık görselleştirme kullanmak için aracıları analiz etmek istedi�
 
 ## <a name="do-i-need-to-pay-for-it"></a>Bunun için ödeme gerekiyor mu?
 
-Evet. Günlük analizi çalışma alanı varsayılan olarak oluşturulur, ancak Azure geçirmek bağımlılık görselleştirme kullanmadığınız sürece kullanılmaz. Bağımlılık görselleştirme kullanın (veya çalışma alanı Azure geçirme dışında kullanıyorsanız), çalışma alanı kullanımı için sizden ücret kesilir.  [Daha fazla bilgi edinin](https://www.microsoft.com/cloud-platform/operations-management-suite) hizmet Haritası çözüm fiyatlandırma hakkında. 
+Evet. Günlük analizi çalışma alanı varsayılan olarak oluşturulur, ancak Azure geçirmek bağımlılık görselleştirme kullanmadığınız sürece kullanılmaz. Bağımlılık görselleştirme kullanın (veya çalışma alanı Azure geçirme dışında kullanıyorsanız), çalışma alanı kullanımı için sizden ücret kesilir.  [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/insight-analytics/) hizmet Haritası çözüm fiyatlandırma hakkında. 
 
 ## <a name="how-do-i-manage-the-workspace"></a>Çalışma alanı nasıl yönetebilirim?
 

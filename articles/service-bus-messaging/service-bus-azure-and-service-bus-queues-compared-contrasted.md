@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyruklarını - karşılaştırılan ve contrasted
 Bu makalede farklar ve iki tür bugün Microsoft Azure tarafından sunulan kuyruk arasındaki benzerlikler Çözümler: depolama kuyrukları ve Service Bus kuyruklarını. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
@@ -30,12 +30,12 @@ Azure kuyruk mekanizmasıyla iki türlerini destekler: **depolama kuyrukları** 
 
 **Service Bus kuyruklarını** daha geniş bir parçası olan [Azure Mesajlaşma](https://azure.microsoft.com/services/service-bus/) altyapısını destekleyen Yayınla/Abone ol yanı sıra queuing ve daha gelişmiş tümleştirme desenleri. Service Bus kuyrukları/konuları/abonelikler hakkında daha fazla bilgi için bkz: [Service Bus genel bakış](service-bus-messaging-overview.md).
 
-Depolama kuyrukları queuing iki teknolojiyi aynı anda mevcut olsa da, ilk Azure Storage hizmetleri üzerine inşa ayrılmış kuyruk depolama mekanizması olarak eklenmiştir. Service Bus kuyrukları, uygulamaları veya birden çok iletişim protokolü, veri sözleşmeleri, güven etki alanları ve/veya ağ ortamları yayılabilir uygulama bileşenlerini tümleştirmek üzere tasarlanmış daha geniş "Mesajlaşma" altyapısının üzerinde oluşturulmuştur.
+Depolama kuyrukları queuing iki teknolojiyi aynı anda mevcut olsa da, ilk Azure Storage hizmetleri üzerine inşa ayrılmış kuyruk depolama mekanizması olarak eklenmiştir. Service Bus kuyrukları, uygulamaları veya birden çok iletişim protokolü, veri sözleşmeleri, güven etki alanları ve/veya ağ ortamları yayılabilir uygulama bileşenlerini tümleştirmek üzere tasarlanmış daha geniş Mesajlaşma altyapısının üzerinde oluşturulmuştur.
 
 ## <a name="technology-selection-considerations"></a>Teknoloji seçimi konuları
 Depolama kuyrukları ve Service Bus kuyruklarını message queuing hizmeti şu anda Microsoft Azure tarafından sunulan uygulamalarıdır. Her ikisinden birini seçin veya her ikisi de belirli çözüm veya iş/teknik sorun çözme gereksinimlerine bağlı olarak kullanmak anlamına gelir biraz farklı özellik kümesi vardır.
 
-Belirli bir çözüm amaçla hangi queuing teknolojisi uygun belirlerken, çözüm mimarları ve geliştiricileri aşağıdaki önerileri göz önünde bulundurmalısınız. Daha fazla ayrıntı için sonraki bölüme bakın.
+Belirli bir çözüm amaçla hangi queuing teknolojisi uygun belirlerken, çözüm mimarları ve geliştiricileri bu önerileri göz önünde bulundurmalısınız. Daha fazla ayrıntı için sonraki bölüme bakın.
 
 Bir çözümü Mimarı/geliştirici, olarak **depolama kuyruklarını kullanmayı düşünmelisiniz** zaman:
 
@@ -75,8 +75,8 @@ Bu bölümde bazı depolama kuyrukları ve Service Bus kuyrukları ile sağlanan
 | Anında iletme stili API |**Hayır** |**Evet**<br/><br/>[Onmessageoptions](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) ve **Onmessageoptions** oturumları .NET API. |
 | Mod alma |**Peek & kira** |**Peek & Kilitle**<br/><br/>**Alma & Sil** |
 | Özel erişim modu |**Kira tabanlı** |**Kilit tabanlı** |
-| Kira/süre kilidi |**30 saniye (varsayılan)**<br/><br/>**7 gün (en)** (yenileme veya iletiyi kullanarak kira serbest [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API.) |**60 saniye (varsayılan)**<br/><br/>İletiyi kullanarak kilit yenileyebilirsiniz [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
-| Kira/duyarlık kilidi |**İleti düzeyi**<br/><br/>(her ileti sonra gereken şekilde kullanarak ileti işlenirken güncelleştirebilirsiniz bir başka zaman aşımı değerine sahip [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API) |**Sıranın düzeyi**<br/><br/>(tüm iletileri uygulanmış bir kilit duyarlık her sıranın vardır, ancak Kilitle kullanarak yenileyebilirsiniz [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
+| Kira/süre kilidi |**30 saniye (varsayılan)**<br/><br/>**7 gün (en)** (yenileme veya iletiyi kullanarak kira serbest [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API.) |**60 saniye (varsayılan)**<br/><br/>İletiyi kullanarak kilit yenileyebilirsiniz [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API. |
+| Kira/duyarlık kilidi |**İleti düzeyi**<br/><br/>(her ileti sonra gereken şekilde kullanarak ileti işlenirken güncelleştirebilirsiniz bir başka zaman aşımı değerine sahip [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage) API) |**Sıranın düzeyi**<br/><br/>(tüm iletileri uygulanmış bir kilit duyarlık her sıranın vardır, ancak Kilitle kullanarak yenileyebilirsiniz [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) API.) |
 | Toplu alma |**Evet**<br/><br/>(açıkça ileti sayısı en çok 32 iletileri iletileri alınırken belirtme) |**Evet**<br/><br/>(örtük olarak getirme öncesi özellik etkinleştirme veya açıkça işlemleri kullanarak) |
 | Toplu iş gönderme |**Hayır** |**Evet**<br/><br/>(işlemler veya istemci tarafı toplu işleme kullanımı ile) |
 
@@ -89,7 +89,7 @@ Bu bölümde bazı depolama kuyrukları ve Service Bus kuyrukları ile sağlanan
 * Service Bus kuyruklarını yerel hareketlerinin tek bir sıraya için bağlamında destek sağlar.
 * **Alma ve silme** Service Bus tarafından desteklenen modu alçaltılmış teslim güvence karşılığında Mesajlaşma işlem sayısını (ve ilişkili maliyet) azaltma olanağı sağlar.
 * Depolama kuyrukları kiraları iletileri için kira sürelerini genişletme olanağı sağlar. Bu iletileri kısa kira korumak çalışanları sağlar. Bir çalışan kilitlenirse bu durum, bu nedenle, ileti hızlı bir şekilde yeniden başka bir çalışan tarafından işlenebilir. Ayrıca, bu işlem geçerli kiralama süresinden daha uzun gerektiriyorsa bir çalışan bir ileti kira genişletebilirsiniz.
-* Depolama kuyrukları içine alınırken ayarlayın veya bir ileti kuyruktan alma yapabileceğiniz bir görünürlük zaman aşımını sunar. Ayrıca, çalışma zamanında farklı kira değerlerle bir ileti güncelleştirin ve aynı sıradaki iletiler arasında farklı değerleri güncelleştirin. Hizmet veri yolu kilit zaman aşımı sıra meta verilerde tanımlanan; çağırarak kilidi ancak yenileyebilirsiniz [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) yöntemi.
+* Depolama kuyrukları nedeniyle ayarlayın veya bir ileti kuyruktan alma yapabileceğiniz bir görünürlük zaman aşımını sunar. Ayrıca, çalışma zamanında farklı kira değerlerle bir ileti güncelleştirin ve aynı sıradaki iletiler arasında farklı değerleri güncelleştirin. Hizmet veri yolu kilit zaman aşımı sıra meta verilerde tanımlanan; çağırarak kilidi ancak yenileyebilirsiniz [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) yöntemi.
 * Service Bus kuyruklarını işlemi bir engelleme almak için en uzun zaman aşımı 24 gündür. Ancak, REST tabanlı zaman aşımları 55 saniyelik en fazla bir değere sahip.
 * Service Bus tarafından sağlanan istemci-tarafı toplu işleme sırası tek gönderme işlemi birden fazla ileti toplu istemciye sağlar. Toplu işleme yalnızca zaman uyumsuz gönderme işlemleri için kullanılabilir.
 * (Daha fazla hesapları sanallaştırmak olduğunda) depolama kuyrukları ve sınırsız sıralarını 200 TB'ye tavan gibi özellikler SaaS sağlayıcıları için ideal bir platform kolaylaştırır.
@@ -132,9 +132,9 @@ Bu bölümde depolama kuyrukları ve Service Bus kuyruklarını açısından kar
 | Karşılaştırma ölçütü | Depolama kuyrukları | Service Bus Kuyrukları |
 | --- | --- | --- |
 | En büyük sıra boyutu |**500 TB**<br/><br/>(sınırlı bir [tek bir depolama hesabı kapasitesi](../storage/common/storage-introduction.md#queue-storage)) |**80 GB için 1 GB**<br/><br/>(kuyruk oluşturma sırasında tanımlanan ve [bölümleme etkinleştirme](service-bus-partitioning.md) – "Ek bilgiler" bölümüne bakın) |
-| İleti boyutu üst sınırı |**64 KB**<br/><br/>(48 kullanırken KB **Base64** kodlama)<br/><br/>Azure, kuyruklar ve BLOB'lar – bu noktada, şunları yapabilirsiniz enqueue birleştirerek büyük iletileri destekleyen tek bir öğe için en fazla 200GB. |**256 KB** veya **1 MB**<br/><br/>(başlık ve gövde, en fazla üstbilgi boyutu dahil: 64 KB).<br/><br/>Bağımlı [hizmet katmanı](service-bus-premium-messaging.md). |
+| İleti boyutu üst sınırı |**64 KB**<br/><br/>(48 kullanırken KB **Base64** kodlama)<br/><br/>Azure, kuyruklar ve BLOB'lar – bu noktada, şunları yapabilirsiniz enqueue birleştirerek büyük iletileri destekleyen tek bir öğe için en fazla 200 GB. |**256 KB** veya **1 MB**<br/><br/>(başlık ve gövde, en fazla üstbilgi boyutu dahil: 64 KB).<br/><br/>Bağımlı [hizmet katmanı](service-bus-premium-messaging.md). |
 | En fazla ileti TTL |**7 gün** |**TimeSpan.Max** |
-| Kuyruğu en yüksek sayısı |**Sınırsız** |**10,000**<br/><br/>(hizmet ad alanı artırılabilir) |
+| Kuyruğu en yüksek sayısı |**Sınırsız** |**10,000**<br/><br/>(hizmet ad alanı) |
 | Maksimum eşzamanlı istemci sayısı |**Sınırsız** |**Sınırsız**<br/><br/>(yalnızca 100 eş zamanlı bağlantı sınırı TCP protokolü tabanlı iletişim'geçerlidir) |
 
 ### <a name="additional-information"></a>Ek bilgiler

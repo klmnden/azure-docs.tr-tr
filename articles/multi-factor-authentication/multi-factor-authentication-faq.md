@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması hakkında sık sorulan sorular
 Bu SSS, Azure multi-Factor Authentication ve çok faktörlü kimlik doğrulama hizmeti kullanma hakkında sık sorulan soruları yanıtlar. Bu hizmet hakkında sorular içine genel olarak, modelleri, kullanıcı deneyimleri, faturalama ve sorun giderme ayrılmıştır.
@@ -45,6 +45,22 @@ Ne kimlik doğrulama isteklerini gönderileceğini bulut hizmeti için kimlik do
 İsteğe bağlı alanları multi-Factor Authentication Sunucusu'nda yapılandırılabilir.
 
 Kimlik doğrulama verileriyle doğrulama sonucu (başarılı veya engelleme) ve reddedildiyse, nedenini depolanır. Bu veriler, kimlik doğrulama ve kullanım raporlarında kullanılabilir.
+
+**S: hangi SMS kısa kodları Kullanıcılarım için SMS iletileri göndermek için kullanılır?**
+
+Amerika Birleşik Devletleri Microsoft aşağıdaki SMS kısa kodlarını kullanır:
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+Kanada Microsoft aşağıdaki SMS kısa kodlarını kullanır:
+
+   * 759731 
+   * 673801
+
+Microsoft tutarlı SMS veya sesli tabanlı çok faktörlü kimlik doğrulama istemi teslim aynı numarasına göre garanti etmez. Kullanıcılarımızın gerçekleştirebiliriz Microsoft ekleyebilir veya SMS e-posta erişimini iyileştirmek için rota ayarlamalar vermiyoruz gibi herhangi bir zamanda kısa kodları kaldırın. Microsoft, ABD ve Kanada yanı sıra ülkeler için kısa kodlarını desteklemez
 
 ## <a name="billing"></a>Faturalandırma
 Ya da başvurarak çoğu fatura soruların yanıtlanması [çok faktörlü kimlik doğrulaması Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) veya ilgili belgelere [Azure çok faktörlü kimlik doğrulama alma](multi-factor-authentication-versions-plans.md).

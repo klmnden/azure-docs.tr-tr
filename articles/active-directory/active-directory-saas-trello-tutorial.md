@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Öğretici: Azure Active Directory Tümleştirme Trello ile
 
@@ -96,6 +96,10 @@ Yapılandırma ve Azure AD çoklu oturum açma Trello ile test etmek için aşa�
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Trello uygulamanızda yapılandırın.
 
+>[!NOTE]
+    >Alması gereken  **\<Kurumsal\>**  Trello gelen başlık. Başlık değer yoksa, kişi [Trello destek ekibi](mailto:support@trello.com) , kuruluşunuz için bilgi almak için.
+    > 
+
 **Azure AD çoklu oturum açma ile Trello yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında üzerinde **Trello** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
@@ -112,17 +116,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://trello.com/auth/saml/consume/<enterprise>`
 
-4. Üzerinde **Trello etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. Uygulamada yapılandırmak istiyorsanız **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
+
+  ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     a. Tıklayın **Göster Gelişmiş URL ayarları**.
 
-    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://trello.com/auth/saml/consume/<enterprise>`
+    b. İçinde **oturum üzerinde URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://trello.com/auth/saml/login/<enterprise>`
 
-    >[!NOTE]
-    >Alması gereken  **\<Kurumsal\>**  Trello gelen başlık. Başlık değer yoksa, kişi [Trello destek ekibi](mailto:support@trello.com) kurumsal bilgi almanız için.
-    > 
+  c. İçinde **tanımlayıcısı** metin kutusuna, şu URL'yi yazın:`https://trello.com/auth/saml/metadata`
 
 5. Özel öznitelikler içerecek şekilde SAML onaylar Trello uygulama bekler. Bu uygulama için aşağıdaki öznitelikleri yapılandırabilirsiniz. Bu öznitelik değerlerini yönetebilirsiniz **"Kullanıcı öznitelikleri"** uygulamanın. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
 
@@ -130,7 +132,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 6. Üzerinde **SAML belirteci öznitelikleri** iletişim kutusunda, aşağıdaki tabloda gösterilen her satır için aşağıdaki adımları gerçekleştirin:
  
-    | Öznitelik adı | Öznitelik değeri |
+    | Öznitelik Adı | Öznitelik Değeri |
     | --- | --- |
     | User.Email | User.Mail |
     | User.FirstName | User.givenName |

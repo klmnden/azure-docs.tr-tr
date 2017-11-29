@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Service Fabric kümesi veya otomatik ölçeklendirme kurallarını kullanarak uzaklaştırma ölçeklendirme
 Sanal makine ölçek kümeleri dağıtmak ve sanal makinelerin bir koleksiyon kümesi olarak yönetmek için kullanabileceğiniz bir Azure işlem kaynaktır. Service Fabric kümesi içinde tanımlanan her düğüm türü ayrı bir sanal makine ölçek kümesi ayarlanır. Her düğüm türü, genişletilebilir veya çıkışı bağımsız olarak, farklı bağlantı noktalarının açık olması ve farklı kapasite ölçümlerini olabilir. İçinde hakkında daha fazla bilgiyi [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) belge. Service Fabric düğüm türleri kümenizdeki arka uç, sanal makine ölçek kümelerinin yapıldıktan sonra otomatik ölçek kuralı her düğüm türü/sanal makine ölçek kümesi için ayarlamanız gerekir.
@@ -72,8 +72,8 @@ Bu yönergeleri izleyin [otomatik ölçek her sanal makine ölçek kümesi için
 
 Aşağıdaki adımlar, bir VM örneği aynı anda yürütülmesi gerekir. Bu düzgün biçimde kaldırdığınız VM örneği ve diğer düğümlerde oluşturulan yeni yinelemeler kapatılması Sistem Hizmetleri (ve durum bilgisi olan hizmetlerinizi) sağlar.
 
-1. Çalıştırma [devre dışı bırakma ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) düğümü devre dışı bırakmak amacıyla 'RemoveNode' kaldırın (Bu düğüm türü en yüksek örneğinde) oluşturacağız.
-2. Çalıştırma [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) düğümü devre dışı olarak gerçekten çözümlemeye geçmiş emin olmak için. Aksi durumda, düğümü devre dışı kadar bekleyin. Bu adım hurry olamaz.
+1. Çalıştırma [devre dışı bırakma ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) düğümü devre dışı bırakmak amacıyla 'RemoveNode' kaldırın (Bu düğüm türü en yüksek örneğinde) oluşturacağız.
+2. Çalıştırma [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) düğümü devre dışı olarak gerçekten çözümlemeye geçmiş emin olmak için. Aksi durumda, düğümü devre dışı kadar bekleyin. Bu adım hurry olamaz.
 3. Örnek/yönergeleri izleyin [hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) tek bu Nodetype VM'lerin sayısını değiştirmek için. Kaldırılan yüksek VM örneği örneğidir. 
 4. 1 ile gerektiğinde 3 arasındaki adımları yineleyin, ancak hiçbir zaman birincil düğüm türleri ne güvenilirlik katmanını sağlayacağını değerinden sayısının ölçeğini. Başvurmak [burada güvenilirlik katmanları ayrıntıları](service-fabric-cluster-capacity.md). 
 
@@ -85,8 +85,8 @@ Aşağıdaki adımlar, bir VM örneği aynı anda yürütülmesi gerekir. Bu dü
 
 Aşağıdaki adımlar, bir VM örneği çalıştırma aynı anda gerekir. Bu kaldırdığınız VM örneğinde düzgün biçimde kapatılması Sistem Hizmetleri (ve durum bilgisi olan hizmetlerinizi) sağlar ve başka bir konumu yeni çoğaltmaları oluşturulur.
 
-1. Çalıştırma [devre dışı bırakma ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) düğümü devre dışı bırakmak amacıyla 'RemoveNode' kaldırın (Bu düğüm türü en yüksek örneğinde) oluşturacağız.
-2. Çalıştırma [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) düğümü devre dışı olarak gerçekten çözümlemeye geçmiş emin olmak için. Aksi durumda düğüm devre dışı kadar bekleyin. Bu adım hurry olamaz.
+1. Çalıştırma [devre dışı bırakma ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) düğümü devre dışı bırakmak amacıyla 'RemoveNode' kaldırın (Bu düğüm türü en yüksek örneğinde) oluşturacağız.
+2. Çalıştırma [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) düğümü devre dışı olarak gerçekten çözümlemeye geçmiş emin olmak için. Aksi durumda düğüm devre dışı kadar bekleyin. Bu adım hurry olamaz.
 3. Örnek/yönergeleri izleyin [hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) tek bu Nodetype VM'lerin sayısını değiştirmek için. Bu artık yüksek VM örneği kaldırır. 
 4. 1 ile gerektiğinde 3 arasındaki adımları yineleyin, ancak hiçbir zaman birincil düğüm türleri ne güvenilirlik katmanını sağlayacağını değerinden sayısının ölçeğini. Başvurmak [burada güvenilirlik katmanları ayrıntıları](service-fabric-cluster-capacity.md).
 

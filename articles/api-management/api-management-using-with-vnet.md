@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -45,7 +45,7 @@ Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmal�
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Azure portalını kullanarak VNET bağlantısını etkinleştir
 
 1. APIM örneğinizi gidin [Azure portal](https://portal.azure.com/).
-2. Seçin **özel etki alanları ve SSL**.
+2. Seçin **sanal ağ**.
 3. Bir sanal ağ içinde dağıtılacak API Management örneği yapılandırın.
 
     ![Sanal ağ menü API Yönetimi][api-management-using-vnet-menu]
@@ -116,6 +116,7 @@ API Management hizmet örneği sanal ağ içinde barındırıldığında, aşağ
 | * / 14000 - 14999 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|**Azure SQL v12 erişim** |Dış & iç |
 | * / 5671 |Giden |AMQP |VIRTUAL_NETWORK / INTERNET|Olay hub'ı İlkesi ve İzleme Aracısı günlüğü bağımlılığı |Dış & iç |
 | * / 445 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Azure dosya paylaşımı için GIT bağımlılığı |Dış & iç |
+| * / 25028 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|E-postaları göndermek için SMTP geçişi Bağlan |Dış & iç |
 | * / 6381 - 6383 |Gelen ve giden |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Erişim Redis önbelleği örnekleri Roleınstances arasında |Dış & iç |
 | * / * | Gelen |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure altyapı yük dengeleyici |Dış & iç |
 

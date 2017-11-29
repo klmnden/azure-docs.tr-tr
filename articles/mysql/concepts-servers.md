@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/03/2017
-ms.openlocfilehash: 17f045f516792e50f7349805ec9f7a01e3f9d5b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: d3de3fdf28997b63321bf23443472db43ebb5c52
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Azure veritabanı için MySQL Server kavramları
-Bu konu, MySQL sunucuları için Azure veritabanı ile çalışmak için önemli noktalar ve yönergeler sağlar.
+Bu makalede, MySQL sunucuları için Azure veritabanı ile çalışma hakkında önemli noktalar ve yönergeleri sağlar.
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>MySQL sunucusu için bir Azure veritabanı nedir?
 
@@ -38,15 +38,13 @@ MySQL sunucusu için Azure Veritabanı içinde bir veya birden fazla veritabanı
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Nasıl bağlanmak ve MySQL sunucusu için bir Azure veritabanı kimlik doğrulaması?
 
 Aşağıdaki öğeler için veritabanınızda güvenli erişim sağlamaya yardımcı olur.
-
 |||
 | :-- | :-- |
 | **Kimlik doğrulama ve yetkilendirme** | MySQL sunucusu için Azure veritabanı yerel MySQL kimlik doğrulamasını destekler. Bağlanabilir ve sunucunun yönetici oturum açma sahip bir sunucuya kimlik doğrulaması. |
 | **Protokol** | Hizmeti MySQL tarafından kullanılan bir ileti tabanlı iletişim kuralı destekler. |
 | **TCP/IP'Yİ** | Protokol UNIX etki alanı Yuva üzerinden ve TCP/IP üzerinden desteklenir. |
-| **Güvenlik duvarı** | İznine sahip olan bilgisayarları belirtmediğiniz sürece, verilerinizin korunmasına yardımcı olmak için bir güvenlik duvarı kuralı tüm erişim veritabanı sunucunuz veya veritabanlarını engeller. Bkz: [Azure veritabanı için MySQL Server güvenlik duvarı kuralları](./concepts-firewall-rules.md). |
+| **Güvenlik duvarı** | İznine sahip olan bilgisayarları belirttiğiniz kadar verilerinizin korunmasına yardımcı olmak için bir güvenlik duvarı kuralı tüm erişim, veritabanı sunucunuza engeller. Bkz: [Azure veritabanı için MySQL Server güvenlik duvarı kuralları](./concepts-firewall-rules.md). |
 | **SSL** | Hizmet, uygulamalar ve veritabanı sunucusu arasındaki zorunlu SSL bağlantılarını destekler.  Bkz. [MySQL için Azure Veritabanına güvenli bir şekilde bağlanmak üzere uygulamanızda SSL bağlantısı yapılandırma](./howto-configure-ssl.md). |
-|||
 
 ## <a name="how-do-i-manage-a-server"></a>Bir sunucu nasıl yönetebilirim?
 Azure portalında veya Azure CLI kullanarak Azure veritabanı için MySQL sunucuları yönetebilirsiniz.

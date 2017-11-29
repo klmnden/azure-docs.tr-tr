@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: a80b27dc8f1a15bf2e62c9992be8bfa02cacb2f6
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/28/2017
+ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Azure veritabanı PostgreSQL için PostgreSQL uzantıları
 PostgreSQL uzantıları kullanarak veritabanını işlevselliğini genişletme olanağı sağlar. Birden çok ilişkili SQL nesneleri birlikte yüklenen veya tek bir komutla veritabanınızdan kaldırılan tek bir pakette paketleme için uzantılar sağlar. Yerleşik özellikler gibi veritabanında yüklenen sonra uzantıları çalışabilir. PostgreSQL uzantıları hakkında daha fazla bilgi için bkz: [uzantı paketleme ilgili nesnelerini](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -94,7 +94,7 @@ Azure veritabanı tarafından PostgreSQL için şu anda desteklenen standart Pos
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topoloji, postgis\_tiger\_geocoder, postgis\_sfcgal | Uzamsal ve coğrafi nesneleri PostgreSQL için. |
 | Adres\_standardizer, adresi\_standardizer\_veri\_bize | Bir adresi bağlı elemanlara ayrıştırmak için kullanılır. Coğrafi kodlama adresi normalleştirme adım desteklemek için kullanılır. |
-| [grouting](http://pgrouting.org/) | PostGIS genişletir / PostgreSQL Jeo-uzamsal veritabanı Jeo-uzamsal sağlamak için yönlendirme işlevi. |
+| [pgrouting](http://pgrouting.org/) | PostGIS genişletir / PostgreSQL Jeo-uzamsal veritabanı Jeo-uzamsal sağlamak için yönlendirme işlevi. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kullanmak için bize bildirin istediğiniz uzantı görmüyorsanız. Var olan istekleri için oy verin veya yeni geri bildirim ve istekleri oluşturmak bizim [müşteri geri bildirim Forumunda](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

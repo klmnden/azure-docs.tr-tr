@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfb37ae51400210ef80a0f267b294d1e2e465b76
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Bir IOT kenar modül Azure işlevi dağıtma - Önizleme
 Azure işlevleri, iş mantığınızı IOT sınır cihazları için doğrudan uygulayan kod dağıtmak için kullanabilirsiniz. Bu öğreticide, oluşturma ve dağıtma algılayıcı verileri üzerinde bir sanal cihaz dağıtmak Azure IOT kenarına oluşturduğunuz sanal IOT sınır aygıtında filtreler bir Azure işlevi aracılığıyla açıklanmaktadır [Windows] [ lnk-tutorial1-win]veya [Linux] [ lnk-tutorial1-lin] öğreticileri. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:     
@@ -225,7 +225,7 @@ Cihaz bulut iletilerini IOT kenar cihazınızın IOT hub'ına gönderilen izleme
 Bu öğreticide, IOT kenar cihazınız tarafından oluşturulan ham verileri filtrelemek için kodu içeren bir Azure işlevi oluşturuldu. Azure IOT kenar keşfetme tutmak için bir IOT sınır cihazı bir ağ geçidi olarak kullanmayı öğrenin. 
 
 > [!div class="nextstepaction"]
-> [Bir IOT sınır ağ geçidi cihazı oluşturma](how-to-create-gateway-device.md)
+> [Bir IOT sınır ağ geçidi cihazı oluşturma](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 8c15d198e92b1478b84b2140df416df3909ba141
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 276b0ecd6d84725b94018e73d53555ffd9f3e9a0
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Azure içerik teslim ağı'nda Azure Blob storage'nın bitiş tarihini Yönet
 > [!div class="op_single_selector"]
@@ -101,6 +101,14 @@ class Program
 
 ### <a name="azure-storage-explorer"></a>Azure Depolama Gezgini
 İle [Azure Storage Gezgini](https://azure.microsoft.com/en-us/features/storage-explorer/), görüntüleyin ve özellikleri gibi dahil, blob storage kaynaklarını düzenleyin *CacheControl* özelliği. 
+
+Güncelleştirilecek *CacheControl* Azure Depolama Gezgini ile bir blob özelliği:
+   1. Bir blob seçin ve ardından **özellikleri** ve bağlam menüsünden. 
+   2. Ekranı aşağı kaydırarak *CacheControl* özelliği.
+   3. Bir değer girin ve ardından **kaydetmek**.
+
+
+![Azure Storage Gezgini özellikleri](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure Komut Satırı Arabirimi
 Bir blob karşıya yüklediğinizde, ayarlayabileceğiniz *cacheControl* özelliğiyle `-p` anahtarının [Azure komut satırı arabirimi](../cli-install-nodejs.md). Aşağıdaki örnekte, TTL bir saat (3600 saniye) ayarlamak gösterilmektedir:

@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Azure günlük analizi yeni sorgu dili geçiş
 Günlük analizi yakın zamanda yeni bir sorgu dili uygulanmadı.  Bu makale, zaten eski dili ile tanıdık ve hala yardıma ihtiyacınız varsa, bu dil için günlük analizi için geçiş hakkında Yardım sağlar.
+
+## <a name="resources"></a>Kaynaklar
+
 
 ## <a name="language-converter"></a>Dil dönüştürücü
 
 Eski günlük analizi sorgu dili ile sahibiyseniz, yeni dilde aynı sorgu oluşturmak için en kolay yolu çalışma alanınızı dönüştürüldüğünde günlük arama Portalı'nda yüklü dil Dönüştürücüsü kullanmaktır.  Dönüştürücü kullanarak eski sorgu üst metin kutusuna yazarak ve ardından olarak basit **dönüştürme**.  Ya da kopyalama veya sorguyu çalıştırmak ve başka bir yere kullanacak şekilde yapıştırmak için arama düğmesini tıklatabilirsiniz.
 
 ![Dil dönüştürücü](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>Kaynaklar
+[Belgeleri sitesi için günlük analizi sorgu dili](https://docs.loganalytics.io) yeni dil hızlıca gelen gereken tüm kaynakları içerir.  Bu öğreticiler, örnekler ve tam bir dil başvurusu içerir.
 
 
 ## <a name="cheat-sheet"></a>Kopya kağıdı

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3ae7df7939431e3bd13c070d65876145706e06b5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -309,7 +309,9 @@ Telemetri size geri sunan Application Insights hizmeti ölçümler için veri no
 
 Yaklaşık doğruluğu büyük ölçüde yapılandırılmış örnekleme yüzdesi bağlıdır. Ayrıca, kullanıcıların çok sayıda genellikle benzer isteklerinden büyük miktarda işleyen uygulamalar için doğruluğu artırır. Bu uygulamalar genellikle kendi telemetri azaltma gelen veri kaybına neden olmadan kotanın kalsanız gönderebilirsiniz gibi diğer taraftan, önemli bir yük ile çalışmıyor uygulamalar için örnekleme gerekli değildir. 
 
-Application Insights telemetri türlerini, ölçümleri ve oturumlar itibaren bu türleri için örnek değil, kesinlik azalma yüksek oranda istenmeyen dikkat edin. 
+> [!WARNING]
+> Application Insights ölçümleri ve oturumlar telemetri türlerini örnek değil. Duyarlık azalma bu telemetri türleri için yüksek oranda istenmeyen olabilir.
+> 
 
 ### <a name="adaptive-sampling"></a>Uyarlamalı örnekleme
 Uyarlamalı örnekleme iletim SDK'dan gelen geçerli hızı izler ve hedef en yüksek hızı içinde kalmasını denemek için örnekleme yüzdesi ayarlayan bir bileşen ekler. Ayarlama, düzenli aralıklarla yeniden hesaplanır ve giden aktarım hızını üzerinde bir hareketli ortalama dayanır.

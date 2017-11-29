@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -194,9 +194,11 @@ Azure Cosmos DB tablo API ile tabloları oluşturmak istediğiniz Azure Table de
 * Azure Cosmos DB tablo API garantili bir performans sağlamak için ayrılmış kapasite modeli kullanır, ancak bu tablo oluşturulduktan hemen kapasite kullanılmadığından olsa bile bir kapasite için ödeme yaptığını anlamına gelir. Azure Table storage'ı bir yalnızca gerçekten kullanılan kapasite ödeyen. Azure Table depolama 10 ikinci SLA sunarken SLA 99 yazma, bu 10 ms okuma tablo API neden sunabileceğiniz açıklamak için yardımcı olur ve 15 ms. Ancak sonuç olarak tüm istekler, kapasite SLA bunları için tüm istekleri işlemek kullanılabilir olduğundan emin olmak için maliyet para olmadan bile boş tablolar tablo API tablolarla Azure Cosmos DB tarafından sunulan.
 * Azure Table storage ' oldukları gibi sorgu sonuçları tablosu API tarafından döndürülen bölüm anahtarı/satırın anahtar düzende sıralanır değil.
 * Satır anahtarları yalnızca en fazla 255 bayt olabilir
+* Toplu işlemleri yalnızca en çok 2 MB içerebilir
 * CreateIfNotExists çağrıları sabit ve RUs tarafından ele alınan diğer tablo işlemleri ayrı bir yönetim kısıtlama tarafından kısıtlanan. Bu olanlar CreateIfNotExists çok sayıda yapmadan kısıtlanan ve sınır kendi RUs gelen değil çünkü hakkında herhangi bir şey yapmak yükleyemezsiniz anlamına gelir.
 * CORS şu anda desteklenmiyor
 * Azure Table depolama tablo adları büyük küçük harfe duyarlı değildir, ancak Azure Cosmos DB tablo API oldukları
+* İkili alanları gibi kodlama bilgilerini Azure Cosmos DB'ın iç biçimlerinden bazıları şu anda bir beğenebileceğiniz olarak etkin değildir. Bu nedenle bu beklenmeyen sınırlamaları veri boyutuna neden olabilir. Örneğin, şu anda bir tablo varlığının tam 1 MB verinin boyutunu artırır kodlama için ikili verileri depolamak için kullanın uygulanamadı.
 
 REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen uç noktalar/sorgu seçeneklerini sayısı vardır:
 | REST yöntemleri | REST uç noktası/sorgu seçeneği | Belge URL'leri | Açıklama |
@@ -212,7 +214,7 @@ Azure Cosmos DB desteklerken paylaşılan erişim imzaları (SAS) var. bunu dest
 
 İçin .NET SDK'sı özellikle var. bazı sınıfları ve Azure Cosmos DB şu anda desteklemediği yöntemleri
 
-| sınıfı | Desteklenmeyen yöntemi |
+| Sınıf | Desteklenmeyen yöntemi |
 |-------|-------- |
 | CloudTableClient | \*ServiceProperties * |
 |                  | \*ServiceStats * |

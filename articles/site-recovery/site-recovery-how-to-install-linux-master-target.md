@@ -3,7 +3,7 @@ title: "Yük devretme için bir Linux ana hedef sunucusu Azure'dan şirket içi 
 description: "Linux sanal makine yeniden korumayı önce bir Linux ana hedef sunucusu gerekir. Bir yüklemeyi öğrenin."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 029e1b51c52e440666238f6177d15aea0a5e07a7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
@@ -206,7 +206,7 @@ Bu parametre etkinleştirmek için aşağıdaki adımları uygulayın:
 
 #### <a name="disable-kernel-upgrades"></a>Çekirdek yükseltmeler devre dışı bırak
 
-Azure Site Recovery ana hedef sunucusu Ubuntu çok belirli bir sürümünü gerektirir, çekirdek yükseltmeleri sanal makine için devre dışı emin olun.
+Azure Site Recovery ana hedef sunucusu Ubuntu belirli bir sürümünü gerektirir, çekirdek yükseltmeleri sanal makine için devre dışı emin olun.
 
 Çekirdek yükseltmeler etkinleştirilirse, normal bir yükseltme ana hedef sunucusunda çalışmasına neden.
 
@@ -369,12 +369,12 @@ Yükleme tamamlandıktan sonra komut satırını kullanarak yapılandırma sunuc
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Komut dosyası tamamlanana kadar bekleyin. Ana hedef kayıtlı başarıyla ise, ana hedef listelendiğini **Site Recovery altyapısı** portal sayfası.
+   Komut dosyası tamamlanana kadar bekleyin. Ana hedef başarıyla kaydedildi, ana hedef listelendiğini **Site Recovery altyapısı** portal sayfası.
 
 
 ### <a name="upgrade-the-master-target"></a>Ana hedefe yükseltme
 
-Yükleyiciyi çalıştırın. Aracı ana hedef sunucudaki yüklendi otomatik olarak algılar. Yükseltmek için seçin **Y**.  Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak yüklü ana hedef sürümünü denetleyin.
+Yükleyiciyi çalıştırın. Aracı ana hedef sunucudaki yüklendi otomatik olarak algılar. Yükseltmek için seçin **Y**.  Kurulum tamamlandıktan sonra aşağıdaki komutu kullanarak yüklü ana hedef sürümünü kontrol edin:
 
     ```
     cat /usr/local/.vx_version
@@ -387,7 +387,7 @@ Görebilirsiniz **sürüm** alan ana hedef sürüm sayısını verir.
 Böylece veri depolarına bulabilmesi için ana hedef sunucudaki VMware araçları yüklemeniz gerekir. Araçlar yüklü değilse, yeniden koruma ekran veri depolarında listelenen değil. VMware araçları yüklendikten sonra yeniden başlatmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yükleme ve ana hedef kaydını finsihed olduğunda görünür ana hedef görebilirsiniz **ana hedef** bölümüne **Site Recovery altyapısı**, yapılandırma sunucusuna genel bakış altında.
+Yükleme ve ana hedef kaydı tamamladıktan sonra görünür ana hedef görebilirsiniz **ana hedef** bölümüne **Site Recovery altyapısı**, yapılandırma bölümünde sunucusuna genel bakış.
 
 Şimdi devam edebilmeniz [yükü](site-recovery-how-to-reprotect.md), ardından yeniden çalışma.
 

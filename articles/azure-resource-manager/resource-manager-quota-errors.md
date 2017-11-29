@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Kaynak kotaları hatalarını çözümleme
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Çözüm 3
 
-Kota sınırını artırın gerekiyorsa, Portalı'na gidin ve dağıtmak istediğiniz bölgeyi için kotayı artırmak için bir destek sorununu dosya.
+Kota artışı isteği göndermek üzere, Portalı'na gidin ve bir destek sorununu dosya. Destek sorunu dağıtmak istediğiniz bölgeyi için kota artış isteyin.
 
 > [!NOTE]
 > Kaynak grupları için tüm abonelik için tek tek her bölge için kota olduğunu unutmayın. Batı ABD 30 çekirdeğini dağıtımı yapmanız gerekirse, Batı ABD 30 Resource Manager çekirdekleri yapmasını istemek zorunda. Hangi bölgeleri hiçbirinde erişiminiz 30 çekirdek dağıtımı yapmanız gerekirse, tüm bölgelerde 30 Resource Manager çekirdekleri istemeniz gerekir.
 >
 >
+
+1. Seçin **abonelikleri**.
+
+   ![Abonelikler](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Artan bir kota gereken aboneliği seçin.
+
+   ![Abonelik seçme](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Seçin **kullanım + kotaları**
+
+   ![Kullanım ve kotaları seçin](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. Sağ üst köşedeki seçin **isteği artış**.
+
+   ![Artışı isteği](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Formlar artırmaya gereksinim kota türü için doldurun.
+
+   ![Formu doldurun](./media/resource-manager-quota-errors/forms.png)

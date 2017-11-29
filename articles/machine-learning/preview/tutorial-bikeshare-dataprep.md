@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Bisiklet paylaşımı Öğreticisi: Azure Machine Learning çalışma ile verileri hazırlama Gelişmiş
 Azure Machine Learning Hizmetleri (Önizleme) olan bir tümleşik, uçtan uca veri bilimi ve verileri hazırlama, denemeler geliştirmek ve bulut ölçeğinde modelleri dağıtmak profesyonel veri bilimcilerine için Gelişmiş analiz çözümü.
@@ -261,10 +261,7 @@ Verileri bir tahmini için iki saat blokları kullanmak için iki saatlik dönem
 
    > [!NOTE]
    > Azure ML çalışma ekranı tarafından sağlanan örnekleri dayalı bir program ölçekli harfleri sentezler ve aynı programın kalan satırlarda uygular. Diğer tüm satırlar, sağlanan örnek üzerinde otomatik olarak doldurulur. Çalışma ekranı de verilerinizi analiz eder ve kenar durumlarını tanımlamak çalışır. 
-
-   > [!IMPORTANT]
-   > Edge durumlarda tanımlaması Mac ekranının geçerli sürümde çalışmayabilir. Atla __3. adım__ ve __4. adım__ aşağıda Mac üzerinde Bunun yerine, basın __Tamam__ tüm satırları türetilmiş değerlerle doldurulmuş sonra.
-   
+  
 3. Metin **verilerini analiz etme** kılavuz çalışma ekranı kenar durumlarda algılamak yaptığını belirtir. İşiniz bittiğinde, durum değişikliklerini **gözden geçirme sonraki önerilen satır** veya **öneri**. Bu örnekte, **gözden geçirme sonraki önerilen satır** döndürülür.
 
 4. Önerilen değişikliklerin gözden geçirmek için seçin **gözden geçirme sonraki önerilen satır**. Gözden geçirmeli ve (gerekirse) düzeltmek hücre ekranda vurgulanır.
@@ -294,11 +291,6 @@ Verileri bir tahmini için iki saat blokları kullanmak için iki saatlik dönem
 
    ![Örnek görüntüsü ' 01 Ocak 2015 00: 00-02: 00](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
-   > [!IMPORTANT]
-   > Mac üzerinde yerine aşağıdaki adımı izleyin __adım 8__ aşağıda.
-   >
-   > * İçeren ilk hücrenin gidin `Feb 01, 2015 12AM-2AM`. Olmalıdır __satır 15__. Değerine düzeltmek `Jan 02, 2015 12AM-2AM`ve basın __Enter__. 
-   
 
 8. Durumu değiştirmek bekleyin **verilerini analiz etme** için **gözden geçirme sonraki önerilen satır**. Bu, birkaç saniye sürebilir. Önerilen satırına gidin durumunu bağlantısını seçin. 
 
@@ -513,12 +505,7 @@ Seyahat verilerde her satır bir bisiklet alma olayı temsil eder. Bu öğretici
     > Bir örnek satır karşı verebilirsiniz. Bu örneğin, değeri `Jan 01, 2017 12AM-2AM` verilerin ilk satırında için geçerlidir.
 
     ![Örnek veri görüntüsü](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-
-   > [!IMPORTANT]
-   > Mac üzerinde yerine aşağıdaki adımı izleyin __3. adım__ aşağıda.
-   >
-   > * İçeren ilk hücrenin gidin `Jan 01, 2017 1AM-2AM`. Olmalıdır __satır 14__. Değerine düzeltmek `Jan 01, 2017 12AM-2AM`, yerleştirip __Enter__. 
-
+   
 3. Uygulamanın tüm satırları karşı değerlerini ölçer kadar bekleyin. Birkaç saniye sürebilir. Çözümleme tamamlandıktan sonra kullanmak __gözden geçirme sonraki önerilen satır__ verileri gözden geçirmek için bağlantı.
 
    ![Gözden geçirme bağlantıyla tamamlanmış analiz görüntüsü](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure bulut Kabuk genel bakış
 Azure bulut Kabuk Azure kaynaklarını yönetmek için etkileşimli, tarayıcı erişilebilir bir kabuk ' dir.
@@ -55,9 +55,9 @@ Bulut Azure portalından kullanılabilir olmasını durduracak Kabuk yanı sıra
 * [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio kod uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-files-storage"></a>Azure dosyaları depolama birimini bağlayın
+### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure dosyaları depolama birimini bağlayın
 Bulut Kabuk makine geçicidir ve sonuç olarak bir Azure dosyaları paylaşımı olarak bağlanmasını gerektiren `clouddrive` $Home dizininize kalıcı hale getirmek için.
-Bir kaynak oluşturmak için bulut Kabuk ister üzerinde ilk kez başlatıldığında, sizin adınıza grup, depolama hesabı ve dosya paylaşımı. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. Tek bir dosya paylaşımı eşlenebilir ve Bash ve PowerShell bulut Kabuğu (Önizleme) tarafından kullanılır.
+Bir kaynak grubu oluşturmak için bulut Kabuk ister ilk kez başlatıldığında, sizin adınıza depolama hesabı ve bir Azure dosya paylaşımı. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. Tek Azure dosya paylaşımı eşlenebilir ve Bash ve PowerShell bulut Kabuğu (Önizleme) tarafından kullanılır.
 
 #### <a name="create-new-storage"></a>Yeni depolama alanı oluşturma
 ![](media/overview/basic-storage.png)
@@ -70,7 +70,7 @@ Bir yerel olarak yedekli depolama (LRS) hesabı ve Azure dosya paylaşımı sizi
 3. Adlı dosya paylaşımı:`cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> Bulut Kabuk bash'te da bir varsayılan 5 GB disk yansımasını oluşturur `$Home`. SSH anahtarları gibi $Home dizininizdeki tüm dosyalara, bağlı dosya paylaşımında depolanan kullanıcı disk görüntünüzdeki kalıcıdır. Dosyaları, $Home dizin ve bağlı dosya paylaşımı kaydedilirken en iyi yöntemleri uygulayın.
+> Bulut Kabuk bash'te da bir varsayılan 5 GB disk yansımasını oluşturur `$Home`. SSH anahtarları gibi $Home dizininizdeki tüm dosyalara, bağlı Azure dosya paylaşımında depolanan kullanıcı disk görüntünüzdeki kalıcıdır. Dosyaları, $Home dizin ve bağlı Azure dosya paylaşımı kaydedilirken en iyi yöntemleri uygulayın.
 
 #### <a name="use-existing-resources"></a>Var olan kaynakları kullanın
 ![](media/overview/advanced-storage.png)
@@ -79,13 +79,13 @@ Gelişmiş bir seçenek bulut Kabuğu mevcut kaynaklarla ilişkilendirmek için 
 "Göster Gelişmiş ayarları" depolama Kurulum isteminde tıklatın ek seçenekleri göstermek için.
 Bırakmalar atanmış olan bulut Kabuk bölge ve yerel olarak/genel-yedekli depolama hesapları için filtrelenir.
 
-[Öğrenin bulut Kabuk depolama hakkında dosya paylaşımları güncelleştirme ve karşıya yükleme ve indirme dosyaları.](persisting-shell-storage.md)
+[Öğrenin bulut Kabuk depolama hakkında Azure dosya paylaşımları güncelleştirme ve karşıya yükleme ve indirme dosyaları.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Kavramlar
 * Bir oturum başına üzerinde kullanıcı başına sağlanan geçici bir ana bilgisayarda bulut Kabuk çalıştırır
 * Bulut Kabuk etkileşimli etkinliği olmadan 20 dakika sonra zaman aşımına uğradı
-* Bir dosya paylaşımı takılması bulut Kabuğu gerektirir
-* Bulut Kabuk aynı dosya paylaşımı için Bash ve PowerShell kullanır
+* Bulut Kabuk takılması Azure dosya paylaşımının gerektirir
+* Bulut Kabuk aynı Azure dosya paylaşımı için Bash ve PowerShell kullanır
 * Bulut Kabuk atanmış bir makine her kullanıcı hesabı
 * İzinler normal Linux kullanıcı Bash olarak ayarlanır
 

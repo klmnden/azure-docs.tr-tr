@@ -5,25 +5,22 @@ services: app-service\web
 documentationcenter: python
 author: berndverst
 manager: erikre
-editor: 
-ms.assetid: 2bada123-ef18-44e5-be71-e16323b20466
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: fa3aa3a73338970fde2d0b0230e7b2e6ca687dc9
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 55d6f1d10ff08fd8f0ea4aba775a96549192cef2
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure'da Docker Python ve PostgreSQL bir web uygulaması oluşturma
 
-Web uygulaması kapsayıcıları için yüksek düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web barındırma hizmeti sağlar. Bu öğretici, temel bir Docker Python web uygulaması oluşturma gösterilmektedir. Bu uygulama bir PostgreSQL veritabanına bağlanırsınız. İşiniz bittiğinde, Docker kapsayıcısı içinde çalışan bir Python Flask uygulaması gerekir [Linux uygulama hizmeti](app-service-linux-intro.md).
+Web uygulaması kapsayıcıları için yüksek düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web barındırma hizmeti sağlar. Bu öğretici, temel bir Docker Python web uygulaması oluşturma gösterilmektedir. Bu uygulama bir PostgreSQL veritabanına bağlanın. İşiniz bittiğinde, Docker kapsayıcısı içinde çalışan bir Python Flask uygulamasına sahip [Linux uygulama hizmeti](app-service-linux-intro.md).
 
 ![Docker Python Flask uygulama Linux uygulama hizmeti](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -120,7 +117,7 @@ Flask sunucu zaman durdurmak için Ctrl + C terminale yazın.
 
 ## <a name="create-a-production-postgresql-database"></a>Bir üretim PostgreSQL veritabanı oluşturma
 
-Bu adımda, Azure PostgreSQL veritabanında oluşturun. Uygulamanızın Azure'a dağıtıldığında, bu bulut veritabanı kullanır.
+Bu adımda, Azure PostgreSQL veritabanında oluşturun. Uygulamanızın Azure'a dağıtıldığında, bu bulut veritabanını kullanır.
 
 ### <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -146,7 +143,7 @@ Kullanım [az appservice listesi-konumları](/cli/azure/appservice#list-location
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
-Bir PostgreSQL sunucusuyla [az postgres sunucusu oluşturmak](/cli/azure/documentdb#create) komutu.
+Bir PostgreSQL sunucusuyla [az postgres sunucusu oluşturmak](/cli/azure/postgres/server#az_postgres_server_create) komutu.
 
 Aşağıdaki komutta için bir benzersiz sunucu adı yerine  *\<postgresql_name >* yer tutucu ve bir kullanıcı adı için  *\<admin_username >* yer tutucu. Sunucu adı PostgreSQL uç noktanızı bir parçası olarak kullanılır (`https://<postgresql_name>.postgres.database.azure.com`), adının Azure içindeki tüm sunucular arasında benzersiz olması gerekir. İlk veritabanı yönetici kullanıcı hesabı için kullanıcı adıdır. Bu kullanıcı için bir parola çekme istenir.
 
@@ -207,7 +204,7 @@ Bu adımda, Python Flask örnek uygulamanızı oluşturduğunuz PostgreSQL serve
 
 ### <a name="create-an-empty-database-and-set-up-a-new-database-application-user"></a>Boş bir veritabanı oluşturun ve yeni bir veritabanı uygulama kullanıcı ayarlama
 
-Yalnızca tek bir veritabanına erişimi olan bir veritabanı kullanıcısı oluşturmalıdır. Sunucuya uygulama tam erişimi vermekten kaçının için bu kimlik bilgileri kullanacağız.
+Yalnızca tek bir veritabanına erişimi olan bir veritabanı kullanıcısı oluşturmalıdır. Sunucuya uygulama tam erişim verip önlemek için bu kimlik bilgileri kullanın.
 
 (Yönetici parolanızı girmeniz istenir) veritabanına bağlanın.
 
@@ -293,7 +290,7 @@ Veritabanı zaten daha önce oluşturduğunuz kayıt içeriyor.
 
 ## <a name="upload-the-docker-container-to-a-container-registry"></a>Docker kapsayıcısı bir kapsayıcı kayıt defterine karşıya yükle
 
-Bu adımda, bir kapsayıcı kayıt defterine Docker kapsayıcısı yükleyin. Azure kapsayıcı kayıt defteri kullanırsınız, ancak Docker Hub gibi diğer popüler olanlar da kullanabilirsiniz.
+Bu adımda, bir kapsayıcı kayıt defterine Docker kapsayıcısı yükleyin. Kullanım Azure kapsayıcı kayıt defteri, ancak Docker Hub gibi diğer popüler olanlar da kullanabilirsiniz.
 
 ### <a name="create-an-azure-container-registry"></a>Azure Container Registry oluşturma
 

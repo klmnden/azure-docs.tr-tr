@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 681a9d1636d547492f6f827461c6b2494b918778
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be1398e9b0a10efcd694e46d6322d5d7b9e7a843
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Kullanılabilirlik ve Event Hubs tutarlılığı
 
@@ -36,7 +36,7 @@ Brewer'ın Teoremi tutarlılık ve kullanılabilirlik gibi tanımlar:
 Olay hub'ları bölümlenmiş veri modeli üzerine inşa edilmiştir. Kurulum sırasında olay hub'ınıza bölüm sayısı yapılandırabilirsiniz, ancak bu değer daha sonra değiştiremezsiniz. Bölümler Event Hubs ile kullanmalısınız olduğundan, kullanılabilirlik ve uygulamanız için tutarlılık hakkındaki kararınızı yapmanız gerekir.
 
 ## <a name="availability"></a>Kullanılabilirlik
-Event Hubs ile çalışmaya başlamak için en basit yolu, varsayılan davranışı kullanmaktır. Yeni bir oluşturursanız `EventHubClient` nesne ve kullanmak `Send` yöntemi, olayları olay hub'ınızdaki bölümler arasında otomatik olarak dağıtılır. Bu davranış, büyük miktarda zaman verir.
+Event Hubs ile çalışmaya başlamak için en basit yolu, varsayılan davranışı kullanmaktır. Yeni bir oluşturursanız  **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)**  nesne ve kullanmak  **[Gönder](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**  yöntemi, olayları otomatik olarak dağıtılan arasında Olay hub'ınızı bölümler. Bu davranış, büyük miktarda zaman verir.
 
 En fazla çalışma zamanını gerektirir kullanım örnekleri için bu model tercih edilir.
 
