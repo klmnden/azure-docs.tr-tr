@@ -29,6 +29,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Tümleşik sistemleri sürüm notları
           items:
+            - name: 1711 güncelleştirme
+              href: azure-stack-update-1711.md
             - name: 1710 güncelleştirme
               href: azure-stack-update-1710.md
     - name: Önemli özellikler ve kavramlar
