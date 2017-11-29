@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory doğrudan kimlik doğrulama sorunlarını giderme
 
@@ -67,7 +67,7 @@ Gidin **Azure Active Directory** -> **oturum açma işlemleri** üzerinde [Azure
 | 80005 | Kimlik Doğrulama Aracısı: Hata oluştu. | Geçici hata oluştu. Daha sonra yeniden deneyin.
 | 80007 | Kimlik Doğrulama Aracısı Active Directory'ye bağlanamadı. | Active Directory kimlik doğrulama Aracısı'ndan erişilebilir olup olmadığını denetleyin.
 | 80010 | Kimlik Doğrulama Aracısı parolanın şifresini çözemedi. | Sorun tutarlı bir şekilde yineleniyorsa yükleyin ve yeni bir kimlik doğrulama Aracısı kaydedin. Ve geçerli bir kaldırın. 
-| 80011 | Kimlik Doğrulama Aracısı şifre çözme anahtarını alamadı. | Sorun tutarlı bir şekilde yineleniyorsa yükleyin ve yeni bir kimlik doğrulama Aracısı kaydedin. Ve geçerli bir kaldırın.
+| 80011 | Kimlik Doğrulama Aracısı şifre çözme anahtarını alamıyor. | Sorun tutarlı bir şekilde yineleniyorsa yükleyin ve yeni bir kimlik doğrulama Aracısı kaydedin. Ve geçerli bir kaldırın.
 
 ## <a name="authentication-agent-installation-issues"></a>Kimlik Doğrulama Aracısı yükleme sorunları
 
@@ -79,7 +79,7 @@ Gidin **Azure Active Directory** -> **oturum açma işlemleri** üzerinde [Azure
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>Kimlik Doğrulama Aracısı kaydı Engellenen bağlantı noktaları nedeniyle başarısız oldu
 
-Kimlik Doğrulama Aracısı yüklenmiş sunucu URL'lerin ve bağlantı noktalarının listelenen bizim hizmeti ile iletişim kurabildiğinden emin olun [burada](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Kimlik Doğrulama Aracısı yüklenmiş sunucu URL'lerin ve bağlantı noktalarının listelenen bizim hizmeti ile iletişim kurabildiğinden emin olun [burada](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>Kimlik Doğrulama Aracısı kaydı belirteç veya hesap yetkilendirme hataları nedeniyle başarısız oldu
 
@@ -105,7 +105,7 @@ En az bir etkin kimlik doğrulama, Kiracı'geçişli kimlik doğrulamasını etk
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>Özellik etkinleştirme Engellenen bağlantı noktaları nedeniyle başarısız oldu
 
-Azure AD Connect yüklendiği sunucunun URL'lerin ve bağlantı noktalarının listelenen bizim hizmeti ile iletişim kurabildiğinden emin olun [burada](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Azure AD Connect yüklendiği sunucunun URL'lerin ve bağlantı noktalarının listelenen bizim hizmeti ile iletişim kurabildiğinden emin olun [burada](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>Belirteç veya hesap yetkilendirme hataları nedeniyle başarısız özelliğini etkinleştirme
 

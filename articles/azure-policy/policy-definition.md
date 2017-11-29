@@ -9,19 +9,19 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 8ff85f842356eff3f12ccd04e337d71c52d0efcd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-policy-definition-structure"></a>Azure ilke tanımı yapısı
+# <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
 Azure ilke tarafından kullanılan kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi eylemin yapılacağını açıklayan, kuruluşunuzdaki kaynakların kuralları kurmanızı sağlar. Kuralları tanımlayarak, daha kolay kaynaklarınızı yönetmek ve maliyetleri denetleyebilirsiniz. Örneğin, sanal makineler yalnızca belirli türdeki izin verildiğini belirtebilirsiniz. Veya, tüm kaynakların belirli bir etikete sahip olması gerekir. İlkeler tüm alt kaynaklar tarafından devralınır. Bu nedenle, bir kaynak grubu için bir ilke uygulandığında, bu kaynak grubundaki tüm kaynaklar için geçerlidir.
 
 Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğeleri içerir:
 
-* Modu
+* mode
 * parametreler
 * Görünen ad
 * açıklama
@@ -64,7 +64,7 @@ Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğele
 
 Tüm Azure ilke şablonu örnekleri altındadır [Azure ilke şablonları](json-samples.md).
 
-## <a name="mode"></a>Modu
+## <a name="mode"></a>Mod
 
 Ayarlamanızı öneririz `mode` için `all` atama bir ilke olması için tüm kaynak grupları ve türleri değerlendirin. Bir anda bir kaynak grubunda etiketleri zorlayan bir ilke tanımı örneği görebilirsiniz [izin özel VM görüntüsü bir kaynak grubundan](scripts/allow-custom-vm-image.md).
 
@@ -88,13 +88,21 @@ Parametreleri ilke tanımları sayısını azaltarak ilke yönetimini basitleşt
     "type": "array",
     "metadata": {
       "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations"
+      "displayName": "Allowed locations",
+      "strongType": "location"
     }
   }
 }
 ```
 
 Bir parametrenin türü string veya dizi olabilir. Meta veri özelliği, Azure portalı gibi araçlar için kullanıcı dostu bilgileri görüntülemek için kullanılır.
+
+Meta veri özelliği içinde kullandığınız **strongType** Azure portalı içinde seçeneklerini çoklu seçim listesi temin etmek için.  İzin verilen değerler için **strongType** şu anda içerir:
+
+* `"location"`
+* `"resourceTypes"`
+* `"storageSkus"`
+* `"vmSKUs"`
 
 İlke kuralı aşağıdaki söz dizimini parametrelerle başvurusu:
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 0cfce63b1523f939dc2d706dba771e56ce9ccd6c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: 7027669597b8c1989f7baac5c5f9d997b218750a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Yedekleme ve Azure CLI kullanarak PostgreSQL için Azure veritabanı bir sunucuya geri yükleme
 
@@ -41,7 +41,7 @@ Bu otomatik yedekleme özelliği ile sunucu ve veritabanlarını önceki bir tar
 ## <a name="restore-a-database-to-a-previous-point-in-time-by-using-the-azure-cli"></a>Bir veritabanı, Azure CLI kullanarak zaman içinde önceki bir noktaya geri
 Sunucu, zaman içinde önceki bir noktaya geri yüklemenizi Azure veritabanı PostgreSQL için kullanın. Yeni bir sunucuya geri yüklenen veriler kopyalanır ve var olan sunucu olduğu gibi bırakılır. Örneğin, bir tablo bugün öğlen yanlışlıkla kesilirse zamana öğlen hemen önce geri yükleyebilirsiniz. Ardından, sunucunun geri yüklenen kopyadan eksik tablo ve veri alabilirsiniz. 
 
-Sunucuyu geri yüklemek için Azure CLI kullanma [az postgres server geri](/cli/azure/postgres/server#restore) komutu.
+Sunucuyu geri yüklemek için Azure CLI kullanma [az postgres server geri](/cli/azure/postgres/server#az_postgres_server_restore) komutu.
 
 ### <a name="run-the-restore-command"></a>Restore komutu Çalıştır
 

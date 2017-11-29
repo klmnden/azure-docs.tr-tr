@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 5e10ddd8c850d457b4ad77cd5ea4d92edc07017e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: d18ec44ecede44829b488ac9864bbfae2c62883a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Yapılandırma ve Azure CLI kullanarak sunucu günlüklerine erişme
 Komut satırı arabirimi (Azure CLI) kullanarak PostgreSQL server Hata günlüklerini indirebilirsiniz. Ancak, işlem günlükleri için erişim desteklenmiyor. 
@@ -33,14 +33,14 @@ Sorgu ve hata günlükleri erişmek için sunucu yapılandırabilirsiniz. Hata g
 Daha fazla bilgi için bkz: [sunucu yapılandırma parametreleri özelleştirme](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Azure veritabanı için liste günlüklerini PostgreSQL sunucusu
-Sunucunuz için kullanılabilir günlük dosyaları listelemek için Çalıştır [az postgres sunucu günlükleri listesi](/cli/azure/postgres/server-logs#list) komutu.
+Sunucunuz için kullanılabilir günlük dosyaları listelemek için Çalıştır [az postgres sunucu günlükleri listesi](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) komutu.
 
 Sunucu için günlük dosyalarını listeleyebilirsiniz **mypgserver 20170401.postgres.database.azure.com** kaynak grubu altında **myresourcegroup**hem de adlı bir metin dosyası doğrudan **günlük\_dosyaları\_list.txt.**
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mypgserver-20170401 > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Günlükleri sunucusundan yerel olarak yükle
-[Az postgres server-günlükleri indirmek](/cli/azure/postgres/server-logs#download) komutu sunucunuz için ayrı günlük dosyalarını indirmek sağlar. 
+[Az postgres server-günlükleri indirmek](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) komutu sunucunuz için ayrı günlük dosyalarını indirmek sağlar. 
 
 Bu örnek sunucu için belirli günlük dosyasını karşıdan **mypgserver 20170401.postgres.database.azure.com** kaynak grubu altında **myresourcegroup** yerel ortamınıza.
 ```azurecli-interactive

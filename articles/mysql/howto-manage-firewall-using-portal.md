@@ -1,5 +1,5 @@
 ---
-title: "Oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları Azure Portalı'nı kullanarak yönetme | Microsoft Docs"
+title: "Oluşturma ve MySQL güvenlik duvarı kurallarında Azure veritabanı için MySQL yönetme | Microsoft Docs"
 description: "Oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları Azure Portalı'nı kullanarak yönetme"
 services: mysql
 author: v-chenyh
@@ -8,19 +8,19 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
-ms.openlocfilehash: 0604b29fcd9849545886a783ae5bbb2cbb72f2ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/27/2017
+ms.openlocfilehash: 63ea6337b35193420924096690ed15cc1d5ede25
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak Azure veritabanı için MySQL güvenlik duvarı kurallarını yönetme
 Belirtilen IP adresi veya bir IP adresi aralığı MySQL sunucusu için bir Azure veritabanına erişmek yöneticiler sunucu düzeyinde güvenlik duvarı kuralları etkinleştirin. 
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure portalında sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
 
-1. MySQL server dikey penceresinde, ayarlar altında başlığını tıklatın **bağlantı güvenliği** MySQL için Azure veritabanı için bağlantı güvenliği dikey penceresini açmak için.
+1. MySQL sunucusu sayfasında, ayarları altında başlığını tıklatın **bağlantı güvenliği** bağlantı güvenlik sayfası Azure veritabanı için MySQL için açın.
 
    ![Azure portal - bağlantı güvenliği](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
@@ -52,4 +52,4 @@ Güvenlik duvarı kurallarını yönetmek için gereken adımları yineleyin.
 * Değişiklikleri kaydetmek için **Kaydet**’e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- MySQL sunucusu için bir Azure veritabanına bağlanmada daha fazla yardım için bkz: [Azure veritabanı için MySQL için bağlantı kitaplıkları](./concepts-connection-libraries.md)
+MySQL sunucusu için bir Azure veritabanına bağlanmada daha fazla yardım için bkz: [Azure veritabanı için MySQL için bağlantı kitaplıkları](./concepts-connection-libraries.md)

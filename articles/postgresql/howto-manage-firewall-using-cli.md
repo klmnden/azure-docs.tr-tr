@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: ec362cec28160b5c4827f6e47614661319ba4039
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: c3cb598825477bd588a6680d5c6ddb07b72eca79
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Oluşturma ve Azure veritabanı PostgreSQL güvenlik duvarı kuralları için Azure CLI kullanarak yönetme
 Bir Azure veritabanına PostgreSQL sunucusu için belirli bir IP adresi veya IP adresi aralığı erişimi yönetmek üzere yöneticiler sunucu düzeyinde güvenlik duvarı kuralları etkinleştirin. Uygun Azure CLI komutları kullanarak, oluşturabilir, güncelleştirme, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kuralları gösterir. Genel Bakış Azure veritabanı için PostgreSQL güvenlik duvarı kuralları için bkz: [PostgreSQL sunucunun güvenlik duvarı kuralları için Azure veritabanı](concepts-firewall-rules.md)
@@ -28,7 +28,7 @@ Nasıl yapılır bu kılavuzu adım için gerekir:
 [Az postgres sunucu güvenlik duvarı kuralı](/cli/azure/postgres/server/firewall-rule) komutlar, güvenlik duvarı kurallarını yapılandırmak için kullanılır.
 
 ## <a name="list-firewall-rules"></a>Liste güvenlik duvarı kuralları 
-Var olan sunucu güvenlik duvarı kuralları listelemek için Çalıştır [az postgres sunucu güvenlik duvarı kuralı listesi](/cli/azure/postgres/server/firewall-rule#list) komutu.
+Var olan sunucu güvenlik duvarı kuralları listelemek için Çalıştır [az postgres sunucu güvenlik duvarı kuralı listesi](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_list) komutu.
 ```azurecli-interactive
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401
 ```
@@ -37,7 +37,7 @@ Varsa, varsayılan değer JSON olarak biçimlendirmek istiyorsanız çıkış g�
 az postgres server firewall-rule list --resource-group myresourcegroup --server mypgserver-20170401 --output table
 ```
 ## <a name="create-firewall-rule"></a>Güvenlik duvarı kuralı oluşturma
-Sunucu üzerinde yeni bir güvenlik duvarı kuralı oluşturmak için çalıştırın [az postgres sunucu güvenlik duvarı kuralı oluşturmak](/cli/azure/postgres/server/firewall-rule#create) komutu. 
+Sunucu üzerinde yeni bir güvenlik duvarı kuralı oluşturmak için çalıştırın [az postgres sunucu güvenlik duvarı kuralı oluşturmak](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) komutu. 
 
 0.0.0.0 olarak belirterek `--start-ip-address` ve 255.255.255.255 olarak `--end-ip-address` aralığı, aşağıdaki örnekte sağlar sunucuya erişmek tüm IP adresleri **mypgserver 20170401.postgres.database.azure.com**
 ```azurecli-interactive
@@ -51,7 +51,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup
 Başarılı, komut çıktısı JSON biçiminde varsayılan olarak, oluşturmuş olduğunuz güvenlik duvarı kuralı ayrıntılarını listeler. Çıkış hatası varsa, bir hata iletisi bunun yerine gösterir.
 
 ## <a name="update-firewall-rule"></a>Güncelleştirme güvenlik duvarı kuralı 
-Kullanarak sunucu üzerinde var olan bir güvenlik duvarı kuralı güncelleştirme [az postgres sunucu güvenlik duvarı kuralı güncelleştirme](/cli/azure/postgres/server/firewall-rule#update) komutu. Var olan güvenlik duvarı kuralı adı girişi ve başlangıç güncelleştirmek için IP ve bitiş IP öznitelikleri sağlar.
+Kullanarak sunucu üzerinde var olan bir güvenlik duvarı kuralı güncelleştirme [az postgres sunucu güvenlik duvarı kuralı güncelleştirme](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_update) komutu. Var olan güvenlik duvarı kuralı adı girişi ve başlangıç güncelleştirmek için IP ve bitiş IP öznitelikleri sağlar.
 ```azurecli-interactive
 az postgres server firewall-rule update --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange" --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.255
 ```
@@ -60,14 +60,14 @@ Başarılı, komut çıktısı varsayılan olarak JSON biçiminde güncelleştir
 > Güvenlik duvarı kuralı mevcut değilse güncelleştirme komutu tarafından oluşturulan.
 
 ## <a name="show-firewall-rule-details"></a>Güvenlik duvarı kuralı ayrıntıları göster
-Çalıştırarak da mevcut bir sunucu düzeyinde güvenlik duvarı kuralı ayrıntılarını gösterebilirsiniz [az postgres sunucu güvenlik duvarı kuralı Göster](/cli/azure/postgres/server/firewall-rule#show) komutu.
+Çalıştırarak da mevcut bir sunucu düzeyinde güvenlik duvarı kuralı ayrıntılarını gösterebilirsiniz [az postgres sunucu güvenlik duvarı kuralı Göster](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_show) komutu.
 ```azurecli-interactive
 az postgres server firewall-rule show --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```
 Başarılı, komut çıktısı JSON biçiminde varsayılan olarak belirttiğiniz güvenlik duvarı kuralı ayrıntılarını listeler. Çıkış hatası varsa, bir hata iletisi bunun yerine gösterir.
 
 ## <a name="delete-firewall-rule"></a>Güvenlik duvarı kuralını siler
-Bir IP aralığı sunucuya erişimi iptal etmek için mevcut bir güvenlik duvarı kuralı yürüterek silme [az postgres sunucu güvenlik duvarı kuralı silme](/cli/azure/postgres/server/firewall-rule#delete) komutu. Var olan güvenlik duvarı kuralının adını sağlayın.
+Bir IP aralığı sunucuya erişimi iptal etmek için mevcut bir güvenlik duvarı kuralı yürüterek silme [az postgres sunucu güvenlik duvarı kuralı silme](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete) komutu. Var olan güvenlik duvarı kuralının adını sağlayın.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server mypgserver-20170401 --name "AllowIpRange"
 ```

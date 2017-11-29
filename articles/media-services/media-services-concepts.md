@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services kavramları
 Bu konu en önemli Media Services kavramları hakkında genel bakış sağlar.
@@ -57,7 +57,7 @@ Media Services, içeriğinizi teslim etmek istediğiniz nasıl bilmesi için dep
 
 **EnvelopeEncryptionProtected** – korumak (veya zaten korumalı karşıya yüklemek) istiyorsanız bu seçeneği kullanın HTTP canlı akışı (Gelişmiş Şifreleme Standardı (AES ile) şifrelenmiş HLS). Zaten AES ile şifrelenmiş HLS yüklüyorsanız bu Transform Manager tarafından şifrelenmiş gerekir.
 
-### <a name="access-policy"></a>Erişim İlkesi
+### <a name="access-policy"></a>Erişim ilkesi
 Bir [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) (örneğin, okuma, yazma ve liste) izinler ve erişim süresi bir varlık için tanımlar. Genellikle, bir varlıkta bulunan dosyalara erişmek için kullanılacak bir Bulucu için AccessPolicy nesneyi geçip geçmeyeceğini.
 
 >[!NOTE]
@@ -83,7 +83,7 @@ Media Services iki tür Bulucuyu destekler: karşıya yükleme veya indirme medy
 Tüm Azure Storage erişimi bir depolama hesabıyla yapılır. Bir ortam hizmet hesabı bir veya daha fazla depolama hesapları ile ilişkilendirebilirsiniz. Altında 500 TB depolama hesabı başına toplam kendi boyuttur sürece bir hesapta sınırsız sayıda kapsayıcı, olabilir.  Media Services birden çok depolama hesaplarını yönetebilir ve Yük Dengelemesi varlıklarınızı dağıtım bu hesaplar için karşıya yükleme sırasında ölçümleri veya rastgele dağıtım göre izin vermek için SDK düzeyi araçları sağlar. Daha fazla bilgi için bkz. Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>İşler ve görevler
-A [iş](https://https://docs.microsoft.com/rest/api/media/operations/job) genelde kullanılan işleme (örneğin, dizin veya kodlamak) bir ses/video sunu. Birden çok videolar işleme varsa, her video kodlanması için bir iş oluşturun.
+A [iş](https://docs.microsoft.com/en-us/rest/api/media/operations/job) genelde kullanılan işleme (örneğin, dizin veya kodlamak) bir ses/video sunu. Birden çok videolar işleme varsa, her video kodlanması için bir iş oluşturun.
 
 Bir işi gerçekleştirilecek işlenmesi hakkındaki meta veriler içeriyor. Her işi bir veya daha fazla içeren [görev](https://docs.microsoft.com/rest/api/media/operations/task)giriş varlıklarını bir atomik işlem görevi belirtin s çıktı varlıklar, medya işlemcisi ve ilişkili ayarları. Bir iş içindeki görevlerin zincirleme yapılabilir birlikte, burada bir görevin çıkış varlığına verilen giriş varlık sonraki görev. Bu şekilde bir iş tüm medya sunumu için gerekli işlemleri içerebilir.
 

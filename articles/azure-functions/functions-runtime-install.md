@@ -14,27 +14,27 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-ms.openlocfilehash: 1e4188313a87d07f396e5f8edc8969dd5da2c436
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6078ba7b553773294ebbf11949f7d3b53f46f0c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-azure-functions-runtime-preview"></a>Azure işlevleri çalışma zamanı Preview yükleyin
 
 Azure işlevleri çalışma zamanı Önizleme yüklemek istiyorsanız, şu adımları izlemelisiniz:
 
-1. En düşük gereksinimleri makinenizi geçirir emin olun
-1. Karşıdan [Azure işlevleri çalışma zamanı Önizleme yükleyici](https://aka.ms/azafr). 
-1. Azure işlevleri çalışma zamanı preview yükleyin
-1. Azure işlevleri çalışma zamanı Önizleme yapılandırmasını tamamlama
+1. En düşük gereksinimleri makinenizi geçirir emin olun.
+1. Karşıdan [Azure işlevleri çalışma zamanı Önizleme yükleyici](https://aka.ms/azafr).
+1. Azure işlevleri çalışma zamanı preview yükleyin.
+1. Azure işlevleri çalışma zamanı Önizleme yapılandırmasını tamamlayın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Azure işlevleri çalışma zamanı Önizleme yüklemeden önce aşağıdakilere sahip olmanız gerekir:
 
 1. Microsoft Windows Server 2016 veya Microsoft Windows 10 oluşturucuları Update (Professional veya Enterprise Edition) çalıştıran bir makineye.
-1. Ağınızın içinde çalışan bir SQL Server örneği.  En düşük sürümü SQL Server Express gereksinimdir.
+1. Ağınızın içinde çalışan bir SQL Server örneği.  Gereken en düşük sürümü, SQL Server Express ' dir.
 
 ## <a name="install-the-azure-functions-runtime-preview"></a>Azure işlevleri çalışma zamanı Preview yükleyin
 
@@ -46,52 +46,52 @@ Azure işlevleri çalışma zamanı Önizleme yükleyici Azure işlevleri çalı
 
     ![Azure işlevleri çalışma zamanı Önizleme yükleyici][1]
 
-1. **İleri'yi** öncelikli yükleyici ilk aşamasında geçmiş
-1. Koşullarını okuduğunuzu sonra **EULA**, **onay kutusunu** hükümleri kabul etmek ve **İleri'yi tıklatın** ilerlemek için.
-1. Şimdi, bu makinede yüklemek istediğiniz rol seçin **işlevleri yönetim rolü** ve/veya **işlevleri çalışan rolü** ve **İleri'yi tıklatın**
+1. **İleri**’ye tıklayın.
+1. Koşullarını okuduğunuzu sonra **EULA**, **onay kutusunu** koşullarını kabul tıklatıp **sonraki** ilerlemek için.
+1. Şimdi, bu makinede yüklemek istediğiniz rol seçin **işlevleri yönetim rolü** ve/veya **işlevleri çalışan rolü** tıklatıp **sonraki**.
 
     ![Azure işlevleri çalışma zamanı Önizleme yükleyici - rolü seçimi][3]
 
     > [!NOTE]
-    > Yükleyebileceğiniz **işlevleri çalışan rolü** Bunu yapmak için birçok diğer makinelere, aşağıdaki yönergeleri izleyin ve yalnızca seçin **işlevleri çalışan rolü** yükleyicisinde.
+    > Yükleyebileceğiniz **işlevleri çalışan rolü** birçok diğer makinelere. Bunu yapmak için aşağıdaki yönergeleri izleyin ve yalnızca seçin **işlevleri çalışan rolü** yükleyicisinde.
 
-1. **İleri'yi** olmasını **Azure işlevleri çalışma zamanı yükleyicisi** makinenize yükleyin.
-1. Tamamlandığında yükleyici başlatacak **Azure işlevleri çalışma zamanı yapılandırma aracı**.
+1. Tıklatın **sonraki** sağlamak için **Azure işlevleri çalışma zamanı Kurulum Sihirbazı'nı** makinenizde yükleme işlemini başlatın.
+1. Tamamlandıktan sonra Kurulum Sihirbazı'nı başlatır **Azure işlevleri çalışma zamanı** yapılandırma aracı.
 
     ![Azure işlevleri çalışma zamanı Önizleme yükleyici tamamlandı][5]
 
     > [!NOTE]
-    > Üzerinde yüklüyorsanız **Windows 10** ve **kapsayıcı** özelliği daha önce etkinleştirilmemiş, **Azure işlevleri çalışma zamanı** yükleyici yeniden başlatılmasını ister, yüklemeyi tamamlamak için makine.
+    > Üzerinde yüklüyorsanız **Windows 10** ve **kapsayıcı** özelliği daha önce etkinleştirilmemiş, **Azure işlevleri çalışma zamanı Kurulumu** makinenizi isteyip istemediğinizi sorar yüklemeyi tamamlamak için.
 
 ## <a name="configure-the-azure-functions-runtime"></a>Azure işlevleri çalışma zamanı yapılandırma
 
 Azure işlevleri çalışma zamanı yüklemenin tamamlanması için yapılandırmasını tamamlamanız gerekir.
 
-1. **Azure işlevleri çalışma zamanı yapılandırma aracı** hangi rollerin makinenize yüklü olan gösterir.
+1. **Azure işlevleri çalışma zamanı** yapılandırma aracı gösterir hangi rollerin makinenizde yüklenir.
 
     ![Azure işlevleri çalışma zamanı Önizleme yapılandırma aracı][6]
 
-1. Tıklatın **veritabanı** sekmesinde, girin **bağlantı ayrıntıları, SQL Server örneği için** ve **Uygula'yı**.  Çalışma zamanı desteklemek için bu bir veritabanı oluşturmak için sırayla Azure işlevleri çalışma zamanı için gereklidir.
+1. Tıklatın **veritabanı** sekmesinde, SQL Server örneği için bağlantı ayrıntılarını girin ve tıklatın **Uygula**.  Bu çalışma zamanı desteklemek için sırayla bir veritabanı oluşturmak Azure işlevleri Çalışma Zamanı Modülü için gereklidir.
     
     ![Azure işlevleri çalışma zamanı Önizleme veritabanı yapılandırması][7]
 
-1. Tıklatın **kimlik bilgileri** sekmesi.  Bu ekranda tüm Azure işlevleri barındırmak için iki yeni kimlik bilgileri kullanmak için bir dosya paylaşımı ile oluşturmanız gerekir.  **Kullanıcı adı ve parola belirtin** için KOMBİNASYON **dosya paylaşımı sahibi** ve **dosya paylaşımı kullanıcısı** tıklatıp **Uygula**.
+1. Tıklatın **kimlik bilgileri** sekmesi.  Bu ekranda tüm Azure işlevleri barındırmak için iki yeni kimlik bilgileri kullanmak için bir dosya paylaşımı ile oluşturmanız gerekir.  Belirtin **kullanıcı adı** ve **parola** için KOMBİNASYON **dosya paylaşımı sahibi** ve **dosya paylaşımı kullanıcısı**, ardından**Uygulamak**.
 
     ![Azure işlevleri çalışma zamanı Önizleme kimlik bilgileri][8]
 
-1. Tıklatın **dosya paylaşımı** sekmesi.  Bu ekranda ayrıntılarını belirtmelisiniz **dosya paylaşım konumunu**.  Bu sizin için oluşturulabilir veya var olan bir dosya paylaşımı kullanabilir ve tıklatın **Uygula**.  Yeni bir dosya paylaşımı konumu seçerseniz Azure işlevleri çalışma zamanı tarafından kullanılmak üzere bir dizin belirtmeniz gerekir.
+1. Tıklatın **dosya paylaşımı** sekmesi.  Bu ekranda ayrıntılarını belirtmelisiniz **dosya paylaşımı** konumu.  Bu sizin için oluşturulabilir veya var olan bir dosya paylaşımı kullanabilir ve tıklatın **Uygula**.  Yeni bir dosya paylaşımı konumu seçerseniz Azure işlevleri çalışma zamanı tarafından kullanılmak üzere bir dizin belirtmeniz gerekir.
     
     ![Azure işlevleri çalışma zamanı Önizleme dosya paylaşımı][9]
 
-1. Tıklatın **IIS** sekmesi.  Bu sekme, Azure işlevleri çalışma zamanı yükleme oluşturacak IIS'de Web siteleri ayrıntılarını gösterir.  **Uygula'yı** tamamlamak için.
+1. Tıklatın **IIS** sekmesi.  Bu sekme, Azure işlevleri çalışma zamanı yapılandırma aracı oluşturacak IIS'de Web siteleri ayrıntılarını gösterir.  Tıklatın **Uygula** tamamlamak için.
 
     ![Azure işlevleri çalışma zamanı Önizleme IIS][10]
 
-1. Tıklatın **Hizmetleri** sekmesi.  Bu sekme, Azure işlevleri çalışma zamanı yüklemenizdeki hizmetlerinin durumunu gösterir.  Eğer ilk yapılandırmadan sonra **Azure işlevleri konak Etkinleştirme hizmeti** tıklatın çalışmıyor **Hizmeti'ni Başlat**
+1. Tıklatın **Hizmetleri** sekmesi.  Bu sekme, Azure işlevleri çalışma zamanı Yapılandırma aracında hizmetlerinin durumunu gösterir.  Eğer ilk yapılandırmadan sonra **Azure işlevleri konak Etkinleştirme hizmeti** tıklatın çalışmıyor **Hizmeti'ni Başlat**.
 
     ![Azure işlevleri çalışma zamanı Önizleme yapılandırma tamamlandı][11]
 
-1. Son olarak göz atın **Azure işlevleri çalışma zamanı Portal** olarak`https://<machinename>/`
+1. Son olarak göz atın **Azure işlevleri çalışma zamanı Portal** olarak `https://<machinename>/`.
 
     ![Azure işlevleri çalışma zamanı Önizleme portalı][12]
 

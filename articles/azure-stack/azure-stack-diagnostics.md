@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure yığın tanılama araçları
 
@@ -29,43 +29,11 @@ Bizim tanılama araçları, kolay ve verimli günlüğü koleksiyonu mekanizmas�
  
 ## <a name="trace-collector"></a>Trace Toplayıcı
  
-Trace Toplayıcı varsayılan olarak etkindir. Sürekli olarak arka planda çalışır tüm olay izleme için Windows (ETW) günlüklerini bileşen hizmetlerinden Azure yığında toplar ve bunları ortak bir yerel paylaşımında depolar. 
+Trace Toplayıcı varsayılan olarak etkindir ve Azure yığın bileşen hizmetlerinden tüm olay izleme için Windows (ETW) günlükleri toplamak için arka planda sürekli olarak çalışır. ETW günlükleri beş gün yaş sınırına sahip ortak bir yerel paylaşıma depolanır. Bu sınıra ulaşıldığında, yeni bir tane oluşturuldukça eski dosyalar silinir. Her dosya için varsayılan boyut üst sınırını 200 MB'tır. Boyutu denetimi düzenli aralıklarla meydana gelir (her iki dakikada) ve geçerli dosya > = 200 MB kaydedilir ve yeni bir dosya oluşturulur. Ayrıca bir 8GB sınırı yoktur olay oturumu oluşturulan toplam dosya boyutu. 
 
-Trace Toplayıcı hakkında bilinmesi gereken önemli şeyler şunlardır:
- 
-* Trace Toplayıcı, varsayılan boyutu sınırları ile sürekli olarak çalışır. En büyük boyutu izin verilen her dosya (200 MB) için varsayılan **değil** kesme boyutu. Bir boyut denetimi düzenli aralıklarla oluşur (şu anda 2 dakikada bir) ve geçerli dosya > = 200 MB kaydedilir ve yeni bir dosya oluşturulur. Ayrıca bir 8 GB (yapılandırılabilir) sınırı yoktur olay oturumu oluşturulan toplam dosya boyutu. Bu sınıra ulaşıldığında, yeni bir tane oluşturuldukça eski dosyalar silinir.
-* Günlükleri, 5 gün yaş sınırı yoktur. Bu sınır de yapılandırılabilir. 
-* Her bileşen bir JSON dosyası aracılığıyla izleme yapılandırma özelliklerini tanımlar. JSON dosyaları depolanmış **C:\TraceCollector\Configuration**. Gerekirse, toplanan günlükleri yaş ve boyutu sınırları değiştirmek için bu dosyalar düzenlenebilir. Bu dosyalardaki değişiklikler yeniden başlatılmasını gerektiren *Microsoft Azure yığın izleme toplayıcı* değişikliklerin etkili olması hizmet.
-
-Aşağıdaki örnekte bir XRP VM'den FabricRingServices işlemleri için izleme yapılandırma JSON dosyasıdır: 
-
-```json
-{
-    "LogFile": 
-    {
-        "SessionName": "FabricRingServicesOperationsLogSession",
-        "FileName": "\\\\SU1FileServer\\SU1_ManagementLibrary_1\\Diagnostics\\FabricRingServices\\Operations\\AzureStack.Common.Infrastructure.Operations.etl",
-        "RollTimeStamp": "00:00:00",
-        "MaxDaysOfFiles": "5",
-        "MaxSizeInMB": "200",
-        "TotalSizeInMB": "5120"
-    },
-    "EventSources":
-    [
-        {"Name": "Microsoft-AzureStack-Common-Infrastructure-ResourceManager" },
-        {"Name": "Microsoft-OperationManager-EventSource" },
-        {"Name": "Microsoft-Operation-EventSource" }
-    ]
-}
-```
-
-* **MaxDaysOfFiles**. Bu parametre korumak için dosya yaşı denetler. Eski günlük dosyalarını silinir.
-* **Parametresinden**. Bu parametre için tek bir dosya boyutu eşiğini denetler. Boyut üst sınırına ulaşıldığında, yeni bir .etl dosyası oluşturulur.
-* **TotalSizeInMB**. Bu parametre bir olay oturumundan oluşturulan .etl dosyaları toplam boyutunu denetler. Toplam dosya boyutu bu parametresi değerinden büyükse, eski dosyalar silinir.
-  
 ## <a name="log-collection-tool"></a>Günlük koleksiyonu aracı
  
-PowerShell komut **Get-AzureStackLog** Azure yığın ortamında tüm bileşenleri günlükleri toplamak için kullanılabilir. Bu kullanıcı tanımlı bir konumda ZIP dosyaları kaydeder. Teknik Destek ekibimiz sorunu gidermenize yardımcı olması için günlüklerinizi gerekiyorsa, bunlar, bu aracı çalıştırmanızı isteyebilir.
+PowerShell cmdlet **Get-AzureStackLog** Azure yığın ortamında tüm bileşenleri günlükleri toplamak için kullanılabilir. Bu kullanıcı tanımlı bir konumda ZIP dosyaları kaydeder. Teknik Destek ekibimiz sorunu gidermenize yardımcı olması için günlüklerinizi gerekiyorsa, bunlar, bu aracı çalıştırmanızı isteyebilir.
 
 > [!CAUTION]
 > Bu günlük dosyaları, kişisel bilgileri (PII) içerebilir. Genel olarak tüm günlük dosyalarını sonrası önce bu dikkate alın.
@@ -78,38 +46,38 @@ Toplanan bazı örnek günlük türleri şunlardır:
 *   **Depolama tanılama günlükleri**
 *   **ETW günlükleri**
 
-Bu dosyalar izleme toplayıcısı tarafından toplanan ve nerede bir paylaşımda depolanan **Get-AzureStackLog** bunları alır.
+Bu dosyalar toplanır ve bir paylaşımına izleme toplayıcısı tarafından kaydedilir. **Get-AzureStackLog** PowerShell cmdlet'ini ardından bunları gerekli olduğunda toplamak için kullanılabilir.
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog bir Azure yığın Geliştirme Seti (ASDK) sistemde çalıştırmak için
 1. Olarak oturum **AzureStack\CloudAdmin** ana bilgisayarda.
 2. Bir yönetici olarak bir PowerShell penceresi açın.
 3. Çalıştırma **Get-AzureStackLog** PowerShell cmdlet'i.
 
-   **Örnekler**
+**Örnekler:**
 
-    Tüm rolleri için tüm günlükleri toplama:
+  Tüm rolleri için tüm günlükleri toplama:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  ```
 
-    VirtualMachines ve BareMetal rollerinden günlüklerini toplayın:
+  VirtualMachines ve BareMetal rollerinden günlüklerini toplayın:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  ```
 
-    Tarihi geçmiş 8 saat için günlük dosyalarını filtreleme ile VirtualMachines ve BareMetal rollerinden günlüklerini toplayın:
+  Tarihi geçmiş 8 saat için günlük dosyalarını filtreleme ile VirtualMachines ve BareMetal rollerinden günlüklerini toplayın:
     
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-    8 saat önce 2 saat önce arasındaki zaman aralığı için günlük dosyaları için filtreleme tarihle VirtualMachines ve BareMetal rollerinden günlüklerini toplayın:
+  8 saat önce 2 saat önce arasındaki zaman aralığı için günlük dosyaları için filtreleme tarihle VirtualMachines ve BareMetal rollerinden günlüklerini toplayın:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Get-AzureStackLog bir Azure yığın üzerinde çalıştırmak için sistem tümleşik
 
@@ -158,7 +126,7 @@ if($s)
    | Etki alanı                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | Ağ geçidi                 | Ögesi       | HRP                |   
-   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
@@ -166,6 +134,13 @@ if($s)
    | URP                     | UsageBridge            | virtualMachines    |  
    | EDİLDİ                     | WASPUBLIC              | WDS                |
 
+
+### <a name="collect-logs-using-a-graphical-user-interface"></a>Bir grafik kullanıcı arabirimini kullanarak günlüklerini toplayın
+Azure yığın günlükleri almak Get-AzureStackLog cmdlet'i için gerekli parametreleri sağlayarak yerine, ana Azure yığın araçları GitHub deposunu http://aka.ms/AzureStackTools konumunda bulunan kullanılabilir açık kaynak Azure yığın araçları da kullanabilirsiniz.
+
+**ERCS_AzureStackLogs.ps1** PowerShell Betiği GitHub araçları deposunda depolanır ve düzenli olarak güncelleştirilir. Yönetici bir PowerShell oturumundan başlatıldı, komut dosyası ayrıcalıklı uç noktasına bağlanır ve Get-AzureStackLog sağlanan parametrelerle çalıştırır. Hiçbir parametre kullanılmazsa, komut dosyasını bir grafik kullanıcı arabirimi aracılığıyla parametreler için sormadan için varsayılan olarak alır.
+
+ERCS_AzureStackLogs.ps1 PowerShell hakkında daha fazla komut bilgi edinmek için izleyebilirsiniz [kısa bir video](https://www.youtube.com/watch?v=Utt7pLsXEBc) veya betiğin görüntüleyin [Benioku dosyasını](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure yığın araçları GitHub deposunda bulunan. 
 
 ### <a name="additional-considerations"></a>Diğer konular
 

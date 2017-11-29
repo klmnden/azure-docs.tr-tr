@@ -12,7 +12,7 @@ az group create --name myResourceGroup --location eastus
 
 [az vm create](/cli/azure/vm#create) komutuyla bir sanal makine oluşturun. 
 
-Aşağıdaki örnekte *myVM* adlı bir VM oluşturulur ve varsayılan anahtar konumunda henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
+Aşağıdaki örnekte *myVM* adlı bir VM oluşturulur ve varsayılan anahtar konumunda henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. Komut ayrıca ayarlar *azureuser* bir yönetici kullanıcı adı olarak. Bu adı daha sonra VM'e bağlanmak için kullandığınız. 
 
 ```azurecli-interactive 
 az vm create \
@@ -23,7 +23,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir. `publicIpAddress` değerini not edin. Bu adres, VM’ye erişmek için kullanılır.
+VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir. `publicIpAddress` değerini not edin. Bu adres, daha sonraki adımlarda VM erişmek için kullanılır.
 
 ```azurecli-interactive 
 {
@@ -50,14 +50,14 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>VM’ye SSH uygulama
 
 
-VM genel IP adresi zaten bilmiyorsanız, çalıştırmak [az ağ ortak IP listesi](/cli/azure/network/public-ip#list) komutu:
+VM genel IP adresi zaten bilmiyorsanız, çalıştırmak [az ağ ortak IP listesi](/cli/azure/network/public-ip#list) komutu. Bu IP adresi için sonraki birkaç adım gerekir.
 
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. Sanal makineniz doğru ortak IP adresini değiştirin. Bu örnekte IP adresidir *40.68.254.142*.
+Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. Sanal makineniz doğru ortak IP adresini değiştirin. Bu örnekte IP adresidir *40.68.254.142*. *azureuser* VM oluşturduğunuz sırada yönetici kullanıcı adına ayarlanır.
 
 ```bash
 ssh azureuser@40.68.254.142

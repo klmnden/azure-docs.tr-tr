@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: d633f140635ba184642a2af999efcde845f3ec31
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 730111411a080a3134ad69fee8bfceead4d27fa4
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Değerlendirme makineleri geçirin
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 11/27/2017
 
 Bu makalede, bir geçiş değerlendirmesi çalıştırdıktan sonra Geçiş Aracı ilgili öneriler alın açıklar.
 
-## <a name="migration-methods"></a>Geçiş yöntemleri
+## <a name="migration-tool-suggestion"></a>Geçiş Aracı önerisi
 
-Azure geçirmek kullanarak bir değerlendirme sonra İşte ne öneririz:
+Geçiş Araçları ile ilgili önerileri almak için şirket içi makinelerde aracıları yüklemeniz gerekir.  
 
-1. Bir Azure geçirmek projesi oluşturun, şirket içi makineleri Bul ve geçiş değerlendirme çalıştırın. [Daha fazla bilgi edinin](tutorial-assessment-vmware.md).
+1. Bir Azure geçirmek projesi oluşturun, şirket içi makineleri Bul ve geçiş değerlendirme oluşturun. [Daha fazla bilgi edinin](tutorial-assessment-vmware.md).
 2. Karşıdan yükle ve Azure geçirmek aracıları önerilen geçiş yöntemi görmek istediğiniz her şirket içi makineye yükleyin. [Bu yordamı izlemeden](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) aracıları yüklemek için.
 2. Yükseltme ve shift geçiş için uygun olan şirket içi makinelerinizi tanımlayın. Bunlar üzerinde çalışan uygulamalar herhangi bir değişiklik gerektirmez ve olarak geçirilebilir VM'ler bunlar.
 3. Yükseltme ve shift geçiş için Azure Site RECOVERY'yi kullanarak öneririz. [Daha fazla bilgi edinin](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternatif olarak, Azure geçişi destekleyen 3. taraf araçları kullanabilirsiniz.

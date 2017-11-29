@@ -16,8 +16,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: 93a2f8aa8890f40a8ef9b88fe172efa24aac7811
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e7de7bb545e0ce04dc1b3dd398cc920213d09bae
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
@@ -86,10 +86,10 @@ Wingtip biletleri SaaS çok Kiracı veritabanı komut dosyalarını ve uygulama 
 
 Yeni Kiracı paylaşılan bir veritabanında sağlama Wingtip biletleri uygulama nasıl uyguladığını anlamak için bir kesme noktası ve iş akışı aracılığıyla adımı ekleyin:
 
-1. İçinde _PowerShell ISE_açın... \\Öğrenme modülleri\\ProvisionAndCatalog\\_Demo ProvisionAndCatalog.ps1_ ve aşağıdaki parametreleri ayarlayabilirsiniz:
-   * **$TenantName** = **Bushwillow mavi**, yeni salonundan adı.
-   * **$VenueType** = **mavi**, önceden tanımlanmış salonundan türlerinden birini: *mavi*, classicalmusic, dance jazz, judo, motorracing, çok amaçlı, opera, rockmusic, futbol () küçük harf, boşluk yok).
-   * **$Scenario** = **1**, *paylaşılan veritabanında bir kiracı ile diğer kiracılar sağlamak*.
+1. İçinde _PowerShell ISE_açın... \\Öğrenme modülleri\\ProvisionTenants\\_Demo ProvisionTenants.ps1_ ve aşağıdaki parametreleri ayarlayabilirsiniz:
+   * **$TenantName** = **Bushwillow mavi**, yeni bir salonundan adı.
+   * **$VenueType** = **mavi**, önceden tanımlanmış salonundan türlerinden birini: Mavi, classicalmusic, dance, jazz, judo, motorracing, çok amaçlı, opera, rockmusic, futbol (küçük harf, boşluk yok).
+   * **$DemoScenario** = **1**, *paylaşılan veritabanında bir kiracı ile diğer kiracılar sağlamak*.
 
 1. İmlecinizi herhangi bir yere satırı 38, yazan satırı koyarak kesme noktası ekleme: *yeni Kiracı '*ve basın **F9**.
 
@@ -120,10 +120,10 @@ Adım adım sağlama iş akışı temel öğeleri şunlardır:
 
 Şimdi gözden geçirme işlemi bir kiracı kendi veritabanında oluştururken:
 
-1. Hala... \\Öğrenme modülleri\\ProvisionAndCatalog\\_Demo ProvisionAndCatalog.ps1_ aşağıdaki parametreleri ayarlayın:
-   * **$TenantName** = **sequoia futbol**, yeni salonundan adı.
-   * **$VenueType** = **futbol**, önceden tanımlanmış salonundan türlerinden birini: Mavi, classicalmusic, dance, jazz, judo, motorracing, çok amaçlı, opera, rockmusic, *futbol* () küçük harf, boşluk yok).
-   * **$Scenario** = **2**, *paylaşılan veritabanında bir kiracı ile diğer kiracılar sağlamak*.
+1. Hala... \\Öğrenme modülleri\\ProvisionTenants\\_Demo ProvisionTenants.ps1_ aşağıdaki parametreleri ayarlayın:
+   * **$TenantName** = **sequoia futbol**, yeni bir salonundan adı.
+   * **$VenueType** = **futbol**, önceden tanımlanmış salonundan türlerinden birini: Mavi, classicalmusic, dance, jazz, judo, motorracing, çok amaçlı, opera, rockmusic, futbol (küçük harf, boşluk yok).
+   * **$DemoScenario** = **2**, *bir kiracı kendi veritabanına sağlamak*.
 
 1. Yeni bir kesme noktası imlecinizi herhangi bir yere satırı 57, yazan satırı koyarak ekleyin:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '*ve basın **F9**.
 
@@ -151,30 +151,31 @@ Adım adım sağlama iş akışı temel öğeleri şunlardır:
 
 Bu alıştırmada 17 kiracılar toplu sağlar. Çalışmak için daha fazla veritabanı olduklarından Wingtip biletleri öğreticilere başlatmadan önce bu toplu kiracıların sağlamak önerilir.
 
-1. İçinde *PowerShell ISE*açın... \\Öğrenme modülleri\\ProvisionAndCatalog\\*Demo ProvisionAndCatalog.ps1* değiştirip *$Scenario* parametre 3:
-   * **$Scenario** = **3**, *paylaşılan bir veritabanına kiracılar toplu sağlama*.
+
+1. İçinde *PowerShell ISE*açın... \\Öğrenme modülleri\\ProvisionTenants\\*Demo ProvisionTenants.ps1* değiştirip *$DemoScenario* parametresi 4:
+   * **$DemoScenario** = **4**, *paylaşılan bir veritabanına kiracılar toplu sağlama*.
 1. **F5** tuşuna basıp betiği çalıştırın.
 
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>Kiracılar dağıtılan kümesini doğrulayın 
-Bu aşamada, paylaşılan bir veritabanına dağıtılan kiracılar ve kiracıların kendi veritabanlarına dağıtılan bir karışımını vardır. Azure portalında oluşturulan veritabanlarını incelemek için kullanılabilir:  
-
-* İçinde [Azure portal](https://portal.azure.com), açık **tenants1-mt -\<kullanıcı\>**  SQL sunucuları listesine giderek sunucu.  **SQL veritabanları** listede paylaşılan yer **tenants1** veritabanı ve veritabanları kendi veritabanında olan kiracılar için:
+Bu aşamada, paylaşılan bir veritabanına dağıtılan kiracılar ve kiracıların kendi veritabanlarına dağıtılan bir karışımını vardır. Azure portalında oluşturulan veritabanlarını incelemek için kullanılabilir. İçinde [Azure portal](https://portal.azure.com), açık **tenants1-mt -\<kullanıcı\>**  SQL sunucuları listesine giderek sunucu.  **SQL veritabanları** listede paylaşılan yer **tenants1** veritabanı ve veritabanları kendi veritabanında olan kiracılar için:
 
    ![veritabanı listesi öğesine tıklayın](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 Azure portalı Kiracı veritabanları gösterirken, kiracılar görmenize almazlar *içinde* paylaşılan veritabanı. Kiracılar tam listesini Wingtip biletleri olayları hub sayfası ve Katalog tarama tarafından görülebilir:   
 
-1. Olay hub'ı sayfasını tarayıcıda açın (http:events.wingtip-mt.\<kullanıcı\>. trafficmanager.net)  
+**Wingtip biletleri olayları hub sayfası kullanma** <br>
+Olay hub'ı sayfasını tarayıcıda açın (http:events.wingtip-mt.\<kullanıcı\>. trafficmanager.net)  
 
-   Kiracılar ve bunların karşılık gelen veritabanı tam listesini katalogda kullanılabilir. Veritabanı adı parça yönetim tablolardaki kiracılar tabloya depolanan Kiracı adı birleştirir tenantcatalog veritabanında bir SQL görünümü sağlanmaktadır. Bu görünüm sorunsuz şekilde kataloğunda depolanan meta verileri genişletme değerini gösterir.
+**Katalog veritabanı kullanma** <br>
+Kiracılar ve bunların karşılık gelen veritabanı tam listesini katalogda kullanılabilir. Veritabanı adı parça yönetim tablolardaki kiracılar tabloya depolanan Kiracı adı birleştirir tenantcatalog veritabanında bir SQL görünümü sağlanmaktadır. Bu görünüm sorunsuz şekilde kataloğunda depolanan meta verileri genişletme değerini gösterir.
 
-2. İçinde *SQL Server Management Studio (SSMS)*, kiracılar sunucusuna bağlanma **tenants1 yüksekliğindeki\<kullanıcı\>. database.windows.net**, oturum: **Geliştirici** , Parola:**P@ssword1**
+1. İçinde *SQL Server Management Studio (SSMS)* kiracılar sunucusuna bağlanma **katalog yüksekliğindeki\<kullanıcı\>. database.windows.net**, oturum: **Geliştirici**, Parola:**P@ssword1**
 
     ![SSMS bağlantı iletişim kutusu](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. İçinde *Object Explorer*, Gözat görünümleri için *tenantcatalog* veritabanı.
-2. Görünümü sağ tıklayın *TenantsExtended* ve **ilk 1000 satırı Seç**. Kiracı adı ve veritabanı arasındaki eşlemeyi farklı kiracılar için unutmayın.
+1. İçinde *Object Explorer*, Gözat görünümleri için *tenantcatalog* veritabanı.
+1. Görünümü sağ tıklayın *TenantsExtended* ve **ilk 1000 satırı Seç**. Kiracı adı ve veritabanı arasındaki eşlemeyi farklı kiracılar için unutmayın.
 
     ![SSMS ExtendedTenants görünümünde](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       

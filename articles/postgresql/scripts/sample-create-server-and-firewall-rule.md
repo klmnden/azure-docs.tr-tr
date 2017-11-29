@@ -10,19 +10,19 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: sample
-ms.date: 11/03/2017
-ms.openlocfilehash: c83c5e86ea99a25ff106e0238f4d294bec100c32
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: f92739181a2011be7ce609b65bf7c862ac705129
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>PostgreSQL sunucu için bir Azure veritabanı oluşturma ve Azure CLI kullanarak bir güvenlik duvarı kuralı yapılandırma
 Bu örnek CLI betik PostgreSQL sunucu için bir Azure veritabanı oluşturur ve bir sunucu düzeyinde güvenlik duvarı kuralı yapılandırır. Betik başarılı şekilde gerçekleştirildikten sonra tüm Azure hizmetlerini ve yapılandırılan IP adresi PostgreSQL sunucunun erişilebilir.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu makalede, Azure CLI Sürüm 2.0 veya sonraki sürümünü çalıştırdığınızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 Bu örnek betik yönetici kullanıcı adı ve parola özelleştirmek için vurgulanan satırlar düzenleyin.
@@ -37,10 +37,10 @@ Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri 
 
 | **Komutu** | **Notlar** |
 |---|---|
-| [az grubu oluşturma](/cli/azure/group#create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az postgres sunucu oluşturma](/cli/azure/postgres/server#create) | Veritabanlarını barındıran bir PostgreSQL sunucusu oluşturur. |
-| [az postgres sunucu güvenlik duvarı oluşturma](/cli/azure/postgres/server/firewall-rule#create) | Girilen IP adresi aralığından altındaki veritabanlarını ve sunucu erişmesine izin vermek için bir güvenlik duvarı kuralı oluşturur. |
-| [az grubu Sil](/cli/azure/group#delete) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
+| [az grubu oluşturma](/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
+| [az postgres sunucu oluşturma](/cli/azure/postgres/server#az_postgres_server_create) | Veritabanlarını barındıran bir PostgreSQL sunucusu oluşturur. |
+| [az postgres sunucu güvenlik duvarı oluşturma](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) | Girilen IP adresi aralığından altındaki veritabanlarını ve sunucu erişmesine izin vermek için bir güvenlik duvarı kuralı oluşturur. |
+| [az grubu Sil](/cli/azure/group#az_group_delete) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Azure CLI hakkında daha fazla bilgi okuyun: [Azure CLI belgeleri](/cli/azure/overview)

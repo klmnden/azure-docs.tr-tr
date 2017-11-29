@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Azure VM temelinde bir AMPUL web sunucusunu yükleme
 Bu makalede bir Apache web sunucusu, MySQL ve azure'da bir Ubuntu VM üzerinde PHP (AMPUL yığını) dağıtma konusunda size yol göstermektedir. NGINX web sunucusu tercih ederseniz, bkz. [LEMP yığın](tutorial-lemp-stack.md) Öğreticisi. Eylem AMPUL Server'da görmek için isteğe bağlı olarak yükleyebilir ve bir WordPress sitesi yapılandırın. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -32,7 +32,7 @@ Bu makalede bir Apache web sunucusu, MySQL ve azure'da bir Ubuntu VM üzerinde P
 > * AMPUL sunucu üzerinde WordPress yükleme
 
 
-AMPUL yığında öneriler bir üretim ortamı için de dahil olmak üzere daha fazla bilgi için bkz: [Ubuntu belgelerine](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Bu kurulum hızlı testleri veya kavram kanıtı içindir. AMPUL yığında öneriler bir üretim ortamı için de dahil olmak üzere daha fazla bilgi için bkz: [Ubuntu belgelerine](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,13 +42,12 @@ Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI S�
 
 ## <a name="install-apache-mysql-and-php"></a>Apache, MySQL ve PHP yükleme
 
-Ubuntu paket kaynaklarını güncelleştirmek ve Apache, MySQL ve PHP yüklemek için aşağıdaki komutu çalıştırın. Komut sonunda şapka (^) unutmayın.
+Ubuntu paket kaynaklarını güncelleştirmek ve Apache, MySQL ve PHP yüklemek için aşağıdaki komutu çalıştırın. Şapka (^) parçasıdır komutu sonunda unutmayın, `lamp-server^` paket adı. 
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
 
 
 Paketler ve diğer bağımlılıklar yüklemeniz istenir. İstendiğinde, MySQL için bir kök parola ayarlayın ve ardından devam etmek için Enter. Kalan istemleri izleyin. Bu işlem, PHP, MySQL ile kullanmak için gerekli en düşük gerekli PHP uzantıları yükler. 
@@ -78,15 +77,15 @@ MySQL sürümü aşağıdaki komutla denetleyin (büyük harf Not `V` parametres
 mysql -V
 ```
 
-MySQL yükleme güvenliğinin sağlanmasına yardımcı olmak için aşağıdaki betiği çalıştıran öneririz:
+MySQL yükleme güvenli hale getirmek için Çalıştır `mysql_secure_installation` komut dosyası. Yalnızca geçici bir sunucu ayarlıyorsanız, bu adımı atlayabilirsiniz.
 
 ```bash
 mysql_secure_installation
 ```
 
-MySQL kök parolanızı girin ve ortamınız için güvenlik ayarlarını yapılandırın.
+MySQL için bir kök parola girin ve ortamınız için güvenlik ayarlarını yapılandırın.
 
-Bir MySQL veritabanı oluşturmak istiyorsanız, kullanıcı ekleme ya da yapılandırma ayarlarını, MySQL oturum açma değiştirin:
+MySQL özellikleri denemek istiyorsanız (MySQL veritabanı oluşturma, kullanıcı ekleme veya yapılandırma ayarlarını değiştirme), MySQL oturum açın. Bu öğreticiyi tamamlamak için bu adım gerekli değildir.
 
 ```bash
 mysql -u root -p

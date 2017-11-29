@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Dayanıklı işlevleri uzantısı ve örnekleri (Azure işlevleri) yükleyin
 
@@ -33,7 +33,7 @@ Visual Studio şu anda sağlam işlevleri kullanan uygulamalar geliştirmek içi
 
 ### <a name="prerequisites"></a>Ön koşullar
 
-* Yükleme [en son sürümünü Visual Studio](https://www.visualstudio.com/downloads/) (sürüm 15.3 veya daha büyük). Azure Araçları, kurulum seçenekleri içerir.
+* Yükleme [en son sürümünü Visual Studio](https://www.visualstudio.com/downloads/) (sürüm 15.3 veya daha büyük). Dahil **Azure geliştirme** Kurulum seçeneklerinizi iş yükü.
 
 ### <a name="start-with-sample-functions"></a>Örnek işlevleriyle Başlat
 
@@ -61,7 +61,7 @@ Visual Studio şu anda sağlam işlevleri kullanan uygulamalar geliştirmek içi
 
 1. En yeni bir işlev uygulaması oluşturmak [functions.azure.com](https://functions.azure.com/signin).
 2. İşlev uygulaması yapılandırma [2.0 çalışma zamanı sürümü kullanmak](functions-versions.md).
-3. Yeni bir işlev oluşturun ve seçin **dayanıklı işlevleri Orchestrator:-C#** şablonu.
+3. "C#" dil ve senaryosu için "All" seçerek yeni bir işlev oluşturun. Ardından **dayanıklı işlevleri Orchestrator:-C#** şablonu.
 4. Altında **yüklü uzantıları**, tıklatın **yüklemek** uzantısı NuGet.org karşıdan yüklemek için.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>Örnek kod için işlev uygulaması kopyalayın

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d269e62b8d49a6c96ce40c2e31c4096e16e07793
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c49b49cf832097bd5fbc423a36432a3eaff9bf14
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL veri ambarı sorunlarını giderme
 Bu konu bizim Müşterilerden aldığımız daha yaygın sorun giderme sorulara listeler.
@@ -28,7 +28,7 @@ Bu konu bizim Müşterilerden aldığımız daha yaygın sorun giderme sorulara 
 | Sorun | Çözüm |
 |:--- |:--- |
 | Oturum açma 'NT Yetkili\Anonim Oturum açma' kullanıcısı için başarısız oldu. (Microsoft SQL Server, hata: 18456) |Bu hata bir AAD kullanıcı ana veritabanına bağlanmayı dener, ancak bir kullanıcının yöneticisinde yok oluşur.  Bu sorunu gidermek için da, bağlantı zaman bağlanmak veya ana veritabanına kullanıcı eklemek istediğiniz SQL Data Warehouse belirtin.  Bkz: [güvenliğine genel bakış] [ Security overview] daha fazla ayrıntı için makale. |
-| Sunucu asıl "KullanıcıAdım" geçerli güvenlik bağlamı altında "ana" veritabanına erişim mümkün değil. Kullanıcının varsayılan veritabanı açılamıyor. Oturum açma başarısız oldu. Oturum açma 'KullanıcıAdım' kullanıcısı için başarısız oldu. (Microsoft SQL Server, hata: 916) |Bu hata bir AAD kullanıcı ana veritabanına bağlanmayı dener, ancak bir kullanıcının yöneticisinde yok oluşur.  Bu sorunu gidermek için da, bağlantı zaman bağlanmak veya ana veritabanına kullanıcı eklemek istediğiniz SQL Data Warehouse belirtin.  Bkz: [güvenliğine genel bakış] [ Security overview] daha fazla ayrıntı için makale. |
+| Sunucu asıl "KullanıcıAdım" geçerli güvenlik bağlamı altında "ana" veritabanına erişim mümkün değil. Kullanıcının varsayılan veritabanı açılamıyor. Oturum açma başarısız. Oturum açma 'KullanıcıAdım' kullanıcısı için başarısız oldu. (Microsoft SQL Server, hata: 916) |Bu hata bir AAD kullanıcı ana veritabanına bağlanmayı dener, ancak bir kullanıcının yöneticisinde yok oluşur.  Bu sorunu gidermek için da, bağlantı zaman bağlanmak veya ana veritabanına kullanıcı eklemek istediğiniz SQL Data Warehouse belirtin.  Bkz: [güvenliğine genel bakış] [ Security overview] daha fazla ayrıntı için makale. |
 | CTAIP hata |SQL server ana veritabanı üzerinde ancak SQL veri ambarı veritabanında bir oturum oluşturulduğunda bu hata oluşabilir.  Bu hatayla karşılaşırsanız, göz atın [güvenliğine genel bakış] [ Security overview] makalesi.  Bu makalede nasıl oluşturulacağı açıklanmaktadır ana ve ardından SQL veri ambarı veritabanında bir kullanıcı oluşturmak nasıl bir oturum açma ve kullanıcı oluşturun. |
 | Güvenlik Duvarı tarafından engellendi |Azure SQL veritabanları, yalnızca bir veritabanı erişimi IP adreslerini bilinen emin olmak için sunucu ve veritabanı düzeyi güvenlik duvarları tarafından korunur. Bağlanmadan önce güvenlik duvarları, açıkça etkinleştirmelisiniz anlamına gelir varsayılan ve IP adresi veya adres aralığı ile güvenlidir.  Erişim için güvenlik duvarını yapılandırmak için adımları [sunucusu güvenlik duvarı erişimi için istemci IP yapılandırma] [ Configure server firewall access for your client IP] içinde [yönergeleri sağlama][Provisioning instructions]. |
 | Aracı veya sürücüsü ile bağlantı kurulamıyor |SQL veri ambarı önerir kullanarak [SSMS][SSMS], [Visual Studio için SSDT][SSDT for Visual Studio], veya [sqlcmd] [ sqlcmd] verilerinizi sorgulanamıyor. Sürücüleri ve SQL Data Warehouse'a bağlanma hakkında daha fazla bilgi için bkz: [Azure SQL Data Warehouse için sürücüleri] [ Drivers for Azure SQL Data Warehouse] ve [Azure SQL Data Warehouse Bağlan] [ Connect to Azure SQL Data Warehouse] makaleleri. |
@@ -99,7 +99,7 @@ Kullanıyorsanız bundan sorununuzu yukarıdaki çözüme bulunamıyor deneyebil
 [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal
+[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features

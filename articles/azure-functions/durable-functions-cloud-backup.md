@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-dışarı/fan-arada senaryoda dayanıklı işlevleri - bulut yedekleme örneği
 
@@ -67,13 +67,13 @@ Bu orchestrator işlevi temelde şunları yapar:
 4. Tamamlamak tüm yüklemeler için bekler.
 5. Azure Blob Depolama birimine yüklenen Toplamı toplam bayt döndürür.
 
-Bildirim `await Task.WhenAll(tasks);` satır. Tüm çağrıların `E2_CopyFileToBlob` işlevi olan *değil* beklemenin. Bu paralel olarak çalıştırılmasına izin vermeniz için bilinen bir durumdur. Bu görevler dizisi iletmek biz `Task.WhenAll`, Geri Al biz tamamlamak olmaz bir görevi *tüm kopyalama işlemleri tamamlanana kadar*. İle görev paralel kitaplığı (TPL) .NET içinde bilgi sahibi değilseniz, ardından bu size yeni değildir. Bu görevleri birden çok sanal makine aynı anda çalışması olasıdır ve uzantı uçtan uca yürütme işlem geri dönüştürme için dayanıklı olmasını sağlar farktır.
+Bildirim `await Task.WhenAll(tasks);` satır. Tüm çağrıların `E2_CopyFileToBlob` işlevi olan *değil* beklemenin. Bu paralel olarak çalıştırılmasına izin vermeniz için bilinen bir durumdur. Bu görevler dizisi iletmek biz `Task.WhenAll`, Geri Al biz tamamlamak olmaz bir görevi *tüm kopyalama işlemleri tamamlanana kadar*. İle görev paralel kitaplığı (TPL) .NET içinde bilgi sahibi değilseniz, ardından bu size yeni değildir. Bu görevleri birden çok sanal makine aynı anda çalışması olasıdır ve dayanıklı işlevleri uzantısı uçtan uca yürütme işlem geri dönüştürme için dayanıklı olmasını sağlar farktır.
 
 Gelen bekleyen sonra `Task.WhenAll`, tüm işlev çağrılarını tamamladınız ve değerleri bize geri döndürülen biliyoruz. Her çağrı `E2_CopyFileToBlob` bayt sayısı karşıya, sum toplam bayt sayısı hesaplama sağlasa da, bunlar tüm dönüş değerleri birlikte ekleme olacak şekilde döndürür.
 
 ## <a name="helper-activity-functions"></a>Yardımcı etkinlik işlevleri
 
-Yardımcı etkinlik işlevleri yalnızca diğer örnekler ile olarak kullanan yalnızca normal işlevlerdir `activityTrigger` tetiklemek bağlama. Örneğin, *function.json* dosya `E2_GetFileList` aşağıdaki gibi görünür:
+Yardımcı etkinlik işlevleri başka bir örnek olduğu gibi kullandığınız yalnızca normal işlevlerdir `activityTrigger` tetiklemek bağlama. Örneğin, *function.json* dosya `E2_GetFileList` aşağıdaki gibi görünür:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
@@ -92,7 +92,7 @@ Uygulama aynı zamanda oldukça basittir. Bazı kullanmak için Azure işlevleri
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-Uygulama diskten dosyayı yükler ve zaman uyumsuz olarak içeriği aynı ada sahip bir blob'a akışlarını. Dönüş değeri birleşik toplam hesaplamak için orchestrator işlevi tarafından sonra kullanılan depolama birimine kopyalanan bayt sayısıdır.
+Uygulama diskten dosyayı yükler ve zaman uyumsuz olarak "yedekleme" kapsayıcısında aynı ada sahip bir blob içine içeriği akışlarını. Dönüş değeri birleşik toplam hesaplamak için orchestrator işlevi tarafından sonra kullanılan depolama birimine kopyalanan bayt sayısıdır.
 
 > [!NOTE]
 > Bu bir g/ç işlemleri içine taşıma kusursuz örnektir bir `activityTrigger` işlevi. Yalnızca iş birçok farklı VM dağıtılabilir, ancak ayrıca denetim noktası oluşturma yararları ilerleme elde edersiniz. Ana bilgisayar işlemi için herhangi bir nedenle sonlandırıldı, hangi yüklemeleri daha önce tamamlamış bildirin.

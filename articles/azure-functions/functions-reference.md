@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76be085aa114b571f40603b4f182b13b9354b8b8
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
 Azure işlevleri, belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil ya da bağlama belirli Ayrıntılar öğrenme moduna geçmek önce bunların tümüne uygulanır Bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
@@ -81,11 +81,8 @@ Azure portalda yerleşik işlevi Düzenleyicisi güncelleştirmenizi sağlayan *
 İşlev uygulamalarının, uygulama hizmeti, bu nedenle tüm yerleşiktir [standart web uygulamaları için dağıtım seçenekleri](../app-service/app-service-deploy-local-git.md) de işlevi uygulamaları için kullanılabilir. Karşıya yükleme veya işlevi uygulama dosyalarını güncelleştirmek için kullanabileceğiniz bazı yöntemler şunlardır. 
 
 #### <a name="to-use-app-service-editor"></a>Uygulama hizmeti Düzenleyicisi'ni kullanmak için
-1. Azure işlevleri Portalı'nda tıklatın **işlev uygulaması ayarları**.
-2. İçinde **Gelişmiş ayarları** 'yi tıklatın **uygulama hizmeti ayarlarına Git**.
-3. Tıklatın **App Service Düzenleyicisi** uygulama menüsünden NAV altında **geliştirme araçları**.
-4. tıklatın **Git**.
-   
+1. Azure işlevleri Portalı'nda tıklatın **Platform özellikleri**.
+2. İçinde **geliştirme araçları** 'yi tıklatın **App Service Düzenleyicisi**.   
    Uygulama hizmeti Düzenleyicisi yüklendikten sonra göreceğiniz *host.json* altındaki dosya ve işlev klasörleri *wwwroot*. 
 5. Bunları, düzenlemek veya sürükleyip dosyaları karşıya yüklemek için geliştirme makinenizden dosyalarını açın.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure bulut Kabuk sınırlamaları
 
@@ -28,10 +28,10 @@ Azure bulut Kabuk aşağıdaki bilinen sınırlamalara sahiptir:
 
 ### <a name="system-state-and-persistence"></a>Sistem durumu ve sürdürme
 
-Bulut Kabuk oturumunuz sağlar makine geçicidir ve oturumunuz için 20 dakika etkin değil sonra geri dönüştürüldüğünde. Bulut Kabuk bir dosya paylaşımı bağlanmasını gerektirir. Sonuç olarak, aboneliğiniz bulut Kabuk erişmek için depolama kaynakları ayarlamak kurabilmesi gerekir. Diğer konular şunlardır:
+Bulut Kabuk oturumunuz sağlar makine geçicidir ve oturumunuz için 20 dakika etkin değil sonra geri dönüştürüldüğünde. Bulut Kabuk Azure dosya paylaşımının bağlanmasını gerektirir. Sonuç olarak, aboneliğiniz bulut Kabuk erişmek için depolama kaynakları ayarlamak kurabilmesi gerekir. Diğer konular şunlardır:
 
 * Takılı depolamayla yalnızca değişiklikleri içinde `clouddrive` dizin kaldı. Bash içinde `$Home` dizin de kalıcı.
-* Dosya paylaşımları takılı yalnızca içinden, [bölgeye atanan](persisting-shell-storage.md#mount-a-new-clouddrive).
+* Azure dosya paylaşımları takılı yalnızca içinden, [bölgeye atanan](persisting-shell-storage.md#mount-a-new-clouddrive).
   * Bash'te, çalıştırmak `env` olarak ayarlayın, bölgenizdeki bulmak için `ACC_LOCATION`.
 * Azure dosyaları yalnızca yerel olarak yedekli depolama ve coğrafi olarak yedekli depolama hesaplarını destekler.
 
@@ -77,7 +77,12 @@ Azure bulut Kabuğu (Önizleme) PowerShell Önizleme sırasında başlatmak içi
 Yazılan veri `$Home` herhangi bir uygulama tarafından (gibi: git, VIM ve diğerleri) PowerShell oturumlarında devam etmez. Geçici bir çözüm için [Burada gördüğünüz](troubleshooting.md#powershell-resolutions).
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure sürücüsünden oluşturduğunuzda varsayılan dosya konumu:
+
 PowerShell cmdlet'lerini kullanarak, kullanıcılar dosyaları Azure sürücüsü altında oluşturulamıyor. Kullanıcıların yeni dosyaları VIM veya nano, gibi diğer araçları kullanarak oluşturduğunuzda dosyalar varsayılan olarak C:\Users klasörüne kaydedilir. 
+
+### <a name="gui-applications-are-not-supported"></a>GUI uygulamaları desteklenmez.
+
+Kullanıcı bir Windows iletişim kutusu gibi oluşturacak bir komut çalıştırırsa `Connect-AzureAD` veya `Login-AzureRMAccount`, bir görür bir hata iletisi gibi: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

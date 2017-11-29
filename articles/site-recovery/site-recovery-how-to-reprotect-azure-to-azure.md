@@ -3,7 +3,7 @@ title: "Yeniden koruma nasıl geri Birincil Azure bölgesi için Azure sanal mak
 description: "Bir Azure bölgesinden VM'lerin başka bir yük devretme sonrasında ters yönde makineleri korumak için Azure Site Recovery kullanabilirsiniz. Adımlar, bir yük devretme yeniden önce yeniden koruma yapmak öğrenin."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/28/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5822ed90f3ab13bdaf1afef62cf32978101c6609
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 3e614b6c3c8358585f3b502f301cc659d2088e2f
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
@@ -58,7 +58,7 @@ Varsayılan değerleri kullanarak bir sanal makine yeniden korumak için adımla
 
 3. Gözden geçirme **kaynak grubu, ağ, depolama ve kullanılabilirlik kümeleri** bilgi ve Tamam'ı tıklatın. (Yeni) olarak işaretlenmiş kaynakları varsa, yeniden koruma bir parçası olarak oluşturulur.
 
-Bu tetikleyici bir işi ilk hedef sitenin (Bu durumda SEA) en son verilerle belirleyeceği iş koruyun ve tamamlar, çoğaltma işlemi sonra Yük devretme önce farkları Güneydoğu Asya yedekleyin.
+Yeniden koruma işi ilk hedef sitenin (Bu durumda SEA) en son verilerle belirleyeceği ve bu işlemi tamamlandıktan sonra Yük devretme önce farkları geri Güneydoğu Asya çoğaltır.
 
 ### <a name="reprotect-customization"></a>Özelleştirme koruyun
 Extract depolama hesabı ya da ağ yeniden koruma sırasında seçmek istiyorsanız, bu nedenle yeniden koruma dikey penceresinde sağlanan Özelleştir seçeneğini kullanarak yapabilirsiniz.

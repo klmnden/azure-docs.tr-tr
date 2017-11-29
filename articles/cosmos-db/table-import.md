@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 5163d20aece01addddeae93cb07355bde928a440
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB tablo API ile kullanmak için veri alma
 
@@ -32,11 +32,11 @@ Bu öğretici, aşağıdaki görevleri içerir:
 
 ## <a name="data-migration-tool"></a>Veri Geçiş Aracı
 
-Komut satırı Azure Cosmos DB veri Geçiş Aracı (dt.exe) bir tablo API GA hesabına, var olan Azure Table depolama veri almak için kullanılan veya verileri bir tabloda API (Önizleme) hesabından bir tablo API GA hesabına geçirmek. Diğer kaynakları şu anda desteklenmemektedir.
+Komut satırı Azure Cosmos DB veri Geçiş Aracı (dt.exe) bir tablo API GA hesabına, var olan Azure Table depolama veri almak için kullanılan veya verileri bir tabloda API (Önizleme) hesabından bir tablo API GA hesabına geçirmek. Diğer kaynakları şu anda desteklenmemektedir. Temelli UI veri Geçiş Aracı (dtui.exe) tablo API hesapları için şu anda desteklenmiyor. 
 
 Tablo verisi geçişini gerçekleştirmek için aşağıdaki görevleri tamamlayın:
 
-1. Geçiş aracından karşıdan [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) veya [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Geçiş aracından karşıdan [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Çalıştırma `dt.exe` senaryonuz için komut satırı bağımsız değişkenleri kullanma.
 
 dt.exe aşağıdaki biçimde bir komut alır:

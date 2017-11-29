@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 11/22/2017
 ms.author: krnese
-ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 118a2e775ae3d036f58989d9778104e372e8c701
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Azure Otomasyonu DSC Mobility hizmetiyle VM çoğaltması için dağıtma
 Operations Management Suite biz kapsamlı yedekleme ve iş sürekliliği planınızın bir parçası olarak kullanabileceğiniz olağanüstü durum kurtarma çözümü sağlar.

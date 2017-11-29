@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/08/2017
-ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 11/27/2017
+ms.openlocfilehash: a1008936c053316630360403be688e4eedc8b2c0
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure veritabanı PostgreSQL sunucuları için
 Bu makale, PostgreSQL sunucuları için Azure veritabanı ile çalışmak için önemli noktalar ve yönergeler sağlar.
@@ -38,13 +38,7 @@ Bir Azure veritabanı içinde PostgreSQL sunucu için bir veya birden çok verit
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Nasıl bağlanmak ve PostgreSQL sunucu için bir Azure veritabanı kimlik doğrulaması?
 Aşağıdaki öğeler için veritabanınızda güvenli erişim sağlamaya yardımcı olur.
 
-|||
-| :-- | :-- |
-| **Kimlik doğrulama ve yetkilendirme** | Azure veritabanı PostgreSQL sunucu için yerel PostgreSQL kimlik doğrulamasını destekler. Bağlanabilir ve sunucunun yönetici oturum açma ile sunucusuna kimlik doğrulaması. |
-| **Protokol** | Hizmet PostgreSQL tarafından kullanılan bir ileti tabanlı iletişim kuralı destekler. |
-| **TCP/IP'Yİ** | Protokol UNIX etki alanı Yuva üzerinden ve TCP/IP üzerinden desteklenir. |
-| **Güvenlik duvarı** | İznine sahip olan bilgisayarları belirttiğiniz kadar verilerinizin korunmasına yardımcı olmak için bir güvenlik duvarı kuralı tüm erişim sunucunuz ve veritabanlarını engeller. Bkz: [Azure veritabanı PostgreSQL sunucunun güvenlik duvarı kuralları için](concepts-firewall-rules.md). |
-|||
+| :-- | :-- | | **Kimlik doğrulama ve yetkilendirme** | Azure veritabanı PostgreSQL sunucu için yerel PostgreSQL kimlik doğrulamasını destekler. Bağlanabilir ve sunucunun yönetici oturum açma ile sunucusuna kimlik doğrulaması. | | **Protokolü** | Hizmet PostgreSQL tarafından kullanılan bir ileti tabanlı iletişim kuralı destekler. | | **TCP/IP'yi** | Protokol UNIX etki alanı Yuva üzerinden ve TCP/IP üzerinden desteklenir. | | **Güvenlik Duvarı** | İznine sahip olan bilgisayarları belirttiğiniz kadar verilerinizin korunmasına yardımcı olmak için bir güvenlik duvarı kuralı tüm erişim sunucunuz ve veritabanlarını engeller. Bkz: [Azure veritabanı PostgreSQL sunucunun güvenlik duvarı kuralları için](concepts-firewall-rules.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Bir sunucu nasıl yönetebilirim?
 Azure veritabanı PostgreSQL sunucuları için kullanarak yönetebileceğiniz [Azure portal](https://portal.azure.com) veya [Azure CLI](/cli/azure/postgres).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 822abf5cd09a0cd0d66441acfe4ae114c6ba73eb
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Dayanıklı işlevlerinde - telefon doğrulama örnek insan etkileşimi
 
@@ -33,7 +33,7 @@ Bu örnek bir SMS telefonla doğrulama sistemi uygular. Bu tür akışları gene
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
-Telefon doğrulama bir son kullanıcılar, uygulamanızın istenmeyen posta gönderenlerin değildir ve kimlerin kendilerine olduklarından emin doğrulamak için kullanılır. Çok faktörlü kimlik doğrulama kullanıcı hesapları korsanların korumak için bir ortak kullanım durumdur. Kendi telefon doğrulama uygulama ile gerektirdiği iştir bir **durum bilgisi olan etkileşim** İnsan olma ile. Bir son kullanıcı biraz kod (örn. 4 basamaklı bir sayı) genellikle sağlanır ve yanıtlaması gerekir **makul bir sürede**.
+Telefon doğrulama, son kullanıcılar, uygulamanızın istenmeyen posta gönderenlerin değildir ve kimlerin kendilerine olduklarından emin doğrulamak için kullanılır. Çok faktörlü kimlik doğrulama kullanıcı hesapları korsanların korumak için bir ortak kullanım durumdur. Kendi telefon doğrulama uygulama ile gerektirdiği iştir bir **durum bilgisi olan etkileşim** İnsan olma ile. Bir son kullanıcı biraz kod (örn. 4 basamaklı bir sayı) genellikle sağlanır ve yanıtlaması gerekir **makul bir sürede**.
 
 (Diğer platformlarda diğer birçok bulut uç gibi) normal Azure işlevleri durum bilgisiz, bu tür etkileşimler açıkça yönetme gerektireceğini şekilde bir veritabanı veya bazı diğer kalıcı durum dışarıdan depolamak. Ayrıca, etkileşim birlikte Eşgüdümlü olabilecek birden çok işlevlerini parçalanmış gerekir. Örneğin, bir kodu karar verme, herhangi bir yerde kalıcı yapma ve kullanıcının telefonuna göndermek için en az bir işlevi gerekir. Ayrıca, kullanıcıdan yanıt ve şekilde kod doğrulama yapmak için geri özgün işlev çağrısı için eşlemek için en az bir işlevi gerekir. Zaman aşımı güvenliğini sağlamak için önemli bir özelliği de olur. Bu oldukça hızlı bir şekilde oldukça karmaşık bir HAL alabilir.
 
@@ -43,7 +43,7 @@ Dayanıklı işlevler kullandığınızda bu senaryo karmaşıklığını öneml
 
 Bu örnek kullanılmasına [Twilio](https://www.twilio.com/) cep telefonuna SMS iletileri göndermek için hizmet. Azure işlevleri Twilio desteği zaten [Twilio bağlama](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), ve örnek bu özelliği kullanır.
 
-İlk şey, ihtiyacınız olan bir Twilio hesabıdır. Ücretsiz https://www.twilio.com/try-twilio oluşturabilirsiniz. Hesabınızı edindikten sonra aşağıdaki üç ekleme **uygulama ayarları** projenize.
+Size gereken ilk şey bir Twilio hesabıdır. Ücretsiz https://www.twilio.com/try-twilio oluşturabilirsiniz. Hesabınızı edindikten sonra aşağıdaki üç ekleme **uygulama ayarları** işlevi uygulamanıza.
 
 | Uygulama ayarı adı | Değer açıklaması |
 | - | - |

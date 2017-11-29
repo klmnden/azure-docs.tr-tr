@@ -14,21 +14,25 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: 652719a80133434ecb31c00738dcda261cfa0683
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a780a7d954486dbce402e4bf45be55af8ad36ab9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark Hdınsight üzerinde Kafka (DStream) örnekle akış
 
 Spark Apache Spark veri akışı içine veya dışına DStreams kullanarak Hdınsight üzerinde Apache Kafka nasıl kullanılacağını öğrenin. Bu örnek, Spark kümesinde çalışan bir Jupyter not defteri kullanır.
+
 > [!NOTE]
 > Bu belgede yer alan adımlar, hem hdınsight'ta Spark ve Hdınsight kümesinde bir Kafka içeren bir Azure kaynak grubu oluşturun. Bu kümeleri, hem bir Azure sanal Kafka ile doğrudan iletişim kurmak Spark kümesi sağlayan ağ içinde bulunan küme ' dir.
 >
 > Bu belgedeki adımları tamamladığınızda, aşırı ücretlerden kaçınmak için kümelerini Sil unutmayın.
+
+> [!IMPORTANT]
+> Bu örnek daha eski bir Spark akış teknolojisi DStreams kullanır. Daha yeni Spark akış özellikleri kullanan bir örnek için bkz: [Spark yapılandırılmış akış Kafka ile](hdinsight-apache-kafka-spark-structured-streaming.md) belge.
 
 ## <a name="create-the-clusters"></a>Kümeleri oluşturma
 

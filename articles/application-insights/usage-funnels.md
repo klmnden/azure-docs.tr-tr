@@ -12,39 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0396c59d9d95ab71f0af04029d87afbb6e47dc35
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bbb25af888f34737f6a61cf43890ff248c4cc4de
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Müşteriler, uygulamanızın uygulama Öngörüler Funnels ile nasıl kullandığını keşfedin
+# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Müşteriler, uygulamanızın uygulama Öngörüler Funnels ile nasıl kullandığını keşfedin
 
-Anlama müşteri işinize utmost önem deneyimidir. Uygulamanız birden çok aşamaları içeriyorsa, müşterilerin çoğu tüm süreci devam veya belirli bir noktada işlem sona erecektir bilmeniz gerekir. Bir dizi adımı bir web uygulaması aracılığıyla ilerlemeyi "Huni" bilinir. Kullanıcılarınızı ve izleme hakkında adım adım dönüştürme oranları Öngörüler elde etmek için uygulama Öngörüler Funnels kullanabilirsiniz. 
+Müşteri Deneyimini anlama işletmeniz için utmost öneme sahip değil. Uygulamanız birden çok aşamaları içeriyorsa, müşterilerin çoğu tüm süreci devam veya belirli bir noktada işlem sona erecektir bilmeniz gerekir. Bir dizi adımı bir web uygulaması aracılığıyla ilerlemeyi olarak bilinen bir *huni*. Azure uygulama Öngörüler Funnels kullanıcılarınızın Öngörüler elde etmek için kullanabilir ve adım adım dönüştürme oranları izleyin. 
 
 ## <a name="create-your-funnel"></a>Huni oluşturma
-Huni oluşturmadan önce yanıt istediğiniz soru karar vermeniz gerekir. Örneğin, kaç kullanıcının giriş sayfası görüntülediğiniz bilmek görüntüleme müşteri profili ve bir anahtar oluşturma isteyebilirsiniz. Bu örnekte, Fabrikam Fiber şirket sahipleri başarıyla bir müşteri bileti oluşturun müşteriler yüzdesi bilmek ister.
+Huni oluşturmadan önce yanıt istediğiniz soru karar verin. Örneğin, kaç kullanıcının giriş sayfası görüntülediğiniz bilmek görüntüleme müşteri profili ve bir anahtar oluşturma isteyebilirsiniz. Bu örnekte, Fabrikam Fiber şirket sahipleri başarıyla bir müşteri bileti oluşturun müşteriler yüzdesi bilmek ister.
 
 Burada, bunlar kendi Huni oluşturmak için adımlar bulunmaktadır.
 
-1. Funnels araç çubuğundaki Yeni düğmesini tıklatın.
-1. "Son 90 gün" zaman aralığını seçin **zaman aralığı** açılır. Şunlardan birini seçin "Funnels Belgelerim" veya "funnels paylaşılan"
-1. Seçin **dizin** olayından **1. adım** aşağı açılan liste. 
-1. Seçin **müşteri** olayından **2. adım** aşağı açılan liste.
-1. Seçin **oluşturma** olayından **adım 3** aşağı açılan liste.
-1. Huni için bir ad eklemek ve tıklayın **kaydetmek**.
+1. Uygulama Öngörüler Funnels aracında seçin **yeni**.
+1. Gelen **zaman aralığı** açılır menüsünde, select **Son 90 gün**. Şunlardan birini seçin **My funnels** veya **funnels paylaşılan**.
+1. Gelen **1. adım** aşağı açılan listesinden, **dizin**. 
+1. Gelen **2. adım** listesinde **müşteri**.
+1. Gelen **adım 3** listesinde **oluşturma**.
+1. Huni için bir ad ekleyin ve seçin **kaydetmek**.
 
-Aşağıdaki çizimde Funnels aracı veriler üretir gösterilmektedir. Fabrikam buradan sahipleri, Son 90 gün içinde bir müşteri bileti %54.3 giriş sayfasını ziyaret müşterilerinin oluşturulan görebilirsiniz. Bunlar ayrıca görebilir 2.7 k müşterilerinin dizine giriş sayfasından gelen, bu yenileme sorun olduğunu gösteriyor olabilir.
+Aşağıdaki ekran görüntüsünde, verilerin Funnels aracı türü örneği oluşturur gösterir. Fabrikam sahipleri, Son 90 gün içinde bir müşteri bileti oluşturulan giriş sayfasını ziyaret müşterilerinin 54.3 yüzde görebilirsiniz. Bunlar 2,700 müşterilerinin giriş sayfasından dizine geldiğini de görebilirsiniz. Bu yenileme sorunu gösterebilir.
 
 
-![Verilerle funnels aracı](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Veri ekran görüntüsü, Funnels aracıyla](./media/app-insights-understand-usage-patterns/funnel1.png)
 
-### <a name="funnel-features"></a>Huni özellikleri
-1. Uygulamanızı örneklenen örnekleme başlık görürsünüz. Başlığında tıklandığında örnekleme devre dışı bırakmak nasıl söyleyen bir bağlam bölmesi açılır. 
+### <a name="funnels-features"></a>Funnels özellikleri
+Önceki ekran beş vurgulanan alanları içerir. Bunlar Funnels özellikleridir. Aşağıdaki listede ekran karşılık gelen her alanda hakkında daha fazla açıklanmaktadır:
+1. Uygulamanızı örneklenen örnekleme başlık görürsünüz. Başlık seçerek örnekleme devre dışı bırakmak nasıl açıklayan bir bağlam bölmesi açılır. 
 2. Huni verebilirsiniz [Power BI](app-insights-export-power-bi.md).
-3. Sağ tarafta daha ayrıntılı Öngörüler almak için bir adım tıklayın. 
-4. Geçmiş dönüştürme dönüştürme Son 90 gün içinde gösterir. 
-5. Funnels kullanıcılar Aracı'na giderek kullanıcılarınıza daha iyi anlayın. Her adım seçkin, kullanıcıların filtreleri verecektir. 
+3. Sağ tarafta daha fazla ayrıntı görmek için bir adım seçin. 
+4. Geçmiş dönüştürme Grafik dönüştürme oranları Son 90 gün içinde gösterir. 
+5. Kullanıcılar aracını erişerek kullanıcılarınıza daha iyi anlayın. Her adımda filtreleri kullanabilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
   * [Kullanıma genel bakış](app-insights-usage-overview.md)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: c48c0931ede6d17078c64cbb1e1dacd21098f792
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6428c6d9fcb577f18221ee48a61456c460bd8176
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Azure Data Lake Store için büyük veri gereksinimleri kullanma
 Büyük veri işleme, dört anahtar aşamaları şunlardır:
@@ -38,7 +38,7 @@ Bu bölüm, farklı kaynaklardan veri ve hangi verilerin Data Lake Store dikkate
 ### <a name="ad-hoc-data"></a>Geçici verileri
 Bu, daha küçük veri kümeleri temsil eden bir büyük veri uygulaması için prototipi oluşturulurken kullanılan. Geçici veri alma veri kaynağını bağlı olarak farklı yolu vardır.
 
-| Veri kaynağı | Kullanarak alma |
+| Veri Kaynağı | Kullanarak alma |
 | --- | --- |
 | Yerel bilgisayar |<ul> <li>[Azure Portal](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure platformlar arası CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[Visual Studio için Data Lake Araçları'nı kullanarak](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure depolama blobunu |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy aracı](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Hdınsight küme üzerinde çalışan Distcp'yi](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |

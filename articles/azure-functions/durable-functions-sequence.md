@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 913805901bf8131e4908be03e9213539a26205ed
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 0973f83ae839597f3b499814a4a04a8a640a1fb6
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Dayanıklı işlevleri - Hello sırası örneği zincirleme işlevi
 
@@ -46,7 +46,7 @@ Geliştirme için Azure portalını kullanıyorsanız, içeriği işte *function
 Önemli şey `orchestrationTrigger` bağlama türü. Tüm orchestrator işlevleri, bu tetikleyici türünü kullanmanız gerekir.
 
 > [!WARNING]
-> Orchestrator işlevleri "hiçbir g/ç" kuralı tarafından uymanız için olmayan herhangi bir giriş kullanın veya bağlamaları kullanırken çıktı `orchestrationTrigger` tetiklemek bağlama.  Diğer giriş veya çıkış bağlamaları gereklidir, bunlar bunun yerine bağlamında kullanılmalıdır `activityTrigger` işlevleri.
+> Orchestrator işlevleri "hiçbir g/ç" kuralı tarafından uymanız için olmayan herhangi bir giriş kullanın veya bağlamaları kullanırken çıktı `orchestrationTrigger` tetiklemek bağlama.  Diğer giriş veya çıkış bağlamaları gereklidir, bunlar bunun yerine bağlamında kullanılmalıdır `activityTrigger` orchestrator tarafından çağrılan işlev.
 
 ## <a name="c-script"></a>C# betiği
 
@@ -54,7 +54,7 @@ Kaynak kod aşağıdaki gibidir:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-Tüm C# orchestration işlevleri olmalıdır bir `DurableOrchestrationContext` bulunmaktadır parametresi `Microsoft.Azure.WebJobs.Extensions.DurableTask` derleme. C# betiği kullanıyorsanız, derleme kullanarak başvurulabilir `#r` gösterimi. Bu bağlam nesnesinin diğer çağrı olanak sağlayan *etkinlik* işlevler ve giriş parametreleri kullanarak kendi [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) yöntemi.
+Tüm C# orchestration işlevleri türünde bir parametresi olmalıdır `DurableOrchestrationContext`, içinde bulunduğu `Microsoft.Azure.WebJobs.Extensions.DurableTask` derleme. C# betiği kullanıyorsanız, derleme kullanarak başvurulabilir `#r` gösterimi. Bu bağlam nesnesinin diğer çağrı olanak sağlayan *etkinlik* işlevler ve giriş parametreleri kullanarak kendi [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_) yöntemi.
 
 Kod çağrıları `E1_SayHello` üç kez sırayla farklı parametre değerleri. Her çağrısının dönüş değeri eklenen `outputs` işlevi sonunda döndürülen listesi.
 
@@ -69,7 +69,7 @@ Uygulaması `E1_SayHello` işlemini biçimlendirme oldukça basit bir dize.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-Bu işlev sahip bir [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)orchestrator işlev çağrısı tarafından kendisine geçirilen giriş almak için kullandığı parametre [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)>.
+Bu işlev türünde bir parametreye sahiptir [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), orchestrator işlev çağrısı tarafından kendisine geçirilen giriş almak için kullandığı [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
 ## <a name="run-the-sample"></a>Örnek çalıştırın
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: b5f80427234549b13a1aca94cd04e4f7e6f94ccf
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: cffc78c06de6be252704c2a116d7ded2c7e8567f
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç:, Azure portalını kullanarak Azure Databricks üzerinde Spark işini çalıştır
 
@@ -97,7 +97,7 @@ Databricks içinde bir not defteri oluşturun, dizüstü bilgisayarın bir Azure
     Depolama hesabı anahtarı alma hakkında daha fazla yönerge için bkz: [depolama erişim tuşlarınızı yönetme](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
     > [!NOTE]
-    > Azure Data Lake Store, Azure Databricks Spark kümesinde ile de kullanabilirsiniz. Yönergeler için bkz: [kullanım Data Lake Store ile Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store).
+    > Azure Data Lake Store, Azure Databricks Spark kümesinde ile de kullanabilirsiniz. Yönergeler için bkz: [kullanım Data Lake Store ile Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
 
 4. Örnek JSON veri dosyasından veri kullanarak geçici bir tablo oluşturmak için bir SQL deyimini çalıştırın **small_radio_json.json**. Aşağıdaki kod parçacığında, yer tutucu değerlerini kapsayıcı adı ve depolama hesabı adı ile değiştirin. Not Defteri kod hücresinde parçacığını yapıştırın ve sonra SHIFT + ENTER tuşuna basın. Parçacığında bulunan `path` , Azure Storage hesabınıza yüklediğiniz örnek JSON dosyasının konumunu gösterir.
 
@@ -159,4 +159,4 @@ Onay kutusunu seçmediyseniz, küme el ile sonlanır gerekir. Bunu, sol bölmede
 Bu makalede, Azure Databricks bir Spark kümesi oluşturulur ve verileri Azure depolama alanında kullanarak Spark işi çalıştı. Ayrıca bakabilir [Spark veri kaynakları](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) Azure Databricks diğer veri kaynaklarından veri içeri aktarma öğrenin. Azure Data Lake Store ile Azure Databricks kullanmayı öğrenmek için sonraki makalede ilerleyin.
 
 > [!div class="nextstepaction"]
->[Kullanım Data Lake Store ile Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html#azure-data-lake-store)
+>[Kullanım Data Lake Store ile Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)
