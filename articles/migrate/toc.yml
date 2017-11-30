@@ -1,0 +1,40 @@
+- name: Azure Geçişi belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Azure Geçişi hakkında
+      href: migrate-overview.md
+- name: Öğreticiler
+  items:
+    - name: VMware VM’lerini keşfedin ve değerlendirin
+      href: tutorial-assessment-vmware.md
+- name: Kavramlar
+  items:
+    - name: Değerlendirme hesaplamaları
+      href: concepts-assessment-calculation.md
+    - name: Bağımlılık görselleştirme
+      href: concepts-dependency-visualization.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Büyük bir ortamı keşfetme ve değerlendirme
+      href: how-to-scale-assessment.md
+    - name: Grup makineleri
+      href: how-to-create-a-group.md
+    - name: Makine bağımlılıkları kullanan grup makineleri
+      href: how-to-create-group-machine-dependencies.md
+    - name: VMware etiketlemesi kullanan grup makineleri
+      href: how-to-tag-v-center.md
+    - name: Grup bağımlılıklarını kullanarak bir grubu daraltma
+      href: how-to-create-group-dependencies.md
+    - name: Bir değerlendirmeyi özelleştirme
+      href: how-to-modify-assessment.md
+    - name: Değerlendirmenin ardından makineleri geçirme
+      href: how-to-get-migration-tool.md
+    - name: Azure Geçişi sorunlarını giderme
+      href: troubleshooting-general.md
+- name: Kaynaklar
+  items:
+    - name: Azure Geçişi
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
