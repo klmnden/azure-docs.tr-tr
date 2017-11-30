@@ -4,7 +4,7 @@ description: "Azure PowerShell modülünü Azure Resource Manager ile birlikte k
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jennoc
 tags: azure-resource-manager
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 7950c3e23463260c4c89c2a4f6b28bbc2a34b7c2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6eea6c9bc7f686096c3cf0c97bfbe65a5507de2a
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell modülünü kullanarak iç yük dengeleyici oluşturma
 
@@ -31,9 +31,6 @@ ms.lasthandoff: 10/25/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) ve [klasik](load-balancer-get-started-ilb-classic-ps.md). Bu makalede Resource Manager dağıtım modelini kullanarak yük dengeleyici oluşturma adımları anlatılmaktadır. Microsoft, yeni dağıtımların çoğu için Azure Resource Manager kullanılmasını önerir.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 

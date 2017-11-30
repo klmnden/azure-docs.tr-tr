@@ -8,8 +8,8 @@
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Veritabanı kimliği|sample-database|Yeni veritabanınızın kimliği. Veritabanı adı 1 ila 255 karakter arasında olmalıdır ve içeremez `/ \ # ?` veya sonunda boşluk.
-    Grafik kimliği|sample-graph|Yeni grafiğinizin kimliği. Grafik adları veritabanı kimlikleri aynı karakter gereksinimlerine sahip.
+    Veritabanı kimliği|sample-database|Girin *örnek veritabanı* yeni bir veritabanı adı olarak. Veritabanı adı 1 ila 255 karakter arasında olmalıdır ve içeremez `/ \ # ?` veya sonunda boşluk.
+    Graf kimliği|sample-graph|Girin *örnek grafik* yeni koleksiyonunuz için bir ad olarak. Grafik adları veritabanı kimlikleri aynı karakter gereksinimlerine sahip.
     Depolama kapasitesi| 10 GB|Varsayılan değeri değiştirmeyin. Bu, veritabanının depolama kapasitesidir.
     Aktarım hızı|400 RU|Varsayılan değeri değiştirmeyin. Daha sonra gecikme süresini azaltmak isterseniz, aktarım hızının ölçeğini artırabilirsiniz.
     Bölüm anahtarı|/firstName|Verileri her bölüme eşit şekilde dağıtan bir bölüm anahtarı. Doğru bölüm anahtarı seçerek bir kullanıcı grafik oluşturmada önemlidir. Daha fazla bilgi için bkz: [bölümleme için tasarlama](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
