@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Öğretici: DocuSign kullanıcı sağlamak için yapılandırma
 
@@ -41,9 +41,12 @@ Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>Kullanıcılar için DocuSign atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için DocuSign atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için DocuSign atanır. Ek kullanıcılar daha sonra atanabilir.
 
 *   Bir kullanıcı için DocuSign atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz.
+
+> [!NOTE]
+> Azure AD ile Docusign uygulama grubu sağlama desteklemez, yalnızca kullanıcıların sağlanabilir.
 
 ## <a name="enable-user-provisioning"></a>Kullanıcı sağlamayı etkinleştirin
 
@@ -86,7 +89,7 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının DocuSign kulla
 
 12. Tıklatın **kaydedin.**
 
-Herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde DocuSign atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve DocuSign uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
+Kullanıcılar ve Gruplar bölümünde DocuSign atanan tüm kullanıcıların ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve DocuSign uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 
 Şimdi sınama hesabı oluşturabilirsiniz. Hesap için DocuSign eşitlendiğinden emin doğrulamak için en çok 20 dakika bekleyin.
 

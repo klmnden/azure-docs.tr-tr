@@ -1,9 +1,9 @@
 ---
-title: "Azure işlevleri Zamanlayıcı tetikleyicisi"
+title: "Zamanlayıcı tetikleyicisi için Azure işlevleri"
 description: "Azure işlevleri Zamanlayıcı Tetikleyicileri kullanmayı öğrenme."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,15 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: cc59d97fe4f3bb4e53432332556991d81b208167
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-timer-trigger"></a>Azure işlevleri Zamanlayıcı tetikleyicisi
+# <a name="timer-trigger-for-azure-functions"></a>Zamanlayıcı tetikleyicisi için Azure işlevleri 
 
 Bu makalede Azure işlevleri Tetikleyicileri Zamanlayıcı ile nasıl çalışılacağını açıklar. Zamanlayıcı tetikleyicisi bir işlev bir zamanlamaya göre çalışmasını sağlar. 
 
@@ -134,7 +134,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="attributes-for-precompiled-c"></a>Önceden derlenmiş C# öznitelikleri
+## <a name="attributes"></a>Öznitelikler
 
 İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
@@ -143,9 +143,14 @@ Aşağıdaki örnekte gösterildiği gibi özniteliğin Oluşturucusu CRON ifade
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+   ...
+}
  ```
 
 Belirleyebileceğiniz bir `TimeSpan` işlevi uygulamanıza bir uygulama hizmeti planı (tüketim plan değil) çalıştırıyorsa CRON ifade yerine.
+
+Tam bir örnek için bkz: [önceden derlenmiş C# örnek](#c-example).
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -156,7 +161,9 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**türü** | yok | "TimerTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
 |**yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**adı** | yok | İşlev kodu Zamanlayıcı nesneyi temsil eden değişken adı. | 
-|**zamanlama**|**ScheduleExpression**|Tüketim plan üzerinde CRON ifade ile zamanlama tanımlayabilirsiniz. Bir uygulama hizmeti planı kullanıyorsanız, ayrıca kullanabileceğiniz bir `TimeSpan` dize. Aşağıdaki bölümlerde CRON ifadeler açıklanmaktadır. Bir uygulama ayarı zamanlama ifadeyi ve bu özellik sarmalanmış bir değere ayarlayın  **%**  Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithCRONExpression %". Yerel olarak geliştirirken, uygulama ayarları değerlerini gidin [local.settings.json dosya](functions-run-local.md#local-settings-file).|
+|**zamanlama**|**ScheduleExpression**|Tüketim plan üzerinde CRON ifade ile zamanlama tanımlayabilirsiniz. Bir uygulama hizmeti planı kullanıyorsanız, ayrıca kullanabileceğiniz bir `TimeSpan` dize. Aşağıdaki bölümlerde CRON ifadeler açıklanmaktadır. Bir uygulama ayarı zamanlama ifadeyi ve bu özellik sarmalanmış bir değere ayarlayın  **%**  Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithCRONExpression %". |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### <a name="cron-format"></a>CRON biçimi 
 

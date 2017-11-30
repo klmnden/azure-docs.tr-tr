@@ -15,8 +15,8 @@ ms.topic: sample
 ms.date: 11/17/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: c4a02bd06b8d0b3b99055760d345b5a824bbb946
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 3b97cee11c9a85cbd60a05bdbdcd010a0f0a106f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017

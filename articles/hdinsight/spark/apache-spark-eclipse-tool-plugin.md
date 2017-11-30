@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c609f3af1b97b16fca3aabc5d7ce568ff8c660f2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse için Azure Araç Seti Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın
 
@@ -86,10 +86,7 @@ Eclipse açtığınızda, Hdınsight aracı otomatik olarak eklenti Scala yükl�
    * İçinde **Spark Kitaplığı** alanı seçebilirsiniz **kullanım Spark SDK'yı yapılandırmak için Maven** seçeneği.  Aracımız uygun sürüm Spark SDK Scala SDK'sı için çalışır. Ayrıca seçebilirsiniz **Spark SDK el ile eklemeniz** seçeneği indirin ve Spark SDK'sı tarafından el ile ekleyin.
 
    ![Yeni Hdınsight Scala proje iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. Bilinen bir sorun nedeniyle scala sürüm yeniden tıkladıktan sonra onaylamanız **sonraki**. Adım 4 seçimini yakın scala sürüm olduğundan emin olun.
-
-   ![comfirm scala kitaplığı](./media/apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
-6. Sonraki iletişim kutusunda seçin **son**. 
+5. Sonraki iletişim kutusunda seçin **son**. 
    
   
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>Hdınsight Spark kümesinde için Scala uygulama oluşturma

@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c9be948a7328b0f535d8683e6cdc695a01654a94
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dc12037928d5cc62c35535d45cf674865e3bfe25
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Yapı multi-Factor Authentication özel uygulamalar (SDK)
 
 > [!IMPORTANT]
-> Kullanımdan kaldırma, Azure çok faktörlü kimlik doğrulaması Yazılım Geliştirme Seti (SDK) açıklandı. Bu özellik artık yeni müşteriler için desteklenmez. Geçerli müşteriler, 14 Kasım 2018 kadar SDK'sını kullanmaya devam edebilirsiniz. Bundan sonra SDK çağrıları başarısız olur. 
+> Azure Multi-Factor Authentication Yazılım Geliştirme Seti’nin (SDK) kullanımdan kaldırılacağı duyurulmuştur. Bu özellik artık yeni müşteriler için desteklenmez. Mevcut müşteriler 14 Kasım 2018’e kadar SDK'yı kullanmaya devam edebilir. O tarihten sonra SDK çağrıları başarısız olacaktır. 
 
 Azure çok faktörlü kimlik doğrulaması Yazılım Geliştirme Seti (SDK) iki aşamalı doğrulama özelliklerini doğrudan oturum açma veya işlem işlemler Azure AD kiracınıza uygulamaların oluşturmanıza olanak sağlar.
 

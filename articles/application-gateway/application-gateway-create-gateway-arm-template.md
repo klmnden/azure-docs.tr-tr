@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ve performans yönlendirmeli HTTP istekleri sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok uygulama teslim denetleyicisi (ADC) özelliği sunar. Desteklenen özelliklerin tam listesi için ziyaret edin [uygulama ağ geçidi'ne genel bakış](application-gateway-introduction.md)
 
-Bu makalede, indirme ve var olan bir Azure Resource Manager şablonunu github'dan değiştirme ve şablonu GitHub, PowerShell ve Azure CLI dağıtımı aracılığıyla anlatılmaktadır.
+Bu makalede indiriliyor ve var olan değiştirme aracılığıyla anlatılmaktadır [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) GitHub ve şablonu GitHub, PowerShell ve Azure CLI dağıtma.
 
-Azure Resource Manager şablonunu hiçbir değişiklik yapmadan doğrudan GitHub'dan dağıtıyorsanız, GitHub'dan şablon dağıtma bölümüne atlayın.
+Sadece şablon herhangi bir değişiklik yapmadan doğrudan github'dan dağıtıyorsanız, github'dan şablon dağıtma bölümüne atlayın.
 
 ## <a name="scenario"></a>Senaryo
 
@@ -75,9 +75,6 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
    * **type**. Şablon tarafından oluşturulan kaynak türü. Bu durumda, türüdür `Microsoft.Network/applicationGateways`, bir uygulama ağ geçidini temsil eder.
    * **name**. Kaynağın adı. Kullanımına dikkat edin `[parameters('applicationGatewayName')]`, adı giriş olarak sizin tarafınızdan veya bir parametre dosyası dağıtımı sırasında sağlanan anlamına gelir.
    * **properties**. Kaynak özelliklerinin listesi. Bu şablon, uygulama ağ geçidi oluştururken sanal ağı ve genel IP adresini kullanır.
-
-   > [!NOTE]
-   > Şablonlar hakkında daha fazla bilgi için ziyaret edin: [Resource Manager şablonları başvurusu](/templates/)
 
 1. Geri gidin [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Tıklatın **azuredeploy-parameters.json**ve ardından **RAW**.

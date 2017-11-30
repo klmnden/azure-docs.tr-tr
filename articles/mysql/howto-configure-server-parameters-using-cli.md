@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/12/2017
-ms.openlocfilehash: 3b811376e4c5445ee74124553c6bce247e4f8faf
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 11/28/2017
+ms.openlocfilehash: 6a0d218a9b9cb41a87264cfd5f653bb631b0bce9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Azure CLI kullanarak sunucu yapılandırma parametreleri özelleştirme
 Listesinde, Göster ve Azure CLI, Azure komut satırı yardımcı programını kullanarak bir Azure veritabanı için MySQL sunucusu için yapılandırma parametreleri güncelleştirin. Bir alt kümesini altyapısı yapılandırmaları sunucu düzeyinde gösterilir ve değiştirilebilir. 
@@ -25,7 +25,7 @@ Nasıl yapılır bu kılavuzu adım için gerekir:
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) komut satırı yardımcı programı veya tarayıcıda Azure bulut Kabuğu'nu kullanın.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Itanium tabanlı sistemler için liste sunucu yapılandırma parametreleri Azure veritabanı için MySQL sunucusu için
-Tüm değiştirilebilir parametreler bir sunucu ve değerlerine listelemek için Çalıştır [az mysql server yapılandırma listesi](/cli/azure/mysql/server/configuration#list) komutu.
+Tüm değiştirilebilir parametreler bir sunucu ve değerlerine listelemek için Çalıştır [az mysql server yapılandırma listesi](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) komutu.
 
 Sunucusu için sunucu yapılandırma parametrelerini listeleyebilirsiniz **myserver4demo.mysql.database.azure.com** kaynak grubu altında **myresourcegroup**.
 ```azurecli-interactive
@@ -41,7 +41,7 @@ Bu örnek ayrıntılarını gösterir **yavaş\_sorgu\_günlük** sunucusu için
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server myserver4demo
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>Sunucu Yapılandırma parametresi değerini değiştirin
-MySQL server altyapısı için temel yapılandırma değeri güncelleştiren bir belirli sunucu yapılandırma parametresinin değerini de değiştirebilirsiniz. Yapılandırmasını güncelleştirmek için kullanmak [az mysql server yapılandırma kümesi](/cli/azure/mysql/server/configuration#set) komutu. 
+MySQL server altyapısı için temel yapılandırma değeri güncelleştiren bir belirli sunucu yapılandırma parametresinin değerini de değiştirebilirsiniz. Yapılandırmasını güncelleştirmek için kullanmak [az mysql server yapılandırma kümesi](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) komutu. 
 
 Güncelleştirilecek **yavaş\_sorgu\_günlük** sunucu yapılandırma parametresi sunucunun **myserver4demo.mysql.database.azure.com** kaynak grubu altında  **myresourcegroup.**
 ```azurecli-interactive

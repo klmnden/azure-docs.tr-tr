@@ -8,15 +8,15 @@ ms.assetid:
 ms.service: backup
 ms.workload: storage-backup-recovery
 keywords: 
-ms.date: 05/15/2017
+ms.date: 11/28/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 45e3e7e1288c9c468619bd553963cfd018298c32
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Sunucusu koruma matrisi
 
@@ -91,7 +91,7 @@ Bu makalede, çeşitli sunucular ve Azure yedekleme sunucusu ile Koruyabileceği
 |Hyper-V konağı - Hyper-V konak sunucusu, küme veya VM üzerindeki DPM koruma Aracısı|Windows Server 2008 R2 SP1 - Enterprise ve Standard|Fiziksel sunucu<br /><br />Şirket içi Hyper-V sanal makine|E|E|Koruma: Hyper-V bilgisayarları, Küme Paylaşılan birimleri (CSV)<br /><br />Kurtarma: sanal makine, dosya ve klasör, birimler, sanal sabit disk sürücüler öğe düzeyinde kurtarma|
 |Hyper-V konağı - Hyper-V konak sunucusu, küme veya VM üzerindeki DPM koruma Aracısı|Windows Server 2008|Fiziksel sunucu<br /><br />Şirket içi Hyper-V sanal makine|N|N|Koruma: Hyper-V bilgisayarları, Küme Paylaşılan birimleri (CSV)<br /><br />Kurtarma: sanal makine, dosya ve klasör, birimler, sanal sabit disk sürücüler öğe düzeyinde kurtarma|
 |VMware Sanal Makineleri|VMware server 5.5 veya 6.0 veya 6.5 |Şirket içi Hyper-V sanal makine|E|Y (UR1 ile)|Küme Paylaşılan birimleri (CSV), NFS VMware Vm'lerinde ve SAN depolama alanı<br /> Dosya ve klasörlerin yalnızca Windows için kullanılabilir öğe düzeyinde kurtarma<br /> VMware Vapps'yi desteklenmiyor|
-|Linux|Hyper-V veya VMware Konuğu olarak çalıştırılan Linux|Şirket içi Hyper-V sanal makine|E|E|Hyper-V, Windows Server 2012 R2 veya Windows Server 2016 üzerinde çalışmalıdır. Koru: Tüm sanal makine<br /><br />Kurtarma: Tüm sanal makine|
+|Linux|Hyper-V veya VMware Konuğu olarak çalıştırılan Linux|Şirket içi Hyper-V sanal makine|E|E|Hyper-V, Windows Server 2012 R2 veya Windows Server 2016 üzerinde çalışmalıdır. Koru: Tüm sanal makine<br /><br />Kurtarma: Tüm sanal makine <br/><br/> Makale desteklenen Linux dağıtımları ve sürümleri tam listesi için bkz: [tarafından Azure destekli dağıtımlar Linux'ta](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="cluster-support"></a>Küme desteği
 Azure yedekleme sunucusu aşağıdaki kümelenmiş uygulamalarda verileri koruyabilir:

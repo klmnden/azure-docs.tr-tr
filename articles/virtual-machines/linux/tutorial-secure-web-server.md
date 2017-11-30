@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e3ad8a5c08b739d8b2c6e224db0c8f88c1893ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2d6a0b00704e1d97be9a4c5bd00ba37374419e5
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Bir web sunucusu ile SSL sertifikalarını azure'da bir Linux sanal makinede güvenli
 Web sunucularının güvenliğini sağlamak için bir Güvenli Yuva daha sonra (SSL) sertifikası web trafiğini şifrelemek için kullanılabilir. Bu SSL sertifikalarını Azure anahtar kasası depolanabilir ve Azure'da, Linux sanal makineleri (VM'ler) sertifikalarının güvenli dağıtımlar sağlar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -60,7 +60,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Bir sertifika oluşturmak ve anahtar kasasına depolamak
-Üretim kullanımı için güvenilen bir sağlayıcı tarafından imzalanmış geçerli bir sertifika almanız gerekir [az keyvault sertifika alma](/cli/azure/certificate#import). Bu öğretici için aşağıdaki örnek, otomatik olarak imzalanan bir sertifika ile nasıl oluşturabileceğiniz gösterir [az keyvault sertifika oluştur](/cli/azure/certificate#create) varsayılan sertifika ilkesi kullanır:
+Üretim kullanımı için güvenilen bir sağlayıcı tarafından imzalanmış geçerli bir sertifika almanız gerekir [az keyvault sertifika alma](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Bu öğretici için aşağıdaki örnek, otomatik olarak imzalanan bir sertifika ile nasıl oluşturabileceğiniz gösterir [az keyvault sertifika oluştur](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) varsayılan sertifika ilkesi kullanır:
 
 ```azurecli-interactive 
 az keyvault certificate create \

@@ -1,25 +1,29 @@
-| Tür | Hizmet | Tetikleyici * | Girdi | Çıktı |  
-| --- | --- | --- | --- | --- |  
-| [Zamanlama](../articles/azure-functions/functions-bindings-timer.md)  |Azure İşlevleri |✔ | | |  
-| [HTTP (REST veya Web kancası)](../articles/azure-functions/functions-bindings-http-webhook.md) |Azure İşlevleri |✔ |  |✔\** |  
-| [Blob Depolama](../articles/azure-functions/functions-bindings-storage-blob.md) |Azure Storage |✔ |✔ |✔ |  
-| [Olaylar](../articles/azure-functions/functions-bindings-event-hubs.md) |Azure Event Hubs |✔ | |✔ |  
-| [Kuyruklar](../articles/azure-functions/functions-bindings-storage-queue.md) |Azure Storage |✔ | |✔ |  
-| [Kuyruklar ve konu başlıkları](../articles/azure-functions/functions-bindings-service-bus.md) |Azure Service Bus |✔ | |✔ |  
-| [Depolama tabloları](../articles/azure-functions/functions-bindings-storage-table.md) |Azure Storage | |✔ |✔ |  
-| [SQL tabloları](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure Mobile Apps | |✔ |✔ |  
-| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB |✔ |✔ |✔ |  
-| [Anında İletme Bildirimleri](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure Notification Hubs | | |✔ |  
-| [Twilio SMS metni](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
-| [SendGrid e-posta](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
-| [Excel tabloları](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
-| [OneDrive dosyalarını](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
-| [Outlook e-posta](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | | |✔ |
-| [Microsoft Graph olayları](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph |✔ |✔ |✔ |
-| [Kimlik doğrulama belirteçleri](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ | |
+Aşağıdaki tabloda Azure işlevleri çalışma zamanı ana iki sürümleri desteklenir bağlamaları gösterir.
 
-(\* -Tüm Tetikleyicileri giriş verisi ilişkilendirdiğiniz)
+| Tür | 1.x | 2.x | Tetikleyici | Girdi | Çıktı |  
+| ---- | :-: | :-: | :------: | :---: | :----: |
+| [Blob Depolama](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|  
+| [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔<sup>1</sup>|✔|✔|✔|  
+| [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|  
+| [Dış dosya](../articles/azure-functions/functions-bindings-external-file.md)<sup>2</sup>    |✔|| |✔|✔|  
+| [Dış tablo](../articles/azure-functions/functions-bindings-external-table.md)<sup>2</sup>  |✔|| |✔|✔|  
+| [HTTP](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
+| [Microsoft Graph<br/>Excel tabloları](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔<sup>1</sup>| |✔|✔|
+| [Microsoft Graph<br/>OneDrive dosyaları](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔<sup>1</sup>| |✔|✔|
+| [Microsoft Graph<br/>Outlook e-posta](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔<sup>1</sup>| | |✔|
+| [Microsoft Graph<br/>olayları](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔<sup>1</sup>|✔|✔|✔|
+| [Microsoft Graph<br/>kimlik doğrulama belirteçleri](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔<sup>1</sup>| |✔| |
+| [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔|✔<sup>1</sup>| |✔|✔|  
+| [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
+| [Kuyruk depolama](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|  
+| [SendGrid](../articles/azure-functions/functions-bindings-sendgrid.md)                   |✔|✔<sup>1</sup>| | |✔|
+| [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)             |✔|✔<sup>1</sup>|✔| |✔|  
+| [Tablo depolama](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔| |✔|✔|  
+| [Zamanlayıcı](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
+| [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔<sup>1</sup>| | |✔|
+| [Web kancaları](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔||✔| |✔|
+  
+<sup>1</sup> 2.x bağlama uzantısında olarak kayıtlı olması gerekir. Bkz: [bilinen sorunlar 2.x içinde](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
-(\**-HTTP bağlama çıktı bir HTTP tetikleyicisi gerektirir)
-
+<sup>2</sup> Experimental &mdash; desteklenen ve gelecekte durdurulmuş.
 

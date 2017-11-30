@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Trafik Yöneticisi sık sorulan sorular (SSS)
 
@@ -277,7 +277,7 @@ Azure Resource Manager bu kaynak grubunda dağıtılan kaynaklar için varsayıl
 
 Genel profil yanı sıra her bitiş geçerli izleme durumunu Azure Portalı'nda görüntülenir. Bu bilgiler ayrıca trafiği İzleyicisi kullanılabilir [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlet'leri](https://msdn.microsoft.com/library/mt125941.aspx), ve [platformlar arası Azure CLI](../cli-install-nodejs.md).
 
-Azure son uç noktası durumu hakkında geçmiş bilgileri veya uç nokta durumu değişiklikleri ilgili uyarılar verecek şekilde özelliği sağlamaz.
+Uç noktalarınızı sağlığını izlemek ve bunları görsel gösterimi görmek için Azure İzleyicisi'ni de kullanabilirsiniz. Azure İzleyicisi'ni kullanma hakkında daha fazla bilgi için bkz: [Azure Monitoring belgelerine](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>HTTPS uç noktalarının izleyebilir mi?
 
@@ -288,6 +288,10 @@ Trafik Yöneticisi tüm sertifika doğrulaması sağlayamazsınız dahil olmak �
 * Sunucu tarafı sertifikalar doğrulanmaz
 * SNI sunucu tarafı sertifikalar desteklenmez
 * İstemci sertifikalarını desteklenmez.
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Bir Azure bulut hizmeti durduruldu / web uygulama uç noktasını Traffic Manager Profilim ancak bile t yeniden sonra herhangi bir trafik alıyorum değil. Bu nasıl çözebilir mi?
+
+Ne zaman bir Azure bulut hizmeti / uygulama bitiş noktası web sistem durumu denetimi durdurulmuş trafik Yöneticisi durakları olan ve yalnızca uç nokta başlatıldı algılandıktan sonra sistem durumu denetimleri yeniden başlatır. Bu gecikmeyi önlemek için devre dışı bırakın ve uç nokta yeniden başlatıldıktan sonra bu trafik Yöneticisi Profil uç noktasını yeniden etkinleştirin.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Uygulamam HTTP veya HTTPS desteği yoksa bile trafik Yöneticisi kullanabilir miyim?
 

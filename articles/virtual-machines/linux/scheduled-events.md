@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: e8e943db5a48f8fbbcd63a448abe34b66f5f987a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 2df39c64470e28bdf664d388041ae1b17d80db69
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler zamanlanmış olaylar (Önizleme)
 
@@ -61,25 +61,41 @@ Zamanlanmış olayları teslim edilir:
 Sonuç olarak, denetlemelisiniz `Resources` hangi VM'ler etkilenir olacak tanımlamak için olay alanındaki.
 
 ### <a name="discovering-the-endpoint"></a>Uç nokta keşfetme
+VNET VM'ler etkin zamanlanmış olayları en son sürümü için tam uç noktadır: 
+
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+
 Bir sanal makine bir sanal ağ (VNet) içinde oluşturulduğu olduğu durumda meta veri hizmeti bir statik yönlendirilemeyen bir IP, kullanılabilir `169.254.169.254`.
-Bulut Hizmetleri ve klasik sanal makineleri için varsayılan durumlar bir sanal ağ içinde sanal makine oluşturulmamışsa ek mantık kullanmak için uç nokta bulmak için gereklidir. Bilgi edinmek için bu örneğe bakın nasıl [konak uç noktası bulunamadı](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Bulut Hizmetleri ve klasik sanal makineleri için varsayılan durumlar bir sanal ağ içinde sanal makine oluşturulmamışsa ek mantık kullanılacak IP adresini bulmak için gereklidir. Bilgi edinmek için bu örneğe bakın nasıl [konak uç noktası bulunamadı](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Sürüm oluşturma 
-Örnek meta veri sürümü tutulan hizmetidir. Sürümleri zorunludur ve geçerli sürümü `2017-03-01`.
+Zamanlanmış olayları sürümlü hizmetidir. Sürümleri zorunludur ve geçerli sürümü `2017-08-01`.
+
+| Sürüm | Sürüm Notları | 
+| - | - | 
+| 2017-08-01 | <li> Iaas VM'ler için kaynak adları alt çizgi $a kaldırıldı<br><li>Tüm istekler için zorlanan meta verileri üstbilgi gereksinimi | 
+| 2017-03-01 | <li>Genel Önizleme sürümü
+
 
 > [!NOTE] 
 > Önceki Önizleme sürümleri {son} API sürümü desteklenen zamanlanmış olaylar. Bu biçim artık desteklenmemektedir ve gelecekte kullanım dışı kalacaktır.
 
 ### <a name="using-headers"></a>Üst bilgileri kullanma
-Meta veri hizmeti sorguladığınızda başlık sağlamalısınız `Metadata: true` istek istemeden yönlendirilmeyen emin olmak için.
+Meta veri hizmeti sorguladığınızda başlık sağlamalısınız `Metadata:true` istek istemeden yönlendirilmeyen emin olmak için. `Metadata:true` Üstbilgisi tüm zamanlanmış olaylar istekler için gereklidir. Hata istek üstbilgisini meta veri hizmetinden hatalı istek yanıtı neden olur.
 
 ### <a name="enabling-scheduled-events"></a>Zamanlanmış olayları etkinleştirme
 Zamanlanmış olaylar, istekte ilk kez Azure örtük olarak sanal makinenizde özelliği sağlar. Sonuç olarak, iki dakika içinde ilk çağrıda Gecikmeli yanıt beklemelisiniz.
+
+> [!NOTE]
+> Zamanlanmış olayları otomatik olarak devre dışıdır hizmetiniz için hizmet uç noktası için 1 gün değil çağırırsanız. Zamanlanmış olayları hizmetiniz için devre dışı bırakıldığında, kullanıcı tarafından başlatılan bakım için oluşturulan olaylar olmayacak.
 
 ### <a name="user-initiated-maintenance"></a>Kullanıcı tarafından başlatılan bakım
 Sanal makine Bakımı Azure portalı üzerinden, API, CLI, kullanıcı tarafından başlatılan veya PowerShell zamanlanmış bir olayı sonuçlanır. Bu bakım hazırlık mantığı uygulamanıza test etmenizi sağlar ve kullanıcı tarafından başlatılan bakım için hazırlamak uygulamanızı sağlar.
 
 Bir sanal makinenin yeniden başlatılması zamanlar türüne sahip bir olay `Reboot`. Bir sanal makineyi dağıtarak zamanlar türüne sahip bir olay `Redeploy`.
+
+> [!NOTE] 
+> Şu anda en fazla 100 kullanıcı tarafından başlatılan bakım işlemleri aynı anda zamanlanabilir.
 
 > [!NOTE] 
 > Şu anda zamanlanmış olayları kaynaklanan kullanıcı tarafından başlatılan bakım yapılandırılabilir değildir. Yapılandırılabilirlik gelecekteki bir sürümde planlanmaktadır.
@@ -89,8 +105,9 @@ Bir sanal makinenin yeniden başlatılması zamanlar türüne sahip bir olay `Re
 ### <a name="query-for-events"></a>Olaylar için sorgu
 Aşağıdaki çağrıyı yaparak zamanlanmış olaylar için sorgulama yapabilirsiniz:
 
+#### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 Bir yanıt zamanlanmış olaylar dizisini içerir. Boş bir dizi var. şu anda zamanlanmış bir olay yok demektir.
@@ -134,15 +151,24 @@ Her olay zamanlanmış bir minimum süre gelecekte olay türüne bağlı. Bu sü
 
 Yaklaşan olay öğrenilen ve normal olarak kapatmak için mantığınızı tamamlandı sonra yaparak bekleyen olay onaylayabilirsiniz bir `POST` çağrısı ile meta veri hizmetine `EventId`. Bu, en düşük bildirim kısaltabilir Azure'a gösterir (uygunsa) süresi. 
 
+Beklenen json aşağıdadır `POST` iste gövde. İstek listesi içermelidir `StartRequests`. Her `StartRequest` içeren `EventId` hızlandırmak istediğiniz olayı için:
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+{
+    "StartRequests" : [
+        {
+            "EventId": {EventId}
+        }
+    ]
+}
+```
+
+#### <a name="bash-sample"></a>Bash örnek
+```
+curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
 > Bir olay aktarımının sağlayan tüm devam etmek olay `Resources` olay bildirir yalnızca sanal makine durumunda. Bu nedenle ilk makine olarak basit bildirim koordine etmek için bir kılavuz seçmediğiniz seçebileceği `Resources` alan.
-
-
-
 
 ## <a name="python-sample"></a>Python örneği 
 
@@ -189,6 +215,6 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar 
-
+- Zamanlanmış olayları kod örnekleri gözden [Azure örneği meta verileri zamanlanmış olayları Github deposuna](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Kullanılabilen API'leri hakkında daha fazla bilgiyi [örneği meta veri hizmeti](instance-metadata-service.md).
 - Hakkında bilgi edinin [planlı bakım için Linux sanal makineleri azure'da](planned-maintenance.md).

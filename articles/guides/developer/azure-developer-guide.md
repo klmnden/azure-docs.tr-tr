@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -299,7 +299,7 @@ Azure kaynakları için erişim izni verdiğinizde, her zaman belirli bir görev
 
 -   **Hizmet sorumlusu nesneleri**: kullanıcı ilkeleri ve gruplara erişim sağlamasının yanı sıra, bir hizmet sorumlusu aynı erişim verebilirsiniz.
 
-    > **Ne zaman kullanılacağı**: ne zaman, program aracılığıyla Azure kaynaklarını yönetmek veya uygulamalar için erişim verme. Daha fazla bilgi için bkz: [oluşturma Active Directory supplication ve hizmet sorumlusu](../../resource-group-create-service-principal-portal.md).
+    > **Ne zaman kullanılacağı**: ne zaman, program aracılığıyla Azure kaynaklarını yönetmek veya uygulamalar için erişim verme. Daha fazla bilgi için bkz: [oluşturma Active Directory uygulaması ve hizmet sorumlusu](../../resource-group-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Etiketler
 

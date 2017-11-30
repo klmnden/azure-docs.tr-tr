@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Azure işlevleri dış tablo bağlama (Önizleme)
 Bu makalede SaaS sağlayıcıları (örneğin, Sharepoint, Dynamics) tablo verileri işlemek işlev içinde yerleşik bağlamalarla gösterilmiştir. Azure işlevleri, harici tablolar için girdi ve çıktı bağlamaları destekler.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="api-connections"></a>API bağlantıları
+## <a name="api-connections"></a>API Bağlantıları
 
 Tablo bağlamaları ile 3. taraf SaaS sağlayıcılar kimliğini doğrulamak için harici API bağlantıları yararlanın. 
 
@@ -103,8 +103,8 @@ Veri kümeleri tablo Bağlayıcısı sağlar ve her bir veri kümesi tabloları 
 |:-----|:---|:---| 
 |**SharePoint**|Site|SharePoint listesi
 |**SQL**|Database|Tablo 
-|**Google sayfası**|Elektronik Tablo|Çalışma sayfası 
-|**Excel**|Excel dosyası|Sayfası 
+|**Google sayfası**|Elektronik tablo|Çalışma sayfası 
+|**Excel**|Excel dosyası|Sayfa 
 
 <!--
 See the language-specific sample that copies the input file to the output file.
@@ -198,4 +198,6 @@ Google belgeleri elektronik tablo adında bir çalışma sayfasıyla oluşturmak
 dataSetName "." varsayılandır
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)

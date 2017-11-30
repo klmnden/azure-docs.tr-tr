@@ -9,14 +9,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 05/03/2017
+ms.date: 11/28/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 55d6f1d10ff08fd8f0ea4aba775a96549192cef2
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 89e2192b3b5c978da4a41dea51d0ab70181b500d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure'da Docker Python ve PostgreSQL bir web uygulaması oluşturma
 
@@ -39,7 +39,7 @@ Bu öğreticiyi tamamlamak için:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Yerel PostgreSQL yüklemeyi sınamak ve bir veritabanı oluştur
 
@@ -121,7 +121,7 @@ Bu adımda, Azure PostgreSQL veritabanında oluşturun. Uygulamanızın Azure'a 
 
 ### <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Şimdi kapsayıcıları için Web uygulamasında Python uygulamanızı barındırmak için gereken kaynakları oluşturmak için Azure CLI 2.0 kullanmayı adımıdır.  [az login](/cli/azure/#login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+Şimdi kapsayıcıları için Web uygulamasında Python uygulamanızı barındırmak için gereken kaynakları oluşturmak için Azure CLI 2.0 kullanmayı adımıdır.  [az login](/cli/azure/#az_login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) ile bir [kaynak grubu](../../azure-resource-manager/resource-group-overview.md) oluşturun.
+[az group create](/cli/azure/group#az_group_create) ile bir [kaynak grubu](../../azure-resource-manager/resource-group-overview.md) oluşturun.
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,7 +139,7 @@ Aşağıdaki örnek Batı ABD bölgesinde bir kaynak grubu oluşturur:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Kullanım [az appservice listesi-konumları](/cli/azure/appservice#list-locations) listesi kullanılabilir konumlar için Azure CLI komutu.
+Kullanım [az appservice listesi-konumları](/cli/azure/appservice#az_appservice_list_locations) listesi kullanılabilir konumlar için Azure CLI komutu.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
@@ -260,7 +260,7 @@ Docker başarıyla kapsayıcı oluşturulduğu bir onay görüntüler.
 Successfully built 7548f983a36b
 ```
 
-Bir ortam değişkeni dosyasına veritabanı ortam değişkenleri eklemek *db.env*. Uygulama Azure PostgreSQL üretim veritabanına bağlanır.
+Bir ortam değişkeni dosyasına veritabanı ortam değişkenleri eklemek *db.env*. Uygulama PostgreSQL üretim veritabanı için Azure veritabanına bağlanır.
 
 ```text
 DBHOST="<postgresql_name>.postgres.database.azure.com"
@@ -364,7 +364,7 @@ Bu adımda, Docker kapsayıcısı tabanlı Python Flask uygulamanızı Azure App
 
 ### <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 
-[az appservice plan create](/cli/azure/appservice/plan#create) komutu ile bir App Service planı oluşturun.
+[az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) komutu ile bir App Service planı oluşturun.
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ Uygulama hizmeti planı oluşturulduğunda, Azure CLI bilgileri aşağıdaki ör
 
 ### <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-Bir web uygulaması oluşturma *myAppServicePlan* uygulama hizmeti planıyla [az webapp oluşturmak](/cli/azure/webapp#create) komutu.
+Bir web uygulaması oluşturma *myAppServicePlan* uygulama hizmeti planıyla [az webapp oluşturmak](/cli/azure/webapp#az_webapp_create) komutu.
 
 Web uygulaması kodunuzu dağıtmaya barındırma bir alan sağlar ve dağıtılmış uygulamanın görüntülemek bir URL sağlar. Web uygulaması oluşturmak için kullanın.
 
@@ -445,7 +445,7 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan örnekteki gibi
 
 Öğreticide daha önce PostgreSQL veritabanına bağlanmak için ortam değişkenleri tanımlı.
 
-Ortam değişkenleri olarak ayarladığınız App Service'te _uygulama ayarları_ kullanarak [az webapp config appsettings kümesi](/cli/azure/webapp/config#set) komutu.
+Ortam değişkenleri olarak ayarladığınız App Service'te _uygulama ayarları_ kullanarak [az webapp config appsettings kümesi](/cli/azure/webapp/config#az_webapp_config_appsettings_set) komutu.
 
 Aşağıdaki örnek veritabanı bağlantı ayrıntıları uygulama ayarlarını belirtir. Ayrıca kullanır *bağlantı noktası* değişkeni eşlemesine bağlantı noktası 5000 bağlantı noktası 80 üzerinde HTTP trafiği almak için Docker kapsayıcısı.
 

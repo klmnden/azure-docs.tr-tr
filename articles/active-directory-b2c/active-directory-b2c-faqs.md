@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 45ae4ab4c832e7537e6ee78c32603734fa64ad86
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -75,13 +75,13 @@ E-posta imza B2C Kiracı ilk oluşturduğunuzda belirttiğiniz B2C kiracının a
 Şu anda değiştirmek için bir yolu yoktur "den:" e-posta alan. Oy [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) doğrulama e-posta gövdesi özelleştirme ilgilendiğiniz.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Nasıl my varolan kullanıcı adları, parolalar ve profilleri my veritabanından Azure AD B2C'ye geçişini sağlayabilir miyim?
-Geçiş Aracı yazmak için Azure AD grafik API'sini kullanabilirsiniz. Bkz: [grafik API'si örnek](active-directory-b2c-devquickstarts-graph-dotnet.md) Ayrıntılar için.
+Geçiş Aracı yazmak için Azure AD grafik API'sini kullanabilirsiniz. Bkz: [Kullanıcı Geçiş Kılavuzu](active-directory-b2c-user-migration.md) Ayrıntılar için.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Parola ilkeleri, Azure AD B2C'de yerel hesaplar için kullanılır?
 Yerel hesaplar için Azure AD B2C parola ilkesi ilkesi için Azure AD temel alır. Azure AD B2C kaydı, kayıt veya oturum açma ve parola ilkeleri kullanır "güçlü" parola gücünü sıfırlamak ve parolaları süresi sona ermiyor. Okuma [Azure AD parola ilkesi](https://msdn.microsoft.com/library/azure/jj943764.aspx) daha fazla ayrıntı için.
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Azure AD B2C my şirket içi Active Directory'de depolanan tüketici kimliği geçirmek için Azure AD Connect kullanabilir miyim?
-Hayır, Azure AD Connect, Azure AD B2C ile çalışmak için tasarlanmamıştır. Kullanmayı [grafik API'si](active-directory-b2c-devquickstarts-graph-dotnet.md) kullanıcı geçişi için.
+Hayır, Azure AD Connect, Azure AD B2C ile çalışmak için tasarlanmamıştır. Kullanmayı [grafik API'si](active-directory-b2c-devquickstarts-graph-dotnet.md) kullanıcı geçişi için.  Bkz: [Kullanıcı Geçiş Kılavuzu](active-directory-b2c-user-migration.md) Ayrıntılar için.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Uygulamam IFRAME içinde Azure AD B2C sayfalar yukarı açabilir miyim?
 Hayır, güvenlik nedenleriyle, Azure AD B2C sayfaları IFRAME içinde açılamaz.  Hizmetimizi IFRAMES engellemek için tarayıcı ile iletişim kurar.  Genel ve OAUTH2 belirtimi güvenlik topluluğu tıklatın jacking riskini nedeniyle kimlik deneyimi için IFRAMES kullanmanızı karşı öneririz.

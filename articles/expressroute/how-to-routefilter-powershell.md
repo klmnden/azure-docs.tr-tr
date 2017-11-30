@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft eşliği için rota filtrelerini yapılandırın: PowerShell
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ Microsoft eşlemesini üzerinden hizmetlere başarıyla bağlanabilmek için iç
 
 Yapılandırmaya başlamadan önce aşağıdaki ölçütlere uyan emin olun:
 
- - Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. Daha fazla bilgi için bkz: [yükleyin ve Azure PowerShelll yapılandırma](/powershell/azure/install-azurerm-ps).
+ - Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. Daha fazla bilgi için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps).
 
   > [!NOTE]
   > PowerShell Galerisi yerine Yükleyicisi'ni kullanarak en son sürümü yükleyin. Yükleyici gerekli cmdlet'lerini şu anda desteklemiyor.

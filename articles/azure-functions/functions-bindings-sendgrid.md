@@ -1,56 +1,76 @@
 ---
-title: "Azure işlevleri SendGrid bağlamaları | Microsoft Docs"
-description: "Azure işlevleri SendGrid bağlamaları başvurusu"
+title: "Azure işlevleri SendGrid bağlamaları"
+description: "Azure işlevleri SendGrid bağlamaları başvurusu."
 services: functions
 documentationcenter: na
-author: rachelappel
+author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
-ms.author: rachelap
-ms.openlocfilehash: 4cdafbe05e29d8b483c6b0e1daf41a36583d7b5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: tdykstra
+ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure işlevleri SendGrid bağlamaları
 
-Bu makalede, yapılandırma ve Azure işlevlerinde SendGrid bağlamaları çalışmak açıklanmaktadır. SendGrid program aracılığıyla özelleştirilmiş e-posta göndermek için Azure işlevleri kullanabilirsiniz.
+Bu makalede kullanarak e-posta göndermek nasıl açıklanmaktadır [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) Azure işlevlerinde bağlar. Azure işlevleri için SendGrid bir çıktı bağlamayı destekler.
 
-Bu makalede, Azure işlevleri geliştiricileri için başvuru bilgilerdir. Azure işlevleri yeniyseniz, aşağıdaki kaynaklarla başlatın:
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-[İlk Azure işlevinizi oluşturma](functions-create-first-azure-function.md). 
-[C#](functions-reference-csharp.md), [F #](functions-reference-fsharp.md), veya [düğümü](functions-reference-node.md) Geliştirici başvuruları.
+## <a name="example"></a>Örnek
 
-## <a name="functionjson-for-sendgrid-bindings"></a>SendGrid bağlamaları için Function.JSON
+Dile özgü örneğe bakın:
 
-Azure işlevleri için SendGrid bir çıktı bağlama sağlar. Etkinleştirir bağlama SendGrid çıktı oluşturmak ve göndermek için program aracılığıyla e-posta. 
+* [Önceden derlenmiş C#](#c-example)
+* [C# betiği](#c-script-example)
+* [JavaScript](#javascript-example)
 
-SendGrid bağlama aşağıdaki özellikleri destekler:
+### <a name="c-example"></a>C# örnek
 
-|Özellik  |Açıklama  |
-|---------|---------|
-|**adı**| Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. |
-|**türü**| Gerekli - kümesine olmalıdır `sendGrid`.|
-|**yönü**| Gerekli - kümesine olmalıdır `out`.|
-|**apikey ile yapılan**| Gerekli - API anahtarınıza işlevi uygulamanın uygulama ayarlarında depolanan adına ayarlanması gerekir. |
-|**Hedef**| Alıcının e-posta adresi. |
-|**Kaynak**| Gönderenin e-posta adresi. |
-|**Konu**| e-postanın konusu. |
-|**metin**| e-posta içeriği. |
+Aşağıdaki örnekte gösterildiği bir [C# işlevi önceden derlenmiş](functions-dotnet-class-library.md) kullanan Service Bus kuyruğuna tetikler ve bir SendGrid çıkış bağlama.
 
-Örnek **function.json**:
+```cs
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
+
+Özniteliğin ayarı atlayabilirsiniz `ApiKey` "AzureWebJobsSendGridApiKey" adlı bir uygulama ayarı API anahtarınıza varsa özelliği.
+
+### <a name="c-script-example"></a>C# kod örneği
+
+Aşağıdaki örnek, bağlama SendGrid çıkış gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır.
+
+Veri bağlama işte *function.json* dosyası:
 
 ```json 
 {
     "bindings": [
         {
-            "name": "$return",
+            "name": "message",
             "type": "sendGrid",
             "direction": "out",
             "apiKey" : "MySendGridKey",
@@ -62,19 +82,16 @@ SendGrid bağlama aşağıdaki özellikleri destekler:
 }
 ```
 
-> [!NOTE]
-> Azure işlevleri depolar bağlantı bilgilerini ve API anahtarlarını uygulama ayarlarda böylece kaynak denetimi deponuzun denetlenmez. Bu eylem, hassas bilgilerinizi koruma sağlar.
->
->
+[Yapılandırma](#configuration) bölümde, bu özellikleri açıklanmaktadır.
 
-## <a name="c-example-of-the-sendgrid-output-binding"></a>C# SendGrid örneği bağlama çıktı
+C# betik kod aşağıdaki gibidir:
 
 ```csharp
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
 
-public static Mail Run(TraceWriter log, string input, out Mail message)
+public static void Run(TraceWriter log, string input, out Mail message)
 {
      message = new Mail
     {        
@@ -94,7 +111,31 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 }
 ```
 
-## <a name="node-example-of-the-sendgrid-output-binding"></a>Bağlama SendGrid düğümü örnek çıkış
+### <a name="javascript-example"></a>JavaScript örneği
+
+Aşağıdaki örnek, bağlama SendGrid çıkış gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır.
+
+Veri bağlama işte *function.json* dosyası:
+
+```json 
+{
+    "bindings": [
+        {
+            "name": "$return",
+            "type": "sendGrid",
+            "direction": "out",
+            "apiKey" : "MySendGridKey",
+            "to": "{ToEmail}",
+            "from": "{FromEmail}",
+            "subject": "SendGrid output bindings"
+        }
+    ]
+}
+```
+
+[Yapılandırma](#configuration) bölümde, bu özellikleri açıklanmaktadır.
+
+JavaScript kod aşağıdaki gibidir:
 
 ```javascript
 module.exports = function (context, input) {    
@@ -110,13 +151,44 @@ module.exports = function (context, input) {
 
     context.done(null, message);
 };
-
 ```
 
+## <a name="attributes"></a>Öznitelikler
+
+İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) NuGet paketi tanımlı öznitelik [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+
+Yapılandırabileceğiniz öznitelik özellikleri hakkında daha fazla bilgi için bkz: [yapılandırma](#configuration). Burada bir `SendGrid` yöntemi imza özniteliği örnekte:
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    ...
+}
+```
+
+Tam bir örnek için bkz: [önceden derlenmiş C# örnek](#c-example).
+
+## <a name="configuration"></a>Yapılandırma
+
+Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `SendGrid` özniteliği.
+
+|Function.JSON özelliği | Öznitelik özelliği |Açıklama|
+|---------|---------|----------------------|
+|**türü**|| Gerekli - kümesine olmalıdır `sendGrid`.|
+|**yönü**|| Gerekli - kümesine olmalıdır `out`.|
+|**adı**|| Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. Bu değer ```$return``` yalnızca bir dönüş değeri olduğunda. |
+|**apikey ile yapılan**|**Apikey ile yapılan**| API anahtarınızı içeren bir uygulama ayarı adı. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsSendGridApiKey" dir.|
+|**Hedef**|**Alıcı**| Alıcının e-posta adresi. |
+|**Kaynak**|**Kaynak**| Gönderenin e-posta adresi. |
+|**Konu**|**Konu**| e-postanın konusu. |
+|**metin**|**Metin**| e-posta içeriği. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure işlevleri için diğer bağlamalar ve tetikleyicileri hakkında bilgi için bkz 
-- [Azure işlevleri Tetikleyicileri ve bağlamaları Geliştirici Başvurusu](functions-triggers-bindings.md)
 
-- [En iyi uygulamalar için Azure işlevleri](functions-best-practices.md) Azure işlevleri oluşturulurken kullanılacak bazı en iyi uygulamaları listeler.
-
-- [Azure işlevleri Geliştirici Başvurusu](functions-reference.md) işlevleri kodlamak ve tetikleyicileri ve bağlamaları tanımlamak için Programcı Başvurusu.
+> [!div class="nextstepaction"]
+> [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/12/2017
+ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: 7bc0f70e99be04cd646c0b7c610f7c6e4a74dfc2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric destek seçenekleri
 
@@ -68,15 +68,15 @@ Desteklenen bir Service Fabric sürümünü çalıştıran kümenizi tutmak hakk
  
 Desteklenen Service Fabric sürümlerinin listesini ve bunların destek bitiş tarihlerini aşağıda verilmiştir.
 
-| **Service Fabric çalışma kümesi** | **Uyumlu SDK / NuGet paketi sürümleri** | **Destek tarih sonu** |
-| --- | --- | --- |
-| Tüm küme 5.3.121'den önceki sürümleri |Sürüm 2.3 küçük veya eşit |20 Ocak 2017 |
-| 5.3.* |Sürüm 2.3 küçük veya eşit |24 Şubat 2017 |
-| 5.4.* |Sürüm 2.4 küçük veya eşit |10,2017 olabilir       |
-| 5.5.* |Sürüm 2.5 küçük veya eşit |Ağustos 10,2017    |
-| 5.6.* |Sürüm 2.6 küçük veya eşit |Ekim 13,2017   |
-| 5.7.* |Sürüm 2.7 küçük veya eşit |Aralık 15,2017  |
-| 6.0.* |Sürüm 2.8 küçük veya eşit |Geçerli sürüm ve dolayısıyla bitiş tarihi
+| **Kümedeki Service Fabric çalışma zamanı** | **Doğrudan küme sürümünden yükseltme yapabilirsiniz** |**Uyumlu SDK / NuGet paketi sürümleri** | **Destek tarih sonu** |
+| --- | --- |--- | --- |
+| Tüm küme 5.3.121'den önceki sürümleri | 5.1.158* |Sürüm 2.3 küçük veya eşit |20 Ocak 2017 |
+| 5.3.* | 5.1.158.* |Sürüm 2.3 küçük veya eşit |24 Şubat 2017 |
+| 5.4.* | 5.1.158.* |Sürüm 2.4 küçük veya eşit |10,2017 olabilir       |
+| 5.5.* | 5.4.164.* |Sürüm 2.5 küçük veya eşit |Ağustos 10,2017    |
+| 5.6.* | 5.4.164.* |Sürüm 2.6 küçük veya eşit |Ekim 13,2017   |
+| 5.7.* | 5.4.164.* |Sürüm 2.7 küçük veya eşit |Aralık 15,2017  |
+| 6.0.* | 5.6.205.* |Sürüm 2.8 küçük veya eşit |Geçerli sürüm ve dolayısıyla bitiş tarihi |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric Önizleme sürümlerini - üretim kullanımı için desteklenmiyor.
 Zaman zaman önizlemeleri sunulan, geri bildirim istiyoruz önemli özellikleri olan sürümleri bırakın. Bu önizleme sürümleri yalnızca sınama amacıyla kullanılmalıdır. Üretim kümenizi her zaman bir desteklenen ve kararlı, Service Fabric sürümünü çalıştırması gerekir. Önizleme sürümü her zaman 255 birincil ve ikincil sürüm numarası ile başlar. Örneğin, Service Fabric sürümü 255.255.5703.949 görürseniz, bu sürümü yalnızca test kümelerde kullanılacak ve önizleme aşamasındadır. Bu önizleme sürümleri de üzerinde duyurulur [Service Fabric ekip blogu](https://blogs.msdn.microsoft.com/azureservicefabric) ve dahil edilen özellikler ayrıntıları sahip olacaktır.

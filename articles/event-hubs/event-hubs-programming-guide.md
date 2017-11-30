@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/16/2017
 ms.author: sethm
-ms.openlocfilehash: d6cc4d95adb52b5b0bfc4b674ade878af764a3e7
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7d5f14d5a65253cf0aad1811ace419bf2f39f7db
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="event-hubs-programming-guide"></a>Event Hubs programlama kılavuzu
 
@@ -117,7 +117,7 @@ Olayların toplu olarak gönderilmesi yardımcı verimliliğini artırmak. [Send
 public void SendBatch(IEnumerable<EventData> eventDataList);
 ```
 
-Tek bir toplu iş olayın 256 KB’lik sınırını aşmamalıdır. Ayrıca, toplu işteki her bir ileti aynı yayımcı kimliğini kullanır. Toplu işin en büyük olay boyutu aşmamasını sağlamak gönderenin sorumluluğundadır. Aşması durumunda bir istemci **Gönderme** hatası oluşturulur. Yardımcı sınıfı kullanabilirsiniz [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) toplu 256 KB aşmadığından emin olmak için. Boş bir get [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) gelen [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) API ve ardından [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) toplu oluşturmak için olay eklemek için. Son olarak, [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) geçirilecek temelindeki olayları almak için [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) API.
+Tek bir toplu iş olayın 256 KB’lik sınırını aşmamalıdır. Ayrıca, toplu işteki her bir ileti aynı yayımcı kimliğini kullanır. Toplu işin en büyük olay boyutu aşmamasını sağlamak gönderenin sorumluluğundadır. Aşması durumunda bir istemci **Gönderme** hatası oluşturulur. Yardımcı yöntemi kullanabileceğiniz [EventHubClient.CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) toplu 256 KB aşmadığından emin olmak için. Boş bir get [EventDataBatch](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch) gelen [CreateBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.createbatch) API ve ardından [TryAdd](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.tryadd#Microsoft_ServiceBus_Messaging_EventDataBatch_TryAdd_Microsoft_ServiceBus_Messaging_EventData_) toplu oluşturmak için olay eklemek için. Son olarak, [EventDataBatch.ToEnumerable](/dotnet/api/microsoft.servicebus.messaging.eventdatabatch.toenumerable) geçirilecek temelindeki olayları almak için [EventHubClient.Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) API.
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Zaman uyumsuz olarak gönderme ve ölçekli gönderme
 Ayrıca olayları bir event hub'ına zaman uyumsuz olarak gönderebilirsiniz. Zaman uyumsuz gönderme bir istemcinin olayları gönderebildiği hızı artırabilir. Bir [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) nesnesi döndüren zaman uyumsuz sürümlerde hem [Send](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.send) hem de [SendBatch](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendbatch) yöntemleri kullanılabilir. Bu teknik üretilen işi artırabilse de, istemcinin Event Hubs hizmeti tarafından kısıtlandığında bile olay göndermeye devam etmesine neden olabilir ve düzgün uygulanmaması durumunda istemcinin hata veya kayıp iletilerle karşılaşmasına yol açabilir. Ayrıca, istemci yeniden deneme seçeneklerini denetlemek için istemci üzerindeki [RetryPolicy](/dotnet/api/microsoft.servicebus.messaging.cliententity.retrypolicy) özelliğini kullanabilirsiniz.

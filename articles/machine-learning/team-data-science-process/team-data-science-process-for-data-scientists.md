@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: d572fe3ad01d75b76ac87b441a5397d1c1841547
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 52d6fe0757043a0a298c3fdee0478fb364074537
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Veri bilimcilerine için takım veri bilimi işlemi
 
@@ -30,6 +30,8 @@ Bu makale Azure teknolojileri ile kapsamlı veri bilimi çözümleri uygulamak i
 - veri aktarımı ve depolama temelleri
 - veri kaynağı belgeleri sağlama
 - analitik işleme için araçlarını kullanma
+
+Bu eğitim malzemelerini takım veri bilimi işlem (TDSP) ve Microsoft ve açık kaynaklı yazılım ve tasarlama, yürütme ve teslim edilmesini sağlayan veri bilimi çözümleri için faydalı araç takımları ilgilidir.
 
 ## <a name="lesson-path"></a>Ders yolu
 Kendi kendi kendine çalışma kılavuzu için aşağıdaki tabloda öğeleri kullanabilirsiniz. Okuma *açıklama* yolunu izleyin, tıklayın sütun *konu* bağlantıları için başvurular araştırmak ve yeteneklerinizi kullanarak denetleyin *bilgi denetleyin* sütun.

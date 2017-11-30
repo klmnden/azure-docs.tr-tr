@@ -1,5 +1,5 @@
 ---
-title: "Azure işlevleri Blob Depolama bağlamaları"
+title: "Azure işlevleri için Azure Blob Depolama bağlamaları"
 description: "Azure Blob Depolama Tetikleyicileri ve bağlamaları Azure işlevlerinde nasıl kullanılacağını anlayın."
 services: functions
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 576167502fdb77c98c449dc5a448323dc5b23f35
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-blob-storage-bindings"></a>Azure işlevleri Blob Depolama bağlamaları
+# <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
 Bu makalede Azure Blob Depolama bağlamaları Azure işlevlerinde ile nasıl çalışılacağını açıklar. Tetiklemek, giriş ve BLOB'lar için bağlamaları çıktı Azure işlevleri destekler.
 
@@ -30,7 +30,7 @@ Bu makalede Azure Blob Depolama bağlamaları Azure işlevlerinde ile nasıl ça
 > [!NOTE]
 > [Yalnızca BLOB Depolama hesapları](../storage/common/storage-create-storage-account.md#blob-storage-accounts) desteklenmez. BLOB Depolama Tetikleyicileri ve bağlamaları genel amaçlı depolama hesabı gerektirir. 
 
-## <a name="blob-storage-trigger"></a>BLOB Depolama tetikleyici
+## <a name="trigger"></a>Tetikleyici
 
 Yeni veya güncelleştirilmiş bir blob algılandığında bir işlev başlatmak için Blob Depolama tetikleyici kullanın. Blob içeriklerini işleve giriş olarak sağlanır.
 
@@ -59,7 +59,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Hakkında daha fazla bilgi için `BlobTrigger` özniteliği için bkz: [tetikleyici - öznitelikler için önceden derlenmiş C#](#trigger---attributes-for-precompiled-c).
+Hakkında daha fazla bilgi için `BlobTrigger` özniteliği için bkz: [tetikleyici - öznitelikleri](#trigger---attributes-for-precompiled-c).
 
 ### <a name="trigger---c-script-example"></a>Tetikleyici - C# kod örneği
 
@@ -138,7 +138,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="trigger---attributes-for-precompiled-c"></a>Tetikleyici - öznitelikler için önceden derlenmiş C#
+## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
 İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevleri, bir blob tetikleyiciyi yapılandırmak için aşağıdaki öznitelikler kullanın:
 
@@ -151,6 +151,9 @@ module.exports = function(context) {
   public static void Run(
       [BlobTrigger("sample-images/{name}")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
 
   Ayarlayabileceğiniz `Connection` özelliğini kullanmak için depolama hesabı aşağıdaki örnekte gösterildiği gibi belirtin:
@@ -160,7 +163,12 @@ module.exports = function(context) {
   public static void Run(
       [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  {
+      ....
+  }
   ```
+
+  Tam bir örnek için bkz: [tetikleyici - önceden derlenmiş C# örnek](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -173,6 +181,9 @@ module.exports = function(context) {
       [FunctionName("BlobTrigger")]
       [StorageAccount("FunctionLevelStorageAppSetting")]
       public static void Run( //...
+  {
+      ....
+  }
   ```
 
 Depolama hesabı şu sırayla belirlenir:
@@ -193,7 +204,9 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**yönü** | yok | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. Özel durumlar belirtilmiştir [kullanım](#trigger---usage) bölümü. |
 |**adı** | yok | Blob içinde işlev kodu temsil eden değişken adı. | 
 |**yol** | **BlobPath** |İzlemek için kapsayıcı.  Olabilir bir [blob adı deseni](#trigger-blob-name-patterns). | 
-|**bağlantı** | **Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Yerel olarak geliştirirken, uygulama ayarları değerlerini gidin [local.settings.json dosya](functions-run-local.md#local-settings-file).|
+|**bağlantı** | **Bağlantı** | Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
 
@@ -295,7 +308,7 @@ Tüm 5 deneme başarısız olursa, Azure işlevleri adlı bir depolama kuyruğun
 
 İzlenmekte olan blob kapsayıcısı 10. 000'den fazla BLOB'ları içeriyorsa, işlevleri çalışma zamanı taramaları için yeni veya değiştirilmiş BLOB'lar izlemek için günlük dosyalarını. Bu işlem gecikmelere yol açabilir. Blob oluşturulduktan sonra bir işlev birkaç dakika kadar veya daha uzun tetiklenen değil. Ayrıca, [depolama günlüklerine "en iyi çaba" üzerinde oluşturulan](/rest/api/storageservices/About-Storage-Analytics-Logging) temel. Tüm olayları yakalanır garantisi yoktur. Bazı koşullarda günlükleri eksik olabilir. Daha hızlı veya daha güvenilir blob işleme gerekiyorsa oluşturma göz önünde bulundurun bir [kuyruk iletisi](../storage/queues/storage-dotnet-how-to-use-queues.md) blob oluşturduğunuzda. Ardından bir [sıra tetikleyici](functions-bindings-storage-queue.md) blob işlemek için bir blob tetikleyici yerine. Olay kılavuzunu kullanın başka bir seçenektir; öğretici bkz [otomatikleştirme yeniden boyutlandırma karşıya olay kılavuz kullanarak görüntüleri](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="blob-storage-input--output-bindings"></a>BLOB Depolama girdisi & bağlamaları çıktı
+## <a name="input--output"></a>Giriş ve çıkışı
 
 Blob storage'ı kullanma giriş ve okuma ve yazma BLOB'lar için bağlamaları çıkış.
 
@@ -434,7 +447,7 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="input--output---attributes-for-precompiled-c"></a>Giriş ve çıkışı - öznitelikler için önceden derlenmiş C#
+## <a name="input--output---attributes"></a>Giriş ve çıkışı - öznitelikleri
 
 İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
@@ -445,6 +458,9 @@ module.exports = function(context) {
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+{
+    ...
+}
 ```
 
 Ayarlayabileceğiniz `Connection` özelliğini kullanmak için depolama hesabı aşağıdaki örnekte gösterildiği gibi belirtin:
@@ -454,9 +470,14 @@ Ayarlayabileceğiniz `Connection` özelliğini kullanmak için depolama hesabı 
 public static void Run(
     [BlobTrigger("sample-images/{name}")] Stream image, 
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+{
+    ...
+}
 ```
 
-Kullanabileceğiniz `StorageAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde depolama hesabı belirtin. Daha fazla bilgi için bkz: [tetikleyici - öznitelikler için önceden derlenmiş C#](#trigger---attributes-for-precompiled-c).
+Tam bir örnek için bkz: [giriş ve çıkışı - önceden derlenmiş C# örnek](#input--output---c-example).
+
+Kullanabileceğiniz `StorageAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde depolama hesabı belirtin. Daha fazla bilgi için bkz: [tetikleyici - öznitelikleri](#trigger---attributes-for-precompiled-c).
 
 ## <a name="input--output---configuration"></a>Giriş ve çıkışı - yapılandırma
 
@@ -468,8 +489,10 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**yönü** | yok | Ayarlanmalıdır `in` giriş bağlaması için veya bir çıkış bağlama için çıkış. Özel durumlar belirtilmiştir [kullanım](#input--output---usage) bölümü. |
 |**adı** | yok | Blob içinde işlev kodu temsil eden değişken adı.  Kümesine `$return` işlevi dönüş değeri başvurmak için.|
 |**yol** |**BlobPath** | Blob yolu. | 
-|**bağlantı** |**Bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Yerel olarak geliştirirken, uygulama ayarları değerlerini gidin [local.settings.json dosya](functions-run-local.md#local-settings-file).|
+|**bağlantı** |**Bağlantı**| Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, yalnızca adını buraya kalanı belirtebilirsiniz. Örneğin, ayarlarsanız `connection` bir uygulama ayarı "AzureWebJobsMyStorage." adlı "MyStorage" işlevleri çalışma zamanı arar. Bırakır `connection` boş işlevleri çalışma zamanı varsayılan depolama bağlantı dizesi adlı uygulama ayarını kullanan `AzureWebJobsStorage`.<br><br>Bağlantı dizesi için bir genel amaçlı depolama hesabı, olmamalıdır bir [yalnızca blob depolama hesabı](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
 |yok | **Erişim** | Okuma yazma veya değiştirilecek olup olmadığını gösterir. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="input--output---usage"></a>Giriş ve çıkışı - kullanım
 

@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e61c99028a2b67bd9188c239bc95dba0625b638
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>İş akışları tanımlamak ve işleri koordine etmek için hdınsight'ta Hadoop ile zamana dayalı Oozie düzenleyicisi kullanın
 Bu makalede, iş akışları ve düzenleyiciler nasıl tanımlanacağı ve zamana dayalı Düzenleyicisi işleri tetiklemek nasıl öğreneceksiniz. Geçtikleri faydalıdır [Hdınsight ile kullanım Oozie] [ hdinsight-use-oozie] önce bu makaleyi okuyun. Oozie ek olarak, Azure Data Factory kullanarak işleri de zamanlayabilirsiniz. Azure Data Factory öğrenmek için bkz: [kullanım Pig ve Hive Data Factory ile](../data-factory/transform-data.md).
@@ -82,7 +82,8 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
     <tr><td>Azure depolama hesabı adı</td><td>$storageAccountName</td><td></td><td>Bir Azure depolama hesabı Hdınsight küme için kullanılabilir. Bu öğretici için küme sağlama işlemi sırasında belirtilen varsayılan depolama hesabı kullanın.</td></tr>
     <tr><td>Azure Blob kapsayıcı adı</td><td>$containerName</td><td></td><td>Bu örnekte, varsayılan Hdınsight küme dosya sistemi için kullanılan Azure Blob Depolama kapsayıcısını kullanın. Varsayılan olarak, Hdınsight kümesi ile aynı ada sahip.</td></tr>
     </table>
-* **Bir Azure SQL veritabanı**. İş istasyonunuzu erişime izin verecek şekilde SQL veritabanı sunucusu için bir güvenlik duvarını yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve Güvenlik Duvarı'nı yapılandırma hakkında yönergeler için bkz. [Azure SQL veritabanı ile çalışmaya başlamak] [sqldatabase-get-started]. Bu makalede, Bu öğretici için gereksinim duyduğunuz Azure SQL veritabanı tablosu oluşturmak için bir Windows PowerShell komut dosyası sağlar.
+
+* **Bir Azure SQL veritabanı**. İş istasyonunuzu erişime izin verecek şekilde SQL veritabanı sunucusu için bir güvenlik duvarını yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve Güvenlik Duvarı'nı yapılandırma hakkında yönergeler için bkz: [Azure SQL veritabanını kullanmaya başlama][sqldatabase-get-started]. Bu makalede, Bu öğretici için gereksinim duyduğunuz Azure SQL veritabanı tablosu oluşturmak için bir Windows PowerShell komut dosyası sağlar.
 
     <table border = "1">
     <tr><th>SQL veritabanı özelliği</th><th>Windows PowerShell değişken adı</th><th>Değer</th><th>Açıklama</th></tr>

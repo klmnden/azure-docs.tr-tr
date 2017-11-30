@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/30/2017
-ms.openlocfilehash: 6a63cccee5be89a1da8f9656c6e7d4c7422702ca
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 11/28/2017
+ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Yedekleme ve Azure CLI kullanarak için MySQL server Azure veritabanında geri yükleme
 
@@ -39,7 +39,7 @@ Bu otomatik yedekleme özelliği ile sunucu ve veritabanlarını önceki bir tar
 ## <a name="restore-a-database-to-a-previous-point-in-time-by-using-the-azure-cli"></a>Bir veritabanı, Azure CLI kullanarak zaman içinde önceki bir noktaya geri
 Sunucu, zaman içinde önceki bir noktaya geri yüklemenizi Azure veritabanı MySQL için kullanın. Yeni bir sunucuya geri yüklenen veriler kopyalanır ve var olan sunucu olduğu gibi bırakılır. Örneğin, bir tablo bugün öğlen yanlışlıkla kesilirse zamana öğlen hemen önce geri yükleyebilirsiniz. Ardından, sunucunun geri yüklenen kopyadan eksik tablo ve veri alabilirsiniz. 
 
-Sunucuyu geri yüklemek için Azure CLI kullanma [az mysql server geri](/cli/azure/mysql/server#restore) komutu.
+Sunucuyu geri yüklemek için Azure CLI kullanma [az mysql server geri](/cli/azure/mysql/server#az_mysql_server_restore) komutu.
 
 ### <a name="run-the-restore-command"></a>Restore komutu Çalıştır
 

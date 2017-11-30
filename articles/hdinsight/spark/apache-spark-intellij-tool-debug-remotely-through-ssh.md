@@ -17,11 +17,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 6f9259ae5e8f382c6714d468004624c2cbcbbc33
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Spark uygulamalarında yerel olarak veya uzaktan Hdınsight kümesinde Azure araç seti ile SSH aracılığıyla Intellij için hata ayıklama
 
@@ -102,7 +102,7 @@ Bu hatayı gidermek için [yürütülebilir dosya indirme](http://public-repo-1.
 
 1. Erişim için **yapılandırmalarını Düzenle** menüsünde sağ üst köşedeki simgeyi seçin. Bu menüden oluşturabilir veya uzaktan hata ayıklama için yapılandırmaları düzenleyebilirsiniz.
 
-   ![Yapılandırmaları düzenle](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
+   ![Yapılandırmaları Düzenle](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-edit-configurations.png) 
 
 2. İçinde **Çalıştır/hata ayıklama yapılandırmaları** iletişim kutusunda, artı işaretini seçin (**+**). Ardından **Azure Hdınsight Spark işi** seçeneği.
 
@@ -121,7 +121,7 @@ Bu hatayı gidermek için [yürütülebilir dosya indirme](http://public-repo-1.
    
    ![Uzak Çalıştır düğmesi](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-7. Sağ panelde çalışan günlüğüne görmek istemiyorsanız, tıklayabilirsiniz **Bağlantıyı Kes** düğmesi. Ancak, arka uçta çalışmaya devam ediyor ve sonucunu sol panelinde görüntülenir.
+7. Tıklatın **Bağlantıyı Kes** gönderme günlükleri sol panelde gösterilmiyor düğmesi. Ancak, arka uçta hala çalışıyor.
 
    ![Uzak Çalıştır düğmesi](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 

@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 11/29/2017
 ms.author: dobett
-ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1e22a4378caf69d2077d79f78682c4d438dbcd2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>İleti yollarını ve özel uç noktaları için cihaz bulut iletilerini kullanın
 
@@ -33,6 +33,8 @@ IOT hub'ı etkinleştirir, yönlendirmek [cihaz bulut iletilerini] [ lnk-device-
 Tek bir ileti içinde durum IOT hub'ı iletiyi her eşleşen kuralla ilişkili uç teslim birden çok yönlendirme kuralları koşula eşleşmiyor olabilir. Tümü aynı hedefe sahip birden çok ileti eşleşirse kuralları için IOT hub'ı da otomatik olarak ileti teslimi, deduplicates, onu yalnızca bu hedefe kez yazılır.
 
 IOT hub'ı varsayılan olan [yerleşik uç nokta][lnk-built-in]. Hub'ına diğer hizmetler aboneliğinizde bağlayarak iletileri yönlendirmek için özel uç noktaları oluşturabilirsiniz. IOT hub'ı şu anda Azure Storage kapsayıcıları, olay hub'ları, Service Bus kuyrukları ve Service Bus konu başlıklarını özel uç noktalar olarak destekler.
+
+Yönlendirme ve özel uç noktaları kullandığınızda, tüm kurallar eşleşmiyorsa iletiler yalnızca yerleşik uç noktasına teslim edilir. Yerleşik uç da özel bir uç noktası için iletileri sunmak için iletileri gönderen yol eklemek **olayları** uç noktası.
 
 > [!NOTE]
 > IOT Hub, yalnızca Azure Storage kapsayıcıları bloblar için veri yazma destekler.

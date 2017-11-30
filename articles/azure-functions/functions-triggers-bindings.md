@@ -1,5 +1,5 @@
 ---
-title: "Tetikleyicileri ve bağlamaları Azure işlevlerinde ile çalışırsınız | Microsoft Docs"
+title: "Tetikleyicileri ve bağlamaları Azure işlevlerinde ile çalışma"
 description: "Kod yürütmeyi çevrimiçi olayları ve bulut tabanlı hizmetlere bağlanmak için Azure işlevleri Tetikleyicileri ve bağlamaları kullanmayı öğrenin."
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "azure işlevleri, işlevler, olay işleme, web kancaları, dinamik işlem, sunucusuz mimari"
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 Azure işlevleri aracılığıyla Azure ve diğer hizmetleri olaylara yanıt kodu yazmanızı sağlar *Tetikleyicileri* ve *bağlamaları*. Bu makalede Tetikleyicileri kavramsal genel bakış olduğundan ve tüm bağlamaları desteklenen programlama dilleri. Tüm bağlamaları için ortak olan özellikleri aşağıda açıklanmıştır.
 
 ## <a name="overview"></a>Genel Bakış
 
-Tetikleyicileri ve bağlamaları: bir işlev nasıl çağrıldığını tanımlamanın bildirim temelli yolu ve hangi veri ile birlikte çalışır. A *tetikleyici* bir işlev nasıl çağrıldığını tanımlar. Bir işlev tam olarak bir tetikleyici olması gerekir. Tetikleyiciler genellikle işlevi tetiklenen yükü olduğu veri ilişkilendirdiniz. 
+Tetikleyicileri ve bağlamaları: bir işlev nasıl çağrıldığını tanımlamanın bildirim temelli yolu ve hangi veri ile birlikte çalışır. A *tetikleyici* bir işlev nasıl çağrıldığını tanımlar. Bir işlev tam olarak bir tetikleyici olması gerekir. Tetikleyiciler genellikle işlevi tetiklenen yükü olduğu veri ilişkilendirdiniz.
 
 Giriş ve çıkış *bağlamaları* kodunuzu içindeki verileri bağlanmak için bildirim temelli bir yolunu sağlar. Benzer şekilde tetikleyicileri, bağlantı dizeleri ve diğer özellikleri işlevi yapılandırmanızda belirtin. Bağlamaları isteğe bağlıdır ve bir işlev birden fazla giriş varsa ve bağlamaları çıktı. 
 
@@ -35,11 +34,13 @@ Tetikleyicileri ve bağlamaları kullanarak, daha fazla genel ve mu değil still
 
 Tetikleyicileri ve bağlamaları'nda yapılandırabileceğiniz **tümleştir** Azure işlevleri portalındaki sekmesindedir. Adlı bir dosya UI perde arkasında değiştirir *function.json* işlevi dizindeki dosyayı. Bu dosyayı değiştirerek düzenleyebilirsiniz **Gelişmiş Düzenleyici**.
 
-Aşağıdaki tabloda tetikleyiciler ve Azure işlevleri ile desteklenen bağlamaları gösterir. 
+## <a name="supported-bindings"></a>Desteklenen bağlamaları
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>Örnek: bağlama sırası tetikleyici ve tablo çıktısı
+Bağlamaları önizlemede veya üretim kullanımı için onaylanan olduğu hakkında bilgi için bkz: [desteklenen diller](supported-languages.md).
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>Örnek: bağlama sırası tetikleyici ve tablo çıktısı
 
 Her Azure kuyruk depolamada yeni bir ileti görüntülendiğinde, Azure Table depolama alanına yeni bir satır yazmak istediğinizi varsayalım. Bu senaryo, bir Azure kuyruk kullanarak uygulanabilir tetikleyici ve bir Azure Table Storage çıkış bağlama. 
 
@@ -126,9 +127,9 @@ Görüntülemek ve içeriğini düzenlemek için *function.json* Azure portalın
 
 Daha fazla kod örnekleri ve Azure Storage ile tümleştirme hakkında bilgi için bkz: [Azure işlevleri Tetikleyicileri ve bağlamaları Azure Storage için](functions-bindings-storage.md).
 
-### <a name="binding-direction"></a>Bağlama yönü
+## <a name="binding-direction"></a>Bağlama yönü
 
-Tüm Tetikleyicileri ve bağlamaları sahip bir `direction` özelliği:
+Tüm Tetikleyicileri ve bağlamaları sahip bir `direction` özelliğinde *function.json* dosyası:
 
 - Tetikleyiciler için her zaman yönüdür`in`
 - Giriş ve çıkış bağlamaları kullanmak `in` ve`out`
@@ -243,7 +244,7 @@ Bir tetikleyici (örneğin, bir işlev tetiklenen kuyruk iletisini) tarafından 
 
 Her tetikleyici için meta veri özelliklerini ayrıntılarını karşılık gelen başvuru konusunda açıklanmıştır. Belgeleri de kullanılabilir de **tümleştir** portal sekmesinde, **belgelerine** bağlama yapılandırma alanı aşağıdaki bölümüne.  
 
-Örneğin, bazı gecikmeler BLOB Tetikleyicileri sahip olduğundan, işlevinizi çalıştırmak için bir sıra tetikleyici kullanabilirsiniz (bkz [Blob Depolama tetikleyici](functions-bindings-storage-blob.md#blob-storage-trigger)). Kuyruk iletisini üzerinde tetiklemek için blob filename içerecektir. Kullanarak `queueTrigger` meta veri özelliği, tüm yapılandırmanızı yerine kodunuzu bu davranış belirtebilirsiniz.
+Örneğin, bazı gecikmeler BLOB Tetikleyicileri sahip olduğundan, işlevinizi çalıştırmak için bir sıra tetikleyici kullanabilirsiniz (bkz [Blob Depolama tetikleyici](functions-bindings-storage-blob.md#trigger)). Kuyruk iletisini üzerinde tetiklemek için blob filename içerecektir. Kullanarak `queueTrigger` meta veri özelliği, tüm yapılandırmanızı yerine kodunuzu bu davranış belirtebilirsiniz.
 
 ```json
   "bindings": [
@@ -321,7 +322,7 @@ Azure işlevleri aracılığıyla GUID'ler, bağlama oluşturmak için bir kolay
 }
 ```
 
-### <a name="current-time"></a>Geçerli saat
+### <a name="current-time"></a>Geçerli zaman
 
 Bağlama deyimi kullanabilirsiniz `DateTime`, çözümler için `DateTime.UtcNow`.
 

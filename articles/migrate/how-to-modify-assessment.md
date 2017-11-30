@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: 6db4ff050dbf8d4e08415226931e71f964525068
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 20aeb2073ad307952f92c8377bc9d78169f1756c
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="customize-an-assessment"></a>Bir değerlendirme özelleştirme
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/27/2017
 
     **Ayar** | **Ayrıntılar** | **Varsayılan**
     --- | --- | ---
-    **Hedef konumu** | Geçirmek istediğiniz Azure konumu. |  Yalnızca Doğu ABD şu anda desteklenmiyor.
+    **Hedef konumu** | Geçirmek istediğiniz Azure konumu. |  Batı ABD 2 varsayılan konumdur.
     **Depolama artıklığı** | Azure sanal makinelerini geçişten sonra kullanacağı depolama türü. | Yalnızca [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) çoğaltma şu anda desteklenmiyor.
     **Rahatlık faktörü** | Rahatlık, değerlendirme sırasında kullanılan arabellek faktördür. Kullanın Mevsimlik kullanımı gibi şeyler için hesabı, performans geçmişi kısa, büyük olasılıkla gelecekte kullanımını artırır. | Varsayılan ayardır 1.3 x.
     **Perfomance geçmişi** | Performans geçmişi değerlendirmede kullanılan süre. | Bir ay varsayılandır.

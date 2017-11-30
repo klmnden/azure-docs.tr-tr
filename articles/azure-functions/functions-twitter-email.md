@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 910077645b521d4cd303d39f543cf155161a31c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2d4915cf12690c98275b1fe327dd2574a6343e9e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps ile tümleşen bir işlev oluşturun
 
@@ -33,7 +33,7 @@ Bu öğretici işlevleri Logic Apps ve Microsoft Azure üzerinde Bilişsel hizme
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bilişsel Hizmetler hesabı oluşturun.
+> * Bilişsel hizmetler API kaynağı oluşturun.
 > * Tweet düşünceleri kategorilere ayıran bir işlev oluşturun.
 > * Twitter hesabına bağlanan bir mantıksal uygulama oluşturun.
 > * Düşünceleri algılama mantığı uygulamaya ekleyin. 
@@ -47,29 +47,28 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 + Bu konu başlığında, başlangıç noktası olarak [Azure portalında ilk işlevinizi oluşturma](functions-create-first-azure-function.md) bölümünde oluşturulan kaynaklar kullanılmaktadır.  
 Zaten yapmadıysanız, işlev uygulaması oluşturmak için şimdi aşağıdaki adımları tamamlayın.
 
-## <a name="create-a-cognitive-services-account"></a>Bilişsel Hizmetler hesabı oluşturma
+## <a name="create-a-cognitive-services-resource"></a>Bilişsel hizmetler kaynak oluşturma
 
-Bilişsel Hizmetler hesabı izlenmekte olan tweet'leri düşünceleri algılamak için gereklidir.
+Bilişsel hizmetler API'ları ayrı kaynaklar olarak Azure içinde kullanılabilir. Metin analizi API izlenmekte olan tweet'leri düşünceleri algılamak için kullanın.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
 2. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
 
-3. Tıklatın **veri + analiz** > **Bilişsel Hizmetler**. Ardından, tabloda belirtildiği gibi ayarları kullanmak için koşullarını kabul edin ve denetleyin **panoya Sabitle**.
+3. Tıklatın **AI + analiz** > **metin analizi API**. Ardından, tabloda belirtildiği gibi ayarları kullanmak için koşullarını kabul edin ve denetleyin **panoya Sabitle**.
 
-    ![Bilişsel hesap sayfası oluşturma](media/functions-twitter-email/cog_svcs_account.png)
+    ![Bilişsel kaynak sayfası oluşturma](media/functions-twitter-email/cog_svcs_resource.png)
 
     | Ayar      |  Önerilen değer   | Açıklama                                        |
     | --- | --- | --- |
     | **Ad** | MyCognitiveServicesAccnt | Benzersiz bir hesap adı seçin. |
-    | **API türü** | Metin Analizi API’si | Metin çözümlemek için kullanılan API.  |
-    | **Konum** | Batı ABD | Şu anda yalnızca **Batı ABD** metin analizi için kullanılabilir. |
+    | **Konum** | Batı ABD | Size en yakın konumu kullanın. |
     | **Fiyatlandırma katmanı** | F0 | En düşük katman ile başlatın. Çağrıları dışında çalıştırırsanız, daha yüksek bir katmana ölçeklendirin.|
     | **Kaynak grubu** | myResourceGroup | Aynı kaynak grubunun tüm hizmetler için bu öğreticiyi kullanın.|
 
-4. Tıklatın **oluşturma** hesabınızı oluşturmak için. Hesap oluşturulduktan sonra yeni Bilişsel hesabı panosuna sabitlediğiniz hizmetleriniz tıklatın. 
+4. Tıklatın **oluşturma** , kaynak oluşturmak için. Oluşturulduktan sonra yeni Bilişsel hizmetler kaynağınız panosuna sabitlediğiniz seçin. 
 
-5. Hesabı'nda tıklatın **anahtarları**ve ardından değerini kopyalayın **anahtar 1** ve kaydedin. Bilişsel hizmetler hesabınıza mantıksal uygulama bağlanmak için bu anahtarı kullanın. 
+5. Sol gezinti sütununda tıklatın **anahtarları**ve ardından değerini kopyalayın **anahtar 1** ve kaydedin. Mantıksal uygulama Bilişsel Hizmetleri API'sine bağlanmak için bu anahtarı kullanın. 
  
     ![Anahtarlar](media/functions-twitter-email/keys.png)
 
@@ -77,13 +76,26 @@ Bilişsel Hizmetler hesabı izlenmekte olan tweet'leri düşünceleri algılamak
 
 İşlevler bir iş akışındaki logic apps işleme görevlerini boşaltmak için harika bir yol sağlar. Bu öğretici, tweet düşünceleri puanları Bilişsel Hizmetleri'nden işlemek ve bir kategori değeri döndürmek için bir HTTP tetiklenen işlevi kullanır.  
 
-1. İşlev uygulamanızı genişletin, tıklayın  **+**  düğmesine **işlevleri**, tıklatın **HTTPTrigger** şablonu. Tür `CategorizeSentiment` işlevi için **adı** tıklatıp **oluşturma**.
+1. Tıklatın **yeni** düğmesine tıklayın ve ardından **işlem** > **işlev uygulaması**. Ardından, aşağıdaki tabloda belirtildiği gibi ayarları kullanın. Koşulları kabul edin ve ardından **panoya Sabitle**.
+
+    ![Azure işlev uygulaması oluşturma](media/functions-twitter-email/create_fun.png)
+
+    | Ayar      |  Önerilen değer   | Açıklama       |
+    | --- | --- | --- |
+    | **Ad** | MyFunctionApp | Benzersiz bir hesap adı seçin. |
+    | **Kaynak grubu** | myResourceGroup | Aynı kaynak grubunun tüm hizmetler için bu öğreticiyi kullanın.|
+    | **Barındırma planı** | Tüketim Planı | Bu, maliyet ve kullanım ayırmaları tanımlar.
+    | **Konum** | Batı ABD | Size en yakın konumu kullanın. |
+    | **Depolama** | Yeni Oluştur | Otomatik olarak yeni bir depolama hesabı oluşturur.|
+    | **Fiyatlandırma katmanı** | F0 | En düşük katman ile başlatın. Çağrıları dışında çalıştırırsanız, daha yüksek bir katmana ölçeklendirin.|
+
+2. Panodan işlevleri uygulamanızı seçin ve işlevinizi genişletin,  **+**  düğmesine **işlevleri**, tıklatın **Web kancası + API**,  **CSharp**, ardından **bu işlev oluşturma**. Bu HTTPTrigger C# şablonu kullanarak bir işlev oluşturur. Kodunuzu yeni bir pencere olarak görünür`run.csx`
 
     ![İşlev uygulamalar dikey penceresinde, İşlevler +](media/functions-twitter-email/add_fun.png)
 
-2. Run.csx dosyasının içeriğini aşağıdaki kodla değiştirin ve ardından **kaydetmek**:
+3. Değiştir `run.csx` aşağıdaki kod ile dosya ve ardından **kaydetmek**:
 
-    ```c#
+    ```csharp
     using System.Net;
     
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
@@ -110,11 +122,11 @@ Bilişsel Hizmetler hesabı izlenmekte olan tweet'leri düşünceleri algılamak
     ```
     Bu işlev kodu istekte alınan düşünceleri puan bağlı bir renk kategori döndürür. 
 
-3. İşlevi test etmek için tıklatın **Test** Test sekmesi genişletmek sağ uçta. Değerini yazın `0.2` için **istek gövdesinde**ve ardından **çalıştırmak**. Değerini **kırmızı** yanıt gövdesinde döndürülür. 
+4. İşlevi test etmek için tıklatın **Test** Test sekmesi genişletmek sağ uçta. Değerini yazın `0.2` için **istek gövdesinde**ve ardından **çalıştırmak**. Değerini **kırmızı** yanıt gövdesinde döndürülür. 
 
     ![Azure portalında işlevi test etme](./media/functions-twitter-email/test.png)
 
-Artık düşünceleri puanları kategorilere ayıran bir işlev var. Ardından, işlevinizi Twitter ve Bilişsel hizmetler hesaplarınızı ile tümleşen bir mantıksal uygulama oluşturun. 
+Artık düşünceleri puanları kategorilere ayıran bir işlev var. Ardından, işlevinizi Twitter ve Bilişsel Hizmetleri API ile tümleşen bir mantıksal uygulama oluşturun. 
 
 ## <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma   
 
@@ -124,7 +136,7 @@ Artık düşünceleri puanları kategorilere ayıran bir işlev var. Ardından, 
  
 4. Ardından, bir **adı** gibi `TweetSentiment`tablosunda belirtilen ayarları kullanmak, koşulları kabul edin ve denetleyin **panoya Sabitle**.
 
-    ![Azure portalında mantıksal uygulama oluşturma](./media/functions-twitter-email/new_logicApp.png)
+    ![Azure portalında mantıksal uygulama oluşturma](./media/functions-twitter-email/new_logic_app.png)
 
     | Ayar      |  Önerilen değer   | Açıklama                                        |
     | ----------------- | ------------ | ------------- |
@@ -152,7 +164,7 @@ Logic Apps Tasarımcısı'nı şimdi hizmetler ve tetikleyiciler uygulamanıza e
 
     | Ayar      |  Önerilen değer   | Açıklama                                        |
     | ----------------- | ------------ | ------------- |
-    | **Arama metni** | #Azure | Seçilen zaman aralığını yeni tweet'leri oluşturmak için popüler bir hashtag kullanın. Ücretsiz katmanı ve, diyez kullanarak çok popüler olduğunda, hızlı bir şekilde işlemleri Bilişsel hizmetler hesabınızı kullanabilirsiniz. |
+    | **Arama metni** | #Azure | Seçilen zaman aralığını yeni tweet'leri oluşturmak için popüler bir hashtag kullanın. Ücretsiz katmanı ve, diyez kullanarak çok popüler olduğunda, işlem kota Bilişsel hizmetler API'nizi hızlı bir şekilde kullanabilirsiniz. |
     | **Sıklık** | Dakika | Twitter yoklama için kullanılan sıklık birim.  |
     | **Aralığı** | 15 | Twitter istekler sıklığı birimleri arasında geçen süre. |
 
@@ -168,13 +180,13 @@ Artık uygulamanızı Twitter hesabına bağlıdır. Ardından, toplanan tweet'l
 
 2. İçinde **bir eylem seçin**, tıklatın **metin analizi**ve ardından **düşünceleri algılamak** eylem.
 
-    ![Düşünceleri Algıla](media/functions-twitter-email/detect_sent.png)
+    ![Yaklaşımı Algıla](media/functions-twitter-email/detect_sent.png)
 
-3. Bir bağlantı adı gibi yazın `MyCognitiveServicesConnection`kaydedilen Bilişsel Hizmetler hesabı için anahtarını yapıştırın ve tıklatın **oluşturma**.  
+3. Bir bağlantı adı gibi yazın `MyCognitiveServicesConnection`, Bilişsel Hizmetleri kaydedilmiş ve tıklatın API'nize anahtarını yapıştırın **oluşturma**.  
 
 4. Tıklatın **çözümlemek için metin** > **Tweet metin**ve ardından **kaydetmek**.  
 
-    ![Düşünceleri Algıla](media/functions-twitter-email/ds_tta.png)
+    ![Yaklaşımı Algıla](media/functions-twitter-email/ds_tta.png)
 
 Düşünceleri algılama yapılandırılır, işlevinizi düşünceleri puan çıktısını kullanan bir bağlantı ekleyebilirsiniz.
 
@@ -202,7 +214,7 @@ Bir e-posta olarak düşünceleri puanlanır zaman tetiklemek için iş akışı
 
     ![Bir koşul mantıksal uygulama ekleyin.](media/functions-twitter-email/condition.png)
 
-3. İçinde **Evet ise, hiçbir şey yapma**, tıklatın **Eylem Ekle**, arama `outlook.com`, tıklatın **bir e-posta Gönder**ve Outlook.com hesabınızda oturum açın.
+3. İçinde **ise TRUE**, tıklatın **Eylem Ekle**, arama `outlook.com`, tıklatın **bir e-posta Gönder**ve Outlook.com hesabınızda oturum açın.
     
     ![Koşul için bir eylem seçin.](media/functions-twitter-email/outlook.png)
 
@@ -211,7 +223,7 @@ Bir e-posta olarak düşünceleri puanlanır zaman tetiklemek için iş akışı
 
 4. İçinde **bir e-posta Gönder** eylem, belirtilen tabloda olarak e-posta ayarlarını kullanın. 
 
-    ![Bir e-posta eylem göndermek için e-postayı yapılandırın.](media/functions-twitter-email/sendEmail.png)
+    ![Bir e-posta eylem göndermek için e-postayı yapılandırın.](media/functions-twitter-email/send_email.png)
 
     | Ayar      |  Önerilen değer   | Açıklama  |
     | ----------------- | ------------ | ------------- |
@@ -246,7 +258,7 @@ Bir e-posta olarak düşünceleri puanlanır zaman tetiklemek için iş akışı
         return req.CreateResponse(HttpStatusCode.OK, category);
 
     > [!IMPORTANT]
-    > Bu öğreticiyi tamamladıktan sonra mantıksal uygulama devre dışı bırakmanız gerekir. Uygulama devre dışı bırakarak yürütmeleri için kartınızdan ve Bilişsel hizmetler hesabınızda işlemleri kullanarak kaçının.
+    > Bu öğreticiyi tamamladıktan sonra mantıksal uygulama devre dışı bırakmanız gerekir. Uygulama devre dışı bırakarak yürütmeleri için kartınızdan ve Bilişsel hizmetler API'sinde işlemleri kullanarak kaçının.
 
 Şimdi işlevleri Logic Apps iş akışı ile tümleştirmek için ne kadar kolay olduğunu gördünüz.
 
@@ -261,7 +273,7 @@ Mantıksal uygulama devre dışı bırakmak için **genel bakış** ve ardından
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Bilişsel Hizmetler hesabı oluşturun.
+> * Bilişsel hizmetler API kaynağı oluşturun.
 > * Tweet düşünceleri kategorilere ayıran bir işlev oluşturun.
 > * Twitter hesabına bağlanan bir mantıksal uygulama oluşturun.
 > * Düşünceleri algılama mantığı uygulamaya ekleyin. 

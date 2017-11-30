@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 16ce69855aa7505f52cd9d01dcd0843784fcb706
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f084ea3a9fb97a334f3dec90f2c9020a842bc27c
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim denetimleri 
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 11/04/2017
 
 - "**Sonra bunu**" olarak adlandırılır **denetimleri**
 
-![denetimi](./media/active-directory-conditional-access-controls/11.png)
+![Denetim](./media/active-directory-conditional-access-controls/11.png)
 
 Bir koşul deyimi, denetimleri ile birlikte bir koşullu erişim ilkesi temsil eder.
 
-![denetimi](./media/active-directory-conditional-access-controls/12.png)
+![Denetim](./media/active-directory-conditional-access-controls/12.png)
 
 Her denetimidir kişi tarafından yerine getirilmesi gereken bir gereksinim veya sistem oturum açma veya bir kısıtlama hangi kullanıcı oturum açtıktan sonra yapabilirsiniz. 
 
@@ -53,7 +53,7 @@ GRANT denetimleriyle için tamamen engelleyin veya istenen denetimleri seçerek 
 - Tüm seçilen yerine getirilmesi için denetimleri (*ve*) 
 - Bir seçili yerine getirilmesi için denetimi (*veya*)
 
-![denetimi](./media/active-directory-conditional-access-controls/17.png)
+![Denetim](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -111,7 +111,7 @@ Bu denetimler belirli dış veya özel Hizmetleri koşullu erişim denetimleri o
 
 - RSA
 
-- Trusona
+- [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 Bu hizmetler hakkında daha fazla bilgi için sağlayıcı doğrudan başvurun.
 
@@ -123,12 +123,12 @@ JSON verilerini kopyalayın ve ardından ilgili metin kutusuna yapıştırın. D
 
 Özel bir denetim oluşturmak için seçeneği olarak **Yönet** bölümünü **koşullu erişim** sayfası.
 
-![denetimi](./media/active-directory-conditional-access-controls/82.png)
+![Denetim](./media/active-directory-conditional-access-controls/82.png)
 
 Tıklatarak **yeni bir özel denetim**, denetiminizin JSON verilerini bir metin kutusu ile bir dikey pencere açılır.  
 
 
-![denetimi](./media/active-directory-conditional-access-controls/81.png)
+![Denetim](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Özel denetimler silme
@@ -152,7 +152,7 @@ Tıklatarak **yeni bir özel denetim**, denetiminizin JSON verilerini bir metin 
 
 Oturum denetimleri bir bulut uygulama içinde sınırlı deneyimi sağlar. Oturum denetimleri bulut uygulamaları tarafından zorunlu tutulmaz ve oturumla ilgili uygulama için Azure AD tarafından sağlanan ek bilgileri kullanır.
 
-![denetimi](./media/active-directory-conditional-access-controls/31.png)
+![Denetim](./media/active-directory-conditional-access-controls/31.png)
 
 ### <a name="use-app-enforced-restrictions"></a>Zorlanan uygulama kısıtlamaları kullanan
 

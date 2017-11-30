@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>SQL Database için SQL bağlantı hatalarını ve geçici hataları giderme, tanılama ve önleme
 Bu makalede, engellemek, sorun giderme, tanılama ve bağlantı hataları ve Azure SQL veritabanı ile etkileşim kurarken, istemci uygulamanız karşılaştığında geçici hataları etkisini açıklar. Yeniden deneme mantığı yapılandırmak, bağlantı dizesi oluşturma ve diğer bağlantı ayarlarını öğrenin.
@@ -40,16 +40,17 @@ SQL bağlantısı yeniden deneme veya yeniden bağlı olarak aşağıdaki kurmak
 * **Bir bağlantı try sırasında geçici bir hata oluşur**: bağlantı geciktirme birkaç saniye sonra yeniden denenmesi gerekiyor.
 * **Bir SQL sorgu komutu sırasında geçici bir hata oluşur**: komutu değil hemen yeniden denenmesi gerekiyor. Bunun yerine, bir gecikmeden sonra istemcinin yeniden bağlantı. Sonra komutu yeniden denenebilir.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>Geçici hatalar için yeniden deneme mantığı
+## <a name="retry-logic-for-transient-errors"></a>Geçici hatalar için yeniden deneme mantığı
 Yeniden deneme mantığı içerdiğinde bazen geçici bir hatayla karşılaşırsanız istemci programları daha sağlamdır.
 
 Programınızı 3 bir taraf ara yazılımı Azure SQL veritabanı ile iletişim kurduğunda, geçici hataları yeniden deneme mantığı ara yazılım içerip içermediğini satıcıyla sorgulayın.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>Yeniden deneme ilkelerini
+### <a name="principles-for-retry"></a>Yeniden deneme ilkelerini
 * Geçici bir hatadır, bir bağlantı açmak için girişiminde denenmeli.
 * Geçici bir hata ile başarısız olan bir SQL SELECT deyimi doğrudan denenmeli değil.
   
@@ -58,30 +59,31 @@ Programınızı 3 bir taraf ara yazılımı Azure SQL veritabanı ile iletişim 
   
   * Yeniden deneme mantığı, tüm veritabanı işlem tamamlandı ya da, tüm işlem geri alındı emin olmalısınız.
 
-#### <a name="other-considerations-for-retry"></a>Yeniden deneme ile diğer değerlendirmeler
+### <a name="other-considerations-for-retry"></a>Yeniden deneme ile diğer değerlendirmeler
 * Çalışma saatlerinden sonra otomatik olarak başlatılır ve sabah önce tamamlanır toplu iş programı uzun zaman aralıklarına kendi yeniden deneme girişimleri arasındaki ile çok hasta destekleyebilir.
 * Bir kullanıcı arabirimi programı sonra çok uzun bekleme vermek İnsan eğilimi hesabı.
   
   * Ancak, bu ilkeyi istekleri sistemiyle bölgesini doldurmak için birkaç saniyede yeniden denemek için çözüm olmamalıdır.
 
-#### <a name="interval-increase-between-retries"></a>Denemeler arasındaki aralığı artırma
+### <a name="interval-increase-between-retries"></a>Denemeler arasındaki aralığı artırma
 İlk, yeniden denemeden önce 5 saniye gecikme öneririz. Bulut hizmeti aşırı 5 saniye riskleri kısa bir gecikme sonrasında yeniden deneniyor. Gecikme büyümesine katlanarak, her sonraki yeniden deneme için en fazla 60 saniye.
 
 Bir tartışma *engelleme süresi* ADO.NET kullanan istemciler için kullanılabilir [SQL Server bağlantı havuzu (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Program otomatik olarak kapatılmadan önce yeniden deneme sayısı üst ayarlamak isteyebilirsiniz.
 
-#### <a name="code-samples-with-retry-logic"></a>Yeniden deneme mantığı ile kod örnekleri
-Kod örnekleri programlama dilleri, çeşitli yeniden deneme mantığı ile şu konumda mevcuttur:
+### <a name="code-samples-with-retry-logic"></a>Yeniden deneme mantığı ile kod örnekleri
+Kod örnekleri yeniden deneme mantığı ile şu konumda mevcuttur:
 
-* [SQL Database ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md)
+- [SQL ADO.NET ile resiliently bağlanma][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [PHP ile SQL resiliently bağlanma][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>Yeniden deneme mantığı test
+### <a name="test-your-retry-logic"></a>Yeniden deneme mantığı test
 Yeniden deneme mantığı sınamak için benzetimini yapmak veya programınız çalışmaya devam ederken düzeltilebilir daha hataya neden gerekir.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Ağ bağlantısını keserek test
+#### <a name="test-by-disconnecting-from-the-network"></a>Ağ bağlantısını keserek test
 Yeniden deneme mantığı sınayabilirsiniz bir program çalışırken, istemci bilgisayar ağ bağlantısını kesmek için yoludur. Hata olacaktır:
 
 * **SqlException.Number** 11001 =
@@ -98,7 +100,7 @@ Bu pratik yapmak için program başlamadan önce ağ bilgisayarınızdan çıkar
    * Daha fazla yürütme kullanarak duraklatmak **Console.ReadLine** yöntemi veya bir iletişim kutusunda Tamam düğmesi. Kullanıcı, bilgisayar ağa takılı sonra Enter tuşuna basar.
 5. Yeniden bağlanma, başarı bekleniyor girişimi.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Veritabanı adı bağlanırken yazım hatası ile test
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Veritabanı adı bağlanırken yazım hatası ile test
 Programınızı kasıtlı olarak, hata ilk bağlantı denemesine önce kullanıcı adı hatalı. Hata olacaktır:
 
 * **SqlException.Number** 18456 =
@@ -114,15 +116,15 @@ Bu pratik yapmak için programınızı programa neden olan bir çalışma zaman�
 4. 'WRONG_' kullanıcı adını kaldırın.
 5. Yeniden bağlanma, başarı bekleniyor girişimi.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Bağlantı yeniden deneme için .NET SqlConnection parametreleri
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Bağlantı yeniden deneme için .NET SqlConnection parametreleri
 İstemci programınız Azure SQL veritabanı için .NET Framework sınıf kullanarak bağlanırsa **System.Data.SqlClient.SqlConnection**, .NET 4.6.1 kullanması gereken veya daha sonra (veya .NET Core), bağlantı yeniden deneme özelliğinden yararlanabilirsiniz şekilde. Özelliğin ayrıntıları [burada](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 Oluşturduğunuzda [bağlantı dizesi](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) için **SqlConnection** nesne değerler aşağıdaki parametreleri arasında koordine:
 
@@ -138,7 +140,7 @@ Oluşturduğunuzda [bağlantı dizesi](http://msdn.microsoft.com/library/System.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>Bağlantı komutu karşılaştırması
+## <a name="connection-versus-command"></a>Bağlantı komutu karşılaştırması
 **ConnectRetryCount** ve **ConnectRetryInterval** parametreleri sağlar, **SqlConnection** nesne söyleyen veya rahatsız etme bağlanma işlemi yeniden deneyin, program, programınıza denetimi döndürme gibi. Yeniden deneme aşağıdaki durumlarda oluşabilir:
 
 * mySqlConnection.Open yöntem çağrısı
@@ -146,8 +148,9 @@ Oluşturduğunuzda [bağlantı dizesi](http://msdn.microsoft.com/library/System.
 
 Bir subtlety yoktur. Geçici bir hata oluşursa karşın, *sorgu* yürütülmekte olan, **SqlConnection** nesnesi yeniden bağlanma işlemi ve bunu kesinlikle sorgunuzu yeniden denemez. Ancak, **SqlConnection** çok hızlı bir şekilde sorgu yürütme için göndermeden önce bağlantıyı denetler. Bir bağlantı sorunu hızlı onay algılarsa, **SqlConnection** bağlanma işlemini yeniden dener. Yeniden deneme başarılı olursa, sorgu yürütme için gönderilir.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Uygulama yeniden deneme mantığı ile ConnectRetryCount birleştirilmelidir?
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Uygulama yeniden deneme mantığı ile ConnectRetryCount birleştirilmelidir?
 Güçlü özel yeniden deneme mantığı uygulamanız olduğunu varsayalım. Bağlanma işlemi 4 kez yeniden deneyebilirler. Eklerseniz **ConnectRetryInterval** ve **ConnectRetryCount** = 3 bağlantı dizenizi 4 * 3 = 12 yeniden deneme sayısı artacaktır yeniden deneme sayısı. Yeniden deneme yüksek sayı düşündüğünüz değil.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Ayrıntılar için bkz: [5 - olarak kolay olarak dönmeden kapalı bir günlük:
 ### <a name="entlib60-istransient-method-source-code"></a>EntLib60 IsTransient yöntemi kaynak kodu
 Öğesinden sonraki **SqlDatabaseTransientErrorDetectionStrategy** sınıfı, C# kaynak kodu **IsTransient** yöntemi. Kaynak kodu hangi hataları geçici ve Yeniden Dene'yi, Nisan 2013'ten itibaren worthy olarak kabul açıklar.
 
-Çok sayıda **//comment** satırları okunabilirlik vurgulamak için bu kopyadan kaldırıldı.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Diğer ortak Azure SQL veritabanı bağlantı sorunlarını gidermek için ziyaret [Azure SQL veritabanı bağlantı sorunlarını giderme](sql-database-troubleshoot-common-connection-issues.md).
-* [SQL Server bağlantı (ADO.NET) havuzu](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [SQL Database ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md)
+* [SQL Server bağlantı (ADO.NET) havuzu](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Yeniden deneniyor* lisanslı bir Apache 2.0 yazılan kitaplığı yeniden deneniyor genel amaçlı olduğundan getirin **Python**, yeniden deneme davranışı için neredeyse her şeyi ekleme görevini kolaylaştırmak için.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

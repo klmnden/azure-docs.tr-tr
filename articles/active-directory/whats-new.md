@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 899ca9f7a82ce526eba04b88420ab01e208fe784
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
@@ -178,7 +178,7 @@ Aşağıdaki koşullar ve denetimleri artık uygulama bağlı olarak koşullu er
 
 **İstemci uygulamaları koşulu**
 
-- Mobil uygulamalar ve Masaüstü istemcileri
+- Mobil uygulamalar ve masaüstü istemcileri
 
 **Erişim denetimi**
 
@@ -266,13 +266,13 @@ Daha fazla bilgi için bkz: [varolan NPS altyapınızı Azure multi-Factor Authe
  
 ---
 
+### <a name="restore-or-permanently-remove-deleted-users"></a>Geri yüklemek veya silinen kullanıcılar kalıcı olarak kaldırma
+
 
 **Tür:** yeni özellik    
 **Hizmet kategorisi:** kullanıcı yönetimi  
 **Ürün yeteneği:** dizini 
 
-
-**Geri yüklemek veya silinen kullanıcılar kalıcı olarak kaldırma**
 
 
 Azure AD Yönetim merkezinde, şunları yapabilirsiniz:
