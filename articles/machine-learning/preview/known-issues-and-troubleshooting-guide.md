@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
@@ -39,6 +39,17 @@ Yükleme sırasında sorunu yaşayıp çalıştırırsanız, yükleyici günlük
 /tmp/amlinstaller/logs/*
 ```
 Bu dizinlerin içerikleri zip ve tanılama için bize gönderin.
+
+### <a name="app-update"></a>Uygulama güncelleştirme 
+#### <a name="no-update-notification-on-windows-desktop"></a>Windows masaüstünde herhangi bir güncelleştirme bildirimi 
+Bu sorunu gelecek bir güncelleştirmede ele alınacaktır. Bu arada, görev çubuğuna sabitlenmiş kısayol uygulamadan başlatılmasını önlemek için geçici bir çözüm değildir. Bunun yerine (varsa) Başlat menüsünden veya başlangıç arama çubuğu veya kısayol masaüstünüzde kullanarak uygulamayı başlatmak için. 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Hiçbir güncelleştirme bildirimi bir Ubuntu veri Sciece sanal makine (DSVM) üzerinde
+En son uygulamayı indirmek için aşağıdaki adımları gerçekleştirin:   
+   - Klasör \Users\AppData\Local\amlworkbench Kaldır
+   - komut dosyasını kaldırma`c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - Yukarıdaki komut dosyasını başlatır masaüstü kısayolu
+   - düzgün bir şekilde kullanarak yükleyin [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### <a name="workbench-desktop-app"></a>Çalışma ekranı masaüstü uygulaması
 Oturum açma konusunda sorun yaşıyorsanız veya çalışma ekranı Masaüstü çökerse, günlük dosyalarını burada bulabilirsiniz:

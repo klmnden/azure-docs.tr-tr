@@ -6,19 +6,19 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1f16865a3adb55fc63c09c1dbdc9720b02f9c33
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Öğretici: Azure Active Directory Tümleştirme FileCloud ile
 
@@ -108,12 +108,12 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![FileCloud etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.filecloudhosted.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.filecloudonline.com`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [FileCloud istemci destek ekibi](mailto:support@codelathe.com) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [FileCloud istemci destek ekibi](mailto:support@codelathe.com) bu değerleri almak için. 
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -131,23 +131,23 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 8. Sol gezinti bölmesinde tıklatın **ayarları**. 
    
-    ![Ayarları bölümü üzerinde uygulama yan](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Tıklatın **SSO** Ayarlar bölümünde sekmesinde. 
    
-    ![Tek üzerinde uygulama oturum açma sekmesi yan](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. Seçin **SAML** olarak **varsayılan SSO türü** üzerinde **çoklu oturum açma (SSO) ayarları** paneli.
    
-    ![Çoklu oturum açma ayarları paneli üzerinde uygulama yan](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. Yapıştır **SAML varlık kimliği**, Azure portalından kopyalanan **IDP uç noktası URL'si** metin kutusu.
+11. İçinde **IDP uç noktası URL'si** metin değerini yapıştırın **SAML varlık kimliği** Azure portalından kopyalanan.
 
-    ![IDP uç noktası URL'si metin kutusu](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. İndirilen meta veri dosyasını Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **IDP Meta veri** textbox üzerinde **SAML ayarları** paneli.
 
-    ![Uygulama tarafında IDP Meta veri bölümü](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+    ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Tıklatın **kaydetmek** düğmesi.
 
@@ -192,7 +192,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 Bu bölümün amacı Britta Simon içinde FileCloud adlı bir kullanıcı oluşturmaktır. FileCloud yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa FileCloud erişme denemesi sırasında oluşturulur.
 
 >[!NOTE]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [FileCloud istemci destek ekibi](mailto:support@codelathe.com). 
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [FileCloud istemci destek ekibi](mailto:support@codelathe.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -226,9 +226,10 @@ Bu bölümde, Britta FileCloud için erişim vererek, Azure çoklu oturum açma 
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli FileCloud parçasında tıklattığınızda, otomatik olarak FileCloud uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-health-notifications"></a>Hizmet durumu bildirimlerine
 ## <a name="overview"></a>Genel Bakış
 
 Bu makalede, Azure portalını kullanarak hizmet durumu bildirimlerine görüntüleme gösterilmektedir.
 
-Hizmet durumu bildirimlerine aboneliğinizi kaynaklarınıza etkileyen Azure ekibi tarafından yayımlanan hizmet sistem durumu iletilerini görüntülemek sağlar. Bu bildirimler, bir alt sınıfı etkinlik günlüğü olaylardır ve etkinlik günlüğü dikey penceresinde de bulunabilir. Hizmet durumu bildirimlerine bilgilendirici veya sınıf bağlı olarak tıklatılabilir olabilir.
+Hizmet durumu bildirimlerine aboneliğinizi kaynaklarınıza etkileyen Azure ekibi tarafından yayımlanan hizmet sistem durumu iletilerini görüntülemek sağlar. Bu bildirimler bir alt etkinlik günlüğü olaylarını ve sınıfıdır etkinlik günlüğünde bulunabilir. Hizmet durumu bildirimlerine bilgilendirici veya sınıf bağlı olarak tıklatılabilir olabilir.
 
 Hizmet durumu bildirimlerine beş sınıfları şunlardır:  
 
-- **Gerekli eylem:** zaman zaman size hesabınızla ilgili durum olağan dışı bir şey fark edebilirsiniz. Bu sorunu gidermek için sizinle birlikte çalışma gerekebilir. Yapılacak gerekir ya da eylemlerin ayrıntılı bir bildirim göndereceğiz veya ile Azure mühendislik veya destek personeline başvurun hakkında ayrıntılar.  
-- **Yardımlı kurtarma:** bir olay oluştu ve mühendisleri onaylanıp etkisi hala yaşıyor. Mühendislik doğrudan hizmetlerinizi geri getirmek için sizinle çalışma gerekecektir.  
+- **Gerekli eylem:** zaman Azure hesabınızla ilgili durum olağan dışı bir şey fark edebilirsiniz. Azure, bu sorunu gidermek için sizinle birlikte çalışma gerekebilir. Azure, yapılması gereken eylemleri ya da ayrıntılı bir bildirim gönderecek veya ile Azure mühendislik veya destek personeline başvurun hakkında ayrıntılar.  
+- **Yardımlı kurtarma:** bir olay oluştu ve mühendisleri onaylanıp etkisi hala yaşıyor. Azure mühendislik doğrudan hizmetleriniz için tam sistem geri yükleme için sizinle çalışma gerekiyor.  
 - **Olay:** olay etkileyen bir hizmet şu anda bir veya daha fazla aboneliğiniz kaynaklarında etkileyen.  
 - **Bakım:** , bir veya daha fazla aboneliğiniz kaynaklarınıza etkileyebilecek bir planlı bakım etkinliği bildiren bir bildirim budur.  
-- **Bilgi:** biz, bildirimler, gönderdiğinizde için saati kaynak kullanımınızı geliştirmenize yardımcı olabilecek potansiyel iyileştirmeler hakkında sizinle iletişim kurun.  
+- **Bilgi:** zaman zaman Azure, kaynak kullanımınızı geliştirmenize yardımcı olabilecek olası en iyi duruma getirme hakkında bilgilendirmek bildirimleri gönderebilir.  
 - **Güvenlik:** Acil güvenlik ilgili Azure üzerinde çalışan, solution(s) ilgili bilgiler.
 
-Her hizmet sistem durumu bildirimi kapsam ve kaynaklarınıza etkisi hakkında ayrıntılı yürütecek. Ayrıntılar içerir:
+Her hizmet sistem durumu bildirimi kapsam ve kaynaklarınıza etkisi hakkında ayrıntılar içerir. Ayrıntıları içerir:
 
-Özellik adı | Açıklama
+Özellik Adı | Açıklama
 -------- | -----------
-Kanalları | Aşağıdaki değerlerden biridir: "Yönetici", "İşlem"
+kanallar | Aşağıdaki değerlerden biridir: "Yönetici", "İşlem"
 correlationId | Genellikle bir GUID dize biçiminde değil. Olaylar, ile ait aynı uber eylemi genellikle aynı correlationıd değeri paylaşın.
 eventDataId | Bir olayın benzersiz tanımlayıcı
 EventName | Olay başlığıdır
@@ -70,14 +70,12 @@ Properties.communicationId | Bu olay iletişimi ilişkilidir.
 1.  İçinde [portal](https://portal.azure.com), gitmek **İzleyici** hizmeti
 
     ![İzleme](./media/monitoring-service-notifications/home-monitor.png)
-2.  Tıklatın **İzleyici** İzleyici dikey penceresini açmak için seçeneği. Bu dikey pencere tüm izleme ayarlarınızı ve verilerinizi tek bir birleştirilmiş görünümde gösterir. İlk olarak **Etkinlik günlüğü** bölümü açılır.
+2.  Tıklatın **İzleyici** İzleyici deneyimi açmak için seçeneği. Azure İzleyicisi, izleme ayarları ve verileri birlikte bir birleştirilmiş görünüme getirir. İlk olarak **Etkinlik günlüğü** bölümü açılır.
 
-3.  Şimdi tıklayın **hizmet bildirimleri** bölümü
+3.  Şimdi tıklayın **uyarıları** bölümü
 
     ![İzleme](./media/monitoring-service-notifications/service-health-summary.png)
-4.  Daha fazla ayrıntı görüntülemek için çizgi öğelerini birini tıklatın
-
-5. Tıklayın **+ etkinlik günlüğü uyarı Ekle** bu tür gelecekteki hizmet bildirimleri için bildirim emin olmak için bildirimleri almak için işlemi. Uyarıları hizmeti bildirimlerinin yapılandırma hakkında daha fazla bilgi için [burayı tıklatın](monitoring-activity-log-alerts-on-service-notifications.md)
+4. Tıklayın **+ etkinlik günlüğü uyarı ekleme** ve gelecekteki hizmet bildirimleri için bildirim emin olmak için bir uyarı yapılandırmak. Uyarıları hizmeti bildirimlerinin yapılandırma hakkında daha fazla bilgi edinmek için [etkinlik günlüğü uyarıları ve hizmet bildirimleri sayfasını ziyaret edin](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## <a name="next-steps"></a>Sonraki Adımlar:
 Alma [uyarı bildirimleri hizmeti sistem durumu bildirimi her](monitoring-activity-log-alerts-on-service-notifications.md) nakledilir  

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure uygulama hizmeti Linux SSS
 
@@ -64,6 +64,20 @@ Evet.
 **Kullanabilirim *web dağıtımı* web Uygulamam dağıtmak için?**
 
 Evet, denilen bir uygulama ayarlamanız gerekir `WEBSITE_WEBDEPLOY_USE_SCM` için *false*.
+
+**Linux web uygulaması kullanılırken uygulamamın Git dağıtımı başarısız oluyor. Nasıl yapabilirim geçici çözüm bu sorunu?**
+
+Linux web uygulamanızı Git dağıtımı başarısız olursa, uygulama kodunuzun dağıtmak için aşağıdaki diğer seçenekleri seçebilirsiniz:
+
+- Kesintisiz teslim (Önizleme) özelliğini kullanın: bir Team Services Git deposuna ya da Azure kesintisiz teslim kullanmak için GitHub deposuna uygulamanızın kaynak kodunu depolayabilirsiniz. Daha fazla ayrıntı için bkz: [Linux web uygulaması için sürekli teslim yapılandırma](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+
+- Kullanmak [ZIP dağıtmak API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Bu API kullanmak için [web uygulamanızı içine SSH](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) ve kodunuzu dağıtmak istediğiniz klasörüne gidin. Aşağıdakileri çalıştırın:
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   Bir hata alırsanız `curl` komutu bulunamadı, kullanarak curl yüklediğinizden emin olun `apt-get install curl` önceki çalıştırmadan önce `curl` komutu.
 
 ## <a name="language-support"></a>Dil desteği
 

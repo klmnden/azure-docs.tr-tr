@@ -15,14 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Bir Azure SQL veritabanına bağlanmak için Azure işlevleri kullanın
-Bu konu Azure işlevleri, bir Azure SQL veritabanındaki bir tablodaki satırların temizler zamanlanmış bir işi oluşturmak için nasıl kullanılacağını gösterir. Yeni C# işlevi önceden tanımlanmış Zamanlayıcı tetikleyicisi şablonu Azure portalında temel alınarak oluşturulur. Bu senaryoyu desteklemek için de bir işlev uygulaması ayarında olarak bir veritabanı bağlantı dizesi ayarlamanız gerekir. Bu senaryo, bir toplu işlemin veritabanında kullanır. Mobile Apps tablodaki tek tek CRUD işlemlerini işlevinizi sağlamak için kullanmanız [Mobile Apps bağlamaları](functions-bindings-mobile-apps.md).
+Bu konu Azure işlevleri, bir Azure SQL veritabanındaki bir tablodaki satırların temizler zamanlanmış bir işi oluşturmak için nasıl kullanılacağını gösterir. Yeni C# işlevi önceden tanımlanmış Zamanlayıcı tetikleyicisi şablonu Azure portalında temel alınarak oluşturulur. Bu senaryoyu desteklemek için de bir işlev uygulaması uygulama ayarı olarak bir veritabanı bağlantı dizesi ayarlamanız gerekir. Bu senaryo, bir toplu işlemin veritabanında kullanır. 
+
+İşlev işlemi tek olmasını oluştur, oku, Güncelleştir ve Sil (CRUD) işlemlerini Mobile Apps tablodaki, bunun yerine kullanmanız gereken [Mobile Apps bağlamaları](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -59,7 +61,7 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
     | Ayar       | Önerilen değer | Açıklama             | 
     | ------------ | ------------------ | --------------------- | 
     | **Ad**  |  sqldb_connection  | İşlev kodunuzu depolanan bağlantı dizesinde erişmek için kullanılır.    |
-    | **Değer** | Kopyalanan dize  | Bağlantı dizesi önceki bölümde kopyalanır. |
+    | **Değer** | Kopyalanan dize  | Önceki bölümünde kopyaladığınız bağlantı dizesini yapıştırın ve değiştirme `{your_username}` ve `{your_password}` yer tutucuları gerçek değerlere sahip. |
     | **Tür** | SQL Veritabanı | Varsayılan SQL veritabanı bağlantısı kullanın. |   
 
 3. **Kaydet** düğmesine tıklayın.
@@ -84,7 +86,7 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
     using System.Threading.Tasks;
     ```
 
-4. Varolan **çalıştırmak** işlevi aşağıdaki kod ile:
+4. Varolan `Run` işlevi aşağıdaki kod ile:
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -105,7 +107,7 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
     }
     ```
 
-    Bu örnek komut güncelleştirir **durum** sütun temel sevk tarih. Veri 32 satırı güncelleştirmeniz gerekir.
+    Bu örnek komut güncelleştirir `Status` sütun temel sevk tarih. Veri 32 satırı güncelleştirmeniz gerekir.
 
 5. Tıklatın **kaydetmek**, izleme **günlükleri** sonraki windows işlev yürütme ve ardından güncelleştirilir satır sayısını Not **SalesOrderHeader** tablo.
 

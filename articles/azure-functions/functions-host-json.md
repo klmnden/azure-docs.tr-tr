@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure işlevleri için Host.JSON başvurusu
 
@@ -141,7 +141,7 @@ Yapılandırma ayarları [olay hub'ı Tetikleyicileri ve bağlamaları](function
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>İşlevler
+## <a name="functions"></a>işlevler
 
 İş konak çalışacak işlevlerin listesi.  Boş bir dizi tüm işlevleri çalıştırmak anlamına gelir.  Kullanılmaya yalnızca [yerel olarak çalışan](functions-run-local.md). İşlev uygulamalarında kullanma *function.json* `disabled` bu özellikte yerine özelliği *host.json*.
 
@@ -165,23 +165,7 @@ Tüm İşlevler için zaman aşımı süresini gösterir. Tüketim planları, ge
 
 Yapılandırma ayarları [http Tetikleyicileri ve bağlamaları](functions-bindings-http-webhook.md).
 
-```json
-{
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
-        "dynamicThrottlesEnabled": false
-    }
-}
-```
-
-|Özellik  |Varsayılan | Açıklama |
-|---------|---------|---------| 
-|routeprefix öğesi|api|Tüm yollar için geçerlidir rota öneki. Varsayılan önek kaldırmak için boş bir dize kullanın. |
-|maxOutstandingRequests|-1|Belirli bir zamanda (-1 anlamına gelir sınırsız) bekletilir Bekleyen isteklerin sayısı. Sınır, sıraya alınan ancak, tüm süren yürütmeleri yanı sıra yürütme başlamadı isteklerini içerir. Bu sınır üzerinden gelen tüm istekleri 429 "Meşgul" yanıtıyla reddedilir. Arayanlar, yeniden deneme zaman tabanlı stratejileri kullanımlar için bu yanıtı kullanabilirsiniz. Yalnızca queuing bu ayarı denetimleri iş konak yürütme yol içinde gerçekleşir. ASP.NET istek sırası gibi diğer sıraları, bu ayar tarafından etkilenmez. |
-|maxConcurrentRequests|-1|(-1 anlamına gelir sınırsız) paralel olarak yürütülecek HTTP işlevleri maksimum sayısı. Örneğin, HTTP işlevlerinizi çok fazla sistem kaynakları kullanırsanız eşzamanlılık yüksek olduğunda bir sınır ayarlayabilirsiniz. Veya işlevlerinizi bir üçüncü taraf hizmetine giden istekleri yaparsanız, bu çağrıları oranı sınırlı olması gerekebilir.|
-|dynamicThrottlesEnabled|yanlış|İstek ardışık düzen işleme düzenli aralıklarla sistem performans sayaçlarını denetleyin neden olur. Bağlantılar, iş parçacıkları, işlemler, bellek ve cpu sayaçları içerir. Sayaçları yerleşik bir eşiğin üstünde (% 80) varsa, normal düzeylere sayaca dönüş kadar istekler 429 "Meşgul" yanıtıyla reddedilir.|
+[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 

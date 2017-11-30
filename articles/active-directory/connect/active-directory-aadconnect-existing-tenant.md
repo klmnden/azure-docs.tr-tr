@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a62a3954d10e718f5d180ddb725c6a9c7cda56c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7df154748a4ce8ac592a41f2a3d6b10ac359113
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Mevcut bir kiracı olduğunda
 Azure AD Connect kullanmayla ilgili konular çoğunu varsayar ile yeni bir Azure başlattığınız AD Kiracı ve hiçbir kullanıcı ya da diğer nesneleri vardır. Ancak bir Azure AD kiracısı ile başlamış olması durumunda kullanıcılar ve diğer nesneleri ile doldurulur ve şimdi bağlan, kullanmak istediğiniz sonra bu konuda size göre.

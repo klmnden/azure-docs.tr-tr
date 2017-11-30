@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 86b43b312bf7ce52ab75855424cc5db473245159
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Bir Azure Cosmos DB hesabı yönetme
 Genel tutarlılık ayarlamak, anahtarları ile çalışır ve Azure portalda bir Azure Cosmos DB hesabı silme hakkında bilgi edinin.
@@ -33,10 +33,10 @@ Sağ tutarlılık düzeyi seçerek uygulamanızı semantiği bağlıdır. Azure 
 3. İçinde **varsayılan tutarlılık** sayfasında, yeni tutarlılık düzeyi seçin ve tıklayın **kaydetmek**.
     ![Varsayılan tutarlılık oturumu][5]
 
-## <a id="keys"></a>Görüntülemek, kopyalamak ve erişim anahtarlarını yeniden oluştur
-Bir Azure Cosmos DB hesabı oluşturduğunuzda, hizmet Azure Cosmos DB hesap erişildiğinde, kimlik doğrulaması için kullanılan iki ana erişim tuşu oluşturur. İki erişim tuşu sağlayarak Azure Cosmos DB kesinti olmadan Azure Cosmos DB hesabınıza anahtarları yeniden sağlar. 
+## <a id="keys"></a>Görüntüleme, kopyalama ve erişim anahtarları ve parolaları yeniden oluştur
+Bir Azure Cosmos DB hesabı oluşturduğunuzda, iki ana erişim tuşları (veya MongoDB API hesaplar için iki parolaları) hizmeti oluşturur kullanılabilecek kimlik doğrulaması için Azure Cosmos DB hesap erişildiğinde. İki erişim tuşu sağlayarak Azure Cosmos DB kesinti olmadan Azure Cosmos DB hesabınıza anahtarları yeniden sağlar. 
 
-İçinde [Azure portal](https://portal.azure.com/), erişim **anahtarları** sayfasında kaynak menüsünden **Azure Cosmos DB hesap** sayfasını görüntülemek, kopyalamak ve için kullanılan erişim anahtarlarını yeniden oluşturmak için Azure Cosmos DB hesabınıza erişemiyor.
+İçinde [Azure portal](https://portal.azure.com/), erişim **anahtarları** sayfasında kaynak menüsünden **Azure Cosmos DB hesap** sayfasını görüntülemek, kopyalamak ve için kullanılan erişim anahtarlarını yeniden oluşturmak için Azure Cosmos DB hesabınıza erişemiyor. MongoDB API hesapları için erişim **bağlantı dizesi** görüntülemek, kopyalamak ve hesabınıza erişmek için kullanılan parolalar yeniden oluşturmak için kaynak menüsünden Sayfa.
 
 ![Azure portal ekran, anahtarları sayfası](./media/manage-account/keys.png)
 
@@ -47,25 +47,25 @@ Bir Azure Cosmos DB hesabı oluşturduğunuzda, hizmet Azure Cosmos DB hesap eri
 
 Salt okunur anahtarları, bu sayfada de kullanılabilir. Okuma ve salt okunur işlemler while, siler, oluşturur ve değiştirir değil sorgular.
 
-### <a name="copy-an-access-key-in-the-azure-portal"></a>Azure portalında bir erişim tuşu kopyalama
-Üzerinde **anahtarları** sayfasında, **kopyalama** kopyalamak istediğiniz anahtarı sağdaki düğme.
+### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Azure portalında bir erişim anahtarı veya parola kopyalama
+Üzerinde **anahtarları** sayfasında (veya **bağlantı dizesi** sayfa MongoDB API hesapları için), tıklatın **kopyalama** anahtarı veya parolayı kopyalamak istediğiniz sağındaki düğmeyi.
 
 ![Görüntüleme ve Azure portal, anahtarları sayfasında erişim tuşu kopyalama](./media/manage-account/copykeys.png)
 
-### <a name="regenerate-access-keys"></a>Erişim anahtarlarını yeniden oluştur
-Düzenli aralıklarla bağlantılarınızı daha güvenli tutmaya yardımcı olmak için Azure Cosmos DB hesabınıza erişim tuşlarını değiştirmeniz gerekir. Bir erişim anahtarı kullanırken, bir erişim anahtarı yeniden Azure Cosmos DB hesabına bağlantılar sağlamanıza olanak tanıyan iki erişim tuşu atanır.
+### <a name="regenerate-access-keys-and-passwords"></a>Erişim anahtarları ve parolaları yeniden oluştur
+Erişim tuşları (ve MongoDB API hesaplar için parolaları) Azure Cosmos DB hesabınıza düzenli aralıklarla bağlantılarınızı daha güvenli tutmaya yardımcı olmak için değiştirmeniz gerekir. İki erişim anahtarları/parolalarını bir erişim anahtarı kullanırken, bir erişim anahtarı yeniden Azure Cosmos DB hesabına bağlantılar sağlamanıza olanak tanıyan atanmış.
 
 > [!WARNING]
 > Erişim anahtarlarını yeniden geçerli anahtara bağımlı olan tüm uygulamaları etkiler. Azure Cosmos DB hesabına erişmek için erişim tuşunu kullanan tüm istemciler yeni anahtarı kullanmak üzere güncelleştirilmelidir.
 > 
 > 
 
-Uygulamaları veya Azure Cosmos DB hesabı kullanarak bulut Hizmetleri varsa, anahtarları, yeniden yüklerseniz, anahtarları toplamazsanız bağlantıları kaybedeceksiniz. Aşağıdaki adımları anahtarlarınızı çalışırken söz konusu sürecini özetlemektedir.
+Uygulamaları veya Azure Cosmos DB hesabı kullanarak bulut Hizmetleri varsa, anahtarları, yeniden yüklerseniz, anahtarları toplamazsanız bağlantıları kaybedeceksiniz. Aşağıdaki adımları anahtarları/parolalarınızı çalışırken söz konusu sürecini özetlemektedir.
 
 1. Erişim anahtarı Azure Cosmos DB hesabının ikincil erişim anahtarını başvurmak için uygulama kodunuzda güncelleştirin.
 2. Azure Cosmos DB hesabınız için birincil erişim tuşunu yeniden oluşturun. İçinde [Azure portal](https://portal.azure.com/), Azure Cosmos DB hesabınıza erişemiyor.
-3. İçinde **Azure Cosmos DB hesabı** sayfasında, **anahtarları**.
-4. Üzerinde **anahtarları** sayfasında, üretme düğmesini tıklatın ve ardından **Tamam** yeni bir anahtar oluşturmak istediğinizi onaylamak için.
+3. İçinde **Azure Cosmos DB hesabı** sayfasında, **anahtarları** (veya **bağlantı dizesi** için MongoDB hesapları **).
+4. Üzerinde **anahtarları**/**bağlantı dizesi** sayfasında, üretme düğmesini tıklatın ve ardından **Tamam** yeni bir anahtar oluşturmak istediğinizi onaylamak için.
     ![Erişim anahtarlarını yeniden oluştur](./media/manage-account/regenerate-keys.png)
 5. Yeni anahtar kullanımı (yaklaşık beş dakika sonra yeniden üretme) için kullanılabilir olduğunu doğruladıktan sonra yeni birincil erişim anahtarını başvurmak için uygulama kodunuzda erişim tuşu güncelleştirin.
 6. İkincil erişim tuşunu yeniden oluşturun.
@@ -77,11 +77,11 @@ Uygulamaları veya Azure Cosmos DB hesabı kullanarak bulut Hizmetleri varsa, an
 > 
 > 
 
-## <a name="get-the--connection-string"></a>Bağlantı dizesi alma
+## <a name="get-the-connection-string"></a>Bağlantı dizesi alma
 Bağlantı dizesini almak için aşağıdakileri yapın: 
 
 1. İçinde [Azure portal](https://portal.azure.com), Azure Cosmos DB hesabınıza erişemiyor.
-2. Kaynak menüye tıklayın **anahtarları**.
+2. Kaynak menüye tıklayın **anahtarları** (veya **bağlantı dizesi** MongoDB API hesapları için).
 3. Tıklatın **kopya** düğmesine **birincil bağlantı dizesi** veya **ikincil bağlantı dizesi** kutusu. 
 
 Bağlantı dizesinde kullanıyorsanız [Azure Cosmos DB veritabanı geçiş aracı](import-data.md), veritabanı adının bağlantı dizesine sonuna. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.

@@ -1,5 +1,5 @@
-|Dil                                 |V1          |v2|
-|-----------------------------------------|------------|--|
+|Dil                                 |1.x         |2.x|
+|-----------------------------------------|------------|---|
 |[C#](../articles/azure-functions/functions-reference-csharp.md)|GA|Önizleme|
 |[JavaScript](../articles/azure-functions/functions-reference-node.md)|GA|Önizleme|
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA||

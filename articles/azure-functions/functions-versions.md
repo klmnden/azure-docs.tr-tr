@@ -1,6 +1,6 @@
 ---
 title: "Hedef Azure işlevleri çalışma zamanı sürümlerini nasıl"
-description: "Azure işlevleri çalışma zamanı birden fazla sürümünü destekler. Barındırılan bir Azure çalışma zamanı sürümü belirtin öğrenin işlev uygulaması."
+description: "Azure işlevleri çalışma zamanı birden fazla sürümünü destekler. Azure üzerinde barındırılan bir işlev uygulaması çalışma zamanı sürümü belirleme konusunda bilgi edinin."
 services: functions
 documentationcenter: 
 author: ggailey777
@@ -10,13 +10,13 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 063232e40b30d03b0ee8b087a602fed0fee3be0a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Hedef Azure işlevleri çalışma zamanı sürümlerini nasıl
 
@@ -27,7 +27,7 @@ Bir işlev uygulaması Azure işlevleri çalışma zamanı belirli bir sürümü
 > [!IMPORTANT] 
 > Çalışma zamanı 1.x üretim kullanımı için onaylanan yalnızca sürüm değil.
 
-| Çalışma zamanı | Durum |
+| Çalışma Zamanı | Durum |
 |---------|---------|
 |1.x|Genellikle kullanılabilir (GA)|
 |2.x|Önizleme|
@@ -44,9 +44,11 @@ Daha fazla bilgi için bkz: [desteklenen diller](supported-languages.md).
 
 ### <a name="bindings"></a>Bağlamalar 
 
-Çalışma zamanı 1.x destekler 2.x içinde kullanılabilir olmadığından Deneysel bağlar. Bağlamaları desteği ve diğer işlevsel boşlukları 2.x hakkında daha fazla bilgi için bkz: [çalışma zamanı bilinen sorunlar 2.0](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
-
 Çalışma zamanı 2.x sağlar, oluşturduğunuz özel [uzantıları bağlama](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview). Bu genişletilebilirlik modelini kullanan yerleşik bağlamaları, yalnızca 2.x içinde bulunur; Bunlardan ilki arasında [Microsoft Graph bağlamaları](functions-bindings-microsoft-graph.md).
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Bağlamaları desteği ve diğer işlevsel boşlukları 2.x hakkında daha fazla bilgi için bkz: [çalışma zamanı bilinen sorunlar 2.0](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
 ### <a name="cross-platform-development"></a>Platformlar arası geliştirme
 

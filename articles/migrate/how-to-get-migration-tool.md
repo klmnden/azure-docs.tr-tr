@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: raynew
-ms.openlocfilehash: 730111411a080a3134ad69fee8bfceead4d27fa4
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 083e614628645d2eb94b7d84f4127b690865d770
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Değerlendirme makineleri geçirin
 
@@ -29,13 +29,13 @@ Bu makalede, bir geçiş değerlendirmesi çalıştırdıktan sonra Geçiş Arac
 
 ## <a name="migration-tool-suggestion"></a>Geçiş Aracı önerisi
 
-Geçiş Araçları ile ilgili önerileri almak için şirket içi makinelerde aracıları yüklemeniz gerekir.  
+Geçiş Araçları ile ilgili öneriler almak için şirket içi ortamdaki bir derin bulma yapmanız gerekir. Derin bulma şirket içi makinelerde aracıları yükleyerek gerçekleştirilir.  
 
 1. Bir Azure geçirmek projesi oluşturun, şirket içi makineleri Bul ve geçiş değerlendirme oluşturun. [Daha fazla bilgi edinin](tutorial-assessment-vmware.md).
 2. Karşıdan yükle ve Azure geçirmek aracıları önerilen geçiş yöntemi görmek istediğiniz her şirket içi makineye yükleyin. [Bu yordamı izlemeden](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) aracıları yüklemek için.
 2. Yükseltme ve shift geçiş için uygun olan şirket içi makinelerinizi tanımlayın. Bunlar üzerinde çalışan uygulamalar herhangi bir değişiklik gerektirmez ve olarak geçirilebilir VM'ler bunlar.
-3. Yükseltme ve shift geçiş için Azure Site RECOVERY'yi kullanarak öneririz. [Daha fazla bilgi edinin](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternatif olarak, Azure geçişi destekleyen 3. taraf araçları kullanabilirsiniz.
-4. Örneğin, tüm VM yerine belirli bir uygulama geçirmek istiyorsanız yükseltme shift geçiş için uygun olmayan şirket içi makineler varsa, diğer geçiş araçlarını kullanabilir. Örneğin, önerdiğimiz [Azure veritabanı geçiş hizmeti](https://azure.microsoft.com/campaigns/database-migration/) geçirmek istiyorsanız, şirket içi veritabanlarını böyle bir SQL Server, MySQL veya Oracle Azure.
+3. Yükseltme ve shift geçiş için Azure Site RECOVERY'yi kullanarak öneririz. [Daha fazla bilgi edinin](../site-recovery/tutorial-migrate-on-premises-to-azure.md). Alternatif olarak, Azure geçişi destekleyen üçüncü taraf araçları kullanabilirsiniz.
+4. Diğer bir deyişle, yükseltme ve shift geçiş için uygun olmayan şirket içi makineler varsa, tüm bir VM'yi yerine belirli bir uygulama geçirmek istiyorsanız diğer geçiş araçları kullanabilirsiniz. Örneğin, önerdiğimiz [Azure veritabanı geçiş hizmeti](https://azure.microsoft.com/campaigns/database-migration/) geçirmek istiyorsanız, şirket içi veritabanlarını böyle bir SQL Server, MySQL veya Oracle Azure.
 
 
 ## <a name="review-suggested-migration-methods"></a>Önerilen geçiş yöntemleri gözden geçirin

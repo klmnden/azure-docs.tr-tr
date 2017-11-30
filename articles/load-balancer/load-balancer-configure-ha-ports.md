@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>İç yük dengeleyici için yüksek kullanılabilirlik bağlantı noktalarını yapılandırma
 
@@ -41,13 +41,10 @@ Bu makalede örnek dağıtımı için yüksek kullanılabilirlik (HA) bir iç y�
 
 ## <a name="preview-sign-up"></a>Önizleme kaydolma
 
-Yük Dengeleyici standart HA bağlantı noktalarını özelliği Önizlemesi'na katılmak için Azure CLI 2.0 veya PowerShell kullanarak erişmek için aboneliğinizi kaydedin.  Lütfen, aboneliğiniz için kaydolun
-
-1. [Yük Dengeleyici Standard Önizleme](https://aka.ms/lbpreview#preview-sign-up) ve 
-2. [HA bağlantı noktalarını Önizleme](https://aka.ms/haports#preview-sign-up).
+Yük Dengeleyici standart HA bağlantı noktalarını özelliği Önizlemesi'na katılmak için Azure CLI 2.0 veya PowerShell kullanarak erişmek için aboneliğinizi kaydedin. Aboneliğiniz için kayıt [yük dengeleyici Standard Önizleme](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Bu özelliği kullanmak için ayrıca kaydolma yük dengeleyici için gereken [Standard Önizleme](https://aka.ms/lbpreview#preview-sign-up) HA bağlantı noktalarının yanı sıra. HA bağlantı noktaları veya yük dengeleyici standart önizlemeleri kaydı için bir saat sürebilir.
+>Yük Dengeleyici standart önizlemeleri kaydı bir saate kadar sürebilir.
 
 ## <a name="configuring-ha-ports"></a>HA bağlantı noktalarını yapılandırma
 

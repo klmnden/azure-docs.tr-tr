@@ -3,7 +3,7 @@ title: Python'dan Azure Blob storage (nesne depolama) kullanma | Microsoft Docs
 description: "Azure Blob Storage (nesne depolama) ile bulutta yapılandırılmamış veri depolayın."
 services: storage
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 0348e360-b24d-41fa-bb12-b8f18990d8bc
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: tamram
-ms.openlocfilehash: ae5ad68929a6779ed4944de82a609321a5c4b5ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94a0f95454f9243ef09ce37a62466bca4003a91
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-azure-blob-storage-from-python"></a>Python'dan Azure Blob storage kullanma
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]

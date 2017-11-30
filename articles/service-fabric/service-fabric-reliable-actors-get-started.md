@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors ile çalışmaya başlama
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ Aktör hizmeti çağırmak için basit bir konsol uygulaması oluşturun.
     ![Yeni Proje iletişim kutusu ekleme][6]    
     
     > [!NOTE]
-    > Bir konsol uygulaması genellikle istemci Service Fabric olarak kullanacağınız uygulama türü değil, ancak hata ayıklama ve yerel Service Fabric öykünücüsü kullanarak test etme için kullanışlı bir örnek sağlar.
+    > Bir konsol uygulaması genellikle istemci Service Fabric olarak kullanacağınız uygulama türü değil, ancak hata ayıklama ve yerel Service Fabric kümesi kullanarak test etme için kullanışlı bir örnek sağlar.
 
 3. Konsol uygulaması arabirimi proje ve başka bir bağımlılık uyumluluğu korumak için 64 bit bir uygulama olmalıdır.  Çözüm Gezgini'nde sağ **ActorClient** proje ve ardından **özellikleri**.  Üzerinde **yapı** sekmesinde, ayarlamak **Platform hedefi** için **x64**.
     

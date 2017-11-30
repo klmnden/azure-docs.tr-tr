@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/29/2017
 ms.author: frasim
-ms.openlocfilehash: f6131d7f177c3ca02cf8dfe5d140df5e6d8a7ffa
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="payment-processing-blueprint-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için ödeme işleme şeması
+# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure şeması Otomasyon: PCI DSS uyumlu ortamlar için işleme ödeme
 
-PCI DSS uyumlu ortamlar için ödeme işleme şeması hassas ödeme kartı verileri işlemek için uygun bir PCI DSS uyumlu Platform olarak-hizmet (PaaS) ortamı dağıtımı için yönergeler sağlanmaktadır. Ortak bir başvuru mimarisi paylaşan ve Microsoft Azure benimsenmesi kolaylaştırmak için tasarlanmıştır. Bu temel mimari yükünü ve dağıtım maliyetini azaltmak için bulut tabanlı bir yaklaşım arayan kuruluşlar ihtiyaçlarını karşılamak üzere bir uçtan uca çözüm gösterilmektedir.
+## <a name="overview"></a>Genel Bakış
 
-Bu temel mimari toplama, depolama ve ödeme kartı verilerinin alınması için sıkı ödeme kartı sektör veri güvenliği standartları (PCI DSS 3.2) gereksinimlerini karşılıyor. Bir uçtan uca Azure tabanlı çözüm dağıtılan bir ortamda güvenli, uyumlu çok katmanlı (kartı numarası, geçerlilik süresi ve doğrulama verileri dahil olmak üzere) kredi kartı verilerin düzgün işleme gösterir. PCI DSS 3.2 gereksinimleri ve bu çözüm hakkında daha fazla bilgi için bkz: [PCI DSS gereksinimleri - yüksek düzey genel bakış](pci-dss-requirements-overview.md).
+Ödeme işlenirken PCI DSS uyumlu ortamlar için hassas ödeme kartı verileri işlemek için uygun bir PCI DSS uyumlu Platform olarak-hizmet (PaaS) ortamı dağıtımı için yönergeler sağlanmaktadır. Ortak bir başvuru mimarisi paylaşan ve Microsoft Azure benimsenmesi kolaylaştırmak için tasarlanmıştır. Bu şeması yükünü ve dağıtım maliyetini azaltmak için bulut tabanlı bir yaklaşım arayan kuruluşlar ihtiyaçlarını karşılamak üzere bir uçtan uca çözüm gösterilmektedir.
 
-Bu mimari müşterilerin belirli gereksinimlerine ayarlamak bir temel olarak hizmet için tasarlanmıştır ve olarak kullanılmamalıdır-bir üretim ortamında. Bir uygulama değişiklik yapmadan bu ortamına dağıtma tamamen PCI DSS uyumlu bir çözüm gereksinimlerini karşılamak için yeterli değil. Lütfen şunlara dikkat edin:
-- Bu temel mimari PCI DSS uyumlu bir biçimde Microsoft Azure kullanmak müşterilere yardımcı olmak için bir temel sağlar.
+Bu şeması sıkı ödeme kartı sektör veri güvenliği standartları (PCI DSS 3.2) gereksinimlerini karşılamak amacıyla toplama, depolama ve ödeme kartı verilerinin alınması için tasarlanmıştır. Bir uçtan uca Azure tabanlı PaaS çözüm dağıtılan bir ortamda güvenli, uyumlu çok katmanlı (kartı numarası, geçerlilik süresi ve doğrulama verileri dahil olmak üzere) kredi kartı verilerin düzgün işleme gösterir. PCI DSS 3.2 gereksinimleri ve bu çözüm hakkında daha fazla bilgi için bkz: [PCI DSS gereksinimleri - yüksek düzey genel bakış](pci-dss-requirements-overview.md).
+
+Bu şeması müşterilerin belirli gereksinimlerini daha iyi anlamak bir temel olarak hizmet için tasarlanmıştır ve olarak kullanılmamalıdır-bir üretim ortamında. Bir uygulama değişiklik yapmadan bu ortamına dağıtma tamamen özel bir çözüm için PCI DSS uyumlu bir çözüm gereksinimlerini karşılamak için yeterli değil. Lütfen şunlara dikkat edin:
+- Bu şeması, müşterilerin Microsoft Azure PCI DSS uyumlu bir biçimde kullanmalarını sağlamak için bir temel sağlar.
 - PCI DSS uyumluluk sağlamasını bir onaylanmış tam güvenlik Assessor'nı (QSA) bir üretim müşteri çözüm onaylaması gerekir.
 - Müşteriler, uygun güvenlik yürütmek için sorumludur ve uyumluluk gereksinimleri farklılık gösterebilir gibi bu temel mimari kullanılarak oluşturulan herhangi bir çözüm incelenmesi her müşterinin uygulama ve Coğrafya ayrıntılarını dayanır.  
 
@@ -41,7 +43,7 @@ Temel mimari aşağıdaki bileşenlerden oluşur:
 - **Dağıtım şablonları**. Bu dağıtımda [Azure Resource Manager şablonları](/azure/azure-resource-manager/resource-group-overview#template-deployment) Kurulum sırasında yapılandırma parametrelerini belirterek mimarisinin bileşenlerine Microsoft Azure otomatik olarak dağıtmak için kullanılan.
 - **Dağıtım betikleri otomatik**. Bu komut dosyaları, uçtan uca çözüm dağıtımına yardımcı olur. Komut dosyaları oluşur:
     - Bir modül yükleme ve [genel yönetici](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) Kurulum komut dosyası yükleyin ve gerekli PowerShell modülleri ve genel yönetici rolleri doğru şekilde yapılandırıldığını doğrulamak için kullanılır.
-    - PowerShell komut dosyası yüklemesi, bir .zip dosyası ve SQL veritabanı örnek içeriği önceden derlenmiş demo web uygulamasıyla içeren bir .bacpac dosyasına aracılığıyla sağlanan uçtan uca çözümü dağıtmak için kullanılır. Bu çözüm için kaynak kodunu Gözden Geçirilmeye hazır olduğunu [burada](https://github.com/Microsoft/azure-sql-security-sample).
+    - PowerShell komut dosyası yüklemesi bir .zip dosyası ve önceden derlenmiş demo web uygulamasıyla içeren bir .bacpac dosyasına aracılığıyla sağlanan uçtan uca çözümü dağıtmak için kullanılan [SQL veritabanı örnek](https://github.com/Microsoft/azure-sql-security-sample). İçerik. Bu çözüm için kaynak kodunu Gözden Geçirilmeye hazır olduğunu [ödeme işleme şeması kod deposu][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Mimari diyagramı
 
@@ -49,9 +51,9 @@ Temel mimari aşağıdaki bileşenlerden oluşur:
 
 ## <a name="user-scenario"></a>Kullanıcı senaryosu
 
-Temel mimari aşağıdaki kullanım örneği giderir.
+Şeması aşağıdaki kullanım örneği giderir.
 
-> Bu senaryo, nasıl Azure tabanlı bir çözüme işleme, ödeme kartı kurgusal webstore taşınmış gösterilmektedir. Çözüm ödeme verileri dahil olmak üzere temel kullanıcı bilgilerin toplanması işler. Çözüm Bu kart sahibi verilerle ödemeler işlemez; Veriler toplandıktan sonra müşterileri başlatılması ve ödeme işlemciye sahip işlemler Tamamlanıyor sorumludur. Daha fazla bilgi için bkz: "Gözden geçirme ve yönergeler için uygulama" belge [Microsoft hizmet güven portalı](http://aka.ms/stp).
+> Bu senaryo, nasıl Azure tabanlı PaaS çözümünü işleme, ödeme kartı kurgusal webstore taşınmış gösterilmektedir. Çözüm ödeme verileri dahil olmak üzere temel kullanıcı bilgilerin toplanması işler. Çözüm Bu kart sahibi verilerle ödemeler işlemez; Veriler toplandıktan sonra müşterileri başlatılması ve ödeme işlemciye sahip işlemler Tamamlanıyor sorumludur. Daha fazla bilgi için bkz: ["Gözden geçirme ve yönergeler için uygulama"](https://aka.ms/pciblueprintprocessingoverview).
 
 ### <a name="use-case"></a>Kullanım örneği
 Küçük webstore adlı *Contoso Webstore* ödeme sistemlerine buluta taşımak hazır. Bunlar, Microsoft Azure kredi kartı ödemeler kendi müşterilerden toplamak bir yazıcısı izin veren ve satın alma işlemi barındırmak için seçtiniz.
@@ -76,9 +78,9 @@ Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak i
 | Ad: |`Global Admin Azure PCI Samples`|
 |Kullanıcı türü:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
-* Yönetici hesabı maskelenmeyen kredi kartı bilgileri okunamıyor. Tüm Eylemler günlüğe kaydedilir.
-* Yönetici hesabını yönetin veya SQL veritabanına oturum açın.
-* Yönetici hesabı, Active Directory ve abonelik yönetebilirsiniz.
+- Yönetici hesabı maskelenmeyen kredi kartı bilgileri okunamıyor. Tüm Eylemler günlüğe kaydedilir.
+- Yönetici hesabını yönetin veya SQL veritabanına oturum açın.
+- Yönetici hesabı, Active Directory ve abonelik yönetebilirsiniz.
 
 #### <a name="role-sql-administrator"></a>Rol: SQL Yöneticisi
 
@@ -90,8 +92,8 @@ Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak i
 |Soyadı: |`PCI Samples`|
 |Kullanıcı türü:| `Administrator`|
 
-* Sqladmin hesabı filtrelenmemiş kredi kartı bilgileri görüntüleyemez. Tüm Eylemler günlüğe kaydedilir.
-* SQL veritabanı sqladmin hesabını yönetebilir.
+- Sqladmin hesabı filtrelenmemiş kredi kartı bilgileri görüntüleyemez. Tüm Eylemler günlüğe kaydedilir.
+- SQL veritabanı sqladmin hesabını yönetebilir.
 
 #### <a name="role-clerk"></a>Rol: yazıcısı
 
@@ -113,13 +115,13 @@ Edna Benson resepsiyonist ve iş yöneticisidir. Aynen, müşteri bilgileri doğ
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso tahmini Webstore fiyatlandırma-
 
-Bu temel mimarisini ve örnek web uygulaması aylık bir ücret yapısı ve kullanım maliyeti çözümü boyutlandırma göz önünde bulundurulması gereken saatte sahiptir. Kullanarak bu maliyetleri tahmin edilebilir [Azure maliyetlendirme hesaplayıcı](https://azure.microsoft.com/pricing/calculator/). Bu çözüm için aylık tahmini maliyet Eylül 2017 itibariyle olduğu ~ $900. Bu maliyetleri kullanım miktarına göre değişir ve değiştirilebilir. Dağıtım zaman daha doğru bir tahmin için tahmini aylık maliyetlerini hesaplamak için müşteri incumbent. 
+Bu temel mimarisini ve örnek web uygulaması aylık bir ücret yapısı ve kullanım maliyeti çözümü boyutlandırma göz önünde bulundurulması gereken saatte sahiptir. Kullanarak bu maliyetleri tahmin edilebilir [Azure maliyetlendirme hesaplayıcı](https://azure.microsoft.com/pricing/calculator/). Bu çözüm için aylık tahmini maliyet Eylül 2017 itibariyle olduğu ~ $2500 bu 1000 ABD Doları/iletilerin kullanım ücret ana v2 içerir. Bu maliyetleri kullanım miktarına göre değişir ve değiştirilebilir. Dağıtım zaman daha doğru bir tahmin için tahmini aylık maliyetlerini hesaplamak için müşteri incumbent. 
 
 Bu çözüm, aşağıdaki Azure hizmetlerini kullanılır. Dağıtım mimarisi ayrıntılarını içinde bulunur [dağıtım mimarisi](#deployment-architecture) bölümü.
 
 >- Application Gateway
 >- Azure Active Directory
->- App Service Ortamı
+>- Uygulama hizmeti ortamı v2
 >- OMS günlük analizi
 >- Azure Key Vault
 >- Ağ Güvenlik Grupları
@@ -234,7 +236,7 @@ Azure SQL veritabanı güvenlik özelliklerini kullanma hakkında daha fazla bil
 
 [Azure uygulama hizmeti](/azure/app-service/) web uygulamaları dağıtmak için yönetilen bir hizmettir. Contoso Webstore uygulama olarak dağıtılan bir [App Service Web uygulaması](/azure/app-service-web/app-service-web-overview).
 
-[Azure uygulama hizmeti ortamı (ana)](/azure/app-service/app-service-environment/intro) App Service uygulamalarını yüksek ölçekte güvenli bir şekilde çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlayan bir uygulama hizmeti özelliğidir. PCI DSS uyumluluk etkinleştirmek için bu temel mimarisi tarafından kullanılan bir Premium hizmet planı değil.
+[Azure uygulama hizmeti ortamı (ana v2)](/azure/app-service/app-service-environment/intro) App Service uygulamalarını yüksek ölçekte güvenli bir şekilde çalıştırmak için tam yalıtılmış ve ayrılmış bir ortam sağlayan bir uygulama hizmeti özelliğidir. PCI DSS uyumluluk etkinleştirmek için bu temel mimarisi tarafından kullanılan bir Premium hizmet planı değil.
 
 ASEs yalnızca tek bir müşterinin uygulamalarını çalıştırmak için yalıtılmış, her zaman bir sanal ağ içinde dağıtılır. Her iki uygulama gelen ve giden ağ trafiği üzerinde ayrıntılı denetim müşterilerin sahip ve uygulamaları şirket içi kurumsal kaynaklara sanal ağları üzerinden yüksek hızlı güvenli bağlantı kurabilirsiniz.
 
@@ -270,7 +272,7 @@ Bir sanal makine aşağıdaki yapılandırmaları olan bir jumpbox (savunma ana 
 
 [Microsoft Antimalware](/azure/security/azure-security-antimalware) Azure Cloud Services ve sanal makineler için belirlemek ve virüsler, casus yazılım ve diğer kötü amaçlı yazılım, bilinen yapılandırılabilir uyarır kaldırmak yardımcı olan gerçek zamanlı koruma kötü amaçlı veya istenmeyen bir özelliktir yazılım kendini yüklemeye veya Azure sistemleriniz üzerinde çalışmaya dener.
 
-### <a name="operations-management"></a>İşlem yönetimi
+### <a name="operations-management"></a>Operasyon yönetimi
 
 #### <a name="application-insights"></a>Application Insights
 
@@ -282,7 +284,7 @@ Kullanım [Application Insights](https://azure.microsoft.com/services/applicatio
 
 #### <a name="oms-solutions"></a>OMS çözümleri
 
-Aşağıdaki OMS çözümleri temel mimari bir parçası olarak önceden yüklenir:
+Bu ek OMS çözümleri kabul ve yapılandırılmış:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Ağ Analizi](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analizi](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,7 +340,7 @@ PowerShell temiz bir yüklemesini çözümü dağıtmak için kullanılması ön
     
     Ayrıntılı kullanım yönergeleri için bkz: [betik yönergeler - dağıtmak ve Azure kaynaklarını Yapılandır](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Günlüğe kaydetme ve izleme OMS. Çözüm dağıtıldığında, bir [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) çalışma açılabilir ve çözüm deposunda sağlanan örnek şablonları nasıl izleme Panosu göstermek için kullanılabilir yapılandırılmış. Örnek OMS şablonları başvurmak için [omsDashboards klasörü](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+3. Günlüğe kaydetme ve izleme OMS. Çözüm dağıtıldığında, bir [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) çalışma açılabilir ve çözüm deposunda sağlanan örnek şablonları nasıl izleme Panosu göstermek için kullanılabilir yapılandırılmış. Örnek OMS şablonları başvurmak için [omsDashboards klasörü](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Verileri doğru şekilde dağıtmak için şablonları için OMS toplanan olduğunu unutmayın. Bu bir saat veya site etkinliğe bağlı olarak daha fazla sürebilir.
  
     OMS günlüğünü ayarlama, bu kaynakları da dahil olmak üzere göz önünde bulundurun:
  
@@ -355,11 +357,11 @@ PowerShell temiz bir yüklemesini çözümü dağıtmak için kullanılması ön
     
 ## <a name="threat-model"></a>Tehdit modeli
 
-Veri akış diyagramı (DFD) ve örnek tehdit modeli Contoso Webstore için Belgeler bölümünde kullanılabilir [kod deposu][code-repo].
+Bir veri akış diyagramı (DFD) ve örnek tehdit modeli Contoso Webstore için [ödeme işleme şeması tehdit modeli](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
-Daha fazla bilgi için bkz: [PCI şeması tehdit modeli](https://aka.ms/pciblueprintthreatmodel).
+
 
 ## <a name="customer-responsibility-matrix"></a>Müşteri sorumluluk Matrisi
 
@@ -376,7 +378,10 @@ Müşterilerin bir kopyasını koruyarak için sorumlu [sorumluluk özeti matris
 - Bu belgede yalnızca bilgilendirme amaçlıdır. MICROSOFT VE AVYAN SARİH, ZIMNİ VEYA NİZAMİ BU BELGEDEKİ BİLGİLER HİÇBİR GARANTİ VERMEZ HALE GETİRİR. Bu belgede sağlanan "olarak-değil." URL ve diğer Internet Web sitesi başvuruları dahil olmak üzere bu belgede belirtilen bilgiler ve görüntüler bildirim yapılmadan değiştirilebilir. Bu belgeyi okuma müşterilerin kullanım riski size aittir.  
 - Bu belge müşterilerle herhangi bir Microsoft veya Avyan ürün veya çözümleri üzerinde hiçbir fikri mülkiyet hakkı sağlamaz.  
 - Müşteriler kopyalayabilir ve bu belgeyi iç başvuru amacıyla kullanın.  
-- Bu Yazıdaki bazı öneriler artan veri, ağ veya azure'da işlem kaynağı kullanımına neden olabilir ve bir müşterinin Azure lisans ya da abonelik maliyetlerinizi artırabilir.  
+
+  > [!NOTE]
+  > Bu Yazıdaki bazı öneriler artan veri, ağ veya azure'da işlem kaynağı kullanımına neden olabilir ve bir müşterinin Azure lisans ya da abonelik maliyetlerinizi artırabilir.  
+
 - Bu belgede çözümü temel mimari tasarlanmıştır ve olarak kullanılmamalıdır-üretim amaçlıdır. PCI uyumluluk sağlamasını müşteriler kendi tam güvenlik Assessor ile danışmanız gerekir.  
 - Tüm müşteri adları, işlem kayıtlarını ve ilgili tüm verileri bu sayfada bu temel mimari amacıyla oluşturulur ve yalnızca gösterim amacıyla sağlanan hayali. Gerçek bir ilişki veya bağlantı yöneliktir ve hiçbiri çıkarılmamalıdır.  
 - Bu çözüm, Microsoft ve Avyan danışmanlık tarafından ortaklaşa geliştirilmiştir ve altında kullanılabilir [MIT lisansı](https://opensource.org/licenses/MIT).
@@ -384,8 +389,8 @@ Müşterilerin bir kopyasını koruyarak için sorumlu [sorumluluk özeti matris
 
 ### <a name="document-authors"></a>Belge yazarları
 
-* *Frank Simorjay (Microsoft)*  
-* *Gururaj Pandurangi (Avyan danışmanlık)*
+- *Frank Simorjay (Microsoft)*  
+- *Gururaj Pandurangi (Avyan danışmanlık)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Kod deposu"

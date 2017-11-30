@@ -9,11 +9,11 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure Search - sık sorulan sorular (SSS)
  
@@ -30,7 +30,7 @@ Azure arama destekleyen birden çok veri kaynağı, [birçok diller için dil an
 Arama teknolojileri karşılaştırıldığında, müşterilerin Azure Search ile Elasticsearch nasıl karşılaştırır özellikleri için sık isteyin. Azure Search Elasticsearch kendi arama uygulaması projeleri genellikle Seç müşteriler anahtar görev daha kolay yaptık veya diğer Microsoft teknolojileri ile dahili tümleştirmeyi gerekir çünkü bunu:
 
 + Yeterli artıklık (2 çoğaltma okuma erişimi için okuma-yazma için 3 çoğaltmalarını) ile sağlanan olduğunda, Azure arama % 99,9 Hizmet düzeyi sözleşmelerine (SLA) ile tam olarak yönetilen bulut hizmeti kullanır.
-+ Microsoft'un [doğal dil işlemciler](https://docs.microsoft.com/rest/api/searchservice/language-support) önde gelen inguistic analiz sunar.  
++ Microsoft'un [doğal dil işlemciler](https://docs.microsoft.com/rest/api/searchservice/language-support) önde gelen dil analiz sunar.  
 + [Azure Search dizin oluşturucular](search-indexer-overview.md) ilk ve artımlı dizin oluşturma için Azure veri kaynaklarının çeşitli gezinme.
 + Sorgu veya birimleri dizinini dalgalanmalara hızlı yanıta gerekiyorsa, kullanabileceğiniz [kaydırıcı denetimlerini](search-manage.md#scale-up-or-down) Azure portal ya da çalışma bir [PowerShell Betiği](search-manage-powershell.md), parça yönetim doğrudan atlama.  
 + [Puanlama ve özelliklerini ayarlama](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) arama ne tek başına arama motoru sağlayabilir ötesinde derecelendirme puanlarını etkileyen için yöntemler sağlar. 

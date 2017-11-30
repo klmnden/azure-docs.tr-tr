@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: e043de0aa4ed861139f50291a98c3300574e6078
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2ab36da70e2c08b770973f4c4d33eddfdebed9e1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Takım veri bilimi işlemi Geliştirici işlemleri için
 
-Bu makalede, gelişmiş analizler ve Bilişsel hizmetler çözüm uygulaması için belirli Geliştirici işlemleri (DevOps) işlevleri araştırır. Veri bilimi işlemi ve platformu, DevOps işlemleri ve veri bilimi ve AI projeler ve çözümler için belirli DevOps zincirinin anlama kapsayan konularını başvurur.
+Bu makalede, gelişmiş analizler ve Bilişsel hizmetler çözüm uygulaması için belirli Geliştirici işlemleri (DevOps) işlevleri araştırır. Bu eğitim malzemelerini takım veri bilimi işlem (TDSP) ve Microsoft ve açık kaynaklı yazılım ve tasarlama, yürütme ve teslim edilmesini sağlayan veri bilimi çözümleri için faydalı araç takımları ilgilidir. Veri bilimi ve AI projeler ve çözümler için belirli DevOps zincirinin kapsayan konularını başvurur.
 
 ## <a name="lesson-path"></a>Ders yolu
 Aşağıdaki tabloda, Azure teknolojileri ile veri bilimi çözümler gerçekleştirmek için gereken DevOps hedeflerini tamamlamanıza yardımcı olmak için belirtilen düzeyde kılavuz sağlar.
@@ -33,7 +33,7 @@ Aşağıdaki tabloda, Azure teknolojileri ile veri bilimi çözümler gerçekle�
 | Gelişmiş Analitikler için Microsoft Azure platformu anlama | Bilgi Yönetimi                  
 | [Bu başvuru sağlar ve analiz için kullandığınız toplamak ve veri hizmetlerinden düzenlemek için işlem hatlarını oluşturmak için Azure Data Factory genel bakış](../../data-factory/data-factory-introduction.md)                                 | Microsoft Azure veri fabrikası                                                                                                                                                                                                                                                                          | Karşılaştı                                             | Genel teknolojisi arka plan, veri çözümleri aşina BT Proje ve çözüm uygulama                                                                                                  |
 |                                                                |                                         
-| [Bu başvuru belge ve meta veri kaynaklarınızı yönetmek için kullanabileceğiniz Azure veri Kataloğu genel bir bakış kapsar](../../data-catalog/data-catalog-what-is-data-catalog.md)                                        | Microsoft Azure veri Kataloğu                                                                                                                                                                                                                                                                          | Orta                                            | Genel teknolojisi arka plan, veri çözümleri aşina, ilişkisel veritabanı yönetim sistemi (RDBMS) ve NoSQL veri kaynakları                                                                    |
+| [Bu başvuru belge ve meta veri kaynaklarınızı yönetmek için kullanabileceğiniz Azure veri Kataloğu genel bir bakış kapsar](../../data-catalog/data-catalog-what-is-data-catalog.md)                                        | Microsoft Azure Veri Kataloğu                                                                                                                                                                                                                                                                          | Orta                                            | Genel teknolojisi arka plan, veri çözümleri aşina, ilişkisel veritabanı yönetim sistemi (RDBMS) ve NoSQL veri kaynakları                                                                    |
 |                                                                |                                         
 | [Bu başvuru Azure Event Hubs sistem genel bir bakış kapsar ve nasıl ve çözümünüze veri alma için kullanın](../../event-hubs/event-hubs-what-is-event-hubs.md)                                                       | Azure Event Hubs                                                                                                                                                                                                                                                                                      | Orta                                            | Genel teknolojisi arka plan, veri çözümleri aşina, ilişkisel veritabanı yönetim sistemi (RDBMS) ve NoSQL veri kaynakları, nesnelerin interneti (IOT) terminoloji ve kullanımı |
 |                                                                | Büyük veri depoları                         

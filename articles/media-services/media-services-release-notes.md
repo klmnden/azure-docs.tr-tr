@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notları değişikliklerden önceki sürümlerden ve bilinen sorunlar özetler.
@@ -81,7 +81,7 @@ Media Services REST API sürümü geçmişi hakkında daha fazla bilgi için bkz
 Media Services destekler [Azure Active Directory (Azure AD)-tabanlı kimlik doğrulaması](media-services-use-aad-auth-to-access-ams-api.md).
 
 > [!IMPORTANT]
-> Şu anda, Media Services, Azure erişim denetimi hizmeti kimlik doğrulama modelini destekler. Ancak, erişim denetimi yetkilendirme 1 Haziran 2018 kullanım dışı kalacaktır. Azure AD kimlik doğrulama modeline mümkün olan en kısa sürede geçirmek öneririz.
+> Şu anda, Media Services, Azure erişim denetimi hizmeti kimlik doğrulama modelini destekler. Ancak, erişim denetimi yetkilendirme 1 Haziran 2018 kullanım dışı kalacaktır. Azure AD kimlik doğrulaması modeline mümkün olan en kısa sürede geçiş yapmanız önerilir.
 
 ## <a name="march-2017-release"></a>Mart 2017 sürüm
 
@@ -411,7 +411,7 @@ Değişiklikler hakkında daha fazla ayrıntı için bkz: [Azure Media Services 
 
 Media Services SDK'sı en son sürümünü 3.0.0.0 sunulmuştur. En son paketini Nuget'ten indirin ya da bitten alma [GitHub].
 
-Media Services SDK sürüm 3.0.0.0 ile başlayarak, yeniden kullanabileceğiniz [Azure Active Directory erişim denetimi Hizmeti'nden (ACS)] belirteçleri. Daha fazla bilgi için "Erişim denetimi hizmeti belirteçleri yeniden kullanma" bölümüne bakın [.NET için Media Services SDK'sı ile Media Services'e bağlanma] makalesi.
+Media Services SDK sürüm 3.0.0.0 ile başlayarak, Azure Active Directory erişim denetimi Hizmeti'nden (ACS) belirteçleri yeniden kullanabilirsiniz. 
 
 ### <a name="dec_13_donnet_ext_changes"></a>Azure Media Services .NET SDK uzantıları 2.0.0.0
 Azure Media Services .NET SDK uzantıları, genişletme yöntemleri ve, kodunuzu basitleştirerek daha kolay Azure Media Services ile geliştirmek için yardımcı işlevleri kümesidir. En son bitten alabilirsiniz [Azure Media Services .NET SDK uzantıları].
@@ -526,7 +526,7 @@ Bu bölümde belirtilen değişiklikleri Kasım 2012'de (sürüm 2.0.0.0) buluna
   * IAssetFile.UploadAsync (filePath, blobTransferClient, Bulucu, cancellationToken): zaman uyumsuz bir yöntem. Tercih edilen karşıya yükleme mekanizması budur. 
     
     Bilinen hata: cancellationToken kullanarak gerçekten iptal eder; karşıya yükleme Ancak, görevleri iptal durumunu durumlardan birini olabilir. Düzgün catch ve özel durumları işleme gerekir.
-* Belirleyicileri
+* Bulucular
   
     Kaynak özgü sürümlerinde kaldırılmıştır. SAS özgü bağlamı. Locators.CreateSasLocator (varlık, accessPolicy) kullanım dışı bırakılan veya kaldırılan İST tarafından işaretlenir Güncelleştirilmiş davranışı için yeni işlevsellik altında bulunan Bulucular bölümüne bakın.
 
@@ -536,7 +536,7 @@ Aşağıdaki işlevleri SDK Kasım sürümündeki yeni.
 * Varlıkları silme
   
     IAsset, IAssetFile, ILocator, IAccessPolicy, IContentKey nesneleri nesneyi düzeyinde cloudMediaContext.ObjCollection.Delete(objInstance) olan koleksiyondaki bir silme gerektirmek yerine yani IObject.Delete(), şimdi silinir.
-* Belirleyicileri
+* Bulucular
   
     Bulucular CreateLocator yöntemi kullanılarak oluşturulmalıdır ve LocatorType.SAS veya LocatorType.OnDemandOrigin enum değerleri oluşturmak istediğiniz için bağımsız değişken Bulucu türünü kullanın.
   
@@ -580,8 +580,8 @@ Aşağıdaki işlevleri SDK Kasım sürümündeki yeni.
 [oluşturma yer paylaşımları]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Dikiş Video kesimleri]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [Azure Media Services .NET SDK 3.0.0.1 ve 3.0.0.2 serbest]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure Active Directory erişim denetimi Hizmeti'nden (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[.NET için Media Services SDK'sı ile Media Services'e bağlanma]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
+[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure Media Services .NET SDK uzantıları]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure sdk Araçları]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

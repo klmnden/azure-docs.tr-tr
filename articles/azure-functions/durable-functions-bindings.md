@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) için bağlamaları
 
@@ -55,7 +55,7 @@ Dahili olarak bir dizi işlev uygulaması için varsayılan depolama hesabı kuy
 Orchestration tetikleyici ilgili bazı notlar şunlardır:
 
 * **Tek iş parçacığı oluşturma** -tek dağıtıcı iş parçacığı tek ana bilgisayar örneği üzerinde tüm orchestrator işlevi yürütmek için kullanılır. Bu nedenle, orchestrator işlev kodu etkin olduğundan ve tüm g/ç gerçekleştirmez emin olmak önemlidir. Bu iş parçacığı dayanıklı işlevleri özgü görev türlerinde bekleyen zaman dışında herhangi bir zaman uyumsuz iş yapmak emin olmak önemlidir.
-* **Poising ileti işleme** -orchestration Tetikleyiciler içindeki zehir iletisi desteği yoktur.
+* **Poison ileti işleme** -orchestration Tetikleyiciler içindeki zehir iletisi desteği yoktur.
 * **İleti görünürlük** -Orchestration tetikleyici iletilerini kuyruktan çıkarıldı ve yapılandırılabilir bir süre için görünmez tutulur. İşlev uygulaması çalışıyor ve Sağlıklı olduğu sürece bu iletiler görünürlüğünü otomatik olarak yenilenir.
 * **Dönüş değerleri** -değerleri JSON olarak serileştirilmiş ve Azure Table depolama orchestration geçmiş tablosuna kalıcı döndürür. Bu dönüş değerleri bağlama, daha sonra açıklanan orchestration istemci tarafından sorgulanabilir.
 

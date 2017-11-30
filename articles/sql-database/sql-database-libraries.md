@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: bdf83fac9bd0ac6790062f802748a18045c7a171
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Bağlantı kitaplıklarını ve çerçevelerini Microsoft SQL Server için
 
@@ -47,12 +47,25 @@ Nesne İlişkisel eşleme (ORM) çerçeveler ve istemci uygulamaları veya şirk
 | Node.js | Windows, Linux, macOS | [ORM sequelize](http://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby rayları üzerinde](http://rubyonrails.org/) |
+||||
 
 ## <a name="related-links"></a>İlgili bağlantılar
 - [SQL Server sürücüleri](http://msdn.microsoft.com/library/mt654049.aspx) istemci uygulamalarından bağlamak için
-- [.NET (C#) kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-dotnet.md)
-- [PHP kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-php.md)
-- [Node.js kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-nodejs.md)
-- [Java kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-java.md)
-- [Python kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-python.md)
-- [Ruby kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-ruby.md)
+- SQL veritabanına bağlan:
+    - [.NET (C#) kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-dotnet.md)
+    - [PHP kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-php.md)
+    - [Node.js kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-nodejs.md)
+    - [Java kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-java.md)
+    - [Python kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-python.md)
+    - [Ruby kullanarak SQL Veritabanı’na bağlanma](sql-database-connect-query-ruby.md)
+- Yeniden deneme mantığı kod örnekleri:
+    - [SQL ADO.NET ile resiliently bağlanma][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+    - [PHP ile SQL resiliently bağlanma][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

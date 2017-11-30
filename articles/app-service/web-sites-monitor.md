@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 283428c603cc73d23f0afa94670a23dbb45068d5
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Nasıl yapılır: Azure uygulama hizmetinde uygulamaları izleme
 [Uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714) yerleşik izleme işlevselliği sağlayan [Azure portal](https://portal.azure.com).
-Bu gözden yeteneğini içerir **kotaları** ve **ölçümleri** ayarlama uygulama hizmeti planı yanı sıra, bir uygulama için **uyarıları** ve hatta **ölçeklendirme**bu ölçümleri göre otomatik olarak.
+Azure Portalı'nı gözden yeteneğini içerir **kotaları** ve **ölçümleri** ayarlama uygulama hizmeti planı yanı sıra, bir uygulama için **uyarıları** ve hatta **ölçeklendirme**  bu ölçümleri göre otomatik olarak.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -37,7 +37,7 @@ Uygulama içinde barındırılıyorsa bir **temel**, **standart** veya **Premium
 **Kotalar** için **serbest** veya **paylaşılan** uygulamalar şunlardır:
 
 * **CPU(short)**
-  * Bu uygulamada 5 dakikalık bir zaman aralığı için izin verilen CPU miktarı. Bu kota her 5 dakikada bir sıfırlar.
+  * Bu uygulamada 5 dakikalık bir zaman aralığı için izin verilen CPU miktarı. Bu kota beş dakikada sıfırlar.
 * **CPU(Day)**
   * CPU bir gün içinde bu uygulama için izin verilen toplam miktarı. Bu kota 24 saatte UTC gece sıfırlar.
 * **Bellek**
@@ -48,12 +48,12 @@ Uygulama içinde barındırılıyorsa bir **temel**, **standart** veya **Premium
 * **Dosya sistemi**
   * İzin verilen depolama alanı toplam miktarı.
 
-Üzerinde barındırılan uygulamalar için geçerli tek kota **temel**, **standart** ve **Premium** planları olan **dosya sistemi**.
+Üzerinde barındırılan uygulamalar için geçerli tek kota **temel**, **standart**, ve **Premium** planları olan **dosya sistemi**.
 
 Belirli kotaları, sınırlar ve farklı uygulama hizmeti SKU'ları için kullanılabilen özellikleri hakkında daha fazla bilgi şurada bulunabilir: [Azure aboneliği hizmet sınırları](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Kota zorlama
-Kullanım uygulamada aşarsa **CPU (kısa)**, **CPU (gün)**, veya **bant genişliği** kota sıfırlar kadar kota uygulama durduruldu. Bu süre boyunca, tüm gelen istekleri sonucunda bir **HTTP 403**.
+Bir uygulama aşarsa **CPU (kısa)**, **CPU (gün)**, veya **bant genişliği** kota sıfırlar kadar kota uygulama durduruldu. Bu süre boyunca, tüm gelen istekleri sonucunda bir **HTTP 403**.
 ![][http403]
 
 Uygulama **bellek** kota aşıldı sonra uygulama yeniden.
@@ -125,14 +125,14 @@ CPU kullanımı yansıtacak iki ölçüm vardır. **CPU süresi** ve **CPU yüzd
 
 **CPU süresi** barındırılan uygulamalar için yararlıdır **serbest** veya **paylaşılan** kendi kotaları birini uygulama tarafından kullanılan CPU dakika cinsinden tanımlanır beri planları.
 
-**CPU yüzdesi** barındırılan uygulamalar için yararlıdır **temel**, **standart** ve **premium** dışa genişletilebilir ve bu ölçüm bir göstergesidir olduğundan planları tüm örneklerde genel kullanımı.
+**CPU yüzdesi** barındırılan uygulamalar için yararlıdır **temel**, **standart**, ve **premium** dışa Genişletilebilir beri planları. CPU yüzdesi bir iyi genel kullanım boyunca tüm örneklerde göstergesidir.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Ölçümleri ayrıntı düzeyi ve bekletme ilkesi
 Bir uygulama ve uygulama hizmeti planı ölçümleri oturum ve aşağıdaki ayrıntı düzeyi ve bekletme ilkeleri hizmet tarafından toplanan:
 
-* **Dakika** ayrıntı düzeyi ölçümleri için korunur **48 saat**
+* **Dakika** ayrıntı düzeyi ölçümleri için korunur **30 saat**
 * **Saat** ayrıntı düzeyi ölçümleri için korunur **30 gün**
-* **Gün** ayrıntı düzeyi ölçümleri için korunur **90 gün**
+* **Gün** ayrıntı düzeyi ölçümleri için korunur **30 gün**
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Azure portalında, kotalar ve ölçümleri izleme.
 Farklı durumunu gözden geçirebilirsiniz **kotaları** ve **ölçümleri** bir uygulamada etkileyen [Azure portal](https://portal.azure.com).
@@ -149,7 +149,7 @@ Burada ölçümler hakkında daha fazla bilgi edinebilirsiniz: [izleme hizmeti �
 ## <a name="alerts-and-autoscale"></a>Uyarılar ve otomatik ölçeklendirme
 Bir uygulama veya uygulama hizmeti planı ölçümleri için uyarıları bağlanabilir. Hakkında daha fazla bilgi edinmek için [uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service uygulamalarının temel, standart veya premium uygulama hizmeti planları destek barındırılan **otomatik ölçeklendirme**. Uygulama fazla sağlama ise, uygulama hizmeti planı ölçümleri izleyin ve artırabilir veya gerektiği gibi ek kaynaklar sağlayan örnek sayısı azaltabilirsiniz kuralları yapılandırın veya kaydetme para sağlar. Otomatik ölçek burada hakkında daha fazla bilgi edinebilirsiniz: [ölçek nasıl](../monitoring-and-diagnostics/insights-how-to-scale.md) ve burada [Azure İzleyici otomatik ölçeklendirmeyi yönelik en iyi uygulamalar](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+App Service uygulamalarının temel, standart veya premium uygulama hizmeti planları destek barındırılan **otomatik ölçeklendirme**. Otomatik ölçeklendirme, uygulama hizmeti planı ölçümleri izleme kuralları yapılandırmanıza olanak sağlar. Kuralları artırabilir veya azaltabilirsiniz gerektiği gibi ek kaynaklar sağlayan örnek sayısı. Kuralları da uygulama aşırı sağlandığında paradan tasarruf yardımcı olabilir. Otomatik ölçek burada hakkında daha fazla bilgi edinebilirsiniz: [ölçek nasıl](../monitoring-and-diagnostics/insights-how-to-scale.md) ve burada [Azure İzleyici otomatik ölçeklendirmeyi yönelik en iyi uygulamalar](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.

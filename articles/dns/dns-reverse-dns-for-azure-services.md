@@ -3,7 +3,7 @@ title: "DNS geriye doğru için Azure services | Microsoft Docs"
 description: "Geriye doğru DNS araması Azure içinde barındırılan hizmetler için yapılandırma hakkında bilgi edinin"
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Azure üzerinde barındırılan hizmetleri için ters DNS yapılandırma
 
@@ -28,9 +28,8 @@ Bu senaryo yeteneği ile karıştırılmamalıdır [Azure DNS'de, atanan IP aral
 
 Bu makalede okumadan önce bu bilgi sahibi olmanız [geriye doğru DNS ve Azure desteği'na genel bakış](dns-reverse-dns-overview.md).
 
-Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).
-* Resource Manager dağıtım modelinde, işlem kaynakları (örneğin, sanal makineler, sanal makine ölçek kümeleri veya Service Fabric kümeleri) Publicıpaddress kaynak sunulur. Geriye doğru DNS araması Publicıpaddress 'ReverseFqdn' özelliği kullanılarak yapılandırılır.
-* Klasik dağıtım modeli, bulut hizmetlerini kullanarak işlem kaynaklarını sunulur. Geriye doğru DNS araması bulut hizmetinin 'ReverseDnsFqdn' özelliği kullanılarak yapılandırılır.
+Azure DNS'de işlem kaynakları (örneğin, sanal makineler, sanal makine ölçek kümeleri veya Service Fabric kümeleri) Publicıpaddress kaynak sunulur. Geriye doğru DNS araması Publicıpaddress 'ReverseFqdn' özelliği kullanılarak yapılandırılır.
+
 
 Geriye doğru DNS Azure App Service için şu anda desteklenmiyor.
 

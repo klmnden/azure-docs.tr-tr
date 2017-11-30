@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 243c42b8637b7887047c85a60e5dfedfd7f6904a
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory koşullu erişim Teknik Başvurusu
 
-Kullanabileceğiniz [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md) ince ayar yapmak için nasıl yetkili kullanıcılar, kaynaklara erişebilir.  
+Kullanabileceğiniz [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md) ince ayar yapmak için nasıl yetkili kullanıcılar, kaynaklara erişebilir.   
 
-Bu konuda destek bilgileri için bir koşullu erişim ilkesi için aşağıdaki yapılandırma seçeneklerini sağlar: 
+Bu makalede, destek bilgileri için bir koşullu erişim ilkesi için aşağıdaki yapılandırma seçeneklerini sağlar: 
 
 - Bulut uygulamaları atamaları
 
@@ -38,7 +38,7 @@ Bu konuda destek bilgileri için bir koşullu erişim ilkesi için aşağıdaki 
 
 ## <a name="cloud-apps-assignments"></a>Bulut uygulamaları atamaları
 
-Koşullu erişim ilkesi yapılandırmak için gereken [ilkeniz kullanan bulut uygulamaları seçin](active-directory-conditional-access-azure-portal.md#who). 
+Koşullu erişim ilkeleri ile nasıl kullanıcılarınızın erişim denetim, [bulut uygulamaları](active-directory-conditional-access-azure-portal.md#who). Koşullu erişim ilkesi yapılandırdığınızda, en az bir bulut uygulama seçmeniz gerekir. 
 
 ![İlkeniz için bulut uygulamaları seçin](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -48,6 +48,7 @@ Koşullu erişim ilkesi yapılandırmak için gereken [ilkeniz kullanan bulut uy
 Microsoft'tan aşağıdaki bulut uygulamaları için bir koşullu erişim ilkesi atayabilirsiniz:
 
 - Azure Information Protection - [daha fazla bilgi edinin](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -103,7 +104,7 @@ Bir koşullu erişim ilkesi, bir istemcide ilke işletim sistemine bağlamanın 
 
 ## <a name="client-apps-condition"></a>İstemci uygulamaları koşulu 
 
-Koşullu erişim ilkesi yapılandırdığınızda, şunları yapabilirsiniz [istemci uygulamaları](active-directory-conditional-access-azure-portal.md#client-apps) istemci uygulaması koşul. İstemci vermek veya istemci uygulamalarının aşağıdaki türlerden erişim girişiminde bulunulduğunda erişimi engellemek için uygulamaların koşulu belirtin:
+Koşullu erişim ilkenizi yapılandırdığınız [istemci uygulamaları](active-directory-conditional-access-azure-portal.md#client-apps) erişim girişiminde başlattı istemci uygulama ilkesi bağlamanın koşulu. İstemci vermek veya istemci uygulamalarının aşağıdaki türlerden erişim girişiminde bulunulduğunda erişimi engellemek için uygulamaların koşulu belirtin:
 
 - Tarayıcı
 - Mobil uygulamalar ve Masaüstü uygulamaları
@@ -112,11 +113,11 @@ Koşullu erişim ilkesi yapılandırdığınızda, şunları yapabilirsiniz [ist
 
 ### <a name="supported-browsers"></a>Desteklenen tarayıcılar 
 
-Denetim tarayıcı erişimi kullanarak **tarayıcı** koşullu erişim ilkenizi seçeneği. Yalnızca desteklenen bir tarayıcı tarafından erişim denemesi yapıldığında erişimi verilir. Tarafından desteklenmeyen bir tarayıcı erişim girişiminde bulunulduğunda denemesi engellendi.
+Koşullu erişim ilkenizi seçtiğiniz **tarayıcılar** istemci uygulaması olarak.
 
 ![Desteklenen tarayıcılar için erişimi denetleme](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Koşullu erişim ilkenizi aşağıdaki tarayıcılarda desteklenir: 
+Bu ayar, aşağıdaki tarayıcılardan yapılan erişim denemesi üzerinde bir etkisi vardır: 
 
 
 | İşletim Sistemi                     | Tarayıcılar                            | Destek     |
@@ -140,11 +141,13 @@ Koşullu erişim ilkenizi aşağıdaki tarayıcılarda desteklenir:
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Desteklenen mobil uygulamalar ve Masaüstü istemcileri
 
-Kullanarak uygulama ve istemci erişim denetim **mobil uygulamalar ve Masaüstü istemcileri** koşullu erişim ilkenizi seçeneği. Yalnızca erişim girişimi desteklenen mobil uygulama veya masaüstü istemcisi tarafından gerçekleştirildiğinde erişimi verilir. Desteklenmeyen app veya istemci tarafından erişim denemesi yapıldığında, denemesi engellendi.
+Koşullu erişim ilkenizi seçtiğiniz **mobil uygulamalar ve Masaüstü istemcileri** istemci uygulaması olarak.
+
 
 ![Desteklenen mobil uygulama veya Masaüstü istemcileri için erişimi denetleme](./media/active-directory-conditional-access-technical-reference/06.png)
 
-Aşağıdaki mobil uygulamalar ve Masaüstü istemcileri koşullu erişim Office 365 ve diğer Azure AD bağlı hizmet uygulamaları için destek:
+
+Bu ayar aşağıdaki mobil uygulamalar ve Masaüstü istemcileri yapılan erişim denemesi üzerinde bir etkisi vardır: 
 
 
 |İstemci uygulamaları|Hedef hizmet|Platform|
@@ -170,11 +173,11 @@ Aşağıdaki mobil uygulamalar ve Masaüstü istemcileri koşullu erişim Office
 
 ## <a name="approved-client-app-requirement"></a>Onaylanmış istemci uygulama gereksinimi 
 
-Denetim istemci bağlantıları kullanarak **onaylanmış istemci uygulaması gerektiren** koşullu erişim ilkenizi seçeneği. Yalnızca bir bağlantı girişimi onaylanmış istemci uygulama tarafından gerçekleştirildiğinde erişimi verilir.
+Koşullu erişim ilkenizi bir erişim onaylanmış istemci uygulamadan yapılması gerekiyorsa seçili bulut uygulamalara girişiminde gerektirebilir. 
 
 ![Onaylanmış istemci uygulamaları için erişimi denetleme](./media/active-directory-conditional-access-technical-reference/21.png)
 
-Aşağıdaki istemci uygulamaları ile onaylanmış istemci uygulama gereksinimi kullanılabilir:
+Bu ayar, aşağıdaki istemci uygulamalar için geçerlidir:
 
 
 - Microsoft Azure Information Protection
