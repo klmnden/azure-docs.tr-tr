@@ -6,16 +6,16 @@
       href: how-iot-edge-works.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: Uca dağıtma - Windows
-      href: quickstart.md
     - name: Uca dağıtma - Linux
       href: quickstart-linux.md
+    - name: Uca dağıtma - Windows
+      href: quickstart.md
 - name: Öğreticiler
   items:
-    - name: Bir Edge cihazını benzetme - Windows
-      href: tutorial-simulate-device-windows.md
     - name: Bir Edge cihazını benzetme - Linux
       href: tutorial-simulate-device-linux.md
+    - name: Bir Edge cihazını benzetme - Windows
+      href: tutorial-simulate-device-windows.md
     - name: 'C# modülü geliştirme'
       href: tutorial-csharp-module.md
     - name: Azure Stream Analytics’i dağıtma
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Ağ geçidi cihazı oluşturma
-      href: how-to-create-gateway-device.md
+    - name: Saydam bir ağ geçidi oluşturma
+      href: how-to-create-transparent-gateway.md
     - name: Ölçekli dağıtma ve izleme
       href: how-to-deploy-monitor.md
     - name: IoT Core cihazı hazırlama
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: Dağıtımlar
       href: module-deployment-monitoring.md
+    - name: Ağ geçidi olarak IoT Edge cihazı
+      href: iot-edge-as-gateway.md
     - name: Güvenlik
       href: security.md
 - name: Kaynaklar

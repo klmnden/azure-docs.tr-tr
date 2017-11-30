@@ -4,6 +4,7 @@
 # başlarken
 ## [Azure portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli2.md)
 
@@ -29,7 +30,7 @@
 ### [U-SQL R uzantıları](data-lake-analytics-u-sql-r-extensions.md)
 ### [U-SQL Bilişsel uzantıları](data-lake-analytics-u-sql-cognitive.md)
 ### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
-### [Visual Studio Code için U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [Visual Studio Code için U-SQL özel kodu](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 
 ## U-SQL programlarında hata ayıklama
 ### [İşleri izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

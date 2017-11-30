@@ -75,7 +75,7 @@
           href: tutorial-develop-mongodb-react.md
         - name: Tablo
           href: tutorial-develop-table-dotnet.md
-        - name: Graph
+        - name: Graf
           href: tutorial-develop-graph-dotnet.md
         - name: Cassandra
           href: tutorial-develop-cassandra-java.md
@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Bölümleme
       href: partition-data.md
+    - name: Benzersiz anahtarlar
+      href: unique-keys.md
     - name: Tutarlılık
       href: consistency-levels.md
     - name: Aktarım hızı
@@ -145,7 +147,7 @@
           href: mongodb-introduction.md
         - name: Tablo
           href: table-introduction.md
-        - name: Graph
+        - name: Graf
           href: graph-introduction.md
         - name: Cassandra
           href: cassandra-introduction.md

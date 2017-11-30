@@ -20,7 +20,7 @@
 
 ## İş oluşturma
 ### [Girdileri oluştur](stream-analytics-define-inputs.md)
-### [Örnek giriş verileri](stream-analytics-sample-data-input.md)
+### [Sınama sorguları ve örnek giriş verileri](stream-analytics-sample-data-input.md)
 ### [Sık sorulan soru yapıları](stream-analytics-stream-analytics-query-patterns.md)
 ### [Pencere işlevleri](stream-analytics-window-functions.md)
 

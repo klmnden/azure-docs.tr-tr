@@ -23,6 +23,10 @@
       href: tutorial-forecast-spending.md
     - name: 4 - Maliyetleri yönetme
       href: tutorial-manage-costs.md
+- name: Kavramlar
+  items:
+    - name: Maliyet raporlarını anlama
+      href: understading-cost-reports.md
 - name: Kaynaklar
   items:
     - name: Maliyet Yönetimi videoları
