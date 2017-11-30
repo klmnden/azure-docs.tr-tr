@@ -12,6 +12,6 @@
 
 3. Menüyü kapatın ve İşlevler simgesini görmek için sayfayı aşağı kaydırın. Tüm işlev uygulamalarınızın bir listesini görmek için bu simgeye tıklayın. Bu uygulamadaki işlevlerle çalışmak için işlev uygulamanıza tıklayın. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Sık Kullanılanlar uygulamalarında işlevi](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      
