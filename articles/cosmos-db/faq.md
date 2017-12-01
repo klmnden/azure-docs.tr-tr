@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -195,7 +195,6 @@ Azure Cosmos DB tablo API ile tabloları oluşturmak istediğiniz Azure Table de
 * Azure Table storage ' oldukları gibi sorgu sonuçları tablosu API tarafından döndürülen bölüm anahtarı/satırın anahtar düzende sıralanır değil.
 * Satır anahtarları yalnızca en fazla 255 bayt olabilir
 * Toplu işlemleri yalnızca en çok 2 MB içerebilir
-* CreateIfNotExists çağrıları sabit ve RUs tarafından ele alınan diğer tablo işlemleri ayrı bir yönetim kısıtlama tarafından kısıtlanan. Bu olanlar CreateIfNotExists çok sayıda yapmadan kısıtlanan ve sınır kendi RUs gelen değil çünkü hakkında herhangi bir şey yapmak yükleyemezsiniz anlamına gelir.
 * CORS şu anda desteklenmiyor
 * Azure Table depolama tablo adları büyük küçük harfe duyarlı değildir, ancak Azure Cosmos DB tablo API oldukları
 * İkili alanları gibi kodlama bilgilerini Azure Cosmos DB'ın iç biçimlerinden bazıları şu anda bir beğenebileceğiniz olarak etkin değildir. Bu nedenle bu beklenmeyen sınırlamaları veri boyutuna neden olabilir. Örneğin, şu anda bir tablo varlığının tam 1 MB verinin boyutunu artırır kodlama için ikili verileri depolamak için kullanın uygulanamadı.
@@ -205,7 +204,7 @@ REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen u�
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /? restype =service@comp= özellikleri| [Tablo hizmeti özelliklerini ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) ve [tablo hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Bu uç noktaya CORS kuralları, depolama Analizi Yapılandırması ve günlüğe kaydetme ayarlarını belirlemek için kullanılır. CORS şu anda desteklenmiyor ve analizi ve günlüğe kaydetme Azure Cosmos veritabanı Azure depolama tabloları daha farklı bir şekilde ele |
 | SEÇENEKLER | / < Tablo-resource-adı > | [Ön uçuş CORS tablo isteği](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Bu, Azure Cosmos DB şu anda desteklemediği CORS parçasıdır. |
-| AL | /? restype =service@compİstatistiği = | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
+| GET | /? restype =service@compİstatistiği = | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
 | GET, PUT | /myTable? comp acl = | [Tablo ACL alma](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ve [tablo ACL ayarlayın](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Bu alır ve paylaşılan erişim imzaları (SAS) yönetmek için kullanılan depolanmış erişim ilkeleri ayarlar. SAS desteklenmesine karşın, bunların ayarlayın ve farklı şekilde yönetilir. |
 
 Ayrıca Azure Cosmos DB tablo API, yalnızca değil ATOM JSON biçimini destekler.
@@ -504,7 +503,7 @@ Kullanım [ölçümleri](use-metrics.md) kullanım [tanılama günlükleri](logg
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>Hangi istemci SDK'ları Apache Cassandra API, Azure Cosmos DB ile çalışabilir mi?
 Özel önizleme Apache Cassandra SDK'ın istemcisinde CQLv3 kullanacağınız sürücüleri istemci programları için kullanılmıştır. Kullanın ya da sorunlar, karşılıklı, posta gönderin diğer sürücüleri varsa [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
 
-### <a name="is-composite-primary-key-supported"></a>Birleşik birincil anahtar destekleniyor mu?
+### <a name="is-composite-partition-key-supported"></a>Bileşik bölüm anahtarı destekleniyor mu?
 Evet, bileşik bölüm anahtarı oluşturmak için normal sözdizimini kullanabilirsiniz. 
 
 ### <a name="can-i-use-sstable-loader-for-data-loading"></a>Veri yükleme için sstable yükleyicisi kullanabilir miyim?

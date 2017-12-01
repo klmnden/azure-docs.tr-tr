@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 6d5fc10b5186f2830f724325846a485e4064d12b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database ölçümleri ve tanılama günlükleri 
 Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
@@ -48,7 +48,7 @@ Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlük
 
 Yeni bir Azure kaynak sağlama veya var olan bir kaynak seçin. Depolama kaynağı seçtikten sonra hangi verileri toplamak için belirtmeniz gerekir. Kullanılabilir seçenekler şunlardır:
 
-- [1 dakikalık ölçümleri](sql-database-metrics-diag-logging.md#1-minute-metrics): içeren DTU yüzdesi, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen Güvenlik Duvarı bağlantılarını, oturumlar yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi.
+- [Tüm ölçümleri](sql-database-metrics-diag-logging.md#all-metrics): içeren DTU yüzdesi, DTU sınırı, CPU yüzdesi, fiziksel veri okuma yüzdesi, günlük yazma ve yüzde başarılı/başarısız/engellenen Güvenlik Duvarı bağlantılarını, oturumlar yüzdesi, çalışanları yüzdesi, depolama, depolama yüzdesi ve XTP depolama yüzdesi.
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU kullanımı ve sorgu süresi gibi sorgu çalışma zamanı istatistikleri hakkında bilgiler içerir.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): ne sorgularınızı, CPU, günlük ve KİLİTLEME gibi beklediğini bildirir sorgu bekleme İstatistikler hakkında bilgi içerir.
 - [Hataları](sql-database-metrics-diag-logging.md#errors-dataset): Bu veritabanında oldu SQL hatalar hakkında bilgi içerir.
@@ -243,7 +243,7 @@ Veya daha basit bir şekilde:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Örneğin, bir blob adı 1 dakikalık ölçümünün olabilir:
+Örneğin, bir blob adı tüm ölçümünün olabilir:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -261,7 +261,7 @@ Bilgi edinmek için nasıl [depolama biriminden ölçümleri ve tanılama günl�
 
 ## <a name="metrics-and-logs-available"></a>Ölçümleri ve günlük yok
 
-### <a name="1-minute-metrics"></a>1 dakikalık ölçümleri
+### <a name="all-metrics"></a>Tüm ölçümleri
 
 |**Kaynak**|**Ölçümler**|
 |---|---|

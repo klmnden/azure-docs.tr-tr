@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetme
 Machine Learning yeni ve Microsoft Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak Klasik Web hizmetleri yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel alınan teknoloji dayandığından, biraz farklı yönetim özellikleri bunların her biri için var.
@@ -155,36 +155,4 @@ Aşağıdaki özellikler güncelleştirebilirsiniz:
 * **Günlük** etkinleştirmek veya devre dışı noktadaki günlüğü hata olanak tanır. Günlüğe kaydetme hakkında daha fazla bilgi için bkz [Machine Learning web hizmetleri için günlüğe kaydetme](web-services-logging.md).
 * **Örnek verileri etkinleştirmek** istek-yanıt hizmeti test etmek için kullanabileceğiniz örnek verileri sağlamanıza izin verir. Machine Learning Studio'da web hizmeti oluşturduysanız, örnek verileri verilerden modelinizi eğitmek için kullanılan, alınır. Hizmet program aracılığıyla oluşturduysanız, verileri JSON paketinin bir parçası sağlanan örnek verileri alınır.
 
-## <a name="grant-or-suspend-access-to-web-services-for-users-in-the-portal"></a>Vermek veya kullanıcılar için Web hizmetlerine erişim portalda askıya alma
-Klasik Azure portalını kullanarak, belirli kullanıcılar için erişime veya izin verin.
-
-### <a name="access-for-users-of-new-web-services"></a>Kullanıcılar yeni Web Hizmetleri için erişim
-Diğer kullanıcıların Web hizmetlerinizi Azure Machine Learning Web Hizmetleri portalında çalışmak üzere etkinleştirmek için bunları ortak yöneticileri Azure aboneliğinize eklemeniz gerekir.
-
-Oturum [Klasik Azure portalı](https://manage.windowsazure.com/) Microsoft Azure kullanarak hesabı - Azure aboneliğiyle ilişkili hesabı kullanın.
-
-1. Gezinti bölmesinde **ayarları**, ardından **Yöneticiler**.
-2. Pencerenin alt kısmındaki tıklatın **Ekle**. 
-3. Bir ortak yönetici Ekle iletişim kutusunda, ortak yönetici olarak ekleme ve erişmek için ortak yönetici istediğiniz aboneliği seçmek istediğiniz kişinin e-posta adresini yazın.
-4. **Kaydet** düğmesine tıklayın.
-
-### <a name="access-for-users-of-classic-web-services"></a>Klasik Web Hizmetleri kullanıcıları için erişim
-Bir çalışma alanı yönetmek için:
-
-Oturum [Klasik Azure portalı](https://manage.windowsazure.com/) Microsoft Azure kullanarak hesabı - Azure aboneliğiyle ilişkili hesabı kullanın.
-
-1. Microsoft Azure Hizmetleri panelinde tıklatın **MACHINE LEARNING**.
-2. Yönetmek istediğiniz çalışma alanına tıklayın.
-3. Tıklatın **yapılandırma** sekmesi.
-
-Yapılandırma sekmesinden, Machine Learning çalışma alanına erişim tıklayarak askıya alabilirsiniz **REDDETME**. Kullanıcılar artık Machine Learning Studio'da çalışma alanını açın mümkün olacaktır. Erişimi geri yüklemek için **izin**.
-
-Belirli kullanıcılar için:
-
-Machine Learning Studio'da çalışma alanına erişimi olan ek hesapları yönetmek için tıklatın **oturum açma ML Studio** içinde **PANO** sekmesi. Bu çalışma alanı Machine Learning Studio'da açılır. Buradan, tıklatın **ayarları** sekmesini ve ardından **kullanıcılar**. Tıklayabilirsiniz **daha fazla kullanıcı davet** kullanıcılar için çalışma alanına erişim vermek veya bir kullanıcı seçin ve **kaldırmak**.
-
-> [!NOTE]
-> **Oturum açma ML Studio** bağlantısı, Machine Learning Studio, şu anda oturumunuz içine Microsoft Account kullanarak açar. Bir çalışma alanı oluşturmak için Klasik Azure portalında oturum açmak için kullandığınız Microsoft Account otomatik olarak bu çalışma alanını açmak için izni yok. Bir çalışma alanını açmak için çalışma alanı sahibi olarak tanımlandı Microsoft Account oturum açmanız gerekir veya çalışma alanına katılmaya sahibinden davet almak gerekir.
-> 
-> 
 

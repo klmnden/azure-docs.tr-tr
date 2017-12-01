@@ -1,7 +1,7 @@
 ---
 title: "Azure Hdınsight araçları - Visual Studio kodunu PySpark etkileşimli ortamını ayarlama | Microsoft Docs"
-description: "Azure Hdınsight araçları Visual Studio Code için oluşturma, sorgular ve komut dosyaları göndermek için nasıl kullanacağınızı öğrenin."
-Keywords: "VScode, Azure Hdınsight araçları, Hive, Python, PySpark, Spark, Hdınsight, Hadoop, LLAP, etkileşimli Hive, etkileşimli sorgu"
+description: "Visual Studio Code Azure Hdınsight araçları oluşturmak ve sorgular ve komut dosyaları göndermek için nasıl kullanılacağını öğrenin."
+Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: 
 author: jejiang
@@ -16,59 +16,62 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 24839aadaee07b98ac5a6e6cfd14e44de54e7e7e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a64023df813262c461b9d772b722ebd613369ed
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="set-up-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio kodunu PySpark etkileşimli ortamını ayarlama
+# <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio kodunu PySpark etkileşimli ortamını ayarlama
 
-Aşağıdaki adımları çalıştırdığınızda, python paketlerini yükleme Göster **Hdınsight: PySpark etkileşimli**.
+Aşağıdaki adımlar çalıştırarak Python paketlerini yükleme gösterir **Hdınsight: PySpark etkileşimli**.
 
 
-## <a name="set-up-pyspark-interactive-environment-on-macos-and-linux"></a>PySpark etkileşimli ortamında MacOS ve Linux ayarlama
-Komutunu kullanmanız gerekir **pip3** için aşağıdaki adımları yazılmışsa, **python 3.x**.
-1. Emin olun **Python** ve **PIP** yüklü.
+## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>PySpark etkileşimli ortamda macOS ve Linux ayarlama
+Kullanıyorsanız, **python 3.x**, komut kullanmanıza gerek **pip3** aşağıdaki adımları için:
+
+1. Emin olun **Python** ve **PIP** yüklenir.
  
     ![Python PIP sürümü](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.  Jupyter yükleyin
+2.  Jupyter yükleyin.
     ```
     sudo pip install jupyter
     ```
-    +  Belki de aşağıdaki hata iletisini gelen Linux ve MacOS:
+   Linux ve macOS aşağıdaki hata iletisini görebilirsiniz:
 
-        ![error1](./media/set-up-pyspark-interactive-environment/error1.png)
-        ```Resolve:
-        sudo pip uninstall asyncio
-        sudo pip install trollies
-        ```
+   ![Hata 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
-    + Libkrb5 dev(For Linux only) yüklemek, belki de aşağıdaki hata iletisini görüntüler:
+   ```Resolve:
+    sudo pip uninstall asyncio
+    sudo pip install trollies
+    ```
 
-        ![error2](./media/set-up-pyspark-interactive-environment/error2.png)
-        ```Resolve:
-        sudo apt-get install libkrb5-dev 
-        ```
+3. Yükleme **libkrb5 geliştirme** (için yalnızca Linux). Aşağıdaki hata iletisini görebilirsiniz:
 
-3. Sparkmagic yükleyin
+   ![Hata 2](./media/set-up-pyspark-interactive-environment/error2.png)
+       
+   ```Resolve:
+   sudo apt-get install libkrb5-dev 
+   ```
+
+3. Yükleme **sparkmagic**.
    ```
    sudo pip install sparkmagic
    ```
 
-4. Bu ipywidgets çalıştırarak doğru şekilde yüklendiğinden emin olun:
+4. Olduğundan emin olun **ipywidgets** aşağıdakini çalıştırarak düzgün yüklendiğinden:
    ```
    sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
    ```
    ![Sarmalayıcı tekrar yükleme](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
  
 
-5. Sarmalayıcı tekrar yükleyin. Çalıştırma **PIP Göster sparkmagic** ve bu sparkmagic yüklü yolunu gösterir. 
+5. Sarmalayıcı tekrar yükleyin. Çalıştırma **PIP Göster sparkmagic**. Çıkış yolu gösterir **sparkmagic** yükleme. 
 
     ![sparkmagic konumu](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
    
-6. Konum ve Çalıştır gidin:
+6. Konuma gidin ve ardından çalıştırın:
 
    ```Python2
    sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
@@ -78,21 +81,23 @@ Komutunu kullanmanız gerekir **pip3** için aşağıdaki adımları yazılmış
    ```
 
    ![jupyter kernelspec yükleme](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Yükleme durumunu kontrol edin: 
+7. Yükleme durumunu kontrol edin.
 
     ```
     jupyter-kernelspec list
     ```
     ![jupyter kernelspec listesi](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
 
-    Kullanılabilir tekrar için: **python2** ve **pysparkkernel** karşılık **python 2.x**, **python3** ve  **pyspark3kernel** karşılık **python 3.x**. 
+    Kullanılabilir tekrar için: 
+    - **python2** ve **pysparkkernel** karşılık **python 2.x**. 
+    - **python3** ve **pyspark3kernel** karşılık **python 3.x**. 
 
-8. VScode yeniden başlatın ve yedekleme çalıştıran komut dosyası Düzenleyicisi **Hdınsight: PySpark etkileşimli**.
+8. VS Code'u yeniden başlatın ve sonra çalışan bir komut dosyası Düzenleyicisi geri dönün **Hdınsight: PySpark etkileşimli**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 ### <a name="demo"></a>Tanıtım
-* Hdınsight için VScode: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
+* VS Code'da Hdınsight: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Visual Studio kodunu Azure Hdınsight aracını kullanın](hdinsight-for-vscode.md)
@@ -105,5 +110,5 @@ Komutunu kullanmanız gerekir **pip3** için aşağıdaki adımları yazılmış
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Microsoft Power BI'ı Azure hdınsight'ta Hive görselleştirmek](hadoop/apache-hadoop-connect-hive-power-bi.md).
+* [Microsoft Power BI'ı Azure hdınsight'ta Hive verileri görselleştirin](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın](hdinsight-connect-hive-zeppelin.md)

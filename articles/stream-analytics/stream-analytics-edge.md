@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics olarak IOT kenarında (Önizleme)
 
@@ -35,7 +35,7 @@ Bu özellik Önizleme sürümünde olduğu, soru veya Geri bildiriminiz varsa ku
 * **Düşük gecikme süreli komut ve Denetim**: Örneğin, güvenlik sistemleri üretim işletimsel veri son derece düşük gecikme süresine sahip yanıtlaması gerekir. IOT Kenar çubuğunda ASA ile verileri yakın gerçek zamanlı ve bir makine durdurmak veya uyarıları tetiklemek için anormallikleri algıladığınızda komutları vermek algılayıcı çözümleyebilirsiniz.
 *   **Bulut bağlantı sınırlı**: Uzak araştırma ekipman, bağlı tekneler veya offshore ayrıntılara, gibi görev kritik sistemler gereksinim çözümlemek ve bulut bağlantı aralıklı olduğunda bile veri tepki vermek. ASA, akış mantıksal ağ bağlantısı bağımsız olarak çalışır ve hangi buluta başka bir işleme veya depolama için gönderdiğiniz seçebilirsiniz.
 * **Sınırlı bant genişliği**: veri birimi jet motoru tarafından üretilen veya bağlı araba veri filtre veya gereken önceden işlenen buluta göndermeden önce çok büyük olabilir. ASA kullanarak, filtre veya buluta gönderilmesi gereken veri toplama.
-* **Uyumluluk**: Mevzuat uyumluluğu, yerel olarak anonim veya buluta gönderilmeden önce bir araya getirilir için bazı veriler gerektirebilir. ASA ile 
+* **Uyumluluk**: Mevzuat uyumluluğu, yerel olarak anonim veya buluta gönderilmeden önce bir araya getirilir için bazı veriler gerektirebilir.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure Stream Analytics kenar işler
 ### <a name="what-is-an-edge-job"></a>Bir "kenar" işi nedir?
@@ -55,7 +55,7 @@ ASA kenar işleri aygıtlara dağıtmak için IOT hub'ı kullanır. Hakkında da
 | ---   | ---   | ---       |  ---      |
 | 1   | **Bir ASA kenar işi oluşturma**   | Azure portalına      |  Select yeni bir proje oluşturmak **kenar** olarak **barındırma ortamı**. <br> Bu işleri oluşturulan ve yönetilen buluttan ve kendi IOT sınır cihazları üzerinde çalıştırın.     |
 | 2   | **Depolama kapsayıcısı oluşturma**   | Azure portalına       | Depolama kapsayıcıları, burada bunlar IOT cihazlarınızı tarafından erişilip iş tanımınızı kaydetmek için kullanılır. <br>  Var olan tüm depolama kapsayıcısını yeniden kullanabilirsiniz.     |
-| 3   | **IOT kenar ortamınıza aygıtlarınızın ayarlama**   | Aygıtlar      | Yönergeler için [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 3   | **IOT kenar ortamınıza aygıtlarınızın ayarlama**   | Cihazlar      | Yönergeler için [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **ASA IOT kenar aygıtlarınızın dağıtma**   | Azure portalına      |  ASA iş tanımı daha önce oluşturduğunuz depolama kapsayıcısı dışarı aktarılır.       |
 İzleyebileceğiniz [Bu adım adım öğretici](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) ilk ASA işinizde IOT kenar dağıtmak için.
 

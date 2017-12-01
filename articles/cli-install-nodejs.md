@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 63b35ed25b809a16b61b685fd35aa67474b0a369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-the-azure-cli-10"></a>1.0 Azure CLI'yı yükleme
 > [!div class="op_single_selector"]
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/11/2017
 > * [Azure CLI 2.0](/cli/azure/install-azure-cli)
 
 > [!IMPORTANT]
-> Bu konu, nodeJs üzerinde inşa edilmiş ve çok sayıda Resource Manager dağıtım etkinliklerini yanı sıra tüm Klasik dağıtım API çağrıları destekleyen Azure CLI 1.0 yüklemeyi açıklar. Kullanmanız gereken [Azure CLI 2.0](/cli/azure/overview) yeni veya forward-looking CLI dağıtım ve yönetimi için.
+> Bu konuda, Azure CLI 1.0 yüklemeyi açıklar. Bu CLI kullanım dışıdır ve yalnızca "Klasik" kaynaklarla Azure Hizmet Yönetimi (ASM) modeli ile ilgili destek için kullanılmalıdır.
+> Azure Resource Manager (ARM) dağıtımlar için kullandığınız [Azure CLI 2.0](/cli/azure/overview).
 
 Hızlı bir şekilde arabirimi oluşturmak ve Microsoft Azure kaynakları yönetmek için açık kaynak kabuk tabanlı komut kümesini kullanmak için Azure komut satırı (Azure CLI 1.0) yükleyin. Bu platformlar arası araçları bilgisayarınıza yüklemek için birkaç seçeneğiniz vardır:
 

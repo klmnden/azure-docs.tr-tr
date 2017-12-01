@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning Web Hizmetleri: Dağıtım ve kullanım
 Machine learning iş akışları ve modelleri web Hizmetleri olarak dağıtmak için Azure Machine Learning'ı kullanabilirsiniz. Bu web Hizmetleri, tahminlerin gerçek zamanlı veya toplu iş modunda yapmak için Internet üzerinden uygulamalardan machine learning modellerini çağrılacak sonra kullanılabilir. Web hizmetleri RESTful olduğundan, bunları çeşitli programlama dillerini ve .NET ve Java gibi platformları ve Excel gibi uygulamalardan çağırabilirsiniz.
@@ -26,6 +26,7 @@ Machine learning iş akışları ve modelleri web Hizmetleri olarak dağıtmak i
 Sonraki bölümlerde izlenecek yollar, kodu ve başlamanıza yardımcı olmak için belgeler için bağlantılar sağlar.
 
 ## <a name="deploy-a-web-service"></a>Bir web hizmetini dağıtma
+
 ### <a name="with-azure-machine-learning-studio"></a>Azure Machine Learning Studio ile
 Machine Learning Studio ve Microsoft Azure Machine Learning Web Hizmetleri Portalı'nı dağıtma ve bir web hizmeti kod yazmadan yönetmenize yardımcı olur.
 
@@ -58,7 +59,7 @@ Uygulama çalıştıran bir web hizmeti JSON şablonu oluşturur. Bir web hizmet
 
 * Depolama hesabı adı ve anahtar
 
-    Depolama hesabı adı ve anahtar herhangi birinden alabilirsiniz [Azure portal](https://portal.azure.com/) veya [Klasik Azure portalı](http://manage.windowsazure.com/).
+    Depolama hesabının adını almak ve gelen anahtar [Azure portal](https://portal.azure.com/).
 * Taahhüt plan kimliği
 
     Plan Kimliğinden alabilirsiniz [Azure Machine Learning Web Hizmetleri](https://services.azureml.net) oturum açma ve bir plan adı tıklatarak portal.

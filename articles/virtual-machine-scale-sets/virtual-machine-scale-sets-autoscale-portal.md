@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Bir sanal makineyi ölçeği Azure portalında Ayarla otomatik olarak ölçeklendirin
 Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz VM örneği sayısını tanımlayın. Uygulama talep değiştikçe otomatik olarak artırın veya VM örneği sayısını azaltın. Otomatik ölçeklendirme özelliği ile isteğe bağlı müşteri takip edin veya uygulamanızın yaşam döngüsü boyunca uygulama performans değişikliklerine yanıt verme olanak sağlar.
@@ -54,7 +54,7 @@ Uygulama talep artarsa, Ölçek VM örnekleri üzerindeki yük artar ayarlayın.
     | *İşleci*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                     | Şu değerden fazla:   |
     | *Eşik*            | Otomatik ölçeklendirme kuralın bir eylemi tetikleyen neden olan yüzdesi.                                                 | 70             |
     | *Süre*             | Ölçüm ve eşik değerlerini karşılaştırılır önce izlenen süre miktarı.                                   | 10 dakika     |
-    | *İşlem*            | Ölçek kümesini ve yukarı veya aşağı kuralın geçerli olduğunda ve hangi artış ölçeklendirmeniz gerekir tanımlar                        | Yüzdeyi şu kadar artır: |
+    | *İşlem*            | Ölçek kümesini ve yukarı veya aşağı kuralın geçerli olduğunda ve hangi artış ölçeklendirmeniz gerekir tanımlar                        | Yüzde Artır |
     | *Örnek sayısı*       | Kural harekete geçirdiğinde VM örnekleri yüzdesi değiştirilmelidir.                                            | 20             |
     | *Seyrek erişimli (dakika)*  | Otomatik ölçeklendirme eylemleri etkili olması için zamanı sağlayacak şekilde kural önce beklenecek süreyi yeniden uygulanır. | 5 dakika      |
 
@@ -77,7 +77,7 @@ Bir akşam veya hafta sonu, uygulamayı isteğe bağlı azaltabilir. Bu azalmas�
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *İşleci*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                      | Şu değerden az:   |
     | *Eşik*            | Otomatik ölçeklendirme kuralın bir eylemi tetikleyen neden olan yüzdesi.                                                 | 30             |
-    | *İşlem*            | Ölçek kümesini ve yukarı veya aşağı kuralın geçerli olduğunda ve hangi artış ölçeklendirmeniz gerekir tanımlar                         | Yüzdeyi şu kadar azalt: |
+    | *İşlem*            | Ölçek kümesini ve yukarı veya aşağı kuralın geçerli olduğunda ve hangi artış ölçeklendirmeniz gerekir tanımlar                         | Yüzde Azalt |
     | *Örnek sayısı*       | Kural harekete geçirdiğinde VM örnekleri yüzdesi değiştirilmelidir.                                             | 20             |
 
 3. Bir kural oluşturmak için seçin **Ekle**
@@ -88,7 +88,7 @@ Otomatik ölçeklendirme profilinizi minimum, maksimum ve VM örneği varsayıla
 
 1. Aşağıdaki örneği sınırları ayarlayın:
 
-    | Minimum | En fazla | Varsayılan|
+    | Minimum | Maksimum | Varsayılan|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 
@@ -122,7 +122,7 @@ Sayısı ve VM örneği durumunu görmek için seçin **örnekleri** ölçek sol
 
     ![Bir zamanlamaya göre ölçeği otomatik ölçeklendirme kuralları oluşturma](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Otomatik ölçeklendirme kurallarınızı nasıl uygulandığını görmek için seçin **çalıştırma geçmişi** sayfanın üst kısmında **ölçeklendirme** penceresi. Grafik ve olayları gösterir otomatik ölçeklendirme kurallarını tetiklemek ve VM örneği, Ölçek sayısı artırır veya azaltır listeleyin.
+Otomatik ölçeklendirme kurallarınızı nasıl uygulandığını görmek için seçin **çalıştırma geçmişi** sayfanın üst kısmında **ölçeklendirme** penceresi. Otomatik ölçeklendirme kurallarını tetikleyici ve VM örneği, Ölçek sayısı artışları veya düşüşleri ayarladığınızda grafik ve olayları gösterir listeleyin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

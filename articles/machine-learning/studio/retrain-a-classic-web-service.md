@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Klasik web hizmetini yeniden eğitme
 Dağıttığınız Tahmine dayalı Web Hizmeti uç noktası Puanlama varsayılandır. Varsayılan uç noktalar özgün eğitim ve puanlama denemeler ile eşitlenmiş tutulur ve bu nedenle varsayılan uç noktası için eğitilen model değiştirilemez. Web hizmeti çağırma için yeni bir uç noktası için web hizmeti eklemeniz gerekir. 
@@ -43,11 +43,10 @@ Yeni bir Puanlama uç noktası, eğitilen model ile güncelleştirilebilir Tahmi
 > 
 > 
 
-Yeni bir uç noktası için web hizmeti olarak Ekle üç yolu vardır:
+Yeni bir uç noktası bir web hizmeti olarak eklemek iki yolu vardır:
 
 1. Programlama yoluyla
 2. Microsoft Azure Web Hizmetleri Portalı'nı kullanın
-3. Klasik Azure portalını kullanın
 
 ### <a name="programmatically-add-an-endpoint"></a>Program aracılığıyla bir uç nokta ekleme
 Bu konuda sağlanan örnek kodu kullanarak Puanlama uç noktalar ekleyebilirsiniz [github deposunu](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
@@ -58,18 +57,10 @@ Bu konuda sağlanan örnek kodu kullanarak Puanlama uç noktalar ekleyebilirsini
 3. **Ekle**'ye tıklayın.
 4. Bir ad ve yeni uç noktası için bir açıklama yazın. Günlüğe kaydetme düzeyi ve örnek verileri etkinleştirilip etkinleştirilmediğini seçin. Günlüğe kaydetme hakkında daha fazla bilgi için bkz: [Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirmek](web-services-logging.md).
 
-### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>Bir uç noktası eklemek için Klasik Azure portalını kullanın
-1. Oturum [Klasik Azure portalı](https://manage.windowsazure.com).
-2. Soldaki menüde tıklatın **Machine Learning**.
-3. Adı altında çalışma alanına tıklayın ve ardından **Web Hizmetleri**.
-4. Adı altında tıklatın **Census modeli [Tahmine dayalı exp.]** .
-5. Sayfanın alt kısmındaki tıklatın **uç nokta Ekle**. Uç noktaları ekleme hakkında daha fazla bilgi için bkz: [uç noktaları oluşturma](create-endpoint.md). 
-
-## <a name="update-the-added-endpoints-trained-model"></a>Eklenen uç noktanın eğitilen Model güncelleştir
+## <a name="update-the-added-endpoints-trained-model"></a>Eklenen uç noktanın eğitilen model güncelleştir
 Yeniden eğitme işlemini tamamlamak için eklediğiniz yeni uç nokta eğitilen modelini güncelleştirmeniz gerekir.
 
-* Klasik Azure Portalı'nı kullanarak yeni uç nokta eklediyseniz, portal yeni uç noktanın adını tıklatabilirsiniz sonra **UpdateResource** uç noktanın modeli güncelleştirmek gerekir URL almak için bağlantı.
-* Örnek kodu kullanarak uç nokta eklediyseniz, bu tarafından tanımlanan Yardım URL'si konumunu içeren *HelpLocationURL* çıktı değeri.
+Örnek kodu kullanarak uç nokta eklediyseniz, bu tarafından tanımlanan Yardım URL'si konumunu içeren *HelpLocationURL* çıktı değeri.
 
 Yol URL'sini almak için:
 

@@ -3,17 +3,17 @@ title: "Azure IOT kenarıyla Azure işlevi dağıtma | Microsoft Docs"
 description: "Sınır cihazı bir modüle olarak Azure işlevi dağıtma"
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 710a83ba693ad72730ea0dabee6b5d7f4638da95
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Bir IOT kenar modül Azure işlevi dağıtma - Önizleme
 Azure işlevleri, iş mantığınızı IOT sınır cihazları için doğrudan uygulayan kod dağıtmak için kullanabilirsiniz. Bu öğreticide, oluşturma ve dağıtma algılayıcı verileri üzerinde bir sanal cihaz dağıtmak Azure IOT kenarına oluşturduğunuz sanal IOT sınır aygıtında filtreler bir Azure işlevi aracılığıyla açıklanmaktadır [Windows] [ lnk-tutorial1-win]veya [Linux] [ lnk-tutorial1-lin] öğreticileri. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:     

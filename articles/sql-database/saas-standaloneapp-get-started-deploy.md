@@ -14,13 +14,13 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: sstein
-ms.openlocfilehash: 2ca290dfcb23215ffd727500e76076ae8b14fa6f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 11/29/2017
+ms.author: genemi
+ms.openlocfilehash: 164d98220f69a8c25d853baf1e07f9a11c200f16
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan bir tek başına tek Kiracı uygulama keşfedin
 
@@ -28,9 +28,9 @@ Bu öğreticide dağıtmak ve Wingtip biletleri SaaS tek başına uygulamayı in
 
 Tek başına uygulama düzeni her bir kiracı için tek kiracılı uygulama ve tek Kiracı veritabanı içeren bir Azure kaynak grubu dağıtır.  Uygulamasının birden çok örneği, bir çok kiracılı çözüm sağlamak için sağlanabilir.
 
-Bu öğreticide, kaynak grupları çeşitli kiracılar için Azure aboneliğinize dağıtacağınız olsa da, bir kiracının Azure aboneliğinize dağıtılması için kaynak gruplarında bu deseni sağlar.  Azure kiracının adına bir hizmet sağlayıcısı tarafından kiracının aboneliğe yönetici olarak yönetilmesi bu kaynak gruplarını izin ortak programlar sahiptir.
+Bu öğreticide, kaynak grupları, Azure aboneliğinizin çeşitli kiracılar için dağıtın.  Bu desen kaynak gruplarının bir kiracının Azure aboneliğinize dağıtılması olanak tanır. Azure kiracının adına bir hizmet sağlayıcısı tarafından yönetilmek üzere bu kaynak gruplarını izin ortak programlar sahiptir. Hizmet sağlayıcısı, kiracının Abonelikteki bir yöneticidir.
 
-Dağıtım bölümünde Azure düğmeleri, her biri belirli bir kiracı için özelleştirilmiş uygulama farklı bir örneğine dağıtır üç Dağıt vardır. Her düğmesine basıldığında karşılık gelen uygulama beş dakika sonra tam olarak dağıtılır.  Uygulamaları Azure aboneliğinizde dağıtılır.  Keşfetmek ve tek tek uygulama bileşenleri ile çalışmak için tam erişime sahip.
+Sonraki dağıtım bölümünde vardır üç mavi **Azure'a Dağıt** düğmeler. Her düğme başka bir örnek uygulamanın dağıtır. Her örneği için belirli bir kiracı özelleştirilir. Her düğmesine basıldığında karşılık gelen uygulama beş dakika içinde tam olarak dağıtılır.  Uygulamaları Azure aboneliğinizde dağıtılır.  Keşfetmek ve tek tek uygulama bileşenleri ile çalışmak için tam erişime sahip.
 
 Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicketsSaaS StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub depo.
 
@@ -38,91 +38,93 @@ Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicket
 Bu öğreticide şunları öğrenirsiniz:
 
 > [!div class="checklist"]
+> * Wingtip biletleri SaaS tek başına uygulamayı dağıtmak nasıl.
+> * Uygulama kaynak koduna ve yönetim komut dosyaları nereden.
+> * Sunucular ve veritabanları hakkında uygulaması olun.
 
-> * Wingtip biletleri SaaS tek başına uygulama dağıtma
-> * Uygulama kaynak koduna ve yönetim komut dosyaları nereden
-> * Sunucular ve uygulaması olun veritabanları hakkında
-
-Ek öğreticileri yayımlanacaktır son doğal imkan tanıyan bir dizi yönetim senaryoları bu uygulama deseni temel alınarak keşfetmek.   
+Ek öğreticileri yayınlanacaktır. Bunlar, bu uygulama deseni temel alınarak yönetim senaryoları çeşitli keşfetmek izin verir.   
 
 ## <a name="deploy-the-wingtip-tickets-saas-standalone-application"></a>Wingtip biletleri SaaS tek başına uygulamayı dağıtma
 
 Uygulamayı üç sağlanan kiracılar için dağıtma:
 
-1. Her tıklatın **Azure'a Dağıt** düğme Azure portalında dağıtım şablonu açın. Her bir şablon iki parametre değerlerini gerektirir; Yeni bir kaynak grubu için bir ad ve bu dağıtım uygulamanın diğer dağıtımlardan ayıran bir kullanıcı adı. Sonraki adım, bu değerleri ayarlamak için Ayrıntılar sağlar.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>     &nbsp;&nbsp;**Contoso birlikte Hall**
+1. Her mavi tıklatın **Azure'a Dağıt** dağıtım şablonu açmak için düğmeye [Azure portal](https://portal.azure.com). Her bir şablon iki parametre değerlerini gerektirir; Yeni bir kaynak grubu için bir ad ve bu dağıtım uygulamanın diğer dağıtımlardan ayıran bir kullanıcı adı. Sonraki adım, bu değerleri ayarlamak için Ayrıntılar sağlar.<br><br>
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Contoso birlikte Hall**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; &nbsp; **Kızılcık Dojo**
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Kızılcık Dojo**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>    &nbsp;&nbsp;**Fabrikam Jazz kulübü**
+    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a>&nbsp; **Fabrikam Jazz kulübü**
 
 2. Her dağıtım için gerekli parametre değerlerini girin.
 
     > [!IMPORTANT]
-    > Gösterim amaçları doğrultusunda bazı kimlik doğrulama işlemlerinin ve sunucu güvenlik duvarlarının güvenliği kasıtlı olarak kaldırılmıştır. **Yeni bir kaynak grubu oluşturma** her uygulama dağıtımı için.  Varolan bir kaynak grubu kullanmayın. Bu uygulama ya da oluşturur, herhangi bir kaynağa üretim için kullanmayın. İlgili faturalama durdurmak için uygulamalarla tamamladığınızda, tüm kaynak grupları silin.
+    > Bazı kimlik doğrulama ve sunucu güvenlik duvarları Tanıtım amaçlı bilerek güvenli. **Yeni bir kaynak grubu oluşturma** her uygulama dağıtımı için.  Varolan bir kaynak grubu kullanmayın. Bu uygulama ya da oluşturur, herhangi bir kaynağa üretim için kullanmayın. İlgili faturalama durdurmak için uygulamalarla tamamladığınızda, tüm kaynak grupları silin.
 
     Kaynak adları yalnızca küçük harf, sayı ve kısa çizgi kullanmak en iyisidir.
-    * İçin **kaynak grubu** - Yeni Oluştur seçin ve ardından (büyük küçük harf duyarlı) kaynak grubu için bir ad sağlayın.
-        * Kaynak grubu adı tüm harfler küçük harfli olması önerilir.
-        * Bir rakam ile izlenen adınızın baş harflerini ve ardından bir tire append öneririz: Örneğin, _wingtip sa af1_.
-        * Aşağı açılan listeden bir konum seçin.
+    * İçin **kaynak grubu** - seçin **Yeni Oluştur**, küçük harf girin **adı** kaynak grubu için.
+        * Bir rakam ile izlenen adınızın baş harflerini ve ardından bir tire append öneririz: Örneğin, *wingtip sa af1*.
+        * Seçin bir **konumu** aşağı açılan listeden.
 
-    * İçin **kullanıcı** -adınızın baş harflerini artı bir rakam gibi kısa bir kullanıcı değerini seçmenizi öneririz: Örneğin, _af1_.
+    * İçin **kullanıcı** -adınızın baş harflerini artı bir rakam gibi kısa kullanıcı değeri seçmenizi öneririz: Örneğin, *af1*.
 
 
-1. **Uygulamayı dağıtın**.
+3. **Uygulamayı dağıtın**.
 
     * Hüküm ve koşulları kabul için tıklatın.
     * **Satın al**’a tıklayın.
 
-1. İzleme, tüm üç dağıtımlarının dağıtım durumu tıklayarak **bildirimleri** (zil simgesine arama kutusunun sağında). Uygulama dağıtımı yaklaşık beş dakika sürer.
+4. İzleme, tüm üç dağıtımlarının dağıtım durumu tıklayarak **bildirimleri** (zil simgesine arama kutusunun sağındaki). Uygulama dağıtımı beş dakika sürer.
 
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Uygulama birlikte salonları, jazz Sinek ve olayları barındıran Spor Sinek gibi görebildikleri gösterir. Görebildikleri olayları listelemek ve bilet satabilir kolay bir yol için müşterinin (veya) Wingtip biletlerinin kaydedin. Her salonundan yönetmek ve bunların olaylarını listelemek ve bağımsız ve diğer kiracıdan yalıtılmış bilet satabilir için kişiselleştirilmiş bir web sitesini alır. Perde arkasında her Kiracı ayrı uygulama örneği ve tekil SQL veritabanı alır.
+Uygulama olayları konak görebildikleri gösterir. Birlikte salonları, jazz Sinek ve Spor Sinek salonundan türleri içerir. Görebildikleri Wingtip biletleri uygulama müşterilerdir. Wingtip anahtarların görebildikleri olarak kayıtlı *kiracılar*. Bir kiracı olmak bir salonundan kolay bir yol listesi olayları ve müşterilerine bilet satabilir olanak verir. Bunların olaylarını listeler ve bilet satabilir için kişiselleştirilmiş bir web sitesine her yerini alır. Her bir kiracı diğer kiracılardan yalıtılmış ve bunları bağımsızdır. Perde arkasında her bir kiracı kendi tekil SQL veritabanı ile ayrı uygulama örneğini alır.
 
 1. Her üç ayrı tarayıcı sekmeleri kiracılar Etkinlikler sayfasını açın:
 
-    http://Events.contosoconcerthall. &lt;Kullanıcı&gt;. trafficmanager.net <br>
-    http://Events.dogwooddojo. &lt;Kullanıcı&gt;. trafficmanager.net<br>
-    http://Events.fabrikamjazzclub. &lt;Kullanıcı&gt;. trafficmanager.net
+    - http://Events.contosoconcerthall. &lt;Kullanıcı&gt;. trafficmanager.net
+    - http://Events.dogwooddojo. &lt;Kullanıcı&gt;. trafficmanager.net
+    - http://Events.fabrikamjazzclub. &lt;Kullanıcı&gt;. trafficmanager.net
 
-    (Değiştir &lt;kullanıcı&gt; dağıtımınızın kullanıcı değeri ile).
+    (Her URL ile değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)
 
    ![Olaylar](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
+Gelen istekleri, uygulamanın kullandığı dağıtımını denetlemek için [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Her bir kiracı özel uygulama örneği URL'de Kiracı adı etki alanı adının bir parçası olarak içerir. Tüm Kiracı URL'leri özel **kullanıcı** değeri. URL aşağıdaki biçimde izleyin:
+- http://Events. &lt;venuename&gt;.&lt; Kullanıcı&gt;. trafficmanager.net
 
-Gelen istekleri, uygulamanın kullandığı dağıtımını denetlemek için [ *Azure Traffic Manager*](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview). Her Kiracı özgü uygulama URL'de Kiracı adı etki alanı adının bir parçası olarak içerir. Tüm Kiracı URL'leri özel *kullanıcı* değeri ve bu biçim izleyin: http://events.&lt; venuename&gt;.&lt; Kullanıcı&gt;. trafficmanager.net. Her bir kiracının veritabanı konumu karşılık gelen dağıtılan uygulama uygulama ayarlarında dahil edilir.
+Her bir kiracının veritabanı **konumu** karşılık gelen dağıtılan uygulama uygulaması ayarları içinde bulunur.
 
-Bir üretim ortamında genellikle bir CNAME DNS kaydı oluşturacak [ *bir şirketin internet etki alanını işaret* ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-point-internet-domain) trafik Yöneticisi profili URL.
+Bir üretim ortamında genellikle bir CNAME DNS kaydı oluşturmanız [ *bir şirketin internet etki alanını işaret* ](../traffic-manager/traffic-manager-point-internet-domain.md) trafik Yöneticisi profili URL.
 
 
 ## <a name="explore-the-servers-and-tenant-databases"></a>Sunucuları araştırın ve Kiracı veritabanları
 
 Dağıtılan kaynakların bazıları bakalım:
 
-1. İçinde [Azure portal](http://portal.azure.com), kaynak grupları listesine göz atın.  Görmeniz gerekir **wingtip-sa-katalog -&lt;kullanıcı&gt;**  kaynak grubunu **katalog-sa -&lt;kullanıcı&gt;**  sunucusu ile dağıtılan**tenantcatalog** veritabanı. Ayrıca üç Kiracı kaynak grupları görmeniz gerekir.
+1. İçinde [Azure portal](http://portal.azure.com), kaynak grupları listesine göz atın.
+2. Bkz: **wingtip-sa-katalog -&lt;kullanıcı&gt;**  kaynak grubu.
+    - Bu kaynak grubundaki **katalog-sa -&lt;kullanıcı&gt;**  sunucusu dağıtılır. Sunucunun bulunduğu **tenantcatalog** veritabanı.
+    - Ayrıca üç Kiracı kaynak grupları görmeniz gerekir.
+3. Açık **wingtip-sa-fabrikam -&lt;kullanıcı&gt;**  Fabrikam Jazz kulübü dağıtımı için kaynakları içeren kaynak grubu.  **Fabrikamjazzclub -&lt;kullanıcı&gt;**  sunucusunu içeren **fabrikamjazzclub** veritabanı.
 
-1. Açık **wingtip-sa-fabrikam -&lt;kullanıcı&gt;**  Fabrikam Jazz kulübü dağıtımı için kaynakları içeren kaynak grubu.  **Fabrikamjazzclub -&lt;kullanıcı&gt;**  sunucusunu içeren **fabrikamjazzclub** veritabanı.
-
-
-50 DTU her Kiracı veritabanıdır _tek başına_ veritabanı.
+50 DTU her Kiracı veritabanıdır *tek başına* veritabanı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide şunları öğrendiniz:
 
 > [!div class="checklist"]
-
-> * Wingtip biletleri SaaS tek başına uygulama dağıtma
-> * Sunucular ve uygulaması olun veritabanları hakkında
-> * İlgili faturalandırmayı durdurmak için örnek kaynakları silme
+> * Wingtip biletleri SaaS tek başına uygulamayı dağıtmak nasıl.
+> * Sunucular ve veritabanları hakkında uygulaması olun.
+> * Nasıl ilgili faturalama durdurmak için örnek kaynaklar silinir.
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 <!--* Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview) -->
-* Çok kiracılı SaaS uygulamaları hakkında bilgi edinmek için bkz. [*Çok kiracılı SaaS uygulamaları için tasarım düzenleri*](saas-tenancy-app-design-patterns.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
+-->
+
+- Çok kiracılı SaaS uygulamaları hakkında bilgi edinmek için [tasarım desenleri çok kiracılı SaaS uygulamaları için](saas-tenancy-app-design-patterns.md).

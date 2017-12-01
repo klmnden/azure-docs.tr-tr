@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins Linux uygulamaları geliştirmek ve dağıtmak için kullanın
 Jenkins, uygulamanızın sürekli tümleştirme ve dağıtımı için yaygın olarak kullanılan bir araçtır. Jenkins kullanarak Azure Service Fabric uygulamanızı derleme ve dağıtma işlemi aşağıda açıklanmaktadır.
 
 ## <a name="general-prerequisites"></a>Genel önkoşullar
 - Git’i yerel olarak yükleyin. İşletim sisteminize uygun Git sürümünü, [Git indirme sayfasından](https://git-scm.com/downloads) yükleyebilirsiniz. Yeni bir Git kullanıcısıysanız, daha fazla bilgi almak için [Git belgelerine](https://git-scm.com/docs) bakın.
-- Service Fabric için kullanışlı Jenkins eklentisini edinin. Eklentiyi [Service Fabric indirmeleri](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi) sayfasından indirebilirsiniz.
+- Service Fabric için kullanışlı Jenkins eklentisini edinin. Eklentiyi [Service Fabric indirmeleri](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi) sayfasından indirebilirsiniz. Edge tarayıcı yeniden adlandırma .hpi için indirilen dosyasından .zip uzantısını kullanıyorsanız.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Jenkins’i bir Service Fabric kümesi içinde ayarlama
 
@@ -129,8 +129,8 @@ Docker’ın yüklü olması gerekir. Terminalden Docker yüklemek için aşağ�
 Şimdi terminalde ``docker info`` çalıştırdığınızda, çıktıda Docker hizmetinin çalıştığını göreceksiniz.
 
 ### <a name="steps"></a>Adımlar
-  1. Service Fabric Jenkins kapsayıcı görüntüsünü çekin: ``docker pull sayantancs/jenkins:v9``
-  2. Kapsayıcı görüntüsünü çalıştırın:``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
+  1. Service Fabric Jenkins kapsayıcı görüntüsünü çekin: ``docker pull rapatchi/jenkins:v9``
+  2. Kapsayıcı görüntüsünü çalıştırın:``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
   3. Kapsayıcı görüntüsü örneğinin kimliğini alın. ``docker ps –a`` komutuyla tüm Docker kapsayıcılarını listeleyebilirsiniz
   4. Aşağıdaki adımları kullanarak Jenkins portalında oturum açın:
 

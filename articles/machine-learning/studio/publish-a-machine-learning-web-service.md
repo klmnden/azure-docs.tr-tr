@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Azure Machine Learning web hizmeti dağıtma
 Azure Machine Learning, derleme, test ve Tahmine dayalı analitik çözümleri dağıtmanızı sağlar.
@@ -108,7 +108,7 @@ Tıklatın **Test**. Toplu iş yürütme iş durumunu görüntüler altında sa�
 Web hizmeti dağıttıktan sonra sonra şunları yapabilirsiniz:
 
 * **Erişim** web hizmeti API'si üzerinden.
-* **Yönetme** Azure Machine Learning web hizmetleri portalı veya Klasik Azure portalı üzerinden.
+* **Yönetme** Azure Machine Learning web hizmetleri portalı üzerinden.
 * **Güncelleştirme** , modelinizi değişirse.
 
 #### <a name="access-your-new-web-service"></a>Yeni web hizmetine erişim
@@ -141,7 +141,7 @@ Toplu yürütme hizmeti sınamak için **Test** Önizleme bağlantı. Toplu test
 
 ![Web hizmetini sınama](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-Üzerinde **yapılandırma** sayfası, hizmetin görünen adını değiştirebilir ve bir açıklama girin. Ad ve açıklama görüntülenir [Klasik Azure portalı](http://manage.windowsazure.com/) web hizmetlerinizi yöneteceğiniz.
+Üzerinde **yapılandırma** sayfası, hizmetin görünen adını değiştirebilir ve bir açıklama girin. Ad ve açıklama görüntülenir [Azure portal](https://portal.azure.com/) web hizmetlerinizi yöneteceğiniz.
 
 Bir açıklama giriş verileri, çıktı verilerini ve web hizmeti parametreleri altında her sütun için bir dize girerek sağlayabilirsiniz **giriş ŞEMASINI**, **çıkış ŞEMASI**, ve **Web hizmeti PARAMETRE**. Bu açıklamalar, web hizmeti için sağlanan örnek kodu belgelerinde kullanılır.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: fb32ef2881bdc1e88bb3f54446163c0feac5da9b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: edf9f646207ec31730b557e90a6d19a4b69985bc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Azure sanal ağda bir doku Windows hizmeti kümesini dağıtma
 Bu öğretici bir dizi birini bir parçasıdır. Mevcut bir Azure sanal ağı (VNET) Windows çalıştıran bir Service Fabric kümesi dağıtma ve PowerShell kullanarak alt net öğreneceksiniz. İşlemi tamamladığınızda, uygulamaları dağıtabileceğiniz bulutta çalıştıran bir kümeye sahip.  Azure CLI kullanarak bir Linux kümesi oluşturmak için bkz: [Azure'da güvenli bir Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
@@ -37,6 +37,7 @@ Bu öğretici serisinde öğrenin nasıl yapılır:
 > [!div class="checklist"]
 > * Azure üzerinde güvenli bir küme oluşturun
 > * [Bir küme veya ölçeklendirme](/service-fabric-tutorial-scale-cluster.md)
+> * [Yükseltme küme çalışma zamanı](service-fabric-tutorial-upgrade-cluster.md)
 > * [API Management Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Ön koşullar

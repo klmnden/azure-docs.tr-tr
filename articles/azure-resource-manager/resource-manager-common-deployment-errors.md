@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme
 
@@ -31,6 +31,7 @@ Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı 
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Depolama hesapları için adlandırma kısıtlamaları izleyin. | [Depolama hesabı adı çözümlenemedi](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Kullanılabilir depolama hesabı özellikleri denetleyin. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| AllocationFailed | Küme veya bölgede kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez. İsteği daha sonra yeniden deneyin veya farklı bir VM boyutu isteyin. | [Linux için sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) ve [Windows için sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Eşzamanlı işlemin tamamlanmasını bekleyin. | |
 | AuthorizationFailed | Hizmet sorumlusu veya hesabınızı dağıtımını tamamlamak için yeterli erişimi yok. Hesabınıza ait olduğu rol ve dağıtım kapsamın erişimini denetleyin. | [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md) |
 | BadRequest | Kaynak Yöneticisi tarafından beklenen eşleşmeyen dağıtım değerlerini gönderdi. Sorun giderme konusunda yardım için iç durum iletisini kontrol edin. | [Şablon başvurusu](/azure/templates/) ve [desteklenen konumlar](resource-manager-template-location.md) |
@@ -54,7 +55,7 @@ Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı 
 | MissingRegistrationForLocation | Kaynak sağlayıcı kayıt durumu ve desteklenen konumlardan denetleyin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Aboneliğinizi kaynak sağlayıcısı ile kaydedin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Kaynak sağlayıcı kayıt durumunu denetleyin. | [Kayıt çözümleyin](resource-manager-register-provider-errors.md) |
-| notFound | Bağımlı bir kaynak paralel bir üst kaynakla dağıtmak çalışıyor. Bir bağımlılık ekleme gerekip gerekmediğini denetleyin. | [Bağımlılıklarını Çözümle](resource-manager-not-found-errors.md) |
+| Bulunamadı | Bağımlı bir kaynak paralel bir üst kaynakla dağıtmak çalışıyor. Bir bağımlılık ekleme gerekip gerekmediğini denetleyin. | [Bağımlılıklarını Çözümle](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | Dağıtım abonelik, kaynak grubu veya bölge için kotayı aşan bir işlem çalışıyor. Mümkünse, dağıtımınızı kotaları içinde kalmak için gözden geçirin. Aksi takdirde, kotalar bir değişiklik isteğinde göz önünde bulundurun. | [Kotalar çözümleyin](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Alt kaynakları oluşturmadan önce bir üst kaynak bulunduğundan emin olun. | [Üst kaynak çözümleyin](resource-manager-parent-resource-errors.md) |
 | PrivateIPAddressInReservedRange | Belirtilen IP adresi, Azure tarafından gerekli bir adres aralığı içerir. Ayrılmış aralık önlemek için IP adresini değiştirin. | [IP adresleri](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |

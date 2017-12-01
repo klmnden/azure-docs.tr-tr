@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Ölçek Service Fabric kümesi
 
@@ -30,6 +30,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Küme düğüm sayısı okuma
 > * Küme düğümleri (ölçeklendirme) Ekle
 > * Küme düğümleri (Ölçek) Kaldır
+
+Bu öğretici serisinde öğrenin nasıl yapılır:
+> [!div class="checklist"]
+> * Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) bir şablonu kullanarak azure'da
+> * Bir küme veya ölçeklendirme
+> * [Yükseltme küme çalışma zamanı](service-fabric-tutorial-upgrade-cluster.md)
+> * [API Management Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce:
@@ -250,8 +257,8 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Küme düğümleri (Ölçek) Kaldır
 
 
-Ardından, bir uygulamayı dağıtmak ve API management kullanma hakkında bilgi edinmek için aşağıdaki öğretici ilerleyin.
+Ardından, bir kümenin çalışma zamanı yükseltme hakkında bilgi edinmek için aşağıdaki öğretici ilerleyin.
 > [!div class="nextstepaction"]
-> [API Management dağıtma](service-fabric-tutorial-deploy-api-management.md)
+> [Yükseltme küme çalışma zamanı](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

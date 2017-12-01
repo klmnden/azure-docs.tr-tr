@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kuralları özellikleri altyapısı
 Kullanılabilir özelliklerin ayrıntılı açıklamaları Azure içerik teslim ağı (CDN) için bu konuda listelenmiştir [kurallar altyapısı](cdn-rules-engine.md).
@@ -73,11 +73,11 @@ Kullanılabilir yanıt kodları aşağıda listelenmiştir.
 Yanıt Kodu|Yanıt adı|Açıklama
 ----------------|-----------|--------
 301|Kalıcı olarak taşındı|Bu durum kodu yetkisiz kullanıcıların konumu üstbilgisinde belirtilen URL'ye yeniden yönlendirir.
-302|Bulunamadı|Bu durum kodu yetkisiz kullanıcıların konumu üstbilgisinde belirtilen URL'ye yeniden yönlendirir. Bu durum kodu, bir yeniden yönlendirme gerçekleştiren endüstri standart yöntemidir.
+302|Bulundu|Bu durum kodu yetkisiz kullanıcıların konumu üstbilgisinde belirtilen URL'ye yeniden yönlendirir. Bu durum kodu, bir yeniden yönlendirme gerçekleştiren endüstri standart yöntemidir.
 307|Geçici yeniden yönlendirme|Bu durum kodu yetkisiz kullanıcıların konumu üstbilgisinde belirtilen URL'ye yeniden yönlendirir.
 401|Yetkilendirilmemiş|Bu durum kodu ile WWW-Authenticate yanıt üstbilgisi birleştirme, bir kullanıcıdan kimlik doğrulaması için olanak sağlar.
 403|Yasak|Yetkisiz bir kullanıcının korumalı içeriği erişmeye çalışırken göreceği standart 403 Yasak durum iletisi budur.
-404|Dosyası bulunamadı|Bu durum kodu HTTP istemcisi sunucuyla iletişim kuramıyor, ancak istenen içerik bulunamadı gösterir.
+404|Dosya Bulunamadı|Bu durum kodu HTTP istemcisi sunucuyla iletişim kuramıyor, ancak istenen içerik bulunamadı gösterir.
 
 #### <a name="url-redirection"></a>URL yeniden yönlendirme
 
@@ -217,8 +217,8 @@ Bu tür bir yapılandırma elde etmek için en kolay yolu dış Max-Age ve Cache
 
 Değer|Sonuç
 --|--
-Üzerine yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/> -Kaynak sunucu tarafından üretilen Cache-Control üstbilgisinin üzerine yazar. <br/>-Yanıta dış Max-Age özelliği tarafından üretilen Cache-Control üstbilgisi ekler.
-Geçirir|Dış Max-Age özelliği tarafından üretilen Cache-Control üstbilgisinin hiçbir zaman yanıta eklenmesini sağlar. <br/> Kaynak sunucu Cache-Control üstbilgisinin oluşturursa, son kullanıcıya geçirilir. <br/> Kaynak sunucu Cache-Control üstbilgisinin vermezse, bu seçenek Cache-Control üstbilgisinin içermiyor yanıt üstbilgisi neden olabilir.
+Üzerine Yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/> -Kaynak sunucu tarafından üretilen Cache-Control üstbilgisinin üzerine yazar. <br/>-Yanıta dış Max-Age özelliği tarafından üretilen Cache-Control üstbilgisi ekler.
+Doğrudan Geçiş|Dış Max-Age özelliği tarafından üretilen Cache-Control üstbilgisinin hiçbir zaman yanıta eklenmesini sağlar. <br/> Kaynak sunucu Cache-Control üstbilgisinin oluşturursa, son kullanıcıya geçirilir. <br/> Kaynak sunucu Cache-Control üstbilgisinin vermezse, bu seçenek Cache-Control üstbilgisinin içermiyor yanıt üstbilgisi neden olabilir.
 Eksik varsa ekleyin.|Cache-Control üstbilgisinin kaynak sunucudan alındı değil, bu seçenek dış Max-Age özelliği tarafından üretilen Cache-Control üstbilgisi ekler. Bu seçenek, tüm varlıklar Cache-Control üstbilgisinin atanacak sağlamak için kullanışlıdır.
 Kaldır| Cache-Control üstbilgisinin üstbilgi Yanıtla dahil değildir, bu seçeneği sağlar. Cache-Control üstbilgisinin zaten atanmışsa, ardından bu başlığı yanıttan atılması.
 
@@ -234,9 +234,9 @@ Anahtar bilgileri:
 
 Tür|Açıklama
 --|--
- İçerir|  Belirtilen her parametre önbellek anahtarında dahil olduğunu gösterir. Bu özelliği tanımlı bir sorgu dizesi parametresi için benzersiz bir değer içeren her bir istek için benzersiz bir önbellek anahtarı oluşturulur. 
+ Ekle|  Belirtilen her parametre önbellek anahtarında dahil olduğunu gösterir. Bu özelliği tanımlı bir sorgu dizesi parametresi için benzersiz bir değer içeren her bir istek için benzersiz bir önbellek anahtarı oluşturulur. 
  Tüm içerir  |Benzersiz bir önbellek anahtarını benzersiz sorgu dizesi içeren bir varlık için her istek için oluşturulacak gösterir. Küçük bir önbellek isabet yüzdesi açabilir beri bu yapılandırma türü genellikle önerilmez. Daha fazla isteklere yanıt gerekeceğinden bu kaynak sunucu üzerindeki yükü artırır. Bu yapılandırma "benzersiz önbelleği" sorgu dizesi önbelleğe alma sayfasında olarak bilinen önbelleğe alma davranışını çoğaltır. 
- Hariç tutma | Yalnızca belirtilen parametreler önbellek anahtarından hariç olduğunu gösterir. Diğer tüm sorgu dizesi parametreleri önbellek anahtarında dahil edilir. 
+ Dışla | Yalnızca belirtilen parametreler önbellek anahtarından hariç olduğunu gösterir. Diğer tüm sorgu dizesi parametreleri önbellek anahtarında dahil edilir. 
  Tüm Dışla  |Tüm sorgu dizesi parametreleri önbellek anahtarından hariç olduğunu gösterir. Bu yapılandırma, önbelleğe alma "standart-cache" sorgu dizesi önbelleğe alma sayfasında olarak bilinen davranışı varsayılan çoğaltır. 
 
 HTTP kurallar altyapısı gücünü, sorgu dizesi önbelleğe alma uygulanır şekilde özelleştirmenizi sağlar. Örneğin, sorgu dizesi yalnızca Önbelleği'nün belirli konumlara veya dosya türlerini gerçekleştirilmesi belirtebilirsiniz.
@@ -250,7 +250,7 @@ Aşağıdaki örnek kullanım bu özellik için bir örnek istek ve varsayılan 
 - **Örnek istek:** http://wpc.0001.&lt; Etki alanı&gt;/800001/Origin/folder/asset.htm?sessionid=1234 & dili tr & UserID = 01 =
 - **Varsayılan önbellek anahtarını:** /800001/Origin/folder/asset.htm
 
-##### <a name="include"></a>İçerir
+##### <a name="include"></a>Ekle
 
 Örnek Yapılandırması:
 
@@ -271,7 +271,7 @@ Bu tür bir yapılandırma aşağıdaki sorgu dizesi parametresi önbellek anaht
 
     /800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 
-##### <a name="exclude"></a>Hariç tutma
+##### <a name="exclude"></a>Dışla
 
 Örnek Yapılandırması:
 
@@ -377,8 +377,8 @@ Bu tür bir yapılandırma elde etmek için en kolay yolu dış Max-Age ve üstb
 
 Değer|Sonuç
 --|--
-Üzerine yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/>-Kaynak sunucu tarafından üretilen Expires üstbilgi üzerine yazar.<br/>-Yanıta dış Max-Age özelliği tarafından üretilen Expires üstbilgisi ekler.
-Geçirir|Dış Max-Age özelliği tarafından üretilen Expires üst bilgisini hiçbir zaman yanıta eklenmesini sağlar. <br/> Kaynak sunucu bir Expires üstbilgisi oluşturursa, son kullanıcıya geçirilir. <br/>Kaynak sunucu bir Expires üstbilgisi vermezse, bu seçenek bir Expires üstbilgisi içermiyor yanıt üstbilgisi neden olabilir.
+Üzerine Yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/>-Kaynak sunucu tarafından üretilen Expires üstbilgi üzerine yazar.<br/>-Yanıta dış Max-Age özelliği tarafından üretilen Expires üstbilgisi ekler.
+Doğrudan Geçiş|Dış Max-Age özelliği tarafından üretilen Expires üst bilgisini hiçbir zaman yanıta eklenmesini sağlar. <br/> Kaynak sunucu bir Expires üstbilgisi oluşturursa, son kullanıcıya geçirilir. <br/>Kaynak sunucu bir Expires üstbilgisi vermezse, bu seçenek bir Expires üstbilgisi içermiyor yanıt üstbilgisi neden olabilir.
 Eksik varsa ekleyin.| Expires üst bilgisini ve kaynak sunucudan alınmadı, bu seçenek dış Max-Age özelliği tarafından üretilen Expires üstbilgisi ekler. Bu seçenek, tüm varlıklar bir Expires üstbilgisi atanacak sağlamak için kullanışlıdır.
 Kaldır| Expires üst bilgisi üstbilgisi Yanıtla dahil değildir sağlar. Expires üst bilgisi zaten atanmışsa sonra onu üstbilgi yanıttan atılması.
 
@@ -600,7 +600,7 @@ Anahtar bilgileri:
 - Yalnızca alfasayısal karakterler kullanın.
 - Bu özellik, kural davranışını etkilemez. Yalnızca Burada ileride veya bu bilgileri kural gidermede yardımcı olabilecek sağlayabilir bir alanı sağlamak üzere tasarlanmıştır.
  
-## <a name="headers"></a>Üstbilgileri
+## <a name="headers"></a>Üst bilgiler
 
 Bu özellikler, eklemek, değiştirmek veya istek veya yanıt üstbilgileri silmek için tasarlanmıştır.
 
@@ -644,7 +644,7 @@ Devre dışı|X EC Debug yanıt üstbilgisi yanıttan edilmeyecek.
 
 **Varsayılan davranış:** devre dışı bırakılmış.
 
-###<a name="modify-client-response-header"></a>İstemci yanıt üstbilgisi değiştirme
+###<a name="modify-client-request-header"></a>İstemci istek üstbilgisi değiştirme
 **Amaç:** her istek bir dizi içeriyor [istek üst]() onu açıklayan. Bu özellik şunlardan birini yapabilirsiniz:
 
 - Append veya bir istek üstbilgisini atanan değer üzerine yazabilirsiniz. Belirtilen istek üstbilgisi mevcut değilse, sonra bu özellik, isteği ekler.
@@ -657,7 +657,7 @@ Aşağıdaki eylemlerden birini istek üst bilgisinde gerçekleştirilebilir:
 Seçenek|Açıklama|Örnek
 -|-|-
 Ekle|Belirtilen değer var olan istek üstbilgi değerinin sonuna eklenir.|**Üstbilgi değeri (istemci) istek:**Value1 <br/> **Üstbilgi değeri (HTTP kurallar altyapısı) istek:** Value2 <br/>**Yeni istek üstbilgi değeri:** Value1Value2
-Üzerine yaz|İstek üstbilgisi değeri belirtilen değere ayarlanır.|**Üstbilgi değeri (istemci) istek:**Value1 <br/>**Üstbilgi değeri (HTTP kurallar altyapısı) istek:** Value2 <br/>**Yeni istek üstbilgi değeri:** Value2 <br/>
+Üzerine Yaz|İstek üstbilgisi değeri belirtilen değere ayarlanır.|**Üstbilgi değeri (istemci) istek:**Value1 <br/>**Üstbilgi değeri (HTTP kurallar altyapısı) istek:** Value2 <br/>**Yeni istek üstbilgi değeri:** Value2 <br/>
 Sil|Belirtilen istek üstbilgisi siler.|**Üstbilgi değeri (istemci) istek:**Value1 <br/> **İstemci istek üstbilgisi yapılandırmasını Değiştir:** söz konusu istek üstbilgisi silin. <br/>**Sonuç:** belirtilen istek üstbilgisi kaynak sunucusuna iletilen değil.
 
 Anahtar bilgileri:
@@ -671,16 +671,16 @@ Anahtar bilgileri:
 - Üstbilgi silme bizim kenar sunucuları tarafından bir kaynak sunucusuna iletilen engeller.
 - Aşağıdaki üst bilgiler ayrılmış ve bu özellik tarafından değiştirilemez:
     - iletilen
-    - ana bilgisayar
+    - konak
     - aracılığıyla
-    - Uyarı
+    - uyarı
     - x-iletilen-için
     - "X-AB" ile başlayan tüm başlığı adları ayrılmıştır.
 
 ###<a name="modify-client-response-header"></a>İstemci yanıt üstbilgisi değiştirme
 Her yanıtı kümesini içeren [yanıt üstbilgilerini]() onu açıklayan. Bu özellik şunlardan birini yapabilirsiniz:
 
-- Append veya bir yanıt üstbilgisi atanan değer üzerine yazabilirsiniz. Belirtilen istek üstbilgisi mevcut değilse, sonra bu özellik, yanıta ekler.
+- Append veya bir yanıt üstbilgisi atanan değer üzerine yazabilirsiniz. Belirtilen yanıt üstbilgisi mevcut değilse, sonra bu özellik, yanıta ekler.
 - Bir yanıt üstbilgisi yanıttan silin.
 
 Varsayılan olarak, yanıt üstbilgi değerleri, bir kaynak sunucu ve kenar sunucularımızda tarafından tanımlanır.
@@ -689,9 +689,9 @@ Aşağıdaki eylemlerden birini bir yanıt üstbilgisi gerçekleştirilebilir:
 
 Seçenek|Açıklama|Örnek
 -|-|-
-Ekle|Belirtilen değer var olan istek üstbilgi değerinin sonuna eklenir.|**Yanıt üstbilgi değeri (istemci):**Value1 <br/> **Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value1Value2
-Üzerine yaz|İstek üstbilgisi değeri belirtilen değere ayarlanır.|**Yanıt üstbilgi değeri (istemci):**Value1 <br/>**Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value2 <br/>
-Sil|Belirtilen istek üstbilgisi siler.|**Üstbilgi değeri (istemci) istek:** Value1 <br/> **İstemci isteği üstbilgisi yapılandırmasını Değiştir:** söz konusu yanıt üstbilgisi silin. <br/>**Sonuç:** belirtilen yanıt üst bilgisi istemciye iletilecek değil.
+Ekle|Belirtilen değer var olan yanıt üstbilgi değeri sonuna eklenir.|**Yanıt üstbilgi değeri (istemci):**Value1 <br/> **Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value1Value2
+Üzerine Yaz|Yanıt üstbilgi değeri belirtilen değere ayarlanır.|**Yanıt üstbilgi değeri (istemci):**Value1 <br/>**Yanıt üstbilgi değeri (HTTP kurallar altyapısı):** Value2 <br/>**Yeni yanıt üstbilgi değeri:** Value2 <br/>
+Sil|Belirtilen yanıt üst bilgisi siler.|**Yanıt üstbilgi değeri (istemci):** Value1 <br/> **İstemci yanıt üstbilgisi yapılandırmasını Değiştir:** söz konusu yanıt üstbilgisi silin. <br/>**Sonuç:** belirtilen yanıt üst bilgisi istemciye iletilecek değil.
 
 Anahtar bilgileri:
 
@@ -708,14 +708,14 @@ Anahtar bilgileri:
     - İçerik kodlama
     - içerik uzunluğu
     - İçerik aralığı
-    - Tarih
+    - tarih
     - sunucu
     - toplamı
     - Transfer-encoding
     - Yükseltme
     - değişir
     - aracılığıyla
-    - Uyarı
+    - uyarı
     - "X-AB" ile başlayan tüm başlığı adları ayrılmıştır.
 
 ###<a name="set-client-ip-custom-header"></a>İstemci IP özel üstbilgi ayarlayın
@@ -730,10 +730,10 @@ Belirtilen üstbilgi adı aşağıdaki adlarının herhangi biri eşleşmediğin
 - Standart istek üstbilgisi adları. Standart üstbilgi adlarının bir listesini bulunabilir [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Ayrılmış üstbilgi adları:
     - iletilen için
-    - ana bilgisayar
+    - konak
     - değişir
     - aracılığıyla
-    - Uyarı
+    - uyarı
     - x-iletilen-için
     - "X-AB" ile başlayan tüm başlığı adları ayrılmıştır.
  
@@ -755,7 +755,7 @@ Varsayılan olarak, özel günlük alan "x-ec_custom-1." olarak adlandırılır 
 
 İstek ve yanıt üst bilgileri belirtmek için kullanmanız biçimlendirme aşağıda tanımlanmıştır.
 
-Üstbilgi türü|Biçimi|Örnekler
+Üstbilgi türü|Biçim|Örnekler
 -|-|-
 İstek üstbilgisi|%{[RequestHeader]()}[t]() | % {Kabul-Encoding} t <br/> {Başvuran} t <br/> % {Yetkilendirme} i
 Yanıt Üst Bilgisi|%{[ResponseHeader]()}[o]()| % {Yaş} o <br/> % {Content-Type} o <br/> % {Tanımlama bilgisi} o
@@ -995,7 +995,7 @@ Bu özellik için bir istek uygulanmadan önce karşılanması gereken ölçütl
 
 - Sayı olarak
 - CDN kaynak
-- İstemci IP adresi
+- İstemci IP Adresi
 - Müşteri kaynağı
 - İstek düzeni
 - URL yolu dizini

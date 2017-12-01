@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Var olan bir Tahmine dayalı web hizmetini yeniden eğitme
 Bu belge aşağıdaki senaryoyu yeniden eğitme işlemini açıklar:
@@ -86,20 +86,19 @@ Bulun **apikey ile yapılan** bildirimi:
 ### <a name="update-the-azure-storage-information"></a>Azure depolama bilgilerini güncelleştir
 BES örnek kod, yerel bir sürücüden (örneğin, "C:\temp\CensusIpnput.csv") bir dosyayı Azure Storage'a yükler, işler ve sonuçları Azure depolama birimine geri yazar.  
 
-Azure depolama bilgilerini güncelleştirmek için Azure Klasik portalından depolama hesabınız için depolama hesabı adı, anahtar ve kapsayıcı bilgilerini almak ve karşılık gelen değerler kodunda güncelleştirme gerekir.
 Denemenizi çalıştırdıktan sonra sonuçta elde edilen iş akışı aşağıdakine benzer olmalıdır:
 
 ![Çalıştırdıktan sonra elde edilen iş akışı][4]
 
-1. Klasik Azure portalında oturum açın.
-2. Sol gezinti sütununda tıklatın **depolama**.
+1. Azure Portal’da oturum açın.
+2. Sol gezinti sütununda tıklatın **daha fazla hizmet**, arama **depolama hesapları**ve seçin.
 3. Depolama hesapları listesinden bir retrained modelini depolamak için seçin.
-4. Sayfanın alt kısmındaki tıklatın **erişim anahtarlarını Yönet**.
-5. Kopyalayıp kaydedin **birincil erişim anahtarını** ve iletişim kutusunu kapatın.
-6. Sayfanın üstündeki **kapsayıcıları**.
+4. Sol gezinti sütununda tıklatın **erişim anahtarları**.
+5. Kopyalayıp kaydedin **birincil erişim anahtarını**.
+6. Sol gezinti sütununda tıklatın **kapsayıcıları**.
 7. Var olan bir kapsayıcıyı seçin veya yeni bir tane oluşturun ve ad kaydedin.
 
-Bulun *StorageAccountName*, *StorageAccountKey*, ve *StorageContainerName* bildirimleri ve klasik portalından kaydettiğiniz değerlerini güncelleştirin.
+Bulun *StorageAccountName*, *StorageAccountKey*, ve *StorageContainerName* bildirimlerini ve portaldan kaydettiğiniz değerlerini güncelleştirin.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

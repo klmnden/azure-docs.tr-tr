@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>CDN uç noktanız için özel bir etki alanı Ekle
 Bir profili oluşturduktan sonra genellikle de bir veya daha fazla CDN oluşturduğunuz [uç noktaları](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) (bir etki alanının alt `azureedge.net`) HTTP ve HTTPS kullanarak içeriğinizi teslim etmek için. Varsayılan olarak, tüm URL'ler Bu uç nokta eklenir (örneğin, `https://contoso.azureedge.net/photo.png`). Size kolaylık sağlamak için Azure CDN özel etki alanı ilişkilendirmenizi sağlar (örneğin, `www.contoso.com`), uç noktası ile. Bu seçenek ile içeriğinizi teslim etmek yerine uç noktanız için özel bir etki alanı kullanın. Bu seçenek, örneğin, kendi etki alanı adınızı amacıyla markalama müşterileriniz için görünür olmasını istiyorsanız yararlıdır.
@@ -52,9 +52,9 @@ Belirli bir etki alanı ve alt etki alanı, bir CNAME kaydı gibi eşler `www.co
 
 - Seçenek 1: Doğrudan eşleme. Hiçbir üretim trafik özel etki alanı üzerinde çalışıyorsa, özel bir etki alanı için bir CDN uç noktası doğrudan eşleyebilirsiniz. Azure Portalı'nda etki alanının kaydettirirken CDN uç noktanız için özel etki alanınızı eşleme işlemi kapalı kalma süresi etki alanı için kısa bir süre neden olabilir. CNAME eşleme girdisi şu biçimde olmalıdır: 
  
-  | ADI             | TÜRÜ  | DEĞER                  |
+  | AD             | TÜR  | DEĞER                  |
   |------------------|-------|------------------------|
-  | www\.consoto.com | CNAME | consoto\.azureedge.net |
+  | www\.contoso.com | CNAME | contoso\.azureedge.net |
 
 
 - Seçenek 2: ile eşleme **cdnverify** alt etki alanı. Kesilemez üretim trafiği özel etki alanı üzerinde çalışıyorsa, CDN uç noktanız için geçici bir CNAME eşlemesi oluşturabilirsiniz. Bu seçenek ile Azure kullanma **cdnverify** alt etki alanı kullanıcıları etki alanınızın DNS eşlemesi sırasında kesinti olmadan erişebilmesi için bir ara kayıt adım sağlamak üzere kurulur.
@@ -62,9 +62,9 @@ Belirli bir etki alanı ve alt etki alanı, bir CNAME kaydı gibi eşler `www.co
    1. Yeni bir CNAME kaydı oluşturun ve içeren bir alt etki alanı diğer adı sağlayın **cdnverify** alt etki alanı. Örneğin, **cdnverify.www** veya **cdnverify.cdn**. 
    2. Şu biçimde, CDN uç noktası ana bilgisayar adı girin: `cdnverify.<EndpointName>.azureedge.net`. CNAME eşleme girdisi şu biçimde olmalıdır: 
 
-   | ADI                       | TÜRÜ  | DEĞER                            |
+   | AD                       | TÜR  | DEĞER                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.www\.consoto.com | CNAME | cdnverify.consoto\.azureedge.net | 
+   | cdnverify.www\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>3. adım: Azure CNAME kaydı eşlemesindeki etkinleştir
@@ -101,9 +101,9 @@ Bu adım adım 2 bağımlı olduğundan, seçenek 2 (ile eşleme **cdnverify** a
 
 1. Etki alanı sağlayıcınızın web sitesinde kalıcı özel etki alanınız CDN uç noktaya eşlemek için bir CNAME DNS kaydı oluşturun. CNAME eşleme girdisi şu biçimde olmalıdır: 
  
-   | ADI             | TÜRÜ  | DEĞER                  |
+   | AD             | TÜR  | DEĞER                  |
    |------------------|-------|------------------------|
-   | www\.consoto.com | CNAME | consoto\.azureedge.net |
+   | www\.contoso.com | CNAME | contoso\.azureedge.net |
 2. CNAME kaydı ile silme **cdnverify** daha önce oluşturduğunuz alt etki alanı.
 
 ## <a name="see-also"></a>Ayrıca Bkz.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2aed2b9e86dc9b3111dc1fdf9deea2e2930c7c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10 GB sınırının kurtarmak nasıl
 Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Azure AD Connect ile yüklenen varsayılan SQL Server 2012 Express LocalDB’yi kullanabileceğiniz gibi, kendi tam SQL’nizi de kullanabilirsiniz. SQL Server Express 10 GB boyut sınırını uygular. LocalDB’yi kullanırken bu sınıra ulaşıldığında, Azure AD Connect Eşitleme Hizmeti artık düzgün başlatılamaz veya eşitleme yapamaz. Bu makalede kurtarma adımları sağlar.
@@ -63,11 +63,11 @@ Azure AD Connect için oluşturulan veritabanının adıdır **ADSync**. Küçü
 * Azure AD Connect eşitleme hizmeti işletim bağlamı olarak kullanılan eşitleme hizmeti hesabı.
 * Yükleme sırasında oluşturulan ADSyncAdmins yerel grubu.
 
-1. Kopyalayarak veritabanını geri **ADSync.mdf** ve **ADSync_log.ldf** altında bulunan dosyaları `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` güvenli bir konuma.
+1. Kopyalayarak veritabanını geri **ADSync.mdf** ve **ADSync_log.ldf** altında bulunan dosyaları `%ProgramFiles%\Microsoft Azure AD Sync\Data` güvenli bir konuma.
 
 2. Yeni bir PowerShell oturumu başlatın.
 
-3. Klasöre gidin `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Klasöre gidin `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Başlat **sqlcmd** komutunu çalıştırarak yardımcı programı `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, bir sysadmin ya da veritabanı DBO kimlik bilgilerini kullanarak.
 

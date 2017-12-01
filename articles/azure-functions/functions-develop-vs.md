@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 1f0d50331aa3986e80542902fd528f98e1c91bc2
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Visual Studio için Azure işlevleri araçları  
 
@@ -32,6 +32,9 @@ Azure işlevleri araçları aşağıdaki avantajları sağlar:
 * Tüm Visual Studio geliştirme avantajları yaparken işlevlerinizi C# kod. 
 
 Bu konu Azure işlevleri araçları Visual Studio 2017 için C# işlevlerinizi geliştirmek için nasıl kullanılacağını gösterir. Ayrıca, projenizin bir .NET derlemesi olarak Azure yayımlama öğrenin.
+
+> [!IMPORTANT]
+> Yerel geliştirme aynı işlev uygulaması portal geliştirme ile bir arada kullanmayın. Dağıtım işlemi, bir işlev uygulaması için bir yerel projeden yayımladığınızda, portalda geliştirilen işlevleri üzerine yazar.
 
 ## <a name="prerequisites"></a>Ön koşullar
 

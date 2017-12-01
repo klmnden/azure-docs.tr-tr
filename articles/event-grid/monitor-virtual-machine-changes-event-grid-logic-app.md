@@ -9,13 +9,13 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure olay kılavuz ve Logic Apps ile sanal makine değişikliklerini izleme
 
@@ -91,7 +91,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    ![Azure kimlik bilgilerinizle oturum](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Kişisel bir Microsoft hesabıyla oturum gibi kapattığınızdan varsa @outlook.com veya @hotmail.com, olay kılavuz tetikleyici düzgün görünmeyebilir. Geçici bir çözüm olarak seçin [Connect ile hizmet sorumlusu](/azure-resource-manager/resource-group-create-service-principal-portal.md), veya örneğin, Azure aboneliğinizle ilişkili Azure Active Directory'nun bir üyesi olarak kimlik doğrulaması *kullanıcı adı* @emailoutlook.onmicrosoft.com.
+   > Kişisel bir Microsoft hesabıyla oturum gibi kapattığınızdan varsa @outlook.com veya @hotmail.com, olay kılavuz tetikleyici düzgün görünmeyebilir. Geçici bir çözüm olarak seçin [Connect ile hizmet sorumlusu](../azure-resource-manager/resource-group-create-service-principal-portal.md), veya örneğin, Azure aboneliğinizle ilişkili Azure Active Directory'nun bir üyesi olarak kimlik doğrulaması *kullanıcı adı* @emailoutlook.onmicrosoft.com.
 
 8. Şimdi mantıksal uygulamanızı yayımcı olaylara abone olma. Aşağıdaki tabloda belirtildiği gibi olay aboneliğinizin ayrıntılarını verin:
 

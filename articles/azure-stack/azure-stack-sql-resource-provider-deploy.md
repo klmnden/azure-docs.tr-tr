@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
-ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığın üzerinde SQL veritabanları kullanın
 
@@ -49,10 +49,17 @@ Siz bir (veya daha fazla) SQL Server'lar oluşturun veya dış SQL örnekleri er
 
     b. Birden çok düğümlü sistemlerde konak ayrıcalıklı uç noktasına erişebildiğinden bir sistem olmalıdır.
 
-3. [SQL kaynak sağlayıcısı ikili dosya indirme](https://aka.ms/azurestacksqlrp) ve geçici bir dizine içeriği ayıklamak için ayıklayıcısı yürütün.
+3. SQL kaynak sağlayıcısı ikili indirin ve içeriğini geçici bir dizine ayıklayın ayıklayıcısı yürütün.
 
-    > [!NOTE]
-    > Bir Azure yığın üzerinde çalışan 20170928.3 oluşturursanız veya önceki sürümleri, [bu sürümü yüklemek](https://aka.ms/azurestacksqlrp1709).
+    >[!NOTE] 
+    > Kaynak sağlayıcı yapı Azure yığın derlemeleri karşılık gelir. Çalışan Azure yığın sürümü için doğru ikili indirmeniz gerekir.
+
+    | Azure yığın derleme | SQL RP yükleyici |
+    | --- | --- |
+    | 1.0.171122.1 | [SQL RP sürüm 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171028.1 | [SQL RP sürüm 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
+    | 1.0.170928.3 | [SQL RP sürüm 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
+   
 
 4. Azure yığın kök sertifikası ayrıcalıklı uç noktasından alınır. ASDK için bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Birden çok düğümlü için uygun bir sertifika sağlamanız gerekir.
 
@@ -102,7 +109,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
