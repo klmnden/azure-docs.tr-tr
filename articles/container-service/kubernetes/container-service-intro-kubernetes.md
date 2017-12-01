@@ -19,7 +19,7 @@ ms.author: gamonroy
 ms.custom: mvc
 ms.openlocfilehash: 65658985e3d09215578d50e39bbc1146d1bd81f9
 ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/24/2017
 ---
