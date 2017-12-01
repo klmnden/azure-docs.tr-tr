@@ -12,7 +12,7 @@ ms.topic: quickstart
 manager: carmonm
 ms.openlocfilehash: 3c56719d99a5a3cc3e650b72ecd2e92438533448
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
@@ -63,7 +63,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
    ![Yeni App Insights kaynağı formu](./media/app-insights-java-quick-start/000-j.png)
 
-2. "Birlikte Çalış" alanına ```http://dl.microsoft.com/eclipse``` değerini kopyalayın > **Java için Azure Araç Seti**’ni işaretleyin > **Java için Application Insights Eklentisi**’ni seçin >  "Gerekli yazılımı bulmak için yükleme sırasında tüm güncelleştirme siteleriyle iletişime geçin" seçeneğinin işaretini kaldırın.
+2. "Birlikte Çalış" alanına ```http://dl.microsoft.com/eclipse``` değerini kopyalayın > **Java için Azure Araç Seti**’ni işaretleyin > **Java için Application Insights Eklentisi**’ni seçin > "Gerekli yazılımı bulmak için yükleme sırasında tüm güncelleştirme siteleriyle iletişime geçin" seçeneğinin işaretini kaldırın.
 
 3. Yükleme tamamlandıktan sonra **Eclipse’i Yeniden Başlatmanız** istenir.
 
