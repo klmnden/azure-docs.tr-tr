@@ -12,7 +12,7 @@ ms.topic: quickstart
 manager: carmonm
 ms.openlocfilehash: 558c3c65a811a228f9d8ecae7ce41798ac8178c7
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

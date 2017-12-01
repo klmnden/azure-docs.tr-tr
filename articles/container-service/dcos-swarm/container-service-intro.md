@@ -18,7 +18,7 @@ ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: 3e263b88bf6afe652e06bd8cc109c98a17269cae
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

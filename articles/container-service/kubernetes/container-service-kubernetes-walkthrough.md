@@ -19,7 +19,7 @@ ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 59f37565d7e1912a149497223707e96a5ce8b24e
 ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/24/2017
 ---
