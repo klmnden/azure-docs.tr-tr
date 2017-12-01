@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Otomatik ölçeklendirme için en iyi uygulamalar
 Bu makalede, azure'da otomatik ölçeklendirme için en iyi yöntemler öğretir. Azure İzleyici otomatik ölçeklendirme uygular yalnızca [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/). Diğer Azure hizmetleriyle farklı ölçekleme yöntemlerini kullanın.
@@ -113,7 +113,7 @@ Bir profil koşul karşılandığında, otomatik ölçeklendirme altındaki sonr
 
 Aşağıdaki resimde bir otomatik ölçeklendirme ayarı gösterir 2 ve en fazla örnekleri minimum örnekleri ile bir varsayılan profili = = 10. Bu örnekte, kuralları sıradaki ileti sayısı 10'dan büyük olduğunda genişletmek için yapılandırılmış ve ölçek bileşenini sıradaki ileti sayısı 3'ten az olduğunda. Artık kaynak 2 ile 10 örnekleri arasında ölçeklendirebilirsiniz.
 
-Ayrıca, yinelenen bir profili Pazartesi kümesi yok. Minimum örnekleri için ayarlanmış 2 ve en fazla örnekleri = = 12. Yani Pazartesi günü, bu koşul için ilk zaman otomatik ölçeklendirme denetler örnek sayısı 2 ise, yeni en az 3 için ölçeklendirir. Bu profil koşul bulmak otomatik ölçeklendirme devam ettiği sürece (Pazartesi) eşleşen, yalnızca bu profil için yapılandırılmış CPU tabanlı ölçek genişletme/bileşenini kuralların işler. Şu anda bu kuyruk uzunluğu için denetlemez. Denetlenecek kuyruk uzunluğu koşul da istiyorsanız, ancak, varsayılan profil bu kurallardan de Pazartesi profilinizde içermelidir.
+Ayrıca, yinelenen bir profili Pazartesi kümesi yok. Minimum örnekleri için ayarlanmış 3 ve en fazla örnekleri = = 10. Yani Pazartesi günü, bu koşul için ilk zaman otomatik ölçeklendirme denetler örnek sayısı 2 ise, yeni en az 3 için ölçeklendirir. Bu profil koşul bulmak otomatik ölçeklendirme devam ettiği sürece (Pazartesi) eşleşen, yalnızca bu profil için yapılandırılmış CPU tabanlı ölçek genişletme/bileşenini kuralların işler. Şu anda bu kuyruk uzunluğu için denetlemez. Denetlenecek kuyruk uzunluğu koşul da istiyorsanız, ancak, varsayılan profil bu kurallardan de Pazartesi profilinizde içermelidir.
 
 Otomatik ölçeklendirme varsayılan profiline geçtiğinde, benzer şekilde, onu önce minimum ve maksimum koşulların karşılandığından denetler. Zaman örneklerinin sayısını 12 ise, bu, 10, varsayılan profili için izin verilen maksimum ölçeklendirir.
 

@@ -4,7 +4,7 @@ description: "Araç sistem durumu ve yürüten gerçek zamanlı ve Tahmine dayal
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/24/2017
 ms.author: bradsev
-ms.openlocfilehash: cdde0c8dc2fd1189970c0782769a609ca8142372
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a21316ef6ab05918f07a09243b5ce04950ecd9dc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Araç Telemetri analiz çözümü playbook: ayrıntılı çözüme daha yakından inceleyin
 Bu playbook bölümlerini bu menü bağlantılar: 
@@ -302,7 +302,7 @@ Ardışık Düzen başarıyla yürütüldükten sonra depolama hesabınızda con
 
 Veriler artık, daha kolay yönetilebilir ve zengin toplu Öngörüler kazanmak için daha fazla işleme için hazır duruma getirilmiştir. 
 
-## <a name="data-analysis"></a>Veri analizi
+## <a name="data-analysis"></a>Veri çözümlemesi
 Bu bölümde, akış analizi, Azure Machine Learning, veri fabrikası ve Hdınsight araç sistem durumunu gelişmiş analizler ve alışkanlık yürüten zengin için birleştirme bakın.
 
 ### <a name="machine-learning"></a>Makine öğrenme

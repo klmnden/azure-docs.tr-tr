@@ -5,7 +5,7 @@ keywords: "veriler, veri biçimi, veri türleri, veri kaynakları, eğitim veril
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/29/2017
 ms.author: garye;bradsev
-ms.openlocfilehash: 98a8fa15922ef100a7f8cadd92fb7ffef0d3bcde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Eğitim verilerinizi çeşitli veri kaynaklarından Azure Machine Learning Studio’ya alma
 Geliştirmek ve Tahmine dayalı analiz çözümü eğitmek için Machine Learning Studio'da kendi verilerinizi kullanmak için aşağıdakileri yapabilirsiniz: 
@@ -60,7 +60,7 @@ Veri türlerinin sayısı denemenize içeri aktarabilirsiniz, mekanizmaya bağl�
 * Virgülle ayrılmış değerler (CSV bir başlık (.csv) ile veya olmadan) (. nh.csv)
 * Sekmeyle ayrılmış değerler (TSV bir başlık (.tsv) ile veya olmadan) (. nh.tsv)
 * Excel dosyası
-* Azure tablo
+* Azure tablosu
 * Hive tablosu
 * SQL veritabanı tablosu
 * OData değerleri
@@ -80,8 +80,8 @@ Aşağıdaki **veri türleri** Machine Learning Studio tarafından tanınan:
 * Dize
 * Tamsayı
 * Çift
-* Boole değeri
-* Tarih saat
+* Boole
+* Tarih Saat
 * TimeSpan
 
 Machine Learning Studio adlı bir iç veri türü kullanan ***veri tablosu*** modülleri arasında veri iletmek için. Veri tablosu biçimi kullanarak, verilerinizi açıkça dönüştürebilirsiniz [veri kümesine Dönüştür] [ convert-to-dataset] modülü.

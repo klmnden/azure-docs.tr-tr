@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 13de6daabf2b6d83cc703ae6b3f0a30a1dfa34d6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: ed41ec58dbdfd41931e8bab3a3cbe33caafe9a74
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Bir Azure Machine Learning Web hizmetini kullanma
 
@@ -64,18 +64,11 @@ Klasik Machine Learning Web hizmeti için API anahtarı almak için:
 5. Kopyalayıp kaydedin **birincil anahtar**.
 
 ### <a name="classic-web-service"></a>Klasik Web hizmeti
- Klasik Web hizmeti için bir anahtar, Machine Learning Studio veya Azure Klasik portalından da alabilirsiniz.
+ Bu gibi durumlarda, Klasik Web hizmeti için bir anahtar da Machine Learning Studio'dan alabilirsiniz.
 
 #### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. Machine Learning Studio'da tıklatın **WEB Hizmetleri** soldaki.
 2. Bir Web hizmeti tıklatın. **API anahtarı** açık **PANO** sekmesi.
-
-#### <a name="azure-classic-portal"></a>Klasik Azure portalı
-1. Tıklatın **MACHINE LEARNING** soldaki.
-2. Web hizmetiniz bulunduğu çalışma alanına tıklayın.
-3. Tıklatın **WEB Hizmetleri**.
-4. Bir Web hizmeti tıklatın.
-5. Bir uç nokta'ı tıklatın. Sağ alt köşesindeki "API anahtarı" çalışmıyor.
 
 ## <a id="connect"></a>Bir Machine Learning Web hizmetine bağlanma
 HTTP istek ve yanıt destekleyen herhangi bir programlama dili kullanılarak bir Machine Learning Web hizmetine bağlanabilir. C#, Python ve R örnekler bir Machine Learning Web hizmeti Yardım sayfasından görüntüleyebilirsiniz.

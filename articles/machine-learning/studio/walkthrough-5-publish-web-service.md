@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Kılavuz Adımı 5: Azure Machine Learning web hizmetini dağıtma
 Bu izlenecek yol beşinci adımdır [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](walkthrough-develop-predictive-solution.md)
@@ -190,26 +190,6 @@ Test sonuçlarını çıkış sütununda sayfasının sağ tarafında görüntü
 
 
 ## <a name="manage-the-web-service"></a>Web hizmeti yönetme
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Klasik Azure portalında bir Klasik web hizmeti yönetme
-
-Klasik web hizmeti dağıttıktan sonra sonra buradan yönetebilirsiniz [Klasik Azure portalı](https://manage.windowsazure.com).
-
-1. Oturum [Klasik Azure portalı](https://manage.windowsazure.com)
-2. Microsoft Azure Hizmetleri panelinde tıklatın **MACHINE LEARNING**
-3. Çalışma alanınızı tıklatın
-4. Tıklatın **Web Hizmetleri** sekmesi
-5. Oluşturduğumuz web hizmeti
-6. "Varsayılan" uç noktasına tıklayın
-
-Buradan, web hizmetinin nasıl çalıştığını izlemek gibi işlemler yapabilir ve değiştirerek eşzamanlı olarak kaç hizmeti çağrıları yapma performansı tweaks işleyebilir.
-
-Daha ayrıntılı bilgi için bkz.
-
-* [Uç noktaları oluşturma](create-endpoint.md)
-* [Web hizmeti ölçeklendirme](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Klasik ya da Azure Machine Learning Web Hizmetleri portalında yeni bir web hizmeti yönetme
 
 Klasik ya da yeni web hizmetinizi dağıttıktan sonra sonra buradan yönetebilirsiniz [Microsoft Azure Machine Learning Web Hizmetleri](https://services.azureml.net/quickstart) portal.
 

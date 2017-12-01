@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 591fa6048553db4c347449a68ea4e39f3772d643
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4ff0556ba79c7104fa0e1cd84ece7fe27521ebbb
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: işlevleri başvurusu
 Azure AD Connect işlevleri eşitleme sırasında bir öznitelik değeri işlemek için kullanılır.  
@@ -828,7 +828,7 @@ Item işlevi, birden çok değerli bir dize/özniteliğinden bir öğeyi döndü
 Dizin sınırların dışında olması durumunda bir hata oluşturur.
 
 **Örnek:**  
-`Mid(Item([proxyAddress],Contains([proxyAddress], "SMTP:")),6)`  
+`Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Birincil e-posta adresini döndürür.
 
 - - -
@@ -1248,7 +1248,7 @@ Değer, özel bir dize döndürür hata işlevi de olabilir.
 Bazı önemli şehirlerde konuşma dilini döndürür, aksi takdirde bir hata döndürür.
 
 - - -
-### <a name="trim"></a>Kırpma
+### <a name="trim"></a>Kırp
 **Açıklama:**  
 Kırpma işlevi baştaki ve sondaki boşlukları bir dizeden kaldırır.
 
@@ -1293,7 +1293,7 @@ Belirli bir koşula dayalı birden çok değerli özniteliği (veya bir ifade ç
 Sertifika değerler, süresi dolmuş olmayan birden çok değerli özniteliği userCertificate döndürür.
 
 - - -
-### <a name="with"></a>İle
+### <a name="with"></a>Avantaj ile
 **Açıklama:**  
 WITH işlevi bir görünen bir alt temsil etmek için bir değişken kullanarak veya birden fazla kez karmaşık ifadesinde karmaşık bir ifade basitleştirmek için bir yol sağlar.
 

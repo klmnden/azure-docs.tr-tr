@@ -4,7 +4,7 @@ description: "Bir algoritma kullanmak için en iyi parametre seçme ayarlayın v
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev
-ms.openlocfilehash: 394c3e4a0feda0b4943b479cf00edf6d6b5a265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: bradsev;garye
+ms.openlocfilehash: d6563d411e9f159399f9863a5b572365dc2b05cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="interpret-model-results-in-azure-machine-learning"></a>Azure Machine Learning modeli sonuçlarında yorumlama
 Bu konu, görselleştirin ve Azure Machine Learning Studio'da tahmin sonuçlarını yorumlanacağı açıklanmaktadır. Bir model eğitilmiş ve Öngörüler ("model skoru") en üstünde bitti sonra anlamak ve tahmin sonuç yorumlamak gerekir.

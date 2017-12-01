@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>Azure içerik teslim senaryonuz için en iyi duruma getirme
 
@@ -103,7 +103,7 @@ Akamai'den Azure içerik teslim ağı kullanırsanız 1,8 GB'den büyük dosyala
 
 Akamai'den Azure içerik teslim ağı kullanıyorsanız büyük dosya yüklemeleri 10 MB'den büyük içerik için en iyi duruma getirilir. Ortalama dosya boyutu 10 MB'den daha küçükse, genel web teslim kullanmak isteyebilirsiniz. Ortalama dosyaları boyutları tutarlı bir şekilde 10 MB'den büyük olursa, büyük dosyalar için ayrı bir uç noktası oluşturmak için daha etkili olabilir. Örneğin, bellenim ve yazılım güncelleştirmeleri genellikle büyük dosyalarıdır.
 
-Verizon'dan Azure içerik teslim ağı genel web teslim en iyi duruma getirme türü akış medya içeriği teslim etmek için kullanır.
+Verizon'dan Azure içerik teslim ağı genel web teslim en iyi duruma getirme türü büyük dosya indirme içerik ulaştırmak için kullanır.
 
 Büyük dosya en iyi duruma getirme hakkında daha fazla bilgi için bkz: [büyük dosya iyileştirme](cdn-large-file-optimization.md).
 

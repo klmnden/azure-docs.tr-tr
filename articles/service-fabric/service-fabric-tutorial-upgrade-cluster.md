@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Yükseltme Service Fabric kümesi çalışma zamanı
 
-Bu öğretici dört bir serinin bir parçasıdır ve bir Azure Service Fabric kümesi üzerinde Service Fabric çalışma zamanını yükseltme gösterir. Bu öğretici bölümü Azure üzerinde çalışan Service Fabric kümeleri için yazılmış ve kendi kendini barındıran Service Fabric kümeleri için geçerli değil.
+Bu öğretici üç bir serinin bir parçasıdır ve bir Azure Service Fabric kümesi üzerinde Service Fabric çalışma zamanını yükseltme gösterir. Bu öğretici bölümü Azure üzerinde çalışan Service Fabric kümeleri için yazılmış ve tek başına Service Fabric kümeleri geçerli değildir.
 
 > [!WARNING]
 > Öğreticinin bu bölümü, PowerShell gerektiriyor. Küme çalışma zamanı yükseltme desteği Azure CLI araçları tarafından henüz desteklenmiyor. Alternatif olarak, bir küme portalda yükseltilebilir. Daha fazla bilgi için bkz: [Azure Service Fabric kümesi yükseltme](service-fabric-cluster-upgrade.md).
@@ -34,6 +34,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Küme sürümü okuyun
 > * Küme sürümü Ayarla
+
+Bu öğretici serisinde öğrenin nasıl yapılır:
+> [!div class="checklist"]
+> * Güvenli oluşturma [Windows Küme](service-fabric-tutorial-create-vnet-and-windows-cluster.md) veya [Linux kümesi](service-fabric-tutorial-create-vnet-and-linux-cluster.md) bir şablonu kullanarak azure'da
+> * [Bir küme veya ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
+> * Yükseltme küme çalışma zamanı
+> * [API Management Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce:
@@ -190,3 +197,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Küme çalışma zamanı sürümünü edinin
 > * Yükseltme küme çalışma zamanı
 > * İzleyici yükseltme
+
+Ardından, API Management ile bir Service Fabric kümesi dağıtma hakkında bilgi edinmek için aşağıdaki öğreticiyi ilerleyin.
+> [!div class="nextstepaction"]
+> [API Management Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)

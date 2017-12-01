@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 076d4d95db21f0a1c1500ae7766392547a441d1b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Service Fabric kümesi ayarlarını ve yapı yükseltme İlkesi özelleştirme
 Bu belge çeşitli doku ayarlarını özelleştirmek anlatır ve yapı Service Fabric kümesi için ilke yükseltin. Aralarında özelleştirebilirsiniz [Azure portal](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
@@ -678,7 +678,7 @@ PropertyGroup|X509NameMap, varsayılan, Yok'tur|Dinamik| |
 |GetCodePackageActivationContextTimeout|TimeSpan, Common::TimeSpan::FromSeconds(120) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin. CodePackageActivationContext çağrıları için zaman aşımı değeri. Bu geçici hizmetler için geçerli değildir. |
 |IPProviderEnabled|bool, varsayılan FALSE olur|Statik|IP adresi yönetimi sağlar. |
 |NTLMAuthenticationEnabled|bool, varsayılan FALSE olur|Statik| NTLM göre çalışan diğer kullanıcılar ve böylece süreçler makineler arasında güvenli iletişim kurabilmek kod paketi kullanmak için desteği etkinleştirir. |
-|NTLMAuthenticationPasswordSecret|SecureString, Common::SecureString(L"") varsayılandır|Statik|NTLM kullanıcılar için parola oluşturmak için kullanılan bir şifrelenmiş sahip olur. NTLMAuthenticationEnabled true ise ayarlanması gerekir. Dağıtıcı tarafından doğrulandı. |
+|NTLMAuthenticationPasswordSecret|SecureString, Common::SecureString(L"") varsayılandır|Statik|NTLM kullanıcılar için parola oluşturmak için kullanılan bir şifrelenmiş karmasıdır. NTLMAuthenticationEnabled true ise ayarlanması gerekir. Dağıtıcı tarafından doğrulandı. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, Common::TimeSpan::FromMinutes(3) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin. Ortama özgü ayarlar FileStoreService NTLM yapılandırması için kullanılacak yeni sertifikalar için hangi barındırma düzenli aralıklarla tarar. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, Common::TimeSpan::FromMinutes(4) varsayılandır|Dinamik| TimeSpan saniye cinsinden belirtin. Sertifika ortak adları kullanarak NTLM kullanıcıları yapılandırmak için zaman aşımı. NTLM kullanıcılar FileStoreService paylaşımlar için gereklidir. |
 |RegisterCodePackageHostTimeout|TimeSpan, Common::TimeSpan::FromSeconds(120) varsayılandır|Dinamik| TimeSpan saniye cinsinden belirtin. FabricRegisterCodePackageHost eşitleme çağrısı için zaman aşımı değeri. Bu yalnızca çoklu kod paketi uygulama ana FWP gibi için geçerlidir |

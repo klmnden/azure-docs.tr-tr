@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bb5470918aa3ad15cb9081f5c02b40984d83f51
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -51,10 +51,11 @@ Havuzu ayırma modu ayarlamak toplu işlem hesabı oluşturmak için toplu işle
 | Uygulama başına uygulama paketleri |40 |
 | Uygulama paketi boyutu (her) |Yaklaşık 195 GB'den<sup>1</sup> |
 | En fazla başlangıç görevi boyutu | 32768 karakter<sup>2</sup> |
+| En fazla görev yaşam süresi | 7 gün<sup>3</sup> |
 
 <sup>1</sup> en büyük blok blob boyutu için azure depolama sınırı<br />
-<sup>2</sup> kaynak dosyaları ve ortam değişkenleri içerir
-
+<sup>2</sup> kaynak dosyaları ve ortam değişkenleri içerir<br />
+<sup>3</sup> tamamlandığında, bunu projeye eklendiğinde bir görevin, en uzun kullanım ömrünü 7 gündür. Tamamlanan görevler süresiz olarak kalır; en fazla yaşam süresi içinde Tamamlanmayan görevler için veri erişilebilir değil.
 
 
 ## <a name="view-batch-quotas"></a>Toplu kotaları görüntüle
