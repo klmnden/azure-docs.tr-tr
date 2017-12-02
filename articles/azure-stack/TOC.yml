@@ -213,6 +213,10 @@
           items:
             - name: VPN kullanarak bağlanma
               href: azure-stack-connect-vpn.md
+            - name: VPN gateway hakkında
+              href: azure-stack-vpn-gateway-about-vpn-gateways.md
+            - name: VPN ağ geçidi ayarları
+              href: azure-stack-vpn-gateway-settings.md
             - name: ExpressRoute kullanarak bağlanma
               href: azure-stack-connect-expressroute.md
     - name: Sorun giderme
