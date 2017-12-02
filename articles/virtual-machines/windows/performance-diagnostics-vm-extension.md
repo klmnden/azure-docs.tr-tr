@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
 
@@ -46,7 +46,6 @@ Aşağıdaki JSON şeması için Azure performans tanılama uzantısını göste
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -70,15 +69,13 @@ Aşağıdaki JSON şeması için Azure performans tanılama uzantısını göste
 |Yayımcı|Microsoft.Azure.Performance.Diagnostics|Yayımcı ad uzantısı
 |type|AzurePerformanceDiagnostics|VM uzantısı türü
 |typeHandlerVersion|1.0|Uzantı işleyicisi sürümü
-|performanceScenario|Temel|Verilerini yakalamak için performans senaryosu. Geçerli değerler: **temel**, **vmslow**, **geçirme**, ve **özel**.
+|performanceScenario|temel|Verilerini yakalamak için performans senaryosu. Geçerli değerler: **temel**, **vmslow**, **geçirme**, ve **özel**.
 |traceDurationInSeconds|300|İzleme seçeneklerinden herhangi birini seçtiyseniz izlemeleri süresi.
-|DiagnosticsTrace|D|Tanılama izleme etkinleştirmek için seçeneği. Geçerli değerler **d** veya değer boş. Yalnızca bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |perfCounterTrace|P|Performans sayacı izlemeyi Etkinleştir seçeneği. Geçerli değerler **p** veya değer boş. Yalnızca bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |networkTrace|n|Netmon izlemeyi Etkinleştir seçeneği. Geçerli değerler  **n**  veya değer boş. Yalnızca bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |xperfTrace|x|XPerf'in izlemeyi Etkinleştir seçeneği. Geçerli değerler **x** veya değer boş. Yalnızca bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |storPortTrace|s|StorPort izlemeyi Etkinleştir seçeneği. Geçerli değerler s ya da boş bir değer var. Yalnızca bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
 |srNumber|123452016365929|Bilet numarası varsa destekler. Elinizde yoksa boş bırakın.
-|requestTimeUtc|2/9/2017 11:06:00 PM|Geçerli tarih zamanı, Utc. Bu uzantıyı yüklemek için portalı kullanıyorsanız, bu değer sağlamanız gerekmez.
 |storageAccountName|mystorageaccount|Tanılama günlüklerini ve sonuçları depolamak için depolama hesabının adı.
 |storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|Depolama hesabı anahtarı.
 
@@ -104,7 +101,7 @@ Windows sanal makinelerde VM uzantısı yüklemek için aşağıdaki adımları 
     ![İleti sağlama başarılı oldu](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > Uzantı yürütme sağlama başarılı oldu ve işlemin birkaç dakika veya temel senaryo için yürütme tamamlamak için daha az sürecek sonra başlar. Diğer senaryolar için yükleme sırasında belirtilen süre aracılığıyla çalışacaktır.
+    > Uzantı yürütme sağlama başarılı oldu ve birkaç dakika veya temel senaryo için yürütme tamamlamak için daha az alan sonra başlar. Diğer senaryolar için yükleme sırasında belirtilen süre üzerinden çalışır.
 
 ## <a name="remove-the-extension"></a>Uzantıyı kaldırın
 Uzantı sanal makineden kaldırmak için aşağıdaki adımları izleyin:
@@ -153,10 +150,6 @@ Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir.
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir.
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir.
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -231,13 +223,13 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Yakalanan veriler hakkında bilgi
-PerfInsights aracı çeşitli günlükleri, yapılandırma, tanılama veri vb. seçilen senaryoya bağlı olarak toplar. Veriler hakkında daha fazla bilgi senaryo ziyaret Lütfen toplanan [PerfInsights belgelerine](http://aka.ms/perfinsights).
+PerfInsights aracı çeşitli günlükleri, yapılandırma, tanılama veri vb. seçilen senaryoya bağlı olarak toplar. Senaryo toplanan veriler hakkında daha fazla bilgi için ziyaret [PerfInsights belgelerine](http://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Görüntülemek ve sonuçları paylaşmak
 
 Uzantı çıktısı varsayılan olarak Temp sürücüsü (genellikle D:\log_collection) altındaki log_collection adlı bir klasör içinde depolanır. Bu klasörü altında tanılama günlüklerini ve bulguları ve öneriler içeren bir rapor içeren zip dosyaların görebilirsiniz.
 
-Oluşturulan ZIP dosyası yükleme sırasında sağlanan depolama hesabı da karşıya ve 30 gün boyunca kullanarak paylaşılan [paylaşılan erişim imzaları (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Adlı bir metin dosyası *zipfilename*_saslink.txt de log_collection klasöründe oluşturulur. Bu dosya zip dosyasını karşıdan yüklemek için oluşturulan SAS bağlantı içerir. Bu bağlantıya sahip olan herkes, ZIP dosyası indirebilirsiniz olacaktır.
+Oluşturulan ZIP dosyası yükleme sırasında sağlanan depolama hesabı da karşıya ve 30 gün boyunca kullanarak paylaşılan [paylaşılan erişim imzaları (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Adlı bir metin dosyası *zipfilename*_saslink.txt de log_collection klasöründe oluşturulur. Bu dosya zip dosyasını karşıdan yüklemek için oluşturulan SAS bağlantı içerir. Bu bağlantıya sahip olan herkes zip dosyası indirebilirsiniz.
 
 Microsoft, destek bileti çalışma destek mühendisi tarafından daha fazla araştırma için tanılama veri indirmek için bu SAS bağlantı kullanabilir.
 

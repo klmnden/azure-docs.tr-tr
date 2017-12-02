@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT Hub cihaz-bulut iletileri yolları (.Net) kullanma | Microsoft Docs"
-description: "Diğer arka uç hizmetlerine iletilerinin gönderilmesi için yönlendirme kurallarını ve özel uç noktaları kullanarak IOT Hub cihaz bulut iletilerini işlemek nasıl."
+title: "İleti yönlendirme ile Azure IOT hub'ı (.Net) | Microsoft Docs"
+description: "Diğer arka uç hizmetlerine iletilerinin gönderilmesi için yönlendirme kurallarını ve özel uç noktaları kullanarak Azure IOT Hub cihaz bulut iletilerini işlemek nasıl."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Yollar (.NET) kullanılarak IOT Hub cihaz bulut iletilerini işleme
+# <a name="routing-messages-with-iot-hub-net"></a>IOT hub'ı (.NET) ile ileti yönlendirme
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * Visual Studio 2015 veya Visual Studio 2017.
 * Etkin bir Azure hesabı. <br/>Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde.
 
-Bazı temel bilgiye sahip [Azure Storage] ve [Azure Service Bus].
+Ayrıca okumayı öneririz [Azure Storage] ve [Azure Service Bus].
 
 ## <a name="send-interactive-messages"></a>Etkileşimli iletileri gönder
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Bu yöntem rastgele özelliği ekler `"level": "critical"` aygıt tarafından gönderilen iletiler için hangi benzetim çözüm arka ucu tarafından Acil eylem gerektiren bir ileti. Bu IOT hub'ın uygun mesajı hedefe ileti yönlendirmek için cihaz uygulaması bu bilgileri ileti özelliklerinde yerine ileti gövdesinde geçirir.
+Bu yöntem rastgele özelliği ekler `"level": "critical"` ve `"level": "storage"` aygıt tarafından gönderilen iletiler için hangi benzetimini yapar, uygulama arka uç ya da kalıcı olarak depolanması gereken bir Acil eylem gerektiren bir ileti. Bu IOT hub'ın uygun mesajı hedefe ileti yönlendirmek için uygulama bu bilgileri ileti özelliklerinde yerine ileti gövdesinde geçirir.
 
 > [!NOTE]
 > Burada gösterilen hot yolu örnek yanı sıra soğuk yolu işleme dahil olmak üzere çeşitli senaryoları için ileti özellikleri iletileri yönlendirmek için kullanabilirsiniz.
 
 > [!NOTE]
-> Basitleştirmek amacıyla, Bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda MSDN makalesinde önerilen üstel geri alma gibi bir yeniden deneme ilkesi uygulamalıdır [geçici hata işleme].
+> MSDN makalesinde önerilen üstel geri alma gibi bir yeniden deneme ilkesi uygulamak önerilir [geçici hata işleme].
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>IOT hub'ınızdaki kuyruğuna iletileri yönlendirmek
 
@@ -177,6 +185,30 @@ Bu bölümde, sıra uç noktasından iletilerini okuyun.
    
    ![Üç konsol uygulamaları][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(İsteğe bağlı) Depolama kapsayıcısı IOT hub ve rota iletileri ona ekleyin
+
+Bu bölümde, depolama hesabı oluşturma, IOT hub'ınıza bağlanın ve iletiyi bir özellik varlığına dayalı hesabına iletileri göndermek için IOT hub'ınızı yapılandırma. Depolama yönetme hakkında daha fazla bilgi için bkz: [Azure Storage ile çalışmaya başlama][Azure Storage].
+
+ > [!NOTE]
+   > Birle sınırlı değilse **Endpoint**, Kurulum **StorageContainer** ek olarak **CriticalQueue** ve her iki simulatneously çalıştırın.
+
+1. [Azure depolama belgelerinde] [lnk-depolama] açıklandığı gibi bir depolama hesabı oluşturun. Hesap adını not edin.
+
+2. Azure portalında, IOT hub'ınızı açın ve **uç noktaları**.
+
+3. İçinde **uç noktaları** dikey penceresinde, select **CriticalQueue** uç noktası ve tıklatın **silmek**. Tıklatın **Evet**ve ardından **Ekle**. Uç nokta adı **StorageContainer** ve seçmek için açılır listeleri kullanın **Azure depolama kapsayıcısının**ve oluşturma bir **depolama hesabı** ve **depolama kapsayıcı**.  Adlarını not edin.  İşiniz bittiğinde tıklatın **Tamam** altındaki. 
+
+ > [!NOTE]
+   > Birle sınırlı değilse **Endpoint**, silme gerekmez **CriticalQueue**.
+
+4. Tıklatın **yollar** IOT hub'ınızdaki. Tıklatın **Ekle** iletileri kuyruğa yönlendiren bir yönlendirme kuralı oluşturmak için dikey pencerenin üstündeki eklediğiniz. Seçin **cihaz iletilerini** veri kaynağı olarak. Girin `level="storage"` koşul olarak seçin **StorageContainer** yönlendirme kuralı uç noktası olarak özel bir uç noktası olarak. Tıklatın **kaydetmek** altındaki.  
+
+    Emin olun geri dönüş rota ayarlanmış **ON**. Bu ayar, bir IOT hub'ın varsayılan yapılandırmadır.
+
+1. Önceki uygulamalarınızı hala çalıştığından emin olun. 
+
+1. Azure Portalı'nda altında depolama hesabınıza gidin **Blob hizmeti**, tıklatın **BLOB'lar Gözat...** .  Kapsayıcıyı seçin, gidin ve JSON dosyasına tıklayın ve tıklayın **karşıdan** verileri görüntülemek için.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, IOT Hub'ının ileti yönlendirme işlevini kullanarak cihaz bulut iletilerini güvenilir bir şekilde gönderme öğrendiniz.
 
@@ -204,5 +236,5 @@ IOT Hub içinde ileti yönlendirme hakkında daha fazla bilgi için bkz: [IOT Hu
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure IOT Geliştirme Merkezi]: https://azure.microsoft.com/develop/iot
 [geçici hata işleme]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

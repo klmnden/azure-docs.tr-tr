@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: f2e7b5b96b70333ae4ee92d24c354960008c7f00
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure yığın uygulama hizmeti ile çalışmaya başlamadan önce
 
@@ -68,7 +68,7 @@ Bu ilk komut, App Service tarafından gerekli olan dört sertifikalar oluşturma
 
 Azure yığın Geliştirme Seti konakta komut dosyasını çalıştırın ve PowerShell azurestack\CloudAdmin çalıştırdığınızdan emin olun.
 
-1. Azurestack\CloudAdmin çalışan bir PowerShell oturumunda Yardımcısı betikleri ayıkladığınız klasöründen oluşturma AppServiceCerts.ps1 betiğini yürütün. Komut dosyası, uygulama hizmeti gereken sertifikaları komut dosyası oluşturma ile aynı klasörde dört sertifikaları oluşturur.
+1. Azurestack\AzureStackAdmin çalışan bir PowerShell oturumunda Yardımcısı betikleri ayıkladığınız klasöründen oluşturma AppServiceCerts.ps1 betiğini yürütün. Komut dosyası, uygulama hizmeti gereken sertifikaları komut dosyası oluşturma ile aynı klasörde dört sertifikaları oluşturur.
 2. .Pfx dosyaları korumak için bir parola girin ve bunu not edin. Uygulama hizmeti Azure yığın yükleyici girmelisiniz.
 
 #### <a name="create-appservicecertsps1-parameters"></a>Oluşturma AppServiceCerts.ps1 parametreleri
@@ -88,7 +88,7 @@ Varsayılan etki alanı sertifikası ön uç rolüne yerleştirilir. Azure App S
 
 Sertifika .pfx biçiminde olmalıdır ve iki konulu bir joker sertifika olmalıdır. Bu, hem varsayılan etki alanı hem de tek bir sertifika kapsamında olmasını kaynak denetimi işlemleri için scm uç noktasının sağlar.
 
-| Biçimi | Örnek |
+| Biçim | Örnek |
 | --- | --- |
 | \*.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | \*. appservice.redmond.azurestack.external |
 | \*. scm.appservice. <region>. <DomainName>.<extension> | \*. appservice.scm.redmond.azurestack.external |
@@ -97,7 +97,7 @@ Sertifika .pfx biçiminde olmalıdır ve iki konulu bir joker sertifika olmalıd
 
 API sertifika yönetimi rolüne yerleştirilir ve kaynak sağlayıcısı tarafından API çağrıları güvenliğini sağlamak için kullanılır. Yayımlama sertifikası API DNS girişi ile eşleşen bir konu içermelidir:
 
-| Biçimi | Örnek |
+| Biçim | Örnek |
 | --- | --- |
 | api.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | api.appservice.redmond.azurestack.external |
 
@@ -105,7 +105,7 @@ API sertifika yönetimi rolüne yerleştirilir ve kaynak sağlayıcısı tarafı
 
 İçerik yüklediklerinde yayımcı rolünün sertifikası için uygulama sahipleri FTPS trafiğinin güvenliğini sağlar.  Yayımlama sertifikası FTPS DNS girişi ile eşleşen bir konu içermesi gerekir.
 
-| Biçimi | Örnek |
+| Biçim | Örnek |
 | --- | --- |
 | FTP.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | api.appservice.redmond.azurestack.external |
 
@@ -116,11 +116,11 @@ Kimlik uygulama için sertifika sağlar:
 - Çoklu oturum açma senaryoları için Azure yığında Azure App Service içinde Gelişmiş geliştirici araçları.
 Sertifika kimliği şu biçimde eşleşen bir konu içermelidir:
 
-| Biçimi | Örnek |
+| Biçim | Örnek |
 | --- | --- |
 | SSO.appservice. \<bölge\>.\< DomainName\>.\< uzantısı\> | SSO.appservice.redmond.azurestack.external |
 
-#### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Azure yığın Azure Kaynak Yöneticisi kök sertifikasını ayıklayın
+### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Azure yığın Azure Kaynak Yöneticisi kök sertifikasını ayıklayın
 
 Azurestack\CloudAdmin çalışan bir PowerShell oturumunda Yardımcısı betikleri ayıkladığınız klasöründen Get-AzureStackRootCert.ps1 betiğini yürütün. Komut dosyası, uygulama hizmeti gereken sertifikaları komut dosyası oluşturma ile aynı klasörde dört sertifikaları oluşturur.
 
@@ -134,12 +134,10 @@ Azurestack\CloudAdmin çalışan bir PowerShell oturumunda Yardımcısı betikle
 
 Azure uygulama hizmeti bir dosya sunucusu kullanılmasını gerektirir. Üretim dağıtımları için dosya sunucusu yüksek oranda kullanılabilir olması için yapılandırılmış ve hatalarını işleme, özelliğine sahip olması gerekir.
 
-Yalnızca Azure yığın Geliştirme Seti dağıtımları ile kullanım için yapılandırılmış tek düğümlü dosya sunucusu dağıtmak için bu örnek Azure Resource Manager dağıtım şablonu kullanabilirsiniz: https://aka.ms/appsvconmasdkfstemplate.
+Yalnızca Azure yığın Geliştirme Seti dağıtımları ile kullanım için yapılandırılmış tek düğümlü dosya sunucusu dağıtmak için bu örnek Azure Resource Manager dağıtım şablonu kullanabilirsiniz: https://aka.ms/appsvconmasdkfstemplate. Tek düğümlü dosya sunucusu bir çalışma grubunda olacaktır.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Gruplar ve hesaplar Active Directory'de sağlama
 
->[!NOTE]
-> Dosya sunucusu, bir yönetici komut istemi oturumunda yapılandırırken tüm aşağıdaki komutları çalıştırın.  **PowerShell kullanmayın.**
 
 1. Aşağıdaki Active Directory genel güvenlik gruplarını oluşturun:
     - FileShareOwners
@@ -159,7 +157,10 @@ Yalnızca Azure yığın Geliştirme Seti dağıtımları ile kullanım için ya
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Gruplar ve hesaplar bir çalışma grubunda sağlama
 
-NET ve gruplar ve hesaplar sağlama için WMIC komutları çalıştıran bir çalışma grubunda.
+>[!NOTE]
+> Dosya sunucusu, bir yönetici komut istemi oturumunda yapılandırırken tüm aşağıdaki komutları çalıştırın.  **PowerShell kullanmayın.**
+
+Yukarıdaki Azure Resource Manager şablonu kullanarak, kullanıcılar zaten oluşturulur.
 
 1. FileShareOwner ve FileShareUser hesapları oluşturmak için aşağıdaki komutları çalıştırın. Değiştir <password> kendi değerlere sahip.
 ``` DOS
@@ -185,11 +186,11 @@ net localgroup FileShareOwners FileShareOwner /add
 
 #### <a name="provision-the-content-share-on-a-single-file-server-ad-or-workgroup"></a>Tek dosya sunucusunda içerik paylaşımı sağlama (AD veya çalışma grubu)
 
-Tek dosya sunucusunda, yükseltilmiş bir komut isteminde aşağıdaki komutları çalıştırın. Değer < C:\WebSites > için ortamınızdaki karşılık gelen yollarla değiştirin.
+Tek dosya sunucusunda, yükseltilmiş bir komut isteminde aşağıdaki komutları çalıştırın. Değer 'C:\WebSites için' ortamınızdaki karşılık gelen yollarla değiştirin.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 md %WEBSITES_FOLDER%
 net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
@@ -208,7 +209,7 @@ set DOMAIN=<DOMAIN>
 net localgroup Administrators %DOMAIN%\FileShareOwners /add
 ```
 
-#### <a name="workgroup"></a>Çalışma grubu
+#### <a name="workgroup"></a>Çalışma Grubu
 
 Aşağıdaki komutu yükseltilmiş bir komut isteminde dosya sunucusunda çalıştırın.
 
@@ -223,7 +224,7 @@ Aşağıdaki komutlar, dosya sunucusunda veya geçerli küme kaynak sahibi olan 
 #### <a name="active-directory"></a>Active Directory
 ```DOS
 set DOMAIN=<DOMAIN>
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
@@ -232,9 +233,9 @@ icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareUsers:(CI)(S,X,RA)
 icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
-#### <a name="workgroup"></a>Çalışma grubu
+#### <a name="workgroup"></a>Çalışma Grubu
 ```DOS
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant FileShareOwners:(OI)(CI)(M)
@@ -251,7 +252,7 @@ Azure yığın Geliştirme Seti ile kullanmak için SQL Express 2014 SP2 kullana
 
 Üretim ve yüksek düzeyde kullanılabilirlik sağlamak için SQL 2014 SP2 tam bir sürümünü kullanmanız veya daha sonra karma mod kimlik doğrulamasını etkinleştirmek ve gerekir dağıtmanız bir [yüksek oranda kullanılabilir yapılandırma](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-Azure uygulama hizmeti Azure yığın SQL Server'daki tüm uygulama hizmeti rollerden erişilebilir olması gerekir. SQL Server, varsayılan sağlayıcı abonelik Azure yığınında içinde dağıtılabilir. Veya yapabilirsiniz, kuruluşunuzdaki mevcut altyapısının (var olduğu sürece Azure yığın bağlantı) kullanın.
+Azure uygulama hizmeti Azure yığın SQL Server'daki tüm uygulama hizmeti rollerden erişilebilir olması gerekir. SQL Server, varsayılan sağlayıcı abonelik Azure yığınında içinde dağıtılabilir. Veya yapabilirsiniz, kuruluşunuzdaki mevcut altyapısının (var olduğu sürece Azure yığın bağlantı) kullanın. Bir Azure Market görüntüsü kullanıyorsanız, güvenlik duvarı uygun şekilde yapılandırmak unutmayın. 
 
 SQL Server rollerini birini için varsayılan bir örnek veya adlandırılmış bir örnek kullanabilirsiniz. Ancak, adlandırılmış bir örnek kullanırsanız, el ile SQL Browser hizmetini başlatmak ve bağlantı noktası 1434 açın emin olun.
 
@@ -269,12 +270,12 @@ Yöneticiler için SSO yapılandırmanız gerekir:
 
 Şu adımları uygulayın:
 
-1. Bir PowerShell örneği azurestack\cloudadmin açın.
+1. Bir PowerShell örneği azurestack\AzureStackAdmin açın.
 2. İndirilen ve içinde ayıklanan komut dosyalarının konumuna gidin [önkoşul adım](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Azure yığın PowerShell Yükle](azure-stack-powershell-install.md).
 4. Çalıştırma **oluşturma AADIdentityApp.ps1** komut dosyası. Azure AD Kiracı Kimliğinizi için istendiğinde Azure yığın dağıtımınız için örneğin, myazurestack.onmicrosoft.com kullanmakta olduğunuz Azure AD Kiracı kimliği girin.
 5. İçinde **kimlik bilgisi** penceresinde, Azure AD hizmet yönetici hesabı ve parolasını girin. **Tamam** düğmesine tıklayın.
-6. Sertifika dosyası yolu ve sertifika parolasını girin [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Varsayılan olarak bu adım için oluşturulan sertifika sso.appservice.local.azurestack.external.pfx yok.
+6. Sertifika dosyası yolu ve sertifika parolasını girin [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Varsayılan olarak bu adım için oluşturulan sertifika **sso.appservice.local.azurestack.external.pfx**.
 7. Komut dosyası Azure AD kiracısında yeni bir uygulama oluşturur. PowerShell çıkışı döndürülen uygulama Kimliğini not edin. Yükleme sırasında bu bilgileri gerekir.
 8. Yeni bir tarayıcı penceresi açın ve oturum açın Azure portalında (portal.azure.com) olarak **Azure Active Directory Hizmet Yöneticisi**.
 9. Azure AD kaynak sağlayıcısı açın.

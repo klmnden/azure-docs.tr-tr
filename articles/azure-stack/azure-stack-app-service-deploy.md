@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure yığın uygulama hizmeti kaynak Sağlayıcısı Ekle
 
@@ -73,7 +73,7 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
     ![Uygulama Hizmeti Yükleyici](media/azure-stack-app-service-deploy/image04.png)
 
 8. Sonraki sayfada:
-    1. İçinde **kimlik uygulama kimliği** kutusuna, kimliği için kullanmakta olduğunuz uygulama için GUID girin.
+    1. İçinde **kimlik uygulama kimliği** kutusuna, kimlik (Azure AD) için kullanmakta olduğunuz uygulama için GUID girin.
     2. İçinde **kimlik uygulama sertifika dosyası** kutusuna girin (veya göz atın) sertifika dosyası konumu.
     3. İçinde **kimlik uygulama sertifika parolası** kutusunda, sertifikanın parolasını girin. Sertifikalar oluşturmak üzere komut kullanıldığında Not yapılan bir paroladır.
     4. İçinde **Azure Resource Manager kök sertifika dosyasını** kutusuna girin (veya göz atın) sertifika dosyası konumu.
@@ -157,7 +157,7 @@ Dağıtma ve uygulama hizmeti kaynak sağlayıcısı kaydetme sonra kullanıcıl
 >
 *Gerekir* Azure yığın uygulama hizmeti kullanan uygulamalar oluşturmak için bir kiracı aboneliği sahip. Bir Hizmet Yöneticisi Yönetim Portalı'ndan tamamlayabilirsiniz yalnızca özellikleri için uygulama hizmeti kaynak sağlayıcısı yönetim ilişkilidir. Bu özellikler kapasite ekleme, dağıtım kaynaklarını yapılandırmak ve çalışan katmanı ve SKU'ları ekleme içerir.
 >
-Üçüncü technical preview sürümünden itibaren web API ve Azure oluşturmak için uygulamaları İşlevler, Kiracı Portalı'nı kullanın ve Kiracı aboneliğinizin olması gerekir.
+Web API ve Azure oluşturmak için uygulamaları İşlevler, Kiracı Portalı'nı kullanın ve Kiracı aboneliğinizin olması gerekir.
 
 1. Azure yığın Kiracı Portalı'nda tıklatın **yeni** > **Web + mobil** > **Web uygulaması**.
 

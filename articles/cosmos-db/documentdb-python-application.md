@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0629b0aa7e7981cf04330b407604e4612a58b168
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ef01271fd4885f9bdac80194bbf72e2a10df0d27
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB kullanarak bir Python Flask web uygulaması derleme
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Visual Studio 2017]((https://www.visualstudio.com/downloads/)) ile **Azure geliştirme** ve **Python geliştirme** etkin. Bu Önkoşullar yüklü olduğundan ve bunları açarak yükleyen olup olmadığını kontrol edebilirsiniz **Visual Studio yükleyicisi** yerel olarak.   
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) ile **Azure geliştirme** ve **Python geliştirme** etkin. Bu Önkoşullar yüklü olduğundan ve bunları açarak yükleyen olup olmadığını kontrol edebilirsiniz **Visual Studio yükleyicisi** yerel olarak.   
 * [Python 2.7 için Microsoft Azure SDK](https://azure.microsoft.com/downloads/). 
 * [Python 2.7](https://www.python.org/downloads/windows/). 32 bit veya 64 bit yükleme kullanabilirsiniz.
 

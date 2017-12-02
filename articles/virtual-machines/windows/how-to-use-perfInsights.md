@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36e204c73e62e950c3f40eab7e1ce6bccd7abd83
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bb4c21456643532df040df4fcd5f4fa1a4f48d2c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights kullanma 
 
@@ -30,7 +30,7 @@ VM performans sorunları için Microsoft ile bir destek bileti açmadan önce bu
 
 PerfInsights toplamak ve benzersiz senaryolarına gruplandırılır birkaç tür bilgiyi analiz edin.
 
-### <a name="collect-disk-configuration"></a>Disk yapılandırmasını Topla 
+### <a name="collect-basic-configuration"></a>Temel yapılandırma Topla 
 
 Bu senaryo, disk yapılandırması ve aşağıdaki öğeler de dahil olmak üzere diğer önemli bilgileri toplar:
 
@@ -57,7 +57,7 @@ Bu edilgen sistem etkileyen döndürmemelidir bilgi koleksiyonudur.
 >[!Note]
 >Bu senaryo aşağıdaki senaryolardan her otomatik olarak dahil edilir.
 
-### <a name="benchmarkstorage-performance-test"></a>Kıyaslama/depolama performans testi
+### <a name="benchmarking"></a>Değerlendirmesi
 
 Bu senaryo çalıştıran [diskspd](https://github.com/Microsoft/diskspd) VM'ye bağlı olan tüm sürücüleri için Kıyaslama test (IOPS ve MB/sn). 
 
@@ -65,11 +65,11 @@ Bu senaryo çalıştıran [diskspd](https://github.com/Microsoft/diskspd) VM'ye 
 > Bu senaryo, sistem etkileyebilir ve canlı üretim sisteminde çalıştırılması gerekir. Gerekirse, bu senaryo sorunları önlemek için bir adanmış bakım penceresinde çalıştırın. Bir izleme veya Kıyaslama test tarafından neden iş yükünün artmasına VM performansını olumsuz etkileyebilir.
 >
 
-### <a name="general-vm-slow-analysis"></a>Genel VM yavaş çözümleme 
+### <a name="slow-vm-analysis"></a>Yavaş VM çözümleme 
 
 Bu senaryo çalıştıran bir [performans sayacı](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) Generalcounters.txt dosyasında belirtilen sayaçları kullanarak izleme. VM SQL Server çalıştıran bir sunucu belirlenirse, bir performans sayacı izlemesi Sqlcounters.txt dosyasında bulunan sayaçlarını kullanarak çalıştırır. Ayrıca, performans tanılama verilerini içerir.
 
-### <a name="vm-slow-analysis-and-benchmark"></a>VM yavaş çözümleme ve Kıyaslama
+### <a name="slow-vm-analysis-and-benchmarking"></a>Yavaş VM çözümleme ve değerlendirmesi
 
 Bu senaryo çalıştıran bir [performans sayacı](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) tarafından izlenen izleme bir [diskspd](https://github.com/Microsoft/diskspd) Kıyaslama test. 
 
@@ -95,13 +95,13 @@ Bu senaryo, bir özel performans sayacı yakalama ağ izleme ile birlikte çalı
 | Aktarım hızı   | Veri bayt/sn                |
 |              | Okuma Bayt/sn                |
 |              | Yazma Bayt/sn               |
-| Sırası uzunluğu | Ort. Okuma sırası uzunluğu        |
+| Kuyruk Uzunluğu | Ort. Okuma sırası uzunluğu        |
 |              | Ort. Kuyruk uzunluğu yazma       |
 |              | Ort. Veri sırası uzunluğu        |
 
-### <a name="custom-configuration"></a>Özel yapılandırma 
+### <a name="custom-slow-vm-analysis"></a>Özel yavaş VM çözümleme 
 
-Özel yapılandırma çalıştırdığınızda, kaç tane farklı izlemeleri seçili bağlı olarak tüm izlemeleri (Performans Tanılama, performans sayacı, XPerf'in, ağ, storport) paralel olarak çalışıyor. İzleme tamamlandıktan sonra aracı seçiliyse diskspd Kıyaslama çalışır. 
+Özel bir yavaş VM analizi çalıştırdığınızda, kaç tane farklı izlemeleri seçili bağlı olarak tüm izlemeleri (performans sayacı, XPerf'in, ağ, storport) paralel olarak çalışıyor. İzleme tamamlandıktan sonra aracı seçiliyse diskspd Kıyaslama çalışır. 
 
 > [!Note]
 > Bu senaryo, sistem etkileyebilir ve canlı üretim sisteminde çalıştırılması gerekir. Gerekirse, bu senaryo sorunları önlemek için bir adanmış bakım penceresinde çalıştırın. Bir izleme veya Kıyaslama test tarafından neden iş yükünün artmasına VM performansını olumsuz etkileyebilir.
@@ -113,7 +113,7 @@ Windows VM, disk veya depolama havuzlarını yapılandırma, performans sayaçla
 
 |Toplanan veriler                              |  |  | Performans senaryoları |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Disk yapılandırması Topla | Kıyaslama/depolama performans testi | Genel VM yavaş çözümleme | VM yavaş çözümleme ve Kıyaslama | Azure dosyaları çözümleme | Özel yapılandırma |
+|                              | Temel yapılandırma Topla | Değerlendirmesi | Yavaş VM çözümleme | Yavaş VM çözümleme ve değerlendirmesi | Azure dosyaları çözümleme | Özel yavaş VM çözümleme |
 | Olay günlükleri bilgileri      | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
 | Sistem bilgileri               | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
 | Birim eşleme                       | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
@@ -127,7 +127,7 @@ Windows VM, disk veya depolama havuzlarını yapılandırma, performans sayaçla
 | Ağ yapılandırması            | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
 | Güvenlik duvarı yapılandırması           | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
 | SQL Server yapılandırma         | Evet                        | Evet                                | Evet                      | Evet                            | Evet                  | Evet                  |
-| Performans Tanılama izlemelerini * |                            |                                    | Evet                      |                                |                      | Evet                  |
+| Performans Tanılama izlemelerini * | Evet                        | Evet                                | Evet                      |                                | Evet                  | Evet                  |
 | Performans sayacı izleme **     |                            |                                    |                          |                                |                      | Evet                  |
 | SMB sayaç izleme **             |                            |                                    |                          |                                | Evet                  |                      |
 | SQL Server sayaç izleme **      |                            |                                    |                          |                                |                      | Evet                  |
@@ -180,9 +180,9 @@ Diskspd g/ç iş yükü testleri [işletim sistemi diski (yazma) ve havuzu sür�
 
 **Sanal makineleri üretimde komut dosyasını çalıştırdığınızda olası sorunlar:**
 
-1.  XPerf'in veya DiskSpd kullanarak yapılandırılan "Kıyaslama" veya "Özel" senaryo ile birlikte kullanıldığında betik VM'in performansını olumsuz etkileyebilir. Bir üretim ortamında komut dosyasını çalıştırdığınızda dikkatli olun.
+1.  Herhangi bir Benchmarking senaryoları veya XPerf'in veya DiskSpd kullanmak üzere yapılandırılmış "Özel yavaş VM analiz" senaryo kullanırken, komut dosyası VM'in performansını olumsuz etkileyebilir. Bir üretim ortamında bir CSS mühendisi gözetiminin olmadan bu senaryoları çalıştırılacağını önerilmez.
 
-2.  Komut dosyası DiskSpd kullanarak yapılandırılan "Kıyaslama" veya "Özel" senaryo ile birlikte kullandığınızda, başka bir arka plan etkinliği g/ç iş yükü test edilmiş disklerde işlemini uğratan emin olun.
+2.  Herhangi bir Benchmarking senaryoları veya DiskSpd kullanmak üzere yapılandırılmış "Özel yavaş VM analiz" senaryo kullanırken, başka bir arka plan etkinliği g/ç iş yükü test edilmiş disklerde işlemini uğratan emin olun.
 
 3.  Varsayılan olarak, komut dosyası verilerini toplamak için geçici depolama birimi sürücüsünü kullanır. Uzun bir süre boyunca etkin kalır izleme, toplanan veri miktarını ilgili olabilir. Bu nedenle bu sürücüde güvenen herhangi bir uygulama etkileyen geçici disk alanı kullanılabilirliğini azaltabilir.
 
@@ -236,7 +236,7 @@ PerfInsights komut dosyasını çalıştırmak için aşağıdaki adımları izl
 
 8.  PerfInsights kullanıcı Arabirimi olmadan da çalıştırabilirsiniz.
 
-    Aşağıdaki "Genel VM yavaş analiz UI istemi olmadan senaryo sorun giderme" komutunu çalıştırır veya 30 saniye veri yakalama. Aynı sorumluluk reddi ve 4. adımda anlatılan EULA onay ister.
+    Aşağıdaki "yavaş VM analiz UI istemi olmadan senaryo sorun giderme" komutunu çalıştırır veya 30 saniye veri yakalama. Aynı sorumluluk reddi ve 4. adımda anlatılan EULA onay ister.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
@@ -264,13 +264,13 @@ Komut dosyası hatası birkaç denemeden sonra bile yaşamaya devam ediyorsanız
 
 Hata oluştuktan sonra PowerShell Konsolu tam çıktısını kopyalayın ve sorunu gidermesine yardımcı olmak için size yardım Microsoft Support aracı gönderebilirsiniz.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>Özel yapılandırma modunda nasıl komut dosyasını çalıştırmak?
+### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>Özel yavaş VM analiz modunda nasıl komut dosyasını çalıştırmak?
 
-Seçerek **özel** yapılandırma, paralel (Çoklu Seçim kaydırma kullanın) birkaç izlemeleri etkinleştirebilirsiniz:
+Seçerek **özel yavaş VM analiz**, paralel (Çoklu Seçim kaydırma kullanın) birkaç izlemeleri etkinleştirebilirsiniz:
 
 ![senaryoları seçin](media/how-to-use-perfInsights/select-scenario.png)
 
-Performans Tanılama'yı seçtiğinizde, performans sayacı izleme, XPerf'in izleme, ağ izleme veya Storport izleme senaryoları iletişim kutularındaki yönergeleri izleyin ve izlemeleri başlattıktan sonra yavaş performans sorunu yeniden oluşturmayı deneyin.
+Performans sayacı izleme, XPerf'in izleme, ağ izleme veya Storport izleme senaryoları seçtiğinizde, iletişim kutularını'ndaki yönergeleri izleyin ve izlemeleri başlattıktan sonra yavaş performans sorunu yeniden oluşturmayı deneyin.
 
 Aşağıdaki iletişim kutusunu, bir izleme başlatmanızı sağlar:
 
@@ -290,20 +290,21 @@ Aşağıdaki iletişim kutusunu, bir izleme başlatmanızı sağlar:
 Seçin **bulgularını** sekmesi.
 
 ![Sekme Bul](media/how-to-use-perfInsights/findingtab.png)
+![bulguları](media/how-to-use-perfInsights/findings.PNG)
 
 **Notlar**
 
--   Kırmızı iletilerinde performans sorunlarına neden olabilir yapılandırma ilgili bilinen sorunlardır.
+-   Kritik olarak kategorilere bulgularını performans sorunlarına neden olabilir ilgili bilinen sorunlardır.
 
--   Sarı iletilerinde mutlaka performans sorunlarına neden olmaz en iyi olmayan yapılandırmalar temsil uyarılar var.
+-   Bulguları mutlaka performans sorunlarına neden olmaz önemli temsil en iyi olmayan yapılandırmalar kategorilere.
 
--   Mavi iletileri yalnızca bilgilendirici deyimleri edilir.
+-   Bilgi olarak kategorilere bulgularını bilgilendirici deyimleri yalnızca ' dir.
 
-Bulguları ve nasıl bunlar performans ya da performans için iyileştirilmiş yapılandırmaları için en iyi uygulamaları etkileyebilir hakkında daha ayrıntılı bilgi almak tüm hata iletilerinin kırmızı için HTTP bağlantıları gözden geçirin.
+Lütfen bulgularını ve nasıl bunlar performans ya da performans için iyileştirilmiş yapılandırmaları için en iyi uygulamaları etkileyebilir hakkında daha ayrıntılı bilgi almak tüm kritik ve önemli bulguları için bağlantıları ve önerileri gözden geçirin.
 
-### <a name="disk-configuration-tab"></a>Disk yapılandırma sekmesi
+### <a name="storage-tab"></a>Depolama Sekmesi
 
-**Genel bakış** bölümü Diskpart ve depolama alanları bilgileri de dahil olmak üzere depolama yapılandırmasının farklı görünümleri görüntüler
+**Bulgularını** bölümünde çeşitli bulgularını ve depolama birimine ilgili öneriler görüntülenir.
 
 **DiskMap** ve **VolumeMap** bölümlerde çift açısı nasıl mantıksal birimler ve fiziksel diskleri ilgili diğer için.
 
@@ -315,21 +316,24 @@ Birim perspektif (*VolumeMap*), her bir mantıksal birim altındaki tüm fizikse
 
 ![Birim sekmesi](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-server-tab"></a>SQL Server sekmesi
+### <a name="sql-tab"></a>SQL sekmesi
 
-Hedef VM hiç SQL Server örneği barındırıyorsa, adlı raporu bir ek sekmesine bakın **SQL Server**:
+Hedef VM hiç SQL Server örneği barındırıyorsa, adlı raporu bir ek sekmesine bakın **SQL**:
 
 ![SQL sekmesi](media/how-to-use-perfInsights/sqltab.png)
 
-Bu bölüm, her bir VM üzerinde barındırılan SQL Server örnekleri için bir "Genel" ve ek alt sekme içerir.
+Bu bölüm, her VM üzerinde barındırılan SQL Server örneği için "Bulgularını" sekmesi ve ek alt sekmeleri içerir.
 
-"Genel bakış" bölümüne çalıştıran ve veri dosyalarını ve işlem günlüğü dosyalarını bir karışımını içeren tüm fiziksel diskleri (sistem ve veri diskleri) özetler yararlı bir tablo içeriyor.
+"Bulgularını" sekmesinde tüm SQL listesini içeren ilgili performans sorunları birlikte önerileri bulundu.
 
 Aşağıdaki örnekte, *PhysicalDrive0* (C sürücüsü çalıştıran) gösterilir çünkü hem *modeldev* ve *modellog* dosyaları C sürücüsünde bulunur ve bunlar farklı türlerde (veri dosyası ve işlem günlüğü gibi sırasıyla):
 
 ![ILogInformation](media/how-to-use-perfInsights/loginfo.png)
 
 SQL Server örneği özgü sekmeler, seçilen örnek hakkındaki temel bilgileri görüntüleyen genel bir bölüm ve ayarları, yapılandırmaları ve kullanıcı seçenekleri de dahil olmak üzere Gelişmiş bilgi için ek bölümler içerir.
+
+### <a name="diagnostic-tab"></a>Tanılama sekmesi
+Tanılama sekmesi üst CPU hakkındaki bilgileri içerir, Disk ve bellek tüketicileri PerfInsights süresince kutusundaki çalıştırın. Sistem eksik olabilir, görev listesi ve önemli sistem olayları kritik düzeltme ekleri gibi başka yararlı bilgiler de bulabilirsiniz. 
 
 ## <a name="references-to-the-external-tools-used"></a>Kullanılan dış araçları başvurular
 

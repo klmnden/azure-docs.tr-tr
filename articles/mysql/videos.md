@@ -8,14 +8,26 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 88a3114271088ad49a3d4231facc88ee6f89b54b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 12/01/2017
+ms.openlocfilehash: 9320a08217a5748ee8e41ab6f282490757b4acd1
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure veritabanı için MySQL videolar
+
+[Genel Bakış: Azure veritabanı PostgreSQL ve MySQL için](https://channel9.msdn.com/Events/Connect/2017/T147)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T147/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure veritabanı PostgreSQL için ve Azure veritabanı için MySQL Getir birlikte community edition veritabanı motoru ve tam olarak yönetilen bir hizmet özelliklerini — bir veritabanını yönetmek zorunda kalmak yerine uygulamalarınıza odaklanabilirsiniz. Hizmet kullanmanın yararları hızlı bir genel bakış almak için ayarlamak ve bazı özellikleri eylem bakın.
+
+[Yönetilen hizmet özellikleri üzerinde derin Dalış MySQL ve PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T148/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+Azure veritabanı PostgreSQL için ve Azure veritabanı için MySQL getirin birlikte community edition veritabanı motoru ve tam olarak yönetilen bir hizmet özelliklerini. Bu hizmetleri nasıl çalıştığı hakkında derinlemesine almak için ayarlama — nasıl biz yüksek kullanılabilirlik sağlamak ve (saniye) ölçeklendirme, müşterilerinizin gereksinimlerini karşılamak için hızlı. Bazı temel Yatırımlar güvenlik ve dünya çapında kullanılabilirliği ayrıca öğreneceksiniz.
 
 [MySQL hizmeti için yeni Azure veritabanı ile çalışmaya nasıl başlayacağınız](https://channel9.msdn.com/events/Build/2017/B8045)
 

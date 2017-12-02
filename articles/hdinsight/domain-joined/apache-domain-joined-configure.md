@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.openlocfilehash: 2c844ce8aec04c74a9c2dbecdd1b3effb286df97
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 649d138a85ca47440e43c00637ee92b86f4eb03e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="configure-domain-joined-hdinsight-clusters-preview"></a>Etki alanına katılmış Hdınsight kümeleri (Önizleme) yapılandırma
+# <a name="configure-domain-joined-hdinsight-clusters"></a>Etki alanına katılmış Hdınsight kümeleri yapılandırma
 
 Azure Active Directory (Azure AD) ile Azure Hdınsight kümesi ayarlama öğrenin ve [Apache bırakabilmenizi](http://hortonworks.com/apache/ranger/) güçlü kimlik doğrulaması ve zengin rol tabanlı erişim denetimi (RBAC) ilkelerini yararlanmak için.  Etki alanına katılmış Hdınsight yalnızca Linux tabanlı kümelerde yapılandırılabilir. Daha fazla bilgi için bkz: [tanıtmak etki alanına katılmış Hdınsight kümeleri](apache-domain-joined-introduction.md).
 
@@ -43,7 +43,7 @@ Azure hizmet adları benzersiz olmalıdır. Aşağıdaki adlar, bu öğreticide 
 | Azure AD etki alanı adı |contoso (contoso.onmicrosoft.com) |
 | Hdınsight VNet |contosohdivnet |
 | Hdınsight VNet kaynak grubu |contosohdirg |
-| Hdınsight kümesi |contosohdicluster |
+| HDInsight kümesi |contosohdicluster |
 
 Bu öğretici, bir etki alanına katılmış Hdınsight kümesi yapılandırmak için adımları sağlar. Her bölümde diğer makalelerinin bağlantıları ile ilgili daha fazla bilgi bulunur.
 
@@ -52,7 +52,7 @@ Bu öğretici, bir etki alanına katılmış Hdınsight kümesi yapılandırmak 
 * Aboneliğiniz bu genel Önizleme için Güvenilenler listesine olduğundan emin olun. E-posta göndererek yapabilirsiniz hdipreview@microsoft.com abonelik kimliğinizi içeren
 * Etki alanınız için imzalama yetkilisi ya da kendinden imzalı bir sertifika tarafından imzalanmış bir SSL sertifikası. Sertifika, güvenli LDAP yapılandırmak için gereklidir.
 
-## <a name="procedures"></a>Yordamları
+## <a name="procedures"></a>Yordamlar
 1. Bir Hdınsight VNet Azure kaynak yönetimi modunda oluşturun.
 2. Oluşturun ve Azure AD ve Azure AD DS yapılandırın.
 3. Hdınsight kümesi oluşturun.

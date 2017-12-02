@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: motanv
-ms.openlocfilehash: c78d9e77d807f3ccf8c1f56d856abad8135989c2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 9a205d1b8e088b7007bb8c3a64139732d8858267
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Service Fabric kümelerinde denetimli Chaos anlamına
 Bulut altyapılarının doğası gereği güvenilir gibi büyük ölçekli dağıtılmış sistemler. Azure Service Fabric, güvenilir olmayan bir altyapının en üstünde güvenilir dağıtılmış hizmet yazmak geliştiricilerin sağlar. Güvenilir olmayan bir altyapının en üstünde güçlü dağıtılmış hizmet yazmak için geliştiriciler güvenilmez altyapının hataları nedeniyle karmaşık durumu geçişleri üzerinden giderek sırada hizmetlerini kararlılığını test etmek gerekir.
@@ -70,9 +70,6 @@ Chaos kopyaladığınızda hangi hataları almak için GetChaosReport API (power
 * **WaitTimeBetweenFaults**: tek bir yineleme iki ardışık hataları arasında beklenecek süre. Daha yüksek değeri, alt eşzamanlılığı (veya arasındaki çakışmayı) hataları.
 * **ClusterHealthPolicy**: küme sistem durumu ilkesi Chaos yineleme Between küme durumunu doğrulamak için kullanılır. Küme durumu hata veya hataya yürütme sırasında beklenmeyen bir özel durum oluşursa, Chaos önce sonraki sistem durumu kümeyi biraz zaman recuperate sağlamak için denetimi - 30 dakika bekler.
 * **Bağlam**: (dize, dize) koleksiyonunu anahtar-değer çiftlerini yazın. Harita Chaos işlemle ilgili bilgileri kaydetmek için kullanılabilir. Bu tür çiftleri 100'den fazla olamaz ve her bir dize (anahtar veya değer) en fazla 4095 karakterden uzun olamaz. Bu haritada bağlam belirli çalışma hakkında isteğe bağlı olarak depolamak için Çalıştır karmaşası başlatıcı tarafından ayarlanır.
-* **ChaosTargetFilter**: Bu filtre hedef Chaos hataları yalnızca belirli düğüm türleri veya yalnızca belirli uygulama örnekleri için kullanılabilir. ChaosTargetFilter kullanılmazsa, tüm küme varlıklar Chaos hataları. ChaosTargetFilter kullanılırsa, Chaos ChaosTargetFilter belirtimi karşılayan varlıklar hataları. NodeTypeInclusionList ve ApplicationInclusionList yalnızca birleşim anlamsallarını izin verir. Diğer bir deyişle, NodeTypeInclusionList ve ApplicationInclusionList kesişimini belirlemek mümkün değil. Örneğin, "Bu uygulama yalnızca bu düğüm türünde olduğunda hata." belirlemek mümkün değil Bir varlık NodeTypeInclusionList veya ApplicationInclusionList dahil sonra o varlık ChaosTargetFilter kullanarak tutulamaz. ApplicationX içinde ApplicationInclusionList bile görünmüyorsa, NodeTypeInclusionList dahil nodeTypeY bir düğümü üzerinde olmasını olur çünkü bazı Chaos yinelemede applicationX hatalı. Hem NodeTypeInclusionList hem de ApplicationInclusionList null veya boş ise, ArgumentException atılır.
-    * **NodeTypeInclusionList**: Chaos hataları eklenecek düğüm türleri listesi. Hataları tüm türleri (düğümü yeniden başlatın, codepackage yeniden başlatın, çoğaltmayı kaldırmak, çoğaltmayı yeniden başlatın, birincil taşımak ve ikincil taşıma) bu düğüm türleri düğümleri için etkinleştirilir. Bir nodetype (NodeTypeX söyleyin) NodeTypeInclusionList içinde görünmez sonra düğüm düzeyi hataları (gibi NodeRestart) NodeTypeX düğümleri için hiçbir zaman etkinleştirilir, ancak kod paketi ve çoğaltma hataları hala etkinleştirilebilir NodeTypeX için bir uygulamada varsa ApplicationInclusionList NodeTypeX düğümde olur. En fazla 100 düğüm türü adı bu sayıyı artırmak için bu listede, eklenebilir, MaxNumberOfNodeTypesInChaosTargetFilter yapılandırması için gerekli yapılandırma yükseltmedir.
-    * **ApplicationInclusionList**: Chaos hataları içerecek şekilde URI'ler uygulama listesi. Bu uygulamalar Hizmetleri'ne ait tüm çoğaltmaları uygun Chaos tarafından Çoğaltma hataları (yeniden başlatma çoğaltma, Kaldır çoğaltma, taşıma birincil ve ikincil taşıma). Kod paketi yalnızca bu uygulamaları çoğaltmalarının barındırıyorsa chaos kod paketi yeniden başlatılabilir. Bir uygulama bu listede görünmüyorsa, uygulama NodeTypeInclusionList incuded bir düğüm türü, bir düğümde ererse, hala bazı Chaos yinelemede hatalı. Yerleştirme kısıtlamaları ve applicationX aracılığıyla nodeTypeY applicationX bağlıdır, ancak eksik ApplicationInclusionList ve nodeTypeY yok NodeTypeInclusionList sonra applicationX hiçbir zaman hatayla kapatılacak. En fazla 1000 uygulama adları bu sayıyı artırmak için bu listede, eklenebilir, MaxNumberOfApplicationsInChaosTargetFilter yapılandırması için gerekli yapılandırma yükseltmedir.
 
 ## <a name="how-to-run-chaos"></a>Chaos çalıştırma
 
@@ -139,23 +136,7 @@ class Program
                 MaxPercentUnhealthyApplications = 100,
                 MaxPercentUnhealthyNodes = 100
             };
-
-            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-            // for nodes of type 'FrontEndType'
-            var nodetypeInclusionList = new List<string> { "FrontEndType"};
-
-            // In addition to the faults included by nodetypeInclusionList, 
-            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
-            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
-
-            // List of cluster entities to target for Chaos faults.
-            var chaosTargetFilter = new ChaosTargetFilter
-            {
-                NodeTypeInclusionList = nodetypeInclusionList,
-                ApplicationInclusionList = applicationInclusionList
-            };
-
+            
             var parameters = new ChaosParameters(
                 maxClusterStabilizationTimeout,
                 maxConcurrentFaults,
@@ -164,7 +145,7 @@ class Program
                 startContext,
                 waitTimeBetweenIterations,
                 waitTimeBetweenFaults,
-                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
+                clusterHealthPolicy);
 
             try
             {
@@ -269,26 +250,12 @@ $clusterHealthPolicy.ConsiderWarningAsError = $False
 # This map is set by the starter of the Chaos run to optionally store the context about the specific run.
 $context = @{"ReasonForStart" = "Testing"}
 
-#List of cluster entities to target for Chaos faults.
-$chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
-$chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
-
-# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-# for nodes of type 'FrontEndType'
-$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
-$chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
-
-# In addition to the faults included by nodetypeInclusionList, 
-# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
-$chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
-
 Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy
 
 while($true)
 {
@@ -319,5 +286,5 @@ while($true)
 
     Start-Sleep -Seconds 1
 }
+
 ```
-Git 

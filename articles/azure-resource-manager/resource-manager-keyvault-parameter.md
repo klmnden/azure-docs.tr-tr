@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/30/2017
 ms.author: tomfitz
-ms.openlocfilehash: e789a234979be877d990665902fd6219ae7ec40b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure anahtar kasası dağıtım sırasında güvenli parametre değeri geçirmek için kullanın
 
@@ -66,7 +66,11 @@ Yeni bir anahtar kasası veya varolan bir kullanıp kullanmadığınızı şablo
 
 ## <a name="reference-a-secret-with-static-id"></a>Statik Kimliğine sahip bir gizlilik başvurusu
 
-Bir anahtar kasası gizli alan için herhangi bir şablonu gibi şablonudur. Çünkü **parametre dosyası, şablonunu değil anahtar kasasını başvuru.** Örneğin, aşağıdaki şablonu, bir yönetici parolası içeren bir SQL Veritabanını dağıtır. Parola parametresi güvenli bir dizeye ayarlayın. Ancak şablon bu değeri nereden geldiğini belirtmiyor.
+Bir anahtar kasası gizli alan için herhangi bir şablonu gibi şablonudur. Çünkü **parametre dosyası, şablonunu değil anahtar kasasını başvuru.** Aşağıdaki resimde nasıl parametre dosyası gizli başvuruyor ve bu değeri şablona geçirir gösterir.
+
+![Statik kimliği](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+
+Örneğin, [şablonu aşağıdaki](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) , bir yönetici parolası içeren bir SQL Veritabanını dağıtır. Parola parametresi güvenli bir dizeye ayarlayın. Ancak şablon bu değeri nereden geldiğini belirtmiyor.
 
 ```json
 {
@@ -102,7 +106,7 @@ Bir anahtar kasası gizli alan için herhangi bir şablonu gibi şablonudur. Ç�
 }
 ```
 
-Şimdi, önceki şablonu için bir parametre dosyası oluşturun. Parametre dosyasında şablondaki parametresinin adıyla eşleşen bir parametre belirtin. Parametre değeri için gizli anahtar Kasası'nı başvuru. Gizli anahtar kasasının kaynak tanımlayıcısı ve gizli anahtar adını geçirerek başvuru. Aşağıdaki örnekte, anahtar kasası gizli anahtarı zaten mevcut olmalıdır ve kendi kaynak kimliği için statik bir değer girin
+Şimdi, önceki şablonu için bir parametre dosyası oluşturun. Parametre dosyasında şablondaki parametresinin adıyla eşleşen bir parametre belirtin. Parametre değeri için gizli anahtar Kasası'nı başvuru. Gizli anahtar kasasının kaynak tanımlayıcısı ve gizli anahtar adını geçirerek başvuru. İçinde [aşağıdaki parametre dosyasına](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json), anahtar kasası gizli anahtarı zaten mevcut olmalıdır ve kendi kaynak kimliği için statik bir değer girin Bu dosyayı yerel olarak kopyalayın ve abonelik kimliği, kasa adı ve SQL server adı ayarlayın.
 
 ```json
 {
@@ -127,25 +131,27 @@ Bir anahtar kasası gizli alan için herhangi bir şablonu gibi şablonudur. Ç�
 }
 ```
 
-Şimdi, şablonu dağıtmak ve parametre dosyası geçirin. Azure CLI için şunu kullanın:
+Şimdi, şablonu dağıtmak ve parametre dosyası geçirin. Örnek şablonunu github'dan kullanabilirsiniz, ancak yerel parametre dosyası, ortamınız için ayarlanan değerleri ile kullanmanız gerekir.
+
+Azure CLI için şunu kullanın:
 
 ```azurecli-interactive
-az group create --name datagroup --location "Central US"
+az group create --name datagroup --location "South Central US"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
 PowerShell için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "Central US"
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
@@ -153,7 +159,13 @@ New-AzureRmResourceGroupDeployment `
 
 Önceki bölümde anahtar kasasına gizli anahtarı için bir statik kaynak kimliği geçirmek nasıl oluşturulacağını gösterir. Ancak, bazı senaryolarda, geçerli dağıtımı göre değişen bir anahtar kasası gizlilik başvuru gerekir. Bu durumda, sabit kodlu Parametreler dosyasında kaynak kimliği olamaz. Ne yazık ki, şablon ifadeleri Parametreler dosyasında izin verilmiyor çünkü parametreleri dosyasında kaynak kimliği dinamik olarak oluşturulamıyor.
 
-Kaynak kimliği için bir anahtar kasası gizlilik dinamik olarak oluşturmak için iç içe geçmiş bir şablona gizli gereken kaynak taşımanız gerekir. Ana şablonunuzda iç içe geçmiş şablonuna ekleme ve dinamik olarak üretilen kaynak kimliği içeren bir parametre geçirin İç içe geçmiş şablonunuzu dış bir URI kullanılabilir olmalıdır. Önceki şablon bir depolama hesabına eklediğiniz ve URI - kullanılamıyor, bu makalenin kalanında varsayar `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+Kaynak kimliği için bir anahtar kasası gizlilik dinamik olarak oluşturmak için bağlantılı bir şablona gizli anahtar gerekiyor kaynak taşımanız gerekir. Üst şablonunuzda bağlantılı şablonuna ekleme ve dinamik olarak üretilen kaynak kimliği içeren bir parametre geçirin Aşağıdaki resimde, bağlantılı şablonu içindeki bir parametre gizli nasıl başvuruyor gösterir.
+
+![Dinamik kimliği](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+
+Bağlantılı şablonunuzu dış bir URI kullanılabilir olmalıdır. Genellikle, şablonunuza bir depolama hesabı ekleyin ve gibi URI üzerinden erişim `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+
+[Şablonu aşağıdaki](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) dinamik olarak anahtar kasası kimliği oluşturur ve bir parametre olarak geçirir. İçin bağlanan bir [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) github'da.
 
 ```json
 {
@@ -184,7 +196,7 @@ Kaynak kimliği için bir anahtar kasası gizlilik dinamik olarak oluşturmak i�
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -205,7 +217,29 @@ Kaynak kimliği için bir anahtar kasası gizlilik dinamik olarak oluşturmak i�
 }
 ```
 
-Yukarıdaki şablonu dağıtmak ve parametreler için değerler sağlayın.
+Yukarıdaki şablonu dağıtmak ve parametreler için değerler sağlayın. Örnek şablonunu github'dan kullanabilirsiniz, ancak ortamınız için parametre değerlerini sağlamanız gerekir.
+
+Azure CLI için şunu kullanın:
+
+```azurecli-interactive
+az group create --name datagroup --location "South Central US"
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json \
+    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+```
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json `
+  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Anahtar kasalarını hakkında genel bilgi için bkz: [Azure anahtar kasası ile çalışmaya başlama](../key-vault/key-vault-get-started.md).

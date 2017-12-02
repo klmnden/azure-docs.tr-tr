@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: b267f5ce5ec76a89327ac58ca76895f8bcc4696b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ad12dee2eb01f839db07985fcb0805bf961354cc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Hdınsight'ta Hadoop MapReduce kullanın
 
@@ -57,7 +57,7 @@ MapReduce, çeşitli dillerde uygulanabilir. Java en yaygın uygulamasıdır ve 
 
 ## <a name="development-languages"></a>Geliştirme dilleri
 
-Diller veya Java ve Java sanal makinesi bağlı çerçeveler olması başlattıysanız doğrudan bir MapReduce işi. Bu belgede kullanılan örnekte, bir Java MapReduce uygulamasıdır. C#, Python veya tek başına yürütülebilir dosyaları, gibi olmayan Java diller, Hadoop akış kullanmanız gerekir.
+Diller veya Java ve Java sanal makinesi bağlı çerçeveler olması başlattıysanız doğrudan bir MapReduce işi. Bu belgede kullanılan örnekte, bir Java MapReduce uygulamasıdır. C#, Python veya tek başına yürütülebilir dosyaları, gibi olmayan Java dilleri kullanmalıdır **Hadoop akış**.
 
 Hadoop akış Eşleyici ve reducer STDIN ve STDOUT üzerinden iletişim kurar. Eşleyici ve reducer STDIN aynı anda bir satır veri okuma ve çıktı STDOUT yazma. Okuma veya Eşleyici ve reducer tarafından gösterilen her satır bir sekme karakteriyle ayrılmış bir anahtar/değer çifti biçiminde olması gerekir:
 

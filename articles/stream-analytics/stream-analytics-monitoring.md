@@ -4,7 +4,7 @@ description: "Akış analizi işi izleme anlama"
 keywords: Sorgu izlemesi
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 12545dd3875e81f8f2248acceb66d2d840cf6702
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7474f45494c6190ffcac354e75458b18f5777fb9
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Akış analizi işi izleme ve sorguları izleme anlama
 
@@ -35,17 +35,17 @@ Pencerenin gösterildiği gibi görünür:
 ## <a name="metrics-available-for-stream-analytics"></a>Akış analizi için kullanılabilir ölçümleri
 | Ölçüm                 | Tanım                               |
 | ---------------------- | ---------------------------------------- |
-| SU % kullanımı       | Akış birimleri kullanımını işe iş ölçek sekmesinden atanır. Bu gösterge % 80 ulaşmalıdır ya da yukarıdaki mevcut olay işleme gecikebilir veya ilerleme durduruldu yüksek olasılık. |
-| Giriş olayları           | Stream Analytics işinde olayların sayısı tarafından alınan veri miktarı. Bu olaylar giriş kaynağına gönderilme doğrulamak için kullanılabilir. |
-| Çıkış olayları          | Çıktı hedeflenecek olayların sayısını akış analizi işi tarafından gönderilen veri miktarı. |
+| SU Kullanım Yüzdesi       | Akış birimleri kullanımını işe iş ölçek sekmesinden atanır. Bu gösterge % 80 ulaşmalıdır ya da yukarıdaki mevcut olay işleme gecikebilir veya ilerleme durduruldu yüksek olasılık. |
+| Giriş Olayları           | Stream Analytics işinde olayların sayısı tarafından alınan veri miktarı. Bu olaylar giriş kaynağına gönderilme doğrulamak için kullanılabilir. |
+| Çıkış Olayları          | Çıktı hedeflenecek olayların sayısını akış analizi işi tarafından gönderilen veri miktarı. |
 | Düzen dışı olayları    | Bırakılan veya olay sıralama ilkesini temel alarak ayarlanmış bir zaman damgası, verilen sıra dışında alınan olayların sayısı. Bu sırası tolerans penceresi ayarını yapılandırma tarafından etkilenebilir. |
-| Veri dönüştürme hataları | Akış analizi işi tarafından oluşturulan veri dönüştürme hatası sayısı. |
-| Çalışma zamanı hataları         | Akış analizi işi yürütme sırasında gerçekleşen hataları toplam sayısı. |
-| Geç giriş olayları      | Geç gerçekleşme tolerans penceresi ayarı olay sıralama İlkesi yapılandırmasına bağlı olarak, ya da bırakılmış olan kaynak ya da kendi zaman damgası geç gelen olayların sayısının ayarlandı. |
-| İşlev istekleri      | Azure Machine Learning işlevi (varsa) çağrı sayısı. |
-| Başarısız işleve istekleri | Başarısız Azure Machine Learning işlev çağrıları (varsa) sayısı. |
-| İşlev olayları        | Azure Machine Learning işlevine (varsa) gönderilen olay sayısıdır. |
-| Giriş olayı bayt      | Stream Analytics işinde bayt tarafından alınan veri miktarı. Bu olaylar giriş kaynağına gönderilme doğrulamak için kullanılabilir. |
+| Veri Dönüştürme Hataları | Akış analizi işi tarafından oluşturulan veri dönüştürme hatası sayısı. |
+| Çalışma Zamanı Hataları         | Sorgu işleme (olayları veya outputing sonuçları alma sırasında bulunan hatalar dışında) ilgili hatalarının toplam sayısı |
+| Geç Giriş Olayları      | Geç gerçekleşme tolerans penceresi ayarı olay sıralama İlkesi yapılandırmasına bağlı olarak, ya da bırakılmış olan kaynak ya da kendi zaman damgası geç gelen olayların sayısının ayarlandı. |
+| İşlev İstekleri      | Azure Machine Learning işlevi (varsa) çağrı sayısı. |
+| Başarısız İşlev İstekleri | Başarısız Azure Machine Learning işlev çağrıları (varsa) sayısı. |
+| İşlev Olayları        | Azure Machine Learning işlevine (varsa) gönderilen olay sayısıdır. |
+| Giriş Olayı Bayt Sayısı      | Stream Analytics işinde bayt tarafından alınan veri miktarı. Bu olaylar giriş kaynağına gönderilme doğrulamak için kullanılabilir. |
 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Azure portalında izleme özelleştirme

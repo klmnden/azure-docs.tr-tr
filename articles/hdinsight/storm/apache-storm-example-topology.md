@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/07/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 8c307bbe2ab9b917f46d93ce11ba8573be8fe419
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1a9093255b7f9281afbcca0ea04654780ebf5b89
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Örnek Storm topolojileri ve Hdınsight üzerinde Apache Storm bileşenleri
 
@@ -32,9 +32,8 @@ Oluşturulan ve Hdınsight üzerinde Apache Storm ile kullanılmak üzere Micros
 | [Event Hubs Spout ve Cıvata kaynağı](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Olay hub'ı Spout ve Cıvata için kaynağı |Java |
 | [Hdınsight üzerinde Apache Storm için Java tabanlı topolojiler geliştirme][5797064f] |Maven |Java |
 | [Visual Studio kullanarak Hdınsight üzerinde Apache Storm için C# topolojileri geliştirme][16fce2d1] |Visual Studio için HDInsight Araçları |C#, Java |
-| [Bir C# Storm topolojisinde birden çok veri akışı oluşturma][ec5a4064] |Birden çok akış |C# |
 | [Azure Event hubs'tan (C#) hdınsight'ta Storm işlem olayları][844d1d81] |Event Hubs |C# ve Java |
-| [Azure Event hubs'tan (Java) hdınsight'ta Storm işlem olayları](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
+| [HDInsight üzerinde Storm ile Azure Event Hubs’tan olay işleme (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
 | [Storm ve hdınsight'ta HBase ile sensör verilerini analiz etme][ab894747] |Olay hub'ları, HBase, Socket.IO, Web Panosu |C#, Java, JavaScript, HTML |
 | [Event Hubs Hdınsight üzerinde Storm kullanmaya aracın algılayıcı verilerini işlemek][246ee964] |Olay hub'ları, Cosmos DB Azure depolama blobunu (WASB) |C#, Java |
 | [Ayıklama, dönüştürme ve yükleme (ETL) Azure Event hubs'tan Hdınsight üzerinde Storm kullanarak HBase için][b4b68194] |Olay hub'ları, HBase |C# |
@@ -52,7 +51,6 @@ Oluşturulan ve Hdınsight üzerinde Apache Storm ile kullanılmak üzere Micros
 [6eb0d3b8]:apache-storm-deploy-monitor-topology.md "Dağıtmak ve yönetmek için Visual Studio web tabanlı Storm panosunu ve Storm kullanıcı Arabirimi veya Hdınsight araçları kullanarak topolojiler öğrenin."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Visual Studio için Hdınsight araçları kullanarak C# Storm topolojileri oluşturmayı öğrenin."
 [5797064f]:apache-storm-develop-java-topology.md "Temel wordcount topoloji oluşturarak Maven kullanarak Java Storm topolojilerini oluşturmayı öğrenin."
-[ec5a4064]: https://github.com/Blackmist/csharp-storm-example "C# öğesinde uygulanan bir wordcount gerçekleştirir temel bir Storm topolojisini gösterir. Bu ayrıca bir C# topolojisi içinde birden çok veri akışlarını oluşturulacağını gösterir."
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "Okuma ve Hdınsight üzerinde Storm ile Azure Event hubs'tan veri yazma öğrenin."
 [ab894747]:apache-storm-sensor-data-analysis.md "(İsteğe bağlı olarak) için HBase depolamak ve Apache Storm Hdınsight'ta Azure Event Hubs algılayıcı verilerini işlemek, D3.js kullanarak görselleştirmek için nasıl kullanılacağını öğrenin."
 [246ee964]: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md "Bir Storm topolojisinin Azure olay hub'larından iletileri okumak, veri başvurmak için Azure Cosmos DB'den belgeleri okuyun ve verileri Azure depolamasına kaydetmek için nasıl kullanılacağını öğrenin."

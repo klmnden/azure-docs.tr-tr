@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 3e52fc6ee18faa9b8a04ad19db52dd48505782ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 700f73d86686761908d241f989aab25e0fb43c0e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Hdınsight'ta dahil MapReduce örnekler çalıştırın
 
@@ -67,10 +67,7 @@ Hdınsight'ta Hadoop ile birlikte gelen MapReduce örneklerini çalıştırmak �
 * `wordmedian`ORTANCA uzunluğu girdi dosyaları sözcükleri sayar mapreduce program.
 * `wordstandarddeviation`Giriş dosyaları sözcükleri uzunluğu standart sapmasını sayar mapreduce program.
 
-**Kaynak kodu**: Bu örnekleri için kaynak kodunu dahil Hdınsight kümesinde `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
-
-> [!NOTE]
-> `2.2.4.9-1` Yolunda Hdınsight kümesi için Hortonworks veri platformu sürümüdür ve kümeniz için farklı olabilir.
+**Kaynak kodu**: Bu örnekleri için kaynak kodunu dahil Hdınsight kümesinde `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 ## <a name="run-the-wordcount-example"></a>Wordcount örneği çalıştırın
 

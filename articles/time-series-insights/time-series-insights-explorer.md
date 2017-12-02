@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.date: 11/30/2017
+ms.openlocfilehash: 04e5465a56b8da9f2a078e513d5176f134fd011d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure zaman serisi Öngörüler Gezgini
 Bu makalede, çeşitli özellikleri ve seçenekleri zaman serisi Öngörüler explorer web app içinde kullanılabilir araştırır. Verilerinizi görsel oluşturmak için web tarayıcınızda zaman serisi Öngörüler Gezgini'ni kullanın.
@@ -41,7 +41,7 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
 
 4. Bildirim, Azure bulut simgesi ortamınıza Azure portalında alır.
 
-   ![Zaman serisi Öngörüler ortamı](media/time-series-insights-explorer/explorer1.png)
+   ![Time Series Insights ortamı](media/time-series-insights-explorer/explorer1.png)
 
 5. Ardından, seçili timespan sırasında tüm olayların sayısını gösteren bir grafik bakın.  Burada, çeşitli denetimler vardır:
 
@@ -90,7 +90,7 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
 
 11. **Heatmap** hızlı bir şekilde belirli bir sorgu benzersiz veya anormal veri serisi nokta için kullanılabilir. Yalnızca bir arama terimi heatmap canlandırılabilir.    
 
-   ![Heatmap](media/time-series-insights-explorer/explorer6.png)
+   ![Isı Haritası](media/time-series-insights-explorer/explorer6.png)
 
 12. **Olayları**: seçtiğinizde veya üstüne sağ tıklayarak, olayları paneli sunulacağını seçerken olayları keşfedin.  Burada, tüm ham olaylar görebilirsiniz ve olaylarınızı JSON ya da CSV dosyası olarak dışarı aktarma. Zaman serisi Öngörüler tüm ham verileri içerdiğini unutmayın.
 

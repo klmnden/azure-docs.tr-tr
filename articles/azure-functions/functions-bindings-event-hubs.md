@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -33,6 +33,27 @@ Bu makale ile nasıl çalışılacağını açıklar [Azure Event Hubs](../event
 Bir olay hub'ı olay akışı gönderilen bir olayın yanıtlamak için olay hub'ları tetikleyici kullanın. Olay hub'ına tetikleyecek için okuma erişimi olmalıdır.
 
 Bir olay hub'ları Tetik işlevi tetiklendiğinde tetikler ileti işlevdeki bir dize olarak geçirilir.
+
+## <a name="trigger---scaling"></a>Tetiklemek - ölçeklendirme
+
+Her bir örneğini Event Hub-Triggered işlevi yalnızca 1 EventProcessorHost (EPH) örneği tarafından desteklenir. Olay hub'ları yalnızca 1 EPH belli bir bölüm üzerinde bir kira elde etmenizi sağlar.
+
+Örneğin, aşağıdaki Kurulum ve bir olay hub'ına yönelik tahminler başlamadan varsayın:
+
+1. 10 bölüm.
+1. 1000 olayları eşit olarak dağıtılmış tüm bölümler her bölüm > 100 iletilerinde =.
+
+İlk işlevinizin etkinleştirildiğinde, da yalnızca 1 örneği işlevi yoktur. Şimdi bu işlevi örneğinin Function_0 çağırın. Function_0 üzerindeki tüm 10 bölüm kiralama almak için yönetir 1 EPH sahip olur. 0-9 bölümlerden olayları okumaya başlar. Bu noktadan itibaren aşağıdakilerden biri gerçekleşir:
+
+* **Yalnızca 1 işlevi örneği gereklidir** -Function_0 Azure işlevlerini ölçeklendirme mantığı devreye girer önce tüm 1000 işleyebilir. Bu nedenle, tüm 1000 iletileri Function_0 tarafından işlenir.
+
+* **Daha fazla 1 işlevi örneği ekleme** -Azure işlevlerini ölçeklendirme mantığı Function_1, yeni bir örnek oluşmasını Function_0 işleyebilmesi için daha fazla ileti olduğunu belirler. Olay hub'ları algılar iletileri okumak yeni bir EPH örneği çalışıyor. Olay hub'ları EPH örneklerinde bölümleri dengelemesini başlar, örn., bölümlerin 0-4 Function_0 için atanan ve bölümler 5-9 Function_1 için atanır. 
+
+* **Ekleme N daha örnekleri işlev** -Azure işlevlerini ölçeklendirme mantığı Function_0 ve Function_1 işleyebilmesi için daha fazla ileti olduğunu belirler. Ayrıca, Function_2... N, N olay hub'ı paritions büyük olduğu için yeniden ölçeklenir. Olay hub'ları yükler bölümleri arasında Function_0 bakiye... 9 örnekleri.
+
+Azure işlevleri geçerli mantığı ölçeklendirme N bölümleri sayısından büyüktür olgu benzersizdir. Bu, her zaman EPH diğer örneklerden çıktıklarında bir kilit üzerinde bölümler hızla almak kullanıma hazır örnekleri emin için gerçekleştirilir. Kullanıcılar yalnızca işlev örneğini yürütüldüğünde, kullanılan kaynaklar için sizden ücret ve bu aşırı sağlama için sizden ücret istenmese.
+
+Tüm işlevi yürütmeleri hatasız başarılı olursa, kontrol noktaları ilişkili depolama hesabına eklenir. Onay işaret eden başarılı olduğunda, tüm 1000 iletileri hiçbir zaman yeniden alınması gerekir.
 
 ## <a name="trigger---example"></a>Tetikleyici - örnek
 

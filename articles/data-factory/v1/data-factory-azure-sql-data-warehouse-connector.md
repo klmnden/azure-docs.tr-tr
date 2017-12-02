@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a56afa7c5200b53b398f8a99e8a36df3685b2f66
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c2f3cbd6725690fa471560f96c8f5ef17f7738
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>İçin ve Azure Data Factory kullanarak Azure SQL veri ambarından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -196,7 +196,7 @@ SQL veri ambarı PolyBase doğrudan desteği Azure Blob ve Azure Data Lake Store
 Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri taşıma için BULKINSERT mekanizması için otomatik olarak geri döner.
 
 1. **Kaynak bağlantılı hizmeti** türüdür: **AzureStorage** veya **AzureDataLakeStore hizmet asıl kimlik doğrulaması ile**.  
-2. **Girdi veri kümesi** türüdür: **AzureBlob** veya **AzureDataLakeStore**ve altında yazın biçimi `type` özellikleri **OrcFormat**, veya **TextFormat** aşağıdaki yapılandırmalara sahip:
+2. **Girdi veri kümesi** türüdür: **AzureBlob** veya **AzureDataLakeStore**ve altında yazın biçimi `type` özellikleri **OrcFormat**, **ParquetFormat**, veya **TextFormat** aşağıdaki yapılandırmalara sahip:
 
    1. `rowDelimiter`olmalıdır  **\n** .
    2. `nullValue`ayarlanmış **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **doğru**.
@@ -317,7 +317,7 @@ Veri Fabrikası aynı tablo adı kaynak veri deposundaki ile hedef deposunda bir
 | İkili | İkili |
 | varbinary | Varbinary (en fazla 8000) |
 | Tarih | Tarih |
-| Tarih saat | Tarih saat |
+| Tarih Saat | Tarih Saat |
 | DateTime2 | DateTime2 |
 | Zaman | Zaman |
 | DateTimeOffset | DateTimeOffset |
@@ -348,25 +348,25 @@ Eşleme aynı [ADO.NET için SQL Server veri türü eşlemesi](https://msdn.micr
 | --- | --- |
 | bigint |Int64 |
 | İkili |Byte] |
-| bit |Boole değeri |
+| bit |Boole |
 | char |Dize, Char] |
-| Tarih |Tarih saat |
-| Tarih saat |Tarih saat |
-| datetime2 |Tarih saat |
+| tarih |Tarih Saat |
+| Tarih saat |Tarih Saat |
+| datetime2 |Tarih Saat |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
 | Kayan nokta |Çift |
-| Görüntü |Byte] |
+| görüntü |Byte] |
 | Int |Int32 |
 | para |Ondalık |
 | nchar |Dize, Char] |
 | ntext |Dize, Char] |
 | sayısal |Ondalık |
 | nvarchar |Dize, Char] |
-| Gerçek |Tek |
+| Gerçek |Bekar |
 | rowVersion |Byte] |
-| smalldatetime |Tarih saat |
+| smalldatetime |Tarih Saat |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |
