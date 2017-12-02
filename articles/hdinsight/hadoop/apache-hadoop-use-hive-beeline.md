@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 7c582c81aac889b2b6f57777fab4531107e0fad3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Apache Hive ile Beeline İstemcisi'ni kullanın
 
@@ -202,7 +202,7 @@ Bir dosya oluşturun, sonra Beeline kullanarak çalıştırmak için aşağıdak
     ```
 
     > [!NOTE]
-    > `-i` Parametre Beeline başlatır, query.hql dosyasında ifadeleri çalıştırır. Sorgu işlemi tamamlandıktan sonra gelmesini `jdbc:hive2://headnodehost:10001/>` istemi. Kullanarak bir dosyaya da çalıştırabilirsiniz `-f` sorgu tamamlandıktan sonra Beeline çıkar parametresi.
+    > `-i` Parametresi Beeline başlar ve ifadeleri çalıştırır `query.hql` dosya. Sorgu işlemi tamamlandıktan sonra gelmesini `jdbc:hive2://headnodehost:10001/>` istemi. Kullanarak bir dosyaya da çalıştırabilirsiniz `-f` sorgu tamamlandıktan sonra Beeline çıkar parametresi.
 
 5. Doğrulamak için **günlüklerini** tablosu oluşturuldu, tüm satırların döndürmek için şu deyimi kullanın **günlüklerini**:
 
@@ -243,7 +243,7 @@ Bir headnode tam etki alanı adını bulmak için yer alan bilgileri kullanın. 
 
 ## <a id="sparksql"></a>Spark ile Beeline kullanın
 
-Spark Spark Thrift sunucusu olarak genellikle adlandırılır HiveServer2 kendi uygulamasını sağlar. Bu hizmet, Spark SQL sorguları Hive yerine çözümlemek için kullanır ve sorgunuzu bağlı olarak daha iyi performans sağlayabilir.
+Spark, Spark Thrift sunucusu bazen denir HiveServer2 kendi uygulamasını sağlar. Bu hizmet, Spark SQL sorguları Hive yerine çözümlemek için kullanır ve sorgunuzu bağlı olarak daha iyi performans sağlayabilir.
 
 Spark Hdınsight kümesi üzerinde Spark Thrift sunucusuna bağlanmak için bağlantı noktası kullanmak `10002` yerine `10001`. Örneğin, `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
 

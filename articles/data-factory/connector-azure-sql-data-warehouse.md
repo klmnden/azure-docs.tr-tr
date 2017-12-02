@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarından veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,7 +269,7 @@ SQL veri ambarı PolyBase doğrudan desteği Azure Blob ve Azure Data Lake Store
 Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri taşıma için BULKINSERT mekanizması için otomatik olarak geri döner.
 
 1. **Kaynak bağlantılı hizmeti** türüdür: **AzureStorage** veya **AzureDataLakeStore**.
-2. **Girdi veri kümesi** türüdür: **AzureBlob** veya **AzureDataLakeStoreFile**ve altında yazın biçimi `type` özellikleri **OrcFormat** , veya **TextFormat** aşağıdaki yapılandırmalara sahip:
+2. **Girdi veri kümesi** türüdür: **AzureBlob** veya **AzureDataLakeStoreFile**ve altında yazın biçimi `type` özellikleri **OrcFormat** , **ParquetFormat**, veya **TextFormat** aşağıdaki yapılandırmalara sahip:
 
    1. `rowDelimiter`olmalıdır  **\n** .
    2. `nullValue`ayarlanmış **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **doğru**.
@@ -421,25 +421,25 @@ Başlangıç/bitiş Azure SQL Data Warehouse veri kopyalama işlemi sırasında 
 |:--- |:--- |
 | bigint |Int64 |
 | İkili |Byte] |
-| bit |Boole değeri |
+| bit |Boole |
 | char |Dize, Char] |
-| Tarih |Tarih saat |
-| Tarih saat |Tarih saat |
-| datetime2 |Tarih saat |
+| tarih |Tarih Saat |
+| Tarih saat |Tarih Saat |
+| datetime2 |Tarih Saat |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
 | Kayan nokta |Çift |
-| Görüntü |Byte] |
+| görüntü |Byte] |
 | Int |Int32 |
 | para |Ondalık |
 | nchar |Dize, Char] |
 | ntext |Dize, Char] |
 | sayısal |Ondalık |
 | nvarchar |Dize, Char] |
-| Gerçek |Tek |
+| Gerçek |Bekar |
 | rowVersion |Byte] |
-| smalldatetime |Tarih saat |
+| smalldatetime |Tarih Saat |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |

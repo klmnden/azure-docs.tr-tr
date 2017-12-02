@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Makine öğrenimi modeline web hizmeti olarak dağıtma
 
@@ -25,7 +25,7 @@ Bu belge, Azure Machine Learning modeli yönetim komut satırı arabirimi (CLI) 
 ## <a name="deploying-web-services"></a>Web Hizmetleri dağıtma
 CLIs kullanarak bir küme veya yerel makine üzerinde çalışmak için web hizmetleri dağıtabilirsiniz.
 
-Yerel bir dağıtımı ile başlayan öneririz. İlk modeli ve kod, ardından çalıştığını doğrulamak üretim ölçeği kullanmak için bir küme için web hizmetini dağıtma. Küme dağıtımı için ortamınızı kurma hakkında daha fazla bilgi için bkz: [Model Yönetim Yapılandırması](model-management-configuration.md). 
+Yerel bir dağıtımı ile başlayan öneririz. İlk modeli ve kod, ardından çalıştığını doğrulamak üretim ölçeği kullanmak için bir küme için web hizmetini dağıtma. Küme dağıtımı için ortamınızı kurma hakkında daha fazla bilgi için bkz: [Model Yönetim Yapılandırması](deployment-setup-configuration.md). 
 
 Dağıtım adımları şunlardır:
 1. Kaydedilmiş, eğitilen, Machine Learning modelinizi kullanın
@@ -139,7 +139,7 @@ az ml manifest create --manifest-name [your new manifest name] -f [path to code 
 ```
 Bağımsız değişken kullanarak daha önce kaydedilmiş bir model bildirime ekleyebilirsiniz `--model-id` veya `-i` yukarıda gösterilen komuttaki. Birden çok modelleri ile ek belirtilebilir -i bağımsız değişkenler.
 
-### <a name="6-create-an-image"></a>6. Görüntü oluşturma 
+### <a name="6-create-an-image"></a>6. Görüntü oluştur 
 Önce kendi bildirimi oluşturduktan seçeneği bir görüntü oluşturabilirsiniz. 
 
 ```
@@ -186,4 +186,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Web hizmetinizi yerel olarak çalıştırmak için test, büyük ölçekli kullanmak için bir kümeye dağıtabilirsiniz. Küme web hizmet dağıtımı için ayarlama hakkında daha fazla bilgi için bkz: [Model Yönetim Yapılandırması](model-management-configuration.md). 
+Web hizmetinizi yerel olarak çalıştırmak için test, büyük ölçekli kullanmak için bir kümeye dağıtabilirsiniz. Küme web hizmet dağıtımı için ayarlama hakkında daha fazla bilgi için bkz: [Model Yönetim Yapılandırması](deployment-setup-configuration.md). 

@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Azure Web uygulamaları için var olan özel bir SSL sertifikası bağlama
 
@@ -214,61 +214,17 @@ Tüm yapmak için sol sunulmuştur HTTPS için özel etki alanınızı çalışt
 
 ## <a name="enforce-https"></a>HTTPS zorlama
 
-Uygulama hizmeti yapar *değil* herkes, HTTP kullanarak web uygulamanızı erişebilmesi için HTTPS zorla. Web uygulamanız için HTTPS zorlamak için bir yeniden yazma kuralı tanımlamak _web.config_ web uygulamanız için dosya. Uygulama hizmeti, web uygulamanızın dili çerçevesini bağımsız olarak bu dosyayı kullanır.
+Varsayılan olarak, herkesin web uygulamanızın HTTP kullanarak erişmeye devam edebilirsiniz. HTTPS bağlantı noktasına tüm HTTP isteklerini yeniden yönlendirebilirsiniz.
 
-> [!NOTE]
-> Dile özgü yeniden yönlendirme istekleri yoktur. ASP.NET MVC kullanabileceğiniz [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) yeniden yazma kuralı yerine filtre _web.config_.
+Sol gezinti bölmesinde, web uygulaması sayfasında seçin **özel etki alanları**. Ardından **yalnızca HTTPS**seçin **üzerinde**.
 
-.NET Geliştirici değilseniz, bu dosya ile görece tanıyor olmalıdır. Çözümünüzü kök dizininde değil.
+![HTTPS zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Alternatif olarak, PHP, Node.js, Python veya Java ile ortaya çıkarsa, size bu dosyayı sizin adınıza App Service içinde oluşturulan bir fırsat yok.
+İşlem tamamlandığında, uygulamanıza noktası HTTP URL'lerini birini gidin. Örneğin:
 
-Kısmındaki yönergeleri izleyerek, web uygulamanızın FTP uç noktasını bağlamak [FTP/S kullanarak Azure App Service için uygulamanızı dağıtma](app-service-deploy-ftp.md).
-
-Bu dosyanın içinde bulunması _/home/site/wwwroot_. Değilse, oluşturmak bir _web.config_ aşağıdaki XML ile bu klasörde dosya:
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-Mevcut bir _web.config_ dosya, bütün kopyası `<rule>` öğesine, _web.config_'s `configuration/system.webServer/rewrite/rules` öğesi. Varsa diğer `<rule>` öğelerinde, _web.config_, kopyalanan yerleştirin `<rule>` öğeden önce diğer `<rule>` öğeleri.
-
-Kullanıcı, web uygulamanızın HTTP isteği yaptığında bu kural HTTPS protokolü için bir HTTP 301 (kalıcı yeniden yönlendirme) döndürür. Örneğin, gelen yönlendirir `http://contoso.com` için `https://contoso.com`.
-
-IIS URL yeniden yazma modülü hakkında daha fazla bilgi için bkz: [URL yeniden yazma](http://www.iis.net/downloads/microsoft/url-rewrite) belgeleri.
-
-## <a name="enforce-https-for-web-apps-on-linux"></a>Linux üzerinde Web uygulamaları için HTTPS zorla
-
-Uygulama hizmeti Linux'ta mu *değil* herkes, HTTP kullanarak web uygulamanızı erişebilmesi için HTTPS zorla. Web uygulamanız için HTTPS zorlamak için bir yeniden yazma kuralı tanımlamak _.htaccess_ web uygulamanız için dosya. 
-
-Kısmındaki yönergeleri izleyerek, web uygulamanızın FTP uç noktasını bağlamak [FTP/S kullanarak Azure App Service için uygulamanızı dağıtma](app-service-deploy-ftp.md).
-
-İçinde _/home/site/wwwroot_, oluşturma bir _.htaccess_ aşağıdaki kod ile dosya:
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-Kullanıcı, web uygulamanızın HTTP isteği yaptığında bu kural HTTPS protokolü için bir HTTP 301 (kalıcı yeniden yönlendirme) döndürür. Örneğin, gelen yönlendirir `http://contoso.com` için `https://contoso.com`.
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
 ## <a name="automate-with-scripts"></a>Komut dosyalarıyla otomatikleştirme
 
@@ -312,7 +268,7 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Ortak sertifikaları (isteğe bağlı)
-Karşıya yüklediğiniz [ortak sertifikaları](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) web uygulamanız için. Uygulama hizmeti veya uygulama hizmeti ortamı (ana) Web uygulamalarıyla ortak sertifikaları kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposunda depolamak gerekiyorsa, bir web uygulaması üzerinde uygulama hizmeti ortamı kullanmanız gerekebilir. Daha fazla ayrıntı için bkz: [Web uygulamanız için ortak sertifikaları yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+Karşıya yüklediğiniz [ortak sertifikaları](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) web uygulamanız için. Ortak Sertifikalar App Service ortamları uygulamalar için de kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposunda depolamak ihtiyacınız varsa, bir web uygulaması uygulama hizmeti ortamı kullanmanız gerekebilir. Daha fazla bilgi için bkz: [Web uygulamanız için ortak sertifikaları yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Ortak sertifikasını karşıya yükle](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -330,3 +286,5 @@ Azure içerik teslim ağı kullanmayı öğrenmek için sonraki öğretici ilerl
 
 > [!div class="nextstepaction"]
 > [İçerik teslim ağı (CDN) için bir Azure uygulama hizmeti Ekle](app-service-web-tutorial-content-delivery-network.md)
+
+Daha fazla bilgi için bkz: [Azure App Service'deki uygulama kodunuzda bir SSL sertifikası kullanmak](app-service-web-ssl-cert-load.md).

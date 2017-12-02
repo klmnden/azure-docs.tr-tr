@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026eca7fc8f17602ba44ba38db138d645c9d7713
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Öğretici: Google Apps otomatik kullanıcı sağlamayı yapılandırın
 
@@ -90,6 +90,10 @@ Bu bölümde, Google API uygulamaları sağlama kullanıcı hesabı için Azure 
      ![Etki alanı](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. Dizininize eklemek istediğiniz tüm etki alanları için önceki adımları yineleyin.
+
+    > [!NOTE]
+    Kullanıcı hazırlama için Google Apps özel etki alanı kaynak Azure AD etki alanı adı eşleşmelidir. Bunlar eşleşmiyorsa öznitelik eşleme özelleştirme uygulayarak sorunu çözmek mümkün olabilir.
+
 
 5. Azure AD ile etki alanları doğruladıktan, bunları Google Apps ile yeniden doğrulamalısınız. Google Apps ile zaten kayıtlı değil her etki alanı için aşağıdaki adımları uygulayın:
    

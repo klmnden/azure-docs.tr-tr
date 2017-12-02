@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Anlama ve Azure Linux Aracısı'nı kullanma
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -108,7 +108,7 @@ Dağıtımınız ait paket depodan bir RPM veya DEB paketini kullanarak yükleme
 Belgelerde başvurmak [Azure Linux Aracısı bağlantıların github'da](https://github.com/Azure/WALinuxAgent) kaynağından ya da özel konumlar veya ön yükleme gibi gelişmiş yükleme seçenekleri için.
 
 ## <a name="command-line-options"></a>Komut satırı seçenekleri
-### <a name="flags"></a>Bayrakları
+### <a name="flags"></a>Bayraklar
 * ayrıntılı: Belirtilen komut dosyasının ayrıntı düzeyini artırın
 * Zorla: Bazı komutlar için etkileşimli Onayı Atla
 
@@ -143,6 +143,7 @@ Bir yapılandırma dosyası (/ etc/waagent.conf) waagent Eylemler denetler. Örn
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Bir yapılandırma dosyası (/ etc/waagent.conf) waagent Eylemler denetler. Örn
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 Çeşitli yapılandırma seçenekleri, aşağıda ayrıntılı olarak açıklanmıştır. Yapılandırma seçenekleri üç tür içindedir; Boolean, String veya tamsayı. Boole yapılandırma seçenekleri "y" veya "n" belirtilebilir. "Hiçbiri" bazı dize türü için yapılandırma girdileri ayrıntılı olarak aşağıdaki kullanılabilir özel anahtar sözcük.
 
@@ -209,8 +211,12 @@ Varsayılan: n
 
 Ayarlama, waagent CustomData sağladıktan sonra yürütecek varsa.
 
+**Provisioning.AllowResetSysUser** türü: Boolean varsayılan: n
+
+Bu seçenek sıfırlama sys kullanıcı için parola sağlar; Varsayılan devre dışıdır.
+
 **Provisioning.PasswordCryptId**  
-Türü: dize  
+Türü: Dize  
 Varsayılan: 6
 
 Parola karmasını oluştururken crypt tarafından kullanılan algoritma.  
@@ -220,7 +226,7 @@ Parola karmasını oluştururken crypt tarafından kullanılan algoritma.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Türü: dize  
+Türü: Dize  
 Varsayılan: 10
 
 Parola Karması oluşturulurken kullanılan rastgele salt uzunluğu.
@@ -290,6 +296,12 @@ Türü: Dize
 Varsayılan: yok
 
 Ayarlama, aracının bu proxy sunucusu Internet'e erişmek için kullanacağı varsa. 
+
+**AutoUpdate.Enabled** türü: Boolean varsayılan: y
+
+Etkinleştirmek veya hedef durumu işlenmesi için otomatik güncelleştirmeyi devre dışı; Varsayılan etkindir.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu bulut görüntüleri
 Ubuntu bulut görüntüleri kullanma Not [bulut init](https://launchpad.net/ubuntu/+source/cloud-init) Azure Linux aracısı tarafından yönetilmesini birçok yapılandırma görevlerini gerçekleştirmek için.  Lütfen aşağıdaki farkları dikkat edin:

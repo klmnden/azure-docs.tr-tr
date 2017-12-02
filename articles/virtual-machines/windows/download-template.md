@@ -4,7 +4,7 @@ description: "Resource Manager dağıtım modelinde dağıtımları otomatikleş
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
@@ -13,23 +13,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 9e4c0c3cf0e233447369a24b1d5fe27495abd1cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93ed84cb146119c877c3a143c5f7af9ca8ba0656
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="download-the-template-for-a-vm"></a>VM için şablon indirme
 Azure portal veya PowerShell kullanarak bir VM oluşturduğunuzda, Resource Manager şablonu sizin için otomatik olarak oluşturulur. Bir dağıtımı hızlı bir şekilde çoğaltmak için bu şablonu kullanın. Bu şablon bir kaynak grubundaki tüm kaynakları hakkında bilgi içerir. Bir sanal makine için bu şablonu VM ağ kaynakları da dahil olmak üzere bu kaynak grubundaki desteklenmesi amacıyla oluşturulan her şeyi içeren anlamına gelir.
 
 ## <a name="download-the-template-using-the-portal"></a>Portalı kullanarak şablonu indirme
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Hub menüsünde seçin **sanal makineleri**.
+2. Soldaki menüden seçin **sanal makineleri**.
 3. Listeden sanal makineyi seçin.
 4. Seçin **Otomasyon betiğini**.
-5. Seçin **karşıdan** ve .zip dosyasını yerel bilgisayarınıza kaydedin.
+5. Seçin **karşıdan** menüsünde üstünde ve .zip dosyayı yerel bilgisayarınıza kaydedin.
 6. .Zip dosyasını açın ve dosyaları bir klasöre ayıklayın. .Zip dosyasını içerir:
    
    * Deploy.ps1

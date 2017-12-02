@@ -3,8 +3,8 @@ title: "Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya gru
 description: "Bir kullanıcı veya grup için Azure Active Directory'de atamak için bir kuruluş uygulama seçme"
 services: active-directory
 documentationcenter: 
-author: curtand
-manager: femila
+author: daveba
+manager: mtillman
 editor: 
 ms.assetid: 5817ad48-d916-492b-a8d0-2ade8c50a224
 ms.service: active-directory
@@ -12,25 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: curtand
-ms.reviewer: asteen
-ms.openlocfilehash: 8e61044f261033a473241e2de152026bf49c4c70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/30/2017
+ms.author: daveba
+ms.reviewer: luleon
+ms.openlocfilehash: 65727ee9330a1a6650eb54595ebc93a7a693923c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın
-Kurumsal uygulamalarınızda Azure Active Directory (Azure AD) bir kullanıcıya veya gruba atamak kolaydır. Kuruluş uygulama yönetmek için uygun izinlere sahip olmalıdır ve dizin için genel yönetici olmanız gerekir.
+Bir kullanıcı veya grup için bir kuruluş uygulama atamak için Kurumsal uygulamasını yönetmek için uygun izinlere sahip ve dizin için genel yönetici olmanız gerekir.
+> [!NOTE]
+> İçin Microsoft Applications (örneğin, Office 365 uygulamaları), kullanıcıların bir kurumsal uygulama atamak için PowerShell kullanın.
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app"></a>Bir kurumsal uygulama için nasıl kullanıcı erişimi atamak?
+## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Nasıl ı kullanıcı erişimi Azure portalında bir kuruluş uygulaması atayabilirim?
 1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
 2. Seçin **daha fazla hizmet**, Azure Active Directory metin kutusuna girin ve ardından **Enter**.
 3. Üzerinde **Azure Active Directory - *directoryname***  (diğer bir deyişle, Azure AD dikey yönettiğiniz dizin için), dikey penceresinde seçin **kurumsal uygulamalar**.
 
     ![Açılış Kurumsal uygulamaları](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
-4. Üzerinde **kurumsal uygulamalar** dikey penceresinde, select **tüm uygulamaları**. Yönetebileceğiniz uygulamaların bir listesini görürsünüz.
+4. Üzerinde **kurumsal uygulamalar** dikey penceresinde, select **tüm uygulamaları**. Bu, yönettiğiniz uygulamaları listeler.
 5. Üzerinde **kurumsal uygulamalar - tüm uygulamaları** dikey penceresinde, bir uygulama seçin.
 6. Üzerinde ***appname*** dikey penceresinde (diğer bir deyişle, dikey penceresinde seçili uygulamasının başlık adı ile) seçin **kullanıcıları ve grupları**.
 
@@ -41,7 +43,72 @@ Kurumsal uygulamalarınızda Azure Active Directory (Azure AD) bir kullanıcıya
     ![Bir kullanıcı veya grup için uygulama atama](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
 9. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, listeden bir veya daha fazla kullanıcı veya grup seçin ve ardından **seçin** dikey pencerenin altındaki düğmesini.
 10. Üzerinde **eklemek atama** dikey penceresinde, select **rol**. Ardından **rolü Seç** dikey penceresinde, seçilen kullanıcılarla veya gruplarla uygulayın ve ardından için rolü seçin **Tamam** dikey pencerenin altındaki düğmesini.
-11. Üzerinde **eklemek atama** dikey penceresinde, select **atamak** dikey pencerenin altındaki düğmesini. Atanan kullanıcılar veya gruplar bu kurumsal uygulama için seçili rol tarafından tanımlanan izinlerine sahip olacaktır.
+11. Üzerinde **eklemek atama** dikey penceresinde, select **atamak** dikey pencerenin altındaki düğmesini. Atanan kullanıcılar veya gruplar bu kurumsal uygulama için seçili rol tarafından tanımlanan izinlere sahip.
+
+## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>PowerShell kullanarak bir kurumsal uygulama için nasıl bir kullanıcı atayabilirim?
+
+1. Yükseltilmiş bir Windows PowerShell komut istemi açın.
+
+    >[!NOTE] 
+    > Azuread'i modülü yüklemeniz gerekir (komutunu `Install-Module -Name AzureAD`). NuGet modülü veya yeni Azure Active Directory V2 PowerShell modülü yüklemek isteyip istemediğiniz sorulduğunda Y yazın ve ENTER tuşuna basın.
+
+2. Çalıştırma `Connect-AzureAD` ve bir genel yönetici kullanıcı hesabıyla oturum açın.
+3. Bir kullanıcı ve rol uygulamaya atamak için aşağıdaki komut dosyasını kullanın:
+
+    ```powershell
+    # Assign the values to the variables
+    $username = "<You user's UPN>"
+    $app_name = "<Your App's display name>"
+    $app_role_name = "<App role display name>"
+    
+    # Get the user to assign, and the service principal for the app to assign to
+    $user = Get-AzureADUser -ObjectId "$username"
+    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+    $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
+    
+    # Assign the user to the app role
+    New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
+    ```     
+
+Bir kullanıcı bir uygulama rolü atama hakkında daha fazla bilgi için belgelere ziyaret [yeni AzureADUserAppRoleAssignment](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+
+### <a name="example"></a>Örnek
+
+Bu örnek Britta Simon kullanıcı atar için [Microsoft çalışma alanına Analytics](https://products.office.com/en-us/business/workplace-analytics) PowerShell kullanarak uygulama.
+
+1. PowerShell'de değişkenleri $username, $app_name ve $app_role_name karşılık gelen değerler atayın. 
+
+    ```powershell
+    # Assign the values to the variables
+    $username = "britta.simon@contoso.com"
+    $app_name = "Workplace Analytics"
+    ```
+
+2. Bu örnekte, biz Britta Simon atamak istediğiniz uygulama rolü tam adı nedir bilinmiyor. Kullanıcı ($user) almak için aşağıdaki komutları çalıştırın ve Kullanıcı UPN kullanarak hizmet sorumlusu ($sp) ve hizmet asıl adlarını görüntüler.
+
+    ```powershell
+    # Get the user to assign, and the service principal for the app to assign to
+    $user = Get-AzureADUser -ObjectId "$username"
+    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+    ```
+        
+3. Komutu çalıştırın `$sp.AppRoles` çalışma alanına Analytics uygulama için kullanılabilir rolleri görüntülemek için. Bu örnekte, Britta Simon analist (sınırlı erişimi) rol atamak istiyoruz.
+    
+    ![Çalışma alanına Analytics rolü](media/active-directory-coreapps-assign-user-azure-portal/workplace-analytics-role.png)
+
+4. Rol adı atamak `$app_role_name` değişkeni.
+        
+    ```powershell
+    # Assign the values to the variables
+    $app_role_name = "Analyst (Limited access)"
+    ```
+
+5. Kullanıcının uygulama role atamak için aşağıdaki komutu çalıştırın:
+
+    ```powershell
+    # Assign the user to the app role
+    New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
+    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Tüm my gruplarının bakın](active-directory-groups-view-azure-portal.md)

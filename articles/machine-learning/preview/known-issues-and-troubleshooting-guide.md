@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
@@ -112,6 +112,19 @@ Ne yazık ki bu bir kolay düzeltme yoktur. Yüklü BITS kaldırın ve çalışm
    - komut dosyasını kaldırma`C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - Yukarıdaki komut dosyasını başlatır masaüstü kısayolu
    - Yükleyici https://aka.ms/azureml-wb-msi indirin ve yükleyin.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Oturum açtıktan sonra "deneme hesabı denetim" ekranında takılı
+Oturum açtıktan sonra çalışma ekranı uygulama boş bir ekranda dönen Tekerlek "denetleme deneme hesabı" gösteren bir iletiyle takılı. Bu sorunu çözmek için aşağıdaki adımları uygulayın:
+1. Uygulama kapatma
+2. Aşağıdaki dosya sil:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Uygulamayı yeniden başlatın.
 
 ## <a name="cant-delete-experimentation-account"></a>Deneme hesabı silinemiyor
 Bir deneme hesabı silmek için CLI kullanabilirsiniz, ancak alt çalışma alanları ve bu alt çalışma içinde alt projeleri silmeniz gerekir. Aksi takdirde, bir hata görürsünüz.

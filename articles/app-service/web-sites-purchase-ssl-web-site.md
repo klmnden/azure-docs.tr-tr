@@ -1,11 +1,10 @@
 ---
-title: "Azure uygulama hizmeti uygulamanızı bir SSL sertifikası ekleme | Microsoft Docs"
-description: "Uygulama hizmeti uygulamanızı bir SSL sertifikası eklemeyi öğrenin."
+title: "Satın alma ve Azure uygulama hizmetiniz için bir SSL sertifikası yapılandırma | Microsoft Docs"
+description: "Bir uygulama hizmeti sertifika satın alın ve uygulama hizmeti uygulamanızı bağlama hakkında bilgi edinin"
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
 
@@ -74,12 +73,16 @@ Bu sertifikada depolamak için anahtar kasası deposu seçtikten sonra **depolam
 
 ## <a name="step-4---verify-the-domain-ownership"></a>Adım 4 - etki alanı sahipliğini doğrulayın
 
-> [!NOTE]
-> Uygulama Hizmeti sertifikaları tarafından desteklenen etki alanı doğrulama üç tür vardır: etki alanı, posta, el ile doğrulama. Bu doğrulama türlerini daha ayrıntılı olarak açıklanmıştır [bölüm Gelişmiş](#advanced).
-
 Aynı **sertifika Yapılandırması** adım 3'te kullanılan sayfasını tıklatın **2. adım: doğrulama**.
 
-**Etki alanı doğrulama** bu en kolay bir işlemdir **yalnızca IF** elinizde  **[özel etki alanınızı Azure App hizmetinden satın.](custom-dns-web-site-buydomains-web-app.md)**
+Tercih edilen etki alanı doğrulama yöntemi seçin. 
+
+Uygulama Hizmeti sertifikaları tarafından desteklenen etki alanı doğrulama dört tür vardır: uygulama hizmeti, etki alanı, posta ve el ile doğrulama. Bu doğrulama türlerini daha ayrıntılı olarak açıklanmıştır [bölüm Gelişmiş](#advanced).
+
+> [!NOTE]
+> **Uygulama hizmeti doğrulama** doğrulamak istediğiniz etki alanını bir App Service uygulaması aynı abonelikte zaten eşlenmiş en uygun seçenektir. App Service uygulaması zaten etki alanı sahipliğini doğruladı olgu yararlanır.
+>
+
 Tıklayın **doğrula** bu adımı tamamlamak için düğmesi.
 
 ![etki alanı doğrulama görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -133,7 +136,7 @@ Bu noktada, uygulamasını kullanarak ziyaret görüyor olmalısınız `HTTPS://
 
 Uygulama Hizmeti sertifikaları tarafından desteklenen etki alanı doğrulama daha fazla iki tür vardır: posta ve el ile doğrulama.
 
-#### <a name="mail-verification"></a>Posta doğrulama
+#### <a name="mail-verification"></a>Posta Doğrulama
 
 Bu özel etki alanı ile ilişkili e-posta adresi doğrulama e-posta zaten gönderildi.
 E-posta doğrulama adımı tamamlamak için e-posta açın ve doğrulama bağlantısını tıklatın.
@@ -142,7 +145,11 @@ E-posta doğrulama adımı tamamlamak için e-posta açın ve doğrulama bağlan
 
 Doğrulama e-postayı yeniden göndermek gerekiyorsa, tıklatın **yeniden e-posta** düğmesi.
 
-#### <a name="manual-verification"></a>El ile doğrulama
+#### <a name="domain-verification"></a>Etki Alanı Doğrulama
+
+Bu seçeneği yalnızca [Azure'dan satın alınan bir uygulama hizmeti etki alanı.](custom-dns-web-site-buydomains-web-app.md). Azure otomatik olarak, TXT kaydını doğrulama ekler ve işlemini tamamlar.
+
+#### <a name="manual-verification"></a>El ile Doğrulama
 
 > [!IMPORTANT]
 > HTML Web sayfası Doğrulama (yalnızca standart sertifika SKU çalışır)
@@ -197,6 +204,7 @@ SSL sertifikanızı otomatik yenileme için yapılandırılmış, ancak otomatik
 - Uygulama Hizmeti sertifikaları oluşturur, GoDaddy etki alanı doğrulama her üç yıla gerektirir. Etki alanı yöneticisi etki alanını doğrulamak için her üç yıla bir e-posta alır. E-postayı denetlemek veya etki alanınızda doğrulamak için hata uygulama hizmet sertifikası otomatik olarak yenilenmesi engeller. 
 - (Otomatik yenileme için sertifika etkin olsa bile) etki alanı reverification sonraki yenileme zaman 31 Mart 2017'den önce yayımlanan tüm uygulama hizmeti sertifikaları gerektirir. GoDaddy ilkede değişiklik sonucudur. E-postanızı kontrol edin ve uygulama hizmeti sertifikanın otomatik yenilenmesini devam etmek için bu tek seferlik etki alanı doğrulamayı tamamlayın. 
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="more-resources"></a>Diğer kaynaklar
 
-* [Bir içerik teslim ağı Ekle](app-service-web-tutorial-content-delivery-network.md)
+* [Azure App Service'deki uygulama kodunuzda bir SSL sertifikası kullanın](app-service-web-ssl-cert-load.md)
+* [Sık sorulan sorular: Uygulama hizmeti sertifikaları](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

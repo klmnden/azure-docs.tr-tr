@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 81954835185ebaa86c11a9498a85879e6985897a
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Gezici ve Azure Machine Learning çalışma ekranı işbirliği
 Bu belge, nasıl Azure Machine Learning çalışma ekranı kodunuza etkinleştir işbirliğiyle yanı sıra makineler üzerinden projelerinizin dolaşan yardımcı olabileceği aracılığıyla açıklanmaktadır. 
@@ -156,9 +156,9 @@ Tüm kaynaklardan görüntülemek için kullanıcılar eklemek için aradığın
 
 7. Bob proje adına göre tıklar ve projeyi bilgisayarına yüklenir.
     
-    a. En son anlık görüntü kopyalarını çalıştırma geçmişi kaydedilen çalıştırmak indirilen projedeki dosyalarıdır. Son yürütme ana dala üzerinde değiller.
+    a. İndirilen projedeki dosyaları çalıştırma geçmişi kaydedilen son çalıştırma anlık bir kopyasını alır. Son yürütme ana dala üzerinde değiller.
     
-    b. Yerel proje klasöründeki ayarlanan _ana_ unstaged değişikliklerle dal.
+    b. Yerel proje klasöründeki ayarlanan _ana_ yukarıdaki unstaged değişikliklerle dal.
 
 8. Bob, artık Alice ve tüm önceki çalışmalarını geri yükleme görüntüsünü tarafından yürütülen çalıştırır göz atabilirsiniz.
 
