@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b54bb67e1188037385d0b373850b6b923eb8d7ac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Bir özel sanal makine görüntüsü Azure yığın kullanılabilmesini
 
@@ -184,7 +184,7 @@ Görüntüleri bir Blob Depolama URI'si tarafından başvurulan kurabilmesi gere
 
 2. Azure yığınına operatör olarak oturum açın. Menüde seçin **daha fazla hizmet** > **kaynak sağlayıcıları**. Ardından, seçin **işlem** > **VM görüntüleri** > **Ekle**.
 
-3. Altında **bir VM görüntüsü eklemek**, yayımcı, teklif, SKU ve sanal makine görüntüsünün sürümü girin. Bu ad kesimler Resource Manager şablonları VM görüntüsündeki bakın. Seçtiğinizden emin olun **osType** doğru değeri. İçin **OD Disk Blob URİ'si**, burada görüntüyü karşıya Blob URİ'si girin. Ardından, seçin **oluşturma** VM görüntüsü oluşturmaya başlamak için.
+3. Altında **bir VM görüntüsü eklemek**, yayımcı, teklif, SKU ve sanal makine görüntüsünün sürümü girin. Bu ad kesimler Resource Manager şablonları VM görüntüsündeki bakın. Seçtiğinizden emin olun **osType** doğru değeri. İçin **işletim sistemi Disk Blob URİ'si**, burada görüntüyü karşıya Blob URİ'si girin. Ardından, seçin **oluşturma** VM görüntüsü oluşturmaya başlamak için.
    
    ![Görüntü oluşturmaya başla](./media/azure-stack-add-vm-image/image4.png)
 
