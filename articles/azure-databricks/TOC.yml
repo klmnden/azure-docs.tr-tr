@@ -13,6 +13,8 @@
   items:
     - name: Sık sorulan sorular
       href: frequently-asked-questions-databricks.md
+    - name: Sürüm notları
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
     - name: Databricks belgeleri
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Azure Yol Haritası
