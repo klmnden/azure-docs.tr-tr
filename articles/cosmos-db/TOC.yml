@@ -31,7 +31,9 @@
           href: create-mongodb-java.md
         - name: Golang
           href: create-mongodb-golang.md
-    - name: Graph
+        - name: Python
+          href: create-mongodb-flask.md
+    - name: Graf
       items:
         - name: .NET
           href: create-graph-dotnet.md

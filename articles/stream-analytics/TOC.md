@@ -35,7 +35,7 @@
 
 ## Visual Studio araçlarını kullanma
 ### [Yükleme](stream-analytics-tools-for-visual-studio-install.md)
-### [Kullanmaya başlama](stream-analytics-tools-for-visual-studio.md)
+### [Başlarken](stream-analytics-tools-for-visual-studio.md)
 ### [CI/CD işlem hatlarını ayarlama](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## İzleme ve iyileştirme
@@ -57,7 +57,6 @@
 ### [Kaynak durumu dikey penceresi](stream-analytics-resource-health.md)
 ### [İş diyagramı ve ölçümleri](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECT INTO hata ayıklaması](stream-analytics-select-into.md)
-### [Olay sırası işleme](stream-analytics-out-of-order-and-late-events.md)
 ### [Olay sıralama konusunda dikkat edilmesi gerekenler](stream-analytics-out-of-order-and-late-events.md)
 ### [Olay hub’ı okuyucu limitleri](stream-analytics-event-hub-consumer-groups.md)
 ### [Tanılama günlükleri](stream-analytics-job-diagnostic-logs.md)
