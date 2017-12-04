@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 77078087e2532ac779d25ef63cc7fa19b40f0851
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: ca8e664ff1fd509d0461b6d167f28743d2e1e69c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Öğretici: Verileri şirket içi SQL Server'dan Azure Blob Depolama’ya kopyalama
 Bu öğreticide, Azure PowerShell kullanarak verileri şirket içi SQL Server veritabanından bir Azure Blob depolama alanına kopyalayan Data Factory işlem hattı oluşturacaksınız. Verileri şirket içi ile bulut veri depoları arasında taşıyan, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturup kullanabilirsiniz. 
@@ -51,7 +51,7 @@ Bu öğreticide şirket içi SQL Server veritabanını bir **kaynak** veri depos
 1. Makinenizde **SQL Server Management Studio**’yu başlatın. Makinenizde SQL Server Management Studio yoksa [indirme merkezinden](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) yükleyin. 
 2. Kimlik bilgilerinizi kullanarak SQL sunucunuza bağlanın. 
 3. Örnek bir veritabanı oluşturun. Ağaç görünümünde **Veritabanları**'na sağ tıklayın ve **Yeni Veritabanı**'na tıklayın. **Yeni Veritabanı** iletişim kutusunda, veritabanı için bir **ad** girin ve **Tamam**'a tıklayın. 
-4. Veritabanında aşağıdaki sorgu betiğini çalıştırın; bu betik **emp** tablosunu oluşturur. Ağaç görünümünde, oluşturduğunuz **veritabanına** sağ tıklayın ve **Yeni Sorgu**'ya tıklayın. 
+4. Veritabanında aşağıdaki sorgu betiğini çalıştırın; bu betik **emp** tablosunu oluşturur ve içine bazı örnek verileri ekler. Ağaç görünümünde, oluşturduğunuz **veritabanına** sağ tıklayın ve **Yeni Sorgu**'ya tıklayın. 
 
     ```sql   
     CREATE TABLE dbo.emp
@@ -61,13 +61,10 @@ Bu öğreticide şirket içi SQL Server veritabanını bir **kaynak** veri depos
         LastName varchar(50),
         CONSTRAINT PK_emp PRIMARY KEY (ID)
     )
-    GO
-    ```
-2. Veritabanında, tabloya birkaç örnek veri ekleyen aşağıdaki komutları çalıştırın:
 
-    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
+    GO
     ```
 
 ### <a name="azure-storage-account"></a>Azure Storage hesabı
@@ -105,10 +102,10 @@ Bu bölümde, Azure blob depolamanızda **adftutorial** adlı bir blob kapsayıc
 
     ![Kapsayıcı sayfası](media/tutorial-hybrid-copy-powershell/container-page.png)
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="windows-powershell"></a>Windows PowerShell
 
-#### <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
-En son Azure PowerShell makinenizde önceden yüklü değilse, yükleyin. 
+#### <a name="install-powershell"></a>PowerShell yükleme
+En son PowerShell makinenizde önceden yüklü değilse, yükleyin. 
 
 1. Web tarayıcısında [Azure SDK İndirmeleri ve SDK'lar](https://azure.microsoft.com/downloads/) sayfasına gidin. 
 2. **Komut satırı araçları** -> **PowerShell** bölümünde **Windows yüklemesi**'ne tıklayın. 
@@ -116,9 +113,9 @@ En son Azure PowerShell makinenizde önceden yüklü değilse, yükleyin.
 
 Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps). 
 
-#### <a name="log-in-to-azure-powershell"></a>Azure PowerShell'de oturum açma
+#### <a name="log-in-to-powershell"></a>PowerShell’de oturum açın
 
-1. Makinenizde **PowerShell**'i başlatın. Bu hızlı başlangıcın sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız, bu komutları yeniden çalıştırmanız gerekir.
+1. Makinenizde **PowerShell**'i başlatın. Bu hızlı başlangıcın sonuna kadar PowerShell penceresini açık tutun. Kapatıp yeniden açarsanız, bu komutları yeniden çalıştırmanız gerekir.
 
     ![PowerShell’i başlatın](media/tutorial-hybrid-copy-powershell/search-powershell.png)
 1. Aşağıdaki komutu çalıştırın ve Azure Portal'da oturum açmak için kullandığınız Azure kullanıcı adını ve parolasını girin:
@@ -142,25 +139,28 @@ Ayrıntılı yönergeler için bkz. [Azure PowerShell'i yükleme ve yapılandır
 1. Daha sonra PowerShell komutlarında kullanacağınız kaynak grubu adı için bir değişken tanımlayın. Aşağıdaki komut metnini PowerShell'e kopyalayın [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) için çift tırnak içinde bir ad belirtin ve ardından komutu çalıştırın. Örneğin: `"adfrg"`. 
    
      ```powershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    $resourceGroupName = "ADFTutorialResourceGroup"
     ```
-2. Daha sonra PowerShell komutlarında kullanabileceğiniz veri fabrikası adı için bir değişken tanımlayın. 
-
-    ```powershell
-    $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>"
-    ```
-1. Veri fabrikasının konumu için bir değişken tanımlayın: 
-
-    ```powershell
-    $location = "East US"
-    ```
-4. Azure kaynak grubunu oluşturmak için aşağıdaki komutu çalıştırın: 
+2. Azure kaynak grubunu oluşturmak için aşağıdaki komutu çalıştırın: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
 
-    Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$resourceGroupName` değişkenine farklı bir değer atayın ve komutu yeniden çalıştırın.   
+    Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$resourceGroupName` değişkenine farklı bir değer atayın ve komutu yeniden çalıştırın.
+3. Daha sonra PowerShell komutlarında kullanabileceğiniz veri fabrikası adı için bir değişken tanımlayın. Adlar bir harf veya rakamla başlamalıdır; yalnızca harf, rakam ve tire (-) karakterinden oluşabilir.
+
+    > [!IMPORTANT]
+    >  Veri fabrikasının adını genel olarak benzersiz olacak şekilde güncelleştirin. Örneğin, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFTutorialFactory"
+    ```
+1. Veri fabrikasının konumu için bir değişken tanımlayın: 
+
+    ```powershell
+    $location = "East US"
+    ```  
 5. Veri fabrikası oluşturmak için aşağıdaki **Set-AzureRmDataFactoryV2** cmdlet’ini çalıştırın: 
     
     ```powershell       
@@ -182,12 +182,12 @@ Aşağıdaki noktalara dikkat edin:
 
 Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturur ve SQL Server veritabanını içeren bir şirket içi makine ile ilişkilendirirsiniz. Şirket içinde barındırılan tümleştirme çalışma zamanı, makinenizdeki SQL Server verilerini Azure blob depolama alanına kopyalayan bileşendir. 
 
-1. Tümleştirme çalışma zamanının adı için bir değişken oluşturun. Bu adı not edin. Daha sonra bu öğreticide kullanacaksınız. 
+1. Tümleştirme çalışma zamanının adı için bir değişken oluşturun. Benzersiz bir ad kullanın ve adı not edin. Daha sonra bu öğreticide kullanacaksınız. 
 
     ```powershell
-   $integrationRuntimeName = "<your integration runtime name>"
+   $integrationRuntimeName = "ADFTutorialIR"
     ```
-1. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma. Aynı ada sahip başka bir tümleştirme çalışma zamanı varsa benzersiz bir ad kullanın.
+1. Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma. 
 
    ```powershell
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -230,7 +230,7 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
    State                     : NeedRegistration
    ```
 
-3. Şirket içinde barındırılan tümleştirme çalışma zamanını bulutta Data Factory hizmetine kaydetmek üzere **kimlik doğrulaması anahtarlarını** almak için aşağıdaki komutu çalıştırın. Sonraki adımda makinenize yüklediğiniz şirket içinde barındırılan tümleştirme çalışma zamanını kaydetmek için anahtarların birini (çift tırnak işaretlerini hariç tutarak) kopyalayın.  
+3. Şirket içinde barındırılan tümleştirme çalışma zamanını bulutta Data Factory hizmetine kaydetmek üzere **kimlik doğrulaması anahtarlarını** almak için aşağıdaki komutu çalıştırın. 
 
    ```powershell
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
@@ -243,7 +243,8 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
        "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
        "AuthKey2":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy="
    }
-   ```
+   ```    
+4. Sonraki adımda makinenize yüklediğiniz şirket içinde barındırılan tümleştirme çalışma zamanını kaydetmek için anahtarların birini (çift tırnak işaretlerini hariç tutarak) kopyalayın.  
 
 ## <a name="install-integration-runtime"></a>Tümleştirme çalışma zamanını yükleme
 1. Şirket içinde barındırılan tümleştirme çalışma zamanını yerel Windows makinesine [indirin](https://www.microsoft.com/download/details.aspx?id=39717) ve yüklemeyi çalıştırın. 
@@ -283,6 +284,7 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
     - **Kullanıcı** adını girin. 
     - Kullanıcı adı için **parola** girin.
     - Tümleştirme çalışma zamanının SQL Server’a bağlanabildiğini onaylamak için **Test**’e tıklayın. Bağlantı başarılı olursa yeşil bir onay işareti görürsünüz. Başarılı olmazsa, hata ile ilişkili hata iletisini görürsünüz. Sorunları giderin ve tümleştirme çalışma zamanının SQL Server’a bağlanabildiğinden emin olun.
+    - Bu değerleri not edin (kimlik doğrulama türü, sunucu, veritabanı, kullanıcı, parola). Daha sonra bu öğreticide kullanacaksınız. 
     
       
 ## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
@@ -294,7 +296,7 @@ Bu adımda, Azure Depolama Hesabınızı veri fabrikasına bağlarsınız.
 1. **C:\ADFv2Tutorial** klasöründe şu içeriğe sahip **AzureStorageLinkedService.json** adlı bir JSON dosyası oluşturun: Henüz yoksa ADFv2Tutorial adlı bir klasör oluşturun.  
 
     > [!IMPORTANT]
-    > Dosyayı kaydetmeden önce &lt;accountName&gt; ve &lt;accountKey&gt; değerlerini Azure depolama hesabınızın adı ve anahtarıyla değiştirin.
+    > Dosyayı kaydetmeden önce &lt;accountName&gt; ve &lt;accountKey&gt; değerlerini **Azure depolama hesabınızın** adı ve anahtarıyla değiştirin. [Önkoşullar](#get-storage-account-name-and-account-key) dahilinde bunları not alın.
 
    ```json
     {
@@ -310,6 +312,8 @@ Bu adımda, Azure Depolama Hesabınızı veri fabrikasına bağlarsınız.
         "name": "AzureStorageLinkedService"
     }
    ```
+
+    Not Defteri’ni kullanıyorsanız, **Farklı kaydet** iletişim kutusunda **Farklı kaydetme türü** için **Tüm dosyalar**ı seçin. Aksi takdirde, dosyaya `.txt` uzantısını ekleyebilir. Örneğin, `AzureStorageLinkedService.json.txt`. Dosyayı Not Defteri’nde açmadan önce Dosya Gezgini’nde oluşturduysanız, **Bilinen dosya türleri için uzantıları gizle** seçeneği varsayılan olarak ayarlandığı için `.txt` uzantısını görmeyebilirsiniz. Sonraki adıma geçmeden önce `.txt` uzantısını kaldırın. 
 2. **Azure PowerShell**’de **C:\ADFv2Tutorial** klasörüne geçin.
 
    **AzureStorageLinkedService** bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet’ini çalıştırın. 
@@ -326,6 +330,8 @@ Bu adımda, Azure Depolama Hesabınızı veri fabrikasına bağlarsınız.
     DataFactoryName   : onpremdf0914
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
+
+    "Dosya bulunamadı" hatasını alırsanız. Dosyanın var olduğunu onaylamak için `dir` komutunu kullanın. Dosya `.txt` uzantısına sahipse (örneğin, AzureStorageLinkedService.json.txt) dosyayı kaldırın ve PowerShell komutunu tekrar çalıştırın. 
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>SQL Server bağlı hizmeti oluşturma ve şifreleme (kaynak)
 Bu adımda şirket içi SQL Server’ınızı veri fabrikasına bağlarsınız.
@@ -366,7 +372,7 @@ Bu adımda şirket içi SQL Server’ınızı veri fabrikasına bağlarsınız.
                     "type": "SecureString",
                     "value": "Server=<server>;Database=<database>;Integrated Security=True"
                 },
-                "userName": "<domain>\\<user>",
+                "userName": "<user> or <domain>\\<user>",
                 "password": {
                     "type": "SecureString",
                     "value": "<password>"

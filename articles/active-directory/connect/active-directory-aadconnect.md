@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: billmath
-ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e52adf302a34566076d8787b9befc4da34195416
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme
 Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz. Planlama, dağıtım ve işlem adımları sırasında sizi yönlendirmesi için bu konu başlığından faydalanabilirsiniz. Bu alanla ilgili konu başlıklarına yönelik bağlantılar mevcuttur.
 
 > [!IMPORTANT]
-> [Azure AD Connect, şirket içi dizininizi Azure AD'ye ve Office 365'e bağlamanın en iyi yoludur. Microsoft Azure Active Directory Eşitleme (DirSync) ve Azure AD Eşitleme araçları artık kullanım dışı olduğundan ve destek süresi 13 Nisan 2017'de dolacağından şimdi Azure AD Connect'e yükseltmenin tam zamanı.](active-directory-aadconnect-dirsync-deprecated.md)
+> [Azure AD Connect, şirket içi dizininizi Azure AD'ye ve Office 365'e bağlamanın en iyi yoludur. Microsoft Azure Active Directory Eşitleme (DirSync) ve Azure AD Eşitleme araçları artık kullanım dışı olduğundan ve 13 Nisan 2017’den itibaren desteklenmediğinden şimdi Azure AD Connect’e yükseltmenin tam zamanı.](active-directory-aadconnect-dirsync-deprecated.md)
 > 
 > 
 

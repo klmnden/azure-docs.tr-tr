@@ -1,6 +1,6 @@
 ---
 title: "Azure CDN’ye Genel Bakış | Microsoft Belgeleri"
-description: "Azure İçerik Teslim Ağı'nın (CDN) ne olduğunu, blobları ve statik içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi gerçekleştirmek üzere nasıl kullanılacağını öğrenin."
+description: "Azure Content Delivery Network’ün (CDN) ne olduğunu, blobları ve statik içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi gerçekleştirmek üzere nasıl kullanılacağını öğrenin."
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 411c5a43d8a3245fc4642596b3725dadf8745728
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure İçerik Teslim Ağı'na (CDN) genel bakış
-> [!NOTE]
-> Bu belgede, Azure İçerik Teslim Ağı'nın (CDN) ne olduğu, nasıl çalıştığı ve her bir Azure CDN ürününün özellikleri açıklanmaktadır.  Bu bilgileri atlayıp doğrudan CDN uç noktası oluşturmaya yönelik öğreticiye gitmek istiyorsanız bkz. [Azure CDN'yi kullanma](cdn-create-new-endpoint.md).  Geçerli CDN düğümü konumlarının listesini görmek istiyorsanız bkz. [Azure CDN POP Konumları](cdn-pop-locations.md).
-> 
-> 
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure Content Delivery Network’e (CDN) genel bakış
+Azure Content Delivery Network (CDN), kullanıcılara içerik teslim etmek için en yüksek verimliliği sağlamak üzere stratejik olarak yerleştirilmiş konumlardaki statik web içeriğini önbelleğe alır. CDN, dünya genelindeki fiziksel düğümlerde bulunan içeriği önbelleğe alarak, yüksek bant genişliği içeriğinin teslimi konusunda geliştiricilere genel bir çözüm sunar. 
 
-Azure İçerik Teslim Ağı (CDN), kullanıcılara içerik teslim etmek için en yüksek verimliliği sağlamak üzere stratejik olarak yerleştirilmiş konumlardaki statik web içeriğini önbelleğe alır.  CDN, dünya genelindeki fiziksel düğümlerde bulunan içeriği önbelleğe alarak, yüksek bant genişliği içeriğinin teslimi konusunda geliştiricilere genel bir çözüm sunar. 
+> [!NOTE]
+> Bu makalede Azure CDN, nasıl çalıştığı ve her bir Azure CDN ürününün özellikleri açıklanmaktadır. Bu bilgileri atlayıp bir CDN uç noktası oluşturmaya ilişkin öğreticiyi görüntülemek için bkz. [Azure CDN ile çalışmaya başlama](cdn-create-new-endpoint.md). Geçerli CDN düğümü konumlarının listesini görmek için bkz. [Azure CDN POP Konumları](cdn-pop-locations.md).
+> 
 
 Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları şunlardır:
 
 * Özellikle içeriğin yüklenmesi için birden çok gidiş dönüş gerektiren uygulamaların kullanımı sırasında, son kullanıcılar için daha iyi performans ve kullanıcı deneyimi.
 * Bir ürün sunumu etkinliğinin başlangıcında olduğu gibi, anlık yüksek düzeyde yükü daha iyi işleyebilmek için büyük ölçeklendirme.
-* Kullanıcı isteklerinin dağıtımı ve uç sunuculardan içerik sunulması yoluyla kaynağa daha az trafik gönderilir.
+* Kaynağa daha az trafik gönderilmesi için kullanıcı isteklerinin dağıtımı ve uç sunuculardan içerik sunulması.
+
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 ![CDN'ye Genel Bakış](./media/cdn-overview/cdn-overview.png)
@@ -90,13 +90,13 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-CDN ile çalışmaya başlamak için bkz. [Azure CDN'yi kullanma](cdn-create-new-endpoint.md).
+CDN ile çalışmaya başlamak için bkz. [Azure CDN ile çalışmaya başlama](cdn-create-new-endpoint.md).
 
 Zaten bir CDN müşterisiyseniz artık CDN uç noktalarınızı [Microsoft Azure Portal](https://portal.azure.com) üzerinden veya [PowerShell](cdn-manage-powershell.md) ile yönetebilirsiniz.
 
-CDN'yi uygulamalı olarak görmek için [Build 2016 oturumu videomuza](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/) bakın.
+CDN’yi uygulamalı olarak görmek için [Build 2016 oturumu videosuna](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/) bakın.
 
 Azure CDN’yi [.NET](cdn-app-dev-net.md) veya [Node.js](cdn-app-dev-node.md) ile nasıl otomatik hale getireceğinizi öğrenin.
 
-Fiyatlandırma bilgileri için bkz. [CDN Fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/).
+Fiyatlandırma bilgileri için bkz. [Content Delivery Network fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/).
 

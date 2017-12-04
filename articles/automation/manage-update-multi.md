@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -87,6 +87,16 @@ Güncelleştirme yönetimi, sanal makineniz için etkinleştirilir.
 Azure olmayan Windows sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında yönergeler için [Azure’da Windows bilgisayarlarını Log Analytics hizmetine bağlama](../log-analytics/log-analytics-windows-agents.md) konusunu inceleyin.
 
 Azure olmayan Linux sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında yönergeler için [Azure’da Linux bilgisayarlarını Log Analytics’e bağlama](../log-analytics/log-analytics-agent-linux.md) konusunu inceleyin.
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Otomasyon hesabınıza bağlı bilgisayarları görüntüleme
+Makinelerinizin güncelleştirme yönetimini etkinleştirdikten sonra **Bilgisayarlar**’a tıklayarak bilgilerini görüntüleyebilirsiniz. *Ad*, *Uyumluluk*, *Ortam*, *İşletim Sistemi Türü*, *Kritik Güncelleştirmeler ve Güvenlik Güncelleştirmeleri* ve *Diğer Güncelleştirmeler* gibi bilgisayar bilgileri mevcuttur. 
+
+  ![Bilgisayarları görüntüle sekmesi](./media/manage-update-multi/update-computers-tab.png)
+
+Güncelleştirme yönetimi için yakın zamanda etkinleştirilmiş bilgisayarlar henüz değerlendirilmemiş olabilir. Bu bilgisayarların uyumluluk durumu *Değerlendirilmedi* şeklindedir.  Uyumluluk durumu değerlerinin listesi aşağıda verilmiştir:
+* Uyumlu – Eksik kritik güncelleştirmeleri veya güvenlik güncelleştirmeleri olan bilgisayarlar.
+* Uyumlu değil – En az bir eksik kritik güncelleştirmesi veya güvenlik güncelleştirmesi olan bilgisayarlar.
+* Değerlendirilmedi – Güncelleştirme değerlendirme verileri beklenen zaman çerçevesi içinde bilgisayardan alınmamıştır.  Linux bilgisayarlar için son üç saat ve Windows bilgisayarlar için son 12 saat içinde.  
 
 ## <a name="view-an-update-assessment"></a>Güncelleştirme değerlendirmesini görüntüleme
 
