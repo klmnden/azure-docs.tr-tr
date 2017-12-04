@@ -1,6 +1,6 @@
 ---
-title: "Bir sanal ağı başka bir sanal ağa bağlama: Azure CLI | Microsoft Docs"
-description: "Bu makalede, Azure Resource Manager ve Azure CLI kullanarak sanal ağları birbirine bağlama konusu incelenmektedir."
+title: "Sanal ağlar arası bağlantı kullanarak sanal ağı başka bir sanal ağa bağlama: Azure CLI | Microsoft Docs"
+description: "Bu makalede, Sanal ağlar arası bağlantı ve Azure CLI kullanarak sanal ağları birbirine bağlama konusu incelenmektedir."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: be33522fbabc801f64b7d3f38be83443c0327128
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
-Bu makalede, sanal ağlar arasında VPN ağ geçidi bağlantısının nasıl oluşturulduğu gösterilir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Farklı aboneliklerden sanal ağları bağlarken aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. 
+Bu makalede, sanal ağlar arası bağlantı türünü kullanarak sanal ağları bağlama işlemi gösterilmektedir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Farklı aboneliklerden sanal ağları bağlarken aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez.
 
 Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir ve Azure CLI kullanılır. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
@@ -37,13 +37,15 @@ Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir ve A
 >
 >
 
-Bir sanal ağı başka bir sanal ağa bağlamak (VNet'ten VNet'e), bir VNet'i şirket içi site konumuna bağlamakla aynıdır. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır. VNet’leriniz aynı bölgedeyse VNet Eşlemesi kullanarak bağlamayı düşünebilirsiniz. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>Sanal ağları bağlama hakkında
 
-Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile birleştirilebilir. Bunun yapılması aşağıdaki diyagramda da görüldüğü gibi şirket içi ve şirket dışı bağlantıyla sanal ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar:
+Sanal ağlar arası bağlantı türünü (VNet2VNet) kullanarak bir sanal ağı başka bir sanal ağa bağlama işlemi, şirket içi bir site konumu ile IPsec bağlantısı oluşturma işlemiyle benzerdir. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır ve her ikisi de iletişim kurarken aynı şekilde çalışır. Bağlantı türleri arasındaki fark, yerel ağ geçidini yapılandırma şeklidir. Sanal ağlar arası bağlantı oluşturduğunuzda yerel ağ geçidi adres alanını görmezsiniz. Bu alan otomatik olarak oluşturulup doldurulur. Ancak, bir sanal ağın adres alanını güncelleştirirseniz diğer sanal ağ, güncelleştirilmiş adres alanına yönlendireceğini otomatik olarak bilir.
 
-![Bağlantılar hakkında](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+Karmaşık bir yapılandırma ile çalışıyorsanız VNet-VNet yerine IPSec bağlantı türünü kullanmayı tercih edebilirsiniz. Bunun yapılması, trafiği yönlendirmek için yerel ağ geçidine ait ek bir adres alanı belirtmenize olanak sağlar. Sanal ağlarınızı IPsec bağlantı türü ile bağlıyorsanız, yerel ağ geçidini el ile oluşturup yapılandırmanız gerekir. Daha fazla bilgi için bkz. [Siteden Siteye yapılandırmalar](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
-### <a name="why"></a>Sanal ağları neden bağlamalıyız?
+Ayrıca, VNet’leriniz aynı bölgedeyse VNet Eşlemesi kullanarak bağlamayı düşünebilirsiniz. VNet eşlemesi bir VPN ağ geçidi kullanmaz ve fiyatlandırma ile işlevselliği biraz farklıdır. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Neden sanal ağdan sanal ağa bağlantı oluşturmalısınız?
 
 Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
@@ -55,19 +57,22 @@ Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
   * Yalıtım ve yönetim gereksinimlerinden dolayı aynı bölge içinde birbirlerine bağlı birden fazla sanal ağ ile çok katmanlı uygulamalar kurabilirsiniz.
 
-Sanal ağlar arası bağlantılar hakkında daha fazla bilgi için bu makalenin sonunda yer alan [Sanal ağlar arası bağlantılar hakkında SSS](#faq) bölümünü inceleyin.
+Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile birleştirilebilir. Bu özellik şirket içi ve şirket dışı bağlantıyla ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar.
 
 ### <a name="which-set-of-steps-should-i-use"></a>Hangi adımları tamamlamalıyım? 
 
-Bu makalede iki farklı adım kümesi görürsünüz. [Aynı abonelikte bulunan sanal ağlar](#samesub) için adım kümesi. Bu yapılandırmanın adımları TestVNet1 ve TestVNet4'ü kullanır.
+Bu makale, VNet-VNet bağlantı türünü kullanarak sanal ağlarınızı bağlamanıza yardımcı olur. Bu makalede iki farklı adım kümesi görürsünüz. Bir adım kümesi [Aynı abonelikte bulunan sanal ağlar](#samesub), biri ise [Farklı aboneliklerde bulunan sanal ağlar](#difsub) içindir. 
 
-![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+Bu alıştırma için, yapılandırmaları birleştirebilir veya yalnızca birlikte çalışmak istediğiniz yapılandırmayı seçebilirsiniz. Tüm yapılandırmalar VNet-VNet bağlantı türünü kullanır. Ağ trafiği, birbirine doğrudan bağlı sanal ağlar arasında akar. Bu alıştırmada TestVNet4 trafiği TestVNet5’e yönlendirilmez.
 
-[Farklı aboneliklerde bulunan sanal ağlar](#difsub) için ayrı bir makale mevcuttur. O yapılandırmaya ilişkin adımlar TestVNet1 ve TestVNet5’i kullanır.
+* [Aynı abonelikte bulunan sanal ağlar:](#samesub) Bu yapılandırmanın adımları TestVNet1 ve TestVNet4’ü kullanır.
 
-![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+  ![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-İsterseniz yapılandırmaları birleştirebilir veya yalnızca birlikte çalışmak istediğiniz yapılandırmayı seçebilirsiniz.
+* [Farklı abonelikte bulunan sanal ağlar:](#difsub) Bu yapılandırmanın adımları TestVNet1 ve TestVNet5’i kullanır.
+
+  ![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
 
 ## <a name="samesub"></a>Aynı abonelikte olan sanal ağları bağlanma
 
@@ -77,7 +82,7 @@ Başlamadan önce, CLI komutlarının en son sürümünü (2.0 veya üzeri) yük
 
 ### <a name="Plan"></a>IP adresi aralıklarınızı planlama
 
-Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla birlikte iki sanal ağ oluşturulur. Daha sonra iki sanal ağ arasında bir VPN bağlantısı oluşturulur. Ağ yapılandırmanız için IP adres aralıklarını planlamanız önemlidir. Sanal ağ aralıklarınızın ya da yerel ağ aralıklarınızın hiçbir şekilde çakışmadığından emin olmalısınız. Bu örneklerde bir DNS sunucusu eklemiyoruz. Sanal ağlarınız için ad çözümlemesi istiyorsanız bkz. [Ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla birlikte iki sanal ağ oluşturursunuz. Daha sonra iki sanal ağ arasında bir VPN bağlantısı oluşturursunuz. Ağ yapılandırmanız için IP adres aralıklarını planlamanız önemlidir. Sanal ağ aralıklarınızın ya da yerel ağ aralıklarınızın hiçbir şekilde çakışmadığından emin olmalısınız. Bu örneklerde bir DNS sunucusu eklemiyoruz. Sanal ağlarınız için ad çözümlemesi istiyorsanız bkz. [Ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Örneklerde aşağıdaki değerler kullanılmaktadır:
 
@@ -261,7 +266,7 @@ Artık VPN ağ geçitleri olan iki sanal ağınız var. Bir sonraki adım, sanal
 
 ## <a name="difsub"></a>Farklı aboneliklerdeki VNet'leri bağlama
 
-Bu senaryoda TestVNet1 ve TestVNet5 bağlanır. VNet’ler farklı aboneliklerde yer alır. Aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. Bu yapılandırmanın adımları TestVNet1’i TestVNet5’e bağlamak için Sanal Ağdan Sanal Ağa bir bağlantı daha ekler.
+Bu senaryoda TestVNet1 ve TestVNet5’i bağlarsınız. VNet’ler farklı aboneliklerde yer alır. Aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. Bu yapılandırmanın adımları TestVNet1’i TestVNet5’e bağlamak için Sanal Ağdan Sanal Ağa bir bağlantı daha ekler.
 
 ### <a name="TestVNet1diff"></a>5. Adım - TestVNet1’i oluşturma ve yapılandırma
 
@@ -327,7 +332,7 @@ Bu adım, yeni abonelik (5. Abonelik) bağlamında tamamlanmalıdır. Bu kısım
 
 ### <a name="connections5"></a>8. Adım - Bağlantıları oluşturma
 
-Bu örnekteki ağ geçitleri farklı aboneliklerde olduğundan, bu adımı **[1. Abonelik]** ve **[5. Abonelik]** olarak işaretlenen iki CLI oturumuna ayırdık. Abonelikler arasında geçiş yapmak için 'az account list --all' komutunu kullanarak hesabınızda kullanılabilen tüm abonelikleri listeleyin ve ardından 'az account set --subscription <subscriptionID>' komutuyla kullanmak istediğiniz aboneliğe geçin.
+Bu örnekteki ağ geçitleri farklı aboneliklerde olduğundan, bu adım **[1. Abonelik]** ve **[5. Abonelik]** olarak işaretlenen iki CLI oturumuna ayrılır. Abonelikler arasında geçiş yapmak için 'az account list --all' komutunu kullanarak hesabınızda kullanılabilen tüm abonelikleri listeleyin ve ardından 'az account set --subscription <subscriptionID>' komutuyla kullanmak istediğiniz aboneliğe geçin.
 
 1. **[1. Abonelik]** Oturum açın ve 1. Aboneliğe bağlanın. Çıktıdan Ağ Geçidinin adını ve kimliğini almak için şu komutu çalıştırın:
 

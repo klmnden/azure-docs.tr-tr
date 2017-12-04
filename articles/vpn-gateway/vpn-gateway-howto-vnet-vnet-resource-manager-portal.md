@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2da1c7148e27ca8dd8eb774d4201415a969fada
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Azure portalı kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
-Bu makalede, sanal ağlar arasında VPN ağ geçidi bağlantısının nasıl oluşturulduğu gösterilir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Farklı aboneliklerden sanal ağları bağlarken aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. 
+Bu makalede, sanal ağlar arası bağlantı türünü kullanarak sanal ağları bağlama işlemi gösterilmektedir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Farklı aboneliklerden sanal ağları bağlarken aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. 
 
 Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir ve Azure portalını kullanır. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
@@ -39,15 +39,15 @@ Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir ve A
 
 ![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-Bir sanal ağı başka bir sanal ağa bağlamak (VNet'ten VNet'e), bir VNet'i şirket içi site konumuna bağlamakla aynıdır. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır. Sanal ağlar arasında VNet-VNet yerine Siteden siteye (IPsec) bağlantıları oluşturulabilir. Her iki bağlantı türü de iletişim kurarken aynı şekilde çalışır. Ancak, VNet-VNet bağlantı oluşturduğunuzda bir sanal ağın adres alanını güncelleştirirseniz diğer sanal ağ, güncelleştirilmiş adres alanına yönlendireceğini otomatik olarak bilir. Siteden siteye (IPSec) bağlantıları oluşturursanız, yerel ağ geçidi için kullanılan adres alanını el ile yapılandırmanız gerekir. Karmaşık yapılandırmalarla çalışırken, VNet-VNet yerine IPSec bağlantıları oluşturmayı tercih edebilirsiniz. Bunun yapılması, yerel ağ geçidi için el ile ek adres alanı belirtmenizi sağlar.
+## <a name="about"></a>Sanal ağları bağlama hakkında
 
-VNet’leriniz aynı bölgedeyse VNet Eşlemesi kullanarak bağlamayı düşünebilirsiniz. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
+Sanal ağlar arası bağlantı türünü kullanarak bir sanal ağı başka bir sanal ağa bağlama işlemi, şirket içi bir site konumu ile IPsec bağlantısı oluşturma işlemiyle benzerdir. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır ve her ikisi de iletişim kurarken aynı şekilde çalışır. Bağlantı türleri arasındaki fark, yerel ağ geçidini yapılandırma şeklidir. Sanal ağlar arası bağlantı oluşturduğunuzda yerel ağ geçidi adres alanını görmezsiniz. Bu alan otomatik olarak oluşturulup doldurulur. Ancak, bir sanal ağın adres alanını güncelleştirirseniz diğer sanal ağ, güncelleştirilmiş adres alanına yönlendireceğini otomatik olarak bilir.
 
-Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile birleştirilebilir. Bunun yapılması aşağıdaki diyagramda da görüldüğü gibi şirket içi ve şirket dışı bağlantıyla sanal ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar:
+Karmaşık bir yapılandırma ile çalışıyorsanız VNet-VNet yerine IPSec bağlantı türünü kullanmayı tercih edebilirsiniz. Bunun yapılması, trafiği yönlendirmek için yerel ağ geçidine ait ek bir adres alanı belirtmenize olanak sağlar. Sanal ağlarınızı IPsec bağlantı türü ile bağlıyorsanız, yerel ağ geçidini el ile oluşturup yapılandırmanız gerekir. Daha fazla bilgi için bkz. [Siteden Siteye yapılandırmalar](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-![Bağlantılar hakkında](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+Ayrıca, VNet’leriniz aynı bölgedeyse VNet Eşlemesi kullanarak bağlamayı düşünebilirsiniz. VNet eşlemesi bir VPN ağ geçidi kullanmaz ve fiyatlandırma ile işlevselliği biraz farklıdır. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="why-connect-virtual-networks"></a>Sanal ağları neden bağlamalıyız?
+### <a name="why"></a>Neden sanal ağdan sanal ağa bağlantı oluşturmalısınız?
 
 Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
@@ -59,7 +59,11 @@ Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
   * Yalıtım ve yönetim gereksinimlerinden dolayı aynı bölge içinde birbirlerine bağlı birden fazla sanal ağ ile çok katmanlı uygulamalar kurabilirsiniz.
 
-Bu adımları bir alıştırma olarak kullanırken, örnek ayar değerlerini kullanabilirsiniz. Örnekte, sanal ağlar aynı abonelikte ancak farklı kaynak gruplarındadır. Sanal ağlarınız farklı aboneliklerdeyse, portalda bağlantı oluşturamazsınız. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) veya [CLI](vpn-gateway-howto-vnet-vnet-cli.md) kullanabilirsiniz. Sanal ağlar arası bağlantılar hakkında daha fazla bilgi için bu makalenin sonunda yer alan [Sanal ağlar arası bağlantılar hakkında SSS](#faq) bölümünü inceleyin.
+Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile birleştirilebilir. Bunun yapılması aşağıdaki diyagramda da görüldüğü gibi şirket içi ve şirket dışı bağlantıyla sanal ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar:
+
+![Bağlantılar hakkında](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+
+Bu makale, VNet-VNet bağlantı türünü kullanarak sanal ağlarınızı bağlamanıza yardımcı olur. Bu adımları bir alıştırma olarak kullanırken, örnek ayar değerlerini kullanabilirsiniz. Örnekte, sanal ağlar aynı abonelikte ancak farklı kaynak gruplarındadır. Sanal ağlarınız farklı aboneliklerdeyse, portalda bağlantı oluşturamazsınız. [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) veya [CLI](vpn-gateway-howto-vnet-vnet-cli.md) kullanabilirsiniz. Sanal ağlar arası bağlantılar hakkında daha fazla bilgi için bu makalenin sonunda yer alan [Sanal ağlar arası bağlantılar hakkında SSS](#faq) bölümünü inceleyin.
 
 ### <a name="values"></a>Örnek ayarlar
 

@@ -1,5 +1,5 @@
 ---
-title: "Stream Analytics ile Yüksek Frekanslı Alım-Satım Simülasyonu| Microsoft Docs"
+title: "Stream Analytics ile yüksek frekanslı alım-satım simülasyonu| Microsoft Docs"
 description: "Aynı Stream Analytics işinde doğrusal regresyon modeli çalıştırma ve puanlamasını yapma"
 keywords: "makine, öğrenme, machine learning, gelişmiş analiz, doğrusal regresyon, simülasyon, benzetim, UDA, kullanıcı tanımlı işlev"
 documentationcenter: 
@@ -15,23 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 0a5a1129c5b7fc693ed7c187d928a128650f28b9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Stream Analytics ile yüksek frekanslı alım-satım simülasyonu
-Azure Stream Analytics'in SQL dili ile JavaScript UDF ve UDA bileşimi, kullanıcıların gelişmiş analiz gerçekleştirmelerine, örneğin makine öğrenme çalıştırması ve puanlaması, ayrıca durum bilgisi içeren işlem simülasyonu yapmasına olanak tanıyan güçlü bir bileşimdir. Bu makalede, yüksek frekanslı bir alım-satım senaryosunda sürekli çalıştıran ve puanlama yapan bir Azure Stream Analytics işinde nasıl doğrusal regresyon gerçekleştirileceği açıklanır.
+Azure Stream Analytics’te SQL dili ve JavaScript kullanıcı tanımlı işlevleri (UDF) ile kullanıcı tanımlı toplamların (UDAs) birleşimi, kullanıcıların gelişmiş analiz gerçekleştirmesine olanak tanır. Gelişmiş analizler, çevrimiçi makine öğrenimi eğitim ve puanlamasının yanı sıra durum bilgisi olan işlem simülasyonunu içerebilir. Bu makalede, yüksek frekanslı bir alım-satım senaryosunda sürekli çalıştıran ve puanlama yapan bir Azure Stream Analytics işinde nasıl doğrusal regresyon gerçekleştirileceği açıklanır.
 
 ## <a name="high-frequency-trading"></a>Yüksek frekanslı alım-satım
-Yüksek frekanslı alım-satımın mantıksal akışı; borsadan gerçek zamanlı teklifleri almak, teklifler çerçevesinde bir tahmin modeli oluşturarak fiyat hareketlerini tahmin edebilmek ve fiyat hareketlerinin başarılı bir tahminiyle kazanç sağlamak için buna uygun alım ve satım emirleri vermektir. Sonuç olarak şunlara ihtiyacımız vardır
-* Gerçek zamanlı teklif akışı
-* Gerçek zamanlı teklifler üzerinde çalışabilecek bir tahmin modeli
-* Alım satım algoritmasının kar/zarar durumunu gösteren bir alım satım simülasyonu
+Yüksek frekanslı alım-satımın mantıksal akışı şununla ilgilidir:
+1. Bir menkul kıymetler borsasından gerçek zamanlı teklifler alma.
+2. Fiyat hareketlerini öngörebilmemiz için tekliflerle ilgili tahmine dayalı bir model derleme.
+3. Fiyat hareketlerinin başarılı tahminlerinden gelir elde etmek için satın alma veya satış siparişleri verme. 
+
+Sonuç olarak şunlar gerekir:
+* Gerçek zamanlı bir teklif akışı.
+* Gerçek zamanlı teklifler üzerinde çalışabilecek bir tahmine dayalı model.
+* Alım satım algoritmasının kar veya zarar durumunu gösteren bir alım satım simülasyonu.
 
 ### <a name="real-time-quote-feed"></a>Gerçek zamanlı teklif akışı
-IEX socket.io (https://iextrading.com/developer/docs/#websockets) kullanarak ücretsiz gerçek zamanlı teklif ve satış fiyatı teklifleri sağlar. Gerçek zamanlı teklifleri almak ve veri kaynağı olarak Olay Hub'ına göndermek için basit bir konsol programı yazılabilir. Programın çatısı aşağıda gösterilmiştir. Uzatmamak için hata işleme atlanmıştır. Projenize SocketIoClientDotNet ve WindowsAzure.ServiceBus nuget paketlerini de eklemeniz gerekir.
+IEX, socket.io kullanarak ücretsiz [gerçek zamanlı teklif ve soru teklifleri](https://iextrading.com/developer/docs/#websockets) sunar. Gerçek zamanlı teklifleri almak ve veri kaynağı olarak Azure Event Hubs’a göndermek için basit bir konsol programı yazılabilir. Aşağıdaki kod, programın iskeletidir. Kod, kısa tutmak için hata işlemeyi atlar. Projenize SocketIoClientDotNet ve WindowsAzure.ServiceBus NuGet paketlerini de eklemeniz gerekir.
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -51,7 +56,7 @@ IEX socket.io (https://iextrading.com/developer/docs/#websockets) kullanarak üc
         socket.Emit("subscribe", symbols);
     });
 
-Burada bazı örnek olaylar oluşturulmuştur.
+Oluşturulan bazı örnek olaylar aşağıda verilmiştir:
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -62,18 +67,20 @@ Burada bazı örnek olaylar oluşturulmuştur.
     {"symbol":"GOOG","marketPercent":0.04795,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953362629,"sector":"softwareservices","securityType":"commonstock"}
 
 >[!NOTE]
->Olayın zaman damgası **lastUpdated**'dir (dönem zamanı cinsinden).
+>Olayın zaman damgası **lastUpdated** şeklindedir (dönem zamanı cinsinden).
 
-### <a name="predictive-model-for-high-frequency-trading"></a>Yüksek frekanslı alım-satım için tahmin modeli
-Gösterim amacıyla, bu çalışmada Darryl Shen tarafından açıklanan bir doğrusal model kullandık. http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf.
+### <a name="predictive-model-for-high-frequency-trading"></a>Yüksek frekanslı alım-satım için tahmine dayalı model
+Gösterim amacıyla, bu çalışmada Darryl Shen tarafından [makalesinde](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf) anlatılan bir doğrusal model kullandık.
 
-Toplu Alım-Satım Emri Dengesizliği (VOI) geçerli teklif/satış fiyatı ve hacim ile son fiyat dalgalanmasından gelen teklif/satış fiyatı/hacmin bir fonksiyonudur. Çalışmada, VOI ile gelecekteki fiyat hareketi arasında korelasyon tanımlanır ve geçmiş 5 VOI değeriyle son 10 fiyat dalgalanmasındaki fiyat değişikliği arasında doğrusal bir model oluşturulur. Model, doğrusal regresyonla önceki günün verileri kullanılarak çalıştırılır. Çalıştırılan model, geçerli alım-satım günündeki teklifler üzerinden gerçek zamanlı fiyat değişikliği tahminleri yapmak için kullanılır. Yeterince büyük bir fiyat değişikliği tahmini elde edildiğinde, alım-satım işlemi yürürlüğe konur. Eşik ayarına bağlı olarak, bir alım-satım gününde tek bir hisse senedi için binlerce alım-satım yapılması beklenebilir.
+Hacim sipariş dengesizliği (VOI) geçerli teklif/satış fiyatı ve hacim ile son fiyat dalgalanmasından gelen teklif/satış fiyatı ve hacmin bir fonksiyonudur. Makale, VOI ile gelecekteki fiyat hareketi arasındaki bağıntıyı tanımlar. Geçmiş 5 VOI değeri ile son 10 fiyat dalgalanmasındaki fiyat değişikliği arasında doğrusal bir model oluşturur. Model, doğrusal regresyonla önceki günün verileri kullanılarak çalıştırılır. 
+
+Çalıştırılan model, geçerli alım-satım günündeki teklifler üzerinden gerçek zamanlı fiyat değişikliği tahminleri yapmak için kullanılır. Yeterince büyük bir fiyat değişikliği tahmini elde edildiğinde, alım-satım işlemi yürürlüğe konur. Eşik ayarına bağlı olarak, bir alım-satım gününde tek bir hisse senedi için binlerce alım-satım yapılması beklenebilir.
 
 ![VOI tanımı](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
 Şimdi, Azure Stream Analytics işindeki çalıştırma ve tahmin işlemlerini ortaya koyalım.
 
-İlk olarak, girişler temizlenir. Dönem zamanı **DATEADD** kullanılarak tarih saate dönüştürülür. Sorgu başarısız olmadan veri türlerini zorlamak için **TRY_CAST** kullanılır. Giriş alanlarını beklenen veri türlerine yöneltmek her zaman iyi bir yöntemdir; böylelikle, alanların işlenmesi veya karşılaştırılması söz konusu olduğunda beklenmedik davranışlar görülmez.
+İlk olarak, girişler temizlenir. Dönem zamanı **DATEADD** kullanılarak tarih saate dönüştürülür. Sorgu başarısız olmadan veri türlerini zorlamak için **TRY_CAST** kullanılır. Giriş alanlarını beklenen veri türlerine yöneltmek her zaman iyi bir yöntemdir; böylelikle, alanların işlenmesi veya karşılaştırılması sırasında beklenmedik davranışlar görülmez.
 
     WITH
     typeconvertedquotes AS (
@@ -93,7 +100,7 @@ Toplu Alım-Satım Emri Dengesizliği (VOI) geçerli teklif/satış fiyatı ve h
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
         SELECT * FROM typeconvertedquotes
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
@@ -116,7 +123,7 @@ Ardından, son fiyat dalgalanmasından değerleri almak için **LAG** işlevini 
         FROM timefilteredquotes
     ),
 
-Ardından VOI değerini hesaplayabiliriz. Önceki fiyat dalgalanmasının mevcut olmaması durumunda, null değerleri filtrenin dışında bıraktığımızı unutmayın.
+Ardından VOI değerini hesaplayabiliriz. Önceki fiyat dalgalanmasının mevcut olmaması durumunda, null değerleri filtrenin dışında bırakırız.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -163,7 +170,7 @@ Ardından VOI değerini hesaplayabiliriz. Önceki fiyat dalgalanmasının mevcut
         FROM currentPriceAndVOI
     ),
 
-Sonra iki değişkenli doğrusal model için verileri girişler halinde yeniden şekillendiririz. Tüm verilere sahip olmadığımız olayları yine filtrenin dışında bırakın.
+Sonra iki değişkenli doğrusal model için verileri girişler halinde yeniden şekillendiririz. Tüm verilere sahip olmadığımız olayları yine filtrenin dışında bırakırız.
 
     modelInput AS (
         /* create feature vector, x being VOI, y being delta price */
@@ -230,7 +237,7 @@ Azure Stream Analytics'in yerleşik bir doğrusal regresyon işlevi olmadığın
         FROM modelparambs
     ),
 
-Geçerli olayın puanlamasında önceki günün modelini kullanmak için, teklifleri modelle birleştirmek istiyoruz. Öte yandan, burada **JOIN** kullanmak yerine **UNION** kullanarak model olaylarını ve teklif olaylarını birleştiririz, sonra da **LAG** kullanarak olayları önceki günün modeliyle eşleştirir, bu sayede tam olarak bir eşleştirme elde edebiliriz. Hafta sonu nedeniyle, üç gün geriye bakmamız gerekiyor. Basitçe **JOIN** kullanırsak, her teklif olayı için üç model elde ederiz.
+Geçerli olayın puanlamasında önceki günün modelini kullanmak için, teklifleri modelle birleştirmek istiyoruz. Ancak, model olayları ve teklif olaylarında **JOIN** yerine **UNION** işlemini kullanırız. Sonra **LAG** işlemini kullanarak, olayları önceki günün modeliyle tek olarak bir eşleşme alabilecek şekilde eşleştiriyoruz. Hafta sonu nedeniyle, üç gün geriye bakmamız gerekiyor. Basit bir **JOIN** kullansaydık, her teklif olayı için üç model elde ederdik.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -266,7 +273,7 @@ Geçerli olayın puanlamasında önceki günün modelini kullanmak için, teklif
         FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
         SELECT
             symbol,
             midPrice,
@@ -279,7 +286,7 @@ Geçerli olayın puanlamasında önceki günün modelini kullanmak için, teklif
         WHERE type = 'voi'
     ),
 
-Şimdi, modeli temel alarak 0,02 eşik değeriyle tahminlerde bulunabilir ve alım/satım sinyalleri oluşturabiliriz. 10 alım-satım değeri alım; -10 alım satım değeri satıştır.
+Şimdi, modeli temel alarak 0,02 eşik değeriyle tahminlerde bulunabilir ve alım/satım sinyalleri oluşturabiliriz. Alım-satım değerinin 10 olması satın almayı ifade eder. Alım-satım değerinin -10 olması satışı ifade eder.
 
     prediction AS (
         /* make prediction if there is a model */
@@ -308,11 +315,13 @@ Geçerli olayın puanlamasında önceki günün modelini kullanmak için, teklif
     ),
 
 ### <a name="trading-simulation"></a>Alım-satım benzetimi
-Alım-satım sinyallerimiz olduğunda, gerçekten alım-satım yapmadan alım-satım stratejisinin ne kadar efektif olduğunu test etmek isteyebiliriz. Bunu başarmak için kullanıcı tanımlı toplama (UDA), her bir dakikada bir atlayan atlamalı pencereler kullanılır. Tarih üzerinde ek gruplandırma ve Having yan tümcesi, pencerenin yalnızca aynı güne ait olayları hesaba katmasına olanak tanır. İki güne yayılan bir atlama penceresi için, tarihe göre **GROUP BY** kullanmak gruplandırmayı önceki gün ve geçerli gün olarak ayırır. **HAVING** yan tümcesi geçerli günde biten aman önceki günde gruplandırma yapan pencereleri filtrenin dışında bırakır.
+Alım-satım sinyallerimiz olduğunda, gerçekten alım-satım yapmadan alım-satım stratejisinin ne kadar efektif olduğunu test etmek isteriz. 
+
+Dakikada bir kez atlayan bir atlamalı pencere ile UDA kullanarak bu testi gerçekleştiririz. Tarih üzerinde ek gruplandırma ve Having yan tümcesi, pencerenin yalnızca aynı güne ait olayları hesaba katmasına olanak tanır. İki güne yayılan bir atlamalı pencere için, tarihe göre **GROUP BY** kullanmak gruplandırmayı önceki gün ve geçerli gün olarak ayırır. **HAVING** yan tümcesi geçerli günde biten aman önceki günde gruplandırma yapan pencereleri filtrenin dışında bırakır.
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
         SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
             symbol,
@@ -323,7 +332,13 @@ Alım-satım sinyallerimiz olduğunda, gerçekten alım-satım yapmadan alım-sa
         Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-JavaScript UDA init işlevindeki tüm biriktiricileri başlatır, pencereye eklenen her olayla birlikte durum geçişini hesaplar ve pencerenin sonunda simülasyon sonuçlarını döndürür. Genel alım-satım süreci, alım sinyali alındığında ve hissedarlık olmadığında hisse senedi satın almak ve satım sinyali alındığında ve hissedarlık olduğunda hisse senedi satmak veya hissedarlık olmadığında satış pozisyonunda kalmaktır. Satış pozisyonu söz konusuysa ve alım sinyali alınırsa, açığı kapatmak için alım yapın. Bu simülasyonda belirli bir hisse senedinde hiçbir zaman 10 hisse tutma veya satış pozisyonunda kalmadık ve işlem maliyeti düz 8 dolardı.
+JavaScript UDA `init` işlevindeki tüm biriktiricileri başlatır, pencereye eklenen her olayla birlikte durum geçişini hesaplar ve pencerenin sonunda simülasyon sonuçlarını döndürür. Genel alım-satım işleminin amaçları şunlardır:
+
+- Satın alma sinyali alındığında ve hissedarlık olmadığında stok satın almak.
+- Satış sinyali alındığında ve hissedarlık olduğunda stok satmak.
+- Hissedarlık yoksa satmak. 
+
+Satış pozisyonu söz konusuysa ve satın alma sinyali alınırsa, açığı kapatmak için alım yaparız. Bu simülasyonda hiçbir zaman 10 hisse tutmayız veya satmayız. İşlem maliyet tam 8 USD’dir.
 
 
     function main() {
@@ -411,7 +426,7 @@ JavaScript UDA init işlevindeki tüm biriktiricileri başlatır, pencereye ekle
         }
     }
 
-Son olarak, görselleştirme için çıkışları Power BI panosuna verdik.
+Son olarak, görselleştirme için çıkışları Power BI panosuna veririz.
 
     SELECT * INTO tradeSignalDashboard FROM tradeSignal /* output tradeSignal to PBI */
     SELECT
@@ -432,6 +447,10 @@ Son olarak, görselleştirme için çıkışları Power BI panosuna verdik.
 
 
 ## <a name="summary"></a>Özet
-Sizin de görebileceğiniz gibi, gerçekçi bir yüksek frekanslı alım-satım modeli Azure Stream Analytics'te ortalama karmaşıklıkta bir soruyla gerçekleştirilebilir. Yerleşik doğrusal regresyon işlevinin olmamasından dolayı, beş giriş değişkenini ikiye düşürerek modeli basitleştirmemiz gerekti. Bununla birlikte, kararlı bir kullanıcı için daha büyük boyutlu ve gelişmiş algoritmaların JavaScript UDA olarak da gerçekleştirilmesi mümkündür. JavaScript UDA'dan farklı olarak sorgunun büyük bölümünün Visual Studio'nun içinden [Visual Studio için Azure Stream Analytics Aracı](stream-analytics-tools-for-visual-studio.md) kullanılarak test edilebileceğini ve hatalarının ayıklanabileceğini belirtmekte yarar var. İlk sorgu yazıldıktan sonra, yazar Visual Studio'da 30 dakikadan kısa bir sürede sorguyu test edebilir ve hatalarını ayıklayabilir. Şu anda, Visual Studio'da UDA'nın hata ayıklaması yapılamaz. JavaScript kodunun üzerinden geçme becerisiyle bunu etkinleştirmek için çalışmalarımız sürüyor. Bunlara ek olarak, UDA'ya ulaşan alanların alan adlarının tümüyle küçük harf olduğunu lütfen unutmayın. Sorgu testi sırasında bu açıkça görülen bir davranış değildi. Ancak Azure Stream Analytics uyumluluk düzeyi 1.1 ile, daha doğal bir davranış için alan adındaki büyük/küçük harf kullanımının korunmasına izin verdik.
+Gerçekçi bir yüksek frekanslı alım-satım modelini Azure Stream Analytics’te ortalama karmaşıklıkta bir sorguyla uygulayabiliriz. Yerleşik doğrusal regresyon işlevinin olmamasından dolayı, beş giriş değişkenini ikiye düşürerek modeli basitleştirmemiz gerekti. Bununla birlikte, kararlı bir kullanıcı için daha büyük boyutlu ve gelişmiş algoritmaların JavaScript UDA olarak da gerçekleştirilmesi mümkündür. 
+
+JavaScript UDA’dan farklı olarak sorgunun büyük bölümünün Visual Studio’nun içinden [Visual Studio için Azure Stream Analytics araçları](stream-analytics-tools-for-visual-studio.md) kullanılarak test edilebileceğini ve hatalarının ayıklanabileceğini belirtmekte yarar var. İlk sorgu yazıldıktan sonra, yazar Visual Studio'da 30 dakikadan kısa bir sürede sorguyu test edebilir ve hatalarını ayıklayabilir. 
+
+Şu anda, Visual Studio’da UDA’nın hata ayıklaması yapılamaz. JavaScript kodunun üzerinden geçme becerisiyle bunu etkinleştirmek için çalışmalarımız sürüyor. Ayrıca, UDA’ya ulaşan alanların adlarının küçük harfle başladığını unutmayın. Sorgu testi sırasında bu açıkça görülen bir davranış değildi. Ancak Azure Stream Analytics uyumluluk düzeyi 1.1 ile, daha doğal bir davranış için alan adındaki büyük/küçük harf kullanımını koruruz.
 
 Bu makalenin tüm Azure Stream Analytics kullanıcılarına, hizmetimizi kullanarak neredeyse gerçek zamanlı, sürekli gelişmiş analiz yapabilecek herkese ilham vermesini umuyorum. İleri düzey analitik senaryolarında sorguları gerçekleştirmeyi kolaylaştırmak için geri bildirimlerinizi almak isteriz.

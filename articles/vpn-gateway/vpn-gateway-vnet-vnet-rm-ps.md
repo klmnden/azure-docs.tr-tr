@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure sanal ağını başka bir sanal ağa bağlama: PowerShell | Microsoft Docs"
-description: "Bu makalede Azure Resource Manager ve PowerShell kullanarak sanal ağları birbirine bağlama konusu incelenmektedir."
+title: "Sanal ağlar arası bağlantı kullanarak Azure sanal ağını başka bir sanal ağa bağlama: PowerShell | Microsoft Docs"
+description: "Bu makalede, Sanal ağlar arası bağlantı ve PowerShell kullanarak sanal ağları birbirine bağlama konusu incelenmektedir."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
-Bu makalede, sanal ağlar arasında VPN ağ geçidi bağlantısının nasıl oluşturulduğu gösterilir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Farklı aboneliklerden sanal ağları bağlarken aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. 
+Bu makalede, sanal ağlar arası bağlantı türünü kullanarak sanal ağları bağlama işlemi gösterilmektedir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Farklı aboneliklerden sanal ağları bağlarken aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez.
 
 Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir ve PowerShell kullanır. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
@@ -37,13 +37,15 @@ Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir ve P
 >
 >
 
-Bir sanal ağı başka bir sanal ağa bağlamak (VNet'ten VNet'e), bir VNet'i şirket içi site konumuna bağlamakla aynıdır. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır. VNet’leriniz aynı bölgedeyse VNet Eşlemesi kullanarak bağlamayı düşünebilirsiniz. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>Sanal ağları bağlama hakkında
 
-Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile birleştirilebilir. Bunun yapılması aşağıdaki diyagramda da görüldüğü gibi şirket içi ve şirket dışı bağlantıyla sanal ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar:
+Sanal ağlar arası bağlantı türünü (VNet2VNet) kullanarak bir sanal ağı başka bir sanal ağa bağlama işlemi, şirket içi bir site konumu ile IPsec bağlantısı oluşturma işlemiyle benzerdir. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır ve her ikisi de iletişim kurarken aynı şekilde çalışır. Bağlantı türleri arasındaki fark, yerel ağ geçidini yapılandırma şeklidir. Sanal ağlar arası bağlantı oluşturduğunuzda yerel ağ geçidi adres alanını görmezsiniz. Bu alan otomatik olarak oluşturulup doldurulur. Ancak, bir sanal ağın adres alanını güncelleştirirseniz diğer sanal ağ, güncelleştirilmiş adres alanına yönlendireceğini otomatik olarak bilir.
 
-![Bağlantılar hakkında](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
+Karmaşık bir yapılandırma ile çalışıyorsanız VNet-VNet yerine IPSec bağlantı türünü kullanmayı tercih edebilirsiniz. Bunun yapılması, trafiği yönlendirmek için yerel ağ geçidine ait ek bir adres alanı belirtmenize olanak sağlar. Sanal ağlarınızı IPsec bağlantı türü ile bağlıyorsanız, yerel ağ geçidini el ile oluşturup yapılandırmanız gerekir. Daha fazla bilgi için bkz. [Siteden Siteye yapılandırmalar](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-### <a name="why-connect-virtual-networks"></a>Sanal ağları neden bağlamalıyız?
+Ayrıca, VNet’leriniz aynı bölgedeyse VNet Eşlemesi kullanarak bağlamayı düşünebilirsiniz. VNet eşlemesi bir VPN ağ geçidi kullanmaz ve fiyatlandırma ile işlevselliği biraz farklıdır. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Neden sanal ağdan sanal ağa bağlantı oluşturmalısınız?
 
 Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
@@ -55,19 +57,22 @@ Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
   * Yalıtım ve yönetim gereksinimlerinden dolayı aynı bölge içinde birbirlerine bağlı birden fazla sanal ağ ile çok katmanlı uygulamalar kurabilirsiniz.
 
-Sanal ağlar arası bağlantılar hakkında daha fazla bilgi için bu makalenin sonunda yer alan [Sanal ağlar arası bağlantılar hakkında SSS](#faq) bölümünü inceleyin.
+Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile birleştirilebilir. Bu özellik şirket içi ve şirket dışı bağlantıyla ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar.
 
 ## <a name="which-set-of-steps-should-i-use"></a>Hangi adımları tamamlamalıyım? 
 
-Bu makalede iki farklı adım kümesi görürsünüz. [Aynı abonelikte bulunan sanal ağlar](#samesub) için adım kümesi. Bu yapılandırmanın adımları TestVNet1 ve TestVNet4'ü kullanır.
+Bu makalede iki farklı adım kümesi görürsünüz. Bir adım kümesi [Aynı abonelikte bulunan sanal ağlar](#samesub), biri ise [Farklı aboneliklerde bulunan sanal ağlar](#difsub) içindir.
+Kümeler arasındaki temel fark, farklı aboneliklerde bulunan sanal ağlar için bağlantıları yapılandırırken ayrı PowerShell oturumları kullanmanızın gerekmesidir. 
 
-![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+Bu alıştırma için, yapılandırmaları birleştirebilir veya yalnızca birlikte çalışmak istediğiniz yapılandırmayı seçebilirsiniz. Tüm yapılandırmalar VNet-VNet bağlantı türünü kullanır. Ağ trafiği, birbirine doğrudan bağlı sanal ağlar arasında akar. Bu alıştırmada TestVNet4 trafiği TestVNet5’e yönlendirilmez.
 
-[Farklı aboneliklerde bulunan sanal ağlar](#difsub) için ayrı bir makale mevcuttur. O yapılandırmaya ilişkin adımlar TestVNet1 ve TestVNet5’i kullanır.
+* [Aynı abonelikte bulunan sanal ağlar:](#samesub) Bu yapılandırmanın adımları TestVNet1 ve TestVNet4’ü kullanır.
 
-![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+  ![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-Kümeler arasındaki temel farklılık, tüm sanal ağ ve ağ geçidi kaynaklarını oluşturma ve yapılandırma işlemini aynı PowerShell oturumunda yapıp yapamayacağınızdadır. Farklı aboneliklerde bulunan sanal ağlar için bağlantıları yapılandırırken ayrı PowerShell oturumları kullanmanız gerekir. İsterseniz yapılandırmaları birleştirebilir veya yalnızca birlikte çalışmak istediğiniz yapılandırmayı seçebilirsiniz.
+* [Farklı abonelikte bulunan sanal ağlar:](#difsub) Bu yapılandırmanın adımları TestVNet1 ve TestVNet5’i kullanır.
+
+  ![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 ## <a name="samesub"></a>Aynı abonelikte olan Vnet'ler bağlanma
 
@@ -77,7 +82,7 @@ Başlamadan önce Azure Resource Manager PowerShell cmdlet’lerinin en yeni sü
 
 ### <a name="Step1"></a>1. adım -, IP adres aralıklarını planlama
 
-Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla birlikte iki sanal ağ oluşturulur. Daha sonra iki sanal ağ arasında bir VPN bağlantısı oluşturulur. Ağ yapılandırmanız için IP adres aralıklarını planlamanız önemlidir. Sanal ağ aralıklarınızın ya da yerel ağ aralıklarınızın hiçbir şekilde çakışmadığından emin olmalısınız. Bu örneklerde bir DNS sunucusu eklemiyoruz. Sanal ağlarınız için ad çözümlemesi istiyorsanız bkz. [Ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla birlikte iki sanal ağ oluşturursunuz. Daha sonra iki sanal ağ arasında bir VPN bağlantısı oluşturursunuz. Ağ yapılandırmanız için IP adres aralıklarını planlamanız önemlidir. Sanal ağ aralıklarınızın ya da yerel ağ aralıklarınızın hiçbir şekilde çakışmadığından emin olmalısınız. Bu örneklerde bir DNS sunucusu eklemiyoruz. Sanal ağlarınız için ad çözümlemesi istiyorsanız bkz. [Ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Örneklerde aşağıdaki değerler kullanılmaktadır:
 
@@ -284,7 +289,7 @@ TestVNet1 yapılandırıldıktan sonra TestVNet4’ü oluşturun. Aşağıdaki a
 
 ## <a name="difsub"></a>Farklı abonelikleri olan Vnet'ler bağlanma
 
-Bu senaryoda TestVNet1 ve TestVNet5 bağlanır. TestVNet1 ve TestVNet5 farklı bir abonelikte bulunur. Aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. Bu adımlar ve önceki adım kümesi arasındaki fark, yapılandırma adımlarının bir kısmının ikinci abonelik bağlamında farklı bir PowerShell oturumunda tamamlanması gerektiğidir. Bu durum özellikle iki aboneliğin farklı kuruluşlara ait olduğu durumlarda geçerlidir.
+Bu senaryoda TestVNet1 ve TestVNet5’i bağlarsınız. TestVNet1 ve TestVNet5 farklı bir abonelikte bulunur. Aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. Bu adımlar ve önceki adım kümesi arasındaki fark, yapılandırma adımlarının bir kısmının ikinci abonelik bağlamında farklı bir PowerShell oturumunda tamamlanması gerektiğidir. Bu durum özellikle iki aboneliğin farklı kuruluşlara ait olduğu durumlarda geçerlidir.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>5. Adım - TestVNet1'i oluşturma ve yapılandırma
 
