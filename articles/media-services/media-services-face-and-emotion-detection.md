@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: a55a0c2ef8c1c065b39fce9dc6ef2f806b60dfdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89a2e590d7ae80540ac9f4d76be6f5f50049bdd6
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Yüz ve duygu Azure medya Analizi ile Algıla
 ## <a name="overview"></a>Genel Bakış
@@ -74,7 +74,7 @@ Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandır
 #### <a name="attribute-descriptions"></a>Öznitelik tanımlarını
 | Öznitelik adı | Açıklama |
 | --- | --- |
-| Modu |Hızlı - hızı, ancak daha az doğru (varsayılan) hızlı işleniyor.|
+| Mod |Hızlı - hızı, ancak daha az doğru (varsayılan) hızlı işleniyor.|
 
 ### <a name="json-output"></a>JSON çıktısını
 Aşağıdaki örnek JSON çıktısını kesildi.
@@ -146,7 +146,7 @@ Bir görev oluştururken **Azure medya yüz algılayıcısı**, bir yapılandır
 #### <a name="attribute-descriptions"></a>Öznitelik tanımlarını
 | Öznitelik adı | Açıklama |
 | --- | --- |
-| Modu |Yazıtipleri: Yalnızca algılama karşılaşıyor.<br/>PerFaceEmotion: her yüz algılama için ayrı ayrı duygu döndür.<br/>AggregateEmotion: Tüm yüzeyleri çerçevesinde dönüş ortalama duygu değerleri. |
+| Mod |Yazıtipleri: Yalnızca algılama karşılaşıyor.<br/>PerFaceEmotion: her yüz algılama için ayrı ayrı duygu döndür.<br/>AggregateEmotion: Tüm yüzeyleri çerçevesinde dönüş ortalama duygu değerleri. |
 | AggregateEmotionWindowMs |AggregateEmotion modunu seçtiyseniz kullanın. Milisaniye cinsinden toplam her sonucu oluşturmak için kullanılan video uzunluğunu belirtir. |
 | AggregateEmotionIntervalMs |AggregateEmotion modunu seçtiyseniz kullanın. Toplama sonuçları üretmek için çalıştırılma sıklığını belirtir. |
 
@@ -333,6 +333,13 @@ Aşağıdaki program gösterir nasıl yapılır:
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
 Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
+
+Örnek çalışmak iki ek adımları izleyin:
+
+1. 4.1.0'da sürümünü kullanın **WindowsAzure.MediaServices.Extensions** (nedeniyle uyumluluk sorunları bağımlı paketleri ile). 
+2. 3.16.1 sürümünü kullanın **Microsoft.IdentityModel.Clients.activedirectory tarafından** (bilinen bir sorundur sonraki sürümlerinde).
+
+Bu gereksinimleri 24 Kasım 2017 itibariyle etkindir.
 
 #### <a name="example"></a>Örnek
 

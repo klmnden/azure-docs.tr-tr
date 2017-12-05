@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>API Management ilkeleri Gelişmiş
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a>Gelişmiş ilkeleri  
   
 -   [Denetim akışı](api-management-advanced-policies.md#choose) - koşullu ilke deyimleri Boole değerlendirmesi sonuçlarına dayalı uygular [ifadeleri](api-management-policy-expressions.md).  
-  
 -   [İstek](#ForwardRequest) -arka uç hizmetine isteği iletir.
-
 -   [Eşzamanlılık sınırlamak](#LimitConcurrency) -engeller içine birden çok belirtilen istek sayısının tarafından aynı anda yürütülmesini ilkeleri.
-  
 -   [Olay Hub'ına günlük](#log-to-eventhub) -gönderdiği iletileri belirtilen biçimde Günlükçü varlık tarafından tanımlanan bir olay Hub'ına. 
-
 -   [Yanıt mock](#mock-response) -iptalleri potansiyel satış, yürütme ve doğrudan çağırana mocked bir yanıt döndürür.
-  
 -   [Yeniden deneme](#Retry) -değilse ve koşul yerine getirilene kadar iliştirilmiş ilke deyimleri yürütülmesi yeniden dener. Yürütme belirtilen zaman aralıklarında yineleyin ve belirtilen en fazla yeniden deneme sayısı.  
-  
 -   [Yanıt](#ReturnResponse) -iptalleri potansiyel satış, yürütme ve doğrudan çağırana belirtilen yanıt verir. 
-  
 -   [Tek yönlü İsteği Gönder](#SendOneWayRequest) -bir istek için yanıt beklemeden belirtilen URL'ye gönderir.  
-  
 -   [İsteği Gönder](#SendRequest) -belirtilen URL'ye bir isteği gönderir.  
-
 -   [HTTP proxy ayarlamak](#SetHttpProxy) -bir HTTP proxy üzerinden iletilen rota isteklere izin verir.  
-
 -   [İstek yöntemini ayarla](#SetRequestMethod) -bir istek için HTTP yöntemini değiştirmenize izin verir.  
-  
 -   [Durum kodu ayarlamak](#SetStatus) -HTTP durum kodu için belirtilen değer değiştirir.  
-  
 -   [Değişken Ayarla](api-management-advanced-policies.md#set-variable) -adlandırılmış bir değer devam [bağlamı](api-management-policy-expressions.md#ContextVariables) sonraki erişim için değişken.  
-
 -   [İzleme](#Trace) -bir dizeye ekler [API denetçisi](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/) çıktı.  
-  
 -   [Bekleyin](#Wait) -içine için bekleyeceği [gönderme isteği](api-management-advanced-policies.md#SendRequest), [değeri önbellekten alma](api-management-caching-policies.md#GetFromCacheByKey), veya [kontrol akışı](api-management-advanced-policies.md#choose) devam etmeden önce tamamlanmasını ilkeleri.  
   
 ##  <a name="choose"></a>Denetim akışı  
@@ -264,7 +249,6 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** arka uç  
-  
 -   **İlke kapsamları:** tüm kapsamlar  
   
 ##  <a name="LimitConcurrency"></a>Sınır eşzamanlılık  
@@ -454,7 +438,7 @@ status code and media type. If no example or schema found, the content is empty.
   
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
-|Koşul|Boole bir hazır değer veya [ifade](api-management-policy-expressions.md) yeniden deneme durmuş olup belirtme (`false`) veya devam (`true`).|Evet|Yok|  
+|koşul|Boole bir hazır değer veya [ifade](api-management-policy-expressions.md) yeniden deneme durmuş olup belirtme (`false`) veya devam (`true`).|Evet|Yok|  
 |sayı|Denemek için yeniden deneme sayısını belirten pozitif bir sayı.|Evet|Yok|  
 |interval|Yeniden deneme bekleme aralığını belirterek saniye cinsinden pozitif bir sayı çalışır.|Evet|Yok|  
 |en fazla aralığı|Yeniden deneme girişimleri arasındaki aralığı saniye cinsinden maksimum belirten pozitif bir sayı bekleyin. Üstel yeniden deneme algoritması uygulamak için kullanılır.|Hayır|Yok|  
@@ -570,7 +554,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |bir şekilde İsteği Gönder|Kök öğesi.|Evet|  
-|URL|İstek URL'si.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
+|url|İstek URL'si.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |Yöntemi|İstek HTTP yöntemi.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |üst bilgi|İstek üstbilgisi. Birden çok üstbilgi öğeleri için birden çok istek üstbilgileri kullanın.|Hayır|  
 |body|İstek gövdesi.|Hayır|  
@@ -649,7 +633,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |Gönderme isteği|Kök öğesi.|Evet|  
-|URL|İstek URL'si.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
+|url|İstek URL'si.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |Yöntemi|İstek HTTP yöntemi.|Hiçbir IF modu kopyalama; = Aksi takdirde Evet.|  
 |üst bilgi|İstek üstbilgisi. Birden çok üstbilgi öğeleri için birden çok istek üstbilgileri kullanın.|Hayır|  
 |body|İstek gövdesi.|Hayır|  
@@ -807,7 +791,6 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** giden, arka uç, hata  
-  
 -   **İlke kapsamları:** tüm kapsamlar  
 
 ##  <a name="set-variable"></a>Değişken Ayarla  
@@ -843,72 +826,41 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen, giden arka uç, hata  
-  
 -   **İlke kapsamları:** tüm kapsamlar  
   
 ###  <a name="set-variableAllowedTypes"></a>İzin verilen türleri  
  Kullanılan ifadeleri `set-variable` ilke aşağıdaki temel türlerinden birini döndürmesi gerekir.  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   System.TimeSpan  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a>İzleme  
@@ -1004,13 +956,16 @@ Kullanımına dikkat edin [özellikleri](api-management-howto-properties.md) kul
 |için|Belirler olup olmadığını `wait` ilke tüm hemen alt ilkeleri tamamlanan veya yalnızca bir olmasını bekler. İzin verilen değerler:<br /><br /> -   `all`-Tüm hemen alt ilkeleri tamamlanması bekleyin<br />-any - tamamlamak hemen alt ilke bekleyin. İlk anında alt ilke tamamlandıktan sonra `wait` ilkeyi tamamladıktan ve diğer hemen alt ilkeleri yürütülmesi biter.|Hayır|tümü|  
   
 ### <a name="usage"></a>Kullanım  
- Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ 
+Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen, giden arka uç  
-  
--   **İlke kapsamları:**tüm kapsamlar  
+-   **İlke kapsamları:** tüm kapsamlar  
   
 ## <a name="next-steps"></a>Sonraki adımlar
+
 İlkeleriyle çalışma daha fazla bilgi için bkz:
--   [API Management ilkeleri](api-management-howto-policies.md) 
--   [İlke ifadeleri](api-management-policy-expressions.md)
++ [API Management ilkeleri](api-management-howto-policies.md) 
++ [İlke ifadeleri](api-management-policy-expressions.md)
++ [Grup İlkesi başvurusu](api-management-policy-reference.md) ilke deyimleri ve ayarlarının tam listesi için
++ [İlke örnekleri](policy-samples.md)   

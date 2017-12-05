@@ -11,17 +11,17 @@ keywords:
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: quicksart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b3fb9a3ea090f0083e8f113ddf13312fe42b59a
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 6804a3e6933a467fc57b960676ada800a9ed22a4
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Azure CLI’yı kullanarak kapsayıcı kayıt defteri oluşturma
 

@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-caching-policies"></a>API Management önbelleğe alma ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 -   Yanıt önbelleğe alma ilkeleri  
   
     -   [Önbellekten alma](api-management-caching-policies.md#GetFromCache) -önbellek gerçekleştirmek aramak ve geçerli bir önbelleğe alınan yanıtları kullanılabilir olduğunda döndürür.  
-  
     -   [Önbellek deposuna](api-management-caching-policies.md#StoreToCache) -belirtilen önbellek denetim yapılandırmasında göre yanıtlarını önbelleğe alır.  
   
 -   Değer önbelleğe alma ilkeleri  
-  
-    -   [Önbelleğe alınan değer alma](#GetFromCacheByKey) -anahtar tarafından önbelleğe alınmış bir öğeyi geri almak.  
-  
-    -   [Değer önbellekte depolamak](#StoreToCacheByKey) -bir öğe anahtarı tarafından önbellekte depolamak.  
-  
+
+    -   [Önbelleğe alınan değer alma](#GetFromCacheByKey) -anahtar tarafından önbelleğe alınmış bir öğeyi geri almak. 
+    -   [Değer önbellekte depolamak](#StoreToCacheByKey) -bir öğe anahtarı tarafından önbellekte depolamak. 
     -   [Önbelleğe alınan değer kaldırmak](#RemoveCacheByKey) -öğenin önbellekte anahtarının kaldırın.  
   
 ##  <a name="GetFromCache"></a>Önbellekten alma  
@@ -116,17 +113,16 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|izin ver-özel-yanıt-önbelleğe alma|Ayarlandığında `true`, bir Authorization üstbilgisi içeren istekleri önbelleğe alma sağlar.|Hayır|False|  
-|önbelleğe alma aşağı akış türü|Bu öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -none - aşağı akış önbelleğe alma izin verilmez.<br />-Özel - aşağı akış özel önbelleğe alma izin verilir.<br />-Genel - özel ve paylaşılan aşağı akış önbelleğe alma izin verilir.|Hayır|Yok|  
-|gereken revalidate|Aşağı Akış önbelleği etkin olduğunda, bu öznitelik açar veya kapatır `must-revalidate` ağ geçidi yanıtlarındaki önbellek denetimi yönergesi.|Hayır|TRUE|  
-|farklılık-tarafından-Geliştirici|Kümesine `true` Geliştirici anahtar başına önbellek yanıtları.|Hayır|False|  
-|farklılık tarafından-Geliştirici-grupları|Kümesine `true` kullanıcı rol başına önbellek yanıtları.|Hayır|False|  
+|izin ver-özel-yanıt-önbelleğe alma|Ayarlandığında `true`, bir Authorization üstbilgisi içeren istekleri önbelleğe alma sağlar.|Hayır|yanlış|  
+|önbelleğe alma aşağı akış türü|Bu öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -none - aşağı akış önbelleğe alma izin verilmez.<br />-Özel - aşağı akış özel önbelleğe alma izin verilir.<br />-Genel - özel ve paylaşılan aşağı akış önbelleğe alma izin verilir.|Hayır|yok|  
+|gereken revalidate|Aşağı Akış önbelleği etkin olduğunda, bu öznitelik açar veya kapatır `must-revalidate` ağ geçidi yanıtlarındaki önbellek denetimi yönergesi.|Hayır|true|  
+|farklılık-tarafından-Geliştirici|Kümesine `true` Geliştirici anahtar başına önbellek yanıtları.|Hayır|yanlış|  
+|farklılık tarafından-Geliştirici-grupları|Kümesine `true` kullanıcı rol başına önbellek yanıtları.|Hayır|yanlış|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen  
-  
 -   **İlke kapsamları:** API işlemi, ürün  
   
 ##  <a name="StoreToCache"></a>Önbelleğine depolamak  
@@ -198,8 +194,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
--   **İlke bölümleri:** giden  
-  
+-   **İlke bölümleri:** giden    
 -   **İlke kapsamları:** API işlemi, ürün  
   
 ##  <a name="GetFromCacheByKey"></a>Önbelleğe alınan değer alma  
@@ -244,7 +239,6 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen, giden arka uç, hata  
-  
 -   **İlke kapsamları:** Genel API, işlemi, ürünü  
   
 ##  <a name="StoreToCacheByKey"></a>Önbellek deposu değeri  
@@ -287,11 +281,10 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen, giden arka uç, hata  
-  
 -   **İlke kapsamları:** Genel API, işlemi, ürünü  
   
 ###  <a name="RemoveCacheByKey"></a>Önbelleğe alınan değer Kaldır  
- `cache-remove-value` Anahtara göre tanımlanan önbelleğe alınmış bir öğeyi siler. Anahtar isteğe bağlı bir dize değerine sahip olabilir ve genellikle bir ilke ifade kullanılarak sağlanır.  
+`cache-remove-value` Anahtara göre tanımlanan önbelleğe alınmış bir öğeyi siler. Anahtar isteğe bağlı bir dize değerine sahip olabilir ve genellikle bir ilke ifade kullanılarak sağlanır.  
   
 #### <a name="policy-statement"></a>İlke bildirimi  
   
@@ -325,9 +318,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **İlke bölümleri:** gelen, giden arka uç, hata  
-  
 -   **İlke kapsamları:** Genel API, işlemi, ürünü  
-  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İlkeleriyle çalışma daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
+
+İlkeleriyle çalışma daha fazla bilgi için bkz:
+
++ [API Management ilkeleri](api-management-howto-policies.md)
++ [API dönüştürme](transform-api.md)
++ [Grup İlkesi başvurusu](api-management-policy-reference.md) ilke deyimleri ve ayarlarının tam listesi için
++ [İlke örnekleri](policy-samples.md)   

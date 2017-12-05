@@ -22,7 +22,7 @@ Yeni ağ geçidi SKU'ları, ağ geçitlerinde sunulan özellik kümeleri açıs�
 
 | **SKU**| **Özellikler**|
 | ---    | ---         |
-|**Temel**   | **Rota tabanlı VPN**: P2S ile 10 tünel; RADIUS kimlik doğrulaması yok; IKEv2 yok<br>**İlke tabanlı VPN** (IKEv1): 1 tünel; P2S yok|
+|**Temel**   | **Rota tabanlı VPN**: P2S 10 tünelleri; P2S için; RADIUS kimlik doğrulaması P2S için hiçbir Ikev2<br>**İlke tabanlı VPN** (IKEv1): 1 tünel; P2S yok|
 | **VpnGw1, VpnGw2 ve VpnGw3** | **Rol tabanlı VPN**: 30 tünele kadar (*), P2S, BGP, etkin-etkin, özel IPsec/IKE ilkesi, ExpressRoute/VPN birlikte kullanımı |
 |        |             |
 

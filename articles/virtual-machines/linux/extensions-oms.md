@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: 6eb07b5ad4b3ebdde75575fc5682ae2153a0c12f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Linux için OMS sanal makine uzantısı
 
@@ -41,6 +41,10 @@ OMS Aracısı uzantısı bu Linux dağıtımları karşı çalıştırabilirsini
 | Debian GNU/Linux | 6, 7 ve 8 |
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
 | SUSE Linux Enterprise Server | 11 ve 12 |
+
+### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
+
+Azure Güvenlik Merkezi otomatik olarak OMS aracısı sağlar ve Azure aboneliğinin varsayılan günlük analizi çalışma bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması yapılandırılmış çalışma ve bağlantıyı kesme Azure Güvenlik Merkezi ile üzerine yazar.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
@@ -173,7 +177,7 @@ Uzantı yürütme çıktısını aşağıdaki dosyasına kaydedilir:
 
 ### <a name="error-codes-and-their-meanings"></a>Hata kodları ve anlamları
 
-| Hata kodu | Anlamı | Olası eylemi |
+| Hata Kodu | Anlamı | Olası eylemi |
 | :---: | --- | --- |
 | 10 | VM zaten bir OMS çalışma alanına bağlı | VM uzantısı şemasında belirtilen çalışma alanına bağlanmak için stopOnMultipleConnections genel ayarları'nda false olarak ayarlayın veya bu özelliği kaldırın. Bu VM için bağlı her çalışma alanı için bir kez fatura. |
 | 11 | Uzantı için sağlanan geçersiz yapılandırma | Dağıtım için gereken tüm özellik değerlerini ayarlamak için Yukarıdaki örneklerde izleyin. |

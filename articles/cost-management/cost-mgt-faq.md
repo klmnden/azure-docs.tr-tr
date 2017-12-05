@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure maliyeti yönetimi için sık sorulan sorular
 
@@ -92,20 +92,13 @@ CSP'ler için:
 
 Bir varlık için ek CSP hesapları eklemek için seçin **MSP erişim** yerine **Kurumsal** oluşturduğunuzda Yeni varlık. Hesabınız bir Kurumsal Anlaşma kaydedilir ve CSP kimlik bilgilerini eklemek istediğiniz, Cloudyn destek personeli hesap ayarlarınızı değiştirmeniz gerekebilir. Ücretli bir Azure abone değilseniz, Azure portalında yeni bir destek isteği oluşturabilirsiniz. Seçin **Yardım + Destek**ve ardından **yeni destek isteği**.
 
-## <a name="how-do-i-change-the-currency-symbol-used-in-cloudyn"></a>Cloudyn içinde kullanılan para birimi simgesini nasıl değişiyor?
+## <a name="currency-symbols-in-cloudyn-reports"></a>Para birimi simgelerini Cloudyn raporları
 
-Tek bir varlık içindeki tüm Azure hesaplar aynı para birimi kullandığınızda, kullandığınız para birimi otomatik olarak algılanır. Ancak, para birimi simgesini yanlışlıkla olarak gösterilen  **$**  herhangi biri aşağıdaki para birimi için:
+Farklı para kullanarak birden çok Azure hesabı olabilir. Ancak, Cloudyn maliyet raporlarında rapor başına birden fazla para birimi türü gösterme.
 
-- GBP İngiltere sterlin =
-- EUR Avrupa euro =
-- INR Hindistan Rupisi =
-- NOK Norveç Kronu =
+Farklı para kullanarak birden çok aboneliğiniz varsa, bir üst varlık ve onun alt varlık para birimlerinin ile görüntülenen  **$**  simgesi. Bizim önerilen en iyi aynı varlık hiyerarşideki farklı para kullanmaktan kaçınmak için bir yöntemdir. Diğer bir deyişle, tüm aboneliklerinizi bir varlık yapısında düzenlenmiş aynı para kullanmanız gerekir.
 
-Para birimi simgesini gösterebilir rağmen  **$**  ABD doları için maliyet değerler doğru para birimi cinsinden gösterilir. Örneğin, tüm hesaplarınızdaki aynı varlıkta Euro kullanırsanız _değerleri_ Cloudyn içinde gösterilen Euro, rağmen olan  **$**  simgesi görünürse yanlışlıkla.
-
-Bir Azure Kurumsal anlaşmasına müşteri değilseniz, Cloudyn destek personeli $ maliyet raporlarda gösterilen, para birimi simgesini değiştirebilirsiniz. Azure portalında yeni bir destek isteği oluşturabilirsiniz. Seçin **Yardım + Destek**ve ardından **yeni destek isteği**.
-
-Bir CSP müşterisi değilseniz, para birimi simgesini değiştiremezsiniz. Cloudyn yalnızca ABD Doları kullanmak oranı kartları destekler. Cloudyn farklı para oranı kartlarını desteklemek üzere seçeneği araştırmaktadır.
+Cloudyn otomatik olarak Kurumsal Anlaşma abonelik para algılar ve raporlarda düzgün gösterir.  Ancak, Cloudyn yalnızca görüntüler  **$**  CSP ve web doğrudan Azure hesapları simgesi.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Cloudyn veri nelerdir zaman çizelgelerini Yenile?
 

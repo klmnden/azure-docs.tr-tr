@@ -1,6 +1,6 @@
 ---
-title: "Azure batch docker kapsayıcısı iş yükleri | Microsoft Docs"
-description: "Uygulamaları Docker kapsayıcısı görüntüleri Azure toplu olarak çalıştırmak öğrenin."
+title: "Azure batch kapsayıcı iş yükleri | Microsoft Docs"
+description: "Azure Batch kapsayıcı görüntülerden uygulamaları çalıştırmayı öğrenin."
 services: batch
 author: v-dotren
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 12/01/2017
 ms.author: v-dotren
-ms.openlocfilehash: fc15b2db051b5ebbf39665b803b22d3a5e4885f9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="run-docker-container-applications-on-azure-batch"></a>Docker kapsayıcısı uygulamaları Azure toplu olarak çalıştırın.
+# <a name="run-container-applications-on-azure-batch"></a>Azure Batch kapsayıcı uygulamaları çalıştırma
 
 Azure toplu işlem, çalıştırmak ve toplu işleri Azure ile ilgili bilgi işlem çok fazla sayıda ölçeklendirme sağlar. Şimdiye kadar toplu işlem görevleri doğrudan sanal makinelerde (VM'ler) Batch havuzunda çalıştırdıktan ancak Docker kapsayıcılarında görevleri çalıştırmak için Batch havuzu oluşturmak artık ayarlayabilirsiniz.
 
@@ -112,12 +112,11 @@ Havuzu oluşturmak için birkaç seçeneğiniz vardır. İle veya prefetched kap
 
 ### <a name="pool-without-prefetched-container-images"></a>Havuz prefetched kapsayıcı görüntüler olmadan
 
-Havuz prefetched kapsayıcı görüntüler olmadan yapılandırmak için kullanın bir `ContainerConfiguration` aşağıdaki örnekte gösterildiği gibi. Bu ve aşağıdaki örnekleri Docker yüklü altyapısı ile özel bir Ubuntu 16.04 LTS görüntü kullandığınız varsayılır.
+Prefetched kapsayıcı görüntüler olmadan havuzunu yapılandırmak için tanımlamak `ContainerConfiguration` ve `VirtualMachineConfiguration` nesneleri aşağıdaki örnekte gösterildiği gibi. Bu ve aşağıdaki örnekleri Docker yüklü altyapısı ile özel bir Ubuntu 16.04 LTS görüntü kullandığınız varsayılır.
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -136,14 +135,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### <a name="prefetch-images-for-container-configuration"></a>Görüntüleri kapsayıcısı yapılandırmasını için hazırlık
 
-Kapsayıcı görüntülerin listesi kapsayıcı görüntüleri havuzunda hazırlık ekleyin (`containerImageNames`) görüntü kapsayıcısı yapılandırmasını ve verin için bir ad listeleyin. Aşağıdaki örnek özel bir Ubuntu 16.04 LTS görüntü kullandığınızı varsayar, TensorFlow görüntüden hazırlık [Docker hub'a](https://hub.docker.com), ve bir başlangıç görevi TensorFlow başlatın.
+Kapsayıcı görüntülerin listesi kapsayıcı görüntüleri havuzunda hazırlık ekleyin (`containerImageNames`) için `ContainerConfiguration`ve resim listesi bir ad verin. Aşağıdaki örnek özel bir Ubuntu 16.04 LTS görüntü kullandığınızı varsayar, TensorFlow görüntüden hazırlık [Docker hub'a](https://hub.docker.com), ve bir başlangıç görevi TensorFlow başlatın.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -176,7 +175,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Görüntüleri özel kapsayıcı kayıt defterinden Hazırlık
 
-Kapsayıcı görüntüleri hazırlık özel kapsayıcı kayıt sunucusuna kimlik doğrulaması. Aşağıdaki örnek, özel bir Ubuntu 16.04 LTS görüntü kullanıyor ve bir özel TensorFlow görüntüsü özel Azure kapsayıcı kayıt defterinden prefetching varsayar.
+Kapsayıcı görüntüleri hazırlık özel kapsayıcı kayıt sunucusuna kimlik doğrulaması. Aşağıdaki örnekte, `ContainerConfiguration` ve `VirtualMachineConfiguration` nesneleri özel TensorFlow görüntü özel Azure kapsayıcı kayıt defterinden hazırlık ve özel bir Ubuntu 16.04 LTS görüntü kullanın.
 
 ```csharp
 // Specify a container registry
@@ -187,7 +186,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );

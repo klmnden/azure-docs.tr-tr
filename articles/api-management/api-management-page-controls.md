@@ -3,27 +3,26 @@ title: "Azure API Management sayfası denetimleri | Microsoft Docs"
 description: "Azure API Management'ta Geliştirici Portalı şablonlarındaki kullanıma sayfa denetimleri hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management sayfası denetimleri
 Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici kullanmak için sağlar.  
   
- Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konuma yerleştirin. Gibi bazı denetimleri [uygulama eylemleri](#app-actions) denetlemek, parametreleri, aşağıdaki örnekte gösterildiği gibi sahiptir.  
+Bir denetimi kullanmak için Geliştirici Portalı şablonuna istediğiniz konuma yerleştirin. Gibi bazı denetimleri [uygulama eylemleri](#app-actions) denetlemek, parametreleri, aşağıdaki örnekte gösterildiği gibi sahiptir:  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -36,19 +35,12 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
 ## <a name="developer-portal-template-page-controls"></a>Geliştirici Portalı şablonuna sayfa denetimleri  
   
 -   [Uygulama eylemleri](#app-actions)  
-  
 -   [temel oturum açma](#basic-signin)  
-  
 -   [disk belleği denetimi](#paging-control)  
-  
 -   [sağlayıcıları](#providers)  
-  
 -   [arama denetimi](#search-control)  
-  
 -   [Kaydolma](#sign-up)  
-  
 -   [Abone düğmesi](#subscribe-button)  
-  
 -   [aboneliği iptal etme](#subscription-cancel)  
   
 ##  <a name="app-actions"></a>Uygulama eylemleri  
@@ -69,12 +61,12 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
 |AppID|Uygulama kimliği.|  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `app-actions` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ `app-actions` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Uygulamalar](api-management-user-profile-templates.md#Applications)  
   
 ##  <a name="basic-signin"></a>temel oturum açma  
- `basic-signin` Denetimi, kullanıcı oturum açma oturum açma sayfası Geliştirici Portalı'ndaki bilgileri toplamak için bir denetim sağlar.  
+ `basic-signin` Denetim Geliştirici Portalı'nda oturum açma sayfasındaki kullanıcı oturum açma bilgileri toplamak için bir denetim sağlar.  
   
  ![Basic &#45; oturum açma denetimi](./media/api-management-page-controls/APIM-basic-signin-control.png "APIM basic oturum açma denetimi")  
   
@@ -88,7 +80,7 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `basic-signin` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ `basic-signin` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Oturum Aç](api-management-page-templates.md#SignIn)  
   
@@ -107,7 +99,7 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `paging-control` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ `paging-control` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [API listesi](api-management-api-templates.md#APIList)  
   
@@ -116,7 +108,7 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
 -   [Ürün Listesi](api-management-product-templates.md#ProductList)  
   
 ##  <a name="providers"></a>sağlayıcıları  
- `providers` Denetim, oturum açma sayfasında Geliştirici Portalı'nda kimlik doğrulama sağlayıcıları seçimi için bir denetim sağlar.  
+ `providers` Denetim seçimi Geliştirici Portalı'nda oturum açma sayfasındaki kimlik doğrulama sağlayıcıları için bir denetim sağlar.  
   
  ![sağlayıcıları Denetim](./media/api-management-page-controls/APIM-providers-control.png "APIM sağlayıcıları denetimi")  
   
@@ -130,7 +122,7 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `providers` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ `providers` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Oturum Aç](api-management-page-templates.md#SignIn)  
   
@@ -149,14 +141,14 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `search-control` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ `search-control` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [API listesi](api-management-api-templates.md#APIList)  
   
 -   [Ürün Listesi](api-management-product-templates.md#ProductList)  
   
 ##  <a name="sign-up"></a>Kaydolma  
- `sign-up` Denetim kayıt sayfasını Geliştirici Portalı'nda kullanıcı profili bilgilerini toplamak için bir denetim sağlar.  
+ `sign-up` Denetim Geliştirici Portalı'ndaki kaydolma sayfasında kullanıcı profili bilgileri toplamak için bir denetim sağlar.  
   
  ![oturum &#45; yukarı denetim](./media/api-management-page-controls/APIM-sign-up-control.png "APIM kayıt denetimi")  
   
@@ -170,7 +162,7 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `sign-up` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ `sign-up` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Kaydol](api-management-page-templates.md#SignUp)  
   
@@ -189,7 +181,7 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
  yok.  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `subscribe-button` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ `subscribe-button` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Ürün](api-management-product-templates.md#Product)  
   
@@ -211,10 +203,10 @@ Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici k
 |Parametre|Açıklama|  
 |---------------|-----------------|  
 |subscriptionId|İptal etmek için abonelik kimliği.|  
-|CancelUrl|Aboneliği iptal URL'si.|  
+|CancelUrl|Abonelik URL iptal eder.|  
   
 ### <a name="developer-portal-templates"></a>Geliştirici Portalı şablonları  
- `subscription-cancel` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılır.  
+ `subscription-cancel` Denetimi aşağıdaki Geliştirici Portalı şablonlarında kullanılan:  
   
 -   [Ürün](api-management-product-templates.md#Product)
 

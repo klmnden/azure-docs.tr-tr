@@ -3,22 +3,21 @@ title: Bir Web API arka ucu Azure Active Directory ve API Management ile koruma 
 description: "Bir Web API arka ucu Azure Active Directory ve API Management ile korumak öğrenin."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: f856ff03-64a1-4548-9ec4-c0ec4cc1600f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3dd583c47fd2d9133c8a07e7bedcd49750ffdce4
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 32adec024b2ee2649f2631cfa72ee575094aa0c0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>Bir Web API arka ucu Azure Active Directory ve API Management ile korumak nasıl
 Aşağıdaki videoda, bir Web API arka ucu oluşturmak ve Azure Active Directory ve API Management ile OAuth 2.0 protokolünü kullanarak korumak gösterilmektedir.  Bu makale, genel bir bakış ve video yer alan adımlar için ek bilgiler sağlar. Bu 24 dakikalık videoyu şunların nasıl yapıldığını gösterir için:
@@ -49,7 +48,7 @@ Bu adımda, Visual Studio 2013 kullanarak bir Web API arka uç oluşturulur. Vid
 
 Tıklatın **Web API** gelen **şablon listesini seçin** bir Web API projesi oluşturmak için. Azure Directory kimlik doğrulamayı yapılandırmak için **kimlik doğrulamayı Değiştir**.
 
-![Yeni Proje][api-management-new-project]
+![Yeni proje][api-management-new-project]
 
 Tıklatın **Kurumsal hesaplar**ve belirtin **etki alanı** AAD kiracınızın. Bu örnekte etki alanıdır **DemoAPIM.onmicrosoft.com**. Dizininizin etki alanından elde edilebilir **etki alanları** dizininizin sekmesi.
 
@@ -65,7 +64,7 @@ Tıkladığınızda **Tamam** Visual Studio, Azure AD dizini ile uygulamanızı 
 
 Bu proje bir Azure Web API olarak onay kutusu için yapılandırmak için **bulutta Barındır** ve ardından **Tamam**.
 
-![Yeni Proje][api-management-new-project-cloud]
+![Yeni proje][api-management-new-project-cloud]
 
 Azure'da oturum açın istenebilir ve daha sonra Web uygulaması yapılandırabilirsiniz.
 
@@ -175,7 +174,7 @@ Arka uç hizmeti için yeni bir uygulama, Web API projesi yapılandırma ve yay�
 
 Gerekli izinleri yapılandırma uygulama adına tıklayın. Gidin **yapılandırma** sekmesinde ve ekranı aşağı kaydırarak **diğer uygulamalara izinler** bölümü. Tıklatın **uygulama izinleri** yanında aşağı açılan **Windows** **Azure Active Directory**, için kutuyu **dizin verilerini okuma**, tıklatıp **kaydetmek**.
 
-![İzinleri ekleme][api-management-aad-add-permissions]
+![İzin ekle][api-management-aad-add-permissions]
 
 > [!NOTE]
 > Varsa **Windows** **Azure Active Directory** olan diğer uygulamalara izinler altında listelenen değil, tıklatın **uygulama ekleme** ve listeden ekleyin.
@@ -437,7 +436,7 @@ Alınacak **istemci kimliği**, gidin **yapılandırma** sekmesi Geliştirici Po
 
 Almak için **gizli** tıklatın **seçin süresi** açılan **anahtarları** bölüm ve bir aralık belirtin. Bu örnekte, 1 yıl kullanılır.
 
-![İstemci kimliği][api-management-aad-client-id]
+![İstemci Kimliği][api-management-aad-client-id]
 
 Tıklatın **kaydetmek** yapılandırmayı kaydedin ve anahtarı görüntülemek için. 
 
@@ -456,15 +455,15 @@ Hemen istemci kimlik bilgileri aşağıdaki yetkilendirme kodu verme olur. Bu ye
 
 Geliştirici Portalı AAD uygulama izinlerini yapılandırmak için sonraki adımdır bakın. Tıklatın **uygulama izinleri** ve için kutuyu **dizin verilerini okuma**. Tıklatın **kaydetmek** bu değişikliği kaydetmek ve ardından **uygulama eklemek**.
 
-![İzinleri ekleme][api-management-add-devportal-permissions]
+![İzin ekle][api-management-add-devportal-permissions]
 
 Arama simgesine tıklayın türü **APIM** kutusuyla başlangıç içine seçin **APIMAADDemo**ve kaydetmek için onay işaretine tıklayın.
 
-![İzinleri ekleme][api-management-aad-add-app-permissions]
+![İzin ekle][api-management-aad-add-app-permissions]
 
 Tıklatın **izinlere temsilci** için **APIMAADDemo** ve için kutuyu **erişim APIMAADDemo**, tıklatıp **kaydetmek**. Geliştirici böylece arka uç hizmetine erişmek için portal uygulaması.
 
-![İzinleri ekleme][api-management-aad-add-delegated-permissions]
+![İzin ekle][api-management-aad-add-delegated-permissions]
 
 ## <a name="enable-oauth-20-user-authorization-for-the-calculator-api"></a>OAuth 2.0 kullanıcı yetkilendirme hesaplayıcı API'si etkinleştir
 OAuth 2.0 sunucu yapılandırılır, API'nizi için güvenlik ayarlarını belirtebilirsiniz. Bu adım, 14: 30'da başlayan videoda gösterilmiştir.
@@ -561,5 +560,5 @@ Yapılandırma ve bu ilkeyi kullanarak başka bir sunum için bkz: [bulut kapak 
 [api-management-client-credentials]: ./media/api-management-howto-protect-backend-with-aad/api-management-client-credentials.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-protect-backend-with-aad/api-management-new-aad-application-menu.png
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Manage your first API]: api-management-get-started.md
+[Create an API Management service instance]: get-started-create-service-instance.md
+[Manage your first API]: import-and-publish.md

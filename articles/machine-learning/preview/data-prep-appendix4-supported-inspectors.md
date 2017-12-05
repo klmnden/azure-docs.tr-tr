@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Denetçiler Azure Machine Learning veri hazırlık önizlemesi için desteklenen
 Bu belgede, bu Önizleme'de kullanılabilen denetçiler kümesi özetlenmektedir.
@@ -113,3 +113,18 @@ Enlem ve boylam belirtilen varsayarsak, çizilir noktaları ile eşleme. Enlem �
 Bu denetim noktası seçimini harita üzerinde aracılığıyla filtreleme destekler. Tuşuna **Ctrl** anahtar ve ardından bir kare noktaları etrafında oluşturmak üzere fareyle sürükleyin. Ardından daha önce açıklandığı gibi filtre uygulayın.
 
 Harita tuşlarına basarak yalnızca olası noktalarını göstermek için hızlı bir şekilde boyutlandırabilirsiniz **E** harita sol tarafındaki.
+
+
+## <a name="pattern-frequency"></a>Desen sıklığı 
+
+Bu denetim içinde seçilen dize sütunu desenlerinin bir listesi gösterilir. Desenler bir normal ifade sözdizimini gibi kullanılarak gösterilir. Desenine bekleyerek bu desene tarafından temsil edilen değerler örnekleri gösterilir. Desenler ile birlikte yüzdesi cinsinden yaklaşık coverages da gösterilir.
+
+![Desen denetçisi görüntüsü](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Seçenekler
+- Üst değer sayısı
+- Azalan
+- Hale Göster
+
+### <a name="actions"></a>Eylemler
+Bu denetleyici görüntülenen düzenlerini esas alarak filtreleme destekler. Tuşuna **Ctrl** anahtar ve doldurulmuş çubuğu düzeni Denetçisi'nde seçin. Ardından daha önce açıklandığı gibi filtre uygulayın. Kullanıcı acion sonucunda bir Gelişmiş Filtre adım eklenir. Bakın ve Gelişmiş Filtre adım Düzenle seçeneğini çağırarak oluşturulan Python kodu değiştirin.

@@ -6,19 +6,18 @@ documentationcenter:
 author: miaojiang
 manager: erikre
 editor: 
-ms.assetid: 7406a8ce-5f9c-4fae-9b0f-e574befb2ee9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkelerini
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -79,7 +78,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |Uygula|Özniteliği aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman dönüştürme uygulanır.<br />Yalnızca yanıt Content-Type üstbilgisi JSON varlığını gösteriyorsa - içerik türü json - dönüştürülemiyor.|Evet|Yok|  
-|göz önünde bulundurun kabul-üstbilgisi|Özniteliği aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> JSON istek Accept üstbilgisi isteniyorsa - true - dönüştürme uygulanır.<br />-false - her zaman dönüştürme uygulayın.|Hayır|TRUE|  
+|göz önünde bulundurun kabul-üstbilgisi|Özniteliği aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> JSON istek Accept üstbilgisi isteniyorsa - true - dönüştürme uygulanır.<br />-false - her zaman dönüştürme uygulayın.|Hayır|true|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -123,7 +122,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |----------|-----------------|--------------|-------------|  
 |türü|Özniteliği aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> javascript-kolay - dönüştürülen JSON JavaScript geliştiricileri için kolay bir form sahiptir.<br />-doğrudan - dönüştürülen JSON özgün XML belge yapısını yansıtır.|Evet|Yok|  
 |Uygula|Özniteliği aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -her zaman - her zaman dönüştürün.<br />Yalnızca yanıt Content-Type üstbilgisi XML varlığını gösteriyorsa - içerik türü xml - dönüştürülemiyor.|Evet|Yok|  
-|göz önünde bulundurun kabul-üstbilgisi|Özniteliği aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> XML isteği Accept üstbilgisi isteniyorsa - true - dönüştürme uygulanır.<br />-false - her zaman dönüştürme uygulayın.|Hayır|TRUE|  
+|göz önünde bulundurun kabul-üstbilgisi|Özniteliği aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> XML isteği Accept üstbilgisi isteniyorsa - true - dönüştürme uygulanır.<br />-false - her zaman dönüştürme uygulayın.|Hayır|true|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -157,7 +156,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|Kaynak|Aranacak dize.|Evet|Yok|  
+|başlangıç|Aranacak dize.|Evet|Yok|  
 |-|Değiştirme dizesi. Arama dizesi kaldırmak için bir sıfır uzunluk değiştirme dizesini belirtin.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
@@ -629,7 +628,7 @@ OriginalUrl.
 |Öznitelik|Açıklama|Gerekli|Varsayılan|  
 |---------------|-----------------|--------------|-------------|  
 |şablon|Herhangi bir sorgu dizesi parametre ile gerçek web hizmeti URL'si. İfadeler kullanırken, tam değeri bir ifade olmalıdır.|Evet|Yok|  
-|kopya eşleşmeyen-parametreleri|Özgün URL şablonunda mevcut değil gelen istekte sorgu parametreleri yeniden yazma şablon tarafından tanımlanan URL'ye eklenmiş olup olmadığını belirtir|Hayır|TRUE|  
+|kopya eşleşmeyen-parametreleri|Özgün URL şablonunda mevcut değil gelen istekte sorgu parametreleri yeniden yazma şablon tarafından tanımlanan URL'ye eklenmiş olup olmadığını belirtir|Hayır|true|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
@@ -692,7 +691,7 @@ OriginalUrl.
 |Ad|Açıklama|Gerekli|  
 |----------|-----------------|--------------|  
 |XSL Dönüştürme|Kök öğesi.|Evet|  
-|Parametre|Dönüşüm dosyasında kullanılan değişkenler tanımlamak için kullanılır|Hayır|  
+|parametre|Dönüşüm dosyasında kullanılan değişkenler tanımlamak için kullanılır|Hayır|  
 |stylesheet|Kök stil öğesi. Tüm öğeleri ve özniteliklerinin içinde tanımlanan standarda [XSLT belirtimi](http://www.w3.org/TR/xslt)|Evet|  
   
 ### <a name="usage"></a>Kullanım  
@@ -703,4 +702,9 @@ OriginalUrl.
 -   **İlke kapsamları:** genel, ürün, API işlemi  
   
 ## <a name="next-steps"></a>Sonraki adımlar
-İlkeleriyle çalışma daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
+
+Daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın:
+
++ [API Management ilkeleri](api-management-howto-policies.md)
++ [Grup İlkesi başvurusu](api-management-policy-reference.md) ilke deyimleri ve ayarlarının tam listesi için
++ [İlke örnekleri](policy-samples.md)   

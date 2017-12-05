@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Bir Azure sanal ağ üzerinde yeni bir Active Directory ormanı yüklemek
-Bu konu, üzerinde bir Azure sanal ağda bir sanal makine (VM) üzerinde yeni bir Windows Server Active Directory ortamı oluşturulacağını gösterir. bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu durumda, Azure sanal ağı bir şirket ağına bağlı değil.
+Bu makalede, bir sanal makine (VM) üzerinde yeni bir Windows Server Active Directory ortamı oluşturmak gösterilmiştir bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu durumda, Azure sanal ağı bir şirket ağına bağlı değil.
 
-Bu ilgili konularda ilginizi çekebilir:
+Bu ilgili makalelerde ilginizi çekebilir:
 
 * Bu adımları gösteren bir video için bkz [bir Azure sanal ağ üzerinde yeni bir Active Directory ormanı yükleme](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * İsteğe bağlı olarak yapabileceğiniz [siteden siteye VPN bağlantısını yapılandırma](../vpn-gateway/vpn-gateway-site-to-site-create.md) ve ardından yeni bir orman yüklemek veya bir Azure sanal ağı şirket içi ormana genişletir. Bu adımlar için bkz: [bir Azure sanal ağında bir çoğaltma Active Directory etki alanı denetleyicisi yükleme](active-directory-install-replica-active-directory-domain-controller.md).
@@ -87,7 +87,7 @@ DC yükleme tamamlandıktan sonra VM yeniden bağlanın ve DC'ye oturum açın. 
    3. Üzerinde **İleticiler** sekmesinde iletici IP adresini ve öğesini tıklatın **Düzenle**.  IP adresini seçin ve'ı tıklatın **silmek**.
    4. Tıklatın **Tamam** Düzenleyicisi'ni kapatmak için ve **Tamam** DNS sunucusu özellikleri kapatın.
 2. Sanal ağın DNS sunucusu ayarlarını güncelleştirin.
-   1. Tıklatın **sanal ağlar** >, oluşturduğunuz sanal ağ çift tıklayın > **yapılandırma** > **DNS sunucuları**, adını ve DC/DNS sunucusu rolünü çalıştıran VM'ler birinin DIP yazın ve'ı tıklatın **kaydetmek**.
+   1. Tıklatın **sanal ağlar** >, oluşturduğunuz sanal ağ çift tıklayın > **yapılandırma** > **DNS sunucuları**, adını ve IP VM'ler birinin yazın ' ı tıklatın ve DC/DNS sunucusu rolünü çalıştıran **kaydetmek**.
    2. VM seçin ve tıklatın **yeniden** yeni DNS sunucusu IP adresi ile DNS Çözümleyicisi ayarları yapılandırmak için VM tetiklemek için.
 
 ## <a name="create-vms-for-domain-members"></a>Etki alanı üyeleri için sanal makineleri oluşturma

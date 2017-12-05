@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management ilkeleri işleme hatası
 Azure API Management sağlayarak proxy'sine isteklerini işleme sırasında ortaya çıkabilecek hata koşullarını yanıtlamak yayımcılar sağlayan bir `ProxyError` nesnesi. `ProxyError` Nesnesi aracılığıyla erişilir [bağlamı. Son hata](api-management-policy-expressions.md#ContextVariables) özelliği ve ilkeleri tarafından kullanılan `on-error` ilke bölümü. Bu konuda bir başvuru hatası için Azure API Management'te işleme yetenekleri sağlar.  
@@ -56,27 +56,16 @@ Azure API Management sağlayarak proxy'sine isteklerini işleme sırasında orta
  Aşağıdaki ilkeleri kullanılabilir `on-error` ilke bölümü.  
   
 -   [seçin](api-management-advanced-policies.md#choose)  
-  
 -   [değişken Ayarla](api-management-advanced-policies.md#set-variable)  
-  
 -   [Bul ve Değiştir](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [return yanıt](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set üstbilgisi](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [Set yöntemi](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [durumunu ayarla](api-management-advanced-policies.md#SetStatus)  
-  
 -   [Gönderme isteği](api-management-advanced-policies.md#SendRequest)  
-  
 -   [bir şekilde İsteği Gönder](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [Günlük eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [JSON xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [XML json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>Son hata  
@@ -112,20 +101,26 @@ Azure API Management sağlayarak proxy'sine isteklerini işleme sırasında orta
 |hız sınırı|Hızı sınırı aşıldı|RateLimitExceeded|Hız sınırı aşıldı|  
 |Kota|Kotası aşıldı|QuotaExceeded|Çağrı hacmi kotası aşıldı. Kota xx:xx:xx içinde yenilenmesi. - veya - bant genişliği kota dışında. Kota xx:xx:xx içinde yenilenmesi.|  
 |jsonp|Geri çağırma parametresi değeri geçersiz (hatalı karakterler içerir)|CallbackParameterInvalid|{Geri arama parametresi adı} geri çağırma parametresinin değeri geçerli bir JavaScript tanımlayıcısı değil.|  
-|IP Filtresi|İstek çağıran IP ayrıştırılamadı|FailedToParseCallerIP|IP adresi için arayan kuramadı. Erişim reddedildi.|  
-|IP Filtresi|Arayan IP içinde değil izin verilen listesine|CallerIpNotAllowed|Arayan IP adresi {IP adresi} izin verilmiyor. Erişim reddedildi.|  
-|IP Filtresi|Arayan IP Engellenenler listesinde değil|CallerIpBlocked|Arayan IP adresi engellendi. Erişim reddedildi.|  
-|onay üstbilgisi|Gerekli üstbilgisi değil sunulan veya değer eksik|HeaderNotFound|Üstbilgi {üstbilgi-adı} istekte bulunamadı. Erişim reddedildi.|  
-|onay üstbilgisi|Gerekli üstbilgisi değil sunulan veya değer eksik|HeaderValueNotAllowed|{Üstbilgi değeri} {üstbilgi-adı} üstbilgi değerini izin verilmiyor. Erişim reddedildi.|  
-|doğrulama jwt|Jwt belirteci istekte eksik.|TokenNotFound|JWT istekte bulunamadı. Erişim reddedildi.|  
-|doğrulama jwt|İmza doğrulaması başarısız oldu|TokenSignatureInvalid|< İleti jwt kitaplığından\>. Erişim reddedildi.|  
-|doğrulama jwt|Geçersiz hedef kitle|TokenAudienceNotAllowed|< İleti jwt kitaplığından\>. Erişim reddedildi.|  
-|doğrulama jwt|Geçersiz veren|TokenIssuerNotAllowed|< İleti jwt kitaplığından\>. Erişim reddedildi.|  
-|doğrulama jwt|Belirtecin süresi|TokenExpired|< İleti jwt kitaplığından\>. Erişim reddedildi.|  
-|doğrulama jwt|İmza anahtarı kimliğine göre çözümlenemedi|TokenSignatureKeyNotFound|< İleti jwt kitaplığından\>. Erişim reddedildi.|  
-|doğrulama jwt|Gerekli talepleri belirtecinden eksik|TokenClaimNotFound|JWT belirteci aşağıdaki talep eksik: < c1\>, < c2\>,... Erişim reddedildi.|  
-|doğrulama jwt|Talep değerleri eşleşmiyor|TokenClaimValueNotAllowed|{Talep değeri} {talep-adı} talep değeri izin verilmiyor. Erişim reddedildi.|  
+|IP Filtresi|İstek çağıran IP ayrıştırılamadı|FailedToParseCallerIP|IP adresi için arayan kuramadı. Erişim engellendi.|  
+|IP Filtresi|Arayan IP içinde değil izin verilen listesine|CallerIpNotAllowed|Arayan IP adresi {IP adresi} izin verilmiyor. Erişim engellendi.|  
+|IP Filtresi|Arayan IP Engellenenler listesinde değil|CallerIpBlocked|Arayan IP adresi engellendi. Erişim engellendi.|  
+|onay üstbilgisi|Gerekli üstbilgisi değil sunulan veya değer eksik|HeaderNotFound|Üstbilgi {üstbilgi-adı} istekte bulunamadı. Erişim engellendi.|  
+|onay üstbilgisi|Gerekli üstbilgisi değil sunulan veya değer eksik|HeaderValueNotAllowed|{Üstbilgi değeri} {üstbilgi-adı} üstbilgi değerini izin verilmiyor. Erişim engellendi.|  
+|doğrulama jwt|Jwt belirteci istekte eksik.|TokenNotFound|JWT istekte bulunamadı. Erişim engellendi.|  
+|doğrulama jwt|İmza doğrulaması başarısız oldu|TokenSignatureInvalid|< İleti jwt kitaplığından\>. Erişim engellendi.|  
+|doğrulama jwt|Geçersiz hedef kitle|TokenAudienceNotAllowed|< İleti jwt kitaplığından\>. Erişim engellendi.|  
+|doğrulama jwt|Geçersiz veren|TokenIssuerNotAllowed|< İleti jwt kitaplığından\>. Erişim engellendi.|  
+|doğrulama jwt|Belirtecin süresi|TokenExpired|< İleti jwt kitaplığından\>. Erişim engellendi.|  
+|doğrulama jwt|İmza anahtarı kimliğine göre çözümlenemedi|TokenSignatureKeyNotFound|< İleti jwt kitaplığından\>. Erişim engellendi.|  
+|doğrulama jwt|Gerekli talepleri belirtecinden eksik|TokenClaimNotFound|JWT belirteci aşağıdaki talep eksik: < c1\>, < c2\>,... Erişim engellendi.|  
+|doğrulama jwt|Talep değerleri eşleşmiyor|TokenClaimValueNotAllowed|{Talep değeri} {talep-adı} talep değeri izin verilmiyor. Erişim engellendi.|  
 |doğrulama jwt|Diğer doğrulama hataları|JwtInvalid|< İleti jwt kitaplığı\>|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İlkeleriyle çalışma daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
+
+İlkeleriyle çalışma daha fazla bilgi için bkz:
+
++ [API Management ilkeleri](api-management-howto-policies.md)
++ [API dönüştürme](transform-api.md)
++ [Grup İlkesi başvurusu](api-management-policy-reference.md) ilke deyimleri ve ayarlarının tam listesi için
++ [İlke örnekleri](policy-samples.md)   

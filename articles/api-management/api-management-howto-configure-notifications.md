@@ -3,22 +3,21 @@ title: "Bildirimleri yapılandırmak ve e-posta şablonları Azure API Managemen
 description: "Bildirimleri yapılandırma ve Azure API Management şablonlarında e-posta öğrenin."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2029405e4fa05c061cdf7b38fcaa05dd38f9c804
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: ec560bbab3caf4cde090ed3c9a47ccc0afcb2492
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma
 API Management belirli olaylar için bildirimleri yapılandırmak ve yöneticiler ve geliştiriciler API Management örneği ile iletişim kurmak için kullanılan e-posta şablonlarını yapılandırma olanağı sağlar. Bu konuda kullanılabilir olayları için bildirimleri yapılandırmak nasıl gösterir ve bu olaylar için kullanılan e-posta şablonlarını yapılandırma genel bir bakış sağlar.
@@ -29,7 +28,7 @@ Bildirimleri yapılandırmak için tıklatın **yayımcı portalına** API Manag
 ![Yayımcı portalı][api-management-management-console]
 
 > [!NOTE] 
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma][Create an API Management service instance].
 
 Tıklatın **bildirimleri** gelen **API Management** kullanılabilir bildirim görüntülemek için sola menüsünde.
 
@@ -69,7 +68,7 @@ API Management yönetme ve hizmet kullanarak esnasında gönderilen e-posta ilet
 * Onaylanan uygulama Galerisi gönderme
 * Geliştirici diğer harf
 * Bildirim yaklaşan Geliştirici kota sınırı
-* Kullanıcı Davet Et
+* Kullanıcı davet et
 * Yeni açıklama soruna eklendi
 * Alınan yeni sorun
 * Yeni Abonelik etkinleştirildi
@@ -117,5 +116,5 @@ E-posta şablonuna yapılan değişiklikleri kaydetmek için tıklatın **kaydet
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md

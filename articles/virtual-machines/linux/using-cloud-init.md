@@ -1,9 +1,9 @@
 ---
-title: "Bir Linux VM özelleştirmek için bulut init kullanın | Microsoft Docs"
-description: "Azure CLI 2.0 ile oluşturma sırasında bir Linux VM özelleştirmek için bulut init kullanma"
+title: "Linux sanal makineleri azure'daki bulut init desteği'ne genel bakış | Microsoft Docs"
+description: "Microsoft Azure bulut init özelliklerine genel bakış"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
+author: rickstercdn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,171 +13,86 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/03/2017
-ms.author: iainfou
-ms.openlocfilehash: 5559f258f5c29b07edb5e61be4755d67173019e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: rclaus
+ms.openlocfilehash: 3670676032eb71a5339bb1219cb794366b912147
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Bulut init azure'da bir Linux VM özelleştirmek için kullanın
-Bu makalede nasıl kullanılacağı gösterilmektedir [bulut init](https://cloudinit.readthedocs.io) ana bilgisayar adı ayarlamak için güncelleştirme paketleri ve azure'da bir sanal makinede (VM) kullanıcı hesaplarını yönetin. Bir VM ile Azure CLI 2.0 oluşturduğunuzda, bu bulut başlatma komut dosyaları önyükleme çalıştırın. Uygulamaları yükleme, yapılandırma dosyaları yazma ve anahtar kasası anahtarları ekleme hakkında daha ayrıntılı bir bakış için bkz: [Bu öğretici](tutorial-automate-vm-deployment.md). Bu adımları [Azure CLI 1.0](using-cloud-init-nodejs.md) ile de gerçekleştirebilirsiniz.
-
+Bu makalede nasıl kullanılacağı gösterilmektedir [bulut init](https://cloudinit.readthedocs.io) bir sanal makine (VM) ya da sanal makineyi yapılandırmak için ölçek (VMSS) Azure zamanında sağlama sırasında ayarlar. Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın.  
 
 ## <a name="cloud-init-overview"></a>Bulut init genel bakış
-[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çalışırken, ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.
+[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çağrıldığı için ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.  Doğru biçim hakkında daha fazla bilgi için `#cloud-config` dosyaları görmek [bulut init belgeleri sitesi](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`alanlarını base64 ile kodlanmış metin dosyalarıdır.
 
 Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
 
-Bulut dahil ve Azure'a sağladıkları görüntülerinde çalışma başlatma almak için ortaklarımızın ile çalışıyoruz. Aşağıdaki tabloda Azure platform görüntüleri geçerli bulut init kullanılabilirliğine özetlenmektedir:
+ Etkin olarak ile doğrulanan Linux distro ortaklarımızın Azure marketi'ndeki bulut init etkin görüntüleri kullanılabilir olması için çalışıyoruz. Bu görüntüler, bulut init dağıtımlarınızın yapar ve yapılandırmaları VM'ler ve VM ölçek kümeleri (VMSS) ile sorunsuz bir şekilde çalışabilirsiniz. Aşağıdaki tabloda Azure platformu geçerli bulut init etkin görüntüleri kullanılabilirliğine özetlenmektedir:
 
-| Diğer ad | Yayımcı | Sunduğu | SKU | Sürüm |
+| Yayımcı | Sunduğu | SKU | Sürüm | Bulut init hazır
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |en son |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |en son |
-| CoreOS |CoreOS |CoreOS |Dengeli |en son |
+|Canonical |UbuntuServer |16.04 LTS |en son |evet | 
+|Canonical |UbuntuServer |14.04.5-LTS |en son |evet |
+|CoreOS |CoreOS |Dengeli |en son |evet |
+|OpenLogic |CentOS |7 CI |en son |önizleme |
+|RedHat |RHEL |7 HAM-CI |en son |önizleme |
 
+## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Bulut Init ve Linux Aracısı'nı (WALA) arasındaki fark nedir?
+WALA sağlamak ve sanal makineleri yapılandırmak ve Azure uzantılarını işlemek için kullanılan bir Azure platforma özgü aracısıdır. Biz, bulut init geçerli kendi bulut başlatma komut dosyaları kullanmak mevcut bulut init müşterileri izin vermek üzere yerine Linux Aracısı'nı kullanmak için sanal makineleri yapılandırma görevini geliştirme.  Linux sistemleri yapılandırmak için bulut init komut dosyalarında Yatırımlar varsa vardır **ek ayar gerekmiyor** bunları etkinleştirmek için. 
 
-## <a name="set-the-hostname-with-cloud-init"></a>Bulut init ile ana bilgisayar adı ayarlama
-Bulut init dosyaları dilini [YAML](http://www.yaml.org). Azure ile VM oluşturduğunuzda, bir bulut başlatma komut dosyasını çalıştırmak için [az vm oluşturma](/cli/azure/vm#create), bulut init dosyasıyla belirtin `--custom-data` geçin. Bir bulut init dosyasıyla yapılandırabilirsiniz ilişkin bazı örnekler bakalım. Yaygın bir senaryo, ana bilgisayar adını bir VM oluşturmaktır. Varsayılan olarak, ana bilgisayar adı VM adı ile aynıdır. 
+AzureCLI komut satırı anahtarını eklemezseniz `--custom-data` zaman sağlama sırasında WALA minimum VM VM sağlamak ve Varsayılanları dağıtımla tamamlamak için gereken parametreleri sağlama alır.  Bulut Init başvuruyorsa `--custom-data` değiştirmek, her özel verilerinizi (ayrı ayrı ayarlar ya da tam komut dosyası) içerdiği WALA tanımlanan varsayılan ayarları geçersiz kılar. 
 
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Aşağıdaki örnek adlı kaynak grubunu oluşturur *myResourceGroup* içinde *eastus* konumu:
+WALA VM'lerin maksimum VM sağlama süresi içinde çalışmak için kısıtlı zaman bağlantılardır.  Bulut init yapılandırmaları Vm'lere uygulanan zaman kısıtlamaları yoksa ve bir dağıtım zaman aşımına uğramadan tarafından başarısız olmasına neden olmaz. 
 
-```azurecli
+## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Sanal makine etkin bulut init dağıtma
+Bir bulut init etkin sanal makine dağıtımı, dağıtımı sırasında bir bulut init etkin dağıtım başvuran olarak kadar basittir.  Linux dağıtım maintainers etkinleştirmek ve bunların temel Azure yayımlanan görüntülere bulut init tümleştirmek seçmeniz gerekir. Dağıtmak istediğiniz görüntünün bulut init etkin olduğunu doğruladıktan sonra görüntüyü dağıtmak için AzureCLI kullanabilirsiniz. 
+
+Bu görüntü dağıtımı ilk adımı sahip bir kaynak grubu oluşturmaktır [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+
+Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-
-Geçerli kabuğunuzu adlı bir dosya oluşturun *cloud_init_hostname.txt* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Bulut Kabuğu'nda girin `sensible-editor cloud_init_hostname.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
-
-```yaml
-#cloud-config
-hostname: myhostname
-```
-
-Şimdi, bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create) ve bulut init dosyasıyla belirtin `--custom-data cloud_init_hostname.txt` gibi:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMHostname \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_hostname.txt
-```
-
-Oluşturduktan sonra Azure CLI VM hakkında bilgi gösterir. Kullanım `publicIpAddress` SSH, VM için. Aşağıdaki gibi kendi adresini girin:
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-VM adı görmek için `hostname` gibi komut:
-
-```bash
-hostname
-```
-
-VM ana bilgisayar adı aşağıdaki örnek çıktıda görüldüğü gibi bulut init dosyasında ayarlanan değeri olarak rapor:
-
-```bash
-myhostname
-```
-
-## <a name="update-a-vm-with-cloud-init"></a>VM bulut init ile güncelleştirme
-Güvenlik nedeniyle, ilk önyükleme en son güncelleştirmeleri uygulamak için bir VM yapılandırmak isteyebilirsiniz. Bulut init arasında farklı Linux distro'lar çalışırken belirtmek için gerek yoktur `apt` veya `yum` Paket Yöneticisi için. Bunun yerine, tanımladığınız `package_upgrade` ve kullanımdaki distro için uygun mekanizma belirlemek bulut başlatma işlemi sağlar. Bu iş akışı, aynı bulut başlatma komut dosyaları distro'lar kullanmanıza olanak sağlar.
-
-Eylem yükseltme işleminde görmek için adlı bir bulut init dosyası oluşturun *cloud_init_upgrade.txt* ve aşağıdaki yapılandırma yapıştırın:
+Sonraki adım, geçerli kabuğunda adlı bir dosya oluşturmaktır *bulut init.txt* ve aşağıdaki yapılandırma yapıştırın. Bu örnekte, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Girin `sensible-editor cloud-init.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. # 1'ı kullanmayı seçin **nano** Düzenleyici. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
 
 ```yaml
 #cloud-config
 package_upgrade: true
+packages:
+  -httpd
 ```
+Basın `ctrl-X` dosya çıkmak için şunu yazın `y` basın ve dosyayı kaydetmek için `enter` çıkış dosyasının adına onaylamak için.
 
-Şimdi, bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create) ve bulut init dosyasıyla belirtin `--custom-data cloud_init_upgrade.txt` gibi:
+Son adım, bir VM oluşturmaktır [az vm oluşturma](/cli/azure/vm#az_vm_create) komutu. 
 
-```azurecli
+Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *centos74* ve zaten bir varsayılan anahtar konumda yoksa, SSH anahtarları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  Kullanım `--custom-data` bulut init yapılandırma dosyanızda geçirmek için parametre. Tam yolunu belirtmeniz *bulut init.txt* mevcut çalışma dizininizi dışında dosyasını kaydettiyseniz yapılandırma. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *centos74*:
+
+```azurecli-interactive 
 az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUpgrade \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_upgrade.txt
+  --resource-group myResourceGroup \
+  --name centos74 \
+  --image OpenLogic:CentOS:7-CI:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys 
 ```
 
-Yukarıdaki komut çıktısı gösterilen VM ortak IP adresine SSH. Aşağıdaki gibi kendi ortak IP adresini girin:
+Azure CLI VM oluşturduğunuz sırada bilgileri dağıtımınıza özgü gösterir. `publicIpAddress` değerini not edin. Bu adres, VM’ye erişmek için kullanılır.  Oluşturulacak VM, yüklemek için paketleri ve uygulamayı başlatmak için biraz zaman alabilir. Azure CLI sorusu döndükten sonra çalışmaya devam arka plan görevleri vardır. VM SSH olabilir ve bulut init günlükleri görüntülemek için sorun giderme bölümünde açıklanan adımları kullanın. 
 
-```bash
-ssh azureuser@publicIpAddress
-```
+## <a name="troubleshooting-cloud-init"></a>Bulut başlatma sorunlarını giderme
+VM sağlandıktan sonra bulut init tüm modüllerin çalışacak ve tanımlı betik `--custom-data` VM yapılandırmak için.  Herhangi bir hata veya eksikliklerden yapılandırmasından gidermeniz gerekiyorsa, modül adı aramak gerekir (`disk_setup` veya `runcmd` örneğin) bulut init günlüğüne - bulunan **/var/log/cloud-init.log**.
 
-Güncelleştirmeleri denetle ve paket yönetim aracını çalıştırın. Aşağıdaki örnek kullanır `apt-get` bir Ubuntu VM üzerinde:
+> [!NOTE]
+> Her modülü hatası önemli bir bulut init sonuçları genel yapılandırma hatası. Örneğin, kullanarak `runcmd` modülü, komut dosyası başarısız olursa, bulut init hala bildirir sağlama başarılı runcmd modülü yürütülen olduğundan.
 
-```bash
-sudo apt-get upgrade
-```
-
-Bulut init denetlediği ve önyükleme yüklü güncelleştirmeleri uygulamak için güncelleştirme yoktur aşağıdaki örnek çıktıda görüldüğü gibi:
-
-```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-```
-
-## <a name="add-a-user-to-a-vm-with-cloud-init"></a>VM bulut init ile kullanıcı ekleme
-Yeni bir Linux VM üzerinde ilk görevlerden biridir kendiniz kullanımını önlemek bir kullanıcı eklemek için *kök*. SSH anahtarları, güvenlik ve kullanılabilirlik için en iyi uygulamalardan biridir. Anahtarları eklenir *~/.ssh/authorized_keys* bu bulut init komut dosyasıyla.
-
-Bir Linux VM için bir kullanıcı eklemek için adlı bir bulut init dosyası oluşturun *cloud_init_add_user.txt* ve aşağıdaki yapılandırma yapıştırın. Ortak anahtarınız sağlayın (içeriğini gibi *~/.ssh/id_rsa.pub*) için *ssh yetkili-anahtarlar*:
-
-```yaml
-#cloud-config
-users:
-  - name: myadminuser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>
-```
-
-Şimdi, bir VM oluşturmak [az vm oluşturma](/cli/azure/vm#create) ve bulut init dosyasıyla belirtin `--custom-data cloud_init_add_user.txt` gibi:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUser \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_add_user.txt
-```
-
-Yukarıdaki komut çıktısı gösterilen VM ortak IP adresine SSH. Aşağıdaki gibi kendi ortak IP adresini girin:
-
-```bash
-ssh myadminuser@publicIpAddress
-```
-
-Kullanıcı VM ve belirtilen gruplara eklenen onaylamak için içeriğini görüntülemek */etc/grup* gibi dosya:
-
-```bash
-cat /etc/group
-```
-
-Aşağıdaki örnek çıkış kullanıcıdan gösterir *cloud_init_add_user.txt* dosya VM ve uygun grubuna eklendi:
-
-```bash
-root:x:0:
-<snip />
-sudo:x:27:myadminuser
-<snip />
-myadminuser:x:1000:
-```
+Bulut init günlüğü daha fazla ayrıntı için başvurmak [bulut init belgeleri](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bulut init Linux Vm'leriniz önyükleme değiştirmek için standart yollardan biridir. Azure'da, Linux VM'NİZDE önyükleme veya çalışmaya başladıktan sonra değiştirmek için VM uzantıları kullanabilirsiniz. Örneğin, size Azure VM uzantısı üzerinde çalışan bir VM bir komut dosyası yürütme, ilk değil yalnızca üzerinde önyükleme için kullanabilirsiniz. VM uzantıları hakkında daha fazla bilgi için bkz: [VM uzantıları ve özellikleri](extensions-features.md), veya uzantısı kullanma hakkında daha fazla örnekler için bkz. [kullanıcıları, SSH, yönetmek ve denetlemek veya onarınVMAccessuzantısınıkullanarakAzureLinuxVM'lerdisklerde](using-vmaccess-extension.md).
+Yapılandırma değişiklikleri bulut init örnekleri için aşağıdaki belgelere bakın:
+ 
+- [Bir VM için ek Linux kullanıcı ekleme](cloudinit-add-user.md)
+- [İlk önyüklemede mevcut paketleri güncelleştirmek için bir paket Yöneticisi'ni çalıştırın](cloudinit-update-vm.md)
+- [VM yerel ana bilgisayar adını değiştirme](cloudinit-update-vm-hostname.md) 
+- [Bir uygulama paketi yükleme, yapılandırma dosyalarını güncelleştirmek ve anahtarları Ekle](tutorial-automate-vm-deployment.md)

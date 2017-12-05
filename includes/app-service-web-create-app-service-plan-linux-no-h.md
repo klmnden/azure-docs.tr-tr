@@ -1,4 +1,4 @@
-Bulut Kabuğu'nda ile kaynak grubundaki bir uygulama hizmeti planı oluştur [az uygulama hizmeti planı oluşturma](/cli/azure/appservice/plan#create) komutu.
+Bulut Kabuğu'nda ile kaynak grubundaki bir uygulama hizmeti planı oluştur [az uygulama hizmeti planı oluşturma](/cli/azure/appservice/plan#az_appservice_plan_create) komutu.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 

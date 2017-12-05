@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: b4cd56606d0f84653f3e50634fc5e4d1318c0f94
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Windows için OMS sanal makine uzantısı
 
@@ -28,7 +28,12 @@ Operations Management Suite (OMS) bulut izleme, uyarma ve uyarı düzeltme özel
 ## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="operating-system"></a>İşletim sistemi
+
 Windows, Windows Server 2008 R2 karşı çalıştırılabilir için OMS aracısının uzantısı 2012, 2012 R2 ve 2016 serbest bırakır.
+
+### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
+
+Azure Güvenlik Merkezi otomatik olarak OMS aracısı sağlar ve Azure aboneliğinin varsayılan günlük analizi çalışma bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması yapılandırılmış çalışma ve bağlantıyı kesme Azure Güvenlik Merkezi ile üzerine yazar.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 Windows için OMS aracısının uzantısı hedef sanal makine internet'e bağlı olduğunu gerektirir. 

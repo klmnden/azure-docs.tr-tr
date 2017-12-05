@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 6fa563e102569064d045fbb60ebd5d1df52e3e73
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 09d488a7600d85b6feab6a27cdd517240c95104b
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Azure içerik teslim ağı'nda Azure Blob storage'nın bitiş tarihini Yönet
 > [!div class="op_single_selector"]
@@ -113,19 +113,20 @@ Güncelleştirilecek *CacheControl* Azure Depolama Gezgini ile bir blob özelli�
 ### <a name="azure-command-line-interface"></a>Azure Komut Satırı Arabirimi
 İle [Azure komut satırı arabirimi](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI), komut satırından Azure blob kaynakları yönetebilir. Azure CLI ile bir blob karşıya yüklediğinizde cache-control üstbilgisinin ayarlamak için ayarlayın *cacheControl* kullanarak özellik `-p` geçin. Aşağıdaki örnekte, TTL bir saat (3600 saniye) ayarlamak gösterilmektedir:
   
-'''Azure CLI azure depolama blobunu karşıya yükle -c <connectionstring> - p cacheControl = "max-age 3600" .\test.txt myContainer sınama.txt =
+```azurecli
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
 ```
 
-### Azure storage services REST API
-You can use the [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) to explicitly set the *x-ms-blob-cache-control* property by using the following operations on a request:
+### <a name="azure-storage-services-rest-api"></a>Azure storage services REST API'si
+Kullanabileceğiniz [Azure storage Hizmetleri REST API'si](https://msdn.microsoft.com/library/azure/dd179355.aspx) açıkça ayarlamak için *x-ms-blob-cache-control* istek üzerine aşağıdaki işlemleri kullanarak özelliği:
   
-   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
-   - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [BLOB yerleştirme](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
+   - [Engelleme listesi yerleştirme](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Blob özelliklerini ayarlama](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
-## Testing the Cache-Control header
-You can easily verify the TTL settings of your blobs. With your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test that your blob includes the `Cache-Control` response header. You can also use a tool such as [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), or [Fiddler](http://www.telerik.com/fiddler) to examine the response headers.
+## <a name="testing-the-cache-control-header"></a>Cache-Control üstbilgisinin test etme
+Bloblarınızın TTL ayarlarını kolayca doğrulayabilirsiniz. Tarayıcınızın ile [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), blob içeren test `Cache-Control` yanıtı üstbilgisi. Bir aracı gibi kullanabilir [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), veya [Fiddler](http://www.telerik.com/fiddler) yanıt üstbilgileri incelemek için.
 
-## Next Steps
-* [Learn how to manage expiration of Cloud Service content in Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+## <a name="next-steps"></a>Sonraki Adımlar
+* [Azure CDN içinde bulut hizmeti içeriğinin kullanım süresini yönetme öğrenin](cdn-manage-expiration-of-cloud-service-content.md)
 

@@ -3,22 +3,21 @@ title: "Azure API Management'te OAuth 2.0 kullanan Geliştirici hesaplarını ye
 description: "API Management'te OAuth 2.0 kullanan kullanıcıların nasıl yetkilendirileceğini öğrenin."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: c61b4969757d62d7e16e7acecf7d7bed4b31c9b1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: bd8b3d13754e981235cbce39e919f39228820426
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management'te OAuth 2.0 kullanan Geliştirici hesaplarını yetkilendirmede nasıl
 Birçok API'lerini destekleyen [OAuth 2.0](http://oauth.net/2/) API güvenliğini sağlama ve yalnızca geçerli kullanıcıların erişimi vardır ve bunlar yalnızca bunlar yetkili kaynaklara erişebilir emin olun. Azure API Management'ın etkileşimli Geliştirici konsolu gibi API'leri ile kullanmak için hizmet, hizmet örneği, OAuth 2.0 etkin API çalışmak için yapılandırmanıza olanak sağlar.
@@ -37,7 +36,7 @@ Kullanmaya başlamak için API Management hizmetiniz için Azure Portal'da **Yay
 ![Yayımcı portalı][api-management-management-console]
 
 > [!NOTE]
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma][Create an API Management service instance].
 > 
 > 
 
@@ -160,10 +159,10 @@ Aşağıdaki video ve eşlik eden OAuth 2.0 ve API Management kullanma hakkında
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Azure Machine Learning veri hazırlığı için desteklenen veri kaynakları 
 Bu makalede, Azure Machine Learning veri hazırlığı için şu anda desteklenen veri kaynakları özetlenmektedir.
@@ -24,6 +24,25 @@ Bu makalede, Azure Machine Learning veri hazırlığı için şu anda desteklene
 Bu sürüm için desteklenen veri kaynakları aşağıda gösterilmektedir.
 
 ## <a name="types"></a>Türler 
+
+### <a name="sql-server"></a>SQL Server
+Şirket içi SQL server veya Azure SQL veritabanından okuyun.
+
+#### <a name="options"></a>Seçenekler
+- Sunucu Adresi
+- Sunucu (sunucu üzerindeki sertifika geçerli olmadığında bile. güven Dikkatli kullanın)
+- Kimlik doğrulama türü (Windows, sunucu)
+- User Name
+- Parola
+- Veritabanına bağlanmak için
+- SQL sorgusu
+
+#### <a name="notes"></a>Notlar
+- SQL variant sütunları desteklenmiyor
+- Saat sütunu datetime için tarih 1970'ten / 1/1 veritabanından süresi eklenerek dönüştürülür
+- Spark kümesi üzerinde çalıştırıldığında, tüm sütunlar (date, datetime, datetime2, datetimeoffset) 1583 önceki tarihler için hatalı değerler değerlendirecek ilgili verileri
+- Ondalık sütunlardaki değerleri ondalık dönüştürme nedeniyle duyarlık kaybedebileceği
+
 ### <a name="directory-vs-file"></a>Dosya ve dizin
 Tek bir dosya seçin ve veri hazırlığı okuyun. Sonraki ekranda gösterilen dosya bağlantı için varsayılan parametreleri belirlemek için dosya türü ayrıştırılır.
 
@@ -41,7 +60,7 @@ Bir virgülle ayrılmış değer dosyası depolama alanından okuyun.
 #### <a name="options"></a>Seçenekler
 - ayırıcı
 - Açıklama
-- Üstbilgileri
+- Üst bilgiler
 - Ondalık simgesi
 - Dosya kodlama
 - Atlanacak satır
@@ -51,7 +70,7 @@ Sekme ayrılmış değer dosyası depolama alanından okuyun.
 
 #### <a name="options"></a>Seçenekler
 - Açıklama
-- Üstbilgileri
+- Üst bilgiler
 - Dosya kodlama
 - Atlanacak satır
 
@@ -60,7 +79,7 @@ Bir Excel dosyası bir sayfa, sayfa adı veya numarası belirterek aynı anda ok
 
 #### <a name="options"></a>Seçenekler
 - Sayfa adı veya numarası
-- Üstbilgileri
+- Üst bilgiler
 - Atlanacak satır
 
 ### <a name="json-file"></a>JSON dosyası
@@ -88,6 +107,9 @@ Genişleme yürütme üzerinde Spark'ın Parquet özellikleri okuma güvenir ve 
 ## <a name="locations"></a>Konumlar
 ### <a name="local"></a>Yerel
 Yerel sabit diske veya bir eşlenen ağ depolama konumu.
+
+### <a name="sql-server"></a>SQL Server
+Şirket içi SQL Server, veya Azure SQL veritabanı.
 
 ### <a name="azure-blob-storage"></a>Azure Blob depolama
 Bir Azure aboneliği gerektirir azure Blob Depolama birimi.
