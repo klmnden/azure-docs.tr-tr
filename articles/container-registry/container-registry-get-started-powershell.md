@@ -8,16 +8,17 @@ manager: timlt
 editor: tysonn
 ms.service: container-registry
 ms.devlang: na
-ms.topic: article
+ms.topic: quicksart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2017
 ms.author: nepeters
-ms.openlocfilehash: b58b10e644e934cc38a6e0512ba7642ab8bf27c4
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.custom: mvc
+ms.openlocfilehash: d165cc159f7da2c8e7f0be4f0fa7d353997ed5f9
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell kullanarak bir Azure kapsayıcı kayıt defteri oluşturma
 

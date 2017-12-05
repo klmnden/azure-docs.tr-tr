@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: a3872aae3a9eb8da0b881ec9388f54546e84b08b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management'te rol tabanlı erişim denetimi kullanma
 Azure API Management üzerinde Azure rol tabanlı erişim denetimi (API Management hizmet ve varlıkları (örneğin, API ve ilkeleri) için ayrıntılı erişim yönetimini etkinleştirmek için RBAC) kullanır. Bu makalede, API Management'te yerleşik ve özel roller genel bir bakış sağlar. Azure portalında erişim yönetimi hakkında daha fazla bilgi için bkz: [Azure portalında erişim yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -61,9 +61,12 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
 
 [Azure Resource Manager kaynak sağlayıcısı işlemleri](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement) makale API Management düzeyinde verilebilir izinleri listesini içerir.
 
-## <a name="watch-a-video-overview"></a>Video genel izleyin
+## <a name="video"></a>Video
 
-Daha fazla bilgi için izlediğiniz [rol tabanlı erişim denetimi API Management](https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player) video.
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]
+>
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

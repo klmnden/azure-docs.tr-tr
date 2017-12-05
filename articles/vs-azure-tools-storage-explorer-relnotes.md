@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure Storage Gezgini (Önizleme) sürüm notları
 
@@ -76,7 +76,7 @@ Bu makalede Azure Storage Gezgini 0.9.2 için (Önizleme), önceki sürümler i�
 * Azure yığın şu anda dosya paylaşımlarını desteklemez ancak dosya paylaşımlarına düğümü ekli bir Azure yığın depolama hesabı altında görünmeye devam eder.
 * Depolama Gezgini tarafından kullanılan Elektron Kabuk bazı GPU (grafik işlem birimi) donanım hızlandırmasını sorun vardır. Depolama Gezgini boş bir (boş) ana penceresi görüntüleme, deneyebilirsiniz ekleyerek GPU hızlandırmasını devre dışı bırakma ve komut satırından Depolama Gezgini başlatılıyor `--disable-gpu` geçin:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Ubuntu 14.04 üzerinde kullanıcıların için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 
@@ -137,7 +137,7 @@ Bu makalede Azure Storage Gezgini 0.9.2 için (Önizleme), önceki sürümler i�
 * Azure yığın şu anda dosya paylaşımlarını desteklemez ancak dosya paylaşımlarına düğümü ekli bir Azure yığın depolama hesabı altında görünmeye devam eder.
 * Depolama Gezgini tarafından kullanılan Elektron Kabuk bazı GPU (grafik işlem birimi) donanım hızlandırmasını sorun vardır. Depolama Gezgini boş bir (boş) ana penceresi görüntüleme, deneyebilirsiniz ekleyerek GPU hızlandırmasını devre dışı bırakma ve komut satırından Depolama Gezgini başlatılıyor `--disable-gpu` geçin:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Ubuntu 14.04 üzerinde kullanıcıların için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 

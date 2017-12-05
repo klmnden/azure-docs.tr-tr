@@ -1,6 +1,6 @@
 ---
 title: Azure API Management ile ilgili SSS | Microsoft Docs
-description: "Sık sorulan sorular, desenleri ve en iyi uygulamalar Azure API Management'te yanıtlarını öğrenin."
+description: "Azure API Management'te'en iyi yöntemler ve sık sorulan sorular (SSS) düzenleri yanıtlarını öğrenin."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,20 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını için Azure API Management alın.
 
 ## <a name="contact-us"></a>Bizimle iletişim kurun
 * [Nasıl t Microsoft Azure API Management ekibi bir soru sorabilir miyim?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
-
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 * [Bir özelliğin önizlemede olduğunda ne anlama geliyor?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -62,7 +61,7 @@ Bir özelliğin önizlemede olduğunda, biz etkin olarak özellik sizin için na
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>API Yönetimi ağ geçidi ve arka uç Hizmetlerim arasındaki bağlantı güvenliğini nasıl sağlayabilirsiniz?
 API Yönetimi ağ geçidi ve arka uç hizmetlerini arasındaki bağlantının güvenli hale getirmek için birkaç seçeneğiniz vardır. Şunları yapabilirsiniz:
 
-* HTTP temel kimlik doğrulaması kullanın. Daha fazla bilgi için bkz: [API yapılandırma ayarları](api-management-howto-create-apis.md#configure-api-settings).
+* HTTP temel kimlik doğrulaması kullanın. Daha fazla bilgi için bkz: [alma ve ilk API'nizi yayımlama](import-and-publish.md).
 * Bölümünde açıklandığı gibi SSL karşılıklı kimlik doğrulaması kullanmak [arka uç hizmetlerini istemcisini kullanarak Azure API Management'te sertifika kimlik doğrulaması güvenliğini sağlamak nasıl](api-management-howto-mutual-certificates.md).
 * IP uygulamaları güvenilir listeye almayı arka uç hizmet kullanın. Standart veya Premium katman API Management örneği varsa, ağ geçidinin IP adresi sabit kalır. Bu IP adreslerine izin vermek için beyaz liste ayarlayabilirsiniz. Azure Portalı'ndaki Panoda API Management Örneğinize IP adresini elde edebilirsiniz.
 * API Management örneği bir Azure sanal ağına bağlayın.
@@ -102,7 +101,7 @@ Eklemek istediğiniz ilke soluk veya İlke Düzenleyicisi'nde gölgeli, ilke iç
 API sürümü oluşturma API Management'te kullanmak için birkaç seçeneğiniz vardır:
 
 * API Yönetimi'nde, API'ları farklı sürümlerini temsil yapılandırabilirsiniz. Örneğin, iki farklı API'leri, MyAPIv1 ve MyAPIv2 olabilir. Bir geliştirici Geliştirici kullanmak isterse sürümü seçebilirsiniz.
-* API'nizi sürüm segment, örneğin, https://my.api içermeyen bir hizmet URL'si ile de yapılandırabilirsiniz. Ardından, her işlemin üzerinde bir sürümü kesimi yapılandırmak [URL yeniden yazma](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) şablonu. Örneğin, bir işlem olabilir bir [URL şablonu](api-management-howto-add-operations.md#url-template) /Resource çağrılır ve bir [URL yeniden yazma](api-management-howto-add-operations.md#rewrite-url-template) şablonu adlı/v1/kaynak. Her işlem için ayrı ayrı sürüm kesim değeri değiştirebilirsiniz.
+* API'nizi sürüm segment, örneğin, https://my.api içermeyen bir hizmet URL'si ile de yapılandırabilirsiniz. Ardından, her işlemin üzerinde bir sürümü kesimi yapılandırmak [URL yeniden yazma](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) şablonu. 
 * Seçili işlemlerini API'nin hizmeti URL'si "varsayılan" sürüm kesimi tutmak istiyorsanız kullanan bir ilke kümesi [ayarlamak arka uç hizmetini](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) arka uç istek yolu değiştirmek için ilke.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Tek bir API birden çok ortamında nasıl ayarlayabilirim?

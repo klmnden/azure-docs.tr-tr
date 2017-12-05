@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: bradsev;weig
-ms.openlocfilehash: 73517a8d58700e987ce80889dadf8791e53170a3
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Eylem takım veri bilimi işleminde: SQL Data Warehouse kullanma
 Bu öğreticide, biz, oluşturma ve dağıtma SQL veri ambarı (SQL DW) kullanarak bir makine öğrenimi modeline aracılığıyla genel kullanıma açık bir veri kümesi için--yol [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Oluşturulan ikili sınıflandırma modeli bir ipucu seyahat için ödeme ve çok sınıflı sınıflandırma ve regresyon modeli Ayrıca, dağıtım Ücretli ipucu tutarlarının tahmin açıklanan olup olmadığını tahmin eder.
@@ -839,7 +839,6 @@ Bu alıştırmada, biz varsa zaten incelediniz ve SQL veri ambarı verileri müh
 3. Veritabanı DNS adı **veritabanı sunucusu adı** alan. Biçimi:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Girin **veritabanı adı** karşılık gelen alandaki.
 5. Girin *SQL kullanıcı adı* içinde **Server kullanıcı hesabı adı**ve *parola* içinde **Server kullanıcı hesabı parolasını**.
-6. Denetleme **herhangi bir sunucu sertifikayı kabul** seçeneği.
 7. İçinde **veritabanı sorgusu** metin alanı düzenlemek, gerekli veritabanı alanları (etiketler gibi hesaplanan alanları dahil) ayıklayan sorguyu yapıştırın ve aşağı istenen örnek boyutu için veri örnekleri.
 
 Verileri doğrudan SQL veri ambarı veritabanından okunurken bir ikili sınıflandırma deneme, aşağıdaki şekilde örneğidir (şema adı ve tablo adlarının, örneklerde kullanılan tablo adları nyctaxi_trip ve nyctaxi_fare değiştirmek unutmayın). Benzer denemeler, çok sınıflı sınıflandırma ve regresyon sorunları için oluşturulabilir.

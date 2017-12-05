@@ -3,28 +3,27 @@ title: "Nasıl kullanıcı hesaplarını Azure API Management'te yönetme | Micr
 description: "Oluşturma ve Azure API Management'te kullanıcıları davet öğrenin"
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 078abfa5-1e4f-4c9d-b9c7-a172bd19c1a2
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 34343194cb9896916cb02cb8acf61af24f0784c9
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 6f2fd5e4c1a51fe9d1652c9970bcd8d76b25ab60
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Kullanıcı hesapları Azure API Management'te yönetme
 API Yönetimi'nde, geliştiriciler API Management kullanarak kullanıma API'leri kullanıcılardır. Bu kılavuz, API'ları ve ürünlerini kullanmak için için nasıl oluşturulacağını ve geliştiricilerin davet gösterir, API Management örneği ile kendileri için kullanılabilir hale. Kullanıcı hesaplarını program aracılığıyla yönetme hakkında daha fazla bilgi için bkz: [kullanıcı varlığı](https://msdn.microsoft.com/library/azure/dn776330.aspx) belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru.
 
 ## <a name="create-developer"></a>Yeni bir geliştirici oluşturma
-Yeni bir geliştirici oluşturmak için tıklatın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda. Bu sizi API Management yayımcı portalına götürür. Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
+Yeni bir geliştirici oluşturmak için tıklatın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda. Bu sizi API Management yayımcı portalına götürür. Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma][Create an API Management service instance].
 
 ![Yayımcı portalı][api-management-management-console]
 
@@ -100,6 +99,6 @@ Bir geliştirici hesabı oluşturulduktan sonra rolleriyle ilişkilendirmek ve �
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md
 [Configure email templates]: api-management-howto-configure-notifications.md#email-templates

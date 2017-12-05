@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Veri kopyalama/Dynamics 365 / Dynamics CRM Azure Data Factory kullanma
 
@@ -30,14 +30,20 @@ Bu makalede kopya etkinliği Azure Data Factory'de ilk ve son Dynamics 365 / Dyn
 
 Verileri Dynamics 365 / Dynamics CRM'den tüm desteklenen havuz veri deposuna kopyalamak ya da veri tüm desteklenen kaynak veri deposundan Dynamics 365 / Dynamics CRM kopyalayın. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu Dynamics bağlayıcı Dynamics sürümleri ve kimlik doğrulama türleri destekler:
+Bu Dynamics bağlayıcı Dynamics sürümleri ve kimlik doğrulama türleri destekler (*IFD olduğu kısaltması Internet'e yönelik dağıtımınız*):
 
 | Dynamics sürümleri | Kimlik doğrulama türleri | Bağlantılı hizmet örnekleri |
 |:--- |:--- |:--- |
 | Dynamics 365 çevrimiçi <br> Dynamics CRM online | Office365 | [Çevrimiçi Dynamics + Office365 auth](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 ile şirket içi IFD <br> Dynamics CRM 2016 ile şirket içi IFD <br> Dynamics CRM 2015 ile şirket içi IFD | IFD | [Dynamics ile şirket içi IFD + IFD kimlik doğrulama](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD kısaltması Internet'e yönelik dağıtımıdır.*
+Dynamics 365 özellikle, aşağıdaki uygulama türleri desteklenir:
+
+- Dynamics 365 satış
+- Dynamics 365 Müşteri Hizmetleri
+- Dynamics 365 alan hizmeti
+- Dynamics 365 proje hizmet otomasyonu için
+- Dynamics 365 pazarlama
 
 > [!NOTE]
 > Dynamics bağlayıcıyı kullanmak için Azure anahtar kasası parolanızı depolamak ve veri kopyalama gerçekleştirirken ADF kopyalama etkinliklere çekme buradan sağlar. Bkz. yapılandırmak [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü.
@@ -321,7 +327,7 @@ Veri kümesi yapısında, Dynamics veri kaynağına göre karşılık gelen ADF 
 | Dynamics veri türü | Veri Fabrikası geçici veri türü | Kaynak olarak desteklenen | Havuzu olarak desteklenir |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Uzun | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boole değeri | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boole | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ |  |
 | AttributeType.DateTime | Tarih saat | ✓ | ✓ |
 | AttributeType.Decimal | Ondalık | ✓ | ✓ |
@@ -329,7 +335,7 @@ Veri kümesi yapısında, Dynamics veri kaynağına göre karşılık gelen ADF 
 | AttributeType.EntityName | Dize | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ |  |
-| AttributeType.ManagedProperty | Boole değeri | ✓ |  |
+| AttributeType.ManagedProperty | Boole | ✓ |  |
 | AttributeType.Memo | Dize | ✓ | ✓ |
 | AttributeType.Money | Ondalık | ✓ |  |
 | AttributeType.Owner | GUID | ✓ | |

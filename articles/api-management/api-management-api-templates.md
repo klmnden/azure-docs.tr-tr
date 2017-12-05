@@ -3,8 +3,8 @@ title: "Azure API Management'te API şablonları | Microsoft Docs"
 description: "Azure API Management'ta Geliştirici portalını API sayfalarında içeriğini özelleştirmeyi öğrenin."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9055c7fc0b562fa02aa2f2ec8425a4a41b69e600
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2317047165f49de8c42c41dc864f0752df4af068
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management'te API şablonları
 Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.  
   
- Bu bölümdeki şablonları Geliştirici Portalı API sayfalarında içeriğini özelleştirmenize olanak sağlar.  
+Bu bölümdeki şablonları Geliştirici Portalı API sayfalarında içeriğini özelleştirmenize olanak sağlar.  
   
 -   [API listesi](#APIList)  
 -   [İşlem](#Product)  
@@ -45,7 +45,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
  ![Geliştirici Portalı API listesi](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Geliştirici Portalı şablonları API listesi")  
   
-### <a name="default-template"></a>Varsayılan şablonu  
+### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 <search-control></search-control>  
@@ -113,7 +113,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
  ![Geliştirici Portalı işlemi sayfa](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM Geliştirici Portalı şablonlarını işlemi")  
   
-### <a name="default-template"></a>Varsayılan şablonu  
+### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 <h2>{{api.name}}</h2>  
@@ -662,7 +662,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ###  <a name="Curl"></a>Curl  
  **DocumentationSamplesCurl** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
   
-#### <a name="default-template"></a>Varsayılan şablonu  
+#### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 @ECHO OFF  
@@ -715,7 +715,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ###  <a name="CSharp"></a>C#  
  **DocumentationSamplesCsharp** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
   
-#### <a name="default-template"></a>Varsayılan şablonu  
+#### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 using System;  
@@ -894,7 +894,7 @@ namespace CSHttpClientSample
 ###  <a name="Stub"></a>Java  
  **DocumentationSamplesJava** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
   
-#### <a name="default-template"></a>Varsayılan şablonu  
+#### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
@@ -990,7 +990,7 @@ public class JavaSample
 ###  <a name="JavaScript"></a>JavaScript  
  **DocumentationSamplesJs** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
   
-#### <a name="default-template"></a>Varsayılan şablonu  
+#### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 <!DOCTYPE html>  
@@ -1079,7 +1079,7 @@ public class JavaSample
 ###  <a name="ObjectiveC"></a>Objective C  
  **DocumentationSamplesObjc** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
   
-#### <a name="default-template"></a>Varsayılan şablonu  
+#### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 #import <Foundation/Foundation.h>  
@@ -1191,7 +1191,7 @@ int main(int argc, const char * argv[])
 ###  <a name="PHP"></a>PHP  
  **DocumentationSamplesPhp** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
   
-#### <a name="default-template"></a>Varsayılan şablonu  
+#### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 <?php  
@@ -1281,7 +1281,7 @@ catch (HttpException $ex)
 ###  <a name="Python"></a>Python  
  **DocumentationSamplesPython** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
   
-#### <a name="default-template"></a>Varsayılan şablonu  
+#### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 ########### Python 2.7 #############  
@@ -1399,7 +1399,7 @@ except Exception as e:
 ###  <a name="Ruby"></a>Ruby  
  **DocumentationSamplesRuby** şablonu bu kod örneği işlem sayfasının kod örnekleri bölümünde özelleştirmenizi sağlar.  
   
-#### <a name="default-template"></a>Varsayılan şablonu  
+#### <a name="default-template"></a>Varsayılan şablon  
   
 ```xml  
 require 'net/http'  

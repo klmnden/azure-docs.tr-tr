@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Hdınsight'ta R Server için içerik seçeneklerini işlem
 
@@ -33,12 +33,12 @@ Kümenin kenar düğümü kümeye bağlanın ve R komut dosyalarını çalışt�
 ## <a name="compute-contexts-for-an-edge-node"></a>Bir kenar düğümüne bağlamları işlem
 Genel olarak, R Server edge düğümde çalışan bir R betiği içinde R yorumlayıcı bu düğüm üzerinde çalışır. Özel durumlar ScaleR işlevini çağırın bu adımlardır. ScaleR işlem bağlamı nasıl ayarlanacağını belirlenen bir işlem ortamında ScaleR çağrıları çalıştırın.  R betiği bir kenar düğümden çalıştırdığınızda, işlem bağlamının olası değerler şunlardır:
 
-- Yerel sıralı (*'local'*)
-- yerel paralel (*'localpar'*)
+- Yerel sıralı (*yerel*)
+- yerel paralel (*localpar*)
 - Harita azaltın
 - Spark
 
-*'Local'* ve *'localpar'* seçenekleri yalnızca nasıl farklı **rxExec** çağrıları çalıştırılır. Her ikisi de diğer rx işlev çağrılarını paralel bir şekilde kullanılabilir tüm çekirdek arasında ScaleR kullanımla aksi belirtilmediği sürece yürütme **numCoresToUse** seçeneği, örneğin `rxOptions(numCoresToUse=6)`. Paralel yürütme seçeneklerini en iyi performans sunar.
+*Yerel* ve *localpar* seçenekleri yalnızca nasıl farklı **rxExec** çağrıları çalıştırılır. Her ikisi de diğer rx işlev çağrılarını paralel bir şekilde kullanılabilir tüm çekirdek arasında ScaleR kullanımla aksi belirtilmediği sürece yürütme **numCoresToUse** seçeneği, örneğin `rxOptions(numCoresToUse=6)`. Paralel yürütme seçeneklerini en iyi performans sunar.
 
 Aşağıdaki tabloda çağrıları nasıl yürütülen ayarlamak için çeşitli işlem bağlamı seçenekler özetlenmektedir:
 
@@ -62,8 +62,8 @@ Paralel birkaç ölçeklendirin yürütme sağlayan üç seçenekleri seçtiğin
 Bu ilkeler verildiğinde, aşağıdaki bölümlerde bazı genel kurallar için bir işlem bağlamında seçme altın sunar.
 
 ### <a name="local"></a>Yerel
-* Analiz etmek için veri miktarını küçük ise ve yinelenen analiz gerektirmez, ardından bunu doğrudan çözümleme yordamı kullanarak akış *'local'* veya *'localpar'*.
-* Çözümlemek için veri miktarını küçük veya orta ölçekli ve yinelenen analiz gerektiriyorsa, sonra yerel dosya sistemine kopyalamak için XDF almak ve aracılığıyla analiz *'local'* veya *'localpar'*.
+* Analiz etmek için veri miktarını küçük ise ve yinelenen analiz gerektirmez, ardından bunu doğrudan çözümleme yordamı kullanarak akış *yerel* veya *localpar*.
+* Çözümlemek için veri miktarını küçük veya orta ölçekli ve yinelenen analiz gerektiriyorsa, sonra yerel dosya sistemine kopyalamak için XDF almak ve aracılığıyla analiz *yerel* veya *localpar*.
 
 ### <a name="hadoop-spark"></a>Hadoop Spark
 * Analiz etmek için veri miktarını büyükse, ardından bunu kullanarak bir Spark DataFrame içeri **RxHiveData** veya **RxParquetData**, veya hdfs'deki XDF (depolama birimi bir sorun olmadığı sürece) ve Spark işlem kullanarak analiz edin bağlamı.
@@ -76,7 +76,7 @@ Daha fazla bilgi ve örnekler ScaleR işlem bağlamı için R rxSetComputeContex
 
     > ?rxSetComputeContext
 
-Ayrıca başvurabilirsiniz "[ScaleR dağıtılmış bilgi işlem kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)" kullanılabilir olan [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx "R Server MSDN'de") kitaplığı.
+Ayrıca başvurabilirsiniz [ScaleR dağıtılmış bilgi işlem kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) kullanılabilir olan [R Server MSDN](https://msdn.microsoft.com/library/mt674634.aspx) kitaplığı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede ve bunun nasıl yürütme kenar düğümüne veya Hdınsight küme çekirdeği arasında paralel birkaç ölçeklendirin belirtmek için kullanılabilir seçenekler hakkında öğrendiniz. R Server Hdınsight kümeleri ile kullanma hakkında daha fazla bilgi için aşağıdaki konulara bakın:

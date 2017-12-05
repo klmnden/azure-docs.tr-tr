@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: be18f6db46285233e233c843dab1f389cd553e96
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: fa19913928bad8b91777c0904324ff5983f6472c
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig komutu (SSH) ile Linux tabanlı kümesi pig işleri çalıştırma
 
@@ -35,35 +35,39 @@ Pig işleri bir SSH bağlantısı Hdınsight kümenize etkileşimli olarak çal�
 
 SSH Hdınsight kümenize bağlanmak için kullanın. Aşağıdaki örnek adlı bir kümeye bağlanır **myhdinsight** adlı hesap olarak **sshuser**:
 
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```bash
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
+```
 
-**SSH kimlik doğrulaması için bir sertifika anahtarı sağladıysanız** Hdınsight kümesi oluşturduğunuzda, özel anahtarı konumunu, istemci sisteminizde belirtmeniz gerekebilir.
-
-    ssh sshuser@myhdinsight-ssh.azurehdinsight.net -i ~/mykey.key
-
-**SSH kimlik doğrulaması için parola sağladıysanız** Hdınsight kümesi oluşturduğunuzda, istendiğinde parolayı girin.
-
-Hdınsight ile SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="pig"></a>Pig komutunu kullanın
 
 1. Bağlantı kurulduktan sonra Pig komut satırı arabirimi (CLI) aşağıdaki komutu kullanarak başlatın:
 
-        pig
+    ```bash
+    pig
+    ```
 
-    Bir süre sonra görmelisiniz bir `grunt>` istemi.
+    Bir süre sonra istemi değişikliklerini`grunt>`.
 
 2. Aşağıdaki deyimi girin:
 
-        LOGS = LOAD '/example/data/sample.log';
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    ```
 
     Bu komut sample.log dosyasının içeriğini oturum AÇTIĞI yükler. Şu deyimi kullanarak dosyanın içeriğini görüntüleyebilirsiniz:
 
-        DUMP LOGS;
+    ```piglatin
+    DUMP LOGS;
+    ```
 
 3. Ardından, verileri şu deyimi kullanarak her kayıttan yalnızca günlüğe kaydetme düzeyi ayıklamak için normal bir ifade uygulayarak dönüştürün:
 
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```piglatin
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    ```
 
     Kullanabileceğiniz **dökümü** dönüştürme işleminin ardından verileri görüntülemek için. Bu durumda, kullanarak `DUMP LEVELS;`.
 
@@ -81,36 +85,48 @@ Hdınsight ile SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight il
 
 5. Kullanarak bir dönüşüm sonuçları kaydedebilirsiniz `STORE` deyimi. Örneğin aşağıdaki deyim kaydeder `RESULT` için `/example/data/pigout` kümeniz için varsayılan depolama dizinine:
 
-        STORE RESULT into '/example/data/pigout';
+    ```piglatin
+    STORE RESULT into '/example/data/pigout';
+    ```
 
    > [!NOTE]
    > Veri adlı dosyaları belirtilen dizinde depolanır `part-nnnnn`. Dizini zaten varsa, bir hata alırsınız.
 
 6. Grunt istemi çıkmak için şu deyimi girin:
 
-        QUIT;
+    ```piglatin
+    QUIT;
+    ```
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin toplu iş dosyaları
 
 Pig komutu, bir dosyada yer alan Pig Latin çalıştırmak için de kullanabilirsiniz.
 
-1. Grunt istemi çıktıktan sonra aşağıdaki komutu kanala STDIN adlı bir dosyaya kullanın `pigbatch.pig`. Bu dosya SSH kullanıcı hesabı için giriş dizini oluşturulur.
+1. Grunt istemi çıktıktan sonra adlı dosyayı oluşturmak için aşağıdaki komutu kullanın `pigbatch.pig`:
 
-        cat > ~/pigbatch.pig
+    ```bash
+    nano ~/pigbatch.pig
+    ```
 
-2. Yazın veya aşağıdaki satırları yapıştırın ve sonra Ctrl + D bittiğinde kullanın.
+2. Yazın veya aşağıdaki satırları yapıştırın:
 
-        LOGS = LOAD '/example/data/sample.log';
-        LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-        FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-        GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-        FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-        RESULT = order FREQUENCIES by COUNT desc;
-        DUMP RESULT;
+    ```piglatin
+    LOGS = LOAD '/example/data/sample.log';
+    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+    RESULT = order FREQUENCIES by COUNT desc;
+    DUMP RESULT;
+    ```
+
+    Bunu yaptıktan sonra kullanmak __Ctrl__ + __X__, __Y__ve ardından __Enter__ dosyayı kaydetmek için.
 
 3. Çalıştırmak için aşağıdaki komutu kullanın `pigbatch.pig` Pig komutunu kullanarak dosya.
 
-        pig ~/pigbatch.pig
+    ```bash
+    pig ~/pigbatch.pig
+    ```
 
     Toplu işi tamamlandıktan sonra aşağıdaki çıkış bakın:
 

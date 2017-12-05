@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-policy-expressions"></a>API Management ilke ifadeleri
 İlke ifadeleri sözdizimi C# 6.0 şeklindedir. Her bir ifadenin örtük olarak sağlanan erişimi [bağlamı](api-management-policy-expressions.md#ContextVariables) değişkeni ve bir izin verilen [alt](api-management-policy-expressions.md#CLRTypes) .NET Framework türü.  
   
-> [!NOTE]
+> [!TIP]
 >  İlke ifadeleri hakkında daha fazla bilgi için bkz: [ilke ifadelerini](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/) video.  
 >   
 >  İlke ifadelerini kullanarak ilkeleri yapılandırma gösterim için bkz: [bulut kapak bölüm 177: daha Vlad Vinogradsky ile yönetim özelliklerini API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Bu videoda, aşağıdaki ilke ifade gösterim içerir.  
@@ -206,5 +206,15 @@ ms.lasthandoff: 11/22/2017
 |Byte [] şifresini çözme (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm)|Giriş - şifresinin çözülmesini cyphertext<br /><br />algoritma - şifreleme algoritması<br /><br />Düz metin döndürür.|
 |Byte [] şifresini çözme (giriş: Bu byte [], algoritma: System.Security.Cryptography.SymmetricAlgorithm, anahtarı: byte [], iv:byte[])|Şifresi çözülecek giriş - giriş - cyphertext<br /><br />algoritma - şifreleme algoritması<br /><br />anahtar - şifreleme anahtarı<br /><br />IV - başlatma vektörü<br /><br />Düz metin döndürür.|
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player] 
+>
 ## <a name="next-steps"></a>Sonraki adımlar
-İlkeleriyle çalışma daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
+
+İlkeleriyle çalışma daha fazla bilgi için bkz:
+
++ [API Management ilkeleri](api-management-howto-policies.md)
++ [API dönüştürme](transform-api.md)
++ [Grup İlkesi başvurusu](api-management-policy-reference.md) ilke deyimleri ve ayarlarının tam listesi için
++ [İlke örnekleri](policy-samples.md)   

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 02bb792ddc017efd3be6e14d951eca1d5671f719
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: mvc
+ms.openlocfilehash: d751bf99cd081ea83928981db4c42bcacf4c27af
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defteri hazırlama
 

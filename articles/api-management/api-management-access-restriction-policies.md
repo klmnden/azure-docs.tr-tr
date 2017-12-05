@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>API yönetim erişim kısıtlama ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,17 +26,11 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ##  <a name="AccessRestrictionPolicies"></a>Erişimi kısıtlama ilkeleri  
   
 -   [Onay HTTP üstbilgisi](api-management-access-restriction-policies.md#CheckHTTPHeader) -varlığı ve/veya bir HTTP üstbilgisi değerini zorlar.  
-  
 -   [Abonelik tarafından çağrı hızını sınırla](api-management-access-restriction-policies.md#LimitCallRate) -engeller API kullanımı ani başına abonelik başına çağrı hızını sınırlayarak.  
-  
 -   [Anahtara göre çağrı hızını sınırla](#LimitCallRateByKey) -engeller API kullanımı ani başına anahtar başına çağrı hızını sınırlayarak.  
-  
 -   [Arayan IP'leri kısıtlamak](api-management-access-restriction-policies.md#RestrictCallerIPs) -filtreleri (verir/engellediği) çağrılarından belirli IP adreslerini ve/veya adres aralığı.  
-  
 -   [Abonelik tarafından kullanım kotası ayarla](api-management-access-restriction-policies.md#SetUsageQuota) -yenilenebilir veya ömrü çağrısı birim ve/veya bant genişliği kota, abonelik başına temelinde zorunlu tutmanıza olanak tanır.  
-  
 -   [Anahtara göre kullanım kotası ayarla](#SetUsageQuotaByKey) -yenilenebilir veya ömrü çağrısı birim ve/veya bant genişliği kota anahtarı başına temelinde zorunlu tutmanıza olanak tanır.  
-  
 -   [JWT doğrulama](api-management-access-restriction-policies.md#ValidateJWT) -varlığı ve belirtilen bir HTTP üstbilgisi veya belirtilen sorgu parametresi ayıklanan JWT geçerliliğini zorlar.  
   
 ##  <a name="CheckHTTPHeader"></a>HTTP üstbilgisi denetleyin  
@@ -127,7 +121,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |ad|Hız sınırı uygulanacağı için API adı.|Evet|Yok|  
-|çağrıları|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Evet|Yok|  
+|çağrı|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Evet|Yok|  
 |yenileme dönemi|Zaman aralığını saniye olarak geçmesi kota sıfırlar.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
@@ -183,7 +177,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|çağrıları|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Evet|Yok|  
+|çağrı|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Evet|Yok|  
 |Tamamlayıcı anahtarı|Hız sınırı ilkesi için kullanılacak anahtarı.|Evet|Yok|  
 |Koşul artırma|İstek kota sayılan varsa belirten boolean ifadesi (`true`).|Hayır|Yok|  
 |yenileme dönemi|Zaman aralığını saniye olarak geçmesi kota sıfırlar.|Evet|Yok|  
@@ -235,7 +229,6 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen  
-  
 -   **İlke kapsamları:** genel, ürün, API işlemi  
   
 ##  <a name="SetUsageQuota"></a>Abonelik tarafından kullanım kotası ayarla  
@@ -284,14 +277,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |----------|-----------------|--------------|-------------|  
 |ad|API veya adını kota uygulandığı işlemi.|Evet|Yok|  
 |Bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
-|çağrıları|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
+|çağrı|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |yenileme dönemi|Zaman aralığını saniye olarak geçmesi kota sıfırlar.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen  
-  
 -   **İlke kapsamları:** ürün  
   
 ##  <a name="SetUsageQuotaByKey"></a>Anahtara göre kullanım kotası ayarla  
@@ -343,7 +335,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
 |Bant genişliği|Kilobayt belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
-|çağrıları|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
+|çağrı|Çağrı belirtilen zaman aralığı boyunca izin verilen en fazla toplam sayısı `renewal-period`.|Her iki `calls`, `bandwidth`, veya her ikisini de birlikte belirtilmesi gerekir.|Yok|  
 |Tamamlayıcı anahtarı|Kota ilkesi için kullanılacak anahtarı.|Evet|Yok|  
 |Koşul artırma|İstek kota sayılan varsa belirten boolean ifadesi (`true`)|Hayır|Yok|  
 |yenileme dönemi|Zaman aralığını saniye olarak geçmesi kota sıfırlar.|Evet|Yok|  
@@ -352,7 +344,6 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen  
-  
 -   **İlke kapsamları:** genel, ürün, API işlemi  
   
 ##  <a name="ValidateJWT"></a>JWT doğrula  
@@ -492,7 +483,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 ### <a name="elements"></a>Öğeleri  
   
-|Öğesi|Açıklama|Gerekli|  
+|Öğe|Açıklama|Gerekli|  
 |-------------|-----------------|--------------|  
 |doğrulama jwt|Kök öğesi.|Evet|  
 |Hedef kitle|Belirteçte mevcut olabilecek kabul edilebilir İzleyici talep listesini içerir. Birden fazla hedef kitle değer mevcut sonra her değer denenir kadar tüm (Bu durumda doğrulama başarısız) tükendiği veya biri başarılı olana kadar. En az bir hedef kitle belirtilmelidir.|Hayır|  
@@ -511,20 +502,25 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |başarısız oldu-doğrulama-httpcode|JWT doğrulama geçmiyor ise döndürülecek HTTP durum kodu.|Hayır|401|  
 |üstbilgi adı|Belirteç bulunduran HTTP üstbilgisinin adı.|Ya da `header-name` veya `query-paremeter-name` belirtilmelidir; ancak ikisi birden değil.|Yok|  
 |id|`id` Özniteliği `key` öğesi karşı eşleşen dize belirtmenize olanak verir `kid` imza doğrulama için kullanılacak uygun anahtarını bulmak (varsa) belirteç talep.|Hayır|Yok|  
-|eşleşme|`match` Özniteliği `claim` öğesi ilkedeki her talep değeri başarılı olması doğrulama belirteçte mevcut olup olmadığını belirtir. Olası değerler şunlardır:<br /><br /> -                          `all`-her talep değeri ilkesinde başarılı olması doğrulama belirteci mevcut olması gerekir.<br /><br /> -                          `any`-en az bir talep değeri başarılı olması doğrulama belirteci mevcut olmalıdır.|Hayır|Tüm|  
+|eşleşme|`match` Özniteliği `claim` öğesi ilkedeki her talep değeri başarılı olması doğrulama belirteçte mevcut olup olmadığını belirtir. Olası değerler şunlardır:<br /><br /> -                          `all`-her talep değeri ilkesinde başarılı olması doğrulama belirteci mevcut olması gerekir.<br /><br /> -                          `any`-en az bir talep değeri başarılı olması doğrulama belirteci mevcut olmalıdır.|Hayır|tümü|  
 |Sorgu paremeter adı|Adını belirteci bulunduran sorgu parametresi.|Ya da `header-name` veya `query-paremeter-name` belirtilmelidir; ancak ikisi birden değil.|Yok|  
-|gerekli-sona erme-time|Boole değeri. Bir süre sonu talep belirteçte gerekip gerekmediğini belirtir.|Hayır|TRUE|
+|gerekli-sona erme-time|Boole değeri. Bir süre sonu talep belirteçte gerekip gerekmediğini belirtir.|Hayır|true|
 |gerektiren düzeni|Belirteç adını düzen, örn. "Bearer". Bu öznitelik ayarlandığında, ilke yetkilendirme üst bilgisi değeri, belirtilen düzeni bulunduğundan emin olun.|Hayır|Yok|
-|gerekli-oturum-belirteçleri|Boole değeri. Bir belirteç imzalanmasını gerekli olup olmadığını belirtir.|Hayır|TRUE|  
+|gerekli-oturum-belirteçleri|Boole değeri. Bir belirteç imzalanmasını gerekli olup olmadığını belirtir.|Hayır|true|  
 |ayırıcı|Dize. Ayırıcı belirtir (örneğin ",") birden çok değerli bir talep değerleri kümesi ayıklanması için kullanılacak.|Hayır|Yok| 
-|URL|Burada Open ID yapılandırma meta verilerini elde edilebilir gelen kimliği yapılandırma uç noktasının URL'sini açın. Azure Active Directory için şu URL'yi kullanın: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` directory Kiracı adınız, örneğin değiştirerek `contoso.onmicrosoft.com`.|Evet|Yok|  
+|url|Burada Open ID yapılandırma meta verilerini elde edilebilir gelen kimliği yapılandırma uç noktasının URL'sini açın. Azure Active Directory için şu URL'yi kullanın: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` directory Kiracı adınız, örneğin değiştirerek `contoso.onmicrosoft.com`.|Evet|Yok|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen  
-  
 -   **İlke kapsamları:** genel, ürün, API işlemi  
   
 ## <a name="next-steps"></a>Sonraki adımlar
-İlkeleriyle çalışma daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
+
+İlkeleriyle çalışma daha fazla bilgi için bkz:
+
++ [API Management ilkeleri](api-management-howto-policies.md)
++ [API dönüştürme](transform-api.md)
++ [Grup İlkesi başvurusu](api-management-policy-reference.md) ilke deyimleri ve ayarlarının tam listesi için
++ [İlke örnekleri](policy-samples.md)   

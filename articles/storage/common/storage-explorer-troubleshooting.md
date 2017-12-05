@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Gezgini sorun giderme kılavuzu
 
@@ -95,7 +95,7 @@ Kimlik doğrulama sayfasına bakın, sorunu gidermek için aşağıdaki adımlar
 
 - Geliştirici Konsolu F12 tuşuna basarak görüntüleyin. Geliştirici konsolundan yanıtlarını izleyin ve tüm ipucu için neden Bul olup olmadığını görmek kimlik doğrulaması çalışmıyor.
 
-### <a name="cannot-remove-account"></a>Hesabını kaldıramaz
+### <a name="cannot-remove-account"></a>Hesap kaldırılamıyor
 
 Bir hesap kaldıramadı ya da yeniden kimlik doğrula bağlantı herhangi bir şey yapmanız durumunda, bu sorunu gidermek için aşağıdaki adımları izleyin:
 
@@ -172,6 +172,14 @@ Bir SAS URL'si kullanarak ve bu hatanın bir hizmete bağlanıyorsanız:
 - URL geçmediğini doğrulayın.
 
 - SAS URL bir erişim ilkesini temel alarak, erişim ilkesi edilmediğini doğrulayın.
+
+Varsa, yanlışlıkla geçersiz bir SAS URL'si bağlı ve ayrılamadı, lütfen şu adımları izleyin:
+1.  Depolama Gezgini çalıştırırken, geliştirici araçları penceresini açmak için F12 tuşuna basın.
+2.  Uygulama sekmesini tıklatın ve ardından yerel depolama > soldaki ağaç file://.
+3.  Sorunlu SAS URI'sini hizmet türü ile ilişkili anahtar bulunamıyor. Örneğin, hatalı bir blob kapsayıcısı için SAS URI'sini ise, "StorageExplorer_AddStorageServiceSAS_v1_blob" adlı anahtar için arayın.
+4.  Anahtarın değerini bir JSON dizisi olmalıdır. Geçersiz URI'sı ile ilişkili nesneyi bulmak ve kaldırmak.
+5.  Depolama Gezgini yeniden yüklemek için CTRL + R tuşuna basın.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
-ms.openlocfilehash: 56d8ad4fecf14dfa69ade43438672c31a4954209
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure yığın Geliştirme Seti sürüm notları
 
@@ -56,7 +56,7 @@ Bu sürüm notları geliştirmeleri, düzeltmeler ve Azure yığın Geliştirme 
    Son iki sorunlarını geçici olarak çözmek için abonelik veya kaynak grubu (biliyorsanız) adını yazın veya bunun yerine PowerShell kullanabilirsiniz.
 
 - Göreceğiniz bir **gerekli etkinleştirme** Azure yığın Geliştirme Seti kaydetmek için öneren bir uyarı bildirimi. Bu davranış beklenir.
-- İçinde **gerekli etkinleştirme** uyarı ayrıntılarını uyarı, bağlantısı olmayan **AzureBridge** bileşeni. Bunu yaparsanız, **genel bakış** dikey yüklemek, başarısız bir şekilde çalışır ve zaman aşımı olmaz.
+- Varsa **bileşen** bağlantısı birinden tıklatıldığında **altyapı rolü** uyarı, elde edilen **genel bakış** dikey yüklemeye çalışır ve başarısız olur. Ayrıca ** genel bakış ** dikey penceresi zaman aşımına yapar.
 - Kullanıcı abonelikleri yalnız bırakılmış kaynakları sonuçlarında siliniyor. Geçici bir çözüm olarak ilk kullanıcı kaynakları veya tüm kaynak grubunu silme ve kullanıcı abonelikleri silin.
 - Azure yığın portalları kullanarak aboneliğinize izinleri görüntülemek mümkün değildir. Geçici bir çözüm olarak izinleri PowerShell kullanarak doğrulayabilirsiniz.
  

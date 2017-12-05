@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>Havadan görüntü sınıflandırma
 
@@ -59,9 +59,14 @@ Aşağıdaki yönergeler bu örneğin yürütme ortamı ayarlama işleminde size
 - [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md)
     - İzleyin [yükleme ve hızlı başlangıç oluşturma](quickstart-installation.md) Azure Machine Learning çalışma ekranı yükleyip deneme ve Model yönetim hesapları oluşturun.
 - [Toplu AI](https://github.com/Azure/BatchAI) Python SDK'sı ve Azure CLI 2.0
-    - Yönergeleri izleyerek Azure CLI 2.0 ve toplu AI SDK'sını yüklemek [tarif Önkoşullar bölümüne](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - Bu makalenin yazıldığı sırada, Azure Machine Learning çalışma ekranı ayrı çatalı Azure CLI 2.0 kullanır. Daha anlaşılır olması için biz "Azure Machine Learning çalışma ekranından başlatılan CLI" olarak CLI çalışma ekranı'nın sürümü ve (toplu AI içeren) genel yayın sürümü "Azure CLI 2.0." bakın
-    - Bir Azure Active Directory izleyerek uygulama ve hizmet sorumlusu oluşturma [bu yönergeleri](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Kayıt istemci kimliği, gizli ve Kiracı kimliği.
+    - Aşağıdaki bölümlerde tamamlamak [toplu AI tarif Benioku](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - "Önkoşullar"
+        - "Oluşturun ve Azure Active Directory (AAD) uygulamanız Al"
+        - "BatchAI kaynak sağlayıcıları register" (altında "Azure CLI 2.0" kullanarak tarif çalıştırın)
+        - "Azure Batch AI Management istemcisi Yükle"
+        - "Azure Python SDK Yükle"
+    - Kayıt istemci kimliği, gizli ve Kiracı kimliği Azure Active Directory uygulamasının oluşturmak üzere yönlendirilir. Bu öğreticide daha sonra bu kimlik bilgilerini kullanır.
+    - Bu makalenin yazıldığı sırada, Azure CLI 2.0 ayrı çatallarını Azure Machine Learning çalışma ekranı ve Azure Batch AI kullanın. Daha anlaşılır olması için biz "Azure Machine Learning çalışma ekranından başlatılan CLI" olarak CLI çalışma ekranı'nın sürümü ve (toplu AI içeren) genel yayın sürümü "Azure CLI 2.0." bakın
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), bir ücretsiz Azure depolama hesapları arasında dosya aktarımı Eşgüdümleme yardımcı programı
     - AzCopy yürütülebilir içeren klasör, sisteminizin PATH ortam değişkeni üzerinde olduğundan emin olun. (Ortam değişkenleri değiştirme yönergeleri kullanılabilir [burada](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Bir SSH istemcisi; öneririz [PuTTY](http://www.putty.org/).
@@ -215,7 +220,7 @@ Toplu AI kümenizi eğitim verilerinizi bir ağ dosya sunucusundaki erişir. Ver
 1. Bir ağ dosya sunucusu oluşturmak için aşağıdaki komutu yürütün:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Aşağıdaki komutu kullanarak, ağ dosya sunucunuzun sağlama durumunu kontrol edin:

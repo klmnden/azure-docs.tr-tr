@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Anlık görüntü özel durumları .NET uygulamalarında hata ayıklama
 
@@ -27,6 +27,16 @@ Yığın ve her çağrı yığını çerçevesi en değişkenlerle incelemek ça
 Anlık görüntü koleksiyonu için kullanılabilir:
 * .NET framework ve ASP.NET uygulamaları .NET Framework 4.5 veya sonraki sürümlerini çalıştırıyor.
 * Windows üzerinde çalışan .NET core 2.0 ve ASP.NET Core 2.0 uygulamaları.
+
+Aşağıdaki ortamlarda desteklenir:
+* Azure uygulama hizmeti.
+* İşletim sistemi ailesi 4 veya üstünü çalıştıran Azure bulut hizmeti.
+* Windows Server 2012 R2 veya sonraki sürümlerde çalışan azure Service Fabric hizmetler.
+* Windows Server 2012 R2 çalıştıran Azure sanal makineler veya sonraki bir sürümü.
+* Şirket içi Windows Server 2012 R2 çalıştıran sanal veya fiziksel makineler veya sonraki bir sürümü.
+
+> [!NOTE]
+> İstemci uygulamaları (örneğin, WPF, Windows Forms veya UWP) desteklenmez.
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>ASP.NET uygulamaları için anlık görüntü koleksiyonunu yapılandırma
 

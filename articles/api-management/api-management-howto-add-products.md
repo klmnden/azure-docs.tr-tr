@@ -3,151 +3,100 @@ title: "Oluşturma ve Azure API Management'te bir ürün yayımlama"
 description: "Oluşturma ve Azure API Management'te ürünleri yayımlama öğrenin."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 31de55cb-9384-490b-a2f2-6dfcf83da764
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/15/2016
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2cf905967f26de97613ff7d5fc495c9223e11390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Oluşturma ve Azure API Management'te bir ürün yayımlama
-Azure API Management'te bir ürün kullanım kotası ve kullanım koşullarını yanı sıra bir veya daha fazla API'leri içerir. Bir ürün yayımlandığında, geliştiriciler ürüne abone ve ürün API'lerine kullanmaya başlar. Konu Ürün oluşturma, bir API ekleme ve geliştiriciler için yayımlama için bir kılavuz sağlar.
+# <a name="create-and-publish-a-product"></a>Oluşturma ve bir ürün yayımlama  
 
-## <a name="create-product"></a>Ürün oluşturma
-Operations eklenir ve bir API yayımcı portalında yapılandırılır. Yayımcı portalına erişmek için tıklatın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda.
+Azure API Management'te bir ürün kullanım kotası ve kullanım koşullarını yanı sıra bir veya daha fazla API'leri içerir. Bir ürün yayımlandığında, geliştiriciler ürüne abone ve ürün API'lerine kullanmaya başlar.  
 
-![Yayımcı portalı][api-management-management-console]
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
-> 
-> 
+> [!div class="checklist"]
+> * Oluşturma ve bir ürün yayımlama
+> * Ürüne bir API ekleme
 
-Tıklayın **ürünleri** görüntülemek için soldaki menüde **ürünleri** sayfasında ve tıklayın **Ürün Ekle**.
+![eklenen ürün](media/api-management-howto-add-products/added-product.png)
 
-![Ürünler][api-management-products]
+## <a name="prerequisites"></a>Ön koşullar
 
-![Yeni ürün][api-management-add-new-product]
++ Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
++ Ayrıca, aşağıdaki öğreticiye: [alma ve ilk API'nizi yayımlama](import-and-publish.md).
 
-Ürün için açıklayıcı bir ad girin **adı** alan ve ürün içinde açıklamasını **açıklama** alan.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-API Management ürünleri olabilir **açık** veya **korumalı**. Korumalı ürünleri kullanabilmek için bunlara abone olmak gerekir, açık ürünler abonelik olmadan kullanılabilir. Denetleme **abonelik iste** bir abonelik gerektiren korumalı ürün oluşturmak için. Bu varsayılan ayardır.
+## <a name="create-and-publish-a-product"></a>Oluşturma ve bir ürün yayımlama
 
-Denetleme **abonelik onayı iste** gözden geçirin ve kabul edin ya da bu ürünün abonelik girişimleri reddetmek için yönetici istiyorsanız. Kutunun işaretli değilse abonelik girişimleri otomatik onaylı olacaktır. Abonelikler hakkında daha fazla bilgi için bkz: [bir ürüne abone olanları görüntüleme][View subscribers to a product].
+1. Tıklayın **ürünleri** görüntülemek için soldaki menüde **ürünleri** sayfası.
+2. Tıklatın **+ ürün**.
 
-Birden çok kez ürüne abone olmak Geliştirici hesaplarının izin verecek şekilde denetleyin **birden çok abonelik izin** onay kutusu. Her geliştirici hesabını, bu kutu işaretli değilse, yalnızca tek bir kez ürüne abone olabilirsiniz.
+    ![eklenen ürün](media/api-management-howto-add-products/add-product.png)
 
-![Sınırsız birden çok abonelik][api-management-unlimited-multiple-subscriptions]
+    Bir ürün eklediğinizde aşağıdaki bilgileri sağlamanız gerekir: 
 
-Birden çok aboneliğe sayısını sınırlamak için denetleme **aynı anda abonelik sayısını sınırlandır** onay kutusunu işaretleyin ve abonelik sınırı girin. Aşağıdaki örnekte, dört geliştirici her hesap için aynı anda abonelik sınırlıdır.
+    |Ad|Açıklama|
+    |---|---|
+    |Görünen ad|Bunu gösterilmesini istediğiniz adı **Geliştirici Portalı**.|
+    |Ad|Ürünün açıklayıcı bir ad.|
+    |Açıklama|**Açıklama** alan amacı, erişim sağladığı API'ları ve diğer yararlı bilgiler gibi ürün hakkında ayrıntılı bilgi sağlamak sağlar.|
+    |Durum|Tuşuna **yayımlanan** ürün yayımlama istiyorsanız. Bir ürün API'lerinde çağrılabilir önce ürünün yayımlanması gerekir. Varsayılan olarak yeni ürünler yayımdan ve yalnızca görünür **Yöneticiler** grubu.|
+    |Onay gerekiyor.|Denetleme **abonelik onayı iste** gözden geçirin ve kabul edin ya da bu ürünün abonelik girişimleri reddetmek için yönetici istiyorsanız. Kutunun işaretli değilse abonelik girişimleri otomatik olarak onaylanır. |
+    |Abonelik sayısı sınırı|Birden çok aboneliğe sayısını sınırlamak için abonelik sınırı girin. |
+    |Yasal koşullar|Ürünü kullanmak için hangi aboneleri kabul etmeniz gerekir ürün için kullanım koşullarını içerebilir.|
+    |API'ler|Ürün bir veya daha fazla API'leri ilişkilendirmelerini değil. Geliştiriciler Geliştirici Portalı aracılığıyla sunar ve API sayısını içerir. <br/> Ürün oluşturma sırasında var olan bir API ekleyebilirsiniz. Ürünün daha sonra ürünlerden ya da bir API ekleyebilirsiniz **ayarları** sayfasında veya oluşturulurken bir API.|<br/>Geliştiriciler ilk API erişmek için bir ürüne abone olması gerekir. Bunlar abone olduğunuzda, bunlar herhangi bir API'yi bu ürün için iyi bir abonelik anahtarı alın.<br/> APIM örneği oluşturduysanız, varsayılan olarak her ürüne abone için zaten yönetici olduğunuz.|
 
-![Dört birden çok abonelik][api-management-four-multiple-subscriptions]
+3. Tıklatın **kaydetmek** yeni ürün oluşturmak için.
 
-Tüm yeni ürün seçenekleri yapılandırıldıktan sonra tıklatın **kaydetmek** yeni ürün oluşturmak için.
+### <a name="add-more-configurations"></a>Daha fazla yapılandırmalarını ekleyin
 
-![Ürünler][api-management-products-page]
+Ürün seçerek kaydedildikten sonra yapılandırmaya devam etmek **ayarları** sekmesi. 
 
-> Varsayılan olarak yeni ürünler yayımdan ve yalnızca görünür **Yöneticiler** grubu.
-> 
-> 
+Görünümü/aboneleri ürün eklemek **abonelikleri** sekmesi.
 
-Bir ürün yapılandırmak için ürün adı tıklayın **ürünleri** sekmesi.
+Geliştiriciler için bir ürün görünürlüğünü ayarlamak veya gelen Konuk **erişim denetimi** sekmesi.
 
 ## <a name="add-apis"></a>Bir ürüne API ekleme
-**Ürünleri** sayfa yapılandırması için dört bağlantılarını içerir: **Özet**, **ayarları**, **görünürlük**, ve  **Aboneler**. **Özet** sekme, burada API'leri ekleyebilir ve yayımlama veya yayımdan bir ürün kullanılabilir.
 
-![Özet][api-management-new-product-summary]
+Ürün bir veya daha fazla API'leri ilişkilendirmelerini değil. Geliştiriciler Geliştirici Portalı aracılığıyla sunar ve API sayısını içerir. Ürün oluşturma sırasında var olan bir API ekleyebilirsiniz. Ürünün daha sonra ürünlerden ya da bir API ekleyebilirsiniz **ayarları** sayfasında veya oluşturulurken bir API.
 
-Ürünü yayımlamadan önce bir veya daha fazla API'leri eklemeniz gerekir. Bunu yapmak için tıklatın **ürüne API Ekle**.
+Geliştiriciler ilk API erişmek için bir ürüne abone olması gerekir. Bunlar abone olduğunuzda, bunlar herhangi bir API'yi bu ürün için iyi bir abonelik anahtarı alın. APIM örneği oluşturduysanız, varsayılan olarak her ürüne abone için zaten yönetici olduğunuz.
 
-![API ekleme][api-management-add-apis-to-product]
+### <a name="add-an-api-to-an-existing-product"></a>Varolan bir ürüne bir API ekleme
 
-İstenen API'leri tıklatıp **kaydetmek**.
+1. Bir ürün seçin.
+2. API sekmesini seçin.
+3. Tıklatın **+ API**.
+4. Bir API seçin ve tıklatın **oluşturma**.
 
-## <a name="add-description"></a>Açıklayıcı bilgiler için ürün ekleme
-**Ayarları** sekme amacı, erişim sağladığı API'ları ve diğer yararlı bilgiler gibi ürün hakkında ayrıntılı bilgi sağlamak sağlar. İçerik, API çağırmayı ve düz metin veya HTML biçimlendirmesi yazılabilir geliştiriciler hedefleyen.
-
-![Ürün ayarları][api-management-product-settings]
-
-Denetleme **abonelik iste** abonelik olmadan çağrılabilir açık bir ürün oluşturmak için onay kutusunun işaretini kaldırın veya kullanılmak üzere bir abonelik gerektiren korumalı ürün oluşturmak için.
-
-Seçin **abonelik onayı iste** el ile tüm ürün abonelik isteklerini onaylama istiyorsanız. Varsayılan olarak tüm ürün abonelikler otomatik olarak verilir.
-
-Birden çok kez ürüne abone olmak Geliştirici hesaplarının izin verecek şekilde denetleyin **birden çok abonelik izin** onay kutusunu işaretleyin ve isteğe bağlı olarak bir sınırı belirtin. Her geliştirici hesabını, bu kutu işaretli değilse, yalnızca tek bir kez ürüne abone olabilirsiniz.
-
-İsteğe bağlı olarak doldurmak **kullanım koşulları** hangi aboneleri ürünü kullanmak için kabul etmelisiniz ürün için kullanım koşullarını açıklayan alan.
-
-## <a name="publish-product"></a>Bir ürün yayımlama
-Bir ürün API'lerinde çağrılabilir önce ürünün yayımlanması gerekir. Üzerinde **Özet** ürün için sekmesini tıklatın, **Yayımla**ve ardından **Evet, Yayımla** onaylamak için. Daha önce yayımlanmış bir ürüne özel yapmak için tıklatın **yayımdan**.
-
-![Ürünü yayımlama][api-management-publish-product]
-
-## <a name="make-visible"></a>Bir ürün geliştiriciler tarafından görülebilir kılma
-**Görünürlük** sekme hangi rollerin Geliştirici portalında ürün görebilecek ve ürüne abone seçmenize olanak sağlar.
-
-![Ürün görünürlüğü][api-management-product-visiblity]
-
-Etkinleştirmek veya bir grup geliştiriciler için bir ürün görünürlüğünü devre dışı bırakmak için denetleyin veya grubun yanındaki onay kutusunun işaretini kaldırın ve ardından **kaydetmek**.
-
-> Daha fazla bilgi için bkz: [oluşturma ve Azure API Management'ta Geliştirici hesaplarını yönetmek için grupları kullanma][How to create and use groups to manage developer accounts in Azure API Management].
-> 
-> 
-
-## <a name="view-subscribers"></a>Bir ürüne abone olanları görüntüleme
-**Aboneleri** sekmesi ürüne abone olan geliştiricilere listeler. Her geliştirici ayarlarını ve Ayrıntılar Geliştirici adına tıklayarak görüntülenebilir. Bu örnekte hiçbir geliştiriciler henüz ürüne abone oldunuz.
-
-![Geliştiriciler][api-management-developer-list]
-
-## <a name="next-steps"> </a>Sonraki adımlar
-İstenen API'ler eklendiğine ve ürün yayımlanan sonra geliştiriciler ürüne abone ve API'leri çağırmak başlayın. Bu öğeleri yanı sıra Gelişmiş Ürün yapılandırma gösteren bir öğretici için bkz: [oluşturma ve Gelişmiş Ürün ayarları Azure API Management'te yapılandırma][How create and configure advanced product settings in Azure API Management].
-
-Aşağıdaki videoda ürünleri ile çalışma hakkında daha fazla bilgi için bkz.
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
 > 
 
-[Create a product]: #create-product
-[Add APIs to a product]: #add-apis
-[Add descriptive information to a product]: #add-description
-[Publish a product]: #publish-product
-[Make a product visible to developers]: #make-visible
-[View subscribers to a product]: #view-subscribers
-[Next steps]: #next-steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-[api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
-[api-management-add-product]: ./media/api-management-howto-add-products/api-management-add-product.png
-[api-management-add-new-product]: ./media/api-management-howto-add-products/api-management-add-new-product.png
-[api-management-unlimited-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-unlimited-multiple-subscriptions.png
-[api-management-four-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-four-multiple-subscriptions.png
-[api-management-products-page]: ./media/api-management-howto-add-products/api-management-products-page.png
-[api-management-new-product-summary]: ./media/api-management-howto-add-products/api-management-new-product-summary.png
-[api-management-add-apis-to-product]: ./media/api-management-howto-add-products/api-management-add-apis-to-product.png
-[api-management-product-settings]: ./media/api-management-howto-add-products/api-management-product-settings.png
-[api-management-publish-product]: ./media/api-management-howto-add-products/api-management-publish-product.png
-[api-management-product-visiblity]: ./media/api-management-howto-add-products/api-management-product-visibility.png
-[api-management-developer-list]: ./media/api-management-howto-add-products/api-management-developer-list.png
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
+> [!div class="checklist"]
+> * Oluşturma ve bir ürün yayımlama
+> * Ürüne bir API ekleme
 
+Sonraki öğretici ilerleyin:
 
-[api-management-products]: ./media/api-management-howto-add-products/api-management-products.png
-[api-management-]: ./media/api-management-howto-add-products/
-[api-management-]: ./media/api-management-howto-add-products/
-
-
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Next steps]: #next-steps
-[How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
-[How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
+> [!div class="nextstepaction"]
+> [Boş API'si oluşturma ve API yanıtları mock](mock-api-responses.md)

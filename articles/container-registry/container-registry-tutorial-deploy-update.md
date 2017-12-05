@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 049fba28d0783a79331e8bc8de741f55e9caf828
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.custom: mvc
+ms.openlocfilehash: 00408c12836d814f2449dda6802cc342992a4014
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="push-an-updated-image-to-regional-deployments"></a>Güncelleştirilmiş görüntünün bölgesel dağıtımları için anında iletme
 

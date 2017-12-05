@@ -1,5 +1,5 @@
 ---
-title: "Office 365 grupları sona erme Azure Active Directory'de Önizleme | Microsoft Docs"
+title: "Süre sonu için Office 365 grupları Azure Active Directory'de | Microsoft Docs"
 description: "Office 365 grupları Azure Active Directory'de (Önizleme) için sona erme kurma"
 services: active-directory
 documentationcenter: 
@@ -12,29 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2dd56bd34e5b7845298fab1f36e231113a2e28e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-office-365-groups-expiration-preview"></a>Office 365 grupları süre sonu (Önizleme) yapılandırma
+# <a name="configure-expiration-for-office-365-groups-preview"></a>Süre sonu Office 365 grupları (Önizleme) için yapılandırma
 
-Seçtiğiniz herhangi bir Office 365 grup için sona erme ayarlayarak artık Office 365 grupları yaşam döngüsü yönetebilirsiniz. Bu süre sonu ayarladıktan sonra bu grupları sahipleri hala grupları gerekiyorsa bunları gruplara yenileme istenir. Değil yenilendiğinden herhangi bir Office 365 grubu silinir. Silindi herhangi bir Office 365 grubu 30 gün içinde grup sahiplerine veya yönetici tarafından geri yüklenebilir.  
-
+Bunlar için süre sonu özellikleri ayarlayarak artık Office 365 grupları yaşam döngüsü yönetebilirsiniz. Azure Active Directory (Azure AD) süre sonu yalnızca Office 365 grupları için ayarlayabilirsiniz. Süresi dolmak üzere bir grup ayarladıktan sonra:
+-   Süre sonu yaklaştığında Grup yenilemek için grubun sahiplerini bildirilir
+-   Değil yenilendiğinden herhangi bir grubu silindi
+-   Silinen herhangi bir Office 365 grubu 30 gün içinde grup sahiplerine veya yönetici tarafından geri yüklenebilir
 
 > [!NOTE]
-> Süre sonu yalnızca Office 365 grupları için ayarlayabilirsiniz.
->
-> O365 grupları için sona erme ayarlamak için bir Azure AD Premium lisansı atanmış gerekiyor
->   - Kiracı için sona erme ayarları yapılandıran yönetici
->   - Bu ayar için seçili grupların tüm üyeleri
+> Office 365 grupları için sona erme ayarlamak için bir Azure AD Premium lisansı veya hangi grupların tüm üyeleri için sona erme ayarları uygulanır bir Azure AD temel eğitim lisansı gerekir.
+> 
+> Azure AD temel eğitim Lisanslı müşteriler için: Bu ilke ilk kez yapılandırmak için Azure Active Directory PowerShell cmdlet'lerini kullanın. Bundan sonra PowerShell veya Azure AD portalı, Azure AD kiracınızda bir kullanıcı hesabı yönetici veya genel yönetici olan bir hesabı kullanarak sona erme ayarları güncelleştirebilirsiniz.
 
-## <a name="set-office-365-groups-expiration"></a>Office 365 grupları sona erme ayarlayın
+Azure AD PowerShell cmdlet'leri yükleyip konusunda daha fazla bilgi için bkz: [PowerShell Azure Active Directory Graph - genel Önizleme sürümü 2.0.0.137 için](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+## <a name="set-group-expiration"></a>Set grup süre sonu
 
 1. Açık [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) Azure AD kiracınızda genel yönetici olan bir hesapla.
 
@@ -51,7 +53,6 @@ Seçtiğiniz herhangi bir Office 365 grup için sona erme ayarlayarak artık Off
   * Office 365 grupları sona seçin. Süre sonu için etkinleştirebilirsiniz **tüm** Office 365 grupları, Office 365 grupları kümelerini seçebilirsiniz veya seçtiğiniz **hiçbiri** süre sonu tüm gruplar için devre dışı bırakmak için.
   * Seçerek bittiğinde ayarlarınızı kaydetmek **kaydetmek**.
 
-Süre sonu için PowerShell aracılığıyla Office 365 grupları yapılandırmak yönergeler için karşıdan yüklemek ve Microsoft PowerShell modülünü yüklemek, bkz: [Azure Active Directory V2 PowerShell modülü - genel Önizleme sürümü 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 Bunun gibi e-posta bildirimleri 30 gün, 15 gün ve 1 gün grubunun süre sonundan önce Office 365 grup sahiplerine gönderilir.
 
@@ -68,7 +69,8 @@ Grup seçerek geri yüklenebilir **geri yükleme grup** veya [geri yükleme sili
 Geri yüklemekte grubu belgeleri, SharePoint siteleri veya diğer kalıcı nesne içeriyorsa, Grup ve içeriği tam olarak geri 24 saate kadar sürebilir.
 
 > [!NOTE]
-> * Sona erme ayarları dağıtırken, sona erme penceresinden daha eski olan bazı grupları olabilir. Bu gruplar olması hemen silinmez, ancak 30 güne kadar sona erme ayarlayın. Bir gün içinde ilk yenileme bildirim e-posta gönderilir. Örneğin, grubu A 400 gün önce oluşturulmuş ve sona erme aralığını 180 gün olarak ayarlanır. Sona erme tarihi geçerli olduğunda, gruba sahibi, yeniler sürece silinmeden önce 30 gün sahiptir.
+> * Sona erme ilk ayarladığınızda, sona erme aralığından daha eski olan tüm grupları dolmasına 30 güne ayarlanır. Bir gün içinde ilk yenileme bildirim e-posta gönderilir. 
+>   Örneğin, grubu A 400 gün önce oluşturulmuş ve sona erme aralığını 180 gün olarak ayarlanır. Sona erme tarihi geçerli olduğunda, gruba sahibi, yeniler sürece silinmeden önce 30 gün sahiptir.
 > * Dinamik bir grup silinir ve geri, yeni bir grup olarak görülen ve kuralına göre yeniden doldurulur. Bu işlem, 24 saate kadar sürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar

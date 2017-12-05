@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Azure konum tabanlı Hizmetleri (Önizleme) arama hizmeti kullanarak adresi bulma
 Arama hizmeti adresleri, yerler, ilgi, iş listelerini ve diğer coğrafi bilgi noktaları için aranacak geliştiricileri için tasarlanmış API'leri RESTful kümesidir. Arama hizmeti, belirli bir adresi, çapraz Sokak, coğrafi özelliği veya ilgi çekici (s) için enlem/boylam atar. Enlem ve boylam değerleri arama hizmeti API tarafından döndürülen Azure konum tabanlı Hizmetleri rota ve trafik akışını API'leri gibi diğer parametre olarak kullanılabilir.
@@ -62,12 +62,11 @@ Varsayılan olarak çoğu arama sorguları ' maxFuzzyLevel performans elde etmek
     
     Sonuçlar herhangi bir belirli başvuru konuma bağlanmayan bu sorgu için farklılık gösterir. Kullanabileceğiniz **countrySet** olası gereksiz sonuçları döndüren dünyaya aramak için varsayılan davranış olduğu gibi yalnızca uygulamanız gereken kapsamı, ülkelerin belirtmek için parametre.
 
-5. Sorgu dizesi şu değeri ekleyin ve tıklatın **Gönder**:
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Olun o, virgül-ayrı ek URI sorgu dizesi parametreleri.
+5. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+
+    | Anahtar | Değer |
+    |------------------|-------------------------|
+    | countrySet | ABD |
     
     Sonuçları şimdi ülke kodu tarafından ilişkisindeki ve sorgu pizza Restoran Amerika Birleşik Devletleri'nde döndürür.
     
@@ -116,10 +115,11 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
         400 Broad, Seattle
     ```
 
-5. Sorgu dizesi şu değeri ekleyin ve tıklatın **Gönder**:
-    ```
-        ,typeahead
-    ```
+5. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+
+    | Anahtar | Değer |
+    |-----|------------|
+    | typeahead | true |
 
     **Typeahead** bayrağı sorgu kısmi bir girdi olarak kabul eder ve Tahmine dayalı değerler dizisi dönmek için adres arama API söyler.
 
@@ -150,37 +150,43 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
     
     Yanıt POI giriş Safeco alanı için "stadyum" ile bir poı kategorisi içerir. 
     
-4. Sorgu dizesi şu değeri ekleyin ve tıklatın **Gönder**:
-    ```
-        ,number
-    ```
+4. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+
+    | Anahtar | Değer |
+    |-----|------------|
+    | numarası | true |
+
     Varsa [numarası](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi istekle birlikte gönderilen, yanıt Sokak (sol/sağ) ve ayrıca bu sayıyı için uzaklık konumu tarafında içerebilir.
     
-5. Sorgu dizesi şu değeri ekleyin ve tıklatın **Gönder**:
-    ```
-        ,spatialKeys
-    ```
+5. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+
+    | Anahtar | Değer |
+    |-----|------------|
+    | spatialKeys | true |
 
     Zaman [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt belirtilen konum için özel coğrafi uzamsal anahtar bilgileri içerir.
 
-6. Sorgu dizesi şu değeri ekleyin ve tıklatın **Gönder**:
-    ```
-        ,returnSpeedLimit
-    ```
+6. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+
+    | Anahtar | Değer |
+    |-----|------------|
+    | returnSpeedLimit | true |
     
     Zaman [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmış, yanıt dönüş gönderilen hız sınırı.
 
-7. Sorgu dizesi şu değeri ekleyin ve tıklatın **Gönder**:
-    ```
-        ,returnRoadUse
-    ```
+7. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+
+    | Anahtar | Değer |
+    |-----|------------|
+    | returnRoadUse | true |
 
     Zaman [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi olarak ayarlanmışsa, yanıt Sokak düzeyinde reversegeocodes için yol kullanım dizisi döndürür.
 
-8. Sorgu dizesi şu değeri ekleyin ve tıklatın **Gönder**:
-    ```
-        ,roadUse
-    ```
+8. Aşağıdaki anahtarı ekleyin / değer çifti **Params** 'ye tıklayın **Gönder**:
+
+    | Anahtar | Değer |
+    |-----|------------|
+    | roadUse | true |
 
     Yol kullanarak bir özel tür için ters geocode sorgu kısıtlayabilirsiniz [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi.
     

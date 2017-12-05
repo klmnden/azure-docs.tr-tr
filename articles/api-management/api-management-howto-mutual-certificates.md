@@ -3,22 +3,21 @@ title: "Arka uç hizmetlerini kullanan istemci güvenli sertifika kimlik doğrul
 description: "Azure API Management'te istemci sertifikası kimlik doğrulaması kullanarak arka uç hizmetlerini güvence altına alma hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 196a91c21afb8c1596c9766f6a2a5d373b828f60
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: c8573c73b0a6dc1b2644f78276d2f3e4fd442cea
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması Azure API Management'te güvenliğini sağlama
 API Management istemci sertifikalarını kullanan güvenli bir API'nin arka uç hizmetine erişim olanağı sağlar. Bu kılavuz, API yayımcı portalına sertifikaları yönetme ve arka uç hizmetine erişmek için bir sertifika kullanmak üzere bir API yapılandırma gösterir.
@@ -33,7 +32,7 @@ Kullanmaya başlamak için API Management hizmetiniz için Azure Portal'da **Yay
 
 ![API yayımcı portalı][api-management-management-console]
 
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma][Create an API Management service instance].
 > 
 > 
 
@@ -70,7 +69,7 @@ Sertifika yüklendikten sonra göründüğü **istemci sertifikalarını** sekme
 ## <a name="step1a"></a>Bir istemci sertifikası silme
 Bir sertifikayı silmek için tıklatın **silmek** istenen sertifikanın yanındaki.
 
-![Sertifikayı Sil][api-management-certificate-delete]
+![Sertifikayı sil][api-management-certificate-delete]
 
 Tıklatın **Evet, silmeden** onaylamak için.
 
@@ -91,7 +90,7 @@ Seçin **istemci sertifikalarını** gelen **kimlik bilgileriyle** aşağı aç�
 
 İstediğiniz sertifikayı seçin **istemci sertifikası** aşağı açılan liste. Birden fazla sertifika varsa doğru sertifikayı belirlemek için konu veya önceki bölümünde belirtildiği gibi parmak izi son dört karakterini bakabilirsiniz.
 
-![Sertifika Seç][api-management-select-certificate]
+![Sertifika seçin][api-management-select-certificate]
 
 Tıklatın **kaydetmek** API için yapılandırma değişikliği kaydetmek için.
 
@@ -144,10 +143,10 @@ HTTP temel veya paylaşılan gizli kimlik doğrulaması gibi arka uç hizmetiniz
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

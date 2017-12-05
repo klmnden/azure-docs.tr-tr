@@ -3,22 +3,21 @@ title: "Azure Active Directory - Azure API Management kullanarak Geliştirici he
 description: "API Management'te Azure Active Directory'yi kullanarak kullanıcıların nasıl yetkilendirileceğini öğrenin."
 services: api-management
 documentationcenter: API Management
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 33a69a83-94f2-4e4e-9cef-f2a5af3c9732
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2e8bc33ddf38657fe2d0d84a7bf64d4177d51572
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 > [!WARNING]
 > Azure Active Directory Tümleştirme sağlanmıştır [Geliştirici ve Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/) yalnızca katmanlarını.
@@ -75,11 +74,11 @@ Kopya **tekrar yönlendirme URL'sini** gelen **Azure Active Directory** bölüm�
 
 Yapılandırma sekmesinde sonuna kaydırın **uygulama izinleri** aşağı açılır ve denetleme **dizin verilerini okuma**.
 
-![Uygulama izinleri][api-management-aad-app-permissions]
+![Uygulama İzinleri][api-management-aad-app-permissions]
 
 Seçin **temsilci izinleri** aşağı açılır ve denetleme **oturum açmayı etkinleştir ve kullanıcıların profilleri okuma**.
 
-![Temsilci izinleri][api-management-aad-delegated-permissions]
+![Temsilcili İzinler][api-management-aad-delegated-permissions]
 
 > Uygulama ve temsilci izinleri hakkında daha fazla bilgi için bkz: [grafik API'sine erişim][Accessing the Graph API].
 > 
@@ -87,11 +86,11 @@ Seçin **temsilci izinleri** aşağı açılır ve denetleme **oturum açmayı e
 
 Kopya **istemci kimliği** panoya.
 
-![İstemci kimliği][api-management-aad-app-client-id]
+![İstemci Kimliği][api-management-aad-app-client-id]
 
 Geçiş yayımcı portalına dönün ve yapıştırın **istemci kimliği** Azure Active Directory Uygulama yapılandırmasından kopyalanır.
 
-![İstemci kimliği][api-management-client-id]
+![İstemci Kimliği][api-management-client-id]
 
 Azure Active Directory yapılandırmasına geçin ve tıklatın **seçin süresi** açılan **anahtarları** bölüm ve bir aralık belirtin. Bu örnekte, **1 yıl** kullanılır.
 
@@ -107,7 +106,7 @@ Tıklatın **kaydetmek** yapılandırmayı kaydedin ve anahtarı görüntülemek
 
 Geçiş yayımcı portalına dönün ve içine anahtarını yapıştırın **gizli** metin kutusu.
 
-![İstemci parolası][api-management-client-secret]
+![İstemci Gizli Anahtarı][api-management-client-secret]
 
 **Kiracılar izin** hangi dizinleri API Management hizmet örneği API erişimi belirtir. Azure Active Directory örnekleri için erişim vermek istediğiniz etki alanlarını belirtin. Birden çok etki alanı, satır başı, boşluk veya virgülle ayırabilirsiniz.
 
@@ -149,7 +148,7 @@ Geçiş **görünürlük** sekmesine ve tıklayın **Azure Active Directory grup
 
 Seçin **Azure Active Directory Kiracı** gelen aşağı açılan listesinde ve ardından istediğiniz grubun adını yazın **grupları** metin kutusu eklenecek.
 
-![Grup Seç][api-management-select-group]
+![Grup seçin][api-management-select-group]
 
 Bu grup adı bulunabilir **grupları** aşağıdaki örnekte gösterildiği gibi Azure Active Directory için liste.
 
@@ -169,7 +168,7 @@ Gözden geçirmek ve bunlar eklendikten sonra dış grupları özelliklerini yap
 
 Buradan düzenleyebilirsiniz **adı** ve **açıklama** grubunun.
 
-![Grubu Düzenle][api-management-edit-group]
+![Grubu düzenle][api-management-edit-group]
 
 Yapılandırılmış Azure Active Directory'den kullanıcıları görebilir ve Geliştirici Portalı oturum açın ve görünürlük aşağıdaki bölümünde yer alan yönergeleri izleyerek sahip oldukları herhangi bir grup için abone olabilirsiniz.
 
@@ -188,7 +187,7 @@ Ek bilgileri gerekiyorsa, Kayıt formuyla istenebilir. Kayıt formunu tamamladı
 
 Kullanıcı artık, API Management hizmet örneğinizin Geliştirici Portalı içine kaydedilir.
 
-![Kayıt tamamlandı][api-management-registration-complete]
+![Kayıt Tamamlandı][api-management-registration-complete]
 
 [api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-security-external-identities.png
@@ -227,10 +226,10 @@ Kullanıcı artık, API Management hizmet örneğinizin Geliştirici Portalı i�
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet

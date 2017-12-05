@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management etki alanları arası ilkeler
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,9 +26,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 ##  <a name="CrossDomainPolicies"></a>Etki alanı ilkelerini arası  
   
 -   [Etki alanları arası çağrılar izin](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -API Adobe Flash ve Microsoft Silverlight tarayıcı tabanlı istemcilerden erişilebilir hale getirir.  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) -çıkış noktaları arası kaynak paylaşımı (CORS) desteklemek için bir işlem veya tarayıcı tabanlı istemcilerden etki alanları arası çağrılarına izin vermek için bir API ekler.  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) -bir işlem veya tarayıcı tabanlı JavaScript istemcilerden etki alanları arası çağrılarına izin vermek için bir API (JSONP) doldurma desteğiyle JSON ekler.  
   
 ##  <a name="AllowCrossDomainCalls"></a>Etki alanları arası çağrılar izin ver  
@@ -63,7 +61,6 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen  
-  
 -   **İlke kapsamları:** genel  
   
 ##  <a name="CORS"></a>CORS  
@@ -129,7 +126,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |----------|-----------------|--------------|-------------|  
 |cors|Kök öğesi.|Evet|Yok|  
 |izin verilen çıkış|İçeren `origin` etki alanları arası istekleri için izin verilen çıkış noktası açıklayan öğeler. `allowed-origins`ya da tek bir içerebilir `origin` belirtir öğesi `*` her türlü kaynağa veya bir veya daha fazla izin vermek için `origin` bir URI içeren öğeler.|Evet|Yok|  
-|Kaynak|Değer, ya da olabilir `*` tüm kaynaklara ya da tek bir kaynak belirten bir URI izin vermek için. URI şeması, ana bilgisayar ve bağlantı noktası eklemeniz gerekir.|Evet|Bağlantı noktası bir URI atlanırsa, HTTP için 80 numaralı bağlantı noktası kullanılır ve HTTPS için 443 numaralı bağlantı noktası kullanılır.|  
+|kaynak|Değer, ya da olabilir `*` tüm kaynaklara ya da tek bir kaynak belirten bir URI izin vermek için. URI şeması, ana bilgisayar ve bağlantı noktası eklemeniz gerekir.|Evet|Bağlantı noktası bir URI atlanırsa, HTTP için 80 numaralı bağlantı noktası kullanılır ve HTTPS için 443 numaralı bağlantı noktası kullanılır.|  
 |izin verilen yöntemleri|Yöntemleri dışında GET veya POST izin verilir, bu öğe gereklidir. İçeren `method` desteklenen HTTP fiilleri öğeleri.|Hayır|Bu bölümde mevcut değilse, GET ve POST desteklenir.|  
 |Yöntemi|Bir HTTP fiili belirtir.|En az bir `method` öğesi, varsa gereklidir `allowed-methods` bölüm mevcut.|Yok|  
 |izin verilen üstbilgileri|Bu öğeyi içeren `header` öğeleri isteğine dahil başlıklarının adlarını belirtme.|Hayır|Yok|  
@@ -140,14 +137,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   
 |Ad|Açıklama|Gerekli|Varsayılan|  
 |----------|-----------------|--------------|-------------|  
-|izin ver-kimlik bilgileri|`Access-Control-Allow-Credentials` Ön yanıt üstbilgisi bu özniteliğin değerini ayarlayın ve istemci kimlik bilgileri etki alanları arası istek gönderme olanağı etkiler.|Hayır|False|  
+|izin ver-kimlik bilgileri|`Access-Control-Allow-Credentials` Ön yanıt üstbilgisi bu özniteliğin değerini ayarlayın ve istemci kimlik bilgileri etki alanları arası istek gönderme olanağı etkiler.|Hayır|yanlış|  
 |Ön-sonuç-max-age|`Access-Control-Max-Age` Ön yanıt üstbilgisi bu özniteliğin değerini ayarlayın ve önbellek öncesi uçuş yanıtı kullanıcı aracısının yeteneği etkiler.|Hayır|0|  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** gelen  
-  
 -   **İlke kapsamları:** API, işlemi  
   
 ##  <a name="JSONP"></a>JSONP  
@@ -185,8 +181,13 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **İlke bölümleri:** giden  
-  
 -   **İlke kapsamları:** genel, ürün, API işlemi  
   
 ## <a name="next-steps"></a>Sonraki adımlar
-İlkeleriyle çalışma daha fazla bilgi için bkz: [API Management ilkeleri](api-management-howto-policies.md).  
+
+İlkeleriyle çalışma daha fazla bilgi için bkz:
+
++ [API Management ilkeleri](api-management-howto-policies.md)
++ [API dönüştürme](transform-api.md)
++ [Grup İlkesi başvurusu](api-management-policy-reference.md) ilke deyimleri ve ayarlarının tam listesi için
++ [İlke örnekleri](policy-samples.md)   

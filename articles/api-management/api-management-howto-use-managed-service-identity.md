@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: cf27e4d9997a796fa61af6e6f0af3c0c5a0c296f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Azure yönetilen hizmet kimliği Azure API Management kullanma
 
@@ -118,9 +118,8 @@ Aşağıdaki örnek, Azure anahtar Kasası'nı bir sertifika edinme gösterir. A
 3. API Management örneği anahtar kasası örneğinden bir sertifika ile özel etki alanı adını ayarlayarak güncelleştirin.
 
 ### <a name="prerequisites"></a>Ön koşullar
-Yürütmek için arm şablonu ihtiyacımız aşağıdaki 
-1. Pfx sertifika aynı abonelik ve API Management hizmeti olarak aynı kaynak grubu içeren anahtar kasası. Bu arm şablonunun gereksinimdir. 
-2. Gizli içerik türünde olmalı *uygulama/x-pkcs12*. Sertifikayı karşıya yüklemek için aşağıdaki komut dosyasını kullanabilirsiniz
+1. Pfx sertifika içeren anahtar kasası aynı Azure aboneliği ve API Management hizmeti ile aynı kaynak grubunda olması gerekir. Bu Azure Resource Manager şablonu bir gereksinimdir. 
+2. Gizli içerik türü olmalıdır *uygulama/x-pkcs12*. Sertifikayı karşıya yüklemek için aşağıdaki komut dosyasını kullanabilirsiniz:
 
 ```powershell
 $pfxFilePath = "PFX_CERTIFICATE_FILE_PATH" # Change this path 
