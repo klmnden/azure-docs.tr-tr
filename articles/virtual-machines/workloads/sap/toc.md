@@ -11,8 +11,9 @@
 ### [STONITH ile HA Kurulumu](ha-setup-with-stonith.md)
 ### [Type II SKU’lara yönelik İşletim Sistemi Yedeklemesi](os-backup-type-ii-skus.md)
 # Azure Sanal Makinelerde SAP HANA
-## [Tek örnek SAP HANA](hana-get-started.md)
+## [Tek örnek SAP HANA yüklemesi](hana-get-started.md)
 ## [S/4 HANA veya BW/4 HANA SAP CAL dağıtım kılavuzu](cal-s4h.md)
+## [Azure işlemlerinde SAP HANA kılavuzu](hana-vm-operations.md)
 ## [Azure VM’lerde SAP HANA Yüksek Kullanılabilirliği](sap-hana-high-availability.md)
 ## [SAP HANA yedeklemesine genel bakış](sap-hana-backup-guide.md)
 ## [SAP HANA dosya düzeyi yedekleme](sap-hana-backup-file-level.md)

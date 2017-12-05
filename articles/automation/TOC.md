@@ -70,6 +70,7 @@
 ### [Log Analytics uyarısından Azure Otomasyonu Runbook’u çağırma](automation-invoke-runbook-from-omsla-alert.md)
 ### [Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma](automation-deploy-template-runbook.md)
 ## Çözümler
+### [Ekleme güncelleştirmesi ve değişiklik izleme](automation-onboard-solutions.md)
 ### [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)
 #### [Birden çok VM için güncelleştirmeleri yönetme](manage-update-multi.md)
 #### [SCCM’yi OMS Güncelleştirme Yönetimi ile Tümleştirme](oms-solution-updatemgmt-sccmintegration.md)

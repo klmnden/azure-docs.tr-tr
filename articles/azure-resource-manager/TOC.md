@@ -67,26 +67,20 @@
 
 ## Sorun giderme
 ### [Sık karşılaşılan dağıtım hataları](resource-manager-common-deployment-errors.md)
-### [Dağıtım hataları anlama](resource-manager-troubleshoot-tips.md)
-### Hataları çözümleme
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Linux dağıtım sorunları](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Linux için Sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Windows için Sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### Sanal Makine dağıtım hataları
-#### Linux
-##### [Dağıtım sorunları](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Genel hata iletileri](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Dağıtım sorunları](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Genel hata iletileri](../virtual-machines/windows/error-messages.md)
+#### [Windows dağıtım sorunları](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Dağıtım hataları anlama](resource-manager-troubleshoot-tips.md)
 
 # Başvuru
 ## [Şablon biçimi](/azure/templates/)

@@ -247,6 +247,8 @@
       items:
         - name: .NET için veri yok
           href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Anlık görüntü hata ayıklayıcısı
+          href: app-insights-troubleshoot-snapshot-debugger.md
         - name: Analiz
           href: app-insights-analytics-troubleshooting.md
         - name: Java

@@ -7,8 +7,10 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: AKS kümesi oluşturma
+    - name: AKS kümesi oluşturma - CLI
       href: kubernetes-walkthrough.md
+    - name: AKS kümesi oluşturma - Portal
+      href: kubernetes-walkthrough-portal.md
 - name: Öğreticiler
   items:
     - name: 1 - Uygulamayı AKS için hazırlama
@@ -57,7 +59,7 @@
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Ürün geri bildirimi sağlayın
+    - name: Ürün geri bildirimi sağlama
       href: 'https://github.com/Azure/AKS/issues'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'

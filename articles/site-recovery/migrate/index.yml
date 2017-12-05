@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Site Recovery belgeleri
+metadata:
+  title: 'Azure Site Recovery belgeleri - Öğreticiler, API başvurusu | Microsoft Docs'
+  meta.description: Learn how to migrate to Azure with Azure Site Recovery
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Azure Site Recovery, Azure VM’lerin ve şirket içi makinelerin olağanüstü durum kurtarma özelliklerini düzenlemenin yanı sıra şirket içi makinelerin Azure’a geçişini ve Azure VM’lerinin Azure bölgeleri arasındaki geçişlerini düzenler ve yönetir. Öğreticilerimizden yararlanarak geçişi nasıl ayarlayacağınızı öğrenin.'
+sections:
+  - title: Adım adım öğreticiler
+    items:
+      - type: paragraph
+        text: Şirket içi VM’leri geçirmeyi öğrenin.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Azure’u hazırlama</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">Şirket içi makineleri Azure’a geçirme</a>
+          - html: <a href="tutorial-migrate-aws-to-azure">AWS örneklerini Azure’a geçirme</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">REST API başvurusu</a></p>

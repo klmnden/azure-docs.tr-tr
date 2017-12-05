@@ -63,7 +63,7 @@
       href: functions-cli-samples.md
 - name: Kavramlar
   items:
-    - name: Barındırma planlarını karşılaştırma
+    - name: Ölçeklendirme ve barındırma
       href: functions-scale.md
     - name: Tetikleyiciler ve bağlamalar
       href: functions-triggers-bindings.md

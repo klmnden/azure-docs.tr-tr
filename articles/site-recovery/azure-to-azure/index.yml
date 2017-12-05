@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Site Recovery belgeleri - Azure’dan Azure’a olağanüstü durum kurtarma
+metadata:
+  title: 'Azure Site Recovery belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
+  meta.description: Learn how to set up disaster recovery for Azure VMs
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Azure Site Recovery, Azure VM’leri için olağanüstü durum kurtarma hizmetini düzenler ve yönetir. Hızlı başlangıç yönergelerimiz ve öğreticilerimizden yararlanarak ikincil bir bölgeye çoğaltma, yük devretme ve ilk duruma döndürme işlemlerini nasıl yapacağınızı öğrenin.'
+sections:
+  - title: 5 Dakikalık Hızlı Başlangıçlar
+    items:
+      - type: paragraph
+        text: Azure VM için olağanüstü durum kurtarma işlemini hızla ayarlama
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/azure-to-azure/media/index/portal.svg
+            text: Azure portalına
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Adım Adım Öğreticiler
+    items:
+      - type: paragraph
+        text: 'Azure VM’ler için olağanüstü durum kurtarma, yük devretme ve yeniden çalışma işlemlerini nasıl ayarlayacağınızı öğrenin.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Olağanüstü durum kurtarmayı ayarlama</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Olağanüstü durum kurtarma tatbikatı çalıştırma</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Yük devretme ve yeniden çalışma işlemlerini çalıştırma</a>
+  - title: Başvuru
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Komut Satırı
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">REST API başvurusu</a></p>

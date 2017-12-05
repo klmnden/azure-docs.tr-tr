@@ -40,8 +40,6 @@
 - name: Yönetilen Hizmet Kimliği
   href: msi-overview.md
   items:
-    - name: Oturum açma veya belirteç edinme
-      href: msi-how-to-get-access-token-using-msi.md
     - name: Azure VM için MSI yapılandırma
       items:
         - name: Azure Portalı’nı kullanma
@@ -62,6 +60,14 @@
           href: msi-howto-assign-access-powershell.md
         - name: Azure CLI’yı kullanma
           href: msi-howto-assign-access-cli.md
+    - name: VM MSI kullanma
+      items:
+        - name: Erişim belirteci alma
+          href: msi-how-to-use-vm-msi-token.md
+        - name: 'PowerShell, Azure CLI oturumu açma'
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Azure SDK'leriyle birlikte kullanma
+          href: msi-how-to-use-vm-msi-sdk.md
     - name: Azure Data Lake Store’a erişmek için VM MSI kullanma
       items:
         - name: Windows sanal makinesinden
