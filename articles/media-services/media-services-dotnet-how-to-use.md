@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: juliako
-ms.openlocfilehash: 024b4cbb13001d67e7c1f0b86a84dfb43478c49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="media-services-development-with-net"></a>.NET ile Media Services Geliştirme
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -66,8 +66,11 @@ Alternatif olarak, en son Media Services .NET SDK'sı BITS Github'dan alabilirsi
 
     Kullanıyorsanız [kullanıcı kimlik doğrulaması](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication) yapılandırma dosyası büyük olasılıkla, Azure AD Kiracı etki alanı ve AMS REST API uç noktası için değerlere sahip olur.
     
+    >[!Note]
+    >Azure Media Services belgelerinde çoğu kod örnekleri kümesi, AMS API'sine bağlanmak için kimlik doğrulama kullanıcı (etkileşimli) türünü kullanın. Bu kimlik doğrulama yöntemini de yönetim veya yerel uygulamalar izleme için çalışır: mobil uygulamaları, Windows uygulamaları ve konsol uygulamaları.
+    
     >[!Important]
-    >Azure Media Services belgelerinde çoğu kod örnekleri kümesi, AMS API'sine bağlanmak için kimlik doğrulama kullanıcı (etkileşimli) türünü kullanın. Bu kimlik doğrulama yöntemini de yönetim veya yerel uygulamalar izleme için çalışır: mobil uygulamaları, Windows uygulamaları ve konsol uygulamaları. Bu kimlik doğrulama yöntemi, sunucu, web Hizmetleri, uygulamaları API'leri türü için uygun değil.  Daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile AMS API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md).
+    > **Etkileşimli** kimlik doğrulama yöntemini değil sunucu için uygun web Hizmetleri, uygulamaları API'leri türü. Bu tür uygulamalar kullanmak **hizmet sorumlusu** kimlik doğrulama yöntemi. Daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile AMS API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md).
 
         <configuration>
         ...

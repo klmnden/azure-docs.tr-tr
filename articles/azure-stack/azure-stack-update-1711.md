@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: andredm
-ms.openlocfilehash: 4d98556f17fa834c497c2d1cd1854c9e6b02e021
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-stack-1711-update"></a>Azure yığın 1711 güncelleştirme
 
@@ -31,7 +31,7 @@ Bu makalede yenilikleri ve bilinen sorunlar bu sürüm ve güncelleştirmeyi yü
 
 ## <a name="build-reference"></a>Derleme başvurusu
 
-Azure yığın 1711 güncelleştirme yapı numarası **20171122.1**.
+Azure yığın 1711 güncelleştirme yapı numarası **171201.3**.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -85,7 +85,7 @@ Bu bölüm 1711 güncelleştirme yüklemesi sırasında karşılaşabileceğiniz
 
 ### <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
 
-Bu bölümde yükleme sonrası ile ilgili bilinen sorunlar yapı içeren **20171122.1**.
+Bu bölümde yükleme sonrası ile ilgili bilinen sorunlar yapı içeren **20171201.3**.
 
 #### <a name="portal"></a>Portal
 
