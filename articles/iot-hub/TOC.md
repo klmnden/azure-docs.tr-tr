@@ -70,9 +70,10 @@
 ### [C için IoT cihaz SDK'sını kullanma](iot-hub-device-sdk-c-intro.md)
 #### [IoTHubClient kullanma](iot-hub-device-sdk-c-iothubclient.md)
 #### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
-### Cihazdan buluta iletilerini işleme
+### Yönlendirme iletileri
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
+#### [Node.js](iot-hub-node-node-process-d2c.md)
 ### Buluttan cihaza iletileri gönderme
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)

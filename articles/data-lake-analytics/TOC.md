@@ -31,6 +31,8 @@
 ### [U-SQL Bilişsel uzantıları](data-lake-analytics-u-sql-cognitive.md)
 ### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
 ### [Visual Studio Code için U-SQL özel kodu](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+### [Visual Studio Code için U-SQL](data-lake-analytics-data-lake-tools-for-vscode.md)
+### [U-SQL veritabanını dışarı aktarma](data-lake-analytics-data-lake-tools-export-database.md)
 
 ## U-SQL programlarında hata ayıklama
 ### [İşleri izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

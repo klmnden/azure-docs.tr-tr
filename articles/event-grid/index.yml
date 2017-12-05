@@ -44,6 +44,7 @@ sections:
         items:
           - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Logic Apps ile sanal makinelerde yapılan değişiklikleri izleme</a>
           - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Karşıya yüklenen görüntüleri yeniden boyutlandırma</a>
+          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Azure Otomasyonu’nu Event Grid ile tümleştirme</a>
   - title: Başvuru
     items:
       - type: list

@@ -29,14 +29,18 @@
       href: project-ic-tasks.md
 - name: Proje yapısı
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Proje planlama ve yürütme
+- name: Proje planlama
+  href: team-data-science-process-project-templates.md
+- name: Proje yürütme
   items:
-    - name: Proje planlama
-      href: team-data-science-process-project-templates.md
-    - name: Proje yürütme
-      items:
-        - name: Veri bilimi projeleri
-          href: project-execution.md
+    - name: Çevik geliştirme
+      href: agile-development.md
+    - name: Git ile işbirliği içinde kodlama
+      href: collaborative-coding-with-git.md
+    - name: Veri bilimi görevleri yürütme
+      href: execute-data-science-tasks.md
+    - name: İlerleme izleme
+      href: track-progress.md
 - name: Örnekler
   href: walkthroughs.md
   items:
@@ -52,12 +56,12 @@
     - name: PySpark ve Scala ile Spark
       href: walkthroughs-spark.md
       items:
-        - name: Verileri inceleme
+        - name: Verileri keşfetme ve modelleme
           href: spark-data-exploration-modeling.md
+        - name: Gelişmiş veri keşfi ve modelleme
+          href: spark-advanced-data-exploration-modeling.md
         - name: Puan modelleri
           href: spark-model-consumption.md
-        - name: Gelişmiş veri araştırması
-          href: spark-advanced-data-exploration-modeling.md
     - name: HDInsight Hadoop ile Hive
       href: walkthroughs-hdinsight-hadoop.md
     - name: Azure Data Lake ile U-SQL
@@ -136,7 +140,8 @@
             - name: AzCopy’yi kullanma
               href: move-data-to-azure-blob-using-azcopy.md
             - name: Python kullanma
-              href: move-data-to-azure-blob-using-python.md
+              href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+              maintainContext: true
             - name: SSIS kullanma
               href: move-data-to-azure-blob-using-ssis.md
             - name: VM’ye taşıma
@@ -211,14 +216,8 @@
             - name: Algoritma bilgi sayfası
               href: ../studio/algorithm-cheat-sheet.md
               maintainContext: true
-    - name: Modelleri dağıtma
-      items:
-        - name: Web hizmetiyle
-          href: ../studio/publish-a-machine-learning-web-service.md
-          maintainContext: true
-        - name: Bir web hizmetini kullanma
-          href: ../studio/consume-web-services.md
-          maintainContext: true
+    - name: Üretimde modelleri dağıtma
+      href: deploy-models-in-production.md
 - name: İlgili
   items:
     - name: Microsoft Bilişsel Araç Seti - CNTK

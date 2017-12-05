@@ -29,6 +29,8 @@
       href: how-to-manage-account-keys.md
     - name: Harita Denetimi’ni kullanma
       href: how-to-use-map-control.md
+    - name: Adres arama
+      href: how-to-search-for-address.md
 - name: Başvuru
   items:
     - name: Azure IoT Geliştirici Merkezi

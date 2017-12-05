@@ -59,6 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
     - name: Resource Manager şablonu
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: Web kancası şeması
+      href: container-registry-webhook-reference.md
 - name: Kaynaklar
   items:
     - name: Bölge kullanılabilirliği
@@ -67,7 +69,7 @@
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Yol Haritası
       href: 'https://aka.ms/acr/roadmap'
-    - name: Ürün geri bildirimi sağlayın
+    - name: Ürün geri bildirimi sağlama
       href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'

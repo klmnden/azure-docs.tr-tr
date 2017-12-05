@@ -127,6 +127,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Yönetilen Hizmet Kimliğini Kullanma
           href: app-service-managed-service-identity.md
+        - name: Uygulama kodunda SSL sertifikası kullanma
+          href: app-service-web-ssl-cert-load.md
         - name: TLS karşılıklı kimlik doğrulamayı yapılandırma
           href: app-service-web-configure-tls-mutual-auth.md
     - name: Uygulama ölçeklendirme

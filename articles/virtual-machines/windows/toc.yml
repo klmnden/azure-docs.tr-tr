@@ -224,6 +224,8 @@
       items:
         - name: Chef
           href: chef-automation.md
+        - name: Visual Studio’dan Web App yayımlama
+          href: publish-web-app-from-visual-studio.md
     - name: Uygulamaları çalıştırma
       items:
         - name: SQL Server

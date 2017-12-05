@@ -6,7 +6,9 @@
 ## [.NET uygulaması oluşturma](service-fabric-quickstart-dotnet.md)
 ## [Bir Linux kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers-linux.md)
 ## [Bir Windows kapsayıcı uygulaması dağıtma](service-fabric-quickstart-containers.md)
-## [Java uygulaması dağıtma](service-fabric-quickstart-java.md)
+## Java Hızlı Başlangıç Kılavuzları
+### [Spring Boot uygulaması dağıtma](service-fabric-quickstart-java-spring-boot.md)
+### [Reliable Services uygulaması dağıtma](service-fabric-quickstart-java-reliable-services.md)
 
 # Öğreticiler
 ## .NET uygulaması dağıtma
@@ -29,7 +31,9 @@
 #### [1a- Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Linux kümesi oluşturma](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Kümeyi ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
-### [3- API Management’ı Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
+### [3- Çalışma zamanı kümesini yükseltme](service-fabric-tutorial-upgrade-cluster.md)
+### [4- API Management’ı Service Fabric ile dağıtma](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Örnekler

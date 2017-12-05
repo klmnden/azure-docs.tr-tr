@@ -133,6 +133,7 @@
 ## [Siber güvenlik danışmanlığı](azure-security-cyber-services.md)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Azure Market görüntüleri için Güvenlik Önerileri](security-recommendations-azure-marketplace-images.md)
+## [Güvenlik Olayı Destek Biletini Günlüğe Kaydetme](azure-security-event-support-ticket.md)
 ## Senaryolar
 ### [Azure’da kişisel verileri yönetme](manage-personal-data-azure.md)
 ### [Azure’da kişisel verileri keşfetme, tanımlama ve sınıflandırma](how-to-discover-classify-personal-data-azure.md)

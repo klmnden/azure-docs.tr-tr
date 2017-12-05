@@ -27,6 +27,10 @@
   items:
     - name: Maliyet raporlarını anlama
       href: understading-cost-reports.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Maliyet Yönetimi raporlarını kullanma
+      href: use-reports.md
 - name: Kaynaklar
   items:
     - name: Maliyet Yönetimi videoları

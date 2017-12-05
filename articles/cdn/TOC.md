@@ -21,8 +21,8 @@
 ## Yönet
 ### [Azure PowerShell ile Yönetme](cdn-manage-powershell.md)
 ### Yaşam süresi yapılandırma
-#### [Web Apps/Cloud Services, ASP.NET veya IIS içeriği](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Depolama blob hizmeti içeriği](cdn-manage-expiration-of-blob-content.md)
+#### [Azure web içeriği](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Azure Blob Depolama](cdn-manage-expiration-of-blob-content.md)
 ### [Ülkeye göre erişimi kısıtlama](cdn-restrict-access-by-country.md)
 ### [Dosyaları sıkıştırarak performansı geliştirme](cdn-improve-performance.md)
 ### Sorgu dizesine göre içeriği önbelleğe alma

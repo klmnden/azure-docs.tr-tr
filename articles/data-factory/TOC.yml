@@ -4,6 +4,8 @@
   items:
     - name: Data Factory'ye Giriş
       href: introduction.md
+    - name: 1 ve 2 numaralı sürümleri karşılaştırma
+      href: compare-versions.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -19,6 +21,8 @@
           href: quickstart-create-data-factory-rest-api.md
         - name: Portal
           href: quickstart-create-data-factory-portal.md
+        - name: Resource Manager şablonu
+          href: quickstart-create-data-factory-resource-manager-template.md
 - name: Öğreticiler
   items:
     - name: 1 - SSIS paketlerini Azure'a dağıtma
