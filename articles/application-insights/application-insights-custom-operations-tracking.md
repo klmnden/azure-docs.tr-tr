@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 6412445f4e7a9b639ae9a38a44ff51038c6fcc00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18712b1c19fc81e290ead62f73a177874ebe86cd
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK ile özel işlemler izleme
 
@@ -33,7 +33,7 @@ Bu belgede, Application Insights SDK'sı ile özel işlemleri izlemek nasıl Reh
 ## <a name="overview"></a>Genel Bakış
 Bir mantıksal parça sahip bir uygulama tarafından çalıştırılan bir çalışma bir işlemdir. Başlangıç saati, süresi, sonuç ve kullanıcı adı, özellikler ve sonuç gibi yürütme bağlamı bir adı vardır. İşlem A B işlemi tarafından başlatıldı, sonra işlemi B A. için üst öğe olarak ayarlanır Bir işlemi yalnızca bir üst olabilir, ancak birçok alt işlemleri olabilir. İşlemler ve telemetri bağıntı hakkında daha fazla bilgi için bkz: [Azure Application Insights telemetri bağıntı](application-insights-correlation.md).
 
-Application Insights .NET SDK işlemi soyut sınıf tarafından açıklanan [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/Extensibility/Implementation/OperationTelemetry.cs) ve alt öğeleri [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/RequestTelemetry.cs) ve [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Core/Managed/Shared/DataContracts/DependencyTelemetry.cs).
+Application Insights .NET SDK işlemi soyut sınıf tarafından açıklanan [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) ve alt öğeleri [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) ve [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
 ## <a name="incoming-operations-tracking"></a>Gelen işlemlerini izleme 
 Application Insights web SDK IIS ardışık düzeninde çalışan ASP.NET uygulamaları ve tüm ASP.NET Core uygulamaları HTTP isteklerini otomatik olarak toplar. Diğer platformlar ve altyapıları için topluluk tarafından desteklenen çözümleri vardır. Uygulama herhangi bir standart veya topluluk tarafından desteklenen çözümleri tarafından desteklenmiyorsa, ancak, siz onu el ile işaretleyebilir.
@@ -123,7 +123,7 @@ Bağıntı için HTTP protokolü ayrıca bildirir `Correlation-Context` üstbilg
 ## <a name="queue-instrumentation"></a>Sıra Araçları
 Bağıntı ayrıntıları geçirmek için bir protokolü, HTTP iletişimi için oluşturduk. Bazı sıraları protokollerle ileti birlikte ve yapamazsınız başkalarıyla ek meta veri geçirebilirsiniz.
 
-### <a name="service-bus-queue"></a>Hizmet veri yolu kuyruğu
+### <a name="service-bus-queue"></a>Service Bus  kuyruğu
 Azure ile [Service Bus kuyruğuna](../service-bus-messaging/index.md), ileti birlikte bir özellik paketi geçirebilirsiniz. Bağıntı kimliği geçirmek için kullanırız
 
 Service Bus kuyruğuna TCP tabanlı protokollerini kullanır. Application Insights işlemlerini otomatik olarak izlemez sıra işlemleri biz bunları el ile izlemek için. Dequeue işlemi anında stilinde bir API'dir ve bunu izlemek kaydedemiyoruz.

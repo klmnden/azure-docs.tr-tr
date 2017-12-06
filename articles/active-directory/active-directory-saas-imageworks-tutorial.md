@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 1c12fe2f01c35d70763910c41cb45859bce33aea
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 9e152c43507cea7e6407a349be414c2a895cb5fc
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Öğretici: Azure Active Directory Tümleştirme ile görüntü ÇALIŞIR
 
@@ -113,7 +113,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [görüntü WORKS istemci destek ekibi](mailto:riki.satou@fujifilm.com) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [görüntü WORKS istemci destek ekibi](mailto:iw-sd-support@fujifilm.com) bu değerleri almak için. 
  
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
@@ -127,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Görüntü WORKS yapılandırma](./media/active-directory-saas-imageworks-tutorial/tutorial_imageworks_configure.png) 
 
-7. Çoklu oturum açma yapılandırmak için **görüntü WORKS** yan, indirilen göndermek için ihtiyacınız **Certificate(Base64), Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** için [görüntü ÇALIŞIR Takım Destek](mailto:riki.satou@fujifilm.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+7. Çoklu oturum açma yapılandırmak için **görüntü WORKS** yan, indirilen göndermek için ihtiyacınız **Certificate(Base64), Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** için [görüntü ÇALIŞIR Takım Destek](mailto:iw-sd-support@fujifilm.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,7 +167,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="create-a-image-works-test-user"></a>Görüntü WORKS test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon görüntü WORKS adlı bir kullanıcı oluşturun. Çalışmak [görüntü WORKS destek ekibi](mailto:riki.satou@fujifilm.com) görüntü WORKS platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir.
+Bu bölümde, Britta Simon görüntü WORKS adlı bir kullanıcı oluşturun. Çalışmak [görüntü WORKS destek ekibi](mailto:iw-sd-support@fujifilm.com) görüntü WORKS platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c0bd1aa2236eb44a41142f9cfc20c220ca49e99
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM'ler için depolama yapılandırması
 Azure'da bir SQL Server sanal makine görüntüsü yapılandırdığınızda, Portal depolama yapılandırmanızı otomatikleştirmek için yardımcı olur. Bu, belirli bir performans gereksinimlerinizi en iyi duruma getirmek için bu depolama SQL Server için erişilebilir hale getirme ve bu yapılandırma VM, depolama ekleme içerir.
@@ -30,7 +30,7 @@ Bu konu, nasıl Azure depolama, SQL Server VM'ler için sağlama sırasında hem
 ## <a name="prerequisites"></a>Ön koşullar
 Otomatik depolama yapılandırma ayarlarını kullanmak için sanal makine aşağıdaki özelliklere gerektirir:
 
-* İle sağlanan bir [SQL Server galeri görüntüsü](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* İle sağlanan bir [SQL Server galeri görüntüsü](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 * Kullanan [Resource Manager dağıtım modeli](../../../azure-resource-manager/resource-manager-deployment-model.md).
 * Kullanan [Premium depolama](../premium-storage.md).
 

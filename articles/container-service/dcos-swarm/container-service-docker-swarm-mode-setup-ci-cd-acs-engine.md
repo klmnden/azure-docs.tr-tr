@@ -1,25 +1,19 @@
 ---
-title: "CI/CD Azure kapsayıcı hizmeti altyapısı ve Swarm modu ile | Microsoft Docs"
+title: "CI/CD Azure kapsayıcı hizmeti altyapısı ve Swarm modu"
 description: "Azure kapsayıcı Hizmeti altyapısının birden çok kapsayıcı .NET Core uygulama sürekli olarak göndermek için Docker Swarm modu, bir Azure kapsayıcı kayıt defteri ve Visual Studio Team Services ile kullanma"
 services: container-service
-documentationcenter: " "
 author: diegomrtnzg
-manager: esterdnb
-tags: acs, azure-container-service, acs-engine
-keywords: "Mikro docker, kapsayıcıları, hizmetleri, Swarm, Azure, Visual Studio Team Services, DevOps, ACS altyapısı"
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 2c0e5fe4f60738fcc1aa67a78674e6f3c62e5628
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6aa690ff7ec0689db78ff1225d36171adb30ee2c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>ACS altyapısı ve Docker Swarm Visual Studio Team Services kullanarak modu ile Azure kapsayıcı hizmeti üzerinde çok kapsayıcı uygulama dağıtmak için tam CI/CD ardışık düzen
 

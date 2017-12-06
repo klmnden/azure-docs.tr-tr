@@ -1,26 +1,19 @@
 ---
-title: "Hızlı Başlangıç - Windows için Azure Kubernetes kümesi | Microsoft Docs"
+title: "Hızlı Başlangıç - Windows için Azure Kubernetes küme"
 description: "Azure CLI ile Azure Container Service'te Windows kapsayıcıları için Kubernetes kümesi oluşturmayı hızlı bir şekilde öğrenin."
-documentationcenter: 
+services: container-service
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 7dd58ae747a1009b5db99e0fec741272d98b36ad
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: ed6e4ec438cc445645d55514c2bd51596d566af8
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Windows kapsayıcıları için Kubernetes kümesi dağıtma
 

@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: ddove
-ms.openlocfilehash: 18870b763546a9bccb77df85b01640cfd3c8b852
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 03e7a3612e1cfcfaee2084db0d2eadb72e8a5f9d
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Parça eşleme Yöneticisi veritabanlarıyla ölçeğini genişletme
 SQL Azure veritabanlarını kolayca ölçeğini bir parça eşleme Yöneticisi'ni kullanın. Parça eşleme Yöneticisi'ni bir parça kümesindeki tüm parça (veritabanları) hakkında genel eşleme bilgilerini tutan özel bir veritabanıdır. Meta veri değeri alınarak doğru veritabanına bağlanmak bir uygulama sağlar **parçalama anahtar**. Ayrıca, yerel verileri izlemek haritalar kümesindeki her parça içerir (olarak bilinen **shardlets**). 
 
 ![Parça eşleme Yönetimi](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Bu eşlemeler nasıl oluşturulur anlamanız parça eşleme yönetimi için önemlidir. Bu yapılır ShardMapManager sınıfını kullanma ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)), bulunan [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) parça eşlemeleri yönetmek için.  
+Bu eşlemeler nasıl oluşturulur anlamanız parça eşleme yönetimi için önemlidir. Bu yapılır ShardMapManager sınıfını kullanma ([Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)), bulunan [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) parça eşlemeleri yönetmek için.  
 
 ## <a name="shard-maps-and-shard-mappings"></a>Parça eşlemeleri ve parça eşlemeleri
 Her parça için oluşturmak için parça eşleme türü seçmelisiniz. Seçimi veritabanı mimarisine bağlıdır: 
@@ -98,11 +98,28 @@ Yukarıda gösterilen tabloların her biri kavramsal bir örneği olan bir **Sha
 3. **Uygulama önbelleği**: her uygulama örneği erişen bir **ShardMapManager** nesne eşlemelerini, yerel bir bellek içi önbellek tutar. Son alınan yönlendirme bilgilerini depolar. 
 
 ## <a name="constructing-a-shardmapmanager"></a>Bir ShardMapManager oluşturma
-A **ShardMapManager** nesne bir Fabrika kullanarak oluşturulur ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory)) deseni. **ShardMapManagerFactory.GetSqlShardMapManager** ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager)) yöntemi (GSM tutan veritabanı adı ve sunucu adı dahil) kimlik bilgilerini alır formun bir **ConnectionString** ve bir örneğini döndüren bir **ShardMapManager**.  
+A **ShardMapManager** nesne bir Fabrika kullanarak oluşturulur ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)) deseni. **ShardMapManagerFactory.GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)) yöntemi (GSM tutan veritabanı adı ve sunucu adı dahil) kimlik bilgilerini alır formun bir **ConnectionString** ve bir örneğini döndüren bir **ShardMapManager**.  
 
 **Lütfen dikkat edin:** **ShardMapManager** bir uygulama için başlatma kodundaki uygulama etki alanı başına yalnızca bir kez örneğinin oluşturulması. Aynı uygulama etki alanında ShardMapManager ek örneklerini oluşturulmasını artırılmış bellek ve CPU kullanımı uygulamanın ile sonuçlanır. A **ShardMapManager** parça eşlemelerinin herhangi bir sayı içerebilir. Bir tek parça eşleme birçok uygulama için yeterli olabilir, ancak veritabanlarının farklı kümeleri farklı şema veya benzersiz amacıyla kullanıldığında zamanlar vardır; Bu gibi durumlarda birden fazla parça eşlemeleri tercih edilebilir. 
 
-Bu kod, bir uygulamanın var olan açmayı denediğinde **ShardMapManager** TryGetSqlShardMapManager ile ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager)) yöntemi.  Varsa bir genel temsil eden nesneler **ShardMapManager** (GSM) sağlamadığı henüz veritabanının var, istemci kitaplığının bunları orada CreateSqlShardMapManager kullanarak oluşturur ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager), [Java ](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager)) yöntemi.
+Bu kod, bir uygulamanın var olan açmayı denediğinde **ShardMapManager** TryGetSqlShardMapManager ile ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)) yöntemi.  Varsa bir genel temsil eden nesneler **ShardMapManager** (GSM) sağlamadığı henüz veritabanının var, istemci kitaplığının bunları orada CreateSqlShardMapManager kullanarak oluşturur ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET ](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)) yöntemi.
+
+```Java
+// Try to get a reference to the Shard Map Manager in the shardMapManager database.
+// If it doesn't already exist, then create it.
+ShardMapManager shardMapManager = null;
+boolean shardMapManagerExists = ShardMapManagerFactory.tryGetSqlShardMapManager(shardMapManagerConnectionString,ShardMapManagerLoadPolicy.Lazy, refShardMapManager);
+shardMapManager = refShardMapManager.argValue;
+
+if (shardMapManagerExists) {
+    ConsoleUtils.writeInfo("Shard Map %s already exists", shardMapManager);
+}
+else {
+    // The Shard Map Manager does not exist, so create it
+    shardMapManager = ShardMapManagerFactory.createSqlShardMapManager(shardMapManagerConnectionString);
+    ConsoleUtils.writeInfo("Created Shard Map %s", shardMapManager);
+}
+```
 
 ```csharp
 // Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
@@ -131,50 +148,10 @@ else
 } 
 ```
 
-```Java
-// Try to get a reference to the Shard Map Manager in the shardMapManager database.
-// If it doesn't already exist, then create it.
-ShardMapManager shardMapManager = null;
-boolean shardMapManagerExists = ShardMapManagerFactory.tryGetSqlShardMapManager(shardMapManagerConnectionString,ShardMapManagerLoadPolicy.Lazy, refShardMapManager);
-shardMapManager = refShardMapManager.argValue;
-
-if (shardMapManagerExists) {
-    ConsoleUtils.writeInfo("Shard Map %s already exists", shardMapManager);
-}
-else {
-    // The Shard Map Manager does not exist, so create it
-    shardMapManager = ShardMapManagerFactory.createSqlShardMapManager(shardMapManagerConnectionString);
-    ConsoleUtils.writeInfo("Created Shard Map %s", shardMapManager);
-}
-```
-
 .NET sürüm için yeni bir parça eşleme yönetici oluşturmak için PowerShell'i kullanabilirsiniz. Bir örneği, kullanılabilir [burada](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>RangeShardMap veya ListShardMap Al
-Bir parça eşleme Yöneticisi oluşturduktan sonra RangeShardMap alabilirsiniz ([.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)) veya ListShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)) kullanma TryGetRangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap)), TryGetListShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap)), ya da (GetShardMap[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap)) yöntemi.
-
-```csharp
-// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
-public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
-{
-    // Try to get a reference to the Shard Map.
-    RangeShardMap<T> shardMap;
-    bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
-
-    if (shardMapExists)
-    {
-        ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
-    }
-    else
-    {
-        // The Shard Map does not exist, so create it
-        shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
-        ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
-    }
-
-    return shardMap;
-} 
-```
+Bir parça eşleme Yöneticisi oluşturduktan sonra RangeShardMap alabilirsiniz ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) veya ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx)) kullanma TryGetRangeShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), TryGetListShardMap ([Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), ya da (GetShardMap[ Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) yöntemi.
 
 ```Java
 // Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
@@ -204,6 +181,29 @@ static <T> RangeShardMap<T> createOrGetRangeShardMap(ShardMapManager shardMapMan
 }
 ```
 
+```csharp
+// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
+public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
+{
+    // Try to get a reference to the Shard Map.
+    RangeShardMap<T> shardMap;
+    bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
+
+    if (shardMapExists)
+    {
+        ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
+    }
+    else
+    {
+        // The Shard Map does not exist, so create it
+        shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
+        ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
+    }
+
+    return shardMap;
+} 
+```
+
 ### <a name="shard-map-administration-credentials"></a>Parça eşleme yönetim kimlik bilgileri
 Yönetmek ve parça eşlemeleri işlemek uygulamalar parça haritalar rota bağlantılarına kullananlar farklıdır. 
 
@@ -226,19 +226,19 @@ Parça eşleme farklı şekilde değiştirilebilir. Aşağıdaki yöntemlerden t
 
 Bu yöntemler, genel dağıtım parçalı veritabanı ortamınızda veri değiştirmek için kullanılabilir yapı taşları olarak birlikte çalışır.  
 
-* Eklemek veya parça kaldırmak için: kullanmak **CreateShard** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard)) ve **DeleteShard** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx), [ Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard)) Shardmap, ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map)) sınıfı. 
+* Eklemek veya parça kaldırmak için: kullanmak **CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)) ve **DeleteShard** ([Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx)) Shardmap, ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx)) sınıfı. 
   
     Bu işlemleri yürütmek sunucuyu ve veritabanını hedef parça temsil eden varolmalıdır. Bu yöntemlerin herhangi bir etki veritabanlarına kendileri yalnızca meta veri parça eşlemesindeki üzerinde sahip değilsiniz.
-* Oluşturmak veya noktaları veya parça eşlenen aralıklar kaldırmak için: kullanmak **CreateRangeMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping)), **DeleteMapping** () [.NET](https://msdn.microsoft.com/library/azure/dn824200.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping)) RangeShardMapping, ([.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)) sınıfı ve **CreatePointMapping**  ([.NET](https://msdn.microsoft.com/library/azure/dn807218.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping)) ListShardMap, ([.NET](https://msdn.microsoft.com/library/azure/dn842123.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)) sınıfı.
+* Oluşturmak veya noktaları veya parça eşlenen aralıklar kaldırmak için: kullanmak **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping), [.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx)), **DeleteMapping** () [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping), [.NET](https://msdn.microsoft.com/library/azure/dn824200.aspx)) RangeShardMapping, ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) sınıfı ve **CreatePointMapping**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping), [.NET](https://msdn.microsoft.com/library/azure/dn807218.aspx)) ListShardMap, ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn842123.aspx)) sınıfı.
   
     Birçok farklı noktaları veya aralıklar aynı parça eşlenebilir. Bu yöntemler, yalnızca meta veri etkiler - zaten parça içinde bulunabilecek herhangi bir veri etkilemez. Verileri veritabanından ile tutarlı olması için kaldırılması gerekiyorsa **DeleteMapping** işlemleri ayrı olarak, ancak bu yöntemleri kullanarak ile birlikte bu işlemleri.  
-* Varolan aralıkları ikiye böl ya da bitişik aralıkları birine birleştirmek için: kullanmak **SplitMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.splitmapping)) ve **MergeMappings** () [.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.mergemappings)).  
+* Varolan aralıkları ikiye böl ya da bitişik aralıkları birine birleştirmek için: kullanmak **SplitMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.splitmapping), [.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx)) ve **MergeMappings** () [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.mergemappings), [.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx)).  
   
     Bölme ve birleştirme işlemlerinin unutmayın **anahtar değerleri eşlendi parça değiştirmeyin**. Bölme iki bölüme var olan bir aralığı keser, ancak her ikisi de aynı parça eşlenmiş olarak bırakır. Bir birleştirme için tek bir aralığa birleştirmesi aynı parça zaten eşlenmiş iki bitişik aralıkları çalıştırır.  Noktaları veya aralıklar kendilerini parça arasında hareketini kullanarak Eşgüdümlü gerekiyor **UpdateMapping** gerçek veri taşıma birlikte.  Kullanabileceğiniz **bölünmüş/Merge** hizmet taşıması gerektiğinde parça eşleme veri taşıma değişikliklerle koordine etmek için esnek veritabanı araçlarını parçası. 
-* Yeniden eşleme (veya taşımak için) tek tek noktaları ya da farklı parça aralıkları: kullanmak **UpdateMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn824207.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.updatemapping)).  
+* Yeniden eşleme (veya taşımak için) tek tek noktaları ya da farklı parça aralıkları: kullanmak **UpdateMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.updatemapping), [.NET](https://msdn.microsoft.com/library/azure/dn824207.aspx)).  
   
     Verileri bir parça diğerine ile tutarlı olması için taşınacak gerekebileceği **UpdateMapping** işlemleri, o taşıma ayrı olarak, ancak bu yöntemleri kullanarak ile birlikte gerçekleştirmeniz gerekir.
-* Eşlemeleri çevrimiçi ve çevrimdışı yapılacak: kullanmak **MarkMappingOffline** ([.NET](https://msdn.microsoft.com/library/azure/dn824202.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingoffline)) ve **MarkMappingOnline** ([. NET](https://msdn.microsoft.com/library/azure/dn807225.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingonline)) bir eşleme çevrimiçi durumunu denetlemek için. 
+* Eşlemeleri çevrimiçi ve çevrimdışı yapılacak: kullanmak **MarkMappingOffline** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingoffline), [.NET](https://msdn.microsoft.com/library/azure/dn824202.aspx)) ve **MarkMappingOnline** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingonline), [.NET](https://msdn.microsoft.com/library/azure/dn807225.aspx)) bir eşleme çevrimiçi durumunu denetlemek için. 
   
     Bir eşleme "Çevrimdışı" bir durumda olduğunda parça eşlemeleri üzerindeki belirli işlemlerin yalnızca verilir dahil olmak üzere **UpdateMapping** ve **DeleteMapping**. Bir eşleme çevrimdışı olduğunda, o eşlemeye dahil bir anahtarı temel alan bir veri bağımlı istek bir hata döndürür. Bir aralık önce çevrimdışı duruma getirildiğinde, ayrıca, etkilenen parça tüm bağlantıları otomatik olarak değiştirilmesini aralıkları karşı yönlendirilmiş sorgular için tutarsız veya tamamlanmamış sonuçları önlemek için sonlandırıldı. 
 

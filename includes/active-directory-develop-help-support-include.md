@@ -1,6 +1,6 @@
-## <a name="help--support"></a>Yardım ve Destek
+## <a name="help-and-support"></a>Yardım ve destek
 
-Lütfen, Yardım, bir sorunu bildirmek veya destek seçenekleri hakkında bilmeniz gereken, aşağıdaki makaleye bakın:
+Yardım, bir sorunu bildirmek istiyorsanız gerekir veya destek seçenekleri hakkında daha fazla bilgi istediğiniz, aşağıdaki makaleye bakın:
 
 > [!div class="nextstepaction"]
 > [Yardım ve Destek geliştiricileri için](../articles/active-directory/develop/active-directory-develop-help-support.md)

@@ -2,23 +2,15 @@
 title: "Hızlı Başlangıç - Azure CLI ile azure'da özel bir Docker kayıt defteri oluşturma"
 description: "Azure CLI ile özel bir Docker kapsayıcısı kayıt defteri oluşturmak hızlı bir şekilde öğrenin."
 services: container-registry
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: tysonn
-tags: 
-keywords: 
-ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
 ms.service: container-registry
-ms.devlang: azurecli
 ms.topic: quicksart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 6804a3e6933a467fc57b960676ada800a9ed22a4
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 5cddf0ffea256ed6d1c51d48a61ac8176d08b9cc
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017

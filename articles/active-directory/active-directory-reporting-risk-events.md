@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory risk olayları
 
@@ -64,15 +64,15 @@ Bu riski olay türü açan başarıyla anonim Ara sunucu IP adresi olarak tanım
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Alışılmadık konumlara imkansız seyahat
 
-Bu riski olay türü burada konumları en az biri de kullanıcı için alışılmadık olabilir, coğrafi olarak birbirinden uzak konumlardan davranış davranışlarına iki oturum açma işlemleri tanımlar. Ayrıca, iki oturum açma işlemleri arasındaki süre kullanıcıya ilk konumdan farklı bir kullanıcı aynı kimlik bilgilerini kullandığını gösteren ikinci, seyahat mal oluyordu zamandan daha kısadır. 
+Bu riski olay türü burada konumları en az biri de kullanıcı için alışılmadık olabilir, coğrafi olarak birbirinden uzak konumlardan davranış davranışlarına iki oturum açma işlemleri tanımlar. Diğer çeşitli etkenler arasında dikkate bu makine öğrenme algoritmasını, iki oturum açma işlemleri ve bunu kullanıcının ilk konumdan farklı bir kullanıcı aynı kullandığını gösteren ikinci, seyahat alacağı saat arasındaki zaman alır. kimlik bilgileri.
 
-Belirgin yoksayar bu makine öğrenme algoritmasını "*hatalı pozitif sonuç*" VPN'ler ve kuruluşunuzdaki diğer kullanıcılar tarafından düzenli olarak kullanılan konumlar gibi mümkün olmayan seyahat koşul katkıda bulunan.  Sistem bir ilk öğrenme süre 14 gün boyunca yeni kullanıcının oturum açma davranışı öğrenir sahip.
+Algoritma "VPN'ler ve kuruluşunuzdaki diğer kullanıcılar tarafından düzenli olarak kullanılan konumlar gibi mümkün olmayan seyahat koşullar katkıda bulunan belirgin yalancı pozitifler" yoksayar. Sistem bir ilk öğrenme süre 14 gün boyunca yeni kullanıcının oturum açma davranışı öğrenir sahip. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Tanınmayan konumlardan oturum aç
 
 Bu riski olay türü oturum açma konumları göz önünde bulundurur (IP, enlem / boylam ve ASN) yeni / tanınmayan konumlarını belirlemek için. Sistem, bir kullanıcı tarafından kullanılan önceki konumları hakkında bilgi depolar ve bu "bilinen" konumları göz önünde bulundurur. Tanıdık konumları listesinde olmayan bir konumdan oturum açma ortaya çıktığında risk olay tetiklenir. Sistem bir ilk öğrenme süre boyunca, tüm yeni konumlar tanınmayan konumları olarak işaretlemez 30 gün sahip. Sistem, ayrıca oturum açma işlemleri hakkında bilgi sahibi aygıtları ve coğrafi olarak yakın tanıdık bir konum olan konumları yoksayar. 
 
-### <a name="sign-ins-from-infected-devices"></a>Virüs bulaşmış cihazlardan oturum açma işlemleri
+### <a name="sign-ins-from-infected-devices"></a>Bulaşma olan cihazlardan oturum açma işlemleri
 
 Bu riski olay türü etkin bir şekilde bir bot sunucusu ile iletişim kurmak için bilinen kötü amaçlı yazılım, virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri tanımlar. Bu, kullanıcının aygıtına bir bot sunucusu ile iletişim kurmuş olan IP adresleri karşı IP adresleri ile ilişkilendirilmesi yoluyla belirlenir. 
 
@@ -143,7 +143,7 @@ Mümkün olmayan seyahat genellikle, bir bilgisayar korsanının başarıyla otu
 
 Tanınmayan konumlardan saldırgan çalınan kimlik kullanabilmek için güçlü bir gösterge sağlar. Bir kullanıcı seyahat ederken, yeni bir cihaz çalışıyor ya da yeni bir VPN kullanarak yanlış pozitif sonuç ortaya çıkabilir. Bu hatalı pozitif sonuç sonucu olarak, bu olay türü için risk düzeyi olan **orta**.
 
-### <a name="sign-ins-from-infected-devices"></a>Virüs bulaşmış cihazlardan oturum açma işlemleri
+### <a name="sign-ins-from-infected-devices"></a>Bulaşma olan cihazlardan oturum açma işlemleri
 
 Bu riski olay IP adresleri, kullanıcı aygıtları tanımlar. Tek bir IP adresi birkaç aygıtlardır ve bazı öğeler yalnızca oturum açma işlemleri diğer aygıtlardan bir bot ağ my tetikleyici bu olay gereksiz yere, bu risk olay sınıflandırma neden olduğu denetlediği olarak **düşük**.  
 

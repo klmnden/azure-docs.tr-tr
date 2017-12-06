@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: befd03d94f816cb2b59219cd9f1f9af238949592
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 372e9465eec1a373ff2b59209673e65fa1f994b6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="information-about-using-hdinsight-on-linux"></a>Linux'ta Hdınsight kullanma hakkında bilgi
+# <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
 Azure Hdınsight kümeleri Hadoop Azure bulutta çalışan bir bilinen Linux ortamı sağlar. Çoğu işlemler için tam olarak herhangi diğer Linux üzerinde Hadoop yükleme çalışması gerekir. Bu belge farkında olmanız gereken belirli farklılıkları çağırır.
 
@@ -91,6 +91,8 @@ Bu komut hizmet açıklayan bir JSON belgesi döndürür ve ardından jq yalnız
     > [!NOTE]
     > Yalnızca bir istemci makinesinden SSH küme baş düğümler erişebilir. Bağlandıktan sonra daha sonra bir headnode SSH kullanarak çalışan düğümleri erişebilirsiniz.
 
+Daha fazla bilgi için bkz: [hdınsight'ta Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](hdinsight-hadoop-port-settings-for-services.md) belge.
+
 ## <a name="file-locations"></a>Dosya konumları
 
 Hadoop ilgili dosyaları küme düğümlerinde bulunabilir `/usr/hdp`. Bu dizin, aşağıdaki alt dizinleri içerir:
@@ -108,9 +110,6 @@ Hdınsight Azure Storage blobları ya da Azure Data Lake Store varsayılan depos
 
 * Ucuz uzun vadeli depolama
 * Web siteleri, dosya karşıya yükleme/indirme yardımcı programlar, çeşitli dil SDK'lar ve web tarayıcıları gibi dış hizmetler erişilebilirlik
-
-> [!WARNING]
-> Hdınsight yalnızca destekler __genel amaçlı__ Azure depolama hesapları. Şu anda desteklemediği __Blob storage__ hesap türü.
 
 Tek tek bloblar (veya bir Hdınsight açısından dosyaları) 195 GB'a kadar yalnızca gidebilirsiniz rağmen bir Azure Storage hesabı 4.75 TB'ye kadar basılı tutabilirsiniz. Azure Data Lake Store, dinamik olarak tek tek dosyaların bir petabyte büyük dosyalarla trilyonlarca tutmak için büyüyebilir. Daha fazla bilgi için bkz: [anlama BLOB'ları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) ve [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -234,6 +233,8 @@ Farklı küme türü gibi ölçeklendirme tarafından etkilenir:
 
         1. Açık **https://CLUSTERNAME.azurehdinsight.net/stormui** web tarayıcısında, burada CLUSTERNAME Storm kümenizin adıdır. İstenirse, Hdınsight Küme Yöneticisi (Yönetici) adını ve küme oluştururken belirttiğiniz parolayı girin.
         2. Yeniden dengelemeniz ve ardından istediğiniz topolojiyi seçin **yeniden dengelemeniz** düğmesi. Yeniden dengeleyin işlem gerçekleştirilmeden önce gecikme girin.
+
+* **Kafka**: işlemleri ölçeklendirme sonra çoğaltmalarını yeniden dengelemeniz gerekir. Daha fazla bilgi için bkz: [hdınsight'ta Kafka verilerle yüksek kullanılabilirliğini](./kafka/apache-kafka-high-availability.md) belge.
 
 Hdınsight kümenize ölçeklendirme ile ilgili ayrıntılı bilgi için bkz:
 

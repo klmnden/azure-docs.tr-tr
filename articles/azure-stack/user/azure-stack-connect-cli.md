@@ -12,40 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>CLI'yi yükleme ve Azure yığını ile kullanım için yapılandırma
 
 Bu makalede, Azure komut satırı arabirimi (CLI) Linux Azure yığın Geliştirme Seti kaynakları yönetmek için ve Mac istemci platformları kullanarak işleminde size rehberlik ediyoruz. 
-
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Azure yığın CA kök sertifikasını dışarı aktarma
-
-Azure yığın Geliştirme Seti ortamında çalışan bir sanal makineden CLI kullanıyorsanız, doğrudan alabilirsiniz şekilde Azure yığın kök sertifika sanal makinede zaten yüklü. Geliştirme Seti dışında bir iş istasyonundan CLI kullanırsanız, geliştirme Seti'nden Azure yığın CA kök sertifikasını dışarı aktarma ve geliştirme istasyonunuzu (Dış Linux veya Mac platformu) Python sertifika deposuna eklemeniz gerekir. 
-
-PEM biçimine Azure yığın kök sertifikayı dışa aktarmak için Geliştirme Seti için oturum açın ve aşağıdaki komut dosyasını çalıştırın:
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Certificate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
 
 ## <a name="install-cli"></a>CLI yükleme
 
@@ -59,7 +36,7 @@ Azure CLI ve bilgisayarınızda yüklü diğer bağımlı kitaplıkları sürüm
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure yığın CA kök sertifikasını güven
 
-Azure yığın CA kök sertifikasına güvenmek için varolan bir Python sertifikayı ekleyin. Azure yığın ortamında oluşturulan Linux makineden CLI çalıştırıyorsanız, aşağıdaki bash komutu çalıştırın:
+Azure yığın operatöründen Azure yığın CA kök sertifikası alın ve bu güven. Azure yığın CA kök sertifikasına güvenmek için varolan bir Python sertifikayı ekleyin. Azure yığın ortamında oluşturulan Linux makineden CLI çalıştırıyorsanız, aşağıdaki bash komutu çalıştırın:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
@@ -110,11 +87,10 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Sanal makine diğer uç nokta ayarlamayı
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>Sanal makine diğer adlar uç noktası alın
 
-Kullanıcılar, CLI kullanarak sanal makineleri oluşturmadan önce bulut yöneticisine sanal makine görüntüsü diğer adları içeren bir genel olarak erişilebilir uç nokta ayarlamayı ve bulutla Bu uç noktasını kaydetmeniz gerekir. `endpoint-vm-image-alias-doc` Parametresinde `az cloud register` komutu bu amaç için kullanılır. Bunlar görüntü diğer adlar uç noktaya eklemeden önce bulut yöneticileri Azure yığın Market görüntüsünü karşıdan yüklemeniz gerekir.
+Kullanıcılar, CLI kullanarak sanal makineleri oluşturmadan önce bunlar Azure yığın işleci başvurun ve sanal makine diğer adlar uç noktası URI alın. Örneğin, aşağıdaki URI Azure kullanır: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Bulut yöneticisine benzer bir uç nokta ayarlamayı, Azure yığın marketi'ndeki görüntüleri ile Azure yığını için ayarlamanız gerekir. Kullanıcıların uç noktası URI geçmesi için `endpoint-vm-image-alias-doc` parametresi `az cloud register` sonraki bölümde gösterildiği gibi komutu. 
    
-Örneğin, aşağıdaki URI Azure kullanır: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Bulut yöneticisine benzer bir uç nokta ayarlamayı, Azure yığın marketi'ndeki görüntüleri ile Azure yığını için ayarlamanız gerekir.
 
 ## <a name="connect-to-azure-stack"></a>Azure Stack'e Bağlanma
 

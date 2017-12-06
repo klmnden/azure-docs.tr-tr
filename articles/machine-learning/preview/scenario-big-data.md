@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
 
@@ -203,7 +203,7 @@ Her ikisi de değiştirme `Config/storageconfig.json` ve `Config/fulldata_storag
 
 Komut satırı seçerek Machine Learning çalışma ekranından başlayın **dosya** > **komut istemini açın**. Ardından çalıştırın: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 Aşağıdaki iki dosyayı projenize aml_config klasöründe oluşturulur:
 
@@ -266,7 +266,7 @@ Deneme küçük verileri başarıyla tamamladıktan sonra tam veri kümesi üzer
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. İşlem hedef Hdınsight kümesi için Machine Learning çalışma ekranı oluşturma
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 Aşağıdaki iki dosyalar aml_config klasöründe oluşturulur:
     
@@ -382,7 +382,7 @@ Benzersiz bir dize olarak operationalization ortamını seçin. Burada, "[benzer
 
         az ml experiment submit -t dockerdsvm -c dockerdsvm webservice.py
 
-5. Docker görüntü oluşturma. 
+5. Bir Docker görüntüsü oluşturun. 
 
         az ml image create -n [unique]image --manifest-id $manifestID
 

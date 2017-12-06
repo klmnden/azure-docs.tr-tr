@@ -1,6 +1,6 @@
 ---
-title: "Makine gezici ve Azure işbirliği çalışma ekranı öğrenme | Microsoft Docs"
-description: "Bilinen sorunların listesi ve gidermenize yardımcı olması için bir kılavuz"
+title: "Gezici ve Azure Machine Learning çalışma ekranı işbirliği | Microsoft Docs"
+description: "Gezici ve Machine Learning çalışma ekranı işbirliği ayarlama öğrenin."
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,193 +10,193 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 81954835185ebaa86c11a9498a85879e6985897a
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 137608007716452ec6468f1e13f494b095a11cb0
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Gezici ve Azure Machine Learning çalışma ekranı işbirliği
-Bu belge, nasıl Azure Machine Learning çalışma ekranı kodunuza etkinleştir işbirliğiyle yanı sıra makineler üzerinden projelerinizin dolaşan yardımcı olabileceği aracılığıyla açıklanmaktadır. 
+Bu makalede, Azure Machine Learning çalışma ekranı bilgisayarlar arasında gezici projeler ayarlama ve ekip üyeleri ile birlikte çalışmak için nasıl kullanabileceğinizi açıklar. 
 
-Uzak bir Git deposu (depo) bağlantı ile bir Azure Machine Learning projesi oluşturduğunuzda, proje meta verilerini ve anlık görüntüleri bulutta depolanır. Bulut bağlantı, farklı bir bilgisayardan (gezici) proje erişmenize olanak tanır. Ayrıca, böylece işbirliğini etkinleştirme çalışma arkadaşlarınız için erişim verebilirsiniz. 
+Uzak bir Git deposu (depo) bağlantısı olan bir Azure Machine Learning projesi oluşturduğunuzda, proje meta verilerini ve anlık görüntüleri bulutta depolanır. Bulut bağlantı (gezici) farklı bir bilgisayardan projeye erişmek için kullanabilirsiniz. Ekip üyeleri ile işbirliği projesi için erişim vererek yapabilirsiniz. 
 
 ## <a name="prerequisites"></a>Ön koşullar
-İlk olarak, bir deneme hesabı için erişim ile Azure Machine Learning çalışma ekranı yükleyin. İzleyin [Yükleme Kılavuzu](quickstart-installation.md) daha fazla ayrıntı için.
+1. Machine Learning çalışma ekranı uygulamasını yükleyin. Bir Azure Machine Learning deneme hesabına erişim izni olduğundan emin olun. Daha fazla bilgi için bkz: [Yükleme Kılavuzu](quickstart-installation.md).
 
-İkinci olarak, erişim [Visual Studio Team System](https://www.visualstudio.com) ve projenize bağlamak için bir depo oluşturun. Git hakkında ayrıntılı bilgi için başvuru [kullanarak Git deposuna Azure Machine Learning çalışma ekranı projesi ile](using-git-ml-project.md) makalesi.
+2. Erişim [Visual Studio Team Services](https://www.visualstudio.com) (Team Services) ve ardından projenize bağlamak için bir depo oluşturun. Daha fazla bilgi için bkz: [bir Git deposuna bir Machine Learning çalışma ekranı projesiyle kullanarak](using-git-ml-project.md).
 
-## <a name="create-a-new-azure-machine-learning-project"></a>Yeni bir Azure Machine Learning projesi oluşturma
-Azure Machine Learning çalışma ekranı başlatın ve yeni bir proje oluşturun (örneğin, _iris_). Dolgu **Visualstudio.com GIT deposu URL'sini** geçerli bir VSTS Git deposu URL'si kutusuyla. 
+## <a name="create-a-new-machine-learning-project"></a>Yeni bir Machine Learning projesi oluşturma
+Machine Learning çalışma ekranı açın ve ardından yeni bir proje (örneğin, iris adlı bir proje) oluşturun. İçinde **Visualstudio.com GIT deposu URL'sini** kutusunda, bir Team Services Git deposuna için geçerli bir URL girin. 
 
 > [!IMPORTANT]
-> Boş proje şablonu seçerseniz, seçtiğiniz zaten Git deposu varsa, bu normaldir bir _ana_ dal. Azure ML yalnızca klonlar _ana_ yerel olarak dallandırma ve ekleme `aml_config` klasörü ve diğer meta veri dosyaları yerel proje klasöre proje. Ancak herhangi bir proje şablonu seçerseniz, Git deposu zaten gerekir bir _ana_ şube veya bir hata görürsünüz. Alternatif kullanmaktır `az ml project create` proje oluşturma ve sağlama için komut satırı aracı bir `--force` geçin. Bu, özgün ana dala dosyalarını siler ve bunları seçtiğiniz şablona yeni dosyalar ile değiştirin.
+> Boş proje şablonu seçerseniz, kullanmayı seçerseniz Git deposu zaten ana dala sahip olabilir. Machine Learning yalnızca yerel ana dala klonlar. Aml_config klasörü ve diğer proje meta veri dosyaları için yerel proje klasörünü ekler. 
+>
+> Tüm diğer proje şablonu, Git deposuna seçerseniz *olamaz* zaten bir ana dala sahip. Aşması durumunda, bir hata görürsünüz. Alternatif kullanmaktır `az ml project create` komutu ile projesi oluşturmak için bir `--force` geçin. Bu dosyaları özgün ana dal siler ve bunları seçtiğiniz şablon yeni dosyalar ile değiştirir.
 
-Proje oluşturulduktan sonra proje içindeki herhangi bir komut dosyası birkaç çalışır gönderin. Bu eylem, uzak Git deposu 's çalıştırma geçmişi dala proje durumunu kaydeder. 
+Proje oluşturulduktan sonra projede olan herhangi bir betiği birkaç çalışır gönderin. Bu eylem proje durumu uzak Git deposu 's çalıştırma geçmişi dala kaydeder. 
 
 > [!NOTE] 
-> Yalnızca komut dosyası çalıştırma geçmişi dalı için tetikleyici yürütme çalışır. Veri Yürütme prep veya dizüstü bilgisayar çalıştırır çalıştırma geçmişi şube proje anlık görüntü tetikleyicisi yok.
+> Yalnızca komut dosyası çalıştırma geçmişi dalı için tetikleyici yürütme çalışır. Veri yürütme ve dizüstü prep çalıştırır proje anlık görüntüleri çalıştırma geçmişi dal tetiklemek yok.
 
-Kurulum Git kimlik doğrulaması varsa, yapabilir açıkça ana dala çalışmayabilir, veya bir dalı oluşturabilirsiniz. 
+Git kimlik doğrulamasını ayarlarsanız, ana dala da çalışabilir. Veya yeni bir dalı oluşturabilirsiniz. 
 
-Örneğin: 
+Örnek: 
 ```
-# check current repo status
+# Check current repo status.
 $ git status
 
-# stage all changes in the current repo
+# Stage all changes in the current repo.
 $ git add -A
 
-# commit changes
+# Commit changes.
 $ git commit -m "my commit fixes this weird bug!"
 
-# push to remote repo.
+# Push to the remote repo.
 $ git push origin master
 ```
 
 ## <a name="roaming"></a>Dolaşım
 <a name="roaming"></a>
 
-### <a name="open-azure-machine-learning-workbench-on-second-machine"></a>Azure Machine Learning çalışma ekranı ikinci makinede açın
-VSTS Git deposu projenizi ile bağlantılı sonra erişebilirsiniz _iris_ Azure Machine Learning çalışma ekranı yüklediğiniz herhangi bir bilgisayardan projesi. 
+### <a name="open-machine-learning-workbench-on-a-second-computer"></a>İkinci bir bilgisayara açık Machine Learning çalışma ekranı
+Team Services Git deposuna projenizi ile bağlandıktan sonra Machine Learning çalışma ekranı yüklü olan herhangi bir bilgisayardan iris proje erişebilirsiniz. 
 
-İris proje başka bir bilgisayara erişmek için uygulama için proje oluşturulurken kullanılan kimlik bilgileriyle oturum gerekir. Ayrıca, aynı deneme hesabı ve çalışma alanına gidin gerekir. _İris_ proje çalışma alanı içindeki diğer projelerle alfabetik olarak listelenir. 
+Başka bir bilgisayarda iris proje erişmek için uygulamaya projesi oluşturmak için kullanılan kimlik bilgilerini kullanarak oturumunuzu gerekir. Ayrıca aynı makine öğrenme deneme hesabı ve çalışma alanı olması gerekir. İris proje çalışma alanındaki diğer projelerle alfabetik olarak listelenir. 
 
-### <a name="download-project-on-second-machine"></a>İkinci makinede projenizi indirin
-Çalışma alanı ikinci açıldığında makine, bitişik simgesi _iris_ projedir normal klasörü simgesinden farklı. Yükleme simgesi projenin içerik bulutta ve geçerli makineye indirilmesi gerekir belirtir. 
+### <a name="download-the-project-on-a-second-computer"></a>İkinci bir bilgisayara projenizi indirin
+Çalışma alanı ikinci bilgisayarda açık olduğunda iris projeye bitişik normal klasörü simgesinden farklı simgedir. Yükleme simgesi proje içeriğinin bulutta olduğunu ve projenin geçerli bilgisayara yüklenmek için hazır olduğunu gösterir. 
 
 ![Proje oluşturma](./media/roaming-and-collaboration/downloadable-project.png)
 
-Tıklayarak _iris_ proje karşıdan yükleme eylemi başlatır. While, yükleme tamamlandığında kısa sonra projeyi ikinci bilgisayarda erişilebilmesi hazırdır. 
+Bir yüklemeye başlamak için iris projesini seçin. Yükleme tamamlandığında, proje ikinci bilgisayarda erişilebilmesi hazırdır. 
 
-Windows üzerinde olduğu`C:\Users\<username>\Documents\AzureML`
+Windows üzerinde proje C:\Users bulunduğu\\< kullanıcı adı\>\Documents\AzureML.
 
-MacOS üzerinde aşağıda verilmiştir:`/home/<username>/Documents/AzureML`
+MacOS üzerinde proje /home/ bulunur\<kullanıcıadı \> /belgeler/AzureML.
 
-Bir hedef klasör seçin olanak tanımak için işlevselliğini geliştirmek planlıyoruz gelecekteki bir sürümde. 
+Bir hedef klasör seçebilmeniz için işlevselliğini geliştirmek planlıyoruz gelecekteki bir sürümde. 
 
 > [!NOTE]
-> Azure ML dizininde projeyi tam aynı ada sahip bir klasör bilgisine yükleme başarısız olur. Süresi olan, bu sorunu çözmek için varolan bir klasörü yeniden adlandırmanız gerekir.
+> Machine Learning dizininde projeyi tam aynı ada sahip bir klasörünüz varsa, yükleme başarısız olur. Bu sorunu çözmek için geçici olarak mevcut klasörünü yeniden adlandırın.
 
 
 ### <a name="work-on-the-downloaded-project"></a>İndirilen projedeki çalışma 
-Yeni indirilen projedeki projesinde son çalıştırma itibariyle proje durumunu yansıtır. Bir farklı çalıştır gönderme her zaman proje durumunun anlık görüntüsü VSTS Git deposuna çalıştırma geçmişi dalında için otomatik olarak taahhüt eder. İkinci bilgisayara proje başlatılırken son çalıştırma ile ilişkili anlık görüntü kullanırız. 
+Yeni indirilen projedeki projesinde son çalıştırma proje durumunu yansıtır. Bir farklı çalıştır gönderme her zaman proje durumunun anlık görüntüsü Team Services Git deposuna çalıştırma geçmişi dalında için otomatik olarak taahhüt eder. Son çalıştırma ile ilişkili anlık görüntü ikinci bilgisayara proje örneği oluşturmak için kullanılır. 
  
 
 ## <a name="collaboration"></a>İş Birliği
-Kodunuza VSTS Git deposu için bağlı projelerde ile işbirliği yapabilir. Deneme hesabı, çalışma ve proje kullanıcılara izinleri atayabilirsiniz. Şu anda Azure CLI kullanarak Azure Resource Manager komutları gerçekleştirebilirsiniz. Aynı zamanda [Azure portal](https://portal.azure.com). Bkz: [bölümden](#portal).    
+Takım üyeleri bir Team Services Git deposuna bağlı projelerde ile işbirliği yapabilir. Machine Learning deneme hesabı, çalışma ve proje için kullanıcılara izinler atayabilirsiniz. Şu anda, Azure CLI kullanarak Azure Resource Manager komutları gerçekleştirebilirsiniz. Aynı zamanda [Azure portal](https://portal.azure.com). Daha fazla bilgi için bkz: [kullanıcıları eklemek için Azure portal'ı kullanmanızı](#portal).    
 
-### <a name="using-command-line-to-add-users"></a>Kullanıcı eklemek için komut satırını kullanarak
-Bir örnek sağlar. Alice th e_Iris_ proje sahibi ve paylaşım erişimi ile Bob istediği söyleyin. 
+### <a name="use-the-command-line-to-add-users"></a>Kullanıcı eklemek için komut satırını kullanın
+Örnek olarak, Alice iris proje sahibi. Alice, Bob ile projesi için erişim izni paylaşmak istiyor. 
 
-Alice tıkladığı **dosya** menü ve seçer **komut istemi** menü öğesi için yapılandırılmış komut istemi başlatmak için _iris_ projesi. Alice ardından aşağıdaki komutları yürüterek Bob için vermek istediği fo erişimi hangi düzeyi karar verebilirsiniz.  
+Alice seçer **dosya** menüsüne ve ardından seçer **komut istemi** menü öğesi. Komut İstemi penceresini iris proje ile açılır. Alice, Bob için vermek istediği erişim düzeyini sonra karar verebilirsiniz. Aynen aşağıdaki komutları çalıştırarak izinleri verir:  
 
 ```azurecli
-# Find ARM ID of the experimnetation account
+# Find the Resource Manager ID of the Experimentation account.
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Contributor.
-# Bob now has read/write access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <Experimentation account Resource Manager ID>
 
-# Find ARM ID of the workspace
+# Find the Resource Manager ID of the workspace.
 az ml workspace show --query "id"
 
 # Add Bob to the workspace as an Owner.
-# Bob now has read/write access to all projects under the Workspace by inheritance. And he can invite or remove others.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace ARM ID>
+# Bob now has read/write access to all projects under the workspace by inheritance. Bob can invite or remove other users.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace Resource Manager ID>
 ```
 
-Rol ataması sonra doğrudan veya devralma, Bob çalışma ekranı proje listesi projesinde görebilirsiniz. Uygulama projesi görmek için yeniden başlatma gerekebilir. Bob sonra yükleyebilirler proje açıklandığı gibi [bölüm gezici](#roaming) ve Alice ile işbirliği yapın. 
+Rol ataması sonra doğrudan veya devralma tarafından Bob Machine Learning çalışma ekranı proje listesi projesinde görebilirsiniz. Bob, projeyi görmek için uygulamayı yeniden başlatmanız gerekebilir. Bob sonra yükleyebilirler proje açıklandığı gibi [gezici](#roaming)ve Alice ile işbirliği yapmak başlayın. 
 
-Çalıştırma geçmişi bir projede işbirliği tüm kullanıcılar için aynı uzak Git deposuna taahhüt eder. Bu nedenle Alice Çalıştır yürütüldüğünde, Bob Çalıştır çalışma ekranı uygulama projesinde çalıştırma geçmişi bölümünde görebilirsiniz. Bob, Alice tarafından başlatılan çalıştığı dahil olmak üzere çalışma durumuna proje da geri yükleyebilirsiniz. 
+Çalıştırma geçmişi bir projede işbirliği tüm kullanıcılar için aynı uzak Git deposuna taahhüt eder. Alice Çalıştır yürütüldüğünde, Bob Çalıştır Machine Learning çalışma ekranı uygulama projesinde çalıştırma geçmişi bölümünde görebilirsiniz. Bob proje Alice kullanmaya çalıştığında dahil olmak üzere tüm çalışma durumuna da geri yükleyebilirsiniz. 
 
-Projesi için uzak bir Git deposu paylaşımı Alice ve Bob ayrıca ana dala üzerinde işbirliği yapmak etkinleştirir. Gerekiyorsa, bunlar Ayrıca kişisel dalları oluşturmak ve Git çekme istekleri ve birleştirmeler işbirliği yapmak için kullanın. 
+Projesi için uzak bir Git deposu paylaşarak Alice ve Bob ayrıca ana dala işbirliği yapabilir. Gerekiyorsa, bunlar Ayrıca kişisel dalları oluşturmak ve Git çekme istekleri ve birleştirmeler işbirliği yapmak için kullanın. 
 
-### <a name="using-azure-portal-to-add-users"></a>Kullanıcı eklemek için Azure portalını kullanma
+### <a name="use-the-azure-portal-to-add-users"></a>Kullanıcı eklemek için Azure portalını kullanın
 <a name="portal"></a>
 
-Azure Machine Learning deneme hesapları, çalışma alanları ve projeleri, Azure Resource Manager kaynaklarıdır. Erişim denetimi bağlantıyı kullanabilirsiniz [Azure portal](https://portal.azure.com) rolleri atamak için. 
+Makine öğrenme deneme hesapları, çalışma alanları ve projeleri Azure Resource Manager kaynaklarıdır. Rolleri atamak için kullanabileceğiniz **erişim denetimi** bağlamak [Azure portal](https://portal.azure.com). 
 
-Tüm kaynaklardan görüntülemek için kullanıcılar eklemek için aradığınız kaynak bulunamıyor. Erişim denetimini sayfada (IAM) bağlantısına tıklayın. Kullanıcı ekle 
+Kullanıcılara kullanarak eklemek istediğiniz kaynak bulmak **tüm kaynakları** görünümü. Seçin **erişim denetimi (IAM)** bağlamak ve ardından **kullanıcıları eklemek**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
 ## <a name="sample-collaboration-workflow"></a>Örnek işbirliği iş akışı
-İşbirliği akışını göstermek için şimdi bir örnek yol. Contoso çalışanlar Alice ve Bob Azure ML çalışma ekranı kullanarak bir veri bilimi projede işbirliği ister. Kimliklerini aynı Contoso Azure AD kiracısına ait.
+İşbirliği iş akışını göstermek için şimdi bir örnek yol. Contoso çalışanlar Alice ve Bob Machine Learning çalışma ekranı kullanarak bir veri bilimi projede işbirliği ister. Kimlikleri aynı Contoso Azure Active Directory (Azure AD) kiracıya ait. Alice ve ele Bob adımlar şunlardır:
 
-1. Alice, ilk VSTS projede boş bir Git deposu oluşturur. Bu VSTS proje Contoso AAD kiracısı altında oluşturulan bir Azure aboneliği dinamik. 
+1. Alice Team Services projede boş bir Git deposu oluşturur. Team Services proje Contoso Azure AD Kiracı altında oluşturulan bir Azure aboneliğiniz olmalıdır. 
 
-2. Alice sonra her bilgisayarda bir Azure ML deneme hesabı, bir çalışma alanı ve bir Azure ML çalışma ekranı projesi oluşturur. Proje oluşturulurken aynen Git deposu URL'sini sağlar.
+2. Alice, her bilgisayarda bir Machine Learning deneme hesabı, bir çalışma alanı ve bir Machine Learning çalışma ekranı projesi oluşturur. Aynen proje oluşturduğunda, aynen Team Services Git deposu URL'sini girer.
 
-3. Alice proje üzerinde çalışmaya başlar. Kendisinin bazı komut dosyaları oluşturur ve birkaç çalıştırır yürütür. Her çalıştırma için tüm proje klasörünün anlık bir yürütme olarak çalışma ekranı tarafından oluşturulan VSTS Git deposuna çalıştırma geçmişi dalı uygulamasına otomatik olarak gönderilir.
+3. Alice proje üzerinde çalışmaya başlar. Kendisinin bazı komut dosyaları oluşturur ve birkaç çalıştırır yürütür. Her çalıştırma için tüm proje klasörünün anlık bir Machine Learning çalışma ekranı oluşturur Team Services Git deposuna çalıştırma geçmişi dalının bir yürütme otomatik olarak gönderilir.
 
-4. Alice ile iş sürüyor mutluluk sunulmuştur. Yerel kendi değişikliği kaydetmek istediği _ana_ dal ve VSTS Git deposuna iter _ana_ dal. Proje Aç Bunu yapmak için aynen Azure ML çalışma ekranı komut istemi penceresinden başlatır ve aşağıdaki komutları sorunlar:
+4. Alice ile iş sürüyor memnun olur. Yerel ana dal kendi değişiklikleri uygulayın ve ardından bunları Team Services Git deposuna ana dala gönderme istediği. Proje açıkken Machine Learning çalışma ekranı, aynen komut istemi penceresi açılır ve bu komutları girer:
     
     ```sh
-    # verify the Git remote is pointing to the VSTS Git repo
+    # Verify that the Git remote is pointing to the Team Services Git repo.
     $ git remote -v
 
-    # verify that the current branch is master
+    # Verify that the current branch is master.
     $ git branch
 
-    # stage all changes
+    # Stage all changes.
     $ git add -A
 
-    # commit changes with a comment
+    # Commit changes with a comment.
     $ git commit -m "this is a good milestone"
 
-    # push the commit to the master branch of the remote Git repo in VSTS
+    # Push the commit to the master branch of the remote Git repo in Team Services.
     $ git push
     ```
 
-5. Alice, katılımcısı olarak çalışma alanına Bob sonra ekler. Aynen Azure portal veya kullanarak bunu yapabilirsiniz `az role assignment` komutu göstermeye üstünde. Kendisi ayrıca Bob okuma/erişim VSTS Git deposuna yazma verir.
+5. Alice, Bob Katılımcısı olarak çalışma alanına ekler. Aynen Azure portalında veya kullanarak bunu yapabilirsiniz `az role assignment` , daha önce gösterildiği gibi komutu. Alice, Bob okuma/yazma izinleri Team Services Git deposuna da verir.
 
-6. Bob, bilgisayarda artık Azure ML çalışma ekranı içinde günlüğe kaydeder. Çalışma alanı ona ile paylaşılan Alice ve bu çalışma alanı altında listelenen proje görebilir. 
+6. Bob için Machine Learning çalışma ekranı bilgisayarını üzerinde imzalar. Alice ona ile paylaşılan çalışma görebilir. Bu çalışma alanı altında listelenen iris proje görebilir. 
 
-7. Bob proje adına göre tıklar ve projeyi bilgisayarına yüklenir.
-    
-    a. İndirilen projedeki dosyaları çalıştırma geçmişi kaydedilen son çalıştırma anlık bir kopyasını alır. Son yürütme ana dala üzerinde değiller.
-    
-    b. Yerel proje klasöründeki ayarlanan _ana_ yukarıdaki unstaged değişikliklerle dal.
+7. Bob proje adı seçer. Proje bilgisayarına yüklenir.
+    * İndirilen projedeki dosyaları çalıştırma geçmişi kaydedilen son çalıştırma anlık bir kopyasını alır. Son yürütme ana dala üzerinde değiller.
+    * Yerel proje klasöründeki unstaged değişiklikleri ana dala ayarlanır.
 
-8. Bob, artık Alice ve tüm önceki çalışmalarını geri yükleme görüntüsünü tarafından yürütülen çalıştırır göz atabilirsiniz.
+8. Bob Alice tarafından yürütülen çalıştırır göz atabilirsiniz. Daha önceki tüm çalıştırır anlık görüntüleri geri yükleyebilirsiniz.
 
-9. Bob Alice tarafından gönderilen en son değişiklikleri almak ve farklı bir dalı üzerinde çalışmaya başlamak istiyor. Bu nedenle kendisi Azure ML çalışma ekranından komut istemi penceresi açar ve aşağıdaki komutları çalıştırır:
+9. Bob Alice gönderilen en son değişiklikleri almak ve daha sonra farklı bir şube çalışmaya başlamak istiyor. Machine Learning çalışma ekranı, Bob bir komut istemi penceresi açar ve aşağıdaki komutları çalıştırır:
 
     ```sh
-    # verify the Git remote is pointing to the VSTS Git repo
+    # Verify that the Git remote is pointing to the Team Services Git repo.
     $ git remote -v
 
-    # verify that the current branch is master
+    # Verify that the current branch is master.
     $ git branch
 
-    # get the latest commit in VSTS Git master branch and overwrite current files
+    # Get the latest commit in the Team Services Git master branch and overwrite current files.
     $ git pull --force
 
-    # create a new local branch named "bob" so Bob's work is done on the "bob" branch
+    # Create a new local branch named "bob" so that Bob's work is done in the "bob" branch
     $ git checkout -b bob
     ```
 
-10. Bob, artık projeyi değiştirir ve yeni çalıştırır gönderin. Değişiklikler üzerinde yapılır _bob_ dal. Ve Bob'un çalıştırır de Alice'e görünür hale gelmiştir.
+10. Bob projeyi değiştirir ve yeni çalıştırır gönderir. Bob dalı üzerinde yapılan değişiklikler. Bob'ın çalıştığı aynı zamanda Alice'e görünür hale gelmiştir.
 
-11. Bob, değişiklikleri uzak Git deposu göndermek artık hazırdır. Çakışma olmaması için _ana_ Alice nerede çalıştığını dal, kendisi de adlı yeni bir uzaktan dalı kendi iş göndermek karar _bob_.
+11. Bob uzak Git deposuna kendi değişiklikleri göndermek hazırdır. Alice nerede çalışıyor, ana dala ile çakışmayı önlemek için aynı zamanda bob adlı yeni bir uzaktan dalı için kendi iş Bob iter.
 
     ```sh
-    # verify that the current branch is "bob" and it has unstaged changes
+    # Verify that the current branch is "bob," and that it has unstaged changes.
     $ git status
     
-    # stage all changes
+    # Stage all changes.
     $ git add -A
 
-    # commit them with a comment
+    # Commit the changes with a comment.
     $ git commit -m "I found a cool new trick."
 
-    # create a new branch on the remote VSTS Git repo, and push changes
+    # Create a new branch on the remote Team Services Git repo, and then push the changes.
     $ git push origin bob
     ```
 
-12. Bob sonra öğrenebilirsiniz Alice yeni cool eli hakkında kendi kodunda ve bir çekme isteği uzak Git deposu oluşturur _bob_ dallanma _ana_ dal. Ve Alice sonra içine çekme isteği birleştirme _ana_ dal.
+12. Alice, kodu cool yeni eli hakkında bilgi için bir çekme isteği Bob uzak ana dala Git deposuna bob şube gelen oluşturur. Alice, ardından çekme isteği ana dala birleştirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Git ile Azure ML çalışma ekranı kullanma hakkında daha fazla bilgi edinin: [Azure Machine Learning çalışma ekranı projesi ile kullanarak Git deposu](using-git-ml-project.md)
+- Daha fazla bilgi edinmek [bir Git deposuna bir Machine Learning çalışma ekranı projesiyle kullanarak](using-git-ml-project.md).

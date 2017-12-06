@@ -15,17 +15,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 3670676032eb71a5339bb1219cb794366b912147
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Bulut init azure'da bir Linux VM özelleştirmek için kullanın
-Bu makalede nasıl kullanılacağı gösterilmektedir [bulut init](https://cloudinit.readthedocs.io) bir sanal makine (VM) ya da sanal makineyi yapılandırmak için ölçek (VMSS) Azure zamanında sağlama sırasında ayarlar. Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın.  
+# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için bulut başlatma desteği
+Bu makale için mevcut destek açıklanır [bulut init](https://cloudinit.readthedocs.io) bir sanal makine (VM) ya da sanal makineyi yapılandırmak için ölçek (VMSS) Azure zamanında sağlama sırasında ayarlar. Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın.  
 
 ## <a name="cloud-init-overview"></a>Bulut init genel bakış
-[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çağrıldığı için ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.  Doğru biçim hakkında daha fazla bilgi için `#cloud-config` dosyaları görmek [bulut init belgeleri sitesi](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`alanlarını base64 ile kodlanmış metin dosyalarıdır.
+[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çağrıldığı için ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.  Doğru biçim hakkında daha fazla bilgi için `#cloud-config` dosyaları görmek [bulut init belgeleri sitesi](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`dosyaları base64 ile kodlanmış metin dosyalarıdır.
 
 Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
 

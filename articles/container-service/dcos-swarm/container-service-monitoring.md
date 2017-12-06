@@ -1,28 +1,22 @@
 ---
-title: "İzleyici Azure DC/OS kümesi - Datadog | Microsoft Docs"
+title: "İzleyici Azure DC/OS kümesi - Datadog"
 description: "Azure kapsayıcı hizmeti kümesi Datadog ile izleyin. Kümenize Datadog aracıları dağıtmak için DC/OS web kullanıcı arabirimini kullanın."
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Kapsayıcılar, DC/OS, Docker Swarm, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 9dd451f994940d7cc3a59bd7fd08a8f067345e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b895ef906a8c8f3f8cc21267d80f8b59b64837f4
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Azure kapsayıcı hizmeti DC/OS kümesi Datadog ile izleme
+
 Bu makalede, Azure kapsayıcı hizmeti kümesindeki tüm Aracısı düğümleri biz Datadog aracıları dağıtır. Bu yapılandırma için Datadog sahip bir hesap gerekir. 
 
 ## <a name="prerequisites"></a>Ön koşullar

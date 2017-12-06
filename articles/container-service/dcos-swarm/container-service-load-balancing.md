@@ -1,28 +1,22 @@
 ---
-title: "Azure DC/OS kümesi Bakiye kapsayıcılarında yük | Microsoft Docs"
+title: "Azure DC/OS kümesi Yük Dengelemesi kapsayıcıları"
 description: "Bir Azure kapsayıcı hizmeti DC/OS kümesinde birden çok kapsayıcı arasında Yük Dengelemesi."
 services: container-service
-documentationcenter: 
 author: rgardler
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Kapsayıcılar, Mikro hizmetler, DC/OS, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 78725c9d23e13d307821a188028ef573d1def038
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8dfa99b609cf2c54d29c55d3f5ba748910f7513b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Bir Azure kapsayıcı hizmeti DC/OS kümesi Yük Dengelemesi kapsayıcıları
+
 Bu makalede, Marathon-LB kullanarak bir DC/OS yönetilen Azure kapsayıcı Hizmeti'nde bir iç yük dengeleyici oluşturma keşfedin. Bu yapılandırma, uygulamalarınızı yatay ölçek sağlar. Ayrıca, ortak ve özel aracı kümeleri ortak küme ve uygulama kapsayıcılarınızı özel kümede yük dengeleyici koyarak yararlanmak sağlar. Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]

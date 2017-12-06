@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 42a0e7a3816e0f1d96951feac210e5770add4fe1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) dağıtma
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -92,7 +92,7 @@ Oturum açtıktan sonra aşağıdaki bilgileri girmeniz istenir:
 Uygun bilgileri seçtikten sonra Seç **kaydetmek** sunucu kayıt işlemini tamamlamak için. Kayıt işleminin bir parçası olarak, bir ek oturum açma için istenir.
 
 ## <a name="create-a-sync-group"></a>Eşitleme grubu oluşturma
-Eşitleme grubu bir Grup dosyası için eşitleme topolojisi tanımlar. Bir eşitleme grubundaki uç noktaları birbirleri ile eşitlenmiş tutulur. Eşitleme grubu, Azure dosya paylaşımının temsil eder, en az bir bulut Endpoint ve Windows Server'da bir yol temsil eden bir sunucu uç içermesi gerekir. Bir eşitleme grubu oluşturmak için [Azure portal](https://portal.azure.com/)depolama eşitleme hizmetinize gidin ve ardından **+ eşitleme grubu**:
+Eşitleme grubu bir Grup dosyası için eşitleme topolojisi tanımlar. Bir eşitleme grubundaki uç noktaları birbirleri ile eşitlenmiş tutulur. Eşitleme grubu, Azure dosya paylaşımının temsil eder, en az bir bulut uç noktası ve Windows Server'da bir yol temsil eden bir sunucu uç nokta içermesi gerekir. Bir eşitleme grubu oluşturmak için [Azure portal](https://portal.azure.com/)depolama eşitleme hizmetinize gidin ve ardından **+ eşitleme grubu**:
 
 ![Azure portalında yeni bir eşitleme grubu oluşturma](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
 
@@ -109,15 +109,31 @@ Sunucusu uç noktası eklemek için yeni oluşturulan eşitleme grubuna gidin ve
 
 İçinde **sunucusu uç noktası ekleme** bölmesinde, bir sunucu uç noktası oluşturmak için aşağıdaki bilgileri girin:
 
-- **Sunucusu kayıtlı**: sunucu veya sunucu uç noktası oluşturmak istediğiniz kümenin adını.
+- **Kayıtlı sunucu**: sunucu veya sunucu uç noktası oluşturmak istediğiniz kümenin adını.
 - **Yol**: Windows Server yolu eşitleme grubunun bir parçası eşitlenir.
 - **Bulut Katmanlandırma**: etkinleştirmek veya Bulut devre dışı bırakmak için bir anahtar katmanlama. Katmanlama, sık kullanılan veya erişilen dosyaları bulut ile Azure dosyaları katmanlı.
-- **Birim boş alanı**: sunucusu uç noktası olduğu bulunduğu birimde ayrılan boş alan miktarı. Birim boş alanı, tek bir sunucu uç noktası bir birimi üzerinde % 50'si ayarlanırsa, örneğin, kabaca veri miktarının yarısına Azure dosyaları katmanlı. Bakılmaksızın olup bulut katmanlama etkinleştirildiğinde, Azure dosya paylaşımınıza verilerin tam bir kopyasını eşitleme grubunda her zaman vardır.
+- **Birim boş alanı**: sunucusu uç noktası olduğu bulunduğu birimde ayrılan boş alan miktarı. Birim boş alanı, bir tek sunucu uç noktası bir birimi üzerinde % 50'si ayarlanırsa, örneğin, kabaca veri miktarının yarısına Azure dosyaları katmanlı. Bakılmaksızın olup bulut katmanlama etkinleştirildiğinde, Azure dosya paylaşımınıza verilerin tam bir kopyasını eşitleme grubunda her zaman vardır.
 
 Sunucusu uç noktası eklemek için seçin **oluşturma**. Dosyalarınızı artık Azure dosya paylaşımı ve Windows Server arasında eşitleme tutulur. 
 
 > [!Important]  
 > Herhangi bir bulut uç noktası veya eşitleme grubundaki sunucusu uç noktası için değişiklik yapabilirsiniz ve dosyalarınızı eşitleme grubundaki diğer uç noktalarına eşitlendiğinden. (Azure dosya paylaşımı) bulut uç noktasına doğrudan bir değişiklik yaparsanız değişiklikleri ilk Azure dosya eşitleme değişiklik algılama işi tarafından bulunmaları gerekir. Bir değişiklik algılama işi yalnızca bir kez her 24 saatte bir bulut uç noktası için başlatılır. Daha fazla bilgi için bkz: [Azure sık sorulan sorular dosyaları](storage-files-faq.md#afs-change-detection).
+
+## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>DFS Çoğaltma (DFS-R) dağıtımı için Azure dosya eşitleme geçirme
+Azure dosya eşitleme DFS-R dağıtım geçirmek için:
+
+1. Değiştirdiğiniz DFS-R topoloji temsil etmek için bir eşitleme grubu oluşturun.
+2. Tam veri geçirmek için DFS-R topolojinizi ayarlanmış sunucuda başlatın. Azure dosya eşitleme bu sunucuya yükleyin.
+3. Bu sunucuyu kaydetmek ve yükseltilecek ilk sunucu için bir sunucu uç noktası oluşturur. Bulut etkinleştirmeyin katmanlama.
+4. Tüm veri eşitleme, Azure dosya paylaşımına (bulut uç noktası) sağlar.
+5. Yükleyin ve Azure dosya eşitleme Aracısı kalan DFS-R sunucuların her birinde kaydedin.
+6. DFS-r devre dışı bırak 
+7. Sunucusu uç noktası DFS-R sunucuların her birinde oluşturun. Bulut etkinleştirmeyin katmanlama.
+8. Eşitleme işlemi tamamlandıktan ve topolojinizi istediğiniz gibi test emin olun.
+9. DFS-r devre dışı bırakma
+10. Katmanlama may bulut şimdi etkin olması istediğiniz gibi herhangi bir sunucu uç nokta üzerinde.
+
+Daha fazla bilgi için bkz: [Azure dosya eşitleme birlikte çalışabilirliği dağıtılmış dosya sistemi (DFS) ile](storage-sync-files-planning.md#distributed-file-system-dfs).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Azure dosya eşitleme sunucusu uç noktası Ekle Kaldır](storage-sync-files-server-endpoint.md)

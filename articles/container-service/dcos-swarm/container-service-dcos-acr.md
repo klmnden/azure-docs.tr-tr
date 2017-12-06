@@ -1,27 +1,19 @@
 ---
-title: "Bir Azure DC/OS kümesi ile ACR kullanarak | Microsoft Docs"
+title: "ACR Azure DC/OS kümesi ile kullanma"
 description: "Azure kapsayıcı hizmeti DC/OS kümesinde ile bir Azure kapsayıcı kayıt defteri kullanma"
 services: container-service
-documentationcenter: 
 author: julienstroheker
 manager: dcaro
-editor: 
-tags: acs, azure-container-service, acr, azure-container-registry
-keywords: "Docker, kapsayıcıları, mikro hizmetler, Mesos, Azure, dosya paylaşımı, CIFS"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 36e57bb6ebf9f55d42c526a361fed33b4238b313
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>ACR DC/OS kümesi ile uygulamanızı dağıtmak için kullanın.
 

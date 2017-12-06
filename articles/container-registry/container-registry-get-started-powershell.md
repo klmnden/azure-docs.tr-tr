@@ -2,20 +2,15 @@
 title: "Hızlı Başlangıç - Azure PowerShell ile özel bir Docker kayıt defteri oluşturun"
 description: "PowerShell ile özel bir Docker kapsayıcısı kayıt defteri oluşturmak hızlı bir şekilde öğrenin."
 services: container-registry
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: tysonn
 ms.service: container-registry
-ms.devlang: na
 ms.topic: quicksart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/08/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d165cc159f7da2c8e7f0be4f0fa7d353997ed5f9
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: fbf643ad342d712452d39c71b8706b6213198512
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017

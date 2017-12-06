@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: c28d92ad23e42401d42d9510fd7d07429929ade7
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2560ca144f8ce4041aa592554f9945ed546cc49b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Hedefleri işlem olarak DSVM ve HDI Spark kümesi oluşturma
 
@@ -125,7 +125,7 @@ DSVM oluşturulduktan sonra artık Azure ML projenize ekleyebilirsiniz.
 ```azurecli
 # attach the DSVM compute target
 # it is a good idea to use FQDN in case the IP address changes after you deallocate the VM and restart it
-$ az ml computetarget attach --name <compute target name> --address <ip address or FQDN> --username <admin username> --password <admin password> --type remotedocker
+$ az ml computetarget attach remotedocker --name <compute target name> --address <ip address or FQDN> --username <admin username> --password <admin password> 
 
 # prepare the Docker image on the DSVM 
 $ az ml experiment prepare -c <compute target name>
@@ -175,7 +175,7 @@ Spark HDI kümesi oluşturulduktan sonra artık Azure ML projenize ekleyebilirsi
 
 ```azurecli
 # attach the HDI compute target
-$ az ml computetarget attach --name <compute target name> --address <cluster name, such as myhdicluster123.azurehdinsight.net> --username <ssh username> --password <ssh password> --type cluster
+$ az ml computetarget attach cluster --name <compute target name> --address <cluster name, such as myhdicluster123.azurehdinsight.net> --username <ssh username> --password <ssh password> 
 
 # prepare the conda environment on HDI
 $ az ml experiment prepare -c <compute target name>

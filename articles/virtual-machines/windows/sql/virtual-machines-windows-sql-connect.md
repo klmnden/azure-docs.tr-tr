@@ -12,26 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/14/2017
+ms.date: 11/30/2017
 ms.author: jroth
-ms.openlocfilehash: 67ba43f9456bbeffbf602067586143c4c68af672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 80af63d2f2abd65da6ded4e48e5bd0bc9a7837a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-resource-manager"></a>Azure’daki bir SQL Server Sanal Makinesi’ne Bağlanma (Resource Manager)
-> [!div class="op_single_selector"]
-> * [Resource Manager](virtual-machines-windows-sql-connect.md)
-> * [Klasik](../classic/sql-connect.md)
-> 
-> 
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure SQL Server sanal makineye bağlanma
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu konuda, bir Azure sanal makinede çalışan SQL Server örneğine bağlanmak açıklar. Bazı kapsayan [genel bağlantı senaryoları](#connection-scenarios) ve ardından sağlar [ayrıntılı bir Azure VM'de SQL Server bağlantısı yapılandırma adımları](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+Bu konuda, bir Azure sanal makinede çalışan SQL Server örneğine bağlanmak açıklar. Bazı kapsayan [genel bağlantı senaryoları](#connection-scenarios) ve ardından sağlar [bağlantı ayarlarını değiştirmek için Portalı'ndaki adımları](#change). Gerekirse sorun giderme veya portal dışında bağlantısı yapılandırmak bkz: [el ile yapılandırma](#manual) bu konunun sonundaki. 
 
 Hem sağlama hem de bağlantı tam bir gözden geçirme olurdu olup [Azure üzerinde bir SQL Server sanal makine sağlama](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -132,6 +125,23 @@ Ardından, TCP/IP protokolü ile etkinleştirmek **SQL Server Configuration Mana
 Aşağıdaki adımlar, Azure VM için isteğe bağlı bir DNS etiketi oluşturmak ve ardından SQL Server Management Studio (SSMS) ile bağlanmak nasıl gösterir.
 
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+
+## <a id="manual"></a>El ile yapılandırma ve sorun giderme
+
+Portal bağlantı otomatik olarak yapılandırmak için seçenekleri sağlasa da, el ile bağlantı nasıl yapılandırılacağını öğrenmek yararlıdır. Gereksinimleri anlama de sorun giderme yardımcı olabilir.
+
+Aşağıdaki tabloda bir Azure VM içinde çalışan SQL Server için bağlantı kurmaya yönelik gereksinimler listelenmektedir.
+
+| Gereksinim | Açıklama |
+|---|---|
+| [SQL Server kimlik doğrulaması modunu etkinleştir](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | SQL Server kimlik doğrulaması, bir sanal ağ üzerinde Active Directory yapılandırmadıysanız VM uzaktan bağlanmak için gereklidir. |
+| [Bir SQL oturum açma oluşturun](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | SQL kimlik doğrulaması kullanıyorsanız, bir SQL oturum açma kullanıcı adı ve ayrıca, hedef veritabanı için izinlere sahip parola gerekir. |
+| [TCP/IP protokolünü etkinleştirin](#manualTCP) | SQL Server TCP üzerinden bağlantılara izin vermesi gerekir. |
+| [SQL Server bağlantı noktası için güvenlik duvarı kuralını etkinleştir](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Güvenlik Duvarı'nı VM SQL Server bağlantı noktası (varsayılan 1433) gelen trafiğe izin vermelidir. |
+| [TCP 1433 için ağ güvenlik grubu kural oluşturma](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | VM internet üzerinden bağlanmak isterseniz SQL Server bağlantı noktası (varsayılan 1433) trafiği almaya izin vermeniz gerekir. Yerel ve sanal ağ-yalnızca bağlantıları bu gerektirmez. Azure portalında gereken tek adım budur. |
+
+> [!TIP]
+> Portalda bağlantısını yapılandırırken yukarıdaki tabloda adımlarda sizin için yapılır. Yalnızca yapılandırmanızı onaylamak için veya el ile bağlantı kurmak için aşağıdaki adımları kullanın SQL Server için.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

@@ -1,29 +1,22 @@
 ---
-title: "Bir Azure DC/OS kümesi - ELK yığın izleme | Microsoft Docs"
+title: "Bir Azure DC/OS kümesi - ELK yığın izleme"
 description: "Azure kapsayıcı hizmeti kümesi ELK (Elasticsearch, Logstash ve Kibana) ile DC/OS kümesinde izleyin."
 services: container-service
-documentationcenter: 
 author: sauryadas
-manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Kapsayıcılar, DC/OS, Azure, izleme, elk"
-ms.assetid: 
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: fcfa277cdd0f3cebc0fbbb23e771fb23ffbe2ca6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Azure kapsayıcı hizmeti kümesi ELK ile izleme
+
 Bu makalede, Azure kapsayıcı hizmeti DC/OS kümesinde ELK (Elasticsearch, Logstash, Kibana) yığında dağıtma gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Ön koşullar

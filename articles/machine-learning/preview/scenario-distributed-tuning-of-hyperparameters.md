@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak hyperparameters ayarlama dağıtılmış
 
@@ -27,9 +27,9 @@ Genel GitHub depo bağlantısını aşağıdadır:
 
 Birçok machine learning algoritmaları hyperparameters adlı bir veya daha fazla düğmelerini sahip. Kullanıcı tarafından belirtilen ölçümleri göre ölçülen gelecekteki veriler üzerinde kendi performansını iyileştirmek için algoritmalarının ayarlama bu düğmelerini izin ver (örneğin, doğruluk, AUC, RMSE). Veri Bilimcisi bir model eğitim verileri üzerinden ve gelecekteki test verileri görmesini önce oluştururken hyperparameters değerlerini sağlaması gerekir. Model iyi bir performans bilinmeyen sınama verilerinde sahip olması bilinen eğitim veri can nasıl göre hyperparameters değerleri ayarlarız? 
 
-Hyperparameters ayarlama yaygın olarak kullanılan bir tekniktir bir *kılavuz arama* birlikte *çapraz doğrulama*. Çapraz doğrulama ne kadar iyi test küme üzerinde bir eğitim kümesinde eğitilmiş bir modeli tahmin değerlendirir bir tekniktir. Bu teknik kullanılarak, başlangıçta biz dataset K Katlama ayırın ve ardından bir hepsini şekilde algoritması K kez biri dışındaki tüm tutulan çıkış Katlama adlı Katlama, eğitimi. Biz K modelleri ölçümleri, ortalama değerini K tutulan çıkış Katlama işlem. Adlı bu ortalama değer *arası doğrulanmış performans tahmin*, K modelleri oluşturulurken kullanılan hyperparameters değerlerine bağlıdır. Hyperparameters ayarlama, biz çapraz doğrulama performansı en iyi duruma olanları tahmin bulmak için aday hyperparameter değerleri alanı arayın. Kılavuz arama ortak arama, birden çok hyperparameters adayı değerini alan bir-kümenin vektörel çarpımını tek tek hyperparameters adayı değerlerinin olduğu bir tekniktir. 
+Hyperparameters ayarlama yaygın olarak kullanılan bir tekniktir bir *kılavuz arama* birlikte *çapraz doğrulama*. Çapraz doğrulama ne kadar iyi test küme üzerinde bir eğitim kümesinde eğitilmiş bir modeli tahmin değerlendirir bir tekniktir. Bu teknik kullanılarak, biz ilk veri kümesi K Katlama ayırın ve bir hepsini şekilde algoritması K kez eğitmek. Tüm bunu ancak Katlama birini "tutulan çıkış Katlama" denir. Biz K modelleri ölçümleri, ortalama değerini K tutulan çıkış Katlama işlem. Adlı bu ortalama değer *arası doğrulanmış performans tahmin*, K modelleri oluşturulurken kullanılan hyperparameters değerlerine bağlıdır. Hyperparameters ayarlama, biz çapraz doğrulama performansı en iyi duruma olanları tahmin bulmak için aday hyperparameter değerleri alanı arayın. Kılavuz arama ortak bir arama tekniktir. Kılavuz aramada çapraz ürün tek tek hyperparameters adayı değerlerinin kümelerinin birden çok hyperparameters adayı değerlerini alanıdır. 
 
-Çapraz doğrulama kullanarak kılavuz arama zaman alıcı olabilir. Her 5 adayı değerlerle 5 hyperparameters yönelik bir algoritmaya sahiptir ve K = 5 Katlama kullanırız durumunda bir kılavuz aramayı tamamlamak için 5 eğitmek ihtiyacımız<sup>6</sup>15625 modelleri =. Neyse ki, kılavuz arama çapraz doğrulama kullanmaktır utandırıcı derecede paralel bir yordam ve bu modeller paralel olarak Eğitilecek.
+Çapraz doğrulama kullanarak kılavuz arama zaman alıcı olabilir. Bir algoritma beş hyperparameters her beş adayı değerlerle varsa, K = 5 Katlama kullanırız. Biz ardından göre kılavuz arama tamamlayın 5 eğitim<sup>6</sup>15625 modelleri =. Neyse ki, kılavuz arama çapraz doğrulama kullanmaktır utandırıcı derecede paralel bir yordam ve bu modeller paralel olarak Eğitilecek.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -37,11 +37,19 @@ Hyperparameters ayarlama yaygın olarak kullanılan bir tekniktir bir *kılavuz 
 * Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md) aşağıdaki [yükleme ve hızlı başlangıç oluşturma](./quickstart-installation.md) çalışma ekranı yükleyip hesapları oluşturun.
 * Bu senaryo, Azure ML çalışma ekranı Windows 10 veya MacOS yerel olarak yüklenmiş Docker altyapısıyla çalıştığını varsayar. 
 * Senaryo ile uzak bir Docker kapsayıcısı çalıştırmak için Ubuntu veri bilimi sanal makine (DSVM) izleyerek sağlamak [yönergeleri](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). En az 8 çekirdek ve bellek 28 Gb ile bir sanal makine kullanmanızı öneririz. Sanal makineler D4 örneklerini böyle kapasiteye sahip. 
-* Bu senaryo bir Spark kümesiyle çalıştırmak için Hdınsight kümesi izleyerek sağlamak [yönergeleri](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). En az altı çalışan düğümleri ve en az 8 çekirdek ve bellek 28 Gb ile bir kümede üstbilgi ve alt düğümler olması önerilir. Sanal makineler D4 örneklerini böyle kapasiteye sahip. Kümenin performansını en üst düzeye çıkarmak için aşağıdaki parametreleri spark.executor.instances, spark.executor.cores ve spark.executor.memory değiştirmek için öneririz [yönergeleri](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) ve "özel tanımlarında düzenleme Varsayılanları spark"bölümü.
+* Bu senaryo bir Spark kümesiyle çalıştırmak için sağlama Azure Hdınsight kümesi bu izleyerek [yönergeleri](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). İle bir kümede en az olması öneririz 
+- altı çalışan düğümleri
+- sekiz Çekirdeği
+- Üstbilgi ve çalışan düğümleri bellekte 28 Gb. Sanal makineler D4 örneklerini böyle kapasiteye sahip. Kümenin performansını en üst düzeye çıkarmak için aşağıdaki parametreleri değiştirme öneririz.
+- Spark.Executor.instances
+- Spark.Executor.cores
+- Spark.Executor.Memory 
 
-     **Sorun giderme**: bilgisayarınızı Azure aboneliği kota kullanılabilir çekirdek sayısına sahip olabilir. Azure portalı, küme oluşturma sayısı kotayı aşan çekirdek izin vermiyor. Kota bulmak için abonelikleri bölümüne Azure portalında bir küme dağıtmak için kullanılan aboneliğe tıklayın ve ardından tıklatın gidin **kullanım + kotaları**. Genellikle kotaları Azure bölge başına tanımlanır ve yeterli boş çekirdeğe sahip olduğu bir bölgede Spark kümesi dağıtmayı seçebilirsiniz. 
+Bu takip edebilirsiniz [yönergeleri](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) ve "özel spark varsayılan olarak" bölümündeki tanımları düzenleyin.
 
-* Veri kümesi depolamak için kullanılan bir Azure depolama hesabı oluşturun. Lütfen izleyin [yönergeleri](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) bir depolama hesabı oluşturmak için.
+     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+
+* Veri kümesi depolamak için kullanılan bir Azure depolama hesabı oluşturun. İzleyin [yönergeleri](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) bir depolama hesabı oluşturmak için.
 
 ## <a name="data-description"></a>Veri açıklaması
 
@@ -72,7 +80,7 @@ Kullanırız [scikit-öğrenin](https://anaconda.org/conda-forge/scikit-learn), 
 
 Değiştirilen conda\_dependencies.yml dosya öğretici aml_config dizininde depolanır. 
 
-Sonraki adımlarda size Azure hesabına yürütme ortamı bağlayın. Dosya menüsü AML çalışma ekranı sol üst köşesindeki tıklatıp "Komut istemini açın." seçerek açık komut satırı penceresi (CLI) Ardından CLI çalıştırın
+Sonraki adımlarda size Azure hesabına yürütme ortamı bağlayın. Dosya menüsü AML çalışma ekranı sol üst köşesinden'ı tıklatın. Ve "komut istemini açın"'i seçin. Ardından CLI çalıştırın
 
     az login
 
@@ -84,7 +92,7 @@ Bu web sayfası için bir kod girin ve Azure hesabınızda oturum açın gidin. 
 
     az account list -o table
 
-ve aboneliği AML çalışma ekranı çalışma alanı hesabınızın sahip kimliği, Azure aboneliği bulunamıyor. Son olarak, CLI içinde çalıştırın
+ve AML çalışma ekranı çalışma alanı hesabınızın sahip Azure abonelik kimliği bulunamadı. Son olarak, CLI içinde çalıştırın
 
     az account set -s <subscription ID>
 
@@ -96,7 +104,7 @@ Sonraki iki bölümde uzak docker ve Spark küme yapılandırmasını tamamlamak
 
  Uzak bir Docker kapsayıcısı ayarlama ayarlamak için CLI çalıştırın
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 IP adresi, kullanıcı adınızı ve parolanızı DSVM ile. IP adresi DSVM DSVM sayfanızı genel bakış bölümünde Azure portalında bulunabilir:
 
@@ -106,7 +114,7 @@ IP adresi, kullanıcı adınızı ve parolanızı DSVM ile. IP adresi DSVM DSVM 
 
 Spark ortamını ayarlamak için CLI çalıştırın
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 Küme, kümenin SSH kullanıcı adı ve parola adı ile. SSH kullanıcı adı varsayılan değeri `sshuser`sürece küme hazırlama sırasında değiştirildi. Küme adı, küme sayfanızı özellikleri bölümünde Azure portalında bulunabilir:
 
@@ -136,13 +144,13 @@ Kaggle veri indirmek için Git [dataset sayfa](https://www.kaggle.com/c/talkingd
 ![Açık blob](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![açık kapsayıcısı](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-Bundan sonra dataset kapsayıcı listeden seçin ve karşıya yükleme düğmesini tıklatın. Aynı anda birden çok dosyayı karşıya yüklemek için Azure portal sağlar. "Blob karşıya yükle" bölümünde klasör düğmesini tıklatın, veri kümesinden alınan tüm dosyalar'ı seçin, Aç'ı tıklatın ve ardından Yükle'yi tıklatın. Aşağıdaki ekran görüntüsünde adımları gösterilmektedir:
+Bundan sonra dataset kapsayıcı listeden seçin ve karşıya yükleme düğmesini tıklatın. Azure portalı aynı anda birden çok dosya karşıya yüklemenize olanak sağlar. "Blob karşıya yükle" bölümünde klasör düğmesini tıklatın, veri kümesinden alınan tüm dosyalar'ı seçin, Aç'ı tıklatın ve ardından Yükle'yi tıklatın. Aşağıdaki ekran görüntüsünde adımları gösterilmektedir:
 
 ![BLOB karşıya yükleme](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 Dosyaları karşıya yükleme Internet bağlantınızın bağlı olarak birkaç dakika sürer. 
 
-Bizim kodda kullanırız [Azure depolama SDK'sı](https://azure-storage.readthedocs.io/en/latest/) dataset geçerli yürütme ortamı için blob depolama alanından indirmek için. Karşıdan yükleme gerçekleştirilen\_load_data.py dosyasından data() işlevi. Bu kodu kullanmak için < ACCOUNT_NAME > değiştirmeniz gerekiyor ve < ACCOUNT_KEY > adı ile dataset barındıran depolama hesabınızın birincil anahtar. Hesap adı, depolama hesabınız Azure sayfasının sol üst köşesinde görüntülenir. Hesap almak için depolama Azure sayfasındaki anahtar, select erişim tuşları (veri alımı bölümündeki ilk ekran görüntüsüne bakın) hesap ve ardından uzun bir dize anahtar sütunun ilk satırında kopyalayın:
+Bizim kodda kullanırız [Azure depolama SDK'sı](https://azure-storage.readthedocs.io/en/latest/) dataset geçerli yürütme ortamı için blob depolama alanından indirmek için. Karşıdan yükleme gerçekleştirilen\_load_data.py dosyasından data() işlevi. Bu kodu kullanmak için < ACCOUNT_NAME > değiştirmeniz gerekiyor ve < ACCOUNT_KEY > adı ile dataset barındıran depolama hesabınızın birincil anahtar. Depolama hesabınızın Azure sayfasının sol üst köşesinde hesap adında görebilirsiniz. Hesap almak için depolama Azure sayfasındaki anahtar, select erişim tuşları (veri alımı bölümündeki ilk ekran görüntüsüne bakın) hesap ve ardından uzun bir dize anahtar sütunun ilk satırında kopyalayın:
  
 ![Erişim anahtarı](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
@@ -161,7 +169,7 @@ Aşağıdaki kod load_data() işlevden tek bir dosya yükler:
     # Load blob
     my_service.get_blob_to_path(CONTAINER_NAME, 'app_events.csv.zip', 'app_events.csv.zip')
 
-Load_data.py dosyasını el ile çalıştırın gerekmez dikkat edin. Daha sonra diğer dosyalarından çağrılır.
+Load_data.py dosyasını el ile çalıştırın gerekmez dikkat edin. Daha sonra diğer dosyalarından adı verilir.
 
 ### <a name="feature-engineering"></a>Özellik mühendisliği
 Tüm özellikleri bilgi işlem kodunu özelliktir\_engineering.py dosya. Feature_engineering.py dosyasını el ile çalıştırmak gerekmez. Daha sonra diğer dosyalarından çağrılır.
@@ -174,11 +182,11 @@ Birden çok özellik kümeleri oluşturuyoruz:
 * Her uygulama kullanıcı tarafından oluşturulan olayları kesir (bir\_etkin\_app_labels işlevi)
 * Her uygulama etiket kullanıcı tarafından oluşturulan olayları kesir (bir\_etkin\_app_labels işlevi)
 * Her uygulama kategorideki kullanıcı tarafından oluşturulan olayların kesir (metin\_category_features işlevi)
-* Gösterge özellikleri tarafından kullanılacak uygulamaları kullanılan kategorileri için oluşturulan olaylar (bir\_hot_category işlevi)
+* Gösterge özellikleri kategorileri için kullanılan uygulama için oluşturulan olaylar (bir\_hot_category işlevi)
 
 Bu özellikler tarafından Kaggle çekirdek neden olacak [uygulamaları ve etiketleri doğrusal bir model](https://www.kaggle.com/dvasyukova/a-linear-model-on-apps-and-labels).
 
-Bu özelliklerin hesaplama önemli miktarda bellek gerektirir. İlk 16 Gb RAM ile yerel ortamda özellikleri işlem denedik. Biz ilk dört özellik kümesi işlem açabildi ancak beşinci özellik kümesi hesaplanırken 'yetersiz bellek' hata alındı. İlk dört özellik kümeleri hesaplama singleVMsmall.py dosyasıdır ve bunu yerel ortamda çalıştırarak yürütülebilir. 
+Bu özelliklerin hesaplama önemli miktarda bellek gerektirir. İlk 16 GB RAM ile yerel ortamda özellikleri işlem denedik. Biz ilk dört özellik kümesi işlem açabildi ancak beşinci özellik kümesi hesaplanırken 'yetersiz bellek' hata alındı. İlk dört özellik kümeleri hesaplama singleVMsmall.py dosyasıdır ve bunu yerel ortamda çalıştırarak yürütülebilir. 
 
      az ml experiment submit -c local .\singleVMsmall.py   
 
@@ -190,7 +198,7 @@ Yerel ortamdaki tüm ayarlar özellik bilgi işlem için çok küçük olduğund
 Kullanırız [xgboost](https://anaconda.org/conda-forge/xgboost) gradyan ağaç artırmanın, uygulama [1]. Kullanırız [scikit-öğrenin](http://scikit-learn.org/) xgboost hyperparameters ayarlamak için paket. Xgboost scikit bir parçası olmasa da-paket, bilgi scikit uygulayan-API öğrenmek ve bu nedenle scikit işlevlerini ayarlama hyperparameter ile birlikte kullanılabilir-öğrenin. 
 
 Xgboost sekiz hyperparameters sahiptir:
-* n_esitmators
+* n_estimators
 * max_depth
 * reg_alpha
 * reg_lambda
@@ -198,9 +206,12 @@ Xgboost sekiz hyperparameters sahiptir:
 * learning_rate
 * colsample\_by_level
 * subsample
-* Bu hyperparameters açıklamasını bulunabilir hedefi [burada](http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn) ve [burada](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). Başlangıçta uzak DSVM kullanır ve küçük bir kılavuz adayı değerlerin gelen hyperparameters ince ayar:
+* Bu hyperparameters açıklamasını bulunabilir hedefi
+- http://xgboost.readthedocs.io/en/Latest/Python/python_api.HTML#Module-xgboost.sklearn-https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
+- 
+Başlangıçta, uzak DSVM kullanır ve küçük bir kılavuz adayı değerlerin gelen hyperparameters ince ayar:
 
-    tuned_parameters = [{'n_estimators': [300,400] 'max_depth': [3,4] 'hedefi': ['multi:softprob'] 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1], 'learning_rate': [0,1] 'colsample_bylevel': [0,1,], 'subsample': [0,5]}]  
+    tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
 Bu kılavuz hyperparameters değerlerini dört birleşimlerini sahiptir. 5-fold çapraz doğrulama kullanıyoruz, sonuçta elde edilen 4 x 5 = 20 xgboost çalıştırılır. Modelleri performansını ölçmek için negatif günlük kaybı ölçüm kullanırız. Aşağıdaki kod arası doğrulanmış negatif günlük kaybını en üst düzeye hyperparameters kılavuz gelen değerlerini bulur. Kod bu değerleri tam eğitim küme üzerinde son modeli eğitmek için de kullanır:
 
@@ -224,7 +235,7 @@ Model oluşturduktan sonra biz hyperparameter ayarlama sonuçlarını kaydedin. 
     for key in clf_cv.best_params_.keys():
         run_logger.log(key, clf_cv.best_params_[key]) 
 
-Biz de sweeping_results.txt dosya arası doğrulanmış negatif günlük zararları kılavuzunda hyperparameter değerlerin tüm kombinasyon oluşturun:
+Biz de sweeping_results.txt dosyası arası doğrulandı, negatif günlük zararları tüm bileşimlerinden birini kılavuzdaki hyperparameter değerleri ile oluşturun.
 
     if not path.exists('./outputs'):
         makedirs('./outputs')
@@ -249,13 +260,13 @@ Bu komut, 1 saat 38 DSVM 8 çekirdek ve bellek 28 Gb olduğunda dakika içinde t
 
 ![çalıştırma geçmişi](media/scenario-distributed-tuning-of-hyperparameters/run_history.png)
 
-Varsayılan olarak, günlüğe kaydedilen değerler 1-2 çalıştırma Geçmişi penceresini değerleri ve ilk grafiklerini gösterir. Hyperparameters seçilen değerlerini tam listesini görmek için önceki ekran görüntüsünde kırmızı daire ile işaretlenen ayarlar simgesine tıklayın ve tabloda gösterilecek hyperparameters seçin. Ayrıca, çalıştırma Geçmişi penceresini üst kısmında gösterilen grafikleri seçmek için mavi bir daire olarak işaretlenmiş ayarı simgesini tıklatın ve listeden grafikleri seçin. 
+Varsayılan olarak, günlüğe kaydedilen değerler 1-2 çalıştırma Geçmişi penceresini değerleri ve ilk grafiklerini gösterir. Hyperparameters seçilen değerlerini tam listesini görmek için önceki ekran görüntüsünde kırmızı daire ile işaretlenen ayarlar simgesine tıklayın. Ardından tabloda gösterilen hyperparameters seçin. Ayrıca, çalıştırma Geçmişi penceresini üst kısmında gösterilen grafikleri seçmek için mavi bir daire olarak işaretlenmiş ayarı simgesini tıklatın ve listeden grafikleri seçin. 
 
 Hyperparameters seçilen değerlerini de Çalıştır özellikleri penceresinde incelenebilir: 
 
 ![özelliklerini çalıştır](media/scenario-distributed-tuning-of-hyperparameters/run_properties.png)
 
-Çalıştır özellikleri penceresinin sağ üst köşedeki bölümü çıktı dosyaları listesi ile oluşturulmuş tüm dosyaları yok '. \output' yürütme ortamı klasöründe. yerleştirmez\_sonuç.txt seçerek ve Yükle düğmesini tıklayarak buradan yüklenebilir. sweeping_results.txt aşağıdaki çıkış olmalıdır:
+Çalıştır özellikleri penceresinde sağ üst köşesinde, bir bölümü yoktur çıktı dosyaları listesi ile oluşturulmuş tüm dosyaların '. \output' klasörü. yerleştirmez\_sonuç.txt seçerek ve Yükle düğmesini tıklayarak buradan yüklenebilir. sweeping_results.txt aşağıdaki çıkış olmalıdır:
 
     metric =  neg_log_loss
     mean: -2.29096, std: 0.03748, params: {'colsample_bytree': 1, 'learning_rate': 0.1, 'subsample': 0.5, 'n_estimators': 300, 'reg_alpha': 1, 'objective': 'multi:softprob', 'colsample_bylevel': 0.1, 'reg_lambda': 1, 'max_depth': 3}
@@ -279,7 +290,7 @@ Biz değiştirin
 
     from sklearn.model_selection import GridSearchCV
 
-İle 
+with 
 
     from spark_sklearn import GridSearchCV
 
@@ -297,15 +308,15 @@ CLI Windows'ta. Bu yükleme birkaç dakika sürer. Bundan sonra biz distributed_
 
     az ml experiment submit -c spark .\distributed_sweep.py
 
-Bu komut, 1 saat 6 Spark kümesi 28 Gb bellek ile 6 çalışan düğümleri olduğunda dakika içinde tamamlanır. Spark kümesinde, günlükleri, hyperparameters ve sweeping_results.txt dosyasının en iyi değerleri hyperparameters ayarlama sonuçlarını uzaktan DSVM yürütme olduğu gibi aynı şekilde Azure Machine Learning çalışma ekranı erişilebilir. 
+Bu komut, 1 saat 6 Spark kümesi 28 Gb bellek ile 6 çalışan düğümleri olduğunda dakika içinde tamamlanır. Sonuçları hyperparameter ayarlama, Azure Machine Learning çalışma uzaktan DSVM yürütme aynı şekilde erişilebilir. (yani günlükleri, en iyi değerlerini hyperparameters ve sweeping_results.txt dosyası)
 
 ### <a name="architecture-diagram"></a>Mimari diyagramı
 
-Aşağıdaki diyagramda uçtan uca iş akışı gösterilmektedir: ![mimarisi](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
+Genel iş akışını Aşağıdaki diyagramda gösterilmiştir: ![mimarisi](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
 ## <a name="conclusion"></a>Sonuç 
 
-Bu senaryoda, Azure Machine Learning çalışma ekranı hyperparameter uzak sanal makine ve uzak Spark kümesi, ayarı yapmak için nasıl kullanılacağı gösterilmiştir. Azure Machine Learning çalışma ekranı yürütme ortamları ve bunlar arasında geçiş yapma kolay yapılandırması için araçlar sağlar gördük. 
+Bu senaryoda, Azure Machine Learning çalışma ekranı hyperparameters uzak sanal makineler ve Spark kümeleri, ayarı yapmak için nasıl kullanılacağı gösterilmiştir. Azure Machine Learning çalışma ekranı yürütme ortamlarının kolay bir yapılandırma için araçlar sağlar gördük. Ayrıca, kolayca aralarında geçiş sağlar. 
 
 ## <a name="references"></a>Başvurular
 

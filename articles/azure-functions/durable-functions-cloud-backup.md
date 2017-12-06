@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: a5d539172f03246e3c658f2485d29d3ae389ae52
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-dışarı/fan-arada senaryoda dayanıklı işlevleri - bulut yedekleme örneği
 
@@ -49,7 +49,7 @@ Bu makalede örnek uygulamasında aşağıdaki işlevleri açıklanmaktadır:
 
 Aşağıdaki bölümlerde, Azure portal geliştirme için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
 
-## <a name="the-cloud-backup-orchestration"></a>Bulut yedekleme düzenleme
+## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Bulut yedekleme düzenleme (Visual Studio Code ve Azure portal örnek kodu)
 
 `E2_BackupSiteContent` İşlevini kullanan standart *function.json* orchestrator işlevler için.
 

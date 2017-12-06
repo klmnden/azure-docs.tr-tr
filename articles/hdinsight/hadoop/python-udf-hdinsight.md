@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Hdınsight'ta kullanım Python kullanıcı tanımlı işlevler (UDF) Hive veya Pig ile
 
@@ -166,7 +166,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-Biz Pig Latin örnekte tanımlanan `LINE` girişi için tutarlı bir şemayı olduğundan chararray girin. Python betiğini veri çıkışı için tutarlı bir şema dönüştürür.
+Pig Latin örnekte `LINE` girişi için tutarlı bir şemayı olduğundan giriş chararray tanımlanır. Python betiğini veri çıkışı için tutarlı bir şema dönüştürür.
 
 1. `@outputSchema` Deyimi için Pig döndürülen verilerin biçimini tanımlar. Bu durumda olan bir **veri paketi**, Pig veri türü. Paketi chararray (dize) tümü aşağıdaki alanları içerir:
 
@@ -178,7 +178,7 @@ Biz Pig Latin örnekte tanımlanan `LINE` girişi için tutarlı bir şemayı ol
 
 2. Ardından, `def create_structure(input)` Pig çizgi öğelerine geçirir işlevi tanımlar.
 
-3. Örnek veri `sample.log`, çoğunlukla tarih, saat, classname düzeyi, uyumlu ve ayrıntı istiyoruz döndürmek için şema. Ancak, ile başlayan birkaç satırları içeren `*java.lang.Exception*`. Bu satırlar şemayla eşleşecek şekilde değiştirilmesi gerekir. `if` Deyimi için olanlar denetler ve ardından taşımak için giriş verileri massages `*java.lang.Exception*` veri satır içi bizim beklenen çıkış şemasıyla getiren sonuna dize.
+3. Örnek veri `sample.log`, çoğunlukla tarih, saat, classname düzeyi, uyumlu ve ayrıntı şema. Ancak, ile başlayan birkaç satırları içeren `*java.lang.Exception*`. Bu satırlar şemayla eşleşecek şekilde değiştirilmesi gerekir. `if` Deyimi için olanlar denetler ve ardından taşımak için giriş verileri massages `*java.lang.Exception*` veri satır içi beklenen çıkış şemasıyla getiren sonuna dize.
 
 4. Ardından, `split` komutu ilk dört boşluk karakterleri veri bölmek için kullanılır. Çıktı içine atanan `date`, `time`, `classname`, `level`, ve `detail`.
 
@@ -291,7 +291,7 @@ Dosyaları karşıya yükleme sonrasında, Hive veya Pig işlerini çalıştırm
     #from pig_util import outputSchema
     ```
 
-    C Python Jython yerine çalışmak için Python betiğini değiştirir. Değişikliği yaptıktan sonra kullanmak **Ctrl + X** düzenleyiciden çıkmak için. Seçin **Y**ve ardından **Enter** değişiklikleri kaydedin.
+    Bu satırı C Python Jython yerine çalışmak için Python betiğini değiştirir. Değişikliği yaptıktan sonra kullanmak **Ctrl + X** düzenleyiciden çıkmak için. Seçin **Y**ve ardından **Enter** değişiklikleri kaydedin.
 
 6. Kullanım `pig` Kabuğu'nu yeniden başlatmak için komutu. Konumundaki olduğunuzda `grunt>` isteminde, aşağıdaki C Python yorumlayıcı kullanarak Python komut dosyasını çalıştırmak için kullanın.
 

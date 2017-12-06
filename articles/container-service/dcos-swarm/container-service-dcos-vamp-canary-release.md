@@ -1,22 +1,19 @@
 ---
-title: "Azure DC/OS kümesinde yalancı sürüm Vamp ile | Microsoft Docs"
+title: "Azure DC/OS kümesinde yalancı sürüm Vamp ile"
 description: "Nasıl kullanılacağını Vamp yalancı yayın Hizmetleri ve akıllı trafik bir Azure kapsayıcı hizmeti DC/OS kümesinde filtreleme Uygula"
 services: container-service
 author: gggina
-manager: rasquill
-ms.assetid: 
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 4a20091b59f2643ea71cce99c159a5075706e35d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e23b316311ff88d1587da8d5ef777b91bfe0a2e9
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Bir Azure kapsayıcı hizmeti DC/OS kümesinde yalancı yayın mikro Vamp ile
 
