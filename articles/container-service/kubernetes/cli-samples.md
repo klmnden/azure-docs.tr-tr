@@ -1,27 +1,19 @@
 ---
-title: "Azure kapsayıcı hizmeti kod örnekleri | Microsoft Docs"
+title: "Azure kapsayıcı hizmeti kod örnekleri"
 description: "Azure kapsayıcı hizmeti kod örnekleri"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, Container’lar, Mikro hizmetler, Kumernetes, DC/OS, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b56c45fc711cc2831adde80617b14a82601b49e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e590945ae830eaa5461d67dad0dc6bff5faa4353
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-cli-samples-for-azure-container-service"></a>Azure Container Service için Azure CLI Örnekleri
 

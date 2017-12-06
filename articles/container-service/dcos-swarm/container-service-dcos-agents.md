@@ -1,26 +1,19 @@
 ---
-title: "Azure kapsayıcı hizmeti DC/OS Aracısı havuzlarında | Microsoft Docs"
+title: "Azure kapsayıcı hizmeti DC/OS aracısı havuzları"
 description: "Ortak ve özel aracı havuzları, Azure kapsayıcı hizmeti DC/OS kümesi ile nasıl çalışır?"
 services: container-service
-documentationcenter: 
 author: dlepow
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: da4a196b1a73c78dfff7d8310edcc349b8d10665
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e82a6c1ee2d45cd07f4e87c43ad4fb1149ef555c
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Azure kapsayıcı hizmeti DC/OS aracısı havuzları
 Azure kapsayıcı hizmeti DC/OS kümelerde iki havuzları, ortak bir havuzu ve özel bir havuzu Aracısı düğümleri içerir. Bir uygulama ya da havuzuna kapsayıcı hizmetiniz makinelerinizde arasında erişilebilirlik etkileyen dağıtılabilir. Makineler (Genel) Internet'e açık veya dahili (özel) tutulur. Bu makalede vardır neden ortak ve özel havuzları kısa bir genel bakış sağlar.
