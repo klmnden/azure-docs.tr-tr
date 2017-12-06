@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Eylem takım veri bilimi işleminde: SQL Server kullanma
 Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak bir makine öğrenimi modeline dağıtma işleminde size kılavuzluk-- [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi akışı yordamdan sonraki: alma ve verileri, öğrenme, kolaylaştırmak sonra yapı ve model dağıtmak için mühendislik özellikleri keşfedin.
@@ -517,7 +517,7 @@ Bu örnek sürekli bir sayısal alana hazır kategori aralıkları, yani, sayıs
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Özellik Mühendisliği: Ondalık enlem/boylam konumu özelliklerinden Extract
-Bu örnek bir enlem ve/veya boylam alan ondalık gösterimini farklı bir ayrıntı düzeyi birden çok bölgede alanlarına gibi keser ülke, şehir, şehir, engelleme, vb.. Yeni coğrafi alanlar gerçek konumlara eşlenmemiş unutmayın. Eşleme geocode konumları hakkında daha fazla bilgi için bkz: [Bing Haritalar REST Hizmetleri](https://msdn.microsoft.com/library/ff701710.aspx).
+Bu örnek bir enlem ve/veya boylam alan ondalık gösterimini farklı bir ayrıntı düzeyi birden çok bölgede alanlarına gibi keser ülke, şehir, şehir, engelleme, vb. Yeni coğrafi alanlar gerçek konumlara eşlenmemiş unutmayın. Eşleme geocode konumları hakkında daha fazla bilgi için bkz: [Bing Haritalar REST Hizmetleri](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -581,7 +581,6 @@ Bu alıştırmada, biz varsa zaten incelediniz ve SQL Server verileri mühendisl
 3. Veritabanı DNS adı **veritabanı sunucusu adı** alan. Biçimi:`tcp:<your_virtual_machine_DNS_name>,1433`
 4. Girin **veritabanı adı** karşılık gelen alandaki.
 5. Girin **SQL kullanıcı adı** içinde ** sunucu kullanıcı aqccount adını ve parolayı **Server kullanıcı hesabı parolasını**.
-6. Denetleme **herhangi bir sunucu sertifikayı kabul** seçeneği.
 7. İçinde **veritabanı sorgusu** metin alanı düzenlemek, gerekli veritabanı alanları (etiketler gibi hesaplanan alanları dahil) ayıklayan sorguyu yapıştırın ve aşağı istenen örnek boyutu için veri örnekleri.
 
 Aşağıdaki şekilde doğrudan SQL Server veritabanından veri okunurken bir ikili sınıflandırma deneme örnektir. Benzer denemeler, çok sınıflı sınıflandırma ve regresyon sorunları için oluşturulabilir.
