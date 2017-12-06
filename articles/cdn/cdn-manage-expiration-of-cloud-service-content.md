@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Azure içerik teslim ağı'nda web içeriğinin kullanım süresini yönetme
 > [!div class="op_single_selector"]
@@ -26,10 +26,12 @@ ms.lasthandoff: 11/23/2017
 > * [Azure Blob Depolama](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Kendi yaşam süresi (TTL) geçen kadar herhangi bir genel olarak erişilebilir kaynak web sunucusuna dosyalarından Azure içerik teslim ağı (CDN) önbelleğe alınabilir. TTL değeri tarafından belirlenir `Cache-Control` kaynak sunucudan HTTP yanıt üstbilgisi. Bu makalede nasıl ayarlanacağını açıklar `Cache-Control` Microsoft Azure App Service, Azure bulut Hizmetleri, ASP.NET uygulamaları ve bunların tümü benzer şekilde yapılandırılmış, Internet Information Services (IIS) siteleri Web Apps özelliği için üstbilgiler. Ayarlayabileceğiniz `Cache-Control` üstbilgisi yapılandırma dosyalarını kullanarak veya program aracılığıyla.
+Kendi yaşam süresi (TTL) geçen kadar herhangi bir genel olarak erişilebilir kaynak web sunucusuna dosyalarından Azure içerik teslim ağı (CDN) önbelleğe alınabilir. TTL değeri tarafından belirlenir `Cache-Control` kaynak sunucudan HTTP yanıt üstbilgisi. Bu makalede nasıl ayarlanacağını açıklar `Cache-Control` Microsoft Azure App Service, Azure bulut Hizmetleri, ASP.NET uygulamaları ve bunların tümü benzer şekilde yapılandırılmış, Internet Information Services (IIS) siteleri Web Apps özelliği için üstbilgiler. Ayarlayabileceğiniz `Cache-Control` üstbilgisi yapılandırma dosyalarını kullanarak veya program aracılığıyla. 
+
+Önbellek ayarları Azure portalından ayarlayarak da kontrol edebilirsiniz [kuralları önbelleğe alma CDN](cdn-caching-rules.md). Bir veya daha fazla önbelleğe alma kurallarını ve önbelleğe alma davranışlarını kümesine **geçersiz kılma** veya **atlama önbellek**, bu makalede ele alınan kaynak tarafından sağlanan önbelleğe alma ayarlarını göz ardı edilir. Genel önbelleğe alma kavramları hakkında daha fazla bilgi için bkz: [önbelleğe alma nasıl çalışır](cdn-how-caching-works.md).
 
 > [!TIP]
-> Bir dosyada hiçbir TTL ayarlamayı da seçebilirsiniz. Bu durumda, Azure CDN varsayılan TTL yedi gün otomatik olarak uygular. Bu varsayılan TTL yalnızca genel web teslim iyileştirmeler için geçerlidir. Büyük dosya en iyi duruma getirme, varsayılan TTL bir gündür ve en iyi duruma getirme akış medya için TTL bir yıl varsayılandır.
+> Bir dosyada hiçbir TTL ayarlamayı da seçebilirsiniz. Bu durumda, Azure portalında kurallar önbelleğe almayı kurmak ayarlamazsanız Azure CDN varsayılan TTL yedi gün otomatik olarak uygular. Bu varsayılan TTL yalnızca genel web teslim iyileştirmeler için geçerlidir. Büyük dosya en iyi duruma getirme, varsayılan TTL bir gündür ve en iyi duruma getirme akış medya için TTL bir yıl varsayılandır.
 > 
 > Azure CDN dosyaları ve diğer kaynaklara erişimi hızlandırmak için nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure içerik teslim ağı'ne genel bakış](cdn-overview.md).
 > 
@@ -82,5 +84,5 @@ Web içeriğinize TTL ayarlarını kolayca doğrulayabilirsiniz. Tarayıcınız�
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Ayrıntıları okuyun **clientCache** öğesi](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Belgelerini okuyun **HttpResponse.Cache** özelliği](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Belgelerini okuyun **HttpCachePolicy sınıfı**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
-
+* [Belgelerini okuyun **HttpCachePolicy sınıfı**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Kavramları önbelleğe alma hakkında bilgi edinin](cdn-how-caching-works.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: miprasad
-ms.openlocfilehash: 39ae2aa7217b45e8fab77f528b27b77a1b1256bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a0985cd993c53dcf75d3b29e57598e72908163b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Azure Machine Learning ile derin öğrenme kullanarak düşünceleri çözümlemesi
 
@@ -64,13 +64,12 @@ Klasör yapısı şu şekilde düzenlenir:
 
 Çözüm taşımak için uygulamalı Labs sırasını aşağıdaki gibidir:
 
-| Sırası| Dosya adı | İlişkili dosyaları |
+| Sıra| Dosya Adı | İlişkili dosyaları |
 |--|-----------|------|
 | 1 | [`SentimentAnalysisDataPreparation.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisDataPreparation.md) | 'data/sampleReviews.txt' |
-| 2 | [`SentimentAnalysisModelingKerasWithCNTKBackend.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKerasWithCNTKBackend.md) | 'SentimentExtraction.py' |
-| 3 | [`SentimentAnalysisModelingDocker.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingDocker.md) | 'SentimentExtractionDocker.py' |
+| 2 | [`SentimentAnalysisModelingKeras.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisModelingKeras.md) | 'SentimentExtraction.py' |
 | 4 | [`SentimentAnalysisOperationalization.md`](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/blob/master/docs/SentimentAnalysisOperationalization.md) | 'Operaionalization' |
 
 ## <a name="conclusion"></a>Sonuç
 
-Conclusion, bu çözüm Azure Machine Learning çalışma ekranı ile düşünceleri analizi yapmak için derin öğrenme kullanmaya sunar. Sunulan çözüm CNTK/Tensorflow arka uç Keras ile kullanmak için esnektir. Ayrıca, biz de HDF5 modelleri kullanarak faaliyete.
+Conclusion, bu çözüm Azure Machine Learning çalışma ekranı ile düşünceleri analizi yapmak için derin öğrenme kullanmaya sunar. HDF5 modelleri kullanarak da faaliyete.

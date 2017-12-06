@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: cb98d5f2aaa526555820c15ba5a32fb7e78ffc5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 557f071e2cd8d4f639c881274e6e74a8fb745859
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-functions-runtime-overview"></a>Azure işlevleri çalışma zamanına genel bakış
 
@@ -29,6 +29,7 @@ Azure işlevleri çalışma zamanı programlama modeli şirket içi kolaylık ve
 Azure işlevleri çalışma zamanı buluta kaydetmeden önce Azure işlevleri deneyimi bir yol sağlar. Geçirdiğinizde bu şekilde, oluşturacağınız kod varlıklarına sonra sizinle buluta alınabilir.  Toplu işlemler günde çalıştırmak için şirket içi bilgisayarları yedek işlem gücünü kullanma gibi yeni seçeneklerini, çalışma zamanı da açılır. Koşullu başka sistemlere, hem şirket içi ve buluttaki veri göndermek için kuruluşunuz içinde cihazları da kullanabilirsiniz.
 
 Azure işlevleri çalışma zamanı iki parça oluşur:
+
 * Azure işlevleri çalışma zamanı Yönetimi rolü
 * Azure işlevleri çalışma zamanı çalışan rolü
 
@@ -36,21 +37,21 @@ Azure işlevleri çalışma zamanı iki parça oluşur:
 
 Azure işlevleri yönetim rolü işlevleri şirket içi yönetim için bir konak sağlar. Bu rol, aşağıdaki görevleri gerçekleştirir:
 
-* Azure işlevleri yönetim olan Portalı'nın, barındırma aynı gördüğünüz [Azure portal](https://portal.azure.com). Bu, Azure portalında gibi aynı şekilde işlevlerinizi geliştirmenize olanak tanır.
+* Aynı biri içinde gördüğünüz Azure işlevleri Yönetim Portalı'nın barındırma [Azure portal](https://portal.azure.com). Portal, Azure portalında olduğu gibi aynı şekilde işlevlerinizi geliştirmenize olanak tanıyan tutarlı bir deneyim sağlar.
 * İşlevler arasında birden çok işlevleri Worker dağıtma.
-* Microsoft Visual Studio, işlevleri doğrudan yayımlaması yayımlama bir uç noktası sağlama.
+* Microsoft Visual Studio, işlevleri doğrudan indirme ve yayımlama profilini içeri aktarma yayımlaması yayımlama bir uç noktası sağlama.
 
 ## <a name="azure-functions-worker-role"></a>Azure işlevleri çalışan rolü
 
-Azure işlevleri çalışan rolleri Windows kapsayıcılarında dağıtılır ve bu işlev kodunuzu nereye yürütür.  Birden çok çalışan rolleri kuruluşunuz genelinde dağıtabilirsiniz ve müşteriler hale getirebilir anahtar şekilde yedek işlem gücünü kullanın.
+Azure işlevleri çalışan rolleri Windows kapsayıcılarında dağıtılan ve olduğunuz nerede işlevi kodunuzu yürütür.  Kuruluşunuz genelinde birden çok çalışan rolleri dağıtabilirsiniz ve bu seçeneği müşteriler hale getirebilir anahtar bir şekilde yedek işlem gücünü kullanabilirsiniz.  Bir yedek işlem birçok kuruluşta bulunduğu örneğidir sürekli açık makineler ancak uzun süreyle kullanılmıyor.
 
 ## <a name="minimum-requirements"></a>En düşük gereksinimler
 
-Azure işlevleri çalışma zamanı ile çalışmaya başlamak için bir makine olmalıdır **Windows Server 2016 veya Windows 10 oluşturucuları Update** erişimi olan bir **SQL Server** örneği.
+Azure işlevleri çalışma zamanı ile çalışmaya başlamak için bir makineye Windows Server 2016 veya Windows 10 oluşturucuları Update ile bir SQL Server örneği erişimi olması gerekir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Yükleme [Azure işlevleri çalışma zamanı Önizleme](https://aka.ms/azafr)
+Yükleme [Azure işlevleri çalışma zamanı Önizleme](https://aka.ms/azafrdoc)
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png

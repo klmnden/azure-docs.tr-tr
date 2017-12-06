@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: 978606aa5f16842f8198ee67a65b476b4f560ab7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2657db61ff3161cd87bc97edfe5f84f8b29cbcfb
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows tabanlı Hdınsight Linux tabanlı hdınsight'a için .NET çözümleri geçirme
 
@@ -28,7 +28,7 @@ Linux tabanlı Hdınsight kümeleri kullanım [Mono (https://mono-project.com)](
 
 ## <a name="mono-compatibility-with-net"></a>.NET ile Mono uyumluluk
 
-Mono sürüm 4.2.1 Hdınsight sürüm 3.5 ile dahil edilir. Hdınsight ile dahil Mono sürümü hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü](hdinsight-component-versioning.md). Mono belirli bir sürümünü yüklemek için bkz: [veya Mono güncelleştirmesini](hdinsight-hadoop-install-mono.md) belge.
+Mono sürüm 4.2.1 sürüm 3.6 Hdınsight ile dahil edilir. Hdınsight ile dahil Mono sürümü hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü](hdinsight-component-versioning.md). Mono belirli bir sürümünü yüklemek için bkz: [veya Mono güncelleştirmesini](hdinsight-hadoop-install-mono.md) belge.
 
 Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz: [Mono uyumluluk (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) belge.
 

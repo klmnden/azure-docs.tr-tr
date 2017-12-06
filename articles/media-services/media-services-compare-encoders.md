@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
-ms.author: juliako
-ms.openlocfilehash: 3bba48d5425ae47c72aca893af7c11fe270c2929
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: juliako;anilmur
+ms.openlocfilehash: 72b4a7b746d446e47b52cf34726a50dd52eaba97
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>İsteğe bağlı medya kodlayıcılar üzerinde Azure karşılaştırması
 
@@ -117,6 +117,7 @@ Aşağıdaki tabloda Medya Kodlayıcısı standart (MES) ve Medya Kodlayıcısı
 | Çıktı görüntü codec bileşenleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
 | AVC (H.264; 8 bit; yüksek profili kadar 5.2; 4 K Ultra HD; düzey AVC içi) |Yalnızca 8 bit 4:2:0 |Evet |
+| HEVC (H.265; 8 bit ve 10-bit;)  |Hayır |Evet |
 | Hırslı DNxHD (içinde MXF) |Hayır |Evet |
 | MPEG-2 (422 profili ve yüksek düzey kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil) |Hayır |Evet |
 | MPEG-1 |Hayır |Evet |

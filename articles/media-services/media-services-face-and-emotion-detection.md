@@ -14,8 +14,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 89a2e590d7ae80540ac9f4d76be6f5f50049bdd6
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d1f5c6e0ab682aedf015189f3540442a5657d462
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
@@ -334,12 +334,7 @@ Aşağıdaki program gösterir nasıl yapılır:
 
 Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
-Örnek çalışmak iki ek adımları izleyin:
 
-1. 4.1.0'da sürümünü kullanın **WindowsAzure.MediaServices.Extensions** (nedeniyle uyumluluk sorunları bağımlı paketleri ile). 
-2. 3.16.1 sürümünü kullanın **Microsoft.IdentityModel.Clients.activedirectory tarafından** (bilinen bir sorundur sonraki sürümlerinde).
-
-Bu gereksinimleri 24 Kasım 2017 itibariyle etkindir.
 
 #### <a name="example"></a>Örnek
 

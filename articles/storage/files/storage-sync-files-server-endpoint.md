@@ -1,5 +1,5 @@
 ---
-title: "Azure dosya eşitleme (Önizleme) sunucusu uç noktası Ekle/Kaldır | Microsoft Docs"
+title: "Bir Azure dosya eşitleme (Önizleme) sunucu uç nokta Ekle/Kaldır | Microsoft Docs"
 description: "Azure dosyaları dağıtımı için planlama yaparken göz önünde bulundurmanız gerekenler hakkında bilgi edinin."
 services: storage
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 92ac80953623a5a94d3104f30787c9636308c707
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Azure dosya eşitleme (Önizleme) sunucusu uç noktası Ekle/Kaldır
+# <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Bir Azure dosya eşitleme (Önizleme) sunucu uç nokta Ekle/Kaldır
 Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
 
 A *sunucusu uç noktası* üzerinde belirli bir konumu temsil eden bir *kayıtlı sunucu*, örneğin server birim veya birim kökünde bir klasör. Kendi ad alanları (örneğin, F:\sync1 ve F:\sync2) çakışan, birden çok sunucu bitiş noktaları aynı birimde bulunabilir. Bulut katmanlama ilkeleri her sunucusu uç noktası için ayrı ayrı yapılandırabilirsiniz. Bir sunucu konumu ile var olan bir dosya sunucusu uç noktası eşitleme grubuna eklerseniz, bu dosyaları eşitleme grubundaki diğer uç nokta zaten bulunan diğer dosyaları ile birleştirilir.
@@ -41,10 +41,10 @@ Sunucusu uç noktası eklemek için istenen eşitleme grubuna gidin ve "sunucusu
 
 Aşağıdaki bilgiler altında gerekli **sunucusu uç noktası ekleme**:
 
-- **Sunucusu kayıtlı**: sunucu veya sunucusu uç noktası oluşturmak için küme adını.
+- **Kayıtlı sunucu**: sunucu veya sunucusu uç noktası oluşturmak için küme adını.
 - **Yol**: eşitleme grubunun bir parçası eşitlenecek Windows Server'da yolu.
 - **Bulut Katmanlandırma**: hangi etkinleştirir sık kullanılan veya erişmek için Azure dosyaları katmanlı dosyaları etkinleştirmek veya Bulut katmanlandırma, devre dışı bırakmak için bir anahtar.
-- **Birim boş alanı**: sunucusu uç noktası bulunduğu birimde ayrılan boş alan miktarı. Birim boş alanı, tek bir sunucu uç noktası olan bir birimde % 50'si ayarlanırsa, örneğin, kabaca veri miktarının yarısına Azure dosyaları katmanlı. Öğesinden bağımsız olarak mı bulut katmanlandırma etkinleştirildiğinde, Azure dosya paylaşımınızı verilerin tam bir kopyasını eşitleme grubundaki her zaman vardır.
+- **Birim boş alanı**: sunucusu uç noktası bulunduğu birimde ayrılan boş alan miktarı. Birim boş alanı, bir tek sunucu uç noktası olan bir birimde % 50'si ayarlanırsa, örneğin, kabaca veri miktarının yarısına Azure dosyaları katmanlı. Öğesinden bağımsız olarak mı bulut katmanlandırma etkinleştirildiğinde, Azure dosya paylaşımınızı verilerin tam bir kopyasını eşitleme grubundaki her zaman vardır.
 
 Seçin **oluşturma** sunucusu uç noktası eklemek için. Bir eşitleme grubundaki bir ad alanı içindeki dosyalar artık eşitlenmiş tutulacak. 
 
@@ -65,7 +65,7 @@ Sunucusu uç noktası kaldırmak için:
 
 1. Sunucunuz, kayıtlı depolama eşitleme hizmetine gidin.
 2. İstenen eşitleme grubuna gidin.
-3. Depolama eşitleme hizmeti eşitleme grubunda istediğiniz sunucu Endpoint kaldırın. Bu, ilgili sunucusu uç noktası eşitleme grubu bölmesinde sağ tıklayarak gerçekleştirilebilir.
+3. Depolama eşitleme hizmeti eşitleme grubunda istediğiniz sunucusu uç noktası kaldırın. Bu, eşitleme grubu bölmesinde ilgili sunucusu uç noktası sağ tıklayarak gerçekleştirilebilir.
 
     ![Sunucusu uç noktası eşitleme grubundan kaldırma](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 

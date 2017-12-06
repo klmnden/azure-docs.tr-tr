@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: 391f30e0c81aeaf313d58f1f4af877b5be9ed919
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM'ler için fiyatlandırma Kılavuzu
 
@@ -102,8 +102,11 @@ Bu Getir bilgisayarınızı-kendi-lisans görüntülerden birini bir SQL Server 
 - [SQL Server 2016 Enterprise Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
 - [SQL Server 2016 standart Azure VM](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Bize 10 gün içinde Azure'da kullanacağınız kaç SQL Server lisansları bildirin. Önceki görüntüleri bağlantılara bunun nasıl yapılacağı hakkında yönergeler vardır.
+
+> [!NOTE]
+> Dakika başına ödemeli SQL Server VM'nin lisanslama modelini kendi lisansınızı kullanacak şekilde değiştirmezsiniz. Bu durumda yeni bir KLG VM oluşturmanız ve veritabanlarınızı yeni VM'ye geçirmeniz gerekir. 
 
 ## <a name="avoid-unnecessary-costs"></a>Gereksiz maliyetleri kaçının
 
@@ -115,7 +118,7 @@ SQL Server Lisans maliyetini çekirdek sayısı doğrudan ilişkilidir. Beklenen
 
 SQL Server iş yüklerini de belirli türleriyle çalışma yeni makine boyutlarını vardır. Bu makineler boyutları yüksek düzeyde bellek, depolama ve g/ç bant genişliği korumak, ancak daha düşük bir sanallaştırılmış çekirdek sayısı sahiptirler. Örneğin, aşağıdaki örnekte göz önünde bulundurun:
 
-| VM boyutu | Vcpu'lar | Bellek | Max diskleri | En fazla g/ç işleme | SQL lisanslama maliyetleri | Toplam fiyatlar (işlem + lisans) |
+| VM Boyutu | Vcpu'lar | Bellek | Max diskleri | En fazla g/ç işleme | SQL lisanslama maliyetleri | Toplam fiyatlar (işlem + lisans) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 IOPS veya 768 MB/sn | | |
 | **Standard_DS14 4v2** | 4 | 112 GB | 32 | 51.200 IOPS veya 768 MB/sn | % 75 daha düşük | %57 daha düşük |

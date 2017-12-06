@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Bisiklet paylaşımı Öğreticisi: Azure Machine Learning çalışma ile verileri hazırlama Gelişmiş
 Azure Machine Learning Hizmetleri (Önizleme) olan bir tümleşik, uçtan uca veri bilimi ve verileri hazırlama, denemeler geliştirmek ve bulut ölçeğinde modelleri dağıtmak profesyonel veri bilimcilerine için Gelişmiş analiz çözümü.
@@ -201,7 +201,7 @@ Döndürülecek __veri görünümü__seçin __veri__ sayfanın sol.
    ![Filtre iletişim kutusunun görüntüsü](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > FM-15, Meteorological Terminal Aviation rutin hava durumu raporu (METAR) bir türüdür. FM 15 raporları empirically en, listtle eksik verilerle tamamlanması gözetilir.
+   > FM-15, Meteorological Terminal Aviation rutin hava durumu raporu (METAR) bir türüdür. FM 15 raporları empirically en, çok az eksik verilerle tamamlanması gözetilir.
 
 ## <a name="remove-a-column"></a>Bir sütunu kaldırmak
 
@@ -287,7 +287,7 @@ Verileri bir tahmini için iki saat blokları kullanmak için iki saatlik dönem
 
    Tür `Jan 01, 2015 12AM-2AM` ilk satır ve tuşuna karşı örnek olarak **Enter**.
 
-   Çalışma ekranı tabanlı sağladığınız örnek üzerinde dönüştürme belirler. Bu örnekte, sonuç tarih biçimi değişti ve iki saatlik bir aralık ile birleştirilmiş olmasıdır.
+   Çalışma ekranı tabanlı sağladığınız örnek üzerinde dönüştürme belirler. Bu örnekte, tarih biçimi değişti ve iki saatlik bir aralık ile birleştirilmiş sonucudur.
 
    ![Örnek görüntüsü ' 01 Ocak 2015 00: 00-02: 00](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 

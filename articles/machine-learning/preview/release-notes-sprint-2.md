@@ -10,8 +10,8 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2017
-ms.openlocfilehash: 3209ad7c9b2afd9ff06d685c41b1775800a62a53
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f3579942624de282b01d74c4b8c449c56a66e7b7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
@@ -73,10 +73,11 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 ### <a name="job-execution"></a>İş yürütme
 Şimdi oluşturmak ve SSH anahtar tabanlı kimlik doğrulaması aşağıdaki adımları kullanarak remotedocker veya küme türü işlem hedef erişebilirsiniz:
 - Aşağıdaki komut CLI kullanarak bir işlem hedef ekleme
-```
-az ml computetarget attach remotedocker -a <fqdn or IP address> -n <name for your compute target> -u <username to be used to access the compute target> –k
-```
-[!NOTE] oluşturmak ve SSH anahtarı kullanmak için komutu -k seçeneğinde belirtir.
+
+    ```azure-cli
+    $ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+    ```
+[!NOTE] oluşturmak ve SSH anahtarı kullanmak için komutu -k (veya---azureml-ssh-anahtar kullan) seçeneğinde belirtir.
 
 - Azure ML çalışma ekranı ortak bir anahtar oluşturmak ve Konsolunuzda çıktı. Aynı kullanıcı adı kullanarak işlem hedef oturum ve bu ortak anahtarla ~/.ssh/authorized_keys dosya ekleyin.
 
@@ -109,11 +110,10 @@ az ml computetarget attach remotedocker -a <fqdn or IP address> -n <name for you
 - [AZTK tümleştirme](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
 ### <a name="sample-projects"></a>Örnek Proje
-- Yeni Azure ML SDK sürümüyle güncelleştirilmiş Iris ve SparkMML örnekleri
+- [Iris](https://github.com/Azure/MachineLearningSamples-Iris) ve [MMLSpark](https://github.com/Azure/mmlspark) yeni Azure ML SDK sürümüyle güncelleştirilmiş örnekleri
 
 ## <a name="breaking-changes"></a>YENİ DEĞİŞİKLİKLER
 - Yükseltilen `--type` anahtarının `az ml computetarget attach` alt komutu. 
 
-- `az ml computetarget attach --type remotedocker`artık`az ml computetarget attach remotedocker`
-
-- `az ml computetarget attach --type cluster`artık`az ml computetarget attach cluster`
+    - `az ml computetarget attach --type remotedocker`artık`az ml computetarget attach remotedocker`
+    - `az ml computetarget attach --type cluster`artık`az ml computetarget attach cluster`

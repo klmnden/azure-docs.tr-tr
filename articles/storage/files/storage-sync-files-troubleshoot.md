@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -26,7 +26,7 @@ Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken k
 Bu makalede ve Azure dosya eşitleme dağıtımınıza karşılaşabileceğiniz sorunları gidermek amacıyla tasarlanmıştır. Biz de sorunun daha kapsamlı bir araştırma gerekiyorsa sistemden önemli günlükleri toplamak açıklar. Sorunuzun yanıtını görmüyorsanız, bize (sırayla yükselen) aşağıdaki kanallar aracılığıyla başvurabilirsiniz:
 
 1. Bu makalede Açıklamalar bölümüne.
-2. [Azure depolama Forumu](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft destek. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesine **Yardım + Destek** düğmesine tıklayın ve ardından **yeni destek isteği**.
 
@@ -43,7 +43,7 @@ Yükleme hatanın nedenini belirlemek için installer.log gözden geçirin.
 > [!Note]  
 > Aracı yüklemesi Microsoft Update'i kullanmak için makinenize ayarlamak ve Windows Update hizmeti çalışmıyor başarısız olur.
 
-<a id="server-registration-missing"></a>**Sunucu kayıtlı sunucuları'nın altında Azure Portalı'nda listelenmez**  
+<a id="server-registration-missing"></a>**Azure portalında kayıtlı sunucuları altındaki Server listelenmeyen**  
 Bir sunucu altında listelenmemişse **kayıtlı sunucuları** depolama eşitleme hizmeti için:
 1. Kaydetmek istediğiniz sunucuya oturum açın.
 2. Dosya Gezgini'ni açın ve (varsayılan konumu C:\Program Files\Azure\StorageSyncAgent:) depolama eşitleme Aracısı yükleme dizinine gidin. 
@@ -69,7 +69,7 @@ Reset-StorageSyncServer
 Bu sorun oluşur zaman **Gelişmiş Internet Explorer güvenlik** İlkesi, sunucu kaydı sırasında etkindir. Doğru bir şekilde devre dışı bırakma hakkında daha fazla bilgi için **Gelişmiş Internet Explorer güvenlik** İlkesi bkz [Azure dosya eşitleme ile kullanmak için Windows Server hazırlama](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) ve [Azure dosya dağıtma Eşitleme (Önizleme)](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Eşitleme Grup Yönetimi
-<a id="cloud-endpoint-using-share"></a>**Bulut uç noktası oluşturma başarısız oldu, bu hata: "Belirtilen Azure dosya paylaşımı zaten farklı bir CloudEndpoint tarafından kullanılıyor"**  
+<a id="cloud-endpoint-using-share"></a>**Bulut uç noktası oluşturma başarısız olur, bu hata: "Belirtilen Azure dosya paylaşımı zaten farklı bir CloudEndpoint tarafından kullanılıyor"**  
 Azure dosya paylaşımı zaten başka bir bulut uç noktası tarafından kullanılıyorsa bu sorun oluşur. 
 
 Bu iletiyi görürseniz ve Azure dosya paylaşımı şu anda bir bulut uç noktası tarafından kullanılmadığından Azure Dosya paylaşımındaki Azure dosya eşitleme meta verileri temizlemek için aşağıdaki adımları tamamlayın:
@@ -81,7 +81,7 @@ Bu iletiyi görürseniz ve Azure dosya paylaşımı şu anda bir bulut uç nokta
 2. Azure dosya paylaşımına sağ tıklayın ve ardından **Düzenle meta verileri**.
 3. Sağ **SyncService**ve ardından **silmek**.
 
-<a id="cloud-endpoint-authfailed"></a>**Bulut uç noktası oluşturma başarısız oldu, bu hata: "AuthorizationFailed"**  
+<a id="cloud-endpoint-authfailed"></a>**Bulut uç noktası oluşturma başarısız olur, bu hata: "AuthorizationFailed"**  
 Kullanıcı hesabınız bir bulut uç noktası oluşturmak için yeterli hakları yoksa bu sorun oluşur. 
 
 Bir bulut uç noktası oluşturmak için kullanıcı hesabınızın aşağıdaki Microsoft Authorization izinleri olması gerekir:  
@@ -102,7 +102,7 @@ Kullanıcı hesabı rolünüz gerekli izinlere sahip olup olmadığını belirle
     * **Rol ataması** olmalıdır **okuma** ve **yazma** izinleri.
     * **Rol tanımı** olmalıdır **okuma** ve **yazma** izinleri.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Bulut uç noktası silme işlemi başarısız oldu, bu hata: "MgmtInternalError"**  
+<a id="cloud-endpoint-deleteinternalerror"></a>**Bulut uç noktası silme işlemi başarısız olur, bu hata: "MgmtInternalError"**  
 Bulut uç noktası silmeden önce Azure dosya paylaşımı veya depolama hesabı silinir, bu sorun ortaya çıkabilir. Gelecek bir güncelleştirmede bu sorun düzeltilecektir. Bu sırada, Azure dosya paylaşımı veya depolama hesabını sildikten sonra bulut uç noktasını silmek mümkün olacaktır.
 
 Azure dosya paylaşımı veya depolama hesabını silmeden önce bu arada, bu sorunun oluşmasını önlemek için bulut uç noktası silin.
@@ -133,6 +133,28 @@ Tek tek dosyaların eşitlemesi başarısız oluyorsa:
     > Azure dosya eşitleme, VSS anlık görüntüleri tanımlayıcıları açık dosyaları eşitlemek için düzenli aralıklarla alır.
 
 ## <a name="cloud-tiering"></a>Bulut katmanlaması 
+Bulutta hataları için iki yol katmanlama:
+
+- Dosyaları katmanı Azure dosya eşitleme başarısız Azure dosyaları bir dosyaya katmanı çalışır, yani başarısız olabilir.
+- Dosyaları (StorageSync.sys) başarısız katmanlı bir dosyaya erişmek için kullanıcı girişimi olduğunda verilerini indirmek için Azure dosya eşitleme dosya sistemi filtresi anlamına geri çağırma için başarısız olabilir.
+
+İki ana sınıf ya da hatası yolu oluşabilecek hatalar şunlardır:
+
+- Bulut depolama hataları
+    - *Geçici depolama hizmet kullanılabilirliği sorunlarını*. Bkz: [Azure Storage için hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) daha fazla bilgi için.
+    - *Erişilemez Azure dosya paylaşımı*. Sildiğinizde bu hata genellikle, Azure dosya paylaşımı hala bulut uç noktasına bir eşitleme grubundaki oluşur.
+    - *Erişilemez depolama hesabı*. Bulut uç noktasına bir eşitleme grubunda olan bir Azure dosya paylaşımı hala sahipken depolama hesabını silmek bu hata genellikle olur. 
+- Sunucu hataları 
+    - *Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) yüklenmedi*. İstekleri katmanlama/geri çağırma yanıtlamak için Azure dosya eşitleme dosya sistemi filtresi yüklenmesi gerekir. Değil yüklenen filtre çeşitli nedenlerle oluşabilir, ancak yönetici, el ile kaldırıldığında, en yaygın nedeni olur. Azure dosya eşitleme dosya sistemi filtresi sırasında her zaman Azure dosya eşitleme için düzgün çalışması için yüklenmesi gerekir.
+    - *Eksik, bozuk veya aksi bozuk yeniden ayrıştırma noktası*. Bir özel veri yapısı iki bölümden oluşan bir dosyada bir ayrıştırma noktasıdır:
+        1. Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasına GÇ bazı eylem yapmanız gerekebilir işletim sistemini gösterir yeniden ayrıştırma etiketi. 
+        2. Yeniden ayrıştırma veri URI ilişkili bulut uç noktası (Azure dosya paylaşımı) dosyasının dosya sistemi filtresi için gösterir. 
+        
+        Ayrıştırma noktası bozulabilir en yaygın yönetici etiketi veya verisini değiştirmek dener yoludur. 
+    - *Ağ bağlantısı sorunları*. Katmanı veya bir dosya geri çekmek için sunucunun internet bağlantısı olması gerekir.
+
+Aşağıdaki bölümlerde bulut katmanlama sorunlarını gidermek ve bir sorunun bir bulut depolama sorunu veya bir sunucu sorunu olup olmadığını belirlemek nasıl yapılacağını belirtin.
+
 <a id="files-fail-tiering"></a>**Katmanı başarısız dosya sorunlarını giderme**  
 Azure dosyaları katmanı dosyaları başarısız olursa:
 

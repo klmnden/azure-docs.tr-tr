@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Machine çalışma ekranı proje Learning Git deposuna kullanarak | Microsoft Docs"
-description: "Bu makale bir Azure Machine Learning çalışma ekranı proje ile birlikte bir Git deposu kullanmayı açıklar."
+title: "Bir Azure Machine Learning çalışma ekranı projeyle Git deposuna kullanın | Microsoft Docs"
+description: "Bu makalede Azure Machine Learning çalışma ekranı projesi ile birlikte bir Git deposu kullanımı açıklanmaktadır."
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -10,137 +10,147 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: 0cd447a52964578dd2348a786dd57a45ea87516e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f4f1112fe68bdb2a26f68b3da08fe97f9d22d3b7
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Git deposu bir Azure Machine Learning çalışma ekranı project ile kullanma
-Bu belge, Azure Machine Learning çalışma ekranı Git sürüm denetimi sağlar ve veri bilimi denemenizi içinde yeniden Üretilebilirlik sağlamak için kullanma hakkında bilgi sağlar. Projenizin bulutla Git deposu ilişkilendirmek yönergeler de sağlanır.
+# <a name="use-a-git-repo-with-a-machine-learning-workbench-project"></a>Bir Machine Learning çalışma ekranı projesiyle Git deposuna kullanın
+Git Azure Machine Learning çalışma ekranı sürüm denetimi sağlar ve veri bilimi denemenizi içinde yeniden Üretilebilirlik sağlamak için nasıl kullandığını öğrenin. Projenizin bulutla Git deposu (depo) ilişkilendir öğrenin.
 
-## <a name="introduction"></a>Giriş
-Azure Machine Learning çalışma ekranı Yukarı Git tümleştirmesi sıfırdan tasarlanmıştır. Yeni proje oluşturma, proje klasöründen otomatik olarak "Git-yerel Git deposu (depo) başlatıldı" değildir. Bu sırada, ikinci bir gizli yerel Git deposu adlı bir dal ile de oluşturulur _AzureMLHistory / < project_GUID >_ her yürütme için proje klasörünü değişiklikleri izlemek için. 
+Machine Learning çalışma ekranı Git tümleştirmesi için tasarlanmıştır. Yeni bir proje oluşturduğunuzda, proje klasöründen otomatik olarak "Git-yerel bir Git deposu başlatıldı". Bir ikinci, gizli yerel Git deposu Ayrıca, AzureMLHistory adlı bir dal ile oluşturulan /\<GUID proje\>. Dal, her yürütme için proje klasörünü değişiklikleri izler. 
 
-Azure ML proje bir Visual Studio Team hizmet (VSTS) proje içinde barındırılan bir Git deposu ile ilişkilendirme otomatik sürüm denetimi, hem yerel hem de uzaktan sağlar. Bu ilişkilendirme uzak depoyu erişimi olan herkes son kaynak kodunu (gezici) başka bir bilgisayara yüklemek olanak sağlar.  
-
-> [!NOTE]
-> VSTS Azure Machine Learning deneme hizmetten bağımsızdır kendi erişim denetimi listesi vardır. Kullanıcı erişimi ve bir Azure ML çalışma alanı veya proje Git deposuna arasında farklılık gösterebilir ve yönetilmesi gerekir. Çalışma alanı paylaşmak istiyorsanız Azure ML projenizi kodu düzeyi erişim, ek olarak yalnızca dahil olmak üzere bir ekip üyesine ile paylaşmak için açıkça him/her VSTS Git deposu için uygun erişim vermeniz gerekir. 
-
-Git ile da sürüm denetimi açıkça kullanarak yönetmek mümkündür _ana_ dallanma veya üzerinde deposu oluşturma dala göre. Uzak Git deposuna sağlanan varsa gönderebilir ve yalnızca yerel Git deposu kullanabilirsiniz.
-
-Bu diyagramda VSTS Git deposu ile Azure ML projesinde arasındaki ilişkiyi göstermektedir:
-
-![AML Git](media/using-git-ml-project/aml_git.png)
-
-Uzak bir Git deposu kullanmaya başlamak için bu temel yönergeleri izleyin.
+Azure Machine Learning proje Git deposu ile ilişkilendirme otomatik sürüm denetimi, yerel olarak ve Uzaktan sağlar. Git deposu Visual Studio Team Services (Team Services) barındırılıyor. Machine Learning proje Git deposu ile ilişkili olduğundan, uzak bağlantıların erişimi olan herkes son kaynak kodunu (gezici) başka bir bilgisayara yükleyebilirsiniz.  
 
 > [!NOTE]
-> Şu anda, Azure Machine Learning VSTS hesaplarında yalnızca Git depoları destekler. Genel Git depoları (örneğin, GitHub ve vb.) için destek gelecekte planlanmaktadır.
+> Team Services, Azure Machine Learning deneme hizmetten bağımsızdır kendi erişim denetimi listesi (ACL) vardır. Kullanıcı erişimi bir Git deposu ve Machine Learning çalışma alanı veya proje arasında değişebilir. Erişimi yönetmek üzere gerekebilir. 
+> 
+> Bir ekip üyesine vermek isteyip istemediğinizi kod Machine Learning projeniz için erişim düzeyi veya yalnızca çalışma paylaşma, kullanıcı bir Team Services Git deposuna erişmek için doğru izinleri vermeniz gerekir. 
 
-## <a name="step-1-create-an-azure-ml-experimentation-account"></a>1. Adım Azure ML deneme hesabı oluşturma
-Yoksa zaten, bir Azure ML deneme hesabı oluşturun ve Azure ML çalışma ekranı uygulamasını yükleyin. İçinde daha fazla ayrıntı görmek [yükleyin ve hızlı başlangıç oluşturma](quickstart-installation.md).
+Sürüm denetimi Git ile yönetmek için ana dala kullanabilir veya bağlantıların bulunması dala oluşturun. Yerel Git deposu kullanın ve sağlandığından, uzak Git deposuna Gönder.
+
+Bu diyagramda Team Services Git deposuna ve Machine Learning proje arasındaki ilişkiyi göstermektedir:
+
+![Azure Machine Learning Git](media/using-git-ml-project/aml_git.png)
+
+Uzak bir Git deposu ile çalışmaya başlamak için aşağıdaki bölümlerde açıklanan adımları tamamlayın.
+
+> [!NOTE]
+> Şu anda, Azure Machine Learning yalnızca Team Services hesaplarını üzerinde Git depoları destekler. GitHub gibi genel Git depoları için destek gelecek için planlanan.
+
+## <a name="step-1-create-a-machine-learning-experimentation-account"></a>1. Adım Bir Machine Learning deneme hesabı oluşturma
+Bir Machine Learning deneme hesabı oluşturmak ve Azure Machine Learning çalışma ekranı uygulamasını yükleyin. Daha fazla bilgi için bkz: [yükleyin ve hızlı başlangıç oluşturma](quickstart-installation.md).
 
 ## <a name="step-2-create-a-team-project-or-use-an-existing-team-project"></a>2. Adım Takım projesi oluşturma veya varolan bir takım projesine kullanın
-Gelen [Azure portal](https://portal.azure.com/), yeni bir **takım projesi**.
-1. ' Yi tıklatın**+**
-2. Arama **"Takım projesi"**
-3. Gerekli bilgileri girin.
-    - : Bir ekip adı.
-    - Sürüm denetimi: **Git**
-    - Abonelik: Azure Machine Learning deneme hesabıyla bir.
-    - Konumu: Azure Machine Learning deneme kaynaklarınızı yakın olan bir bölgede ideal olarak kalır.
-4. **Oluştur**'a tıklayın. 
+İçinde [Azure portal](https://portal.azure.com/), yeni bir takım projesi oluşturun:
+1. Seçin  **+** .
+2. Arama **takım projesi**.
+3. Gerekli bilgileri girin:
+    - **Ad**: bir ekip adı.
+    - **Sürüm denetimi**: seçin **Git**.
+    - **Abonelik**: bir Machine Learning deneme hesabına sahip bir abonelik seçin.
+    - **Konum**: ideal olarak, Machine Learning deneme kaynaklarınızı yakın olan bir bölge seçin.
+4. **Oluştur**’u seçin. 
 
-![Azure portalından bir takım projesi oluşturma](media/using-git-ml-project/create_vsts_team.png)
+![Azure portalında bir takım projesi oluşturma](media/using-git-ml-project/create_vsts_team.png)
 
-Azure Machine Learning çalışma ekranı erişmek için kullandığınız aynı Azure Active Directory (AAD) hesabıyla oturum emin olun. Aksi takdirde, Azure ML proje oluşturma ve Git deposuna erişmek için kişisel erişim belirteci sağlama için komut satırı kullanmadığınız sürece sistem AAD kimlik bilgilerinizi kullanarak erişemiyor. Bu daha sonra daha fazla.
+Machine Learning çalışma ekranı erişmek için kullandığınız aynı Azure Active Directory (Azure AD) hesabı kullanarak oturum emin olun. Aksi takdirde, sistem, Azure AD kimlik bilgilerinizi kullanarak Machine Learning çalışma ekranı erişemiyor. Machine Learning projesi oluşturmak için komut satırını kullanın ve Git deposuna erişmek için kişisel erişim belirteci kaynağı, bir özel durumdur. Biz bu makalenin sonraki bölümlerinde daha ayrıntılı ele alınmıştır.
 
-Takım projesi oluşturulduktan sonra sonraki adıma geçmeye hazırsınız.
+Doğrudan oluşturduğunuz takım projesine gitmek için URL https:// kullanmak\<ekip projesi adını\>. visualstudio.com.
 
-Doğrudan yeni oluşturduğunuz takım projesine gitmek için bir URL'dir `https://<team_project_name>.visualstudio.com`.
+## <a name="step-3-set-up-a-machine-learning-project-and-git-repo"></a>3. Adım Bir Machine Learning proje ve Git deposu ayarlama
 
-## <a name="step-3-create-a-new-azure-ml-project-with-a-remote-git-repo"></a>3. Adım Uzak bir Git deposu ile yeni bir Azure ML projesi oluşturma
-Azure ML çalışma ekranı başlatın ve yeni bir proje oluşturun. Git deposu metin kutusuna, adım 2'den alma VSTS Git deposu URL'si ile doldurun. Genellikle şu şekildedir:`http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
+Bir Machine Learning projesi ayarlamak için iki seçeneğiniz vardır:
+- Uzak bir Git deposuna sahip bir Machine Learning projesi oluşturma
+- Mevcut bir Machine Learning projesini Team Services Git deposuna ile ilişkilendirme
 
-![Git deposu ile Azure ML projesi oluşturma](media/using-git-ml-project/create_project_with_git_rep.png)
+### <a name="create-a-machine-learning-project-that-has-a-remote-git-repo"></a>Uzak bir Git deposuna sahip bir Machine Learning projesi oluşturma
+Machine Learning çalışma ekranı açın ve yeni bir proje oluşturun. İçinde **Git deposuna** kutusunda, adım 2'den Team Services Git deposu URL'sini girin. Genellikle şöyle görünür: https://\<Team Services hesabı adı\>.visualstudio.com/_git/\<proje adı\>
 
-Komut satırı aracını kullanarak proje de oluşturabilirsiniz. Kişisel erişim belirteci vermesini seçeneğiniz vardır. Azure ML üzerinde AAD kimlik bilgileriniz kalmak yerine, sizin adınıza Git deposuna erişmek için bu belirteci kullanabilirsiniz:
+![Bir Git deposuna sahip bir Machine Learning projesi oluşturma](media/using-git-ml-project/create_project_with_git_rep.png)
+
+Projeyi Azure komut satırı aracı (Azure CLI) kullanarak da oluşturabilirsiniz. Kişisel erişim belirteci girme seçeneğiniz vardır. Machine Learning, Azure AD kimlik bilgilerinizi kullanarak yerine Git deposuna erişmek için bu belirteci kullanabilirsiniz:
 
 ```
-# create a new project with a Git repo and personal access token.
-$ az ml project create -a <experimentation account name> -n <project name> -g <resource group name> -w <workspace name> -r <Git repo URL> --vststoken <VSTS personal access token>
+# Create a new project that has a Git repo by using a personal access token.
+$ az ml project create -a <Experimentation account name> -n <project name> -g <resource group name> -w <workspace name> -r <Git repo URL> --vststoken <Team Services personal access token>
 ```
+
 > [!IMPORTANT]
-> Boş proje şablonu seçerseniz, seçtiğiniz zaten Git deposu varsa, bu normaldir bir _ana_ dal. Azure ML yalnızca klonlar _ana_ yerel olarak dallandırma ve ekleme `aml_config` klasörü ve diğer meta veri dosyaları yerel proje klasöre proje. Ancak herhangi bir proje şablonu seçerseniz, Git deposu zaten gerekir bir _ana_ şube veya bir hata görürsünüz. Alternatif kullanmaktır `az ml project create` proje oluşturma ve sağlama için komut satırı aracı bir `--force` geçin. Bu, özgün ana dala dosyalarını siler ve bunları seçtiğiniz şablona yeni dosyalar ile değiştirin.
+> Boş proje şablonu seçerseniz, kullanmayı seçerseniz Git deposu zaten ana dala sahip olabilir. Machine Learning yalnızca yerel ana dala klonlar. Aml_config klasörü ve diğer proje meta veri dosyaları için yerel proje klasörünü ekler. 
+>
+> Tüm diğer proje şablonu, Git deposuna seçerseniz *olamaz* zaten bir ana dala sahip. Aşması durumunda, bir hata görürsünüz. Alternatif kullanmaktır `az ml project create` komutu ile projesi oluşturmak için bir `--force` geçin. Bu dosyaları özgün ana dal siler ve bunları seçtiğiniz şablon yeni dosyalar ile değiştirir.
 
-Şimdi yeni bir Azure ML proje ile uzak Git deposu tümleştirme etkin ve hazırsınız oluşturulur. Proje klasöründeki her zaman yerel bir Git deposu Git ile başlatılmıştır. Ve Git _uzak_ uzak VSTS Git deposuna işlemeleri uzak Git deposu gönderilemez şekilde ayarlanır.
+Etkin Uzak Git deposu ile tümleştirme, yeni bir Machine Learning projesi oluşturulur. Proje klasöründeki her zaman yerel bir Git deposu Git ile başlatılmıştır. Uzak Git deposuna yürütmelerini gönderdiğiniz şekilde uzak Git uzak Team Services Git deposuna ayarlanır.
 
-## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Adım 3a. Mevcut bir Azure ML projesini VSTS Git deposu ile ilişkilendirme
-İsteğe bağlı olarak, Azure ML projeyi VSTS Git deposuna olmadan da oluşturabilir ve yalnızca yerel Git deposu çalıştırma geçmişi anlık görüntüleri için kullanır. Ve aşağıdaki komutu kullanarak bu var olan Azure ML proje ile daha sonra VSTS Git deposuna ilişkilendirebilirsiniz:
+### <a name="associate-an-existing-machine-learning-project-with-a-team-services-git-repo"></a>Mevcut bir Machine Learning projesini Team Services Git deposuna ile ilişkilendirme
+Bir Team Services Git deposuna olmadan Machine Learning proje oluşturma ve çalıştırma geçmişi anlık görüntüler için yerel Git deposu kullanır. Daha sonra aşağıdaki komutu kullanarak bu varolan Machine Learning projeyle Team Services Git deposuna ilişkilendirebilirsiniz:
 
 ```azurecli
-# make sure you are in the project path so CLI has context of your current project
-$ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
+# Ensure that you are in the project path so Azure CLI has the context of your current project.
+$ az ml project update --repo https://<Team Services account name>.visualstudio.com/_git/<project name>
 ```
 
 > [!NOTE] 
-> Yalnızca ilişkili bir Git deposuna sahip değilse Azure ML projesinde güncelleştirme deposu işlemi gerçekleştirebilirsiniz. Ve Git deposuna ilişkilendirildiğinde kaldırılamaz.
+> Kendisiyle ilişkili bir Git deposuna sahip olmayan bir Machine Learning proje güncelleştirme deposu işlemi gerçekleştirebilir. Ayrıca, bir Git deposu Machine Learning ile ilişkilendirdikten sonra onu kaldıramazsınız.
 
-## <a name="step-4-capture-project-snapshot-in-git-repo"></a>4. Adım. Git deposu içinde proje anlık görüntü yakalama
-Projede birkaç komut dosyasını çalıştırır yürütebilir artık, bazı değişiklikler ortası çalıştırır olun. Masaüstü uygulaması, veya CLI kullanarak bunu yapabilirsiniz `az ml experiment submit` komutu. Daha fazla ayrıntı için izleyebileceğiniz [sınıflandırma Iris Öğreticisi](tutorial-classifying-iris-part-1.md). Her çalıştırma için proje klasöründeki tüm dosyalar yapılan herhangi bir değişiklik varsa tüm proje klasörünün bir anlık görüntü kaydedilen ve adlı bir dal altında uzaktaki Git deposuna içine gönderilen `AzureMLHistory/<Project_GUID>`. VSTS Git deposu URL'sini göz atarak dallar ve işlemlerini görüntülemek ve bu dal bulun. 
+## <a name="step-4-capture-a-project-snapshot-in-the-git-repo"></a>4. Adım. Git deposu içinde proje anlık görüntü yakalama
+Projede birkaç komut dosyasını çalıştırır yürütün ve çalışmaları arasında bazı değişiklikler yapın. Masaüstü uygulamasında veya Azure CLI kullanarak bunu yapabilirsiniz `az ml experiment submit` komutu. Daha fazla bilgi için bkz: [sınıflandırma Iris Öğreticisi](tutorial-classifying-iris-part-1.md). Her çalıştırma için proje klasöründeki herhangi bir dosya herhangi bir değişiklik yaptıysanız tüm proje klasörünün bir anlık görüntü kaydedilen ve AzureMLHistory adlı bir dal altında uzaktaki Git deposuna gönderilen /\<GUID proje\>. Dal ve işlemeleri AzureMLHistory dahil olmak üzere, görüntülemek için /\<GUID proje\> şube Team Services Git deposuna URL'sine gidin. 
 
 > [!NOTE] 
-> Anlık görüntü yalnızca bir komut dosyası yürütme önce kararlıdır. Şu anda veri hazırlığı yürütme ya da bir not defteri hücre yürütme anlık görüntü tetiklemez.
+> Anlık görüntü yalnızca bir komut dosyası yürütme önce kararlıdır. Şu anda veri hazırlığı yürütme ya da bir not defteri hücre yürütme anlık görüntü tetiklemek değil.
 
 ![çalıştırma geçmişi şube](media/using-git-ml-project/run_history_branch.png)
 
 > [!IMPORTANT] 
-> Geçmiş dalında Git komutları kullanarak kendiniz çalışmamasının en iyisidir. Bunun yapılması çalıştırma geçmişi uğraşmanız. Ana dala kullanabilir veya diğer dalların kullanılabilirliği etkilenmeden yerine kendi Git işlemleri için oluşturabilirsiniz.
+> Git komutları kullanarak geçmiş dalında çalışmaya yok en iyisidir. İle çalıştırma geçmişi etkileyebilir. Bunun yerine, ana dala kullanabilir veya kendi Git işlemleri için dala oluşturabilirsiniz.
 
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>5. Adım. Önceki bir proje anlık görüntü geri yükleme 
-Tüm proje klasöründeki Azure ML çalışma ekranından, bir önceki çalıştırma geçmişi proje durumu anlık görüntü durumuna geri yüklemek için:
-1. Tıklayın **çalışır** etkinliğinde (cam saatlik simgesi) çubuğu.
-2. Gelen **çalışma listesi** görüntülemek için geri yüklemek istediğiniz Çalıştır'ı tıklatın.
-3. Gelen **çalıştırmak ayrıntı** görüntülemek için tıklayın **geri**.
+Tüm proje klasörünü, Machine Learning çalışma ekranı anlık görüntü bir önceki çalıştırma geçmişi durumunu geri yüklemek için:
+1. Etkinliğin (kum saati simgesi) çubuğu seçin **çalışır**.
+2. İçinde **çalışma listesi** görüntülemek için geri yüklemek istediğiniz Çalıştır'ı seçin.
+3. İçinde **çalıştırmak ayrıntı** görünümü, select **geri**.
 
 ![çalıştırma geçmişi şube](media/using-git-ml-project/restore_project.png)
 
-Alternatif olarak, Azure ML çalışma ekranı CLI penceresinden aşağıdaki komutu kullanabilirsiniz.
+İsteğe bağlı olarak, Machine Learning çalışma ekranı Azure CLI penceresinde aşağıdaki komutları kullanın:
 
 ```azurecli
-# discover the run I want to restore snapshot from:
+# Discover the run I want to restore a snapshot from.
 $ az ml history list -o table
 
-# restore the snapshot from a particular run
-$ az ml project restore --run-id <run_id>
+# Restore the snapshot from a specific run.
+$ az ml project restore --run-id <run ID>
 ```
 
-Bu komutu yürüterek biz tüm proje klasörünü belirli çalıştıran başlayacağı zamana olduğunda alınan anlık görüntü ile üzerine yazar. Ancak, projenizin geçerli dalı üzerinde kalır. Bu, olacağı anlamına gelir **tüm değişiklikleri kaybetmek** geçerli proje klasörünüzdeki. Bu nedenle bu komutu çalıştırdığınızda, lütfen çok dikkatli olun. Yukarıdaki işlemi gerçekleştirmeden önce geçerli dal değişikliklerinizi uygulamak için Git için isteyebilirsiniz. Önce daha fazla ayrıntı için bkz.
+Bu komutu çalıştırırken dikkatli olun. Bu komutu yürütmek tüm proje klasörünü belirli çalıştıran başlayacağı zamana olduğunda alınan anlık üzerine yazar. Projenizi geçerli dalı kalır. Bunun anlamı, **tüm değişiklikleri kaybetmek** geçerli proje klasörünüzdeki.  
+
+Bu işlemi gerçekleştirmeden önce geçerli dal değişikliklerinizi uygulamak için Git kullanmak isteyebilirsiniz.
 
 ## <a name="step-6-use-the-master-branch"></a>6. Adım. Ana dala kullanın
-Yanlışlıkla önlemek için bir geçerli proje durumu kaybetme ana dala (veya kendi başınıza oluşturduğunuz herhangi bir dal) proje gerçekleştirmeyi Git deposuna yoludur. Git doğrudan ana dala üzerinde çalışması için komut satırını (veya diğer sık kullanılan Git istemci seçeceğiniz araç) de kullanabilirsiniz. Örneğin:
+Geçerli proje durumu yanlışlıkla kaybetmemek için bir proje Git deposuna ana dala (veya kendi başınıza oluşturduğunuz herhangi bir dal) gerçekleştirmeyi yoludur. Ana dala üzerinde çalışması için komut satırından veya, sık kullanılan Git istemci aracından Git kullanabilirsiniz. Örneğin:
 
 ```sh
-# check status to make sure you are on the master branch (or branch of your choice)
+# Check status to make sure you are on the master branch (or branch of your choice).
 $ git status
 
-# stage all changes
+# Stage all changes.
 $ git add -A
 
-# commit all changes locally on the master branch
+# Commit all changes locally on the master branch.
 $ git commit -m 'these are my updates so far'
 
-# push changes into the remote VSTS Git repo master branch.
+# Push changes to the remote Team Services Git repo master branch.
 $ git push origin master
 ```
 
-Proje güvenli bir şekilde daha önceki bir anlık görüntüye geri yükleyebilirsiniz artık aşağıdaki adım 5 ', her zaman geri uygulanmak üzere, yalnızca gelebilir olduğunu bilmek ana dal yapılan.
+Şimdi, güvenli bir şekilde projenin daha önceki bir anlık görüntüye adım 5 tamamlayarak geri yükleyebilirsiniz. Her zaman geri yaptığınız yürütme üzerinde ana dala gelebilir.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
-Varsa yalnızca proje anlık görüntüleri almak için Azure ML çalıştırma geçmişi işlevlerde kullanır ve bunları geri yükleme, Git deposuna kimlik doğrulaması hakkında endişelenmeniz gerekmez. Bu gerçekleştirilecek Deneme hizmet katmanı tarafından önemli.
+Proje anlık görüntülerini almak ve bunları geri yüklemek için makine öğrenme çalıştırma geçmişi işlevlerde üzerinde yalnızca güveniyorsanız, Git deposuna kimlik doğrulaması hakkında endişelenmeniz gerekmez. Kimlik doğrulaması, makine öğrenme Deneme hizmet katmanı tarafından işlenir.
 
-Ancak, sürüm denetimi yönetmek için kendi Git araçları kullanırsanız, düzgün şekilde VSTS üzerinde uzak Git deposu karşı kimlik doğrulamasını işleyecek gerekir. Azure ML içinde uzak Git deposu yerel depoya Git HTTPS protokolünü kullanarak uzak eklenir. Git sorun olduğunda bunun anlamı, kullanıcı adı ve parola veya kişisel erişim belirteci sağlamanız gereken uzaktan (gibi İtme veya çekme), komutları. İzleyin [bu yönergeleri](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) bir VSTS Git deposuna kişisel erişim belirteci oluşturmak için.
+Ancak, sürüm denetimi yönetmek için kendi Git araçları kullanırsanız, uzak Git deposu Team Services karşı kimlik doğrulamasını işleyecek gerekir. Machine Learning içinde uzak Git deposu yerel depoya Git remote olarak HTTPS protokolü kullanılarak eklenir. Bu, Git komutlarını (örneğin, anında iletme veya çekme) için uzaktan verdiğinizde, kullanıcı adınızı ve parolanızı veya kişisel erişim belirteci sağlamanız gerektiğini anlamına gelir. Bir Team Services Git deposuna kişisel erişim belirteci oluşturmak için'ndaki yönergeleri izleyin [kişisel erişim belirteci kimlik doğrulaması kullanmasını](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Takım veri bilimi işlemi proje yapınızı düzenlemek için bkz: nasıl kullanacağınızı öğrenin [TDSP sahip bir proje yapısı](how-to-use-tdsp-in-azure-ml.md)
+- Bilgi edinmek için nasıl [proje yapınızı düzenlemek için takım veri bilimi işlemi kullanın](how-to-use-tdsp-in-azure-ml.md).

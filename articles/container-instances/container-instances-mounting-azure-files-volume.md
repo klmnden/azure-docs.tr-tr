@@ -2,26 +2,18 @@
 title: "Azure kapsayıcı durumlarda Azure dosyaları birim"
 description: "Azure kapsayıcı örnekleri durumuyla kalıcı hale getirmek için bir Azure dosyaları birim öğrenin"
 services: container-instances
-documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/09/2017
+ms.date: 12/05/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b2e8e27cecb4d1225e378690063b42f5d5242868
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Azure kapsayıcı örneği ile bir Azure dosya paylaşımını bağlama
 
@@ -32,7 +24,7 @@ Varsayılan olarak, Azure kapsayıcı durum bilgisiz örnekleridir. Kapsayıcı 
 Azure kapsayıcı örnekleri ile Azure dosya paylaşımının kullanmadan önce oluşturmanız gerekir. Dosya Paylaşımı ve Paylaşım barındırmak için bir depolama hesabı oluşturmak için aşağıdaki betiği çalıştırın. Betik rastgele bir değeri temel dizesi olarak ekler ve böylece depolama hesabı adı genel olarak benzersiz olması gerekir.
 
 ```azurecli-interactive
-# Change these four parameters
+# Change these four parameters as needed
 ACI_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 ACI_PERS_RESOURCE_GROUP=myResourceGroup
 ACI_PERS_LOCATION=eastus
@@ -41,10 +33,11 @@ ACI_PERS_SHARE_NAME=acishare
 # Create the storage account with the parameters
 az storage account create -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -l $ACI_PERS_LOCATION --sku Standard_LRS
 
-# Export the connection string as an environment variable, this is used when creating the Azure file share
+# Export the connection string as an environment variable. The following 'az storage share create' command
+# references this environment variable when creating the Azure file share.
 export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $ACI_PERS_STORAGE_ACCOUNT_NAME -g $ACI_PERS_RESOURCE_GROUP -o tsv`
 
-# Create the share
+# Create the file share
 az storage share create -n $ACI_PERS_SHARE_NAME
 ```
 
@@ -59,147 +52,40 @@ STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GR
 echo $STORAGE_ACCOUNT
 ```
 
-Paylaşım adı zaten biliniyor (Bu *acishare* yukarıdaki komut), böylece tüm kalır olduğunu aşağıdaki komutu kullanarak bulunabilir depolama hesabı anahtarı:
+Paylaşım adı zaten bilinen (olarak tanımlanan *acishare* yukarıdaki komut), böylece tüm kalır olduğunu aşağıdaki komutu kullanarak bulunabilir depolama hesabı anahtarı:
 
 ```azurecli-interactive
 STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Azure anahtar kasası ile depolama hesabı erişim ayrıntılarını depola
+## <a name="deploy-the-container-and-mount-the-volume"></a>Kapsayıcıyı dağıtmak ve birim
 
-Bir Azure anahtar kasası depolamanızı öneririz için depolama hesabı anahtarları, verilere erişimi koruyun.
-
-Bir anahtar kasası ile Azure CLI oluşturun:
+Bir kapsayıcıda bir birim olarak Azure dosya paylaşımının bağlamak için paylaşımı ve birim kapsayıcısı ile oluşturduğunuzda noktası bağlama belirtin [az kapsayıcı oluşturmak](/cli/azure/container#az_container_create). Önceki adımları uyguladıysanız, daha önce bir kapsayıcı oluşturmak için aşağıdaki komutu kullanarak oluşturduğunuz paylaşımı bağlayabilir:
 
 ```azurecli-interactive
-KEYVAULT_NAME=aci-keyvault
-az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g $ACI_PERS_RESOURCE_GROUP
+az container create \
+    --resource-group $ACI_PERS_RESOURCE_GROUP \
+    --name hellofiles \
+    --image seanmckenna/aci-hellofiles \
+    --ip-address Public \
+    --ports 80 \
+    --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
+    --azure-file-volume-account-key $STORAGE_KEY \
+    --azure-file-volume-share-name $ACI_PERS_SHARE_NAME \
+    --azure-file-volume-mount-path /aci/logs/
 ```
 
-`enabled-for-template-deployment` Anahtarı verir Azure Resource Manager çekme gizli anahtar kasanızı dağıtım sırasında.
+## <a name="manage-files-in-mounted-volume"></a>Takılan birimin dosyalarını yönetme
 
-Depolama hesabı anahtarı anahtar Kasası'nda yeni bir parola olarak depola:
-
-```azurecli-interactive
-KEYVAULT_SECRET_NAME=azurefilesstoragekey
-az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME --value $STORAGE_KEY
-```
-
-## <a name="mount-the-volume"></a>Birim
-
-Bir kapsayıcıda bir birim olarak Azure dosya paylaşımının takma iki adımlı bir işlemdir. İlk olarak, paylaşımı kapsayıcı grubu tanımlayan bir parçası olarak ayrıntılarını sağlayın ve ardından bir veya daha fazla Grup kapsayıcılarında içinde takılı birim nasıl istediğinizi belirtin.
-
-Bağlama için kullanılabilir hale getirmek istediğiniz birimleri tanımlamak için ekleyin bir `volumes` dizi Azure Resource Manager şablonu kapsayıcı Grup tanımında için sonra bunları tek tek kapsayıcıları tanımında başvuru.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageaccountname": {
-      "type": "string"
-    },
-    "storageaccountkey": {
-      "type": "securestring"
-    }
-  },
-  "resources":[{
-    "name": "hellofiles",
-    "type": "Microsoft.ContainerInstance/containerGroups",
-    "apiVersion": "2017-08-01-preview",
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "containers": [{
-        "name": "hellofiles",
-        "properties": {
-          "image": "seanmckenna/aci-hellofiles",
-          "resources": {
-            "requests": {
-              "cpu": 1,
-              "memoryInGb": 1.5
-            }
-          },
-          "ports": [{
-            "port": 80
-          }],
-          "volumeMounts": [{
-            "name": "myvolume",
-            "mountPath": "/aci/logs/"
-          }]
-        }
-      }],
-      "osType": "Linux",
-      "ipAddress": {
-        "type": "Public",
-        "ports": [{
-          "protocol": "tcp",
-          "port": "80"
-        }]
-      },
-      "volumes": [{
-        "name": "myvolume",
-        "azureFile": {
-          "shareName": "acishare",
-          "storageAccountName": "[parameters('storageaccountname')]",
-          "storageAccountKey": "[parameters('storageaccountkey')]"
-        }
-      }]
-    }
-  }]
-}
-```
-
-Şablon ayrı Parametreler dosyasında sağlanan parametre olarak depolama hesabı adı ve anahtar içerir. Parametre dosyasını doldurmak için üç değerden gerekir: depolama hesabı adı, kaynak kimliği, Azure anahtar kasası ve depolama anahtarı depolamak için kullanılan anahtar kasasına gizli anahtar adı. Önceki adımları izlediyseniz, aşağıdaki komut dosyasıyla bu değerleri alabilirsiniz:
-
-```azurecli-interactive
-echo $STORAGE_ACCOUNT
-echo $KEYVAULT_SECRET_NAME
-az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
-```
-
-Değerleri parametreleri dosyaya ekleyin:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageaccountname": {
-      "value": "<my_storage_account_name>"
-    },
-   "storageaccountkey": {
-      "reference": {
-        "keyVault": {
-          "id": "<my_keyvault_id>"
-        },
-        "secretName": "<my_storage_account_key_secret_name>"
-      }
-    }
-  }
-}
-```
-
-## <a name="deploy-the-container-and-manage-files"></a>Kapsayıcıyı dağıtmak ve dosyalarını yönetme
-
-Tanımlanan şablonla kapsayıcı oluşturun ve Azure CLI kullanarak, birim. Şablon dosyası adlı varsayılarak *azuredeploy.json* ve parametreler dosyası adlı *azuredeploy.parameters.json*, komut satırı sonra:
-
-```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
-```
-
-Kapsayıcı başlatıldığında sonra aracılığıyla dağıtılan basit web uygulaması kullanarak **aci/seanmckenna-hellofiles** belirttiğiniz bağlama yolundaki Azure dosya paylaşımında dosyaları yönetmek için resim. Web uygulaması ile IP adresi al [az kapsayıcı Göster](/cli/azure/container#az_container_show) komutu:
+Kapsayıcı başlatıldığında sonra aracılığıyla dağıtılan basit web uygulaması kullanarak [aci/seanmckenna-hellofiles](https://hub.docker.com/r/seanmckenna/aci-hellofiles/) belirttiğiniz bağlama yolundaki Azure dosya paylaşımında dosyaları yönetmek için resim. Web uygulaması ile IP adresi al [az kapsayıcı Göster](/cli/azure/container#az_container_show) komutu:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-Gibi bir araç kullanabilirsiniz [Microsoft Azure Storage Gezgini](https://storageexplorer.com) almak ve dosya paylaşımı için yazılmış dosyasını inceleyin.
-
->[!NOTE]
-> Azure Resource Manager şablonları kullanma hakkında daha fazla bilgi için bkz: parametre dosyaları ve Azure CLI ile dağıtma [Resource Manager şablonları ve Azure CLI kaynaklarla dağıtmak](../azure-resource-manager/resource-group-template-deploy-cli.md).
+Kullanabileceğiniz [Azure portal](https://portal.azure.com) veya bir aracı [Microsoft Azure Storage Gezgini](https://storageexplorer.com) almak ve dosya paylaşımı için yazılmış dosyasını inceleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure kapsayıcı örneği kullanarak, ilk kapsayıcıyı dağıtmak [hızlı başlangıç](container-instances-quickstart.md)
-- Hakkında bilgi edinin [Azure kapsayıcı örnekleri ile kapsayıcı orchestrators arasındaki ilişki](container-instances-orchestrator-relationship.md)
+Arasındaki ilişki hakkında bilgi edinin [Azure kapsayıcı örnekleri ve kapsayıcı orchestrators](container-instances-orchestrator-relationship.md).

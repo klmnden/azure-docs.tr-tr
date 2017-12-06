@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure hdınsight'ta Apache Spark küme kaynaklarını yönetme 
 
-Bu makalede Ambari UI, YARN kullanıcı Arabiriminde, gibi arabirimleri erişmeyi öğrenin ve Spark geçmişi sunucunun Spark kümenizle ilişkilendirilmiş. Ayrıca küme yapılandırma en iyi performansı için ince ayar yapma hakkında bilgi.
+Ambari UI, YARN kullanıcı Arabiriminde ve Spark geçmişi Spark kümenizle ilişkilendirilmiş sunucu gibi arabirimleri ulaşma ve en iyi performans için küme yapılandırmayı ayarlamak nasıl öğrenin.
 
 **Ön koşullar:**
 
-* Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>Ambari Web kullanıcı arabirimini nasıl başlatma?
+## <a name="open-the-ambari-web-ui"></a>Ambari Web kullanıcı arabirimini açın
 1. [Azure portalındaki](https://portal.azure.com/) başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.
 2. Spark kümenizin tıklatın **Pano**. İstendiğinde, Spark küme için yönetici kimlik bilgilerini girin.
 
@@ -40,7 +39,7 @@ Bu makalede Ambari UI, YARN kullanıcı Arabiriminde, gibi arabirimleri erişmey
 
     ![Ambari Web kullanıcı Arabirimi](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari Web kullanıcı Arabirimi")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>Spark geçmişi sunucunun nasıl başlatma?
+## <a name="open-the-spark-history-server"></a>Spark geçmişi sunucu açın
 1. [Azure portalındaki](https://portal.azure.com/) başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz).
 2. Küme dikey penceresinden altında **hızlı bağlantılar**, tıklatın **küme Panosu**. İçinde **küme Panosu** dikey penceresinde tıklatın **Spark geçmişi sunucu**.
 
@@ -48,7 +47,7 @@ Bu makalede Ambari UI, YARN kullanıcı Arabiriminde, gibi arabirimleri erişmey
 
     İstendiğinde, Spark küme için yönetici kimlik bilgilerini girin.
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>Yarn kullanıcı arabirimini nasıl Başlat?
+## <a name="open-the-yarn-ui"></a>Yarn kullanıcı arabirimini açın
 YARN kullanıcı arabirimini kullanarak Spark kümesi üzerinde çalışmakta olan uygulamaları izlemek için kullanabilirsiniz.
 
 1. Küme dikey penceresinden tıklayın **küme Panosu**ve ardından **YARN**.
@@ -60,7 +59,7 @@ YARN kullanıcı arabirimini kullanarak Spark kümesi üzerinde çalışmakta ol
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Spark uygulamaları çalıştırmak için en uygun Küme Yapılandırması nedir?
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>Spark uygulamaları çalıştırmak için en uygun küme yapılandırması
 Uygulama gereksinimleri bağlı olarak Spark yapılandırması için kullanılabilir üç anahtar parametreleri `spark.executor.instances`, `spark.executor.cores`, ve `spark.executor.memory`. Bir yürütücü Spark uygulama için başlatılan bir işlemdir. Çalışan düğümünde çalışır ve uygulama için görevleri gerçekleştiremeyen sorumludur. Yürütücüler ve her küme için Yürütücü boyutları varsayılan sayısı çalışan düğümleri ve alt düğüm boyutu sayısına göre hesaplanır. Bu bilgiler depolanır `spark-defaults.conf` küme baş düğümler.
 
 Üç yapılandırma parametrelerini (için küme üzerinde çalışan tüm uygulamaları) küme düzeyinde yapılandırılabilir veya her tek tek uygulama için belirtilebilir.

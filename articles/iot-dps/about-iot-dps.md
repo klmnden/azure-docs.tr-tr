@@ -1,22 +1,22 @@
 ---
-title: "Azure IOT Hub cihaz sağlama hizmeti (Önizleme) genel bakış | Microsoft Docs"
+title: "Azure IOT Hub cihaz hizmet sağlama genel bakış | Microsoft Docs"
 description: "Azure IOT Hub ve cihaz sağlama hizmeti ile cihaz sağlamayı açıklar"
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Azure IOT Hub cihaz sağlama hizmeti (Önizleme) ile hazırlama cihazları
 Microsoft Azure tümleşik genel bulut Hizmetleri tüm IOT çözüm ihtiyaçlarınız için zengin bir dizi sağlar. IOT Hub cihaz hizmeti sağlama IOT zero touch, yalnızca zaman sağ IOT hub'ına insan etkileşimi gerektirmeden sağlama etkinleştiren müşteriler sağlamak için milyonlarca aygıtların güvenli ve ölçeklenebilir etkinleştirme Hub için bir yardımcı hizmetidir şekilde.
@@ -59,7 +59,7 @@ Bu adım, tüm üretim satırda ne olduğu hakkında bağlıdır. Bu adımda dah
 
 Aygıt hizmeti sağlama üretim işlemindeki yeni adım sunmaz; Bunun yerine, ilk yazılım ve (ideal) HSM cihaza yükler varolan adım içine bağlar. Açık mı sırasında kendi bağlantı bilgisi/IOT çözüm atamayı almak için sağlama hizmeti çağrıları için bu adımda bir cihaz kimliği oluşturma yerine cihaz yalnızca sağlama hizmeti bilgilerle programlanmış.
 
-Ayrıca bu adımda, cihaz dağıtıcı/tanımlayıcı önemli bilgiler ile işleci üreticisi sağlar. Bu, tüm aygıtların bir kök CA'ın her TPM aygıttan TPM onay anahtarını ortak kısmını ayıklanması için cihaz dağıtıcı/işleci tarafından sağlanan üretilen bir X.509 sertifikası olduğunu onayladıktan olarak basit olabilir. Bu hizmetler günümüzde birçok Silikon üreticileri tarafından sunulur.
+Ayrıca bu adımda, cihaz dağıtıcı/tanımlayıcı önemli bilgiler ile işleci üreticisi sağlar. Bu, tüm cihazlar bir TPM onay anahtarını ortak kısmını her TPM aygıttan ayıklanması için cihaz dağıtıcı/işleci tarafından sağlanan bir imzalama sertifikası üretilen bir X.509 sertifikası olduğunu onayladıktan olarak basit olabilir. Bu hizmetler günümüzde birçok Silikon üreticileri tarafından sunulur.
 
 ### <a name="cloud-setup-step"></a>Bulut Kurulum adım
 Bu adım, uygun otomatik sağlama için bulut yapılandırılıyor hakkında bağlıdır. Genellikle iki tür kullanıcı bulut Kurulum adımında dahil olan: aygıtları nasıl (aygıt işleci) başlangıçta ayarlanması gereken bilen birisi ve başka birinin nasıl IOT hub'ları arasında (Çözüm işleci) Bölünecek aygıtlardır bilen.
@@ -84,19 +84,29 @@ Aygıt hizmeti sağlama sağlama cihazlar için ideal yapan birçok özelliğe s
 * **Birden çok ayırma ilkeleri** nasıl IOT hub'ları senaryolarınızı desteklemek için cihazları cihaz hizmeti sağlama atar denetlemek için.
 * **İzleme ve tanılama günlüklerini** her şeyi düzgün çalıştığından emin olmak için.
 * **Çok hub Destek** birden fazla IOT hub'ına aygıtları atamak cihaz sağlama hizmeti sağlar. Cihaz sağlama hizmeti için hub birden çok Azure abonelikleri arasında iletişim kurabilirsiniz.
+* **Çapraz bölge desteği** IOT hub'ları diğer bölgelerdeki aygıtları atamak cihaz sağlama hizmeti sağlar.
 
 Kavramları ve cihaz sağlamayı de dahil edilen özellikler hakkında daha fazla bilgiyi [aygıt kavramları](concepts-device.md), [hizmeti kavramları](concepts-service.md), ve [güvenlik kavramları](concepts-security.md).
 
 ## <a name="cross-platform-support"></a>Platformlar arası desteği
-Cihaz sağlama hizmeti, tüm Azure IOT Hizmetleri gibi çeşitli işletim sistemleri ile platformlar arası çalışır. Cihaz sağlama hizmeti genel olarak kullanılabilir olduğunda birçok daha kullanılabilir olsa genel Önizleme desteklenen diller/protokolleri, sınırlı bir kümesini destekler. Genel Önizleme için aygıt hizmeti sağlama yalnızca HTTPS bağlantıları için hem cihaz hem de hizmet işlemleri destekler. SDK C ve hizmet SDK C# ' ta olduğundan aygıttır.
+Cihaz sağlama hizmeti, tüm Azure IOT Hizmetleri gibi çeşitli işletim sistemleri ile platformlar arası çalışır. Azure teklifleri açık kaynak SDK'ları içinde çeşitli [diller](https://github.com/Azure/azure-iot-sdks) kolaylaştırmak için bağlanan cihazların hizmetini ve yönetme. Aygıt hizmeti sağlama cihazları bağlamak için aşağıdaki protokollerini destekler:
+
+* HTTPS
+* AMQP
+* AMQP websockets üzerinden
+* MQTT
+* Websockets üzerinden MQTT
+
+Aygıt hizmeti sağlama, yalnızca hizmet işlemleri için HTTPS bağlantılarını destekler.
 
 ## <a name="regions"></a>Bölgeler
-Aygıt hizmeti sağlama Doğu ABD, Batı Avrupa ve Güneydoğu Asya genel Önizleme için kullanılabilir. Tüm hizmetler için bölgeler var ve yeni güncelleştirilmiş listesini duyurdu korur.
+Cihaz sağlama hizmet birçok bölgede kullanılamıyor. Var olan ve yeni güncelleştirilmiş listesini duyurdu bölgeler adresinde tüm hizmetleri korumak [Azure bölgeleri](https://azure.microsoft.com/regions/). Aygıt hizmeti sağlama kullanılabilir olduğu görebilirsiniz [Azure durum](https://azure.microsoft.com/status/) sayfası.
 
-* [Azure Bölgeleri](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> Cihaz sağlama genel ve bir konuma bağlı hizmetidir. Ancak, aygıt hizmeti sağlama profiliyle ilişkili meta veri yer alacağı bir bölge belirtmeniz gerekir.
 
 ## <a name="availability"></a>Kullanılabilirlik
-Biz en yüksek çaba kullanılabilirlik hizmetinin genel Önizleme sırasında korur. Genel Önizleme sırasında herhangi bir hizmet düzeyi sözleşmesi yoktur. [Azure SLA](https://azure.microsoft.com/support/legal/sla/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
+Biz % 99,9 korumak aygıt hizmeti sağlama ve hizmet düzeyi sözleşmesi için [SLA okuma](https://azure.microsoft.com/support/legal/sla/iot-hub/). [Azure SLA](https://azure.microsoft.com/support/legal/sla/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
 
 ## <a name="quotas"></a>Kotalar
 Her Azure aboneliği IOT çözümünüzün kapsamını etkileyebilir yerinde varsayılan kota sınırları vardır. Geçerli bir abonelik başına temelinde sağlama 10 cihaz Hizmetleri abonelik başına sınırlıdır.

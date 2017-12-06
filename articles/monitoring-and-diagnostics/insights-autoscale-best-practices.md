@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 4b0232db1cfe2d6a7cefd07a8194a88a84a4ffb4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Otomatik ölçeklendirme için en iyi uygulamalar
 Bu makalede, azure'da otomatik ölçeklendirme için en iyi yöntemler öğretir. Azure İzleyici otomatik ölçeklendirme uygular yalnızca [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/). Diğer Azure hizmetleriyle farklı ölçekleme yöntemlerini kullanın.
@@ -30,8 +30,8 @@ Bu makalede, azure'da otomatik ölçeklendirme için en iyi yöntemler öğretir
   Otomatik ölçeklendirme ayarı, maksimum, minimum ve varsayılan değer örneklerinin sahiptir.
 * Otomatik ölçeklendirme iş genişleme veya ölçek bileşenini için yapılandırılmış eşiği aşıldığında değilse denetimi tarafından ölçeklendirmek için ilişkili ölçüm her zaman okur. Listesini görüntüleyebileceğiniz ölçümlerini, otomatik ölçeklendirme tarafından adresindeki ölçeklendirebilirsiniz [Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri](insights-autoscale-common-metrics.md).
 * Tüm eşikler bir örnek düzeyinde hesaplanır. Örneğin, "ölçek dışarı 1 örneği tarafından ne zaman ortalama CPU > % 80'e örnek sayısı 2 olduğunda", ortalama CPU tüm örneklerde % 80 ' büyük olduğunda genişleme anlamına gelir.
-* Her zaman e-posta yoluyla bildirimleri hatası alırsınız. Özellikle, sahibi, Katkıda Bulunanlar ve okuyucular hedef kaynağın e-posta alırsınız. Ayrıca her zaman aldığınız bir *kurtarma* otomatik ölçeklendirme bir hatadan kurtarır ve düzgün çalışan başladığında e-posta.
-* Size e-posta ve Web kancalarını başarılı ölçek eylemi bildirim almak için katılımı.
+* Tüm otomatik ölçeklendirme hataları etkinlik günlüğüne kaydedilir. Ardından yapılandırabileceğiniz bir [etkinlik günlüğü Uyarısı](./monitoring-activity-log-alerts.md) böylece e-posta aracılığıyla, SMS, Web kancası, otomatik ölçeklendirme başarısız olduğunda vb. bildirilebilir.
+* Benzer şekilde, tüm başarılı ölçeklendirme eylemi etkinlik günlüğü nakledilir. E-posta aracılığıyla, SMS, Web kancalarını vb. başarılı otomatik ölçeklendirme eylemi olduğunda size bildirilebilir böylece daha sonra bir etkinlik günlüğü uyarı yapılandırabilirsiniz. Otomatik ölçeklendirme ayarında bildirimleri sekmesi aracılığıyla başarılı ölçeklendirme eylemi için bildirim almak için e-posta veya Web kancası bildirimleri de yapılandırabilirsiniz.
 
 ## <a name="autoscale-best-practices"></a>Otomatik ölçeklendirme en iyi uygulamalar
 Otomatik ölçeklendirme kullanırken aşağıdaki en iyi yöntemleri kullanın.
@@ -40,7 +40,7 @@ Otomatik ölçeklendirme kullanırken aşağıdaki en iyi yöntemleri kullanın.
 En az olan bir ayarı varsa = 2, en fazla = 2 ve geçerli örnek sayısı, 2, herhangi bir ölçek eylemi oluşabilir. Kapsayıcı maksimum ve minimum örnek sayısı arasında yeterli bir kenar boşluğu tutun. Otomatik ölçeklendirme, her zaman bu sınırlar arasında ölçeklendirir.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Otomatik ölçeklendirme min ve max tarafından el ile ölçeklendirme sıfırlanır
-Bir değere üstüne veya altına en fazla örnek sayısı el ile güncelleştirirseniz, otomatik ölçeklendirme altyapısı dön (üstündeyse) veya en küçük (yüksekse) otomatik olarak ölçeklendirir. Örneğin, 3 ile 6 arasındaki bir aralıkta ayarlayın. Bir çalışan örneği varsa, otomatik ölçeklendirme altyapısı sonraki çalıştırılmasında 3 örneklerine ölçeklendirir. Benzer şekilde, bu ölçek bileşenini 8 örnekleri sonraki çalıştırılmasında 6 yedekleyin.  Otomatik ölçeklendirme kurallarını da sıfırlama sürece, el ile ölçeklendirme çok geçicidir.
+Bir değere üstüne veya altına en fazla örnek sayısı el ile güncelleştirirseniz, otomatik ölçeklendirme altyapısı dön (üstündeyse) veya en küçük (yüksekse) otomatik olarak ölçeklendirir. Örneğin, 3 ile 6 arasındaki bir aralıkta ayarlayın. Bir çalışan örneği varsa, otomatik ölçeklendirme altyapısı sonraki çalıştırılmasında 3 örneklerine ölçeklendirir. 8 örneklerine el ile ölçek ayarlarsanız, benzer şekilde, sonraki çalıştırma otomatik ölçeklendirme, geri örneklerine 6 sonraki çalıştırılmasında ölçeklendirir.  Otomatik ölçeklendirme kurallarını da sıfırlama sürece, el ile ölçeklendirme çok geçicidir.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Her zaman bir artırma ve azaltma yapan bir genişleme ve ölçek bileşenini kural bileşimi kullanın
 Otomatik ölçeklendirme ölçek maksimum veya en düşük gereksinim, kadar tek çıkışı veya, bileşeni yalnızca bir bölümü birleşimi kullanırsanız, ulaşıldı.
@@ -143,14 +143,17 @@ Diğer taraftan, CPU ise % 25 ve bellektir % 51 otomatik ölçeklendirme yapar *
 Varsayılan örnek sayısı, ölçümleri kullanılabilir olmadığında otomatik ölçeklendirme, count hizmetinize ölçeklendirir önemlidir. Bu nedenle, iş yükleriniz için güvenli bir varsayılan örnek sayısı seçin.
 
 ### <a name="configure-autoscale-notifications"></a>Otomatik ölçeklendirme bildirimleri yapılandırma
-Aşağıdaki koşullardan herhangi biri oluştuğunda otomatik ölçeklendirme kaynağının Katkıda Bulunanlar ve yöneticiler e-posta ile bildirimde bulunur.
+Aşağıdaki koşullardan herhangi biri oluştuğunda otomatik ölçeklendirme etkinlik günlüğü gönderin:
 
-* otomatik ölçeklendirme hizmeti bir eylem başarısız olur.
+* Otomatik ölçeklendirme bir ölçeklendirme işlemi sorunları
+* Otomatik ölçeklendirme hizmeti bir ölçek eylemi başarıyla tamamlanır
+* Bir ölçek eylemi almak otomatik ölçeklendirme hizmet başarısız.
 * Ölçümleri ölçek karar vermek için otomatik ölçeklendirme hizmeti kullanılabilir değil.
 * (Yeniden bir ölçek karar vermek için kullanılabilir kurtarma) ölçümleridir.
-  Yukarıdaki koşullar yanı sıra başarılı ölçeklendirme eylemi için bildirim almak için e-posta veya Web kancası bildirimleri yapılandırabilirsiniz.
-  
+
 Bir etkinlik günlüğü uyarı, otomatik ölçeklendirme altyapısı sağlığını izlemek için de kullanabilirsiniz. Örnekler için [bir etkinlik günlüğü aboneliğinizi tüm otomatik ölçeklendirme motoru işlemleri izlemek için uyarı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) veya [bir etkinlik günlüğü tüm başarısız otomatik ölçeklendirme ölçek izlemek / aboneliğinizi işlemlerini genişletmek için uyarı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+Etkinlik günlüğü uyarıları kullanarak ek olarak, otomatik ölçeklendirme ayarında bildirimleri sekmesi aracılığıyla başarılı ölçeklendirme eylemi için bildirim almak için e-posta veya Web kancası bildirimleri de yapılandırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 - [Bir etkinlik günlüğü aboneliğinizi tüm otomatik ölçeklendirme motoru işlemleri izlemek için uyarı oluştur.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -29,6 +29,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 
 | Hizmet | Şema & belgeleri |
 | --- | --- |
+| Analysis Services | Şema kullanılamaz. |
 | API Management | [API Management tanılama günlükleri](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gatewayler |[Uygulama ağ geçidi için tanılama günlükleri](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Otomasyonu |[Azure otomasyonu için günlük analizi](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,7 +46,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 | Logic Apps |[Logic Apps B2B özel izleme şeması](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Ağ Güvenlik Grupları |[Ağ güvenlik grupları (NSG’ler) için Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS koruması | Şema kullanılamaz. |
-| Kurtarma Hizmetleri | Şema kullanılamaz.|
+| Kurtarma Hizmetleri | [Azure yedekleme için veri modeli](../backup/backup-azure-reports-data-model.md)|
 | Arama |[Etkinleştirme ve arama trafiği Analytics kullanma](../search/search-traffic-analytics.md) |
 | Sunucu Yönetimi | Şema kullanılamaz. |
 | Service Bus |[Azure Service Bus tanılama günlükleri](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -56,6 +57,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 ## <a name="supported-log-categories-per-resource-type"></a>Kaynak türü başına günlük kategoriler desteklenen
 |Kaynak Türü|Kategori|Kategori görünen adı|
 |---|---|---|
+|Microsoft.aadiam/tenants|Oturum Aç|Oturum Aç|
 |Microsoft.AnalysisServices/servers|Altyapısı|Altyapısı|
 |Microsoft.AnalysisServices/servers|Hizmet|Hizmet|
 |Microsoft.ApiManagement/service|GatewayLogs|ApiManagement ağ geçidine ilgili günlükleri|
@@ -63,6 +65,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Automation/automationAccounts|JobStreams|İş akışları|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|DSC düğüm durumu|
 |Microsoft.Batch/batchAccounts|ServiceLog|Hizmet Günlükleri|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Örneğin, bant genişliği, çıkış, vb. ölçümleri uç noktanın alır.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|Fabrikanız|Ardışık Düzen etkinlik çalıştırmalarını günlüğü|
 |Microsoft.DataFactory/factories|PipelineRuns|Ardışık Düzen günlük çalışır|
@@ -90,7 +93,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.EventHub/namespaces|OperationalLogs|İşlem günlükleri|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Otomatik ölçek günlükleri|
 |Microsoft.KeyVault/vaults|AuditEvent|Denetim Günlükleri|
-|Microsoft.Logic/workflows|İş akışı WorkflowRuntime|İş akışı çalışma zamanı Tanılama Olayları|
+|Microsoft.Logic/workflows|İş akışı WorkflowRuntime|İş akışı çalışma zamanı tanılama olayları|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Tümleştirme hesap izleme olayları|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Ağ güvenlik grubu olayı|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Ağ güvenlik grubu kural sayacı|
@@ -113,7 +116,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery çoğaltılan öğeler|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery çoğaltma istatistikleri|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery kurtarma noktaları|
-|Microsoft.Search/searchServices|OperationLogs|İşlem günlükleri|
+|Microsoft.Search/searchServices|OperationLogs|İşletim Günlükleri|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|İşlem günlükleri|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Sorgu deposu çalışma zamanı istatistikleri|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Sorgu deposu bekleme istatistikleri|

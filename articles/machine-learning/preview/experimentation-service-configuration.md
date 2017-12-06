@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning deneme hizmetini yapılandırma
 
@@ -198,7 +198,7 @@ Uzak VM aşağıdaki gereksinimleri karşılaması gerekir:
 Her iki işlem hedef tanımı oluşturun ve uzak Docker tabanlı yürütmeleri için yapılandırma çalıştırmak için aşağıdaki komutu kullanabilirsiniz.
 
 ```
-az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
 ```
 
 İşlem hedef yapılandırdıktan sonra kodunuzu çalıştırmak için aşağıdaki komutu kullanabilirsiniz.
@@ -211,7 +211,7 @@ $ az ml experiment submit -c remotevm myscript.py
 İşlem için yerel Docker çalışır, benzer bir yürütme deneyimi beklemeniz gerekir böylece Uzaktan VM'ler için Docker oluşturma işlemi tam olarak aynıdır.
 
 >[!TIP]
->İlk çalıştırma için Docker görüntü oluşturma tarafından sunulan gecikme önlemek tercih ederseniz, komut yürütülmeden önce işlem hedef hazırlamak için aşağıdaki komutu kullanabilirsiniz. az ml deneme - c hazırlama<remotedocker>
+>İlk çalıştırma için Docker görüntü oluşturma tarafından sunulan gecikme önlemek tercih ederseniz, komut yürütülmeden önce işlem hedef hazırlamak için aşağıdaki komutu kullanabilirsiniz. az ml deneme - c remotedocker hazırlama
 
 
 _**Uzak vm yürütme bir Python komut dosyası için genel bakış:**_
@@ -221,12 +221,12 @@ _**Uzak vm yürütme bir Python komut dosyası için genel bakış:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Bir Hdınsight kümesine betik çalıştırma
 Hdınsight Apache Spark destekleyen büyük veri analizi için popüler bir platformdur. Çalışma ekranı Hdınsight Spark kümeleri kullanarak büyük veri üzerinde deneme sağlar. 
 
->! [NOT] Hdınsight kümesi birincil depolama alanı olarak Azure Blob kullanmanız gerekir. Azure Data Lake storage kullanarak henüz desteklenmiyor.
+>![NOT] HDInsight kümesi birincil depolama olarak Azure Blob kullanmalıdır. Azure Data Lake depolamanın kullanılması henüz desteklenmemektedir.
 
 Bir işlem hedef oluşturun ve aşağıdaki komutu kullanarak Hdınsight Spark kümesinde yapılandırmanın çalıştırın:
 
 ```
-$ az ml computetarget attach --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword" --type cluster 
+$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
 ```
 
 >[!NOTE]
@@ -253,6 +253,29 @@ _**Hdınsight tabanlı yürütme PySpark komut dosyası için genel bakış**_
 ## <a name="running-a-script-on-gpu"></a>GPU üzerinde bir komut dosyası çalıştırma
 Komut dosyalarınızı GPU üzerinde çalıştırmak için bu makaledeki yönergeleri takip edebilirsiniz:[GPU Azure Machine Learning ile kullanma](how-to-use-gpu.md)
 
+## <a name="using-ssh-key-based-authentication-for-creating-and-using-compute-targets"></a>Oluşturma ve işlem hedefleri kullanmak için SSH anahtarı tabanlı kimlik doğrulama kullanılarak
+Azure Machine Learning çalışma ekranı oluşturmak ve SSH anahtarı tabanlı kimlik doğrulaması kullanıcı adı/parola tabanlı düzeni yanı sıra kullanarak işlem hedeflerini kullanmanıza olanak sağlar. Remotedocker veya küme işlem hedef olarak kullanırken, bu özelliği kullanabilirsiniz. Bu düzen kullandığınızda, çalışma ekranı ortak/özel anahtar çifti oluşturur ve ortak anahtar geri raporlar. Ortak anahtar için kullanıcı adınızı ~/.ssh/authorized_keys dosyaları ekleyin. Azure Machine Learning çalışma ekranı sonra kullanır ssh erişmek ve bu işlem hedefte yürütme anahtar tabanlı kimlik doğrulaması. Çalışma alanı için bir anahtar deposunda işlem hedef özel anahtarı kaydedildikten sonra diğer kullanıcıların çalışma alanının işlem hedef işlem hedef oluşturmak için sağlanan kullanıcı adını sağlayarak aynı şekilde kullanabilirsiniz.  
+
+Bu işlevselliği kullanmak için aşağıdaki adımları izleyin. 
+
+- Aşağıdaki komutlardan birini kullanarak bir işlem hedef oluşturun.
+
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+```
+or
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
+```
+- Ekli işlem hedefte ~/.ssh/authorized_keys dosyaya çalışma ekranı tarafından oluşturulan ortak anahtarı ekleyin. 
+
+[!IMPORTANT] İşlem hedef oluşturmak için kullanılan aynı kullanıcı adı kullanarak işlem hedef bağlanmanız gerekir. 
+
+- Şimdi, hazırlamak ve SSH anahtar tabanlı kimlik doğrulaması kullanarak işlem hedef kullanın.
+
+```
+az ml experiment prepare -c remotevm
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Oluşturun ve Azure Machine Learning yükleyin](quickstart-installation.md)
