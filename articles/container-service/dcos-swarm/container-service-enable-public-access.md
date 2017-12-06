@@ -1,28 +1,22 @@
 ---
-title: "Azure DC/OS kapsayıcı uygulama erişimi etkinleştir | Microsoft Docs"
+title: "Azure DC/OS kapsayıcı uygulama erişimi etkinleştir"
 description: "Azure kapsayıcı hizmeti DC/OS kapsayıcılarında genel erişimi etkinleştirmek nasıl."
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Azure kapsayıcı hizmeti uygulamanın genel erişimi etkinleştir
+
 ACS herhangi bir DC/OS kapsayıcısına [ortak aracı havuzu](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) otomatik olarak internet erişimine açıktır. Varsayılan olarak, bağlantı noktaları **80**, **443**, **8080** açık olan ve bu bağlantı noktalarını dinler tüm (Genel) kapsayıcı erişilebilir. Bu makalede daha fazla bağlantı noktalarının, uygulamalarınız için Azure kapsayıcı Hizmeti'nde nasıl açılacağı gösterilmektedir.
 
 ## <a name="open-a-port-portal"></a>Bağlantı noktası (portal) açın
@@ -43,7 +37,7 @@ ACS herhangi bir DC/OS kapsayıcısına [ortak aracı havuzu](container-service-
    | Ad |Yoklama, açıklayıcı bir ad. |
    | Bağlantı noktası |Test etmek için kapsayıcı bağlantı noktası. |
    | Yol |(HTTP modunda olduğunda) Araştırma göreli Web sitesi yolu. HTTPS desteklenmiyor. |
-   | aralığı |Araştırma arasındaki süreyi saniye cinsinden çalışır. |
+   | Aralık |Araştırma arasındaki süreyi saniye cinsinden çalışır. |
    | Sağlıksız durum eşiği. |Arka arkaya araştırma sayısı kapsayıcı sağlıksız olduğunu düşünmeden önce çalışır. |
 6. Geri aracı yük dengeleyicinin, Özellikler **Yük Dengeleme kuralları** ve ardından **Ekle**.
    

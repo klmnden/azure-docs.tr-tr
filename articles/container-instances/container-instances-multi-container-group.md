@@ -1,41 +1,33 @@
 ---
-title: "Azure kapsayıcı örnekleri - birden çok kapsayıcı grubu | Azure belgeleri"
-description: "Azure kapsayıcı örnekleri - birden çok kapsayıcı grubu"
+title: "Azure kapsayıcı örnekleri gruplarında çok kapsayıcı dağıtma"
+description: "Azure kapsayıcı örnekleri birden çok kapsayıcı kapsayıcı grubuyla dağıtmayı öğrenin."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Kapsayıcı grubu dağıtma
 
-Azure kapsayıcı örnekleri birden çok kapsayıcı kullanarak tek bir ana bilgisayar üzerine dağıtımını destekleyen bir *kapsayıcı grubu*. Bu günlüğe kaydetme, izleme veya başka bir yapılandırma için bir uygulama sepet oluştururken bir hizmetin ikinci bir bağlı işlem nerede ihtiyaç yararlıdır. 
+Azure kapsayıcı örnekleri birden çok kapsayıcı kullanarak tek bir ana bilgisayar üzerine dağıtımını destekleyen bir *kapsayıcı grubu*. Bu günlüğe kaydetme, izleme veya başka bir yapılandırma için bir uygulama sepet oluştururken bir hizmetin ikinci bir bağlı işlem nerede ihtiyaç yararlıdır.
 
 Bu belge, Azure Resource Manager şablonu kullanarak basit çok kapsayıcı sepet yapılandırma çalıştıran anlatılmaktadır.
 
 ## <a name="configure-the-template"></a>Şablon yapılandırma
 
-Adlı bir dosya oluşturun `azuredeploy.json` ve aşağıdaki json dosyasını buraya kopyalayın. 
+Adlı bir dosya oluşturun `azuredeploy.json` ve aşağıdaki json dosyasını buraya kopyalayın.
 
-Bu örnekte, bir kapsayıcı grubu iki kapsayıcıları ve genel bir IP adresi ile tanımlanır. İlk kapsayıcı grubunun Internet karşılıklı uygulamasını çalıştırır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar. 
+Bu örnekte, bir kapsayıcı grubu iki kapsayıcıları ve genel bir IP adresi ile tanımlanır. İlk kapsayıcı grubunun Internet karşılıklı uygulamasını çalıştırır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar.
 
-Bu sepet örnek, bir HTTP yanıt kodu 200 dışında Tamam aldıysanız, bir uyarıyı tetiklemek için genişletilemiyor. 
+Bu sepet örnek, bir HTTP yanıt kodu 200 dışında Tamam aldıysanız, bir uyarıyı tetiklemek için genişletilemiyor.
 
 ```json
 {
@@ -46,7 +38,7 @@ Bu sepet örnek, bir HTTP yanıt kodu 200 dışında Tamam aldıysanız, bir uya
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ az group create --name myResourceGroup --location westus
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Birkaç saniye içinde Azure'dan ilk yanıt alırsınız. 
+Birkaç saniye içinde Azure'dan ilk yanıt alırsınız.
 
 ## <a name="view-deployment-state"></a>Dağıtım durumunu görüntüle
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Günlükleri görüntüle   
+## <a name="view-logs"></a>Günlükleri görüntüle
 
-Kullanarak bir kapsayıcı günlük çıktısını görüntüleyin `az container logs` komutu. `--container-name` Bağımsız değişkeni günlüklerini kapsayıcıyı belirtir. Bu örnekte, ilk kapsayıcı belirtilir. 
+Kullanarak bir kapsayıcı günlük çıktısını görüntüleyin `az container logs` komutu. `--container-name` Bağımsız değişkeni günlüklerini kapsayıcıyı belirtir. Bu örnekte, ilk kapsayıcı belirtilir.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

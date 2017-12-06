@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory v2.0 uç | Microsoft Docs"
-description: "Microsoft Account ve Azure Active Directory oturum açma ile uygulamaları oluşturmaya giriş bilgileri."
+description: "Microsoft Account ve Azure Active Directory oturum açma ile uygulamaları oluşturmak için bir giriş."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,42 +15,40 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bd090450fad0be855240788c4cfa9dc58c1c4c6d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Oturum açma Microsoft Account & Azure AD kullanıcıların tek bir uygulamada
-Geçmişte, hem kişisel Microsoft hesaplarını destekler ve iş hesaplarını Azure Active Directory'den isteyen uygulama geliştiricisi iki ayrı sistemlerle tümleştirmek için gereklidir.  **Azure AD v2.0 uç** her iki türdeki bir basit tümleştirmesi kullanılarak hesaba oturum olanak tanıyan yeni bir kimlik doğrulama API sürümü tanıtır.  V2.0 uç noktası kullanan uygulamalar, REST API'lerinin ayrıca tüketebileceği [Microsoft Graph](https://graph.microsoft.io) ya da türde bir hesabı kullanarak.
+# <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Microsoft Account hem de Azure Active Directory'de kullanıcılar tek bir uygulamada oturum
+Geçmişte, hem kişisel Microsoft hesaplarını destekler ve iş hesaplarını Azure Active Directory'den isteyen uygulama geliştiricileri iki ayrı sistemlerle tümleştirmek gerekiyordu. Azure Active Directory (Azure AD) v2.0 uç noktası bu işlemi basitleştirir yeni bir kimlik doğrulama API sürümü tanıtır. Tek bir tümleştirme kullanarak oturum açma hesapları her iki tür Azure AD v2.0 uç sağlar. Azure AD v2.0 uç kullanan uygulamalar, REST API'lerinin ayrıca tüketebileceği [Microsoft Graph API](https://graph.microsoft.io) ya da hesap türünü kullanarak.
 
 ## <a name="getting-started"></a>Başlarken
-En sevdiğiniz platformu bizim açık kaynak kitaplıkları ve çerçevelerini kullanarak bir uygulama oluşturmak için aşağıdaki listeden seçin.  Alternatif olarak, bir kimlik doğrulama kitaplığı kullanmadan doğrudan protokol iletilerini & Gönder için OAuth 2.0 & Openıd Connect Protokolü Belgelerimizi kullanabilirsiniz.
-
+En sevdiğiniz platformu Microsoft kullanarak bir uygulama oluşturmak için aşağıdaki listeden açık kaynak kitaplıkları ve çerçeveleri seçin. OAuth 2.0 ve Openıd Connect protokolleri, gönderip protokol iletilerini doğrudan bir kimlik doğrulama kitaplığı kullanmadan için de kullanabilirsiniz.
 <br />
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [Azure AD v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="whats-new"></a>Yenilikler
-Burada yer alan bilgiler nedir & v2.0 uç noktası ile kurulamadığı anlamak yararlı olacaktır.
+## <a name="learn-more-about-the-azure-ad-v20-endpoint"></a>Azure AD v2.0 uç hakkında daha fazla bilgi edinin
+Azure AD v2.0 uç noktası ile yapabilecekleriniz hakkında bilgi edinin:
 
-* Hakkında bilgi edinin [yapı v2.0 uç noktası ile uygulama türleri](active-directory-v2-flows.md).
-* Anlamak [sınırlamalar, sınırlamaları ve kısıtlamaları](active-directory-v2-limitations.md) v2.0 uç noktası ile.
-* Bu genel bakış videosu v2.0 uç noktası için gözden geçirin:
+* Bul [Azure AD v2.0 uç noktası ile oluşturabileceğiniz uygulama türleri](active-directory-v2-flows.md).
+* Anlamak [sınırlamalar, sınırlamaları ve kısıtlamaları](active-directory-v2-limitations.md) Azure AD v2.0 uç noktası ile.
+* Azure AD v2.0 uç genel bir bakış için bu videoyu izleyin:
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
-## <a name="reference"></a>Başvuru
-Bu bağlantılar platform derinlemesine keşfetmek için kullanışlıdır:
+## <a name="additional-resources"></a>Ek kaynaklar
+Azure AD v2.0 uç noktası platformu hakkında ayrıntılı bilgi keşfedin:
 
-* [v2.0 protokol başvurusu](active-directory-v2-protocols.md)
-* [v2.0 belirteç başvurusu](active-directory-v2-tokens.md)
-* [v2.0 Kitaplığı Başvurusu](active-directory-v2-libraries.md)
-* [Kapsamlar ve v2.0 uç onayı](active-directory-v2-scopes.md)
-* [Microsoft Graph](https://graph.microsoft.io)
+* [Azure AD v2.0 protokolleri başvurusu](active-directory-v2-protocols.md)
+* [Azure AD v2.0 başvuru belirteçleri](active-directory-v2-tokens.md)
+* [Azure AD v2.0 kimlik doğrulama kitaplıkları başvurusu](active-directory-v2-libraries.md)
+* [Kapsamlar ve Azure AD v2.0 uç onayı](active-directory-v2-scopes.md)
+* [Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> Yalnızca oturum açma iş ve Okul hesapları Azure Active Directory'den gerekiyorsa, ile başlamalı bizim [Azure AD Geliştirici Kılavuzu](active-directory-developers-guide.md).  V2.0 uç açıkça Microsoft Kişisel hesaplarında oturum açmanız gerekir geliştiriciler tarafından kullanılmaya yöneliktir.
+> Yalnızca oturum açma iş ve Okul hesapları Azure Active Directory'den gerekiyorsa, başlayın [Azure AD Geliştirici Kılavuzu](active-directory-developers-guide.md). Azure AD v2.0 uç açıkça Microsoft Kişisel hesaplarında oturum açmanız gerekir geliştiriciler tarafından kullanılmaya yöneliktir.
 
-
-[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
