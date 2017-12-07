@@ -12,11 +12,11 @@ F Serisi VM'ler, daha hızlı CPU'ya ihtiyaç duyan ancak çok fazla belleğe ve
 
 Fs serisi, Premium depolamaya ek olarak F serisinin tüm avantajlarını sağlar.
 
-## <a name="fsv2-series"></a>Fsv2-serisi
+## <a name="fsv2-series"></a>Fsv2-serisi *
 
 ACU: 195-210
 
-| Boyut             | vCPU'ın | Bellek: GiB | Yerel SSD: GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
+| Boyut             | vCPU'ın | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Orta                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Orta                                       |
@@ -25,7 +25,7 @@ ACU: 195-210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Çok yüksek                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Çok yüksek                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Çok yüksek                                 |
-
+* Fsv2-serisi VM'in Intel® Hyper-Threading Teknolojisi özelliği
 
 ## <a name="fs-series"></a>Fs Serisi*
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 5cad44dc7bf415002b3c9872fffdcf0d54bb6ad6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e59528df6a66979c3fc2f596e3e94c1f51f0111
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Grup Yönetimi için Azure Active Directory sürüm 2 cmdlet'leri
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Bu makale, Azure Active Directory'de (Azure AD), grupları yönetmek için PowerShell kullanma örnekleri içerir.  Bu ayrıca, Azure AD PowerShell modülü ile ayarlanmasını anlatır. İlk olarak, şunları yapmalısınız [Azure AD PowerShell modülünü indirin](https://www.powershellgallery.com/packages/AzureAD/).
 
-## <a name="installing-the-azure-ad-powershell-module"></a>Azure AD PowerShell modülü yükleniyor
+## <a name="install-the-azure-ad-powershell-module"></a>Azure AD PowerShell modülünü yükleyin
 Azure AD PowerShell modülünü yüklemek için aşağıdaki komutları kullanın:
 
     PS C:\Windows\system32> install-module azuread
@@ -46,7 +46,7 @@ Modül yüklendiğini doğrulamak için aşağıdaki komutu kullanın:
 
 Şimdi modüldeki cmdlet'ler kullanmaya başlayabilirsiniz. Azure AD modüldeki cmdlet'ler tam bir açıklaması için lütfen için çevrimiçi başvuru belgelerine bakın [Azure Active Directory PowerShell sürüm 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## <a name="connecting-to-the-directory"></a>Dizinine bağlanma
+## <a name="connect-to-the-directory"></a>Dizinine bağlanma
 Azure AD PowerShell cmdlet'lerini kullanarak gruplarını yönetme başlamadan önce yönetmek istediğiniz dizine PowerShell oturumunuzun bağlanmanız gerekir. Aşağıdaki komutu kullanın:
 
     PS C:\Windows\system32> Connect-AzureAD
@@ -59,8 +59,10 @@ Cmdlet, dizininize erişim için kullanmak istediğiniz kimlik bilgilerini ister
 
 Şimdi dizininizde grupları yönetmek için Azuread'i cmdlet'leri kullanmaya başlayabilirsiniz.
 
-## <a name="retrieving-groups"></a>Grupları alınıyor
-Var olan grupları dizininizden almak için Get-AzureADGroups cmdlet'ini kullanabilirsiniz. Dizindeki tüm grupları almak için parametresiz cmdlet'i kullanın:
+## <a name="retrieve-groups"></a>Grupları alma
+Var olan grupları dizininizden almak için Get-AzureADGroups cmdlet'ini kullanın. 
+
+Dizindeki tüm grupları almak için parametresiz cmdlet'i kullanın:
 
     PS C:\Windows\system32> get-azureadgroup
 
@@ -108,14 +110,14 @@ Belirli bir grup kullanmak için arama yapabilirsiniz filtre parametresi. Bu par
     SecurityEnabled              : True
 
 > [!NOTE] 
-> Azuread'i PowerShell cmdlet'leri OData sorgu standart uygulayın. Daha fazla bilgi için bkz: **$filter** içinde [OData uç noktasını kullanarak OData sorgu seçeneklerinin](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> Azure AD PowerShell cmdlet'leri OData sorgu standart uygulayın. Daha fazla bilgi için bkz: **$filter** içinde [OData uç noktasını kullanarak OData sorgu seçeneklerinin](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
 
-## <a name="creating-groups"></a>Grupları oluşturma
+## <a name="create-groups"></a>Grupları oluşturma
 Dizininizde yeni bir grup oluşturmak için New-AzureADGroup cmdlet'ini kullanın. Bu cmdlet "Pazarlama" adlı yeni bir güvenlik grubu oluşturur:
 
     PS C:\Windows\system32> New-AzureADGroup -Description "Marketing" -DisplayName "Marketing" -MailEnabled $false -SecurityEnabled $true -MailNickName "Marketing"
 
-## <a name="updating-groups"></a>Güncelleştirme grupları
+## <a name="update-groups"></a>Güncelleştirme grupları
 Varolan bir grubu güncelleştirmek için Set-AzureADGroup cmdlet'ini kullanın. Bu örnekte, biz "Intune yöneticileri" grubu DisplayName özelliğini değiştirirsiniz İlk olarak, biz Get-AzureADGroup cmdlet'ini kullanarak Grup bulma ve DisplayName özniteliği kullanarak Filtrele:
 
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -160,18 +162,20 @@ Ardından, biz yeni değer "Intune cihaz yöneticileri" Description özelliği d
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-## <a name="deleting-groups"></a>Grup silme
+## <a name="delete-groups"></a>Grupları sil
 Dizininizden grubunu silmek için Remove-AzureADGroup cmdlet'ini aşağıdaki şekilde kullanın:
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="managing-members-of-groups"></a>Grupların üyeleri yönetme
-Bir gruba yeni üye eklemek gerekiyorsa, Add-AzureADGroupMember cmdlet'ini kullanın. Bu komut, önceki örnekte kullandık Intune Administrators grubuna üye ekler:
+## <a name="manage-group-membership"></a>Grup üyeliğini yönet 
+### <a name="add-members"></a>Üye ekle
+Bir gruba yeni üye eklemek için Add-AzureADGroupMember cmdlet'ini kullanın. Bu komut, önceki örnekte kullandık Intune Administrators grubuna üye ekler:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
 -ObjectID parametre biz üye eklemek istediğiniz grubu objectID ve - RefObjectId biz gruba üye olarak eklemek istediğiniz kullanıcının objectID.
 
+### <a name="get-members"></a>Üyeleri Al
 Varolan bir grubu üyeleri almak için bu örnekte olduğu gibi Get-AzureADGroupMember cmdlet'ini kullanın:
 
     PS C:\Windows\system32> Get-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
@@ -181,11 +185,13 @@ Varolan bir grubu üyeleri almak için bu örnekte olduğu gibi Get-AzureADGroup
                           72cd4bbd-2594-40a2-935c-016f3cfeeeea User
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
+### <a name="remove-members"></a>Üye kaldırma
 Gruba daha önce eklediğimiz üye kaldırmak için aşağıda gösterildiği gibi Remove-AzureADGroupMember cmdlet'i kullanın:
 
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-Bir kullanıcının grup üyelikleri doğrulamak için Select AzureADGroupIdsUserIsMemberOf cmdlet'ini kullanın. Bu cmdlet, parametre olarak grup üyeliklerini Denetlenecek olan kullanıcının objectID ve grup üyeliklerini denetlemek üzere listesini alır. "Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck" türünde bir karmaşık değişken formunda, böylece biz öncelikle bir değişken bu türüyle oluşturmanız gerekir sağlanan gruplarının listesini olması gerekir:
+### <a name="verify-members"></a>Üyeleri doğrulayın
+Bir kullanıcı grup üyeliklerini doğrulamak için Select AzureADGroupIdsUserIsMemberOf cmdlet'ini kullanın. Bu cmdlet, parametre olarak grup üyeliklerini Denetlenecek olan kullanıcının objectID ve grup üyeliklerini denetlemek üzere listesini alır. "Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck" türünde bir karmaşık değişken formunda, böylece biz öncelikle bir değişken bu türüyle oluşturmanız gerekir sağlanan gruplarının listesini olması gerekir:
 
     PS C:\Windows\system32> $g = new-object Microsoft.Open.AzureAD.Model.GroupIdsForMembershipCheck
 
@@ -204,7 +210,24 @@ Ardından, bu karmaşık değişkeninin "grup kimlikleri" özniteliğinde denetl
 
 Döndürülen değer, bu kullanıcının üye olduğu grupları listesidir. Select AzureADGroupIdsContactIsMemberOf, AzureADGroupIdsGroupIsMemberOf seçin ya da seçin AzureADGroupIdsServicePrincipalIsMemberOf kullanarak grupları, belirli bir listesi için kişiler, gruplar ya da hizmet asıl adı üyeliği denetlemek için bu yöntem aynı zamanda uygulanabilir
 
-## <a name="managing-owners-of-groups"></a>Grupları sahiplerini yönetme
+## <a name="disable-group-creation-by-your-users"></a>Grup oluşturma, kullanıcı tarafından devre dışı bırak
+Güvenlik grupları oluşturma, yönetici olmayan kullanıcıların engelleyebilirsiniz. Microsoft Online Dizin Hizmetleri (MSODS) içinde varsayılan davranışı, yönetici olmayan kullanıcıların gruplar oluşturmasına, Self Servis Grup Yönetimi (SSGM) da etkin olup olmadığını izin vermektir. SSGM ayarı yalnızca My uygulamaları erişim panelinde davranışını denetler. 
+
+Yönetici olmayan kullanıcılar için Grup oluşturma devre dışı bırakmak için:
+
+1. Yönetici olmayan kullanıcıların gruplar oluşturmasına izin verileceğini doğrulayın:
+   
+  ````
+  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+  ````
+  
+2. Döndürürse `UsersPermissionToCreateGroupsEnabled : True`, ardından yönetici olmayan kullanıcıların gruplar oluşturabilirsiniz. Bu özellik devre dışı bırakmak için:
+  
+  ```` 
+  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+  ````
+  
+## <a name="manage-owners-of-groups"></a>Sahiplerini gruplarının Yönet
 Sahipleri bir gruba eklemek için Add-AzureADGroupOwner cmdlet'i kullanın:
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -236,7 +259,7 @@ Bir grup, uç noktaları mailNickname veya e-posta adresi grubunun bir parçası
 * Yöneticisi 
 * kök 
 * Güvenli 
-* Güvenlik 
+* güvenlik 
 * SSL-Yönetim 
 * Web Yöneticisi 
 

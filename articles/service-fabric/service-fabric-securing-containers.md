@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 3e41e293cc5340c0e32cf2cc6ef7ab7534330884
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c18c2b3b0d271f2dbe4f247c132850b49d8f1d9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="container-security"></a>Kapsayıcı güvenlik
 
@@ -36,13 +36,13 @@ Bir sertifika belirterek, kapsayıcı hizmetlerini güvenliğini sağlayabilirsi
 
 Uygulama başlatılırken windows kümeleri, çalışma zamanı sertifikaları okur ve bir PFX dosyası ve her sertifika için parola oluşturur. Bu PFX dosyası ve parola, aşağıdaki ortam değişkenlerini kullanma kapsayıcısı içindeki erişilebilir: 
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PFX**
-* **Certificate_ServicePackageName_CodePackageName_CertName_Password**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PFX**
+* **Certificates_ServicePackageName_CodePackageName_CertName_Password**
 
 Linux kümeleri için certificates(PEM) yalnızca kopyalanır üzerinden kapsayıcı X509StoreName tarafından belirtilen deposundan. Linux üzerinde karşılık gelen ortam değişkenleri şunlardır:
 
-* **Certificate_ServicePackageName_CodePackageName_CertName_PEM**
-* **Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PEM**
+* **Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey**
 
 Alternatif olarak, zaten gerekli biçiminde sertifikalar varsa ve yalnızca kapsayıcısı içindeki erişmek istediğiniz uygulama paketinizi bir veri paketi oluşturabilir ve aşağıdakileri belirtin, uygulama bildiriminizi içine:
 
@@ -54,8 +54,8 @@ Alternatif olarak, zaten gerekli biçiminde sertifikalar varsa ve yalnızca kaps
 Kapsayıcı hizmeti veya işlem kapsayıcıya sertifika dosyalarını içeri aktarmak için sorumludur. Sertifikayı içeri aktarmak için kullanabilirsiniz `setupentrypoint.sh` komut dosyaları veya kapsayıcı işlemi içinde özel kod yürütün. C# örnek kod PFX dosyasını içeri aktarmak için aşağıdaki gibidir:
 
 ```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificates_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);

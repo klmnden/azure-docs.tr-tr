@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure işlevleri Java Geliştirici Kılavuzu
 > [!div class="op_single_selector"]
@@ -39,8 +39,8 @@ CosmosDB | Yok
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 Mobile Apps | Yok
 Notification Hubs | Yok
-Depolama blobu | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
-Depolama sırası | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
+Depolama blobu | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
+Depolama Kuyruğu | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Depolama tablosu | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Zamanlayıcı | <ul><li>`TimerTrigger`</li></ul>
 Twilio | Yok
@@ -156,7 +156,7 @@ Kullanım `OutputBinding<byte[]>` bir ikili çıktıyı bağlaması yapma türü
 
 Aşırı yükleme işlevi yöntemleri aynı adı ile ancak farklı türleri için izin verilir. Örneğin, her ikisi de sağlayabilirsiniz `String echo(String s)` ve `String echo(MyType s)` bir sınıf ve Azure işlevleri çalışma zamanı tarafından çağrılacak hangisinin inceleyin gerçek giriş türü karar (HTTP giriş, MIME türü için `text/plain` için müşteri adayları `String` sırada `application/json` temsil eden `MyType`).
 
-## <a name="inputs"></a>Girişleri
+## <a name="inputs"></a>Girişler
 
 Azure işlevlerinin iki kategoriye giriş bölünen: Tetikleyici giriş biridir ve diğer ek giriş olabilir. Farklı olmasına rağmen `function.json`, kullanım Java kodda aynıdır. Aşağıdaki kod parçacığını bir örnek olarak atalım:
 
@@ -213,7 +213,7 @@ public class MyClass {
 
 Bu işlev çağrıldığında, HTTP isteği yükü isteğe başarılı şekilde `String` bağımsız değişkeni için `in` ve bir Azure Table Storage `MyObject` türü geçirilen bağımsız değişken `obj`. Kullanım `Optional<T>` null olabilir işlevlerinizi girişleri işlemek için türü.
 
-## <a name="outputs"></a>Çıkışları
+## <a name="outputs"></a>Çıkışlar
 
 Çıkış hem dönüş değeri veya çıkış parametreleri ifade edilebilir. Yalnızca bir çıktı ise, dönüş değeri kullanmak için önerilir. Birden çok çıkışlar için çıkış parametreleri kullanmak zorunda.
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 08503a7f6f32125c324173636dbda0548f3ccb8c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Kapsayıcıları için Web uygulaması için özel bir Docker görüntü kullanın
 
@@ -84,7 +84,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 
 Komutu, aşağıdakine benzer bir çıktı üretir:
 
-```bash
+```
 # The output from the commands in this article has been shortened for brevity.
 
 Sending build context to Docker daemon  5.558MB
@@ -130,7 +130,7 @@ Bir kayıt defteri görüntüleri barındıran ve Hizmetleri görüntü ve kapsa
 
 Docker hub'a genel veya özel kendi depoları barındırmak izin veren bir kayıt defteri Docker görüntüleri için ' dir. Ortak Docker hub'a özel Docker görüntü göndermek için kullanmanız [docker itme](https://docs.docker.com/engine/reference/commandline/push/) komut ve tam görüntü adı ve etiketi belirtin. Tam görüntü adı ve etiket aşağıdaki örnek gibi görünür:
 
-```bash
+```
 <docker-id>/image-name:tag
 ```
 
@@ -143,12 +143,12 @@ docker login --username <docker-id> --password <docker-hub-password>
 "Oturum açma başarılı oldu" iletisi, oturum açtığınız onaylar. Oturum açtıktan sonra Docker hub'ı kullanarak görüntü gönderebilir [docker itme](https://docs.docker.com/engine/reference/commandline/push/) komutu.
 
 ```bash
-docker push <docker-id>/mydockerimage:v1.0.0 .
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
 Komut inceleyerek başarılı itme çıkışını olduğunu doğrulayın.
 
-```bash
+```
 The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
 c33197c3f6d4: Pushed
 ccd2c850ee43: Pushed
@@ -314,7 +314,7 @@ top
 
 `top` Komutu bir kapsayıcıdaki tüm çalışan işlemleri gösterir.
 
-```bash
+```
 PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
  1 root      20   0  945616  35372  15348 S  0.0  2.1   0:04.63 node
 20 root      20   0   55180   2776   2516 S  0.0  0.2   0:00.00 sshd
@@ -343,7 +343,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 Komut yapılandırma değişikliği başarılı olduğunu gösteren aşağıdaki JSON dizeye benzer bir çıktı ortaya çıkarır:
 
-```bash
+```json
 [
   {
     "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
@@ -383,7 +383,7 @@ az acr create --name <azure-container-registry-name> --resource-group myResource
 
 Bir kapsayıcı oluşturma şu çıkışı üretir:
 
-```bash
+```
  - Finished ..
 Create a new service principal and assign access:
   az ad sp create-for-rbac --scopes /subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name> --role Owner --password <password>
@@ -447,6 +447,12 @@ Oturum açma başarılı olduğunu onaylayın.
 
 ### <a name="push-an-image-to-azure-container-registry"></a>Görüntüyü Azure kapsayıcı kayıt defterine bildirme
 
+> [!NOTE]
+> Kendi görüntünüzü kullanıyorsanız, aşağıdaki gibi görüntü etiketi:
+> ```bash
+> docker tag <azure-container-registry-name>.azurecr.io/mydockerimage
+> ```
+
 Görüntü kullanarak anında iletme `docker push` komutu. Etiket ve görüntü adı ve ardından kayıt defteri ada sahip bir görüntü etiketi.
 
 ```bash
@@ -505,7 +511,7 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 
 Komut yapılandırma değişikliği başarılı olduğunu gösteren aşağıdaki JSON dizeye benzer bir çıktı ortaya çıkarır:
 
-```bash
+```json
 [
   {
     "name": "DOCKER_CUSTOM_IMAGE_NAME",

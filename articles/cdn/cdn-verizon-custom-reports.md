@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon'dan özel raporlar
 
@@ -30,7 +30,7 @@ Verizon profillerini Verizon özel raporları Yönet portalı yoluyla kullanarak
 ## <a name="accessing-verizon-custom-reports"></a>Verizon özel raporlar erişme
 1. CDN profili dikey penceresinden tıklayın **Yönet** düğmesi.
    
-    ![CDN profili dikey penceresi yönetmek düğmesi](./media/cdn-reports/cdn-manage-btn.png)
+    ![CDN profili Yönet düğmesi](./media/cdn-reports/cdn-manage-btn.png)
    
     CDN Yönetim Portalı'nı açar.
 2. Üzerine gelerek **Analytics** sekmesini ve ardından üzerine gelerek **özel raporlar** çıkma. Tıklatın **kenar CNAME'ler**.
@@ -74,11 +74,11 @@ Sağındaki Excel simgesini tıklatarak verileri Excel biçiminde dışarı akta
 | 4xx                       | İstekleri ya da aktarılan veriler (MB) bir 4xx HTTP durum kodunu sonuçları CNAME kenar için toplam sayısını gösterir (örneğin, 400 Hatalı istek, 403 Yasak veya 404 bulunamadı). |
 | 5XX                       | Kenarın bir 5xx HTTP durum kodunu (örneğin, 500 İç sunucu hatası veya hatalı 502 ağ geçidi) sonuçları CNAME için istekleri ya da aktarılan veriler (MB) toplam sayısını gösterir. |
 | İsabetli Önbellek Okuma Yüzdesi               | Doğrudan önbelleğinden istemciye sunulduğunu alınabilir isteklerinin yüzdesini gösterir. |
-| İsabetli Önbellek okuma sayısı                | İstekleri ya da aktarılan veriler (MB) bir önbellek isabet (örneğin, TCP_EXPIRED_HIT, TCP_HIT veya TCP_PARTIAL_HIT) sonuçları CNAME kenar için toplam sayısını gösterir. İstenen içerik önbelleğe alınmış bir sürümü bulunan bir önbellek isabet oluşur. |
+| İsabetli Önbellek Okuma Sayısı                | İstekleri ya da aktarılan veriler (MB) bir önbellek isabet (örneğin, TCP_EXPIRED_HIT, TCP_HIT veya TCP_PARTIAL_HIT) sonuçları CNAME kenar için toplam sayısını gösterir. İstenen içerik önbelleğe alınmış bir sürümü bulunan bir önbellek isabet oluşur. |
 | Aktarılan veriler (MB)     | Toplam aktarılan veri miktarını (MB) uç sunuculardan için CNAME kenar HTTP istemcileri (web tarayıcıları) gösterir. Aktarılan veri miktarını yanıt gövdesi için HTTP yanıtı üstbilgileri ekleyerek hesaplanır. Sonuç olarak, her varlık için aktarılan veri miktarını, gerçek dosya boyutundan daha büyük. |
 | Açıklama               | Kendi ana bilgisayar adı bir çizgiyle CNAME tanımlar |
-| İsabet sayısı                      | Kenarın CNAME isteklerine toplam sayısını gösterir. |
-| İsabetsiz okuma                    | İstekleri ya da aktarılan veriler (MB) kenarın önbellek isabetsizliği (örneğin, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS veya TCP_MISS) içinde sonuçları CNAME için toplam sayısını gösterir. Önbellek isabetsizliği, istenen içerik isteği dikkate alınır uç sunucusunda önbelleğe alınmamış oluşur. | 
+| İsabetli                      | Kenarın CNAME isteklerine toplam sayısını gösterir. |
+| İsabetsiz                    | İstekleri ya da aktarılan veriler (MB) kenarın önbellek isabetsizliği (örneğin, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS veya TCP_MISS) içinde sonuçları CNAME için toplam sayısını gösterir. Önbellek isabetsizliği, istenen içerik isteği dikkate alınır uç sunucusunda önbelleğe alınmamış oluşur. | 
 | Önbellek yok                  | İstekleri ya da aktarılan veriler (MB) CONFIG_NOCACHE önbellek durum koduna sonuçları CNAME kenar için toplam sayısını gösterir.  |
 | Diğer                     | İsteklerini veya 2xx - 5xx aralık dışında kalan bir HTTP durum kodu sonuçlanır CNAME kenar için aktarılan (MB) belirtilen veri toplam sayısını gösterir. |
 | Platform                  | Edge CNAME'ın trafiğini işler platform gösterir. |

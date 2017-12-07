@@ -214,6 +214,6 @@ REST API belirtimlerini hakkında tam bilgi bulmak için lütfen inceleyin [yön
     * [Linux VM yönetilen diski](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
     * [Yönetilen disk şablonları tam listesi](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * Ziyaret [Azure yönetilen diskleri genel bakış](../articles/virtual-machines/windows/managed-disks-overview.md) belge yönetilen diskler hakkında daha fazla bilgi edinin.
-* Sanal Makine kaynakları için şablon başvuru belgeleri ziyaret ederek gözden [Microsoft.Compute/virtualMachines şablon başvurusu](/templates/microsoft.compute/virtualmachines) belge.
-* Disk kaynakları için şablon başvuru belgeleri ziyaret ederek gözden [Microsoft.Compute/disks şablon başvurusu](/templates/microsoft.compute/disks) belge.
+* Sanal Makine kaynakları için şablon başvuru belgeleri ziyaret ederek gözden [Microsoft.Compute/virtualMachines şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines) belge.
+* Disk kaynakları için şablon başvuru belgeleri ziyaret ederek gözden [Microsoft.Compute/disks şablon başvurusu](/azure/templates/microsoft.compute/disks) belge.
  

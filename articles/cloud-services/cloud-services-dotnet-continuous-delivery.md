@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 470fda7722e6a22e50ed66a7bc193fc7c9f71536
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Azure bulut Hizmetleri için devamlı teslim
 Bu makalede açıklanan işlemi Azure bulut uygulamaları için sürekli teslimini ayarlayın gösterilmiştir. Bu işlem, her kod iadesinden sonra paketleri otomatik olarak oluşturmanıza ve paketi Azure'da dağıtmanıza olanak tanır. Bu makalede açıklanan paket oluşturma işlemi eşdeğerdir **paket** Visual Studio komut ve yayımlama adımlarını eşdeğer **Yayımla** Visual Studio'da komutu.
@@ -310,7 +310,7 @@ Bu isteğe bağlı adım, TFS yayımlama Azure paketi yapı işleyen ekip 4. ad�
 12. Her iki paketi yapı yürütün ve yayımlamak için bir yapıyı sıraya al. Sürekli tümleştirme için ayarlanmış bir tetikleyici varsa, her iade Bu davranış yürütülür.
 
 ### <a name="publishcloudserviceps1-script-template"></a>PublishCloudService.ps1 komut dosyası şablonu
-```
+```powershell
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -522,7 +522,6 @@ Kesintisiz teslim kullanırken uzaktan hata ayıklamayı etkinleştirmek için b
 [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
 [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
 [Azure PowerShell cmdlets]: /powershell/azureps-cmdlets-docs
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
 [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
 [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
 [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

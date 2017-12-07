@@ -24,7 +24,7 @@ VM'ler için bağlandığınızda, onlara oturum açmak için daha güvenli bir 
 
 ## <a name="policies"></a>İlkeler
 
-[Azure Resource Manager ilkeleri](../articles/azure-resource-manager/resource-manager-policy.md) kuruluşunuzun istenen davranışını tanımlamak için kullanılan [Windows Vm'lerini](../articles/virtual-machines/windows/policy.md) ve [Linux VM'ler](../articles/virtual-machines/linux/policy.md). İlkeleri kullanarak, bir kuruluşun çeşitli kuralları ve kuruluş genelinde kuralları zorunlu kılabilir. İstenen davranışı zorlama kuruluşun başarısı için katkıda bulunan sırasında risk azaltılmasına yardımcı olur.
+[Azure ilkeleri](../articles/azure-policy/azure-policy-introduction.md) kuruluşunuzun istenen davranışını tanımlamak için kullanılan [Windows Vm'lerini](../articles/virtual-machines/windows/policy.md) ve [Linux VM'ler](../articles/virtual-machines/linux/policy.md). İlkeleri kullanarak, bir kuruluşun çeşitli kuralları ve kuruluş genelinde kuralları zorunlu kılabilir. İstenen davranışı zorlama kuruluşun başarısı için katkıda bulunan sırasında risk azaltılmasına yardımcı olur.
 
 ## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
 

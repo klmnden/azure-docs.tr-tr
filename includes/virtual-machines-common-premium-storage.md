@@ -26,7 +26,7 @@ Premium depolama ile çalışmaya başlamak için [ücretsiz Azure hesabınızı
 Premium depolama alanına, var olan sanal makineleri geçirme hakkında daha fazla bilgi için bkz [Windows VM yönetilmeyen disklerden yönetilen Diske Dönüştür](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) veya [bir Linux VM yönetilmeyen disklerden yönetilen Diske Dönüştür](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
-> Premium depolama çoğu bölgede kullanılabilir. Kullanılabilir bölgelerin listesi için [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services), hangi bölgelerde bakma desteklenen Premium destek boyutu-serisi VM'ler (DS serisi, DSV2 serisi, GS serisi ve Fs-serisi VM'ler) desteklenir.
+> Premium depolama çoğu bölgede kullanılabilir. Satır için kullanılabilir bölgelerin listesi için bkz **Disk Depolama** içinde [Azure ürünleri bölgeye göre](https://azure.microsoft.com/regions/#services).
 > 
 
 ## <a name="features"></a>Özellikler

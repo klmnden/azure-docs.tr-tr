@@ -3,8 +3,8 @@ title: "SQL veri ambarı tablolarda istatistiklerle yönetme | Microsoft Docs"
 description: "Azure SQL Data Warehouse tablolarda istatistiklerle ile çalışmaya başlama."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: 1d5ded69e394643ddfc3de0c6d30dbd30c8e848f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda istatistiklerle yönetme
 > [!div class="op_single_selector"]
@@ -421,7 +421,7 @@ AND     st.[user_created] = 1
 ## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() örnekleri
 DBCC SHOW_STATISTICS() istatistikleri nesnesi içinde tutulan verileri gösterir. Bu veriler üç bölümlerinde gelir.
 
-1. Üstbilgi
+1. Üst bilgi
 2. Yoğunluğu vektör
 3. Çubuk grafik
 

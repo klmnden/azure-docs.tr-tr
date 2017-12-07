@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Otomatik olarak süresi ile Azure Cosmos DB koleksiyonlarda verileri süresi dolacak
 Uygulamalar oluşturmak ve çok büyük miktarda veri depolayın. Bu veriler, bazı bilgiler yalnızca sınırlı bir süre için yararlıdır oluşturulan makine olay verileri, günlükler ve kullanıcı oturumu ister. Veri olduktan sonra uygulamanızın gereksinimlerine fazlalık, bu verileri temizlemek ve bir uygulamanın depolama gereksinimlerini azaltmak güvenlidir.
@@ -149,6 +149,8 @@ TTL bir koleksiyonda tamamen devre dışı bırakın ve koleksiyon DefaultTTL ö
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## <a name="ttl-and-index-interaction"></a>TTL ve dizin etkileşimi
+TTL ekleme veya değiştirme temel dizin için farklıdır. Hiçbir TTL yoktur ve geçerli bir TTL değeri - sağlamanız bu işlemi yeniden dizin sonuçlanır. Tutarlı dizini için - kullanıcı dizin durumundaki herhangi bir değişiklik görmez. Yavaş dizini - dizin tüm önce her zaman yukarı ve bu değişikliği ttl ile yakalama durumda dizini sıfırdan yeniden oluşturulur. İkinci durumda dizini yeniden oluşturma sırasında yapılan sorgular tamamlandı ya doğru sonuçlar döndürmez etkisidir. Lütfen TTL, dizin oluşturma modu kendisini yavaş olduğu gibi veri sayısı vb. tam varsa, yavaş dizini için değiştirmeyin.  İdeal olarak her zaman tutarlı dizin seçilmelidir. 
 
 ## <a name="faq"></a>SSS
 **Ne TTL bana maliyeti ne olacak?**

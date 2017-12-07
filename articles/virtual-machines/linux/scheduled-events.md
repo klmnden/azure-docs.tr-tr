@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 2df39c64470e28bdf664d388041ae1b17d80db69
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 763e690cac06fc321f7d1f873da7405c44c02b80
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler zamanlanmış olaylar (Önizleme)
 
@@ -87,7 +87,7 @@ Meta veri hizmeti sorguladığınızda başlık sağlamalısınız `Metadata:tru
 Zamanlanmış olaylar, istekte ilk kez Azure örtük olarak sanal makinenizde özelliği sağlar. Sonuç olarak, iki dakika içinde ilk çağrıda Gecikmeli yanıt beklemelisiniz.
 
 > [!NOTE]
-> Zamanlanmış olayları otomatik olarak devre dışıdır hizmetiniz için hizmet uç noktası için 1 gün değil çağırırsanız. Zamanlanmış olayları hizmetiniz için devre dışı bırakıldığında, kullanıcı tarafından başlatılan bakım için oluşturulan olaylar olmayacak.
+> Zamanlanmış olayları otomatik olarak devre dışıdır hizmetiniz için hizmet uç noktası için 1 gün değil çağırırsanız. Zamanlanmış olayları hizmetiniz için devre dışı bırakıldığında, kullanıcı tarafından başlatılan bakım için oluşturulan hiçbir olay olacaktır.
 
 ### <a name="user-initiated-maintenance"></a>Kullanıcı tarafından başlatılan bakım
 Sanal makine Bakımı Azure portalı üzerinden, API, CLI, kullanıcı tarafından başlatılan veya PowerShell zamanlanmış bir olayı sonuçlanır. Bu bakım hazırlık mantığı uygulamanıza test etmenizi sağlar ve kullanıcı tarafından başlatılan bakım için hazırlamak uygulamanızı sağlar.

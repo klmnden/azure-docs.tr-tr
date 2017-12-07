@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: c2bd67afc0c289de94019497e57b57f97a759f3a
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 1a30b42e6e84edf9a7cef861aaf6a60e87c473d0
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Azure'da yayımlamak için sürekli teslim kullanılırken uzaktan hata ayıklamayı etkinleştirme
 Kullandığınızda uzaktan Azure'da, bulut Hizmetleri ya da sanal makineleri için hata ayıklamayı etkinleştirebilirsiniz [kesintisiz teslim](cloud-services-dotnet-continuous-delivery.md) Azure için aşağıdaki adımları izleyerek yayımlamak için.
@@ -27,25 +27,28 @@ Kullandığınızda uzaktan Azure'da, bulut Hizmetleri ya da sanal makineleri i�
 1. Yapı aracısında kısmında özetlendiği gibi ilk ortamını Azure için ayarlayamıyor [komut satırı derleme Azure](http://msdn.microsoft.com/library/hh535755.aspx).
 2. Uzaktan hata ayıklama çalışma zamanı (msvsmon.exe) paket için gerekli olmadığından yükleme **uzak araçlar Visual Studio için**.
 
-    * [Visual Studio 2017 için Uzak araçları](https://go.microsoft.com/fwlink/?LinkId=746570)
-    * [Visual Studio 2015 için Uzak araçları](https://go.microsoft.com/fwlink/?LinkId=615470)
-    * [Visual Studio 2013 güncelleştirme 5 için Uzak araçları](https://www.microsoft.com/download/details.aspx?id=48156)
+   * [Visual Studio 2017 için Uzak araçları](https://go.microsoft.com/fwlink/?LinkId=746570)
+   * [Visual Studio 2015 için Uzak araçları](https://go.microsoft.com/fwlink/?LinkId=615470)
+   * [Visual Studio 2013 güncelleştirme 5 için Uzak araçları](https://www.microsoft.com/download/details.aspx?id=48156)
     
-    Alternatif olarak, Visual Studio yüklü olan bir sistemden uzaktan hata ayıklama ikili dosyalarının kopyalayabilirsiniz.
+   Alternatif olarak, Visual Studio yüklü olan bir sistemden uzaktan hata ayıklama ikili dosyalarının kopyalayabilirsiniz.
 
 3. Kısmında özetlendiği gibi bir sertifika oluşturmak [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md). RDP sertifikası parmak izi ve .pfx tutmak ve hedef bulut hizmetine sertifika yükleyin.
 4. Derleme ve etkin uzaktan hata ayıklama ile paket için MSBuild komut satırında aşağıdaki seçenekleri kullanın. (Sistem ve proje dosyalarınıza açı ayraçlı öğeleri için gerçek yolları değiştirin.)
    
-        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```cmd
+   msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
+   ```
    
-    `VSX64RemoteDebuggerPath`klasörün yolunu msvsmon.exe uzak araçlar Visual Studio için içeren.
-    `RemoteDebuggerConnectorVersion`Bulut hizmetinizde Azure SDK sürümüdür. Ayrıca Visual Studio ile yüklenen sürümüyle eşleşmesi gerekir.
+   `VSX64RemoteDebuggerPath`klasörün yolunu msvsmon.exe uzak araçlar Visual Studio için içeren.
+   `RemoteDebuggerConnectorVersion`Bulut hizmetinizde Azure SDK sürümüdür. Ayrıca Visual Studio ile yüklenen sürümüyle eşleşmesi gerekir.
+
 5. Hedef bulut hizmetine, önceki adımda oluşturulan paket ve .cscfg dosyasını kullanarak yayımlayın.
 6. Sertifikayı (.pfx dosyası) yüklü .NET için Azure SDK ile Visual Studio bulunduğu makineyi içeri aktarın. Alınacak emin olun `CurrentUser\My` sertifika deposu, aksi takdirde Visual Studio hata ayıklayıcısı ekleme başarısız olur.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>Sanal makineler için uzaktan hata ayıklama etkinleştirme
 1. Bir Azure sanal makine oluşturun. Bkz: [Windows Server çalıştıran bir sanal makine oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [Visual Studio'da Azure sanal makineler oluşturun ve yönetin](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-2. Üzerinde [Azure Klasik portal sayfası](http://go.microsoft.com/fwlink/p/?LinkID=269851), sanal makinenin görmek için sanal makinenin Panoyu görebilmek **RDP sertifikası parmak İZİ**. Bu değer için kullanılan `ServerThumbprint` uzantısı yapılandırma değeri.
+2. Azure Portal'da] (http://go.microsoft.com/fwlink/p/?LinkID=269851), sanal makinenin sanal makineye gidin **RDP sertifikası parmak İZİ**. Bu değer için kullanılan `ServerThumbprint` uzantısı yapılandırma değeri.
 3. Belirtilen bir istemci sertifikası oluşturma [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md) (.pfx ve RDP sertifikası parmak izi tutun).
 4. Azure PowerShell'i yükleyin (sürüm 0.7.4 veya sonrası) kısmında özetlendiği gibi [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
 5. RemoteDebug uzantısını etkinleştirmek için aşağıdaki betiği çalıştırın. Kişisel veri ve yolları kendi abonelik adı, hizmet adı ve parmak izi gibi değiştirin.

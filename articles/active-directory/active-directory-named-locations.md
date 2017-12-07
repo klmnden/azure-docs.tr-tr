@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory konumlarında adlı | Microsoft Docs"
-description: "Konumları adlı yapılandırarak, kuruluşunuz tarafından sahip olunan IP adreslerini oluşturmak sahip önleyebilirsiniz Impossible için hatalı pozitif sonuç seyahat alışılmadık konumlara risk olayı türü."
+description: "Ne adlı bilgi konumları olan ve bunların nasıl yapılandırılacağı."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory'de adlandırılmış konumları
 
-Azure Active Directory adlandırılmış konumlara özelliğiyle, kuruluşların güvenilir IP adres aralıklarını etiketleyebilirsiniz. Ortamınızda, adlandırılmış konumlarını algılanması bağlamında kullanabilirsiniz [risk olayları](active-directory-reporting-risk-events.md). Bu özellik için bildirilen hatalı pozitif uyarıların sayısını azaltır *Impossible seyahat alışılmadık konumlara* risk olayı türü. 
+Adlandırılmış konumlarla kuruluşunuzdaki güvenilen IP adres aralıklarını etiketleyebilirsiniz. Azure Active Directory bağlamında adlandırılmış konumlara kullanır:
 
-## <a name="configuration"></a>Yapılandırma
+- Algılanması [risk olayları](active-directory-reporting-risk-events.md) bildirilen hatalı pozitif uyarıların sayısını azaltmak için.  
 
-Adlandırılmış bir konumu yapılandırmak için:
+- [Konum temelli koşullu erişim](active-directory-conditional-access-azure-portal.md#locations).
+
+
+Bu makalede açıklanmaktadır, nasıl yapılandırabileceğiniz konumları, ortamınızdaki adlı.
+
+
+## <a name="entry-points"></a>Giriş noktaları
+
+Belirtilen konum yapılandırma sayfasında erişebilirsiniz **güvenlik** tıklatarak Azure Active Directory sayfasının bölümünde:
+
+![Giriş noktaları](./media/active-directory-named-locations/34.png)
+
+- **Koşullu erişim:**
+
+    - İçinde **Yönet** 'yi tıklatın **konumları adlı**.
+    
+        ![Adlandırılmış konumları komutu](./media/active-directory-named-locations/06.png)
+
+- **Riskli oturum açma işlemleri:**
+
+    - Üstteki araç çubuğunda tıklatın **IP adres aralıklarını bilinen Ekle**.
+
+       ![Adlandırılmış konumları komutu](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Yapılandırma örneği
+
+**Adlandırılmış bir konumu yapılandırmak için:**
 
 1. Oturum [Azure portal](https://portal.azure.com) genel yönetici olarak.
 
@@ -34,22 +62,22 @@ Adlandırılmış bir konumu yapılandırmak için:
 
     ![Sol bölmede Azure Active Directory bağlantısı](./media/active-directory-named-locations/01.png)
 
-3. Üzerinde **Azure Active Directory** dikey penceresindeki **güvenlik** 'yi tıklatın **koşullu erişim**.
+3. Üzerinde **Azure Active Directory** sayfasında **güvenlik** 'yi tıklatın **koşullu erişim**.
 
     ![Koşullu erişim komutu](./media/active-directory-named-locations/05.png)
 
 
-4. Üzerinde **koşullu erişim** dikey penceresindeki **Yönet** 'yi tıklatın **konumları adlı**.
+4. Üzerinde **koşullu erişim** sayfasında **Yönet** 'yi tıklatın **konumları adlı**.
 
     ![Adlandırılmış konumları komutu](./media/active-directory-named-locations/06.png)
 
 
-5. Üzerinde **konumları adlı** dikey penceresinde tıklatın **yeni konum**.
+5. Üzerinde **konumları adlı** sayfasında, **yeni konum**.
 
     ![Yeni konum komutu](./media/active-directory-named-locations/07.png)
 
 
-6. Üzerinde **yeni** dikey penceresinde aşağıdakileri yapın:
+6. Üzerinde **yeni** sayfasında, aşağıdakileri yapın:
 
     ![Yeni bir dikey pencere](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Adlandırılmış bir konumu yapılandırmak için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Risk olaylar hakkında daha fazla bilgi için bkz: [Azure Active Directory risk olaylarını](active-directory-reporting-risk-events.md).
+Daha fazla bilgi edinmek için:
 
+- **Risk olayları**, bkz: [Azure Active Directory risk olaylarını](active-directory-reporting-risk-events.md).
+
+- **Koşullu erişim**, bkz: [koşullu erişim Azure Active Directory'de](active-directory-conditional-access-azure-portal.md).
+
+- **Riskli oturum açma işlemleri raporları**, bkz: [riskli oturum açma işlemleri raporu Azure Active Directory portalında](active-directory-reporting-security-risky-sign-ins.md).  

@@ -8,11 +8,13 @@
 | HTTP Dinleyicileri |20 | |
 | HTTP yük dengeleme kuralları |200 |HTTP dinleyicileri sayısı * n, n = 10 varsayılan |
 | Arka uç HTTP ayarları |20 |Arka Uç Adres Havuzu başına 1 |
-| Ağ geçidi başına örnek |10 | |
+| Ağ geçidi başına örnek |10 | Daha fazla örnekleri için destek bileti açın |
 | SSL sertifikaları |20 |HTTP Dinleyicileri başına 1 |
 | Kimlik doğrulama sertifikaları |5 | En fazla 10 |
 | Zaman aşımı min isteği |1 saniye | |
 | İstek zaman aşımına max |24 saat | |
 | Site sayısı |20 |HTTP Dinleyicileri başına 1 |
 | Dinleyici başına URL Eşlemeleri |1 | |
+| En büyük dosya karşıya yükleme boyutu standart |2 GB | |
+| En büyük dosya karşıya yükleme boyutu WAF |100 MB| |
 

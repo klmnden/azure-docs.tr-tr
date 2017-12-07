@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Widevine lisans şablonu genel bakış
-## <a name="overview"></a>Genel Bakış
-Azure Media Services artık ve Widevine lisansları istek yapılandırmanıza olanak sağlar. Son kullanıcı player korumalı Widevine içeriğinizi oynatma denediğinde, bir istek lisans edinmeye yönelik lisans teslimat hizmeti gönderilir. Lisans hizmeti isteği onaylarsa, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriği yürütmek için kullanılan lisans verir.
+Azure Media Services ve Widevine lisansları istek yapılandırmanıza olanak sağlar. Son kullanıcı player korumalı Widevine içeriğinizi oynatma denediğinde, bir istek lisans edinmeye yönelik lisans teslimat hizmeti gönderilir. Lisans hizmeti isteği onaylarsa, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriği yürütmek için kullanılan lisans verir.
 
 Widevine lisans isteği bir JSON iletisi olarak biçimlendirilir.  
 
@@ -197,5 +196,5 @@ Aşağıdaki örnekte basit Widevine lisansı yapılandırmak için .NET API'ler
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-[PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma](media-services-protect-with-drm.md)
+[PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma](media-services-protect-with-playready-widevine.md)
 

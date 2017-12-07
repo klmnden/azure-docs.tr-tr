@@ -109,6 +109,40 @@ Hayır. Bilgisayar adı özelliği güncelleştirilemiyor. Yeni VM, işletim sis
 * [Yönetilen diskleri kullanarak şablonları](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçme 
+
+**Hangi değişiklikleri önceden var olan Azure Backup hizmeti yapılandırma önceki/sonra geçiş için yönetilen diskleri gerekli midir?**
+
+Değişiklik gerekmez. 
+
+**Azure Yedekleme hizmetini geçişten önce aracılığıyla oluşturulan VM yedeklerim çalışmaya devam eder?**
+
+Evet, yedekleme sorunsuz bir şekilde çalışır.
+
+**Hangi değişiklikleri önceden var olan Azure disk şifrelemesi yapılandırma önceki/sonra geçiş için yönetilen diskleri gerekli midir?**
+
+Değişiklik gerekmez. 
+
+**Otomatik geçiş bir var olan VM ölçek kümeleri (VMSS), yönetilmeyen disklerden desteklenen diskleri yönetilen mi?**
+
+Hayır. Yönetilen yönetilmeyen disklerle eski VMSS görüntüden kullanarak disklerle yeni VMSS oluşturabilirsiniz. 
+
+**Yönetilen disklere geçirmeden önce geçen bir sayfa blob'u anlık yönetilen bir Disk oluşturabilirim?**
+
+Hayır. Bir sayfa blob'u anlık görüntü bir sayfa blob'u olarak dışarı aktarmak ve ardından yönetilen bir Disk dışarı aktarılan sayfa BLOB'dan oluşturun. 
+
+**Azure Site Recovery yönetilen diskleri olan bir VM tarafından korunan my şirket içi makineler üzerinden başarısız olabilir?**
+
+Evet, yük devretme yönetilen diskleri olan bir VM için seçebilirsiniz.
+
+**Geçiş için Azure Azure çoğaltma Azure Site Kurtarma (ASR) tarafından korunan Azure vm'lerinde herhangi bir etki var mı?**
+
+Evet. ASR Azure için Azure koruması yönetilen diskleri olan VM'ler için desteklenmez. CY2018 ucu tarafından desteklenmesi zordur. 
+
+**Sanal makineleri veya yönetilen diskleri daha önce şifrelenmiş depolama hesaplarında yer alan yönetilmeyen disklerle geçişini sağlayabilir miyim?**
+
+Evet
+
 ## <a name="managed-disks-and-storage-service-encryption"></a>Diskler ve depolama hizmeti şifrelemesi yönetilen 
 
 **Azure depolama hizmeti şifrelemesi, yönetilen bir disk oluşturduğunuzda, varsayılan olarak etkindir?**

@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric Docker Compose Önizleme | Microsoft Docs"
-description: "Azure Service Fabric Service Fabric kullanarak exsiting kapsayıcıları düzenlemek kolay hale getirmek için Docker Compose'u biçimi kabul eder. Bu destek, şu anda önizlemede değil."
+title: "Azure Service Fabric Docker Compose (Önizleme) | Microsoft Docs"
+description: "Azure Service Fabric Service Fabric kullanarak var olan kapsayıcıları düzenlemek daha kolay hale getirmek için Docker Compose biçimi kabul eder. Docker Compose desteği şu anda önizlemede değil."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 955f84e5656bbf568234cbaf69faa4dd0a741206
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>Birim eklenti ve günlük sürücüleri, kapsayıcıdaki kullanma
-Service Fabric destekleyen belirtme [Docker birim eklentileri](https://docs.docker.com/engine/extend/plugins_volume/) ve [Docker günlük sürücüleri](https://docs.docker.com/engine/admin/logging/overview/) kapsayıcı hizmetiniz için.  Bu, verilerinizi kalıcı hale getirmek olanak tanır [Azure dosyaları](https://azure.microsoft.com/en-us/services/storage/files/) , kapsayıcı taşınmış veya farklı bir ana bilgisayarda yeniden olsa bile.
+# <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Docker birim eklentiler ve günlük sürücüleri, kapsayıcıdaki kullanın
+Azure Service Fabric destekleyen belirtme [Docker birim eklentileri](https://docs.docker.com/engine/extend/plugins_volume/) ve [Docker günlük sürücüleri](https://docs.docker.com/engine/admin/logging/overview/) kapsayıcı hizmetiniz için. Verilerinizi kalıcı [Azure dosyaları](https://azure.microsoft.com/services/storage/files/) zaman, kapsayıcı taşınmış veya farklı bir ana bilgisayarda yeniden.
 
-Şu anda, yalnızca birim sürücüleri aşağıda gösterildiği gibi Linux kapsayıcıları için vardır.  Windows kapsayıcıları kullanıyorsanız, bir birim için bir Azure dosyaları eşlemek olası [SMB3 paylaşımı](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) Windows Server'ın en son 1709 sürümünü kullanan bir birimin sürücü olmadan. Bu, sanal makinelerinizi kümenizdeki Windows Server 1709 sürüme güncelleştirilmesi gerekir.
+Yalnızca birim sürücüleri Linux kapsayıcıları için şu anda desteklenir. Windows kapsayıcıları kullanıyorsanız, bir birim için bir Azure dosyaları eşleyebilirsiniz [SMB3 paylaşımı](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) bir birimin sürücü olmadan. Bu eşleme için sanal makineleri (VM'ler) kümenizdeki en son Windows Server 1709 sürüme güncelleştirin.
 
 
-## <a name="install-volumelogging-driver"></a>Birim/günlük sürücüsünü yükleyin
+## <a name="install-the-docker-volumelogging-driver"></a>Docker birim/günlük sürücüsünü yükleyin
 
-Docker birim/günlük sürücü makinede yüklü değilse, el ile RDP/SSH-lık makinesine aracılığıyla yüklemeye bir [VMSS başlangıç betiği](https://azure.microsoft.com/en-us/resources/templates/201-vmss-custom-script-windows/) veya kullanarak bir [SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service) komut dosyası. Belirtilen yöntemlerden birini seçerek, yüklemek için bir komut dosyası yazabilirsiniz [Docker birim sürücüsü Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/):
+Docker birim/günlük sürücü makinede yüklü değilse, onu el ile RDP/SSH protokolleri kullanarak yükleyebilirsiniz. Yükleme işlemine bu protokolleri aracılığıyla gerçekleştirebileceğiniz bir [sanal makine ölçek kümesi başlangıç komut dosyası](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) veya bir [SetupEntryPoint betik](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
+Yüklemek için komut dosyası örneği [Docker birim sürücüsü Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) aşağıdaki gibidir:
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
@@ -39,8 +40,8 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
-## <a name="specify-the-plugin-or-driver-in-the-manifest"></a>Eklenti veya sürücü bildiriminde belirtin
-Eklenti uygulama bildiriminde aşağıdaki bildiriminde gösterildiği gibi belirtilir:
+## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Eklenti belirtin veya bildiriminde sürücüsü
+Eklentiler uygulama bildiriminde aşağıdaki gibi belirtilir:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -75,19 +76,16 @@ Eklenti uygulama bildiriminde aşağıdaki bildiriminde gösterildiği gibi beli
 </ApplicationManifest>
 ```
 
-Önceki örnekte `Source` etiketinde `Volume` kaynak klasörü gösterir. Kaynak klasörü kapsayıcıları ya da kalıcı bir uzak depo barındıran VM bir klasörde olabilir. `Destination` Etiketi konumudur, `Source` çalışan kapsayıcıda eşlenir.  Bu nedenle, hedefiniz, kapsayıcı içinde zaten varolan bir konumu olamaz.
+**Kaynak** etiketinde **birim** öğesi, kaynak klasöre başvuruyor. Kaynak klasör kapsayıcıları ya da kalıcı bir uzak depo barındıran VM bir klasörde olabilir. **Hedef** etiketi konumudur, **kaynak** çalışan kapsayıcıda eşlenir. Bu nedenle, hedefinizi kapsayıcı içinde zaten bir konumu olamaz.
 
-Bir birim eklentisi belirtirken, Service Fabric belirtilen parametreleri kullanarak birimi otomatik olarak oluşturur. `Source` Etiketi birim adıdır ve `Driver` etiketi birimin sürücü eklentisi belirtir. Seçenekleri kullanılarak belirtilebilir `DriverOption` etiketi aşağıdaki kod parçacığında gösterildiği gibi:
+Bir birim eklenti belirtirken, Service Fabric belirtilen parametreleri kullanarak birimi otomatik olarak oluşturur. **Kaynak** etiketi birim adıdır ve **sürücü** etiketi birimin sürücü eklentisi belirtir. Seçenekleri kullanarak belirtilebilir **DriverOption** şu şekilde etiketleyin:
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
-Docker günlük sürücü belirtilirse, kümede günlükleri işlemek için aracıları (veya kapsayıcıları) dağıtmak gereklidir.  `DriverOption` Etiketi de günlüğü sürücü seçeneklerini belirtmek için kullanılabilir.
+Docker günlük sürücü belirtilirse, günlükleri işlemek için aracıları (veya kapsayıcıları) kümede dağıtmak zorunda. **DriverOption** etiketi, günlük sürücü seçeneklerini belirtmek için kullanılabilir.
 
-Service Fabric kümesine kapsayıcıları dağıtmak için aşağıdaki makalelere bakın:
-
-
-[Service Fabric bir kapsayıcıda dağıtma](service-fabric-deploy-container.md)
-
+## <a name="next-steps"></a>Sonraki adımlar
+Service Fabric kümesine kapsayıcıları dağıtmak için bkz: [Service Fabric üzerinde bir kapsayıcıyı dağıtmak](service-fabric-deploy-container.md).

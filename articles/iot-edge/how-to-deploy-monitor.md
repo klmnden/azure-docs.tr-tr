@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Dağıtma ve IOT kenar modülleri ölçekte izleme - Önizleme
 
@@ -42,19 +42,21 @@ Cihaz çiftlerini ve etiketleri hakkında daha fazla bilgi için bkz: [IOT hub'�
 
 1. Oturum [Azure portal] [ lnk-portal] ve IOT hub'ına gidin. 
 1. Seçin **IOT kenar (Önizleme)**.
-1. Seçin **kenar dağıtımı oluşturmak**.
+1. Seçin **IOT kenar dağıtımını Ekle**.
 
 Bir dağıtım oluşturmak için beş adım vardır. Aşağıdaki bölümlerde her birini yol. 
 
-### <a name="step-1-label-deployment"></a>1. adım: Etiket dağıtım
+### <a name="step-1-name-and-label"></a>1. adım: Ad ve etiket
 
-1. Benzersiz bir kimliği dağıtımınızı verin Boşluk ve şu geçersiz karakterlerden kaçının: `& ^ [ ] { } \ | " < > /`.
+1. Dağıtımınızı benzersiz bir ad verin. Boşluk ve şu geçersiz karakterlerden kaçının: `& ^ [ ] { } \ | " < > /`.
 1. Dağıtımlarınızı izlemenize yardımcı olması için etiketler ekleyin. Etiketler **adı**, **değeri** dağıtımınızı tanımlamak çiftleri. Örneğin, `HostPlatform, Linux` veya `Version, 3.0.1`.
 1. Seçin **sonraki** iki adımına geçmek için. 
 
-### <a name="step-2-add-modules"></a>2. adım: modülleri ekleme
+### <a name="step-2-add-modules-optional"></a>2. adım: (İsteğe bağlı) modülleri ekleme
 
 İki tür bir dağıtıma eklediğiniz modülü vardır. İlk Depolama hesabı veya akış analizi gibi bir Azure hizmet dışına dayalı bir modüldür. İkinci kendi kodunuzu dışına dayalı bir modüldür. Bir dağıtım için her iki türdeki birden çok modüller ekleyebilirsiniz. 
+
+Bir dağıtım hiçbir modüllerle oluşturursanız, var olan tüm modülleri aygıtlardan kaldırır. 
 
 >[!NOTE]
 >Azure Machine Learning ve Azure işlevleri otomatik Azure hizmet dağıtımı henüz desteklemiyoruz. Bu hizmetlerin dağıtımınız için el ile eklemek için özel modülü dağıtımı kullanın. 
@@ -83,7 +85,7 @@ Bir modül olarak özel kod eklemek veya bir Azure hizmeti modülü el ile eklem
 
 Yapılandırılmış bir dağıtım için tüm modüllerin olduktan sonra Seç **sonraki** üç adımına geçmek için.
 
-### <a name="step-3-specify-routes-optional"></a>3. adım: (isteğe bağlı) rotaları belirtin
+### <a name="step-3-specify-routes-optional"></a>3. adım: (İsteğe bağlı) rotaları belirtin
 
 Modüller birbirleri ile dağıtım içinde iletişim kurma biçimini yolları tanımlayın. Dağıtımınız için herhangi bir yol belirtin ve ardından **sonraki** dört adımına geçmek için. 
 

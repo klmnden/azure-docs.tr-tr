@@ -1,7 +1,7 @@
 
 | Kaynak | Varsayılan limit | Üst sınır | 
 | --- | --- | --- |
-| CDN profili |8 |25 |
+| CDN profilleri |25 |25 |
 | Her profil CDN uç noktası |10 |25 |
 | Uç nokta başına özel etki alanları |10 |25 |
 

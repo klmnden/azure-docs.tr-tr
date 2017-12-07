@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -127,7 +127,7 @@ Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli 
 
 ### <a name="browser-considerations"></a>Tarayıcı konuları
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (tüm platformlar)
 
 Mozilla Firefox otomatik olarak Kerberos kimlik doğrulaması kullanmaz. Her kullanıcı el ile Firefox ayarlarına Azure AD URL'leri aşağıdaki adımları kullanarak eklemeniz gerekir:
 1. Firefox çalıştırın ve girin `about:config` adres çubuğundaki. Gördüğünüz herhangi bir bildirim yok sayın.
@@ -136,11 +136,15 @@ Mozilla Firefox otomatik olarak Kerberos kimlik doğrulaması kullanmaz. Her kul
 4. Https://AutoLogon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net alanına girin.
 5. Seçin **Tamam** ve tarayıcıyı kapatıp yeniden açın.
 
-#### <a name="safari-on-mac-os"></a>Mac OS Safari
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 Mac OS çalıştıran makine için Azure AD alanına katılmış olmasını sağlayın. Azure AD'ye katılımı ile ilgili yönergeler için bkz: [Active Directory ile tümleştirme OS X için en iyi uygulamaları](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-#### <a name="google-chrome-on-mac-os"></a>Mac OS Google Chrome
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (tüm platformlar)
+
+Kılınmadı varsa [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) veya [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) ilke ayarları, ortamınızdaki olun Azure AD URL'leri (https:// Ekle AutoLogon.microsoftazuread sso.com ve https://aadg.windows.net.nsatc.net) bunlara de.
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (yalnızca Mac OS)
 
 Mac OS ve diğer Windows olmayan platformlarda Google Chrome için başvurmak [Chromium proje ilke listesi](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) tümleşik kimlik doğrulaması için beyaz liste Azure AD URL'ler hakkında bilgi edinmek için.
 
@@ -149,9 +153,6 @@ Azure AD URL'lerine Firefox ve Google Chrome Mac Kullanıcıları geri dönmek i
 #### <a name="known-browser-limitations"></a>Bilinen tarayıcı sınırlamaları
 
 Sorunsuz SSO Firefox ve kenar tarayıcılarda özel gözatma modunda çalışmıyor. Tarayıcı geliştirilmiş korumalı modda çalışıyorsa, ayrıca Internet Explorer, işe yaramaz.
-
->[!IMPORTANT]
->Biz son müşteri bildirilen sorunları araştırmak sınır desteği geri.
 
 ## <a name="step-4-test-the-feature"></a>4. adım: Test özelliği
 

@@ -44,7 +44,7 @@ Yapabilecekleriniz [Tetikleyicileri ayarlamak](../articles/monitoring-and-diagno
 
 Ekleme veya VM ölçek kümesi kapasitesi değiştirerek kaldırın. Azure portalında azaltın veya VM sayısını artırın (olarak gösterilen **örnek sayısını**) ölçeklendirme ekranda sola veya sağa geçersiz kılma durum çubuğu kaydırarak ayarlamak ölçeğinde.
 
-Azure PowerShell kullanarak, Ölçek kümesi nesnesi kullanarak almanız gereken [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Ardından **sku.capacity** istediğiniz sanal makineleri ve güncelleştirme sayısını özelliğine ölçek kümesi ile [güncelleştirme AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Azure CLI kullanarak, kapasiteyle değiştirme **--yeni kapasite** parametresi için [az vmss ölçek](https://docs.microsoft.com/cli/azure/vmss#scale) komutu.
+Azure PowerShell kullanarak, Ölçek kümesi nesnesi kullanarak almanız gereken [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Ardından **sku.capacity** istediğiniz sanal makineleri ve güncelleştirme sayısını özelliğine ölçek kümesi ile [güncelleştirme AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Azure CLI kullanarak, kapasiteyle değiştirme **--yeni kapasite** parametresi için [az vmss ölçek](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) komutu.
 
 ### <a name="vertical"></a>Dikey
 

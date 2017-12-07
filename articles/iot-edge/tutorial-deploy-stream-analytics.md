@@ -9,84 +9,109 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5a143bbf7abb5304ac51782d517c02ec184a05a2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6cf8e2469a6fe6bac0db6caf9acb182a6349096f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Azure Stream Analytics IOT kenar modül olarak dağıtma - Önizleme
 
-IOT cihazları çok miktarda veri üretebilir. Bazen bu verileri analiz veya karşıya yüklenen verilerin boyutunu azaltmak için veya bir işlem yapılabilir öngörü gidiş dönüş gecikmesi ortadan kaldırmak için bulut ulaşmadan önce işlenen gerekir.
+IOT cihazları çok miktarda veri üretebilir. Karşıya yüklenen veri miktarını azaltmak için bir eyleme dönüştürülebilir öngörü gidiş dönüş gecikmesi ortadan kaldırmak için verileri gereken bazen analiz veya Bulut erişmeden önce işlenen.
 
-IOT kenar hızlı dağıtım için önceden oluşturulmuş Azure hizmet IOT kenar modüllerin yararlanır ve [Azure akış analizi] [ azure-stream] (ASA) olan bir modül. Kendi portalından ASA iş oluşturun, sonra bir IOT kenar modülü olarak dağıtmak için IOT hub'ı portalına dönün.  
+Azure IOT kenar modülleri hızlı dağıtım için önceden oluşturulmuş Azure hizmeti IOT kenar yararlanır. [Azure Stream Analytics] [ azure-stream] böyle bir modüldür. Kendi portalından bir Azure Stream Analytics işi oluşturmak ve IOT kenar modülü olarak dağıtmak için Azure IOT hub'ı portal gidin. 
 
-Azure Stream Analytics cihazlar zengin yapılandırılmış sorgu söz dizimi hem bulutta hem de IOT kenar üzerinde veri analizi için sağlar. IOT kenar ASA hakkında daha fazla bilgi için bkz: [ASA belgelerine](../stream-analytics/stream-analytics-edge.md).
+Azure Stream Analytics cihazlar zengin yapılandırılmış sorgu söz dizimi hem bulutta hem de IOT kenar üzerinde veri analizi için sağlar. IOT kenar Azure Stream Analytics hakkında daha fazla bilgi için bkz: [Azure akış analizi belgeleri](../stream-analytics/stream-analytics-edge.md).
 
-Bu öğreticide bir IOT sınır aygıtında doğrudan cihazda yerel telemetri akışına işlemek ve sürücü Acil eylem cihazda için uyarıları oluşturmak için bir Azure akış analizi işi ve onun dağıtım oluşturulmasını açıklanmaktadır.  Bu öğreticide ilgili iki modülü vardır. Benzetimli sıcaklık algılayıcısı Modülü (tempSensor) sıcaklık veri 120 5 saniyede 1 azaltılır derece, 20 oluşturur. 30 saniyelik ortalama 70 ulaştığında bir akış analizi modülü tempSensor sıfırlar. Bir üretim ortamında, bu işlev devre dışı bir makineyi kapatın veya sıcaklık tehlikeli düzeyleri ulaştığında önlemler almak için kullanılabilir. 
+Bu öğreticide, bir Azure akış analizi işi oluşturma ve bir IOT sınır cihazı dağıtma aracılığıyla açıklanmaktadır. Bunun yapılması, doğrudan cihazda yerel telemetri akışına işlemek ve cihazda Acil eylem sürücü uyarı oluşturmasını sağlar. 
 
-Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Öğretici iki modülleri gösterir: 
+* 20 120 5 saniyede 1 azaltılır dereceye sıcaklık veri üreten benzetimli sıcaklık algılayıcısı modül (tempSensor). 
+* 30 saniyelik ortalama 70 ulaştığında tempSensor sıfırlar Stream Analytics modül. Bir üretim ortamında, bir makineyi kapatın veya sıcaklık tehlikeli düzeyleri ulaştığında önlemler almak için bu işlevi kullanabilirsiniz. 
+
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Edge verileri işlemek için bir ASA işi oluşturma
-> * Yeni ASA işi diğer IOT kenar modüller ile bağlanma
-> * ASA iş IOT kenar cihazına dağıtın
+> * Verileri işlemek için bir Azure akış analizi işi kenarına oluşturun.
+> * Yeni Azure akış analizi işi diğer IOT kenar modüller ile bağlanır.
+> * Azure Stream Analytics işi IOT kenar cihazına dağıtın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* IOT hub'ı 
-* Oluşturduğunuz ve bir sanal cihaz hızlı başlangıç veya Azure IOT kenar dağıtmak om yapılandırılmış aygıt [Windows] [ lnk-tutorial1-win] ve [Linux] [ lnk-tutorial1-lin]. Aygıt bağlantısı anahtarı ve cihaz kimliğini bilmeniz gerekir 
-* Docker IOT kenar aygıtta çalışan
-    * [Windows Docker yükleyin][lnk-docker-windows]
-    * [Docker Linux'ta yüklemek][lnk-docker-linux]
-* Python IOT kenar aygıtınızda 2.7.x
+* IOT hub'ı. 
+* Oluşturulan ve hızlı veya sanal bir cihaz üzerinde Azure IOT kenar dağıtma hakkında makaleleri yapılandırılmış aygıt [Windows] [ lnk-tutorial1-win] veya [Linux] [ lnk-tutorial1-lin]. Aygıt bağlantısı anahtarı ve cihaz kimliğini bilmeniz gerekir 
+* IOT kenar cihazda çalışan docker.
+    * [Docker Windows yükleme][lnk-docker-windows].
+    * [Docker Linux'ta yüklemek][lnk-docker-linux].
+* Python 2.7.x IOT kenar Cihazınızda.
     * [Python 2.7 Windows yüklemek][lnk-python].
-    * Ubuntu, dahil olmak üzere çoğu Linux dağıtımları Python 2.7 yüklü zaten var.  PIP yüklü olduğundan emin olmak için aşağıdaki komutu kullanın: `sudo apt-get install python-pip`.
+    * Ubuntu, dahil olmak üzere çoğu Linux dağıtımları Python 2.7 yüklü zaten var. PIP yüklendiğinden emin olmak için aşağıdaki komutu kullanın: `sudo apt-get install python-pip`.
 
+## <a name="create-an-azure-stream-analytics-job"></a>Bir Azure akış analizi işi oluşturma
 
-## <a name="create-an-asa-job"></a>Bir ASA işi oluşturma
-
-Bu bölümde, verilerin alınacağı IOT hub'ınızı, cihazınızdan gönderilen telemetri verileri sorgulamak ve sonuçları bir Azure depolama kapsayıcısı (BLOB) iletmek için bir Azure akış analizi işi oluşturun. Daha fazla bilgi için bkz: **genel bakış** bölümünü [Stream Analytics belgeleri][azure-stream]. 
+Bu bölümde, verilerin alınacağı IOT hub'ınızı, cihazınızdan gönderilen telemetri verileri sorgulamak ve sonuçları bir Azure Blob Depolama kapsayıcısını iletmek için bir Azure akış analizi işi oluşturun. Daha fazla bilgi için "Genel bakış" bölümüne bakın [Stream Analytics belgeleri][azure-stream]. 
 
 ### <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Bir Azure depolama hesabı ASA işinizde bir çıkış olarak kullanılacak bir uç nokta sağlamak için gereklidir. Aşağıdaki örnek BLOB Depolama türünü kullanır.  Daha fazla bilgi için bkz: **BLOB'lar** bölümünü [Azure Storage belgeleri][azure-storage].
+Bir Azure Storage hesabı, bir Azure Stream Analytics işi çıkış olarak kullanılacak bir uç nokta sağlamak için gereklidir. Bu bölümdeki örnek Blob Depolama türünü kullanır. Daha fazla bilgi için "BLOB" bölümüne bakın [Azure Storage belgeleri][azure-storage].
 
-1. Azure portalında gidin **kaynak oluşturma** ve girin `Storage account` arama çubuğunda. Seçin **depolama hesabı - blob, dosya, tablo, kuyruk**.
+1. Azure portalında Git **kaynak oluşturma**, girin **depolama hesabı** arama kutusuna ve ardından **depolama hesabı - blob, dosya, tablo, kuyruk**.
 
-2. Depolama hesabınız için bir ad girin ve IOT hub'ınızın bulunduğu aynı konumu seçin. **Oluştur**'a tıklayın. Daha sonra için ad unutmayın.
+2. İçinde **depolama hesabı oluşturma** bölmesinde depolama hesabınız için bir ad girin, ardından seçip IOT hub'ınızı depolandığı konumun **oluşturma**. Daha sonra kullanmak için adını not edin.
 
-    ![Yeni depolama hesabı][1]
+    ![Depolama hesabı oluşturma][1]
 
-3. Az önce oluşturduğunuz depolama hesabınıza gidin. Tıklatın **Gözat BLOB'lar**. 
-4. ASA modülün verileri depolamak yeni bir kapsayıcı oluşturun. Erişim düzeyini ayarlamak **kapsayıcı**. **Tamam** düğmesine tıklayın.
+3. Az önce oluşturduğunuz depolama hesabına gidin ve ardından **Gözat BLOB'lar**. 
+
+4. Veri depolamak erişim ayarlamak Azure Stream Analytics modülü için yeni bir kapsayıcı düzeyini oluşturma **kapsayıcı**ve ardından **Tamam**.
 
     ![Depolama ayarları][10]
 
 ### <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
 
-1. Azure portalında gidin **kaynak oluşturma** > **nesnelerin interneti** seçip **akış analizi işi**.
+1. Azure portalında Git **kaynak oluşturma** > **nesnelerin interneti**ve ardından **akış analizi işi**.
 
-2. Bir ad girin, seçin **kenar** barındırma ortamı olarak ve geri kalan varsayılan değerler kullanın.  **Oluştur**'a tıklayın.
+2. İçinde **yeni akış analizi işi** bölmesinde, aşağıdakileri yapın:
 
-    >[!NOTE]
-    >Şu anda, IOT kenar ASA işleri Batı ABD 2 bölgede desteklenmiyor. 
+    a. İçinde **iş adı** bir iş adı yazın.
+    
+    b. Altında **barındırma ortamı**seçin **kenar**.
+    
+    c. Kalan alanlara varsayılan değerleri kullanın.
 
-3. Oluşturulan iş gidin. Seçin **girişleri** ardından **Ekle**.
+    > [!NOTE]
+    > Şu anda, IOT kenar Azure akış analizi işleri Batı ABD 2 bölgede desteklenmiyor. 
 
-4. Giriş diğer adı için girin `temperature`, kaynak türünü ayarlamak **veri akışı**ve diğer parametreler için varsayılanları kullanın. **Oluştur**'a tıklayın.
+3. **Oluştur**’u seçin.
 
-   ![ASA giriş](./media/tutorial-deploy-stream-analytics/asa_input.png)
+4. Oluşturulan işteki altında **iş topoloji**seçin **girişleri**ve ardından **Ekle**.
 
-5. Seçin **çıkışları** ardından **Ekle**.
+5. İçinde **yeni giriş** bölmesinde, aşağıdakileri yapın:
 
-6. Çıkış diğer girin `alert`ve diğer parametreler için varsayılanları kullanın. **Oluştur**'a tıklayın.
+    a. İçinde **giriş diğer adı** kutusuna **sıcaklık**.
+    
+    b. İçinde **kaynak türü** kutusunda **veri akışı**.
+    
+    c. Kalan alanlara varsayılan değerleri kullanın.
 
-   ![ASA çıktı](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure Stream Analytics giriş](./media/tutorial-deploy-stream-analytics/asa_input.png)
+
+6. **Oluştur**’u seçin.
+
+7. Altında **iş topoloji**seçin **çıkışları**ve ardından **Ekle**.
+
+8. İçinde **yeni çıktı** bölmesinde, aşağıdakileri yapın:
+
+    a. İçinde **çıkış diğer adları** kutusuna **uyarı**.
+    
+    b. Kalan alanlara varsayılan değerleri kullanın. 
+    
+    c. **Oluştur**’u seçin.
+
+   ![Azure Stream Analytics çıktı](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 
-7. Seçin **sorgu**.
-8. Varsayılan metin aşağıdaki sorguyla değiştirin:
+9. Altında **iş topoloji**seçin **sorgu**ve ardından varsayılan metni aşağıdaki sorguyla değiştirin:
 
     ```sql
     SELECT  
@@ -98,30 +123,43 @@ Bir Azure depolama hesabı ASA işinizde bir çıkış olarak kullanılacak bir 
     GROUP BY TumblingWindow(second,30) 
     HAVING Avg(machine.temperature) > 70
     ```
-9. **Kaydet** düğmesine tıklayın.
+
+10. **Kaydet**’i seçin.
 
 ## <a name="deploy-the-job"></a>İş dağıtma
 
-Artık IOT kenar Cihazınızı ASA işinde dağıtmaya hazır olursunuz.
+Artık IOT kenar Cihazınızı Azure Stream Analytics işinde dağıtmaya hazır olursunuz.
 
-1. Azure portalında IOT hub'ınızı gidin **IOT kenar (Önizleme)** ve IOT kenar cihazınız için Ayrıntılar sayfasını açın.
-1. Seçin **ayarlamak modülleri**.
-1. Bu aygıtta tempSensor modülü daha önce dağıttıysanız, otomatik olarak doldurma olabilir. Aksi halde, bu modül eklemek için aşağıdaki adımları kullanın:
-   1. Tıklatın **IOT kenar Modül Ekle**
-   1. Girin `tempSensor` adı olarak ve `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` görüntü URI. 
-   1. Diğer ayarları değiştirmeden bırakın ve tıklayın **kaydetmek**.
-1. ASA Edge işinizi eklemek için seçin **alma Azure Stream Analytics IOT kenar Modülü**.
-1. Aboneliğiniz ve oluşturduğunuz ASA kenar işi seçin. 
-1. Aboneliğiniz ve oluşturduğunuz depolama hesabını seçin. **Kaydet** düğmesine tıklayın.
+1. Azure portalında IOT hub'ınızı Git **IOT kenar (Önizleme)**ve IOT kenar cihazınız için Ayrıntılar sayfasını açın.
+
+2. Seçin **ayarlamak modülleri**.  
+    Bu aygıtta tempSensor modülü daha önce dağıttıysanız, otomatik olarak doldurma olabilir. Yoksa, aşağıdakileri yaparak modüle ekleyin:
+
+   a. Seçin **IOT kenar Modül Ekle**.
+
+   b. Bir ad yazın **tempSensor**.
+    
+   c. URI görüntü için girin **microsoft/azureiotedge-simulated-sıcaklık-algılayıcı: 1.0-Önizleme**. 
+
+   d. Diğer ayarları değiştirmeden bırakın.
+   
+   e. **Kaydet**’i seçin.
+
+3. Azure Stream Analytics Edge işinizi eklemek için seçin **alma Azure Stream Analytics IOT kenar Modülü**.
+
+4. Aboneliğiniz ve oluşturduğunuz Azure Stream Analytics kenar işi seçin. 
+
+5. Aboneliğiniz ve oluşturulan ve ardından depolama hesabını seçin **kaydetmek**.
 
     ![set Modülü][6]
 
-1. ASA modülü için otomatik olarak oluşturulan adı kopyalayın. 
+6. Azure Stream Analytics modülü için otomatik olarak oluşturulan adı kopyalayın. 
 
     ![Sıcaklık Modülü][11]
 
-1. Tıklatın **sonraki** yolları yapılandırmak için.
-1. Şu şekilde kopyalayın **yollar**.  Değiştir _{moduleName}_ kopyaladığınız modül adı ile:
+7. Yolları yapılandırmak için seçin **sonraki**.
+
+8. Aşağıdaki kodu kopyalayın **yollar**. Değiştir _{moduleName}_ kopyaladığınız modül adı ile:
 
     ```json
     {
@@ -134,19 +172,20 @@ Artık IOT kenar Cihazınızı ASA işinde dağıtmaya hazır olursunuz.
     }
     ```
 
-1. **İleri**’ye tıklayın.
+9. Seçin **sonraki**.
 
-1. İçinde **gözden geçirme şablonu** adımını, **gönderme**.
+10. İçinde **gözden geçirme şablonu** adım, select **gönderme**.
 
-1. Cihaz ayrıntıları sayfasına dönün ve **yenileme**.  İle birlikte çalışan yeni akış analizi modülü görmelisiniz **IOT kenar Aracısı** modülü ve **IOT kenar hub**.
+11. Cihaz ayrıntıları sayfasına dönün ve ardından **yenileme**.  
+    IOT kenar aracı modülü ve IOT kenar hub'ı ile birlikte çalışan yeni akış analizi modülü görmeniz gerekir.
 
     ![Modül çıkış][7]
 
 ## <a name="view-data"></a>Verileri görüntüleme
 
-Artık IOT kenar Cihazınızı ASA modülü ve tempSensor modülünün arasındaki etkileşimi kullanıma gidebilirsiniz.
+Artık IOT kenar Cihazınızı Azure akış analizi modülü ve tempSensor modülünün arasındaki etkileşimi kullanıma gidebilirsiniz.
 
-Tüm modülleri Docker içinde çalıştığından emin olun:
+1. Tüm modülleri Docker içinde çalıştığından emin olun:
 
    ```cmd/sh
    docker ps  
@@ -154,7 +193,7 @@ Tüm modülleri Docker içinde çalıştığından emin olun:
 
    ![docker çıkış][8]
 
-Tüm sistem günlükleri ve ölçüm verilerini bakın. Stream Analytics modül adı kullanın:
+2. Tüm sistem günlükleri ve ölçüm verilerini görüntüleme. Stream Analytics modül adı kullanın:
 
    ```cmd/sh
    docker logs -f {moduleName}  
@@ -167,7 +206,7 @@ Makinenin sıcaklığı 30 saniye 70 derece ulaşana kadar kademeli olarak yüks
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir Azure depolama kapsayıcısı ve IOT kenar cihazınızdan verileri çözümlemek için bir akış analizi işi yapılandırılır.  Ardından BLOB indirmek içine akış aracılığıyla cihazınızdan verileri taşımak için özel bir ASA modülü de yüklenir.  Diğer Azure IOT kenar çözümleri, işiniz için nasıl oluşturabileceğinizi görmek için diğer öğreticileri açın devam edebilirsiniz.
+Bu öğreticide, bir Azure depolama kapsayıcısı ve IOT kenar cihazınızdan verileri çözümlemek için bir akış analizi işi yapılandırılır. Ardından blob indirmek içine akış aracılığıyla cihazınızdan verileri taşımak için özel bir Azure akış analizi modülü de yüklenir. Azure IOT kenar işletmeniz için diğer çözümleri nasıl oluşturabileceğinizi görmek için diğer öğreticileri açın devam edin.
 
 > [!div class="nextstepaction"] 
 > [Bir Azure Machine Learning modeli bir modül olarak dağıtma][lnk-ml-tutorial]

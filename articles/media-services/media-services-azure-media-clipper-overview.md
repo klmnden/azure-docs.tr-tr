@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a5bb66db889dc1c52252773e3f129ba2c3d55f1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Kırpıcıyı ile Klip Oluştur
 Azure Media Kırpıcıyı medya klipleri oluşturmak için kullanıcılar bir arabirim sağlamak web geliştiricileri sağlayan ücretsiz bir JavaScript kitaplığıdır. Bu araç, herhangi bir web sayfasında tümleştirilebilir ve varlıkları yüklenirken ve kırpma işlerini göndermenin için API'ler sağlar.
@@ -29,8 +29,11 @@ Azure Media Kırpıcıyı sağlar:
 
 Yeni özellikler istemek için fikirleri ya da geribildirim sağlamak, Gönder [Azure Media Services için UserVoice](http://aka.ms/amsvoice/). Varsa ve belirli sorunları, sorular veya hataları, Media Services açılan bir satırında ekip Bul amcinfo@microsoft.com.
 
+Aşağıdaki resimde Kırpıcıyı arabirimi gösterilmektedir: ![Azure medya Kırpıcıyı](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+
 ## <a name="release-notes"></a>Sürüm notları
-Aşağıdaki listede, çeşitli bilinen sorunlar ve değişim günlüğü Kırpıcıyı'nın en son sürümü için açıklanmaktadır:
+Kırpıcıyı blog yayını, çeşitli bilinen sorunlar ve değişim günlüğü Kırpıcıyı'nın en son sürümü için aşağıdaki listeye bakın:
+- [Blog gönderisi](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Bilinen sorunlar listesi](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
 - [Değişim günlüğü](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 

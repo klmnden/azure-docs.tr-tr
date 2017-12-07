@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 17ecf39128994dad93f017f87f105254f3017230
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Bulut Hizmetleri veya başka bir şey seçmem gerekir?
 Azure Cloud Services seçimi için mi? Azure uygulamalarını çalıştırmak için farklı barındırma modelleri sağlar. Seçtiğiniz hangisinin tam olarak ne, yapmak çalıştığınız dolayısıyla her biri farklı bir hizmetler kümesini sağlar.
@@ -50,7 +50,7 @@ Uygulamaları sanal makinelerinde çalışan olsa bile, bulut Hizmetleri PaaS, d
 ## <a name="scaling-and-management"></a>Ölçeklendirme ve yönetim
 Bulut Hizmetleri ile sanal makineleri oluşturmayın. Bunun yerine, her kaç, gibi istediğiniz Azure söyleyen bir yapılandırma dosyası girin **üç rol örnekleri web** ve **iki çalışan rolü örnekleri**, ve platform bunları sizin için oluşturur.  Hala seçtiğiniz [boyutu](cloud-services-sizes-specs.md) bu sanal makineleri yedekleme olmalı, ancak siz açıkça bunları kendiniz oluşturmayın. Uygulamanızı bir yükü işlemek gerekirse, daha fazla VM'ler için isteyebilir ve bu örnekleri Azure oluşturur. Yükü azaltır, bu örneklerde kapatın ve bunlar için ödeme durdurun.
 
-Bulut Hizmetleri uygulaması genellikle iki adımlı bir işlem aracılığıyla kullanıcılara kullanılabilir hale getirilir. Bir geliştirici ilk [uygulamayı yükler](cloud-services-how-to-create-deploy-portal.md) platformun hazırlama alanına. Geliştirici hazır olduğunda yapma uygulama dinamik olarak değiştirmek için Azure portal kullanırlar üretime hazırlama. Bu [hazırlama ve üretim arasında geçiş yapma](cloud-services-nodejs-stage-application.md) kullanıcılarına etkilemeden yeni bir sürüme yükseltilmesi çalışan bir uygulama sağlar kapalı kalma süresi olmadan yapılabilir.
+Bulut Hizmetleri uygulaması genellikle iki adımlı bir işlem aracılığıyla kullanıcılara kullanılabilir hale getirilir. Bir geliştirici ilk [uygulamayı yükler](cloud-services-how-to-create-deploy-portal.md) platformun hazırlama alanına. Geliştirici hazır olduğunda yapma uygulama dinamik olarak değiştirmek için Azure portal kullanırlar üretime hazırlama. Bu [hazırlama ve üretim arasında geçiş yapma](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production) kullanıcılarına etkilemeden yeni bir sürüme yükseltilmesi çalışan bir uygulama sağlar kapalı kalma süresi olmadan yapılabilir.
 
 ## <a name="monitoring"></a>İzleme
 Bulut hizmetleri de sağlar izleme. Gibi Azure sanal makineleri, başarısız bir fiziksel sunucuda algılar ve yeni bir makine, bir sunucuda çalışan sanal makineleri yeniden başlatır. Ancak bulut Hizmetleri başarısız VM'ler ve uygulamalar, yalnızca donanım hataları algılar. Sanal makineler aksine her web ve çalışan rolü içindeki bir aracıya sahip ve bu nedenle hatalar oluştuğunda yeni VM'ler ve uygulama örnekleri başlatılamaz.

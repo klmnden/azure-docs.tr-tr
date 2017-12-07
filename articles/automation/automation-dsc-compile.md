@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Otomasyonu DSC yapılandırmalarında derleme
 
@@ -128,6 +128,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 PSCredentials parametre olarak geçirme hakkında daha fazla bilgi için bkz: <a href="#credential-assets"> **kimlik bilgisi varlıkları** </a> aşağıda.
+
+## <a name="composite-resources"></a>Bileşik kaynakları
+
+**Bileşik kaynakları** bir yapılandırma içinde iç içe kaynaklar olarak DSC yapılandırmaları kullanmanızı sağlar.  Bu, tek kaynak için birden çok yapılandırmaları uygulamak sağlar.  Bkz: [bileşik kaynaklar: bir kaynak olarak DSC Yapılandırması kullanılarak](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) hakkında daha fazla bilgi için **bileşik kaynakları**
+
+> [!NOTE]
+> Sırayla **bileşik kaynakları** doğru şekilde derlenmesi için ilk bileşik güvenen DSC kaynakları ilk Azure Automation hesabı modülleri depoda yüklü değil veya düzgün almaz sağlamalısınız.
+
+Bir DSC eklemek için **bileşik kaynak**, kaynak modülü arşive eklemeniz gerekir (* .zip). Modülleri depoya Azure Otomasyon hesabınıza gidin.  Ardından 'Bir modül Ekle' düğmesini tıklayın.
+
+![Modül Ekle](./media/automation-dsc-compile/add_module.png)
+
+Arşiviniz bulunduğu dizine gidin.  Arşiv dosyasını seçin ve Tamam'ı tıklatın.
+
+![Modülü seçin](./media/automation-dsc-compile/select_dscresource.png)
+
+Daha sonra geri burada izleyebilirsiniz durumunu modülleri dizinine gerçekleştirilecek, **bileşik kaynak** dizine açar ve Azure Automation ile kaydeder.
+
+![Bileşik kaynak Al](./media/automation-dsc-compile/register_composite_resource.png)
+
+Modül kaydedildiğinde, daha sonra doğrulamak için tıklatabilirsiniz **bileşik kaynakları** bir yapılandırmada kullanılacak kullanıma sunulmuştur.
+
+![Bileşik kaynak doğrula](./media/automation-dsc-compile/validate_composite_resource.png)
+
+Çağırabilirsiniz sonra **bileşik kaynak** yapılandırmanızı içine sözlüğüdür:
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
 
 ## <a name="configurationdata"></a>ConfigurationData
 **ConfigurationData** , PowerShell DSC kullanırken hiçbir ortamı belirli yapılandırması yapısal yapılandırmasından ayırmanıza olanak tanır. Bkz: ["Ne" PowerShell DSC "nerede" ayırarak](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) hakkında daha fazla bilgi için **ConfigurationData**.
@@ -242,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Düğüm yapılandırmaları alma
 
-Ayrıca Azure dışında derlediğiniz düğümü configuratons (MOF dosyalarından) içe aktarabilirsiniz. Bu bir avantajı, o düğümü confiturations imzalanabilir ' dir.
+Ayrıca Azure dışında derlediğiniz düğümü configuratons (MOF dosyalarından) içe aktarabilirsiniz. Bu bir avantajı, düğüm yapılandırmaları imzalanabilir ' dir.
 İmzalı düğüm yapılandırması düğüme uygulanan yapılandırma yetkili bir kaynaktan geldiğinden emin olduktan DSC aracı tarafından yönetilen bir düğümde yerel olarak doğrulanır.
 
 > [!NOTE]

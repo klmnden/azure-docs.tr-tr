@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: 978ad8f14d70fe60cb220136e87ce4a064672b8a
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory doğrudan kimlik doğrulaması: Geçerli sınırlamalar
 
@@ -47,7 +47,10 @@ Aşağıdaki senaryolar _değil_ desteklenir:
 - Kullanıcılarla algılanması [kimlik bilgileri sızmasını](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->Desteklenmeyen senaryolar için geçici bir çözüm olarak _yalnızca_, parola karma eşitlemesini etkinleştirmek [isteğe bağlı özellikler](active-directory-aadconnect-get-started-custom.md#optional-features) Azure AD Connect Sihirbazı sayfasında. Şirket içi altyapınızı kesintiye uğrarsa parola karma eşitlemesini etkinleştirme ayrıca yük devretme kimlik doğrulaması seçeneği sağlar. Active Directory parola karma eşitlemesi için doğrudan kimlik doğrulaması'ndan bu yük devretme otomatik değildir. Yardım'ı Microsoft Support gerektirir.
+>Desteklenmeyen senaryolar için geçici bir çözüm olarak _yalnızca_, parola karma eşitlemesini etkinleştirmek [isteğe bağlı özellikler](active-directory-aadconnect-get-started-custom.md#optional-features) Azure AD Connect Sihirbazı sayfasında.
+
+>[!NOTE]
+Şirket içi altyapınızı kesintiye uğrarsa parola karma eşitlemesini etkinleştirmek için yük devretme kimlik doğrulama seçeneği sunar. Active Directory parola karma eşitlemesi için doğrudan kimlik doğrulaması'ndan bu yük devretme otomatik değildir. Azure AD Connect kullanarak el ile oturum açma yöntemi geçmeniz gerekir. Azure AD Connect çalıştıran sunucunun kullanılamaz hale gelirse Microsoft doğrudan kimlik doğrulamasını devre dışı bırakma Support yardım almanız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD geçişli kimlik doğrulaması ile başlamak ve çalıştırmak.

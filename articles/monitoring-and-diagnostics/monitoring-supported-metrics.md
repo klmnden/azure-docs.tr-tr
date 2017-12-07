@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: 05830547a5b8a24a59571edf6dd44d101b660189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef27a15bb6a6305f7a762716a20487ef983cb5d1
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyicisi ile desteklenen ölçümleri
 Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümleri tam bir listesi ile Azure monitörün ölçüm ardışık düzen şu anda kullanılabilir.
@@ -85,7 +85,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |UnauthorizedRequests|Yetkisiz ağ geçidi istekleri|Sayı|Toplam|Yetkisiz ağ geçidi istek sayısı|Konum, ana bilgisayar adı|
 |FailedRequests|Başarısız ağ geçidi istekleri|Sayı|Toplam|Ağ geçidi istek sayısı|Konum, ana bilgisayar adı|
 |OtherRequests|Diğer ağ geçidi istekleri|Sayı|Toplam|Diğer ağ geçidi istek sayısı|Konum, ana bilgisayar adı|
-|Süre|Ağ geçidi isteklerin toplam süre|milisaniye|Ortalama|Toplam süre, ağ geçidi istekleri milisaniye|Konum, ana bilgisayar adı|
+|Süre|Ağ geçidi isteklerin toplam süre|Milisaniye|Ortalama|Toplam süre, ağ geçidi istekleri milisaniye|Konum, ana bilgisayar adı|
 |Kapasite|Kapasite (Önizleme)|Yüzde|Maksimum|ApiManagement hizmet için kullanım ölçümü|Konum|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
@@ -127,20 +127,20 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|connectedclients|Bağlanan istemciler|Sayı|Maksimum||Hiç boyut|
-|totalcommandsprocessed|Toplam işlemler|Sayı|Toplam||Hiç boyut|
-|cachehits|İsabetli Önbellek okuma sayısı|Sayı|Toplam||Hiç boyut|
-|cachemisses|İsabetsiz önbellek okuma sayısı|Sayı|Toplam||Hiç boyut|
-|getcommands|Alır|Sayı|Toplam||Hiç boyut|
-|setcommands|Ayarlar|Sayı|Toplam||Hiç boyut|
-|evictedkeys|Çıkarılan anahtarları|Sayı|Toplam||Hiç boyut|
-|totalkeys|Toplam anahtarları|Sayı|Maksimum||Hiç boyut|
-|expiredkeys|Süresi dolan anahtarları|Sayı|Toplam||Hiç boyut|
-|usedmemory|Kullanılan bellek|Bayt|Maksimum||Hiç boyut|
+|connectedclients|Bağlı İstemciler|Sayı|Maksimum||Hiç boyut|
+|totalcommandsprocessed|İşlemler Toplamı|Sayı|Toplam||Hiç boyut|
+|cachehits|İsabetli Önbellek Okuma Sayısı|Sayı|Toplam||Hiç boyut|
+|cachemisses|İsabetsiz Önbellek Okuma Sayısı|Sayı|Toplam||Hiç boyut|
+|getcommands|Alınanlar|Sayı|Toplam||Hiç boyut|
+|setcommands|Kümeler|Sayı|Toplam||Hiç boyut|
+|evictedkeys|Çıkarılan Anahtarlar|Sayı|Toplam||Hiç boyut|
+|totalkeys|Toplam Anahtar Sayısı|Sayı|Maksimum||Hiç boyut|
+|expiredkeys|Süresi Dolan Anahtarlar|Sayı|Toplam||Hiç boyut|
+|usedmemory|Kullanılan Bellek|Bayt|Maksimum||Hiç boyut|
 |usedmemoryRss|Kullanılan bellek RSS|Bayt|Maksimum||Hiç boyut|
-|serverLoad|Sunucu iş yükü|Yüzde|Maksimum||Hiç boyut|
-|cacheWrite|Önbellek yazma|BytesPerSecond|Maksimum||Hiç boyut|
-|cacheRead|Önbellek Okuma|BytesPerSecond|Maksimum||Hiç boyut|
+|serverLoad|Sunucu Yükü|Yüzde|Maksimum||Hiç boyut|
+|cacheWrite|Önbellek Yazması|BytesPerSecond|Maksimum||Hiç boyut|
+|cacheRead|Önbellek Okuması|BytesPerSecond|Maksimum||Hiç boyut|
 |percentProcessorTime|CPU|Yüzde|Maksimum||Hiç boyut|
 |connectedclients0|Bağlanan istemciler (parça 0)|Sayı|Maksimum||Hiç boyut|
 |totalcommandsprocessed0|Toplam işlemler (parça 0)|Sayı|Toplam||Hiç boyut|
@@ -297,26 +297,26 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU yüzdesi|CPU yüzdesi|Yüzde|Ortalama|Sanal makineler tarafından kullanılan ayrılmış işlem birimleri yüzdesi.|Hiç boyut|
-|Ağ içine|Ağ içine|Bayt|Toplam|Tüm ağ arabirimlerindeki (gelen trafiği) sanal makineleri tarafından alınan bayt sayısı.|Hiç boyut|
-|Ağ dışına|Ağ dışına|Bayt|Toplam|Out tüm ağ arabirimlerindeki sanal makineleri (giden trafiği) tarafından bayt sayısı.|Hiç boyut|
+|CPU Yüzdesi|CPU Yüzdesi|Yüzde|Ortalama|Sanal makineler tarafından kullanılan ayrılmış işlem birimleri yüzdesi.|Hiç boyut|
+|Ağ İçine|Ağ İçine|Bayt|Toplam|Tüm ağ arabirimlerindeki (gelen trafiği) sanal makineleri tarafından alınan bayt sayısı.|Hiç boyut|
+|Ağ Dışına|Ağ Dışına|Bayt|Toplam|Out tüm ağ arabirimlerindeki sanal makineleri (giden trafiği) tarafından bayt sayısı.|Hiç boyut|
 |Disk okuma bayt/sn|Disk okuma|BytesPerSecond|Ortalama|Ortalama bayt sayısı, dönem izleme sırasında diskten okuyun.|Hiç boyut|
 |Disk Yazma Bayt/sn|Disk yazma|BytesPerSecond|Ortalama|İzleme süresi sırasında diske yazılan ortalama bayt sayısı.|Hiç boyut|
-|Disk okuma işlemleri/sn|Disk okuma işlemleri/sn|CountPerSecond|Ortalama|Disk okuma IOPS.|Hiç boyut|
-|Disk yazma işlemi/sn|Disk yazma işlemi/sn|CountPerSecond|Ortalama|Disk yazma IOPS.|Hiç boyut|
+|Disk Okuma İşlemi/Sn|Disk Okuma İşlemi/Sn|CountPerSecond|Ortalama|Disk okuma IOPS.|Hiç boyut|
+|Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk yazma IOPS.|Hiç boyut|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|TotalCalls|Toplam çağrı sayısı|Sayı|Toplam|Toplam çağrı sayısı.|Hiç boyut|
-|SuccessfulCalls|Başarılı çağrıları|Sayı|Toplam|Başarılı çağrı sayısı.|Hiç boyut|
-|TotalErrors|Toplam hata|Sayı|Toplam|Toplam hata yanıtı (HTTP yanıt kodu 4xx veya 5xx) ile çağrı sayısı.|Hiç boyut|
-|BlockedCalls|Engellenen Aramalar|Sayı|Toplam|Bu aşıldı oranı veya kota sınırı çağrı sayısı.|Hiç boyut|
-|ServerErrors|Sunucu hataları|Sayı|Toplam|Hizmet iç hatası (HTTP yanıt kodu 5xx) ile çağrı sayısı.|Hiç boyut|
-|ClientErrors|İstemci hataları|Sayı|Toplam|İstemci tarafı hatası (HTTP yanıt kodu 4xx) ile çağrı sayısı.|Hiç boyut|
-|Elinden|Verileri|Bayt|Toplam|Gelen veri bayt cinsinden boyutu.|Hiç boyut|
-|DataOut|Giden veriler|Bayt|Toplam|Giden veri bayt cinsinden boyutu.|Hiç boyut|
+|TotalCalls|Toplam Çağrı Sayısı|Sayı|Toplam|Toplam çağrı sayısı.|Hiç boyut|
+|SuccessfulCalls|Başarılı Çağrılar|Sayı|Toplam|Başarılı olan çağrıların sayısı.|Hiç boyut|
+|TotalErrors|Hatalar Toplamı|Sayı|Toplam|Hata yanıtıyla sonuçlanan toplam çağrı sayısı (HTTP yanıt kodu 4xx veya 5xx).|Hiç boyut|
+|BlockedCalls|Engellenen Çağrılar|Sayı|Toplam|Oran veya kota sınırını aşan çağrı sayısı.|Hiç boyut|
+|ServerErrors|Sunucu Hataları|Sayı|Toplam|Hizmet iç hatasıyla sonuçlanan çağrı sayısı (HTTP yanıt kodu 5xx).|Hiç boyut|
+|ClientErrors|İstemci Hataları|Sayı|Toplam|İstemci tarafında hatayla sonuçlanan çağrı sayısı (HTTP yanıt kodu 4xx).|Hiç boyut|
+|Elinden|Data Girişi|Bayt|Toplam|Gelen verilerin bayt cinsinden boyutu.|Hiç boyut|
+|DataOut|Giden Veriler|Bayt|Toplam|Giden verilerin bayt cinsinden boyutu.|Hiç boyut|
 |Gecikme süresi|Gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden gecikme süresi.|Hiç boyut|
 |CharactersTranslated|Çevrilen karakterleri|Sayı|Toplam|Toplam gelen metin istekteki karakter sayısı.|Hiç boyut|
 |SpeechSessionDuration|Konuşma oturum süresi|Saniye|Toplam|Konuşma oturumunun saniye cinsinden toplam süre.|Hiç boyut|
@@ -325,13 +325,13 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU yüzdesi|CPU yüzdesi|Yüzde|Ortalama|Sanal makineler tarafından kullanılan ayrılmış işlem birimleri yüzdesi|Hiç boyut|
-|Ağ içine|Ağ içine|Bayt|Toplam|Tüm ağ arabirimlerindeki (gelen trafiği) sanal makineleri tarafından alınan bayt sayısı|Hiç boyut|
-|Ağ dışına|Ağ dışına|Bayt|Toplam|Out tüm ağ arabirimlerindeki sanal makineleri (giden trafiği) tarafından bayt sayısı|Hiç boyut|
-|Disk okuma bayt|Disk okuma bayt|Bayt|Toplam|İzleme süresi sırasında diskten okunan toplam bayt sayısı|Hiç boyut|
-|Disk yazma bayt|Disk yazma bayt|Bayt|Toplam|İzleme süresi sırasında diske yazılan toplam bayt sayısı|Hiç boyut|
-|Disk okuma işlemleri/sn|Disk okuma işlemleri/sn|CountPerSecond|Ortalama|Disk okuma IOPS|Hiç boyut|
-|Disk yazma işlemi/sn|Disk yazma işlemi/sn|CountPerSecond|Ortalama|Disk yazma IOPS|Hiç boyut|
+|CPU Yüzdesi|CPU Yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından kullanılan ayrılmış işlem birimlerinin geçerli yüzdesi|Hiç boyut|
+|Ağ İçine|Ağ İçine|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik)|Hiç boyut|
+|Ağ Dışına|Ağ Dışına|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik)|Hiç boyut|
+|Diskten Okunan Bayt|Diskten Okunan Bayt|Bayt|Toplam|İzleme dönemi boyunca diskten okunan toplam bayt|Hiç boyut|
+|Diske Yazılan Bayt|Diske Yazılan Bayt|Bayt|Toplam|İzleme dönemi boyunca diske yazılan toplam bayt|Hiç boyut|
+|Disk Okuma İşlemi/Sn|Disk Okuma İşlemi/Sn|CountPerSecond|Ortalama|Disk Okuma IOPS|Hiç boyut|
+|Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk Yazma IOPS|Hiç boyut|
 |CPU kredi kaldı|CPU kredi kaldı|Sayı|Ortalama|Krediler veri bloğu kullanılabilir toplam sayısı|Hiç boyut|
 |Kullanılan CPU KREDİLERİ|Kullanılan CPU KREDİLERİ|Sayı|Ortalama|Sanal makine tarafından tüketilen krediler toplam sayısı|Hiç boyut|
 
@@ -339,13 +339,13 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU yüzdesi|CPU yüzdesi|Yüzde|Ortalama|Sanal makineler tarafından kullanılan ayrılmış işlem birimleri yüzdesi|Hiç boyut|
-|Ağ içine|Ağ içine|Bayt|Toplam|Tüm ağ arabirimlerindeki (gelen trafiği) sanal makineleri tarafından alınan bayt sayısı|Hiç boyut|
-|Ağ dışına|Ağ dışına|Bayt|Toplam|Out tüm ağ arabirimlerindeki sanal makineleri (giden trafiği) tarafından bayt sayısı|Hiç boyut|
-|Disk okuma bayt|Disk okuma bayt|Bayt|Toplam|İzleme süresi sırasında diskten okunan toplam bayt sayısı|Hiç boyut|
-|Disk yazma bayt|Disk yazma bayt|Bayt|Toplam|İzleme süresi sırasında diske yazılan toplam bayt sayısı|Hiç boyut|
-|Disk okuma işlemleri/sn|Disk okuma işlemleri/sn|CountPerSecond|Ortalama|Disk okuma IOPS|Hiç boyut|
-|Disk yazma işlemi/sn|Disk yazma işlemi/sn|CountPerSecond|Ortalama|Disk yazma IOPS|Hiç boyut|
+|CPU Yüzdesi|CPU Yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından kullanılan ayrılmış işlem birimlerinin geçerli yüzdesi|Hiç boyut|
+|Ağ İçine|Ağ İçine|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik)|Hiç boyut|
+|Ağ Dışına|Ağ Dışına|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik)|Hiç boyut|
+|Diskten Okunan Bayt|Diskten Okunan Bayt|Bayt|Toplam|İzleme dönemi boyunca diskten okunan toplam bayt|Hiç boyut|
+|Diske Yazılan Bayt|Diske Yazılan Bayt|Bayt|Toplam|İzleme dönemi boyunca diske yazılan toplam bayt|Hiç boyut|
+|Disk Okuma İşlemi/Sn|Disk Okuma İşlemi/Sn|CountPerSecond|Ortalama|Disk Okuma IOPS|Hiç boyut|
+|Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk Yazma IOPS|Hiç boyut|
 |CPU kredi kaldı|CPU kredi kaldı|Sayı|Ortalama|Krediler veri bloğu kullanılabilir toplam sayısı|Hiç boyut|
 |Kullanılan CPU KREDİLERİ|Kullanılan CPU KREDİLERİ|Sayı|Ortalama|Sanal makine tarafından tüketilen krediler toplam sayısı|Hiç boyut|
 
@@ -353,13 +353,13 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU yüzdesi|CPU yüzdesi|Yüzde|Ortalama|Sanal makineler tarafından kullanılan ayrılmış işlem birimleri yüzdesi|Hiç boyut|
-|Ağ içine|Ağ içine|Bayt|Toplam|Tüm ağ arabirimlerindeki (gelen trafiği) sanal makineleri tarafından alınan bayt sayısı|Hiç boyut|
-|Ağ dışına|Ağ dışına|Bayt|Toplam|Out tüm ağ arabirimlerindeki sanal makineleri (giden trafiği) tarafından bayt sayısı|Hiç boyut|
-|Disk okuma bayt|Disk okuma bayt|Bayt|Toplam|İzleme süresi sırasında diskten okunan toplam bayt sayısı|Hiç boyut|
-|Disk yazma bayt|Disk yazma bayt|Bayt|Toplam|İzleme süresi sırasında diske yazılan toplam bayt sayısı|Hiç boyut|
-|Disk okuma işlemleri/sn|Disk okuma işlemleri/sn|CountPerSecond|Ortalama|Disk okuma IOPS|Hiç boyut|
-|Disk yazma işlemi/sn|Disk yazma işlemi/sn|CountPerSecond|Ortalama|Disk yazma IOPS|Hiç boyut|
+|CPU Yüzdesi|CPU Yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından kullanılan ayrılmış işlem birimlerinin geçerli yüzdesi|Hiç boyut|
+|Ağ İçine|Ağ İçine|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik)|Hiç boyut|
+|Ağ Dışına|Ağ Dışına|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik)|Hiç boyut|
+|Diskten Okunan Bayt|Diskten Okunan Bayt|Bayt|Toplam|İzleme dönemi boyunca diskten okunan toplam bayt|Hiç boyut|
+|Diske Yazılan Bayt|Diske Yazılan Bayt|Bayt|Toplam|İzleme dönemi boyunca diske yazılan toplam bayt|Hiç boyut|
+|Disk Okuma İşlemi/Sn|Disk Okuma İşlemi/Sn|CountPerSecond|Ortalama|Disk Okuma IOPS|Hiç boyut|
+|Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk Yazma IOPS|Hiç boyut|
 |CPU kredi kaldı|CPU kredi kaldı|Sayı|Ortalama|Krediler veri bloğu kullanılabilir toplam sayısı|Hiç boyut|
 |Kullanılan CPU KREDİLERİ|Kullanılan CPU KREDİLERİ|Sayı|Ortalama|Sanal makine tarafından tüketilen krediler toplam sayısı|Hiç boyut|
 
@@ -415,7 +415,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |---|---|---|---|---|---|
 |TotalStorage|Toplam depolama alanı|Bayt|Maksimum|Hesapta depolanan verilere toplam miktarı.|Hiç boyut|
 |DataWritten|Yazılan veriler|Bayt|Toplam|Toplam hesabına yazılan veri miktarı.|Hiç boyut|
-|DataRead|Verileri okuma|Bayt|Toplam|Toplam veri miktarını hesabından okuyun.|Hiç boyut|
+|DataRead|Okunan Veriler|Bayt|Toplam|Toplam veri miktarını hesabından okuyun.|Hiç boyut|
 |WriteRequests|Yazma isteklerine|Sayı|Toplam|Hesaba veri sayısı yazma isteği.|Hiç boyut|
 |ReadRequests|Okuma isteği|Sayı|Toplam|Veri sayısı hesabına istekleri okuyun.|Hiç boyut|
 
@@ -466,15 +466,15 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |d2c.telemetry.egress.invalid|Geçersiz iletileri|Sayı|Toplam|Uç noktası ile uyumsuzluğu nedeniyle teslim edilmedi ileti sayısı|Hiç boyut|
 |d2c.telemetry.egress.fallback|Geri dönüş koşulla eşleşen iletileri|Sayı|Toplam|Geri dönüş uç noktasına yazılan ileti sayısı|Hiç boyut|
 |d2c.endpoints.egress.eventHubs|Olay hub'ı uç noktaları için teslim edilen ileti|Sayı|Toplam|İletiler için olay hub'ı uç noktaları başarıyla yazılmış sayısı|Hiç boyut|
-|d2c.endpoints.latency.eventHubs|Olay hub'ı uç noktaları için ileti gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden bir olay hub'ı uç içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|Hiç boyut|
+|d2c.endpoints.latency.eventHubs|Olay hub'ı uç noktaları için ileti gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden bir olay hub'ı uç içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|Hiç boyut|
 |d2c.endpoints.egress.serviceBusQueues|Hizmet veri yolu kuyruğu uç noktaları için teslim edilen ileti|Sayı|Toplam|İletileri başarıyla hizmet veri yolu kuyruğu Uç noktalara yazılmış sayısı|Hiç boyut|
-|d2c.endpoints.latency.serviceBusQueues|Hizmet veri yolu kuyruğu uç noktalar için ileti gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden bir hizmet veri yolu kuyruğu uç noktası içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|Hiç boyut|
+|d2c.endpoints.latency.serviceBusQueues|Hizmet veri yolu kuyruğu uç noktalar için ileti gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden bir hizmet veri yolu kuyruğu uç noktası içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|Hiç boyut|
 |d2c.endpoints.egress.serviceBusTopics|Hizmet veri yolu konusu uç noktaları için teslim edilen ileti|Sayı|Toplam|İletileri başarıyla hizmet veri yolu konusu Uç noktalara yazılmış sayısı|Hiç boyut|
-|d2c.endpoints.latency.serviceBusTopics|Hizmet veri yolu konusu uç noktalar için ileti gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden bir hizmet veri yolu konusu uç noktası içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|Hiç boyut|
+|d2c.endpoints.latency.serviceBusTopics|Hizmet veri yolu konusu uç noktalar için ileti gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden bir hizmet veri yolu konusu uç noktası içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|Hiç boyut|
 |d2c.endpoints.egress.builtIn.events|Yerleşik uç noktası (iletileri/olayları) teslim edilen ileti|Sayı|Toplam|İletileri (iletileri/olayları) yerleşik uç noktası başarıyla yazılmış sayısı|Hiç boyut|
-|d2c.endpoints.latency.builtIn.events|Yerleşik uç noktası (iletileri/olayları) için ileti gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden yerleşik uç noktası (iletileri/olayları) içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi |Hiç boyut|
+|d2c.endpoints.latency.builtIn.events|Yerleşik uç noktası (iletileri/olayları) için ileti gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden yerleşik uç noktası (iletileri/olayları) içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi |Hiç boyut|
 |d2c.endpoints.egress.Storage|Depolama uç noktaları için teslim edilen ileti|Sayı|Toplam|İletileri depolama Uç noktalara başarıyla yazılmış sayısı|Hiç boyut|
-|d2c.endpoints.latency.Storage|Depolama uç noktaları için ileti gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden bir depolama uç noktası içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|Hiç boyut|
+|d2c.endpoints.latency.Storage|Depolama uç noktaları için ileti gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden bir depolama uç noktası içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|Hiç boyut|
 |d2c.endpoints.egress.Storage.bytes|Depolama alanına yazılan veriler|Bayt|Toplam|Veri depolama uç noktaları için yazılan bayt miktarı|Hiç boyut|
 |d2c.endpoints.egress.Storage.BLOBS|BLOB Depolama birimine yazıldı|Sayı|Toplam|BLOB storage uç noktaları için yazılmış sayısı|Hiç boyut|
 |d2c.Twin.Read.Success|Başarılı twin aygıtlardan okur|Sayı|Toplam|Tüm başarılı aygıt tarafından başlatılan twin sayısını okur.|Hiç boyut|
@@ -506,10 +506,10 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |jobs.cancelJob.failure|Başarısız iş iptalleri|Sayı|Toplam|Bir işi iptal etmek için tüm başarısız çağrı sayısı.|Hiç boyut|
 |jobs.queryJobs.success|İş başarılı sorguları|Sayı|Toplam|Sorgu işlerinin tüm başarılı çağrı sayısı.|Hiç boyut|
 |jobs.queryJobs.failure|Başarısız işi sorgular|Sayı|Toplam|Tüm başarısız çağrılar sorgu işlerinin sayısı.|Hiç boyut|
-|Jobs.Completed|Tamamlanan İşler|Sayı|Toplam|Tüm tamamlanmış işlerin sayısı.|Hiç boyut|
+|Jobs.Completed|Tamamlanan işler|Sayı|Toplam|Tüm tamamlanmış işlerin sayısı.|Hiç boyut|
 |Jobs.Failed|Başarısız olan işler|Sayı|Toplam|Tüm başarısız işler sayısı.|Hiç boyut|
 |d2c.telemetry.ingress.sendThrottle|Azaltma hatalarının sayısı|Sayı|Toplam|Kısıtlama hataları aygıt işleme nedeniyle sayısını kısıtlar|Hiç boyut|
-|dailyMessageQuotaUsed|Kullanılan iletilerin toplam sayısı|Sayı|Ortalama|Günümüzde kullanılan toplam ileti sayısı|Hiç boyut|
+|dailyMessageQuotaUsed|Kullanılan iletilerin toplam sayısı|Sayı|Ortalama|Günümüzde kullanılan toplam ileti sayısı. Bu, sıfırlanır, toplu bir değerdir her gün 00:00 UTC adresindeki.|Hiç boyut|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -522,7 +522,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 ## <a name="microsoftdocumentdbdatabaseaccounts-cosmosdb"></a>Microsoft.DocumentDB/databaseAccounts (CosmosDB)
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|TotalRequests|Toplam istek sayısı|Sayı|Sayı|Yapılan isteklerin sayısı|DatabaseAccount, CollectionName, DatabaseName, bölge, StatusCode|
+|TotalRequests|Toplam İstek Sayısı|Sayı|Sayı|Yapılan isteklerin sayısı|DatabaseAccount, CollectionName, DatabaseName, bölge, StatusCode|
 |MongoRequests|Mongo istekleri|Sayı|Sayı|Yapılan Mongo isteklerinin sayısı|DatabaseAccount, CollectionName, DatabaseName, bölge, ErrorCode, CommandName|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
@@ -530,22 +530,22 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |INREQS|Gelen gönderme isteği|Sayı|Toplam|Toplam gelen istekleri için bir ad alanı Gönder|Hiç boyut|
-|SUCCREQ|Başarılı istekler|Sayı|Toplam|Bir ad alanı için toplam başarılı istekler|Hiç boyut|
-|FAILREQ|Başarısız istekler|Sayı|Toplam|Bir ad alanı için toplam başarısız istek sayısı|Hiç boyut|
-|SVRBSY|Sunucu meşgul hataları|Sayı|Toplam|Bir ad alanı için toplam sunucu meşgul hataları|Hiç boyut|
-|INTERR|İç sunucu hataları|Sayı|Toplam|Bir ad alanı için toplam iç sunucu hataları|Hiç boyut|
-|MISCERR|Diğer hatalar|Sayı|Toplam|Bir ad alanı için toplam başarısız istek sayısı|Hiç boyut|
+|SUCCREQ|Başarılı İstekler|Sayı|Toplam|Bir ad alanı için toplam başarılı istek sayısı|Hiç boyut|
+|FAILREQ|Başarısız Olan İstekler|Sayı|Toplam|Bir ad alanı için toplam başarısız istek sayısı|Hiç boyut|
+|SVRBSY|Sunucu Meşgul Hataları|Sayı|Toplam|Bir ad alanı için sunucu meşgul hatalarının toplam sayısı|Hiç boyut|
+|INTERR|İç Sunucu Hataları|Sayı|Toplam|Bir ad alanı için toplam iç sunucu hatası sayısı|Hiç boyut|
+|MISCERR|Diğer Hatalar|Sayı|Toplam|Bir ad alanı için toplam başarısız istek sayısı|Hiç boyut|
 |INMSGS|Gelen iletileri (kullanım dışı)|Sayı|Toplam|Bir ad alanı için toplam gelen iletileri. Bu ölçüm kullanım dışıdır. Lütfen gelen iletileri ölçüm kullanın|Hiç boyut|
-|EHINMSGS|Gelen iletileri|Sayı|Toplam|Bir ad alanı için toplam gelen iletileri|Hiç boyut|
+|EHINMSGS|Gelen İletiler|Sayı|Toplam|Bir ad alanı için toplam gelen ileti sayısı|Hiç boyut|
 |OUTMSGS|Giden iletiler (kullanım dışı)|Sayı|Toplam|Toplam giden bir ad alanı için iletileri. Bu ölçüm kullanım dışıdır. Lütfen giden iletiler ölçüm kullanın|Hiç boyut|
-|EHOUTMSGS|Giden iletiler|Sayı|Toplam|Toplam Giden iletiler için bir ad alanı|Hiç boyut|
+|EHOUTMSGS|Giden İletiler|Sayı|Toplam|Bir ad alanı için toplam giden ileti sayısı|Hiç boyut|
 |EHINMBS|Gelen bayt sayısı (kullanım dışı)|Bayt|Toplam|Olay hub'ı gelen ileti üretilen iş için bir ad alanı. Bu ölçüm kullanım dışıdır. Lütfen gelen bayt ölçüm kullanın|Hiç boyut|
-|EHINBYTES|Gelen bayt sayısı|Bayt|Toplam|Olay hub'ı bir ad alanı için gelen ileti işleme|Hiç boyut|
+|EHINBYTES|Gelen bayt sayısı|Bayt|Toplam|Bir ad alanı için Olay Hub'ı gelen ileti işleme hızı|Hiç boyut|
 |EHOUTMBS|Giden bayt sayısı (kullanım dışı)|Bayt|Toplam|Olay hub'ı giden ileti üretilen iş için bir ad alanı. Bu ölçüm kullanım dışıdır. Lütfen Giden bayt ölçüm kullanın|Hiç boyut|
-|EHOUTBYTES|Giden bayt sayısı|Bayt|Toplam|Olay hub'ı bir ad alanı için giden ileti işleme|Hiç boyut|
-|EHABL|Arşiv biriktirme listesi iletileri|Sayı|Toplam|Olay hub'ı arşiv iletileri bir ad alanı için biriktirme listesi|Hiç boyut|
-|EHAMSGS|Mesajları arşivleme|Sayı|Toplam|Olay hub'ı Arşivlenmiş bir ad alanındaki iletileri|Hiç boyut|
-|EHAMBS|Arşiv ileti işleme|Bayt|Toplam|Bir ad alanında olay hub'ı arşivlenmiş ileti işleme|Hiç boyut|
+|EHOUTBYTES|Giden bayt sayısı|Bayt|Toplam|Bir ad alanı için Olay Hub'ı giden ileti işleme hızı|Hiç boyut|
+|EHABL|Kapsam mesajlarını arşivle|Sayı|Toplam|Bir ad alanı için kapsamda arşivlenen Olay Hub'ı iletileri|Hiç boyut|
+|EHAMSGS|Mesajları arşivleme|Sayı|Toplam|Bir ad alanında Olay Hub'ı tarafından arşivlenen iletiler|Hiç boyut|
+|EHAMBS|Mesaj işlemelerini arşivle|Bayt|Toplam|Bir ad alanında Olay Hub'ı tarafından arşivlenen ileti işleme hızı|Hiç boyut|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
 
@@ -560,36 +560,36 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|RunsStarted|Başlatılan çalıştırır|Sayı|Toplam|Başlatılan iş akışı çalıştırma sayısı.|Hiç boyut|
-|RunsCompleted|Tamamlanan çalıştırır|Sayı|Toplam|Tamamlanan iş akışı çalıştırma sayısı.|Hiç boyut|
-|RunsSucceeded|Başarılı bir şekilde çalışır|Sayı|Toplam|Başarılı iş akışı çalıştırma sayısı.|Hiç boyut|
-|RunsFailed|Başarısız çalıştırır|Sayı|Toplam|Başarısız iş akışı çalıştırma sayısı.|Hiç boyut|
-|RunsCancelled|İptal çalıştırır|Sayı|Toplam|İptal edilen iş akışı çalıştırma sayısı.|Hiç boyut|
-|RunLatency|Gecikme çalıştırın|Saniye|Ortalama|Tamamlanan iş akışı çalıştırmalarının gecikme süresi.|Hiç boyut|
-|RunSuccessLatency|Başarı gecikme çalıştırın|Saniye|Ortalama|Başarılı iş akışı çalıştırmalarının gecikme süresi.|Hiç boyut|
-|RunThrottledEvents|Daraltılmış olayları çalıştırın|Sayı|Toplam|İş akışı eylemi veya tetikleyiciyle kısıtlanan olay sayısı.|Hiç boyut|
-|RunFailurePercentage|Hata yüzdesi çalıştırın|Yüzde|Toplam|İş akışı yüzdesi başarısız çalışır.|Hiç boyut|
+|RunsStarted|Başlatılan Çalıştırmalar|Sayı|Toplam|Başlatılan iş akışı çalıştırma sayısı.|Hiç boyut|
+|RunsCompleted|Tamamlanan Çalıştırmalar|Sayı|Toplam|Tamamlanan iş akışı çalıştırma sayısı.|Hiç boyut|
+|RunsSucceeded|Başarılı Çalıştırmalar|Sayı|Toplam|Başarılı iş akışı çalıştırma sayısı.|Hiç boyut|
+|RunsFailed|Başarısız Çalıştırmalar|Sayı|Toplam|Başarısız iş akışı çalıştırma sayısı.|Hiç boyut|
+|RunsCancelled|İptal Edilen Çalıştırmalar|Sayı|Toplam|İptal edilen iş akışı çalıştırma sayısı.|Hiç boyut|
+|RunLatency|Çalıştırma Gecikmesi|Saniye|Ortalama|Tamamlanan iş akışı çalıştırmalarının gecikme süresi.|Hiç boyut|
+|RunSuccessLatency|Başarılı Çalıştırma Gecikmesi|Saniye|Ortalama|Başarılı iş akışı çalıştırmalarının gecikme süresi.|Hiç boyut|
+|RunThrottledEvents|Çalıştırılması Kısıtlanan Olaylar|Sayı|Toplam|İş akışı eylemi veya tetikleyiciyle kısıtlanan olay sayısı.|Hiç boyut|
+|RunFailurePercentage|Çalıştırma Hatası Yüzdesi|Yüzde|Toplam|Başarısız olan iş akışı çalıştırmalarının yüzdesi.|Hiç boyut|
 |ActionsStarted|Başlatılan Eylemler |Sayı|Toplam|Başlatılan iş akışı eylemi sayısı.|Hiç boyut|
-|ActionsCompleted|Eylemler tamamlandı |Sayı|Toplam|Tamamlanan iş akışı eylemi sayısı.|Hiç boyut|
-|ActionsSucceeded|Eylemler başarılı oldu |Sayı|Toplam|Başarılı iş akışı eylemi sayısı.|Hiç boyut|
-|ActionsFailed|Eylemler başarısız oldu|Sayı|Toplam|Başarısız iş akışı eylemi sayısı.|Hiç boyut|
+|ActionsCompleted|Tamamlanan Eylemler |Sayı|Toplam|Tamamlanan iş akışı eylemi sayısı.|Hiç boyut|
+|ActionsSucceeded|Başarılı Eylemler |Sayı|Toplam|Başarılı iş akışı eylemi sayısı.|Hiç boyut|
+|ActionsFailed|Başarısız Eylemler|Sayı|Toplam|Başarısız iş akışı eylemi sayısı.|Hiç boyut|
 |ActionsSkipped|Atlanan Eylemler |Sayı|Toplam|Atlanan iş akışı eylemi sayısı.|Hiç boyut|
-|ActionLatency|Eylem gecikme süresi |Saniye|Ortalama|Tamamlanan iş akışı eylemlerinin gecikme süresi.|Hiç boyut|
-|ActionSuccessLatency|Eylem başarı gecikme süresi |Saniye|Ortalama|Başarılı iş akışı eylemlerinin gecikme süresi.|Hiç boyut|
-|ActionThrottledEvents|Eylem olayları kısıtlanan|Sayı|Toplam|İş akışı eylemi kısıtlanan olay sayısı.|Hiç boyut|
-|TriggersStarted|Tetikleyiciler başlatıldı |Sayı|Toplam|Başlatılan iş akışı tetikleyicisi sayısı.|Hiç boyut|
-|TriggersCompleted|Tetikleyiciler tamamlandı |Sayı|Toplam|Tamamlanan iş akışı tetikleyicisi sayısı.|Hiç boyut|
-|TriggersSucceeded|Tetikleyiciler başarılı oldu |Sayı|Toplam|Başarılı iş akışı tetikleyicisi sayısı.|Hiç boyut|
-|TriggersFailed|Tetikleyiciler başarısız oldu |Sayı|Toplam|Başarısız iş akışı tetikleyicisi sayısı.|Hiç boyut|
-|TriggersSkipped|Atlanan Tetikleyicileri|Sayı|Toplam|Atlanan iş akışı tetikleyicisi sayısı.|Hiç boyut|
-|TriggersFired|Harekete Tetikleyicileri |Sayı|Toplam|Harekete geçirilen iş akışı tetikleyicisi sayısı.|Hiç boyut|
-|TriggerLatency|Tetikleme gecikmesi |Saniye|Ortalama|Tamamlanan iş akışı tetikleyicilerinin gecikmesi.|Hiç boyut|
-|TriggerFireLatency|Tetikleyici yangın gecikme süresi |Saniye|Ortalama|Başlatılan iş akışı tetikleyicilerinin gecikmesi.|Hiç boyut|
-|TriggerSuccessLatency|Tetikleyici başarı gecikme süresi |Saniye|Ortalama|Başarılı iş akışı tetikleyicilerinin gecikmesi.|Hiç boyut|
-|TriggerThrottledEvents|Daraltılmış olaylarını tetiklemek|Sayı|Toplam|İş akışı tetikleyicisiyle kısıtlanan olay sayısı.|Hiç boyut|
-|BillableActionExecutions|Faturalanabilir eylem yürütmeleri|Sayı|Toplam|İş akışı eylemi yürütmeleri faturalandırılır sayısı.|Hiç boyut|
-|BillableTriggerExecutions|Faturalanabilir tetikleyici yürütmeleri|Sayı|Toplam|İş akışı tetikleyici yürütmeleri faturalandırılır sayısı.|Hiç boyut|
-|TotalBillableExecutions|Toplam Faturalanabilir yürütmeleri|Sayı|Toplam|İş akışı yürütmeleri faturalandırılır sayısı.|Hiç boyut|
+|ActionLatency|Eylem Gecikmesi |Saniye|Ortalama|Tamamlanan iş akışı eylemlerinin gecikme süresi.|Hiç boyut|
+|ActionSuccessLatency|Başarılı Eylem Gecikmesi |Saniye|Ortalama|Başarılı iş akışı eylemlerinin gecikme süresi.|Hiç boyut|
+|ActionThrottledEvents|Eylemi Kısıtlanan Olaylar|Sayı|Toplam|İş akışı eylemi kısıtlanan olay sayısı.|Hiç boyut|
+|TriggersStarted|Başlatılan Tetikleyiciler |Sayı|Toplam|Başlatılan iş akışı tetikleyicisi sayısı.|Hiç boyut|
+|TriggersCompleted|Tamamlanan Tetikleyiciler |Sayı|Toplam|Tamamlanan iş akışı tetikleyicisi sayısı.|Hiç boyut|
+|TriggersSucceeded|Başarılı Olan Tetikleyiciler |Sayı|Toplam|Başarılı iş akışı tetikleyicisi sayısı.|Hiç boyut|
+|TriggersFailed|Başarısız Olan Tetikleyiciler |Sayı|Toplam|Başarısız iş akışı tetikleyicisi sayısı.|Hiç boyut|
+|TriggersSkipped|Atlanan Tetikleyiciler|Sayı|Toplam|Atlanan iş akışı tetikleyicisi sayısı.|Hiç boyut|
+|TriggersFired|Tetiklenen Tetikleyiciler |Sayı|Toplam|Harekete geçirilen iş akışı tetikleyicisi sayısı.|Hiç boyut|
+|TriggerLatency|Tetikleyici Gecikme Süresi |Saniye|Ortalama|Tamamlanan iş akışı tetikleyicilerinin gecikmesi.|Hiç boyut|
+|TriggerFireLatency|Tetikleyici Tetikleme Gecikme Süresi |Saniye|Ortalama|Başlatılan iş akışı tetikleyicilerinin gecikmesi.|Hiç boyut|
+|TriggerSuccessLatency|Tetikleyici Başarı Gecikme Süresi |Saniye|Ortalama|Başarılı iş akışı tetikleyicilerinin gecikmesi.|Hiç boyut|
+|TriggerThrottledEvents|Tetikleyici Kısıtlanan Olaylar|Sayı|Toplam|İş akışı tetikleyicisiyle kısıtlanan olay sayısı.|Hiç boyut|
+|BillableActionExecutions|Faturalanabilir Eylem Yürütmeleri|Sayı|Toplam|Faturalandırılan iş akışı eylemi yürütmelerinin sayısı.|Hiç boyut|
+|BillableTriggerExecutions|Faturalanabilir Tetikleyici Yürütmeleri|Sayı|Toplam|Faturalandırılan iş akışı tetikleyicisi yürütmelerinin sayısı.|Hiç boyut|
+|TotalBillableExecutions|Toplam Faturalanabilir Yürütme Sayısı|Sayı|Toplam|Faturalandırılan iş akışı yürütmelerinin sayısı.|Hiç boyut|
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
@@ -671,65 +671,65 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|registration.all|Kayıt işlemleri|Sayı|Toplam|Tüm başarılı kayıt işlemleri (oluşturma güncelleştirmeleri sorgular ve silme işlemleri) sayısı. |Hiç boyut|
-|registration.Create|Kayıt oluşturma işlemleri|Sayı|Toplam|Tüm başarılı kaydı oluşturmaları sayısı.|Hiç boyut|
-|registration.Update|Kayıt Güncelleme işlemleri|Sayı|Toplam|Tüm başarılı kaydı güncelleştirme sayısı.|Hiç boyut|
-|registration.get|Kayıt okuma işlemleri|Sayı|Toplam|Tüm başarılı kaydı sorguları sayısı.|Hiç boyut|
-|registration.Delete|Kayıt silme işlemleri|Sayı|Toplam|Tüm başarılı kaydı silme işlemleri sayısı.|Hiç boyut|
-|gelen|Gelen iletileri|Sayı|Toplam|Tüm başarılı sayısı API çağrıları gönderin. |Hiç boyut|
-|incoming.Scheduled|Gönderilen zamanlanan anında iletme bildirimleri|Sayı|Toplam|İptal zamanlanmış anında iletme bildirimleri|Hiç boyut|
-|incoming.Scheduled.Cancel|İptal zamanlanmış anında iletme bildirimleri|Sayı|Toplam|İptal zamanlanmış anında iletme bildirimleri|Hiç boyut|
-|Scheduled.Pending|Bekleyen zamanlanmış bildirimleri|Sayı|Toplam|Bekleyen zamanlanmış bildirimleri|Hiç boyut|
-|installation.all|Yükleme yönetim işlemleri|Sayı|Toplam|Yükleme yönetim işlemleri|Hiç boyut|
-|installation.get|Yükleme işlemleri Al|Sayı|Toplam|Yükleme işlemleri Al|Hiç boyut|
+|registration.all|Kayıt İşlemleri|Sayı|Toplam|Tüm başarılı kayıt işlemlerinin sayısı (oluşturma, güncelleştirme, sorgu ve silme işlemleri). |Hiç boyut|
+|registration.Create|Kayıt Oluşturma İşlemleri|Sayı|Toplam|Tüm başarılı kayıt oluşturma işlemlerinin sayısı.|Hiç boyut|
+|registration.Update|Kayıt Güncelleme İşlemleri|Sayı|Toplam|Tüm başarılı kayıt güncelleştirmelerinin sayısı.|Hiç boyut|
+|registration.get|Kayıt Okuma İşlemleri|Sayı|Toplam|Tüm başarılı kayıt sorgularının sayısı.|Hiç boyut|
+|registration.Delete|Kayıt Silme İşlemleri|Sayı|Toplam|Tüm başarılı kayıt silme işlemlerinin sayısı.|Hiç boyut|
+|gelen|Gelen İletiler|Sayı|Toplam|Başarılı olan tüm gönderme API'si çağrılarının sayısı. |Hiç boyut|
+|incoming.Scheduled|Zamanlanan Anında İletme Bildirimleri Gönderildi|Sayı|Toplam|Zamanlanan Anında İletme Bildirimleri İptal Edildi|Hiç boyut|
+|incoming.Scheduled.Cancel|Zamanlanan Anında İletme Bildirimleri İptal Edildi|Sayı|Toplam|Zamanlanan Anında İletme Bildirimleri İptal Edildi|Hiç boyut|
+|Scheduled.Pending|Bekleyen Zamanlanmış Bildirimler|Sayı|Toplam|Bekleyen Zamanlanmış Bildirimler|Hiç boyut|
+|installation.all|Yükleme Yönetimi İşlemleri|Sayı|Toplam|Yükleme Yönetimi İşlemleri|Hiç boyut|
+|installation.get|Yükleme İşlemlerini Al|Sayı|Toplam|Yükleme İşlemlerini Al|Hiç boyut|
 |installation.upsert|Yükleme İşlemleri Oluştur veya Güncelleştir|Sayı|Toplam|Yükleme İşlemleri Oluştur veya Güncelleştir|Hiç boyut|
-|installation.Patch|Düzeltme eki yükleme işlemleri|Sayı|Toplam|Düzeltme eki yükleme işlemleri|Hiç boyut|
-|installation.Delete|Yükleme işlemlerini sil|Sayı|Toplam|Yükleme işlemlerini sil|Hiç boyut|
-|outgoing.allpns.Success|Başarılı bildirimler|Sayı|Toplam|Tüm başarılı bildirimler sayısı.|Hiç boyut|
-|outgoing.allpns.invalidpayload|Yük hataları|Sayı|Toplam|PNS bir bozuk yükü hata döndürdüğünden başaramayan gönderim sayısı.|Hiç boyut|
-|outgoing.allpns.pnserror|Harici bildirim sistemi hataları|Sayı|Toplam|(Kimlik doğrulama sorunları hiç tutar) PNS ile iletişim kurulurken bir sorun olduğundan, başarısız gönderim sayısı.|Hiç boyut|
-|outgoing.allpns.channelerror|Kanal hataları|Sayı|Toplam|Sayısı süresi dolmuş veya kısıtlanan doğru uygulama ile ilişkili olmayan kanal geçersiz olduğundan dolayı başarısız iter.|Hiç boyut|
-|outgoing.allpns.badorexpiredchannel|Hatalı veya Süresi Dolmuş Kanal Hataları|Sayı|Toplam|Sayısı, kanal/token/RegistrationId kaydında süresi dolmuş veya geçersiz olduğundan başarısız oldu iter.|Hiç boyut|
-|outgoing.WNS.Success|WNS başarılı bildirimler|Sayı|Toplam|Tüm başarılı bildirimler sayısı.|Hiç boyut|
-|outgoing.WNS.invalidcredentials|WNS yetkilendirme hataları (geçersiz kimlik bilgileri)|Sayı|Toplam|Sayısı PNS sağlanan kimlik bilgileri kabul etmedi veya kimlik bilgilerini engellenen olmadığından başarısız iter. (Windows Live kimlik bilgilerini tanımıyor).|Hiç boyut|
-|outgoing.WNS.badchannel|WNS geçersiz kanal hatası|Sayı|Toplam|Sayısı kaydında ChannelURI tanınmadığından başarısız iter (WNS durumu: 404 bulunamadı).|Hiç boyut|
-|outgoing.WNS.expiredchannel|WNS süresi dolan kanal hatası|Sayı|Toplam|Sayısı ChannelURI dolduğundan başarısız iter (WNS durumu: 410 Gone).|Hiç boyut|
-|outgoing.WNS.throttled|WNS kısıtlanan bildirimler|Sayı|Toplam|Bu uygulama WNS azaltma nedeniyle başarısız olan sayısı iter (WNS durumu: 406 Kabul edilebilir değil).|Hiç boyut|
-|outgoing.WNS.tokenproviderunreachable|WNS yetkilendirme hataları (ulaşılamıyor)|Sayı|Toplam|Windows Live ulaşılabilir değil.|Hiç boyut|
-|outgoing.WNS.invalidtoken|WNS yetkilendirme hataları (geçersiz belirteç)|Sayı|Toplam|WNS için sağlanan belirteci geçerli değil (WNS durumu: 401 yetkilendirilmedi).|Hiç boyut|
-|outgoing.WNS.wrongtoken|WNS yetkilendirme hataları (yanlış belirteç)|Sayı|Toplam|WNS için sağlanan belirteç geçerli ancak başka bir uygulama için (WNS durumu: 403 Yasak). Kayıtta ChannelURI başka bir uygulama ile ilişkili ise bu durum oluşabilir. İstemci uygulaması aynı uygulama kimlik bilgilerini bildirim hub'ı ile ilişkili olup olmadığını denetleyin.|Hiç boyut|
-|outgoing.WNS.invalidnotificationformat|WNS geçersiz bildirim biçimi|Sayı|Toplam|Bildirim biçimi geçersiz (WNS durumu: 400). WNS tüm geçersiz yüklerini Reddet değil unutmayın.|Hiç boyut|
-|outgoing.WNS.invalidnotificationsize|WNS Geçersiz Bildirim Biçimi Hatası|Sayı|Toplam|Bildirim yükü çok büyük (WNS durumu: 413).|Hiç boyut|
-|outgoing.WNS.channelthrottled|WNS kanal kısıtlandı|Sayı|Toplam|Bildirim kaydında ChannelURI kısıtlanan olmadığından bırakıldı (WNS yanıt üstbilgisi: X-WNS-NotificationStatus:channelThrottled).|Hiç boyut|
-|outgoing.WNS.channeldisconnected|WNS kanal bağlantısı kesildi|Sayı|Toplam|Bildirim kaydında ChannelURI kısıtlanan olmadığından bırakıldı (WNS yanıt üstbilgisi: X WNS DeviceConnectionStatus: bağlantısı kesilmiş).|Hiç boyut|
-|outgoing.WNS.dropped|WNS bırakılan bildirimler|Sayı|Toplam|Bildirim kaydında ChannelURI kısıtlanan olmadığından bırakıldı (X WNS NotificationStatus: bırakılan ancak değil X-WNS-DeviceConnectionStatus: bağlantısı kesilmiş).|Hiç boyut|
-|outgoing.WNS.pnserror|WNS hataları|Sayı|Toplam|Bildirim WNS ile iletişim hataları nedeniyle teslim edilmedi.|Hiç boyut|
-|outgoing.WNS.authenticationerror|WNS kimlik doğrulama hataları|Sayı|Toplam|Windows Live geçersiz kimlik bilgileri veya yanlış belirteç ile iletişim hataları nedeniyle teslim edilmedi bildirimi.|Hiç boyut|
-|outgoing.apns.Success|APNS başarılı bildirimler|Sayı|Toplam|Tüm başarılı bildirimler sayısı.|Hiç boyut|
-|outgoing.apns.invalidcredentials|APNS yetkilendirme hataları|Sayı|Toplam|Sayısı PNS sağlanan kimlik bilgileri kabul etmedi veya kimlik bilgilerini engellenen olmadığından başarısız iter.|Hiç boyut|
-|outgoing.apns.badchannel|APNS geçersiz kanal hatası|Sayı|Toplam|Sayısı belirteci geçersiz olduğundan başarısız iter (APNS durum kodu: 8).|Hiç boyut|
-|outgoing.apns.expiredchannel|APNS süresi dolan kanal hatası|Sayı|Toplam|APNS geri bildirim kanalı tarafından geçersiz kılındı belirteci sayısı.|Hiç boyut|
-|outgoing.apns.invalidnotificationsize|APNS Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Sayısı yükü çok büyük olduğu için başarısız olan iter (APNS durum kodu: 7).|Hiç boyut|
-|outgoing.apns.pnserror|APNS hataları|Sayı|Toplam|Sayısı APNS ile iletişim hataları nedeniyle başarısız olan iter.|Hiç boyut|
-|outgoing.GCM.Success|GCM başarılı bildirimler|Sayı|Toplam|Tüm başarılı bildirimler sayısı.|Hiç boyut|
-|outgoing.GCM.invalidcredentials|GCM yetkilendirme hataları (geçersiz kimlik bilgileri)|Sayı|Toplam|Sayısı PNS sağlanan kimlik bilgileri kabul etmedi veya kimlik bilgilerini engellenen olmadığından başarısız iter.|Hiç boyut|
-|outgoing.GCM.badchannel|GCM geçersiz kanal hatası|Sayı|Toplam|Sayısı kaydında RegistrationId tanınmadığından başarısız iter (GCM sonucu: Geçersiz kaydı).|Hiç boyut|
-|outgoing.GCM.expiredchannel|GCM süresi dolan kanal hatası|Sayı|Toplam|Sayısı kaydında RegistrationId dolduğundan başarısız iter (GCM sonucu: NotRegistered).|Hiç boyut|
-|outgoing.GCM.throttled|GCM kısıtlanan bildirimler|Sayı|Toplam|Bu uygulamayı GCM kısıtlanan olmadığından başarısız sayısı iter (GCM durum kodu: 501-599 veya sonucu: kullanılamaz).|Hiç boyut|
-|outgoing.GCM.invalidnotificationformat|GCM geçersiz bildirim biçimi|Sayı|Toplam|Sayısı yükü doğru biçimlendirilmedi olmadığından başarısız iter (GCM sonucu: InvalidDataKey veya InvalidTtl).|Hiç boyut|
-|outgoing.GCM.invalidnotificationsize|GCM Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Sayısı yükü çok büyük olduğu için başarısız olan iter (GCM sonucu: MessageTooBig).|Hiç boyut|
-|outgoing.GCM.wrongchannel|GCM yanlış kanal hatası|Sayı|Toplam|Kayıtta RegistrationId geçerli uygulamaya ilişkili olmadığından başarısız olan gönderim sayısı (GCM sonucu: InvalidPackageName).|Hiç boyut|
-|outgoing.GCM.pnserror|GCM hataları|Sayı|Toplam|Sayısı GCM ile iletişim hataları nedeniyle başarısız olan iter.|Hiç boyut|
-|outgoing.GCM.authenticationerror|GCM kimlik doğrulama hataları|Sayı|Toplam|PNS sağlanan kimlik bilgileri kimlik bilgileri kabul etmedi nedeniyle başarısız olan gönderim sayısı engellendi veya Senderıd uygulamada düzgün yapılandırılmamış (GCM sonucu: MismatchedSenderId).|Hiç boyut|
-|outgoing.mpns.Success|MPNS başarılı bildirimler|Sayı|Toplam|Tüm başarılı bildirimler sayısı.|Hiç boyut|
-|outgoing.mpns.invalidcredentials|MPNS geçersiz kimlik bilgileri|Sayı|Toplam|Sayısı PNS sağlanan kimlik bilgileri kabul etmedi veya kimlik bilgilerini engellenen olmadığından başarısız iter.|Hiç boyut|
-|outgoing.mpns.badchannel|MPNS geçersiz kanal hatası|Sayı|Toplam|Sayısı kaydında ChannelURI tanınmadığından başarısız iter (MPNS durumu: 404 bulunamadı).|Hiç boyut|
-|outgoing.mpns.throttled|MPNS kısıtlanan bildirimler|Sayı|Toplam|Bu uygulama MPNS azaltma nedeniyle başarısız olan sayısı iter (WNS MPNS: 406 Kabul edilebilir değil).|Hiç boyut|
-|outgoing.mpns.invalidnotificationformat|MPNS geçersiz bildirim biçimi|Sayı|Toplam|Sayısı, bildirim yükü çok büyük olduğundan başarısız oldu iter.|Hiç boyut|
-|outgoing.mpns.channeldisconnected|MPNS kanalın bağlantısı kesildi|Sayı|Toplam|Sayısı kaydında ChannelURI kesildiği için başarısız olan iter (MPNS durumu: 412 bulunamadı).|Hiç boyut|
-|outgoing.mpns.dropped|MPNS bırakılan bildirimler|Sayı|Toplam|MPNS tarafından bırakılan gönderim sayısı (MPNS yanıt üstbilgisi: X NotificationStatus: QueueFull veya Suppressed).|Hiç boyut|
-|outgoing.mpns.pnserror|MPNS hataları|Sayı|Toplam|Sayısı ile MPNS iletişim hataları nedeniyle başarısız olan iter.|Hiç boyut|
-|outgoing.mpns.authenticationerror|MPNS kimlik doğrulama hataları|Sayı|Toplam|Sayısı PNS sağlanan kimlik bilgileri kabul etmedi veya kimlik bilgilerini engellenen olmadığından başarısız iter.|Hiç boyut|
+|installation.Patch|Yükleme İşlemlerine Düzeltme Eki Uygula|Sayı|Toplam|Yükleme İşlemlerine Düzeltme Eki Uygula|Hiç boyut|
+|installation.Delete|Yükleme İşlemlerini Sil|Sayı|Toplam|Yükleme İşlemlerini Sil|Hiç boyut|
+|outgoing.allpns.Success|Başarılı bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Hiç boyut|
+|outgoing.allpns.invalidpayload|Yük Hataları|Sayı|Toplam|PNS kötü yük hatası döndürdüğü için başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.allpns.pnserror|Harici Bildirim Sistemi Hataları|Sayı|Toplam|PNS ile iletişim kurmada sorun yaşandığı için başarısız olan gönderim sayısı (kimlik doğrulaması sorunları hariç).|Hiç boyut|
+|outgoing.allpns.channelerror|Kanal Hataları|Sayı|Toplam|Kanal geçersiz olduğu, doğru uygulamayla ilişkili olmadığı, kısıtlandığı veya kanalın süresi dolduğu için başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.allpns.badorexpiredchannel|Hatalı veya Süresi Dolmuş Kanal Hataları|Sayı|Toplam|Kayıttaki kanal/belirteç/registrationId geçersiz olduğundan veya süresi dolduğundan başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.WNS.Success|WNS Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Hiç boyut|
+|outgoing.WNS.invalidcredentials|WNS Yetkilendirme Hataları (Geçersiz Kimlik Bilgileri)|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı. (Windows Live kimlik bilgilerini tanımıyor).|Hiç boyut|
+|outgoing.WNS.badchannel|WNS Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki ChannelURI tanınmadığı için başarısız olan gönderim sayısı (WNS durumu: 404 bulunamadı).|Hiç boyut|
+|outgoing.WNS.expiredchannel|WNS Süresi Dolan Kanal Hatası|Sayı|Toplam|ChannelURI'nin süresi dolduğu için başarısız olan gönderim sayısı (WNS durumu: 410 Kaybedildi).|Hiç boyut|
+|outgoing.WNS.throttled|WNS Kısıtlanan Bildirimler|Sayı|Toplam|WNS bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (WNS durumu: 406 Kabul Edilemez).|Hiç boyut|
+|outgoing.WNS.tokenproviderunreachable|WNS Yetkilendirme Hataları (Ulaşılamıyor)|Sayı|Toplam|Windows Live hizmetine erişilemiyor.|Hiç boyut|
+|outgoing.WNS.invalidtoken|WNS Yetkilendirme Hataları (Geçersiz Belirteç)|Sayı|Toplam|WNS'ye sağlanan belirteç geçerli değil (WNS durumu: 401 Yetkisiz).|Hiç boyut|
+|outgoing.WNS.wrongtoken|WNS Yetkilendirme Hataları (Yanlış Belirteç)|Sayı|Toplam|WNS için sağlanan belirteç geçerli ancak başka bir uygulama için (WNS durumu: 403 Yasak). Kayıtta ChannelURI başka bir uygulama ile ilişkili ise bu durum oluşabilir. İstemci uygulaması aynı uygulama kimlik bilgilerini bildirim hub'ı ile ilişkili olup olmadığını denetleyin.|Hiç boyut|
+|outgoing.WNS.invalidnotificationformat|WNS Geçersiz Bildirim Biçimi|Sayı|Toplam|Bildirim biçimi geçersiz (WNS durumu: 400). WNS tüm geçersiz yüklerini Reddet değil unutmayın.|Hiç boyut|
+|outgoing.WNS.invalidnotificationsize|WNS Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Bildirim yükü fazla büyük (WNS durumu: 413).|Hiç boyut|
+|outgoing.WNS.channelthrottled|WNS Kanal Kısıtlandı|Sayı|Toplam|Bildirim, kayıttaki ChannelURI kısıtlandığı için bırakıldı (WNS yanıt üst bilgisi: X-WNS-NotificationStatus:channelThrottled).|Hiç boyut|
+|outgoing.WNS.channeldisconnected|WNS Kanal Bağlantısı Kesildi|Sayı|Toplam|Bildirim, kayıttaki ChannelURI kısıtlandığı için bırakıldı (WNS yanıt üst bilgisi: X-WNS-DeviceConnectionStatus: bağlantısı kesildi).|Hiç boyut|
+|outgoing.WNS.dropped|WNS Bırakılan Bildirimler|Sayı|Toplam|Bildirim, kayıttaki ChannelURI kısıtlandığı için bırakıldı (X-WNS-NotificationStatus: bırakıldı, ancak X-WNS-DeviceConnectionStatus: bağlantısı kesildi durumda değil).|Hiç boyut|
+|outgoing.WNS.pnserror|WNS Hataları|Sayı|Toplam|Bildirim, WNS ile iletişim kurulurken oluşan hatalardan dolayı teslim edilemedi.|Hiç boyut|
+|outgoing.WNS.authenticationerror|WNS Kimlik Doğrulaması Hataları|Sayı|Toplam|Bildirim, Windows Live ile iletişim kurulurken oluşan hatalardan, geçersiz kimlik bilgilerinden veya yanlış belirteçten dolayı teslim edilemedi.|Hiç boyut|
+|outgoing.apns.Success|APNS Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Hiç boyut|
+|outgoing.apns.invalidcredentials|APNS Yetkilendirme Hataları|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.apns.badchannel|APNS Geçersiz Kanal Hatası|Sayı|Toplam|Belirteç geçersiz olduğu için başarısız olan gönderim sayısı (APNS durum kodu: 8).|Hiç boyut|
+|outgoing.apns.expiredchannel|APNS Süresi Dolan Kanal Hatası|Sayı|Toplam|APNS geri bildirim kanalı tarafından geçersiz kılınan belirteç sayısı.|Hiç boyut|
+|outgoing.apns.invalidnotificationsize|APNS Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Yük fazla büyük olduğu için başarısız olan gönderim sayısı (APNS durum kodu: 7).|Hiç boyut|
+|outgoing.apns.pnserror|APNS Hataları|Sayı|Toplam|APNS ile iletişim kurulurken oluşan hatalardan dolayı başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.GCM.Success|GCM Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Hiç boyut|
+|outgoing.GCM.invalidcredentials|GCM Yetkilendirme Hataları (Geçersiz Kimlik Bilgileri)|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.GCM.badchannel|GCM Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki registrationId tanınmadığı için başarısız olan gönderim sayısı (GCM sonucu: Invalid Registration).|Hiç boyut|
+|outgoing.GCM.expiredchannel|GCM Süresi Dolan Kanal Hatası|Sayı|Toplam|Kayıttaki registrationId geçersiz olduğu veya süresi dolduğu için başarısız olan gönderim sayısı (GCM sonucu: NotRegistered).|Hiç boyut|
+|outgoing.GCM.throttled|GCM Kısıtlanan Bildirimler|Sayı|Toplam|GCM bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (GCM durum kodu: 501-599 veya sonucu: Unavailable).|Hiç boyut|
+|outgoing.GCM.invalidnotificationformat|GCM Geçersiz Bildirim Biçimi|Sayı|Toplam|Yük doğru bir şekilde biçimlendirilmediği için başarısız olan gönderim sayısı (GCM sonucu: InvalidDataKey veya InvalidTtl).|Hiç boyut|
+|outgoing.GCM.invalidnotificationsize|GCM Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Yük fazla büyük olduğu için başarısız olan gönderim sayısı (GCM sonucu: MessageTooBig).|Hiç boyut|
+|outgoing.GCM.wrongchannel|GCM Yanlış Kanal Hatası|Sayı|Toplam|Kayıttaki registrationId geçerli uygulamayla ilişkili olmadığı için başarısız olan gönderim sayısı (GCM sonucu: InvalidPackageName).|Hiç boyut|
+|outgoing.GCM.pnserror|GCM Hataları|Sayı|Toplam|GCM ile iletişim kurulurken oluşan hatalardan dolayı başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.GCM.authenticationerror|GCM Kimlik Doğrulaması Hataları|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği, kimlik bilgileri engellendiği veya SenderId uygulamada doğru bir şekilde yapılandırılmadığı için başarısız olan gönderim sayısı (GCM sonucu: MismatchedSenderId).|Hiç boyut|
+|outgoing.mpns.Success|MPNS Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Hiç boyut|
+|outgoing.mpns.invalidcredentials|MPNS Geçersiz Kimlik Bilgileri|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.mpns.badchannel|MPNS Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki ChannelURI tanınmadığı için başarısız olan gönderim sayısı (MPNS durumu: 404 bulunamadı).|Hiç boyut|
+|outgoing.mpns.throttled|MPNS Kısıtlanan Bildirimler|Sayı|Toplam|MPNS bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (WNS MPNS: 406 Kabul Edilemez).|Hiç boyut|
+|outgoing.mpns.invalidnotificationformat|MPNS Geçersiz Bildirim Biçimi|Sayı|Toplam|Bildirimin yükü fazla büyük olduğu için başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.mpns.channeldisconnected|MPNS Kanalın Bağlantısı Kesildi|Sayı|Toplam|Kayıttaki ChannelURI'nin bağlantısı kesildiği için başarısız olan gönderim sayısı (MPNS durumu: 412 bulunamadı).|Hiç boyut|
+|outgoing.mpns.dropped|MPNS Bırakılan Bildirimler|Sayı|Toplam|MPNS tarafından bırakılan gönderim sayısı (MPNS yanıt üst bilgisi: X-NotificationStatus: QueueFull veya Suppressed).|Hiç boyut|
+|outgoing.mpns.pnserror|MPNS Hataları|Sayı|Toplam|MPNS ile iletişim kurulurken oluşan hatalardan dolayı başarısız olan gönderim sayısı.|Hiç boyut|
+|outgoing.mpns.authenticationerror|MPNS Kimlik Doğrulaması Hataları|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Hiç boyut|
 |notificationhub.pushes|Tüm giden bildirimleri|Sayı|Toplam|Bildirim hub'ın tüm giden bildirimleri|Hiç boyut|
 |incoming.all.Requests|Tüm gelen istekleri|Sayı|Toplam|Bir bildirim hub'ı toplam gelen istekleri|Hiç boyut|
 |incoming.all.failedrequests|Tüm gelen istekleri başarısız oldu|Sayı|Toplam|Bildirim hub'ı toplam gelen başarısız istekleri|Hiç boyut|
@@ -740,14 +740,14 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |---|---|---|---|---|---|
 |SearchLatency|Arama gecikme süresi|Saniye|Ortalama|Arama hizmeti için ortalama arama gecikme süresi|Hiç boyut|
 |SearchQueriesPerSecond|Saniye başına arama sorguları|CountPerSecond|Ortalama|Arama hizmeti için saniye başına arama sorguları|Hiç boyut|
-|ThrottledSearchQueriesPercentage|Daraltılmış arama sorguları yüzdesi|Yüzde|Ortalama|Arama hizmeti için kısıtlanan arama sorguları yüzdesi|Hiç boyut|
+|ThrottledSearchQueriesPercentage|Kısıtlanmış arama sorguları yüzdesi|Yüzde|Ortalama|Arama hizmeti için kısıtlanan arama sorguları yüzdesi|Hiç boyut|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPUXNS|Ad alanı başına CPU kullanımı|Yüzde|Maksimum|Service bus premium ad alanı CPU kullanım ölçümü|Hiç boyut|
-|WSXNS|Ad alanı başına bellek boyutu kullanımı|Yüzde|Maksimum|Service bus premium ad alanı bellek kullanım ölçümü|Hiç boyut|
+|CPUXNS|Ad alanı başına CPU kullanımı|Yüzde|Maksimum|Service Bus premium ad alanı CPU kullanım ölçümü|Hiç boyut|
+|WSXNS|Ad alanı başına bellek boyutu kullanımı|Yüzde|Maksimum|Service Bus premium ad alanı bellek kullanım ölçümü|Hiç boyut|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
@@ -757,7 +757,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |physical_data_read_percent|Veri G/Ç yüzdesi|Yüzde|Ortalama|Veri G/Ç yüzdesi|Hiç boyut|
 |log_write_percent|Günlük g/ç yüzdesi|Yüzde|Ortalama|Günlük g/ç yüzdesi|Hiç boyut|
 |dtu_consumption_percent|DTU yüzdesi|Yüzde|Ortalama|DTU yüzdesi|Hiç boyut|
-|Depolama|Toplam veritabanı boyutu|Bayt|Maksimum|Toplam veritabanı boyutu|Hiç boyut|
+|depolama|Toplam veritabanı boyutu|Bayt|Maksimum|Toplam veritabanı boyutu|Hiç boyut|
 |connection_successful|Başarılı bağlantıları|Sayı|Toplam|Başarılı bağlantıları|Hiç boyut|
 |connection_failed|Başarısız bağlantı sayısı|Sayı|Toplam|Başarısız bağlantı sayısı|Hiç boyut|
 |blocked_by_firewall|Güvenlik Duvarı tarafından engellendi|Sayı|Toplam|Güvenlik Duvarı tarafından engellendi|Hiç boyut|
@@ -815,8 +815,8 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |İşlemler|İşlemler|Sayı|Toplam|Depolama hizmet ya da belirtilen API işlemi için yapılan isteklerin sayısı. Bu sayı, hataları üretilen isteklerinin yanı sıra başarılı ve başarısız istekleri içerir. ResponseType boyut yanıt farklı türde sayısı için kullanın.|ResponseType, GeoType, ApiName|
 |Giriş|Giriş|Bayt|Toplam|Bayt cinsinden giriş veri miktarı. Bu sayı, Azure içinde giriş yanı sıra Azure Storage içine bir dış istemcinin giriş içerir.|GeoType, ApiName|
 |Çıkış|Çıkış|Bayt|Toplam|Bayt cinsinden çıkış veri miktarı. Bu sayı, çıkış Azure içinde yanı sıra Azure Storage içine dış bir istemciden çıkış içerir. Sonuç olarak, bu sayı Faturalanabilir çıkış yansıtmaz.|GeoType, ApiName|
-|SuccessServerLatency|Başarı sunucu gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
-|SuccessE2ELatency|Başarı E2E gecikme süresi|milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
+|SuccessServerLatency|Başarı sunucu gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
+|SuccessE2ELatency|Başarı E2E gecikme süresi|Milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
 |Kullanılabilirlik|Kullanılabilirlik|Yüzde|Ortalama|Depolama Birimi hizmeti veya belirtilen API işlemi için yüzdesi. Kullanılabilirlik TotalBillableRequests değerini almak ve da beklenmeyen hatalar üretilen dahil olmak üzere, geçerli isteklerin sayısına bölünerek hesaplanır. Depolama hizmet veya belirtilen API işlemi için daha az kullanılabilirlik tüm beklenmeyen hatalar sonucu.|GeoType, ApiName|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
@@ -829,8 +829,8 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |İşlemler|İşlemler|Sayı|Toplam|Depolama hizmet ya da belirtilen API işlemi için yapılan isteklerin sayısı. Bu sayı, hataları üretilen isteklerinin yanı sıra başarılı ve başarısız istekleri içerir. ResponseType boyut yanıt farklı türde sayısı için kullanın.|ResponseType, GeoType, ApiName|
 |Giriş|Giriş|Bayt|Toplam|Bayt cinsinden giriş veri miktarı. Bu sayı, Azure içinde giriş yanı sıra Azure Storage içine bir dış istemcinin giriş içerir.|GeoType, ApiName|
 |Çıkış|Çıkış|Bayt|Toplam|Bayt cinsinden çıkış veri miktarı. Bu sayı, çıkış Azure içinde yanı sıra Azure Storage içine dış bir istemciden çıkış içerir. Sonuç olarak, bu sayı Faturalanabilir çıkış yansıtmaz.|GeoType, ApiName|
-|SuccessServerLatency|Başarı sunucu gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
-|SuccessE2ELatency|Başarı E2E gecikme süresi|milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
+|SuccessServerLatency|Başarı sunucu gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
+|SuccessE2ELatency|Başarı E2E gecikme süresi|Milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
 |Kullanılabilirlik|Kullanılabilirlik|Yüzde|Ortalama|Depolama Birimi hizmeti veya belirtilen API işlemi için yüzdesi. Kullanılabilirlik TotalBillableRequests değerini almak ve da beklenmeyen hatalar üretilen dahil olmak üzere, geçerli isteklerin sayısına bölünerek hesaplanır. Depolama hizmet veya belirtilen API işlemi için daha az kullanılabilirlik tüm beklenmeyen hatalar sonucu.|GeoType, ApiName|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
@@ -843,22 +843,22 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |İşlemler|İşlemler|Sayı|Toplam|Depolama hizmet ya da belirtilen API işlemi için yapılan isteklerin sayısı. Bu sayı, hataları üretilen isteklerinin yanı sıra başarılı ve başarısız istekleri içerir. ResponseType boyut yanıt farklı türde sayısı için kullanın.|ResponseType, GeoType, ApiName|
 |Giriş|Giriş|Bayt|Toplam|Bayt cinsinden giriş veri miktarı. Bu sayı, Azure içinde giriş yanı sıra Azure Storage içine bir dış istemcinin giriş içerir.|GeoType, ApiName|
 |Çıkış|Çıkış|Bayt|Toplam|Bayt cinsinden çıkış veri miktarı. Bu sayı, çıkış Azure içinde yanı sıra Azure Storage içine dış bir istemciden çıkış içerir. Sonuç olarak, bu sayı Faturalanabilir çıkış yansıtmaz.|GeoType, ApiName|
-|SuccessServerLatency|Başarı sunucu gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
-|SuccessE2ELatency|Başarı E2E gecikme süresi|milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
+|SuccessServerLatency|Başarı sunucu gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
+|SuccessE2ELatency|Başarı E2E gecikme süresi|Milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
 |Kullanılabilirlik|Kullanılabilirlik|Yüzde|Ortalama|Depolama Birimi hizmeti veya belirtilen API işlemi için yüzdesi. Kullanılabilirlik TotalBillableRequests değerini almak ve da beklenmeyen hatalar üretilen dahil olmak üzere, geçerli isteklerin sayısına bölünerek hesaplanır. Depolama hizmet veya belirtilen API işlemi için daha az kullanılabilirlik tüm beklenmeyen hatalar sonucu.|GeoType, ApiName|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|QueueCapacity|Sıra kapasite|Bayt|Ortalama|Bayt cinsinden depolama hesabının kuyruk hizmeti tarafından kullanılan depolama alanı miktarı.|Hiç boyut|
-|QueueCount|Sıra sayısı|Sayı|Ortalama|Depolama hesabının kuyruk hizmetinde sıra sayısı.|Hiç boyut|
-|QueueMessageCount|Sıra ileti sayısı|Sayı|Ortalama|Depolama hesabının kuyruk hizmetinde sıraya ileti yaklaşık sayısı.|Hiç boyut|
+|QueueCapacity|Kuyruk Kapasitesi|Bayt|Ortalama|Bayt olarak depolama hesabının Kuyruk hizmeti tarafından kullanılan depolama miktarı.|Hiç boyut|
+|QueueCount|Kuyruk Sayısı|Sayı|Ortalama|Depolama hesabının Kuyruk hizmetindeki sıra sayısı.|Hiç boyut|
+|QueueMessageCount|Kuyruk İleti Sayısı|Sayı|Ortalama|Depolama hesabının Kuyruk hizmetindeki sıra iletilerinin yaklaşık sayısı.|Hiç boyut|
 |İşlemler|İşlemler|Sayı|Toplam|Depolama hizmet ya da belirtilen API işlemi için yapılan isteklerin sayısı. Bu sayı, hataları üretilen isteklerinin yanı sıra başarılı ve başarısız istekleri içerir. ResponseType boyut yanıt farklı türde sayısı için kullanın.|ResponseType, GeoType, ApiName|
 |Giriş|Giriş|Bayt|Toplam|Bayt cinsinden giriş veri miktarı. Bu sayı, Azure içinde giriş yanı sıra Azure Storage içine bir dış istemcinin giriş içerir.|GeoType, ApiName|
 |Çıkış|Çıkış|Bayt|Toplam|Bayt cinsinden çıkış veri miktarı. Bu sayı, çıkış Azure içinde yanı sıra Azure Storage içine dış bir istemciden çıkış içerir. Sonuç olarak, bu sayı Faturalanabilir çıkış yansıtmaz.|GeoType, ApiName|
-|SuccessServerLatency|Başarı sunucu gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
-|SuccessE2ELatency|Başarı E2E gecikme süresi|milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
+|SuccessServerLatency|Başarı sunucu gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
+|SuccessE2ELatency|Başarı E2E gecikme süresi|Milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
 |Kullanılabilirlik|Kullanılabilirlik|Yüzde|Ortalama|Depolama Birimi hizmeti veya belirtilen API işlemi için yüzdesi. Kullanılabilirlik TotalBillableRequests değerini almak ve da beklenmeyen hatalar üretilen dahil olmak üzere, geçerli isteklerin sayısına bölünerek hesaplanır. Depolama hizmet veya belirtilen API işlemi için daha az kullanılabilirlik tüm beklenmeyen hatalar sonucu.|GeoType, ApiName|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
@@ -866,123 +866,123 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |FileCapacity|Dosya kapasitesi|Bayt|Ortalama|Bayt cinsinden depolama hesabının dosya hizmeti tarafından kullanılan depolama alanı miktarı.|Hiç boyut|
-|FileCount|Dosya sayısı|Sayı|Ortalama|Depolama hesabının dosya hizmeti dosyasında sayısı.|Hiç boyut|
+|FileCount|Dosya Sayısı|Sayı|Ortalama|Depolama hesabının dosya hizmeti dosyasında sayısı.|Hiç boyut|
 |FileShareCount|Dosya Paylaşımı sayısı|Sayı|Ortalama|Dosya sayısı depolama hesabının dosya hizmetinde paylaşır.|Hiç boyut|
 |İşlemler|İşlemler|Sayı|Toplam|Depolama hizmet ya da belirtilen API işlemi için yapılan isteklerin sayısı. Bu sayı, hataları üretilen isteklerinin yanı sıra başarılı ve başarısız istekleri içerir. ResponseType boyut yanıt farklı türde sayısı için kullanın.|ResponseType, GeoType, ApiName|
 |Giriş|Giriş|Bayt|Toplam|Bayt cinsinden giriş veri miktarı. Bu sayı, Azure içinde giriş yanı sıra Azure Storage içine bir dış istemcinin giriş içerir.|GeoType, ApiName|
 |Çıkış|Çıkış|Bayt|Toplam|Bayt cinsinden çıkış veri miktarı. Bu sayı, çıkış Azure içinde yanı sıra Azure Storage içine dış bir istemciden çıkış içerir. Sonuç olarak, bu sayı Faturalanabilir çıkış yansıtmaz.|GeoType, ApiName|
-|SuccessServerLatency|Başarı sunucu gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
-|SuccessE2ELatency|Başarı E2E gecikme süresi|milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
+|SuccessServerLatency|Başarı sunucu gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden başarılı bir isteği işlemek için Azure Storage tarafından kullanılan ortalama gecikme süresi. Bu değer AverageE2ELatency içinde belirtilen ağ gecikme süresi dahil değildir.|GeoType, ApiName|
+|SuccessE2ELatency|Başarı E2E gecikme süresi|Milisaniye|Ortalama|Depolama hizmetine veya milisaniye cinsinden belirtilen API işlem iletilen başarılı istek ortalama uçtan uca gecikme. Bu değer, istek okuma, bir yanıt gönderir ve yanıtın bildirim almak için Azure Storage içinde gerekli işleme süresini içerir.|GeoType, ApiName|
 |Kullanılabilirlik|Kullanılabilirlik|Yüzde|Ortalama|Depolama Birimi hizmeti veya belirtilen API işlemi için yüzdesi. Kullanılabilirlik TotalBillableRequests değerini almak ve da beklenmeyen hatalar üretilen dahil olmak üzere, geçerli isteklerin sayısına bölünerek hesaplanır. Depolama hizmet veya belirtilen API işlemi için daha az kullanılabilirlik tüm beklenmeyen hatalar sonucu.|GeoType, ApiName|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|ResourceUtilization|SU % kullanımı|Yüzde|Maksimum|SU % kullanımı|Hiç boyut|
-|InputEvents|Giriş olayları|Sayı|Toplam|Giriş olayları|Hiç boyut|
-|InputEventBytes|Giriş olayı bayt|Bayt|Toplam|Giriş olayı bayt|Hiç boyut|
-|LateInputEvents|Geç giriş olayları|Sayı|Toplam|Geç giriş olayları|Hiç boyut|
-|OutputEvents|Çıkış olayları|Sayı|Toplam|Çıkış olayları|Hiç boyut|
-|ConversionErrors|Veri dönüştürme hataları|Sayı|Toplam|Veri dönüştürme hataları|Hiç boyut|
-|Hatalar|Çalışma zamanı hataları|Sayı|Toplam|Çalışma zamanı hataları|Hiç boyut|
-|DroppedOrAdjustedEvents|Bozuk olayları|Sayı|Toplam|Bozuk olayları|Hiç boyut|
-|AMLCalloutRequests|İşlev istekleri|Sayı|Toplam|İşlev istekleri|Hiç boyut|
-|AMLCalloutFailedRequests|Başarısız işleve istekleri|Sayı|Toplam|Başarısız işleve istekleri|Hiç boyut|
-|AMLCalloutInputEvents|İşlev olayları|Sayı|Toplam|İşlev olayları|Hiç boyut|
+|ResourceUtilization|SU Kullanım Yüzdesi|Yüzde|Maksimum|SU Kullanım Yüzdesi|Hiç boyut|
+|InputEvents|Giriş Olayları|Sayı|Toplam|Giriş Olayları|Hiç boyut|
+|InputEventBytes|Giriş Olayı Bayt Sayısı|Bayt|Toplam|Giriş Olayı Bayt Sayısı|Hiç boyut|
+|LateInputEvents|Geç Giriş Olayları|Sayı|Toplam|Geç Giriş Olayları|Hiç boyut|
+|OutputEvents|Çıkış Olayları|Sayı|Toplam|Çıkış Olayları|Hiç boyut|
+|ConversionErrors|Veri Dönüştürme Hataları|Sayı|Toplam|Veri Dönüştürme Hataları|Hiç boyut|
+|Hatalar|Çalışma Zamanı Hataları|Sayı|Toplam|Çalışma Zamanı Hataları|Hiç boyut|
+|DroppedOrAdjustedEvents|Sıralama dışındaki Olaylar|Sayı|Toplam|Sıralama dışındaki Olaylar|Hiç boyut|
+|AMLCalloutRequests|İşlev İstekleri|Sayı|Toplam|İşlev İstekleri|Hiç boyut|
+|AMLCalloutFailedRequests|Başarısız İşlev İstekleri|Sayı|Toplam|Başarısız İşlev İstekleri|Hiç boyut|
+|AMLCalloutInputEvents|İşlev Olayları|Sayı|Toplam|İşlev Olayları|Hiç boyut|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |CpuPercentage|CPU Yüzdesi|Yüzde|Ortalama|CPU Yüzdesi|Örnek|
-|MemoryPercentage|Bellek yüzdesi|Yüzde|Ortalama|Bellek yüzdesi|Örnek|
-|DiskQueueLength|Disk Sırası Uzunluğu|Sayı|Toplam|Disk Sırası Uzunluğu|Örnek|
-|HttpQueueLength|HTTP sırası uzunluğu|Sayı|Toplam|HTTP sırası uzunluğu|Örnek|
-|BytesReceived|Verileri|Bayt|Toplam|Verileri|Örnek|
-|BytesSent|Giden veriler|Bayt|Toplam|Giden veriler|Örnek|
+|MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
+|DiskQueueLength|Disk Kuyruğu Uzunluğu|Sayı|Toplam|Disk Kuyruğu Uzunluğu|Örnek|
+|HttpQueueLength|Http Kuyruk Uzunluğu|Sayı|Toplam|Http Kuyruk Uzunluğu|Örnek|
+|BytesReceived|Data Girişi|Bayt|Toplam|Data Girişi|Örnek|
+|BytesSent|Giden Veriler|Bayt|Toplam|Giden Veriler|Örnek|
 
 ## <a name="microsoftwebsites-excluding-functions"></a>Microsoft.Web/sites (işlevler hariç)
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU zamanı|CPU süresi|Saniye|Toplam|CPU süresi|Örnek|
+|CPU zamanı|CPU Süresi|Saniye|Toplam|CPU Süresi|Örnek|
 |İstekler|İstekler|Sayı|Toplam|İstekler|Örnek|
-|BytesReceived|Verileri|Bayt|Toplam|Verileri|Örnek|
-|BytesSent|Giden veriler|Bayt|Toplam|Giden veriler|Örnek|
-|Http101|HTTP 101|Sayı|Toplam|HTTP 101|Örnek|
-|Http2xx|HTTP 2xx|Sayı|Toplam|HTTP 2xx|Örnek|
-|Http3xx|HTTP 3xx|Sayı|Toplam|HTTP 3xx|Örnek|
-|Http401|HTTP 401|Sayı|Toplam|HTTP 401|Örnek|
-|Http403|HTTP 403|Sayı|Toplam|HTTP 403|Örnek|
-|Http404|HTTP 404|Sayı|Toplam|HTTP 404|Örnek|
-|Http406|HTTP 406|Sayı|Toplam|HTTP 406|Örnek|
-|Http4xx|HTTP 4xx|Sayı|Toplam|HTTP 4xx|Örnek|
-|Http5xx|HTTP sunucu hataları|Sayı|Toplam|HTTP sunucu hataları|Örnek|
+|BytesReceived|Data Girişi|Bayt|Toplam|Data Girişi|Örnek|
+|BytesSent|Giden Veriler|Bayt|Toplam|Giden Veriler|Örnek|
+|Http101|Http 101|Sayı|Toplam|Http 101|Örnek|
+|Http2xx|Http 2xx|Sayı|Toplam|Http 2xx|Örnek|
+|Http3xx|Http 3xx|Sayı|Toplam|Http 3xx|Örnek|
+|Http401|Http 401|Sayı|Toplam|Http 401|Örnek|
+|Http403|Http 403|Sayı|Toplam|Http 403|Örnek|
+|Http404|Http 404|Sayı|Toplam|Http 404|Örnek|
+|Http406|Http 406|Sayı|Toplam|Http 406|Örnek|
+|Http4xx|Http 4xx|Sayı|Toplam|Http 4xx|Örnek|
+|Http5xx|Http Sunucu Hataları|Sayı|Toplam|Http Sunucu Hataları|Örnek|
 |MemoryWorkingSet|Bellek çalışma kümesi|Bayt|Ortalama|Bellek çalışma kümesi|Örnek|
 |AverageMemoryWorkingSet|Ortalama bellek çalışma kümesi|Bayt|Ortalama|Ortalama bellek çalışma kümesi|Örnek|
-|AverageResponseTime|Ortalama yanıt süresi|Saniye|Ortalama|Ortalama yanıt süresi|Örnek|
-|FunctionExecutionUnits|İşlev yürütme birimleri|Sayı|Ortalama|İşlev yürütme birimleri|Örnek|
-|İşlev yürütme sayısı|İşlev yürütme sayısı|Sayı|Ortalama|İşlev yürütme sayısı|Örnek|
+|AverageResponseTime|Ortalama Yanıt Süresi|Saniye|Ortalama|Ortalama Yanıt Süresi|Örnek|
+|FunctionExecutionUnits|İşlev Yürütme Birimleri|Sayı|Ortalama|İşlev Yürütme Birimleri|Örnek|
+|İşlev yürütme sayısı|İşlev Yürütme Sayısı|Sayı|Ortalama|İşlev Yürütme Sayısı|Örnek|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (işlev)
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|BytesReceived|Verileri|Bayt|Toplam|Verileri|Örnek|
-|BytesSent|Giden veriler|Bayt|Toplam|Giden veriler|Örnek|
-|Http5xx|HTTP sunucu hataları|Sayı|Toplam|HTTP sunucu hataları|Örnek|
+|BytesReceived|Data Girişi|Bayt|Toplam|Data Girişi|Örnek|
+|BytesSent|Giden Veriler|Bayt|Toplam|Giden Veriler|Örnek|
+|Http5xx|Http Sunucu Hataları|Sayı|Toplam|Http Sunucu Hataları|Örnek|
 |MemoryWorkingSet|Bellek çalışma kümesi|Bayt|Ortalama|Bellek çalışma kümesi|Örnek|
 |AverageMemoryWorkingSet|Ortalama bellek çalışma kümesi|Bayt|Ortalama|Ortalama bellek çalışma kümesi|Örnek|
-|FunctionExecutionUnits|İşlev yürütme birimleri|Sayı|Ortalama|İşlev yürütme birimleri|Örnek|
-|İşlev yürütme sayısı|İşlev yürütme sayısı|Sayı|Ortalama|İşlev yürütme sayısı|Örnek|
+|FunctionExecutionUnits|İşlev Yürütme Birimleri|Sayı|Ortalama|İşlev Yürütme Birimleri|Örnek|
+|İşlev yürütme sayısı|İşlev Yürütme Sayısı|Sayı|Ortalama|İşlev Yürütme Sayısı|Örnek|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU zamanı|CPU süresi|Saniye|Toplam|CPU süresi|Örnek|
+|CPU zamanı|CPU Süresi|Saniye|Toplam|CPU Süresi|Örnek|
 |İstekler|İstekler|Sayı|Toplam|İstekler|Örnek|
-|BytesReceived|Verileri|Bayt|Toplam|Verileri|Örnek|
-|BytesSent|Giden veriler|Bayt|Toplam|Giden veriler|Örnek|
-|Http101|HTTP 101|Sayı|Toplam|HTTP 101|Örnek|
-|Http2xx|HTTP 2xx|Sayı|Toplam|HTTP 2xx|Örnek|
-|Http3xx|HTTP 3xx|Sayı|Toplam|HTTP 3xx|Örnek|
-|Http401|HTTP 401|Sayı|Toplam|HTTP 401|Örnek|
-|Http403|HTTP 403|Sayı|Toplam|HTTP 403|Örnek|
-|Http404|HTTP 404|Sayı|Toplam|HTTP 404|Örnek|
-|Http406|HTTP 406|Sayı|Toplam|HTTP 406|Örnek|
-|Http4xx|HTTP 4xx|Sayı|Toplam|HTTP 4xx|Örnek|
-|Http5xx|HTTP sunucu hataları|Sayı|Toplam|HTTP sunucu hataları|Örnek|
+|BytesReceived|Data Girişi|Bayt|Toplam|Data Girişi|Örnek|
+|BytesSent|Giden Veriler|Bayt|Toplam|Giden Veriler|Örnek|
+|Http101|Http 101|Sayı|Toplam|Http 101|Örnek|
+|Http2xx|Http 2xx|Sayı|Toplam|Http 2xx|Örnek|
+|Http3xx|Http 3xx|Sayı|Toplam|Http 3xx|Örnek|
+|Http401|Http 401|Sayı|Toplam|Http 401|Örnek|
+|Http403|Http 403|Sayı|Toplam|Http 403|Örnek|
+|Http404|Http 404|Sayı|Toplam|Http 404|Örnek|
+|Http406|Http 406|Sayı|Toplam|Http 406|Örnek|
+|Http4xx|Http 4xx|Sayı|Toplam|Http 4xx|Örnek|
+|Http5xx|Http Sunucu Hataları|Sayı|Toplam|Http Sunucu Hataları|Örnek|
 |MemoryWorkingSet|Bellek çalışma kümesi|Bayt|Ortalama|Bellek çalışma kümesi|Örnek|
 |AverageMemoryWorkingSet|Ortalama bellek çalışma kümesi|Bayt|Ortalama|Ortalama bellek çalışma kümesi|Örnek|
-|AverageResponseTime|Ortalama yanıt süresi|Saniye|Ortalama|Ortalama yanıt süresi|Örnek|
-|FunctionExecutionUnits|İşlev yürütme birimleri|Sayı|Ortalama|İşlev yürütme birimleri|Örnek|
-|İşlev yürütme sayısı|İşlev yürütme sayısı|Sayı|Ortalama|İşlev yürütme sayısı|Örnek|
+|AverageResponseTime|Ortalama Yanıt Süresi|Saniye|Ortalama|Ortalama Yanıt Süresi|Örnek|
+|FunctionExecutionUnits|İşlev Yürütme Birimleri|Sayı|Ortalama|İşlev Yürütme Birimleri|Örnek|
+|İşlev yürütme sayısı|İşlev Yürütme Sayısı|Sayı|Ortalama|İşlev Yürütme Sayısı|Örnek|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |İstekler|İstekler|Sayı|Toplam|İstekler|Örnek|
-|BytesReceived|Verileri|Bayt|Toplam|Verileri|Örnek|
-|BytesSent|Giden veriler|Bayt|Toplam|Giden veriler|Örnek|
-|Http101|HTTP 101|Sayı|Toplam|HTTP 101|Örnek|
-|Http2xx|HTTP 2xx|Sayı|Toplam|HTTP 2xx|Örnek|
-|Http3xx|HTTP 3xx|Sayı|Toplam|HTTP 3xx|Örnek|
-|Http401|HTTP 401|Sayı|Toplam|HTTP 401|Örnek|
-|Http403|HTTP 403|Sayı|Toplam|HTTP 403|Örnek|
-|Http404|HTTP 404|Sayı|Toplam|HTTP 404|Örnek|
-|Http406|HTTP 406|Sayı|Toplam|HTTP 406|Örnek|
-|Http4xx|HTTP 4xx|Sayı|Toplam|HTTP 4xx|Örnek|
-|Http5xx|HTTP sunucu hataları|Sayı|Toplam|HTTP sunucu hataları|Örnek|
-|AverageResponseTime|Ortalama yanıt süresi|Saniye|Ortalama|Ortalama yanıt süresi|Örnek|
+|BytesReceived|Data Girişi|Bayt|Toplam|Data Girişi|Örnek|
+|BytesSent|Giden Veriler|Bayt|Toplam|Giden Veriler|Örnek|
+|Http101|Http 101|Sayı|Toplam|Http 101|Örnek|
+|Http2xx|Http 2xx|Sayı|Toplam|Http 2xx|Örnek|
+|Http3xx|Http 3xx|Sayı|Toplam|Http 3xx|Örnek|
+|Http401|Http 401|Sayı|Toplam|Http 401|Örnek|
+|Http403|Http 403|Sayı|Toplam|Http 403|Örnek|
+|Http404|Http 404|Sayı|Toplam|Http 404|Örnek|
+|Http406|Http 406|Sayı|Toplam|Http 406|Örnek|
+|Http4xx|Http 4xx|Sayı|Toplam|Http 4xx|Örnek|
+|Http5xx|Http Sunucu Hataları|Sayı|Toplam|Http Sunucu Hataları|Örnek|
+|AverageResponseTime|Ortalama Yanıt Süresi|Saniye|Ortalama|Ortalama Yanıt Süresi|Örnek|
 |CpuPercentage|CPU Yüzdesi|Yüzde|Ortalama|CPU Yüzdesi|Örnek|
-|MemoryPercentage|Bellek yüzdesi|Yüzde|Ortalama|Bellek yüzdesi|Örnek|
-|DiskQueueLength|Disk Sırası Uzunluğu|Sayı|Toplam|Disk Sırası Uzunluğu|Örnek|
-|HttpQueueLength|HTTP sırası uzunluğu|Sayı|Toplam|HTTP sırası uzunluğu|Örnek|
-|ActiveRequests|Etkin istek|Sayı|Toplam|Etkin istek|Örnek|
-|TotalFrontEnds|Toplam ön Uçlar|Sayı|Ortalama|Toplam ön Uçlar|Örnek|
+|MemoryPercentage|Bellek Yüzdesi|Yüzde|Ortalama|Bellek Yüzdesi|Örnek|
+|DiskQueueLength|Disk Kuyruğu Uzunluğu|Sayı|Toplam|Disk Kuyruğu Uzunluğu|Örnek|
+|HttpQueueLength|Http Kuyruk Uzunluğu|Sayı|Toplam|Http Kuyruk Uzunluğu|Örnek|
+|ActiveRequests|Etkin İstekler|Sayı|Toplam|Etkin İstekler|Örnek|
+|TotalFrontEnds|Toplam Ön Uç Sayısı|Sayı|Ortalama|Toplam Ön Uç Sayısı|Örnek|
 |SmallAppServicePlanInstances|Kısa uygulama hizmeti planı çalışanları|Sayı|Ortalama|Kısa uygulama hizmeti planı çalışanları|Örnek|
 |MediumAppServicePlanInstances|Orta uygulama hizmeti planı çalışanları|Sayı|Ortalama|Orta uygulama hizmeti planı çalışanları|Örnek|
 |LargeAppServicePlanInstances|Uzun uygulama hizmeti planı çalışanları|Sayı|Ortalama|Uzun uygulama hizmeti planı çalışanları|Örnek|

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede Azure Backup bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -112,7 +112,6 @@ Azure Backup, Azure Backup Sunucusu ve System Center Data Protection Manager (DP
 | Windows Storage Server 2012 ve en son SP'ler |64 bit |Standard, Workgroup |
 | Windows Server 2012 R2 ve en son SP'ler |64 bit |Essential |
 | Windows Server 2008 R2 SP1 |64 bit |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 SP2 |64 bit |Standard, Enterprise, Datacenter, Foundation |
 
 **Azure VM yedeklemesi için:**
 

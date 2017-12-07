@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Logic Apps Döngüleri, Kapsamları ve Ayırma
   
@@ -26,7 +26,7 @@ Logic Apps, çeşitli yollarla dizilerle, koleksiyonlar, toplu işlemler, iş sa
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach döngüsü ve diziler
   
-Logic Apps, bir veri kümesi üzerinde döngü ve her öğe için bir eylem gerçekleştirmek sağlar.  Bu aracılığıyla mümkündür `foreach` eylem.  Eklenecek belirtebilirsiniz Tasarımcısı'nda bir her döngü için.  Üzerinden yinelemek istediğiniz dizi seçtikten sonra Eylemler eklemeye başlayabilirsiniz.  Şu anda foreach döngüsü başına yalnızca bir eylem için sınırlı olur, ancak bu kısıtlama, önümüzdeki haftalarda kaldırılmış.  Bir kez döngü içinde dizinin her değerinde gerçekleşmesi gerektiğini belirtmek başlayabilirsiniz.
+Logic Apps, bir veri kümesi üzerinde döngü ve her öğe için bir eylem gerçekleştirmek sağlar.  Bu aracılığıyla mümkündür `foreach` eylem.  Eklenecek belirtebilirsiniz Tasarımcısı'nda bir her döngü için.  Üzerinden yinelemek istediğiniz dizi seçtikten sonra Eylemler eklemeye başlayabilirsiniz.  Foreach döngüsü başına birden çok eylem ekleyebilirsiniz.  Bir kez döngü içinde dizinin her değerinde gerçekleşmesi gerektiğini belirtmek başlayabilirsiniz.
 
 Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir aşağıdaki gibi her bir döngü için.  Bu örneği olan bir 'microsoft.com' içeren her bir e-posta adresi için bir e-posta gönderir her bir döngü için:
 
@@ -137,7 +137,7 @@ SplitOn kod görünümünde aşağıdaki örnek olarak belirtilebilir.  Bu öğe
 }
 ```
 
-## <a name="scopes"></a>Kapsamları
+## <a name="scopes"></a>Kapsamlar
 
 Bir dizi eylem birlikte bir kapsamı kullanarak Grup mümkündür.  Özel durum işleme uygulamak için özellikle yararlıdır.  Tasarımcıda yeni bir kapsam ekleyin ve onu içinde herhangi bir eylem eklemeye başlamak.  Aşağıdaki gibi kod görünümünde kapsamları tanımlayabilirsiniz:
 

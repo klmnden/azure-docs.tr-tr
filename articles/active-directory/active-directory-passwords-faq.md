@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi sık sorulan sorular
 
@@ -81,6 +81,19 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
 
 ## <a name="password-reset"></a>Parola sıfırlama
 
+* **S: birden çok kısa bir süre içinde bir parola sıfırlama girişimlerine kullanıcıların engellemek?**
+
+  > **Y:** Evet, kötüye kullanımdan korumak amacıyla parola sıfırlama yerleşik güvenlik özellikleri vardır. 
+  >
+  > Kullanıcılar, 24 saat için kilitli önce bir 24 saatlik süre içinde yalnızca beş parola sıfırlama girişimlerine deneyebilirsiniz. 
+  >
+  > Kullanıcılar, bir telefon numarası doğrulama, SMS gönder ya da bunlar için 24 saat kilitli önce bir saat içinde yalnızca beş kez güvenlik sorularını ve yanıtlarını doğrulamak deneyebilirsiniz. 
+  >
+  > Kullanıcılar, en fazla 10 kez bunlar 24 saat için kilitli önce 10 dakikalık süre içinde bir e-posta gönderebilir.
+  >
+  > Bir kullanıcının parolasını sıfırlar sonra sayaç sıfırlanır.
+  >
+  >
 * **S: parola sıfırlama bir e-posta, SMS veya telefon görüşmesi almayı ne kadar süre beklemesi gerekir?**
 
   > **Y:** SMS iletileri, e-postalar ve telefon aramaları ulaştığını içinde altında bir dakika. 5-20 saniye normal bir durumdur.
@@ -163,11 +176,6 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
 * **S: nasıl bir kullanıcı birden çok sıfırlamak için gereken soru sayısını kaydedildiyse, güvenlik soruları sıfırlaması sırasında seçilir?**
 
   > **Y:** *N* Güvenlik sorusu adedini seçili rastgele bir kullanıcı için where kayıtlı soruları toplam sayısı içinden *N* için ayarlanmış miktardır  **Sıfırlamak için gereken soru sayısını** seçeneği. Örneğin, bir kullanıcı beş güvenlik soruları kayıtlı olan, ancak yalnızca üç parola sıfırlama için gereklidir, üç beş soruları rastgele seçilir ve sıfırlama sırasında sunulur. Kullanıcı soruların yanıtlarını alır sözcüğüne, soru engellemek için yanlış seçim işlemi üzerinden başlatır.
-  >
-  >
-* **S: birden çok kısa bir süre içinde bir parola sıfırlama girişimlerine kullanıcıların engellemek?**
-
-  > **Y:** Evet, kötüye kullanımdan korumak amacıyla parola sıfırlama yerleşik güvenlik özellikleri vardır. Kullanıcılar, 24 saat için kilitli önce bir saat içinde yalnızca beş parola sıfırlama girişimlerine deneyebilirsiniz. Kullanıcılar, bir telefon numarası, 24 saat için kilitli önce bir saat içinde yalnızca beş kez doğrulamak deneyebilirsiniz. Kullanıcılar tek kimlik doğrulama yöntemi, 24 saat için kilitli önce bir saat içinde yalnızca beş kez deneyin.
   >
   >
 * **S: e-posta ve SMS bir kerelik geçiş kodlarını geçerli ne kadar?**
@@ -275,7 +283,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
 * [SSPR’yi başarılı bir şekilde nasıl piyasaya çıkarabilirim?](active-directory-passwords-best-practices.md)
 * [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
 * [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
-* [Lisans soru var mı?](active-directory-passwords-licensing.md)
+* [Lisansla ilgili bir sorunuz mu var?](active-directory-passwords-licensing.md)
 * [SSPR hangi verileri kullanır ve kullanıcılarınız için hangi verileri doldurmanız gerekir?](active-directory-passwords-data.md)
 * [Kullanıcılar hangi kimlik doğrulama yöntemlerini kullanabilir?](active-directory-passwords-how-it-works.md#authentication-methods)
 * [SSPR ile kullanılabilen ilke seçenekleri nelerdir?](active-directory-passwords-policy.md)

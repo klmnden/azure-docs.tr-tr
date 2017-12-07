@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Uyumluluğu zorlamak üzere ilkeleri oluşturun ve yönetin
 
@@ -26,22 +26,6 @@ Azure'da ilkeleri oluşturun ve yönetin nasıl giderildiğini anlamak, Kurumsal
 > * Bir kuruluş genelinde yeni bir ilke uygulama
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-## <a name="opt-in-to-azure-policy"></a>Azure ilke kabul
-
-Erişim isteğinde bulunmak için kaydetmeniz gerekir böylece azure ilke sınırlı Önizleme'de kullanıma sunulmuştur.
-
-1. Git Azure ilke https://aka.ms/getpolicy ve select **kaydolun** sol bölmede.
-
-   ![İlke Ara](media/assign-policy-definition/sign-up.png)
-
-2. Katılımı Azure aboneliklerini seçerek İlkesi **abonelik** çalışmak istediğiniz listesi. Ardından **kaydetmek**.
-
-   Abonelik listeniz tüm Azure abonelikleri içerir.
-
-   ![Azure ilke kullanmayı kabulü](media/assign-policy-definition/preview-opt-in.png)
-
-   İsteğe bağlı olarak, birkaç gün için bize kayıt İsteğiniz kabul etmek için kadar sürebilir. İsteğiniz kabul sonra size e-posta aracılığıyla hizmet kullanmaya başlayabilirsiniz bildirilecek.
 
 ## <a name="assign-a-policy"></a>Bir ilke atama
 
@@ -69,7 +53,7 @@ Azure ilkesiyle zorlamayı ilk adımı, bir ilke tanımı atamaktır. Bir ilke t
 
    Azure ilke içinde– iki fiyatlandırma katmanı vardır *serbest* ve *standart*. Ücretsiz katmanı ile ilkeleri yalnızca uygulayabilirsiniz gelecekteki kaynaklardaki standart sırada, ayrıca bunları uyumluluk durumu daha iyi anlamak için var olan kaynakların zorunlu kılabilir. Biz sınırlı önizlemede olduğundan seçmek için bir fatura almaz için henüz bir fiyatlandırma modelini yayımlandı değil *standart*. Daha fazla bilgi için fiyatlandırma hakkında bakın: [fiyatlandırma Azure İlkesi](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Seçin **kapsam** -Azure ilkesine tercih ettiğinizde abonelik (veya kaynak grubu), önceden kayıtlı. Kaynakları gruplandırma ilke ataması üzerinde zorlanan ya da hangi kaynakların bir kapsamı belirler. Bir abonelik için kaynak gruplarını aralığında.
+8. Seçin **kapsam** -abonelik (veya kaynak grubu), önceden kayıtlı. Kaynakları gruplandırma ilke ataması üzerinde zorlanan ya da hangi kaynakların bir kapsamı belirler. Bir abonelik için kaynak gruplarını aralığında.
 
    Bu abonelik - kullanarak Biz bu örneğin **Azure Analytics kapasite geliştirme**. Aboneliğinizi farklılık gösterir.
 
@@ -94,9 +78,9 @@ Biz ilke tanımı atadığınız, ortamınızda çoğaltmanın oluşturulan VM'l
       - İlke kuralları /, bu durumda – VM SKU boyutunu G seriye eşit koşulları
       - Bu durumda – ilke etkili **reddetme**.
 
-   İşte json aşağıdaki gibi görünmelidir
+    İşte json aşağıdaki gibi görünmelidir
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Biz ilke tanımı atadığınız, ortamınızda çoğaltmanın oluşturulan VM'l
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Json kodunu örneklerini görüntülemek için bu makalenin - Ara [Azure ilke şablonları](json-samples.md)
+    Json kodunu örneklerini görüntülemek için okuma [Azure ilke şablonları](json-samples.md) makalesi.
 
 4. **Kaydet**’i seçin.
 
