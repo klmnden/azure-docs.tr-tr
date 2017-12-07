@@ -1,6 +1,6 @@
 ---
 title: "Azure Media Kırpıcıyı ile çalışmaya başlama | Microsoft Docs"
-description: "Azure Media Kırpıcıyı Başlarken, medya oluşturmak için bir aracı varlıklarından küçük"
+description: "Azure Media Kırpıcıyı, video klip AMS varlıklarından oluşturmak için bir aracı ile çalışmaya başlama"
 services: media-services
 keywords: "küçük; subclip; kodlama; ortam"
 author: dbgeorge
@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8a4f2c79131664ca0d078fa58c6a75b54243e705
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Kırpıcıyı ile Klip Oluştur
 Bu bölümde Azure medya Kırpıcıyı ile çalışmaya başlama temel adımları gösterir. İzleyen bölümlerde Azure medya Kırpıcıyı yapılandırma konusunda özellikleri sağlar.
@@ -102,9 +102,9 @@ Başlatma yöntemi çağrısı için Parametreler şunlardır:
 - `speedLevels`(İsteğe bağlı, dizi): speedLevels sağlayan video oynatıcı için farklı hızı düzeylerini ayarlama, bkz: [Azure Media Player belgelerine](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) daha fazla bilgi için.
 - `resetOnJobDone`(İsteğe bağlı, bool): resetOnJobDone bir işi başarıyla gönderildiğinde subclipper ilk durumuna sıfırlamak Kırpıcıyı sağlar.
 - `autoplayVideo`(İsteğe bağlı, bool): autoplayVideo video yükleme için Otomatik Yürüt'ü Kırpıcıyı sağlar. Varsayılan değer true olur.
-- `language`{İsteğe bağlı, dize}: dili pencere öğesi dili ayarlar. Belirtilmezse, pencere öğesi tarayıcı diline dayalı iletileri yerelleştirme dener. Hiçbir dil tarayıcıda algılanırsa, İngilizce'ye pencere öğesi varsayılan olarak ayarlanır. Daha fazla bilgi için desteklenen diller bölümüne bakın.
-- `languages`{İsteğe bağlı, JSON}: kullanıcı tarafından tanımlanan özel bir sözlük ile dilleri varsayılan sözlüğü dilleri parametre değiştirir. Daha fazla bilgi için desteklenen diller bölümüne bakın.
-- `extraLanguages`(İsteğe bağlı, JSON): extraLanaguages parametresi yeni dilleri varsayılan sözlüğe ekler. Daha fazla bilgi için desteklenen diller bölümüne bakın.
+- `language`{İsteğe bağlı, dize}: dili pencere öğesi dili ayarlar. Belirtilmezse, pencere öğesi tarayıcı diline dayalı iletileri yerelleştirme dener. Hiçbir dil tarayıcıda algılanırsa, İngilizce'ye pencere öğesi varsayılan olarak ayarlanır. Daha fazla bilgi için bkz: [yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
+- `languages`{İsteğe bağlı, JSON}: kullanıcı tarafından tanımlanan özel bir sözlük ile dilleri varsayılan sözlüğü dilleri parametre değiştirir. Daha fazla bilgi için bkz: [yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
+- `extraLanguages`(İsteğe bağlı, JSON): extraLanaguages parametresi yeni dilleri varsayılan sözlüğe ekler. Daha fazla bilgi için bkz: [yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
 
 ## <a name="typescript-definition"></a>TypeScript tanım
 A [TypeScript](https://www.typescriptlang.org/) Kırpıcıyı tanım dosyasını bulunabilir [burada](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
@@ -112,133 +112,15 @@ A [TypeScript](https://www.typescriptlang.org/) Kırpıcıyı tanım dosyasını
 ## <a name="azure-media-clipper-api"></a>Azure Media Kırpıcıyı API
 Bu bölümde Kırpıcıyı tarafından sağlanan API yüzeyi belgeler.
 
-- `load(assets)`: varlıklar bölmesine varlıklarını listesini yükler (ile birlikte kullanılmamalıdır `assetsPanelLoaderCallback`). Bu bkz [makale](media-services-azure-media-clipper-load-assets.md) Kırpıcıyı varlıklar yük hakkında ayrıntılar için.
+- `ready(handler)`: tam olarak yüklenen ve kullanılacak hazır Kırpıcıyı hemen JavaScript çalıştırmak için bir yol sunar.
+- `load(assets)`: varlıklar listesi (kullanılmamalıdır assetsPanelLoaderCallback birlikte) pencere öğesi zaman çizelgesi yükler. Bu bkz [makale](media-services-azure-media-clipper-load-assets.md) Kırpıcıyı varlıklar yük hakkında ayrıntılar için.
 - `setLogLevel(level)`: tarayıcının konsolunda görüntülenmesi için günlüğe kaydetme düzeyi ayarlar. Olası değerler şunlardır: `info`, `warn`, `error`.
 - `setHeight(height)`: pencere öğesi toplam yüksekliğini piksel cinsinden ayarlar (en küçük yükseklik olduğu 600 piksel varlıklar bölmesi olmadan ve 850 varlıklar bölmesiyle piksel).
 - `version`: pencere öğesi sürümünü alır.
 
-## <a name="configuring-azure-media-clipper"></a>Azure Media Kırpıcıyı yapılandırma
+## <a name="next-steps"></a>Sonraki adımlar
 Azure Media Kırpıcıyı yapılandırma sonraki adımlara bakın:
 - [Azure Media Kırpıcıyı varlıklar yükleniyor](media-services-azure-media-clipper-load-assets.md)
 - [Yapılandırma özel klavye kısayolları](media-services-azure-media-clipper-keyboard-shortcuts.md)
 - [Kırpıcıyı kırpma işlerini gönderme](media-services-azure-media-clipper-submit-job.md)
-
-## <a name="supported-languages"></a>Desteklenen diller
-Kırpıcıyı pencere öğesi 18 dillerde mevcuttur. Pencere öğesi dilini ayarlamak amacıyla, tanımlamalısınız `language` başlatma sırasında parametre. Aşağıdaki listeden istenen dil kodu dizesinde geçirin:
-- Çince (Basitleştirilmiş): zh-atanır
-- Çince (Geleneksel): zh-hant
-- Çekçe: cs
-- Felemenkçe, Flemish: nl
-- İngilizce: tr
-- Fransızca: fr
-- Almanca: Gizle
-- Macarca: hu
-- İtalyanca:,
-- Japonca: ja
-- Kore dili: ko
-- Lehçe: pl
-- Portekizce (Brezilya): pt-br
-- Portekizce (Portekiz): pt-pt
-- Rusça: ru
-- İspanyolca: es
-- İsveççe: sv
-- Türkçe: tr
-
-Bir özel dil sözlük ayarlamak veya varsayılan dil sözlüğünü genişletmek için tanımlamalısınız `languages` veya `extraLanguages` parametresi, sırasıyla. Şu JSON biçimini kullanarak özel bir sözlükte geçirin:
-
-```javascript
-{
-      "{language-code}":
-          "{message-id}": "{message}"
-          ...
-      }
-      ...
-}
-```
-
-Örneğin, aşağıdaki örnek yerelleştirilmiş İngilizce dizeleri tanımlar:
-
-```javascript
-export default {
-  'VideoPlayer.noPreview': 'No video preview',
-  'VideoPlayer.loadAsset': 'You must provide a valid asset',
-  'AssetsPanel.name': 'Name',
-  'AssetsPanel.type': 'Asset type',
-  'AssetsPanel.actions': 'Actions',
-  'AssetsPanel.loading': 'Loading...',
-  'AssetsPanel.duration': 'Duration',
-  'AssetsPanel.resolution': 'Resolution',
-  'AssetsPanel.pluralFiles': '{0} assets',
-  'AssetsPanel.searchFiles': 'Search assets',
-  'AssetsPanel.showTypes': 'Show:',
-  'AssetsPanel.typesInfo': 'Rendered assets are actual MP4 files. Dynamic manifest filters are filters applied to a parent asset\'s video segment playlist.',
-  'AssetsPanel.filterTypes': 'Filters',
-  'AssetsPanel.assetTypes': 'Assets',
-  'AssetsPanel.assetsAll': 'All',
-  'AssetsPanel.addAsset': 'Add asset to the end',
-  'AssetsPanel.addFilter': 'Add filter to the timeline',
-  'AssetsPanel.invalidAsset': 'The metadata of this asset is not compatible with the other assets in the timeline',
-  'AssetsPanel.addAssetWarning': 'Subclipping on assets with different resolutions may cause resolution autoscaling.',
-  'AssetsPanel.live': 'LIVE',
-  'AssetsPanel.unknown': 'UNKNOWN',
-  'AssetsPanel.minimGapNotMet': 'The asset duration must be greater than the minimum clip duration ({0} seconds)',
-  'VideoPlayer.openAdvancedSettings': 'Advanced settings',
-  'VideoPlayer.singleBitrate': 'Single-bitrate MP4 (rendered)',
-  'VideoPlayer.multiBitrate': 'Multi-bitrate MP4 (rendered)',
-  'VideoPlayer.dynamicManifest': 'Dynamic manifest filter',
-  'VideoPlayer.ErrorWithMessage': 'There was an error in the video player, code {0}, message: {1}',
-  'Common.cancel': 'Cancel',
-  'Common.OK': 'OK',
-  'AdvancedSettings.framerate': 'Frame rate',
-  'Dropdown.select': 'Select an option...',
-  'InputAsset.RemoveInput': 'Remove source',
-  'Zoom.startTime': 'Start time',
-  'Zoom.endTime': 'End time',
-  'VideoPlayer.subclips': 'Subclips:',
-  'VideoPlayer.length': 'Clip length:',
-  'Accordion.scrollLeft': 'Scroll to the left',
-  'Accordion.scrollRight': 'Scroll to the right',
-  'AdvancedSettings.title': 'Advanced settings',
-  'AdvancedSettings.subclipName': 'Subclip name',
-  'AdvancedSettings.subclipType': 'Subclipping mode',
-  'AdvancedSettings.includeAudioTracks': 'Include audio tracks',
-  'AdvancedSettings.subclipTypeInfo': 'Single-bitrate and multi-bitrate MP4s are frame accurate rendered assets. Dynamic manifest filters are group-of-pictures (GOP) accurate filters applied to a parent asset. Creating filters does not create a new asset and does not require encoding. Subclipping jobs on live assets are valid as long as their mark times are within the archive window of the parent asset. Filters are valid as long as the parent asset exists and mark times are within its archive window.',
-  'AdvancedSettings.frameRateInfo': 'We autodetect frame rate under most scenarios. however, If we cannot autodetect, choose a frame rate from the dropdown for the selected asset(s).',
-  'AdvancedSettings.frameRateError': 'Unable to determine frame rate',
-  'AdvancedSettings.subclipNameInfo': 'Choose a name for your subclip.',
-  'AdvancedSettings.singleAudioTrack': '1 audio track selected',
-  'AdvancedSettings.allAudioTracks': 'All audio tracks selected',
-  'AdvancedSettings.someAudioTracks': '{0} audio tracks selected',
-  'AdvancedSettings.includeAllAudioTracks': 'Include all audio tracks',
-  'AssetsPanel.loadingError': 'Failed to retreive assets from server.',
-  'AssetsPanel.retry': 'Retry?',
-  'CommandBar.prevFrameTitle': 'Back up one frame',
-  'CommandBar.prevKeyFrameTitle': 'Back up one GOP',
-  'CommandBar.cleanJob': 'Remove all assets',
-  'CommandBar.cleanJobTitle': 'Remove all assets from timeline',
-  'CommandBar.cleanJobMessage': 'This will empty all video clips from your timeline.',
-  'CommandBar.update': 'Update filter',
-  'CommandBar.createFilter': 'Create filter',
-  'CommandBar.submit': 'Submit subclipper job',
-  'CommandBar.jobErrorTitle': 'Operation failed',
-  'CommandBar.jobErrorMessage': 'Your subclip failed to submit. Please try again.',
-  'CommandBar.markInTitle': 'Set in at playhead',
-  'CommandBar.markInPosition': 'Mark in timecode',
-  'CommandBar.markOutTitle': 'Set out at playhead',
-  'CommandBar.markOutPosition': 'Mark out timecode',
-  'CommandBar.nextFrameTitle': 'Advance one frame',
-  'CommandBar.nextKeyFrameTitle': 'Advance one GOP',
-  'CommandBar.play': 'Play video',
-  'CommandBar.pause': 'Pause video',
-  'CommandBar.playPreviewTitle': 'Play subclip preview',
-  'CommandBar.pausePreviewTitle': 'Pause subclip preview',
-  'CommandBar.redoTitle': 'Redo last action',
-  'CommandBar.removeAsset': 'Remove current asset',
-  'CommandBar.undoTitle': 'Undo last action',
-  'VideoPlayer.errorTitle': 'Error',
-  'VideoPlayer.errorMessage': 'There was an error loading the selected asset.',
-  'Timeline.markIn': 'Mark in bracket',
-  'Timeline.markOut': 'Mark out bracket',
-  'Timeline.playHead': 'Play head',
-};
-```
+- [Yerelleştirme yapılandırma](media-services-azure-media-clipper-localization.md)

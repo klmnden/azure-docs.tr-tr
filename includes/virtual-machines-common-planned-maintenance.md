@@ -47,4 +47,4 @@ Bir kullanılabilirlik kümesinde en fazla 20 güncelleştirme etki alanları ar
 
 Sanal makine ölçek kümeleri dağıtmak ve aynı sanal makineleri bir küme tek bir kaynak olarak yönetmenize olanak sağlayan bir Azure işlem kaynaktır. Ölçek kümesi, bir kullanılabilirlik kümesindeki sanal makineleri gibi güncelleştirme etki alanları arasında otomatik olarak dağıtılır. Gibi kullanılabilirlik kümeleri ile ölçek kümeleri ile yalnızca bir tek güncelleştirme etki alanı herhangi bir zamanda etkilenmez.
 
-Sanal makinelerinizin yüksek kullanılabilirlik için yapılandırma hakkında daha fazla bilgi için Windows için sanal makinelerin kullanılabilirliğini yönetme bakın (../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Sanal makinelerinizin yüksek kullanılabilirlik için yapılandırma hakkında daha fazla bilgi için bkz, sanal makinelerin kullanılabilirliğini için [Windows](../articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).

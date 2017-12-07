@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services kavramları
 Bu konu en önemli Media Services kavramları hakkında genel bakış sağlar.
@@ -57,7 +57,7 @@ Media Services, içeriğinizi teslim etmek istediğiniz nasıl bilmesi için dep
 
 **EnvelopeEncryptionProtected** – korumak (veya zaten korumalı karşıya yüklemek) istiyorsanız bu seçeneği kullanın HTTP canlı akışı (Gelişmiş Şifreleme Standardı (AES ile) şifrelenmiş HLS). Zaten AES ile şifrelenmiş HLS yüklüyorsanız bu Transform Manager tarafından şifrelenmiş gerekir.
 
-### <a name="access-policy"></a>Erişim ilkesi
+### <a name="access-policy"></a>Erişim İlkesi
 Bir [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) (örneğin, okuma, yazma ve liste) izinler ve erişim süresi bir varlık için tanımlar. Genellikle, bir varlıkta bulunan dosyalara erişmek için kullanılacak bir Bulucu için AccessPolicy nesneyi geçip geçmeyeceğini.
 
 >[!NOTE]
@@ -151,10 +151,9 @@ Bir akış player tarafından istendiğinde Media Services belirtilen anahtarı 
 Belirteç yapılandırma İlkesi sınırlı olduğunda, birincil doğrulama anahtarı, veren ve İzleyici parametreleri belirtmeniz gerekir. Birincil doğrulama anahtar belirteci ile imzalandığı anahtarı içerir, veren belirtecini veren güvenli belirteç hizmeti. Kaynak belirteci erişimini yetkilendirir veya (bazen kapsam denir) İzleyici belirteç amacı açıklanır. Media Services anahtar teslim hizmeti, bu değerleri belirteci şablon değerleri eşleştiğini doğrular.
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
-
-[İçerik genel bakış korumak](media-services-content-protection-overview.md)
-[AES-128 ile koru](media-services-protect-with-aes128.md)
-[DRM ile koru](media-services-protect-with-drm.md)
+- [İçerik genel koruma](media-services-content-protection-overview.md)
+- [AES-128 ile koruma](media-services-protect-with-aes128.md)
+- [PlayReady/Widevine ile koruma](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Teslim etme
 ### <a id="dynamic_packaging"></a>Dinamik paketleme

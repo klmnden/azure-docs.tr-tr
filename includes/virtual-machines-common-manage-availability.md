@@ -8,17 +8,17 @@ Etkilenip azure'da sanal makine açabilir üç senaryo vardır: planlanmamış d
 
   Sanal makineler de kapalı kalma süresi ile kurtarılamaz bir kesinti veya veri merkezinin tamamı ya da tüm bir bölgeyi etkileyen olağanüstü durum yaşayabilirsiniz. Bu senaryolar için koruma seçeneklerini de dahil olmak üzere Azure sağlar [kullanılabilirlik bölgeleri](../articles/availability-zones/az-overview.md) ve [eşleştirilmiş bölgeleri](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-* **Planlı Bakım olayları**, Microsoft tarafından sanal makinelerinizin çalıştığı platforma ait genel güvenilirlik, performans ve güvenliği artırmak amacıyla temel alınan Azure platformunda yapılan periyodik güncelleştirmelerdir. Bu güncelleştirmelerin çoğu Sanal Makine veya Bulut Hizmetlerinizi etkilemeden gerçekleştirilir (bkz. [VM Koruyucu Bakım](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/preserving-maintenance)). Azure platformu mümkün olan tüm durumlarda VM Koruyucu Bakımı kullanmaya çalışsa da, gerekli güncelleştirmelerin temel alınan altyapıya uygulanması için bu güncelleştirmelerin sanal makineyi yeniden başlatmayı gerektirdiği nadir örnekler vardır. Bu durumda, uygun zaman penceresi içinde VM’lere yönelik bakımı başlatarak Maintenance-Redeploy işlemi ile Azure Planlı Bakımını gerçekleştirebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler için Planlı Bakım](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/planned-maintenance/).
+* **Planlı Bakım olayları**, Microsoft tarafından sanal makinelerinizin çalıştığı platforma ait genel güvenilirlik, performans ve güvenliği artırmak amacıyla temel alınan Azure platformunda yapılan periyodik güncelleştirmelerdir. Bu güncelleştirmelerin çoğu Sanal Makine veya Bulut Hizmetlerinizi etkilemeden gerçekleştirilir (bkz. [VM Koruyucu Bakım](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance)). Azure platformu mümkün olan tüm durumlarda VM Koruyucu Bakımı kullanmaya çalışsa da, gerekli güncelleştirmelerin temel alınan altyapıya uygulanması için bu güncelleştirmelerin sanal makineyi yeniden başlatmayı gerektirdiği nadir örnekler vardır. Bu durumda, uygun zaman penceresi içinde VM’lere yönelik bakımı başlatarak Maintenance-Redeploy işlemi ile Azure Planlı Bakımını gerçekleştirebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler için Planlı Bakım](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/).
 
 
 Bu olayların bir veya daha fazlası nedeniyle kapalı kalma süresinin etkisini azaltmak için, sanal makinelerinizde aşağıdaki yüksek kullanılabilirlik en iyi uygulamalarının kullanılması önerilir:
 
 * [Bir kullanılabilirlik kümesindeki birden fazla sanal makineyi yedeklilik için yapılandırma]
 * [Bir kullanılabilirlik kümesindeki VM’ler için yönetilen diskleri kullanma]
-* [VM’yi etkileyen olaylara ileriye dönük yanıt vermek için Zamanlanmış Olaylar’ı kullanma] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Önceden yanıt olayları etkileyen VM için zamanlanmış olaylarını kullanın] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Her uygulama katmanını ayrı kullanılabilirlik kümeleri halinde yapılandırma]
 * [Yük Dengeleyiciyi kullanılabilirlik kümeleri ile birleştirme]
-* [Veri merkezinde level arızasına karşı korumak için kullanılabilirlik bölgeleri kullanın]
+* [Veri merkezi düzeyi arızasına karşı korumak için kullanılabilirlik bölgelerini kullanın]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Bir kullanılabilirlik kümesindeki birden fazla sanal makineyi yedeklilik için yapılandırma
 Uygulamanıza yedeklilik sağlamak için bir kullanılabilirlik kümesinde iki veya daha fazla sanal makinenin gruplandırılması önerilir. Bu yapılandırma bir veri merkezinde bulunan ya da bir planlı veya plansız bir bakım olayı sırasında en az bir sanal makine kullanılabilir %99,95 karşılayan olmasını sağlar ve Azure SLA. Daha fazla bilgi için bkz. [Sanal Makineler için SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -81,3 +81,4 @@ Dağıtma hakkında daha fazla bilgi bir [Windows](../articles/virtual-machines/
 [Yük Dengeleyiciyi kullanılabilirlik kümeleri ile birleştirme]: #combine-a-load-balancer-with-availability-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Bir kullanılabilirlik kümesindeki VM’ler için yönetilen diskleri kullanma]: #use-managed-disks-for-vms-in-an-availability-set
+[Veri merkezi düzeyi arızasına karşı korumak için kullanılabilirlik bölgelerini kullanın]: #use-availability-zones-to-protect-from-datacenter-level-failures

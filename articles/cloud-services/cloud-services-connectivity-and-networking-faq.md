@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için bağlantı ve ağ sorunları: sık sorulan sorular (SSS)
 
@@ -48,8 +48,8 @@ Bazı belirli IP adreslerini seçerek engellemek için bir başlangıç görevi 
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>My bulut hizmet örneği için RDP çalıştığınızda, ileti almak için "kullanıcı hesabının süresi doldu."
 RDP ayarlarında sona erme tarihini atlama, "Bu kullanıcı hesabının süresi doldu" hata iletisini alabilirsiniz. Aşağıdaki adımları izleyerek, sona erme tarihini portalından değiştirebilirsiniz:
-1. Azure Yönetim Konsolu (https://manage.windowsazure.com) oturum açma, bulut hizmetine gidin ve seçin **yapılandırma** sekmesi.
-2. Seçin **uzak**.
+1. Oturum [Azure portal](https://portal.azure.com), bulut hizmetine gidin ve seçin **Uzak Masaüstü** sekmesi.
+2. Seçin **üretim** veya **hazırlama** dağıtım yuvası.
 3. "Expires On" tarih değiştirin ve ardından yapılandırmayı kaydedin.
 
 Şimdi makinenize için RDP görüntüleyebiliyor olmalısınız.

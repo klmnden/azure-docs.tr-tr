@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.openlocfilehash: 948693c8501ecc46a1508e5ea085846d0910783e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fcd78eaa0c5b09b70aa973466a34556fff56071
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>Microsoft Graph API çağrısından bir iOS uygulaması
 
@@ -45,9 +45,9 @@ API Microsoft Graph gibi belirli kaynaklara – Örneğin, bir kullanıcının p
 Önbelleğe alma ve böylece uygulamanız gerek olmayan erişim belirteçleri, yenileme MSAL yönetir.
 
 
-### <a name="nuget-packages"></a>NuGet paketleri
+### <a name="libraries"></a>Kitaplıkları
 
-Bu kılavuz aşağıdaki NuGet paketlerini kullanır:
+Bu kılavuz aşağıdaki kitaplığı kullanır:
 
 |Kitaplık|Açıklama|
 |---|---|

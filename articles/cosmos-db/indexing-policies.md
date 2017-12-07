@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
@@ -68,7 +68,7 @@ Azure Cosmos DB, bir Azure Cosmos DB koleksiyonunda – dizin oluşturma ilkesi 
 
 **Tutarlı**: bir Azure Cosmos DB koleksiyonunun İlkesi "olarak tutarlı" olarak belirlendiyse, belirli bir Azure Cosmos DB koleksiyon sorgulamaları noktası okuma için belirtildiği gibi aynı tutarlılık düzeyi izleyin (yani güçlü, sınırlanmış eskime durumu, oturum veya son). Dizin belge güncelleştirme (yani Ekle, Değiştir, güncelleştirme ve silme Azure Cosmos DB koleksiyonunda belgenin) bir parçası olarak eşzamanlı olarak güncelleştirilir.  Tutarlı dizin oluşturma olası azaltma, tutarlı sorguları yazma performansı destekler. Bu azaltma işlevi sıralanması gerekir benzersiz yolların ve "tutarlılık düzeyi" dir. Tutarlı dizin oluşturma modu "hızlı bir şekilde, hemen sorgu yazma" iş yükleri için tasarlanmıştır.
 
-**Yavaş**: en fazla belge alım işleme izin vermek için bir Azure Cosmos DB koleksiyonu ile yavaş tutarlılık yapılandırılabilir; anlamı sorguları sonuçta tutarlı. Bir Azure Cosmos DB koleksiyon yani koleksiyonunun işleme kapasitesi kullanıcı isteklere yanıt tam olarak kullanılmaz, sessiz olduğunda dizini zaman uyumsuz olarak güncelleştirilir. "Yavaş" dizin oluşturma modu unhindered belge alım gerektiren "sorgu daha sonra şimdi alma" iş yükleri için uygun olabilir.
+**Yavaş**: Azure Cosmos DB koleksiyon yani koleksiyonunun işleme kapasitesi kullanıcı isteklere yanıt tam olarak kullanılmaz, sessiz olduğunda dizini zaman uyumsuz olarak güncelleştirilir. Belge alım gerektiren "sorgu daha sonra şimdi alma" iş yükleri için "yavaş" dizin oluşturma modu uygun olabilir. Lütfen verileri ve alınan yavaş dizine tutarsız sonuçlar alabilirsiniz unutmayın. Bu sayı sorgular veya özel bir sorgu sonuçları veri dizine kadar doğru veya repeatable olması garanti edilmez anlamına gelir. Dizini genellikle catch modu ayarlamak içindir. Yavaş dizin - TTL değişikliği dizin alınırken sonuçları bırakılan ve yeniden, böylece bu etkinlik alanlarında beklenmeyen sonuçlara neden olabilir. Müşterilerin çoğu, tutarlı dizin kullanmanız gerekir.
 
 **Hiçbiri**: kendisiyle ilişkilendirilmiş herhangi bir dizin dizini modu "Hiçbiri" ile işaretlenmiş bir koleksiyonu vardır. Bu, Azure Cosmos DB anahtar-değer depolama alanı olarak kullanılan ve belgeleri yalnızca kimliği özelliği tarafından erişilen yaygın olarak kullanılır. 
 

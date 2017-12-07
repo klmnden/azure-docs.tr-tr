@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Başlatılamaz bulut hizmeti rolleriyle ilgili sorunları giderme
 Çözümleri Azure bulut hizmetlerine başlatılamaz rolleri ilgili ve bazı yaygın sorunlar şunlardır.
@@ -62,9 +62,8 @@ Hizmet imzalanmasını sonra eksik derleme veya DLL adı ile bir hata iletisi g�
 Rol erişmek ve daha ayrıntılı hata bilgileri uzaktan görüntülemek için Uzak Masaüstü'nü kullanabilirsiniz. Uzak Masaüstü'nü kullanarak hataları görüntülemek için aşağıdaki adımları kullanın:
 
 1. Azure SDK 1.3 veya üstü yüklü olduğundan emin olun.
-2. Visual Studio kullanarak çözüm dağıtımı sırasında "Yapılandırma Uzak Masaüstü bağlantıları için..." seçin. Uzak Masaüstü bağlantısı yapılandırma hakkında daha fazla bilgi için bkz: [Azure rolleri ile Uzak Masaüstü kullanarak](../vs-azure-tools-remote-desktop-roles.md).
-3. Örnek bir durumu gösterir sonra Microsoft Azure Klasik portalında, **hazır**, rol örnekleri birine tıklayın.
-4. Tıklatın **Bağlan** simgesine **uzaktan erişim** Şerit alanı.
+2. Visual Studio kullanarak çözüm dağıtımı sırasında "Yapılandırma Uzak Masaüstü bağlantıları için" seçin. Uzak Masaüstü bağlantısı yapılandırma hakkında daha fazla bilgi için bkz: [Azure rolleri ile Uzak Masaüstü kullanarak](../vs-azure-tools-remote-desktop-roles.md).
+3. Örnek bir durumu gösterir sonra Microsoft Azure Portalı'nda **hazır**örneği içine uzaktan. Bulut Hizmetleri ile Uzak Masaüstü'nü kullanma hakkında daha fazla bilgi için bkz: [uzaktan rol örnekleri içine](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Sanal makineye uzak masaüstü yapılandırması sırasında belirtilen kimlik bilgilerini kullanarak oturum açın.
 6. Bir komut penceresi açın.
 7. `IPconfig` yazın.

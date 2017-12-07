@@ -32,3 +32,9 @@
 | Avustralya Güneydoğu | 2                       |
 |                     |                         |
 | Güney Brezilya        | 2                       |
+|                     |                         |
+| ABD Devleti Virginia     | 2                       |
+| ABD Devleti Texas        | 2                       |
+| ABD Devleti Arizona      | 2                       |
+| US DoD Orta      | 2                       |
+| US DoD Doğu         | 2                       |

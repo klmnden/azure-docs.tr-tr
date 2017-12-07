@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: juliako
-ms.openlocfilehash: c584806105c2583daca944260b65da2f7637bb0c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0ae5d37507bb6e36589e9755faf8bd3471910257
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Dinamik şifreleme: içerik anahtarının yetkilendirme ilkesini yapılandırma
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -34,13 +34,9 @@ Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamas�
 
 Media Services, güvenli belirteç hizmetleri sağlamaz. Özel bir STS oluşturabilir veya Microsoft Azure ACS sorunu belirteçleri yararlanın. STS, belirteç kısıtlamasına yapılandırma dosyasında (Bu makalede anlatıldığı gibi) belirtilen belirtilen anahtarı ve sorunu talepleri imzalı bir belirteç oluşturmak için yapılandırılmalıdır. Media Services anahtar teslim hizmeti şifreleme anahtarını istemci için belirteç geçerliyse ve içerik anahtarı için yapılandırılmış talep belirteci eşleştiğinden döndürür.
 
-Daha fazla bilgi için bkz.
-
-[JWT belirteci kimlik doğrulaması](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-
-[Azure Media Services OWIN MVC tabanlı uygulama Azure Active Directory ile tümleştirme ve JWT talepleri temelinde içerik anahtar teslim kısıtlamak](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
-
-[Azure ACS sorunu belirteçleri kullanmak](http://mingfeiy.com/acs-with-key-services).
+Daha fazla bilgi için aşağıdaki makalelere bakın:
+- [JWT belirteci kimlik doğrulaması](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Azure Media Services OWIN MVC tabanlı uygulama Azure Active Directory ile tümleştirme ve JWT talepleri temelinde içerik anahtar teslim kısıtlamak](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 ### <a name="some-considerations-apply"></a>Bazı dikkate alınması gereken noktalar vardır:
 * Dinamik paketleme ve dinamik şifreleme kullanabilmek için olduğundan emin olun, içerik akışı gerçekleştirmek istediğiniz akış uç noktası olarak **çalıştıran** durumu.
@@ -50,6 +46,7 @@ Daha fazla bilgi için bkz.
 * Anahtar teslim hizmeti ContentKeyAuthorizationPolicy ve ilişkili nesnelerini (ilkesi seçenekleri ve kısıtlamaları) 15 dakika için önbelleğe alır.  Bir ContentKeyAuthorizationPolicy oluşturup, bir "Token" kısıtlama kullanılacağını belirtin, test ve ardından ilkesini "Açık" kısıtlama güncelleştirin, ilke ilkesini "Açık" sürümüne geçiş yapmadan önce yaklaşık 15 dakika sürer.
 * Varlığınızın teslim ilkesini ekler veya güncelleştirirseniz, mevcut bulucuyu (varsa) silip yeni bir bulucu oluşturmanız gerekir.
 * Şu anda, aşamalı indirme şifrelenemiyor.
+* Akış uç noktası AMS joker karakter olarak denetim öncesi yanıt CORS 'Access-Control-Allow-Origin' üstbilgisinin değerini ayarlar '\*'. Bu da bizim Azure Media Player, Roku ve JW ve diğerleri de dahil olmak üzere çoğu oyuncularla çalışır. "Dahil etmek için" kimlik bilgileri modu ayarlandığında, kullanıcıların dashjs XMLHttpRequest joker izin vermez, ancak dashjs yararlanan bazı oynatıcıları çalışmaya değil "\*" değeri olarak "'Access-Control-Allow-Origin". Tek bir etki alanı istemcinizden barındırıyorsa dashjs içinde bu sınırlamaya geçici Azure Media Services ön yanıt üstbilgisinde bu etki alanı belirtebilirsiniz. Azure portal üzerinden destek bileti açılarak ulaşın.
 
 ## <a name="aes-128-dynamic-encryption"></a>AES-128 dinamik şifreleme
 > [!NOTE]
@@ -234,7 +231,7 @@ Belirteç kısıtlamasına seçeneği yapılandırmak için belirtecin yetkilend
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Yapılandırırken **belirteci** kısıtlanmış İlkesi, birincil doğrulama anahtarı **, belirtmelisiniz **veren** ve **İzleyici** parametreleri. ** Birincil doğrulama anahtarı **, belirteci imzalayan anahtarı içeren **veren** belirtecini veren güvenli belirteç hizmetidir. **İzleyici** (bazen adlı **kapsam**) belirteç veya belirteç erişim yetkisi verir kaynak amacı açıklar. Media Services anahtar teslim hizmeti, bu değerleri belirteci şablon değerleri eşleştiğini doğrular. 
+Yapılandırırken **belirteci** kısıtlanmış İlkesi, birincil belirtmelisiniz **doğrulama anahtarı**, **veren** ve **İzleyici** parametreleri. Birincil **doğrulama anahtarı** , belirteci imzalayan anahtarı içeren **veren** belirtecini veren güvenli belirteç hizmetidir. **İzleyici** (bazen adlı **kapsam**) belirteç veya belirteç erişim yetkisi verir kaynak amacı açıklar. Media Services anahtar teslim hizmeti, bu değerleri belirteci şablon değerleri eşleştiğini doğrular.
 
 Aşağıdaki örnek, bir belirteç kısıtlamasına bir yetkilendirme ilkesi oluşturur. Bu örnekte, istemci içeren bir belirteç sunmak gerekecektir: imzalama anahtarı (VerificationKey), bir belirteç verenin ve gerekli talep.
 

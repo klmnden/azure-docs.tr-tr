@@ -18,15 +18,15 @@
 | Akış uç noktası başına akış birimleri |10 |
 | Depolama hesapları | 1,000<sup>(5)</sup> (sabit) |
 | İlkeler | 1,000,000<sup>(6)</sup> |
-| Dosya boyutu| Bazı senaryolarda, Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. <sup>7</sup> |
+| Dosya boyutu| Bazı senaryolarda, Media Services işlemek için desteklenen en büyük dosya boyutu üzerinde bir sınırı yoktur. <sup>7</sup> |
   
-<sup>1</sup> S3 RU’ları Hindistan Batı bölgesinde kullanılamaz. Müşteri türünden (örneğin, S1 S2) değişirse max RU sınırları sıfırlama. 
+<sup>1</sup> S3 RU’ları Hindistan Batı bölgesinde kullanılamaz. Türünden (örneğin, S1 S2) değiştirirseniz, max RU sınırları sıfırlanır.
 
 <sup>2</sup> Bu sayı kuyruğa alınan, tamamlanan, etkin ve iptal edilmiş işleri içerir. Silinmiş işleri içermez. **IJob.Delete** veya **DELETE** HTTP isteğini kullanarak eski işleri silebilirsiniz.
 
-1 Nisan 2017’den itibaren, hesabınızdaki 90 günden eski olan tüm İş kayıtları, toplam kayıt sayısı üst kota sınırının altında olsa bile ilişkili Görev kayıtlarıyla birlikte otomatik olarak silinecektir. İş/görev bilgilerini arşivlemeniz gerekiyorsa, [burada](../articles/media-services/media-services-dotnet-manage-entities.md) açıklanan kodu kullanabilirsiniz.
+Toplam kayıt sayısı en yüksek kota altında olsa bile 1 Nisan 2017 itibariyle 90 günden daha eski hesabınızda herhangi bir işi kaydının otomatik olarak, ilişkili görev kayıtlarını yanı sıra, silinir. İş/görev bilgilerini arşivlemeniz gerekiyorsa, [burada](../articles/media-services/media-services-dotnet-manage-entities.md) açıklanan kodu kullanabilirsiniz.
 
-<sup>3</sup> İş varlıklarını listeleme isteği yaparken istek başına en fazla 1.000 adet döndürülür. Gönderilen tüm işleri izlemeniz gerekiyorsa, [OData sorgu seçeneklerinde](http://msdn.microsoft.com/library/gg309461.aspx) açıklandığı gibi üste/atla seçeneğini kullanabilirsiniz.
+<sup>3</sup> bir istek varlıkları işi listesine yaparken, istek başına en çok 1.000 işleri döndürülür. Gönderilen tüm işleri izlemeniz gerekiyorsa, [OData sorgu seçeneklerinde](http://msdn.microsoft.com/library/gg309461.aspx) açıklandığı gibi üste/atla seçeneğini kullanabilirsiniz.
 
 <sup>4</sup> Bulucular kullanıcı başına erişim denetimini yönetmek için tasarlanmamıştır. Ayrı kullanıcılara farklı erişim hakları vermek için Digital Rights Management (DRM) çözümlerini kullanın. Daha fazla bilgi için [bu](../articles/media-services/media-services-content-protection-overview.md) bölüme bakın.
 
@@ -37,9 +37,9 @@
 >[!NOTE]
 > Kullandığınız günler / erişim izinleri / vb. her zaman aynıysa, aynı ilke kimliğini kullanmanız gerekir. Bilgi ve bir örnek için [bu](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) bölüme bakın.
 
-<sup>7</sup>içerik Azure Media Services bir varlık için hizmetimizi medya işlemciler biri ile işlem yapma ile karşıya yüklemekte olduğunuz varsa (yani kodlayıcılar ister yüz gibi Medya Kodlayıcısı standart ve Medya Kodlayıcısı Premium iş akışı veya Analiz altyapıları Algılayıcı), en büyük boyutunu kısıtlama farkında olması gerekir. 
+<sup>7</sup>hizmet medya işlemcileri birine işlemek için Azure Media Services'de bir varlık için içerik yüklüyorsunuz varsa (diğer bir deyişle, yüz algılayıcısı Medya Kodlayıcısı standart ve Medya Kodlayıcısı Premium iş akışı veya Analiz altyapıları gibi kodlayıcılar ister), ardından desteklenen en büyük dosya boyutu kısıtlamalar haberdar olmanız gerekir. 
 
-15 Mayıs 2017'dan sonra tek bir blob için desteklenen en büyük boyutu 195 TB - bu sınırından dosya largers olan, görev başarısız olur. Bu sınır adresi için bir düzeltme çalışıyoruz. Ayrıca, varlık en büyük boyutunu kısıtlama gibidir.
+Tek bir blob için desteklenen en fazla şu anda 5 TB Azure Blob Depolama boyutudur. Ancak, Azure Media Services hizmeti tarafından kullanılan VM boyutları göre ek sınırları uygulayın. Aşağıdaki tabloda her medya ayrılmış birimleri (S1, S2, S3) sınırları gösterilir Kaynak dosyanızı tabloda tanımlanan sınırların daha büyükse, kodlama işinin başarısız olur. Uzun süreli 4 K çözümleme kaynakları kodlama, gerekli bir performans elde S3 medya ayrılmış birimleri kullanması gerekir. S3 medya ayrılmış birimleri 260 GB sınırını büyük 4 K içeriğiniz varsa, adresinden bize başvurun amshelp@microsoft.com senaryonuz desteklemek olası Azaltıcı Etkenler için.
 
 | Medya Ayrılmış Birimi türü | En büyük giriş boyutu (GB)| 
 | --- | --- | 

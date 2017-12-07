@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8629f069440299690c68887b0d23d9f4ed7dfcc5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services sertifikalarına genel bakış
-Sertifikalar ile Azure bulut Hizmetleri için kullanılır ([hizmet sertifikaları](#what-are-service-certificates)) ve yönetim API'si ile kimlik doğrulaması için ([yönetim sertifikaları](#what-are-management-certificates) Klasik Azure portalı ve değil olmayan Klasik Azure portalı kullanırken). Bu konuda iki sertifika türleri için genel bir bakış nasıl sahip için [oluşturma](#create) ve [dağıtmak](#deploy) Azure onları.
+Sertifikalar ile Azure bulut Hizmetleri için kullanılır ([hizmet sertifikaları](#what-are-service-certificates)) ve yönetim API'si ile kimlik doğrulaması için ([yönetim sertifikaları](#what-are-management-certificates)). Bu konuda iki sertifika türleri için genel bir bakış nasıl sahip için [oluşturma](#create) ve [dağıtmak](#deploy) Azure onları.
 
 Azure'da kullanılan sertifikalar x.509 v3 sertifikaları ve başka bir güvenilen sertifika tarafından imzalanan ya da kendinden imzalı olabilirler. Otomatik olarak imzalanan sertifika kendi oluşturucusu tarafından imzalanan, bu nedenle varsayılan olarak güvenilmiyor. Çoğu tarayıcılar bu sorunu yoksayabilirsiniz. Yalnızca geliştirme ve sınama bulut Hizmetleri zaman otomatik olarak imzalanan sertifikalar kullanmanız gerekir. 
 
@@ -30,7 +30,7 @@ Azure tarafından kullanılan sertifikalar, özel veya ortak anahtar içerebilir
 ## <a name="what-are-service-certificates"></a>Hizmet sertifikaları nelerdir?
 Bulut Hizmetleri ve güvenli iletişim için ve hizmetinden etkinleştirmek için hizmet sertifikaları bağlanmış. Örneğin, bir web rolü dağıttıysanız, kullanıma sunulan bir HTTPS uç noktası doğrulanabilir bir sertifika sağlamak istersiniz. Hizmet tanımında tanımlanan hizmet sertifikaları, rol örneği çalıştıran sanal makine otomatik olarak dağıtılır. 
 
-Hizmet sertifikaları ya da Klasik Azure portalı kullanarak Azure Klasik portalında veya Klasik dağıtım modeli kullanarak yükleyebilirsiniz. Hizmet sertifikaları özel bulut hizmeti ile ilişkilendirilmiş. Hizmet tanımı dosyası bir dağıtımda atandığı.
+Hizmet sertifikaları ya da Azure portal'ı kullanarak Azure veya Klasik dağıtım modeli kullanarak yükleyebilirsiniz. Hizmet sertifikaları özel bulut hizmeti ile ilişkilendirilmiş. Hizmet tanımı dosyası bir dağıtımda atandığı.
 
 Hizmet sertifikaları, Hizmetleri'nden ayrı olarak yönetilebilir ve farklı kişiler tarafından yönetiliyor olabilir. Örneğin, bir geliştirici bir BT yöneticisi için Azure önceden yükledi bir sertifika başvurduğu bir hizmet paketi yükleme. Bir BT yöneticisi, yönetin ve yeni bir hizmet paketi yüklemeye gerek kalmadan (hizmetinin yapılandırmasını değiştirme), bu sertifikayı yenilemek. Yeni bir hizmet paketi güncelleştirme mantıksal adını, depolama ad ve sertifikanın konumunu hizmet tanımı dosyasında olduğundan ve sertifika parmak izini hizmet yapılandırma dosyasında belirtilen sırada mümkündür. Bir sertifikayı güncelleştirmek için yalnızca yeni bir sertifika karşıya yüklemek ve hizmet yapılandırma dosyası parmak izi değerini değiştirmek gereklidir.
 
@@ -95,5 +95,5 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure portalına hizmet sertifikanızı karşıya](cloud-services-configure-ssl-certificate-portal.md).
 
-Karşıya bir [yönetim API sertifikası](../azure-api-management-certs.md) Klasik Azure portalı için. Azure portalı, kimlik doğrulaması için yönetim sertifikaları kullanmaz.
+Karşıya bir [yönetim API sertifikası](../azure-api-management-certs.md) Azure portalına.
 

@@ -139,7 +139,7 @@ Azure sanal makineler, sanal makine ölçek kümeleri, toplu ve ilgili işlem Hi
 * [Dosya depolama](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Veri ve analiz
-* [Hdınsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) Azure üzerinde Hadoop kümeleri için
+* [Hdınsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) Azure üzerinde Hadoop kümeleri için
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)

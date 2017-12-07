@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Güvenilir hizmetler ile hizmet uzaktan iletişim
 Belirli bir iletişim protokolü veya Webapı, Windows Communication Foundation (WCF) veya diğerleri gibi yığın bağlanmayan Hizmetleri için uzak yordam çağrısı için hızlı ve kolay bir şekilde ayarlamak için uzaktan iletişim mekanizması Reliable Services çerçevesi sağlar Hizmetler.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-Remoting framework istemciye hizmet sırasında oluşturulan özel durumları yayar. Bu nedenle özel durum işleme mantığı kullanarak istemcide `ServiceProxy` doğrudan hizmet oluşturur özel durumlar işleyebilir.
+Remoting framework istemciye hizmeti tarafından oluşturulan özel durumları yayar. Kullanırken, sonuç olarak, `ServiceProxy`, istemci hizmeti tarafından oluşturulan özel durumları işlemekten sorumludur.
 
 ## <a name="service-proxy-lifetime"></a>Hizmet Proxy ömrü
-ServiceProxy oluşturma hafif bir işlem olduğundan, kullanıcıların ihtiyaç duydukları kadar oluşturabilirsiniz. Kullanıcıların ihtiyaç sürece hizmeti proxy'si örneği yeniden kullanılabilir. Uzaktan yordam çağrısı bir özel durum oluşturursa, kullanıcılar aynı proxy örneği yeniden kullanabilirsiniz. Her ServiceProxy kablo üzerinden ileti göndermek için kullanılan bir iletişim istemcisi içerir. Uzak çağrılar istenirken biz dahili iletişimi istemci geçerli olup olmadığını denetleyin. Bu sonuca bağlı olarak, iletişim istemci gerektiğinde yeniden oluşturuyoruz. Bu nedenle bir özel durum oluşursa, kullanıcılar serviceproxy yeniden oluşturmanız gerekmez ancak bunu şeffaf bir şekilde yapılır.
+ServiceProxy oluşturma hafif bir işlem olduğundan, kullanıcıların ihtiyaç duydukları kadar oluşturabilirsiniz. Kullanıcıların ihtiyaç sürece hizmeti proxy'si örneği yeniden kullanılabilir. Uzaktan yordam çağrısı bir özel durum oluşturursa, kullanıcılar aynı proxy örneği yeniden kullanabilirsiniz. Her ServiceProxy kablo üzerinden ileti göndermek için kullanılan bir iletişim istemcisi içerir. Uzak çağrılar istenirken biz dahili iletişimi istemci geçerli olup olmadığını denetleyin. Bu sonuca bağlı olarak, iletişim istemci gerektiğinde yeniden oluşturuyoruz. Bir özel durum oluşursa, bu nedenle kullanıcıları yeniden oluşturmanız gerekmez `ServiceProxy` , bunu saydam yapıldığından.
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory yaşam süresi
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) farklı remoting arabirimleri için proxy örnekleri oluşturan bir üreteci değil. API kullanırsanız `ServiceProxy.Create` proxy oluşturmak için daha sonra framework ServiceProxy tek oluşturur.
@@ -91,12 +91,13 @@ Fabrika oluşturma pahalı bir işlemdir. ServiceProxyFactory iletişimi istemci
 Mümkün olduğunca uzun bir süredir ServiceProxyFactory önbelleğe en iyi uygulamadır.
 
 ## <a name="remoting-exception-handling"></a>Remoting özel durum işleme
-Hizmeti API'si tarafından oluşturulan tüm uzak özel durum, istemciye AggregateException gönderilir. RemoteExceptions olmalıdır DataContract seri hale getirilebilir aksi [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) proxy API, seri hale getirme hatası ile oluşturulur.
+Hizmeti API'si tarafından oluşturulan tüm uzak özel durumları AggregateException istemcisine geri gönderilir. RemoteExceptions DataContract Serileştirilebilir olmalıdır; değilse, API proxy oluşturur [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) ile seri hale getirme hatası.
 
-ServiceProxy için oluşturulan hizmet bölümü için tüm yük devretme özel durumu işler. Yük devretme Exceptions(Non-Transient Exceptions) ise uç noktaları yeniden çözümlediği ve doğru uç nokta çağrısıyla yeniden dener. Yük devretme özel durumu için yeniden deneme sayısı belirsiz.
-Geçici özel durumlar oluşursa, proxy çağrısı yeniden dener.
+ServiceProxy için oluşturulan hizmet bölümü için tüm yük devretme özel durumları işler. Yük devretme özel durumları (geçici olmayan özel durumları) varsa uç noktaları yeniden çözümler ve doğru uç nokta çağrısıyla yeniden dener. Yük devretme özel durumlar için yeniden deneme sayısı belirsiz.
+Geçici özel durumlar meydana gelirse, proxy'ye çağrı yeniden dener.
 
-[OperationRetrySettings] tarafından sağlanan varsayılan yeniden deneme parametreleridir. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) Kullanıcı OperationRetrySettings ServiceProxyFactory oluşturucusuna geçirerek bu değerleri yapılandırabilirsiniz.
+Varsayılan yeniden deneme parametreleridir tarafından sağlanan [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+Kullanıcı OperationRetrySettings ServiceProxyFactory oluşturucusuna geçirerek bu değerleri yapılandırabilirsiniz.
 ## <a name="how-to-use-remoting-v2-stack"></a>Remoting V2 yığını kullanma
 2.8 NuGet Remoting paketiyle Remoting V2 yığını kullanma seçeneğiniz vardır. Remoting V2 yığını daha fazla kullanıcı ve özel seri hale getirilebilir gibi özellikleri ve daha eklenebilir API'nin sağlar.
 Aşağıdaki değişiklikleri, yapmazsanız varsayılan olarak, bu Remoting V1 yığını kullanmaya devam eder.

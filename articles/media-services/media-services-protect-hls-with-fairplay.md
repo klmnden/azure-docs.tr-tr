@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Apple FairPlay veya Microsoft PlayReady ile içerik, HLS koruma
 Azure Media Services, dinamik olarak HTTP canlı akışı (HLS) içeriğinizi aşağıdaki biçimlerini kullanarak şifrelemenizi sağlar:  
@@ -33,12 +33,12 @@ Azure Media Services, dinamik olarak HTTP canlı akışı (HLS) içeriğinizi a�
 
 Aşağıdaki resimde gösterildiği **HLS + FairPlay veya PlayReady dinamik şifreleme** iş akışı.
 
-![Dinamik şifreleme iş akışı diyagramı](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Dinamik şifreleme iş akışı diyagramı](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Bu konuda, Media Services dinamik olarak HLS içeriğinizi Apple FairPlay ile şifrelemek için nasıl kullanılacağı gösterilir. Ayrıca, Media Services lisans teslimat hizmetinin istemcilere FairPlay lisansları teslim etmek için nasıl kullanılacağını gösterir.
+Bu makalede, Media Services dinamik olarak HLS içeriğinizi Apple FairPlay ile şifrelemek için nasıl kullanılacağı gösterilmektedir. Ayrıca, Media Services lisans teslimat hizmetinin istemcilere FairPlay lisansları teslim etmek için nasıl kullanılacağını gösterir.
 
 > [!NOTE]
-> Ayrıca, PlayReady HLS içeriğinizle şifrelemek isterseniz, ortak bir içerik anahtarı oluşturup, varlıkla ilişkilendirme gerekir. İçerik anahtarının yetkilendirme ilkesini yapılandırma bölümünde açıklandığı gibi etmeniz [dinamik ortak şifreleme kullanarak PlayReady](media-services-protect-with-drm.md).
+> Ayrıca, PlayReady HLS içeriğinizle şifrelemek isterseniz, ortak bir içerik anahtarı oluşturup, varlıkla ilişkilendirme gerekir. İçerik anahtarının yetkilendirme ilkesini yapılandırma bölümünde açıklandığı gibi etmeniz [dinamik ortak şifreleme kullanarak PlayReady](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -65,10 +65,10 @@ Media Services anahtar teslim tarafında aşağıdakiler ayarlanmalıdır:
         FairPlay sertifika ve Apple tarafından sunulan diğer dosyaların nerede klasörüne gidin.
     2. Komut satırından aşağıdaki komutu çalıştırın. Bu .cer dosyasını bir .pem dosyasına dönüştürür.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-der bildirmek-fairplay.cer içinde-fairplay out.pem çıkışı
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509-der bildirmek-FairPlay.cer içinde-FairPlay out.pem çıkışı
     3. Komut satırından aşağıdaki komutu çalıştırın. Bu .pem dosyasını özel anahtarla bir .pfx dosyasına dönüştürür. .Pfx dosyası için parolayı sonra OpenSSL tarafından istendi.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-- out fairplay out.pfx export-inkey privatekey.pem-fairplay out.pem - passin file:privatekey-pem-pass.txt içinde
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-- out FairPlay out.pfx export-inkey privatekey.pem-FairPlay out.pem - passin file:privatekey-pem-pass.txt içinde
   * **Uygulama sertifika parola**: .pfx dosyasını oluşturmak için parola.
   * **Uygulama sertifika parolası kimliği**: parola, bunlar diğer Media Services anahtarları nasıl yüklemek için benzer yüklemeniz gerekir. Kullanım **ContentKeyType.FairPlayPfxPassword** enum değeri Media Services Kimliği almak için Anahtar teslim İlkesi seçeneği kullanmak istedikleri budur.
   * **IV**: 16 bayt rastgele bir değeri budur. Varlık teslim İlkesi'nde IV eşleşmelidir. IV oluşturmak ve her iki yerde de yerleştirin: Varlık teslim ilkesini ve anahtar teslim İlkesi seçeneği.
@@ -125,7 +125,7 @@ FairPlay ile varlıklarınızı kullanarak Media Services lisans teslimat hizmet
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player, kutunun dışında FairPlay oynatmayı desteklemiyor. MAC OS X üzerinde FairPlay kayıttan yürütme almak için Apple Geliştirici hesabından örnek oynatıcı edinin.
+> Azure Media Player FairPlay kayıttan yürütme destekler. Bkz: [Azure Media Player belgelerine](https://amp.azure.net/libs/amp/latest/docs/index.html) daha fazla bilgi için.
 >
 >
 
@@ -157,7 +157,7 @@ Aşağıdaki örnek Media Services ile FairPlay şifrelenmiş içeriğinizi tesl
 Bu bölümde gösterilen kodu Program.cs dosyanızdaki kodun üzerine yazın.
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için bkz: [bu](media-services-dotnet-manage-entities.md#limit-access-policies) makalesi.
 
 Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek şekilde güncelleştirdiğinizden emin olun.
 

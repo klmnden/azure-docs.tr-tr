@@ -7,19 +7,18 @@ documentationcenter:
 author: eamonoreilly
 manager: 
 editor: 
-ms.assetid: 0dd95270-761f-448e-af48-c8b1e82cd821
 ms.service: automation
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 8b698659ed91782b80dbefbfea02aa036c09210d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Otomasyonu olay kılavuz ve Microsoft ekipleri ile tümleştirme
 
@@ -32,24 +31,26 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Bir olay kılavuz abonelik oluşturun.
 > * Runbook'u tetikleyen bir VM oluşturun.
 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için bir [Azure Automation hesabını](../automation/automation-offering-get-started.md) Azure olay kılavuz abonelikten tetiklenen runbook'u tutacak için gereklidir.
 
 ## <a name="import-an-event-grid-sample-runbook"></a>Bir olay kılavuz örnek runbook'u İçeri Aktar
-1. Seçin **Automation hesapları**seçip **Runbook'lar** sayfası.
+1. Otomasyon hesabınızı seçin ve Seç **Runbook'lar** sayfası.
+
+   ![Runbook'ları seçin](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
 2. Seçin **Gözat galeri** düğmesi.
 
-    ![Runbook listeden kullanıcı Arabirimi](media/ensure-tags-exists-on-new-virtual-machines/event-grid-runbook-list.png)
-
-3. Arama **olay kılavuz**ve runbook Otomasyon dikkate alın.
+3. Arama **olay kılavuz**seçip **olay kılavuz Azure Automation'da tümleştirme**. 
 
     ![Galeri runbook'u İçeri Aktar](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
-4. Seçin **Düzenle** runbook kaynağı görüntülemek ve seçmek için **Yayımla** düğmesi.
+4. Seçin **alma** ve adlandırın **izleme VMWrite**.
 
-    ![UI runbook'tan yayımlama](media/ensure-tags-exists-on-new-virtual-machines/publish-runbook.png)
+5. İçe sonra seçin **Düzenle** runbook kaynağı görüntülemek için. **Yayımla** düğmesini seçin.
 
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>İsteğe bağlı bir Microsoft Teams Web kancası oluşturma
 1. Microsoft Teams seçin **diğer seçenekler** sonraki kanal adı ve ardından **Bağlayıcılar**.
@@ -58,11 +59,7 @@ Bu öğreticiyi tamamlamak için bir [Azure Automation hesabını](../automation
 
 2. Bağlayıcılar listesini kaydırın **gelen Web kancası**seçip **Ekle**.
 
-    ![Microsoft Teams Web kancası bağlantı](media/ensure-tags-exists-on-new-virtual-machines/select-teams-webhook.png)
-
 3. Girin **AzureAutomationIntegration** adı ve select **oluşturma**.
-
-    ![Microsoft Teams Web kancası](media/ensure-tags-exists-on-new-virtual-machines/configure-teams-webhook.png)
 
 4. Web kancası panoya kopyalayın ve kaydedin. Web kancası URL'si, Microsoft Teams bilgileri göndermek için kullanılır.
 
@@ -73,13 +70,11 @@ Bu öğreticiyi tamamlamak için bir [Azure Automation hesabını](../automation
 
 2. Seçin **Kancalarını**seçip **ekleme Web kancası** düğmesi.
 
-    ![Web kancası oluştur](media/ensure-tags-exists-on-new-virtual-machines/add-webhook.png)
-
 3. Girin **WatchVMEventGrid** adı. URL'yi panoya kopyalayın ve dosyayı kaydedin.
 
-    ![Web kancası adı yapılandırma](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-name.png)
+    ![Web kancası adı yapılandırma](media/ensure-tags-exists-on-new-virtual-machines/copy-url.png)
 
-4. Seçin **parametreler ve çalıştırma ayarları**ve Microsoft Teams Web kancası URL'si girin. Bırakın **WEBHOOKDATA** boş.
+4. Seçin **parametreleri yapılandırmak ve çalıştırma ayarlarını**ve Microsoft Teams Web kancası URL'si girin **CHANNELURL**. Bırakın **WEBHOOKDATA** boş.
 
     ![Web kancası parametreleri yapılandırın](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
@@ -89,20 +84,18 @@ Bu öğreticiyi tamamlamak için bir [Azure Automation hesabını](../automation
 ## <a name="create-an-event-grid-subscription"></a>Bir olay kılavuz Abonelik Oluştur
 1. Üzerinde **Otomasyon hesabı** genel bakış sayfasında, **olay kılavuz**.
 
-    ![Olay kılavuz listesi](media/ensure-tags-exists-on-new-virtual-machines/event-grid-list.png)
+    ![Olay kılavuz seçin](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Seçin **olay aboneliği** düğmesi.
+2. Seçin **+ olay aboneliği** düğmesi.
 
 3. Abonelik aşağıdaki bilgilerle yapılandırın:
 
-    *   Girin **AzureAutomation** adı. 
+    *   Girin **AzureAutomation** adı.
     *   İçinde **konu türü**seçin **Azure abonelikleri**.
     *   Clear **abone olmak için tüm olay türleri** onay kutusu.
     *   İçinde **olay türleri**seçin **kaynak yazma başarı**.
-    *   İçinde **tam uç nokta URL'si**, izleme VMWrite runbook için Web kancası URL'si girin.
-    *   İçinde **önek filtre**, abonelik girin ve yeni VM'ler için aramak istediğiniz kaynak grubu oluşturduk. /Subscriptions/124aa551-849d-46e4-a6dc-0bc4895422aB/resourcegroups/ContosoResourceGroup/providers/Microsoft.Compute/virtualMachines gibi görünmelidir
-
-    ![Olay kılavuz listesi](media/ensure-tags-exists-on-new-virtual-machines/configure-event-grid-subscription.png)
+    *   İçinde **abone Endpoint**, izleme VMWrite runbook için Web kancası URL'si girin.
+    *   İçinde **önek filtre**, abonelik girin ve yeni VM'ler için aramak istediğiniz kaynak grubu oluşturduk. Gibi görünmelidir:`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Seçin **oluşturma** olay kılavuz abonelik kaydetmek için.
 

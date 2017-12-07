@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9026090addde35dc702a80f302abd7e3eb9c690
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Azure Machine Learning kullanarak müşteri karmaşası tahmin
 
@@ -90,14 +90,14 @@ __belgeleri__: tüm uygulamalı labs içerir
 Çözüm taşımak için uygulamalı Labs sırasını aşağıdaki gibidir:
 1. Veri hazırlama:, veri hazırlığı veri klasöründe ilgili ana dosyasıdır`CATelcoCustomerChurnTrainingSample.csv`
 2. Model oluşturma ve değerlendirme: Model oluşturma ve değerlendirme kök klasöründe ilgili ana dosyasıdır`CATelcoCustomerChurnModeling.py`
-3. Modelleme ve Docker hesaplanmasında: kök klasöründe bu görev için ana dosyasıdır`CATelcoCustomerChurnModelingDocker.py`
+3. Model oluşturma ve değerlendirme .dprep olmadan: kök klasöründe bu görev için ana dosyasıdır`CATelcoCustomerChurnModelingWithoutDprep.py`
 4. Operationalization: Ana deloyment için model dosyalardır (`model.pkl`) ve`churn_schema_gen.py`
 
-| Sırası| Dosya adı | Realted dosyaları |
+| Sıra| Dosya Adı | Realted dosyaları |
 |--|-----------|------|
 | 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
 | 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | 'CATelcoCustomerChurnModelingDocker.py' |
+| 3 | [`CATelcoCustomerChurnModelingWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/CATelcoCustomerChurnModelingWithoutDprep.md) | 'CATelcoCustomerChurnModelingWithoutDprep.py' |
 | 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 Yukarıda açıklanan sıralı şekilde Labs izleyin.

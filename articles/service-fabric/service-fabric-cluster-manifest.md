@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Tek başına Windows kümesi için yapılandırma ayarları
-Bu makalede, bir tek başına Azure Service Fabric kümesi ClusterConfig.JSON dosyasını kullanarak yapılandırmak açıklar. Bu dosya, kümede Service Fabric düğümleri ve IP adreslerini ve düğümlerin farklı türleri gibi bilgileri belirtmek için kullanabilirsiniz. Ayrıca, tek başına kümeniz için ağ topolojisi arıza/yükseltme etki alanları bakımından yanı sıra güvenlik yapılandırmalarını belirtebilirsiniz.
+Bu makalede, bir tek başına Azure Service Fabric kümesi ClusterConfig.json dosyasını kullanarak yapılandırmak açıklar. Küme düğümleri, güvenlik yapılandırmalarını yanı sıra, hata ve yükseltme etki alanları bakımından ağ topolojisi hakkında bilgi belirtmek için bu dosyayı kullanır.
 
-Olduğunda, [tek başına Service Fabric paketini karşıdan](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), ClusterConfig.JSON dosyasının birkaç örnek iş makinenize indirilir. Adlarında DevCluster sahip örnekleri mantıksal düğümleri gibi aynı makine üzerindeki tüm üç düğümü ile küme oluşturma yardımcı olur. Bu düğümler dışında en az bir birincil düğüm olarak işaretlenmesi gerekir. Bu küme, geliştirme veya test ortamı için yararlıdır. Bir üretim kümesi olarak desteklenmiyor. Adlarında MultiMachine sahip örnekleri her bir düğümde ayrı bir makine ile bir üretim kaliteli küme oluşturma yardımcı olur. Bu kümeleri için birincil düğüm sayısını temel alır [güvenilirlik düzeyi](#reliability). Sürüm 5.7 API sürümü 05-2017, güvenilirlik düzeyi özelliği kaldırıldı. Bunun yerine, kodumuza, kümeniz için en iyileştirilmiş güvenilirlik düzeyi hesaplar. Bu özellik, kod 5.7 ve sonraki sürümlerde kullanmayın.
+Olduğunda, [tek başına Service Fabric paketini karşıdan](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), ClusterConfig.json örnekleri dahil de. "DevCluster" adlarında sahip örnekleri mantıksal düğümleri kullanarak aynı makine üzerindeki tüm üç düğümü olan bir küme oluşturun. Bu düğümler dışında en az bir birincil düğüm olarak işaretlenmesi gerekir. Bu tür bir küme, geliştirme veya test ortamları için yararlıdır. Bir üretim kümesi olarak desteklenmiyor. "MultiMachine" adlarında sahip örnekleri üretim düzeyde kümeler, her bir düğümde ayrı bir makine oluşturmak yardımcı olur. Küme üzerinde bu kümeleri için birincil düğüm sayısına dayalı olarak [güvenilirlik düzeyi](#reliability). Sürüm 5.7, API sürümü 05-2017, güvenilirlik düzeyi özelliği kaldırıldı. Bunun yerine, kodumuza, kümeniz için en iyileştirilmiş güvenilirlik düzeyi hesaplar. Sürümlerde 5.7 veya sonraki sürümleri bu özellik için bir değer ayarlamak çalışmayın.
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON ve ClusterConfig.Unsecure.MultiMachine.JSON güvenli test veya üretim kümesi sırasıyla oluşturmayı gösterir.
+* ClusterConfig.Unsecure.DevCluster.json ve ClusterConfig.Unsecure.MultiMachine.json güvenli test veya üretim kümesi sırasıyla oluşturmayı gösterir.
 
-* ClusterConfig.Windows.DevCluster.JSON ve ClusterConfig.Windows.MultiMachine.JSON Göster kullanılarak güvenli hale getirilir test veya üretim kümeleri oluşturmak nasıl [Windows Güvenliği](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json ve ClusterConfig.Windows.MultiMachine.json Göster kullanılarak güvenli hale getirilir test veya üretim kümeleri oluşturmak nasıl [Windows Güvenliği](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.JSON ve ClusterConfig.X509.MultiMachine.JSON Göster kullanılarak güvenli hale getirilir test veya üretim kümeleri oluşturmak nasıl [X509 sertifika tabanlı güvenlik](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json ve ClusterConfig.X509.MultiMachine.json Göster kullanılarak güvenli hale getirilir test veya üretim kümeleri oluşturmak nasıl [X509 sertifika tabanlı güvenlik](service-fabric-windows-cluster-x509-security.md).
 
-Şimdi ClusterConfig.JSON dosya çeşitli bölümlerini inceleyelim.
+Şimdi ClusterConfig.json dosya çeşitli bölümlerini inceleyelim.
 
 ## <a name="general-cluster-configurations"></a>Genel küme yapılandırmaları
 Genel küme yapılandırmaları aşağıdaki JSON parçacığında gösterildiği gibi geniş kümeye özgü yapılandırmaları kapsar:
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 Adı değişkenine atayarak, herhangi bir kolay ad, Service Fabric kümesi verebilirsiniz. ClusterConfigurationVersion kümenizin sürüm numarasıdır. Service Fabric kümesi yükseltme her zaman artırın. ApiVersion kümesi için varsayılan değeri bırakın.
 
+## <a name="nodes-on-the-cluster"></a>Küme düğümlerinde
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>Küme düğümlerinde
 Aşağıdaki kod parçacığında gösterildiği gibi düğümler bölümünü kullanarak, Service Fabric kümesi düğümleri yapılandırabilirsiniz:
 
     "nodes": [{
@@ -79,12 +82,12 @@ Service Fabric kümesi en az üç düğümü içermesi gerekir. Bu bölümde kur
 | upgradeDomain |Yükseltme etki alanlarının yaklaşık aynı zamanda Service Fabric yükseltmelerinin kapatıldığından düğüm kümesi açıklanmaktadır. Fiziksel gereksinimlere göre sınırlı değildir çünkü hangi yükseltme etki alanlarının atamak için hangi düğümlerin seçebilirsiniz. |
 
 ## <a name="cluster-properties"></a>Küme Özellikleri
-ClusterConfig.JSON özellikleri bölümünde gösterildiği gibi küme yapılandırmak için kullanılır:
-
-    <a id="reliability"></a>
+ClusterConfig.json özellikleri bölümünde gösterildiği gibi küme yapılandırmak için kullanılır:
 
 ### <a name="reliability"></a>Güvenilirlik
 Yineleme sayısı veya birincil küme düğümlerinde çalıştırabilirsiniz Service Fabric sistem hizmet örneklerinin reliabilityLevel kavramı tanımlar. Bu hizmetler güvenilirliğini belirler ve bu nedenle küme. Değer, küme oluşturma ve yükseltme aynı anda sistem tarafından hesaplanır.
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>Tanılama
 DiagnosticsStore bölümünde, tanılama ve aşağıdaki kod parçacığında gösterildiği gibi düğümü veya küme hataları giderme parametrelerini yapılandırabilirsiniz: 
@@ -119,9 +122,10 @@ Güvenli tek başına Service Fabric kümesi için gerekli güvenlik bölümüd�
 
 Meta verileri güvenli kümenizi açıklamasını ve kurulumunuzu göre ayarlanabilir. ClusterCredentialType ve ServerCredentialType küme ve düğümler uygulayan güvenlik türünü belirler. Bunlar için her iki ayarlanabilir *X509* sertifika tabanlı bir güvenlik veya *Windows* Azure Active Directory tabanlı güvenlik için. Güvenlik bölümüne geri kalanı güvenlik türüne bağlıdır. Kalan güvenlik bölümüne doldurun hakkında daha fazla bilgi için bkz: [tek başına kümede güvenlik tabanlı sertifikalar](service-fabric-windows-cluster-x509-security.md) veya [tek başına kümede Windows Güvenlik](service-fabric-windows-cluster-windows-security.md).
 
+### <a name="node-types"></a>Düğüm türleri
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>Düğüm türleri
 NodeTypes bölüm kümenizi sahip düğümleri türünü açıklar. En az bir düğüm türü bir küme için aşağıdaki kod parçacığında gösterildiği gibi belirtilmesi gerekir: 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ Windows Server kapsayıcıları ve tek başına kümeleri için Hyper-V kapsayı
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tek başına küme kurulumunuzu göre yapılandırılmış bir tam ClusterConfig.JSON dosyanız olduktan sonra kümenizi dağıtabilirsiniz. Adımları [bir tek başına Service Fabric kümesi oluştur](service-fabric-cluster-creation-for-windows-server.md). İle devam [Service Fabric Explorer ile kümenizi görselleştirme](service-fabric-visualizing-your-cluster.md) adımları izleyin.
+Tek başına küme kurulumunuzu göre yapılandırılmış bir tam ClusterConfig.json dosyanız olduktan sonra kümenizi dağıtabilirsiniz. Adımları [bir tek başına Service Fabric kümesi oluştur](service-fabric-cluster-creation-for-windows-server.md). İle devam [Service Fabric Explorer ile kümenizi görselleştirme](service-fabric-visualizing-your-cluster.md) adımları izleyin.
 

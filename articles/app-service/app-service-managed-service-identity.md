@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği (genel Önizleme) uygulama hizmeti ve Azure işlevleri kullanma
 
@@ -45,6 +45,35 @@ Bir yönetilen hizmet kimliği portalında ayarlamak için önce bir uygulamayı
 4. Anahtar **kaydetmek Azure Active Directory ile** için **üzerinde**. **Kaydet** düğmesine tıklayın.
 
 ![Yönetilen uygulama Hizmeti'nde hizmet kimliği](media/app-service-managed-service-identity/msi-blade.png)
+
+### <a name="using-the-azure-cli"></a>Azure CLI kullanma
+
+Azure CLI kullanarak bir yönetilen hizmet kimliği ayarlamak için kullanmanız gerekecektir `az webapp assign-identity` varolan bir uygulamaya göre komutu. Bu bölümde örnekleri çalıştırmak için üç seçeneğiniz vardır:
+
+- Kullanım [Azure bulut Kabuk](../cloud-shell/overview.md) Azure portalından.
+- Her kod bloğunun sağ üst köşesinde yer alan "deneyin" düğmesini, aracılığıyla katıştırılmış Azure bulut kabuğunu kullanın.
+- [CLI 2.0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 veya sonrası) yerel CLI konsol kullanmayı tercih ederseniz. 
+
+Aşağıdaki adımlar bir web uygulaması oluşturma ve CLI kullanarak bir kimlik atama size yol gösterir:
+
+1. Yerel bir konsolda Azure CLI kullanıyorsanız, ilk kez Azure kullanarak oturum [az oturum açma](/cli/azure/#login). Altında uygulamayı dağıtmak istediğiniz Azure aboneliğiyle ilişkili olan bir hesabı kullanın:
+
+    ```azurecli-interactive
+    az login
+    ```
+2. CLI kullanarak bir web uygulaması oluşturun. CLI App Service ile kullanmak nasıl daha fazla örnekleri için bkz: [App Service CLI örnekleri](../app-service/app-service-cli-samples.md):
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Çalıştırma `assign-identity` komutu bu uygulama için kimlik oluşturmak için:
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak
 
@@ -134,7 +163,7 @@ Yönetilen hizmet kimliği ile bir uygulama tanımlı iki ortam değişkeni vard
 > |-----|-----|-----|
 > |kaynak|Sorgu|AAD kaynak kaynak URI'si için bir belirteç elde.|
 > |API sürümü|Sorgu|Kullanılacak belirteci API sürümü. "2017-09-01" şu anda desteklenen tek sürümdür.|
-> |Gizli|Üstbilgi|MSI_SECRET ortam değişkeni değeri.|
+> |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeni değeri.|
 
 
 Başarılı bir 200 Tamam yanıt JSON gövdesi aşağıdaki özellikleri içerir:

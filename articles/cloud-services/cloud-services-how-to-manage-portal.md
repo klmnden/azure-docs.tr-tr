@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Bulut Hizmetleri yönetme
-İçinde **bulut Hizmetleri (Klasik)** alanı Azure portal, hizmet rolü veya bir dağıtım güncelleştirmek, aşamalı bir dağıtım üretime yükseltmek, yapabilirsiniz; böylece kaynak bağımlılıkları bakın ve kaynakları birlikte ölçeği ve bir bulut hizmeti ya da dağıtım silmek bulut hizmetinize bağlamak kaynakları.
+İçinde **bulut Hizmetleri** alanı Azure portal, hizmet rolü veya bir dağıtım güncelleştirmek, aşamalı bir dağıtım üretime yükseltmek, ölçek ve kaynak bağımlılıklarını görmenize olanak tanıyan bulut hizmetinize bağlamak kaynakları kaynakları birlikte ve delete bir bulut hizmeti veya dağıtım.
 
 Bulut hizmetinizi ölçeklendirme hakkında daha fazla bilgi kullanılabilir [burada](cloud-services-how-to-scale-portal.md).
 
@@ -80,9 +80,6 @@ Not Konuk işletim sistemi güncelleştirmeleri ve hizmet işlemleri düzeltme d
 **Bir takas Uygulamam için kapalı kalma süresi maliyetine neden olabilir mi? Bunu nasıl işlemesi gerekir?**
 
 Yalnızca Azure yük dengeleyici yapılandırması değişikliği olduğundan son bölümde açıklandığı gibi bir dağıtımı takas genellikle hızlıdır. Bazı durumlarda, Bununla birlikte, en az on dakika sürer ve geçici bağlantı hatalarına neden. Müşterilerinize etkilerini sınırlamaktır uygulayın [istemci yeniden deneme mantığı](../best-practices-retry-general.md).
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Nasıl yapılır: bir bulut hizmeti için bir kaynak Bağla
-Geçerli Azure Klasik portalı yaptığı gibi Azure portalındaki kaynakları birlikte bağlantı vermiyor. Bunun yerine, bulut hizmeti tarafından kullanılan aynı kaynak grubuna ek kaynaklar dağıtın.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Nasıl yapılır: dağıtımları ve bulut hizmeti Sil
 Bir bulut hizmeti silebilmek için önce varolan her dağıtım silmeniz gerekir.

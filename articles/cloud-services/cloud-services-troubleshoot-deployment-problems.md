@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Bulut hizmeti dağıtım sorunlarını giderme
 Azure için bir bulut hizmeti uygulama paketini dağıtırken dağıtımından hakkında bilgi edinebilirsiniz **özellikleri** Azure portalında bölmesi. Bu bilgiler Azure desteklemek için yeni bir destek isteği açarken sağlayabilir ve bulut hizmetinin ilgili sorunları gidermenize yardımcı olması için bu bölmede ayrıntıları kullanabilirsiniz.
@@ -27,7 +27,6 @@ Azure için bir bulut hizmeti uygulama paketini dağıtırken dağıtımından h
 Bulabileceğiniz **özellikleri** şekilde bölmesi:
 
 * Azure portalında, bulut hizmeti dağıtımının tıklatın, **tüm ayarları**ve ardından **özellikleri**.
-* Klasik Azure portalında, bulut hizmeti dağıtımının tıklatın, **PANO**, sayfanın sağ alt köşesinde bulunan (altında **Hızlı Bakış**). Bu bölmede yok "Özellikler" etiketli olduğunu unutmayın.
 
 > [!NOTE]
 > İçeriğini kopyaladığınız **özellikleri** bölmesi sağ üst köşesindeki simgesini tıklatarak panoya bölmesi.

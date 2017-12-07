@@ -3,8 +3,8 @@ title: "SQL veri ambarı tablolarda dizin oluşturma | Microsoft Azure"
 description: "Azure SQL Data Warehouse'da dizin tablo ile çalışmaya başlama."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 672270536a7405e617edbcf5ec0e6eff68be7fde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda dizin oluşturma
 > [!div class="op_single_selector"]
@@ -174,14 +174,14 @@ Veri arama ve sonuçlarınızı çözümlemek için başlayabilirsiniz sorgu ça
 | [OPEN_rowgroup_rows_MAX] |Yukarıdaki gibi |
 | [OPEN_rowgroup_rows_AVG] |Yukarıdaki gibi |
 | [CLOSED_rowgroup_rows] |Kapalı satır grubu satırları sağlamlık denetimi olarak arayın. |
-| [CLOSED_rowgroup_count] |Kapalı satır grupları sayısı herhangi hiç görülüyorsa düşük olmalıdır. Kapalı satır grupları ALTER INDEX kullanarak sıkıştırılmış rowg roups dönüştürülebilir... Komut yeniden düzenleme. Ancak, bu normalde gerekli değildir. Kapalı grupları, otomatik olarak arka plan "tanımlama grubu taşıyıcısı" işlem tarafından columnstore satır gruplarına dönüştürülür. |
+| [CLOSED_rowgroup_count] |Kapalı satır grupları sayısı herhangi hiç görülüyorsa düşük olmalıdır. Kapalı satır grupları ALTER INDEX kullanarak sıkıştırılmış satır gruplarına dönüştürülebilir... Komut yeniden düzenleme. Ancak, bu normalde gerekli değildir. Kapalı grupları, otomatik olarak arka plan "tanımlama grubu taşıyıcısı" işlem tarafından columnstore satır gruplarına dönüştürülür. |
 | [CLOSED_rowgroup_rows_MIN] |Kapalı satır grupları çok yüksek dolgu oranı olması gerekir. Kapalı satır grubu dolgu oranı düşükse çözümlemeler columnstore gereklidir. |
 | [CLOSED_rowgroup_rows_MAX] |Yukarıdaki gibi |
 | [CLOSED_rowgroup_rows_AVG] |Yukarıdaki gibi |
 | [Rebuild_Index_SQL] |Bir tabloda columnstore dizini yeniden oluşturmak için SQL |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Zayıf columnstore dizini kalite nedenleri
-Zayıf segment kalitesiyle tabloları belirlediyseniz, kök nedenini belirlemek isteyeceksiniz.  Bazı diğer yaygın nedenlerini zayıf segment quaility aşağıda verilmiştir:
+Zayıf segment kalitesiyle tabloları belirlediyseniz, kök nedenini belirlemek isteyeceksiniz.  Aşağıda zayıf segment kalitesi bazı diğer yaygın nedenler şunlardır:
 
 1. Dizin yapılandırıldığında bellek baskısı
 2. Yüksek hacimli DML işlemleri
@@ -191,7 +191,7 @@ Zayıf segment kalitesiyle tabloları belirlediyseniz, kök nedenini belirlemek 
 Bu etkenler satır grubu başına en iyi 1 milyon satır'den küçük bir columnstore dizini önemli ölçüde olması neden olabilir.  Ayrıca bir sıkıştırılmış satır grubu yerine delta satır grubu gitmek satır neden olabilir. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Dizin yapılandırıldığında bellek baskısı
-Sıkıştırılmış satır grubu başına satır sayısı, satır grubu işlemek kullanılabilir bellek miktarına ve satır genişliğini doğrudan ilişkilidir.  Satırlar columnstore tablolarına bellek baskısı altında yazıldığında, segment kalitesi düşebilir.  Bu nedenle, en iyi uygulama olarak, mümkün olduğunca kadar bellek columnstore dizini tabloları erişiminizi yazma oturum vermektir.  Bellek ve eşzamanlılık, doğru bellek ayırma hakkında yönergeler arasında bir denge olduğundan her satır, tablo, sisteminize ayırdığınızdan DWU miktarını ve veri tablonuza yazma oturumu verebilirsiniz eşzamanlılık yuvaları miktarını verilerde bağlıdır.  En iyi uygulama, DW600 ve mediumrc DW400 DW1000 kullanıyorsanız ve yukarıdaki kullanıyorsanız DW300 kullanıyorsanız xlargerc veya daha az, largerc başlangıç öneririz.
+Sıkıştırılmış satır grubu başına satır sayısı, satır grubu işlemek kullanılabilir bellek miktarına ve satır genişliğini doğrudan ilişkilidir.  Satırlar columnstore tablolarına bellek baskısı altında yazıldığında, segment kalitesi düşebilir.  Bu nedenle, en iyi uygulama olarak, mümkün olduğunca kadar bellek columnstore dizini tabloları erişiminizi yazma oturum vermektir.  Bellek ve eşzamanlılık arasında bir denge olduğundan, tablodaki her satır verileri doğru bellek ayırma hakkında yönergeler bağlıdır, sisteminiz ve eşzamanlılık yuva sayısı için ayrılmış data warehouse birimleri oturuma verebilirsiniz; Veri tablonuza yazma.  En iyi uygulama, DW600 ve mediumrc DW400 DW1000 kullanıyorsanız ve yukarıdaki kullanıyorsanız DW300 kullanıyorsanız xlargerc veya daha az, largerc başlangıç öneririz.
 
 ### <a name="high-volume-of-dml-operations"></a>Yüksek hacimli DML işlemleri
 Güncelleştirme ve satırları silme DML işlemleri yüksek hacimli Etkisizliği columnstore ortaya çıkarabilir. Bir satır grubu satırları çoğunluğu değiştirildiğinde durumlarda özellikle geçerlidir.
@@ -247,7 +247,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-SQL Data warehouse'da bir dizini yeniden oluşturma çevrimdışı bir işlemdir.  ALTER INDEX REBUILD bölümünde dizinleri yeniden oluşturma hakkında daha fazla bilgi için bkz: [Columnstore dizinleri birleştirme] [ Columnstore Indexes Defragmentation] ve söz dizimi konusuna [ALTER INDEX][ALTER INDEX].
+SQL Data warehouse'da bir dizini yeniden oluşturma çevrimdışı bir işlemdir.  ALTER INDEX REBUILD bölümünde dizinleri yeniden oluşturma hakkında daha fazla bilgi için bkz: [Columnstore dizinleri birleştirme][Columnstore Indexes Defragmentation], ve [ALTER INDEX] [ ALTER INDEX].
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>3. adım: Kümelenmiş columnstore segment kalite geliştirilmiştir doğrulayın
 Yeniden çalıştırılan sorgunun düşük tanımlanan hangi tabloyla kalite segment ve segment kalite doğrulayın geliştirilmiştir.  Segment kalitesini artırmak değil ise, tablosundaki satırları çok geniş olabilir.  Dizinleri yeniden oluştururken daha yüksek kaynak sınıfı veya DWU kullanmayı düşünün.

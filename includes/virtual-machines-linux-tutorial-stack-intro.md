@@ -1,6 +1,6 @@
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
 Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -10,7 +10,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
 
-[az vm create](/cli/azure/vm#create) komutuyla bir sanal makine oluşturun. 
+[az vm create](/cli/azure/vm#az_vm_create) komutuyla bir sanal makine oluşturun. 
 
 Aşağıdaki örnekte *myVM* adlı bir VM oluşturulur ve varsayılan anahtar konumunda henüz yoksa SSH anahtarları oluşturulur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın. Komut ayrıca ayarlar *azureuser* bir yönetici kullanıcı adı olarak. Bu adı daha sonra VM'e bağlanmak için kullandığınız. 
 
@@ -42,7 +42,7 @@ VM oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir
 
 ## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın 
 
-Varsayılan olarak, Linux Azure üzerinde dağıtılan VM'ler içine yalnızca SSH bağlantılara izin verilir. Bir web sunucusu olacak şekilde bu VM olacağından, internet'ten 80 numaralı bağlantı noktasını açmanız gerekir. İstediğiniz bağlantı noktasını açmak için [az vm open-port](/cli/azure/vm#open-port) komutunu kullanın.  
+Varsayılan olarak, Linux Azure üzerinde dağıtılan VM'ler içine yalnızca SSH bağlantılara izin verilir. Bir web sunucusu olacak şekilde bu VM olacağından, internet'ten 80 numaralı bağlantı noktasını açmanız gerekir. İstediğiniz bağlantı noktasını açmak için [az vm open-port](/cli/azure/vm#az_vm_open_port) komutunu kullanın.  
  
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

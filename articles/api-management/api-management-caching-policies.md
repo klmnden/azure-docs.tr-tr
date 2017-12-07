@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 8f8405528310813e305196d06b1b376410022193
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>API Management önbelleğe alma ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -51,7 +51,7 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -116,8 +116,8 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 |izin ver-özel-yanıt-önbelleğe alma|Ayarlandığında `true`, bir Authorization üstbilgisi içeren istekleri önbelleğe alma sağlar.|Hayır|yanlış|  
 |önbelleğe alma aşağı akış türü|Bu öznitelik aşağıdaki değerlerden birine ayarlanmalıdır.<br /><br /> -none - aşağı akış önbelleğe alma izin verilmez.<br />-Özel - aşağı akış özel önbelleğe alma izin verilir.<br />-Genel - özel ve paylaşılan aşağı akış önbelleğe alma izin verilir.|Hayır|yok|  
 |gereken revalidate|Aşağı Akış önbelleği etkin olduğunda, bu öznitelik açar veya kapatır `must-revalidate` ağ geçidi yanıtlarındaki önbellek denetimi yönergesi.|Hayır|true|  
-|farklılık-tarafından-Geliştirici|Kümesine `true` Geliştirici anahtar başına önbellek yanıtları.|Hayır|yanlış|  
-|farklılık tarafından-Geliştirici-grupları|Kümesine `true` kullanıcı rol başına önbellek yanıtları.|Hayır|yanlış|  
+|farklılık-tarafından-Geliştirici|Kümesine `true` Geliştirici anahtar başına önbellek yanıtları.|Evet||  
+|farklılık tarafından-Geliştirici-grupları|Kümesine `true` kullanıcı rol başına önbellek yanıtları.|Evet||  
   
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

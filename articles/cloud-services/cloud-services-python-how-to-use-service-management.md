@@ -14,17 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Hizmet Yönetimi python'dan kullanma
-Bu kılavuz program aracılığıyla Python ortak hizmet yönetim görevlerini gerçekleştirmek nasıl gösterir. **ServiceManagementService** sınıfını [Python için Azure SDK](https://github.com/Azure/azure-sdk-for-python) programlı erişim kullanılabilir servis yönetimiyle ilgili işlevlerinin çoğunu destekler [Azure Klasik portal] [ management-portal] (gibi **oluşturma, güncelleştirme ve bulut Hizmetleri, dağıtımları, Veri Yönetimi Hizmetleri ve sanal makineleri silme**). Bu işlev hizmet yönetimi için programlı erişim ihtiyaç duyan uygulamalar oluşturmada faydalı olabilir.
+Bu kılavuz program aracılığıyla Python ortak hizmet yönetim görevlerini gerçekleştirmek nasıl gösterir. **ServiceManagementService** sınıfını [Python için Azure SDK](https://github.com/Azure/azure-sdk-for-python) programlı erişim kullanılabilir servis yönetimiyle ilgili işlevlerinin çoğunu destekler [Azure Portal] [ management-portal] (gibi **oluşturma, güncelleştirme ve bulut Hizmetleri, dağıtımları, Veri Yönetimi Hizmetleri ve sanal makineleri silme**). Bu işlev hizmet yönetimi için programlı erişim ihtiyaç duyan uygulamalar oluşturmada faydalı olabilir.
 
 ## <a name="WhatIs"></a>Hizmet yönetimi nedir
-Hizmet Yönetimi API aracılığıyla kullanılabilir hizmet yönetim işlevlerinin çoğunu için programlı erişim sağlayan [Klasik Azure portalı][management-portal]. Python için Azure SDK'sı, bulut Hizmetleri ve depolama hesapları yönetmenize olanak sağlar.
+Hizmet Yönetimi API aracılığıyla kullanılabilir hizmet yönetim işlevlerinin çoğunu için programlı erişim sağlayan [Azure portal][management-portal]. Python için Azure SDK'sı, bulut Hizmetleri ve depolama hesapları yönetmenize olanak sağlar.
 
 Hizmet Yönetimi API'sini kullanmak için yapmanız [bir Azure hesabı oluşturma](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -35,7 +35,7 @@ Python için Azure SDK'sı sarmalar [Azure Hizmet Yönetimi API'si][svc-mgmt-res
 Bu makalede açıklanan tüm özellikler mevcuttur `azure-servicemanagement-legacy` paketi olarak PIP kullanarak yükleyebilirsiniz. Bu makalede (örneğin, Python için yeni olan) yükleme hakkında daha fazla bilgi için bkz: [yükleme Python ve Azure SDK'sı](../python-how-to-install.md)
 
 ## <a name="Connect"></a>Nasıl yapılır: Hizmet Yönetimi için Bağlan
-Hizmet Yönetimi uç noktasına bağlanmak için Azure abonelik Kimliğinizi ve geçerli bir yönetim sertifikası gerekir. Abonelik Kimliğinizi aracılığıyla elde edebilirsiniz [Klasik Azure portalı][management-portal].
+Hizmet Yönetimi uç noktasına bağlanmak için Azure abonelik Kimliğinizi ve geçerli bir yönetim sertifikası gerekir. Abonelik Kimliğinizi aracılığıyla elde edebilirsiniz [Azure portal][management-portal].
 
 > [!NOTE]
 > Artık Windows üzerinde çalışan OpenSSL ile oluşturulan sertifikaları kullanmak mümkündür.  Python 2.7.4 gerektirir veya sonraki bir sürümü. Kullanıcıların sertifikalar büyük ihtimalle gelecekte kaldırılacaktır .pfx desteği itibaren .pfx yerine OpenSSL kullanmasını öneririz.
@@ -53,7 +53,7 @@ Oluşturmak için `.cer` sertifika, yürütün:
 
 Azure sertifikaları hakkında daha fazla bilgi için bkz: [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md). OpenSSL parametreler tam bir açıklaması için belgelerine bakın [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Bu dosyalar oluşturduktan sonra karşıya yüklemek gereken `.cer` "Ayarlar" sekmesinde "Karşıya Yükle" eylemini aracılığıyla Azure dosyasına [Klasik Azure portalı][management-portal], ve nerede Not gerekiyorsa, kaydedilen `.pem` dosya.
+Bu dosyalar oluşturduktan sonra karşıya yüklemek gereken `.cer` "Ayarlar" sekmesinde "Karşıya Yükle" eylemini aracılığıyla Azure dosyasına [Azure portal][management-portal], ve kaydettiğiniz yeri not edin gerekir `.pem` dosya.
 
 Abonelik Kimliğinizi aldıktan sonra bir sertifika oluşturulur ve karşıya `.cer` dosyasını Azure'a, abonelik kimliği ve yolunu geçirerek Azure yönetim uç noktasına bağlanabilir `.pem` dosya  **ServiceManagementService**:
 
@@ -74,7 +74,7 @@ Otomatik imzalı yönetim sertifikası, makine kullanarak oluşturabileceğiniz 
 
 Komut oluşturur `.cer` dosya ve içinde yükler **kişisel** sertifika deposu. Daha fazla bilgi için bkz: [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md).
 
-Sertifika oluşturduktan sonra karşıya yüklemek gereken `.cer` "Ayarlar" sekmesinde "Karşıya Yükle" eylemini aracılığıyla Azure dosyasına [Klasik Azure portalı][management-portal].
+Sertifika oluşturduktan sonra karşıya yüklemek gereken `.cer` "Ayarlar" sekmesinde "Karşıya Yükle" eylemini aracılığıyla Azure dosyasına [Azure portal][management-portal].
 
 Abonelik Kimliğinizi aldıktan sonra bir sertifika oluşturulur ve karşıya `.cer` dosyasını Azure'a, abonelik kimliği ve sertifikada konumunu geçirerek Azure yönetim uç noktasına bağlanabilir, **kişisel**  sertifika deposuna **ServiceManagementService** (yeniden Değiştir *AzureCertificate* sertifikanızın adıyla):
 
@@ -421,7 +421,7 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 [How to: Create a virtual machine]: #CreateVM
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
-[management-portal]: https://manage.windowsazure.com/
+[management-portal]: https://portal.azure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 

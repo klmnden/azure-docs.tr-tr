@@ -2,7 +2,7 @@ Uygulama başına (yani, izleme anahtarı başına) ölçüm ve olay sayısı i�
 
 | **Kaynak** | **Varsayılan sınır** | **Not**
 | --- | --- | --- |
-| Günlük toplam veri | 500 GB | Bir uç ayarlayarak verileri azaltabilirsiniz. Daha fazla gerekirse AIDataCap@microsoft.com adresine posta gönderin.
+| Günlük toplam veri | 100 GB | Bir uç ayarlayarak verileri azaltabilirsiniz. Daha fazla gerekiyorsa, kayıt sayısı sınırını artırabilirsiniz 1000 GB portalından. 1000 GB'den büyük olan kapasiteleri için posta gönderin AIDataCap@microsoft.com.
 | Aylık ücretsiz veri<br/> (Temel fiyat planı) | 1 GB | Ek veriler gigabayt başına ücretlendirilir.
 | Azaltma | 32 bin olay/saniye | Sınır bir dakika içinde ölçülür.
 | Veri saklama | 90 gün | Bu kaynak [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) ve [Ölçüm Gezgini](../articles/application-insights/app-insights-metrics-explorer.md) içindir.

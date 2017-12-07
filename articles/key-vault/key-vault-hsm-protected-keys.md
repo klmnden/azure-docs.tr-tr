@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 12/05/2017
 ms.author: barclayn
-ms.openlocfilehash: 6c49b086fd35a855fa8e32fa576c5b52d16f1d04
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0d34a19658ae67a9c98d6f31aaca35e67add5beb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarları
 ## <a name="introduction"></a>Giriş
@@ -82,10 +82,14 @@ Yükleme yönergeleri için bkz: [Azure PowerShell'i yükleme ve yapılandırma 
 ### <a name="step-12-get-your-azure-subscription-id"></a>1.2. adım: Azure abonelik Kimliğinizi alma
 Bir Azure PowerShell oturumu başlatın ve aşağıdaki komutu kullanarak Azure hesabınızda oturum açın:
 
-        Add-AzureAccount
+```Powershell
+   Add-AzureAccount
+```
 Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Ardından, [Get-AzureSubscription](/powershell/module/azure/get-azuresubscription?view=azuresmps-3.7.0) komutu:
 
-        Get-AzureSubscription
+```powershell
+   Get-AzureSubscription
+```
 Çıktısını Azure anahtar kasası için kullanacağınız abonelik Kimliğini bulun. Bu abonelik kimliği daha sonra ihtiyacınız olacak.
 
 Azure PowerShell penceresini kapatmayın.
@@ -188,7 +192,9 @@ BYOK araçları UnitedKingdom.zip KeyVault
 
 İndirilen BYOK araç takımı, Azure PowerShell oturumunuzda bütünlüğünü doğrulamak için kullanın [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet'i.
 
-    Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```powershell
+   Get-FileHash KeyVault-BYOK-Tools-*.zip
+   ```
 
 Araç takımı aşağıdakileri içerir:
 
@@ -208,7 +214,9 @@ Bir Windows bilgisayara nCipher (Thales) destek yazılımını yükleyin ve ard�
 
 Thales araçlarının yolunuzda bulunduğundan emin olun (**%nfast_home%\bin**). Örneğin, aşağıdaki komutu yazın:
 
-        set PATH=%PATH%;"%nfast_home%\bin"
+  ```cmd
+  set PATH=%PATH%;"%nfast_home%\bin"
+  ```
 
 Daha fazla bilgi için Thales HSM ile verilen kullanıcı kılavuzuna bakın.
 
@@ -229,7 +237,9 @@ Thales nShield kenar, modunu değiştirmek için kullanıyorsanız: 1. Gerekli m
 ### <a name="step-32-create-a-security-world"></a>3.2. adım: güvenlik Dünyası oluşturma
 Bir komut istemi başlatın ve Thales yeni dünya programını çalıştırın.
 
+   ```cmd
     new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+   ```
 
 Bu programın oluşturduğu bir **güvenlik Dünyası** % C:\ProgramData\nCipher\Key Management Data\local klasörüne karşılık gelen NFAST_KMDATA%\local\world dosyası. Çekirdek için farklı değerler kullanabilirsiniz, ancak örneğimizde her biri için üç adet boş kart ve PIN girmeniz istenir. Ardından, herhangi iki kart güvenlik dünyasına tam erişim verin. Bu kartlar hale **yönetici kart Seti** yeni güvenlik Dünyası için.
 
@@ -293,6 +303,10 @@ Bu adım isteğe bağlıdır ancak aşağıdakileri doğrulayabilmeniz böylece 
    * Hindistan için:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * Birleşik Krallık için:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
+
      > [!TIP]
      > Thales yazılımı, %NFAST_HOME%\python\bin python içerir
      >
@@ -370,6 +384,9 @@ Yeni bir komut istemi açın ve burada BYOK zip dosyası unzipped konumun geçer
 * Hindistan için:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* Birleşik Krallık için:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
 Bu komutu çalıştırdığınızda, yerini *contosokey* ile aynı belirtilen değere **adım 3.5: yeni bir anahtar oluşturun** gelen [anahtarınızı](#step-3-generate-your-key) adım.
 
@@ -426,6 +443,9 @@ Coğrafi bölge veya Azure örneği bağlı olarak aşağıdaki komutlardan biri
 * Hindistan için:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* Birleşik Krallık için:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Bu komutu çalıştırdığınızda, aşağıdaki yönergeleri kullanın:
 
@@ -441,7 +461,9 @@ Bir USB sürücü veya başka bir taşınabilir depolama çıktı dosyasını (K
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>5. adım: anahtarınızı Azure anahtar Kasası'na aktarma
 Bu son adım için Internet'e bağlı iş istasyonunda, kullanın [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) Azure anahtar kasası HSM bağlantısı kesilmiş iş istasyonundan kopyaladığınız anahtar aktarma paketini karşıya yüklemek için cmdlet:
 
-    Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```powershell
+        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+   ```
 
 Karşıya yükleme başarılı olursa, gördüğünüz görüntülenen eklediğiniz anahtar özelliklerini.
 

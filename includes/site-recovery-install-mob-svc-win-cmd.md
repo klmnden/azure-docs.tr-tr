@@ -29,7 +29,7 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 |-|-|-|-|
 |/ Rol|Zorunlu|Mobility hizmetinin (MS) yüklü olmalıdır veya MasterTarget(MT) yüklenmesi gerektiğini belirtir|MS </br> MT|
 |/InstallLocation|İsteğe bağlı|Mobility Hizmeti'nin yüklendiği konumu|Bilgisayardaki herhangi bir klasör|
-|/ Platform|Zorunlu|Mobility hizmetinin yüklendiği platformu belirtir </br> </br>- **VMware** : mobility hizmeti üzerinde çalışan bir VM yüklüyorsanız bu değeri kullanın *VMware vSphere ESXi konakları*, *Hyper-V konakları* ve *Phsyical sunucuları* </br> - **Azure** : bir Azure Iaas VM aracısı yüklüyorsanız, bu değeri kullanın| VMware </br> Azure|
+|/ Platform|Zorunlu|Mobility hizmetinin yüklendiği platformu belirtir </br> </br>- **VMware** : mobility hizmeti üzerinde çalışan bir VM yüklüyorsanız bu değeri kullanın *VMware vSphere ESXi konakları*, *Hyper-V konakları* ve *fiziksel sunucular* </br> - **Azure** : bir Azure Iaas VM aracısı yüklüyorsanız, bu değeri kullanın| VMware </br> Azure|
 |/ Sessiz|İsteğe bağlı|Yükleyici sessiz modda çalıştırmak için belirtir| NA|
 
 >[!TIP]
@@ -39,7 +39,7 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 
 ```
 Usage :
-UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
   | Parametre|Tür|Açıklama|Olası değerler|

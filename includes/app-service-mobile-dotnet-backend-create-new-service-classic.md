@@ -3,7 +3,7 @@
 3. **Kaynak Grubu** için yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun (uygulamanızla aynı adı kullanarak). 
    
     Başka bir App Service planı seçin veya yeni bir tane oluşturun. Uygulama Hizmetleri planları, farklı fiyatlandırma katmanında ve tercih ettiğiniz konumda yeni plan oluşturma hakkında daha fazla bilgi için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. **App Service planı** için, varsayılan plan ([Standart katman](https://azure.microsoft.com/pricing/details/app-service/)’da) seçilidir. Ayrıca, farklı bir plan seçebilirsiniz veya [yeni bir tane oluşturun](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). App Service planının ayarları, uygulamanızla ilişkili [konumu, özellikleri, maliyeti ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) saptar. 
+4. **App Service planı** için, varsayılan plan ([Standart katman](https://azure.microsoft.com/pricing/details/app-service/)’da) seçilidir. Ayrıca, farklı bir plan seçebilirsiniz veya [yeni bir tane oluşturun](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). App Service planının ayarları, uygulamanızla ilişkili [konumu, özellikleri, maliyeti ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) saptar. 
    
     Planla ilgili kararı verdikten sonra **Oluştur**’a tıklayın. Böylece Mobil Uygulama arka uç oluşturulur. 
 5. Yeni Mobil Uygulama arka ucunun **Ayarlar** dikey penceresinde **Hızlı başlangıç** > istemci uygulaması platformunuz > **Veritabanına bağlan**’a tıklayın. 

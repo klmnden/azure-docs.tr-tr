@@ -1,4 +1,4 @@
-VNet ve bir ağ geçidi alt ağı önce aşağıdaki görevlere çalışmaya başlamadan önce oluşturmanız gerekir. Makalesine bakın [Klasik portalı kullanarak bir sanal ağ yapılandırma](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) daha fazla bilgi için.
+VNet ve bir ağ geçidi alt ağı önce aşağıdaki görevlere çalışmaya başlamadan önce oluşturmanız gerekir.
 
 > [!NOTE]
 > Bu örnekler S2S/ExpressRoute için geçerli olmayan yapılandırmalar bir arada.
@@ -9,7 +9,7 @@ VNet ve bir ağ geçidi alt ağı önce aşağıdaki görevlere çalışmaya ba�
 Bir ağ geçidi oluşturmak için aşağıdaki komutu kullanın. Kendi ilgili tüm değerleri değiştirdiğinizden emin olun.
 
 ```powershell
-New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
 ## <a name="verify-the-gateway-was-created"></a>Ağ geçidinin oluşturulduğunu doğrulayın
@@ -17,7 +17,7 @@ New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" 
 Ağ geçidinin oluşturulduğunu doğrulamak için aşağıdaki komutu kullanın. Bu komut ayrıca diğer işlemleri için gereken ağ geçidi kimliği alır.
 
 ```powershell
-Get-AzureVirtualNetworkGateway
+Get-AzureVNetGateway
 ```
 
 ## <a name="resize-a-gateway"></a>Bir ağ geçidi yeniden boyutlandırma
@@ -30,7 +30,7 @@ Bir dizi vardır [ağ geçidi SKU'ları](../articles/expressroute/expressroute-a
 >
 
 ```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+Resize-AzureVNetGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
 
 ## <a name="remove-a-gateway"></a>Bir ağ geçidi kaldırma
@@ -38,5 +38,5 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 Bir ağ geçidini kaldırmak için aşağıdaki komutu kullanın
 
 ```powershell
-Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+Remove-AzureVnetGateway -GatewayId <Gateway ID>
 ```

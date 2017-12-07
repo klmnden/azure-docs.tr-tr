@@ -1,5 +1,5 @@
 ---
-title: "DRM lisansları veya AES anahtarları göndermek için Azure Media Services'i kullanma"
+title: "DRM lisansları veya AES anahtarları göndermek için Azure Media Services'i kullanma | Microsoft Docs"
 description: "Bu makalede PlayReady sağlamak üzere Azure Media Services (AMS) nasıl kullanabileceğinizi açıklar ve/veya Widevine lisansları ve AES anahtarları (kodlama, şifreleme, akış) rest yapmak ancak şirket içi sunucularınızı kullanma."
 services: media-services
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb39b6a737aab3fe5ba477cc4aee601954d16247
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>DRM lisansları veya AES anahtarları göndermek için Azure Media Services'i kullanma
-Azure Media Services (AMS), alma, kodlama, içerik koruma ekleyin ve içeriğinizin akışını sağlar (bkz [bu](media-services-protect-with-drm.md) makale Ayrıntılar için). Ancak, yalnızca AMS lisans ve/veya anahtarları teslim etmek ve kodlama, şifreleme ve kendi şirket içi sunucular kullanarak akış yapmak için kullanmak isteyen müşteriler vardır. Bu makalede, PlayReady ve/veya Widevine lisansları teslim ancak geri kalan şirket içi sunucularınızla yapmak için AMS nasıl kullanabileceğiniz açıklanır. 
+Azure Media Services (AMS), alma, kodlama, içerik koruma ekleyin ve içeriğinizin akışını sağlar (bkz [bu](media-services-protect-with-playready-widevine.md) makale Ayrıntılar için). Ancak, yalnızca AMS lisans ve/veya anahtarları teslim etmek ve kodlama, şifreleme ve kendi şirket içi sunucular kullanarak akış yapmak için kullanmak isteyen müşteriler vardır. Bu makalede, PlayReady ve/veya Widevine lisansları teslim ancak geri kalan şirket içi sunucularınızla yapmak için AMS nasıl kullanabileceğiniz açıklanır. 
 
 ## <a name="overview"></a>Genel Bakış
 Media Services, PlayReady ve Widevine DRM lisansları ve AES-128 anahtarları teslim etmek için bir hizmet sunar. Media Services korumalı içeriği hakları ve DRM çalışma zamanı kullanıcı DRM kayıttan yürüttüğünde uygulanmasını istediğiniz kısıtlamaları yapılandırmanıza olanak tanıyan API'ler de sağlar. Bir kullanıcının korumalı içeriği istediğinde, oynatıcı uygulaması AMS lisans hizmetinden bir lisans ister. (Yetkiliyse) AMS lisans hizmeti lisans oynatıcıya. PlayReady ve Widevine lisansları istemci oynatıcısının içeriğin akış ve şifresini çözmek için kullanılan şifre çözme anahtarını içerir.
@@ -43,7 +43,6 @@ Bu makalede açıklanan örneği [buradan](https://github.com/Azure/media-servic
     <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
 
 ## <a name="net-code-example"></a>.NET kodu örneği
-
 Aşağıdaki kod örneği, ortak bir içerik anahtarı oluşturun ve PlayReady veya Widevine lisans edinme URL'si almak gösterilmektedir. AMS şu bilgileri alın ve şirket içi sunucunuzu yapılandırmak gereken: **içerik anahtarı**, **anahtarı kimliği**, **lisans edinme URL'si**. Şirket içi sunucunuzu yapılandırdıktan sonra kendi akış sunucusundan akış. Şifrelenmiş akış noktalarına AMS lisans sunucusunu bu yana, player AMS lisans ister. Belirteç kimlik doğrulamasını seçerseniz, AMS lisans sunucusu HTTPS gönderilen belirteç doğrular ve (geçerli ise) lisans aygıta geri teslim eder. (Kod örneği yalnızca ortak bir içerik anahtarı oluşturun ve PlayReady veya Widevine lisans edinme URL'si almak gösterilmektedir. Teslim AES-128 anahtarları istiyorsanız, bir zarf içerik anahtarı oluşturun ve bir anahtar alım URL'sini alma gerekir ve [bu](media-services-protect-with-aes128.md) makalede nasıl yapılacağı gösterilmektedir).
 
     using System;
@@ -332,9 +331,6 @@ Aşağıdaki kod örneği, ortak bir içerik anahtarı oluşturun ve PlayReady v
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-[PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma](media-services-protect-with-drm.md)
+[PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma](media-services-protect-with-playready-widevine.md)
 
 [AES-128 dinamik şifreleme ve anahtar teslim hizmeti kullanma](media-services-protect-with-aes128.md)
-
-[Azure Media Services’ta Widevine lisanslarını teslim etmek için iş ortaklarıyla çalışma](media-services-licenses-partner-integration.md)
-

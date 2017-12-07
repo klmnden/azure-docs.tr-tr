@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>SSS raporlama Azure Active Directory
 
@@ -119,5 +119,11 @@ Bu makalede raporlama Azure Active Directory (Azure AD) hakkında sık sorulan s
 **S: nasıl IP adresleri oturum açma işlemleri ve riskli oturum açma işlemleri raporu hesaplanır?**
 
 **Y:** IP adresleri, bir IP adresi ve bilgisayarın adresine sahip fiziksel olarak bulunduğu arasında kesin bağlantı yoktur şekilde yayınlanır. Bu etkenler mobil sağlayıcıları ve VPN istemci aygıt gerçekte kullanıldığı gölgeden uzak IP adresleri merkezi havuzlarından genellikle çok veren gibi karmaşık. Yukarıda verilen, IP adresi fiziksel konuma dönüştürme izlemeleri, kayıt defteri verilerini, geriye doğru arama ve diğer bilgilere göre en iyi çaba olur. 
+
+---
+
+**S: "İle oturum açma algılandı ek risk" belirtmek risk olayı nedir?**
+
+**Y:** ortamınızda tüm riskli oturum açma işlemleri bir anlayış vermek için "İle oturum açma algılandı ek risk" risk olayı nedeniyle algılamaların riskli olarak kabul oturum açma işlemleri için Azure AD Identity Protection abonelere özel gösteriyoruz.
 
 ---

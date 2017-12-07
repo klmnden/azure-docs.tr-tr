@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 12/06/2017
 ms.author: alkohli
-ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple güvenlik ve veri koruması
 
@@ -157,7 +157,7 @@ Hizmet verileri şifreleme anahtarı yalnızca hizmete kayıtlı ilk cihaz üzer
 > 
 > Hizmet verileri şifreleme anahtarı kaybolursa, Microsoft Destek ekibiyle en az bir aygıt çevrimiçi bir durumda olması koşuluyla almak için yardımcı olabilir. Bunu alındıktan sonra hizmet verileri şifreleme anahtarı değiştirmenizi öneririz. Yönergeler için Git [hizmet verileri şifreleme anahtarı değiştirmek](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-Hizmet verileri şifreleme anahtarı ve karşılık gelen veri şifreleme sertifikası seçerek değiştirebilirsiniz **değişiklik hizmeti veri şifreleme anahtarı** hizmet panosunu seçeneği. Veri güvenliği tehlikeye emin olmak için hizmet verileri şifreleme anahtarı değiştirmek için bir fiziksel StorSimple cihazı kullanmanız gerekir. Şifreleme anahtarları değiştirilmesi tüm cihazlar yeni anahtarla güncelleştirilmesini gerektirir. Bu nedenle, tüm cihazlar çevrimiçi olduğunda bu anahtar değiştirmenizi öneririz. Cihaz çevrimdışı ise, kendi anahtarları farklı bir zamanda değiştirilebilir. Güncel olmayan anahtarları aygıtlarla hala yedeklemeleri çalıştırma mümkün olacaktır, ancak bunlar anahtar güncelleştirilene kadar verileri geri yüklemek mümkün olmaz. Daha fazla bilgi için Git [StorSimple Aygıt Yöneticisi'ni hizmet panosunu kullanmak](storsimple-8000-service-dashboard.md).
+Hizmet verileri şifreleme anahtarı ve karşılık gelen veri şifreleme sertifikasını değiştirmek için adımları [StorSimple cihaz Yöneticisi hizmeti için hizmet verileri şifreleme anahtarı değiştirmek](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Şifreleme anahtarları değiştirilmesi tüm cihazlar yeni anahtarla güncelleştirilmesini gerektirir. Bu nedenle, tüm cihazlar çevrimiçi olduğunda bu anahtar değiştirmenizi öneririz. Cihaz çevrimdışı ise, kendi anahtarları farklı bir zamanda değiştirilebilir. Güncel olmayan anahtarları aygıtlarla hala yedeklemeleri çalıştırma mümkün olacaktır, ancak bunlar anahtar güncelleştirilene kadar verileri geri yüklemek mümkün olmaz.
 
 Hizmet verileri şifreleme anahtarı ve veri şifreleme sertifikasını süresi dolmaz. Ancak, yıllık anahtar güvenliğinin aşılması önlemeye yardımcı olmak için hizmet verileri şifreleme anahtarı değiştirmenizi öneririz.
 
@@ -212,7 +212,7 @@ Bazı hakkında sorular ve yanıtlar güvenlik ve Microsoft Azure StorSimple ver
 
 **Y:** hizmet verileri şifreleme anahtarı ve katmanlama veriler için kullanılan depolama hesabı için depolama hesabı anahtarlarını hemen değiştirmelisiniz. Yönergeler için aşağıdaki adrese gidin:
 
-* [Değişiklik hizmeti veri şifreleme anahtarı](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Değişiklik hizmeti veri şifreleme anahtarı](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Depolama hesaplarının anahtar döndürme](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **S:** için hizmet kayıt anahtarını soran yeni bir StorSimple cihazı vardır. Bunu nasıl aldığını?
@@ -225,7 +225,7 @@ Bazı hakkında sorular ve yanıtlar güvenlik ve Microsoft Azure StorSimple ver
 
 **Y:** Microsoft Destek'e başvurun. Bunlar, cihaz ve (en az bir aygıt çevrimiçi olması koşuluyla) anahtarı alıp Yardım desteği oturum oturum açabilirsiniz. Hizmet verileri şifreleme anahtarı edinmek hemen sonra yeni anahtarı yalnızca size bilinir emin olmak için değiştirmeniz gerekir. Yönergeler için aşağıdaki adrese gidin:
 
-* [Değişiklik hizmeti veri şifreleme anahtarı](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Değişiklik hizmeti veri şifreleme anahtarı](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **S:** ı bir hizmet verileri şifreleme anahtarı değişikliği için bir cihaz yetkili ancak anahtar değiştirme işlemi başlatılmadı. Ne yapmalıyım?
 
@@ -240,7 +240,7 @@ Bazı hakkında sorular ve yanıtlar güvenlik ve Microsoft Azure StorSimple ver
 **Y:** değiştirme ve sıfırlama StorSimple cihazı erişmesine izin vermek ve hizmet verileri şifreleme değiştirmek parolalar anahtar yeni bilgiler için bilinmiyor emin olmak için yetkisiz personel. Yönergeler için aşağıdaki adrese gidin:
 
 * [Storsimple parolalarını değiştirmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-change-passwords.md)
-* [Değişiklik hizmeti veri şifreleme anahtarı](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Değişiklik hizmeti veri şifreleme anahtarı](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [StorSimple cihazınız için CHAP yapılandırma](storsimple-8000-configure-chap.md)
 
 **S:** StorSimple Snapshot Manager parolasını StorSimple cihazı bağlanan bir konak sağlamak istiyorum, ancak parola kullanılabilir değil. Ne yapabilirim?

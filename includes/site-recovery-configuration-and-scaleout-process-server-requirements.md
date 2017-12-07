@@ -13,7 +13,7 @@
 | Grup İlkeleri| Aşağıdaki grup ilkeleri sunucuda etkinleştirilmemelidir <br> -Komut istemi erişimi engelle <br> -Kayıt defteri düzenleme araçları erişimi engelle <br> -Dosya ekleri için mantığı güven <br> -Komut dosyası yürütme Aç <br> **Not:** bu grup ilkeleri hakkında daha fazla bilgi bulunabilir [burada](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx)|
 | Internet bilgi Service(IIS) yapılandırma | -Önceden var olan varsayılan Web sitesi <br> -Etkinleştirin [anonim kimlik doğrulaması](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> -Etkinleştirin [Fastcgı](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) ayarı  <br> -Önceden varolan hiçbir websit/uygulama 443 numaralı bağlantı noktasını dinlemeye<br>|
 | **Ağ** | |
-| Ağ arabirimi kart türü | VMXNET3 |
+| Ağ arabirimi kart türü | (Bir VMware sanal makinesi olarak dağıtıldığında) VMXNET3 |
 | IP adresi türü | Statik |
 | İnternet erişimi | Sunucunun aşağıdaki URL'lere doğrudan veya bir ara sunucu üzerinden erişebilmesi gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (Genişleme İşlem Sunucuları için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
 | Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı)|

@@ -3,8 +3,8 @@ title: "Veri türleri Kılavuzu - Azure SQL Data Warehouse | Microsoft Docs"
 description: "SQL veri ambarı ile uyumlu olan veri türlerini tanımlamak için öneriler sunar."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: d4a1f0a3-ba9f-44b9-95f6-16a4f30746d6
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 06/02/2017
-ms.author: shigu;barbkess
-ms.openlocfilehash: 53867eb7ba13cdfc47e3e47a9212b3c6839281da
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 2bde5da8593c559e2afb33c9c4842695dc273ac3
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>SQL veri ambarı'nda tabloları veri türlerini tanımlama Kılavuzu
 Bu öneriler, SQL Data Warehouse ile uyumlu olan tablo veri türlerini tanımlamak için kullanın. Uyumluluk ek olarak, veri türlerinin boyutu en aza sorgu performansını artırır.

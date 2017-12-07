@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5c7810a88bee65cf22276082f72b18a7f9e983f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure yığın genel bakış güncelleştirmelerini yönetme
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri*
 
-Microsoft Azure yığın tümleşik sistemleri düzenli olarak için güncelleştirme paketleri serbest bırakır. Microsoft yazılım güncelleştirmeleri her bir sürümü tek güncelleştirme paketi olarak gelir. Bir Azure yığın işleç olarak kolayca içeri aktarabilirsiniz, güncelleştirme paketleri Yönetici portalı'ndan yükleyin ve bu yükleme ilerleyişini izleyin. 
+Microsoft Azure tümleşik yığını genellikle her ay dördüncü Salı günü döner normal bir tempoyla sistemlerde için güncelleştirme paketleri genel kullanılabilirliğine başlangıç serbest bırakır. Kuruluşunuz güncelleştirme bildirimlerini erişim sağlamak için belirli bildirim işlemi hakkında OEM isteyin veya Concepts\Release notes\Integrated sistemlerinde sürüm notları belirli sürümler hakkında daha fazla bilgi için burayı tıklatın.
+
+Microsoft yazılım güncelleştirmeleri her bir sürümü tek güncelleştirme paketi olarak gelir. Bir Azure yığın işleç olarak kolayca içeri aktarabilirsiniz, güncelleştirme paketleri Yönetici portalı'ndan yükleyin ve bu yükleme ilerleyişini izleyin. 
 
 Özgün donatım üreticisi (OEM) donanım satıcınıza güncelleştirmeler, sürücü ve bellenim güncelleştirmeleri gibi de serbest bırakır. Bu güncelleştirmeler ayrı paketler OEM donanım satıcınız tarafından teslim edilir ve Microsoft güncelleştirmelerini ayrı olarak yönetilir.
 

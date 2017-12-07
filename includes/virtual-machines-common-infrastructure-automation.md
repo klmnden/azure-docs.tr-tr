@@ -41,21 +41,24 @@ Oluşturmak ve tutarlı bir şekilde ölçekli Azure sanal makineleri (VM'ler) y
 
 
 ## <a name="cloud-init"></a>Bulut başlatma
-[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çalışırken, ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.
+[Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çağrıldığı için ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.  Doğru biçim hakkında daha fazla bilgi için `#cloud-config` dosyaları görmek [bulut init belgeleri sitesi](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`dosyaları base64 ile kodlanmış metin dosyalarıdır.
 
-Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayın. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
+Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
 
-Bulut dahil ve Azure'a sağladıkları görüntülerinde çalışma başlatma almak için ortaklarımızın ile çalışıyoruz. Aşağıdaki tabloda Azure platform görüntüleri geçerli bulut init kullanılabilirliğine özetlenmektedir:
+ Etkin olarak ile doğrulanan Linux distro ortaklarımızın Azure marketi'ndeki bulut init etkin görüntüleri kullanılabilir olması için çalışıyoruz. Bu görüntüler, bulut init dağıtımlarınızın yapar ve yapılandırmaları VM'ler ve VM ölçek kümeleri (VMSS) ile sorunsuz bir şekilde çalışabilirsiniz. Aşağıdaki tabloda Azure platformu geçerli bulut init etkin görüntüleri kullanılabilirliğine özetlenmektedir:
 
-| Diğer ad | Yayımcı | Sunduğu | SKU | Sürüm |
+| Yayımcı | Sunduğu | SKU | Sürüm | Bulut init hazır
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |en son |
-| UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |en son |
-| CoreOS |CoreOS |CoreOS |Dengeli |en son |
+|Canonical |UbuntuServer |16.04 LTS |en son |evet | 
+|Canonical |UbuntuServer |14.04.5-LTS |en son |evet |
+|CoreOS |CoreOS |Dengeli |en son |evet |
+|OpenLogic |CentOS |7 CI |en son |önizleme |
+|RedHat |RHEL |7 HAM-CI |en son |önizleme |
 
-Şunları nasıl yapacağınızı öğrenin:
+Azure üzerinde bulut başlatma hakkında daha fazla ayrıntı öğrenin:
 
-- [Bulut init bir Linux VM özelleştirme](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Linux sanal makineleri Azure için bulut init destekler.](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Bulut init kullanarak otomatikleştirilmiş VM yapılandırmasına bir öğretici deneyin](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC

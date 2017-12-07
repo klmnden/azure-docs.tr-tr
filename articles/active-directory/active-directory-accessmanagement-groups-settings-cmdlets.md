@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: e8e07fa54aa10d34f0878042a5d9ac43f9a6704b
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri
 Bu makale Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanarak oluşturma ve güncelleştirme gruplarına yönelik yönergeleri içerir. Bu içerik yalnızca Office 365 grupları için geçerlidir. 
@@ -28,7 +28,7 @@ Bu makale Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanarak 
 > [!IMPORTANT]
 > Bazı ayarları bir Azure Active Directory Premium P1 lisansı gerektirir. Daha fazla bilgi için bkz: [şablonu ayarlarını](#template-settings) tablo.
 
-Güvenlik grupları oluşturmak kullanıcıların konusunda daha fazla bilgi için `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` açıklandığı gibi [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+Yönetici olmayan kullanıcıların oluşturmasını engellemek hakkında daha fazla bilgi için *güvenlik* gruplar `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` açıklandığı gibi [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Office 365 grupları ayarları, bir ayar nesnesi ve SettingsTemplate nesnesi kullanılarak yapılandırılır. Başlangıçta, dizininize varsayılan ayarlarla yapılandırıldığından dizininizde, tüm ayarları nesnelerini görmüyorum. Varsayılan ayarları değiştirmek için ayarları şablon kullanarak yeni bir ayarları nesnesi oluşturmanız gerekir. Ayarları şablonları Microsoft tarafından tanımlanır. Birkaç farklı ayarlar şablonu vardır. Dizininiz için Office 365 Grup ayarlarını yapılandırmak için "Group.Unified" adlı şablonu kullanın. Tek bir grup Office 365 Grup ayarlarını yapılandırmak için "Group.Unified.Guest" adlı şablonunu kullanın. Bu şablon, bir Office 365 Grup Konuk erişimi yönetmek için kullanılır. 
 

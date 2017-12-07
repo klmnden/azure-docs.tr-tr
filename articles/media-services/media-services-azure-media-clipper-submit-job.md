@@ -9,16 +9,20 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a142648793f934e939be26378504c19facf40e1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Azure Media Kırpıcıyı kırpma işlerini gönderme
 Azure Media Kırpıcıyı gerektiren bir **submitSubclipCallback** kırpma iş gönderme işlemek için uygulanacak yöntemi. Bu işlev bir web hizmetine Kırpıcıyı çıktının bir HTTP POST uygulamak için kullanılır. Kodlama işinin gönderebileceği bu web hizmetidir. Kırpıcıyı çıktısını ya da bir medya Kodlayıcı işlenmiş işleri için hazır ya da dinamik bildirim filtresi çağrıları için REST API yükü kodlama standarttır. Media services hesap kimlik bilgilerini istemcinin tarayıcıda güvenli olmadığından bu geçiş modeli gereklidir.
 
-Aşağıdaki kod örneği bir örnek gösterilmektedir **submitSubclipCallback** yöntemi. Bu yöntemde, HTTP POST MES kodlama hazır uygulayın. POST başarılı olduysa (**sonuç**), **Promise** , aksi takdirde hata ayrıntılarla reddedildi çözümlenir.
+Aşağıdaki sıralı diyagramı tarayıcı istemci, web hizmeti ve Azure Media Services arasında iş akışı gösterilmektedir: ![Azure medya Kırpıcıyı sıralı diyagramı](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+
+Yukarıdaki şemada, dört varlıklardır: son kullanıcının tarayıcı, web hizmetiniz, barındırma Kırpıcıyı kaynakları ve Azure Media Services CDN uç noktası. Son kullanıcı web sayfanıza gittiğinde, sayfa Kırpıcıyı JavaScript ve CSS kaynaklar barındırma CDN uç noktasından alır. Son kullanıcı kırpma iş veya dinamik bildirim filtresi oluşturma tarayıcısında çağrısından yapılandırır. Son kullanıcı iş veya filtresi oluşturma çağrı gönderdiğinde, tarayıcı dağıtmanız gerekir bir web hizmeti için iş yükü getirir. Bu web Hizmeti'nin sonuçta kırpma işi gönderir veya medya kullanarak Azure Media Services filtresi oluşturma çağrısı hizmetleri hesabı kimlik bilgileri.
+
+Aşağıdaki kod örneği bir örnek gösterilmektedir **submitSubclipCallback** yöntemi. Bu yöntemde Medya Kodlayıcısı standart kodlama hazır HTTP POST uygulayın. POST başarılı olduysa (**sonuç**), **Promise** , aksi takdirde hata ayrıntılarla reddedildi çözümlenir.
 
 ```javascript
 // Submit Subclip Callback
@@ -49,9 +53,11 @@ var subclipper = new subclipper({
     submitSubclipCallback: onSubmitSubclip,
 });
 ```
-İşlenen iş için hazır ya da dinamik bildirim filtreleri için REST API yükü kodlama MES iş gönderme çıkışıdır.
+Medya Kodlayıcısı standart kodlama önceden işlenmiş işi için ya da dinamik bildirim filtreleri için REST API yükü iş gönderme çıkışıdır.
 
-## <a name="rendered-output"></a>İşlenmiş çıkış
+## <a name="submitting-encoding-job-to-create-video"></a>Video oluşturmak için kodlama işi gönderme
+Çerçeve doğru bir video klip oluşturmak için bir Medya Kodlayıcısı standart kodlama işi gönderebilirsiniz. Videolar işlenen iş ürettiği kodlama, yeni bir MP4 dosyası parçalanmış.
+
 Proje çıktı sözleşme işlenmiş kırpma için aşağıdaki özelliklere sahip bir JSON nesnesidir:
 
 ```json
@@ -145,8 +151,10 @@ Proje çıktı sözleşme işlenmiş kırpma için aşağıdaki özelliklere sah
 }
 ```
 
-## <a name="filter-output"></a>Filtre çıktı
-Bir JSON nesnesi aşağıdaki özelliklere sahip bir filtre kırpma için çıktı sözleşmedir:
+Kodlama işi gerçekleştirmek göndermek için Medya Kodlayıcısı standart ile ilişkili kodlama işinin hazır. Kodlama gönderme hakkında bilgi için bu makalenin işleri görmek [.NET SDK'sı](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) veya [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+
+## <a name="quickly-creating-video-clips-without-encoding"></a>Video klip kodlamadan hızlı oluşturma
+Bir kodlama işi oluşturmak için bir alternatif, dinamik bildirim filtreleri oluşturmak için Azure Media Kırpıcıyı kullanabilirsiniz. Filtreler kodlama gerektirmez ve yeni bir varlık oluşturulmaz gibi hızlı bir şekilde oluşturulabilir. Bir JSON nesnesi aşağıdaki özelliklere sahip bir filtre kırpma için çıktı sözleşmedir:
 
 ```json
 {
@@ -218,3 +226,5 @@ Bir JSON nesnesi aşağıdaki özelliklere sahip bir filtre kırpma için çıkt
   }
 }
 ```
+
+İlişkili filtre yükü kullanarak dinamik bildirim filtresi oluşturmak için REST çağrısı göndermek için Gönder [REST API](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).

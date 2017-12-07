@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: d6a405f7245bf1b9635872efd0e29f8361d6a2f6
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8722d7827aad10bcae3e8ec06b7014ebc64179d5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory doğrudan kimlik doğrulaması: Sık sorulan sorular
 
@@ -99,24 +99,20 @@ Evet. Birden çok orman ortamlarına Active Directory ormanlar arasında orman g
 
 Birden çok doğrudan kimlik doğrulama aracı yükleme sağlar [yüksek kullanılabilirlik](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). Ancak, belirleyici Yük Dengeleme arasında kimlik doğrulaması aracıları sağlamaz.
 
-En yüksek ve Kiracı'görmeyi beklediğiniz oturum açma isteklerinin ortalama yük göz önünde bulundurun. Bir kıyaslama tek bir kimlik doğrulama Aracısı 300000 için 400.000 kimlik doğrulamaları standart bir 4 çekirdekli CPU, 16 GB RAM sunucu saniye başına işleyebilir. Çoğu müşteri için iki veya üç kimlik doğrulama Aracısı toplam, yüksek kullanılabilirlik ve kapasite için yeterlidir.
+En yüksek ve Kiracı'görmeyi beklediğiniz oturum açma isteklerinin ortalama yük göz önünde bulundurun. Bir kıyaslama tek bir kimlik doğrulama Aracısı 300-400 kimlik doğrulamaları standart bir 4 çekirdekli CPU, 16 GB RAM sunucu saniye başına işleyebilir.
 
-Oturum açma gecikme süresini artırmak için etki alanı denetleyicileriniz yakın kimlik doğrulama aracısı yüklemeniz gerekir.
+Ağ trafiği tahmin etmek için aşağıdaki boyutlandırma kılavuzluğu kullanın:
+- Her istek bir yükü boyutu vardır (0.5K + 1 K * num_of_agents) bayt; yani, verileri Azure AD kimlik doğrulama aracısı için. Burada, "num_of_agents" Kiracı'kimlik doğrulama aracı sayısı kayıtlı belirtir.
+- Her yanıtı yükü boyutu 1 K bayt; yine de sahip istiyor musunuz? yani, verileri kimlik doğrulama Aracısı Azure ad.
+
+Çoğu müşteri için iki veya üç kimlik doğrulama Aracısı toplam, yüksek kullanılabilirlik ve kapasite için yeterlidir. Oturum açma gecikme süresini artırmak için etki alanı denetleyicileriniz yakın kimlik doğrulama aracısı yüklemeniz gerekir.
+
+>[!NOTE]
+>Kiracı başına 12 kimlik doğrulaması aracıların sistem sınırı yoktur.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Azure AD Connect çalıştıran biri başka bir sunucuda ilk doğrudan kimlik doğrulama aracısı yükleyebilir miyim?
 
 Hayır, bu senaryo olan _değil_ desteklenir.
-
-## <a name="how-many-pass-through-authentication-agents-should-i-install"></a>Kaç tane doğrudan kimlik doğrulama Aracısı yüklediğimde?
-
-Öneririz:
-
-- Toplam iki veya üç kimlik doğrulama aracısını yükleyin. Bu yapılandırma, müşterilerin çoğu için yeterlidir.
-- Etki alanı denetleyicilerinizde kimlik doğrulaması aracıları yüklemek (veya onları mümkün olduğunca yakın gibi) oturum açma gecikme süresini artırmak için.
-- Aynı Active Directory ormanına parolaları doğrulamak için gereken kullanıcı olarak kimlik doğrulama Aracısı yüklendiği sunucuları ekleme emin olun.
-
->[!NOTE]
->Kiracı başına 12 kimlik doğrulaması aracıların sistem sınırı yoktur.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Doğrudan kimlik doğrulama nasıl devre dışı bırakabilirim?
 
