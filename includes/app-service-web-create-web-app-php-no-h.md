@@ -1,6 +1,6 @@
-Bulut Kabuğu'nda bir web uygulaması oluşturmak `myAppServicePlan` uygulama hizmeti planıyla [az webapp oluşturmak](/cli/azure/webapp#create) komutu. 
+Bulut Kabuğu'nda bir web uygulaması oluşturmak `myAppServicePlan` uygulama hizmeti planıyla [az webapp oluşturmak](/cli/azure/webapp#az_webapp_create) komutu. 
 
-Aşağıdaki örnekte `<app_name>` bir genel benzersiz uygulama adıyla (geçerli karakterler `a-z`, `0-9`, ve `-`). Çalışma zamanı kümesine `PHP|7.0`. Desteklenen tüm çalışma zamanları görmek için çalıştırın [az webapp listesi-çalışma zamanları](/cli/azure/webapp#list-runtimes). 
+Aşağıdaki örnekte `<app_name>` bir genel benzersiz uygulama adıyla (geçerli karakterler `a-z`, `0-9`, ve `-`). Çalışma zamanı kümesine `PHP|7.0`. Desteklenen tüm çalışma zamanları görmek için çalıştırın [az webapp listesi-çalışma zamanları](/cli/azure/webapp#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
