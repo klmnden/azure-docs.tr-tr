@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure IoT Hub Cihaz Sağlama Hizmeti (önizleme) Belgeleri
+title: Azure IoT Hub Cihaz Sağlama Hizmeti Belgeleri
 metadata:
-  title: 'Azure IoT Hub Cihaz Sağlama Hizmeti (önizleme) Belgeleri - Öğreticiler, API Başvurusu'
+  title: 'Azure IoT Hub Cihaz Sağlama Hizmeti Belgeleri - Öğreticiler, API Başvurusu'
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'IoT Hub Cihaz Sağlama Hizmeti (önizleme) doğru IoT hub’a, kullanıcı müdahalesi gerektirmeden otomatik olarak tam zamanında sağlama olanağı sunan bir yardımcı hizmettir. Bu sayede müşteriler milyonlarca cihazı güvenli ve ölçeklenebilir bir şekilde sağlayabiliyor. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle IoT hub’larınıza cihaz sağlamayı öğrenin.'
+  description: 'IoT Hub Cihaz Sağlama Hizmeti doğru IoT hub’a, kullanıcı müdahalesi gerektirmeden otomatik olarak tam zamanında sağlama olanağı sunan bir yardımcı hizmettir. Bu sayede müşteriler milyonlarca cihazı güvenli ve ölçeklenebilir bir şekilde sağlayabiliyor. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle IoT hub’larınıza cihaz sağlamayı öğrenin.'
 sections:
   - title: 5 Dakikalık Hızlı Başlangıçlar
     items:
@@ -34,7 +34,7 @@ sections:
   - title: Adım Adım Öğreticiler
     items:
       - type: paragraph
-        text: Tek veya birden çok IoT hub’ına otomatik olarak güvenliği etkinleştirilmiş cihazlar sağlamak için IoT Hub Cihaz Sağlama Hizmeti’ni (önizleme) kullanmayı öğrenin.
+        text: Tek veya birden çok IoT hub’ına otomatik olarak güvenliği etkinleştirilmiş cihazlar sağlamak için IoT Hub Cihaz Sağlama Hizmeti’ni kullanmayı öğrenin.
       - type: list
         style: ordered
         items:

@@ -172,8 +172,6 @@
           href: change-vm-size.md
         - name: Bir VM’yi etiketleme
           href: tag.md
-        - name: Cloud-init kullanma
-          href: using-cloud-init.md
         - name: Bir VM üzerinde betikleri çalıştırma
           href: extensions-customscript.md
         - name: Uzak Masaüstü kullanma
@@ -252,6 +250,22 @@
               href: terraform-install-configure.md
             - name: Tam VM oluşturma
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Cloud-init genel bakış
+              href: using-cloud-init.md
+            - name: VM konak adını yapılandırma
+              href: cloudinit-update-vm-hostname.md
+            - name: Bir VM içindeki güncelleştirme paketleri
+              href: cloudinit-update-vm.md
+            - name: VM’ye kullanıcı ekleme
+              href: cloudinit-add-user.md
+            - name: Takas dosyası yapılandırma
+              href: cloudinit-configure-swapfile.md
+            - name: Mevcut bash betiğini çalıştırma
+              href: cloudinit-bash-script.md
+            - name: Mevcut VM’yi cloud-init için hazırlama
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:
