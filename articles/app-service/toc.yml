@@ -13,8 +13,10 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: .NET uygulaması oluşturma
+    - name: .NET Core uygulaması oluşturma
       href: app-service-web-get-started-dotnet.md
+    - name: .NET Framework uygulaması oluşturma
+      href: app-service-web-get-started-dotnet-framework.md
     - name: Node.js uygulaması oluşturma
       href: app-service-web-get-started-nodejs.md
     - name: PHP uygulaması oluşturma

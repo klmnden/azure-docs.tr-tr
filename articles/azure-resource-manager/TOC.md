@@ -38,7 +38,7 @@
 #### [Kaynakları dağıtma](resource-group-template-deploy-portal.md)
 #### [Şablonu dışarı aktarma](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Çapraz kaynak grubu dağıtımı](resource-manager-cross-resource-group-deployment.md)
+### [Birden çok kaynak grubu veya abonelik](resource-manager-cross-resource-group-deployment.md)
 ### [Visual Studio Team Services ile sürekli tümleştirme](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Dağıtım sırasında güvenlik değerlerini geçirme](resource-manager-keyvault-parameter.md)
 

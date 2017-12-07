@@ -33,6 +33,14 @@
       href: how-to-search-for-address.md
 - name: Başvuru
   items:
+    - name: İşlevsel API - REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
+    - name: Yönetim API’si - REST
+      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
+    - name: Harita Denetimi API’si - Javascript
+      href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
+- name: Kaynaklar
+  items:
     - name: Azure IoT Geliştirici Merkezi
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure Yol Haritası

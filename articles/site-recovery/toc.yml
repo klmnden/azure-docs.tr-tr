@@ -135,13 +135,29 @@
         - name: Azure’a VMware çoğaltması için kapasite planlama
           href: site-recovery-plan-capacity-vmware.md
         - name: Azure’a VMware çoğaltması için Dağıtım Planlayıcısı aracı
-          href: site-recovery-deployment-planner.md
-        - name: Azure’a Hyper-V çoğaltması için kapasite planlama
-          href: site-recovery-capacity-planner.md
-        - name: Azure’a Hyper-V çoğaltması için Kapasite Planlama aracı
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+          href: null
+          items:
+            - name: Genel bakış ve ön koşullar
+              href: site-recovery-deployment-planner.md
+            - name: Dağıtım planlayıcısını çalıştırma
+              href: site-recovery-vmware-deployment-planner-run.md
+            - name: Oluşturulan raporu analiz etme
+              href: site-recovery-vmware-deployment-planner-analyze-report.md
+            - name: Olağanüstü durum kurtarma maliyet tahmini raporunu analiz etme
+              href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: VMware çoğaltması için işlem sunucularının ölçeğini genişletme
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Dağıtım planlama ve Azure’a Hyper-V çoğaltması aracı
+          href: null
+          items:
+            - name: Genel bakış ve ön koşullar
+              href: site-recovery-hyper-v-deployment-planner.md
+            - name: Dağıtım planlayıcısını çalıştırma
+              href: site-recovery-hyper-v-deployment-planner-run.md
+            - name: Oluşturulan raporu analiz etme
+              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+            - name: Olağanüstü durum kurtarma maliyet tahmini raporunu analiz etme
+              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Şirket içi siteler arasında Hyper-V çoğaltması için performans ölçek testleri
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Yapılandırma

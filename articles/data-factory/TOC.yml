@@ -34,7 +34,14 @@
     - name: 4 - Verileri toplu halde kopyalama
       href: tutorial-bulk-copy.md
     - name: 5 - Veri artımlı olarak kopyalama
-      href: tutorial-incremental-copy-powershell.md
+      href: tutorial-incremental-copy-overview.md
+      items:
+        - name: 5.1 - Bir tablodan kopyalama
+          href: tutorial-incremental-copy-powershell.md
+        - name: 5.2 - Birden çok tablodan kopyalama
+          href: tutorial-incremental-copy-multiple-tables-powershell.md
+        - name: 5.3 - Değişiklik izleme özelliğini kullanma
+          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Buluttaki verileri dönüştürme
       href: tutorial-transform-data-spark-powershell.md
     - name: 7 - Sanal ağdaki verileri dönüştürme
@@ -228,6 +235,16 @@
           href: create-azure-ssis-integration-runtime.md
         - name: Azure SSIS tümleştirmesi çalışma zamanını VNET’e bağlama
           href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Azure’da SSIS paketlerini çalıştırma
+      items:
+        - name: Azure-SSIS tümleştirmesi çalışma zamanı oluşturma
+          href: create-azure-ssis-integration-runtime.md
+        - name: Azure SSIS tümleştirmesi çalışma zamanını VNET’e bağlama
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure SSIS tümleştirmesi çalışma zamanını yönetme
+          href: manage-azure-ssis-integration-runtime.md
+        - name: Azure-SSIS tümleştirmesi çalışma zamanının performansını yapılandırma
+          href: configure-azure-ssis-integration-runtime-performance.md
 - name: Başvuru
   items:
     - name: .NET

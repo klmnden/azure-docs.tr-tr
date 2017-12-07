@@ -20,16 +20,19 @@
  
 ## Yönet
 ### [Azure PowerShell ile Yönetme](cdn-manage-powershell.md)
+### [Ülkeye göre erişimi kısıtlama](cdn-restrict-access-by-country.md)
+### [Dosyaları sıkıştırarak performansı geliştirme](cdn-improve-performance.md)
+### Önbelleğe alma davranışını denetleme
+#### [Önbelleğe alma nasıl işler?](cdn-how-caching-works.md)
+#### [Önbelleğe alma davranışını önbelleğe alma kurallarıyla denetleme](cdn-caching-rules.md)
+#### Sorgu dizesine göre içeriği önbelleğe alma
+##### [Standart katman](cdn-query-string.md)
+##### [Premium katman](cdn-query-string-premium.md)
+#### [Önbelleğe alınan varlıkları temizleme](cdn-purge-endpoint.md)
+#### [Önbelleğe alınan varlıkları önceden yükleme](cdn-preload-endpoint.md)
 ### Yaşam süresi yapılandırma
 #### [Azure web içeriği](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Azure Blob Depolama](cdn-manage-expiration-of-blob-content.md)
-### [Ülkeye göre erişimi kısıtlama](cdn-restrict-access-by-country.md)
-### [Dosyaları sıkıştırarak performansı geliştirme](cdn-improve-performance.md)
-### Sorgu dizesine göre içeriği önbelleğe alma
-#### [Standart katman](cdn-query-string.md)
-#### [Premium katman](cdn-query-string-premium.md)
-### [Önbelleğe alınan varlıkları temizleme](cdn-purge-endpoint.md)
-### [Önbelleğe alınan varlıkları önceden yükleme](cdn-preload-endpoint.md)
 ### [Belirteç kimlik doğrulaması](cdn-token-auth.md)
 ### [Kaynakları izleme](cdn-resource-health.md)
 ### [Davranışı kurallarla geçersiz kılma](cdn-rules-engine.md)
