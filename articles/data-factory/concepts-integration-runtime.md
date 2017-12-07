@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2017
+ms.date: 12/05/2017
 ms.author: shlo
-ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory'deki tümleştirme çalışma zamanı
 Integration Runtime (IR), Azure Data Factory tarafından farklı ağ ortamlarında aşağıdaki veri tümleştirme özelliklerini sunmak için kullanılan işlem altyapısıdır:
@@ -141,7 +141,7 @@ Amerika Birleşik Devletleri | Doğu ABD | Doğu ABD
 &nbsp; | Orta Güney ABD | Orta Güney ABD
 &nbsp; | Batı Orta ABD | Batı Orta ABD
 &nbsp; | Batı ABD | Batı ABD
-&nbsp; | Batı ABD 2 | Batı ABD
+&nbsp; | Batı ABD 2 | Batı ABD 2
 Kanada | Doğu Kanada | Orta Kanada
 &nbsp; | Orta Kanada | Orta Kanada
 Brezilya | Güney Brezilya | Güney Brezilya

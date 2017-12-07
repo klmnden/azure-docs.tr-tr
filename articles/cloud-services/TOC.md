@@ -41,7 +41,6 @@
 ### [Portalda bulut hizmeti oluşturma ve dağıtma](cloud-services-how-to-create-deploy-portal.md)
 ### [PowerShell’de boş bir bulut hizmeti kapsayıcısı oluşturma](cloud-services-powershell-create-cloud-container.md)
 ### [Özel bir etki alanı adı yapılandırma](cloud-services-custom-domain-name-portal.md)
-### [Bulut hizmeti dağıtımı hazırlama (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Özel bir Etki Alanı Denetleyicisi’ne bağlanma](cloud-services-connect-to-custom-domain.md)
 
 ## Hizmeti yönetme
