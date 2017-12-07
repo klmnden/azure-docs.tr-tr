@@ -1,7 +1,7 @@
 ---
-title: "Azure portalı bir Azure SQL data warehouse - oluşturma | Microsoft Docs"
-description: "Azure SQL Data Warehouse için Azure portalında bir SQL server, sunucu düzeyinde güvenlik duvarı kuralı ve bir veri ambarı oluşturun. Ardından sorgu."
-keywords: "SQL veri ambarı öğretici, bir SQL data warehouse oluşturma"
+title: "Azure SQL veri ambarı oluşturma - Azure Portal | Microsoft Docs"
+description: "Azure SQL Veri Ambarı için, bir SQL sunucusu, sunucu düzeyi güvenlik kuralı ve Azure portalında bir veri ambarı oluşturun. Ardından sorgulayın."
+keywords: "sql veri ambarı öğreticisi, SQL veri ambarı oluşturma"
 services: sql-database
 documentationcenter: 
 author: barbkess
@@ -15,74 +15,74 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/20/2017
 ms.author: barbkess
-ms.openlocfilehash: 3a3d077aeb705a996ea82fe7b5e390112712182b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: MT
+ms.openlocfilehash: 65c1344aa9d5a997e4917191978f5d12da5eb0db
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
 ---
-# <a name="create-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Azure portalında bir Azure SQL data warehouse oluşturma
+# <a name="create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Azure portalında Azure SQL veri ambarı oluşturma ve sorgulama
 
-Bu hızlı başlangıç Öğreticisi Azure SQL Data Warehouse hizmetini kullanarak bir veri ambarı oluşturur ve AdventureWorksDW örnek verilerle başlatır. Ardından, veri ambarı'na bağlanmak ve verileri bir sorgu çalıştırın. Öğretici kullanır [Azure portal](https://portal.azure.com) ve [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS)
+Azure portalını kullanarak hızla bir Azure SQL veri ambarı oluşturun ve sorgulayın.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu hızlı başlangıç başlamadan önce indirin ve en yeni sürümünü yüklemek [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+[SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md)’nun (SSMS) en yeni sürümünü indirin ve yükleyin.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-a-data-warehouse"></a>Veri ambarı oluşturma
 
-Bir Azure SQL veri ambarı tanımlanan bir dizi ile oluşturulan [işlem kaynaklarını](performance-tiers.md). Veritabanı içinde oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL mantıksal sunucusuna](../sql-database/sql-database-features.md). 
+Azure SQL veri ambarı bir dizi [işlem kaynağı](performance-tiers.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL mantıksal sunucusu](../sql-database/sql-database-features.md) içinde oluşturulur. 
 
-AdventureWorksDW örnek verileri içeren bir SQL data warehouse oluşturmak için aşağıdaki adımları izleyin. 
+AdventureWorksDW örnek verileri içeren bir SQL veri ambarı oluşturmak için bu adımları izleyin. 
 
-1. Tıklatın **yeni** Azure portalının sol üst köşesindeki düğmesi.
+1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
 
-2. Seçin **veritabanları** gelen **yeni** sayfasında ve seçin **SQL Data Warehouse** altında **öne çıkan** üzerinde **yeni**sayfası.
+2. **Yeni** sayfasından **Veritabanları**’nı seçin ve **Yeni** sayfasında **Öne Çıkan** altından **SQL Veri Ambarı**’nı seçin.
 
-    ![boş data warehouse oluşturma](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![boş veri ambarı oluşturma](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
-3. Aşağıdaki bilgiler ile SQL Data Warehouse formu doldurun:   
+3. SQL Veri Ambarı formunu aşağıdaki bilgilerle doldurun:   
 
     | Ayar | Önerilen değer | Açıklama | 
     | ------- | --------------- | ----------- | 
-    | **Veritabanı adı** | mySampleDataWarehouse | Geçerli veritabanı adları için bkz. [Veritabanı Tanımlayıcıları](/sql/relational-databases/databases/database-identifiers). Not: bir veri ambarı veritabanı türüdür.| 
+    | **Veritabanı adı** | mySampleDataWarehouse | Geçerli veritabanı adları için bkz. [Veritabanı Tanımlayıcıları](/sql/relational-databases/databases/database-identifiers). Veri ambarının bir veritabanı türü olduğuna dikkat edin.| 
     | **Abonelik** | Aboneliğiniz  | Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
     | **Kaynak grubu** | myResourceGroup | Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-    | **Kaynak seçin** | Örnek | Örnek veritabanını yüklemek için belirtir. Not, bir veri ambarı veritabanı türüdür. |
-    | **Örnek Seç** | AdventureWorksDW | AdventureWorksDW örnek veritabanını yüklemek için belirtir.  |
+    | **Kaynak seçme** | Örnek | Örnek bir veritabanı yüklemek için belirtir. Veri ambarının bir veritabanı türü olduğuna dikkat edin. |
+    | **Örnek seçme** | AdventureWorksDW | AdventureWorksDW örnek veritabanını yüklemeyi belirtir.  |
 
-    ![Data warehouse oluşturma](media/create-data-warehouse-portal/select-sample.png)
+    ![veri ambarı oluşturma](media/create-data-warehouse-portal/select-sample.png)
 
-4. Yeni veritabanınız için yeni bir sunucu oluşturup yapılandırmak üzere **Sunucu**’ya tıklayın. Doldurmak **yeni sunucu form** aşağıdaki bilgilerle: 
+4. Yeni veritabanınız için yeni bir sunucu oluşturup yapılandırmak üzere **Sunucu**’ya tıklayın. **Yeni sunucu formu**’nu aşağıdaki bilgilerle doldurun: 
 
     | Ayar | Önerilen değer | Açıklama | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | **Sunucu adı** | Genel olarak benzersiz bir ad | Geçerli sunucu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
     | **Sunucu yöneticisi oturum açma bilgileri** | Geçerli bir ad | Geçerli oturum açma adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-    | **Parola** | Geçerli bir parola | Parolanız en az sekiz karakter olmalıdır ve aşağıdaki kategoriden üçünden karakterler içermelidir: büyük harf karakterler, küçük harfler, sayılar ve alfasayısal olmayan karakter. |
+    | **Parola** | Geçerli bir parola | Parolanızda en az 8 karakter bulunmalı ve parolanız şu üç kategoriden karakterler içermelidir: büyük harf karakterler, küçük harf karakterler, sayılar ve alfasayısal olmayan karakterler. |
     | **Konum** | Geçerli bir konum | Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/). |
 
-    ![Veritabanı sunucusu oluşturma](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
+    ![veritabanı oluşturma](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
 5. **Seç**'e tıklayın.
 
-6. Tıklatın **performans katmanı** veri ambarı esneklik veya işlem için optimize edilmiştir ve sayısı, veri ambarı birimlerini olup olmadığını belirtmek için. 
+6. Veri ambarı için performans yapılandırmasını belirtmek üzere **Performans katmanı**’na tıklayın.
 
-7. Bu öğretici için seçin **esneklik için en iyi duruma getirilmiş** hizmet katmanı. Varsayılan olarak, kaydırıcıyı kümesine **DW400**.  Yukarı ve aşağı nasıl çalıştığını görmek için taşımayı deneyin. 
+7. Bu öğretici için, **Elastiklik için İyileştirilmiş** performans katmanını seçin. Kaydırıcı varsayılan olarak **DW400**’e ayarlanmıştır.  Nasıl çalıştığını görmek için yukarı ve aşağı taşımayı deneyin. 
 
-    ![Performans yapılandırın](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
+    ![performansı yapılandırma](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. **Uygula**'ya tıklayın.
 
 9. SQL Veritabanı formunu tamamladıktan sonra veritabanını sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer. 
 
-    ![Oluştur'u tıklatın](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
+    ![oluştur’a tıklayın](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
 10. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
     
@@ -90,23 +90,24 @@ AdventureWorksDW örnek verileri içeren bir SQL data warehouse oluşturmak içi
 
 ## <a name="create-a-server-level-firewall-rule"></a>Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
 
-SQL veri ambarı hizmeti, sunucu düzeyinde-dış uygulamaları ve araçları sunucu veya sunucu üzerindeki herhangi bir veritabanına bağlanma engelleyen bir güvenlik duvarı oluşturur. Bağlantıyı etkinleştirmek için belirli IP adresleri için bağlantıyı etkinleştirmek güvenlik duvarı kuralı ekleyebilirsiniz.  Oluşturmak için bu adımları bir [sunucu düzeyinde güvenlik duvarı kuralı](../sql-database/sql-database-firewall-configure.md) , istemcinin IP adresi için. 
+SQL Veri Ambarı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu üzerindeki herhangi bir veritabanına bağlanmasını engelleyen sunucu düzeyinde bir güvenlik duvarı kuralı oluşturur. Bağlantıyı etkinleştirmek için, belirli IP adresleri için bağlantıyı etkinleştiren güvenlik duvarı kuralları ekleyebilirsiniz.  İstemcinizin IP adresine yönelik bir [sunucu düzeyi güvenlik duvarı kuralı](../sql-database/sql-database-firewall-configure.md) oluşturmak için bu adımları izleyin. 
 
 > [!NOTE]
-> SQL veri ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Şirket ağı içinde bağlanması çalışıyorsanız, bağlantı noktası 1433 üzerinden giden trafik, ağınızın güvenlik duvarı tarafından izin verilmeyebilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
+> SQL Veri Ambarı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
 >
 
-1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınız için genel bakış sayfası açılır ve tam sunucu adını gösteren (gibi **mynewserver 20171113.database.windows.net**) ve diğer yapılandırmalar için seçenekler sağlar. 
+1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adı (örneğin, **mynewserver-20171113.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur. 
 
-2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. Ardından sunucu ayarları'nı açmak için sunucu adına tıklayın.
+2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. Sunucu ayarlarını açmak için sunucu adına tıklayın.
 
    ![sunucu adını bulma](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
 
-3. Sunucu Ayarları'nı açmak için sunucu adına tıklayın.
+3. Sunucu ayarlarını açmak için, 
+4. sunucu adına tıklayın.
 
-   ![Sunucu ayarları](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+   ![sunucu ayarları](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. Tıklatın **güvenlik duvarı ayarlarını göster**. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
+5. **Güvenlik duvarı ayarlarını göster**’e tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
 
    ![sunucu güvenlik duvarı kuralı](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
@@ -116,24 +117,24 @@ SQL veri ambarı hizmeti, sunucu düzeyinde-dış uygulamaları ve araçları su
 
 6. **Tamam**’a tıklayın ve sonra **Güvenlik duvarı ayarları** sayfasını kapatın.
 
-Şimdi, SQL server ve bu IP adresini kullanarak kendi veri ambarlarında bağlanabilirsiniz. Bağlantı, SQL Server Management Studio veya tercih ettiğiniz başka bir aracı çalışır. Bağlandığınızda, daha önce oluşturduğunuz ServerAdmin hesabı kullanın.  
+Şimdi bu IP adresini kullanarak SQL sunucusuna ve veri ambarlarına bağlanabilirsiniz. Bağlantı SQL Server Management Studio’dan veya seçtiğiniz diğer bir araçtan çalışır. Bağlandığınızda, daha önce oluşturduğunuz ServerAdmin hesabını kullanın.  
 
 > [!IMPORTANT]
-> Varsayılan olarak, SQL Veritabanı güvenlik duvarı üzerinden erişim tüm Azure hizmetleri için etkindir. Tıklatın **OFF** bu sayfa ve ardından **kaydetmek** tüm Azure Hizmetleri için Güvenlik Duvarı'nı devre dışı bırakmak için.
+> Varsayılan olarak, SQL Veritabanı güvenlik duvarı üzerinden erişim tüm Azure hizmetleri için etkindir. Tüm Azure hizmetleri için güvenlik duvarını kapatmak üzere bu sayfada **KAPALI**’ya ve ardından **Kaydet**’e tıklayın.
 
-## <a name="get-the-fully-qualified-server-name"></a>Tam sunucu adını Al
+## <a name="get-the-fully-qualified-server-name"></a>Tam sunucu adını alma
 
-Tam sunucu adını, SQL server için Azure portalında alın. Daha sonra tam adı sunucuya bağlanırken kullanacaksınız.
+SQL sunucunuzun tam sunucu adını Azure portalından alabilirsiniz. Daha sonra sunucuya bağlanırken tam adı kullanırsınız.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın. Bu örnekte, tam mynewserver 20171113.database.windows.net addır. 
+3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın. Bu örnekte, tam ad mynewserver-20171113.database.windows.net. 
 
     ![bağlantı bilgileri](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
-## <a name="connect-to-the-server-as-server-admin"></a>Sunucu Yöneticisi olarak sunucuya bağlanın
+## <a name="connect-to-the-server-as-server-admin"></a>Sunucu yöneticisi olarak sunucuya bağlanma
 
-Bu bölümde kullanan [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) Azure SQL sunucunuza bir bağlantı kurmak için (SSMS).
+Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) kullanılmaktadır.
 
 1. SQL Server Management Studio’yu açın.
 
@@ -142,8 +143,8 @@ Bu bölümde kullanan [SQL Server Management Studio](/sql/ssms/download-sql-serv
    | Ayar       | Önerilen değer | Açıklama | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Sunucu türü | Veritabanı altyapısı | Bu değer gereklidir |
-   | Sunucu adı | Tam sunucu adı | Adı, şunun gibi olmalıdır: **mynewserver 20171113.database.windows.net**. |
-   | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırdığımız tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
+   | Sunucu adı | Tam sunucu adı | Örnek: **mynewserver-20171113.database.windows.net**. |
+   | Kimlik Doğrulaması | SQL Server Kimlik Doğrulaması | Bu öğreticide yapılandırılan tek kimlik doğrulaması türü SQL Kimlik Doğrulamasıdır. |
    | Oturum Aç | Sunucu yöneticisi hesabı | Bu, sunucuyu oluştururken belirttiğiniz hesaptır. |
    | Parola | Sunucu yöneticisi hesabınızın parolası | Bu, sunucuyu oluştururken belirttiğiniz paroladır. |
 
@@ -151,65 +152,57 @@ Bu bölümde kullanan [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 4. **Bağlan**'a tıklayın. SSMS’te Nesne Gezgini penceresi açılır. 
 
-5. Nesne Gezgini'nde genişletin **veritabanları**. Ardından **mySampleDatabase** , yeni veritabanı nesneleri görüntülemek için.
+5. Nesne Gezgini’nde, **Veritabanları**’nı genişletin. Daha sonra yeni veritabanınızdaki nesneleri görüntülemek için **mySampleDatabase**’i genişletin.
 
-    ![Veritabanı nesneleri](media/create-data-warehouse-portal/connected.png) 
+    ![veritabanı nesneleri](media/create-data-warehouse-portal/connected.png) 
 
-## <a name="run-some-queries"></a>Bazı sorgular çalıştırın
+## <a name="run-some-queries"></a>Sorgular çalıştırma
 
-SQL veri ambarı T-SQL sorgu dili olarak kullanır. Bir sorgu penceresi açın ve bazı T-SQL sorgularını çalıştırmak için aşağıdaki adımları kullanın.
+SQL Veri Ambarı sorgu dili olarak T-SQL kullanır. Bir sorgu penceresi açıp T-SQL sorguları çalıştırmak için, aşağıdaki adımları kullanın:
 
-1. Sağ **mySampleDataWarehouse** seçip **yeni sorgu**.  Yeni bir sorgu penceresi açılır.
+1. **mySampleDataWarehouse**’a sağ tıklayıp **Yeni Sorgu**’yu seçin.  Yeni bir sorgu penceresi açılır.
 2. Sorgu penceresinde, veritabanlarının listesini görmek için aşağıdaki komutu girin.
 
     ```sql
     SELECT * FROM sys.databases
     ```
 
-3. **Yürüt**’e tıklayın.  İki veritabanı sorgusu sonuçlarını gösterir: **ana** ve **mySampleDataWarehouse**.
+3. **Yürüt**’e tıklayın.  Sorgu sonuçları iki veritabanı gösterir: **master** ve **mySampleDataWarehouse**.
 
     ![Sorgu veritabanları](media/create-data-warehouse-portal/query-databases.png)
 
-4. Bazı veri aramak için üç alt evde sahip Adams, son adı ile müşteriler sayısını görmek için aşağıdaki komutu kullanın. Sonuçlar altı müşteriler listeler. 
+4. Verilere bakmak için, Adams soyadına sahip ve üç çocuğu olan müşteri sayısını görmek için aşağıdaki komutu kullanın. Sonuçlarda altı müşteri listelenir. 
 
     ```sql
     SELECT LastName, FirstName FROM dbo.dimCustomer
     WHERE LastName = 'Adams' AND NumberChildrenAtHome = 3;
     ```
 
-    ![Sorgu dbo.dimCustomer](media/create-data-warehouse-portal/query-customer.png)
+    ![dbo.dimCustomer’ı sorgulama](media/create-data-warehouse-portal/query-customer.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-İşlem kaynakları ve veri ambarına yüklenen veriler için ücretlendirilirsiniz. Bunlar ayrı ayrı faturalandırılır. 
+Veri ambarı birimleri ve veri ambarınızda depolanan veriler için ücretlendirilirsiniz. Bu işlem ve depolama alanı kaynakları ayrı ayrı faturalandırılır. 
 
-- Veri deposunda tutmak istiyorsanız, veri ambarı kullanmadığınızda işlem duraklatabilirsiniz. Göre işlem duraklatma ücret veri depolama için yalnızca olacaktır ve verilerle çalışmak hazır olduğunda işlem devam edebilirsiniz.
-- Gelecekteki ücretleri kaldırmak istiyorsanız, veri ambarı silebilirsiniz. 
+- Verileri depoda tutmak istiyorsanız, veri ambarını kullanmadığınız zamanlarda işlemi duraklatabilirsiniz. İşlemi duraklatarak, yalnızca veri depolama için ücretlendirilirsiniz. Verilerle çalışmak için hazır olduğunuzda işlemi sürdürebilirsiniz.
+- Gelecekteki ücretlendirmeleri kaldırmak istiyorsanız, veri ambarını silebilirsiniz. 
 
-İstediğiniz kaynakları temizlemek için aşağıdaki adımları izleyin.
+Kaynakları istediğiniz gibi temizlemek için bu adımları izleyin.
 
-1. Oturum açma [Azure portal](https://portal.azure.com), veri Ambarınızı'ı tıklatın.
+1. [Azure portalında](https://portal.azure.com) oturum açıp veri ambarınıza tıklayın.
 
     ![Kaynakları temizleme](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. İşlem duraklatmak için tıklatın **duraklatma** düğmesi. Veri ambarı duraklatıldığında göreceğiniz bir **Başlat** düğmesi.  İşlem devam etmek için tıklatın **Başlat**.
+1. İşlemi duraklatmak için, **Duraklat** düğmesine tıklayın. Veri ambarı duraklatıldığında, bir **Başlat** düğmesi görürsünüz.  İşlemi sürdürmek için **Başlat**’a tıklayın.
 
-2. Veri ambarı, işlem ya da depolama için sizden ücret olmaz şekilde kaldırmak için tıklatın **silmek**.
+2. İşlem veya depolama için ücretlendirilmemek üzere veri ambarını kaldırmak için **Sil**’e tıklayın.
 
-3. Oluşturduğunuz SQL server kaldırmak için tıklatın **mynewserver 20171113.database.windows.net** önceki görüntü ve ardından **silmek**.  Bu dikkatli olun sunucuyu silmek sunucuya atanmış tüm veritabanlarını silecek.
+3. Oluşturduğunuz SQL sunucusunu kaldırmak için, önceki görüntüdeki **mynewserver-20171113.database.windows.net** öğesine tıklayıp **Sil**’e tıklayın.  Sunucuyu silmek sunucuyla ilişkili tüm veritabanlarını da sileceğinden bu silme işlemini gerçekleştirirken dikkatli olun.
 
-4. Kaynak grubu kaldırmak için tıklatın **myResourceGroup**ve ardından **kaynak grubu Sil**.
+4. Kaynak grubunu kaldırmak için, **myResourceGroup**’a tıklayıp daha sonra **Kaynak grubunu sil**’e tıklayın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Artık bir veritabanınız olduğuna göre, sık kullandığınız araçlarla bağlanabilir ve sorgulayabilirsiniz. Aşağıdan aracınızı seçerek daha fazla bilgi edinin:
-
-- [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Visual Studio Code](../sql-database/sql-database-connect-query-vscode.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [.NET](../sql-database/sql-database-connect-query-dotnet.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [PHP](../sql-database/sql-database-connect-query-php.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Node.js](../sql-database/sql-database-connect-query-nodejs.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Java](../sql-database/sql-database-connect-query-java.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Python](../sql-database/sql-database-connect-query-python.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
-- [Ruby](../sql-database/sql-database-connect-query-ruby.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+Şimdi bir veri ambarı oluşturdunuz, bir güvenlik duvarı kuralı oluşturdunuz, veri ambarınıza bağlandınız ve birkaç sorgu çalıştırdınız. Azure SQL Veri Ambarı hakkında daha fazla bilgi edinmek için, veri yükleme öğreticisiyle devam edin.
+> [!div class="nextstepaction"]
+>[SQL veri ambarına veri yükleme](load-data-from-azure-blob-storage-using-polybase.md)

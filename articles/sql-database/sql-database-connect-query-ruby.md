@@ -13,13 +13,13 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 07/14/2017
+ms.date: 07/15/2017
 ms.author: carlrab
-ms.openlocfilehash: b7617d8f4cfe09052204182b40f6e5f7d46087b8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 3427d216540451bc10b968f866d0fce0f6df3c54
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>Ruby kullanarak Azure SQL veritabanı sorgulama
 
@@ -29,28 +29,17 @@ Bu hızlı başlangıç öğreticisi, [Ruby](https://www.ruby-lang.org) kullanar
 
 Bu hızlı başlangıç öğreticisini tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
-- Bir Azure SQL veritabanı. Bu hızlı başlangıçta, aşağıdaki hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır: 
-
-   - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
-   - [DB oluşturma - CLI](sql-database-get-started-cli.md)
-   - [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
-- İşletim sisteminiz için Ruby ve ilgili yazılımları yüklediniz.
+
+- İşletim sisteminiz için Ruby ve ilgili yazılımları yüklediniz:
     - **MacOS**: Homebrew'i, rbenv ve ruby-build'i, Ruby'yi ve sonra da FreeTDS'yi yükleyin. Bkz: [1.2, 1.3, 1.4 ve 1.5 adımları](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
     - **Ubuntu**: Ruby'nin önkoşullarını yükleyin, rbenv ve ruby-build'i, Ruby'yi ve sonra da FreeTDS'yi yükleyin. Bkz: [1.2, 1.3, 1.4 ve 1.5 adımları](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
 
 ## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
 
-Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
-
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın **Genel Bakış** sayfasında, tam sunucu adını gözden geçirin. Aşağıdaki resimde gösterildiği gibi, sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz:
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Azure SQL Veritabanı sunucunuzun oturum açma bilgilerini unuttuysanız, SQL Veritabanı sunucu sayfasına giderek sunucu yöneticisi adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
 > Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayar kullanıyorsanız veya farklı bir genel IP adresiniz varsa [Azure portal kullanarak bir sunucu düzeyi güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) oluşturun. 

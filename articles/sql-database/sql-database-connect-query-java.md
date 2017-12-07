@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 07/10/2017
+ms.date: 07/11/2017
 ms.author: andrela
-ms.openlocfilehash: cb1c387628a79ddfada0786c8c6422b6671a2c19
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 994705b0a9c7ca850c357a5810f1edb1618098d6
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>Java kullanarak Azure SQL veritabanı sorgulama
 
@@ -29,15 +29,11 @@ Bu hızlı başlangıçta [Java](https://docs.microsoft.com/sql/connect/jdbc/mic
 
 Bu hızlı başlangıç öğreticisini tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
-- Bir Azure SQL veritabanı. Bu hızlı başlangıçta, aşağıdaki hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır: 
-
-   - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
-   - [DB oluşturma - CLI](sql-database-get-started-cli.md)
-   - [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
 
-- İşletim sisteminiz için Java ve ilgili yazılımları yüklediniz.
+- İşletim sisteminiz için Java ve ilgili yazılımları yüklediniz:
 
     - **MacOS**: Homebrew ve Java’yı ve ardından Maven’i yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
     - **Ubuntu**: Java Development Kit’i ve Maven’i yükleyin. Bkz: [1.2, 1.3 ve 1.4 adımları](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
@@ -45,15 +41,7 @@ Bu hızlı başlangıç öğreticisini tamamlamak için aşağıdaki önkoşulla
 
 ## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
 
-Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
-
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz.  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Sunucunuzun oturum açma bilgilerini unuttuysanız SQL Veritabanı sunucusunun sayfasına giderek sunucu yöneticisi adını görüntüleyin.  Gerekirse parolayı sıfırlayın.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 ## <a name="create-maven-project-and-dependencies"></a>**Maven projesi ve bağımlılıklarını oluşturma**
 1. Terminalde **sqltest** adlı yeni bir Maven projesi oluşturun. 

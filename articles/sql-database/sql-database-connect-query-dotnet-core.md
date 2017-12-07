@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 6eb026b5f478769f680e3899a7c743546c2c9d88
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: 1d2a22500c322a63b134e29e5f7509df271eafb9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>.NET Core (C#) kullanarak Azure SQL veritabanı sorgulama
 
@@ -29,30 +29,21 @@ Bu hızlı başlangıç öğreticisi, Windows/Linux/macOS’ta [.NET Core](https
 
 Bu hızlı başlangıç öğreticisini tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
 
-- Bir Azure SQL veritabanı. Bu hızlı başlangıçta, aşağıdaki hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır: 
-
-   - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
-   - [DB oluşturma - CLI](sql-database-get-started-cli.md)
-   - [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+
 - [İşletim sisteminiz için .NET Core](https://www.microsoft.com/net/core) yüklediniz. 
 
 ## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
 
-Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz. 
+#### <a name="for-adonet"></a>ADO.NET için
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. **Veritabanı bağlantı dizelerini göster**’e tıklayarak devam edin.
 
-4. Azure SQL Veritabanı sunucunuzun oturum açma bilgilerini unuttuysanız, SQL Veritabanı sunucu sayfasına giderek sunucu yöneticisi adını görüntüleyin. Gerekirse parolayı sıfırlayabilirsiniz.
-
-5. **Veritabanı bağlantı dizelerini göster**’e tıklayın.
-
-6. Tam **ADO.NET** bağlantı dizesini gözden geçirin.
+2. Tam **ADO.NET** bağlantı dizesini gözden geçirin.
 
     ![ADO.NET bağlantı dizesi](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 

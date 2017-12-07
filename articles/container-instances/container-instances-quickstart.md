@@ -1,30 +1,23 @@
 ---
-title: "Hızlı Başlangıç - ilk Azure kapsayıcı örnekleri kapsayıcı oluşturma"
+title: "Hızlı Başlangıç - İlk Azure Container Instances kapsayıcınızı oluşturma"
 description: "Azure Container Instances’ı dağıtma ve kullanmaya başlama"
 services: container-instances
-documentationcenter: 
 author: seanmck
 manager: timlt
 editor: mmacy
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2017
+ms.date: 11/29/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 160ba84d2c022ca3af2eb13a9689a282b4a6b198
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.openlocfilehash: f6c809698bed4f91a7121c4515b4375b3cad6d70
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances’da ilk kapsayıcınızı oluşturma
-Azure kapsayıcı örnekleri oluşturmak ve sanal makineler sağlamak veya bir üst düzey hizmet benimsemeyi zorunda kalmadan, azure'da Docker kapsayıcıları yönetmek kolay hale getirir. Bu hızlı başlangıç bir kapsayıcı oluşturmak ve genel bir IP adresi ile Internet'e kullanıma. Bu işlem tek bir komutla tamamlanır. Yalnızca birkaç saniye içinde bu tarayıcınızda görürsünüz:
+Azure Container Instances, sanal makine sağlamak veya daha yüksek düzey bir hizmet benimsemek zorunda kalmadan Azure’da Docker kapsayıcıları oluşturmayı ve yönetmeyi kolaylaştırır. Bu hızlı başlangıç içeriğinde, bir kapsayıcı oluşturacak ve bu kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunacaksınız. Bu işlem tek bir komutla tamamlanır. Yalnızca birkaç saniye içinde tarayıcınızda şunu görürsünüz:
 
 ![Azure Container Instances kullanılarak dağıtılmış uygulama tarayıcıda görüntüleniyor][aci-app-browser]
 
@@ -32,13 +25,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Bu hızlı başlangıç tamamlamak için Azure bulut Kabuğu'nu veya Azure CLI yerel yüklemesi'ni kullanabilirsiniz. Azure CLI Sürüm 2.0.21 çalıştırıyorsanız bu hızlı başlangıç yükleyip CLI yerel olarak kullanmak seçerseniz, gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+Bu hızlı başlangıcı tamamlamak için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz. CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.21 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Azure Container Instances örnekleri Azure kaynaklarıdır ve Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir koleksiyon olan Azure kaynak gruplarına yerleştirilmelidir.
 
-Bir kaynak grubu ile oluşturmak [az grubu oluşturma] [ az-group-create] komutu.
+[az group create][az-group-create] komutuyla bir kaynak grubu oluşturun.
 
 Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
@@ -48,13 +41,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-Bir ad, bir Docker görüntüsü ve bir Azure kaynak grubu sağlayarak bir kapsayıcı oluşturabilirsiniz [az kapsayıcı oluşturmak] [ az-container-create] komutu. İsteğe bağlı olarak, kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunabilirsiniz. Bu hızlı başlangıç yazılmış küçük bir web uygulamasını barındıran bir kapsayıcıyı dağıtmak [Node.js](http://nodejs.org).
+[az container create][az-container-create] komutuna bir ad, Docker görüntüsü ve bir Azure kaynak grubu sağlayarak kapsayıcı oluşturabilirsiniz. İsteğe bağlı olarak, kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunabilirsiniz. Bu hızlı başlangıçta, [Node.js](http://nodejs.org) içinde yazılan küçük bir web uygulamasını barındıran bir kapsayıcı dağıtırsınız.
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public --ports 80
 ```
 
-Birkaç saniye içinde isteğinize yanıt almanız gerekir. Başlangıçta, içinde kapsayıcıdır **oluşturma** durumu, ancak bu işlem birkaç saniye içinde başlamalıdır. Durum kullanarak denetleyebilirsiniz [az kapsayıcı Göster] [ az-container-show] komutu:
+Birkaç saniye içinde isteğinize yanıt almanız gerekir. Kapsayıcı başlangıçta **Oluşturuluyor** durumunda olacaktır ancak birkaç saniye içinde başlar. Durumu [az container show][az-container-show] komutunu kullanarak denetleyebilirsiniz:
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -78,13 +71,13 @@ az container show --name mycontainer --resource-group myResourceGroup
 ...
 ```
 
-Kapsayıcı taşır sonra **başarılı** durumunda, ulaşana, sağlanan IP adresi kullanarak tarayıcınızda.
+Kapsayıcı **Başarılı** durumuna geçtiğinde, sağlanan IP adresini kullanarak tarayıcınızdan kapsayıcıya ulaşabilirsiniz.
 
 ![Azure Container Instances kullanılarak dağıtılmış uygulama tarayıcıda görüntüleniyor][aci-app-browser]
 
 ## <a name="pull-the-container-logs"></a>Kapsayıcı günlüklerini çekme
 
-Günlükleri kullanarak oluşturduğunuz kapsayıcısı için çekme [az kapsayıcı günlükleri] [ az-container-logs] komutu:
+Oluşturduğunuz kapsayıcı için günlükleri [az container logs][az-container-logs] komutunu kullanarak çekebilirsiniz:
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -93,36 +86,35 @@ az container logs --name mycontainer --resource-group myResourceGroup
 Çıktı:
 
 ```bash
-Server running...
-10.240.255.107 - - [20/Nov/2017:19:16:28 +0000] "GET / HTTP/1.1" 200 1663 "" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
-10.240.255.107 - - [20/Nov/2017:19:16:28 +0000] "GET / HTTP/1.1" 200 1663
-10.240.255.107 - - [20/Nov/2017:19:16:28 +0000] "GET /favicon.ico HTTP/1.1" 404 19
+listening on port 80
+::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
+::ffff:10.240.255.107 - - [29/Nov/2017:20:48:50 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://52.224.178.107/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36"
 ```
 
 ## <a name="delete-the-container"></a>Kapsayıcıyı silme
 
-Kapsayıcıyla bittiğinde kullanarak kaldırabilirsiniz [az kapsayıcı delete] [ az-container-delete] komutu:
+Kapsayıcıyla işiniz bittiğinde [az container delete][az-container-delete] komutunu kullanarak kapsayıcıyı kaldırabilirsiniz:
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
 ```
 
-Kapsayıcı silinip silinmediğini doğrulamak için yürütme [az kapsayıcı listesi](/cli/azure/container#az_container_list) komutu:
+Kapsayıcının silindiğini doğrulamak için, [az container list](/cli/azure/container#az_container_list) komutunu yürütün:
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup -o table
 ```
 
-**Mycontainer** kapsayıcı değil komutunun çıktısını görünmelidir. Kaynak grubunu başka bir kapsayıcıları varsa, hiçbir çıktısı görüntülenir.
+**mycontainer** kapsayıcısı komut çıkışında görünmemelidir. Kaynak grubunda başka kapsayıcınız yoksa, çıkış görüntülenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç içinde kullanılan kapsayıcı kodunu tümünün kullanılabilir [github'da][app-github-repo], kendi Dockerfile yanı sıra. Kapsayıcıyı kendiniz oluşturup Azure Container Registry’yi kullanarak Azure Container Instances’a dağıtmayı denemek istiyorsanız Azure Container Instances öğreticisine geçin.
+Bu hızlı başlangıç bölümünde kullanılan kapsayıcısı için tüm kodlar [GitHub'da][app-github-repo], ilgili Dockerfile ile birlikte bulunur. Kapsayıcıyı kendiniz oluşturup Azure Container Registry’yi kullanarak Azure Container Instances’a dağıtmayı denemek istiyorsanız Azure Container Instances öğreticisine geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances öğreticileri](./container-instances-tutorial-prepare-app.md)
 
-Azure üzerinde bir orchestration sistemde çalışan kapsayıcılar seçeneklerini denemek için bkz: [Service Fabric] [ service-fabric] veya [Azure kapsayıcı hizmeti (AKS)] [ container-service] quickstarts.
+Kapsayıcıları Azure’da bir düzenleme sistemi içinde çalıştırma seçenekleri için, [Service Fabric][service-fabric] veya [Azure Container Service (AKS)][container-service] hızlı başlangıçlarına bakın.
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

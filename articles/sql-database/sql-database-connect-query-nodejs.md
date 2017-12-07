@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 07/06/2017
 ms.author: carlrab
-ms.openlocfilehash: a0b716fa37b4f8071bc1b8260fa73e807e37f78d
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: fc7bc80e332afeb284f9e71609d1d02b8193b6f7
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>Node.js kullanarak Azure SQL veritabanı sorgulama
 
@@ -29,29 +29,18 @@ Bu hızlı başlangıç öğreticisi, [Node.js](https://nodejs.org/en/) kullanar
 
 Bu hızlı başlangıç öğreticisini tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
 
-- Bir Azure SQL veritabanı. Bu hızlı başlangıçta, aşağıdaki hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır: 
-
-   - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
-   - [DB oluşturma - CLI](sql-database-get-started-cli.md)
-   - [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 - Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
-- İşletim sisteminiz için Node.js ve ilgili yazılımları yüklediniz.
+
+- İşletim sisteminiz için Node.js ve ilgili yazılımları yüklediniz:
     - **MacOS**: Homebrew ve Node.js yükleyin ve ardından ODBC sürücüsü ile SQLCMD’yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
     - **Ubuntu**: Node.js yükleyin ve ardından ODBC sürücüsü ile SQLCMD’yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
     - **Windows**: Chocolatey ve Node.js yükleyin ve ardından ODBC sürücüsünü ve SQL CMD’yi yükleyin. Bkz: [1.2 ve 1.3 adımları](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 
 ## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
 
-Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
-
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz. 
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Azure SQL Veritabanı sunucunuzun oturum açma bilgilerini unuttuysanız, SQL Veritabanı sunucu sayfasına giderek sunucu yöneticisi adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
 > Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayar kullanıyorsanız veya farklı bir genel IP adresiniz varsa [Azure portal kullanarak bir sunucu düzeyi güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) oluşturun. 
@@ -144,5 +133,4 @@ Komut istemini açın ve *sqltest* adlı bir klasör oluşturun. Oluşturduğunu
 - [SSMS kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database.md) veya [.NET kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database-csharp.md) öğrenin.
 - [SSMS ile bağlanma ve sorgulamayı](sql-database-connect-query-ssms.md) öğrenin
 - [Visual Studio Code ile bağlanma ve sorgulamayı](sql-database-connect-query-vscode.md) öğrenin.
-
 

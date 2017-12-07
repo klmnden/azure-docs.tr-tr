@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure kapsayıcı hizmeti (AKS) Küme yükseltme | Microsoft Docs"
-description: "Bir Azure kapsayıcı hizmeti (AKS) Küme yükseltme"
+title: "Azure Container Service (AKS) kümesini yükseltme | Microsoft Docs"
+description: "Azure Container Service (AKS) kümesini karşıya yükleme"
 services: container-service
 documentationcenter: 
 author: gabrtv
@@ -17,19 +17,19 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 15e3e96587962ef9cc531e1825f37b92d26928fd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.openlocfilehash: bff0a69d3dac076333de569b2c29af2887e4e1de
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Bir Azure kapsayıcı hizmeti (AKS) Küme yükseltme
+# <a name="upgrade-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini karşıya yükleme
 
-Azure kapsayıcı hizmeti (AKS) Kubernetes kümeleri yükseltme de dahil olmak üzere genel yönetim görevlerini gerçekleştirmek kolaylaştırır.
+Azure Container Service (AKS), Kubernetes kümelerini yükseltme dahil ortak yönetim görevlerini gerçekleştirmeyi kolaylaştırır.
 
 ## <a name="upgrade-an-aks-cluster"></a>AKS kümesini yükseltme
 
-Bir küme yükseltmeden önce kullanın `az aks get-versions` hangi Kubernetes güncelleştirmeleri denetlemek için komutu yükseltme için kullanılabilir.
+Bir kümeyi yükseltmeden önce, `az aks get-versions` komutunu kullanarak hangi Kubernetes sürümlerinin yükseltme için kullanılabilir olduğunu öğrenin.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
@@ -43,7 +43,7 @@ Name     ResourceGroup    MasterVersion    MasterUpgrades       NodePoolVersion 
 default  myResourceGroup  1.7.7            1.8.2, 1.7.9, 1.8.1  1.7.7               1.8.2, 1.7.9, 1.8.1
 ```
 
-Yükseltme için kullanılabilir üç sürümlerini sunuyoruz: 1.7.9, 1.8.1 ve 1.8.2. Biz kullanabilirsiniz `az aks upgrade` kullanılabilir en son sürüme yükseltmek için komutu.  Yükseltme işlemi sırasında düğüm dikkatle olduğundan [cordoned ve boşaltmış](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) çalışan uygulamalar engellemeyi en aza indirmek için.
+Yükseltme için üç sürüm bulunur: 1.7.9, 1.8.1 ve 1.8.2. Kullanılabilir en son sürüme yükseltmek için `az aks upgrade` komutunu kullanabiliriz.  Yükseltme işlemi sırasında, çalışan uygulamaların kesintiye uğramasını azaltmak için düğümler dikkatli bir şekilde [kordonlanır ve boşaltılır](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/).  Bir küme yükseltmesi başlatmadan önce, küme düğümleri eklenip kaldırılırken iş yükünüzü kaldırabilecek yeterli ek işlem kapasitesinin olduğundan emin olun.
 
 ```azurecli-interactive
 az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
@@ -105,7 +105,7 @@ az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes
 }
 ```
 
-Şimdi onaylayabilirsiniz ile yükseltme başarılı `az aks show` komutu.
+Artık `az aks show` komutuyla yükseltmenin başarılı olup olmadığını doğrulayabilirsiniz.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
@@ -121,7 +121,7 @@ myK8sCluster  eastus     myResourceGroup  1.8.2                Succeeded        
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Dağıtma ve AKS AKS öğreticileri ile yönetme hakkında daha fazla bilgi edinin.
+AKS öğreticileri ile AKS dağıtma ve yönetme hakkında daha fazla bilgi edinin.
 
 > [!div class="nextstepaction"]
 > [AKS Öğreticisi](./tutorial-kubernetes-prepare-app.md)
