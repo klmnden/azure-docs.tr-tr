@@ -8,15 +8,7 @@ Genel amaçlı VM boyutları dengeli CPU bellek oranı sağlar. Test ve gelişti
 
 - Temel katman boyutları genelde geliştirme iş yükleri ve yük dengeleme, otomatik ölçeklendirme veya bellek kullanımı yoğun sanal makineler gerektirmeyen diğer uygulamalar içindir. Üretim uygulamaları için daha uygun VM boyutları hakkında daha fazla bilgi için bkz. (Sanal makine boyutları)[virtual-machines-size-specs.md] ve VM fiyatlandırma bilgileri için bkz. [Sanal Makine Fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="b-series-preview"></a>B-serisi (Önizleme)
-
-> [!NOTE] 
-> Kullanım koşullarını kabul ediyorum koşuluyla önizlemeleri için kullanılabilir hale getirilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Bu önizleme aşağıdaki bölgeler için sınırlı olacaktır:
-> - ABD - Batı 2
-> - ABD - Doğu
-> - Europe - Batı
-> - Asya Pasifik - Southeast
+## <a name="b-series"></a>B serisi
 
 B-serisi burstable VM'ler CPU tam performansını sürekli olarak, web sunucuları gibi küçük veritabanları ve geliştirme gerekir ve ortamlarında test iş yükleri için idealdir. Bu iş yükleri genellikle burstable performans gereksinimleri vardır. B-serisi bu müşterilerin VM boyutu VM'i temel performansını sayısından az kullanırken kredilerinizin tamamını oluşturmak VM örneğine izin veren bir fiyat conscience temel performans satın almanıza olanak sağlar. VM kredi birikmiş, VM uygulamanız daha yüksek CPU performans gerektirdiğinde % 100 CPU kullanarak VM'ın temel veri bloğu.
 
@@ -31,7 +23,7 @@ B-serisi burstable VM'ler CPU tam performansını sürekli olarak, web sunucular
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3 serisi
+## <a name="dsv3-series"></a>Dsv3-serisi *
 
 ACU: 160-190
 
@@ -46,9 +38,9 @@ Dsv3 serisi boyutları, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi 
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25.600/384                              | 8/yüksek                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51.200/768                              | 8 / çok yüksek                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8 / çok yüksek                                       |
+* Dsv3-serisi VM'in Intel® Hyper-Threading Teknolojisi özelliği
 
-
-## <a name="dv3-series"></a>Dv3 serisi
+## <a name="dv3-series"></a>Dv3-serisi * 
 
 ACU: 160-190
 
@@ -65,7 +57,7 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8/yüksek                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / çok yüksek                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / çok yüksek                     |
-
+* Dv3-serisi VM'in Intel® Hyper-Threading Teknolojisi özelliği
 
 ## <a name="dsv2-series"></a>DSv2 serisi
 
