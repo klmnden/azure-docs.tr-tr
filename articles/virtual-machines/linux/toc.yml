@@ -164,6 +164,8 @@
       items:
         - name: VM’ler için önceden ödeme yapma - Ayrılmış Örnekler
           href: prepay-reserved-vm-instances.md
+        - name: VM Kullanımı
+          href: vm-usage.md
         - name: Ortak CLI görevleri
           href: cli-manage.md
         - name: Bir VM'yi taşıma

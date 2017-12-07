@@ -41,13 +41,14 @@
 
 ## Çözümleme
 ### [Azure DN kullanım biçimlerini çözümleme](cdn-log-analysis.md)
-#### [Verizon'dan alınan çekirdek raporlar](cdn-analyze-usage-patterns.md)
-#### [Verizon özel raporları](cdn-verizon-custom-reports.md)
 #### [Azure tanılama günlükleri](cdn-azure-diagnostic-logs.md)
-### Verizon'dan alınan Azure CDN için Analytics araçları
-#### [Gelişmiş HTTP raporları oluşturma](cdn-advanced-http-reports.md)
-#### [Gerçek zamanlı istatistikleri görüntüleme](cdn-real-time-stats.md)
-#### [Kenar düğümü performansını çözümleme](cdn-edge-performance.md)
+#### Verizon'dan alınan Azure CDN için Analytics araçları
+##### [Verizon'dan alınan çekirdek raporlar](cdn-analyze-usage-patterns.md)
+##### [Verizon özel raporları](cdn-verizon-custom-reports.md)
+#### Verizon'dan alınan Azure CDN Premium için Analytics araçları
+##### [Gelişmiş HTTP raporları oluşturma](cdn-advanced-http-reports.md)
+##### [Gerçek zamanlı istatistikleri görüntüleme](cdn-real-time-stats.md)
+##### [Kenar düğümü performansını çözümleme](cdn-edge-performance.md)
 
 ## Geliştirme
 ### [.NET](cdn-app-dev-net.md)

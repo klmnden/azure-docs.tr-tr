@@ -1,9 +1,9 @@
 ---
-title: "Azure hızlı başlangıç - aktarımı nesneleri/Azure CLI kullanarak Azure Blob depolama biriminden | Microsoft Docs"
-description: "Azure CLI kullanarak Azure Blob storage/gruptan nesneleri aktarmak hızlı bir şekilde öğrenin"
+title: "Azure Hızlı Başlangıç - Azure CLI kullanarak nesneleri Azure Blob depolama içine/dışına aktarma | Microsoft Docs"
+description: "Hızlı bir şekilde Azure CLI kullanarak nesneleri Azure Blob depolama içine/dışına aktarmayı öğrenin"
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
-ms.author: marsma
-ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Aktarım nesneleri/Azure CLI kullanarak Azure Blob depolama biriminden
+# <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Azure CLI kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
 
-Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Karşıya yükleme ve verileri için ve Azure Blob depolama biriminden indirmek için Azure CLI kullanarak bu hızlı başlangıç ayrıntıları.
+Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıç Azure Blob depolamaya veri yüklemek ve verileri indirmek için Azure CLI kullanma hakkında ayrıntılı bilgiler sağlar.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -35,7 +35,7 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-BLOB'ları bir kapsayıcıya her zaman yüklenir. Kapsayıcılar, bilgisayarınızda dosyaları dizinlerde düzenlemek gibi gruplar BLOB düzenlemek izin verir.
+Bloblar her zaman bir kapsayıcıya yüklenir. Kapsayıcılar, blob gruplarını bilgisayarınızdaki dosyaları dizinler halinde düzenlediğiniz gibi düzenleyebilmenizi sağlar.
 
 [az storage container create](/cli/azure/storage/container#create) komutunu kullanarak blobları depolamak için bir kapsayıcı oluşturun.
 
@@ -43,11 +43,11 @@ BLOB'ları bir kapsayıcıya her zaman yüklenir. Kapsayıcılar, bilgisayarın�
 az storage container create --name mystoragecontainer
 ```
 
-## <a name="upload-a-blob"></a>Bir blob karşıya yükleme
+## <a name="upload-a-blob"></a>Blobu karşıya yükleme
 
-Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. BLOB storage'da depolanan dosyaların çoğu blok blobları depolanır. Ekleme blobları, varolan değiştirme içeriği olmadan, ayarlamayı günlük veri varolan bir blob eklenmelidir olduğunda kullanılır. Sayfa blobları IaaS sanal makinelerinin VHD dosyalarını yedekler.
+Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blob depolamada depolanan çoğu dosya blok blobu olarak depolanır. Ekleme blobları, verilerin mevcut içeriği değiştirmeden mevcut bir bloba eklenmesi gerektiğinde (örneğin günlüğe kaydetme için) kullanılır. Sayfa blobları IaaS sanal makinelerinin VHD dosyalarını yedekler.
 
-Bu örnekte, biz blob ile son adımda oluşturduğumuz kapsayıcı karşıya [az depolama blob karşıya yükleme](/cli/azure/storage/blob#upload) komutu.
+Bu örnekte, son adımda [az storage blob upload](/cli/azure/storage/blob#upload) komutuyla oluşturduğumuz kapsayıcıya bir blob yükleyeceğiz.
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +56,7 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
-Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, aksi takdirde üzerine yazılacaktır. Devam etmeden önce istediğiniz sayıda dosyaları karşıya yükleme.
+Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur, aksi takdirde üzerine yazılacaktır. Devam etmeden önce istediğiniz sayıda dosyayı karşıya yükleyin.
 
 ## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
@@ -70,7 +70,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Blob indirme
 
-Kullanım [az depolama blob yükleme](/cli/azure/storage/blob#download) daha önce yüklenen bir blob indirmek için komutu.
+Önceden karşıya yüklediğiniz bir blobu indirmek için [az storage blob download](/cli/azure/storage/blob#download) komutunu kullanın.
 
 ```azurecli-interactive
 az storage blob download \
@@ -81,9 +81,9 @@ az storage blob download \
 
 ## <a name="data-transfer-with-azcopy"></a>AzCopy ile veri aktarımı
 
-[AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) programıdır Azure depolama için yüksek performanslı kodlanabilir veri aktarımı için başka bir seçenek. AzCopy depolamaya ve Blob, dosya ve tablo depolamadan veri aktarmak için kullanabilirsiniz.
+[AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) yardımcı programı, Azure Depolama’ya yüksek performanslı betik oluşturulabilir veri aktarımı için diğer bir seçenektir. Blob, Dosya ve Tablo depolamaları arasında veri aktarmak için AzCopy kullanabilirsiniz.
 
-Hızlı bir örnek olarak, bir dosyayı karşıya yüklemeyi adlı için AzCopy komutunu aşağıda verilmiştir *dosyam.txt* için *mystoragecontainer* kapsayıcı.
+Hızlı bir örnek olarak, *myfile.txt* adlı dosyayı *mystoragecontainer* kapsayıcısına yüklemek için AzCopy komutu aşağıdadır.
 
 ```bash
 azcopy \
@@ -95,7 +95,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık herhangi bir kaynağa, kaynak grubunda gerekiyorsa, kaynak grubuyla silmek Bu hızlı başlangıç oluşturulan depolama hesabı da dahil olmak üzere [az grubu Sil](/cli/azure/group#delete) komutu.
+Bu Hızlı Başlangıç öğreticisinde oluşturduğunuz depolama hesabı dahil, kaynak grubunuzdaki hiçbir kaynağa artık ihtiyacınız yoksa [az group delete](/cli/azure/group#delete) komutuyla kaynak grubunu silin.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -103,7 +103,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç yerel disk ve Azure Blob depolamada kapsayıcı arasında dosyaları aktarmak nasıl öğrendiniz. Azure Storage blobları ile çalışma hakkında daha fazla bilgi edinmek için Azure Blob storage ile çalışma Öğreticisi devam edin.
+Bu Hızlı Başlangıç’ta, dosyaları yerel bir disk ve Azure Blob depolamadaki bir kapsayıcı arasında aktarmayı öğrendiniz. Azure Depolama’da bloblarla çalışma hakkında daha fazla bilgi edinmek için, Azure Blob depolamayla çalışma hakkındaki öğretici ile devam edin.
 
 > [!div class="nextstepaction"]
-> [Nasıl yapılır: Blob Depolama işlemleri Azure CLI ile](storage-how-to-use-blobs-cli.md)
+> [Nasıl yapılır: Azure CLI ile blob depolama işlemleri](storage-how-to-use-blobs-cli.md)

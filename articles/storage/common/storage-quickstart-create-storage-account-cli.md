@@ -1,9 +1,9 @@
 ---
-title: "Azure hızlı başlangıç - Azure CLI kullanarak bir depolama hesabı oluşturma | Microsoft Docs"
-description: "Hızlı bir şekilde Azure CLI kullanarak yeni bir depolama hesabı oluşturmayı öğrenin."
+title: "Azure Hızlı Başlangıç - Azure CLI’sini kullanarak depolama hesabı oluşturma | Microsoft Docs"
+description: "Azure CLI kullanarak hızlı bir şekilde yeni bir depolama hesabı oluşturmayı öğrenin."
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
 ms.author: marsma
-ms.openlocfilehash: b1fb2da4acf6e06219d790f2354cada4f1e34285
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 7186c5e2ce94d06b21d95a557e960b82e268cdce
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="create-a-storage-account-using-the-azure-cli"></a>Azure CLI kullanarak bir depolama hesabı oluşturma
+# <a name="create-a-storage-account-using-the-azure-cli"></a>Azure CLI kullanarak depolama hesabı oluşturma
 
-Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bir Azure Storage hesabı oluşturmak için Azure CLI kullanarak bu hızlı başlangıç ayrıntıları.
+Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu Hızlı Başlangıç’ta bir Azure Depolama hesabı oluşturmak için Azure CLI kullanma hakkında ayrıntılı bilgiler verilmektedir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -33,7 +33,7 @@ CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç i�
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#create) komutuyla bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bu örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* bölge.
+[az group create](/cli/azure/group#create) komutuyla bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bu örnek *eastus* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive
 az group create \
@@ -41,7 +41,7 @@ az group create \
     --location eastus
 ```
 
-Belirtmek için hangi bölgede değilseniz `--location` parametresi, aboneliğinizle için desteklenen bölgelerin bir listesi alabilir [az hesap listesi-konumlarını](/cli/azure/account#list) komutu.
+`--location` parametresi için hangi bölgeyi belirteceğinizden emin değilseniz, [az account list-locations](/cli/azure/account#list) komutuyla aboneliğiniz için desteklenen bölgelerin bir listesini alabilirsiniz.
 
 ```azurecli-interactive
 az account list-locations \
@@ -51,12 +51,12 @@ az account list-locations \
 
 ## <a name="create-a-general-purpose-standard-storage-account"></a>Genel amaçlı standart depolama hesabı oluşturma
 
-Her biri bir veya daha fazla depolama hizmet (BLOB'lar, dosyalar, tabloların veya kuyrukların) destekleyen farklı kullanım senaryoları için uygun çeşitli türlerde depolama hesapları vardır. Aşağıdaki tabloda kullanılabilir depolama hesabı türlerini ayrıntılarını verir.
+Her biri bir veya daha çok depolama hizmetini (blob, dosya, tablo veya kuyruk) destekleyen, farklı kullanım senaryoları için uygun birkaç depolama hesabı türü vardır. Aşağıdaki tabloda kullanılabilir hesap türlerinin ayrıntıları bulunur.
 
 |**Depolama hesabı türü**|**Genel amaçlı Standart**|**Genel amaçlı Premium**|**Blob depolama, sık erişimli ve seyrek erişimli erişim katmanları**|
 |-----|-----|-----|-----|
-|**Desteklenen hizmetler**| BLOB, dosya, tablo, kuyruk Hizmetleri | Blob Hizmeti | Blob Hizmeti|
-|**Desteklenen blob türleri**|Blok blobları, sayfa blobları, ekleme blobları | Sayfa blobları | Blok blobları ve ek blobları|
+|**Desteklenen hizmetler**| Blob, Dosya, Tablo, Kuyruk hizmetleri | Blob hizmeti | Blob hizmeti|
+|**Desteklenen blob türleri**|Blok blobları, sayfa blobları, ek bloblar | Sayfa blobları | Blok blobları ve ek blobları|
 
 [az storage account create](/cli/azure/storage/account#create) komutuyla bir genel amaçlı standart depolama hesabı oluşturun.
 
@@ -71,7 +71,7 @@ az storage account create \
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık herhangi bir kaynağa, kaynak grubunda gerekiyorsa, kaynak grubuyla silmek Bu hızlı başlangıç oluşturulan depolama hesabı da dahil olmak üzere [az grubu Sil](/cli/azure/group#delete) komutu.
+Bu Hızlı Başlangıç öğreticisinde oluşturduğunuz depolama hesabı dahil, kaynak grubunuzdaki hiçbir kaynağa artık ihtiyacınız yoksa [az group delete](/cli/azure/group#delete) komutuyla kaynak grubunu silin.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -79,7 +79,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç bir kaynak grubu ve genel amaçlı standart depolama hesabı oluşturuldu. Depolama hesabınız gelen ve giden veri aktarımı öğrenmek için hızlı başlangıç Blob depolama alanına devam edin.
+Bu Hızlı Başlangıç’ta, bir kaynak grubu ve genel amaçlı bir standart depolama hesabı oluşturdunuz. Depolama hesabınızdan verileri aktarmayı öğrenmek için, Blob depolama Hızlı Başlangıcı ile devam edin.
 
 > [!div class="nextstepaction"]
-> [Azure CLI kullanarak Azure Blob storage aktarımı nesneleri](../blobs/storage-quickstart-blobs-cli.md)
+> [Azure CLI kullanarak nesneleri Azure Blob depolama içine ve dışına aktarma](../blobs/storage-quickstart-blobs-cli.md)
