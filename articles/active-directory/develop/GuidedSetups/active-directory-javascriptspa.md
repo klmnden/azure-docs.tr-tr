@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 26354e03a44ddbd8340b805e4898eda8c2e25f2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a1e2634d86fb987875a54881156d22295103a6b7
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
-[!INCLUDE [1. Introduction](active-directory-singlepageapp-javascriptspa-introduction.md)]
-[!INCLUDE [2. Setup](active-directory-singlepageapp-javascriptspa-setup.md)]
-[!INCLUDE [3. Use](active-directory-singlepageapp-javascriptspa-use.md)]
-[!INCLUDE [4. Configure](active-directory-singlepageapp-javascriptspa-configure.md)]
-[!INCLUDE  [5. Test and Validate](active-directory-singlepageapp-javascriptspa-test.md)]
+[!INCLUDE [1. Introduction](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-introduction.md)]
+[!INCLUDE [2. Setup](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-setup.md)]
+[!INCLUDE [3. Use](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-use.md)]
+[!INCLUDE [4. Configure](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-configure.md)]
+[!INCLUDE  [5. Test and Validate](..\..\..\..\includes\active-directory-develop-guidedsetup-javascriptspa-test.md)]

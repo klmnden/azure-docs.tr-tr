@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 76a13467fff23ad62a857a53e0e31865b1a9fe81
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication raporlarında
 
@@ -36,22 +36,20 @@ Azure çok faktörlü kimlik doğrulaması ve kuruluşunuz tarafından kullanıl
 
 ## <a name="view-reports"></a>Raporları görüntüleme
 
-1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
-2. Solda, Active Directory'yi seçin.
-3. Kimlik doğrulama sağlayıcıları kullanmadığınıza bağlı olarak bu iki seçenekten birini izleyin:
-   * **Seçenek 1**: çok faktörlü kimlik doğrulama sağlayıcıları sekmesini tıklatın. MFA sağlayıcınızı tıklatıp **Yönet** altındaki düğmesini.
-   * **Seçenek 2**: dizininizi seçin ve Git **yapılandırma** sekmesi. Çok faktörlü kimlik doğrulaması bölümünün altında **Hizmet ayarlarını yönet**'i seçin. MFA hizmeti ayarları sayfasının en altında Git portal bağlantısına tıklayın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Sol tarafta seçin **Azure Active Directory** > **kullanıcılar ve gruplar** > **tüm kullanıcılar** > **multi-Factor Kimlik doğrulama**.
+3. Altında **çok faktörlü kimlik doğrulaması**seçin **hizmet ayarları**. Altında altındaki **Gelişmiş ayarları ve raporları görüntüleme Yönet**seçin **Portal'a Git**.
 4. Azure multi-Factor Authentication Yönetim Portalı'nda, istediğiniz raporu seçin **bir raporu görüntülemek** sol gezinti bölümünde.
 
 <center>![Bulut](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 ## <a name="powershell-reporting"></a>PowerShell raporlama
 
-Aşağıdaki Powershell kullanarak MFA'ya kayıtlı kullanıcıları belirleyin.
+Aşağıdaki PowerShell kullanarak MFA'ya kayıtlı kullanıcıları belirleyin.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Aşağıdaki Powershell kullanarak MFA'ya kayıtlı değil kullanıcıları belirleyin.
+Aşağıdaki PowerShell kullanarak MFA'ya kayıtlı değil kullanıcıları belirleyin.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 

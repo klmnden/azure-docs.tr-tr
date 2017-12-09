@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış Uzaktan izleme çözümü özelliklerini keşfedin
 
@@ -43,7 +43,7 @@ Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, 
 Temel senaryoları anlamak için uzaktan Contoso örnek IOT dağıtım kullanabilir izleme çözümü, Giden kutusu sağlar. Bu senaryolar, gerçekçi IOT dağıtımlarında temel alır. Büyük olasılıkla, özel gereksinimlerinizi karşılamak için Uzaktan izleme çözümü özelleştirmek seçeceğiniz, ancak Contoso örnek temel bilgi edinmenize yardımcı olur.
 
 > [!NOTE]
-> Dosya önceden yapılandırılmış çözümü dağıtmak için CLI kullandıysanız `deployment-{your deployment name}-output.json` accss dağıtılan örnek URL'sini gibi dağıtım hakkında bilgi içerir.
+> Dosya önceden yapılandırılmış çözümü dağıtmak için CLI kullandıysanız `deployment-{your deployment name}-output.json` dağıtılan örneğe erişmek için kullanılan URL gibi dağıtım hakkında bilgi içerir.
 
 Contoso örnek sanal cihazlar ve bunlar üzerinde hareket için kurallar kümesi sağlar. Temel senaryoları anladığınızda, çözüm özelliklerin daha fazla araştırma sürdürebilirsiniz [Uzaktan izleme çözümü kullanarak cihaz izleme Gelişmiş gerçekleştirme](iot-suite-remote-monitoring-monitor.md).
 

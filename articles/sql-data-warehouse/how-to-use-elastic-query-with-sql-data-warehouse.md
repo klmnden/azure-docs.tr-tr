@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>SQL veri ambarı ile esnek sorgu kullanma
 
@@ -78,7 +78,7 @@ SQL Database esnek sorgu hakkında daha fazla bilgi için bkz: [Azure SQL Databa
 
 ### <a name="elastic-querying"></a>Esnek sorgulama
 
-- SQL veritabanı örneği ile farklı nesneler olarak interally önbelleğe alınmış tablo ve dış tablo yok. Bir görünümü tablo ve dış tablo önbelleğe alınmış bölümünü üst hangi birleşimler oluşturma hem tabloları ve filtreleri her tablo sınır noktasında geçerlidir göz önünde bulundurun.
+- Çoğu durumda, bir tablonuz bir kısmı içinde SQL veritabanı performans ile SQL veri ambarında depolanan verileri geri kalanı için önbelleğe alınmış verileri olarak olduğu esnetilen tablo türü yönetmek isteyebilirsiniz. İki nesne SQL veritabanında sahip olmanız gerekir: bir dış tablo SQL veritabanındaki SQL veri ambarı ve tablo SQL veritabanı içinde "önbelleğe alınan" bölümünü içindeki temel tablo başvuruyor. Bir görünümü tablo ve dış tablo önbelleğe alınmış bölümünü üst hangi birleşimler oluşturma hem tablolar ve dış tablolara kullanıma sunulan SQL Database ve SQL Data Warehouse veri içinde gerçekleştirilip veri ayrı filtreleri geçerli göz önünde bulundurun.
 
   SQL veritabanı örneğinde veri en son yıl tutmak isteriz düşünün. İki tablo sahibiz **dahili Siparişleri**, veri ambarı başvuran tablolar, sıralar ve **dbo. Siparişleri** en son SQL veritabanı örneğinde veri yıl eşitleyeceğini temsil eder. Bir tablo ya da başka bir sorgu karar vermek için kullanıcıların isteyen yerine bir görünüm bölüm noktasında en son yılın her iki tablonun üst üzerinden oluşturuyoruz.
 
@@ -135,13 +135,17 @@ SQL Database esnek sorgu hakkında daha fazla bilgi için bkz: [Azure SQL Databa
 
 ## <a name="faq"></a>SSS
 
-S: veritabanları esnek sorgu sahip bir esnek veritabanı havuzu içinde kullanabilirim?
+S: veritabanları esnek sorgu sahip bir esnek havuz içindeki kullanabilirim?
 
 Y: Evet. Esnek havuz içindeki SQL veritabanları, esnek sorgu kullanabilirsiniz. 
 
 S: esnek sorgu için kullanabileceğim kaç veritabanları için bir sınır var mı?
 
-Y: mantıksal sunucu DTU sınırları yanlışlıkla overspending müşterilerin önlemek yerinde sahip. Bir SQL Data Warehouse örneğine yanında esnek sorgu için birden fazla veritabanı etkinleştiriyorsanız ucun beklenmedik bir şekilde isabet. Bu gerçekleşirse, mantıksal sunucunuz DTU sınırını artırmak için bir istek gönderin. Tarafından kotayı artırabilir [bir destek bileti oluşturma](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) ve seçerek *kota* istek türü
+Y: yoktur hiçbir sabit sınır kaç veritabanları esnek sorgu için kullanılabilir'üzerinde. Bununla birlikte, her esnek sorgu (SQL Data Warehouse isabet sorgular) normal eşzamanlılık sınırları doğru sayar.
+
+S: DTU sınırları esnek sorguyla ilgili var mı?
+
+Y: DTU sınırları olmayan tüm farklı esnek sorgu uygulanmaz. Mantıksal sunucu DTU sınırları yanlışlıkla overspending müşterilerin önlemek var gibi standart İlkesi olmamasıdır. Bir SQL Data Warehouse örneğine yanında esnek sorgu için birden fazla veritabanı etkinleştiriyorsanız ucun beklenmedik bir şekilde isabet. Bu gerçekleşirse, mantıksal sunucunuz DTU sınırını artırmak için bir istek gönderin. Tarafından kotayı artırabilir [bir destek bileti oluşturma](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) ve seçerek *kota* istek türü
 
 S: satır düzeyi güvenlik/dinamik veri kullanabilirim esnek sorguyla maskeleme?
 

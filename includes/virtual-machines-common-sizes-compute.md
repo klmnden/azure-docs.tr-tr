@@ -12,7 +12,7 @@ F Serisi VM'ler, daha hızlı CPU'ya ihtiyaç duyan ancak çok fazla belleğe ve
 
 Fs serisi, Premium depolamaya ek olarak F serisinin tüm avantajlarını sağlar.
 
-## <a name="fsv2-series"></a>Fsv2-serisi *
+## <a name="fsv2-series-sup1sup"></a>Fsv2-serisi <sup>1</sup>
 
 ACU: 195-210
 
@@ -25,9 +25,10 @@ ACU: 195-210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Çok yüksek                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Çok yüksek                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Çok yüksek                                 |
-* Fsv2-serisi VM'in Intel® Hyper-Threading Teknolojisi özelliği
 
-## <a name="fs-series"></a>Fs Serisi*
+<sup>1</sup>Fsv2-serisi VM'in özellik Intel® Hyper-Threading Teknolojisi
+
+## <a name="fs-series-sup1sup"></a>FS-serisi <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -41,7 +42,7 @@ ACU: 210 - 250
 
 MB/sn = 10^6 bayt/saniye ve GiB = 1024^3 bayt.
 
-*Fs Serisi VM ile maksimum disk aktarım hızı (IOPS veya MB/sn), ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> (IOPS veya MB/sn) mümkün Fs dizi VM sayısı ile sınırlı en fazla disk verimlilik boyutu ve bağlı diskler şeritleme.  Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md).
 
 
 <br>

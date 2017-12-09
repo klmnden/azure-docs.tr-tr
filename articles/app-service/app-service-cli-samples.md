@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6718694af487929d193dae54ecb2d85ece64887a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cli-samples"></a>Azure CLI örnekleri
 
@@ -45,6 +45,10 @@ Aşağıdaki tabloda Azure CLI kullanarak oluşturulan komut dosyalarını bash 
 | [Bir web uygulamasını bir depolama hesabına bağlama](./scripts/app-service-cli-app-service-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Azure web uygulaması ve bir depolama hesabı oluşturur, ardından depolama bağlantı dizesi için uygulama ayarları ekler. |
 | [Bir web uygulamasını redis önbelleği için bağlama](./scripts/app-service-cli-app-service-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması ve redis önbelleği oluşturur, ardından redis bağlantı ayrıntıları için uygulama ayarları ekler.) |
 | [Bir web uygulaması Cosmos Veritabanına bağlanın](./scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması ve Cosmos DB oluşturur, ardından Cosmos DB bağlantı ayrıntıları için uygulama ayarları ekler. |
+|**Yedekleme ve geri yükleme uygulaması**||
+| [Bir web uygulamasını kurup yedekleyin](./scripts/app-service-cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması ve bir kerelik bir yedekleme için oluşturur. |
+| [Bir web uygulaması için zamanlanmış yedekleme oluşturmak](./scripts/app-service-cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması ve bir zamanlanmış yedekleme için oluşturur. |
+| [Bir web uygulaması bir yedekten geri yükler](./scripts/app-service-cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması bir yedekten geri yükler. |
 |**İzleyici uygulama**||
 | [Web sunucusu günlükleri ile bir web uygulamasını izleme](./scripts/app-service-cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması oluşturur, bunun için günlük kaydını etkinleştirir ve yerel makinenize günlükleri indirir. |
 | | |

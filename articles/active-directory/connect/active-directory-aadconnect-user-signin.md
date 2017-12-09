@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7901d6d5668f62a8df7783d6fb1dfe9fc02ebed3
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Bağlan aynı parolayı kullanarak Bulut ve şirket içi kaynaklara oturum açmalarını sağlar. Bu makalede, Azure AD ile oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
@@ -28,6 +28,10 @@ Zaten Azure AD kimlik modeliyle tanıdık ve belirli bir yöntemi hakkında daha
 * [Parola karma eşitlemesi](#password-synchronization) ile [sorunsuz çoklu oturum açma (SSO)](active-directory-aadconnect-sso.md)
 * [Doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md) ile [sorunsuz çoklu oturum açma (SSO)](active-directory-aadconnect-sso.md)
 * [Federasyon SSO (ile Active Directory Federasyon Hizmetleri (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> Azure AD için Federasyon yapılandırarak, Azure AD kiracınıza ile Federasyon, etki alanı arasında güven olduğunu unutmamak önemlidir. Bu güven Federasyon etki alanı ile kullanıcılar Kiracı içinde Azure AD bulut kaynaklarına erişebilir.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Kuruluşunuz için kullanıcı oturum açma yöntemini seçme
 Kullanıcı oturum açma Office 365, SaaS uygulamaları ve diğer Azure AD tabanlı kaynaklara etkinleştirmek istediğiniz çoğu kuruluş için varsayılan parola karma eşitlemesi seçeneği öneririz. Bazı kuruluşlar, ancak, bu seçeneği kullanmanız mümkün olmayan belirli bir nedeni de sahiptir. Bunlar ya da bir federe oturum açma seçeneği, AD FS veya doğrudan kimlik doğrulama gibi seçebilirsiniz. Doğru seçim yapmanıza yardımcı olmak için aşağıdaki tabloyu kullanın.
@@ -52,7 +56,7 @@ Ayrıca, etkinleştirebilirsiniz [sorunsuz SSO](active-directory-aadconnect-sso.
 
 Daha fazla bilgi için bkz: [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-synchronization.md) makalesi.
 
-### <a name="pass-through-authentication"></a>Doğrudan kimlik doğrulama
+### <a name="pass-through-authentication"></a>Geçişli kimlik doğrulaması
 Doğrudan kimlik doğrulama ile şirket içi Active Directory denetleyiciye karşı kullanıcının parolasını doğrulanır. Parola, herhangi bir biçimde Azure AD'de mevcut olması gerekmez. Bu oturum açma saatleri kısıtlaması gibi şirket içi ilkeleri, bulut kimlik doğrulaması sırasında değerlendirilecek hizmetleri sağlar.
 
 Doğrudan kimlik doğrulaması, bir Windows Server 2012 R2 etki alanına katılmış makinede şirket içi ortamda basit bir aracı kullanır. Bu aracı parola doğrulama isteklerini dinler. Internet'e açık olmasını gelen bağlantı noktalarının gerektirmez.
@@ -157,7 +161,7 @@ Oturum açma kullanıcı seçeneğini belirlediyseniz **AD FS ile Federasyon**, 
 ## <a name="changing-the-user-sign-in-method"></a>Kullanıcı oturum açma yöntemini değiştirme
 Azure AD Connect Sihirbazı'nı kullanarak ilk yapılandırmadan sonra Azure AD Connect içinde kullanılabilir görevler kullanarak, Federasyon, parola karması eşitlemesi ya da doğrudan kimlik doğrulama oturum açma kullanıcı yöntemi değiştirebilirsiniz. Azure AD Connect Sihirbazı'nı yeniden çalıştırın ve gerçekleştirebileceğiniz görevlerin bir listesi görürsünüz. Seçin **değiştirme kullanıcı oturum açma** görevler listesinden.
 
-![Kullanıcı oturum açma değiştirme](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
+![Kullanıcı oturumunu değiştir](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 Sonraki sayfada Azure AD için kimlik bilgilerini sağlamanız istenir.
 

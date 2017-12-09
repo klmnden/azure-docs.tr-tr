@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: 0d972e8b9ffb8bfe158ec394baf237ef65333026
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 1a2107f0f813c39ec3e9676ec952803f6be2ebf9
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>Sanal makine boyutlarını depolama en iyi duruma getirilmiş
 
@@ -30,11 +30,11 @@ ms.lasthandoff: 12/01/2017
 
 
 ## <a name="other-sizes"></a>Diğer boyutlara
-- [Genel amaçlı](../windows/sizes-general.md)
-- [İşlem için iyileştirilmiş](../windows/sizes-compute.md)
-- [Bellek için iyileştirilmiş](../windows/sizes-memory.md)
-- [GPU](../windows/sizes-gpu.md)
-- [Yüksek performanslı işlem](../windows/sizes-hpc.md)
+- [Genel amaçlı](sizes-general.md)
+- [İşlem için iyileştirilmiş](sizes-compute.md)
+- [Bellek için iyileştirilmiş](sizes-memory.md)
+- [GPU](sizes-gpu.md)
+- [Yüksek performanslı işlem](sizes-hpc.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](../windows/acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
+Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.

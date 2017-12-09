@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: e0d69d2b744fd08269b1ef87cb60efd3f205a92e
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
 
@@ -29,7 +29,7 @@ Bu öğretici, Azure Cosmos DB koleksiyonları ve tablolar halinde veriler çeş
 Hangi API Azure Cosmos DB ile kullanacağınız? 
 * **[DocumentDB API](documentdb-introduction.md)**  -veri almak için veri geçiş aracı sağlanan kaynak seçeneklerinden herhangi birini kullanabilirsiniz.
 * **[Tablo API](table-introduction.md)**  -verileri içe aktarmak için veri geçiş aracı veya AzCopy kullanabilirsiniz. Bkz: [Azure Cosmos DB tablo API ile kullanmak için içeri aktarma verileri](table-import.md) daha fazla bilgi için.
-* **[MongoDB API](mongodb-introduction.md)**  -veri geçiş aracı dışarı veri MongoDB veritabanları için Azure Cosmos DB DocumentDB API ile kullanmak için. Ancak MongoDB API'ları kullanmaya devam etmek istiyorsanız, Azure Cosmos DB MongoDB API kullanmak istemeniz olasıdır ve mongoimport.exe veya mongorestore.exe veri almak için kullanmanız gerekir. Bkz: [Azure Cosmos DB: MongoDB API'si veri geçirmek nasıl?](mongodb-migrate.md), daha fazla bilgi için.
+* **[MongoDB API](mongodb-introduction.md)**  -veri geçiş aracı desteklememektedir Azure Cosmos DB MongoDB API'si bir kaynak veya hedef olarak. İçinde veya Azure Cosmos DB MongoDB API koleksiyonlarda dışında veri geçirmek istiyorsanız, başvurmak [Azure Cosmos DB: MongoDB API'si veri geçirmek nasıl](mongodb-migrate.md) ilişkin yönergeler. SQL API ile kullanmak için Azure Cosmos DB SQL API koleksiyonlara adresinden verilerini dışarı aktarmak için veri geçiş aracı kullanmaya devam edebilirsiniz. 
 * **[Grafik API'si](graph-introduction.md)**  -veri geçiş aracı değil grafik API'si hesapları için desteklenen alma aracı şu anda. 
 
 Bu öğretici, aşağıdaki görevleri içerir:
@@ -231,7 +231,7 @@ Azure Table depolama kaynağı alma seçeneği aşağıdaki ek seçenekler vard�
    1. Tüm - dahil tüm iç alanlar (PartitionKey, RowKey ve zaman damgası)
    2. Hiçbiri - hariç tüm iç alanları
    3. RowKey - yalnızca RowKey alan dahil et
-2. Sütunları seçin
+2. Sütun Seçin
    1. Azure tablo depolama filtrelerini tahminleri desteklemez. Yalnızca belirli Azure tablo varlık özellikleri almak istiyorsanız, bunları seçin sütunlar listesine ekleyin. Diğer tüm varlık özellikleri göz ardı edilir.
 
 Azure tablo depolamasından içeri aktarmak için komut satırı bir örnek şudur:

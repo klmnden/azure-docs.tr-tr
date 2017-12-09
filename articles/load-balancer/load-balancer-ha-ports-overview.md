@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>Yüksek kullanılabilirlik bağlantı noktalarına genel bakış
 
@@ -74,7 +74,7 @@ Yük Dengeleyici standart HA bağlantı noktalarını özelliği önizlemede kat
 
 HA bağlantı noktalarını özellik için özel durumlar ve desteklenen yapılandırmalar şunlardır:
 
-- Tek DSR dışı yük dengeleyici kuralı HA bağlantı noktasına sahip olabilir veya tek bir ön uç IP yapılandırması HA bağlantı noktasıyla tek DSR yük dengeleyici kuralı olabilir. Her ikisi de olamaz.
+- Bir tek doğrudan sunucu yük dengeleyici kuralı HA bağlantı noktasıyla dönüşü (DSR - Azure kayan IP) tek bir ön uç IP yapılandırmasına sahip olabilir veya tek DSR dışı yük dengeleyici kuralı HA bağlantı noktasına sahip olabilir. Her ikisi de olamaz.
 - Tek bir ağ arabirimi IP yapılandırması yalnızca bir olmayan-yük dengeleyici kuralı HA bağlantı noktasıyla DSR olabilir. Herhangi bir kuralın bu ipconfig için yapılandıramazsınız.
 - Tüm ilgili ön uç IP yapılandırmalarını benzersiz olması koşuluyla yük dengeleyici kuralları HA bağlantı noktaları, bir veya daha fazla DSR bir tek bir ağ arabirimi IP yapılandırmasına sahip olabilir.
 - Tüm Yük Dengeleme kuralları HA bağlantı noktalarını (yalnızca DSR) kullanıyorsanız, iki (veya daha fazla) yük dengeleyici kuralları aynı arka uç havuzuna işaret eden birlikte bulunabilir. Aynı tüm kurallar olmayan olduğunda true olur-HA (DSR ve DSR olmayan) bağlantı noktaları. Ancak, HA bağlantı noktaları ve HA olmayan bağlantı noktası kuralları bileşimini ise, iki tür Yük Dengeleme kuralları birlikte bulunamaz.

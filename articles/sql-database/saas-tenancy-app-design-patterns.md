@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiralama desenleri
 
@@ -165,7 +165,7 @@ Karma modelinde tüm veritabanları kendi şemasında Kiracı tanımlayıcısın
 
 Herhangi bir zamanda, belirli bir kiracı kendi çok kiracılı veritabanına taşıyabilirsiniz.  Ve herhangi bir zamanda fikrinizi değiştirirseniz ve Kiracı birden çok kiracıya içeren bir veritabanına geri dönün.  Yeni veritabanı sağladığınızda, bir kiracı yeni tek Kiracı veritabanına atayabilirsiniz.
 
-Kaynak gereksinimlerini kiracılar tanımlama grupları arasında büyük farklar olduğunda karma modeli inanılmaz.  Örneğin, ücretsiz bir deneme katılan kiracıların abone kiracılar olan performans aynı yüksek düzeyde garanti varsayalım.  İlke, tüm ücretsiz deneme kiracılar arasında paylaşılan bir çok kiracılı veritabanında depolanması için ücretsiz deneme aşamasında kiracılar için olabilir.  Temel hizmet düzeyi için ücretsiz bir deneme Kiracı abone olduğunda, Kiracı daha az kiracılar olabilecek başka bir çok kiracılı veritabanına taşınabilir.  Premium hizmet düzeyi ödeyen abone kazanılan yeni tek Kiracı veritabanına taşınamıyor.
+Kaynak gereksinimlerini kiracılar tanımlama grupları arasında büyük farklar olduğunda karma modeli inanılmaz.  Örneğin, ücretsiz bir deneme katılan kiracıların abone kiracılar olan performans aynı yüksek düzeyde garanti varsayalım.  İlke, tüm ücretsiz deneme kiracılar arasında paylaşılan bir çok kiracılı veritabanında depolanması için ücretsiz deneme aşamasında kiracılar için olabilir.  Temel hizmet düzeyi için ücretsiz bir deneme Kiracı abone olduğunda, Kiracı daha az kiracılar olabilecek başka bir çok kiracılı veritabanına taşınabilir.  Premium hizmet düzeyi ödeyen abone kendi yeni bir tek Kiracı veritabanına taşınamıyor.
 
 #### <a name="pools"></a>Havuzlar
 

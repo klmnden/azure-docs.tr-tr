@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Bir Web uygulamasından Azure anahtar kasası kullanın
 
@@ -36,7 +36,7 @@ Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
 * Bir web uygulamasıdır. Biz gösteren Azure Web uygulaması olarak dağıtılmış bir ASP.NET MVC uygulaması için adımları.
 
 >[!IMPORTANT]
->* Bu örnek AAD kimlikleri el ile sağlama daha eski bir şekilde bağlıdır. Şu anda var. yeni bir özellik olarak adlandırılan önizlemede [yönetilen hizmet kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), hangi otomatik olarak sağlayabilirler AAD kimlikleri. Lütfen üzerinde aşağıdaki örneğe bakın [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) daha ayrıntılı bilgi için.
+>* Bu örnek AAD kimlikleri el ile sağlama daha eski bir şekilde bağlıdır. Şu anda var. yeni bir özellik olarak adlandırılan önizlemede [yönetilen hizmet kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), hangi otomatik olarak sağlayabilirler AAD kimlikleri. Lütfen üzerinde aşağıdaki örneğe bakın [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) daha ayrıntılı bilgi için.
 
 > [!NOTE]
 >* Listelenen adımları tamamladınız gereklidir [Azure anahtar kasası ile çalışmaya başlama](key-vault-get-started.md) Bu öğretici için böylece bir web uygulaması için bir gizlilik ve istemci kimliği ve istemci parolası URI sahip.
@@ -46,7 +46,7 @@ Anahtar kasası erişecek web uygulamasını Azure Active Directory'de kayıtlı
 
 Bu öğretici, Azure üzerinde web uygulamaları oluşturma temelleri anlamak web geliştiricileri için tasarlanmıştır. Azure Web Apps hakkında daha fazla bilgi için bkz: [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
 
-## <a id="packages"></a>Nuget paketleri ekleme
+## <a id="packages"></a>NuGet paketleri ekleme
 
 Yüklü web uygulamanız gereken iki paket vardır.
 
@@ -107,7 +107,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* Şu anda yeni bir özellik olarak Yönetilen Hizmet Kimliği (MSI), kimlik doğrulaması için en kolay yöntemdir. Daha ayrıntılı bilgi için, [Bir .NET uygulamasında MSI ile Key Vault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) ve ilgili [App Service ve İşlevler ile MSI öğreticisini](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity) kullanarak örneğin aşağıdaki bağlantısına bakın. 
+>* Şu anda yeni bir özellik olarak Yönetilen Hizmet Kimliği (MSI), kimlik doğrulaması için en kolay yöntemdir. Daha ayrıntılı bilgi için, [Bir .NET uygulamasında MSI ile Key Vault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) ve ilgili [App Service ve İşlevler ile MSI öğreticisini](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) kullanarak örneğin aşağıdaki bağlantısına bakın. 
 >* İstemci kimliği ve istemci gizli anahtarını kullanarak Azure AD uygulaması kimliğini doğrulamak için başka bir yoludur. Ve web uygulamanızı kullanarak ayrılması görevlerini ve anahtar yönetimi üzerinde daha fazla denetim sağlar. Ancak, yapılandırma ayarlarınızda korumak istediğiniz gizli koyma olarak olarak riskli olabilecek bazı yapılandırma ayarlarınızın istemci gizli anahtarı koyma kullanır. Aşağıdaki bir tartışma için bir istemci kimliği ve sertifika istemci kimliği ve istemci parolası yerine Azure AD uygulaması kimliğini doğrulamak için nasıl kullanılacağı hakkında bakın.
 
 ## <a id="appstart"></a>Uygulama başlangıç gizli anahtarı alma
@@ -147,11 +147,11 @@ Azure AD uygulaması kimliğini doğrulamak için başka bir istemci kimliği ve
 Bizim amaçlar için bir test sertifikası yapacağız. Burada, birkaç Geliştirici Komut İstemi'nde bir sertifika oluşturmak için kullanabileceğiniz komutlar bulunmaktadır. Oluşturulan sertifika dosyaları istediğiniz dizini değiştirin.  Ayrıca, başlangıç ve bitiş tarihi sertifikanın için geçerli tarih artı 1 yıl kullanın.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Bitiş tarihi ve .pfx için parolayı not edin (Bu örnekte: 07/31/2016 ve test123). Bunları aşağıdaki gerekir.
+Bitiş tarihi ve .pfx için parolayı not edin (Bu örnekte: 07/31/2017 ve test123). Bunları aşağıdaki gerekir.
 
 Bir test sertifikası oluşturma hakkında daha fazla bilgi için bkz: [nasıl yapılır: bilgisayarınızı kendi Test sertifikası oluşturma](https://msdn.microsoft.com/library/ff699202.aspx)
 

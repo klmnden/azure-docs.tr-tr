@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7b4de3e7b7e98ab76c02ea7c1cf069cee94706fc
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: a9be43e6dd8ce2c8ba8326b06923677eb897765b
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) dağıtma
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -33,7 +33,7 @@ Okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-fi
 * Windows Server veya Windows Server kümesi Azure dosya eşitleme ile eşitlemek için en az bir desteklenen örneği. Windows Server'ın desteklenen sürümleri hakkında daha fazla bilgi için bkz: [Windows Server ile birlikte çalışabilirlik](storage-sync-files-planning.md#azure-file-sync-interoperability).
 
 ## <a name="deploy-the-storage-sync-service"></a>Depolama eşitleme hizmeti dağıtma 
-Depolama eşitleme Azure dosya eşitleme için üst düzey Azure kaynağı hizmetidir. Bir depolama eşitleme hizmeti dağıtmak için Git [Azure portal](https://portal.azure.com/)ve Azure dosya eşitleme için arama yapın. Arama sonuçlarında seçin **Azure dosya eşitleme (Önizleme)**ve ardından **oluşturma** açmak için **dağıtmak depolama eşitleme** sekmesi.
+Depolama eşitleme Azure dosya eşitleme için üst düzey Azure kaynağı hizmetidir. Bir depolama eşitleme hizmeti dağıtmak için Git [Azure portal](https://portal.azure.com/), yeni tıklayın ve ardından Azure dosya eşitleme için arama yapın. Arama sonuçlarında seçin **Azure dosya eşitleme (Önizleme)**ve ardından **oluşturma** açmak için **dağıtmak depolama eşitleme** sekmesi.
 
 Açılan bölmesinde, aşağıdaki bilgileri girin:
 

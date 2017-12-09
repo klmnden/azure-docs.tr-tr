@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7065ceaf87f0cb5ebf46c53c71c6df4b069b2deb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 002c4376c91f4a7176cc9b00a4d6ba275f87dadb
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) Helm kullanın
 
@@ -50,16 +50,16 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>Helm yapılandırın
 
-[Helm init](https://docs.helm.sh/helm/#helm-init) komutu Kubernetes kümede Helm bileşenlerini yükleyin ve istemci tarafı yapılandırmaları yapmak için kullanılır. Helm önceden yüklü AKS kümelerinde, böylece yalnızca istemci tarafında yapılandırma gerekmez. Helm istemcisini yapılandırmak için aşağıdaki komutu çalıştırın.
+[Helm init](https://docs.helm.sh/helm/#helm-init) komutu Kubernetes kümede Helm bileşenlerini yükleyin ve istemci tarafı yapılandırmaları yapmak için kullanılır. Helm AKS kümenizde yükleyip Helm istemcisini yapılandırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 Çıktı:
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
+$HELM_HOME has been configured at /Users/user/.helm.
 Not installing Tiller due to 'client-only' flag having been set
 Happy Helming!
 ```

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
+ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: ecc81dcfaf8dc158792a3bbcac78ea6da6488822
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure'dan Azure'a çoğaltmak için azure Site Recovery destek matrisi
 
@@ -94,7 +94,7 @@ Destek sözü edilen işletim sisteminde çalışan herhangi bir iş yükü içi
 
 >[!NOTE]
 >
-> Ubuntu sunucuları parola kullanarak kimlik doğrulaması ve oturum açma, ve bulut sanal makineleri yapılandırmak için bulut init paketini kullanarak parola (yapılandırmasına bağlı olarak cloudinit.) yük devretme sırasında devre dışı oturum açma dayalı sahip Parola tabanlı oturum açma olabilir sanal makinede yeniden etkin Ayarlar menüsünden parolayı sıfırlayarak (Destek + sorun giderme altında bölümünde), başarısız sanal makineyi Azure portalı üzerinden.
+> Parola tabanlı kimlik doğrulama ve oturum açma kullanarak ve bulut sanal makineleri yapılandırmak için bulut init paketini kullanarak Ubuntu sunucuları parola tabanlı oturum açma (yapılandırmasına bağlı olarak cloudinit.) yük devretme sırasında devre dışı olabilir Parola tabanlı oturum açma olabilir sanal makinede yeniden etkin Ayarlar menüsünden parolayı sıfırlayarak (Destek + sorun giderme altında bölümünde), başarısız sanal makineyi Azure portalı üzerinden.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure sanal makineler için desteklenen Ubuntu çekirdek sürümleri
 
@@ -122,10 +122,13 @@ Amerika | Doğu Kanada, Kanada Merkezi, Güney Orta ABD, Batı Orta ABD, Doğu A
 Avrupa | Birleşik Krallık Batı, Birleşik Krallık Güney, Kuzey Avrupa, Batı Avrupa
 Asya | Güney Hindistan, Orta Hindistan, Güneydoğu Asya, Doğu Asya, Japonya Doğu, Kore Orta, Kore Güney Batı, Japonya
 Avustralya   | Avustralya Doğu, Avustralya Güneydoğu
+Azure Kamu    | ABD kamu Virginia, ABD kamu Iowa, ABD kamu Arizona, ABD kamu Texas, Doğu ABD Savunma Bakanlığı, ABD Savunma Bakanlığı Orta
+Almanya | Almanya Orta Almanya Kuzeydoğu
+Çin | Çin, Doğu, Çin Kuzey
 
 >[!NOTE]
 >
-> Brezilya Güney bölge için yalnızca çoğaltılacağı ve yük devretme Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 biri, Kuzey Orta ABD bölgeler ve tekrar başarısız olabilir.
+> Brezilya Güney bölgesi için yalnızca çoğaltma ve bir orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve Kuzey Orta ABD bölgeler yük devri ve geri dönecek.
 
 
 ## <a name="support-for-compute-configuration"></a>İşlem yapılandırması için destek

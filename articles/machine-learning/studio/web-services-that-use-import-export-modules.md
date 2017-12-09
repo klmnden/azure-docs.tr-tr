@@ -3,7 +3,7 @@ title: "İçeri/dışarı aktarma veri Azure Machine Learning web Hizmetleri kul
 description: "Veri içeri aktarma ve dışarı aktarma veri modülleri göndermek ve bir web hizmetinden veri almak için nasıl kullanılacağını öğrenin."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40e1dbf4fc1618deec5e7f85fb956f2881e08319
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 54b0434cb753484bdb8300f4b9c4f7f7ca75c7c8
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Veri Alma ve Veri Gönderme modüllerini kullanan Azure ML web hizmetleri dağıtma
 

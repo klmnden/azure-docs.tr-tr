@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: asgang
-ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 209ec47388ee7291f8107df022e0c2bb202ba6b5
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Başka bir Azure bölgesine çoğaltma Azure sanal makineler
 
@@ -76,19 +76,19 @@ Ayarları bölümü altında hedef site özelliklerini yapılandırabilirsiniz.
     > [!TIP]
     > Hedef konumu tutmanız önerilir aynı itibariyle, Kurtarma Hizmetleri kasası.
 
-2. **Hedef kaynak grubu:** hangi tüm çoğaltılmış sanal makinelere ait olur kaynak grubu değil. Varsayılan olarak Azure Site Recovery yeni bir kaynak grubu hedef bölgede "asr" sonekine sahip adıyla oluşturur. Azure Site Recovery tarafından önceden oluşturulmuş kaynak grubu mevcut olmaması durumunda, yeniden kullanılır. Aşağıdaki bölümde gösterildiği gibi özelleştirmek seçebilirsiniz.    
-3. **Hedef sanal ağ:** varsayılan olarak, Azure Site Recovery yeni bir sanal ağ hedef bölgede "asr" sonekine sahip adıyla oluşturur. Bu kaynak ağınıza eşlenecek ve gelecekteki tüm koruma için kullanılır.
+2. **Hedef kaynak grubu:** çoğaltılmış sanal makineleriniz için tüm ait kaynak grubu değil. Varsayılan olarak Azure Site Recovery "asr" sonekine sahip adla hedef bölgede yeni bir kaynak grubu oluşturur. Azure Site Recovery tarafından önceden oluşturulmuş kaynak grubu mevcut olmaması durumunda, yeniden kullanılır. Aşağıdaki bölümde gösterildiği gibi özelleştirmek seçebilirsiniz.    
+3. **Hedef sanal ağ:** varsayılan olarak, Azure Site Recovery yeni bir sanal ağ hedef bölgede "asr" sonekine sahip adla oluşturur. Bu kaynak ağınıza eşlenecek ve gelecekteki tüm koruma için kullanılır.
 
     > [!NOTE]
     > [Ağ ayrıntıları denetlemek](site-recovery-network-mapping-azure-to-azure.md) ağ eşlemesi hakkında daha fazla bilgi için.
 
-4. **Depolama hesapları hedef:** varsayılan olarak, Azure Site Recovery kaynak VM depolama yapılandırmanızı mimicking yeni hedef depolama hesabı oluşturacak. Azure Site Recovery tarafından önceden oluşturulmuş depolama hesabı mevcut olmaması durumunda, yeniden kullanılır.
+4. **Depolama hesapları hedef:** varsayılan olarak, Azure Site Recovery kaynak VM depolama yapılandırmanızı mimicking yeni bir hedef depolama hesabı oluşturur. Azure Site Recovery tarafından önceden oluşturulmuş depolama hesabı mevcut olmaması durumunda, yeniden kullanılır.
 
 5. **Depolama hesapları önbelleğe:** Azure Site Recovery önbellek depolama kaynağı bölgede adlı ek depolama alanı hesabı gerekiyor. Kaynak sanal makinelerin gerçekleştiği tüm değişiklikleri izlenen ve bu hedef konumuna çoğaltma önce önbellek depolama hesabına gönderilir.
 
 6. **Kullanılabilirlik kümesi:** varsayılan olarak, Azure Site Recovery hedef bölgede kümesi "asr" sonekine sahip adı ile yeni bir kullanılabilirlik oluşturur. Kullanılabilirlik kümesi zaten Azure Site Recovery tarafından oluşturulan mevcut olmaması durumunda, yeniden kullanılır.
 
-7.  **Çoğaltma İlkesi:** kurtarma noktası bekletme geçmişi ve uygulama tutarlılığı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery, ' 24 saattir kurtarma noktası bekletme ve ' 60 dakika uygulama tutarlılığı anlık görüntü sıklığı için varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur.
+7.  **Çoğaltma İlkesi:** kurtarma noktası bekletme geçmişi ve uygulama tutarlılığı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery ' 24 saattir kurtarma noktası bekletme ve ' 60 dakika uygulama tutarlılığı anlık görüntü sıklığı için varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
