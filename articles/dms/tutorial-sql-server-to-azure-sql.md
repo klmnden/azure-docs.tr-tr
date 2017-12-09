@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 11/17/2017
-ms.openlocfilehash: 3938af29caec99f076452529cbc5d93cf2c8802b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>SQL Server Azure SQL veritabanına geçirme
 Azure veritabanı geçiş hizmeti veritabanlarını Azure SQL veritabanı için bir şirket içi SQL Server örneğinden geçirmek için kullanabilirsiniz. Bu öğreticide, geçiş **Adventureworks2012** veritabanı Azure veritabanı geçiş hizmetini kullanarak şirket içi örneğini SQL Server 2016 (veya üstü) bir Azure SQL veritabanına geri yüklendi.
@@ -32,7 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiyi tamamlamak için aktarmanız gerekir:
 
-- Karşıdan yükleme ve instanll [SQL Server 2016 veya sonraki](https://www.microsoft.com/sql-server/sql-server-downloads) (herhangi bir sürümünü).
+- İndirme ve yükleme [SQL Server 2016 veya sonraki](https://www.microsoft.com/sql-server/sql-server-downloads) (herhangi bir sürümünü).
 - Varsayılan olarak SQL Server Express yüklemesi sırasında göre makalesindeki yönergeleri izleyerek devre dışıdır TCP/IP protokolünü etkinleştirin [etkinleştirmek veya devre dışı bir sunucu ağ protokolü](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Yapılandırma, [veritabanı altyapısı erişimi için Windows Güvenlik Duvarı](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Makalede ayrıntı izleyerek bunu Azure SQL veritabanı örneğinde bir örneğini oluşturmak [Azure portalında bir Azure SQL veritabanı oluşturma](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
@@ -108,7 +108,7 @@ Geçirilecek **AdventureWorks2012** Azure SQL Database, şemaya aşağıdaki ad�
  
    ![Portal abonelikleri Göster](media\tutorial-sql-server-to-azure-sql\portal-select-subscription.png)
        
-2. İçinde Azure veritabanı geçiş hizmeti örneğini oluşturun ve ardından istediğiniz aboneliği seçin **kaynak sağlayıcıları**.
+2. Azure Veritabanı Geçiş Hizmeti örneğini oluşturmak istediğiniz aboneliği seçin ve sonra **Kaynak sağlayıcıları**’nı seçin.
  
     ![kaynak sağlayıcıları göster](media\tutorial-sql-server-to-azure-sql\portal-select-resource-provider.png)    
 3.  Arama geçiş ve ardından sağ tarafındaki **Microsoft.DataMigration**seçin **kaydetmek**.

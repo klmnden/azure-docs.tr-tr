@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>İsteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu teknik Kılavuzu
 ## <a name="overview"></a>**Genel Bakış**
@@ -82,7 +82,7 @@ Bu belge, veri alma nasıl açıklamak değildir, ancak bir kolayca gönderebili
 
 [Azure akış analizi](https://azure.microsoft.com/services/stream-analytics/) sorgu tarafından bulunabilir:
 
-* Oturum açmayı [Azure portalı](https://manage.windowsazure.com/)
+* Oturum açmayı [Azure portalı](https://portal.azure.com/)
 * Akış analizi işleri bulma ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) çözüm dağıtıldığında oluşturuldu. Bir blob depolama alanına (örneğin, mytest1streaming432822asablob) veri gönderilmesi için ve başka bir Power BI (örneğin, mytest1streaming432822asapbi) veri gönderilmesi için.
 * Seçme
 

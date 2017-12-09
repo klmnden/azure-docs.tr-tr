@@ -4,7 +4,7 @@ description: "Ekleme, değiştirme, izlemek ve StorSimple birimleri silin ve bun
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Birimler (güncelleştirme 3 veya sonraki) yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
 
@@ -119,11 +119,7 @@ Aşağıdaki görevleri gerçekleştirmek için Bu öğreticide yönergeleri kul
       
        8100 cihazınızda 8,5 TB boyutunda (izin verilen en yüksek boyut) yerel olarak sabitlenmiş bir birim sağlarsanız, cihazdaki kullanılabilir yerel alanın tümünü kullanmış olursunuz. Katmanlı birimin çalışan kümesinin barındıracak cihazda yerel alan olmadığından, bu noktadan sonra herhangi bir katmanlı birim oluşturamazsınız. Var olan katmanlı birimler kullanılabilir alanı de etkiler. Örneğin, zaten 106 TB boyutunda katmanlı birimlerin bulunduğu bir 8100 cihazınız varsa, yerel olarak sabitlenmiş birimlerin kullanabileceği yalnızca 4 TB’lık alan kalır.
 
-    6. **Bağlı konaklar** alanında oka tıklayın. 
-
-        ![Bağlı konaklar](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. İçinde **bağlı Konaklar** dikey penceresinde, varolan bir ACR seçin veya yeni bir ACR ekleyin. Yeni bir ACR seçerseniz, ardından tedarik bir **adı** , ACR için sağlayın **iSCSI Qualified Name** (IQN), Windows konağınızın. IQN’niz yoksa [Windows Server konağının IQN’sini al](#get-the-iqn-of-a-windows-server-host)’a gidin. **Oluştur**'a tıklayın. Belirtilen ayarlarla bir birim oluşturulur.
+    6. **Bağlı konaklar** alanında oka tıklayın. İçinde **bağlı Konaklar** dikey penceresinde, varolan bir ACR seçin veya yeni bir ACR ekleyin. Yeni bir ACR seçerseniz, ardından tedarik bir **adı** , ACR için sağlayın **iSCSI Qualified Name** (IQN), Windows konağınızın. IQN’niz yoksa [Windows Server konağının IQN’sini al](#get-the-iqn-of-a-windows-server-host)’a gidin. **Oluştur**'a tıklayın. Belirtilen ayarlarla bir birim oluşturulur.
 
         ![Oluştur’a tıklayın](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 6ddadad6f5697fed006e3f938ef3c3faedb6a354
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portal kullanarak Azure'da bir Service Fabric kümesi oluştur
 > [!div class="op_single_selector"]
@@ -40,9 +40,9 @@ Azure portal kullanarak azure'da güvenli bir Service Fabric kümesi ayarlama ad
 
 Güvenli bir küme dağıtma, yükseltme ve uygulamaları, hizmetleri ve içerdikleri veriler silme içeren yönetim işlemleri için yetkisiz erişimi engelleyen bir kümedir. Güvenli olmayan bir küme herkes herhangi bir zamanda bağlanmak ve böylelikle yönetim işlemleri bir kümedir. Güvenli olmayan bir küme oluşturmak mümkün olsa da, olan **güvenli bir küme oluşturmak için tavsiye**. Güvenli olmayan bir küme **daha sonra korunamıyor** -yeni bir küme oluşturulması gerekir.
 
-Kümeleri Linux kümeleri veya Windows kümeleri olup kavramları güvenli kümeleri oluşturmak için aynıdır. Güvenli Linux kümeleri oluşturmak için daha fazla bilgi ve yardımcı komut dosyaları için lütfen bkz. [Linux'ta güvenli küme oluşturma](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Sağlanan yardımcı komut dosyası tarafından alınan parametreleri doğrudan portalda bölümde açıklandığı gibi girilebilir [Azure portalında bir küme oluşturmak](#create-cluster-portal).
+Kümeleri Linux kümeleri veya Windows kümeleri olup kavramları güvenli kümeleri oluşturmak için aynıdır. Güvenli Linux kümeleri oluşturmak için daha fazla bilgi ve yardımcı komut dosyaları için lütfen bkz. [güvenli küme oluşturma](service-fabric-cluster-creation-via-arm.md). Sağlanan yardımcı komut dosyası tarafından alınan parametreleri doğrudan portalda bölümde açıklandığı gibi girilebilir [Azure portalında bir küme oluşturmak](#create-cluster-portal).
 
-## <a name="configure-key-vault"></a>Anahtar kasası yapılandırma 
+## <a name="configure-key-vault"></a>Key Vault'u Yapılandır 
 ### <a name="log-in-to-azure"></a>Azure'da oturum açma
 Bu kılavuzu kullanır [Azure PowerShell][azure-powershell]. Yeni bir PowerShell oturumu başlatılırken Azure hesabınızda oturum açın ve Azure komutları çalıştırmadan önce aboneliğinizi seçin.
 
@@ -84,7 +84,7 @@ Aşağıdaki diyagramda, anahtar kasası, Service Fabric kümesi ve küme oluşt
 
 ```
 
-#### <a name="create-key-vault"></a>Anahtar kasası oluşturma
+#### <a name="create-key-vault"></a>Key Vault Oluştur
 Bir anahtar kasası yeni kaynak grubu oluşturun. Anahtar kasası **dağıtımı için etkinleştirilmelidir** sertifikaları elde ve küme düğümlerine yüklemek Service Fabric kaynak sağlayıcısı izin vermek için:
 
 ```powershell

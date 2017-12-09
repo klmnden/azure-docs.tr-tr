@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 3480fbbecf59fe985103fe39ec27fef2668b3c0a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search'te bir model filtresi oluşturma 
 
@@ -48,7 +48,7 @@ Tüm [alan türü](https://docs.microsoft.com/rest/api/searchservice/supported-d
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (bkz [modeli karmaşık veri türlerini nasıl](#facet-complex-fields) bu makalenin ilerisinde yer.)
++ Edm.Collections
 + Sayısal alan türleri: EDM.Int32, EDM.Int64, Edm.Double
 
 Modellenmiş bir gezinmede Edm.GeographyPoint kullanamazsınız. Modelleri İnsan okunabilir metin veya sayı oluşturulur. Bu nedenle, modelleri coğrafi koordinatlarına için desteklenmez. Konuma göre modeli için bir şehir veya bölge alanı gerekir.

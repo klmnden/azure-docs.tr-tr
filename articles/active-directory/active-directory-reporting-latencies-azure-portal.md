@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: f060ddc958a7b266464bd28cee774f6ce065088d
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Gecikme raporlama Azure Active Directory
 
@@ -39,8 +39,8 @@ Aşağıdaki tabloda, etkinlik raporları gecikme bilgileri listeler.
 
 | Rapor | Minimum | Ortalama | Maksimum |
 | :-- | --- | --- | --- |
-| Denetim günlükleri             | 30 dakika  | 45 dakika | 1 saat     |
-| Oturum açma işlemleri               | 15 dakika  | 15 dakika | 2 saat *   |
+| Denetim günlükleri             | 30 dakika  | 1 saat | 2 saat     |
+| Oturum açma işlemleri               | 15 dakika  | 2 saat * | 24 saat  |
 
 >[!NOTE]
 > Eski Office uygulamalarından gelen bazı oturum açma etkinliği verileri için rapor verilerinin görünmesi 8 saati bulabilir. 
@@ -60,7 +60,7 @@ Aşağıdaki tabloda güvenlik raporları gecikme bilgileri listeler.
 | Risk altındaki kullanıcılar          | 5 dakika   | 15 dakika  | 2 saat  |
 | Riskli oturum açma işlemleri         | 5 dakika   | 15 dakika  | 2 saat  |
 
-## <a name="risk-events"></a>Risk olayı
+## <a name="risk-events"></a>Risk olayları
 
 Azure Active Directory kullanıcı hesaplarınızı ilgili kuşkulu eylemleri algılamak için Uyarlamalı machine learning algoritmaları ve buluşsal yöntemler kullanır. Her kuşkulu eylem bir kayıt çağrılan risk olayı depolanan algıladı.
 
@@ -72,7 +72,7 @@ Aşağıdaki tabloda, risk olaylarını gecikme bilgileri listeler.
 | Alışılmadık konumlardan oturum açma işlemleri |5 dakika |15 dakika |2 saat |
 | Sızan kimlik bilgilerine sahip kullanıcılar |2 saat |4 saat |8 saat |
 | Alışılmadık konumlara imkansız seyahat |5 dakika |1 saat |8 saat  |
-| Virüs bulaşmış cihazlardan oturum açma işlemleri |2 saat |4 saat |8 saat  |
+| Bulaşma olan cihazlardan oturum açma işlemleri |2 saat |4 saat |8 saat  |
 | Şüpheli etkinlik gösteren IP adreslerinden gerçekleştirilen oturum açma işlemleri |2 saat |4 saat |8 saat  |
 
 

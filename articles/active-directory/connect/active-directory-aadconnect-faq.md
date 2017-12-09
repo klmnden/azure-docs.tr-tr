@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: be940b694ba95529b5f5a84acfd789240354dae2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect için sık sorulan sorular
 
@@ -35,6 +35,11 @@ Yalnızca Azure AD Connect Yükleme Sihirbazı'nı kullanarak yüklemek için de
 Evet. Aracıyı yükledikten sonra aşağıdaki PowerShell cmdlet'ini kullanarak kayıt işlemini tamamlamak: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**S: AADConnect, iki etki alanlarından üzerinde Azure AD eşitleme destekliyor mu?**</br>
+Evet, bu desteklenir. Başvurmak [birden çok etki alanı](active-directory-aadconnect-multiple-domains.md)
+ 
+**S: Azure AD'de aynı Active Directory etki alanı için birden çok bağlayıcı bağlanma sahip destekliyoruz?**</br> Hayır, bu olmayan desteklenmiyor 
 
 ## <a name="network"></a>Ağ
 **S: sahibim bir güvenlik duvarı, ağ aygıtını veya başka bir şey en uzun süre bağlantıları sınırlayan Ağımdaki açık kalabilir. Ne kadar süreyle my istemci tarafı zaman aşımı eşiği Azure AD Connect kullanırken olmalıdır?**  
@@ -78,8 +83,6 @@ Hayır, bu şu anda desteklenmiyor.
 **S: olan desteklenen el ile ayarlamak için sabit kendisine eşleştirmek için var olan Azure AD Grup/kişi nesneleri İmmutableıd özniteliği şirket içi AD Grup/kişi nesneleri?**  
 Hayır, bu şu anda desteklenmiyor.
 
-
-
 ## <a name="custom-configuration"></a>Özel yapılandırma
 **S: Burada Azure AD Connect için PowerShell cmdlet'leri belgelenen?**  
 Bu sitede belgelenen cmdlet'leri hariç olmak üzere, Azure AD Connect içinde bulunan diğer PowerShell cmdlet'leri müşteri kullanım için desteklenmez.
@@ -95,8 +98,6 @@ Hayır. Bu seçenek, tüm yapılandırma ayarlarını almaz ve kullanılmamalıd
 
 **S: eşzamanlı oturum önlemek için bir yol var mı?**</br>
 Hayır.
-
-
 
 ## <a name="troubleshooting"></a>Sorun giderme
 **S: Azure AD Connect ile ilgili Yardım nasıl alabilirim?**

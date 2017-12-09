@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/26/2017
-ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
-ms.translationtype: HT
+ms.date: 12/09/2017
+ms.openlocfilehash: 65dc158a3a8c88a02d66bff7abe34d457cfef10a
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="limitations-in-azure-database-for-mysql-preview"></a>MySQL (Önizleme) Azure veritabanındaki sınırlamaları
-MySQL hizmeti için Azure veritabanı genel önizlemede değil. Aşağıdaki bölümlerde, kapasite ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz. [genel sınırlamaları](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
+# <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanındaki sınırlamaları
+MySQL hizmeti için Azure veritabanı genel önizlemede değil. Aşağıdaki bölümlerde, kapasite, depolama altyapısı desteği, ayrıcalık desteği, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz. [genel sınırlamaları](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
 
 ## <a name="service-tier-maximums"></a>Hizmet katmanı üst sınırlar
 Azure veritabanı MySQL için bir sunucu oluştururken seçebileceğiniz birden çok hizmet katmanı vardır. Daha fazla bilgi için bkz: [her hizmet katmanında nelerin kullanılabildiğini anlama](concepts-service-tiers.md).  
@@ -27,7 +27,7 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 | :------------------------- | :---------------- |
 | **En fazla bağlantı**        |                   |
 | Temel 50 işlem birimleri     | 50 bağlantıları    |
-| Temel 100 işlem birimleri    | 100 bağlantılar   |
+| Temel 100 işlem birimleri    | 100 bağlantı   |
 | Standart 100 işlem birimleri | 200 bağlantıları   |
 | Standart 200 işlem birimleri | 400 bağlantıları   |
 | Standart 400 işlem birimleri | 800 bağlantıları   |
@@ -42,6 +42,31 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 Çok fazla bağlantı erişildiğinde, aşağıdaki hata iletisini alabilirsiniz:
 > 1040 (08004). hata: Çok fazla bağlantı
 
+## <a name="storage-engine-support"></a>Depolama altyapısı desteği
+
+### <a name="supported"></a>Destekleniyor
+- [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
+- [BELLEK](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+
+### <a name="unsupported"></a>Desteklenmeyen
+- [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
+- [KARA DELİK](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
+- [ARŞİV](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [FEDERASYON](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+
+## <a name="privilege-support"></a>Ayrıcalık desteği
+
+### <a name="unsupported"></a>Desteklenmeyen
+- [Süper ayrıcalık](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+
+## <a name="data-manipulation-statement-support"></a>Veri işleme ifadesi desteği
+
+### <a name="supported"></a>Destekleniyor
+- Yük veri GİRİŞDOSYASI - desteklenir, ancak bir UNC yolu (Azure depolama XSMB bağlanan) yönlendirildiği [Yerel] parametresini belirtmeniz gerekir.
+
+### <a name="unsupported"></a>Desteklenmeyen
+- SEÇİN... ÇIKIŞDOSYASI
+
 ## <a name="preview-functional-limitations"></a>Önizleme işlevsel sınırlamaları
 
 ### <a name="scale-operations"></a>Ölçek işlemleri
@@ -52,12 +77,14 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 ### <a name="server-version-upgrades"></a>Sunucu sürüm yükseltme
 - Ana veritabanı altyapısı sürümleri arasında otomatik geçiş şu anda desteklenmiyor.
 
-### <a name="subscription-management"></a>Abonelik Yönetimi
-- Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
-
 ### <a name="point-in-time-restore"></a>belirli bir noktaya geri yükleme
 - Farklı bir hizmet katmanı ve/veya bir işlem birimleri ve depolama boyutu geri izin verilmiyor.
-- Bırakılan bir sunucuya geri yüklenmesi desteklenmez.
+- Silinen bir sunucuya geri yüklenmesi desteklenmez.
+
+## <a name="functional-limitations"></a>İşlev sınırlamaları
+
+### <a name="subscription-management"></a>Abonelik Yönetimi
+- Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Her hizmet katmanında nelerin kullanılabildiğini](concepts-service-tiers.md)

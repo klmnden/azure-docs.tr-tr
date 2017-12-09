@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kümesi güvenlik senaryoları
-Azure Service Fabric kümesi sahip olduğunuz bir kaynaktır. Yetkisiz kullanıcılar bunlara bağlanmasını önlemek için kümelerinizi güvenlik altına almanız gerekir. Kümede üretim iş yükleri çalıştırırken güvenli küme özellikle önemlidir. Küme genel internet yönetim uç noktalarını kullanıma sunar, güvenli olmayan bir küme oluşturmak mümkün olmasına karşın, anonim kullanıcılar için bağlanabilir. 
+Azure Service Fabric kümesi sahip olduğunuz bir kaynaktır. Sizin sorumluluğunuzdadır kümelerinizi yetkisiz kullanıcıların kendilerine bağlanmasını önlemek için güvenli değil. Kümede üretim iş yükleri çalıştırırken güvenli küme özellikle önemlidir. Küme genel internet yönetim uç noktalarını kullanıma sunar, güvenli olmayan bir küme oluşturmak mümkün olmasına karşın, anonim kullanıcılar için bağlanabilir. Güvenli olmayan kümeler üretim iş yükleri için desteklenmez. 
 
 Bu makalede Azure kümeler ve tek başına kümeleri ve bunları uygulamak için kullanabileceğiniz çeşitli teknolojileri için güvenlik senaryoları genel bir bakış verilmiştir:
 
@@ -58,7 +58,7 @@ Windows üzerinde hem çalışan Azure ve tek başına kümeleri üzerinde çal�
 ### <a name="client-to-node-certificate-security"></a>İstemci düğüm sertifika güvenliği
 Resource Manager şablonu kullanarak veya tek başına JSON şablonunu kullanarak kümeyi Azure portalında ya da oluşturduğunuzda istemcisi düğümü sertifika güvenliği ayarlayın. Sertifikayı oluşturmak için bir yönetici istemci sertifikası veya bir kullanıcı istemci sertifikası belirtin. En iyi uygulama, belirttiğiniz yönetici istemci ve kullanıcı istemci sertifikalarını belirtmek için birincil ve ikincil sertifikalardan farklı olmalıdır [düğümü düğümü güvenlik](#node-to-node-security). Varsayılan olarak, küme sertifikaları düğümü düğümü güvenlik için izin verilen istemci yönetim sertifikalar listesine eklenir.
 
-Yönetim sertifikasını kullanarak kümeye bağlanan istemciler, yönetim özellikleri için tam erişime sahip. Salt okunur kullanıcı istemci sertifikası kullanarak kümeye bağlanan istemciler yönetim özellikleri yalnızca okuma erişimi var. Bu sertifikalar, biz bu makalenin sonraki bölümlerinde açıklanan RBAC için kullanılır.
+Yönetim sertifikasını kullanarak kümeye bağlanan istemciler, yönetim özellikleri için tam erişime sahip. Salt okunur kullanıcı istemci sertifikası kullanarak kümeye bağlanan istemciler yönetim özellikleri yalnızca okuma erişimi var. Bu sertifikalar, bu makalenin sonraki bölümlerinde açıklanan RBAC için kullanılır.
 
 Azure için sertifika güvenliği kümedeki ayarlamak öğrenmek için bkz: [bir Azure Resource Manager şablonu kullanarak bir küme ayarlama](service-fabric-cluster-creation-via-arm.md).
 

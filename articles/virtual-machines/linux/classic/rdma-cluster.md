@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>MPI uygulamalarını çalıştırmak için bir Linux RDMA kümesi oluşturma
 Azure ile Linux RDMA kümedeki ayarlamak öğrenin [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) paralel ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için. Bu makalede bir kümede Intel MPI çalıştırmak için Linux HPC görüntüsünü hazırlamak için adımları sağlar. Hazırlık sonra bu görüntü ve RDMA özellikli Azure VM boyutlarını (şu anda H16r, H16mr, A8 veya A9) birini kullanarak sanal makineleri bir küme dağıtın. Küme, doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı düşük gecikmeli, yüksek verimlilik bir ağ üzerinden verimli bir şekilde iletişim kuran MPI uygulamaları çalıştırmak için kullanın.
@@ -47,7 +47,7 @@ Aşağıdaki adımlar, Azure CLI Azure Marketi'nden SUSE Linux Enterprise Server
 * **Azure aboneliği**: bir aboneliğiniz yoksa oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde. Daha büyük kümeleri için Kullandıkça Öde aboneliğine veya diğer satın alma seçenekleri göz önünde bulundurun.
 * **VM boyutu kullanılabilirlik**: RDMA özellikli aşağıdaki örneği boyutlarıdır: H16r, H16mr, A8 ve A9. Denetleme [bölgeye göre ürünleri](https://azure.microsoft.com/regions/services/) Azure bölgelerindeki kullanılabilirlik.
 * **Çekirdek kota**: işlem yoğunluklu VM'ler oluşan bir küme dağıtmak için çekirdek kota artırmanız gerekebilir. Örneğin, bu makaledeki gösterildiği gibi 8 A9 VM dağıtmak istiyorsanız, en az 128 çekirdek gerekir. Aboneliğinizi H-serisi dahil olmak üzere belirli VM boyutu aileleri, dağıtabilirsiniz çekirdek sayısı da sınırlayabilir. Bir kota artışı isteği göndermek üzere [bir çevrimiçi müşteri destek isteği açma](../../../azure-supportability/how-to-create-azure-support-request.md) herhangi bir ücret alınmaz.
-* **Azure CLI**: [yükleme](../../../cli-install-nodejs.md) Azure CLI ve [Azure aboneliğinize bağlanmak](../../../xplat-cli-connect.md) istemci bilgisayardan.
+* **Azure CLI**: [yükleme](../../../cli-install-nodejs.md) Azure CLI ve [Azure aboneliğinize bağlanmak](/cli/azure/authenticate-azure-cli) istemci bilgisayardan.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>SLES 12 SP1 HPC VM sağlama
 Azure CLI ile azure'da oturum açtıktan sonra çalıştırmak `azure config list` çıkış hizmet yönetimi modu gösterir onaylamak için. Yoksa, şu komutu çalıştırarak modunu ayarlayın:

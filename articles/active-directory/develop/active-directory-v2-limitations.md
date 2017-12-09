@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a9d455203e50da47208ef1494d38a950161bee1
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: HT
+ms.openlocfilehash: eb9c2ce5170aa02b7502eb5a52f2bf4b3a8ccb9c
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>V2.0 uç kullanmalıyım?
 Azure Active Directory ile tümleştirme uygulamalar oluştururken, v2.0 uç noktası ve kimlik doğrulama protokolleri gereksinimlerinizi karşılayıp karar vermeniz gerekir. Azure Active Directory'nin özgün uç nokta hala tam olarak desteklenir ve bazı bakımlardan v2.0'den daha fazla özellik zengin değil. Ancak, v2.0 uç [önemli avantajlar sunar](active-directory-v2-compare.md) geliştiriciler için.
@@ -110,7 +110,7 @@ V2.0 uç SAML veya WS-Federasyon desteklemiyor; yalnızca, Open ID Connect ve OA
 * V2.0 uç veren rol veya Grup Talep Kimliği belirteçleri desteklemez.
 * [OAuth 2.0 kaynak sahibi parolası kimlik bilgilerini verme](https://tools.ietf.org/html/rfc6749#section-4.3) v2.0 uç noktası tarafından desteklenmiyor.
 
-Addtion içinde v2.0 uç SAML veya WS-Federasyon kurallarının herhangi bir biçimde desteklemez.
+Ayrıca, v2.0 uç SAML veya WS-Federasyon kurallarının herhangi bir biçimde desteklemez.
 
 V2.0 uç desteklenen protokol işlevselliği kapsamını daha iyi anlamak için okuyun bizim [Openıd Connect ve OAuth 2.0 protokolü başvurusu](active-directory-v2-protocols.md).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Azure işlevleri izleme
 
@@ -78,7 +78,7 @@ Application Insights kullanma hakkında daha fazla bilgi için bkz: [Application
 
 Üzerinde [hataları](../application-insights/app-insights-asp-net-exceptions.md) sekmesinde grafikler oluşturabilirsiniz ve uyarılar, özel durumlar işlevi hataları ve sunucu tabanlı. **İşlem adı** işlev adı. Hataları bağımlılıklar uygulamadan sürece gösterilmiyor [özel telemetri](#custom-telemetry-in-c-functions) bağımlılıklar için.
 
-![hataları](media/functions-monitoring/failures.png)
+![Hatalar](media/functions-monitoring/failures.png)
 
 Üzerinde [performans](../application-insights/app-insights-performance-counters.md) sekmesinde, performans sorunlarını analiz edebilirsiniz.
 
@@ -486,7 +486,7 @@ Yerel iş istasyonunda Azure komut satırı arabirimi (CLI) 1.0 veya PowerShell 
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Azure CLI 1.0 ile işlevi uygulama günlük dosyaları İzle
 
-Başlamak için [Azure CLI 1.0 yüklemeyi](../cli-install-nodejs.md) ve [Azure'da oturum aç](../xplat-cli-connect.md).
+Başlamak için [Azure CLI 1.0 yüklemeyi](../cli-install-nodejs.md) ve [Azure'da oturum aç](/cli/azure/authenticate-azure-cli).
 
 Klasik Hizmet Yönetimi modunu etkinleştirmek, aboneliğinizi seçin ve günlük dosyalarını akış için aşağıdaki komutları kullanın:
 

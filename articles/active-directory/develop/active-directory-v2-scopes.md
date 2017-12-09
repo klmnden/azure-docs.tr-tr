@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1488e8d2a70f7317c97275b83db3b9f05e9deb4b
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Kapsam, izinleri ve Azure Active Directory v2.0 uç onay
 Azure Active Directory (Azure AD) ile tümleştirme uygulamalarını kullanıcılara bir uygulama verilerini nasıl erişebileceğinizi üzerinde denetim sağlar bir yetkilendirme modelini izler. Yetkilendirme modelini v2.0 uyarlamasını güncelleştirilen ve bir uygulamayı Azure AD ile nasıl etkileşim kurmalıdır değiştirir. Bu makalede, kapsamları, izinler ve onay dahil olmak üzere bu yetkilendirme modelini temel kavramları kapsar.
@@ -46,8 +46,8 @@ Bu tür izin tanımlayarak, kaynak verilerini ve verilerin açığa hassas denet
 
 Azure AD'de ve OAuth, izinleri bu tür çağrılır *kapsamları*. Bunlar da olarak da adlandırılır *oAuth2Permissions*. Bir kapsam Azure AD'de bir dize değeri olarak temsil edilir. Microsoft Graph örnekle devam edersek, her izin için kapsam değeridir:
 
-* Kullanıcının takvim kullanarak okuyun`Calendar.Read`
-* Kullanıcının takvim kullanarak yazma`Mail.ReadWrite`
+* Kullanıcının takvim kullanarak okuyun`Calendars.Read`
+* Kullanıcının takvim kullanarak yazma`Calendars.ReadWrite`
 * Kullanarak bir kullanıcı tarafından olarak posta gönderme`Mail.Send`
 
 Bir uygulama, v2.0 uç noktasına istek kapsamlar belirterek bu izinleri isteyebilir.
@@ -58,7 +58,7 @@ Openıd Connect v2.0 uyarlamasını belirli bir kaynak için geçerli olmayan bi
 ### <a name="openid"></a>openıd
 Bir uygulama oturum açma kullanarak gerçekleştirirse [Openıd Connect](active-directory-v2-protocols.md), isteği göndermelidir `openid` kapsam. `openid` Kapsam, iş hesabı onay sayfasında "oturum" iznini ve kişisel Microsoft hesabı onay sayfasında "Profilinizi görüntüleyin ve uygulamaları ve Microsoft hesabınızı kullanarak hizmetlere bağlanma" iznini gösterir. Bu izne sahip bir uygulamanın kullanıcı için benzersiz bir tanımlayıcı biçiminde alabileceği `sub` talep. Ayrıca kullanıcı bilgisi uç noktasına uygulama erişimi sağlar. `openid` Kapsamı, bir uygulamanın farklı bileşenler arasındaki HTTP çağrıları güvenliğini sağlamak için kullanılan kimlik belirteçlerini edinmeye v2.0 belirteç uç noktada kullanılabilir.
 
-### <a name="email"></a>E-posta
+### <a name="email"></a>e-posta
 `email` Kapsam ile kullanılabilir `openid` kapsam ve herhangi diğer. Kullanıcının birincil e-posta adresine biçiminde uygulama erişim sağlayan `email` talep. `email` Yalnızca bir e-posta adresi her zaman bir durum yoksa kullanıcı hesabı ile ilişkili ise talep bir belirteç içine eklenmiştir. Bunu kullanıyorsa `email` kapsamı, uygulamanız hazırlanmış bir durumda işlemek için `email` talep belirteci yok.
 
 ### <a name="profile"></a>Profili
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b276911ecbbf161cb6068c1af7a035850035b98d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Docker VM Uzantısını Azure Komut Satırı Arabirimi (Azure CLI) ile kullanma
 > [!IMPORTANT] 
@@ -45,7 +45,7 @@ Azure CLI'yi yükleme ve yapılandırma için bkz: [Azure komut satırı arabiri
 > 
 
 ### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Azure CLI Azure hesabınıza bağlanın
-Azure CLI kullanmadan önce Azure hesabı kimlik bilgilerinizi platformunuz üzerinde Azure CLI ile ilişkilendirmeniz gerekir. Bölüm [Azure aboneliğinize bağlanmak nasıl](../../../xplat-cli-connect.md) indirmek ve içeri aktarma açıklanmaktadır, **.publishsettings** dosya veya Azure CLI bir Kurumsal kimlik ile ilişkilendirin.
+Azure CLI kullanmadan önce Azure hesabı kimlik bilgilerinizi platformunuz üzerinde Azure CLI ile ilişkilendirmeniz gerekir. Bölüm [Azure aboneliğinize bağlanmak nasıl](/cli/azure/authenticate-azure-cli) indirmek ve içeri aktarma açıklanmaktadır, **.publishsettings** dosya veya Azure CLI bir Kurumsal kimlik ile ilişkilendirin.
 
 > [!NOTE]
 > Aşağıdakilerden birini veya farklı işlevler anlamak için yukarıdaki Belge okuduğunuzdan emin olun şekilde kimlik doğrulama, diğer yöntemleri kullanılırken davranışı bazı farklılıklar vardır.

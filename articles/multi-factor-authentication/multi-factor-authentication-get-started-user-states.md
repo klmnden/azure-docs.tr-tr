@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: c10374adf9b1438e087aa5fdba670f6d0234ee6f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Bir kullanıcı veya grup için iki aşamalı doğrulama zorunlu kılma
 
@@ -40,11 +40,11 @@ Bu seçeneklerin ikisi de Azure çok faktörlü kimlik doğrulaması için gerek
 
 Azure multi-Factor Authentication kullanıcı hesapları şu üç ayrı duruma sahiptir:
 
-| Durum | Açıklama | Etkilenen tarayıcı olmayan uygulamalar | Tarayıcı uygulamaları ve modern kimlik doğrulama etkilenen |
-|:---:|:---:|:---:|:--:|
-| Devre dışı |Yeni bir kullanıcı için varsayılan duruma Azure çok faktörlü kimlik doğrulama (MFA) kayıtlı değil. |Hayır |Hayır |
-| Etkin |Kullanıcı Azure MFA kayıtlı ancak kayıtlı değil. Bunlar oturum açtığınızda kaydetmek için istenir. |Hayır.  Kayıt işlemi tamamlanana kadar çalışmaya devam eder. | Evet. Oturumu için yenileme belirtecinin süresi dolduktan sonra MFA kayıt gerekli olacaktır.|
-| Uygulandı |Kullanıcı kaydolmuş ve kaydolma işlemini için Azure MFA tamamlandı. |Evet.  Uygulamaları, uygulama parolaları gerekir. |Evet. MFA oturum açma gerekli. |
+| Durum | Açıklama | Etkilenen tarayıcı olmayan uygulamalar | Etkilenen tarayıcı uygulamaları | Etkilenen Modern kimlik doğrulama |
+|:---:|:---:|:---:|:--:|:--:|
+| Devre dışı |Yeni bir kullanıcı için varsayılan duruma Azure çok faktörlü kimlik doğrulama (MFA) kayıtlı değil. |Hayır |Hayır |Hayır |
+| Etkin |Kullanıcı Azure MFA kayıtlı ancak kayıtlı değil. Bunlar oturum açtığınızda kaydetmek için istenir. |Hayır.  Kayıt işlemi tamamlanana kadar çalışmaya devam eder. | Evet. Oturumun süresi dolduktan sonra MFA kayıt gerekli olacaktır.| Evet. Erişim belirtecinin süresi dolduktan sonra MFA kayıt gerekli olacaktır. |
+| Uygulandı |Kullanıcı kaydolmuş ve kaydolma işlemini için Azure MFA tamamlandı. |Evet.  Uygulamaları, uygulama parolaları gerekir. |Evet. MFA oturum açma gerekli. | Evet. MFA oturum açma gerekli. |
 
 Bir kullanıcının durumunu olup bir yönetim bunları Azure MFA kaydetmiştir ve kayıt işlemini tamamlanmadan yansıtır.
 

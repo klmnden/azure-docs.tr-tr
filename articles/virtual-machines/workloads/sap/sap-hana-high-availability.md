@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>SAP HANA Azure sanal makinelerde (VM), yüksek kullanılabilirlik
 
@@ -78,19 +78,19 @@ Azure Market görüntü SUSE Linux Enterprise Server için yeni sanal makineleri
 ### <a name="manual-deployment"></a>El ile dağıtımı
 
 1. Kaynak Grubu oluşturma
-1. Bir sanal ağ oluşturma
+1. Sanal Ağ Oluştur
 1. İki depolama hesabı oluşturma
 1. Kullanılabilirlik kümesi oluştur  
    Set max güncelleştirme etki alanı
 1. Bir yük dengeleyiciye (dahili) oluşturma  
    Yukarıdaki adımı VNET seçin
 1. Sanal makine 1 oluşturun  
-   https://Portal.Azure.com/#Create/SuSE-byos.SLES-for-SAP-byos12-SP1  
+   En azından SLES4SAP 12 SP1 BYOS görüntü https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 kullanacağız Bu örnekte SLES4SAP 12 SP1  
    SAP uygulamaları 12 SP1 için SLES (BYOS)  
    1 depolama hesabı seçin  
    Kullanılabilirlik kümesi seçin  
 1. Sanal makine 2 oluşturun  
-   https://Portal.Azure.com/#Create/SuSE-byos.SLES-for-SAP-byos12-SP1  
+   En azından SLES4SAP 12 SP1 BYOS görüntü https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1 kullanacağız Bu örnekte SLES4SAP 12 SP1  
    SAP uygulamaları 12 SP1 için SLES (BYOS)  
    Depolama hesabı 2 seçin   
    Kullanılabilirlik kümesi seçin  
@@ -99,7 +99,7 @@ Azure Market görüntü SUSE Linux Enterprise Server için yeni sanal makineleri
     1. Bir ön uç IP havuzu oluşturma
         1. Yük Dengeleyici açın, ön uç IP havuzu seçin ve Ekle'yi tıklatın
         1. Yeni ön uç IP havuzu (örneğin hana-ön uç) adını girin
-       1. Tamam'ı tıklatın
+        1. Tamam'ı tıklatın
         1. Yeni ön uç IP havuzu oluşturulduktan sonra IP adresini yazma
     1. Arka uç havuzu oluşturma
         1. Yük Dengeleyici açın, arka uç havuzlarını seçin ve Ekle'yi tıklatın
@@ -109,7 +109,7 @@ Azure Market görüntü SUSE Linux Enterprise Server için yeni sanal makineleri
         1. SAP HANA kümedeki sanal makineleri seçin
         1. Tamam'ı tıklatın
     1. Bir sistem durumu araştırması oluştur
-       1. Yük Dengeleyici açın, sistem durumu araştırmalarının seçin ve Ekle'yi tıklatın
+        1. Yük Dengeleyici açın, sistem durumu araştırmalarının seçin ve Ekle'yi tıklatın
         1. Yeni durum araştırması (örneğin hana-hp) adını girin
         1. TCP bağlantı noktası 625 protokolü olarak seçin**03**, aralığı 5 ile sağlıksız durum eşiği 2 tutun
         1. Tamam'ı tıklatın
@@ -119,22 +119,22 @@ Azure Market görüntü SUSE Linux Enterprise Server için yeni sanal makineleri
         1. Ön uç IP adresini seçin, daha önce oluşturduğunuz (örneğin hana-ön uç) araştırma arka uç havuzu ve sistem durumu
         1. Protokol TCP tutmak için bağlantı noktası 3 girin**03**15
         1. -30 dakika boşta kalma zaman aşımı süresini artırın
-       1. **Kayan IP etkinleştirdiğinizden emin olun**
+        1. **Kayan IP etkinleştirdiğinizden emin olun**
         1. Tamam'ı tıklatın
         1. Bağlantı noktası 3 için yukarıdaki adımları yineleyin**03**17
 
 ### <a name="deploy-with-template"></a>Şablon ile dağıtım
-Gerekli tüm kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonun sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
+Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonun sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
 
-1. Açık [veritabanı şablonu] [ template-multisid-db] veya [şablonu Yakınsanan] [ template-converged] Azure Portalı'ndaki yakınsanmış şablonu da ASCS/SCS ve ERS (yalnızca Linux) örneği için Yük Dengeleme kuralları oluşturur ancak veritabanı şablonu yalnızca bir veritabanı için Yük Dengeleme kuralları oluşturur. SAP NetWeaver temel sistem yüklemeyi planladığınız ve ayrıca istiyorsanız ASCS/SCS örneği aynı makinelere yüklemeniz, kullanın [şablonu Yakınsanan][template-converged].
+1. Açık [veritabanı şablonu] [ template-multisid-db] veya [şablonu Yakınsanan] [ template-converged] veritabanı şablonu yalnızca oluşturur Azure Portal'da yakınsanmış şablon ayrıca ASCS/SCS ve ERS (yalnızca Linux) örneği için Yük Dengeleme kuralları oluşturur ancak Yük Dengeleme için bir veritabanı kuralları. SAP NetWeaver temel sistem yüklemeyi planladığınız ve ayrıca istiyorsanız ASCS/SCS örneği aynı makinelere yüklemeniz, kullanın [şablonu Yakınsanan][template-converged].
 1. Aşağıdaki parametreleri girin
     1. SAP sistem kimliği  
-       Yüklemek istediğiniz SAP sisteminin SAP sistem kimliği girin. Kimliği önek olarak dağıtılan kaynaklar için kullanılır.
+       Yüklemek istediğiniz SAP sistem SAP sistem Kimliğini girin. Kimliği önek olarak dağıtılan kaynaklar için kullanılır.
     1. Yığın türü (yalnızca yakınsanmış şablonunu kullanıyorsanız geçerlidir)  
        SAP NetWeaver yığın türünü seçin
     1. İşletim sistemi türü  
        Linux dağıtımları birini seçin. Bu örnekte, SLES 12 BYOS seçin
-    1. DB türü  
+    1. Db Türü  
        HANA seçin
     1. SAP sistemi boyutu  
        Yeni Sistem sağlayacak SAP miktarı. Lütfen sistem gerektirir kaç SAP değil eminseniz, SAP teknolojisi iş ortağı veya sistem Tümleştirici isteyin
@@ -145,7 +145,7 @@ Gerekli tüm kaynakları dağıtmak için github'da hızlı başlangıç şablon
     1. Yeni veya var olan bir alt ağ  
        Yeni sanal ağ ve alt oluşturulmalıdır ya da mevcut bir alt kullanılması gerektiğini belirler. Şirket içi ağınıza bağlı bir sanal ağ zaten varsa, varolan seçin.
     1. Alt ağ kimliği  
-    Sanal makineler için bağlanması alt ağ kimliği. Sanal makine şirket içi ağınıza bağlanmak için VPN veya hızlı rota sanal ağınızın alt ağ seçin. Kimliği genellikle /subscriptions/ gibi görünüyor`<subscription id`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
+    Sanal makineler için bağlanması alt ağ kimliği. Sanal makine şirket içi ağınıza bağlanmak için VPN veya hızlı rota sanal ağınızın alt ağ seçin. Kimliği genellikle /subscriptions/ gibi görünüyor`<subscription ID`> /resourceGroups/`<resource group name`> /providers/Microsoft.Network/virtualNetworks/`<virtual network name`> /subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Ayarlama Linux HA
 
@@ -201,7 +201,7 @@ Aşağıdaki öğeler ya da [A ile] - önek uygulanabilir tüm düğümleri [1] 
 
 1. [A] Kurulum disk düzeni
     1. LVM  
-    Genellikle, veri ve günlük dosyalarını birimler için LVM kullanılması önerilir. Aşağıdaki örnekte, sanal makineleri iki birim oluşturmak için kullanılması gereken bağlı dört veri diskleri sahip olduğunuzu varsayar.
+    Genellikle, veri ve günlük dosyalarını birimleri için LVM kullanmanızı öneririz. Aşağıdaki örnekte, sanal makineleri iki birim oluşturmak için kullanılması gereken bağlı dört veri diskleri sahip olduğunuzu varsayar.
         * Kullanmak istediğiniz tüm disklerin fiziksel birimler oluşturursunuz.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -229,7 +229,7 @@ Aşağıdaki öğeler ya da [A ile] - önek uygulanabilir tüm düğümleri [1] 
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Üç mantıksal birimler için fstab girişleri oluşturmak
@@ -450,7 +450,7 @@ STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için
 
 1. Git <https://portal.azure.com>
 1. Azure Active Directory dikey penceresini açın  
-   Özellikleri'ne gidin ve dizin kimliği yazma Bu **Kiracı kimliği**.
+   Özellikleri'ne gidin ve dizin kimliği yazma Bu **kimliği Kiracı**.
 1. Uygulama kayıtlar'ı tıklatın
 1. Ekle'ye tıklayın.
 1. Bir ad girin, uygulama türü "Web uygulaması/API" seçin, bir oturum açma URL'si (örneğin http://localhost) girin ve Oluştur'u tıklatın
@@ -476,13 +476,13 @@ Sanal makineler için izinleri düzenlenebilir sonra kümede STONITH cihazları 
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -496,7 +496,7 @@ sudo crm yük güncelleştirme crm-fencing.txt yapılandırın
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -516,7 +516,7 @@ sudo crm yük güncelleştirme crm-saphanatop.txt yapılandırın
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -622,16 +622,16 @@ sapcontrol -nr <b>03</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
-Geçiş yeniden silinmesi gereken konum contraints oluşturur.
+Geçiş yeniden silinmesi gereken konum kısıtlamaları oluşturur.
 
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-İkincil düğüm kaynağının durumu da Temizleme için gerekir
+İkincil düğüm kaynağı durumunun dökümünü temiz gerekir
 
 <pre><code>
 # switch back to root and cleanup the failed state

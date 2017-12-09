@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 428b0b2397887299e691c82751f6c45673575f26
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: HT
+ms.openlocfilehash: 31105c3529c8551cec84650689deb2d42a218074
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Yönetilen hizmet kimliği (MSI) için Azure kaynakları
 
@@ -89,6 +89,8 @@ Aşağıdaki hizmetler Azure AD kimlik doğrulamayı desteklemek ve yönetilen h
 | Azure Key Vault | https://vault.Azure.NET/ | Kullanılabilir | Eylül 2017 | |
 | Azure Data Lake | https://datalake.Azure.NET/ | Kullanılabilir | Eylül 2017 | |
 | Azure SQL | https://Database.Windows.NET/ | Kullanılabilir | Ekim 2017 | |
+| Azure Event Hubs | https://eventhubs.Azure.NET/ | Kullanılabilir | Aralık 2017 | |
+| Azure Service Bus | https://servicebus.Azure.NET/ | Kullanılabilir | Aralık 2017 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Nasıl yönetilen hizmet kimliği maliyeti nedir?
 

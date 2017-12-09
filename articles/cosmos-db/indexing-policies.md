@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 791446fbd7eb025441f051e2d8f8f2b1e6c47ebe
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
@@ -68,7 +68,7 @@ Azure Cosmos DB, bir Azure Cosmos DB koleksiyonunda – dizin oluşturma ilkesi 
 
 **Tutarlı**: bir Azure Cosmos DB koleksiyonunun İlkesi "olarak tutarlı" olarak belirlendiyse, belirli bir Azure Cosmos DB koleksiyon sorgulamaları noktası okuma için belirtildiği gibi aynı tutarlılık düzeyi izleyin (yani güçlü, sınırlanmış eskime durumu, oturum veya son). Dizin belge güncelleştirme (yani Ekle, Değiştir, güncelleştirme ve silme Azure Cosmos DB koleksiyonunda belgenin) bir parçası olarak eşzamanlı olarak güncelleştirilir.  Tutarlı dizin oluşturma olası azaltma, tutarlı sorguları yazma performansı destekler. Bu azaltma işlevi sıralanması gerekir benzersiz yolların ve "tutarlılık düzeyi" dir. Tutarlı dizin oluşturma modu "hızlı bir şekilde, hemen sorgu yazma" iş yükleri için tasarlanmıştır.
 
-**Yavaş**: Azure Cosmos DB koleksiyon yani koleksiyonunun işleme kapasitesi kullanıcı isteklere yanıt tam olarak kullanılmaz, sessiz olduğunda dizini zaman uyumsuz olarak güncelleştirilir. Belge alım gerektiren "sorgu daha sonra şimdi alma" iş yükleri için "yavaş" dizin oluşturma modu uygun olabilir. Lütfen verileri ve alınan yavaş dizine tutarsız sonuçlar alabilirsiniz unutmayın. Bu sayı sorgular veya özel bir sorgu sonuçları veri dizine kadar doğru veya repeatable olması garanti edilmez anlamına gelir. Dizini genellikle catch modu ayarlamak içindir. Yavaş dizin - TTL değişikliği dizin alınırken sonuçları bırakılan ve yeniden, böylece bu etkinlik alanlarında beklenmeyen sonuçlara neden olabilir. Müşterilerin çoğu, tutarlı dizin kullanmanız gerekir.
+**Yavaş**: Azure Cosmos DB koleksiyon diğer bir deyişle, kullanıcı isteklere yanıt koleksiyonunun işleme kapasitesi tam olarak kullanılmaz, sessiz, olduğunda bu özel durumda dizini zaman uyumsuz olarak güncelleştirilir. Belge alım gerektiren "sorgu daha sonra şimdi alma" iş yükleri için "yavaş" dizin oluşturma modu uygun olabilir. Verileri ve alınan yavaş dizine tutarsız sonuçlar alabilirsiniz unutmayın. Bu sayı sorgular veya özel bir sorgu sonuçları belirli bir zamanda tutarlı veya repeatable olmayabilir anlamına gelir. Dizini genellikle catch alınan verilerle modu ayarlamak içindir. Yavaş dizin oluşturma göre yaşam süresi (TTL) sayısı ve sorgu sonuçları bir süre için tutarsız yapan alıp bırakılan yeniden, dizin sonucunda değiştirir. Bu nedenlerle, Azure Cosmos DB hesapları çoğunu tutarlı dizin kullanmanız gerekir.
 
 **Hiçbiri**: kendisiyle ilişkilendirilmiş herhangi bir dizin dizini modu "Hiçbiri" ile işaretlenmiş bir koleksiyonu vardır. Bu, Azure Cosmos DB anahtar-değer depolama alanı olarak kullanılan ve belgeleri yalnızca kimliği özelliği tarafından erişilen yaygın olarak kullanılır. 
 
@@ -229,7 +229,7 @@ Otomatik olarak tüm belge dizini için koleksiyon isteyip istemediğinizi seçe
 
 Otomatik kapalı ile dizin oluşturma, yalnızca belirli belgeler için dizin hala seçmeli olarak ekleyebilirsiniz. Buna karşılık, üzerinde dizin otomatik bırakın ve yalnızca belirli belgeleri dışlamak seçmeli olarak seçin. Açık/kapalı yapılandırmaları dizin yararlı yalnızca bir alt belgelerin sorgulanmasını gerek sahip olduğunuzda.
 
-Örneğin, aşağıdaki örnek açıkça kullanarak belge dahil gösterilmektedir [DocumentDB API .NET SDK'sını](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-sdk-dotnet) ve [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
+Örneğin, aşağıdaki örnek açıkça kullanarak belge dahil gösterilmektedir [DocumentDB API .NET SDK'sını](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) ve [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
-ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure faturalama ve maliyet yönetimi ile beklenmeyen ücret oluşmasını önlemek
 
@@ -28,6 +28,8 @@ Azure için kaydolduğunuzda, harcama iyi bir fikir almak için yapabileceğiniz
 - Aboneliğinizi bir Kurumsal Anlaşma (Kurumsal Sözleşme) ise, Azure portalında maliyetleriniz görmek için genel Önizleme kullanılabilir. Aboneliğinizi bulut çözümü sağlayıcısı (CSP) veya Azure sponsorluk ise, ardından aşağıdaki özelliklerden bazıları için geçerli olmayabilir. Bkz: [EA, CSP ve sponsorluk için ek kaynaklar](#other-offers) daha fazla bilgi için.
 
 - Ücretsiz bir Deneme aboneliğinizin olması durumunda [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), açık (AIO) ya da BizSpark, Azure aboneliğinizin tüm kredinizi kullanıldığında otomatik olarak devre dışıdır. Hakkında bilgi edinin [harcama limitlerini](#spending-limit) unexpectantly devre dışı aboneliğiniz zorunda kalmamak için.
+
+- Kaydolup durumunda [ücretsiz Azure hesabına](https://azure.microsoft.com/en-us/free/), [bazı en popüler Azure Hizmetleri 12 ay boyunca ücretsiz kullanabileceğiniz](billing-create-free-services-included-free-account.md). Aşağıda listelenen önerilerle birlikte bkz [ücretsiz hesap ücret kaçının](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure Hizmetleri eklemeden önce tahmini maliyetleri Al
 

@@ -13,17 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: denlee
-ms.openlocfilehash: 122a2f8e506b3f567e73a816cbbeac569339c924
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 1a551615d0ffbbc036d3052cc552fbf4c1098ff7
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark ile gerçek zamanlı büyük veri analizi Azure Cosmos DB bağlayıcıya hızlandırmak
 
 Spark Azure Cosmos DB bağlayıcı için bir giriş kaynağı ya da Apache Spark işleri için çıkış havuzu olarak hareket edecek Azure Cosmos DB sağlar. Bağlanma [Spark](http://spark.apache.org/) için [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hızlı bir şekilde kalıcı hale getirmek ve verileri sorgulamak için Azure Cosmos DB burada kullanabileceğiniz hızlı taşıma veri bilimi sorunları yeteneğinizi hızlandırır. Spark Azure Cosmos DB bağlayıcı için verimli bir şekilde yerel Azure Cosmos yönetilen DB dizinleri kullanır. Dizinler güncelleştirilebilir sütunları analiz gerçekleştirmek ve nesnelerin interneti (IOT) arasında veri veri bilimi ve analiz senaryoları için Dağıtılmış hızlı genel değiştirme karşı itme aşağı koşul filtreleme sağlar.
+
+Bu videoda Azure Cosmos DB baş Program Yöneticisi Denny Lee ile daha fazla bilgi edinin. 
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
 Spark GraphX ve Gremlin grafik Azure Cosmos DB API'leri ile çalışmak için bkz: [Spark ve Apache TinkerPop Gremlin kullanarak grafik analytics gerçekleştirmek](spark-connector-graph.md).
 

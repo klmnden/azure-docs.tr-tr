@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 1d6f2d8319dde63434041885dcf5ff1a1cde3bcc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 607ab59dbeb414c69a6272d0aeb00299296bca6a
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Iaas kaynaklarını Klasikten Azure Resource Manager'da Azure CLI kullanarak geçirme
 Bu adımlar Azure komut satırı arabirimi (CLI) komutları altyapı Klasik dağıtım modeli hizmet (Iaas) kaynaklardan Azure Resource Manager dağıtım modeline olarak geçirmek için nasıl kullanılacağını gösterir. Makale gerektirir [Azure CLI 1.0](../../cli-install-nodejs.md). Azure CLI 2.0 yalnızca Azure Resource Manager kaynakları için geçerli olduğundan, bu geçiş için kullanılamaz.
@@ -48,7 +48,7 @@ Geçirme Iaas kaynaklardan Klasik Kaynak Yöneticisi değerlendirirken öneririz
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>2. adım: aboneliğinizi ayarlamak ve sağlayıcısını Kaydet
-Geçiş senaryoları için her iki Klasik ortamınızı ayarlamanız gerekir ve Resource Manager. [Azure CLI yükleme](../../cli-install-nodejs.md) ve [aboneliğinizi seçin](../../xplat-cli-connect.md).
+Geçiş senaryoları için her iki Klasik ortamınızı ayarlamanız gerekir ve Resource Manager. [Azure CLI yükleme](../../cli-install-nodejs.md) ve [aboneliğinizi seçin](/cli/azure/authenticate-azure-cli).
 
 Oturum hesabınıza açın.
 

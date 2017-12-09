@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
-ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="pen-testing"></a>Kalem test etme
 Azure uygulama test ve dağıtım için kullanmanın avantajları oluşturulan ortamları hızlı bir şekilde alabilir biridir.  Requisitioning, alma, "racking ve yığınlama hakkında" endişelenmenize gerek yoktur, kendi şirket içi donanım.
@@ -29,11 +29,12 @@ Microsoft yaptığı zaten biliyor olabilirsiniz [bizim Azure ortamının sızma
 
 Kalem yok, uygulamanızı test etmek, ancak biz, istediğiniz ve kendi uygulamalarınızı test etme kalem gerçekleştirmek gerekiyor, anlama. Uygulamalarınızın güvenliğini, tüm Azure ekosistemi daha güvenli olmasına yardımcı olmak için iyi bir şey olmasıdır.
 
-Uygulamalarınızı, kalem test ettiğinizde, saldırının gibi bize görünebilir. Biz [sürekli izleme](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) için saldırı desenleri ve biz gerekiyorsa, bir olay yanıtlama işlemi başlatır. Bu işe yaramazsa ve biz tespitlerini kalem son kendi testleriniz nedeniyle bir olay yanıtlama harekete geçirirseniz bize yardımcı değil.
-
 Ne yapmanız gerekir?
 
-Kalem için hazır olduğunuzda Azure barındırılan uygulamalarınızı test, bir seçeneğine sahip [bize bildirin](https://portal.msrc.microsoft.com/en-us/engage/pentest). Bildirim sonra Microsoft Hayır yanlışlıkla, (test ettiğiniz IP adresi engelleme gibi) kapanır. Testlerinizi koşulları sınama Azure kalem uymalıdır ve koşullar açıklanan [Microsoft bulut birleşik sızma sınama kuralları of katılım](https://technet.microsoft.com/en-us/mt784683).
+15 Haziran 2017'ten itibaren Microsoft artık bir sızma yürütmek için Ön onay gerektiren Azure kaynaklarına karşı testleri. Microsoft Azure karşı katılımlar sınama resmi belge yaklaşan sızma isteyen müşteriler doldurmak izlemeleri [Azure hizmeti sızma test bildirimi form](https://portal.msrc.microsoft.com/engage/pentest). Bu işlem yalnızca Microsoft Azure ve uygulanamaz diğer Microsoft bulut hizmeti ilgilidir. 
+
+>[!IMPORTANT] 
+>Microsoft etkinlikler sınama kalemin bildiren artık gerekli değildir ancak müşteriler hala uymalıdır [Microsoft bulut birleşik sızma sınama kuralları of katılım](https://technet.microsoft.com/en-us/mt784683). 
 
 Standart testler gerçekleştirebileceğiniz içerir:
 

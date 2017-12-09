@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-the-azure-cli-10"></a>1.0 Azure CLI'yı yükleme
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Hızlı bir şekilde arabirimi oluşturmak ve Microsoft Azure kaynakları yönet
 
 Daha fazla seçenekleri ve arka plan için proje deposu bakın [GitHub](https://github.com/azure/azure-xplat-cli).
 
-Azure CLI 1.0 yüklendikten sonra [Azure aboneliğinizle bağlanmak](xplat-cli-connect.md) çalıştırıp **azure** çalışmak için komut satırı arabiriminden (Bash, Terminal, komut istemi vb.) komutları, Azure kaynakları.
+Azure CLI 1.0 yüklendikten sonra [Azure aboneliğinizle bağlanmak](/cli/azure/authenticate-azure-cli) çalıştırıp **azure** çalışmak için komut satırı arabiriminden (Bash, Terminal, komut istemi vb.) komutları, Azure kaynakları.
 
 ## <a name="option-1-install-an-npm-package"></a>Seçenek 1: bir npm paket yükleme
 CLI bir npm paket yüklemek için indirilir ve yüklenir emin olun [en son Node.js ve npm](https://nodejs.org/en/download/package-manager/). Daha sonra çalıştırın **npm yükleme** azure CLI paketini yüklemek için:
@@ -99,7 +99,7 @@ Azure CLI 1.0, yüklü sürümünü görmek için aşağıdaki komutu yazın:
 azure --version
 ```
 
-Artık hazırsınız! Kendi kaynakları ile çalışmak için tüm CLI komutlara erişmek için [Azure CLI üzerinden Azure aboneliğinize bağlanmak](xplat-cli-connect.md).
+Artık hazırsınız! Kendi kaynakları ile çalışmak için tüm CLI komutlara erişmek için [Azure CLI üzerinden Azure aboneliğinize bağlanmak](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > Azure CLI ilk kullandığınızda Microsoft kullanım bilgilerini toplamasına izin vermek isteyip istemediğinizi soran bir ileti görürsünüz. Katılım gönüllüdür. Katılmayı seçerseniz, çalıştırarak herhangi bir zamanda durdurabilirsiniz `azure telemetry --disable`. Katılım herhangi bir zamanda etkinleştirmek için çalıştırın `azure telemetry --enable`.
@@ -129,7 +129,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [CLI üzerinden Azure aboneliğinize bağlanmak](xplat-cli-connect.md) oluşturmak ve Azure kaynaklarınızı yönetmek için.
+* [CLI üzerinden Azure aboneliğinize bağlanmak](/cli/azure/authenticate-azure-cli) oluşturmak ve Azure kaynaklarınızı yönetmek için.
 * Projeye katkıda ya da Azure CLI, yükleme kaynak kodu, rapor sorunları hakkında daha fazla bilgi için ziyaret [Azure CLI için GitHub depo](https://github.com/azure/azure-xplat-cli).
 * Azure CLI veya Azure kullanma hakkında sorularınız varsa, ziyaret [Azure forumları](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 
