@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Kapsayıcı Hizmeti Belgeleri
+title: "Kapsayıcı Hizmeti Belgeleri"
 metadata:
-  document_id: null
-  title: 'Azure Container Service Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
-  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
+  document_id: 
+  title: "Azure Container Service Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: czeumault
   manager: carolz
@@ -14,22 +14,27 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
+  ms.openlocfilehash: 7625fbb02a1ede91c01c35cddd286f4c26ad77be
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: 'Azure Container Service, üretime hazır Kubernetes, DC/OS veya Docker Swarm kümelerini hızlı bir şekilde dağıtmanızı sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Service kullanmayı öğrenin.'
+  description: "Azure Container Service, üretime hazır Kubernetes, DC/OS veya Docker Swarm kümelerini hızlı bir şekilde dağıtmanızı sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Service kullanmayı öğrenin."
 sections:
-  - title: null
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Kubernetes kümelerini kullanmaya başlama
-            href: /azure/container-service/kubernetes
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/kubernetes
-          - title: DC/OS ve Docker Swarm kümelerini kullanmaya başlama
-            href: /azure/container-service/dcos-swarm
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/dcos-swarm
+    - title: "Kubernetes kümelerini kullanmaya başlama"
+      href: /azure/container-service/kubernetes
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/kubernetes
+    - title: "DC/OS ve Docker Swarm kümelerini kullanmaya başlama"
+      href: /azure/container-service/dcos-swarm
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/dcos-swarm

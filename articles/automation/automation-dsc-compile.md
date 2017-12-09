@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 94f4dc2afb04d50d3db699eaebd69662c006d8ca
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Azure Otomasyonu DSC yapılandırmalarında derleme
 
@@ -131,7 +131,7 @@ PSCredentials parametre olarak geçirme hakkında daha fazla bilgi için bkz: <a
 
 ## <a name="composite-resources"></a>Bileşik kaynakları
 
-**Bileşik kaynakları** bir yapılandırma içinde iç içe kaynaklar olarak DSC yapılandırmaları kullanmanızı sağlar.  Bu, tek kaynak için birden çok yapılandırmaları uygulamak sağlar.  Bkz: [bileşik kaynaklar: bir kaynak olarak DSC Yapılandırması kullanılarak](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) hakkında daha fazla bilgi için **bileşik kaynakları**
+**Bileşik kaynakları** bir yapılandırma içinde iç içe kaynaklar olarak DSC yapılandırmaları kullanmanızı sağlar.  Bu, tek kaynak için birden çok yapılandırmaları uygulamak sağlar.  Bkz: [bileşik kaynaklar: bir kaynak olarak DSC Yapılandırması kullanılarak](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) hakkında daha fazla bilgi için **bileşik kaynakları**
 
 > [!NOTE]
 > Sırayla **bileşik kaynakları** doğru şekilde derlenmesi için ilk bileşik güvenen DSC kaynakları ilk Azure Automation hesabı modülleri depoda yüklü değil veya düzgün almaz sağlamalısınız.

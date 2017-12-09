@@ -16,7 +16,7 @@ ms.date: 11/01/2017
 ms.author: kakhan
 ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
 ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/17/2017
 ---

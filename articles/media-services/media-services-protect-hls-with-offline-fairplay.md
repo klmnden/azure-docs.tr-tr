@@ -17,7 +17,7 @@ ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
 ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
 ---

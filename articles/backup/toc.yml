@@ -209,6 +209,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Azure Backup Sunucusu sorunlarını giderme
           href: backup-azure-mabs-troubleshoot.md
+        - name: Azure Backup Aracısı sorunlarını giderme
+          href: backup-azure-mars-troubleshoot.md
 - name: Başvuru
   items:
     - name: Azure PowerShell

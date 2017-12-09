@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>Performans önerileri
 
@@ -57,7 +57,12 @@ Parametreli olmayan değerler, sorguları göndermek uygulamalar, nerede farklı
 
 Bu öneriyi uyguladığınızda, yaklaşık 24 saat boyunca sürer izleme işlemi başlatır ve veritabanı yükünüzü dakika içinde zorlanmış parametrelemeyi olanağı sağlar. Bu süre, 24 saat önce ve öneri uygulandıktan sonra veritabanınız CPU kullanımını gösteren doğrulama raporunu görmeye olacaktır. SQL veritabanı Danışmanı performans regresyon algılandı, otomatik olarak uygulanan öneri döner bir güvenlik mekanizması vardır.
 
-## <a name="fix-schema-issues-recommendations"></a>Şema sorunları önerileri Düzelt
+## <a name="fix-schema-issues-recommendations-preview"></a>Şema sorunları önerileri (Önizleme) Düzelt
+
+> [!IMPORTANT]
+> Microsoft, "şema sorunu düzeltin" önerileri onaysız kılınmadan sürecinde ' dir. Kullanarak başlamalıdır [akıllı Öngörüler](sql-database-intelligent-insights.md) otomatik, veritabanı performans sorunları izlemek için aşağıdakileri içeren daha önce "şema sorunu düzeltin" öneriler ele şema sorunları.
+> 
+
 **Şema sorunları giderin** önerileri SQL veritabanı hizmetinin Azure SQL veritabanınızda gerçekleştiği şema ile ilgili SQL hataları sayısındaki bir anomali bildirimler olduğunda görüntülenir. Bu öneri, genellikle veritabanınızı bir saat içinde birden çok şema ile ilgili hataları (geçersiz sütun adı, geçersiz nesne adı, vb.) karşılaştığında görüntülenir.
 
 "Şema" SQL Sorgu tanımını ve veritabanı şeması tanımı hizalanmadıysa zaman meydana söz dizimi hataları SQL Server'daki sınıfının sorunlardır. Örneğin, bir sorgu tarafından beklenen sütun eksik olabilir hedef tablodaki veya tersi. 

@@ -18,7 +18,7 @@ ms.date: 11/25/2017
 ms.author: maxluk,jejiang
 ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
 ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/17/2017
 ---

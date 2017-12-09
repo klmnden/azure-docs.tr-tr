@@ -17,7 +17,7 @@ ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: b8d6a998bc86337b286a3434f44f762cca9b7e68
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 72f887b18daef27ff7e6ccea5bb30b55c86c7b98
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: d888824f72a1e2281dfebc5523f43515f049f39c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>Öğretici: GoToMeeting otomatik kullanıcı sağlamayı için yapılandırma
 
@@ -90,6 +90,6 @@ Herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölüm
 
 * [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-* [Çoklu oturum açmayı yapılandırın](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
+* [Çoklu oturum açmayı yapılandırın](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

@@ -21,7 +21,7 @@ ms.author:
 - justcla
 ms.openlocfilehash: 5a0dd3d123cb0d580ea753cebc36ebcdb7084db9
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
 ---

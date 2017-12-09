@@ -17,7 +17,7 @@ ms.date: 08/17/2017
 ms.author: arramac
 ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
 ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2017
 ---

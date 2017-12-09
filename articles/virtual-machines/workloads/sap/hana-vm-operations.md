@@ -18,7 +18,7 @@ ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 0328bdc40429e1e82a76f290f5bde39089db0a9d
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
 ---

@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Log Analytics Belgeleri
 metadata:
-  title: 'Azure Log Analytics Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
-  description: 'Log Analytics, Microsoft Azure''un genel izleme çözümünün bir parçasıdır.  Log Analytics, bulut ortamlarını ve şirket içi ortamları izleyerek kullanılabilirliği ve performansı korur. Kullanılabilirlik ile performansı korumak için iş yükleri ve sistemlerle ilgili bilgi edinin. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak verilerinizi nasıl toplayacağınızı, çözümleyeceğinizi ve verileriniz üzerinde nasıl işlem yapabileceğinizi öğrenin.'
+  title: "Azure Log Analytics Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+  description: "Log Analytics, Microsoft Azure'un genel izleme çözümünün bir parçasıdır.  Log Analytics, bulut ortamlarını ve şirket içi ortamları izleyerek kullanılabilirliği ve performansı korur. Kullanılabilirlik ile performansı korumak için iş yükleri ve sistemlerle ilgili bilgi edinin. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak verilerinizi nasıl toplayacağınızı, çözümleyeceğinizi ve verileriniz üzerinde nasıl işlem yapabileceğinizi öğrenin."
   services: log-analytics
   author: czeumault
   manager: carolz
@@ -13,65 +13,70 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/41/2017
   ms.author: carolz
+  ms.openlocfilehash: 54c154aed61e78c60ee1cb353e46baecd6befb09
+  ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 10/19/2017
 abstract:
-  description: 'Log Analytics, Microsoft Azure''un genel izleme çözümünün bir parçasıdır. Log Analytics, bulut ortamlarını ve şirket içi ortamları izleyerek kullanılabilirliği ve performansı korur. Kullanılabilirlik ile performansı korumak için iş yükleri ve sistemlerle ilgili bilgi edinin. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak verilerinizi nasıl toplayacağınızı, çözümleyeceğinizi ve verileriniz üzerinde nasıl işlem yapabileceğinizi öğrenin.'
+  description: "Log Analytics, Microsoft Azure'un genel izleme çözümünün bir parçasıdır. Log Analytics, bulut ortamlarını ve şirket içi ortamları izleyerek kullanılabilirliği ve performansı korur. Kullanılabilirlik ile performansı korumak için iş yükleri ve sistemlerle ilgili bilgi edinin. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak verilerinizi nasıl toplayacağınızı, çözümleyeceğinizi ve verileriniz üzerinde nasıl işlem yapabileceğinizi öğrenin."
 sections:
-  - title: 5 Dakikalık Hızlı Başlangıçlar
+- title: "5 Dakikalık Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: "Log Analytics’i dağıtma ve Azure, diğer bulut hizmeti sağlayıcıları ve şirket içi kaynaklardaki verileri toplama işlemini yapılandırma hakkında bilgi edinin."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Log Analytics’i dağıtma ve Azure, diğer bulut hizmeti sağlayıcıları ve şirket içi kaynaklardaki verileri toplama işlemini yapılandırma hakkında bilgi edinin.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg'
-            text: Azure VM’leri
-            href: /azure/log-analytics/log-analytics-quick-collect-azurevm
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-            text: Linux bilgisayarı
-            href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
-            text: Windows bilgisayar
-            href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
-  - title: Adım Adım Öğreticiler
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg
+      text: "Azure VM’leri"
+      href: /azure/log-analytics/log-analytics-quick-collect-azurevm
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: "Linux bilgisayarı"
+      href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
+      text: Windows bilgisayar
+      href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "Toplanan verileri çözümleme, görselleştirme ve bu veriler üzerinde işlem yapma hakkında bilgi edinin."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Toplanan verileri çözümleme, görselleştirme ve bu veriler üzerinde işlem yapma hakkında bilgi edinin.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">Toplanan verileri görüntüleme veya çözümleme</a>
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Pano oluşturma ve panoları paylaşma</a>
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-response">Log Analytics uyarılarıyla olaylara yanıt verme</a>
-  - title: Ücretsiz Pluralsight Video Eğitimi
+    - html: "<a href=\"/azure/log-analytics/log-analytics-tutorial-viewdata\">Toplanan verileri görüntüleme veya çözümleme</a>"
+    - html: "<a href=\"/azure/log-analytics/log-analytics-tutorial-dashboards\">Pano oluşturma ve panoları paylaşma</a>"
+    - html: "<a href=\"/azure/log-analytics/log-analytics-tutorial-response\">Log Analytics uyarılarıyla olaylara yanıt verme</a>"
+- title: "Ücretsiz Pluralsight Video Eğitimi"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: IaaS İzleme ile Çalışmaya Başlama
-            href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-  - title: Örnekler
+    - title: "IaaS İzleme ile Çalışmaya Başlama"
+      href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+- title: "Örnekler"
+  items:
+  - type: paragraph
+    text: "Log Analytics’i yapılandırmak ve yönetmek için aşağıdaki örnekleri kullanın."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Log Analytics’i yapılandırmak ve yönetmek için aşağıdaki örnekleri kullanın.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
-  - title: Başvuru
+    - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
+- title: "Başvuru"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Komut Satırı
-            html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/loganalytics">REST API başvurusu</a></p>
+    - title: "Komut Satırı"
+      html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/loganalytics\">REST API başvurusu</a></p>"

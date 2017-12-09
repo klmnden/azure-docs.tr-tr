@@ -10,7 +10,7 @@ services: machine-learning
 ms.date: 10/27/2017
 ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
 ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
 ---

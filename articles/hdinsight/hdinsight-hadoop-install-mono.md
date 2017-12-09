@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 10/23/2017
 ms.author: larryfr
 ms.custom: hdinsightactive
-ms.openlocfilehash: a6e5712026dc2da3627c07e9b411c81fb9a7e1fb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
-ms.translationtype: HT
+ms.openlocfilehash: e9e55f05c97fe335a315683294805b1027b53784
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Yükleme veya Mono hdınsight'ta güncelleştir
 
@@ -64,9 +64,9 @@ Yüklü Mono sürüm belirtmek için sürüm numarasını kullanın __parametrel
 
 Yükseltme veya Hdınsight'ta Mono belirli bir sürümünü yüklemek öğrendiniz. .NET uygulamaları hdınsight'ta Mono ile kullanma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [Hdınsight üzerinde MapReduce akış için .NET kullanın](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Hive veya Pig hdınsight'ta ile .NET kullanın](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [C# hdınsight'ta Storm çözümleri geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Hdınsight üzerinde MapReduce akış için .NET kullanın](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Hive veya Pig hdınsight'ta ile .NET kullanın](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [C# hdınsight'ta Storm çözümleri geliştirme](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 * [Linux tabanlı Hdınsight .NET çözümleri geçirme](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
 Betik eylemleri kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md)

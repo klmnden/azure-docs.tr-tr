@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 870dab3770f4595aa8b98e7f2dd18cf666b6dc67
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlevleri proxy ile çalışma
 
@@ -44,7 +44,7 @@ Proxy şimdi işlevi uygulamanızdan yeni bir uç noktası olarak bulunmaktadır
 
 ## <a name="modify-requests-responses"></a>İsteklerin ve yanıtların değiştirme
 
-Azure işlevleri proxy'leriyle isteklerini ve yanıtlarını arka uçtan değiştirebilirsiniz. Bu dönüşümleri tanımlandığı gibi değişkenleri kullanabilirsiniz [değişkenlerini kullanın].
+Azure işlevleri proxy'leriyle isteklerini ve yanıtlarını arka ucundan değiştirebilirsiniz. Bu dönüşümleri tanımlandığı gibi değişkenleri kullanabilirsiniz [değişkenlerini kullanın].
 
 ### <a name="modify-backend-request"></a>Arka uç isteği değiştirme
 
@@ -60,7 +60,7 @@ Varsayılan olarak, istemci yanıt arka uç yanıtının kopya olarak başlatıl
 
 ## <a name="using-variables"></a>Değişkenleri kullanma
 
-Bir proxy sunucu yapılandırmasını statik olması gerekmez. İlk istek, arka uç yanıt ya da uygulama ayarları değişkenleri kullanmak üzere koşulu.
+Bir proxy sunucu yapılandırmasını statik olması gerekmez. Değişkenleri özgün istemci isteği, arka uç yanıt ya da uygulama ayarları kullanmak üzere koşulu.
 
 ### <a name="request-parameters"></a>Başvuru İstek parametreleri
 
@@ -93,7 +93,7 @@ Ayrıca başvurabilir [işlev uygulaması için tanımlanan uygulama ayarları](
 Örneğin, arka uç URL'sini *https://%ORDER_PROCESSING_HOST%/api/orders* "ORDER_PROCESSING_HOST ayarı değerle değiştirilen ORDER_PROCESSING_HOST %" olması gerekir.
 
 > [!TIP] 
-> Birden çok dağıtım varsa, arka uç ana bilgisayarlar için uygulama ayarları kullanın veya test ortamları. Bu şekilde, her zaman bu ortam için sağ arka ucuna varsayılır olduğundan emin olabilirsiniz.
+> Birden çok dağıtım varsa, arka uç ana bilgisayarlar için uygulama ayarları kullanın veya test ortamları. Bu şekilde, her zaman bu ortam için uygun arka uç için varsayılır olduğundan emin olabilirsiniz.
 
 ## <a name="advanced-configuration"></a>Gelişmiş yapılandırma
 

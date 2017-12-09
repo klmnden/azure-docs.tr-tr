@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 91b632c0c4bab2f0ac71b662cf1b73f5d37881ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Dayanıklı işlevleri uzantısı ve örnekleri (Azure işlevleri) yükleyin
 
@@ -62,7 +62,7 @@ Visual Studio Code tüm önemli platformlar - Windows, macOS ve Linux kapsayan b
 
 * Yükleme [en son sürümünü Visual Studio Code](https://code.visualstudio.com/Download) 
 
-* "Azure işlevleri çekirdek araçlarını yükleme" altında adresindeki yönergeleri [koduna ve test yerel olarak Azure işlevleri](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+* "Azure işlevleri çekirdek araçlarını yükleme" altında adresindeki yönergeleri [koduna ve test yerel olarak Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
 
     >[!IMPORTANT]
     > Azure işlevleri Çapraz Platform Araçları zaten varsa, bunları kullanılabilir en son sürüme güncelleştirin.

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Azure Depolama Gezgini (Önizleme) Azure Cosmos DB yönetme
 
@@ -70,7 +70,7 @@ Bir Azure Cosmos DB bağlayan alternatif bir yolu, bir bağlantı dizesi kullanm
 
     ![Bağlantı dizesi tarafından Azure Cosmos Veritabanına bağlanın](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Uygun seçin **varsayılan deneyimi** hesap türünüz için ya da **DocumentDB** veya **MongoDB**, yapıştırın, **bağlantı dizesi**ve ardından **Tamam** Azure Cosmos DB hesap bağlanmak için. Bağlantı dizesi alma hakkında daha fazla bilgi için bkz: [bağlantı dizesini almak](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Uygun seçin **varsayılan deneyimi** hesap türünüz için ya da **DocumentDB** veya **MongoDB**, yapıştırın, **bağlantı dizesi**ve ardından **Tamam** Azure Cosmos DB hesap bağlanmak için. Bağlantı dizesi alma hakkında daha fazla bilgi için bkz: [bağlantı dizesini almak](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![bağlantı dizesi](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -152,5 +152,5 @@ Belge Filtresi girerek düzenleyin bir [SQL sorgusu](documentdb-sql-query.md) ve
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Azure Storage Gezgini Azure Cosmos DB kullanılması hakkında bilgi için aşağıdaki videoyu izleyin: [kullanmak Azure Cosmos DB'de Azure Storage Gezgini](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Depolama Gezgini hakkında daha fazla bilgi ve daha fazla hizmet bağlanmak [Depolama Gezgini (Önizleme) ile çalışmaya başlama](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Depolama Gezgini hakkında daha fazla bilgi ve daha fazla hizmet bağlanmak [Depolama Gezgini (Önizleme) ile çalışmaya başlama](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

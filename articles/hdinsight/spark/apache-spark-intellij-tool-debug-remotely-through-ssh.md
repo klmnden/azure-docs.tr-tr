@@ -19,7 +19,7 @@ ms.date: 11/25/2017
 ms.author: jejiang
 ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
 ---

@@ -17,7 +17,7 @@ ms.date: 11/28/2017
 ms.author: ddove
 ms.openlocfilehash: 03e7a3612e1cfcfaee2084db0d2eadb72e8a5f9d
 ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
 ---

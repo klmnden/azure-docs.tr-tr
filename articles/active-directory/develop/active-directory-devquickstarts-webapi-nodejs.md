@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory Node.js Başlarken | Microsoft Docs"
+title: "Azure Active Directory Node.js Başlarken"
 description: "Node.js REST web kimlik doğrulaması için Azure AD ile tümleştirilir API'si oluşturma."
 services: active-directory
 documentationcenter: nodejs
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: cshoe
 ms.custom: aaddev
-ms.openlocfilehash: 6f67a2cf2baabfa10c6a8e81b085ca6991b981dd
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 57d2b2825156cdaa33b4d85267fd3d1d3ebb218a
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="secure-nodejs-web-api-with-azure-active-directory"></a>Node.js Web API'si Azure Active Directory ile güvenli
 

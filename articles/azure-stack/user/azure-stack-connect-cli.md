@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1cfbe988d881075d1a7bfc7513fbe5f44a531abd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>CLI'yi yükleme ve Azure yığını ile kullanım için yapılandırma
 
@@ -145,7 +145,7 @@ Azure yığınına bağlanmak için aşağıdaki adımları kullanın:
      --profile 2017-03-09-profile
    ```
 
-4. Azure yığın ortamınızı kullanarak oturum `az login` komutu. Azure yığın ortama veya bir kullanıcı olarak oturum açabildiğinizi bir [hizmet sorumlusu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Azure yığın ortamınızı kullanarak oturum `az login` komutu. Azure yığın ortama veya bir kullanıcı olarak oturum açabildiğinizi bir [hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Olarak oturum açın bir *kullanıcı*: kullanıcı adı ve parola doğrudan içinde ya da belirtebilirsiniz `az login` komutu veya bir tarayıcı kullanarak kimlik doğrulaması. Çok faktörlü kimlik doğrulaması etkin hesabınız varsa, ikinci yapmanız gerekir.
 

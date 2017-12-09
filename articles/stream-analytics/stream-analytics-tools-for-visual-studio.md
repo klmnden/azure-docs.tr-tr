@@ -17,7 +17,7 @@ ms.date: 03/28/2017
 ms.author: sujie
 ms.openlocfilehash: 8e3f1ae6739896dfd1329561dbcede38a6069546
 ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/20/2017
 ---

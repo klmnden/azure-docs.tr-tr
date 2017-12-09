@@ -17,7 +17,7 @@ ms.date: 10/19/2017
 ms.author: larryfr
 ms.openlocfilehash: 87c2aece68c5de06d683abf971b6c7ccf7f67a54
 ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/03/2017
 ---

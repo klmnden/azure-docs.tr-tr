@@ -17,7 +17,7 @@ ms.date: 11/2/2017
 ms.author: raviperi
 ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
 ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/04/2017
 ---

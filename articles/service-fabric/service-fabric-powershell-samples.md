@@ -10,17 +10,17 @@ tags:
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.service: service-fabric
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 738677def8b0eb70cfcab46e6fe57f9a344867a5
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 17b10011af915a06e7c65f8d321a1e452956c28a
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell örnekleri
 

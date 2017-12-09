@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cbdaac41f004051adeccd3f97b7bb5591ac21ef4
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure hdınsight'ta Hadoop bileşenleri için sürüm notları
 
@@ -101,7 +101,7 @@ Spark 2.0.1 Spark kümeleri (Hdınsight sürüm 3.5) kullanıma sunulmuştur.
 * Edge düğüm erişim için URI değiştirildi **clustername**-ed-ssh.azurehdinsight.net
 * R sunucuda, Hdınsight küme hazırlama basitleştirilmiştir.
 * Hdınsight'ta R Server kullanılabilir artık normal Hdınsight "R Server" küme türü ve artık ayrı bir Hdınsight uygulaması olarak yüklü. R Server ikili dosyaları ve kenar düğümüne şimdi R Server küme dağıtımının bir parçası sağlanır. Bu, hızlı ve sağlama güvenilirliğini artırır. R Server fiyatlandırma modeli buna göre güncelleştirilir.
-* R Server küme türü fiyat şimdi standart katmanı Fiyat artı R Server ek ücret fiyat temel alır. Premium katmanı farklı küme türleri arasında kullanılabilir Premium özellikleri için ayrılmıştır ve R Server küme türü için kullanılmaz. Bu değişikliğin etkili R Server'ın fiyatlandırma etkilemez; Bu, yalnızca ücretleri fatura nasıl sunulacağının değiştirir. Tüm var olan R Server kümeleri çalışmaya devam eder ve Resource Manager şablonları kullanımdan kaldırma bildirimi kadar çalışmaya devam eder. **Yeni Kaynak Yöneticisi şablonu kullanmak için komut dosyalı dağıtımlarınızın Update ancak önerilir.**
+* R Server küme türü fiyat şimdi standart katmanı Fiyat artı R Server ek ücret fiyat temel alır. Bu değişikliğin etkili R Server'ın fiyatlandırma etkilemez; Bu, yalnızca ücretleri fatura nasıl sunulacağının değiştirir. Tüm var olan R Server kümeleri çalışmaya devam eder ve Resource Manager şablonları kullanımdan kaldırma bildirimi kadar çalışmaya devam eder. **Yeni Kaynak Yöneticisi şablonu kullanmak için komut dosyalı dağıtımlarınızın Update ancak önerilir.**
 
 
 

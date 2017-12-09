@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama
 
@@ -62,7 +62,7 @@ Temel Küme kurulumu yapmak için ekrandaki yönergeleri izleyin. Ayrıntılar i
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz: [Hdınsight 3.3 devre dışı bırakma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
-## <a name="resource-group-name"></a>Kaynak grubu adı 
+## <a name="resource-group-name"></a>Kaynak grup adı 
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) yardımcı olan bir grup olarak, uygulamanızdaki kaynaklarla çalışma başvurduğu bir Azure kaynak grubu. Dağıtmak, güncelleştirme, izlemek veya tüm kaynakları tek ve eşgüdümlü bir işlemde, uygulamanız için silin.
 
@@ -98,15 +98,6 @@ Daha fazla bilgi için bkz: [varsayılan düğümü yapılandırması ve sanal m
 
 ### <a name="hdinsight-version"></a>Hdınsight sürümü
 Bu küme için Hdınsight'ın sürümünü seçin. Daha fazla bilgi için bkz: [desteklenen Hdınsight sürümleri](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Küme katmanı: Hdınsight hizmet katmanları
-
-Azure Hdınsight iki hizmet katmanlarında büyük veri Bulutu teklifleri sunar: standart ve Premium.  Daha fazla bilgi için bkz: [Hdınsight standart ve Hdınsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
-
-Aşağıdaki ekran görüntüsünde küme türlerini seçme için Azure portal bilgileri gösterir.
-
-![Hdınsight premium yapılandırma](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Küme oturum açma ve SSH kullanıcı adı
 Hdınsight kümeleri ile küme oluşturma sırasında iki kullanıcı hesapları yapılandırabilirsiniz:

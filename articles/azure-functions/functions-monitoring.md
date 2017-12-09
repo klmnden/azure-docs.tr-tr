@@ -17,7 +17,7 @@ ms.date: 09/15/2017
 ms.author: tdykstra
 ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
 ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
 ---

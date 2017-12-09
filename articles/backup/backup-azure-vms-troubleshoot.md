@@ -16,7 +16,7 @@ ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
 ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/09/2017
 ---

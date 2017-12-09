@@ -16,7 +16,7 @@ ms.date: 03/22/2017
 ms.author: tarcher
 ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

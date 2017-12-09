@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: d7148d34978a2da53cc5a51460e0b33c38760e33
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Azure portalını kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -64,7 +64,7 @@ Azure portalı küme özelliklerinin çoğu kullanıma sunar. Azure Resource Man
         * **İşletim Sistemi**: **Linux** seçeneğini belirleyin.
         
         * **Sürüm**: Neyi seçeceğinizi bilmiyorsanız varsayılan sürümü kullanın. Daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
-        * **Küme Katmanı**: Azure HDInsight iki kategoride büyük veri bulutu teklifleri sunar: Standart katmanı ve Premium katmanı. Daha fazla bilgi için bkz. [Küme katmanları](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
+        
 
     * İçin **küme oturum açma kullanıcı** ve **küme oturum açma parolasını**, yönetici kullanıcı için kullanıcı adı ve parola sağlayın.
 

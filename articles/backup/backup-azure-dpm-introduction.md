@@ -17,7 +17,7 @@ ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
 ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
 ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/23/2017
 ---

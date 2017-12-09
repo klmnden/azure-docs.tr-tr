@@ -16,7 +16,7 @@ ms.date: 05/10/2017
 ms.author: a-crradu
 ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
 ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/30/2017
 ---

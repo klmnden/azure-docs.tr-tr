@@ -16,7 +16,7 @@ ms.date: 09/06/2017
 ms.author: fimguy
 ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
 ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/04/2017
 ---

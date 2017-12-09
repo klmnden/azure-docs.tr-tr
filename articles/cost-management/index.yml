@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Maliyet Yönetimi Belgeleri
+title: "Azure Maliyet Yönetimi Belgeleri"
 metadata:
-  title: 'Maliyet Yönetimi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
-  description: 'Cloudyn’in sunduğu Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını kullanmanıza yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin.'
+  title: "Maliyet Yönetimi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+  description: "Cloudyn’in sunduğu Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını kullanmanıza yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin."
   services: cost-management
   author: czeumault
   manager: carolz
@@ -13,28 +13,33 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
+  ms.openlocfilehash: d277487ff94578643fd455e460e49299938590d7
+  ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 11/07/2017
 abstract:
-  description: 'Cloudyn’in sunduğu Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını en iyi şekilde kullanıp yönetmenize yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin.'
+  description: "Cloudyn’in sunduğu Azure Maliyet Yönetimi çözümü, Azure ve diğer bulut kaynaklarını en iyi şekilde kullanıp yönetmenize yardımcı olan çoklu bulut maliyet yönetimi çözümüdür. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kullanımı ve maliyetleri gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin."
 sections:
-  - title: 5 Dakikalık Hızlı Başlangıçlar
+- title: "5 Dakikalık Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: "Maliyet Yönetimi ile Azure sözleşmenizi veya aboneliğinizi kaydetme ve maliyet verilerini görüntüleme hakkında bilgi edinin."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Maliyet Yönetimi ile Azure sözleşmenizi veya aboneliğinizi kaydetme ve maliyet verilerini görüntüleme hakkında bilgi edinin.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Maliyet Verilerini Görüntüleme
-            href: quick-register-azure-sub
-  - title: Adım Adım Öğreticiler
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: "Maliyet Verilerini Görüntüleme"
+      href: quick-register-azure-sub
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "Maliyet Yönetimi ile kullanım ve maliyeti gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Maliyet Yönetimi ile kullanım ve maliyeti gözden geçirme, maliyetleri etkin bir şekilde yönetme, harcama tahmini ve maliyetleri iyileştirme hakkında bilgi edinin.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-review-usage">Anomalileri ve verimlilikleri belirlemek için kullanım ve maliyetleri gözden geçirme</a>
-          - html: <a href="tutorial-user-access">Maliyet Yönetimi verilerine erişim atama</a>
-          - html: <a href="tutorial-forecast-spending">Gelecek harcamaları tahmin etme</a>
-          - html: '<a href="tutorial-manage-costs">Maliyet dağıtımı, ücret hesaplama raporları ve ücret yansıtma raporları ile maliyetleri yönetme</a>'
+    - html: "<a href=\"tutorial-review-usage\">Anomalileri ve verimlilikleri belirlemek için kullanım ve maliyetleri gözden geçirme</a>"
+    - html: "<a href=\"tutorial-user-access\">Maliyet Yönetimi verilerine erişim atama</a>"
+    - html: "<a href=\"tutorial-forecast-spending\">Gelecek harcamaları tahmin etme</a>"
+    - html: "<a href=\"tutorial-manage-costs\">Maliyet dağıtımı, ücret hesaplama raporları ve ücret yansıtma raporları ile maliyetleri yönetme</a>"

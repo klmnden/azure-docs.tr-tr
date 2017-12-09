@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: 10cc1daf89212635243cbfe8f7b598a567d0f7c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 841825923819bdb257e5b5983071d999cca805e9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Sertifika kimlik doğrulaması API Management istemcisini kullanarak API güvenliğini sağlama
 
 API Management güvenli API'leri (yani, API Management istemcisini) erişim olanağı sunar istemci sertifikalarını kullanan. Şu anda, istenen değerle istemci sertifikanın parmak izini kontrol edebilirsiniz. Ayrıca karşı API Management yüklenen mevcut sertifika parmak izini kontrol edebilirsiniz.  
 
-İstemci sertifikalarını (yani, arka uç için API Management) kullanan bir API'nin arka uç hizmetine erişim güvenliğini sağlama hakkında daha fazla bilgi için bkz: [arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması güvenliğini sağlama](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+İstemci sertifikalarını (yani, arka uç için API Management) kullanan bir API'nin arka uç hizmetine erişim güvenliğini sağlama hakkında daha fazla bilgi için bkz: [arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması güvenliğini sağlama](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
 ## <a name="checking-the-expiration-date"></a>Sona erme tarihini denetleniyor
 
@@ -84,6 +84,6 @@ Aşağıdaki örnek, bir sertifikanın parmak izini istemci API Management karş
 
 ## <a name="next-step"></a>Sonraki adım
 
-*  [Arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması güvenliğini sağlama](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+*  [Arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması güvenliğini sağlama](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 *  [Nasıl sertifikalarını karşıya yükleme](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

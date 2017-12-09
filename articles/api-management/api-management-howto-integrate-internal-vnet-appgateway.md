@@ -16,7 +16,7 @@ ms.date: 09/19/2017
 ms.author: sasolank
 ms.openlocfilehash: e138241139329b8bb956157ab55b7d22dc2a9b67
 ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/21/2017
 ---

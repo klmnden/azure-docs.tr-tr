@@ -16,7 +16,7 @@ ms.date: 11/07/2017
 ms.author: v-donglo
 ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
 ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/01/2017
 ---

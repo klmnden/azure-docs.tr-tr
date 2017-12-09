@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 336b945929f80e1a566f7cf71b40fd799a98c12d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c42dc18580359fc82359710258d9b87d1c4524ba
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Özel geliştirilmiş bir uygulama için izinlerin nasıl
 
@@ -39,8 +39,8 @@ Alternatif olarak, bir istek oluşturabileceğiniz *login.microsoftonline.com* u
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[İzin ve Azuread'i uygulamalara tümleştirme](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+[İzin ve Azuread'i uygulamalara tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
-[İzin ve adının Azuread'i v2.0 için uygulamalar Yakınsanan](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[İzin ve adının Azuread'i v2.0 için uygulamalar Yakınsanan](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [Azuread'i StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

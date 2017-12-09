@@ -17,7 +17,7 @@ ms.date: 09/16/2017
 ms.author: vvasic
 ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
 ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/01/2017
 ---

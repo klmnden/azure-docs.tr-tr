@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Azure yığın portalıyla Linux sanal makine oluşturma
 
@@ -30,7 +30,7 @@ Azure yığın Portalı aracılığıyla Azure yığın sanal makineleri oluştu
 
 * **Bir SSH istemci erişimi**
 
-   Azure yığın Geliştirme Seti (ASDK) kullanıyorsanız, ortamınızda bir SSH istemcisi erişimi olmayabilir. Bu durumda, bir SSH istemcisi dahil çeşitli paketler arasında seçim yapabilirsiniz. Örneğin, bir SSH istemcisi ve SSH anahtarı Oluşturucu (puttygen.exe) içeren PuTTY yükleyebilirsiniz. Aşağıdaki Azure makale ilgili olası seçenekleri hakkında daha fazla bilgi için bkz: [Windows Azure üzerinde ile SSH kullanma anahtarları nasıl](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   Azure yığın Geliştirme Seti (ASDK) kullanıyorsanız, ortamınızda bir SSH istemcisi erişimi olmayabilir. Bu durumda, bir SSH istemcisi dahil çeşitli paketler arasında seçim yapabilirsiniz. Örneğin, bir SSH istemcisi ve SSH anahtarı Oluşturucu (puttygen.exe) içeren PuTTY yükleyebilirsiniz. Aşağıdaki Azure makale ilgili olası seçenekleri hakkında daha fazla bilgi için bkz: [Windows Azure üzerinde ile SSH kullanma anahtarları nasıl](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    Bu Hızlı Başlangıç, SSH anahtarları oluşturmak için ve Linux sanal makineye bağlanmak için PuTTY kullanır. PuTTY yükleyip için Git [http://www.putty.org/](http://www.putty.org).
 

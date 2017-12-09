@@ -16,7 +16,7 @@ ms.date: 11/31/2017
 ms.author: yanacai
 ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
 ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/01/2017
 ---

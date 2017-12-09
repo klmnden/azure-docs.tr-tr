@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: mahender; mblythe
-ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 358c2f7ce568707ea67cfa669de07dc3fb0135f7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Bir Azure barındırılan API PowerApps ve Microsoft akış için dışa aktarma
 
@@ -34,7 +34,7 @@ Bir API dışarı aktarmadan önce OpenAPI tanımı kullanılarak API açıklama
 
 API tanımı dışarı aktarmak için aşağıdaki adımları izleyin:
 
-1. İçinde [Azure portal](https://portal.azure.com), Azure işlevleri veya uygulama hizmeti uygulamanıza gidin.
+1. İçinde [Azure portal](https://portal.azure.com), Azure işlevleri veya başka bir uygulama hizmeti uygulaması gidin.
 
     Azure işlevleri kullanıyorsanız, işlevi uygulamanızı seçin, **Platform özellikleri**ve ardından **API tanımı**.
 
@@ -48,11 +48,11 @@ API tanımı dışarı aktarmak için aşağıdaki adımları izleyin:
 
     ![PowerApps + Microsoft Flow dışarı aktarma düğmesi](media/app-service-export-api-to-powerapps-and-flow/export-apps-flow.png)
 
-3. Seçin **Export modunu**:
+3. Seçin **verme modu**:
 
-    **Express** özel bir bağlayıcı Azure portalındaki oluşturmanızı sağlar. PowerApps ya da Microsoft Flow imzalı ve hedef ortamda bağlayıcılar oluşturma iznine sahip olmasını gerektirir. Bu, bu gereksinimi karşılarsınız, önerilen yaklaşımdır. Bu mod kullanıyorsanız, izleyin [express dışa](#express) aşağıdaki yönergeleri.
+    **Express** özel bir bağlayıcı Azure portalındaki oluşturmanızı sağlar. PowerApps ya da Microsoft Flow imzalı ve hedef ortamda bağlayıcılar oluşturma iznine sahip olmasını gerektirir. Bu, bu iki gereksinimlerin karşılanması durumunda önerilen yaklaşımdır. Bu mod kullanıyorsanız, izleyin [express dışa](#express) aşağıdaki yönergeleri.
 
-    **El ile** , API tanımı verme sonra PowerApps ya da Microsoft Flow portalları kullanarak içe aktarma sağlar. Bu önerilen Azure kullanıcı ve Bağlayıcıyı oluşturmak için izni olan bir kullanıcı kişiler farklı olduğunda veya bağlayıcı başka bir kiracı içinde oluşturulması gerekiyorsa yaklaşımdır. Bu mod kullanıyorsanız, izleyin [el ile dışarı](#manual) aşağıdaki yönergeleri.
+    **El ile** , API tanımı verme sonra PowerApps ya da Microsoft Flow portalları kullanarak içe aktarma sağlar. Bu önerilen Azure kullanıcı ve Bağlayıcıyı oluşturmak için izni olan bir kullanıcı kişiler farklı olduğunda veya bağlayıcı başka bir Azure kiracısı'nda oluşturulması gerekiyorsa yaklaşımdır. Bu mod kullanıyorsanız, izleyin [el ile dışarı](#manual) aşağıdaki yönergeleri.
 
     ![Verme modu](media/app-service-export-api-to-powerapps-and-flow/export-mode.png)
 

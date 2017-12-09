@@ -17,7 +17,7 @@ ms.date: 11/15/2017
 ms.author: denlee
 ms.openlocfilehash: 122a2f8e506b3f567e73a816cbbeac569339c924
 ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/01/2017
 ---

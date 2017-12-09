@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 9085b70e4d3e3ddb6693cf8504ab4a21159a6d05
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory etki alanı Hizmetleri: Sık sorulan sorular (SSS)
 Bu sayfa, Azure Active Directory etki alanı hizmetleri hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
 
 ### <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
-Başvurmak bizim [sorun giderme kılavuzu](active-directory-ds-troubleshooting.md) yapılandırma veya Azure AD etki alanı Hizmetleri yönetme karşılaştığınız sık karşılaşılan sorunlara çözümler için.
+Başvurmak [sorun giderme kılavuzu](active-directory-ds-troubleshooting.md) yapılandırma veya Azure AD etki alanı Hizmetleri yönetme karşılaştığınız sık karşılaşılan sorunlara çözümler için.
 
 ### <a name="configuration"></a>Yapılandırma
 #### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Birden çok yönetilen etki alanı için tek bir oluşturabilmeniz için Azure AD dizini?
@@ -34,10 +34,10 @@ Hayır. Tek bir Azure AD etki alanı Hizmetleri tarafından hizmet verilen tek b
 Evet. Azure AD etki alanı Hizmetleri, Azure Resource Manager sanal ağında etkinleştirilebilir. Bu işlevsellik şu anda önizlemede değil.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Mevcut yönetilen etki alanım Klasik sanal ağdan bir Resource Manager sanal ağ geçişini sağlayabilir miyim?
-Şu anda değil. Biz gelecekte bir Resource Manager sanal ağa mevcut yönetilen etki alanınızı Klasik sanal ağdan geçirmek için bir mekanizma sunar.
+Şu anda değil. Microsoft bir Resource Manager sanal ağa Klasik sanal ağdan mevcut yönetilen etki alanınızı gelecekte geçirmek için bir mekanizma sunar.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Bir Azure CSP (bulut çözümü sağlayıcısı) aboneliğine Azure AD Etki Alanı Hizmetleri'nde etkinleştirebilirim?
-Hayır. CSP abonelikler için destek eklemek için çalışıyoruz.
+Hayır. Ürün ekibi, CSP aboneliklerinin desteği ekleme üzerinde çalışmaktadır.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>Azure AD Etki Alanı Hizmetleri'nde bir Federasyon Azure etkinleştirebilmeniz için AD dizini? Office 365 erişimi için kullanıcıların kimliğini doğrulamak için ADFS kullanın ve Azure ad parola karmaları eşitlemeyin bildirimi. Bu dizin için Azure AD etki alanı Hizmetleri etkinleştirebilirim?
 Hayır. Azure AD etki alanı Hizmetleri NTLM veya Kerberos üzerinden kullanıcıların kimliğini doğrulamak için kullanıcı hesaplarının, parola karmaları erişimi olmalıdır. Federe bir dizinde parola karmaları Azure AD dizininde depolanmaz. Bu nedenle, Azure AD etki alanı Hizmetleri çalışmıyor gibi Azure AD dizinleri.
@@ -46,13 +46,13 @@ Hayır. Azure AD etki alanı Hizmetleri NTLM veya Kerberos üzerinden kullanıc�
 Hizmet, bu senaryo doğrudan desteklemez. Yönetilen etki alanınız aynı anda yalnızca bir sanal ağda kullanılabilir. Ancak, diğer sanal ağlar Azure AD Etki Alanı Hizmetleri'ne kullanıma sunmak için birden çok sanal ağlar arasında bağlantı yapılandırabilirsiniz. İşlemine bakın [azure'da sanal ağlara bağlanabilir](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>PowerShell kullanarak Azure AD etki alanı Hizmetleri etkinleştirebilirim?
-PowerShell ve otomatik dağıtım Azure AD etki alanı Hizmetleri şu anda kullanılabilir değil.
+Evet. Bkz: [Hizmetleri PowerShell kullanarak Azure AD etki alanını etkinleştirmek için nasıl](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Azure AD etki alanı Hizmetleri, yeni Azure portalında kullanılabilir?
 Evet. Azure AD etki alanı Hizmetleri kullanılarak yapılandırılabilir [Azure portal](https://portal.azure.com). [Klasik Azure portalı](https://manage.windowsazure.com) artık desteklenmiyor.
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Resource Manager şablonu kullanarak Azure AD etki alanı Hizmetleri etkinleştirebilirim?
-Hayır. Azure AD Etki Alanı Hizmetleri'ni etkinleştirme bir parçası olarak gerçekleştirilmesi gereken bazı görevler gerekir. Bu görevler bir Resource Manager şablonu aracılığıyla mümkün değildir. Yeni Azure portalına dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek için kullanın.
+Evet. Bkz: [Hizmetleri PowerShell kullanarak Azure AD etki alanını etkinleştirmek için nasıl](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD etki alanı Hizmetleri yönetilen etki alanının etki alanı denetleyicileri ekleyebilir miyim?
 Hayır. Azure AD etki alanı Hizmetleri tarafından sağlanan etki alanı yönetilen bir etki alanıdır. Sağlama, yapılandırma veya etki alanı denetleyicileri bu etki alanı - yönetmek gerekmez bu yönetim etkinlikleri bir hizmet olarak Microsoft tarafından sağlanır. Bu nedenle, yönetilen etki alanı için ek etki alanı denetleyicileri (okuma-yazma veya salt okunur) ekleyemezsiniz.

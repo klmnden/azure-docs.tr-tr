@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: gwallace
-ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 988f6ff5158eb754cbedeb58a45fcc31f0026f03
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanan Azure DNS'de DNS bölgelerini yönetme
 
@@ -49,7 +49,7 @@ Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğr
 
 * Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 
-* Azure CLI 2.0, Windows, Linux veya Mac için kullanılabilir en son sürümünü yükleyin Daha fazla bilgi için bkz. [Azure CLI 2.0'ı yükleme](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+* Azure CLI 2.0, Windows, Linux veya Mac için kullanılabilir en son sürümünü yükleyin Daha fazla bilgi için bkz. [Azure CLI 2.0'ı yükleme](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
 

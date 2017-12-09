@@ -16,7 +16,7 @@ ms.date: 09/28/2017
 ms.author: rwike77
 ms.openlocfilehash: e04f9e57c65da42da73a5ee6a0b601dcbb318aaa
 ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2017
 ---

@@ -15,7 +15,7 @@ ms.date: 10/12/2017
 ms.author: shlo
 ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
 ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/01/2017
 ---

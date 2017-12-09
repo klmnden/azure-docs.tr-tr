@@ -24,7 +24,7 @@
 
 # Başvuru
 ## API'ler
-### [Azure Kaynak Yönetimi API’leri](/rest/api/powerbiembedded/)
+### [Azure Kaynak Yönetimi API’leri](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [REST API'ler](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## SDK’lar
 ### [.NET SDK indirmesi](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)

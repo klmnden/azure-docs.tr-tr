@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure faturanızı anlama
 Azure faturasını anlama faturanızı ayrıntılı günlük kullanım dosyasını ve Azure portalında maliyet yönetim raporları ile karşılaştırın.
@@ -31,7 +31,7 @@ Bir PDF, fatura ve ayrıntılı günlük kullanım dosya CSV karşıdan bir kopy
 
 Ayrıntılı hüküm ve fatura ve ayrıntılı günlük kullanım dosya açıklamaları için bkz: [anlamak, Microsoft Azure fatura koşullarınızda](billing-understand-your-invoice.md) ve [anlayın koşulları, Microsoft Azure ile ilgili ayrıntılı kullanım](billing-understand-your-usage.md). 
 
-Maliyet Yönetimi raporları hakkında daha fazla bilgi için bkz: [Azure portal maliyet Yönetim](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+Maliyet Yönetimi raporları hakkında daha fazla bilgi için bkz: [Azure portal maliyet Yönetim](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>My fatura ücretlere doğru olup olmadığını nasıl emin?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -42,7 +42,7 @@ Daha fazla ayrıntı almak istediğiniz faturanızı üzerinde bir ücret ise, b
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Seçenek 1: faturanızı gözden geçir ve kullanım ve maliyetleri ayrıntılı kullanımı CSV dosyası ile Karşılaştır
 
-Ayrıntılı kullanım CSV dosyası, fatura döneminin ve günlük kullanımı tarafından ücretlerinizi gösterir. Ayrıntılı kullanım CSV dosyasını almak için bkz: [faturayı ve günlük kullanım verileri faturalama Azure alma](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+Ayrıntılı kullanım CSV dosyası, fatura döneminin ve günlük kullanımı tarafından ücretlerinizi gösterir. Ayrıntılı kullanım CSV dosyasını almak için bkz: [faturayı ve günlük kullanım verileri faturalama Azure alma](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
 Kullanım ücretleri ölçer düzeyinde görüntülenir. Aşağıdaki terimler, fatura ve ayrıntılı kullanım dosyasını kullanarak aynı şeyi anlamına gelir. Örneğin, fatura döngüsü fatura üzerinde ayrıntılı kullanımı dosyasında gösterilen fatura döneminde eşdeğerdir.
 

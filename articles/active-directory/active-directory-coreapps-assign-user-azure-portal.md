@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: daveba
 ms.reviewer: luleon
-ms.openlocfilehash: 65727ee9330a1a6650eb54595ebc93a7a693923c
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 827d5c8669eb54630adbaba0306e73b5de6a7137
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın
 Bir kullanıcı veya grup için bir kuruluş uygulama atamak için Kurumsal uygulamasını yönetmek için uygun izinlere sahip ve dizin için genel yönetici olmanız gerekir.
@@ -70,7 +70,7 @@ Bir kullanıcı veya grup için bir kuruluş uygulama atamak için Kurumsal uygu
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```     
 
-Bir kullanıcı bir uygulama rolü atama hakkında daha fazla bilgi için belgelere ziyaret [yeni AzureADUserAppRoleAssignment](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+Bir kullanıcı bir uygulama rolü atama hakkında daha fazla bilgi için belgelere ziyaret [yeni AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
 ### <a name="example"></a>Örnek
 

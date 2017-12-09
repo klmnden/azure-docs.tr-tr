@@ -18,7 +18,7 @@ ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2e887230a102f5c6289ca2eec0e4700a0e1fdfde
 ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/12/2017
 ---

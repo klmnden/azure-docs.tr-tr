@@ -11,7 +11,7 @@ ms.author: marsma
 ms.custom: mvc
 ms.openlocfilehash: 9503dc4a1fa8bc7773677de1673fed3abe1c1b51
 ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
 ---

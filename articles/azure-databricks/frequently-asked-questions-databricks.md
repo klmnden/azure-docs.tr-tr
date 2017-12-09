@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks hakkında sık sorulan sorular
 
@@ -94,7 +94,7 @@ Bu sorun için çözüm birkaç şunlardır:
 
 #### <a name="solution"></a>Çözüm
 
-Databricks küme düğümü başına bir genel IP adresi kullanın. Aboneliğiniz zaten tüm genel IP'ler kullanıldıysa, gereken [Kotayı artırmak için istek](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Seçin **kota** olarak **sorun türü**, ve **ağ: ARM** olarak **kota türü**. İçinde **ayrıntıları**, bir ortak IP adresi kota artışı isteği. Örneğin, sınırınızı şu anda 60'tır ve 100 düğümlü bir küme oluşturmak isterseniz, 160 için sınırın artırılmasını istemek.
+Databricks küme düğümü başına bir genel IP adresi kullanın. Aboneliğiniz zaten tüm genel IP'ler kullanıldıysa, gereken [Kotayı artırmak için istek](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Seçin **kota** olarak **sorun türü**, ve **ağ: ARM** olarak **kota türü**. İçinde **ayrıntıları**, bir ortak IP adresi kota artışı isteği. Örneğin, sınırınızı şu anda 60'tır ve 100 düğümlü bir küme oluşturmak isterseniz, 160 için sınırın artırılmasını istemek.
 
 ### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Kümeyi ayarlamadan sırasında bulut sağlayıcısı başlatma hatası ikinci türü
 

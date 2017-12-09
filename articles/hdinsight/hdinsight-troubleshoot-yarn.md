@@ -17,7 +17,7 @@ ms.date: 11/2/2017
 ms.author: arijitt
 ms.openlocfilehash: a30d7a8e3f2e11a0c5ed05c5b68d75d32b138fb9
 ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/04/2017
 ---

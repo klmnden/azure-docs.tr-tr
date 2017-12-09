@@ -16,7 +16,7 @@ ms.date: 10/20/2017
 ms.author: jeedes
 ms.openlocfilehash: e8871ea9c3aa9f962bf961a8b44b748392a56ba7
 ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2017
 ---

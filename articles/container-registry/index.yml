@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Container Registry Belgeleri
 metadata:
-  title: Azure Container Registry Belgeleri - Öğreticiler | Microsoft Docs
-  description: 'Azure Container Registry, tüm kapsayıcı dağıtımı türlerinin görüntülerini depolayıp yönetebilmenizi sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin.'
+  title: "Azure Container Registry Belgeleri - Öğreticiler | Microsoft Docs"
+  description: "Azure Container Registry, tüm kapsayıcı dağıtımı türlerinin görüntülerini depolayıp yönetebilmenizi sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin."
   services: container-registry
   author: czeumault
   manager: carolz
@@ -13,47 +13,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
+  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
+  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 12/07/2017
 abstract:
-  description: 'Azure Container Registry, tüm kapsayıcı dağıtımı türlerinin görüntülerini depolayıp yönetebilmenizi sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin.'
+  description: "Azure Container Registry, tüm kapsayıcı dağıtımı türlerinin görüntülerini depolayıp yönetebilmenizi sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin."
 sections:
-  - title: 5 Dakikalık Hızlı Başlangıçlar
+- title: "5 Dakikalık Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: "Azure Container Registry dağıtma hakkında bilgi edinin."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Azure Container Registry dağıtma hakkında bilgi edinin.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: Azure CLI
-            href: /azure/container-registry/container-registry-get-started-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Azure Portal
-            href: /azure/container-registry/container-registry-get-started-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/container-registry/container-registry-get-started-powershell
-  - title: Adım Adım Öğreticiler
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/container-registry/container-registry-get-started-azure-cli
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/container-registry/container-registry-get-started-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-registry/container-registry-get-started-powershell
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "Bu öğreticilerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Bu öğreticilerden yararlanarak Azure Container Registry’yi kullanmayı öğrenin.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry coğrafi çoğaltma (önizleme)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure Container Instances ile Container Registry</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Azure Container Service (AKS) ile Container Registry</a>
-          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Service Fabric ile Container Registry</a>
-  - title: Başvuru
+    - html: "<a href=\"/azure/container-registry/container-registry-tutorial-prepare-registry\">Container Registry coğrafi çoğaltma (önizleme)</a>"
+    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-app\">Azure Container Instances’a sahip Container Registry</a>"
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Azure Container Service (AKS) ile Container Registry</a>
+    - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Service Fabric ile Container Registry</a>
+- title: "Başvuru"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Komut Satırı
-            html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/containerregistry">REST API başvurusu</a></p>
+    - title: "Komut Satırı"
+      html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+    - title: Diller
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/containerregistry\">REST API başvurusu</a></p><p><a href=\"/azure/templates/microsoft.containerregistry/registries\">Resource Manager Şablonu</a></p><p><a href=\"/azure/container-registry/container-registry-webhook-reference\">Web kancası şeması</a></p>"

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2017
 ms.author: damaerte
-ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 31ba4b68850e14fc038df0bbe91146b90f8ca4b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Özellikler ve Araçlar PowerShell Azure bulut Kabuğu (Önizleme)
 
@@ -47,7 +47,7 @@ Bulut Kabuk geçici bir makine ayırma için her istek dışında dosyaları bu 
 
 PowerShell bulut Kabuğu (Önizleme) Azure sürücüde başlatır (`Azure:`).
 Azure sürücüsü kolay bulma ve işlem, ağ, depolama vb. için dosya sistemi Gezinti benzer gibi Azure kaynakları gezinti sağlar.
-Bilinen kullanmaya devam edebilirsiniz [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/en-us/powershell/azure) bu kaynakları yönetmek için.
+Bilinen kullanmaya devam edebilirsiniz [Azure PowerShell cmdlet'lerini](https://docs.microsoft.com/powershell/azure) bu kaynakları yönetmek için.
 Azure kaynaklarına doğrudan Azure portalında veya Azure PowerShell cmdlet'leri aracılığıyla yapılan ya da yapılan tüm değişiklikler anında Azure sürücüde yansıtılır.
 
 ![](media/features-powershell/azure-drive.png)
@@ -91,7 +91,7 @@ Bu komutlar PowerShell uzaktan iletişimi üstünde oluşturulmuş ve Azure sana
 
 |**Kategori**    |**Ad**                                 |
 |----------------|-----------------------------------------|
-|Azure Araçları     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Azure Araçları     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [Azure CLI (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |Metin düzenleyiciler    |VIM<br> nano                             |
 |Paket Yöneticisi |PowerShellGet<br> PackageManagement<br> npm<br> PIP |
 |Kaynak denetimi  |Git                                      |

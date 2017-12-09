@@ -17,7 +17,7 @@ ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 3017165ad58e93b582fb5364d54ca3e64ea9e35d
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

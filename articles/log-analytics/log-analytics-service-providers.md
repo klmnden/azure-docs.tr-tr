@@ -16,7 +16,7 @@ ms.date: 11/22/2016
 ms.author: richrund
 ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
 ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/26/2017
 ---

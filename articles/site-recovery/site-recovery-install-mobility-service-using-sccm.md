@@ -16,7 +16,7 @@ ms.date: 11/29/2017
 ms.author: anoopkv
 ms.openlocfilehash: cfcc20b55b9e9b662ea8eec0802727b9a5a0ebf0
 ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/27/2017
 ---

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33990e58ffed271b4d6e968b92a5ce16e8bbd287
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>B2B işbirliği ve Azure Active Directory B2C ile karşılaştırın
 
@@ -35,7 +35,7 @@ Desteklenen kimlikleri: iş, okul hesapları, iş veya Okul hesapları iş ortak
 İş ortağı yaşam döngüsü: ana bilgisayar/davet tarafından yönetilen kuruluş.  | Müşteri döngüsü: Self Servis veya uygulama tarafından yönetilir.
 Güvenlik ilke ve uyumluluk: ana bilgisayar/davet tarafından yönetilen kuruluş.  | Güvenlik ilke ve uyumluluk: uygulama tarafından yönetilir.
 Marka: Ana bilgisayar ve davet kuruluşunuzun markası kullanılır.  |    Marka: uygulama tarafından yönetiliyor. Genellikle arka plan içine kuruluş Soluklaşan markalı ürün olma eğilimindedir.
-Daha fazla bilgi: [Blog Gönderisi](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [belgeleri](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Daha fazla bilgi: [ürün sayfası](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [belgeleri](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
+Daha fazla bilgi: [Blog Gönderisi](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [belgeleri](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Daha fazla bilgi: [ürün sayfası](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [belgeleri](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 
 ### <a name="next-steps"></a>Sonraki adımlar

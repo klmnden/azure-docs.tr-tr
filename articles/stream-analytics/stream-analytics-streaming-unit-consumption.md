@@ -17,7 +17,7 @@ ms.date: 04/20/2017
 ms.author: jeanb
 ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
 ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
 ---

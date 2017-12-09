@@ -16,7 +16,7 @@ ms.date: 10/13/2017
 ms.author: heidist
 ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
 ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2017
 ---

@@ -18,7 +18,7 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
 ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/17/2017
 ---

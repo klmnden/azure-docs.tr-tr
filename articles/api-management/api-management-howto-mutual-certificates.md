@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: c8573c73b0a6dc1b2644f78276d2f3e4fd442cea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması Azure API Management'te güvenliğini sağlama
 API Management istemci sertifikalarını kullanan güvenli bir API'nin arka uç hizmetine erişim olanağı sağlar. Bu kılavuz, API yayımcı portalına sertifikaları yönetme ve arka uç hizmetine erişmek için bir sertifika kullanmak üzere bir API yapılandırma gösterir.
@@ -108,7 +108,7 @@ Tıklatın **kaydetmek** API için yapılandırma değişikliği kaydetmek için
 
 ## <a name="self-signed-certificates"></a>Otomatik olarak imzalanan sertifikalar
 
-Otomatik olarak imzalanan sertifikalar kullanıyorsanız, API Management'ı arka uç sistemi ile iletişim kurmak sırayla sertifika zinciri doğrulamasını devre dışı bırakmanız gerekir, aksi takdirde 500 hata kodunu döndürür. Bunu yapılandırmak için kullanabileceğiniz [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (için yeni arka uç) veya [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (için varolan arka uç) PowerShell cmdlet'lerini ve `-SkipCertificateChainValidation` parametresi `True`.
+Otomatik olarak imzalanan sertifikalar kullanıyorsanız, API Management'ı arka uç sistemi ile iletişim kurmak sırayla sertifika zinciri doğrulamasını devre dışı bırakmanız gerekir, aksi takdirde 500 hata kodunu döndürür. Bunu yapılandırmak için kullanabileceğiniz [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (için yeni arka uç) veya [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (için varolan arka uç) PowerShell cmdlet'lerini ve `-SkipCertificateChainValidation` parametresi `True`.
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

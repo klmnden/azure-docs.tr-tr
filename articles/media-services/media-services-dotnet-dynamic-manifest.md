@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ffd310573d0800593bd9d93d74da4bcece61fa4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Azure Media Services .NET SDK ile Filtre Oluşturma
 > [!div class="op_single_selector"]
@@ -27,13 +27,13 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-2.11 sürümünden başlayarak, Media Services, varlıklarınızı filtrelerini tanımlamanızı sağlar. Bu filtreler müşterilerinizin gibi şeyler seçmesine izin veren sunucu tarafı kurallardır: kayıttan yürütme (yerine tüm video oynatma), bir video yalnızca bir bölümünü veya yalnızca bir alt kümesini, müşterinizin aygıt (yerine varlıkla ilişkilendirilen tüm yorumlama) işleyebilir ses ve video yorumlama belirtin. Bu varlıklarınızı filtreleme aracılığıyla elde edilen **dinamik bildirim**video akışını sağlamak için Müşteri'nin istek üzerine oluşturulan s tabanlı üzerinde belirtilen filtreler.
+2.17 sürümünden başlayarak, Media Services, varlıklarınızı filtrelerini tanımlamanızı sağlar. Bu filtreler gibi şeyler seçim yapmasını sağlayan sunucu tarafı kurallardır: kayıttan yürütme (yerine tüm video oynatma), bir video yalnızca bir bölümünü veya yalnızca bir alt kümesini (yerine, müşterinizin aygıt işleyebilir ses ve video yorumlama belirtin varlık ile ilişkili tüm yorumlama). Bu varlıklarınızı filtreleme aracılığıyla elde edilen **dinamik bildirim**video akışını sağlamak için Müşteri'nin istek üzerine oluşturulan s tabanlı üzerinde belirtilen filtreler.
 
 Daha ayrıntılı filtreler ve dinamik bildirim ilgili bilgi için bkz: [dinamik bildirimleri genel bakış](media-services-dynamic-manifest-overview.md).
 
-Bu konu, Media Services .NET SDK'sı oluşturmak, güncelleştirmek ve filtreleri silmek için nasıl kullanılacağını gösterir. 
+Bu makalede, Media Services .NET SDK'sı oluşturmak, güncelleştirmek ve filtreleri silmek için nasıl kullanılacağı gösterilmektedir. 
 
-Bir filtre güncelleştirirseniz, akış kuralları yenilemek için uç noktası için 2 dakika sürebilir unutmayın. İçerik bu filtre kullanarak sunulduğu (ve proxy'ler ve CDN önbellekleri önbelleğe alınmış), bu filtre güncelleştiriliyor player hatalarına neden olabilir. Bu filtre güncelleştirdikten sonra önbelleğini temizlemek için önerilir. Bu seçenek yoksa, başka bir filtre kullanmayı düşünün. 
+Bir filtre güncelleştirirseniz, akış kuralları yenilemek için uç noktası için iki dakika sürebilir unutmayın. İçerik bu filtre kullanarak sunulduğu (ve proxy'ler ve CDN önbellekleri önbelleğe alınmış), bu filtre güncelleştiriliyor player hatalarına neden olabilir. Her zaman filtresi güncelleştirdikten sonra önbelleğini temizleyebilirsiniz. Bu seçenek yoksa, başka bir filtre kullanmayı düşünün. 
 
 ## <a name="types-used-to-create-filters"></a>Filtreleri oluşturmak için kullanılan türleri
 Aşağıdaki türlerden filtreleri oluşturulurken kullanılır: 

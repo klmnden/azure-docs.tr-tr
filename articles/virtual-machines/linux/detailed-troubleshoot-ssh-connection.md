@@ -18,7 +18,7 @@ ms.date: 07/06/2017
 ms.author: iainfou
 ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

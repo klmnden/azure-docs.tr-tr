@@ -17,7 +17,7 @@ ms.date: 11/08/2017
 ms.author: jovanpop
 ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
 ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/09/2017
 ---
