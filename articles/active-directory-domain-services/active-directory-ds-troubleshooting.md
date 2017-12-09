@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5b094ab27d9d11828b0818a6024ff9b108d6cddb
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD etki alanı Hizmetleri - sorun giderme kılavuzu
 Bu makale, ayarlama veya Azure Active Directory (AD) etki alanı Hizmetleri yönetme karşılaşabileceğiniz sorunları için sorun giderme ipuçları sağlar.
@@ -57,13 +57,10 @@ Azure AD dizininizi ' Azure AD etki alanı Hizmetleri Sync' adlı bir uygulama o
 
 Uygulama zaten varsa uygulama olup olmadığını denetlemek için ve bunu silmek için aşağıdaki adımları gerçekleştirin:
 
-1. **Klasik Azure portalına** ([https://manage.windowsazure.com](https://manage.windowsazure.com)) gidin.
-2. Sol bölmede **Active Directory** düğümünü seçin.
-3. Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek istediğiniz Azure AD kiracısını (dizin) seçin.
-4. Gidin **uygulamaları** sekmesi.
-5. Seçin **Şirketimin sahip olduğu uygulamalar** seçeneği açılır.
-6. Adlı bir uygulama için denetleme **Azure AD etki alanı Hizmetleri eşitleme**. Uygulama zaten varsa, onu silmek için devam edin.
-7. Uygulama sildikten sonra Azure AD etki alanı Hizmetleri kez yeniden etkinleştirmeyi deneyin.
+1. Gidin **uygulamaları** Azure AD dizininizi bölümünü [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Seçin **tüm uygulamaları** içinde **Göster** açılır. Seçin **herhangi** içinde **uygulamaları durum** açılır. Seçin **herhangi** içinde **uygulama görünürlük** açılır.
+3. Tür **Azure AD etki alanı Hizmetleri eşitleme** arama kutusuna. Uygulama zaten varsa, tıklayın ve tıklayın **silmek** silmek için araç çubuğu düğmesi.
+4. Uygulama sildikten sonra Azure AD etki alanı Hizmetleri kez yeniden etkinleştirmeyi deneyin.
 
 ### <a name="invalid-configuration"></a>Geçersiz yapılandırma
 **Hata iletisi:**
@@ -153,7 +150,7 @@ Azure AD kullanıcı nesnelerinin yanlışlıkla silinmesine karşı sizi korur.
 
 Bir kullanıcı hesabıyla aynı UPN Azure AD dizininizi yeniden oluşturursanız bile, kullanıcı hesabının, yönetilen etki alanınız devre dışı durumda kalır. Kullanıcı hesabının, yönetilen etki alanından kaldırmak için zorla Azure AD kiracınıza silmeniz gerekir.
 
-Kullanıcı, kullanıcı hesabına tam olarak yönetilen etki alanından kaldırmak için Azure AD kiracınıza kalıcı olarak sil. Bu [MSDN makalesinde](https://msdn.microsoft.com/library/azure/dn194132.aspx) açıklandığı gibi Remove-MsolUser PowerShell cmdlet’ini '-RemoveFromRecycleBin' seçeneğiyle kullanın.
+Kullanıcı, kullanıcı hesabına tam olarak yönetilen etki alanından kaldırmak için Azure AD kiracınıza kalıcı olarak sil. Kullanım `Remove-MsolUser` PowerShell cmdlet'iyle `-RemoveFromRecycleBin` seçeneği, bu konuda açıklandığı gibi [MSDN makalesine](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Bizimle İletişim Kurun
 Azure Active Directory etki alanı Hizmetleri ürün ekibine başvurun [paylaşmak geri bildirim veya destek](active-directory-ds-contact-us.md).

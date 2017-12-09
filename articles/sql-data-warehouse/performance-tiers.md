@@ -16,7 +16,7 @@ ms.date: 11/10/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
 ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/13/2017
 ---

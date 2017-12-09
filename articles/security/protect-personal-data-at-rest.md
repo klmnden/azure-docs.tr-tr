@@ -17,7 +17,7 @@ ms.author: barclayn
 ms.custom: 
 ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
 ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
 ---

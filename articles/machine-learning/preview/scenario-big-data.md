@@ -16,7 +16,7 @@ ms.date: 09/15/2017
 ms.author: daden
 ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
 ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
 ---

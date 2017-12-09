@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Kaynakları eylemlerini denetlemek için etkinlik günlüklerini görüntüle
 Etkinlik günlükleri, belirleyebilirsiniz:
@@ -38,10 +38,10 @@ PowerShell, Azure CLI, Öngörüler REST API'si, portal üzerinden etkinlik gün
    
     ![etkinlik günlükleri seçin](./media/resource-group-audit/select-monitor.png)
 
-   Veya otomatik olarak etkinlik günlüğü belirli kaynak veya kaynak grubu için filtre uygulamak için seçim **etkinlik günlüğü** bu kaynak dikey penceresinden. Etkinlik günlüğü seçilen kaynak tarafından otomatik olarak filtrelenir dikkat edin.
+   Veya otomatik olarak etkinlik günlüğü belirli kaynak veya kaynak grubu için filtre uygulamak için seçim **etkinlik günlüğü**. Etkinlik günlüğü seçilen kaynak tarafından otomatik olarak filtrelenir dikkat edin.
    
     ![Kaynağa göre filtrele](./media/resource-group-audit/filtered-by-resource.png)
-2. İçinde **etkinlik günlüğü** dikey penceresinde, son işlemleri özetini bakın.
+2. İçinde **etkinlik günlüğü**, son işlemleri özetini bakın.
    
     ![Eylemler Göster](./media/resource-group-audit/audit-summary.png)
 3. Görüntülenen işlemlerinin sayısını sınırlamak için farklı koşullar seçin. Örneğin, aşağıdaki gösterir görüntü **Timespan** ve **olayı başlatan tarafından** alanları değiştirilen belirli kullanıcı veya geçen ay için uygulama tarafından gerçekleştirilen eylemleri görüntülemek için. Seçin **Uygula** Sorgunuzun sonuçlarını görüntülemek için.
@@ -147,4 +147,5 @@ Etkinlik günlüğü ile çalışmaya yönelik REST işlemlerini parçası olan 
 * Güvenlik ilkelerini ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
 * Dağıtım işlemlerini görüntülemek için komutları hakkında bilgi edinmek için [görüntülemek dağıtım işlemlerini](resource-manager-deployment-operations.md).
 * Tüm kullanıcılar için bir kaynakta Silmeleri Engelle öğrenmek için bkz: [Azure Resource Manager ile kaynakları kilitleme](resource-group-lock-resources.md).
+* Her bir Microsoft Azure Resource Manager sağlayıcısı için kullanılabilir işlemleri listesini görmek için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

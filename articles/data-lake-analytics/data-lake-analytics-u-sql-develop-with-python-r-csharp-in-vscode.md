@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Lake Analytics Visual Studio'da kod için U-SQL Python, R ve CSharp ile geliştirme | Microsoft Docs"
-description: "Arka plan kod Python, R ve CSharp ile Azure Data Lake işi göndermek için nasıl kullanılacağını öğrenin."
+title: "U-SQL Python, R ve C# ile Azure Data Lake Analytics Visual Studio'da kod için geliştirme | Microsoft Docs"
+description: "Arka plan kod Python, R ve C# ile Azure Data Lake işi göndermek için nasıl kullanılacağını öğrenin."
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/22/2017
 ms.author: jejiang
-ms.openlocfilehash: 82f6527388017aadecf761871f5acb25eb100acb
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="develop-u-sql-with-python-r-and-csharp-for-azure-data-lake-analytics-in-visual-studio-code"></a>U-SQL Python, R ve Visual Studio code'da Azure Data Lake Analytics CSharp ile geliştirme
-Python yazmak için Visual Studio Code (VSCode) kullanmayı öğrenin, R ve CSharp arkasında U-SQL ile kod ve Azure Data Lake hizmeti göndermek. VSCode için Azure Data Lake araçları hakkında daha fazla bilgi için bkz: [Azure Data Lake araçları kullanmak için Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>U-SQL Python, R ve C# için Azure Data Lake Analytics Visual Studio Code ile geliştirme
+Python yazmak için Visual Studio Code (VSCode) kullanmayı öğrenin, R ve C# arkasında U-SQL ile kod ve Azure Data Lake hizmeti göndermek. VSCode için Azure Data Lake araçları hakkında daha fazla bilgi için bkz: [Azure Data Lake araçları kullanmak için Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
 Arka plan kodu özel kod yazmadan önce bir klasörü veya bir çalışma alanı içinde VSCode açmanız gerekir.
 

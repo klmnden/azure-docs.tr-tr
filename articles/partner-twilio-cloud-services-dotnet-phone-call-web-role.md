@@ -16,7 +16,7 @@ ms.date: 05/04/2016
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: 0899a49cbfda775017dab7fc6d8963bbeb86d74c
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 33fd86ce92043e1de5b3d72c9fe4bb7b428b4b03
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP temel kimlik doğrulaması kullanarak RESTful hizmetlerinizi güvenli hale getirme
 İçinde bir [ilişkili Azure AD B2C makale](active-directory-b2c-custom-rest-api-netfw.md), Azure Active Directory (Azure AD B2C) kullanıcı Yolculuklar kimlik doğrulaması olmadan B2C ile tümleşen bir RESTful hizmeti (web API) oluşturun. 
 
 Kullanıcıların doğrulandı yalnızca B2C dahil olmak üzere erişebilir, API bu makalede, HTTP temel kimlik doğrulaması RESTful hizmetinize ekleyebilir, böylece. HTTP temel kimlik doğrulaması ile özel ilkeniz (uygulama kimliği ve uygulama gizli anahtarı) kullanıcı kimlik bilgilerini ayarlayın. 
 
-Daha fazla bilgi için bkz: [ASP.NET Web API'de temel kimlik doğrulaması](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication).
+Daha fazla bilgi için bkz: [ASP.NET Web API'de temel kimlik doğrulaması](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bölümündeki adımları tamamlamanız [tümleştirmek REST API talep Azure AD B2C kullanıcı Yolculuğunuzun alışverişlerine](active-directory-b2c-custom-rest-api-netfw.md) makalesi.

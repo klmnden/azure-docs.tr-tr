@@ -10,7 +10,7 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
 ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
 ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
 ---

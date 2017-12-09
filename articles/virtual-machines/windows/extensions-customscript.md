@@ -17,7 +17,7 @@ ms.date: 07/16/2017
 ms.author: danis
 ms.openlocfilehash: b250f7aee18ddf06c4f33b36247127141eeac528
 ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/08/2017
 ---

@@ -13,7 +13,7 @@ ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
 ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
 ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/06/2017
 ---

@@ -16,7 +16,7 @@ ms.date: 06/05/2017
 ms.author: alok;rotimpe
 ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

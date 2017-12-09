@@ -17,7 +17,7 @@ ms.date: 09/15/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

@@ -11,7 +11,7 @@ ms.date: 10/12/2017
 ms.author: bruceper
 ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
 ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/16/2017
 ---

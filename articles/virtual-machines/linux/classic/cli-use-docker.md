@@ -17,7 +17,7 @@ ms.date: 08/29/2016
 ms.author: rasquill
 ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

@@ -16,7 +16,7 @@ ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 680b996e370f66a5e22644ae1d1bf41d314bb4de
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

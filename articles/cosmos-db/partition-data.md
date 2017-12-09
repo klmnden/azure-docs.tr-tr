@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölüm ve ölçek Azure Cosmos veritabanı
 
@@ -41,7 +41,7 @@ Bölümleme nasıl çalışır? Her bir öğeyi benzersiz olarak tanımlamak bö
 
 * Bir Azure Cosmos DB kapsayıcıyla sağlamak `T` istekleri/sn'ye.
 * Arka planda Azure Cosmos DB sunmak için gereken bölümleri sağlar `T` İsteği/sn. Varsa `T` bölüm başına en fazla üretilen daha yüksek `t`, ardından Azure Cosmos DB hükümleri `N`  =  `T/t` bölümler.
-* Azure Cosmos DB anahtar alanı bölümünün eşit yatay anahtar karmaları ayırır `N` bölümler. Bu nedenle, her bölüm (fiziksel bölüm) 1-N bölüm anahtarı değerlerini (mantıksal bölümler) barındırır.
+* Azure Cosmos DB anahtar alanı bölümünün eşit yatay anahtar karmaları ayırır `N` bölümler. Bunu, her bölüm (fiziksel bölüm) konakları `1/N` bölüm anahtarı değerlerini (mantıksal bölümler).
 * Fiziksel bir bölüm olduğunda `p` ulaştığında, depolama sınırına Azure Cosmos DB sorunsuz bir şekilde böler `p` iki yeni bölümlere, `p1` ve `p2`. Her bölüm için kabaca yarım anahtarlara karşılık gelen değerleri dağıtır. Bu işlemi bölünmüş uygulamanıza görünmez durumdadır.
 * Benzer şekilde, ne zaman sağlamanız daha yüksek verimlilik `t*N`, bir veya daha yüksek verimlilik desteklemek için bölümler Azure Cosmos DB böler.
 
@@ -49,10 +49,10 @@ Bölüm anahtarlarını anlamları aşağıdaki tabloda gösterildiği gibi her 
 
 | API | Bölüm anahtarı | Satır anahtarı |
 | --- | --- | --- |
-| Azure Cosmos DB | Özel bölüm anahtar yolu | Sabit`id` | 
-| MongoDB | Özel paylaşılan anahtar  | Sabit`_id` | 
-| Graph | Özel bölüm anahtar özelliği | Sabit`id` | 
-| Tablo | Sabit`PartitionKey` | Sabit`RowKey` | 
+| Azure Cosmos DB | Özel bölüm anahtar yolu | `id` düzeltildi | 
+| MongoDB | Özel paylaşılan anahtar  | `_id` düzeltildi | 
+| Graf | Özel bölüm anahtar özelliği | `id` düzeltildi | 
+| Tablo | `PartitionKey` düzeltildi | `RowKey` düzeltildi | 
 
 Azure Cosmos DB karma tabanlı bölümleme kullanır. Bir öğe yazdığınızda, Azure Cosmos DB bölüm anahtarı değerini karma hale getirir ve karma hale getirilen sonuç öğesinde depolamak için hangi bölümünü belirlemek için kullanır. Azure Cosmos DB tüm öğeleri aynı fiziksel bölümünde aynı bölüm anahtarına sahip depolar. Bölüm anahtarı seçimi tasarım zamanında yapmak zorunda önemli bir karardır. Çok çeşitli değerleri ve hatta erişim desenlerini sahip bir özellik adı seçmeniz gerekir.
 

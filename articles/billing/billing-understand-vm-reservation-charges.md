@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
-ms.openlocfilehash: 3fd12bd3c51eeef57c896da030a83e447dc3e8ff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-how-the-reserved-virtual-machine-instance-discount-is-applied"></a>Ayrılmış sanal makine örnek indirim nasıl uygulandığını anlama
 Ayrılmış bir VM örnek satın sonra ayırma indirim öznitelikleri ve ayırma miktarı ile eşleşen sanal makinelere otomatik olarak uygulanır. Bir ayırma sanal makinelerinizi altyapı maliyetinden kapsar. Bir ayırma satın aldıktan sonra sanal makine maliyetlerini aşağıdaki tabloda gösterilmektedir. Her durumda, depolama ve ağ aygıtları için ücretlendirilirsiniz normal hızlarında.
@@ -28,7 +28,7 @@ Ayrılmış bir VM örnek satın sonra ayırma indirim öznitelikleri ve ayırma
 |Yazılım giderleri (örneğin, Red Hat) ile Linux VM'ler | Ayırma altyapı maliyetlerini kapsar. Ek yazılım için sizden ücret kesilir.|
 |Windows Vm'lerini ek yazılım olmadan |Ayırma altyapı maliyetlerini kapsar. Windows yazılım için sizden ücret kesilir.|
 |Ek yazılım (örneğin, SQL server) ile Windows sanal makineleri | Ayırma altyapı maliyetlerini kapsar. Windows yazılım ve diğer yazılım için sizden ücret kesilir.|
-|Windows VM ile birlikte [Azure karma avantajı](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Ayırma altyapı maliyetlerini kapsar. Windows yazılım maliyetleri Azure karma avantajı tarafından ele alınmıştır. Ek yazılım ayrı olarak ücretlendirilir.| 
+|Windows VM ile birlikte [Azure karma avantajı](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Ayırma altyapı maliyetlerini kapsar. Windows yazılım maliyetleri Azure karma avantajı tarafından ele alınmıştır. Ek yazılım ayrı olarak ücretlendirilir.| 
 
 ## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Uygulama Windows olmayan VM'ler için ayırma indirim
  Saatlik olarak başka bir VM örnekleri çalıştırmak için ayırma indirim uygulanır. Satın aldığınız ayırmaları ayırma indirimi uygulamak için çalışan VM'ler tarafından gösterilen kullanımı eşleştirilir. Aşağıdaki grafikte Faturalanabilir VM kullanımı için bir ayırma uygulama gösterilmektedir. Çizimde, bir ayırma satın alma ve eşleşen iki VM örneğini dayanır.
@@ -43,7 +43,7 @@ Ayrılmış bir VM örnek satın sonra ayırma indirim öznitelikleri ve ayırma
 Anlamak ve kullanım raporları faturalama, rezervasyonları uygulama görüntülemek için bkz: [anlamak ayrılmış VM örnek kullanım](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Windows VM ayırma indirim uygulamaya
-Windows VM örnekleri çalışırken ayırma altyapı maliyetlerini karşılamak üzere uygulanır. VM altyapı maliyetlerini Windows VM'ler için ayırma uygulamasının Windows olmayan VM'ler için aynıdır. Ayrıca, Windows yazılım vCPU başına temelinde ücretlendirilirsiniz. Bkz: [Windows yazılım maliyetleri ayırmaları ile](https://go.microsoft.com/fwlink/?linkid=862756). Lisanslama maliyetleri [karma avantajı Windows Server için Azure] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) ile Windows ele.
+Windows VM örnekleri çalışırken ayırma altyapı maliyetlerini karşılamak üzere uygulanır. VM altyapı maliyetlerini Windows VM'ler için ayırma uygulamasının Windows olmayan VM'ler için aynıdır. Ayrıca, Windows yazılım vCPU başına temelinde ücretlendirilirsiniz. Bkz: [Windows yazılım maliyetleri ayırmaları ile](https://go.microsoft.com/fwlink/?linkid=862756). Windows lisans maliyetleriniz [karma avantajı Windows Server için Azure] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) ile ele.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 

@@ -17,7 +17,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: cca2434a7af381eaa8ee7bc803a102a7781c7639
 ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/31/2017
 ---

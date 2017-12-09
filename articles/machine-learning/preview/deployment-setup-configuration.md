@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/6/2017
+ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Model Yönetimi Kurulumu
 
@@ -25,8 +25,8 @@ Azure ML model Yönetimi'ni kullanarak verimli bir şekilde dağıtın ve çerç
 Bu belgenin sonuna ayarlayabilir ve hazır, machine learning modellerini dağıtmak için model yönetim ortamına sahip yapabiliyor olmanız gerekir.
 
 ## <a name="what-you-need-to-get-started"></a>Başlamak için ihtiyacınız olanlar
-Bu kılavuzun en dışında almak için Modellerinizi için dağıtabileceğiniz bir Azure aboneliğine sahip erişiminiz olması.
-CLI Azure Machine Learning çalışma ekranı ve üzerinde önceden yüklü olarak gelen [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Bu kılavuz yararlanmak için bir Azure aboneliği veya Modellerinizi için dağıtabileceğiniz bir kaynak grubu katkıda bulunan erişiminiz olması.
+CLI Azure Machine Learning çalışma ekranı ve üzerinde önceden yüklü olarak gelen [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>CLI kullanarak
 Çalışma ekranı komut satırı arabirimlerinden (CLIs) kullanmak için tıklatın **dosya** -> **komut istemini açın**. 
@@ -128,7 +128,7 @@ Küme ortamı Kurulum komutu aşağıdaki kaynaklar, aboneliğinizde oluşturur:
 - Bir uygulama Öngörüler hesabı
 
 >[!IMPORTANT]
-> Bir küme ortamında başarılı bir şekilde oluşturmak için Azure aboneliğinde bir sahibi olmanız ve ayrıca bir hizmet sorumlusu oluşturma olanağı gerekir. Yeterli ayrıcalıklara sahip olup olmadığını denetlemek için bu sayfadaki yönergeleri izleyin: [Azure'da bir hizmet sorumlusu oluşturma](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> Bir küme ortamında başarılı bir şekilde oluşturmak için olmasını Azure abonelik veya kaynak grubu üzerinde katılımcı erişim gerekir.
 
 Kaynak grubu, depolama hesabı ve ACR hızlı bir şekilde oluşturulur. ACS dağıtımı 20 dakikaya kadar sürebilir. 
 

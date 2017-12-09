@@ -16,7 +16,7 @@ ms.date: 11/22/2017
 ms.author: pkc
 ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
 ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/30/2017
 ---

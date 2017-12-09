@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure İzleyici Belgeleri
+title: "Azure İzleyici Belgeleri"
 metadata:
-  title: 'Azure İzleyici Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
-  description: 'Azure İzleyici, Microsoft Azure''un genel izleme çözümünün bir parçasıdır. Azure İzleyici, performansı izlemenize, güvenliği sağlamanıza ve eğilimleri belirlemenize yardımcı olur. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak denetleme, uyarı oluşturma ve verileri arşivleme işlemlerini nasıl yapacağınızı öğrenin.'
+  title: "Azure İzleyici Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+  description: "Azure İzleyici, Microsoft Azure'un genel izleme çözümünün bir parçasıdır. Azure İzleyici, performansı izlemenize, güvenliği sağlamanıza ve eğilimleri belirlemenize yardımcı olur. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak denetleme, uyarı oluşturma ve verileri arşivleme işlemlerini nasıl yapacağınızı öğrenin."
   services: monitoring-and-diagnostics
   author: czeumault
   manager: carolz
@@ -13,60 +13,65 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
+  ms.openlocfilehash: 44a32aae5b2e98e1f29ee56631e50c84dfe18902
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: 'Azure İzleyici, Microsoft Azure''un genel izleme çözümünün bir parçasıdır. Azure İzleyici, performansı izlemenize, güvenliği sağlamanıza ve eğilimleri belirlemenize yardımcı olur. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak denetleme, uyarı oluşturma ve verileri arşivleme işlemlerini nasıl yapacağınızı öğrenin.'
+  description: "Azure İzleyici, Microsoft Azure'un genel izleme çözümünün bir parçasıdır. Azure İzleyici, performansı izlemenize, güvenliği sağlamanıza ve eğilimleri belirlemenize yardımcı olur. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak denetleme, uyarı oluşturma ve verileri arşivleme işlemlerini nasıl yapacağınızı öğrenin."
 sections:
-  - title: 5 Dakikalık Hızlı Başlangıçlar
+- title: "5 Dakikalık Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: "Azure uygulamanızda belirli durumlar oluştuğunda nasıl bildirim alabileceğinizi öğrenin."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Azure uygulamanızda belirli durumlar oluştuğunda nasıl bildirim alabileceğinizi öğrenin.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/Chart.svg'
-            text: İzleyici ölçümleri
-            href: monitor-quick-resource-metric-alert-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_alert.svg'
-            text: Abonelik Denetimi ve Uyarılar
-            href: monitor-quick-audit-notify-action-in-subscription
-  - title: Adım Adım Öğreticiler
+    - image:
+        src: https://docs.microsoft.com/media/common/Chart.svg
+      text: "İzleyici ölçümleri"
+      href: monitor-quick-resource-metric-alert-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_alert.svg
+      text: "Abonelik Denetimi ve Uyarılar"
+      href: monitor-quick-audit-notify-action-in-subscription
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "Otomatik ölçeklendirme ve izleme verilerinizi arşivleme hakkında bilgi edinin."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Otomatik ölçeklendirme ve izleme verilerinizi arşivleme hakkında bilgi edinin.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="monitor-tutorial-autoscale-performance-schedule">Zamanlama veya uygulama performansına dayalı otomatik ölçeklendirme</a>
-          - html: <a href="monitor-tutorial-archive-monitoring-data">İzleme verilerini arşivleme</a>
-  - title: Ücretsiz Pluralsight Video Eğitimi
+    - html: "<a href=\"monitor-tutorial-autoscale-performance-schedule\">Zamanlama veya uygulama performansına dayalı otomatik ölçeklendirme</a>"
+    - html: "<a href=\"monitor-tutorial-archive-monitoring-data\">İzleme verilerini arşivleme</a>"
+- title: "Ücretsiz Pluralsight Video Eğitimi"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: IaaS İzleme ile Çalışmaya Başlama
-            href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-          - title: Microsoft Azure’da Altyapıyı Yönetme
-            href: 'https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started'
-  - title: Başvuru
+    - title: "IaaS İzleme ile Çalışmaya Başlama"
+      href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+    - title: "Microsoft Azure’da Altyapıyı Yönetme"
+      href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/managing-infrastructure-microsoft-azure-getting-started
+- title: "Başvuru"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Komut Satırı
-            html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">Azure CLI</a></p><p><a href="/powershell/module/azurerm.insights">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/monitor/">REST</a></p>
-          - title: İzleme
-            html: '<p><a href="monitoring-supported-metrics">Desteklenen ölçümler</a></p><p><a href="monitoring-diagnostic-logs-schema">Tanılama günlüklerine yönelik hizmetler, kategoriler ve şemalar</a></p><p><a href="monitoring-activity-log-schema">Etkinlik günlüğü olay şeması</a></p>'
-          - title: Tanılama
-            html: <p><a href="azure-diagnostics-schema">Azure Tanılama uzantı şeması</a></p>
+    - title: "Komut Satırı"
+      html: <p><a href="/cli/azure/monitor?view=azure-cli-latest">Azure CLI</a></p><p><a href="/powershell/module/azurerm.insights">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/monitor/">REST</a></p>
+    - title: "İzleme"
+      html: "<p><a href=\"monitoring-supported-metrics\">Desteklenen ölçümler</a></p><p><a href=\"monitoring-diagnostic-logs-schema\">Tanılama günlüklerine yönelik hizmetler, kategoriler ve şemalar</a></p><p><a href=\"monitoring-activity-log-schema\">Etkinlik günlüğü olay şeması</a></p>"
+    - title: "Tanılama"
+      html: "<p><a href=\"azure-diagnostics-schema\">Azure Tanılama uzantı şeması</a></p>"

@@ -11,7 +11,7 @@ ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
 ---

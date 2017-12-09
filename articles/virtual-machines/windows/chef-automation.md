@@ -17,7 +17,7 @@ ms.date: 05/30/2017
 ms.author: diviso
 ms.openlocfilehash: b6db0fbb4e0de896994954974ddcc39daad9c125
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

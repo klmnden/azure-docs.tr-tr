@@ -15,7 +15,7 @@ ms.date: 08/10/2017
 ms.author: shengc
 ms.openlocfilehash: e470071ca0ff45fce0a410b18ea9a91e1925af4b
 ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/18/2017
 ---

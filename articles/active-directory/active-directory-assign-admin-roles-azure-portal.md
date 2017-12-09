@@ -18,7 +18,7 @@ ms.reviewer: Vince.Smith
 ms.custom: it-pro;
 ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
 ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/27/2017
 ---

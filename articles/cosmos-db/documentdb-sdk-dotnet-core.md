@@ -17,7 +17,7 @@ ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 835956f185b4ecdcbfa0b486223dd9bc2d0377cb
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/18/2017
 ---

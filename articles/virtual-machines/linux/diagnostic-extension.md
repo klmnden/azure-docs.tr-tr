@@ -11,7 +11,7 @@ ms.date: 05/09/2017
 ms.author: jasonzio
 ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
 ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/17/2017
 ---

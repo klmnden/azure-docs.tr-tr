@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IOT Core üzerinde IOT kenar çalışma zamanı yükleme - Önizleme
 
-Azure IOT kenar çalışma zamanı bile IOT sektördeki çok yaygın küçük tek Panosu bilgisayar (SBC) aygıtları çalıştırabilirsiniz. Bu makalede çalışma zamanı sağlama aracılığıyla anlatılmaktadır bir [MinnowBoard Turbot] [ lnk-minnow] Windows IOT Core çalıştıran geliştirme Panosu.
+Azure IOT kenarı ve [Windows IOT Core](https://docs.microsoft.com/windows/iot-core/) birlikte bile küçük cihazlarda computing kenar etkinleştirmek için çalışır. Azure IOT kenar çalışma zamanı bile IOT sektördeki çok yaygın küçük tek Panosu bilgisayar (SBC) aygıtları çalıştırabilirsiniz. 
+
+Bu makalede çalışma zamanı sağlama aracılığıyla anlatılmaktadır bir [MinnowBoard Turbot] [ lnk-minnow] Windows IOT Core çalıştıran geliştirme Panosu. Windows IOT Core yalnızca Intel x64 tabanlı işlemciler üzerinde Azure IOT kenar destekler. 
 
 ## <a name="install-the-runtime"></a>Çalışma zamanı yükleme
 

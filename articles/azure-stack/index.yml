@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Stack Operatör Belgeleri
+title: "Azure Stack Operatör Belgeleri"
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
-  title: 'Azure Stack Operatör Belgeleri - Öğreticiler, API Başvurusu'
-  description: Azure yığın merkeziniz Azure Hizmetleri sunmak için nasıl kullanılacağını öğrenin. Geliştirme Seti veya bir tümleşik sistemleri ortamında özelliklerini göstermek ve öğrenin.
+  title: "Azure Stack Operatör Belgeleri - Öğreticiler, API Başvurusu"
+  description: "Azure yığın merkeziniz Azure Hizmetleri sunmak için nasıl kullanılacağını öğrenin. Geliştirme Seti veya bir tümleşik sistemleri ortamında özelliklerini göstermek ve öğrenin."
   services: azure-stack
   author: czeumault
   manager: carolz
@@ -14,46 +14,51 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
+  ms.openlocfilehash: 59dea633182c774bab3408f8503a6bd6f5f5d783
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: MT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 10/11/2017
 abstract:
-  description: 'Microsoft Azure Stack, veri merkezinden Azure hizmetleri sağlama olanağı sunan bir karma bulut platformudur. Azure yığın Geliştirme Seti dağıtma, Geliştirme Seti ve tümleşik sistemler için altyapı yönetme ve hizmetleri bizim quickstarts ve öğreticiler ile sunmak nasıl öğrenin.<br/><br/>Hizmetleri kullanan veya uygulamalar için Azure yığınına derlemeler bir Azure yığın kullanıcı değilseniz, bkz bizim <a href="/azure/azure-stack/user">kullanıcı belgeleri</a>.'
+  description: "Microsoft Azure Stack, veri merkezinden Azure hizmetleri sağlama olanağı sunan bir karma bulut platformudur. Azure yığın Geliştirme Seti dağıtma, Geliştirme Seti ve tümleşik sistemler için altyapı yönetme ve hizmetleri bizim quickstarts ve öğreticiler ile sunmak nasıl öğrenin.<br/><br/>Hizmetleri kullanan veya uygulamalar için Azure yığınına derlemeler bir Azure yığın kullanıcı değilseniz, bkz bizim <a href=\"/azure/azure-stack/user\">kullanıcı belgeleri</a>."
 sections:
-  - title: Hızlı Başlangıç
+- title: "Hızlı Başlangıç"
+  items:
+  - type: paragraph
+    text: "Donanımı kurma ve Azure yığın Geliştirme Seti dağıtın."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Donanımı kurma ve Azure yığın Geliştirme Seti dağıtın.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            text: Azure yığın Geliştirme Seti dağıtma
-            href: azure-stack-deploy-overview.md
-  - title: Adım Adım Öğreticiler
+    - image:
+        src: https://docs.microsoft.com/media/common/i_deploy.svg
+      text: "Azure yığın Geliştirme Seti dağıtma"
+      href: azure-stack-deploy-overview.md
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "Azure yığın dağıtımınızı hizmetleri eklemeyi öğrenin."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Azure yığın dağıtımınızı hizmetleri eklemeyi öğrenin.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">Sanal makineler Azure yığında sunma</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">SQL veritabanları Azure yığında sunma</a>
-          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">Web uygulamaları Azure yığında sunma</a>
-  - title: Ücretsiz Pluralsight Video Eğitimi
+    - html: "<a href=\"/azure/azure-stack/azure-stack-tutorial-tenant-vm\">Sanal makineler Azure yığında sunma</a>"
+    - html: "<a href=\"/azure/azure-stack/azure-stack-tutorial-sql-server\">SQL veritabanları Azure yığında sunma</a>"
+    - html: "<a href=\"/azure/azure-stack/azure-stack-tutorial-app-service\">Web uygulamaları Azure yığında sunma</a>"
+- title: "Ücretsiz Pluralsight Video Eğitimi"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Azure Stack ile ilgili temel bilgileri öğrenme
-            href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54'
-  - title: Başvuru
+    - title: "Azure Stack ile ilgili temel bilgileri öğrenme"
+      href: https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/microsoft-azure-stack-big-picture?twoid=26658a98-62ff-48e5-aa5f-2741523aea54
+- title: "Başvuru"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Komut Satırı
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>
+    - title: "Komut Satırı"
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p>

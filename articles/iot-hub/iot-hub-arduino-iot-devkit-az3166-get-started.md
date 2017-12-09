@@ -16,7 +16,7 @@ ms.date: 11/20/2017
 ms.author: xshi
 ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
 ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/01/2017
 ---

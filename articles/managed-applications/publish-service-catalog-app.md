@@ -1,6 +1,6 @@
 ---
 title: "Oluşturma ve bir Azure hizmet Kataloğu yönetilen uygulama yayımlama | Microsoft Docs"
-description: "Bir Azure oluşturmayı gösteren yönetilen kuruluşunuzun üyeleri için hedeflenen uygulama."
+description: "Kuruluşunuzun üyelerine yönelik bir Azure yönetilen uygulaması oluşturmayı gösterir."
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: fd2c60cbc237f6d302616723c745563a3e1afecb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Dahili tüketim için yönetilen bir uygulama yayımlama
 
@@ -32,7 +32,7 @@ Bu makalede, yönetilen uygulamanızın yalnızca bir depolama hesabını içeri
 
 ## <a name="create-the-resource-template"></a>Kaynak şablonu oluşturma
 
-Adlı bir dosyaya her yönetilen uygulama tanımını içeren **mainTemplate.json**. İçinde Azure kaynaklarını sağlamak tanımlar. Şablon normal bir Resource Manager şablonu farklı değildir.
+Adlı bir dosyaya her yönetilen uygulama tanımını içeren **mainTemplate.json**. İçinde Azure kaynaklarını sağlamak tanımlar. Şablon normal bir Resource Manager şablonundan farklı değildir.
 
 Adlı bir dosya oluşturun **mainTemplate.json**. Adı büyük/küçük harf duyarlıdır.
 
@@ -83,7 +83,7 @@ MainTemplate.json dosyasını kaydedin.
 
 ## <a name="create-the-user-interface-definition"></a>Kullanıcı arabirim tanımı oluştur
 
-Azure Portalı'nı kullanan **createUiDefinition.json** yönetilen uygulamayı oluşturan kullanıcılar için kullanıcı arabirimi oluşturmak için dosya. Tanımladığınız nasıl kullanıcılar her parametre için değer girin. Bir açılan listesinden, metin kutusuna, parola kutusu ve diğer araçları giriş gibi seçeneklerini kullanabilirsiniz. Yönetilen bir uygulama için bir kullanıcı Arabirimi tanımı dosyası oluşturmayı öğrenmek için bkz: [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
+Azure Portalı'nı kullanan **createUiDefinition.json** yönetilen uygulamayı oluşturan kullanıcılar için kullanıcı arabirimi oluşturmak için dosya. Tanımladığınız nasıl kullanıcılar her parametre için değer girin. Bir açılan listesinden, metin kutusuna, parola kutusu ve diğer araçları giriş gibi seçeneklerini kullanabilirsiniz. Yönetilen bir uygulamaya ait bir kullanıcı arabirimi tanım dosyası oluşturma hakkında bilgi için [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md) konusunu inceleyin.
 
 Adlı bir dosya oluşturun **createUiDefinition.json**. Adı büyük/küçük harf duyarlıdır.
 
@@ -164,7 +164,7 @@ Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
   -Context $ctx 
 ```
 
-## <a name="create-the-managed-application-definition"></a>Yönetilen uygulama tanımı oluşturun
+## <a name="create-the-managed-application-definition"></a>Yönetilen uygulama tanımı oluşturma
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Bir Azure Active Directory kullanıcı grubu veya uygulama oluşturma
 
@@ -176,13 +176,13 @@ Kaynakları yönetmek için kullanılacak kullanıcı grubu nesne kimliği gerek
 
 ### <a name="get-the-role-definition-id"></a>Rol tanımı kimliği alma
 
-Ardından, kullanıcı, kullanıcı grubu veya uygulama için erişim vermek istediğiniz RBAC yerleşik rolün rol tanımı kimliği gerekir. Genellikle, sahibi veya katkıda bulunan veya okuyucu rolü kullanın. Aşağıdaki komut, rol tanımı kimliği için sahip rolünü alma gösterir:
+Ardından, kullanıcı, kullanıcı grubu veya uygulama için erişim vermek istediğiniz RBAC yerleşik rolün rol tanımı kimliği gerekir. Genellikle, sahibi veya katkıda bulunan veya okuyucu rolü kullanın. Aşağıdaki komut, Sahip rolünün rol tanımı kimliğinin nasıl alınacağını gösterir:
 
 ```powershell
 $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 ```
 
-### <a name="create-the-managed-application-definition"></a>Yönetilen uygulama tanımı oluşturun
+### <a name="create-the-managed-application-definition"></a>Yönetilen uygulama tanımı oluşturma
 
 Zaten bir kaynak grubu, yönetilen uygulama tanımını depolamak için yoksa, şimdi oluşturun:
 
@@ -190,7 +190,7 @@ Zaten bir kaynak grubu, yönetilen uygulama tanımını depolamak için yoksa, �
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
-Şimdi, yönetilen uygulama tanımı kaynağı oluşturun.
+Şimdi, yönetilen uygulama tanımı kaynağını oluşturun.
 
 ```powershell
 $blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
@@ -242,7 +242,6 @@ Dağıtım tamamlandıktan sonra yönetilen uygulama applicationGroup adlı bir 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yönetilen uygulamaların giriş için bkz: [yönetilen uygulama genel bakış](overview.md).
+* Yönetilen uygulamalara giriş için [Yönetilen uygulamalara genel bakış](overview.md) konusunu inceleyin.
 * Projeleri, örneğin bkz [Azure örnek projelerine yönetilen uygulamaları](sample-projects.md).
-* Azure Marketi'nde yayımlama yönetilen uygulamalar hakkında daha fazla bilgi için bkz: [Azure Market uygulamalarda yönetilen](publish-marketplace-app.md).
-* Yönetilen bir uygulama için bir kullanıcı Arabirimi tanımı dosyası oluşturmayı öğrenmek için bkz: [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
+* Yönetilen bir uygulamaya ait bir kullanıcı arabirimi tanım dosyası oluşturma hakkında bilgi için [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md) konusunu inceleyin.

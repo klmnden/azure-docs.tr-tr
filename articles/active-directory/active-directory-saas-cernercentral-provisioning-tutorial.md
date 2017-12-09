@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5e8d6f1e6c08d01f91b30ef40be616db2a16fcc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Öğretici: Cerner Orta otomatik kullanıcı sağlamayı için yapılandırma
 
@@ -123,7 +123,7 @@ Kullanıcı hesaplarına Cerner Orta sağlamak için Cerner Cerner Orta sistem h
 
 Bu, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde Cerner Orta atanan ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek yaklaşık 20 dakikada hizmet sağlama Azure AD çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Cerner Orta uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 
-Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -133,4 +133,4 @@ Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otom
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

@@ -17,7 +17,7 @@ ms.author: markvi
 ms.reviewer: japere
 ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
 ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/23/2017
 ---

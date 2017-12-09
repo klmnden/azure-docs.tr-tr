@@ -15,7 +15,7 @@ ms.date: 05/24/2017
 ms.author: eslesar
 ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

@@ -14,7 +14,7 @@ ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
 ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
 ---

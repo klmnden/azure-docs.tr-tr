@@ -16,7 +16,7 @@ ms.date: 08/31/2017
 ms.author: sujayt
 ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/22/2017
 ---

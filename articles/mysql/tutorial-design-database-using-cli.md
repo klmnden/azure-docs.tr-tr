@@ -13,7 +13,7 @@ ms.date: 11/28/2017
 ms.custom: mvc
 ms.openlocfilehash: f17f2cab39b42341886ed86e1c08569ca8f5eff0
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
 ---

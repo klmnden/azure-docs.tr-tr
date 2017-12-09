@@ -2,9 +2,9 @@
 documentType: LandingData
 title: Azure Container Service (AKS)
 metadata:
-  document_id: null
-  title: 'Azure Container Service (AKS) Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs'
-  meta.description: 'AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.'
+  document_id: 
+  title: "Azure Container Service (AKS) Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+  meta.description: AKS allows you to quickly deploy a production ready Kubernetes cluster in Azure. Learn how to use AKS with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
   manager: carolz
@@ -14,42 +14,47 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
+  ms.openlocfilehash: effec3747fef172e3124c4d2ea6fef86b0b80590
+  ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 10/27/2017
 abstract:
-  description: 'Azure Container Service (AKS), barındırılan Kubernetes ortamınızı yöneterek kapsayıcılı uygulamaları, kapsayıcı yönetimi uzmanlığı gerekmeden hızla ve kolayca dağıtma olanağı sunar. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.'
+  description: "Azure Container Service (AKS), barındırılan Kubernetes ortamınızı yöneterek kapsayıcılı uygulamaları, kapsayıcı yönetimi uzmanlığı gerekmeden hızla ve kolayca dağıtma olanağı sunar. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır."
 sections:
-  - title: 5 Dakikalık Hızlı Başlangıçlar
+- title: "5 Dakikalık Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: "AKS kümesi dağıtmayı öğrenin:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'AKS kümesi dağıtmayı öğrenin:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/media/index/ContainerService.svg
-            text: AKS kümesi oluşturma
-            href: /azure/aks/kubernetes-walkthrough
-  - title: Adım Adım Öğreticiler
+    - image:
+        src: /azure/media/index/ContainerService.svg
+      text: "AKS kümesi oluşturma"
+      href: /azure/aks/kubernetes-walkthrough
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "AKS kümesinde uygulamaları dağıtma, yönetme ve güncelleştirme hakkında bilgi edinin."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'AKS kümesinde uygulamaları dağıtma, yönetme ve güncelleştirme hakkında bilgi edinin.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Uygulamadan kapsayıcı görüntüsü oluşturma</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-acr">Kapsayıcı görüntülerini Azure Container Registry’ye yükleme</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-cluster">AKS kümesi dağıtma</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-deploy-application">Kubernetes’te kapsayıcı görüntülerinizi çalıştırma</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-scale">Bir uygulamayı ve Kubernetes altyapısını ölçeklendirme</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Kubernetes’te çalışan bir uygulamayı güncelleştirme</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-monitor">OMS ile Kubernetes’i izleme</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">AKS kümesini yükseltme</a>
-  - title: Başvuru
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-prepare-app\">Uygulamadan kapsayıcı görüntüsü oluşturma</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-prepare-acr\">Kapsayıcı görüntülerini Azure Container Registry’ye yükleme</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-deploy-cluster\">AKS kümesi dağıtma</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-deploy-application\">Kubernetes’te kapsayıcı görüntülerinizi çalıştırma</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-scale\">Bir uygulamayı ve Kubernetes altyapısını ölçeklendirme</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-app-update\">Kubernetes’te çalışan bir uygulamayı güncelleştirme</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-monitor\">OMS ile Kubernetes’i izleme</a>"
+    - html: "<a href=\"/azure/aks/tutorial-kubernetes-upgrade-cluster\">AKS kümesini yükseltme</a>"
+- title: "Başvuru"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Komut satırı
-            html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/aks">REST API</a></p>
+    - title: "Komut satırı"
+      html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/aks">REST API</a></p>

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Bir Azure Active Directory Uygulama ve kaynaklarına erişebilir hizmet sorumlusu oluşturmak için Portal kullanın
 
@@ -118,7 +118,7 @@ Program aracılığıyla oturum açarken uygulamanız ve bir kimlik doğrulama a
 
    ![Uygulama seçin](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Kopya **uygulama kimliği** ve uygulama kodunuzda saklayın. Uygulamalarda [örnek uygulamaları](#sample-applications) istemci kimliği olarak bu değer için bölümüne bakın
+1. Kopya **uygulama kimliği** ve uygulama kodunuzda saklayın. Bazı [örnek uygulamaları](#log-in-as-the-application) istemci kimliği olarak bu değer bakın
 
    ![İstemci kimliği](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 

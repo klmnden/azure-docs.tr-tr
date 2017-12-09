@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Konum Tabanlı Hizmetler (önizleme) Belgeleri
+title: "Azure Konum Tabanlı Hizmetler (önizleme) Belgeleri"
 metadata:
-  document_id: null
-  title: Azure Konum Tabanlı Hizmetler (önizleme) Belgeleri | Microsoft Docs
+  document_id: 
+  title: "Azure Konum Tabanlı Hizmetler (önizleme) Belgeleri | Microsoft Docs"
   meta.description: Use Azure Location Based Services (preview) to provide geospatial services to your web or mobile application.
   services: location-based-services
   author: philmea
@@ -14,27 +14,32 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
+  ms.openlocfilehash: fa69448296105ce8fd3cc1b885c3aa793882f909
+  ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 11/28/2017
 abstract:
-  description: 'Azure Konum Tabanlı Hizmetler (önizleme) tüm sektörlerden geliştiriciler ve güçlü jeo-uzamsal özellikler sunar. Ayrıca web ve mobil uygulamalara coğrafik bağlam sağlamak amacıyla yeni eşleme verileriyle donatılmıştır. Bu hizmet, REST API’lerin Azure One API’siyle uyumlu bir kümesidir ve gelişimi kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimiyle birlikte sunulur.'
+  description: "Azure Konum Tabanlı Hizmetler (önizleme) tüm sektörlerden geliştiriciler ve güçlü jeo-uzamsal özellikler sunar. Ayrıca web ve mobil uygulamalara coğrafik bağlam sağlamak amacıyla yeni eşleme verileriyle donatılmıştır. Bu hizmet, REST API’lerin Azure One API’siyle uyumlu bir kümesidir ve gelişimi kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimiyle birlikte sunulur."
 sections:
-  - title: 5 dakikalık hızlı başlangıçlar
+- title: "5 dakikalık hızlı başlangıçlar"
+  items:
+  - type: paragraph
+    text: "Azure Konum Tabanlı Hizmetler (önizleme) kullanarak bir harita arama uygulaması başlatma."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Azure Konum Tabanlı Hizmetler (önizleme) kullanarak bir harita arama uygulaması başlatma.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Harita uygulaması tanıtımı başlatma
-            href: /azure/location-based-services/quick-demo-map-app
-  - title: Adım adım öğreticiler
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: "Harita uygulaması tanıtımı başlatma"
+      href: /azure/location-based-services/quick-demo-map-app
+- title: "Adım adım öğreticiler"
+  items:
+  - type: paragraph
+    text: "İlgi noktalarını aramak ve Azure Konum Tabanlı Hizmetler (önizleme) kullanarak konumlara yönlendirmek için jeo-uzamsal bir web uygulaması oluşturun."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: İlgi noktalarını aramak ve Azure Konum Tabanlı Hizmetler (önizleme) kullanarak konumlara yönlendirmek için jeo-uzamsal bir web uygulaması oluşturun.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/location-based-services/tutorial-search-location">İlgi noktası arama</a>
-          - html: <a href="/azure/location-based-services/tutorial-route-location">İlgi noktasına yönlendirme</a>
-          - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Seyahat moduyla birden fazla rota</a>
+    - html: "<a href=\"/azure/location-based-services/tutorial-search-location\">İlgi noktası arama</a>"
+    - html: "<a href=\"/azure/location-based-services/tutorial-route-location\">İlgi noktasına yönlendirme</a>"
+    - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Seyahat moduyla birden fazla rota</a>

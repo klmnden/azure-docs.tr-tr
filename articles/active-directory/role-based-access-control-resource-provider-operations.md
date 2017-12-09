@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7e25b9a77d5ba7b856c9616c8384a567b7d37bbd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
-Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kullanılabilir olan işlemleri listeler. Bu özel rollerinde Azure kaynaklarına ayrıntılı rol tabanlı erişim denetimi (RBAC) izinlerini sağlamak için kullanılabilir. Lütfen bu kapsamlı bir liste değildir ve işlemleri eklenen veya her bir sağlayıcı güncelleştirilmiş kaldırıldıkça unutmayın. İşlemi dizeleri izleyin biçimi `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Geçerli ve kapsamlı bir liste için lütfen kullanın `Get-AzureRmProviderOperation` (PowerShell'de) veya `azure provider operations show` (Azure CLI), Azure kaynak sağlayıcılarının listesi işlemleri için.
+Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kullanılabilir olan işlemleri listeler. Bu özel rollerinde Azure kaynaklarına ayrıntılı rol tabanlı erişim denetimi (RBAC) izinlerini sağlamak için kullanılabilir. Lütfen bu kapsamlı bir liste değildir ve işlemleri eklenen veya her bir sağlayıcı güncelleştirilmiş kaldırıldıkça unutmayın. İşlemi dizeleri izleyin biçimi `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
+
+> [!NOTE]
+> Geçerli ve kapsamlı bir liste için lütfen kullanın `Get-AzureRmProviderOperation` (PowerShell'de) veya `az provider operation list` (Azure CLI v2), Azure kaynak sağlayıcılarının listesi işlemleri için.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -87,7 +90,7 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 |/Service/loggers/DELETE|Varolan Günlükçü Kaldır|
 |/Service/Users/Read|Kayıtlı kullanıcıların listesini almak veya bir kullanıcı hesabı ayrıntılarını alma|
 |/Service/Users/Write|Yeni bir kullanıcı veya varolan bir kullanıcı hesabı ayrıntılarını güncelleştirme kaydetme|
-|/Service/Users/DELETE|Kullanıcı hesabını kaldırma|
+|/Service/Users/DELETE|Kullanıcı hesabını kaldır|
 |/Service/Users/generateSsoUrl/Action|SSO URL oluşturur. URL yönetim portalına erişmek için kullanılabilir|
 |/Service/Users/Subscriptions/Read|Kullanıcı abonelikleri listesini al|
 |/Service/Users/Keys/Read|Kullanıcı anahtarları listesini al|
@@ -188,8 +191,8 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 |/roleDefinitions/DELETE|Belirtilen özel rol tanımını silin.|
 |/providerOperations/Read|Tüm kaynak sağlayıcılarına ilişkin işlemleri alın. Bunlar rol tanımlarında kullanılabilir.|
 |/policyDefinitions/Read|İlke tanımı hakkında bilgi edinin.|
-|/ policyDefinitions/yazma|Bir özel ilke tanımı oluşturun.|
-|/policyDefinitions/DELETE|Bir ilke tanımı silin.|
+|/ policyDefinitions/yazma|Özel bir ilke tanımı oluşturun.|
+|/policyDefinitions/DELETE|İlke tanımını silin.|
 |/roleAssignments/Read|Bir rol ataması hakkında bilgi alın.|
 |/ roleAssignments/yazma|Belirtilen kapsamda bir rol ataması oluşturun.|
 |/roleAssignments/DELETE|Belirtilen kapsamdaki rol atamasını silin.|
@@ -294,9 +297,9 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ mapApis/okuma|Okuma işlemi|
-|/ mapApis/yazma|Yazma işlemi|
-|/ mapApis/Sil|Silme işlemi|
+|/ mapApis/okuma|İşlemi Okur|
+|/ mapApis/yazma|İşlemi Yazar|
+|/ mapApis/Sil|İşlemi Siler|
 |/mapApis/regenerateKey/Action|Anahtarı Yeniden Oluşturur|
 |/mapApis/listSecrets/Action|Parolaları Listeler|
 |/mapApis/listSingleSignOnToken/Action|Kaynak İçin Çoklu Oturum Açma Yetkilendirme Belirtecini Okuyun|
@@ -311,15 +314,15 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ kaydı/eylem|Bir abonelikle 'Microsoft.Cache' kaynak sağlayıcısı kaydını siler|
 |/ redis/yazma|Redis Önbelleği'nin ayarlarını ve yapılandırmasını yönetim portalında değiştirin|
 |/redis/Read|Redis Önbelleği'nin ayarlarını ve yapılandırmasını yönetim portalında görüntüleyin|
-|/redis/DELETE|Redis Önbelleği'nin tamamını sil|
-|/redis/listKeys/Action|Redis Önbelleği erişim anahtarlarının değerini yönetim portalında görüntüleyin|
-|/redis/regenerateKey/Action|Redis Önbelleği erişim anahtarlarının değerini yönetim portalında değiştirin|
+|/redis/DELETE|Tüm Redis önbelleği Sil|
+|/redis/listKeys/Action|Redis önbelleği erişim anahtarlarının değerini yönetim portalında görüntüleyin|
+|/redis/regenerateKey/Action|Yönetim Portalı'nda Redis önbelleği erişim anahtarlarının değerini değiştirin|
 |/redis/import/Action|Birden çok blob'dan belirli bir biçimdeki verileri Redis'e aktar|
 |/redis/Export/Action|Redis verilerini belirtilen biçimde ön ekli depolama blob'larına aktar|
 |/redis/forceReboot/Action|Veri kaybı olasılığı olan bir önbellek örneği yeniden başlatmayı zorlayın.|
 |/redis/Stop/Action|Bir önbellek örneği durdurun.|
 |/redis/Start/Action|Bir önbellek örneği başlatın.|
-|/redis/metricDefinitions/Read|Bir Redis Önbelleği için kullanılabilir ölçümleri alır|
+|/redis/metricDefinitions/Read|Redis önbelleği için kullanılabilir ölçümleri alır|
 |/redis/firewallRules/Read|IP güvenlik duvarı kuralları bir Redis önbelleği Al|
 |/redis/firewallRules/Write|IP güvenlik duvarı kuralları bir Redis önbelleği Düzenle|
 |/redis/firewallRules/DELETE|IP güvenlik duvarı kuralları bir Redis önbelleği Sil|
@@ -391,7 +394,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/domainNames/slots/Roles/extensionReferences/DELETE|Dağıtım yuvası rolüne ait uzantı başvurusunu kaldırın.|
 |/domainNames/slots/Roles/extensionReferences/operationStatuses/Read|Etki alanı adı yuvaları uzantı başvuruları için işlem durumunu okur.|
 |/domainNames/slots/Roles/roleInstances/Read|Rol örneğini alın.|
-|/domainNames/slots/Roles/roleInstances/restart/Action|Rol örneği yeniden başlatır.|
+|/domainNames/slots/Roles/roleInstances/restart/Action|Rol örneklerini yeniden başlatır.|
 |/domainNames/slots/Roles/roleInstances/reimage/Action|Rol örneğinin yeniden görüntüsünü oluşturur.|
 |/domainNames/slots/Roles/roleInstances/operationStatuses/Read|Etki alanı adı yuvası rolleri rol örnekleri için işlem durumunu okur.|
 |/domainNames/slots/State/Start/Write|Dağıtım yuvası durumunu durduruldu olarak değiştirir.|
@@ -407,10 +410,10 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Quotas/Read|Abonelik için kotayı alın.|
 |/virtualMachines/Read|Sanal makinelerin listesini alır.|
 |/ virtualMachines/yazma|Sanal makineleri ekleyin veya değiştirin.|
-|/virtualMachines/DELETE|Sanal makineler kaldırır.|
+|/virtualMachines/DELETE|Sanal makineleri kaldırır.|
 |/virtualMachines/Start/Action|Sanal makineyi başlatın.|
 |/virtualMachines/Redeploy/Action|Sanal makine yeniden dağıtır.|
-|/virtualMachines/restart/Action|Sanal makineler yeniden başlatır.|
+|/virtualMachines/restart/Action|Sanal makineleri yeniden başlatır.|
 |/virtualMachines/Stop/Action|Sanal makineyi durdurur.|
 |/virtualMachines/Shutdown/Action|Sanal makineyi kapatın.|
 |/virtualMachines/attachDisk/Action|Sanal makineye bir veri diski ekler.|
@@ -508,7 +511,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/storageAccounts/regenerateKey/Action|Depolama hesabı için var olan erişim anahtarlarını yeniden oluşturur.|
 |/storageAccounts/operationStatuses/Read|Kaynağın işlem durumunu okur.|
 |/storageAccounts/images/Read|Depolama hesabı görüntüsünü döndürür.|
-|/storageAccounts/images/DELETE|Belirli bir depolama hesabı görüntüsünü siler.|
+|/storageAccounts/images/DELETE|Belirtilen depolama hesabı görüntüsünü siler.|
 |/storageAccounts/Disks/Read|Depolama hesabı diskini döndürür.|
 |/storageAccounts/Disks/Write|Depolama hesabı diski ekler.|
 |/storageAccounts/Disks/DELETE|Verilen depolama hesabı diskini siler.|
@@ -528,13 +531,13 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/Accounts/Read|API hesapları okur.|
-|/ hesapları/yazma|API hesapları yazar.|
-|/Accounts/DELETE|API hesapları siler|
-|/Accounts/listKeys/Action|Liste anahtarları|
-|/Accounts/regenerateKey/Action|Anahtarı yeniden|
-|/Accounts/skus/Read|Mevcut bir kaynağı için kullanılabilir SKU'lar okur.|
-|/Accounts/usages/Read|Kota kullanımı için mevcut bir kaynağı alın.|
+|/Accounts/Read|API hesaplarını okur.|
+|/ hesapları/yazma|API Hesaplarını yazar.|
+|/Accounts/DELETE|API hesaplarını siler|
+|/Accounts/listKeys/Action|Anahtarları Listele|
+|/Accounts/regenerateKey/Action|Anahtarı Yeniden Oluştur|
+|/Accounts/skus/Read|Mevcut kaynağa ait kullanılabilen SKU'ları okur.|
+|/Accounts/usages/Read|Mevcut bir kaynak için kota kullanımını alın.|
 |/ Operations/okuma|İşlem açıklaması.|
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
@@ -595,7 +598,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/virtualMachines/DELETE|Sanal makineyi siler|
 |/virtualMachines/Start/Action|Sanal makineyi başlatır|
 |/virtualMachines/powerOff/Action|Sanal makineyi kapatır. Sanal makinenin faturalandırılmaya devam edecek unutmayın.|
-|/virtualMachines/Redeploy/Action|Sanal makine yeniden dağıtır|
+|/virtualMachines/Redeploy/Action|Sanal makineyi yeniden dağıtır|
 |/virtualMachines/restart/Action|Sanal makineyi yeniden başlatır|
 |/virtualMachines/deallocate/Action|Sanal makineyi kapatır ve işlem kaynaklarını serbest bırakır|
 |/virtualMachines/generalize/Action|Sanal makine durumunu Genelleştirmiş olarak ayarlar ve sanal makineyi yakalama için hazırlar|
@@ -638,11 +641,11 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |---|---|
 |/ updateCommunicationPreference/eylem|Güncelleştirme iletişim tercihi|
 |/ listCommunicationPreference/eylem|Liste iletişim tercihi|
-|/Applications/Read|Okuma işlemi|
-|/ uygulamalar/yazma|Yazma işlemi|
-|/ uygulamalar/yazma|Yazma işlemi|
-|/Applications/DELETE|Silme işlemi|
-|/Applications/listSecrets/Action|Gizli anahtarları listeleme|
+|/Applications/Read|İşlemi Okur|
+|/ uygulamalar/yazma|İşlemi Yazar|
+|/ uygulamalar/yazma|İşlemi Yazar|
+|/Applications/DELETE|İşlemi Siler|
+|/Applications/listSecrets/Action|Parolaları Listele|
 |/Applications/listSingleSignOnToken/Action|Çoklu oturum açma belirteçleri okuma|
 |/Operations/Read|okuma işlemleri|
 
@@ -654,8 +657,8 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ hubs/yazma|Tüm Azure müşteri Öngörüler Hub güncelle|
 |/hubs/DELETE|Tüm Azure müşteri Öngörüler hub'ını silmek|
 |/hubs/providers/Microsoft.Insights/metricDefinitions/Read|Kaynak için kullanılabilir ölçümleri alır|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Kaynak için tanılama ayarını alır|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Kaynak için tanılama ayarını oluşturur veya güncelleştirir|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Kaynağın tanılama ayarını alır|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Oluşturur veya kaynağın tanılama ayarını güncelleştirir|
 |/hubs/providers/Microsoft.Insights/logDefinitions/Read|Kaynak için kullanılabilir günlüklerini alır|
 |/hubs/authorizationPolicies/Read|Herhangi bir Azure müşteri öngörü paylaşılan erişim imzası İlkesi okuma|
 |/hubs/authorizationPolicies/Write|Herhangi bir Azure müşteri Öngörüler paylaşılan erişim imzası ilke güncelle|
@@ -767,8 +770,8 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/iotHubs/eventHubEndpoints/consumerGroups/DELETE|EventHub tüketici grubu Sil|
 |/iotHubs/Routing/Routes/$ testall/eylem|Bir ileti tüm var olan yollar karşı test etme|
 |/iotHubs/Routing/Routes/$ testnew/eylem|Bir ileti sağlanan test rota karşı test etme|
-|/ IotHubs/diagnosticSettings/okuma|Kaynak için tanılama ayarını alır|
-|/ IotHubs/diagnosticSettings/yazma|Kaynak için tanılama ayarını oluşturur veya güncelleştirir|
+|/ IotHubs/diagnosticSettings/okuma|Kaynağın tanılama ayarını alır|
+|/ IotHubs/diagnosticSettings/yazma|Oluşturur veya kaynağın tanılama ayarını güncelleştirir|
 |/iotHubs/skus/Read|Geçerli Iothub SKU'ları alma|
 |/iotHubs/Jobs/Read|İş ayrıntıları Iothub gönderme|
 |/iotHubs/routingEndpointsHealth/Read|Bir Iothub için tüm yönlendirme uç noktaları durumunu alır|
@@ -909,11 +912,11 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ checkNameAvailability/eylem|İlgili abonelikte ad alanının kullanılabilirliğini denetler.|
+|/ checkNameAvailability/eylem|Ad alanı altında denetimleri kullanılabilirliğini aboneliği verilir.|
 |/ Kayıt/eylem|Aboneliği EventHub kaynak sağlayıcısı için kaydeder ve EventHub kaynaklarının oluşturulmasını sağlar|
 |/ ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve Namespace durumunu, güncelleştirilebilir özelliklerdir.|
 |/namespaces/Read|Ad Alanı Kaynak Açıklamasının listesini alır|
-|/ ad alanları/Sil|Namespace kaynağı silme|
+|/ ad alanları/Sil|Ad Alanı Kaynağını silin|
 |/namespaces/metricDefinitions/Read|Namespace ölçümleri kaynak açıklamaları listesini al|
 |/namespaces/authorizationRules/Read|Ad Alanı Yetkilendirme Kuralları açıklamasının listesini alır.|
 |/namespaces/authorizationRules/Write|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
@@ -955,7 +958,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Clusters/configurations/Read|Hdınsight küme yapılandırmalarını alma|
 |/Clusters/Roles/resize/Action|Bir Hdınsight kümesi yeniden boyutlandırma|
 |/Locations/Capabilities/Read|Abonelik özelliklerini al|
-|/Locations/checkNameAvailability/Read|Ad kullanılabilirliğini denetleme|
+|/Locations/checkNameAvailability/Read|Ad Kullanılabilirliğini Denetle|
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
@@ -968,7 +971,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Jobs/DELETE|Var olan bir işi siler.|
 |/Locations/Read|Belirtilen konum için özellikleri alır veya konumların listesini döndürür.|
 
-## <a name="microsoftinsights"></a>Microsoft.ınsights
+## <a name="microsoftinsights"></a>Microsoft.Insights
 
 | İşlem | Açıklama |
 |---|---|
@@ -976,14 +979,14 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ AlertRules/yazma|Bir uyarı kuralı yapılandırmasına yazılıyor|
 |/ AlertRules/silme|Uyarı kuralı yapılandırması siliniyor|
 |/ AlertRules/okuma|Uyarı kuralı yapılandırması okunuyor|
-|/ AlertRules/etkinleştirilmiş/eylem|Uyarı kuralı etkinleştirildi|
-|/ AlertRules/çözülmüş/eylem|Çözümlenen uyarı kuralı|
-|/ AlertRules/kısıtlanan/eylem|Uyarı kuralı kısıtlanan|
+|/ AlertRules/etkinleştirilmiş/eylem|Uyarı Kuralı etkinleştirildi|
+|/ AlertRules/çözülmüş/eylem|Uyarı Kuralı çözümlendi|
+|/ AlertRules/kısıtlanan/eylem|Uyarı kuralı kısıtlanmış|
 |/ AlertRules/olaylar/okuma|Uyarı kuralı olayı yapılandırması okunuyor|
 |/ MetricDefinitions/okuma|Ölçüm tanımlarını oku|
 |/eventtypes/Values/Read|Yönetim olayı tür değerlerini oku|
 |/eventtypes/digestevents/Read|Yönetim olayı türü özetini oku|
-|/ Ölçümleri/okuma|Ölçümleri|
+|/ Ölçümleri/okuma|Ölçümleri okuma|
 |/ LogProfiles/yazma|Günlük profili yapılandırması için yazma|
 |/ LogProfiles/silme|Günlük profilleri yapılandırmasını silme|
 |/ LogProfiles/okuma|Okuma günlük profilleri|
@@ -991,13 +994,13 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ AutoscaleSettings/silme|Otomatik ölçek ayarı yapılandırması siliniyor|
 |/ AutoscaleSettings/okuma|Otomatik ölçek ayarı yapılandırması okunuyor|
 |/ AutoscaleSettings/Scaleup/eylem|Otomatik Ölçek ölçeği artırma işlemi|
-|/ AutoscaleSettings/Scaledown/eylem|Otomatik ölçeklendirme ölçek işlemi|
+|/ AutoscaleSettings/Scaledown/eylem|Otomatik Ölçek ölçeği azaltma işlemi|
 |/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Ölçüm tanımlarını oku|
 |/ ActivityLogAlerts/etkinleştirilmiş/eylem|Etkinlik günlüğü uyarının|
 |/ DiagnosticSettings/yazma|Tanılama ayarları yapılandırmasına yazma|
-|/ DiagnosticSettings/silme|Tanılama ayarları yapılandırması siliniyor|
+|/ DiagnosticSettings/silme|Tanılama ayarları yapılandırmasını silme|
 |/ DiagnosticSettings/okuma|Tanılama ayarları yapılandırmasını okuma|
-|/ LogDefinitions/okuma|Okuma günlük tanımları|
+|/ LogDefinitions/okuma|Günlük tanımlarını oku|
 |/ ExtendedDiagnosticSettings/yazma|Yazma genişletilmiş tanılama ayarlarını yapılandırma|
 |/ ExtendedDiagnosticSettings/silme|Genişletilmiş tanılama ayarlarını yapılandırması siliniyor|
 |/ ExtendedDiagnosticSettings/okuma|Genişletilmiş tanılama ayarlarını yapılandırma okuma|
@@ -1007,14 +1010,14 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 | İşlem | Açıklama |
 |---|---|
 |/ Kayıt/eylem|Bir aboneliği kaydeder|
-|/checkNameAvailability/Read|Bir anahtar kasası adının geçerli ve kullanımda olup olmadığını denetler|
-|/vaults/Read|Anahtar kasasının özelliklerini görüntüleyin|
-|/ kasalar/yazma|Yeni bir anahtar kasası oluşturun veya var olan bir anahtar kasasının özelliklerini güncelleştirin|
+|/checkNameAvailability/Read|Bir anahtar kasası adının geçerli olduğundan ve kullanımda olup olmadığını denetler|
+|/vaults/Read|Bir anahtar kasası özelliklerini görüntüleme|
+|/ kasalar/yazma|Yeni bir anahtar kasası oluşturun veya var olan bir anahtar kasası özelliklerini güncelleştir|
 |/vaults/DELETE|Bir anahtar kasasını silme|
 |/vaults/Deploy/Action|Azure kaynaklarını dağıtırken bir anahtar kasasına gizli erişim sağlar|
-|/vaults/Secrets/Read|Bir gizli dizinin özelliklerini (değeri hariç) görüntüleyin|
-|/vaults/Secrets/Write|Yeni bir gizli dizi oluşturun veya var olan bir gizli dizinin değerini güncelleştirin|
-|/vaults/accessPolicies/Write|Var olan bir erişim ilkesini, birleştirme veya değiştirme yoluyla güncelleştirin ya da kasaya yeni bir erişim ilkesi ekleyin.|
+|/vaults/Secrets/Read|Bir gizli anahtar, ancak kendi değer özelliklerini görüntüleme|
+|/vaults/Secrets/Write|Yeni bir parola oluşturun veya var olan bir gizli anahtarı değerini güncelleştirin|
+|/vaults/accessPolicies/Write|Varolan bir erişim ilkesi birleştirme veya değiştirerek güncelleştirmek veya yeni bir erişim ilkesi Kasası'na ekleyin.|
 |/deletedVaults/Read|Geçici silinen anahtar kasalarını özelliklerini görüntüleme|
 |/Locations/operationResults/Read|Onay uzun çalışma işleminin sonucu|
 |/Locations/deletedVaults/Read|Bir geçici silinen anahtar kasası özelliklerini görüntüleme|
@@ -1264,26 +1267,26 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ CheckNamespaceAvailability/eylem|Belirli bir Ad Alanı kaynak adının NotificationHub hizmetinde kullanılabilir olup olmadığını denetler.|
 |/ Ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve Namespace durumunu, güncelleştirilebilir özelliklerdir.|
 |/ Ad alanları/okuma|Ad Alanı Kaynak Açıklamasının listesini alır|
-|/ Ad alanları/silme|Namespace kaynağı silme|
+|/ Ad alanları/silme|Ad Alanı Kaynağını silin|
 |/ Ad alanları/authorizationRules/eylem|Ad Alanı Yetkilendirme Kuralları açıklamasının listesini alır.|
 |/ Ad alanları/CheckNotificationHubAvailability/eylem|Belirli bir NotificationHub adının bir Ad Alanı içinde kullanılabilir olup olmadığını denetler.|
 |/ Ad alanları/authorizationRules/yazma|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
 |/ Ad alanları/authorizationRules/okuma|Ad Alanı Yetkilendirme Kuralları açıklamasının listesini alır.|
 |/ Ad alanları/authorizationRules/silme|Namespace yetkilendirme kuralını silin. Namespace yetkilendirme varsayılan kural silinemiyor. |
 |/ Ad alanları/authorizationRules/listkeys/eylem|Ad Alanı için Bağlantı Dizesini alın|
-|/ Ad alanları/authorizationRules/regenerateKeys/eylem|Namespace yetkilendirme kuralı yeniden birincil/SecondaryKey, yeniden oluşturulması gerekiyor anahtarını belirtin|
+|/ Ad alanları/authorizationRules/regenerateKeys/eylem|Ad Alanı Yetkilendirme Kuralı Birincil/İkincil Anahtarı Yeniden Oluşturma, Yeniden oluşturulması gereken Anahtarı belirtin|
 |/ Ad alanları/NotificationHubs/yazma|Bildirim hub'ı oluşturun ve özelliklerini güncelleştirin. Özelliklerini çoğunlukla PNS kimlik bilgilerini içerir. Yetkilendirme kuralları ve TTL|
-|/ Ad alanları/NotificationHubs/okuma|Notification Hub Kaynak Açıklamalarının listesini alın|
-|/ Ad alanları/NotificationHubs/silme|Bildirim hub'ı kaynağı silme|
-|/ Ad alanları/NotificationHubs/authorizationRules/eylem|NotificationHub Yetkilendirme Kurallarının listesini alın|
+|/ Ad alanları/NotificationHubs/okuma|Bildirim Hub'ı Kaynak Açıklamalarının listesini alın|
+|/ Ad alanları/NotificationHubs/silme|Bildirim Hub'ı Kaynağını Sil|
+|/ Ad alanları/NotificationHubs/authorizationRules/eylem|Bildirim Hub'ı Yetkilendirme Kurallarının listesini alın|
 |/ Ad alanları/NotificationHubs/pnsCredentials/eylem|Tüm bildirim hub'ı PNS kimlik bilgilerini alın. Bu içerir, WNS, MPNS, APNS, GCM ve Baidu kimlik bilgileri|
 |/ Ad alanları/NotificationHubs/debugSend/eylem|Test amaçlı bir anında iletme bildirimi gönderin.|
 |/ Ad alanları/NotificationHubs/metricDefinitions/okuma|Namespace ölçümleri kaynak açıklamaları listesini al|
 |/Namespaces/NotificationHubs /<br>authorizationRules/yazma|Bildirim hub'ı yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/Namespaces/NotificationHubs /<br>authorizationRules/okuma|NotificationHub Yetkilendirme Kurallarının listesini alın|
-|/Namespaces/NotificationHubs /<br>authorizationRules/silme|NotificationHub Yetkilendirme Kurallarını Sil|
-|/Namespaces/NotificationHubs /<br>listkeys/authorizationRules/eylem|Notification Hub Bağlantı Dizesini alın|
-|/Namespaces/NotificationHubs /<br>regenerateKeys/authorizationRules/eylem|Notification Hub Yetkilendirme Kuralı Birincil/İkincil Anahtarı Yeniden Oluşturma, Yeniden oluşturulması gereken Anahtarı belirtin|
+|/Namespaces/NotificationHubs /<br>authorizationRules/okuma|Bildirim Hub'ı Yetkilendirme Kurallarının listesini alın|
+|/Namespaces/NotificationHubs /<br>authorizationRules/silme|Bildirim Hub'ı Yetkilendirme Kurallarını Sil|
+|/Namespaces/NotificationHubs /<br>listkeys/authorizationRules/eylem|Bildirim Hub'ı Bağlantı Dizesini alın|
+|/Namespaces/NotificationHubs /<br>regenerateKeys/authorizationRules/eylem|Bildirim Hub'ı Yetkilendirme Kuralı Birincil/İkincil Anahtarı Yeniden Oluşturma, Yeniden oluşturulması gereken Anahtarı belirtin|
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -1350,9 +1353,9 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/vaults/replicationFabrics/renewcertificate/Action||
 |/vaults/replicationFabrics/deployProcessServerImage/Action|İşlem sunucusu görüntüsünü Dağıt|
 |/vaults/replicationFabrics/reassociateGateway/Action|Ağ geçidi yeniden ilişkilendirin|
-|/ kasalar/replicationFabrics/replicationRecoveryServicesProviders /<br>Okuma|Tüm kurtarma Hizmetleri sağlayıcılarını okuma|
+|/ kasalar/replicationFabrics/replicationRecoveryServicesProviders /<br>oku|Tüm kurtarma Hizmetleri sağlayıcılarını okuma|
 |/ kasalar/replicationFabrics/replicationRecoveryServicesProviders /<br>kaldırma/eylem|Kurtarma Hizmetleri sağlayıcısını Kaldır|
-|/ kasalar/replicationFabrics/replicationRecoveryServicesProviders /<br>Sil|Tüm kurtarma Hizmetleri sağlayıcılarını Sil|
+|/ kasalar/replicationFabrics/replicationRecoveryServicesProviders /<br>sil|Tüm kurtarma Hizmetleri sağlayıcılarını Sil|
 |/ kasalar/replicationFabrics/replicationRecoveryServicesProviders /<br>refreshProvider/eylem|Sağlayıcı Yenile|
 |/vaults/replicationFabrics/replicationStorageClassifications/Read|Tüm depolama sınıflandırmaları okuma|
 |/ kasalar/replicationFabrics/replicationStorageClassifications /<br>replicationStorageClassificationMappings/okuma|Tüm depolama sınıflandırması eşlemeleri okuma|
@@ -1365,7 +1368,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ kasalar/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/okuma|Tüm ağ eşlemeleri okuma|
 |/ kasalar/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/yazma|Tüm ağ eşlemeleri güncelle|
 |/ kasalar/replicationFabrics/replicationNetworks /<br>replicationNetworkMappings/silme|Tüm ağ eşlemeleri silme|
-|/ kasalar/replicationFabrics/replicationProtectionContainers /<br>Okuma|Herhangi bir koruma kapsayıcıdaki okuma|
+|/ kasalar/replicationFabrics/replicationProtectionContainers /<br>oku|Herhangi bir koruma kapsayıcıdaki okuma|
 |/ kasalar/replicationFabrics/replicationProtectionContainers /<br>discoverProtectableItem/eylem|Korunabilir öğe Bul|
 |/ kasalar/replicationFabrics/replicationProtectionContainers /<br>yazma|Herhangi bir koruma kapsayıcıdaki güncelle|
 |/ kasalar/replicationFabrics/replicationProtectionContainers /<br>kaldırma/eylem|Koruma kapsayıcısı Kaldır|
@@ -1381,7 +1384,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ kasalar/replicationFabrics/replicationProtectionContainers /<br>kaldırma/replicationProtectedItems/eylem|Korumalı öğe kaldırma|
 |/ kasalar/replicationFabrics/replicationProtectionContainers /<br>plannedFailover/replicationProtectedItems/eylem|Planlanan yük devretme|
 |/ kasalar/replicationFabrics/replicationProtectionContainers /<br>unplannedFailover/replicationProtectedItems/eylem|Yük devretme|
-|/ kasalar/replicationFabrics/replicationProtectionContainers /<br>testFailover/replicationProtectedItems/eylem|Yük devretme sınaması|
+|/ kasalar/replicationFabrics/replicationProtectionContainers /<br>testFailover/replicationProtectedItems/eylem|Yük Devretme Sınaması|
 |/ kasalar/replicationFabrics/replicationProtectionContainers /<br>testFailoverCleanup/replicationProtectedItems/eylem|Yük devretme sınaması temizliğini|
 |/ kasalar/replicationFabrics/replicationProtectionContainers /<br>failoverCommit/replicationProtectedItems/eylem|Yük devretmenin yürütülmesi|
 |/ kasalar/replicationFabrics/replicationProtectionContainers /<br>yeniden koruma/replicationProtectedItems/eylem|Korumalı öğe koruyun|
@@ -1437,7 +1440,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ Kasalar/registeredIdentities/silme|Kapsayıcı kaydı işlemi, bir kapsayıcı kaydını silmek için kullanılabilir.|
 |/ Kasalar/registeredIdentities/operationResults/okuma|Zaman uyumsuz olarak gönderilen işlemi için sonuç ve işlem durumunu alma işlemi işlemi kullanılabilir sonuçlar elde|
 |/vaults/replicationJobs/Read|Herhangi bir işi okuma|
-|/vaults/replicationJobs/Cancel/Action|İşi iptal et|
+|/vaults/replicationJobs/Cancel/Action|İşi İptal Et|
 |/vaults/replicationJobs/restart/Action|İşi yeniden başlatın|
 |/vaults/replicationJobs/Resume/Action|İşi sürdürme|
 |/ Kasalar/backupPolicies/okuma|Tüm koruma ilkeleri döndürür|
@@ -1457,11 +1460,11 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ checkNamespaceAvailability/eylem|İlgili abonelikte ad alanının kullanılabilirliğini denetler.|
+|/ checkNamespaceAvailability/eylem|Ad alanı altında denetimleri kullanılabilirliğini aboneliği verilir.|
 |/ Kayıt/eylem|Aboneliği geçiş kaynak sağlayıcısı için kaydeder ve Geçiş kaynaklarının oluşturulmasını sağlar|
 |/ ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve Namespace durumunu, güncelleştirilebilir özelliklerdir.|
 |/namespaces/Read|Ad Alanı Kaynak Açıklamasının listesini alır|
-|/ ad alanları/Sil|Namespace kaynağı silme|
+|/ ad alanları/Sil|Ad Alanı Kaynağını silin|
 |/namespaces/authorizationRules/Write|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
 |/namespaces/authorizationRules/DELETE|Namespace yetkilendirme kuralını silin. Namespace yetkilendirme varsayılan kural silinemiyor. |
 |/namespaces/authorizationRules/listkeys/Action|Ad Alanı için Bağlantı Dizesini alın|
@@ -1528,17 +1531,17 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/jobcollections/Read|İş koleksiyonu Al|
+|/jobcollections/Read|İş Koleksiyonu Al|
 |/ eyleminde/yazma|İş koleksiyonu oluşturur veya güncelleştirir.|
-|/jobcollections/DELETE|Koleksiyon silme iş.|
-|/jobcollections/Enable/Action|Etkinleştirir koleksiyonu işi.|
-|/jobcollections/disable/Action|Devre dışı bırakır, koleksiyon işi.|
-|/jobcollections/Jobs/Read|İş alır.|
+|/jobcollections/DELETE|İş koleksiyonunu siler.|
+|/jobcollections/Enable/Action|İş koleksiyonunu etkinleştirir.|
+|/jobcollections/disable/Action|İş koleksiyonunu devre dışı bırakır.|
+|/jobcollections/Jobs/Read|İşi alır.|
 |/jobcollections/Jobs/Write|İş oluşturur veya güncelleştirir.|
 |/jobcollections/Jobs/DELETE|İşi siler.|
 |/jobcollections/Jobs/Run/Action|İşi çalıştırır.|
 |/jobcollections/Jobs/generateLogicAppDefinition/Action|Bir Scheduler İşini temel alarak Mantıksal Uygulama tanımı oluşturur.|
-|/jobcollections/Jobs/jobhistories/Read|Alır geçmişi işi.|
+|/jobcollections/Jobs/jobhistories/Read|İş geçmişini alır.|
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1601,11 +1604,11 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ checkNameAvailability/eylem|İlgili abonelikte ad alanının kullanılabilirliğini denetler.|
+|/ checkNameAvailability/eylem|Ad alanı altında denetimleri kullanılabilirliğini aboneliği verilir.|
 |/ Kayıt/eylem|Aboneliği ServiceBus kaynak sağlayıcısı için kaydeder ve ServiceBus kaynaklarının oluşturulmasını sağlar|
 |/ ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve Namespace durumunu, güncelleştirilebilir özelliklerdir.|
 |/namespaces/Read|Ad Alanı Kaynak Açıklamasının listesini alır|
-|/ ad alanları/Sil|Namespace kaynağı silme|
+|/ ad alanları/Sil|Ad Alanı Kaynağını silin|
 |/namespaces/metricDefinitions/Read|Namespace ölçümleri kaynak açıklamaları listesini al|
 |/namespaces/authorizationRules/Write|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
 |/namespaces/authorizationRules/Read|Ad Alanı Yetkilendirme Kuralları açıklamasının listesini alır.|
@@ -1670,8 +1673,8 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Servers/elasticPools/DELETE|Var olan esnek veritabanı havuzunu silme|
 |/Servers/elasticPools/operationResults/Read|Verilen esnek veritabanı havuzu işlemle ilgili ayrıntıları alma|
 |/Servers/elasticPools/providers/Microsoft.Insights/<br>metricDefinitions/okuma|Dönüş türleri esnek veritabanı havuzları için kullanılabilir ölçümleri|
-|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/okuma|Kaynak için tanılama ayarını alır|
-|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/yazma|Kaynak için tanılama ayarını oluşturur veya güncelleştirir|
+|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/okuma|Kaynağın tanılama ayarını alır|
+|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/yazma|Oluşturur veya kaynağın tanılama ayarını güncelleştirir|
 |/Servers/elasticPools/Metrics/Read|Esnek veritabanı havuzu kaynak kullanımı ölçümlerini Döndür|
 |/Servers/elasticPools/elasticPoolDatabaseActivity/Read|Etkinlikleri ve esnek veritabanı havuzu parçası olan belirli bir veritabanı üzerinde ayrıntıları alma|
 |/Servers/elasticPools/advisors/Read|Esnek havuz için kullanılabilir danışmanlar listesini döndürür|
@@ -1718,8 +1721,8 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Servers/Databases/securityAlertPolicies/Read|Belirli bir veritabanı üzerinde yapılandırılan tehdit algılama ilkesi ayrıntılarını alma|
 |/Servers/Databases/securityAlertPolicies/Write|Verilen bir veritabanı tehdit algılama ilkesini değiştirme|
 |/Servers/Databases/providers/Microsoft.Insights/<br>metricDefinitions/okuma|Dönüş türleri veritabanları için kullanılabilir ölçümleri|
-|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/okuma|Kaynak için tanılama ayarını alır|
-|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/yazma|Kaynak için tanılama ayarını oluşturur veya güncelleştirir|
+|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/okuma|Kaynağın tanılama ayarını alır|
+|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/yazma|Oluşturur veya kaynağın tanılama ayarını güncelleştirir|
 |/Servers/Databases/providers/Microsoft.Insights/<br>logDefinitions/okuma|Veritabanları için kullanılabilir günlüklerini alır|
 |/Servers/Databases/topQueries/Read|Döndürür seçili sorgu için çalışma zamanı istatistikleri seçilen zaman aralığı içinde toplanır.|
 |/Servers/Databases/topQueries/queryText/Read|Seçili sorgu kimliği için Transact-SQL metnini döndürür|
@@ -1764,13 +1767,13 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/storageAccounts/listkeys/Action|Belirtilen depolama hesabının erişim anahtarlarını döndürür.|
 |/storageAccounts/regeneratekey/Action|Belirtilen depolama hesabının erişim anahtarlarını yeniden oluşturur.|
 |/storageAccounts/Read|Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır.|
-|/storageAccounts/listAccountSas/Action|Belirtilen depolama hesabı için hesap SAS belirteci döndürür.|
-|/storageAccounts/listServiceSas/Action|Depolama hizmet SAS belirteci|
+|/storageAccounts/listAccountSas/Action|Belirtilen depolama hesabı için Hesap SAS belirtecini döndürür.|
+|/storageAccounts/listServiceSas/Action|Depolama Hizmeti SAS Belirteci|
 |/storageAccounts/Services/diagnosticSettings/Write|Depolama hesabı tanılama ayarlarını oluştur/güncelleştir.|
 |/skus/Read|Microsoft.Storage tarafından desteklenen SKU'ları listeler.|
 |/usages/Read|Belirtilen abonelikteki kaynakların sınır ve geçerli kullanım sayısını döndürür|
 |/Operations/Read|Bir zaman uyumsuz işlemin durumunu yoklar.|
-|/Locations/deleteVirtualNetworkOrSubnets/Action|Sanal ağ veya alt ağ silindiğinden emin Microsoft.Storage bildirir|
+|/Locations/deleteVirtualNetworkOrSubnets/Action|Microsoft.Storage'a sanal ağın veya alt ağın silindiğini bildirir|
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
@@ -1824,7 +1827,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/managers/Devices/listFailoverSets/Action|Varolan bir aygıt için yük devretme kümeleri listeleyin.|
 |/managers/Devices/listFailoverTargets/Action|Aygıtların listesi yük devri hedefleri|
 |/managers/Devices/publicEncryptionKey/Action|Aygıt Yöneticisi'ni listesi ortak şifreleme anahtarı|
-|/ yöneticileri/aygıtları/hardwareComponentGroups /<br>Okuma|Donanım bileşen grupları listesi|
+|/ yöneticileri/aygıtları/hardwareComponentGroups /<br>oku|Donanım bileşen grupları listesi|
 |/ yöneticileri/aygıtları/hardwareComponentGroups /<br>changeControllerPowerState/eylem|Donanım bileşen grupları denetleyicisi güç durumunu değiştir|
 |/managers/Devices/Metrics/Read|Ölçümleri alır veya listeler|
 |/managers/Devices/chapSettings/Write|Chap ayarları güncelle|
@@ -2194,7 +2197,6 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bilgi edinmek için nasıl [özel bir rol oluşturmak](role-based-access-control-custom-roles.md).
-
 - Gözden geçirme [yerleşik RBAC roller](role-based-access-built-in-roles.md).
-
 - Erişim atamalarını yönetmeyi öğrenin [kullanıcı tarafından](role-based-access-control-manage-assignments.md) veya [kaynak tarafından](role-based-access-control-configure.md) 
+- Bilgi nasıl [kaynakları eylemlerini denetlemek için etkinlik günlükleri görüntüleme](~/articles/azure-resource-manager/resource-group-audit.md)

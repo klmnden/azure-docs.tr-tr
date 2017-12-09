@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Belgeleri’nde Terraform
+title: "Azure Belgeleri’nde Terraform"
 metadata:
-  title: Azure Belgeleri’nde Terraform - Öğreticiler ve başvuru
+  title: "Azure Belgeleri’nde Terraform - Öğreticiler ve başvuru"
   meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
   services: terraform
   author: rloutlaw
@@ -13,8 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
+  ms.openlocfilehash: 9334cf6dad16c4c4a36adbd278f52c255a5b2823
+  ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 10/25/2017
 abstract:
-  description: 'Azure’da güvenilir bir şekilde sürüm ve altyapı oluşturmak için Terraform’u kullanın. Hızlı başlangıçlarımızdan ve öğreticilerimizden yararlanarak kaynak oluşturmayı, Azure Terraform modüllerini kullanmayı ve kod ile altyapınızı yönetmeyi öğrenin.'
+  description: "Azure’da güvenilir bir şekilde sürüm ve altyapı oluşturmak için Terraform’u kullanın. Hızlı başlangıçlarımızdan ve öğreticilerimizden yararlanarak kaynak oluşturmayı, Azure Terraform modüllerini kullanmayı ve kod ile altyapınızı yönetmeyi öğrenin."
   aside:
     image:
       alt: Terraform logo.
@@ -22,45 +27,45 @@ abstract:
       src: media/Terraform_VerticalLogo_FullColor.svg
       width: 250
 sections:
-  - title: Hızlı Başlangıçlar
+- title: "Hızlı Başlangıçlar"
+  items:
+  - type: paragraph
+    text: "Terraform’u yapılandırın ve Azure’da bir Linux VM oluşturmak için kullanın."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Terraform’u yapılandırın ve Azure’da bir Linux VM oluşturmak için kullanın.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg'
-            text: Terraform’u yükleme ve yapılandırma
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg'
-            text: Linux VM oluşturma
-            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm'
-  - title: Adım Adım Öğreticiler
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+      text: "Terraform’u yükleme ve yapılandırma"
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+      text: "Linux VM oluşturma"
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
+- title: "Adım Adım Öğreticiler"
+  items:
+  - type: paragraph
+    text: "Terraform ile koddan Azure işlem ve ağ altyapısı oluşturmayı öğrenin."
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: Terraform ile koddan Azure işlem ve ağ altyapısı oluşturmayı öğrenin.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Azure Terraform modüllerini kullanarak yük dengeli bir VM kümesi oluşturun</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Azure Cloud Shell’de yük dengeli bir VM kümesi oluşturun</a>.
-          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Ağ ve depolama ile bir VM ölçek kümesi yapılandırın.</a>
-  - title: Örnekler
+    - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-module\">Azure Terraform modüllerini kullanarak yük dengeli bir VM kümesi oluşturun</a>."
+    - html: "<a href=\"/azure/terraform/terraform-create-vm-cluster-with-infrastructure\">Azure Cloud Shell’de yük dengeli bir VM kümesi oluşturun</a>."
+    - html: "<a href=\"/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl\">Ağ ve depolama ile bir VM ölçek kümesi yapılandırın.</a>"
+- title: "Örnekler"
+  items:
+  - type: paragraph
+    text: "Genel dağıtım görevleri için örnek yapılandırma şablonları."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Genel dağıtım görevleri için örnek yapılandırma şablonları.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>'
-  - title: Başvuru
+    - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
+- title: "Başvuru"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Azure Terraform modülleri
-            html: '<p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Veritabanı için Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Load Balancer için Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure RM İşlem Grubu</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Azure RM Ağ</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure RM İşlem</a></p>'
+    - title: "Azure Terraform modülleri"
+      html: "<p><a href=\"https://registry.terraform.io/modules/Azure/database/azurerm\">Veritabanı için Azure RM</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/loadbalancer\">Load Balancer için Azure RM</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/computegroup\">Azure RM İşlem Grubu</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/network\">Azure RM Ağ</a></p><p><a href=\"https://registry.terraform.io/modules/Azure/compute\">Azure RM İşlem</a></p>"

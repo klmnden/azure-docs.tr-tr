@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 59dce2fe7d91cc80f991e5ff298be7757ae19ef4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3c955d7be0e7e6d45751c0e685bad498e524d94
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Yönetilen kaynaklarla çalışmak için Azure kaynak grubu yönetilen uygulama
 
@@ -95,6 +95,5 @@ az policy assignment show --name locationAssignment --scope $managedGroup --quer
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yönetilen uygulamaların giriş için bkz: [yönetilen uygulama genel bakış](overview.md).
+* Yönetilen uygulamalara giriş için [Yönetilen uygulamalara genel bakış](overview.md) konusunu inceleyin.
 * Örnek projeler için bkz: [Azure örnek projelerine yönetilen uygulamaları](sample-projects.md).
-* Azure Marketi'nde yayımlama yönetilen uygulamalar hakkında daha fazla bilgi için bkz: [yönetilen Market uygulamalarda](publish-marketplace-app.md).

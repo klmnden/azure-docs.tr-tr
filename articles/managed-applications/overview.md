@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 682b7577135e327457976dc77ce4b4364bd12e48
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="azure-managed-applications-overview"></a>Azure yönetilen uygulamaların genel bakış
+# <a name="azure-managed-applications-overview"></a>Azure yönetilen uygulamalara genel bakış
 
 Azure yönetilen uygulamaları dağıtmak ve çalıştırmak Tüketiciler için kolay bulut çözümleri sunmak etkinleştirir. Altyapısını uygulayın ve devam eden desteği sağlar. Yönetilen bir uygulamanın tüm müşterilerin kullanımına için Azure Marketi'nde yayımlama. Yalnızca kuruluşunuzdaki kullanıcılar için kullanılabilmesi için bir iç kataloğa yayımlayın. 
 
@@ -48,8 +48,6 @@ Hizmet Kataloğu yönetilen uygulama yayımlama hakkında daha fazla bilgi için
 
 Satıcılar hizmetlerini faturalandırmak isteyen bir yönetilen uygulamayı Azure Market üzerinden sunabilirsiniz. Uygulamanın satıcısına yayımlar sonra kuruluş dışındaki kullanıcılar için kullanılabilir. Bu yaklaşım, yönetilen hizmet sağlayıcıları (MSP'ler), bağımsız yazılım satıcılarının (ISV'ler) ve sistem tümleştiricileri (SIS) çözümleri, tüm Azure müşterilerine sunabilir.
 
-Bir yönetilen uygulamayı Marketi'nde yayımlama hakkında daha fazla bilgi için bkz: [Market uygulaması oluşturma](publish-marketplace-app.md).
-
 ## <a name="resource-groups-for-managed-applications"></a>Yönetilen uygulamalar için kaynak grupları
 
 Genellikle, bir yönetilen uygulama için Kaynaklar iki kaynak grubu içinde bulunur. Bir kaynak grubu tüketici yönetir ve bir kaynak grubu yayımcı yönetir. Yönetilen uygulama tanımlarken, yayımcı erişim düzeylerini belirler. Aşağıdaki resimde, burada yayımcı yönetilen kaynak grubu için sahip rolünü istekleri bir senaryo gösterilmektedir. Yayımcı salt okunur kilit tüketici için bu kaynak grubunda yerleştirilir.
@@ -72,5 +70,4 @@ Tüketici yönetilen uygulamayı sildiğinde, yönetilen kaynak grubunu da silin
 
 * Giriş için tanımlama ve yönetilen bir uygulamayı dağıtmak için bkz: [oluşturma ve Azure dağıtma yönetilen Azure CLI ile uygulama](managed-apps-quickstart-cli.md)
 * Bir iç uygulama yayımlama hakkında daha fazla bilgi için bkz: [hizmet Kataloğu uygulaması oluştur](publish-service-catalog-app.md).
-* Marketi'nde yayımlama yönetilen uygulamalar hakkında daha fazla bilgi için bkz: [Market uygulaması oluşturma](publish-marketplace-app.md).
 

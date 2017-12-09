@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ae62638fd1d325822b15b7de998861d4df67bd8e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="api-management-policy-samples"></a>API Management ilkesi örnekleri
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/04/2017
 |[Bir arka uç hizmetine özellikleri ekleyin ve yanıt önbelleğe alma](./policies/cache-response.md?toc=api-management/toc.json) |Bir arka uç hizmetine yetenekleri ekleme gösterir. Örneğin, enlem ve boylam hava tahmini API içinde yerine yer adını kabul edin.|
 |[JWT talepleri temelinde erişim yetkisi](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |JWT talepleri temelinde bir API belirli HTTP yöntemleri erişim yetkisi vermek gösterilmiştir.|
 |[Google OAuth belirtecini kullanarak erişim yetkisi](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |Google OAuth belirteci sağlayıcısı olarak kullanarak noktalarınızı erişim yetkisi vermek gösterilmiştir.|
-|[Paylaşılan erişim imzası ve Azure depolama iletme isteği oluştur](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Nasıl oluşturulacağını gösterir [paylaşılan erişim imzası](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) ifadeler kullanarak ve isteği yeniden yazma-URI İlkesi ile Azure depolama iletebilir. |
+|[Paylaşılan erişim imzası ve Azure depolama iletme isteği oluştur](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Nasıl oluşturulacağını gösterir [paylaşılan erişim imzası](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) ifadeler kullanarak ve isteği yeniden yazma-URI İlkesi ile Azure depolama iletebilir. |
 |[AAD OAuth2 erişim belirteci almak ve arka uç için iletme](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Sağlar ve ağ geçidi ve arka uç arasında yetkilendirme için OAuth2 kullanma örneği. AAD bir erişim belirteci edinme ve arka uç için iletme gösterir.|
 |[Gönderme İsteği İlkesi'ni kullanarak SAP ağ geçidine belirtecinden X-CSRF Al](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Çok sayıda API tarafından kullanılan X-CSRF desen uygulamak gösterilmiştir. Bu örnek, SAP ağ geçidine özeldir. |
 |[Yol, gövde boyutuna göre isteği](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |Kendi gövdeleri boyutuna göre istekleri yönlendirmek gösterilmiştir.|

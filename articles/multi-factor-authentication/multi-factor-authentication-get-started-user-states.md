@@ -17,7 +17,7 @@ ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
 ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
 ---

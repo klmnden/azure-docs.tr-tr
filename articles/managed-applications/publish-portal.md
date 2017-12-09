@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3d3c6c95763bc8eb67f092bda61bb58c7af9daf2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portalı aracılığıyla hizmet Kataloğu uygulama yayımlama
 
@@ -60,7 +60,6 @@ Yönetilen uygulama tanımını içeren .zip dosyası bir URI kullanılabilir ol
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yönetilen uygulamaların giriş için bkz: [yönetilen uygulama genel bakış](overview.md).
+* Yönetilen uygulamalara giriş için [Yönetilen uygulamalara genel bakış](overview.md) konusunu inceleyin.
 * Yönetilen uygulama örnekler için bkz: [Azure örnek projelerine yönetilen uygulamaları](sample-projects.md).
-* Azure Marketi'nde yayımlama yönetilen uygulamalar hakkında daha fazla bilgi için bkz: [Azure Market uygulamalarda yönetilen](publish-marketplace-app.md).
-* Yönetilen bir uygulama için bir kullanıcı Arabirimi tanımı dosyası oluşturmayı öğrenmek için bkz: [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
+* Yönetilen bir uygulamaya ait bir kullanıcı arabirimi tanım dosyası oluşturma hakkında bilgi için [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md) konusunu inceleyin.

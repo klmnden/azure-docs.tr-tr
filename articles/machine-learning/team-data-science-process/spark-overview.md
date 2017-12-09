@@ -16,7 +16,7 @@ ms.date: 11/13/2017
 ms.author: deguhath;bradsev;gokuma
 ms.openlocfilehash: 8a4c9d37f0a6d004422fb745ac991f2648d2e255
 ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2017
 ---

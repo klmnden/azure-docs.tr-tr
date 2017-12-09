@@ -16,7 +16,7 @@ ms.date: 10/19/2017
 ms.author: raynew
 ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
 ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2017
 ---

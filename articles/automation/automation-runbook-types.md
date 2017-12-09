@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7bb90a51ffaca1a67933bc59f42ed08684fca5de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation runbook türleri
 Azure Otomasyonu aşağıdaki tabloda çeşitli kısaca açıklanmıştır runbook'ları destekler.  Aşağıdaki bölümlerde zaman her kullanılacağı hakkında dikkat edilecek noktalar dahil olmak üzere her tür hakkında daha fazla bilgi verilmektedir.
@@ -96,7 +96,7 @@ Python runbook'ları Python 2 altında derleyin.  Azure portalında metin düzen
 ### <a name="known-issues"></a>Bilinen sorunlar
 Python runbook'ları bilinen geçerli sorunlar aşağıda verilmiştir.
 
-* Üçüncü taraf kitaplıklar kullanmak için runbook çalıştırılması gereken bir [Windows karma Runbook çalışanı](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) veya [Linux karma Runbook çalışanı](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) önce makinede zaten yüklü kitaplıkları ile runbook başlatılır.
+* Üçüncü taraf kitaplıklar kullanmak için runbook çalıştırılması gereken bir [Windows karma Runbook çalışanı](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install) veya [Linux karma Runbook çalışanı](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install) önce makinede zaten yüklü kitaplıkları ile runbook başlatılır.
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 Belirli bir runbook için kullanılacak türün belirlerken aşağıdaki ek konuları dikkate almanız gerekir.

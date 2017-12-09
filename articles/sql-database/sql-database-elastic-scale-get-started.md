@@ -17,7 +17,7 @@ ms.date: 11/16/2017
 ms.author: anjangsh
 ms.openlocfilehash: e7e072e310cabc2c4520df7e9f4f9e45b8218998
 ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/20/2017
 ---

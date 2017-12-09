@@ -18,7 +18,7 @@ ms.author: anhoh
 ms.custom: mvc
 ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
 ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
 ---

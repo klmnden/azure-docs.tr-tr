@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
 ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
 ---

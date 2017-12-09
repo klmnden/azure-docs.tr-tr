@@ -16,7 +16,7 @@ ms.date: 11/20/2017
 ms.author: suhuruli
 ms.openlocfilehash: 57f9dae1b353b873fdc0ec5903018d160cfe384f
 ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/23/2017
 ---

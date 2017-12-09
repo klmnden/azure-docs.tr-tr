@@ -1,5 +1,5 @@
 ---
-title: "Cassandra ile Linux Azure üzerinde çalışan | Microsoft Docs"
+title: "Bir Cassandra küme Linux Azure üzerinde adresinden node.js'yi çalıştırın."
 description: "Cassandra küme Linux Azure Virtual Machines'de bir Node.js uygulamasını çalıştırma"
 services: virtual-machines-linux
 documentationcenter: nodejs
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Azure’da Linux ile Cassandra Çalıştırma ve Cassandra’ya Node.js ile Erişme
+# <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js ile Azure Linux üzerinde bir Cassandra küme çalıştırın
+
 > [!IMPORTANT] 
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager şablonları için bkz: [Datastax Kurumsal](https://azure.microsoft.com/documentation/templates/datastax) ve [Spark küme ve Cassandra CentOS üzerinde](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
@@ -158,7 +159,7 @@ VM şablonu oluşturmak için Klasik Azure portalında oturum açın ve aşağı
 <tr><td> BULUT HİZMETİ DNS ADI    </td><td>ubuntu template.cloudapp.net    </td><td>Bir makine belirsiz yük dengeleyici ad verin</td></tr>
 <tr><td> BÖLGE/BENZEŞİM GRUBU/SANAL AĞ </td><td>    Batı ABD    </td><td> Web uygulamalarınızın Cassandra küme erişimlerin bir bölge seçin</td></tr>
 <tr><td>DEPOLAMA HESABI </td><td>    Varsayılanı kullan    </td><td>Belirli bir bölgedeki varsayılan depolama hesabı ya da önceden oluşturulmuş depolama hesabı kullanın</td></tr>
-<tr><td>KULLANILABİLİRLİK KÜMESİ </td><td>    Hiçbiri </td><td>    Boş bırakın</td></tr>
+<tr><td>KULLANILABİLİRLİK KÜMESİ </td><td>    None </td><td>    Boş bırakın</td></tr>
 <tr><td>UÇ NOKTALARI    </td><td>Varsayılanı kullan </td><td>    Varsayılan SSH yapılandırmasını kullanın </td></tr>
 </table>
 
@@ -308,8 +309,8 @@ Bu işlem birkaç saniye sürer ve görüntünün görüntü Galerisi GÖRÜNTÜ
 <tr><th>VM öznitelik adı</th><th>Değer</th><th>Açıklamalar</th></tr>
 <tr><td>Ad</td><td>vnet-cass-Batı-ABD</td><td></td></tr>
 <tr><td>Bölge</td><td>Batı ABD</td><td></td></tr>
-<tr><td>DNS sunucuları</td><td>Hiçbiri</td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
-<tr><td>Adres alanı</td><td>10.1.0.0/16</td><td></td></tr>    
+<tr><td>DNS Sunucuları</td><td>None</td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
+<tr><td>Adres Alanı</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Başlangıç IP</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -318,8 +319,8 @@ Aşağıdaki alt ağlar ekleyin:
 
 <table>
 <tr><th>Ad</th><th>Başlangıç IP</th><th>CIDR</th><th>Açıklamalar</th></tr>
-<tr><td>Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Alt ağ web grubu</td></tr>
-<tr><td>Veri</td><td>10.1.2.0</td><td>/24 (251)</td><td>Veritabanı düğümleri için alt ağ</td></tr>
+<tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Alt ağ web grubu</td></tr>
+<tr><td>veriler</td><td>10.1.2.0</td><td>/24 (251)</td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
 Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını bu makalenin kapsamı dışındadır üzerinden korunabilir.  
@@ -328,16 +329,16 @@ Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını bu makalenin kapsam�
 
 <table>
 <tr><th>Makine Adı    </th><th>Alt ağ    </th><th>IP Adresi    </th><th>Kullanılabilirlik kümesi</th><th>DC/raf</th><th>Çekirdek?</th></tr>
-<tr><td>HK-c1-Batı-ABD    </td><td>Veri    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 = </td><td>Evet</td></tr>
-<tr><td>HK-c2-Batı-ABD    </td><td>Veri    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c3-Batı-ABD    </td><td>Veri    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Evet</td></tr>
-<tr><td>HK-c4-Batı-ABD    </td><td>Veri    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c5-Batı-ABD    </td><td>Veri    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Evet</td></tr>
-<tr><td>HK-c6-Batı-ABD    </td><td>Veri    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c7-Batı-ABD    </td><td>Veri    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Evet</td></tr>
-<tr><td>HK-c8-Batı-ABD    </td><td>Veri    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Hayır </td></tr>
-<tr><td>HK-w1-Batı-ABD    </td><td>Web    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
-<tr><td>HK-w2-Batı-ABD    </td><td>Web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
+<tr><td>HK-c1-Batı-ABD    </td><td>veriler    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 = </td><td>Evet</td></tr>
+<tr><td>HK-c2-Batı-ABD    </td><td>veriler    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c3-Batı-ABD    </td><td>veriler    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Evet</td></tr>
+<tr><td>HK-c4-Batı-ABD    </td><td>veriler    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c5-Batı-ABD    </td><td>veriler    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Evet</td></tr>
+<tr><td>HK-c6-Batı-ABD    </td><td>veriler    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c7-Batı-ABD    </td><td>veriler    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Evet</td></tr>
+<tr><td>HK-c8-Batı-ABD    </td><td>veriler    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Hayır </td></tr>
+<tr><td>HK-w1-Batı-ABD    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
+<tr><td>HK-w2-Batı-ABD    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
 </table>
 
 Yukarıdaki listeye VM'lerin oluşturulması aşağıdaki işlem gerektirir:
@@ -467,10 +468,10 @@ Azure Klasik portalında oturum açın ve tablodaki öznitelikleri göster ile b
 <tr><th>Öznitelik Adı    </th><th>Değer    </th><th>Açıklamalar</th></tr>
 <tr><td>Ad    </td><td>vnet-cass-Doğu-us</td><td></td></tr>
 <tr><td>Bölge    </td><td>Doğu ABD</td><td></td></tr>
-<tr><td>DNS sunucuları        </td><td></td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
+<tr><td>DNS Sunucuları        </td><td></td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
 <tr><td>Noktadan siteye VPN bağlantısını yapılandırma</td><td></td><td>        Bu iletiyi yoksayın</td></tr>
 <tr><td>Siteden siteye VPN'yi yapılandırın</td><td></td><td>        Bu iletiyi yoksayın</td></tr>
-<tr><td>Adres alanı    </td><td>10.2.0.0/16</td><td></td></tr>
+<tr><td>Adres Alanı    </td><td>10.2.0.0/16</td><td></td></tr>
 <tr><td>Başlangıç IP    </td><td>10.2.0.0    </td><td></td></tr>
 <tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
 </table>
@@ -479,8 +480,8 @@ Aşağıdaki alt ağlar ekleyin:
 
 <table>
 <tr><th>Ad    </th><th>Başlangıç IP    </th><th>CIDR    </th><th>Açıklamalar</th></tr>
-<tr><td>Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Alt ağ web grubu</td></tr>
-<tr><td>Veri    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Veritabanı düğümleri için alt ağ</td></tr>
+<tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Alt ağ web grubu</td></tr>
+<tr><td>veriler    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
 
@@ -489,7 +490,7 @@ Azure sanal ağ yerel bir ağda özel bir bulut ya da başka bir Azure bölgesi 
 
 Aşağıdaki ayrıntıları başına iki yerel ağlar oluşturun:
 
-| Ağ adı | VPN ağ geçidi adresi | Adres alanı | Açıklamalar |
+| Ağ Adı | VPN Ağ Geçidi Adresi | Adres Alanı | Açıklamalar |
 | --- | --- | --- | --- |
 | HK-lnet-Map-to-East-us |23.1.1.1 |10.2.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Doğu ABD bölgesinde sanal ağ oluşturuldu. |
 | HK-lnet-Map-to-West-us |23.2.2.2 |10.1.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Batı ABD bölgesinde sanal ağ oluşturuldu. |
@@ -525,15 +526,15 @@ Aynı Azure depolama hesabı görüntüsünü VHD dosyasına #2 bölgede bulunan
 
 | Makine Adı | Alt ağ | IP Adresi | Kullanılabilirlik kümesi | DC/raf | Çekirdek? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-Doğu-us |Veri |10.2.2.4 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Evet |
-| HK-c2-Doğu-us |Veri |10.2.2.5 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Hayır |
-| HK-c3-Doğu-us |Veri |10.2.2.6 |HK-c-aset-1 |DC EASTUS raf = rack2 = |Evet |
-| HK-c5-Doğu-us |Veri |10.2.2.8 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Evet |
-| HK-c6-Doğu-us |Veri |10.2.2.9 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Hayır |
-| HK-c7-Doğu-us |Veri |10.2.2.10 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Evet |
-| HK-c8-Doğu-us |Veri |10.2.2.11 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Hayır |
-| HK-w1-Doğu-us |Web |10.2.1.4 |HK-w-aset-1 |Yok |Yok |
-| HK-w2-Doğu-us |Web |10.2.1.5 |HK-w-aset-1 |Yok |Yok |
+| HK-c1-Doğu-us |veriler |10.2.2.4 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Evet |
+| HK-c2-Doğu-us |veriler |10.2.2.5 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Hayır |
+| HK-c3-Doğu-us |veriler |10.2.2.6 |HK-c-aset-1 |DC EASTUS raf = rack2 = |Evet |
+| HK-c5-Doğu-us |veriler |10.2.2.8 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Evet |
+| HK-c6-Doğu-us |veriler |10.2.2.9 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Hayır |
+| HK-c7-Doğu-us |veriler |10.2.2.10 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Evet |
+| HK-c8-Doğu-us |veriler |10.2.2.11 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Hayır |
+| HK-w1-Doğu-us |web |10.2.1.4 |HK-w-aset-1 |Yok |Yok |
+| HK-w2-Doğu-us |web |10.2.1.5 |HK-w-aset-1 |Yok |Yok |
 
 Bölge #1 olarak aynı yönergeleri izleyin, ancak 10.2.xxx.xxx adres alanı kullanın.
 

@@ -16,7 +16,7 @@ ms.date: 01/07/2017
 ms.author: sumedhb;aglick
 ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

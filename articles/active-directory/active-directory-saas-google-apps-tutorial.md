@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: bdcf2f8a06c782270683e34e9a4cbc2ab2c7f443
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6c7cdb2dd7d5760126053bf29a571d1b871a3eca
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Öğretici: Google Apps Azure Active Directory Tümleştirme
 
@@ -46,11 +46,6 @@ Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a name="video-tutorial"></a>Video öğretici
-Çoklu oturum açma Google Apps için 2 dakika içinde etkinleştirmek nasıl:
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enable-single-sign-on-to-Google-Apps-in-2-minutes-with-Azure-AD/player]
 
 ## <a name="frequently-asked-questions"></a>Sık Sorulan Sorular
 1. **S: Azure AD çoklu oturum açma ile uyumlu Chromebooks ve diğer Chrome aygıtları misiniz?**

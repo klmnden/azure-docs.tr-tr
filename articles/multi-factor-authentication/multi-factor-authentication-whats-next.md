@@ -16,7 +16,7 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
 ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/30/2017
 ---

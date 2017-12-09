@@ -16,7 +16,7 @@ ms.date: 08/16/2017
 ms.author: saeeda
 ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
 ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/30/2017
 ---

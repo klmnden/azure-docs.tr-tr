@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: e21925b8f84f0805f41fd698965cac09286b92c1
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Destek Azure Cosmos DB'de akış değişiklik ile çalışma
 
@@ -72,7 +72,7 @@ Değişiklik akış yüksek hacimli yazma ile büyük veri kümelerine verimli i
 * Verileri kullanarak toplu analizi uygulamak [Apache Hadoop](run-hadoop-with-hdinsight.md).
 * Farklı bir bölümleme düzeni ile başka bir Azure Cosmos DB hesabına sıfır kapalı kalma süresi geçişler gerçekleştirin.
 * Uygulama [lambda işlem hatları Azure üzerinde](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) Azure Cosmos DB ile. Azure Cosmos DB alımı ve sorgu işleyen ve düşük ile lambda mimariyi uygulayan ölçeklenebilir veritabanı çözümü sağlar. 
-* Almak ve cihazlar, algılayıcılar, altyapı ve uygulamaları olay verileri depolamak ve gerçek zamanlı bu olayları işlemek [Azure akış analizi](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), veya [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+* Almak ve cihazlar, algılayıcılar, altyapı ve uygulamaları olay verileri depolamak ve gerçek zamanlı bu olayları işlemek [Azure akış analizi](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md), veya [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
 
 Aşağıdaki resimde, her ikisi de alma ve Azure Cosmos DB kullanarak sorgu kullanabilirsiniz lambda ardışık düzen akış destek nasıl değiştiğini gösterir: 
 

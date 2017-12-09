@@ -12,7 +12,7 @@ ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
 ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
 ---

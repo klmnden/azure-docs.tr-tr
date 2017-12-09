@@ -16,7 +16,7 @@ ms.date: 01/30/2017
 ms.author: seguler
 ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

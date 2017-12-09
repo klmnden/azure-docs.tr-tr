@@ -16,7 +16,7 @@ ms.date: 8/9/2017
 ms.author: subramar
 ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
 ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2017
 ---

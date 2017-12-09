@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b427556c589c7cc5205bfda16edc8d891814326
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Azure yönetilen disklere Amazon Web Hizmetleri (AWS) ve diğer platformlar geçirme
 
-Yönetilen diskleri yararlanmak VM'ler oluşturmak için Azure AWS veya şirket içi Sanallaştırma Çözümleri VHD dosyalarının karşıya yükleyebilirsiniz. Azure yönetilen diskleri, depolama hesaplarını Azure Iaas VM'ler için yönetme ihtiyacını ortadan kaldırır. Yalnızca boyutunu ve türünü (Premium veya standart) belirtmek zorunda duyduğunuz disk ve Azure oluşturur ve disk tarafından yönetilir. 
+Yönetilen diskleri yararlanmak VM'ler oluşturmak için Azure AWS veya şirket içi Sanallaştırma Çözümleri VHD dosyalarının karşıya yükleyebilirsiniz. Azure yönetilen diskleri depolama hesaplarını Azure Iaas VM'ler için yönetme ihtiyacını ortadan kaldırır. Yalnızca boyutunu ve türünü (Premium veya standart) belirtmek zorunda duyduğunuz disk ve Azure oluşturur ve disk tarafından yönetilir. 
 
 Genelleştirilmiş ve özelleştirilmiş VHD'leri karşıya yükleyebilirsiniz. 
 - **VHD genelleştirilmiş** -, sahip tüm kişisel hesap bilgilerinizi Sysprep kullanarak kaldırıldı. 

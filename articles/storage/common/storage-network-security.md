@@ -15,7 +15,7 @@ ms.date: 10/25/2017
 ms.author: cbrooks
 ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/15/2017
 ---

@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 ms.author: v-daljep
 ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
 ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/31/2017
 ---

@@ -164,6 +164,8 @@
       items:
         - name: VM’ler için önceden ödeme yapma - Ayrılmış Örnekler
           href: prepay-reserved-vm-instances.md
+        - name: VM kullanımı
+          href: vm-usage.md
         - name: Ortak PowerShell görevleri
           href: ps-common-ref.md
         - name: Bir VM'yi taşıma

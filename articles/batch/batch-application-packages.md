@@ -17,7 +17,7 @@ ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d1f9951c9cc1b9380e166834afaeb18a4687e2d8
 ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/24/2017
 ---

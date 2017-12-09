@@ -31,6 +31,8 @@
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: OSBA kullanarak Azure ile tümleştirme
+      href: integrate-azure.md
     - name: AKS kümesini ölçeklendirme
       href: scale-cluster.md
     - name: AKS kümesini yükseltme
