@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
-#### Klasik portalı kullanın
-##### [Bağlayıcı indirme](application-proxy-enable-classic-portal.md)
-##### [Uygulamaları yayımlama](active-directory-application-proxy-publish.md)
-##### [Bağlayıcı kullanma](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Koşullu erişim](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Kurumsal uygulamaları yönetme
 #### [Kullanıcıları atama](active-directory-coreapps-assign-user-azure-portal.md)
@@ -286,7 +281,7 @@
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Denetimler](active-directory-conditional-access-controls.md)
-#### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Başlarken](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### Görevler
