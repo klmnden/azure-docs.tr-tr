@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -124,7 +124,7 @@ Power BI, Excel ve üçüncü taraf araçları gibi modern veri keşif ve görse
 ## <a name="get-help"></a>Yardım alın
 
 #### <a name="documentation"></a>Belgeler
-Azure Analysis Services’ı ayarlamak ve yönetmek basittir. Sunucu hizmetlerinizi oluşturup yönetmek için ihtiyacınız olan tüm bilgileri burada bulabilirsiniz. Sunucunuza dağıtmak üzere bir veri modeli oluşturma işlemi, şirket içi bir sunucuya dağıtmak üzere bir veri modeli oluşturma işlemiyle aynıdır. [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services) sayfasında kavramsal makaleler, yordamsal makaleler, öğreticiler ve başvuru makalelerinden oluşan kapsamlı bir kitaplık sunulmaktadır.
+Azure Analysis Services’ı ayarlamak ve yönetmek basittir. Sunucu hizmetlerinizi oluşturup yönetmek için ihtiyacınız olan tüm bilgileri burada bulabilirsiniz. Sunucunuza dağıtmak üzere bir veri modeli oluşturma işlemi, şirket içi bir sunucuya dağıtmak üzere bir veri modeli oluşturma işlemiyle aynıdır. [SQL Server Analysis Services yardımı](https://docs.microsoft.com/sql/analysis-services/analysis-services) sayfasında kavramsal makaleler, yordamsal makaleler, öğreticiler ve başvuru makalelerinden oluşan kapsamlı bir kitaplık sunulmaktadır.
 
 #### <a name="videos"></a>Videolar
 [Channel 9’da Azure Analysis Services](https://channel9.msdn.com/series/Azure-Analysis-Services) sayfasındaki yararlı videoları inceleyin.

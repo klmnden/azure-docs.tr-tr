@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
 
@@ -57,7 +57,7 @@ Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin ger
 Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar dağıtımı paralel olarak yürütür.  İlk olarak güncelleştirmelerin hala gerekli olduğunu doğrulamak için bir tarama yapılır ve bunlar yüklenir.  WSUS istemci bilgisayarları için, güncelleştirmelerin WSUS’ta onaylanmaması durumunda güncelleştirme dağıtımının başarısız olacağı unutulmamalıdır.  Uygulanan güncelleştirmelerin sonuçları, panolarda veya olayları arama yoluyla işlenmek ve özetlenmek üzere OMS’ye iletilir.     
 
 ## <a name="prerequisites"></a>Ön koşullar
-* Çözüm, Windows Server 2008 ve sonraki sürümlerine yönelik güncelleştirme değerlendirmelerinin yanı sıra Windows Server 2008 R2 SP1 ve sonraki sürümlerine yönelik güncelleştirme dağıtımları gerçekleştirilmesini destekler.  Sunucu Çekirdeği ve Nano Sunucu yükleme seçenekleri desteklenmez.
+* Çözüm, Windows Server 2008 ve sonraki sürümlerine yönelik güncelleştirme değerlendirmelerinin yanı sıra Windows Server 2008 R2 SP1 ve sonraki sürümlerine yönelik güncelleştirme dağıtımları gerçekleştirilmesini destekler.  Nano Sunucu desteklenmiyor.
 
     > [!NOTE]
     > Windows Server 2008 R2 SP1'e yönelik güncelleştirme dağıtımı desteği için .NET Framework 4.5 ve WMF 5.0 veya sonraki bir sürümü gerekir.

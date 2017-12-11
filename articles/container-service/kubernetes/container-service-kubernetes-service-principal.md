@@ -1,26 +1,19 @@
 ---
-title: "Azure Kubernetes kümesi için hizmet sorumlusu | Microsoft Belgeleri"
+title: "Azure Kubernetes kümesi için hizmet sorumlusu"
 description: "Azure Container Service içindeki bir Kubernetes kümesi için Azure Active Directory hizmet sorumlusu oluşturma ve yönetme"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Container Service’te bir Kubernetes kümesi için Azure AD hizmet sorumlusu oluşturma
 
@@ -36,9 +29,9 @@ Bu makalede Kubernetes kümeniz için hizmet sorumlusu ayarlamak üzere kullanab
 
 Aşağıdaki gereksinimleri karşılayan mevcut bir Azure AD hizmet sorumlusunu kullanabilir veya yeni bir tane oluşturabilirsiniz.
 
-* **Kapsam**: kümeyi dağıtmak için kullanılan kaynak grubu.
+* **Kapsam**: Kaynak grubu
 
-* **Rol**: **Katkıda bulunan**
+* **Rol**: Katkıda bulunan
 
 * **Gizli anahtar**: Bir parola olmalıdır. Şu anda sertifika kimlik doğrulaması için ayarlanmış bir hizmet sorumlusunu kullanamazsınız.
 
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 Aşağıdakine benzer bir çıktı döndürülür (burada gösterilen sonuç kısaltılmıştır):
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Hizmet sorumlusu **İstemci Kimliğini** belirtirken `appId` değerini (bu makalede gösterilen şekilde) veya karşılık gelen hizmet sorumlusu `name` değerini (örneğin, `https://www.contoso.org/example`) kullanabilirsiniz.
 
-* Kubernetes kümesindeki ana ve aracı VM’lerde hizmet sorumlusu kimlik bilgileri, /etc/kubernetes/azure.json dosyasında saklanır.
+* Kubernetes kümesindeki ana VM’lerde ve düğüm VM'lerinde hizmet sorumlusu kimlik bilgileri, `/etc/kubernetes/azure.json` dosyasında depolanır.
 
-* Hizmet sorumlusunu otomatik olarak oluşturmak için `az acs create` komutunu kullandığınızda, hizmet sorumlusu kimlik bilgileri komutun çalıştırıldığı bilgisayarda ~/.azure/acsServicePrincipal.json dosyasına yazılır.
+* Hizmet sorumlusunu otomatik olarak oluşturmak için `az acs create` komutunu kullandığınızda, hizmet sorumlusu kimlik bilgileri komutun çalıştırıldığı makinede `~/.azure/acsServicePrincipal.json` dosyasına yazılır.
 
 * `az acs create` komutu ile hizmet sorumlusunu otomatik olarak oluşturduğunuzda, hizmet sorumlusu aynı abonelikte oluşturulan bir [Azure kapsayıcı kayıt defteri](../../container-registry/container-registry-intro.md) ile de kimlik doğrulaması yapabilir.
+
+* Hizmet sorumlusu kimlik bilgileri sona erebilir, bu da küme düğümlerinizin bir **NotReady** durumunu girmesine neden olabilir. Risk azaltma bilgileri için [Kimlik bilgisi süre sonu](#credential-expiration) bölümüne bakın.
+
+## <a name="credential-expiration"></a>Kimlik bilgisi süre sonu
+
+Bir hizmet sorumlusu oluştururken `--years` parametresiyle özel bir geçerlilik penceresi belirtmediğiniz sürece, bir hizmet sorumlusu oluşturduğunuzda, kimlik bilgileri oluşturma zamanından sonraki 1 yıl boyunca geçerli olur. Kimlik bilgilerinin süresi dolduğunda, küme düğümleriniz bir **NotReady** durumu girebilir.
+
+Bir hizmet sorumlusunun sona erme tarihini denetlemek için, [az ad uygulamasını göster](/cli/azure/ad/app#az_ad_app_show) komutunu `--debug` parametresiyle yürütün ve çıktının altının yakınında bulunda `passwordCredentials` alanındaki `endDate` değerini arayın:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Çıktı (burada kesilmiş olarak gösterilen):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Hizmet sorumlusu kimlik bilgilerinizin süresi dolduysa, kimlik bilgilerini güncelleştirmek için [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) komutunu kullanın:
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Çıktı:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Ardından, tüm küme düğümlerinde `/etc/kubernetes/azure.json` dosyasını yeni kimlik bilgileriyle güncelleştirin ve düğümleri yeniden başlatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

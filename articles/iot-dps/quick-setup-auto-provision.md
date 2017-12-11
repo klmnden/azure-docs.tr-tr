@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59acc48870adf15f59391de1cba9596744a747a6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-preview-with-the-azure-portal"></a>Azure Portal ile IoT Hub Cihazı Sağlama Hizmetini (Önizleme) ayarlama
+# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure portalı ile IoT Hub Cihazı Sağlama Hizmetini ayarlama
 
 Bu adımlar, cihazlarınızı sağlamak için Azure bulut kaynaklarını ayarlamayı gösterir. Bu, IoT hub'ınızı oluşturma, yeni IoT Hub Cihazı Sağlama Hizmetini oluşturma ve iki hizmeti birbirine bağlamayı içerir. 
 
@@ -46,7 +46,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
 
-2. **Cihaz sağlama hizmeti** için *Mağazada arama yapın*. **IoT cihaz sağlama hizmeti (Önizleme)**’yi seçin ve **Oluştur** düğmesine tıklayın. 
+2. **Cihaz sağlama hizmeti** için *Mağazada arama yapın*. **IoT Cihaz Sağlama Hizmeti**’ni seçin ve **Oluştur** düğmesine tıklayın. 
 
 3. Cihaz sağlama hizmet örneğinize bir **Ad** verin. Bu örnek için kullanılacak aboneliği seçin, ardından yeni veya mevcut bir kaynak grubunun adını girin. Konumu seçin. Tamamlandığında **Oluştur**’a tıklayın.
 

@@ -1,29 +1,29 @@
 ---
-title: "Azure Search portal sayfalarında dizin, sorgu ve filtre | Microsoft Docs"
-description: "Azure portalında önceden tanımlanmış örnek verileri kullanarak bir dizin oluşturun. Tam metin arama, filtreler, modeller, belirsiz arama, coğrafi arama ve daha fazlasını keşfedin."
+title: "Portal kullanarak dizin oluşturma, sorgu ve filtreleme hakkında Azure Search öğreticisi | Microsoft Docs"
+description: "Azure portalında önceden tanımlanmış örnek verileri kullanarak Azure Search’te bir dizin oluşturun. Tam metin arama, filtreler, modeller, belirsiz arama, coğrafi arama ve daha fazlasını keşfedin."
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Portalda Azure Search dizinini oluşturma, sorgulama ve filtreleme
 
-Azure portalında **Verileri içeri aktar** sihirbazını kullanarak hızla bir dizin oluşturmak için önceden tanımlanmış bir örnek veri kümesiyle çalışmaya başlayın. **Search Gezgini** ile tam metin arama, filtreler, modeller, belirsiz arama ve coğrafi aramayı keşfedin.  
+Azure portalında **Verileri içeri aktar** sihirbazını kullanarak hızla bir Azure Search dizini oluşturmak için önceden tanımlanmış bir örnek veri kümesiyle çalışmaya başlayın. **Search Gezgini** ile tam metin arama, filtreler, modeller, belirsiz arama ve coğrafi aramayı keşfedin.  
 
 Bu kodsuz giriş yazısı, hemen ilginç sorgular yazmaya başlayabilmeniz için önceden tanımlanmış verileri kullanmaya başlamanızı sağlar. Portal aracı kodun yerini alamayacak olsa da, aşağıdaki görevler için kullanışlı olduğunu düşünebilirsiniz:
 

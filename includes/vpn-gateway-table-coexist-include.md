@@ -1,1 +1,4 @@
-|**Dağıtım modeli/yöntemi** | **Azure portalı** | **PowerShell** | |---|---|---| | Resource Manager | **Desteklenmez** | [Makale](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)| | Klasik| **Desteklenmez** | [Makale](../articles/expressroute/expressroute-howto-coexist-classic.md) |
+| **Dağıtım Modeli/Yöntemi** | **Azure Portal** | **PowerShell** | 
+| --- | --- | --- |
+| Resource Manager | **Desteklenmiyor** | [Makale](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
+| Klasik | **Desteklenmiyor** | [Makale](../articles/expressroute/expressroute-howto-coexist-classic.md) |

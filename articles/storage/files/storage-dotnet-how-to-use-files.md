@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11bc2418e439f86a228ff7d5c845caef683d9018
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>.NET ve WindowsAzure.Storage ile Azure Dosyaları için geliştirme
+# <a name="develop-for-azure-files-with-net"></a>.NET ile Azure Dosyaları için geliştirme
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-Bu öğretici, dosya verilerini depolamak için [Azure Dosyaları](storage-files-introduction.md) kullanan uygulamalar geliştirmek üzere .NET ve `WindowsAzure.Storage` API’si kullanmayla ilgili temel bilgileri gösterir. Bu öğretici, .NET ve Azure Dosyaları ile temel eylemler gerçekleştirmek üzere basit bir konsol uygulaması oluşturur:
+Bu öğretici, dosya verilerini depolamak için [Azure Dosyaları](storage-files-introduction.md) kullanan uygulamalar geliştirmek üzere .NET kullanmayla ilgili temel bilgileri gösterir. Bu öğretici, .NET ve Azure Dosyaları ile temel eylemler gerçekleştirmek üzere basit bir konsol uygulaması oluşturur:
 
 * Dosyanın içeriğini alma
 * Dosya paylaşımı için kota (en fazla boyut) ayarlama.
@@ -45,9 +45,6 @@ API | Kullanılması gereken durumlar | Notlar
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Uygulamanız: <ul><li>SMB üzerinden dosya okuma/yazmaya ihtiyaç duyuyor</li><li>Azure Dosyaları hesabınıza 445 bağlantı noktası üzerinden erişimi olan bir cihazda çalışıyor</li><li>Dosya paylaşımının yönetim ayarlarından herhangi birini yönetmesi gerekmiyor</li></ul> | SMB üzerinden Azure Dosyaları ile dosya G/Ç kodlaması genellikle herhangi bir ağ dosya paylaşımı ya da yerel depolama cihazı ile G/Ç kodlaması işlemiyle aynıdır. .NET içindeki dosya G/Ç dahil birkaç özelliğe giriş için [bu öğreticiye](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) bakın.
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Uygulamanız: <ul><li>Güvenlik duvarı veya ISS kısıtlamaları nedeniyle bağlantı noktası 445’te SMB üzerinden Azure Dosyalarına erişemiyor</li><li>Bir dosya paylaşımının kotasını ayarlama veya paylaşılan bir erişim imzası oluşturma gibi yönetim işlevleri gerektiriyor</li></ul> | Bu makalede dosya G/Ç için REST ile (SMB yerine) `WindowsAzure.Storage` kullanımı ve dosya paylaşımının yönetimi gösterilmektedir.
-
-> [!TIP]
-> Uygulama gereksinimlerine bağlı olarak, Azure Blobları depolaa için daha uygun bir seçenek olabilir. Azure Dosyaları veya Azure Blobları seçme hakkında daha fazla bilgi için bz. [Azure Blobları, Azure Dosyaları veya Azure Disklerinin ne zaman kullanılacağına karar verme](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Konsol uygulaması oluşturma ve derleme alma
 Visual Studio'da yeni bir Windows konsol uygulaması oluşturun. Aşağıdaki adımlar Visual Studio 2017’de konsol uygulaması oluşturmayı gösterir, ancak adımlar, diğer Visual Studio sürümlerindekilerle aynıdır.

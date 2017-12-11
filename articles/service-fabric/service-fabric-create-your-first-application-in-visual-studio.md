@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: a4bada3c099e348e2aa188fe08a67ef170ad50ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>İlk C# Service Fabric durum bilgisi olan reliable services uygulamanızı oluşturma
 
@@ -84,7 +84,7 @@ Uygulama başlatıldığında, Visual Studio otomatik olarak **Tanılama Olay G�
 
 Kullandığımız durum bilgisi olan hizmet şablonu, yalnızca **MyStatefulService.cs**'nin `RunAsync` yönteminde artan sayaç değerini gösterir.
 
-Kodun çalıştığı düğüm dahil olmak üzere daha fazla ayrıntı görmek için olaylardan birini genişletin. Bu durumda, \_Node\_2 genişletilir ancak makinenize göre değişiklik gösterebilir.
+Kodun çalıştığı düğüm dahil olmak üzere daha fazla ayrıntı görmek için olaylardan birini genişletin. Bu durumda, \_Node\_0 genişletilir ancak makinenize göre değişiklik gösterebilir.
    
 ![Tanılama olayları görüntüleyicisi ayrıntıları][6]
 

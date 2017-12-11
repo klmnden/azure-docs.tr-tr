@@ -14,130 +14,69 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: e85979859cca40b852e1f39ccaedf6e2781f84a1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7458ad6e0a864d742f74ce743ce3179594113c00
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management performansını artırmak için önbelleğe alma ekleme
 API Management işlemleri yanıt önbelleğe alma için yapılandırılabilir. Yanıt önbelleğe alma, çok sık değişmeyen veriler için API gecikmesi, bant genişliği kullanımı ve web hizmeti yükünü önemli ölçüde azaltabilir.
+ 
+Önbelleğe alma hakkında daha ayrıntılı bilgi için bkz. [API Management önbelleğe alma ilkeleri](api-management-caching-policies.md) ve [Azure API Management'te özel önbelleğe alma](api-management-sample-cache-by-key.md).
 
-Bu kılavuz size API’nize yanıt önbelleğe alma eklemeyi ve örnek Echo API işlemleri için ilkeleri yapılandırmayı gösterir. Böylece önbelleğe alma eylemini doğrulamak için işlemi geliştirici portalından çağırabilirsiniz.
+![önbellek ilkeleri](media/api-management-howto-cache/cache-policies.png)
 
-> [!NOTE]
-> Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
-> 
-> 
+Öğrenecekleriniz:
+
+> [!div class="checklist"]
+> * API'nize yanıt önbelleği ekleme
+> * Eylem halinde önbelleğe alma işlemini doğrulama
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu kılavuzdaki adımları izlemeden önce, API ve ürün yapılandırılmış bir API Management hizmeti örneğine sahip olmalısınız. Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
 
-## <a name="configure-caching"> </a>Önbelleğe almak için bir işlemi yapılandırma
-Bu adımda, örnek Echo API’sinin **GET Kaynağı (önbelleğe alınmış)** işleminin önbelleğe alma ayarlarını inceleyeceksiniz.
+Bu öğreticiyi tamamlamak için:
 
-> [!NOTE]
-> Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management'i kullanmaya başlama][Get started with Azure API Management].
-> 
-> 
++ [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
++ [API içeri aktarma ve yayımlama](import-and-publish.md)
 
-Kullanmaya başlamak için API Management hizmetiniz için Azure Portal'da **Yayımcı portalı**’na tıklayın. Bu sizi API Management yayımcı portalına götürür.
+## <a name="caching-policies"> </a>Önbelleğe alma ilkelerini ekleme
 
-![Yayımcı portalı][api-management-management-console]
+Bu örnekte önbelleğe alma ilkeleri kullanılarak, **GetSpeakers** işlemine yapılan ilk istek işlemi arka uç hizmetinden bir yanıt döndürür. Bu yanıt, belirtilen üst bilgiler ve sorgu dizesi parametreleri tarafından önbelleğe alınır ve anahtarlanır. Eşleşen parametrelerle, işleme yapılan sonraki çağrılar, önbelleğe alma süresi aralığı sona erinceye kadar, önbelleğe alınan yanıtın döndürülmesini sağlar.
 
-Soldaki **API Management** menüsünde **API'ler**’e ve ardından **Echo API’si**’ne tıklayın.
+1. [https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+2. APIM örneğinize göz atın.
+3. **API** sekmesini seçin.
+4. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
+5. **GetSpeakers**’ı seçin.
+6. Ekranın üst kısmında **Tasarım** sekmesini seçin.
+7. **Gelen işlem** penceresinde (kalemin yanındaki) üçgene tıklayın.
 
-![Echo API’si][api-management-echo-api]
+    ![kod düzenleyicisi](media/api-management-howto-cache/code-editor.png)
+8. **Kod düzenleyicisi**’ni seçin.
+9. **Gelen** öğesinde, şu ilkeyi ekleyin:
 
-**İşlemler** sekmesine tıklayın ve ardından **İşlemler** listesinde **GET Kaynağı (önbelleğe alınmış)** işlemine tıklayın.
-
-![Echo API’si işlemleri][api-management-echo-api-operations]
-
-Bu işlemin önbelleğe alma ayarlarını görüntülemek için **Önbelleğe alma**’ya tıklayın.
-
-![Önbelleğe alma sekmesi][api-management-caching-tab]
-
-Bir işlem için önbelleğe almayı etkinleştirmek üzere **Etkinleştir** onay kutusunu seçin. Bu örnekte, önbelleğe alma etkindir.
-
-Her işlem, **Sorgu dizesi parametrelerine göre değişiklik gösterebilir** ve **Üst bilgilere göre değişiklik gösterebilir** alanlarındaki değerlere göre anahtarlanır ve bunları temel alır. Sorgu dizesi parametreleri veya üst bilgileri temel alan birden çok yanıtı önbelleğe almak istiyorsanız, bunları bu iki alanda yapılandırabilirsiniz.
-
-**Süre** önbelleğe alınan yanıtların sona erme aralığını belirtir. Bu örnekte, aralık bir saate eşit olan **3600** saniyedir.
-
-Bu örnekte önbelleğe alma yapılandırması kullanılarak, **GET Kaynağı (önbelleğe alınmış)** işlemine yapılan ilk istek işlemi arka uç hizmetinden bir yanıt döndürür. Bu yanıt, belirtilen üst bilgiler ve sorgu dizesi parametreleri tarafından önbelleğe alınır ve anahtarlanır. Eşleşen parametrelerle, işleme yapılan sonraki çağrılar, önbelleğe alma süresi aralığı sona erinceye kadar, önbelleğe alınan yanıtın döndürülmesini sağlar.
-
-## <a name="caching-policies"> </a>Önbelleğe alma ilkelerini gözden geçirme
-Bu adımda, örnek Echo API’sinin **GET Kaynağı (önbelleğe alınmış)** işleminin önbelleğe alma ayarlarını incelersiniz.
-
-Bir işlem için **Önbelleğe alma** sekmesinde önbelleğe alma ayarları yapılandırıldığında, işlem için önbelleğe alma ilkeleri eklenir. Bu ilkeler ilke düzenleyicisinde görüntülenip düzenlenebilir.
-
-Soldaki **API Management** menüsünde **İlkeler**’e tıklayın ve ardından **İşlem** açılır listesinde **Echo API’si / GET Kaynağı (önbelleğe alınmış)** öğesini seçin.
-
-![İlke kapsamı işlemi][api-management-operation-dropdown]
-
-Bu, bu işlemin ilkelerini ilke düzenleyicisinde görüntüler.
-
-![API Management ilkesi düzenleyicisi][api-management-policy-editor]
-
-Bu işlem için ilke tanımı, önceki adımda **Önbelleğe alma** sekmesi kullanılarak gözden geçirilen önbelleğe alma yapılandırmasını tanımlayan ilkeleri içerir.
-
-```xml
-<policies>
-    <inbound>
-        <base />
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
             <vary-by-header>Accept-Charset</vary-by-header>
+            <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
-        <rewrite-uri template="/resource" />
-    </inbound>
-    <outbound>
-        <base />
-        <cache-store caching-mode="cache-on" duration="3600" />
-    </outbound>
-</policies>
-```
 
-> [!NOTE]
-> İlk düzenleyicisinde önbelleğe alma ilkelerinde yapılan değişiklikler işlemin **Önbelleğe alma** sekmesinde yansıtılır ve bu durumun tersi de geçerlidir.
-> 
-> 
+10. **Giden** öğesinde, şu ilkeyi ekleyin:
+
+        <cache-store caching-mode="cache-on" duration="20" />
+
+    **Süre** önbelleğe alınan yanıtların sona erme aralığını belirtir. Bu örnekte, aralık **20** saniyedir.
 
 ## <a name="test-operation"> </a>İşlem çağırma ve önbelleğe almayı test etme
-Önbelleğe alma eylemini görmek için, işlemi geliştirici portalından çağırabiliriz. Sağ üstteki menüde **Geliştirici Portalı**’na tıklayın.
+Önbelleğe alma eylemini görmek için, işlemi geliştirici portalından çağırın.
 
-![Geliştirici portalı][api-management-developer-portal-menu]
-
-Üstteki menüde **API'ler**’e tıklayıp **Echo API’si**’ni seçin.
-
-![Echo API’si][api-management-apis-echo-api]
-
-> Yapılandırılmış ya da hesabınıza görünen yalnızca bir API’niz varsa, API’lere tıklamak sizi doğrudan bu API’nin işlemlerine götürür.
-> 
-> 
-
-**GET Kaynağı (önbelleğe alınmış)** işlemini seçin ve ardından **Konsolu Aç**’a tıklayın.
-
-![Konsolu açma][api-management-open-console]
-
-Konsol, işlemleri doğrudan geliştirici portalından çağırmanızı sağlar.
-
-![Konsol][api-management-console]
-
-**param1** ve **param2** için varsayılan değerleri tutun.
-
-**subscription-key** açılır listesinde istediğiniz anahtarı seçin. Hesabınızda yalnızca bir abonelik varsa, bu zaten seçilir.
-
-**İstek üst bilgileri** metin kutusuna **sampleheader:value1** değerini girin.
-
-**HTTP Al**’a tıklayın ve yanıt üst bilgilerini not edin.
-
-**İstek üst bilgileri** metin kutusuna **sampleheader:value2** değerini girin ve ardından **HTTP Get**’e tıklayın.
-
-**sampleheader** değerinin hala yanıttaki **value1** olduğuna dikkat edin. Bazı farklı değerler deneyin ve ilk çağrıya gelen önbelleğe alınan yanıtın döndürüldüğüne dikkat edin.
-
-**param2** alanına **25** değerini girin ve ardından **HTTP Get**’e tıklayın.
-
-Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. İşlem sonuçları sorgu dizesi tarafından anahtarlandığından, önceki önbelleğe alınan yanıt döndürülmedi.
+1. Azure portalında APIM örneğinize göz atın.
+2. **API'ler** sekmesini seçin.
+3. Önbelleğe alma ilkelerini eklediğiniz API’leri seçin.
+4. **GetSpeakers** işlemini seçin.
+5. Sağ üst menüdeki **Test** sekmesine tıklayın.
+6. **Gönder**’e basın.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
 * Önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz. [API Management ilke başvurusunda][API Management policy reference] [Önbelleğe alma ilkeleri][Caching policies].
@@ -160,12 +99,12 @@ Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. 
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Configure an operation for caching]: #configure-caching
 [Review the caching policies]: #caching-policies

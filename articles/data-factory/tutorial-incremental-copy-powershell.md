@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Factory ile verileri artımlı olarak kopyalama | Microsoft Docs"
+title: "Azure Data Factory ile bir tabloyu artımlı olarak kopyalama | Microsoft Docs"
 description: "Bu öğreticide, verileri Azure SQL Veritabanından Azure Blob Depolama alanına artımlı olarak kopyalayan bir Azure Data Factory işlem hattı oluşturacaksınız."
 services: data-factory
 documentationcenter: 
@@ -13,24 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: f352f46f2d4c23124f4ee7e886cae9bdd8d5d2c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0b05971b5ab8ec3fd14dd4ce14d07df478e1dcc9
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme
+Bu öğreticide, Azure SQL veritabanındaki bir tablodan Azure blob depolama alanına delta veri yükleyen işlem hattına sahip bir Azure veri fabrikası oluşturacaksınız. 
 
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Bu öğretici
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
 
-Veri tümleştirme yolculuğu sırasında yaygın olarak kullanılan senaryolardan biri, ilk veri yükleme ve analizi sonrasında güncelleştirilmiş analiz sonucunu yenilemek amacıyla verilerin düzenli aralıklarla artımlı olarak yüklenmesidir. Bu öğreticide, yalnızca yeni veya güncelleştirilmiş kayıtları veri kaynaklarından veri havuzlarına yüklemeye odaklanacaksınız. Özellikle büyük veri kümeleri için, tam yüklemelerle karşılaştırıldığında bu işlem daha verimli bir şekilde çalışır.    
-
-Data Factory’yi kullanarak, bir işlem hattındaki Arama, Kopyalama ve Saklı Yordam etkinlikleri ile artımlı veri yüklemeyi sağlamak üzere üst eşik çözümleri oluşturabilirsiniz.  
 
 Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 
@@ -46,7 +41,7 @@ Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 ## <a name="overview"></a>Genel Bakış
 Yüksek düzeyli çözüm diyagramı aşağıdaki gibidir: 
 
-![Artımlı olarak veri yükleme](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
+![Artımlı olarak veri yükleme](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
 Bu çözümü oluşturmaya yönelik önemli adımlar şunlardır: 
 
@@ -71,7 +66,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 * **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin.
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Azure SQL veritabanınızda bir veri kaynağı tablosu oluşturma
-1. **Sunucu Gezgini**’nde **SQL Server Management Studio**’yu açın, veritabanına sağ tıklayın ve **Yeni Sorgu**’yu seçin.
+1. **SQL Server Management Studio**’yu açın. **Sunucu Gezgini**’nde veritabanına sağ tıklayın ve **Yeni Sorgu**’yu seçin.
 2. Azure SQL veritabanınızda aşağıdaki SQL komutunu çalıştırarak veri kaynağı deponuz olarak `data_source_table` adlı bir tablo oluşturun.  
     
     ```sql
@@ -151,40 +146,47 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
-
-1. **PowerShell**’i başlatın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
-
-    Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin:
-        
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-    Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-    Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **SubscriptionId**’yi Azure aboneliğinizin kimliği ile değiştirin:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
-2. Bir veri fabrikası oluşturmak için **Set-AzureRmDataFactoryV2** cmdlet’ini çalıştırın. Komutu yürütmeden önce yer tutucuları kendi değerlerinizle değiştirin.
-
-    ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+1. Daha sonra PowerShell komutlarında kullanacağınız kaynak grubu adı için bir değişken tanımlayın. Aşağıdaki komut metnini PowerShell'e kopyalayın [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) için çift tırnak içinde bir ad belirtin ve ardından komutu çalıştırın. Örneğin: `"adfrg"`. 
+   
+     ```powershell
+    $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    Aşağıdaki noktalara dikkat edin:
+    Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$resourceGroupName` değişkenine farklı bir değer atayın ve komutu yeniden çalıştırın
+2. Veri fabrikasının konumu için bir değişken tanımlayın: 
 
-    * Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Aşağıdaki hata iletisini alırsanız adı değiştirip yeniden deneyin.
+    ```powershell
+    $location = "East US"
+    ```
+3. Azure kaynak grubunu oluşturmak için aşağıdaki komutu çalıştırın: 
 
-        ```
-        The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
-        ```
+    ```powershell
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$resourceGroupName` değişkenine farklı bir değer atayın ve komutu yeniden çalıştırın. 
+3. Veri fabrikasının adı için bir değişken tanımlayın. 
 
-    * Data Factory örnekleri oluşturmak için Azure aboneliğinde katkıda bulunan veya yönetici rolünüz olmalıdır.
-    * Data Factory V2 şu anda Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+    > [!IMPORTANT]
+    >  Veri fabrikasının adını genel olarak benzersiz olacak şekilde güncelleştirin. Örneğin, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFIncCopyTutorialFactory";
+    ```
+5. Veri fabrikası oluşturmak için aşağıdaki **Set-AzureRmDataFactoryV2** cmdlet’ini çalıştırın: 
+    
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    ```
+
+Aşağıdaki noktalara dikkat edin:
+
+* Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Aşağıdaki hata iletisini alırsanız adı değiştirip yeniden deneyin.
+
+    ```
+    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+    ```
+* Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır.
+* Data Factory sürüm 2 şu anda Doğu ABD, Doğu ABD2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
 
 ## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
@@ -224,7 +226,7 @@ Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için 
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Azure SQL Veritabanı bağlı hizmeti oluşturun.
-1. **C:\ADF** klasöründe şu içeriğe sahip **AzureSQLDatabaseLinkedService.json** adlı bir JSON dosyası oluşturun: (Henüz yoksa ADF adlı bir klasör oluşturun.). Dosyayı kaydetmeden önce **&lt;server&gt; ve &lt;user id&gt; ile &lt;password&gt;** değerlerini Azure SQL sunucunuzun adı, kullanıcı kimliği ve parola ile değiştirin. 
+1. **C:\ADF** klasöründe şu içeriğe sahip **AzureSQLDatabaseLinkedService.json** adlı bir JSON dosyası oluşturun: (Henüz yoksa ADF adlı bir klasör oluşturun.). Dosyayı kaydetmeden önce **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; ve &lt;password&gt;** değerlerini Azure SQL sunucunuzun adı, veritabanınızın adı, kullanıcı kimliği ve parola ile değiştirin. 
 
     ```json
     {
@@ -233,15 +235,15 @@ Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için 
             "type": "AzureSqlDatabase",
             "typeProperties": {
                 "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
                     "type": "SecureString"
                 }
             }
         }
     }
     ```
-2. **Azure PowerShell**’de **ADF** klasörüne geçin.
-3. **AzureSQLDatabaseLinkedService** bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet’ini çalıştırın. 
+1. **Azure PowerShell**’de **ADF** klasörüne geçin.
+2. **AzureSQLDatabaseLinkedService** bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet’ini çalıştırın. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -280,7 +282,7 @@ Bu adımda, kaynak ve havuz verilerini temsil eden veri kümeleri oluşturacaks�
     }
    
     ```
-    Bu öğreticide **data_source_table** tablo adını kullanırız. Farklı ada sahip bir tablo kullanıyorsanız değiştirin. 
+    Bu öğreticide **data_source_table** tablo adını kullanırsınız. Farklı ada sahip bir tablo kullanıyorsanız değiştirin. 
 2.  SourceDataset veri kümesini oluşturmak için Set-AzureRmDataFactoryV2Dataset cmdlet’ini çalıştırın
     
     ```powershell
@@ -379,7 +381,7 @@ Bu adımda üst eşik değerini depolamak için bir veri kümesi oluşturacaksı
 Bu öğreticide tek işlem hattında zincirlenmiş iki arama etkinliği, bir kopyalama etkinliği ve bir saklı yordam etkinliği ile işlem hattı oluşturacaksınız. 
 
 
-1. Aşağıdaki içeriğe sahip klasörde bir IncrementalCopyPipeline.json adlı bir JSON dosyası oluşturun. 
+1. Şu içeriğe sahip klasörde bir IncrementalCopyPipeline.json adlı bir JSON dosyası oluşturun: 
 
     ```json
     {
@@ -512,7 +514,7 @@ Bu öğreticide tek işlem hattında zincirlenmiş iki arama etkinliği, bir kop
 1. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet’ini kullanarak **IncrementalCopyPipeline** işlem hattını çalıştırın. Yer tutucuları kendi kaynak grubu ve veri fabrikası adınızla değiştirin.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
 2. Tüm etkinliklerin başarıyla çalıştığını görene kadar Get-AzureRmDataFactoryV2ActivityRun cmdlet’ini çalıştırarak işlem hattının durumunu denetleyin. Yer tutucuları RunStartedAfter ve RunStartedBefore parametresi için uygun bulduğunuz süreyle değiştirin.  Bu öğreticide -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15" kullanılır
 
@@ -616,7 +618,7 @@ Bu öğreticide tek işlem hattında zincirlenmiş iki arama etkinliği, bir kop
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
     ``` 
 
-    Azure SQL veritabanında güncelleştirilmiş veriler aşağıdaki gibi görünür:
+    Azure SQL veritabanında güncelleştirilmiş veriler:
 
     ```
     PersonID | Name | LastModifytime
@@ -632,7 +634,7 @@ Bu öğreticide tek işlem hattında zincirlenmiş iki arama etkinliği, bir kop
 2. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet’ini kullanarak **IncrementalCopyPipeline** işlem hattını yeniden çalıştırın. Yer tutucuları kendi kaynak grubu ve veri fabrikası adınızla değiştirin.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
 3. Tüm etkinliklerin başarıyla çalıştığını görene kadar **Get-AzureRmDataFactoryV2ActivityRun** cmdlet’ini çalıştırarak işlem hattının durumunu denetleyin. Yer tutucuları RunStartedAfter ve RunStartedBefore parametresi için uygun bulduğunuz süreyle değiştirin.  Bu öğreticide -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15" kullanılır
 
@@ -725,10 +727,10 @@ Bu öğreticide aşağıdaki adımları gerçekleştirdiniz:
 > * İşlem hattını çalıştırma.
 > * İşlem hattı çalıştırmasını izleme. 
 
-Azure üzerinde bir Spark kümesi kullanarak veri dönüştürme hakkında bilgi edinmek için aşağıdaki öğreticiye geçin:
+Bu öğreticide, işlem hattı Azure SQL veritabanındaki **tek bir tablodan** Azure blob depolama alanına veri kopyaladı. Şirket içi SQL Server veritabanındaki **birden çok tablodan** Azure SQL veritabanına veri kopyalama hakkında bilgi edinmek için şu öğreticiye ilerleyin. 
 
 > [!div class="nextstepaction"]
->[Bulutta Spark kümesi kullanarak verileri dönüştürme](tutorial-transform-data-spark-powershell.md)
+>[SQL Server’daki birden fazla tablodan Azure SQL Veritabanı’na artımlı olarak veri yükleme](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
 

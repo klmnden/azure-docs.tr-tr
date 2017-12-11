@@ -13,22 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: b8c30a2fd68178ddd2bfb3ff079c47ba00928855
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory’de Hive etkinliğini kullanarak Azure Sanal Ağ’daki verileri dönüştürme
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Bu öğretici
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
-
-Bu öğreticide, Azure PowerShell kullanarak Azure Sanal Ağ üzerindeki bir HDInsight kümesinde Hive Etkinliği ile verileri dönüştüren bir Data Factory işlem hattı oluşturacaksınız. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
+Bu öğreticide, Azure PowerShell kullanarak Azure Sanal Ağ’daki bir HDInsight kümesinde Hive Etkinliği ile verileri dönüştüren bir Data Factory işlem hattı oluşturacaksınız. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 
 > [!div class="checklist"]
 > * Veri fabrikası oluşturma. 
@@ -39,6 +31,8 @@ Bu öğreticide, Azure PowerShell kullanarak Azure Sanal Ağ üzerindeki bir HDI
 > * İşlem hattı çalıştırmasını izleme 
 > * çıktıyı doğrulama. 
 
+> [!NOTE]
+> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -71,22 +65,32 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
    FROM hivesampletable
    ```
 2. Azure Blob depolama alanınızda henüz yoksa **adftutorial** adlı bir kapsayıcı oluşturun.
-3. `hivescripts` adlı bir klasör oluşturun.
-4. `hivescript.hql` dosyasını `hivescripts` alt klasörüne yükleyin.
+3. **hivescripts** adlı bir klasör oluşturun.
+4. **hivescript.hql** dosyasını **hivescripts** alt klasörüne yükleyin.
 
  
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
 
-1. Değişkenleri tek tek ayarlayın.
+1. Kaynak grubu adını ayarlayın. Bu öğreticinin bir parçası olarak bir kaynak grubu oluşturun. Ancak, isterseniz mevcut bir kaynak grubunu kullanabilirsiniz. 
 
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09142017" # Globally unique name of the data factory
-    $pipelineName = "MyHivePipeline" # Name of the pipeline
-    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" # make it a unique name. 
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+2. Veri fabrikası adını belirtin. Genel olarak benzersiz olması gerekir.
+
+    ```powershell
+    $dataFactoryName = "MyDataFactory09142017"
+    ```
+3. İş hattı için bir ad belirtin. 
+
+    ```powershell
+    $pipelineName = "MyHivePipeline" # 
+    ```
+4. Şirket içinde barındırılan tümleştirme çalışma zamanı adını belirtin. Data Factory’nin, bir sanal ağ içindeki kaynaklara (Azure SQL Veritabanı gibi) erişmesi gerektiğinde, şirket içinde barındırılan tümleştirme çalışma zamanına ihtiyaç duyacaksınız. 
+    ```powershell
+    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
 2. **PowerShell**’i başlatın. Bu hızlı başlangıcın sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir. Data Factory V2 şu anda Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
@@ -222,21 +226,27 @@ Bağlı hizmet tanımında aşağıdaki özelliklerin değerlerini güncelleşti
 - **clusterUri**. HDInsight kümenizin URL’sini https://<clustername>.azurehdinsight.net biçiminde belirtin.  Bu makalede, kümeye internet üzerinden erişebildiğiniz varsayılır. Örneğin, `https://clustername.azurehdinsight.net` konumundaki kümeye bağlanabildiğiniz kabul edilir. Bu adres, İnternet'ten erişimi kısıtlamak için ağ güvenlik grupları (NSG) veya kullanıcı tanımlı yollar (UDR) kullandıysanız kullanılabilir olmayan ortak ağ geçidi kullanır. Data Factory’nin işleri Azure Sanal Ağdaki HDInsight kümesine gönderebilmesi için Azure Sanal Ağınızı URL’nin HDInsight tarafından kullanılan ağ geçidine ait özel IP adresine çözümlenebileceği şekilde yapılandırmanız gerekir.
 
   1. Azure portalından, HDInsight’ın içinde bulunduğu Sanal Ağı açın. Adı `nic-gateway-0` ile başlayan ağ arabirimini açın. Özel IP adresini not edin. Örneğin, 10.6.0.15. 
-  2. Azure sanal ağınızda DNS sunucusu varsa, HDInsight kümesi `https://<clustername>.azurehdinsight.net` URL’sinin `10.6.0.15` hedefine çözümlenebilmesi için DNS kaydını güncelleştirin. Bu, önerilen yaklaşımdır. Azure Sanal Ağınızda bir DNS sunucusu yoksa, aşağıdaki gibi bir giriş ekleyerek kendi kendine barındırılan tümleştirme çalışma zamanı düğümleri olarak kaydedilmiş tüm VM’lerin ana bilgisayar dosyalarını (C:\Windows\System32\drivers\etc) düzenleyerek bu sorunu geçici olarak çözebilirsiniz: 
+  2. Azure sanal ağınızda DNS sunucusu varsa, HDInsight kümesi `https://<clustername>.azurehdinsight.net` URL’sinin `10.6.0.15` hedefine çözümlenebilmesi için DNS kaydını güncelleştirin. Bu, önerilen yaklaşımdır. Azure Sanal Ağınızda bir DNS sunucusu yoksa, şunun gibi bir giriş ekleyerek şirket içinde barındırılan tümleştirme çalışma zamanı düğümleri olarak kaydedilmiş tüm VM’lerin ana bilgisayar dosyalarını (C:\Windows\System32\drivers\etc) düzenleyerek bu sorunu geçici olarak çözebilirsiniz: 
   
         `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-JSON dosyalarını oluşturduğunuz klasöre geçin ve bağlı hizmetleri dağıtmak için aşağıdaki komutu çalıştırın: 
+## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
+PowerShell’de, JSON dosyalarını oluşturduğunuz klasöre geçin ve bağlı hizmetleri dağıtmak için şu komutu çalıştırın: 
 
+1. PowerShell'de, JSON dosyalarını oluşturduğunuz klasöre geçin.
+2. Azure Depolama bağlı hizmeti oluşturmak için şu komutu çalıştırın. 
 
-```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```
+3. Azure HDInsight bağlı hizmeti oluşturmak için şu komutu çalıştırın. 
 
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDILinkedService" -File "MyHDILinkedService.json"
-```
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    ```
 
 ## <a name="author-a-pipeline"></a>İşlem hattı oluşturma
-Bu adımda, Hive etkinliği ile bir işlem hattı oluşturacaksınız. Etkinlik, bir örnek tablodan veri döndürmek ve tanımladığınız bir yola kaydetmek üzere Hive betiğini yürütür. Tercih ettiğiniz düzenleyicide bir JSON dosyası oluşturun, aşağıdaki işlem hattı JSON tanımını kopyalayın ve **MyHiveOnDemandPipeline.json** olarak kaydedin.
+Bu adımda, Hive etkinliği ile bir işlem hattı oluşturacaksınız. Etkinlik, bir örnek tablodan veri döndürmek ve tanımladığınız bir yola kaydetmek üzere Hive betiğini yürütür. Tercih ettiğiniz düzenleyicide bir JSON dosyası oluşturun, şu işlem hattı JSON tanımını kopyalayın ve **MyHivePipeline.json** olarak kaydedin.
 
 
 ```json
