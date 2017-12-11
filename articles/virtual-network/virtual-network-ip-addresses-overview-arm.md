@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 

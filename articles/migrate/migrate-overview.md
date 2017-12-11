@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: raynew
-ms.openlocfilehash: d3d5a3bcd3be55d1915ff7fdc6d82aebbb992fc7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -32,15 +32,17 @@ Azure Geçişi hizmeti, Azure’a geçiş için şirket içi iş yüklerini değ
 Azure Geçişi şunları yapmanıza yardımcı olur:
 
 - **Azure için hazır olma durumunu değerlendirme**: Şirket içi makinelerinizin Azure’da çalıştırılmaya uygun olup olmadığını değerlendirme. 
-- **Boyut önerileri alma**: Şirket içi VM’lerin performans geçmişine göre geçiş sonrasında Azure VM’leri için önerilen boyutlandırma. 
-- **Aylık maliyetleri tahmin etme**: Azure’da çalışan şirket içi makineler için tahmini maliyetler.
-- **Yüksek güvenle geçiş**: Şirket içi makineleri değerlendirme için gruplandırırken bağımlılıkları görselleştirerek değerlendirme güvenilirliğini artırabilirsiniz. Belirli bir makinenin veya bir gruptaki tüm makinelerin bağımlılıklarını doğru bir şekilde görüntüleyebilirsiniz.
+- **Boyut önerileri alma**: Şirket içi VM’lerin performans geçmişine göre Azure VM’leri için boyut önerileri alın. 
+- **Aylık maliyetleri tahmin etme**: Azure’da çalışan şirket içi makineler için tahmini maliyetleri alın.  
+- **Yüksek güvenle geçirme**: Birlikte değerlendirip geçireceğiniz makine grupları oluşturmak için şirket içi makinelerin bağımlılıklarını görselleştirin. Belirli bir makinenin veya bir gruptaki tüm makinelerin bağımlılıklarını doğru bir şekilde görüntüleyebilirsiniz.
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
 - Şu anda, şirket içi VMware sanal makinelerini (VM) Azure VM’lerine geçiş için değerlendirebilirsiniz.
+
 > [!NOTE]
 > Yol haritasında bulunan Hyper-V desteği birkaç ay içinde etkinleştirilecektir. Bu arada, Hyper-V iş yüklerinin geçişini planlamak için Azure Site Recovery Dağıtım Planlayıcısı’nı kullanmanız önerilir. 
+
 - Tek bir değerlendirmede 1000 VM’yi ve tek bir Azure Geçişi projesinde 1500 makineyi değerlendirebilirsiniz. Daha fazla makineyi değerlendirmeniz gerekiyorsa, proje veya değerlendirme sayısını artırabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md).
 - Değerlendirmek istediğiniz VM, vCenter Server sürüm 5.5, 6.0 veya 6.5 ile yönetilmelidir.
 - Azure Geçişi projesini yalnızca Batı Orta ABD bölgesinde oluşturabilirsiniz. Ancak, bu kısıtlama farklı bir hedef Azure konumu için geçiş planlamanızı engellemez. Geçiş projesinin konumu yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır.
@@ -54,11 +56,11 @@ Azure Geçişi ek ücret ödenmeden kullanılabilir. Ancak genel önizleme sıra
 
 ## <a name="whats-in-an-assessment"></a>Bir değerlendirme neleri içerir?
 
-Azure Geçişi değerlendirmeleri, tabloda özetlenen ayarları temel alır.
+Değerlendirme, şirket içi VM’lerin Azure uygunluğunu tanımlamanıza yardımcı olur, doğru boyutlandırma önerilerini ve Azure’da sanal makineleri çalıştırmak için maliyet tahminlerini alın. Değerlendirmeler, aşağıdaki tabloda özetlenen özellikleri temel alır. Bu özellikleri Azure Geçişi portalında değiştirebilirsiniz. 
 
-**Ayar** | **Ayrıntılar**
+**Özellik** | **Ayrıntılar**
 --- | ---
-**Hedef konum** | Geçişi yapmak istediğiniz Azure konumu. Varsayılan olarak, burası Azure Geçişi projesini oluşturduğunuz konumdur. Bu ayarı değiştirebilirsiniz.   
+**Hedef konum** | Geçişi yapmak istediğiniz Azure konumu. Varsayılan hedef konum, Batı ABD 2 olarak ayarlanır. 
 **Depolama yedekliliği** | Azure VM’lerinin geçişten sonra kullanacağı depolama türü. Varsayılan seçenek LRS’dir.
 **Fiyatlandırma planları** | Değerlendirme, yazılım güvencesine kaydolup kaydolmadığınızı ve [Azure Hibrit Avantajı](https://azure.microsoft.com/pricing/hybrid-use-benefit/)’nı kullanıp kullanamayacağınızı göz önünde bulundurur. Ayrıca, uygulanması gereken Azure tekliflerini göz önünde bulundurur ve teklifle birlikte alacağınız aboneliğe özel indirimler (%) belirtmenize olanak tanır. 
 **Fiyatlandırma katmanı** | Azure VM’lerinin [fiyatlandırma katmanını (temel/standart)](../virtual-machines/windows/sizes-general.md) belirtebilirsiniz. Bunun yapılması, bir üretim ortamında olup olmamanıza bağlı olarak uygun bir Azure VM ailesine geçiş yapmanıza yardımcı olur. Varsayılan olarak [standart](../virtual-machines/windows/sizes-general.md) katmanı kullanılır.
@@ -69,12 +71,12 @@ Azure Geçişi değerlendirmeleri, tabloda özetlenen ayarları temel alır.
 ## <a name="how-does-azure-migrate-work"></a>Azure Geçişi nasıl çalışır?
 
 1.  Bir Azure Geçişi projesi oluşturursunuz.
-2.  Azure Geçişi, toplayıcı gereci adı verilen bir şirket içi VM kullanarak şirket içi makinelerinize ilişkin bilgileri bulur. Gereci oluşturmak için Open Virtualization Appliance (.ova) biçimindeki kurulum dosyasını indirirsiniz ve şirket içi vCenter sunucusuna VM olarak aktarırsınız.
-3.  vCenter sunucusunun salt okunur kimlik bilgilerini kullanarak VM’ye bağlanırsınız ve toplayıcıyı çalıştırırsınız.
+2.  Azure Geçişi, toplayıcı gereci adı verilen bir şirket içi VM kullanarak şirket içi makinelerinize ilişkin bilgileri bulur. Aleti oluşturmak için Open Virtualization Appliance (.ova) biçimindeki kurulum dosyasını indirirsiniz ve şirket içi vCenter Server’ınıza VM olarak aktarırsınız.
+3.  vCenter Server'da konsol bağlantısı kullanarak VM’ye bağlanın, bağlanırken VM için yeni bir parola belirtin ve sonra keşfi başlatmak için VM’deki toplayıcı uygulamasını çalıştırın.
 4.  Toplayıcı, VMware PowerCLI cmdlet’lerini kullanarak VM meta verilerini toplar. Bulma işlemi aracısızdır ve VMware konaklarına ya da VM’lere herhangi bir yükleme yapmaz. Toplanan meta veriler VM bilgilerini (çekirdekler, bellek, diskler, disk boyutları ve ağ bağdaştırıcıları) içerir. Ayrıca, CPU ve bellek kullanımı, disk IOPS, disk aktarım hızı (MB/sn) ve ağ çıktısı (MB/sn) gibi VM’lere ait performans verilerini toplar.
 5.  Meta veriler Azure Geçişi projesine gönderilir. Verileri Azure portalında görüntüleyebilirsiniz.
-6.  Değerlendirme amacıyla VM’leri gruplar halinde toplayın. Örneğin, aynı uygulamayı çalıştıran VM’leri gruplayabilirsiniz. vCenter’da veya vCenter portalında etiketleme kullanarak VM’leri gruplayabilirsiniz. Belirli bir makinenin veya bir gruptaki tüm makinelerin bağımlılıklarını doğrulamak için görselleştirme kullanın.
-7.  Bir grup için değerlendirme oluşturursunuz.
+6.  Değerlendirme amacıyla keşfedilen VM’leri gruplar halinde toplayın. Örneğin, aynı uygulamayı çalıştıran VM’leri gruplandırabilirsiniz. Azure Geçişi portalındaki VM’leri gruplandırabilir veya vCenter Server’daki etiketlemeyi kullanabilirsiniz. Ayrıca, bir gruptaki belirli bir makine ya da tüm makinelerin bağımlılıklarını görüntülemek ve grubu geliştirmek için bağımlılık görselleştirmeyi kullanabilirsiniz.
+7.  Grubunuz oluşturulduğunda, grup için bir değerlendirme oluşturursunuz. 
 8.  Değerlendirme tamamlandıktan sonra portalda görüntüleyebilir veya Excel biçiminde indirebilirsiniz.
 
 
@@ -88,8 +90,8 @@ Tabloda Azure Geçişi iletişimleri için gereken bağlantı noktaları özetle
 |Bileşen          |Şununla iletişim kurmak için     |Gereken bağlantı noktası  |Neden   |
 |-------------------|------------------------|---------------|---------|
 |Toplayıcı          |Azure Geçişi hizmeti   |TCP 443        |Toplayıcı SSL bağlantı noktası 443 üzerinden hizmete bağlanır|
-|Toplayıcı          |vCenter Server          |Varsayılan 9443   | Varsayılan olarak, toplayıcı bağlantı noktası 9443 üzerinden vCenter sunucusuna bağlanır. Sunucu farklı bir bağlantı noktasında dinliyorsa, toplayıcı VM üzerinde giden bağlantı olarak yapılandırılması gerekir. |
-|Şirket içi VM     | OMS Çalışma Alanı          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA aracısı Log Analytics’e bağlanmak için TCP 443’ü kullanır. Bu bağlantı noktası yalnızca bağımlılık görselleştirmesi özelliğini kullanıyorsanız ve MMA aracısını yüklüyorsanız gereklidir. |
+|Toplayıcı          |vCenter Server          |Varsayılan 9443   | Varsayılan olarak, toplayıcı bağlantı noktası 9443 üzerinden vCenter sunucusuna bağlanır. Sunucu farklı bir bağlantı noktasında dinliyorsa, toplayıcı VM üzerinde giden bağlantı noktası olarak yapılandırılması gerekir. |
+|Şirket içi VM     | Operations Management Suite (OMS) Çalışma Alanı          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |MMA aracısı Log Analytics’e bağlanmak için TCP 443’ü kullanır. Bu bağlantı noktası yalnızca bağımlılık görselleştirmesi özelliğini kullanıyorsanız ve Microsoft Monitoring Agent’ı (MMA) yüklüyorsanız gereklidir. |
 
 
   

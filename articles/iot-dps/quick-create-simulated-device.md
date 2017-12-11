@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 645f037f40893112e01117e7541322a3a547140a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 6e486b8fb5924c8a021a781742478e9082ca668c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-service-preview"></a>IoT Hub Cihazı Sağlama hizmeti (Önizleme) kullanarak bir sanal cihaz sağlama
+# <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-services"></a>IoT Hub Cihazı Sağlama Hizmetleri kullanarak bir sanal cihaz oluşturma ve sağlama
 > [!div class="op_single_selector"]
 > * [TPM](quick-create-simulated-device.md)
 > * [X.509](quick-create-simulated-device-x509.md)

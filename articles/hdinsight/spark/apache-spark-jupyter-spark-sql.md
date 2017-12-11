@@ -15,27 +15,25 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 20952702ee9dbe9880c80dddc0d75f39e53b6659
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 516c48424ef5d1256296240541fb544c1e5d9205
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Azure HDInsight’ta Apache Spark kümesi oluşturma
 
-Bu makalede, Azure HDInsight'ta Apache Spark kümesi oluşturmayı öğrenecek ve ardından Hive tablosunda bir Spark SQL sorgusu çalıştıracaksınız. HDInsight’ta Spark hakkında daha fazla bilgi için bkz. [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md).
-
-   ![Azure HDInsight’ta Apache Spark kümesi oluşturma adımlarını açıklayan hızlı başlangıç diyagramı](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "Spark hızlı başlangıcı - HDInsight’ta Apache Spark kullanma. Gösterilen adımlar: küme oluşturma; etkileşimli Spark sorgusu çalıştırma")
+Azure HDInsight'ta Apache Spark kümesinin nasıl oluşturulacağını ve Spark SQL sorgularının Hive tablolarına karşı nasıl çalıştırılacağını öğrenin. HDInsight’ta Spark hakkında daha fazla bilgi için bkz. [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* **Bir Azure aboneliği**. Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz. [Ücretsiz Azure hesabınızı hemen oluşturun](https://azure.microsoft.com/free).
+* **Bir Azure aboneliği**. Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz. [Ücretsiz Azure hesabınızı oluşturun](https://azure.microsoft.com/free).
 
 ## <a name="create-hdinsight-spark-cluster"></a>HDInsight Spark kümesi oluşturma
 
-Bu bölümde, [Azure Resource Manager şablonu](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/) kullanarak bir HDInsight Spark kümesi oluşturacaksınız. Diğer küme oluşturma yöntemleri için bkz. [HDInsight kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).
+[Azure Resource Manager şablonu](../hdinsight-hadoop-create-linux-clusters-arm-templates.md) kullanarak bir HDInsight Spark kümesi oluşturun. Şablon, [github](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/)’da bulunabilir. Diğer küme oluşturma yöntemleri için bkz. [HDInsight kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın.         
 
@@ -45,15 +43,12 @@ Bu bölümde, [Azure Resource Manager şablonu](https://azure.microsoft.com/reso
 
     ![Azure Resource Manager şablonu kullanarak HDInsight Spark kümesi oluşturma](./media/apache-spark-jupyter-spark-sql/create-spark-cluster-in-hdinsight-using-azure-resource-manager-template.png "Azure Resource Manager şablonu kullanarak Spark kümesi oluşturma")
 
-    * **Abonelik**: Bu kümeye ait Azure aboneliğinizi seçin.
+    * **Abonelik**: Bu kümeyi oluşturmak için kullanılan Azure aboneliğinizi seçin.
     * **Kaynak grubu**: Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin. Kaynak grubu, projelerinize ait Azure kaynaklarını yönetmek için kullanılır.
     * **Konum**: Kaynak grubu için bir konum seçin. Şablon hem kümeyi oluşturmak için hem de varsayılan küme depolaması için bu konumu kullanır.
     * **ClusterName**: Oluşturmak istediğiniz HDInsight kümesi için bir ad girin.
-    * **Spark sürümü**: Kümeye yüklemek istediğiniz sürüm olarak **2.0**'ı seçin.
     * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı admin şeklindedir.
     * **SSH kullanıcı adı ve parola**.
-
-   Bu değerleri not alın.  Öğreticinin sonraki bölümlerinde bunlara ihtiyacınız olacaktır.
 
 3. **Yukarıdaki hüküm ve koşulları kabul ediyorum**'u ve ardından **Panoya sabitle**'yi seçip **Satın al**'a tıklayın. Şablon dağıtımı için Dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümenin oluşturulması yaklaşık 20 dakika sürer.
 
@@ -64,63 +59,66 @@ HDInsight kümelerini oluştururken sorunlarla karşılaşırsanız, bunu yapmak
 >
 >
 
-## <a name="run-spark-sql-statements-on-a-hive-table"></a>Bir Hive tablosunda Spark SQL deyimleri çalıştırma
+## <a name="create-a-jupyter-notebook"></a>Jupyter not defteri oluşturma
 
-SQL (Yapılandırılmış Sorgu Dili), veri sorgulama ve tanımlama için en çok kullanılan dildir. Spark'ın kurucuları bu bilgiden faydalanmak için çok bilinen veri sorgulama dilini Hadoop Dağıtılmış Dosya Sistemi (HDFS) üzerindeki verilerle çalışmak isteyen analistlerin kullanımına açtı. Bu özellik Spark SQL ile sunulmaktadır. Bilinen SQL söz dizimini kullanan bu özellik, yapısal verileri işleyen bir Apache Spark uzantısı olarak çalışır.
+[Jupyter Not Defteri](http://jupyter.org), verilerinizle etkileşim kurabilmenizi sağlayan çeşitli programlama dilleri destekleyen, markdown metniyle kod birleştiren ve basit görselleştirmeleri gerçekleştiren etkileşimli bir not defteridir. HDInsight'ta Spark, ayrıca [Zeppelin Not Defteri](apache-spark-zeppelin-notebook.md)’ni içerir. Jupyter Not Defteri, bu öğreticide kullanılır.
 
-Spark SQL hem SQL hem de HiveQL sorgu dillerini destekler. Python, Scala ve Java ile bağlama gerçekleştirilebilir. Bu işlev sayesinde harici veritabanları, yapısal veri dosyaları (örnek: JSON) ve Hive tabloları gibi farklı konumlarda depolanan verileri sorgulayabilirsiniz.
-
-### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>Spark SQL'i bir HDInsight kümesinde çalıştırma
-
-HDInsight Spark kümeniz için yapılandırılmış bir Jupyter not defteri kullanırken, Spark SQL ile Hive sorguları çalıştırmak için kullanabileceğiniz önceden ayarlanmış bir `sqlContext` alırsınız. Bu bölümde bir Jupyter not defteri başlatıp tüm HDInsight kümelerinde kullanılabilen mevcut Hive tablosunda (**hivesampletable**) temel Spark SQL sorgusu çalıştırmayı öğreneceksiniz.
+**Jupyter not defteri oluşturmak için**
 
 1. [Azure portalı](https://portal.azure.com/) açın.
 
-2. Kümeyi panoya sabitlemeyi seçtiyseniz, küme dikey penceresini başlatmak için panodan küme kutucuğuna tıklayın.
-
-    Kümeyi panoya sabitlemediyseniz, sol bölmedeki **HDInsight kümeleri** öğesine ve ardından oluşturduğunuz kümeye tıklayın.
+2. Oluşturduğunuz Spark kümesini açın. Yönergeler için bkz. [Kümeleri listele ve göster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 
 3. **Hızlı bağlantılar** bölümünde **Küme panoları**'na ve ardından **Jupyter Notebook**'a tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
 
-   ![Jupyter not defterini açarak etkileşimli Spark SQL sorgusu çalıştırma](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Open Jupyter notebook to run interactive Spark SQL query")
+   ![Jupyter not defterini açarak etkileşimli Spark SQL sorgusu çalıştırma](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter not defterini açarak etkileşimli Spark SQL sorgusu çalıştırma")
 
    > [!NOTE]
-   > Aşağıdaki URL’yi tarayıcınızda açarak da Jupyter not defterine erişebilirsiniz. **CLUSTERNAME** değerini kümenizin adıyla değiştirin:
+   > Şu URL’yi tarayıcınızda açarak da Jupyter Not Defteri’ne erişebilirsiniz. **CLUSTERNAME** değerini kümenizin adıyla değiştirin:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. Bir not defteri oluşturun. **Yeni** ve ardından **PySpark** seçeneğine tıklayın.
+3. Not defteri oluşturmak için **Yeni** ve ardından **PySpark** seçeneğine tıklayın. HDInsight kümelerindeki Jupyter not defterleri üç çekirdek destekliyor - **PySpark**, **PySpark3**, ve **Spark**. **PySpark** çekirdeği bu öğreticide kullanılır. Çekirdekler ve **PySpark** kullanmanın avantajları hakkında daha fazla bilgi için bkz. [HDInsight’ta Apache Spark kümeleri ile Jupyter not defterleri kullanma](apache-spark-jupyter-notebook-kernels.md).
 
-   ![Jupyter not defterini açarak etkileşimli Spark SQL sorgusu oluşturma](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter notebook to run interactive Spark SQL query")
+   ![Jupyter Not Defteri’ni oluşturarak etkileşimli Spark SQL sorgusu çalıştırma](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter Not Defteri’ni oluşturarak etkileşimli Spark SQL sorgusu çalıştırma")
 
    Untitled(Untitled.pynb) adıyla yeni bir not defteri oluşturulur ve açılır.
 
 4. Üstteki not defteri adına tıklayın ve isterseniz kolay bir ad girin.
 
-    ![Etkileşimli Spark sorgusunun çalıştırılacağı Jupyter not defteri için ad belirtme](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Etkileşimli Spark sorgusunun çalıştırılacağı Jupyter not defteri için ad belirtme")
+    ![Etkileşimli Spark sorgusunun çalıştırılacağı Jupyter not defteri için ad sağlama](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "Etkileşimli Spark sorgusunun çalıştırılacağı Jupyter not defteri için ad sağlama")
 
-5.  Aşağıdaki kodu boş bir hücreye yapıştırın ve kodu çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aşağıdaki kodda `%%sql` (sql sihri olarak adlandırılır), Jupyter not defterine Hive sorgusunu çalıştırmak için önceden ayarlanmış `sqlContext` kullanmasını bildirir. Sorgu, varsayılan olarak tüm HDInsight kümelerinde sağlanan Hive tablosundaki (**hivesampletable**) ilk 10 satırı getirir.
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>Bir Hive tablosunda Spark SQL deyimleri çalıştırma
 
-        %%sql
-        SELECT * FROM hivesampletable LIMIT 10
+SQL (Yapılandırılmış Sorgu Dili), veri sorgulama ve tanımlama için en çok kullanılan dildir. Bilinen SQL söz dizimini kullanan Spark SQL, yapısal verileri işleyen bir Apache Spark uzantısı olarak çalışır.
+
+Spark SQL hem SQL hem de HiveQL sorgu dillerini destekler. Python, Scala ve Java ile bağlama gerçekleştirilebilir. Bu işlev sayesinde harici veritabanları, yapısal veri dosyaları (örnek: JSON) ve Hive tabloları gibi farklı konumlarda depolanan verileri sorgulayabilirsiniz.
+
+Bir Hive tablosu yerine csv dosyasından verileri okuma hakkında bir örnek için bkz. [HDInsight’taki Spark kümeleri üzerinde etkileşimli sorguları çalıştırma](apache-spark-load-data-run-query.md).
+
+**Spark SQL’i çalıştırma**
+
+1.  Boş bir hücreye not defterindeki şu kodu yapıştırın ve sonra kodu çalıştırmak için **SHIFT + ENTER**’a basın. 
+
+    ```PySpark
+    %%sql
+    SELECT * FROM hivesampletable LIMIT 10
+    ```
 
     ![HDInsight Spark'ta Hive sorgusu](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "HDInsight Spark'ta Hive sorgusu")
 
-    `%%sql` sihri ve önceden ayarlanmış bağlamlar hakkında daha fazla bilgi için bkz. [HDInsight kümesi için kullanılabilen Jupyter çekirdekleri](apache-spark-jupyter-notebook-kernels.md).
+    HDInsight Spark kümeniz için yapılandırılmış bir Jupyter not defteri kullanırken, Spark SQL ile Hive sorguları çalıştırmak için kullanabileceğiniz önceden ayarlanmış bir `sqlContext` alırsınız. `%%sql`, Hive sorgusunu çalıştırmak için Jupyter Not Defteri’ne `sqlContext` ön ayarını kullanmasını söyler. Sorgu, varsayılan olarak tüm HDInsight kümelerinde sağlanan Hive tablosundaki (**hivesampletable**) ilk 10 satırı getirir. `%%sql` sihri ve önceden ayarlanmış bağlamlar hakkında daha fazla bilgi için bkz. [HDInsight kümesi için kullanılabilen Jupyter çekirdekleri](apache-spark-jupyter-notebook-kernels.md).
 
-    > [!NOTE]
-    > Jupyter’de bir sorguyu her çalıştırdığınızda web tarayıcınızın pencere başlığında not defteri başlığı ile birlikte **(Meşgul)** durumu gösterilir. Ayrıca sağ üst köşedeki **PySpark** metninin yanında içi dolu bir daire görürsünüz. İş tamamlandıktan sonra bu simge boş bir daireye dönüşür.
-    >
-    >
+    Jupyter’de bir sorguyu her çalıştırdığınızda web tarayıcınızın pencere başlığında not defteri başlığı ile birlikte **(Meşgul)** durumu gösterilir. Ayrıca sağ üst köşedeki **PySpark** metninin yanında içi dolu bir daire görürsünüz. İş tamamlandıktan sonra bu simge boş bir daireye dönüşür.
     
-6. Sorgu çıkışının görüntülenmesi için ekranın yenilenmesi gerekir.
+    Sorgu çıkışının görüntülenmesi için ekranın yenilenmesi gerekir.
 
     ![HDInsight Spark'ta Hive sorgusu çıkışı](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "HDInsight Spark'ta Hive sorgusu çıkışı")
 
-7. Uygulamayı çalıştırmayı tamamladıktan sonra not defterini kapatarak küme kaynaklarını serbest bırakabilirsiniz. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın.
+2. Not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Not defterini kapatmak, küme kaynaklarını serbest bırakır.
 
-8. İzleyen adımları daha sonra tamamlamayı planlıyorsanız, bu makalede oluşturduğunuz HDInsight kümesini sildiğinizden emin olun. 
+3. İzleyen adımları daha sonra tamamlamayı planlıyorsanız, bu makalede oluşturduğunuz HDInsight kümesini sildiğinizden emin olun. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

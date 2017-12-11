@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
@@ -230,7 +230,7 @@ Daha fazla bilgi için bkz. [Machine Learning modellerini programlama aracılı�
 
 **Üretim ortamında dağıtılan web hizmetimi nasıl izlerim?**
 
-Tahmine dayalı bir model dağıttıktan sonra bu modeli klasik Azure portalından (yalnızca Klasik web hizmetleri) veya Azure Machine Learning Web Hizmetleri portalından izleyebilirsiniz. Dağıtılan her bir hizmet kendine panosuna sahiptir ve burada bu hizmetin izleme bilgilerini görebilirsiniz. Dağıtılmış web hizmetlerinizi yönetme konusunda daha fazla bilgi edinmek için bkz. [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md) ve [Azure Machine Learning çalışma alanını yönetme](manage-workspace.md).
+Tahmine dayalı bir model dağıttıktan sonra bu modeli Azure Machine Learning Web Hizmetleri portalından izleyebilirsiniz. Dağıtılan her bir hizmet kendine panosuna sahiptir ve burada bu hizmetin izleme bilgilerini görebilirsiniz. Dağıtılmış web hizmetlerinizi yönetme konusunda daha fazla bilgi edinmek için bkz. [Azure Machine Learning Web Hizmetleri portalını kullanarak bir Web hizmetini yönetme](manage-new-webservice.md) ve [Azure Machine Learning çalışma alanını yönetme](manage-workspace.md).
 
 **RRS/BES hizmetimin çıkışını görebileceğim bir yer var mı?**
 
@@ -285,7 +285,7 @@ Hayır.
 ## <a name="security-and-availability"></a>Güvenlik ve kullanılabilirlik
 **Web hizmetinin HTTP uç noktasına varsayılan olarak kimler erişebilir? Uç noktasına yönelik erişimi nasıl kısıtlarım?**
 
-Bir web hizmeti dağıtıldıktan sonra, bu hizmet için varsayılan bir uç noktası oluşturulur. Varsayılan uç noktası, API anahtarı kullanılarak çağrılabilir. Klasik Azure portalından veya programlama aracılığıyla Web Hizmet Yönetimi API'lerini kullanarak, kendi anahtarlarına sahip ek uç noktalar ekleyebilirsiniz. Erişim tuşları, web hizmetine çağrı yapmak için gereklidir. Daha fazla bilgi için bkz. [Azure Machine Learning web hizmetini kullanma](consume-web-services.md).
+Bir web hizmeti dağıtıldıktan sonra, bu hizmet için varsayılan bir uç noktası oluşturulur. Varsayılan uç noktası, API anahtarı kullanılarak çağrılabilir. Web Hizmetleri portalından veya programlama aracılığıyla Web Hizmet Yönetimi API'lerini kullanarak, kendi anahtarlarına sahip ek uç noktalar ekleyebilirsiniz. Erişim tuşları, web hizmetine çağrı yapmak için gereklidir. Daha fazla bilgi için bkz. [Azure Machine Learning web hizmetini kullanma](consume-web-services.md).
 
 **Azure depolama hesabım bulunamazsa ne olur?**
 
@@ -297,7 +297,7 @@ Depolama hesabını yanlışlıkla sildiyseniz, silinen depolama hesabıyla ayn�
 
 Machine Learning Studio, iş akışını yürütürken ara verileri saklamak için kullanıcı tarafından sağlanan bir Azure depolama hesabı kullanır. Bu depolama hesabı, bir çalışma alanı oluşturulduğunda Machine Learning Studio'ya sağlanır ve erişim anahtarları bu çalışma alanıyla ilişkilendirilir. Çalışma alanı oluşturulduktan sonra erişim anahtarları değiştirilirse, çalışma alanı depolama hesabına bir daha erişemez. Çalışmayı durdurur ve bu çalışma alanındaki tüm denemeler başarısız olur.
 
-Depolama hesabının erişim anahtarlarını değiştirdiyseniz klasik Azure portalını kullanarak çalışma alanındaki erişim anahtarlarını yeniden eşitleyin.  
+Depolama hesabının erişim anahtarlarını değiştirdiyseniz, Azure portalını kullanarak çalışma alanındaki erişim anahtarlarını yeniden eşitleyin.  
 
 ## <a name="support-and-training"></a>Destek ve eğitim
 **Azure Machine Learning için nereden eğitim alabilirim?**
@@ -509,7 +509,7 @@ Tek ihtiyacınız olan bir Microsoft hesabıdır. [Azure Machine Learning giriş
 
 **Azure Machine Learning Standart katmanına nasıl kaydolabilirim?**
 
-Standart Machine Learning çalışma alanı oluşturmak için öncelikle bir Azure aboneliğine erişiminiz olmalıdır. 30 günlük Azure ücretsiz deneme aboneliğine kaydolabilir, sonrasında ücretli bir Azure aboneliğine yükseltebilir ya da hemen ücretli bir Azure aboneliği satın alabilirsiniz. Aboneliğe erişim elde ettikten sonra klasik Microsoft Azure portalından bir Machine Learning çalışma alanı oluşturabilirsiniz. [Adım adım yönergelere](https://azure.microsoft.com/trial/get-started-machine-learning-b/) bakın.
+Standart Machine Learning çalışma alanı oluşturmak için öncelikle bir Azure aboneliğine erişiminiz olmalıdır. 30 günlük Azure ücretsiz deneme aboneliğine kaydolabilir, sonrasında ücretli bir Azure aboneliğine yükseltebilir ya da hemen ücretli bir Azure aboneliği satın alabilirsiniz. Aboneliğe erişim elde ettikten sonra Microsoft Azure portalından bir Machine Learning çalışma alanı oluşturabilirsiniz. [Adım adım yönergelere](https://azure.microsoft.com/trial/get-started-machine-learning-b/) bakın.
 
 Alternatif olarak, Standart Machine Learning çalışma alanı sahibi tarafından sahibin çalışma alanına erişmeye davet edilebilirsiniz.
 

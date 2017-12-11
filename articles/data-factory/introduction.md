@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,63 +67,7 @@ Ham veriler iş için kullanılabilir biçime getirildikten sonra, verileri Azur
 ### <a name="monitor"></a>İzleme
 Veri tümleştirme işlem hattınızı başarıyla oluşturup dağıtarak iyileştirilmiş verilerden iş değeri elde ettikten sonra, başarı ve hata oranları için zamanlanmış etkinlikleri ve işlem hatlarını izleyin. Azure Data Factory; Azure İzleyici, API, PowerShell, Microsoft Operations Management Suite ve Azure portalındaki sistem durumu panelleri aracılığıyla işlem hattı izlemek için yerleşik destek sunmaktadır.
 
-## <a name="whats-different-in-version-2"></a>Sürüm 2’nin farkları nelerdir?
-Azure Data Factory sürüm 2, özgün Azure Data Factory veri taşıma ve dönüştürme hizmetinin üzerine kurulmuştur ve daha fazla bulut öncelikli veri tümleştirme senaryosunu kapsar. Azure Data Factory sürüm 2 aşağıdaki özellikleri sunar:
-
-- Denetim akışı ve ölçeklendirme
-- Azure'da SQL Server Integration Services (SSIS) paketlerini dağıtma ve çalıştırma
-
-Sürüm 1 yayınından sonra müşterilerin veri taşıma ve bulutta, şirket içinde ve bulut VM'lerde işleme gerektiren karmaşık karma veri tümleştirme senaryoları tasarlamaya ihtiyaç duyduğunu fark ettik. Bu gereksinimler, verileri güvenli sanal ağ ortamlarında aktarma ve işlemenin yanı sıra talep üzerine işleme gücü ile ölçek artırma gereksinimini doğurdu.
-
-Veri işlem hatları bir iş analizi stratejisinin kritik bir parçası haline geldiğinden, bu kritik veri etkinliklerinin artımlı veri yüklerini ve olayla tetiklenen yürütmeleri desteklemek için esnek zamanlama gerektirdiğini gördük. Son olarak, bu işlemlerin karmaşıklıkları arttıkça, hizmetin dallanma, döngü ve koşullu işleme gibi yaygın iş akışı paradigmalarını destekleme gereksinimi de artmıştır.
-
-Sürüm 2 ile var olan SSIS paketlerini de buluta geçirebilirsiniz. Yeni "Integration Runtime" (IR) özelliğini kullanarak SSIS hizmetini ADF içinde yönetilen bir Azure hizmeti haline getirebilirsiniz. Sürüm 2’de bir SSIS IR’yi çalıştırarak, SSIS paketlerini bulutta yürütebilir, yönetebilir, izleyebilir ve oluşturabilirsiniz.
-
-### <a name="control-flow-and-scale"></a>Denetim akışı ve ölçeklendirme 
-Data Factory, modern veri ambarında çeşitli tümleştirme akışlarını ve desenlerini desteklemek için artık zaman dizisi verilerine bağlı olmayan yeni bir esnek veri işlem hattı modelini etkinleştirmiştir. Bu sürümle birlikte, bir veri işlem hattının denetim akışında koşulları ve dallanmayı modelleyebilir ve bu akışların içinde ve arasında parametreleri açıkça geçirebilirsiniz.
-
-Artık veri tümleştirme için gereken ve talep üzerine ya da bir saat zamanlamasına göre tekrarlanarak gönderilen herhangi bir akış stilini modelleme özgürlüğüne sahipsiniz. Daha önce mümkün olmayıp şu anda etkin olan birkaç yaygın akış şunlardır:   
-
-- Denetim akışı:
-    - Bir işlem hattı içindeki sıralı zincirleme etkinlikleri
-    - Bir işlem hattı içindeki etkinliklerin dallanması
-    - Parametreler
-        - Parametreler işlem hattı düzeyinde tanımlanabilir ve işlem hattı talep üzerine ya da bir tetikleyici ile çağrılırken bağımsız değişkenler geçirilebilir.
-        - Etkinlikler işlem hattına geçirilen bağımsız değişkenleri kullanabilir.
-    - Özel durum geçirme
-        - Durum da dahil olmak üzere etkinlik çıktıları, işlem hattının sonraki bir etkinliği tarafından kullanılabilir.
-    - Döngü kapsayıcıları
-        - For-each 
-- Tetikleyici temelli akışlar
-    - İşlem hatları talep üzerine veya duvar saati zamanlamasına göre tetiklenebilir.
-- Delta akışlar
-    - Verileri göle yüklemek için şirket içinde veya bulutta bulunan bir ilişkisel depodan boyut ya da başvuru tablolarını taşırken delta kopya için parametreleri kullanın ve yüksek filigranınızı tanımlayın. 
-
-Daha fazla bilgi için bkz. [Data Factory işlem hattında dallanma ve zincirleme etkinlikleri](tutorial-control-flow.md).
-
-### <a name="deploy-ssis-packages-to-azure"></a>SSIS paketlerini Azure'a dağıtma 
-SSIS iş yüklerinizi taşımak istiyorsanız, data factory sürüm 2 oluşturabilir ve bir Azure SSIS Tümleştirmesi Çalışma Zamanı (IR) sağlayabilirsiniz. Azure-SSIS IR, bulutta SSIS paketlerinizi çalıştırmaya ayrılmış Azure VM'lerin (düğümler) tam yönetilen bir kümesidir. Adım adım yönergeler için bkz. [SQL Server Integration Services paketlerini Azure'a dağıtma](tutorial-deploy-ssis-packages-azure.md). 
- 
-
-### <a name="sdks"></a>SDK’lar
-İleri düzey bir kullanıcıysanız ve bir programlama arabirimi arıyorsanız, sürüm 2 sık kullandığınız IDE'yi kullanarak işlem hattı oluşturmak, yönetmek ve izlemek için kullanılabilen zengin bir SDK kümesi sağlar.
-
-- *.NET SDK*: .NET SDK, sürüm 2 için güncelleştirilmiştir. 
-- *PowerShell*: PowerShell cmdlet'leri sürüm 2 için güncelleştirilmiştir. Sürüm 2 cmdlet'lerinin adında **DataFactoryV2** vardır. Örneğin: Get-AzureRmDataFactoryV2. 
-- *Python SDK*: Bu SDK sürüm 2 içindir.
-- *REST API*: REST API, sürüm 2 için güncelleştirilmiştir.  
-
-Sürüm 2 için güncelleştirilmiş olan SDK'lar sürüm 1 istemcileriyle uyumlu değildir. 
-
-### <a name="monitoring"></a>İzleme
-Şu anda sürüm 2 veri fabrikalarının yalnızca SDK ile izlenmesini desteklemektedir. Portal henüz sürüm 2 veri fabrikalarını izleme desteği sunmamaktadır. 
-
-## <a name="load-the-data-into-a-lake"></a>Verileri göle yükleme
-Data Factory, verileri karma ve heterojen ortamlardan Azure'a yüklemenizi sağlayan 30'dan fazla bağlayıcıya sahiptir. Dahili testlerin en son performans sonuçları ve ayarlama önerileri için bkz. [Performans ve ayar kılavuzu](copy-activity-performance.md). 
-
-Ayrıca kısa süre önce özel bir ağ ortamına yüklediğiniz şirket içinde barındırılan Tümleştirme Çalışma Zamanı için yüksek kullanılabilirlik ve ölçeklenebilirlik özelliklerini etkinleştirdik. Bu daha gelişmiş kullanılabilirlik ve ölçeklenebilirlik özellikleri için geniş kapsamlı 1. katman kurumsal müşteri gereksinimlerini hedeflemektedir.
-
-## <a name="top-level-concepts-in-version-2"></a>Sürüm 2’deki üst düzey kavramlar
+## <a name="top-level-concepts"></a>Üst düzey kavramlar
 Azure aboneliğinin bir veya birden çok Azure Data Factory örneği (veya veri fabrikası) olabilir. Azure Data Factory dört temel bileşenden oluşur. Bu bileşenler, üzerinde veri taşıma ve dönüştürme adımları ile veri odaklı iş akışları oluşturabileceğiniz platformu sağlamak üzere birlikte çalışır.
 
 ### <a name="pipeline"></a>İşlem hattı
@@ -147,8 +91,7 @@ Bağlı hizmetler Data Factory’de iki amaçla kullanılır:
 - Etkinlik yürütülmesini barındırabilen **işlem kaynağını** temsil etmek için. Örneğin, HDInsightHive etkinliği bir HDInsight Hadoop kümesinde yürütülür. Dönüştürme etkinlikleri ve desteklenen işlem ortamlarının listesi için [veri dönüştürme](transform-data.md) makalesine bakın.
 
 ### <a name="triggers"></a>Tetikleyiciler
-Tetikleyiciler, bir işlem hattı çalıştırmasının başlatılması gereken zamanı belirleyen işlem birimini temsil eder. Farklı etkinlik türleri için farklı tetikleyici türleri vardır. Önizleme için duvar saati zamanlayıcı tetikleyicisini destekliyoruz. 
-
+Tetikleyiciler, bir işlem hattı çalıştırmasının başlatılması gereken zamanı belirleyen işlem birimini temsil eder. Farklı etkinlik türleri için farklı tetikleyici türleri vardır. Data Factory, önizleme için duvar saati zamanlayıcı tetikleyicisini destekliyor. 
 
 ### <a name="pipeline-runs"></a>İşlem hattı çalıştırmaları
 İşlem hattı çalıştırması, işlem hattı yürütme örneğidir. İşlem hattı çalıştırmaları örneği genelde bağımsız değişkenlerin işlem hatlarında tanımlanan parametrelere iletilmesiyle oluşturulur. Bağımsız değişkenler el ile veya tetikleyici tanımı içinde geçirilebilir.
@@ -179,6 +122,9 @@ Azure Data Factory’nin kendisi verileri depolamaz. Veri taşımayı desteklene
 Data Factory yalnızca Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde kullanılabilir olsa da, Data Factory'de veri taşımayı destekleyen hizmet birçok bölgede küresel olarak kullanılabilmektedir. Veri deposunun güvenlik duvarı ardında kaldığı durumlarda şirket içi ortamınızda yüklü bir Veri Yönetimi Ağ Geçidi bunun yerine verileri taşır.
 
 Örneğin, Azure HDInsight kümesi ve Azure Machine Learning gibi işlem ortamlarınızın Batı Avrupa bölgesinde çalıştığını varsayalım. Kuzey Avrupa’da bir Azure Data Factory örneği oluşturup geliştirebilir ve bunu Batı Avrupa’daki işlem ortamlarınızda iş zamanlamak için kullanabilirsiniz. Data Factory'nin işlem ortamınızda işi tetiklemesi birkaç milisaniye alsa da, bilgi işlem ortamınızda işin çalıştırılma süresi değişmez.
+
+## <a name="compare-with-version-2"></a>Sürüm 2 ile karşılaştırma
+Data Factory hizmetinin 1 ve 2 numaralı sürümleri arasındaki farkların listesi için bkz. [Sürüm 1 ile karşılaştırma](compare-versions.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Veri fabrikası oluşturma hakkında bilgi edinmek için şu Hızlı Başlangıçlarda verilen adım adım yönergeleri izleyin: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md) ve Azure portalı. 

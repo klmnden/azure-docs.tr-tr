@@ -1,27 +1,19 @@
 ---
-title: "Hızlı Başlangıç - Linux için Azure Docker CE kümesi | Microsoft Docs"
+title: "Hızlı Başlangıç - Linux için Azure Docker CE kümesi"
 description: "Azure CLI ile Azure Container Service'de Linux kapsayıcıları için Docker CE kümesi oluşturmayı hızlı bir şekilde öğrenin."
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, Docker, Swarm
-keywords: 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 715076ee1ce33370ca2b2399549b7c907ac48f3e
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 67cea1bb11ac8b3ad05676eaba875da7d4726b6d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE kümesi dağıtma
 
