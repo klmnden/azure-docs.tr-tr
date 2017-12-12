@@ -4,7 +4,7 @@ description: "Azure AD uygulama proxy'si kullanırken ağ topolojisi konuları k
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 62b28ba446b4ffb13071b81805767bb34288fe2e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory Uygulama proxy'si kullanırken ağ topolojisi hakkında önemli noktalar
 
@@ -104,7 +104,7 @@ Giderek, kuruluşların kendi ağları barındırılan ortamlara taşıyor. Bu, 
 
 Ayrıca, kullanma, bağlayıcılar düzenleme göz önünde bulundurun [bağlayıcı grupları](active-directory-application-proxy-connectors-azure-portal.md) farklı konumlarda ve ağlar hedef uygulamalar için. 
 
-## <a name="common-use-cases"></a>Genel kullanım
+## <a name="common-use-cases"></a>Genel kullanım örnekleri
 
 Bu bölümde, birkaç yaygın senaryolar üzerinden yol. Varsayımında Azure AD kiracısı (ve bu nedenle proxy hizmeti uç noktası) Amerika Birleşik Devletleri (ABD) bulunur. Durumları dünyanın diğer bölgeler için de geçerlidir. Bu kullanımda ele alınan durumları.
 

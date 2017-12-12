@@ -4,7 +4,7 @@ description: "Hem kişisel Microsoft hesabı olan kullanıcılar oturum açtığ
 services: active-directory
 documentationcenter: 
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2a2108fb2205f646b2ac807922a90939bdee9f6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Oturum açma bir AngularJS tek sayfalı uygulama için - .NET ekleyin
 Bu makalede bir AngularJS uygulamasına Azure Active Directory v2.0 uç kullanarak oturum açın. desteklenen Microsoft hesapları ekleyeceğiz.  V2.0 uç noktası, uygulamanızda tek tümleştirme gerçekleştirmek ve hem kişisel hem de iş/Okul hesapları olan kullanıcıların kimlik doğrulaması sağlar.
@@ -92,7 +92,7 @@ Alternatif olarak, el ile yükleyebileceğiniz [adal.js](https://raw.githubuserc
 
 REST API nasıl çalıştığını ele harcamanız oluşturacağız her zaman olmasıdır.  Kodda karıştırın geçici bir çözüm, ancak Azure AD ile API'leri web güvenliğini sağlama hakkında daha fazla bilgi edinmek istiyorsanız kullanıma çekinmeyin [bu makalede](active-directory-v2-devquickstarts-dotnet-api.md). 
 
-## <a name="sign-users-in"></a>Kullanıcıların oturumunu açma
+## <a name="sign-users-in"></a>Kullanıcı oturumları açma
 Bazı kimlik kod yazma süresi.  Zaten sorunsuz şekilde Açısal yönlendirme yöntemleriyle oynadığı bir AngularJS sağlayıcısı bu adal.js içeren fark etmiş olabilirsiniz.  Uygulama adal modülü ekleyerek başlayın:
 
 ```js

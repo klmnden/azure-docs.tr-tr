@@ -3,7 +3,7 @@ title: "Talep eşleme Azure Active Directory'de (genel Önizleme) | Microsoft Do
 description: "Bu sayfa, Azure Active Directory talep eşleme açıklar."
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 78dbbe085fca26ad529c6262ba852f3c06ace404
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) eşleme talepleri
 
@@ -95,7 +95,7 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|E-posta|
+|e-posta|
 |uç noktası|
 |enfpolids|
 |exp|
@@ -154,8 +154,8 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |refresh_token|
 |refreshtoken|
 |request_nonce|
-|Kaynak|
-|Rolü|
+|kaynak|
+|rol|
 |roles|
 |Kapsam|
 |SCP|
@@ -283,19 +283,19 @@ ID öğesi, kaynak bilgisayarda hangi özelliğinin değeri için talep sağlar 
 |Kaynak|Kimlik|Açıklama|
 |-----|-----|-----|
 |Kullanıcı|Soyadı|Aile adı|
-|Kullanıcı|givenName|Verilen ad|
-|Kullanıcı|görünen adı|Görünen ad|
+|Kullanıcı|givenName|Ad|
+|Kullanıcı|görünen adı|Görünen Ad|
 |Kullanıcı|objectID|ObjectID|
 |Kullanıcı|Posta|E-posta adresi|
-|Kullanıcı|userPrincipalName|Kullanıcı asıl adı|
+|Kullanıcı|userPrincipalName|Kullanıcı Asıl Adı|
 |Kullanıcı|Bölüm|Bölüm|
 |Kullanıcı|onpremisessamaccountname|Şirket içi Sam hesap adı|
 |Kullanıcı|netbiosname|NetBIOS adı|
 |Kullanıcı|DNSEtkiAlanıAdı|DNS etki alanı adı|
 |Kullanıcı|onpremisesecurityidentifier|Şirket içi güvenlik tanımlayıcısı|
 |Kullanıcı|Şirket adı|Kuruluş Adı|
-|Kullanıcı|streetAddress|Sokak adresi|
-|Kullanıcı|posta kodu|Posta kodu|
+|Kullanıcı|streetAddress|Posta Adresi|
+|Kullanıcı|posta kodu|Posta Kodu|
 |Kullanıcı|preferredlanguange|Tercih edilen dili|
 |Kullanıcı|onpremisesuserprincipalname|Şirket içi UPN|
 |Kullanıcı|mailnickname|Posta takma adı|
@@ -319,9 +319,9 @@ ID öğesi, kaynak bilgisayarda hangi özelliğinin değeri için talep sağlar 
 |Kullanıcı|city|Şehir|
 |Kullanıcı|durum|Durum|
 |Kullanıcı|İş Unvanı|İş Unvanı|
-|Kullanıcı|EmployeeID|Çalışan kimliği|
+|Kullanıcı|EmployeeID|Çalışan Kimliği|
 |Kullanıcı|facsimiletelephonenumber|Faks telefon numarası|
-|Uygulama, kaynak, hedef kitle|görünen adı|Görünen ad|
+|Uygulama, kaynak, hedef kitle|görünen adı|Görünen Ad|
 |Uygulama, kaynak, hedef kitle|ait nesneleri|ObjectID|
 |Uygulama, kaynak, hedef kitle|etiketler|Hizmet sorumlusu etiketi|
 |Şirket|tenantcountry|Kiracının ülke|
@@ -381,9 +381,9 @@ Seçilen yönteme bağlı olarak, bir dizi girişleri ve çıkışları beklenir
 |Kaynak|Kimlik|Açıklama|
 |-----|-----|-----|
 |Kullanıcı|Posta|E-posta adresi|
-|Kullanıcı|userPrincipalName|Kullanıcı asıl adı|
+|Kullanıcı|userPrincipalName|Kullanıcı Asıl Adı|
 |Kullanıcı|onpremisessamaccountname|Şirket içi Sam hesap adı|
-|Kullanıcı|EmployeeID|Çalışan kimliği|
+|Kullanıcı|EmployeeID|Çalışan Kimliği|
 |Kullanıcı|extensionattribute1|1 uzantısı özniteliği|
 |Kullanıcı|extensionattribute2|Uzantı özniteliği 2|
 |Kullanıcı|extensionattribute3|3 uzantısı özniteliği|

@@ -4,7 +4,7 @@ description: "Bildirim temelli hazırlama ifadelerini açıklanmaktadır."
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83fe949468a67318c766f0070498c35300af4deb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect eşitleme: bildirim temelli hazırlama ifadeleri anlama
 Azure AD Connect eşitleme ilk Forefront Identity Manager 2010'da sunulan bildirim temelli hazırlama üzerinde oluşturur. Derlenmiş kod yazmak zorunda kalmadan, tam kimlik tümleştirme iş mantığı uygulamanız imkan tanır.
@@ -50,7 +50,7 @@ Bir parametre bir bağlayıcı veya PowerShell kullanan bir yönetici tarafında
 
 Active Directory Bağlayıcısı gelen eşitleme kuralları için aşağıdaki parametreleri sağlanan:
 
-| Parametre Adı | Açıklama |
+| Parametre Adı | Yorum |
 | --- | --- |
 | Domain.Netbios |Şu anda alınmakta, örneğin FABRIKAMSALES etki alanının NetBIOS biçimi |
 | Domain.FQDN |Şu anda içeri aktarılmakta olan, etki alanı örneğin sales.fabrikam.com FQDN biçimi |

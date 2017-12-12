@@ -4,7 +4,7 @@ description: "Azure portalında Azure Active Directory kullanıcı etkinlik rapo
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 732a3c376f6e99f6a5b5c3043ef8cb4884a4d468
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure portalında etkinlik raporları Bul
 

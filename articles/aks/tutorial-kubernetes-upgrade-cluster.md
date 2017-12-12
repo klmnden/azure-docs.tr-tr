@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: aa457c97292fc9f97d3bc4769ca45d55dd5829a6
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Azure kapsayıcı Hizmeti'nde (AKS) yükseltme Kubernetes
 
-Azure CLI kullanarak Azure kapsayıcı hizmeti (AKS) küme yükseltilebilir. Yükseltme işlemi sırasında Kubernetes düğümleri dikkatle olan [cordoned ve boşaltmış](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) çalışan uygulamalar engellemeyi en aza indirmek için.
+Azure CLI kullanarak Azure kapsayıcı hizmeti (AKS) küme yükseltilebilir. Yükseltme işlemi sırasında Kubernetes düğümleri dikkatle olan [cordoned ve boşaltmış] [ kubernetes-drain] çalışan uygulamalar engellemeyi en aza indirmek için.
 
 Bu öğreticide sekiz sekizlisi kısım, Kubernetes küme yükseltilir. Tamamlamanız görevler aşağıdakileri içerir:
 
@@ -30,12 +30,12 @@ Bu öğreticide sekiz sekizlisi kısım, Kubernetes küme yükseltilir. Tamamlam
 
 Önceki eğitimlerine bir uygulama bir kapsayıcı görüntü, Azure kapsayıcı kayıt defterine karşıya bu görüntü ve oluşturulan Kubernetes küme paketlenmiştir. Uygulama sonra Kubernetes kümede çalıştırıldı.
 
-Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./tutorial-kubernetes-prepare-app.md).
+Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Küme sürümlerindeki Al
 
-Bir küme yükseltmeden önce kullanın `az aks get-versions` hangi Kubernetes güncelleştirmeleri denetlemek için komutu yükseltme için kullanılabilir.
+Bir kümeyi yükseltmeden önce, `az aks get-versions` komutunu kullanarak hangi Kubernetes sürümlerinin yükseltme için kullanılabilir olduğunu öğrenin.
 
 ```azurecli-interactive
 az aks get-versions --name myK8sCluster --resource-group myResourceGroup --output table
@@ -115,7 +115,7 @@ az aks upgrade --name myK8sCluster --resource-group myResourceGroup --kubernetes
 
 ## <a name="validate-upgrade"></a>Yükseltme doğrula
 
-Şimdi onaylayabilirsiniz ile yükseltme başarılı `az aks show` komutu.
+Artık `az aks show` komutuyla yükseltmenin başarılı olup olmadığını doğrulayabilirsiniz.
 
 ```azurecli-interactive
 az aks show --name myK8sCluster --resource-group myResourceGroup --output table
@@ -141,4 +141,11 @@ Bu öğreticide, bir AKS küme Kubernetes yükseltilmiştir. Aşağıdaki görev
 AKS hakkında daha fazla bilgi için bu bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
-> [AKS genel bakış](./intro-kubernetes.md)
+> [AKS genel bakış][aks-intro]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-intro]: ./intro-kubernetes.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

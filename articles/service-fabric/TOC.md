@@ -50,14 +50,11 @@
 ## [Terminoloji](service-fabric-technical-overview.md)
 
 ## Uygulama ve hizmet oluşturma
-### Desteklenen programlama modelleri
-#### [Genel Bakış](service-fabric-choose-framework.md)
-#### Kapsayıcılar
-##### [Genel Bakış](service-fabric-containers-overview.md)
+### [Desteklenen programlama modelleri](service-fabric-choose-framework.md)
+#### [Kapsayıcılar](service-fabric-containers-overview.md)
 ##### [Docker Compose (önizleme)](service-fabric-docker-compose.md)
 ##### [Kaynak idaresi](service-fabric-resource-governance.md)
-#### Reliable Services
-##### [Genel Bakış](service-fabric-reliable-services-introduction.md)
+#### [Reliable Services](service-fabric-reliable-services-introduction.md)
 ##### [Reliable Services yaşam döngüsü - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Reliable Services yaşam döngüsü - Java](service-fabric-reliable-services-lifecycle-java.md)
 ##### [Güvenilir Koleksiyonlar](service-fabric-reliable-services-reliable-collections.md)
@@ -69,8 +66,7 @@
 ##### [Güvenilir Durum Yöneticisi ve Güvenilir Koleksiyon iç işlevleri](service-fabric-reliable-services-reliable-collections-internals.md)
 ##### [Gelişmiş kullanım](service-fabric-reliable-services-advanced-usage.md)
 
-#### Reliable Actors
-##### [Genel Bakış](service-fabric-reliable-actors-introduction.md)
+#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 ##### [Mimari](service-fabric-reliable-actors-platform.md)
 ##### [Yaşam döngüsü ve atık toplama](service-fabric-reliable-actors-lifecycle.md)
 ##### [Durum yönetimi](service-fabric-reliable-actors-state-management.md)
@@ -86,10 +82,9 @@
 #### [Hizmet durumu](service-fabric-concepts-state.md)
 #### [Hizmet bölümleme](service-fabric-concepts-partitioning.md)
 #### [Hizmetlerin kullanılabilirliği](service-fabric-availability-services.md)
-#### [Çoğaltmalar ve örnekler](service-fabric-concepts-replica-lifecycle.md)
+#### [Çoğaltma ve örnek yaşam döngüsü](service-fabric-concepts-replica-lifecycle.md)
 #### [Yeniden yapılandırma](service-fabric-concepts-reconfiguration.md)
-#### Hizmet iletişimleri
-##### [Genel Bakış](service-fabric-connect-and-communicate-with-services.md)
+#### [Hizmet iletişimleri](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS hizmeti](service-fabric-dnsservice.md)
 ##### [Ters proxy](service-fabric-reverseproxy.md)
 ##### [Güvenli iletişim için ters proxy ayarlarını yapılandırma](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -99,19 +94,16 @@
 
 ### [Uygulama kapasitesi planlama](service-fabric-capacity-planning.md)
 
-## Uygulamaları yönetme
-### [Genel Bakış](service-fabric-application-lifecycle.md)
-### [ImageStoreConnectionString ayarı](service-fabric-image-store-connection-string.md)
-### Uygulama yükseltme
-#### [Genel Bakış](service-fabric-application-upgrade.md)
+## [Uygulamaları yönetme](service-fabric-application-lifecycle.md)
+### [Uygulama yükseltme](service-fabric-application-upgrade.md)
 #### [Yapılandırma](service-fabric-visualstudio-configure-upgrade.md)
 #### [Uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md)
 #### [Uygulama yükseltmede verileri serileştirme](service-fabric-application-upgrade-data-serialization.md)
 #### [Uygulama yükseltme ile ilgili gelişmiş konular](service-fabric-application-upgrade-advanced.md)
 ### [Hata analizine genel bakış](service-fabric-testability-overview.md)
+### [ImageStoreConnectionString ayarı](service-fabric-image-store-connection-string.md)
 
-## Küme oluşturma ve yönetme
-### [Genel Bakış](service-fabric-deploy-anywhere.md)
+## [Küme oluşturma ve yönetme](service-fabric-deploy-anywhere.md)
 ### Planlama ve hazırlama
 #### [Kapasite planlaması](service-fabric-cluster-capacity.md)
 #### [Olağanüstü durum kurtarma](service-fabric-disaster-recovery.md)
@@ -121,8 +113,7 @@
 ### Azure’da kümeler
 #### [Düğüm türleri ve VM Ölçek Kümeleri](service-fabric-cluster-nodetypes.md)
 #### [Küme ağ desenleri](service-fabric-patterns-networking.md)
-### Küme kaynağı yöneticisi
-#### [Genel Bakış](service-fabric-cluster-resource-manager-introduction.md)
+### [Küme kaynağı yöneticisi](service-fabric-cluster-resource-manager-introduction.md)
 #### [Mimari](service-fabric-cluster-resource-manager-architecture.md)
 #### [Bir kümeyi tanımlama](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [Uygulama gruplarına genel bakış](service-fabric-cluster-resource-manager-application-groups.md)
@@ -135,8 +126,6 @@
 #### [Küme Dengeleme](service-fabric-cluster-resource-manager-balancing.md)
 #### [Azaltma](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Hizmet taşıma](service-fabric-cluster-resource-manager-movement-cost.md)
-
-## [API Management ile tümleştirme](service-fabric-api-management-overview.md)
 
 ## İzleme ve tanılama
 ### [İzleme ve tanılama uygulamaları](service-fabric-diagnostics-overview.md)
@@ -164,13 +153,14 @@
 #### [OMS ile olayları çözümleme](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Yerel kümenizde sorun giderme](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [API Management ile tümleştirme](service-fabric-api-management-overview.md)
+
 # Nasıl yapılır kılavuzları
 ## Geliştirme ortamınızı kurma
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Service Fabric CLI’sını ayarlama](service-fabric-cli.md)
+### [Service Fabric CLI’sını ayarlama](service-fabric-cli.md)
 
 ## Uygulama oluşturma
 ### [Visual Studio’da ilk C# uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -231,7 +221,7 @@
 #### [Uygulama parolalarını yönetme](service-fabric-application-secret-management.md)  
 #### [Uygulamanıza yönelik güvenlik ilkeleri yapılandırma](service-fabric-application-runas-security.md)
 
-## Bir Windows geliştirme ortamında çalışma
+## Bir Windows/VS geliştirme ortamında çalışma
 ### [Visual Studio'da uygulamaları yönetme](service-fabric-manage-application-in-visual-studio.md)
 ### [Visual Studio'da güvenli bağlantı yapılandırma](service-fabric-visualstudio-configure-secure-connections.md)
 ### [Uygulamanızı birden çok ortam için yapılandırma](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -240,7 +230,7 @@
 ### [Yerel olarak izleme ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Windows'ta Linux kümesi ayarlama](service-fabric-local-linux-cluster-windows.md)
 
-## Bir Linux geliştirme ortamında çalışma
+## Bir Linux/Eclipse geliştirme ortamında çalışma
 ### [Java ile geliştirme için Eclipse eklentisini kullanmaya başlama](service-fabric-get-started-eclipse.md)
 ### [Eclipse’te Java hizmeti hata ayıklaması](service-fabric-debugging-your-application-java.md)
 ### [Yerel olarak izleme ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

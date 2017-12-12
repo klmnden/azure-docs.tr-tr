@@ -5,7 +5,7 @@ keywords: "Azure AD Connect Yükleme Sihirbazı'nı ikinci çalıştırdığın�
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 42855b785c0ab334e33a622c8db912ce2438c627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5688175f5277139b09b648bedbedd7e91e1478f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect eşitleme: Yükleme Sihirbazı'nı ikinci kez çalıştırma
 İlk kez Azure AD Connect Yükleme Sihirbazı'nı çalıştırdığınızda, yüklemenizi yapılandırma konusunda aracılığıyla açıklanmaktadır. Yükleme Sihirbazı'nı yeniden çalıştırın, Bakım seçenekleri sunar.
@@ -41,7 +41,7 @@ Görevlerinden birini seçin ve tıklatın **sonraki** devam etmek için.
 >
 >
 
-## <a name="view-current-configuration"></a>Geçerli yapılandırmayı görüntüle
+## <a name="view-current-configuration"></a>Geçerli yapılandırmayı görüntüleme
 Bu seçenek şu anda yapılandırılmış seçeneklerinizi hızlı bir görünümünü sağlar.
 
 ![Tüm seçenekler ve durumlarına Listesi Sayfası](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
@@ -62,7 +62,7 @@ Bu seçenek, eşitleme yapılandırma değişiklikleri yapmak için kullanılır
 * Katılma yöntemi nesneler için farklı ormandan değiştirin.
 * Grup tabanlı filtreleme etkinleştirin.
 
-## <a name="refresh-directory-schema"></a>Dizin şemasını Yenile
+## <a name="refresh-directory-schema"></a>Dizin şemasını yenile
 Şema şirket içi birini değiştirdiyseniz, bu seçenek kullanılır AD DS orman. Örneğin, Exchange yüklediyseniz veya bir Windows Server 2012 şemasına aygıt nesneleri ile yükseltme. Bu durumda, şema yeniden AD DS'den okuma ve önbelleğinde güncelleştirmek için Azure AD Connect istemeniz gerekir. Bu eylem ayrıca eşitleme kuralları yeniden oluşturur. Örnek olarak Exchange şema eklerseniz, Exchange için eşitleme kurallarını yapılandırma eklenir.
 
 Bu seçeneği belirlediğinizde, yapılandırmanızda tüm dizinleri listelenir. Varsayılan ayar tutun ve tüm ormanlarda yenileyin veya bunlardan bazıları seçimini kaldırın.
@@ -78,7 +78,7 @@ Seçenek hazırlama şu anda etkin veya devre dışı olmadığını gösterir:
 Durumu değiştirmek için bu seçeneği belirleyin ve seçin veya onay kutusunun seçimini kaldırın.  
 ![Ayrıca hazırlama modunu geçerli durumunu gösteren seçeneği](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Kullanıcı oturum açma değiştirme
+## <a name="change-user-sign-in"></a>Kullanıcı oturumunu değiştir
 Bu seçenek, Federasyon veya diğer karşılaşmamak için Parola Eşitleme'den değiştirmenizi sağlar. Çeviremezsiniz **yapılandırmayın**.
 
 Bu seçenek hakkında daha fazla bilgi için bkz: [kullanıcı oturum açma](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).

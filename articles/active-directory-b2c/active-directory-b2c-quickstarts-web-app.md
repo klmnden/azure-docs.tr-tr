@@ -4,7 +4,7 @@ description: "Test sürücü oturum açın, kaydolma, profili düzenlemek ve bir
 services: active-directory-b2c
 documentationcenter: .net
 author: saraford
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 ms.assetid: 2ffb780d-2c51-4c2e-b8d6-39c40a81a77e
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: patricka
-ms.openlocfilehash: 07f2c21409176d30f4570e267a4472745f843f85
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bc56da695145f396a2899fb9dc7add3af9a549e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="test-drive-an-azure-ad-b2c-enabled-web-app"></a>Web uygulaması test sürücü bir Azure AD B2C etkin
 
@@ -101,7 +101,7 @@ Azure Active Directory B2C profillerini güncelleştirme yapmalarına izin verme
 
 Değişiklik, **görünen adı** ve **Şehir**.  Tıklatın **devam** profilinizi güncelleştirmek için.
 
-![Profil güncelleştirme](media/active-directory-b2c-quickstarts-web-app/update-profile-web.png)
+![Profili güncelleştir](media/active-directory-b2c-quickstarts-web-app/update-profile-web.png)
 
 Görünen adınızı sayfanın sağ üst kısmında gösterilen güncelleştirilmiş adı dikkat edin. 
 

@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ve yetenekleri Yönetic
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: dab8debd-3b7b-4656-9bf0-1963ad8fce05
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: a6c7bc08c7258ae463902999cc6c73198d54ac66
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7cfa44ca070996d7ae85a23f3297b07b406881e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Öğretici: Azure Active Directory Tümleştirme becerileri yöneticisiyle
 
@@ -58,7 +58,7 @@ Azure AD becerileri Yöneticisi tümleştirilmesi yapılandırmak için yönetil
 
 **Galeriden becerileri Yöneticisi eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde ** [Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -84,11 +84,11 @@ Değerini becerileri Yöneticisi'nde, Ata **kullanıcı adı** değeri olarak Az
 
 Yapılandırma ve Azure AD çoklu oturum açma yetenekleri Yöneticisi ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on) ** - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) ** - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Yetenekler Yöneticisi test kullanıcısı oluşturma](#create-a-skills-manager-test-user) ** - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı becerileri Yöneticisi sağlamak için.
-4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user) ** - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Test çoklu oturum açma](#test-single-sign-on) ** - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Yetenekler Yöneticisi test kullanıcısı oluşturma](#create-a-skills-manager-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı becerileri Yöneticisi sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 

@@ -4,7 +4,7 @@ description: "Çalışma zamanında dinamik olarak değişir HTML5/CSS içeriğe
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: kullanıcı Arabirimi ile dinamik içerik özel ilkeler kullanarak yapılandırma
 Azure Active Directory B2C kullanarak (Azure AD B2C) özel ilkeler, bir parametre bir sorgu dizesi olarak gönderebilirsiniz. HTML uç noktanızı parametresini geçirerek, sayfa içeriği dinamik olarak değiştirebilirsiniz. Örneğin, web ya da mobil uygulama geçirdiğiniz parametre temel Azure AD B2C kaydolma veya oturum açma sayfasında, arka plan resmi değiştirebilirsiniz. 
@@ -155,7 +155,7 @@ Bulun `<img>` içeren öğeyi `ID` değeri *background_background_image*ve ardı
     **App Service Oluştur** penceresi açılır. İçinde Azure'da ASP.NET web uygulamasını çalıştırmak için gereken tüm Azure kaynakların oluşturmaya başlayabilirsiniz.
 
     > [!NOTE]
-    > Yayımlama hakkında daha fazla bilgi için bkz: [bir ASP.NET web uygulaması oluşturma](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Yayımlama hakkında daha fazla bilgi için bkz: [bir ASP.NET web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. İçinde **Web uygulaması adı** benzersiz uygulama adı yazın (geçerli karakterler: a-z, A-Z, 0-9 ve tire (-). Web uygulamasının URL'si `http://<app_name>.azurewebsites.NET` şeklindedir; burada `<app_name>`, web uygulamanızın adıdır. Otomatik oluşturulmuş benzersiz adı kabul edebilirsiniz.
 

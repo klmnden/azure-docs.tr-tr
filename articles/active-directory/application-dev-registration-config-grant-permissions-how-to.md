@@ -4,7 +4,7 @@ description: "Azure AD portalı veya bir URL parametresini kullanarak özel geli
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c42dc18580359fc82359710258d9b87d1c4524ba
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 0f13efd5e629bde592a3ab3a3e2db4a22180b5bb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Özel geliştirilmiş bir uygulama için izinlerin nasıl
 

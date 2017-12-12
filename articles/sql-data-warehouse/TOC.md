@@ -38,6 +38,7 @@
 
 ## Tümleştirme
 ### [Genel Bakış](sql-data-warehouse-overview-integrate.md)
+### [SQL Veritabanı esnek sorgu](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## İzleme ve ayarlama
@@ -100,9 +101,8 @@
 
 
 ## Tümleştirme
-###  [SQL Veritabanı’ndan esnek sorguları yapılandırma](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [SQL Veritabanı esnek sorgu yapılandırma](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Azure Stream Analytics işi ekleme](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [Esnek sorguyu yapılandırma](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Makine öğrenmesini kullanma](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Power BI ile görselleştirme](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

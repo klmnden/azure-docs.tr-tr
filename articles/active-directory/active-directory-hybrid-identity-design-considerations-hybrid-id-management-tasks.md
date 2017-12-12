@@ -4,7 +4,7 @@ description: "Koşullu erişim denetimi ile Azure Active Directory kullanıcı d
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 921c8391fc18eca35d10c3ade158a98ae88df397
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3257b5b9c714103773dfe646093cb632f500d459
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Karma kimlik yaşam döngüsü planlaması
 Kimlik, enterprise mobility ve uygulama erişim stratejilerin temellerinden biridir. Mobil cihaz veya SaaS uygulaması için imzalama olup olmadığını kimliğinizi her şeyi erişmesini için anahtardır. En yüksek düzeyde bir kimlik yönetimi çözümü birleştirin ve otomatikleştirmek ve kaynakları sağlama işlemidir merkezileştirme içeren, kimlik depoları arasında eşitleniyor kapsar. Kimlik çözümü, şirket içi ve bulut arasında merkezi bir kimlik olabilir ve aynı zamanda merkezi kimlik doğrulaması ve güvenli bir şekilde paylaşmak koruyup dış kullanıcılar ve işletmelerin işbirliği yapmak için Kimlik Federasyonu çeşit kullanmanız gerekir. Kaynakları işletim sistemlerini ve uygulamaları kişilere çeşitli ya da bir kuruluşla ilişkili. Organizasyon yapısı sağlama ilkeleri ve yordamlarıyla uyum sağlayacak şekilde değiştirilebilir.

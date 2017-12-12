@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ile Hightail arasında 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: ba55f9b62d274aa3eb91723c62b53f54de0891b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2333a56cd9369cb66c4944304472462d2f2f7511
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Öğretici: Azure Active Directory Tümleştirme Hightail ile
 
@@ -57,7 +57,7 @@ Azure AD Hightail tümleştirilmesi yapılandırmak için yönetilen SaaS uygula
 
 **Galeriden Hightail eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde ** [Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -86,11 +86,11 @@ Hightail içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'
 
 Yapılandırma ve Azure AD çoklu oturum açma Hightail ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Hightail test kullanıcısı oluşturma](#creating-a-hightail-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Hightail sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on) ** - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user) ** - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Hightail test kullanıcısı oluşturma](#creating-a-hightail-test-user) ** - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Hightail sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user) ** - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on) ** - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -133,7 +133,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
-    | Öznitelik adı | Öznitelik değeri |
+    | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |
     | FirstName | User.givenName |
     | Soyadı | User.surname |
@@ -231,7 +231,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
 Bu bölümün amacı Britta Simon içinde Hightail adlı bir kullanıcı oluşturmaktır. 
 
-Bu bölümde, eylem öğe yok. Yalnızca zaman kullanıcı hazırlama özel taleplere dayanarak destekler hightail. Özel talep bölümünde gösterildiği gibi yapılandırdıysanız  **[yapılandırma Azure AD çoklu oturum açma](#configuring-azure-ad-single-sign-on)**  yukarıdaki kullanıcı henüz yok uygulamada otomatik olarak oluşturulur. 
+Bu bölümde, eylem öğe yok. Yalnızca zaman kullanıcı hazırlama özel taleplere dayanarak destekler hightail. Özel talep bölümünde gösterildiği gibi yapılandırdıysanız ** [yapılandırma Azure AD çoklu oturum açma](#configuring-azure-ad-single-sign-on) ** yukarıdaki kullanıcı henüz yok uygulamada otomatik olarak oluşturulur. 
 
 >[!NOTE]
 >Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [Hightail destek ekibi](mailto:support@hightail.com). 

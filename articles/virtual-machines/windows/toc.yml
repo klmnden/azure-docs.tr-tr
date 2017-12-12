@@ -66,6 +66,9 @@
         - name: İşlem için iyileştirilmiş
           href: sizes-compute.md
         - name: Bellek için iyileştirilmiş
+          items:
+            - name: Kısıtlanmış vCPU'lar
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Depolama için iyileştirilmiş
           href: sizes-storage.md

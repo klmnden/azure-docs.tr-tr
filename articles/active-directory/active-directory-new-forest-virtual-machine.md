@@ -1,11 +1,11 @@
 ---
 title: "Bir Azure sanal ağ üzerinde bir Active Directory ormanı yükleme | Microsoft Docs"
-description: "Bir Azure sanal ağ üzerindeki bir sanal makinede (VM) yeni bir Active Directory ormanı oluşturma açıklanmaktadır Öğreticisi."
+description: "Bir sanal makine (VM) yeni bir Active Directory ormanı oluşturmak bir Azure sanal ağında açıklanmaktadır Öğreticisi."
 services: active-directory, virtual-network
 keywords: "Active directory sanal makine, yükleme active directory ormanı, azure active directory videolarını "
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 tags: 
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Bir Azure sanal ağ üzerinde yeni bir Active Directory ormanı yüklemek
 Bu makalede, bir sanal makine (VM) üzerinde yeni bir Windows Server Active Directory ortamı oluşturmak gösterilmiştir bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu durumda, Azure sanal ağı bir şirket ağına bağlı değil.
@@ -27,7 +27,7 @@ Bu makalede, bir sanal makine (VM) üzerinde yeni bir Windows Server Active Dire
 Bu ilgili makalelerde ilginizi çekebilir:
 
 * Bu adımları gösteren bir video için bkz [bir Azure sanal ağ üzerinde yeni bir Active Directory ormanı yükleme](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-* İsteğe bağlı olarak yapabileceğiniz [siteden siteye VPN bağlantısını yapılandırma](../vpn-gateway/vpn-gateway-site-to-site-create.md) ve ardından yeni bir orman yüklemek veya bir Azure sanal ağı şirket içi ormana genişletir. Bu adımlar için bkz: [bir Azure sanal ağında bir çoğaltma Active Directory etki alanı denetleyicisi yükleme](active-directory-install-replica-active-directory-domain-controller.md).
+* İsteğe bağlı olarak yapabileceğiniz [siteden siteye VPN bağlantısını yapılandırma](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) ve ardından yeni bir orman yüklemek veya bir Azure sanal ağı şirket içi ormana genişletir. Bu adımlar için bkz: [bir Azure sanal ağında bir çoğaltma Active Directory etki alanı denetleyicisi yükleme](active-directory-install-replica-active-directory-domain-controller.md).
 * Active Directory etki alanı Hizmetleri (AD DS) bir Azure sanal ağ üzerinde yükleme ilgili kavramsal kılavuzlar için bkz: [yönergeleri dağıtma Windows Server Active Directory için Azure sanal makineler üzerinde](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Senaryo diyagramı
@@ -45,7 +45,7 @@ Bu senaryoda, dış kullanıcılar etki alanına katılmış sunucularda çalı�
 | **Active Directory veritabanı depolama** |İsteğe bağlı olarak C:\ varsayılan depolama konumunu değiştirme |C:\ varsayılan depolama konumunu değiştirmeniz gerekir |
 
 ## <a name="create-an-azure-virtual-network"></a>Bir Azure sanal ağ oluşturma
-1. Klasik Azure portalında oturum açın.
+1. Azure Portal’da oturum açın.
 2. Sanal ağ oluşturun. Tıklatın **ağlar** > **bir sanal ağ oluşturma**. Sihirbazı tamamlamak için aşağıdaki tabloda değerleri kullanın.
 
    | Bu sihirbaz sayfasında... | Bu değerleri belirtin |
@@ -59,7 +59,7 @@ Gerektiğinde DC rolü barındırmak için sanal makineleri oluşturmak için a�
 
 Kullanıcı Arabirimi yerine Windows PowerShell kullanarak sanal makineleri oluşturmak için bkz: [oluşturmak ve Windows tabanlı sanal makineleri önceden için kullanım Azure PowerShell](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-1. Klasik portalda tıklatın **yeni** > **işlem** > **sanal makine** > **Galeri'den**. Sihirbazı tamamlamak için aşağıdaki değerleri kullanın. Başka bir değer önerilen ya da gerekli olmadıkça bir ayar için varsayılan değeri kabul edin.
+1. Azure portalında seçin **yeni** > **işlem**ve ardından sanal makineyi seçin. Sihirbazı tamamlamak için aşağıdaki değerleri kullanın. Başka bir değer önerilen ya da gerekli olmadıkça bir ayar için varsayılan değeri kabul edin.
 
    | Bu sihirbaz sayfasında... | Bu değerleri belirtin |
    | --- | --- |
@@ -108,7 +108,7 @@ Windows PowerShell'i kullanma hakkında daha fazla bilgi için bkz: [Azure cmdle
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Bir Azure sanal ağ üzerinde yeni bir Active Directory ormanı yükleme](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * [Windows Server Active Directory, Azure sanal makinelerde dağıtmak için yönergeler](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-* [Siteden siteye VPN bağlantısını yapılandırma](../vpn-gateway/vpn-gateway-site-to-site-create.md)
+* [Siteden siteye VPN bağlantısını yapılandırma](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Bir Azure sanal ağındaki bir çoğaltma Active Directory etki alanı denetleyicisi yükleme](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure BT Uzmanı Iaas: (01) sanal makine temelleri](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure BT Uzmanı Iaas: oluşturma (05) sanal ağlar ve şirket içi bağlantılar](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)

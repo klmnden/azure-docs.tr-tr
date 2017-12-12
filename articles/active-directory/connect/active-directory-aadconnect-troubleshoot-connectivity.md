@@ -4,7 +4,7 @@ description: "Azure AD Connect ile bağlantı sorunlarının nasıl giderileceğ
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect ile ilgili bağlantı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasında bağlantı nasıl çalıştığını ve bağlantı sorunlarının nasıl giderileceği açıklanmaktadır. Bu sorunları bir proxy sunucusu olan bir ortamda görüntülenmesine olasılığı daha yüksektir.
@@ -180,7 +180,7 @@ Kimlik doğrulaması başarılı oldu. Şirket bilgileri, Azure AD'den alınamad
 ### <a name="retrievedomains"></a>RetrieveDomains
 Kimlik doğrulaması başarılı oldu. Azure AD etki alanı bilgileri alınamadı.
 
-### <a name="unexpected-exception"></a>Beklenmeyen bir özel durum
+### <a name="unexpected-exception"></a>Beklenmeyen özel durum
 Yükleme Sihirbazı'nda beklenmeyen bir hata olarak gösterilir. Kullanmaya çalıştığınızda oluşabilir bir **Microsoft Account** yerine **okul veya kuruluş hesabı**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Önceki sürümler için sorun giderme adımları.

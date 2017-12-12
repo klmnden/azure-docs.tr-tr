@@ -4,7 +4,7 @@ description: "AD etki alanı Hizmetleri ve şirket içi AD Federasyon Hizmetleri
 services: active-directory
 documentationcenter: 
 author: femila
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Windows Server Active Directory Azure sanal makinelerde dağıtmak için yönergeler
 Bu makalede dağıtma Windows Server Active Directory etki alanı Hizmetleri (AD DS) ve Active Directory Federasyon Hizmetleri (AD FS) Microsoft Azure sanal makinelerde dağıtmak ve şirket arasındaki önemli farklılıklar açıklanır.

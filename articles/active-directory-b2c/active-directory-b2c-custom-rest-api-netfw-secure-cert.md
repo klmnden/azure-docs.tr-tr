@@ -4,7 +4,7 @@ description: "Azure AD B2C özel, REST API talep alışverişlerine istemci sert
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>İstemci sertifikaları kullanılarak güvenli, RESTful hizmeti
 İlgili bir makalede, [RESTful hizmetini oluşturmak](active-directory-b2c-custom-rest-api-netfw.md) Azure Active Directory B2C ile etkileşime girer (Azure AD B2C).
@@ -41,7 +41,7 @@ Bu makale ayrıntıları nasıl yapılır:
 Ayarlamak için **Azure App Service** istemci sertifikaları gerektirmek için web uygulaması ayarlayın `clientCertEnabled` site ayarına *doğru*. Bu değişikliği yapmak için REST API kullanmanız gerekir. Ayar, Azure portalında yönetim deneyimi aracılığıyla kullanılabilir. Ayar, RESTful uygulamanızın üzerinde bulmak için **ayarları** menüsü altında **geliştirme araçları**seçin **kaynak Gezgini**.
 
 >[!NOTE]
->Azure uygulama hizmeti planınızın standart veya daha büyük olduğundan emin olun. Daha fazla bilgi için bkz: [Azure App Service planlarına ayrıntılı genel bakış](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Azure uygulama hizmeti planınızın standart veya daha büyük olduğundan emin olun. Daha fazla bilgi için bkz: [Azure App Service planlarına ayrıntılı genel bakış](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Kullanım [Azure kaynak Gezgini (Önizleme)](https://resources.azure.com) ayarlamak için **clientCertEnabled** özelliğine *true*aşağıdaki görüntüde gösterildiği gibi:
@@ -49,7 +49,7 @@ Kullanım [Azure kaynak Gezgini (Önizleme)](https://resources.azure.com) ayarla
 ![Azure kaynak Gezgini üzerinden clientCertEnabled ayarlama](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->Ayar hakkında daha fazla bilgi için **clientCertEnabled** özelliği, bkz: [TLS yapılandırma karşılıklı kimlik doğrulaması web uygulamaları için](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Ayar hakkında daha fazla bilgi için **clientCertEnabled** özelliği, bkz: [TLS yapılandırma karşılıklı kimlik doğrulaması web uygulamaları için](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
 >Alternatif olarak, REST API çağrısı oluşturabilir kolaylaştırmak için kullanabileceğiniz [ARMClient](https://github.com/projectkudu/ARMClient) aracı.
@@ -165,7 +165,7 @@ Azure AD B2C RESTful hizmetinize gönderen istemci sertifikası doğrulama serti
 Bu bölümde, kimlik doğrulama amacıyla sertifika özellikleri doğrular örnek ASP.NET kodu ekleyin.
 
 > [!NOTE]
->Azure uygulama hizmeti için istemci sertifikası kimlik doğrulaması yapılandırma hakkında daha fazla bilgi için bkz: [TLS yapılandırma karşılıklı kimlik doğrulaması web uygulamaları için](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Azure uygulama hizmeti için istemci sertifikası kimlik doğrulaması yapılandırma hakkında daha fazla bilgi için bkz: [TLS yapılandırma karşılıklı kimlik doğrulaması web uygulamaları için](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 uygulama ayarları, projenizin web.config dosyasına ekleyin.
 Aşağıdaki uygulama ayarları daha önce oluşturduğunuz Visual Studio projesi eklemek *web.config* sonra dosya `appSettings` öğe:

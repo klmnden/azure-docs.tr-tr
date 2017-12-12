@@ -4,7 +4,7 @@ description: "Tüm kılavuzları ve Azure Active Directory Geliştirici Kılavuz
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 307e6ddc9b3d5a85a25b185144a548e0101a9877
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Azure AD Geliştirici Kılavuzu'ndaki makaleler
 Azure Active Directory Geliştirici Kılavuzu'nda kapsamdaki tüm konuların listesi verilmiştir.
@@ -37,7 +37,7 @@ Bu makaleler, belirli kavramlar ve Azure Active Directory özelliklerini açıkl
 | [Mobil ve Masaüstü SSO](active-directory-sso-android.md)                                                                         | Yerel uygulamalarda çalışma çoklu oturum alma |
 | [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)                                                                 | Azure AD kiracınıza dış kullanıcıları davet etme |
 | [Kullanıcı SCIM'yi 2.0 ile hazırlama](../active-directory-scim-provisioning.md)                                                     | Azure AD kiracılardan eşitleme kullanıcıları için SCIM'yi Protokolü kullanma |
-| [Azure AD Grafik API'si](active-directory-graph-api.md)                                                                             | Kullanıcı, Grup ve Microsoft REST API'lerini kullanarak diğer verileri Sorgulama |
+| [Azure AD Graph API'si](active-directory-graph-api.md)                                                                             | Kullanıcı, Grup ve Microsoft REST API'lerini kullanarak diğer verileri Sorgulama |
 | [AppSource Sertifikası](active-directory-devhowto-appsource-certified.md)                                                     | Microsoft AppSource bir uygulama yayımlama |
 | [Azure AD Uygulama Galerisi](active-directory-app-gallery-listing.md)                                                                 |Azure AD uygulama galerisinde bir uygulama yayımlama|
 | [Office 365 Satıcı Panosu](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | O365 satıcı Panosu'na bir uygulama yayımlama |

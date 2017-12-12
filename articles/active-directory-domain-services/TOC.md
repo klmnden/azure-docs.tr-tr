@@ -16,6 +16,7 @@
 ## [5. Görev: Parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 
 # Nasıl yapılır?
+## [Azure CSP aboneliklerinde Azure AD Domain Services kullanma](active-directory-ds-csp.md)
 ## [PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme](active-directory-ds-enable-using-powershell.md)
 ## Yönetilen bir etki alanına katılma
 ### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)

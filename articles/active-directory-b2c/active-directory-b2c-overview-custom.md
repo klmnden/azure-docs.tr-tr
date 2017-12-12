@@ -4,7 +4,7 @@ description: "Bir konu Azure Active Directory B2C özel ilkeler hakkında"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 25dada7bc04449c6e527b94d97780d9aef1c33a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: Özel ilkeler
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Yerleşik ilkeleri ve özel ilkeler karşılaştırma
 
-| | Yerleşik ilkeleri | özel ilkeler |
+| | Yerleşik ilkeleri | Özel ilkeler |
 |-|-------------------|-----------------|
 |Hedef Kullanıcılar | Tüm uygulama geliştiriciler ile veya olmadan kimlik uzmanlığı | Kimlik uzmanları: sistemleri tümleştiricileri, danışmanlarımızı ve şirket içi kimlik ekipler. Openıdconnect akışları ile deneyimliyseniz ve kimlik sağlayıcısı ve talep tabanlı kimlik doğrulaması anlama |
 |Yapılandırma yöntemi | Azure portalıyla kullanıcı dostu bir kullanıcı Arabirimi | Doğrudan, XML dosyalarını düzenlemek ve Azure portalına karşıya yükleme |
@@ -74,7 +74,7 @@ Openıdconnect, OAuth, SAML, WSFed ve birkaç standart olmayan yorumlar (örneğ
 Kullanılan kimlik (örn. kullanıcı kaydı, oturum açma, parola sıfırlama) görevler ve ilişkilerini de Azure AD B2C (için de önceden güvenilir taraflar etkileşimde en yaygın olarak gerçekleştirmek için Azure AD B2C davranışını doğrudan yapılandırma dosyalarını önceden tanımlanmış Örnek Facebook kimlik sağlayıcısı, LinkedIn, Microsoft Account, Google hesapları).  Gelecekte, yerleşik ilkeleri özelleştirmesi genellikle Azure Active Directory Premium, Active Directory/ADFS, Salesforce kimlik sağlayıcısı vb. gibi Kurumsal bölgedeki kimlik sağlayıcıları için de sağlayabilir.
 
 
-### <a name="custom-policies"></a>özel ilkeler
+### <a name="custom-policies"></a>Özel ilkeler
 
 Azure AD B2C kiracınızda kimlik deneyimi Framework davranışını tanımlamak yapılandırma dosyaları. Özel bir ilke, kimlik deneyimi bağlı olan taraf (örneğin bir uygulama) tarafından çağrıldığında Framework tarafından yürütülen (ilke dosyaları tanımları bakın) bir veya birkaç XML dosyaları olarak erişilebilir. Özel ilkeler doğrudan görevleri yakın sınırsız sayıda tamamlamak için bir kimlik geliştirici tarafından düzenlenebilir. Özel ilkeler yapılandırma geliştiriciler güvenilir ilişkiler meta veri uç noktalarını içerecek şekilde dikkatli ayrıntılı olarak tanımlamanız gerekir, tam talep tanımları exchange ve gizli anahtarları, anahtarlar ve sertifikalar her kimlik sağlayıcısı tarafından gerektiği şekilde yapılandırın.
 
