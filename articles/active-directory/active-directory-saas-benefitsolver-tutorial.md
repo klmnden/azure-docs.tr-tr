@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ile Benefitsolver aras�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 333394c1-b5a7-489c-8f7b-d1a5b4e782ea
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: f8cf8ceabcb3fea7c22f08ec86155f60527297eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Öğretici: Azure Active Directory Tümleştirme Benefitsolver ile
 
@@ -123,7 +123,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
-    | Öznitelik adı| Öznitelik değeri|
+    | Öznitelik Adı| Öznitelik Değeri|
     |---------------|----------------|
     | İstemci kimliği | Bu değerin alınacağı gerekir, [Benefitsolver istemci destek ekibi](https://www.businessolver.com/contact).|
     | ClientKey | Bu değerin alınacağı gerekir, [Benefitsolver istemci destek ekibi](https://www.businessolver.com/contact).|

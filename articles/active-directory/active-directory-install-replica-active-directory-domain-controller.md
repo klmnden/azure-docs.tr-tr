@@ -4,7 +4,7 @@ description: "Çoğaltma DC'leri Azure sanal makinelerde (VM'ler) şirket içi A
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 60839f93954bfe38f0346b235259f68e479b8a00
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Bir Azure sanal ağındaki bir çoğaltma Active Directory etki alanı denetleyicisi yükleme
 Bu makalede, bir Azure sanal ağında nasıl ek etki alanı denetleyicileri (DC'ler) Azure sanal makinelerde (VM'ler) bir şirket içi Active Directory etki alanı DC'leri çoğaltma olarak kullanılacak yükleneceği anlatılmaktadır. Ayrıca [bir Azure sanal ağ üzerinde bir Windows Server Active Directory ormanı yüklemek](active-directory-new-forest-virtual-machine.md). Bir Azure sanal ağında Active Directory etki alanı Hizmetleri (AD DS) yüklemek için bkz: nasıl [yönergeleri dağıtma Windows Server Active Directory için Azure sanal makineler üzerinde](https://msdn.microsoft.com/library/azure/jj156090.aspx).

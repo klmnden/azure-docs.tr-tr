@@ -1,6 +1,6 @@
 ---
 title: "Azure yönetim API sertifikası karşıya | Microsoft Docs"
-description: "Athe yönetim API sertifikası için Klasik Azure portalı karşıya öğrenin."
+description: "Azure portalı yönetim API sertifikası karşıya öğrenin."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: 89c08f2d1e0e244503e3fc4355cad0b4391618e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upload-an-azure-management-api-management-certificate"></a>Azure yönetim API'si yönetim sertifikasını karşıya yükle
 Yönetim sertifikaları, Azure tarafından sağlanan Klasik dağıtım modeli, kimlik doğrulaması sağlar. Birçok programlar ve araçlar (örneğin, Visual Studio ya da Azure SDK'sı) yapılandırma ve çeşitli Azure hizmetlerine dağıtımını otomatik hale getirmek için bu sertifikaları kullanacak. 
 
 > [!WARNING]
-> Dikkat et! Bu tür bir sertifika ile ilişkili aboneliği yönetmek için kimlik doğrulamasını herkes izin verin.
+> Dikkatli olun! Bu tür bir sertifika ile ilişkili aboneliği yönetmek için kimlik doğrulamasını herkes izin verin.
 >
 >
 

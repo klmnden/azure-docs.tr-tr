@@ -4,7 +4,7 @@ description: "Bir Azure Active Directory etki alanı Hizmetleri yönetilen etki 
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c324ea5e268d97134202eff6e96764bedc6ca75
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD etki alanı Hizmetleri yönetilen etki alanında eşitleme
 Aşağıdaki diyagramda, eşitleme Azure AD Etki Alanı Hizmetleri'nde yönetilen etki alanlarını nasıl çalıştığı gösterilmektedir.
@@ -62,7 +62,7 @@ Aşağıdaki tabloda bazı ortak öznitelikleri listeler ve yönetilen etki alan
 |:--- |:--- |:--- |
 | UPN |Azure AD kiracınızda kullanıcının UPN özniteliği |Azure AD kiracınıza UPN özniteliği, yönetilen etki alanınıza olarak eşitlenir. Bu nedenle, yönetilen etki alanınıza oturum açmak için en güvenilir yolu, UPN kullanıyor. |
 | SAMAccountName |Kullanıcının mailNickname Azure AD kiracınızda özniteliği ya da otomatik olarak oluşturulan |Azure AD kiracınızda mailNickname özniteliğinden SAMAccountName özniteliği kaynaklıdır. Birden çok kullanıcı hesapları aynı mailNickname özniteliği varsa, SAMAccountName otomatik olarak üretilir. Kullanıcının mailNickname veya UPN öneki 20 karakterden uzunsa SAMAccountName otomatik SAMAccountName öznitelikleri 20 karakter sınırını karşılamak için olarak üretilir. |
-| Parolaları |Azure AD kiracınıza kullanıcının parolasından |(Ek kimlik bilgileri olarak da bilinir) NTLM veya Kerberos kimlik doğrulaması için gerekli kimlik bilgisi karmalarını Azure AD kiracınıza eşitlenir. Azure AD kiracınıza eşitlenmiş Kiracı ise, bu kimlik bilgileri, şirket içi etki alanından elde edilir. |
+| Parolalar |Azure AD kiracınıza kullanıcının parolasından |(Ek kimlik bilgileri olarak da bilinir) NTLM veya Kerberos kimlik doğrulaması için gerekli kimlik bilgisi karmalarını Azure AD kiracınıza eşitlenir. Azure AD kiracınıza eşitlenmiş Kiracı ise, bu kimlik bilgileri, şirket içi etki alanından elde edilir. |
 | Birincil kullanıcı/Grup SID |Otomatik olarak oluşturulan |Kullanıcı/grup hesapları için birincil SID, yönetilen etki alanında otomatik olarak üretilir. Bu öznitelik birincil kullanıcı/Grup SID şirket içi nesnesinin eşleşmiyor AD etki alanı. Yönetilen etki alanı farklı bir SID ad alanı, şirket içi etki olduğundan bu eşleşmemesidir. |
 | Kullanıcılar ve gruplar için SID Geçmişi |Şirket içi birincil kullanıcı ve Grup SID |Kullanıcıları ve grupları, yönetilen etki alanınızdaki SIDHistory özniteliğini karşılık gelen birincil kullanıcı veya grubun SID şirket içi etki alanınızdaki eşleşecek şekilde ayarlanır. Bu özellik, yeniden ACL kaynaklara gerekmediği yükseltme-ve-shift yönetilen etki alanı için şirket içi uygulamaların kolaylaştırmak yardımcı olur. |
 

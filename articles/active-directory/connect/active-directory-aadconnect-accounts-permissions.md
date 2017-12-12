@@ -4,7 +4,7 @@ description: "Bu konuda kullanılan ve oluşturulan hesapları ve gereken izinle
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cde406bd745fe61757eaa69c9fc0cfc98a42d205
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesapları ve izinleri
 Azure AD Connect Yükleme Sihirbazı'nı iki farklı yollarını sunar:
@@ -75,8 +75,8 @@ Azure AD Connect sürüm 1.1.524.0 ve daha sonra Azure AD Connect Sihirbazı'nı
 | Azure AD'ye Bağlanma |Azure AD directory kimlik bilgileri |Azure AD genel Yönetici rolüne |<li>Azure AD dizini eşitleme etkinleştiriliyor.</li>  <li>Oluşturulmasını [Azure AD hesabının](#azure-ad-service-account) kullanılan devam eden eşitleme işlemleri için Azure AD içinde.</li> |
 | Dizinlerinizi bağlama |Azure AD ile bağlı her bir orman için şirket içi Active Directory kimlik bilgileri |İzinler hangi özellikleri etkinleştirmek ve bulunabilir bağlıdır [AD DS hesabı oluşturma](#create-the-ad-ds-account) |Bu hesap, okumak ve eşitleme sırasında dizin bilgilerini yazmak için kullanılır. |
 | AD FS Sunucuları |Sihirbazı'nı çalıştıran kullanıcının oturum açma kimlik bilgilerini bağlanmak için yeterli zaman listedeki her sunucu için sihirbaz kimlik bilgilerini toplar. |Etki alanı yöneticisi |Yükleme ve AD FS sunucusu rolü yapılandırması. |
-| Web uygulaması proxy sunucuları |Sihirbazı'nı çalıştıran kullanıcının oturum açma kimlik bilgilerini bağlanmak için yeterli zaman listedeki her sunucu için sihirbaz kimlik bilgilerini toplar. |Hedef makinede yerel yönetici |Yükleme ve yapılandırma WAP sunucu rolünün. |
-| Proxy güven kimlik bilgileri |Federasyon Hizmeti'ne güvenen kimlik bilgilerini (proxy FS güven sertifikadan kaydetmek için kullandığı kimlik bilgileri |AD FS sunucusunun yerel yönetici olan etki alanı hesabı |İlk kayıttan FS WAP güven sertifikası. |
+| Web uygulaması ara sunucuları |Sihirbazı'nı çalıştıran kullanıcının oturum açma kimlik bilgilerini bağlanmak için yeterli zaman listedeki her sunucu için sihirbaz kimlik bilgilerini toplar. |Hedef makinede yerel yönetici |Yükleme ve yapılandırma WAP sunucu rolünün. |
+| Ara sunucu güveni kimlik bilgileri |Federasyon Hizmeti'ne güvenen kimlik bilgilerini (proxy FS güven sertifikadan kaydetmek için kullandığı kimlik bilgileri |AD FS sunucusunun yerel yönetici olan etki alanı hesabı |İlk kayıttan FS WAP güven sertifikası. |
 | "Bir etki alanı kullanıcı hesabı seçeneğini kullan" AD FS hizmet hesabı sayfası |AD kullanıcı hesabı kimlik bilgileri |Etki alanı kullanıcısı |Kimlik bilgilerini sağlanan AD kullanıcı hesabı AD FS hizmeti oturum açma hesabı olarak kullanılır. |
 
 ### <a name="create-the-ad-ds-account"></a>AD DS hesabı oluşturma
@@ -101,7 +101,7 @@ Bir Azure AD Connect sürümünden yeni sürüme yükselttiğinizde, aşağıdak
 >Yapı 1.1.484 ile başlayarak, Azure AD Connect SQL veritabanını yükseltmek için sysadmin izinleri gerektiren bir regresyon hata sunmuştur.  Bu hata, en son sürüme 1.1.614 hala mevcuttur.  Bu yapı yükseltiyorsanız, sysadmin izinleri gerekir.  Dbo izinleri yeterli değil.  Azure AD Connect sysadmin izinleri olmadan yükseltme çalışırsanız, yükseltme başarısız olur ve Azure AD Connect artık doğru daha sonra çalışmaz.  Microsoft, bunun farkında olduğundan ve bu sorunu gidermek için çalışma.
 
 
-| Asıl | Gerekli izinler | İçin kullanılır |
+| Sorumlu | Gerekli izinler | İçin kullanılır |
 | --- | --- | --- |
 | Yükleme Sihirbazı'nı çalıştıran kullanıcının |Yerel Sunucu Yöneticisi |İkili dosyaları güncelleştirin. |
 | Yükleme Sihirbazı'nı çalıştıran kullanıcının |ADSyncAdmins üyesi |Eşitleme kuralları ve diğer yapılandırma değişiklikleri yapın. |

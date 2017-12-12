@@ -4,7 +4,7 @@ description: "Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışveri
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Kullanıcı girişi doğrulama Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine tümleştirme
 Kimlik deneyimi çerçevesiyle hangi altını çizen Azure Active Directory B2C (Azure AD B2C) tümleştirebileceğiniz kullanıcı gezisine bir RESTful API'si ile. Bu kılavuzda, Azure AD B2C .NET Framework RESTful Hizmetleri (web API) ile nasıl etkileşim girer öğreneceksiniz.
@@ -215,7 +215,7 @@ Web API'de, bir _denetleyicisi_ HTTP isteklerini işleyen bir nesnedir. Denetley
     **App Service Oluştur** penceresi açılır. İçinde Microsoft azure'da ASP.NET web uygulamasını çalıştırmak için tüm gerekli Azure kaynakları oluşturun.
 
     > [!NOTE]
-    >Yayımlama hakkında daha fazla bilgi için bkz: [bir ASP.NET web uygulaması oluşturma](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Yayımlama hakkında daha fazla bilgi için bkz: [bir ASP.NET web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. İçinde **Web uygulaması adı** benzersiz uygulama adı yazın (geçerli karakterler a-z, 0-9 ve tire (-). Http://<app_name>.azurewebsites.NET, web uygulamasının URL'si şöyledir nerede *app_name* web uygulamanızın adıdır. Otomatik oluşturulmuş benzersiz adı kabul edebilirsiniz.
 

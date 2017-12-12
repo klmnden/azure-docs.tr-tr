@@ -5,7 +5,7 @@ services: active-directory
 keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 10/23/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c584eddb5542c2c49d08d35bcaf8e7acb5c5b83a
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 416ae171564fa23473d09bad950d149e201bcc98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Azure portalında Klasik ilkelerine 
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/24/2017
 Bu konu, varolan Klasik ilkelerinizi yeni geçiş ile yeni Azure yönetmenize yardımcı olan AD koşullu erişim ilkeleri.
 
 
-## <a name="classic-policies"></a>Klasik ilkeleri
+## <a name="classic-policies"></a>Klasik ilkeler
 
 Azure AD için koşullu erişim ilkeleri ve değil oluşturduğunuz Azure portalında Intune olarak da bilinen **Klasik ilkeleri**. Klasik ilkelerinizi geçirmek için Klasik Azure portalına erişiminiz olması gerekmez. Azure portal ile sağlayan bir [ **Klasik ilkeleri (Önizleme)** Görünüm](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) Klasik ilkelerinizi inceleyin olanak sağlar.
 
@@ -80,7 +80,7 @@ Bkz.:
 
 ## <a name="multi-factor-authentication-policy"></a>Çok faktörlü kimlik doğrulama İlkesi 
 
-Bu örnek, çok faktörlü kimlik doğrulaması ** bulut uygulaması için gerektiren klasik bir ilke geçirmek nasıl gösterir. 
+Bu örnek gerektiren klasik bir ilke geçirmek nasıl gösterir **çok faktörlü kimlik doğrulaması** bir bulut uygulaması için. 
 
 ![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
 

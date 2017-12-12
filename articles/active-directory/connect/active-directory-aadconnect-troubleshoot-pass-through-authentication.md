@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure AD Connect doğrudan kimlik doğrulama sorunlarını giderme, Active Directory, Azure AD, SSO için gerekli bileşenleri yüklemek çoklu oturum açma"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory doğrudan kimlik doğrulama sorunlarını giderme
 
@@ -64,7 +64,7 @@ Gidin **Azure Active Directory** -> **oturum açma işlemleri** üzerinde [Azure
 | 80002 | Kimlik Doğrulama Aracısı'nın parola doğrulama isteği zaman aşımına uğradı. | Active Directory kimlik doğrulama Aracısı'ndan erişilebilir olup olmadığını denetleyin.
 | 80003 | Kimlik Doğrulama Aracısı tarafından geçersiz yanıt alındı. | Sorun birden çok kullanıcı arasında tutarlı bir şekilde yineleniyorsa, Active Directory yapılandırmanızı denetleyin.
 | 80004 | Oturum açma isteğinde yanlış Kullanıcı Asıl Adı (UPN) kullanıldı. | Doğru kullanıcı adıyla oturum kullanıcıya isteyin.
-| 80005 | Kimlik Doğrulama Aracısı: Hata oluştu. | Geçici hata oluştu. Daha sonra yeniden deneyin.
+| 80005 | Kimlik Doğrulama Aracısı: Hata oluştu. | Geçici hata oluştu. Daha sonra tekrar deneyin.
 | 80007 | Kimlik Doğrulama Aracısı Active Directory'ye bağlanamadı. | Active Directory kimlik doğrulama Aracısı'ndan erişilebilir olup olmadığını denetleyin.
 | 80010 | Kimlik Doğrulama Aracısı parolanın şifresini çözemedi. | Sorun tutarlı bir şekilde yineleniyorsa yükleyin ve yeni bir kimlik doğrulama Aracısı kaydedin. Ve geçerli bir kaldırın. 
 | 80011 | Kimlik Doğrulama Aracısı şifre çözme anahtarını alamıyor. | Sorun tutarlı bir şekilde yineleniyorsa yükleyin ve yeni bir kimlik doğrulama Aracısı kaydedin. Ve geçerli bir kaldırın.

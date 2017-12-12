@@ -4,7 +4,7 @@ description: "Azure Active Directory Kullanıcıları ve grupları SCIM'yi proto
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/28/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e433baf69ea0e66465612de077d8e59f5e234ee5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için etki alanları arası kimlik yönetimi sistemi kullanarak
 
@@ -87,7 +87,7 @@ Bu makalede açıklanan SCIM'yi profili destekleyen uygulamalar Azure AD uygulam
 13. Tıklatın **kaydetmek** hizmet sağlama Azure AD başlatmak için. 
 14. Eşitlemeyi yalnızca kullanıcılar ve gruplar (önerilen) atanmışsa, seçtiğinizden emin olun **kullanıcılar ve gruplar** sekmesinde ve kullanıcılara ve/veya eşitlemek istediğiniz grupları atayabilirsiniz.
 
-İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. 
@@ -159,7 +159,7 @@ Azure AD'den sağlama isteklerini kabul edebilir bir SCIM'yi uç noktası uygula
 13. Tıklatın **kaydetmek** hizmet sağlama Azure AD başlatmak için. 
 14. Eşitlemeyi yalnızca kullanıcılar ve gruplar (önerilen) atanmışsa, seçtiğinizden emin olun **kullanıcılar ve gruplar** sekmesinde ve kullanıcılara ve/veya eşitlemek istediğiniz grupları atayabilirsiniz.
 
-İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 Windows makinenizi \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug klasöründe TargetFile.csv dosyayı açmak için örnek doğrulama son adım var. Sağlama işlemini çalıştırdıktan sonra bu dosyayı tüm ayrıntılarını atanan ve kullanıcılar ve gruplar sağlanan gösterir.
 
@@ -359,7 +359,7 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan http://sche
 ### <a name="table-1-default-user-attribute-mapping"></a>Tablo 1: Varsayılan kullanıcı özniteliği eşlemesi
 | Azure Active Directory kullanıcısı | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
 | --- | --- |
-| IsSoftDeleted |Etkin |
+| IsSoftDeleted |etkin |
 | Görünen adı |Görünen adı |
 | Faks TelephoneNumber |PhoneNumber [türü eq "faks"] .value |
 | givenName |name.givenName |

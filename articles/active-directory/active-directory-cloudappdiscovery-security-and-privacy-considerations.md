@@ -4,7 +4,7 @@ description: "Bu konuda, bulut uygulaması bulma ile ilgili güvenlik ve gizlili
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 2fce5c82-d3de-4097-808f-40214768df9e
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: cec3d2cb02dd34dd5ac631e572936cfd7c8de033
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ebcb5b3b4a84f7a5c25caa3f6b245f97bc8049f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Cloud App Discovery güvenlik ve gizlilik konuları
 Bu konu, nasıl veri toplanan, işlenen ve Azure Active Directory Cloud App Discovery içinde güvenli açıklar. Microsoft gizliliğinizi korumaya ve verilerinizin güvenliğini sağlamak için taahhüt eder. Yazılım geliştirme yaşam döngüsü yöntemler hizmet çalıştırma için güvenli hale getirmek için Microsoft uyar. Güvenli hale getirme ve verileri koruma Microsoft'taki önceliğe sahiptir.

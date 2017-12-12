@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory için Shmoop okullar ar
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 1d75560a-55b3-42e9-bda1-92b01c572d8e
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jeedes
-ms.openlocfilehash: f30e0967384fb881bab045f6544989b8baaccfa0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 48db70834f96adbb7097457caca8489ea1a57da5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Öğretici: Azure Active Directory ile tümleştirme için Shmoop okullar ile
 
@@ -126,7 +126,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     | Öznitelik adı | Öznitelik değeri |
     | -------------- | --------------- |
-    | Rolü           | User.assignedroles |
+    | rol           | User.assignedroles |
 
     a. Açmak için **özniteliği eklemek** iletişim kutusunda **Ekle özniteliği**.
     

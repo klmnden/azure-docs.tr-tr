@@ -4,7 +4,7 @@ description: "Güvenli LDAP (LDAPS) bir Azure AD etki alanı Hizmetleri yönetil
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 0d2e7e6f17fecb9809ac76fbfa0db860b7948a7e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) Azure AD etki alanı Hizmetleri yönetilen etki alanı için yapılandırma
 Bu makalede, Azure AD etki alanı Hizmetleri yönetilen etki alanınız için Güvenli Basit Dizin Erişim Protokolü (LDAPS) nasıl etkinleştirebilirsiniz gösterilmektedir. Güvenli LDAP olduğu olarak da bilinen ' Basit Dizin Erişim Protokolü (LDAP) Güvenli Yuva Katmanı (SSL) üzerinden / Aktarım Katmanı Güvenliği (TLS)'.
@@ -39,23 +39,18 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 ### <a name="requirements-for-the-secure-ldap-certificate"></a>Güvenli LDAP sertifika için gereksinimler
 Güvenli LDAP etkinleştirmeden önce aşağıdaki yönergeleri başına geçerli bir sertifika edinin. Güvenli LDAP geçersiz/hatalı bir sertifika ile yönetilen etki alanınız için etkinleştirmeye çalışırsanız hatalarıyla karşılaşırsanız.
 
-1. **Güvenilen veren** -sertifika güvenli LDAP kullanarak yönetilen etki alanına bağlanma bilgisayarlar tarafından güvenilen bir yetkili tarafından verilmiş olması gerekir. Bu yetkilisi bu bilgisayarlar tarafından güvenilen bir genel sertifika yetkilisinin olabilir.
+1. **Güvenilen veren** -sertifika güvenli LDAP kullanarak yönetilen etki alanına bağlanma bilgisayarlar tarafından güvenilen bir yetkili tarafından verilmiş olması gerekir. Bu yetkilisi, bir ortak sertifika yetkilisi (CA) veya bu bilgisayarlar tarafından güvenilen bir kuruluş CA olabilir.
 2. **Yaşam süresi** -sertifika en az sonraki 3-6 ay için geçerli olmalıdır. Sertifikanın süresi dolduğunda, yönetilen etki alanınız güvenli LDAP erişim bozulur.
 3. **Konu adı** -yönetilen etki alanınız için joker karakter sertifika üzerindeki konu adı olmalıdır. Örneğin, etki alanınızın 'contoso100.com' adlı sertifikanın konu adı olması gerekir ' *. contoso100.com'. DNS adı (konu alternatif adı) Bu joker karakter adına ayarlayın.
 4. **Anahtar kullanımı** -için aşağıdaki kullanır - dijital imzalar ve anahtar şifreleme sertifikası yapılandırılması gerekir.
 5. **Sertifika amacı** -sertifikayı SSL sunucu kimlik doğrulaması için geçerli olmalıdır.
-
-> [!NOTE]
-> **Kuruluş sertifika yetkilileri:** Azure AD etki alanı Hizmetleri, kuruluşunuzun Kurumsal Sertifika yetkilisi tarafından verilen güvenli LDAP sertifikaları kullanarak desteklemez. Bu kısıtlama, hizmet kuruluş kök sertifika yetkilisi olarak CA'nız güvenmezse olmasıdır. 
->
->
 
 <br>
 
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Görev 1 - güvenli LDAP için bir sertifika edinin
 İlk görev, yönetilen etki alanına güvenli LDAP erişim için kullanılan bir sertifika edinme içerir. İki seçeneğiniz vardır:
 
-* Bir ortak sertifika yetkilisinden bir sertifika edinin.
+* Bir ortak CA ya da bir kuruluş CA bir sertifika edinin.
 * Kendinden imzalı bir sertifika oluşturun.
 
 > [!NOTE]
@@ -63,7 +58,7 @@ Güvenli LDAP etkinleştirmeden önce aşağıdaki yönergeleri başına geçerl
 >
 
 ### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>(Önerilen). seçenek - bir sertifika yetkilisinden bir güvenli LDAP sertifikası alın
-Kuruluşunuz bir ortak sertifika yetkilisi sertifikalarını alırsa, bu ortak sertifika yetkilisinden güvenli LDAP sertifika edinin.
+Kuruluşunuzun genel bir CA'dan sertifikalarını alırsa, o genel CA'dan güvenli LDAP sertifika edinin. Bir kuruluş CA'sı dağıtırsanız, kuruluş CA'sı güvenli LDAP sertifika edinin.
 
 > [!TIP]
 > **İle yönetilen etki alanları için otomatik olarak imzalanan sertifikalar kullanmak '. onmicrosoft.com' etki alanı sonekleri.**

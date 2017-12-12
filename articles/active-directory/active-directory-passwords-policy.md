@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Active directory parola yönetimi, Azure AD parola yönetimi self servis parola sıfırlama"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ae1e6c34b610aff245e051454269f0b8619b54c7
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: b099abb27fbd2adf78b65123a62048967406d401
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -38,8 +38,8 @@ Microsoft güçlü bir varsayılan zorlar *iki ağ geçidi* parola sıfırlama i
   * Yardım Masası Yöneticisi
   * Hizmet desteği Yöneticisi
   * Faturalama yöneticisi
-  * İş ortağı Tier1 desteği
-  * İş ortağı Tier2 desteği
+  * Partner Tier1 Desteği
+  * Partner Tier2 Desteği
   * Exchange Hizmet Yöneticisi
   * Lync Hizmet Yöneticisi
   * Kullanıcı Hesap Yöneticisi
@@ -47,7 +47,7 @@ Microsoft güçlü bir varsayılan zorlar *iki ağ geçidi* parola sıfırlama i
   * Genel yönetici veya şirket Yöneticisi
   * SharePoint Hizmet Yöneticisi
   * Uyumluluk Yöneticisi
-  * Uygulama yöneticisi
+  * Uygulama Yöneticisi
   * Güvenlik yöneticisi
   * Ayrıcalıklı Rol Yöneticisi
   * Microsoft Intune Hizmet Yöneticisi

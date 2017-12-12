@@ -4,7 +4,7 @@ description: "Azure AD ile özel bir geliştirilmiş uygulama kaydederken belirl
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 04fd35f238e4dd05486f85b0b16c2ab0c5ae9f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Özel geliştirilmiş bir uygulama için belirli alanları doldurmak nasıl
 
@@ -39,9 +39,9 @@ Bu makale size uygulama kayıt formunda kullanılabilir tüm alanlar kısa bir a
 | Alan            | Açıklama                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | Ad             | Uygulamanın adı. En az dört karakter olmalıdır.                |
-| Uygulama türü | **Web uygulaması/Web API**: bir web uygulaması, web API veya her ikisini de temsil eden bir uygulama 
+| Uygulama Türü | **Web uygulaması/Web API**: bir web uygulaması, web API veya her ikisini de temsil eden bir uygulama 
 | |**Yerel**: bir kullanıcının Cihazınızda veya bilgisayarınızda yüklü bir uygulama           |
-| Oturum açma URL'si      | Burada kullanıcıların uygulamanızı kullanmaya oturum açabilirsiniz URL'si                                  |
+| Oturum Açma URL'si      | Burada kullanıcıların uygulamanızı kullanmaya oturum açabilirsiniz URL'si                                  |
 
 Yukarıdaki alanları doldurduktan sonra uygulamayı Azure Portalı'nda kayıtlı olması ve uygulama sayfasına yeniden yönlendirilmeniz. **Ayarları** uygulama bölmesi düğmesinde uygulamanızı özelleştirmenize olanak için daha fazla alan Ayarları sayfası açılır. Aşağıdaki tabloda Ayarları sayfasında tüm alanları açıklar. yalnızca bir alt kümesini, bir web uygulaması veya bir yerel uygulamayı oluşturduğunuz bağlı olarak, bu alanlara görür unutmayın.
 
@@ -51,10 +51,10 @@ Yukarıdaki alanları doldurduktan sonra uygulamayı Azure Portalı'nda kayıtl�
 | Uygulama Kimliği URI'si      | Bu genellikle formunun benzersiz bir URI olmalıdır **https://&lt;Kiracı\_adı&gt;/&lt;uygulama\_adı&gt;.** Bu yetkilendirme grant akışı sırasında için belirteç veren kaynak belirtmek için benzersiz bir tanımlayıcı olarak kullanılır. Verilen erişim belirteci 'aud' talepte haline gelir. |
 | Karşıya yeni logo yükle | Bu, uygulamanız için bir logosu yüklemek için kullanabilirsiniz. Logo .bmp, .jpg veya .png biçiminde olmalıdır ve dosya boyutu 100 KB'tan daha az olmalıdır. Görüntü boyutları merkezi görüntü boyutları 94 x 94 piksel ile 215 x 215 piksel olmalıdır.                                                       |
 | Giriş sayfası URL'si   | Uygulama kaydı sırasında belirtilen oturum açma URL'si budur.                                                                                                                                                                                                                                              |
-| Oturum kapatma URL'si      | Bu tek oturum kapatma oturum kapatma URL'si. Kullanıcı Azure AD ile kullanıcıların oturumlarını temizlediğinde azure AD herhangi bir kayıtlı uygulamayı kullanarak bu URL'yi bir oturum kapatma isteği gönderir.                                                                                                                                       |
-| Çoklu kiralanan  | Bu anahtar, uygulamanın birden çok kiracılar tarafından kullanılıp kullanılamayacağını belirtir. Bu genellikle, dış kuruluşlar kendi Kiracı kaydetme ve kuruluşun verilere erişim izni verme uygulamanızı kullanabileceğiniz anlamına gelir.                                                                   |
+| Oturum Kapatma URL'si      | Bu tek oturum kapatma oturum kapatma URL'si. Kullanıcı Azure AD ile kullanıcıların oturumlarını temizlediğinde azure AD herhangi bir kayıtlı uygulamayı kullanarak bu URL'yi bir oturum kapatma isteği gönderir.                                                                                                                                       |
+| Çok kiracılı  | Bu anahtar, uygulamanın birden çok kiracılar tarafından kullanılıp kullanılamayacağını belirtir. Bu genellikle, dış kuruluşlar kendi Kiracı kaydetme ve kuruluşun verilere erişim izni verme uygulamanızı kullanabileceğiniz anlamına gelir.                                                                   |
 | Yanıt URL'leri      | Yanıt URL'leri burada Azure AD dönüş uygulamanız tarafından istenen herhangi bir belirtece noktalarıdır.                                                                                                                                                                                                          |
-| Yeniden yönlendirme URI'ler   | Yerel uygulamalar için bu kullanıcının burada olması olduğu için aşağıdaki başarılı yetkilendirme gönderilir. Yeniden yönlendirme URI'si uygulamanız OAuth 2.0 istekte sağlayan azure AD onay Portalı'nda kayıtlı değerlerden biri ile eşleşir.                                                            |
+| Yeniden Yönlendirme URI'leri   | Yerel uygulamalar için bu kullanıcının burada olması olduğu için aşağıdaki başarılı yetkilendirme gönderilir. Yeniden yönlendirme URI'si uygulamanız OAuth 2.0 istekte sağlayan azure AD onay Portalı'nda kayıtlı değerlerden biri ile eşleşir.                                                            |
 | Anahtarlar            | Program aracılığıyla erişim Web API'leri herhangi bir kullanıcı etkileşimi olmadan Azure AD tarafından güvenli hale getirilmiş anahtarları oluşturabilir. Gelen \* \*anahtarları\* \* sayfasında, anahtar açıklaması ve sona erme tarihini girin ve anahtarı oluşturmak için kaydedin. Daha sonra erişim açamayacaksınız gibi güvenli bir yere kaydettiğinizden emin olun.             |
 
 ## <a name="next-steps"></a>Sonraki adımlar

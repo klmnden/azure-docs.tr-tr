@@ -4,7 +4,7 @@ description: "Azure AD etki alanı Hizmetleri için dağıtım senaryoları"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: fc1aa4d778a6232258470fc9a58a98906c86ec7b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 11844fb8fabada9d863fe4adf0839ae6fa2ed101
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Dağıtım senaryoları ve kullanım örnekleri
 Bu bölümde, birkaç senaryo ve Azure Active Directory (AD) etki alanı Hizmetleri'nden yararlanan kullanım örnekleri ele.
@@ -41,7 +41,7 @@ Bu dağıtım senaryosu için aşağıdaki önemli noktaları göz önünde bulu
 * Azure AD etki alanı Hizmetleri, temel AD bilgisayar nesnesi şemaya destekler. Bilgisayar nesnesi şemasının genişletemezsiniz.
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Yükseltme-ve-shift Azure altyapı hizmetleri için LDAP bağlama kimlik doğrulaması kullanan bir şirket içi uygulama
-![LDAP bağlaması](./media/active-directory-domain-services-scenarios/ldap-bind.png)
+![LDAP bağlama](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
 Contoso birçok yıl önce bir ISV satın alınmış bir şirket içi uygulama sahiptir. Uygulama şu anda bakım modunda ISV tarafından ve uygulamasında yapılacak değişiklikler isteyen Contoso için şekilde basımı karşılamayacak kadar pahalıdır. Bu uygulama bir web formu kullanarak kullanıcı kimlik bilgilerini toplar ve daha sonra kurumsal Active Directory'ye LDAP bağı gerçekleştirerek kullanıcıların kimliğini doğrulayan bir web tabanlı bir ön uç sahiptir. Contoso Azure altyapı hizmetleri bu uygulamaya geçirmek istediğiniz. Uygulama, herhangi bir değişiklik gerektirmeden olduğu gibi çalıştığını iyi bir şeydir. Ayrıca, kullanıcıların varolan şirket kimlik bilgilerini kullanarak kimlik doğrulaması için gereken ve kullanıcıların farklı şeyler yeniden eğitme gerek kalmadan. Diğer bir deyişle, son kullanıcıların uygulamanın çalıştığı oblivious olmalıdır ve geçiş için saydam olmalıdır.
 

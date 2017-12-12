@@ -4,7 +4,7 @@ description: "Active Directory ve Azure Active Directory için Workday kimlik ve
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Öğretici: Workday ile şirket içi Active Directory ve Azure Active Directory sağlama otomatik olarak bir kullanıcı için yapılandırın.
 Bu öğreticinin amacı kişiler Workday için bazı özniteliklerin isteğe bağlı geri yazma ile Active Directory ve Azure Active Directory'de Workday'deki alma işlemini gerçekleştirmek için gereken adımları Göster sağlamaktır. 
@@ -93,9 +93,9 @@ Ancak, Workday ve Active Directory ile çalışırken, olarak kabul edilmesi iç
 
 | Kaynak sistemi | Hedef sistem | Notlar |
 | ---------- | ---------- | ---------- |
-| İş günü | Active Directory ormanı | Her bir orman ayrı hedef sistem olarak kabul edilir |
+| İş günü | Active Directory Ormanı | Her bir orman ayrı hedef sistem olarak kabul edilir |
 | İş günü | Azure AD kiracısı | Yalnızca bulut kullanıcıları için gerektiği şekilde |
-| Active Directory ormanı | Azure AD kiracısı | Bu akış AAD Connect tarafından bugün işlenir |
+| Active Directory Ormanı | Azure AD kiracısı | Bu akış AAD Connect tarafından bugün işlenir |
 | Azure AD kiracısı | İş günü | E-posta adreslerini geri yazma için |
 
 Bu birden çok iş akışı birden çok kaynak ve hedef sistemlere kolaylaştırmak için Azure AD Azure AD uygulama galerisinde ekleyebilirsiniz birden fazla sağlama bağlayıcı uygulama sağlar:

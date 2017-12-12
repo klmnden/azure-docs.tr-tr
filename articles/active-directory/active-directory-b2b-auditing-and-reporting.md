@@ -4,7 +4,7 @@ description: "Konuk kullanıcı özelliklerini Azure Active Directory B2B işbir
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 315cc3bcab1909b385b98138c971b2c7d405da2b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Denetim ve B2B işbirliği kullanıcı raporlama
 Konuk kullanıcılar, üye kullanıcılarla denetim özelliklerine benzer sahip. Davet edilene Sam Oogle daveti ve kullanım geçmişinin bir örneği burada verilmiştir:
 
-![Denetim günlüğü](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
+![denetleme günlüğü](./media/active-directory-b2b-auditing-and-reporting/audit-log.png)
 
 Ayrıntılı bilgi almak için bu olayların her biri başlayabilirsiniz. Örneğin, kabul ayrıntıları bakalım.
 

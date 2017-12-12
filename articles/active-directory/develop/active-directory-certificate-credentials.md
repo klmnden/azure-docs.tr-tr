@@ -4,7 +4,7 @@ description: "Bu makalede kayıt ve uygulama kimlik doğrulaması için sertifik
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9267a7d2b27930fbcd0aa70ec9e2ddc62b6b0b2a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Uygulama kimlik doğrulaması için sertifika kimlik bilgileri
 
@@ -29,7 +29,7 @@ Bir kullanılabilir kimlik bilgisi uygulama sahip bir sertifika ile imzalanmış
 ## <a name="format-of-the-assertion"></a>Onaylama işlemi biçimi
 Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak istediğiniz [JSON Web belirteci](https://jwt.io/) kitaplıkları tercih ettiğiniz dilde. Belirtecin tarafından taşınan bilgiler verilmiştir:
 
-#### <a name="header"></a>Üstbilgi
+#### <a name="header"></a>Üst bilgi
 
 | Parametre |  Açıklama |
 | --- | --- | --- |

@@ -4,7 +4,7 @@ description: Rapor verileri Azure Active Directory'de bekletme ilkeleri
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6bdc4111267dc967585ba1b336d3e7cbcc6df775
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 943320c512212c6a51666ea2252db44f9c174c52
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory rapor bekletme ilkeleri
 

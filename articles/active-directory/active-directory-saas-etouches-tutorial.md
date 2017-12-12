@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ile etouches arasında 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 76cccaa8-859c-4c16-9d1d-8a6496fc7520
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 3cd9e9d6aae924369065ca492b1f6380c0ddc5fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc111d6805af9e4f86ab91b6673a0d52dca78223
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Öğretici: Azure Active Directory Tümleştirme etouches ile
 
@@ -117,11 +117,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 4. etouches uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **kullanıcı özniteliği** uygulamanın. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir. 
 
-    ![Kullanıcı özniteliği](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_attribute.png) 
+    ![Kullanıcı Özniteliği](./media/active-directory-saas-etouches-tutorial/tutorial_etouches_attribute.png) 
 
 5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
-    | Öznitelik adı | Öznitelik değeri |
+    | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |
     | E-posta | User.Mail |    
     

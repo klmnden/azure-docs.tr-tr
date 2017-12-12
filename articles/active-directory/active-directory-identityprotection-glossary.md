@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi, sözlük yönetme"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5b6d2db0a8df31fd159053cceab6b9b320ffd8cb
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 9a291a42d72985b9fe8f9083b265807122ae6343
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory kimlik koruması Kılavuzu sözlüğü
 ### <a name="at-risk-user"></a>Risk (kullanıcı)
@@ -100,7 +100,7 @@ Kullanıcı kimlik koruması dışında bir uygun düzeltme eylemi sürdü ve ri
 ### <a name="risk-event-status"></a>Risk olay durumu
 Risk olay özelliği, olayın etkin olup olmadığını ve gösteren kapalı, kapatma nedeni.
 
-### <a name="risk-event-type"></a>Risk olay türü
+### <a name="risk-event-type"></a>Risk olayı türü
 Riskli olarak kabul edilmesi olaya neden anomali türünü belirten risk olayı için bir kategori.
 
 ### <a name="risk-level-risk-event"></a>Risk düzeyi (risk olay)
@@ -142,7 +142,7 @@ Kullanıcı başarıyla yeni bir konumdan (IP, enlem/boylam ve ASN) oturum açt�
 ### <a name="sign-in-risk"></a>Oturum açma riski
 Risk bkz düzeyi (oturum açma)
 
-### <a name="sign-in-risk-policy"></a>Oturum açma riski İlkesi
+### <a name="sign-in-risk-policy"></a>Oturum açma riski ilkesi
 Bir özel oturum açma riski değerlendirir ve önceden tanımlanmış koşullara ve kurallarına göre Azaltıcı Etkenler geçerli koşullu erişim ilkesi.
 
 ### <a name="user-compromise-risk"></a>Kullanıcı güvenlik aşılması riski
@@ -151,13 +151,13 @@ Risk bakın (kullanıcı güvenliğinin aşılması) düzeyi
 ### <a name="user-risk"></a>Kullanıcı riski
 Risk bakın (kullanıcı güvenliğinin aşılması) düzeyi.
 
-### <a name="user-risk-policy"></a>Kullanıcı risk İlkesi
+### <a name="user-risk-policy"></a>Kullanıcı riski ilkesi
 Oturum açma göz önünde bulundurur ve önceden tanımlanmış koşullara ve kurallarına göre Azaltıcı geçerlidir koşullu erişim ilkesi.
 
 ### <a name="users-flagged-for-risk"></a>Riskli oldukları belirlenen kullanıcılar
 Etkin ya da düzeltilen risk olaylarına sahip kullanıcılar
 
-### <a name="vulnerability"></a>Güvenlik Açığı
+### <a name="vulnerability"></a>Güvenlik açığı
 Bir yapılandırma veya Azure Active Directory'de dizin açıklarına maruz kalabilir kılan koşul veya tehditleri.
 
 ## <a name="see-also"></a>Ayrıca bkz.

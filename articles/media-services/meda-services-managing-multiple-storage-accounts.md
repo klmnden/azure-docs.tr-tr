@@ -6,19 +6,18 @@ documentationcenter:
 author: Juliako
 manager: cfowler
 editor: 
-ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 0b407c3b092fd2c706775154cee3164a9869315a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c99d39a7e33a161d63cf934e0b5983e3977598c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Varlıklar arasında birden çok depolama hesabı Hizmetleri ortam yönetme
 Microsoft Azure Media Services 2.2 ile başlayarak, tek bir Media Services hesabına birden çok depolama hesapları ekleyebilirsiniz. Bir Media Services hesabına birden çok depolama hesabı ekleme yeteneği aşağıdaki avantajları sağlar:
@@ -26,7 +25,7 @@ Microsoft Azure Media Services 2.2 ile başlayarak, tek bir Media Services hesab
 * Birden çok depolama hesaplarında varlıklarınızı dengelemesini.
 * (Şu anda bir tek bir depolama hesabı 500 TB'lık üst sınırı olduğu gibi) içerik işleme büyük miktarlarda ölçeklendirme medya Hizmetleri. 
 
-Bu konuda, birden çok depolama hesabı kullanarak bir Media Services hesabı eklemek gösterilmiştir [Azure Resource Manager API'leri](https://docs.microsoft.com/rest/api/media/mediaservice) ve [Powershell](/powershell/module/azurerm.media). Ayrıca, farklı depolama hesaplarını varlıklar Media Services SDK'sını kullanarak oluştururken belirtmek nasıl gösterir. 
+Bu makalede, birden çok depolama hesabı kullanarak bir Media Services hesabı eklemek gösterilmiştir [Azure Resource Manager API'leri](https://docs.microsoft.com/rest/api/media/mediaservice) ve [Powershell](/powershell/module/azurerm.media). Ayrıca, farklı depolama hesaplarını varlıklar Media Services SDK'sını kullanarak oluştururken belirtmek nasıl gösterir. 
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 Birden çok depolama hesabı, Media Services hesabını eklerken aşağıdaki maddeler geçerlidir:
@@ -42,7 +41,7 @@ Media Services değerini kullanır **IAssetFile.Name** URL'leri akış içeriği
 
 ## <a name="to-attach-storage-accounts"></a>Depolama hesapları eklemek için  
 
-AMS hesabınızı depolama hesapları eklemek için kullanın [Azure Resource Manager API'leri](https://docs.microsoft.com/rest/api/media/mediaservice) ve [Powershell](/powershell/module/azurerm.media), aşağıdaki örnekte gösterildiği gibi.
+AMS hesabınızı depolama hesapları eklemek için kullanın [Azure Resource Manager API'leri](https://docs.microsoft.com/rest/api/media/mediaservice) ve [Powershell](/powershell/module/azurerm.media), aşağıdaki örnekte gösterildiği gibi:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -91,15 +90,23 @@ namespace MultipleStorageAccounts
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

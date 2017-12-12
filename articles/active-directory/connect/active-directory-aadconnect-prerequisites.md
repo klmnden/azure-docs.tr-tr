@@ -4,7 +4,7 @@ description: "Bu konu ön koşullar ve Azure AD Connect için donanım gereksini
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: e09017cbd6c4060ea24bb17c751277b4f4c6daf8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1dc33bbd686d97f21c7b9d61752d9f2c584a79fe
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD için Önkoşullar Bağlan
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.

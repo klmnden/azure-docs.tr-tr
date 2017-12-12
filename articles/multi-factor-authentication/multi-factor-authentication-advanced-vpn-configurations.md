@@ -4,7 +4,7 @@ description: "Cisco, Citrix ve Juniper ile tümleştirmek Azure MFA için adım 
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 1f94a214-d6f6-48a8-8a12-006b5896ae45
 ms.service: multi-factor-authentication
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: 0e7406e00aea59f14a986bd1dd091d0968cc4579
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 62caebb6dec5b3603bf7618fdaf183e9a98d992e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Azure çok faktörlü kimlik doğrulama ve üçüncü taraf VPN çözümlerinin Gelişmiş senaryolar
 Azure çok faktörlü kimlik doğrulaması çeşitli üçüncü taraf VPN çözümleri ile sorunsuz bir şekilde bağlanmak için kullanılabilir. Bu makalede, Cisco® ASA VPN Gereci, Citrix NetScaler SSL VPN Gereci ve Juniper ağları güvenli erişim/Pulse Secure bağlanmak güvenli SSL VPN Gereci odaklanır. Bu üç ortak cihazları yönelik olarak yapılandırma kılavuzları oluşturduk. Çok faktörlü kimlik doğrulama sunucusu ayrıca en RADIUS, LDAP, IIS veya AD FS talep tabanlı kimlik doğrulaması kullanan diğer sistemler ile tümleştirebilirsiniz. Daha ayrıntılı bilgi bulabilirsiniz [MFA sunucusu yapılandırmaları](multi-factor-authentication-get-started-server.md#next-steps).

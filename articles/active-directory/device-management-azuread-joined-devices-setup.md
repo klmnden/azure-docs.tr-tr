@@ -4,7 +4,7 @@ description: "Azure Active Directory'ye katılmış cihazları öğrenin."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41ae5d019e303246d7c7c2b06cf73280f6472b6e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Azure Active Directory ayarlama katılmış cihazlarda
 
@@ -52,7 +52,7 @@ Windows 10 cihazına katılmak için cihaz Kayıt Hizmeti'ni aygıtlarını kayd
 
 Bu bölümde, Azure AD ile Windows 10 Cihazınızı eklemek için adımları sağlar. Azure AD ile başarıyla Cihazınızı katıldıysanız, **erişim iş veya Okul** iletişim bunu belirten bir **bağlı \<Azure AD\>**  girişi.
 
-![bağlı](./media/device-management-azuread-joined-devices-setup/13.png)
+![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/13.png)
 
 
 **Windows 10 Cihazınızı katılmak için:**
@@ -103,16 +103,16 @@ Bu bölümde, Azure AD ile Windows 10 Cihazınızı eklemek için adımları sa�
 
 Bir aygıt için Azure AD alanına katılıp katılmadığını doğrulamak için gözden geçirebilirsiniz **erişim iş veya Okul** aygıtınızda iletişim.
 
-![bağlı](./media/device-management-azuread-joined-devices-setup/13.png)
+![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/13.png)
 
 Alternatif olarak, aşağıdaki komutu çalıştırabilirsiniz:`dsregcmd /status`  
 Başarıyla alanına katılmış bir cihazda **AzureAdJoined** olan **Evet**.
 
-![bağlı](./media/device-management-azuread-joined-devices-setup/14.png)
+![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/14.png)
 
 Ayrıca, Azure AD portalı aygıt ayarlarını gözden geçirebilirsiniz.
 
-![bağlı](./media/device-management-azuread-joined-devices-setup/15.png)
+![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/15.png)
 
 Daha fazla bilgi için bkz: [aygıtları bulmak](device-management-azure-portal.md#locate-devices).
 

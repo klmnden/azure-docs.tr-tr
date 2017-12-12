@@ -4,7 +4,7 @@ description: "Microsoft uygulama kayıt Portalı'nda çeşitli özellikleri aç�
 services: active-directory
 documentationcenter: 
 author: lnalepa
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: c60499c425a7fd800f7ca9a5bac1fed5af73b801
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3340df3fcc2456a355e523bfcf09978a16966036
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="app-registration-reference"></a>Uygulama Kayıt başvurusu
 Bu belgede bağlamı ve Microsoft uygulama kayıt Portalı'nda bulunan çeşitli özelliklerin açıklamaları sağlanmaktadır [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).
@@ -30,7 +30,7 @@ Bu listedeki tüm Azure AD v2.0 uç noktası ile kullanılması için kaydedilen
 ## <a name="live-sdk-applications"></a>Canlı SDK uygulamaları
 Bu listedeki tüm uygulamalarınızın yalnızca Microsoft hesabı ile kullanmak için kayıtlı içerir.  Azure Active Directory doğabilecek ile kullanmak için etkinleştirilmemiş.  MSA Geliştirici portalında ile önceden kaydedilmiş tüm uygulamaları bulabileceğiniz budur `https://account.live.com/developers/applications`.  Daha önce sırasında gerçekleştirilen tüm işlevleri `https://account.live.com/developers/applications` şimdi bu yeni portalında gerçekleştirilen `https://apps.dev.microsoft.com`.  Daha fazla Microsoft hesabı uygulamalarınızı hakkında sorularınız varsa lütfen bizimle iletişime geçin.
 
-## <a name="application-secrets"></a>Uygulama parolaları
+## <a name="application-secrets"></a>Uygulama Sırları
 Uygulama parolaları gerçekleştirmek, uygulamanın güvenilir izin kimlik bilgileri olan [istemci kimlik doğrulaması](http://tools.ietf.org/html/rfc6749#section-2.3) Azure AD ile.  OAuth ve Openıd Connect içinde bir uygulama parolaları yaygın olarak adlandırılır bir `client_secret`.  Bir web adreslenebilir konumdaki güvenlik belirtecini alır herhangi bir uygulama v2.0 Protokolü (kullanarak bir `https` düzeni) bir uygulama gizli anahtarı kendi Azure ad güvenlik belirtecini kullanım bağlı tanımlamak için kullanmanız gerekir.  Ayrıca, herhangi bir yerel istemci üzerinde bu recieves belirteçler bir aygıt bir uygulama gizli anahtarı kullanarak istemci kimlik doğrulaması gerçekleştirmek için güvenli olmayan ortamlarda gizli depolama önerilmemektedir alınamaz.
 
 Her uygulama verilen herhangi bir noktada iki geçerli uygulama parolaları içerebilir.  İki gizli tutarak, uygulamanızın tüm ortamları boyunca düzenli anahtarı geçiş işlemini gerçekleştirmek için ablilty sahip.  Yeni parolayı uygulamanıza tamamen geçirdikten sonra eski parola silin ve yeni bir sağlama.

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "cloud app discovery'yi, uygulamaları yönetme"
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: a3593611c7a2467de1c1639f8b5c6b0eb6f1ecbf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD cloud App Discovery ayarlayın
 
@@ -110,7 +110,7 @@ Günlüğünüz desteklenmiyorsa seçin **diğer** olarak **veri kaynağı** ve 
 |-----------------------------------------|----------------|---------------|----------|-----------|---------------|----------------|
 | Barracuda                               | **Evet**        | **Evet**       | **Evet**  | **Evet**   | Hayır            | Hayır             |
 | Blue Coat                               | **Evet**        | Hayır            | **Evet**  | **Evet**   | **Evet**       | **Evet**        |
-| Denetim noktası                              | Hayır             | **Evet**       | Hayır       | **Evet**   | Hayır            | Hayır             |
+| Kontrol noktası                              | Hayır             | **Evet**       | Hayır       | **Evet**   | Hayır            | Hayır             |
 | Cisco ASA                               | Hayır             | **Evet**       | Hayır       | **Evet**   | **Evet**       | Hayır             |
 | Cisco FWSM                              | Hayır             | **Evet**       | Hayır       | **Evet**   | **Evet**       | Hayır             |
 | Cisco Ironport WSA                      | **Evet**        | **Evet**       | **Evet**  | **Evet**   | **Evet**       | **Evet**        |

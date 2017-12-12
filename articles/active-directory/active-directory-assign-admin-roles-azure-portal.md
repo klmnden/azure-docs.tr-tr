@@ -4,7 +4,7 @@ description: "Yönetici rolü oluşturmak veya kullanıcıları Düzenle, başka
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
 ms.service: active-directory
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: 0ecba72de9604fe1fd13a993f58bcdb1e8097501
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
-Azure Active Directory (Azure AD) kullanarak, farklı işlevler hizmet için ayrı Yöneticiler belirleyebilirsiniz. Yöneticiler Azure portalında veya Klasik Azure portalı ve rollerine bağlı olarak çeşitli özelliklerine erişime sahiptir, oluşturmak veya kullanıcıları Düzenle, başkalarına yönetici rolleri atamak, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme ve diğer arasında etki alanlarını yönetme öğeler. Yönetici rolü atanan bir kullanıcının tüm kuruluşunuzun için rolü Office 365 portalında veya Klasik Azure portalı veya Windows PowerShell için Azure AD modülünü kullanarak atamış olup abone olduğu bulut hizmetleri arasında aynı izinlere sahip.
+Azure Active Directory (Azure AD) kullanarak, farklı işlevler hizmet için ayrı Yöneticiler belirleyebilirsiniz. Yöneticiler Azure portalında ve rollerine bağlı olarak çeşitli özelliklerine erişime sahiptir, oluşturabilir veya kullanıcıların Düzenle, başkalarına yönetici rolleri atamak, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme ve başka şeylerin etki alanlarını yönetme. Yönetici rolü atanan bir kullanıcı için kuruluşunuzun için rolü Office 365 portalında veya Azure portalında veya için Azure AD modülünü kullanarak atamış olup abone olduğu bulut Hizmetleri tümüne aynı izinlere sahip Windows PowerShell.
 
 Aşağıdaki yönetici rolleri kullanılabilir:
 
@@ -130,14 +130,14 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 ### <a name="security-reader"></a>Güvenlik okuyucusu
 | İçinde | Yapabilirsiniz |
 | --- | --- |
-| Kimlik koruması Merkezi |Tüm güvenlik raporları ve güvenlik özellikleri için ayarlar bilgilerini okuyun<ul><li>İstenmeyen postadan koruma<li>Şifreleme<li>Veri kaybını önleme<li>Kötü amaçlı yazılım<li>Gelişmiş tehdit koruması<li>Avından<li>Mailflow kuralları |
+| Kimlik Koruma Merkezi |Tüm güvenlik raporları ve güvenlik özellikleri için ayarlar bilgilerini okuyun<ul><li>İstenmeyen postadan koruma<li>Şifreleme<li>Veri kaybını önleme<li>Kötü amaçlı yazılım<li>Gelişmiş tehdit koruması<li>Avından<li>Mailflow kuralları |
 | Privileged Identity Management |<p>Sahip tüm bilgileri salt okunur erişimi ortaya Azure AD PIM: güvenlik ilkeleri ve Azure AD rol atamaları için raporları, gözden geçirir ve gelecekte senaryoları Azure AD rol ataması yanı sıra ilke veriler ve raporlar için erişimi'ni okuyun.<p>**Olamaz** Azure AD PIM için kaydolun veya herhangi bir değişiklik kolaylaştırır. Kullanıcı bunları aday ise PIM'ın portal veya PowerShell aracılığıyla, birisi Bu roldeki ek roller (örneğin, genel yönetici veya ayrıcalıklı Rol Yöneticisi) etkinleştirebilirsiniz. |
 | <p>İzleyici Office 365 hizmeti durumu</p><p>Office 365 güvenlik ve Uyumluluk Merkezi</p> |<ul><li>Okuma ve Uyarıları yönetme<li>Güvenlik ilkelerini oku<li>Tehdit bilgileri, Cloud App Discovery ve arama ve Araştır Karantinadaki okuyun<li>Tüm raporları okuma |
 
 ### <a name="security-administrator"></a>Güvenlik Yöneticisi
 | İçinde | Yapabilirsiniz |
 | --- | --- |
-| Kimlik koruması Merkezi |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>Parola sıfırlama hariç tüm IPC işlemlerini gerçekleştirmek için ek olarak, yeteneği. |
+| Kimlik Koruma Merkezi |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>Parola sıfırlama hariç tüm IPC işlemlerini gerçekleştirmek için ek olarak, yeteneği. |
 | Privileged Identity Management |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>**Olamaz** Azure AD rol üyeliklerini veya ayarlarını yönetin. |
 | <p>İzleyici Office 365 hizmeti durumu</p><p>Office 365 güvenlik ve Uyumluluk Merkezi |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>Tüm ayarlar için Gelişmiş tehdit Koruması özelliği (kötü amaçlı yazılım ve virüs koruması, kötü amaçlı URL yapılandırma, URL izleme, vb.) yapılandırabilirsiniz. |
 
@@ -166,11 +166,11 @@ Azure Active Directory'de bir kullanıcıya yönetici rolleri atama hakkında bi
 Aşağıdaki roller kullanılmamalıdır. Bunlar edilmiş kullanım ve gelecekte Azure AD'den kaldırılacak.
 
 * AdHoc Lisans Yöneticisi
-* E-posta doğrulanan kullanıcı Oluşturucusu
+* E-posta Adresi Doğrulanan Kullanıcı Oluşturucu
 * Cihaz birleştirme
 * Cihaz yöneticileri
 * Aygıt kullanıcıları
-* Çalışma alanına cihaz katılma
+* Cihazla Çalışma Alanına Katılma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -4,7 +4,7 @@ description: "Azure Active Directory etki alanı Azure portalını kullanarak hi
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: maheshu
-ms.openlocfilehash: 32db916b319c531816a935fcfe3bc4fe82997fdd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f61f6df85e47bec32e147990d956a4409429a60c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak hizmetleri devre dışı bırak
 Bu makalede Azure portalında Azure AD dizininiz için Azure Active Directory (AD) etki alanı Hizmetleri'ni devre dışı bırakmak için nasıl kullanılacağı gösterilmektedir.
@@ -41,7 +41,7 @@ Azure AD etki alanı Hizmetleri yönetilen etki alanını silmek için aşağıd
 
 3. Üzerinde **genel bakış** sayfasında, **silmek** düğmesi.
 
-    ![Etki alanı silme](./media/getting-started/domain-services-delete-domain.png)
+    ![Etki alanını sil](./media/getting-started/domain-services-delete-domain.png)
 
 4. Silmeyi onaylamak için yönetilen etki alanının DNS etki alanı adını yazın. ' I tıklatın **silmek** işiniz bittiğinde düğmesine tıklayın.
 

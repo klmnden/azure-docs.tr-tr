@@ -5,7 +5,7 @@ keywords: "AD FS, ADFS, AD FS yönetimi, AAD bağlanma, bağlan, oturum açma, A
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9ff22c7b4793112da5211162ed9cd58ac86d238
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Yönetmek ve Azure AD Connect kullanarak Active Directory Federasyon Hizmetleri özelleştirme
 Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak nasıl yöneteceğinizi ve Active Directory Federasyon Hizmetleri (AD FS) özelleştirme açıklanır. Ayrıca, bir AD FS grubu için bir tam yapılandırma yapmanız gerekebilecek diğer ortak AD FS görevler içerir.
@@ -94,7 +94,7 @@ AD FS için alternatif oturum açma Kimliğini yapılandırma iki ana adımdan o
 
 2. Üzerinde **Azure ad Connect** sayfasında, Azure AD genel yönetici kimlik bilgilerinizi girin ve tıklayın **sonraki**.
 
-   ![Azure AD'ye bağlan](media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
+   ![Azure AD'ye Bağlanma](media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
 
 3. Etki alanı yönetici kimlik bilgilerini sağlayın.
 
@@ -127,7 +127,7 @@ AD FS için alternatif oturum açma Kimliğini yapılandırma iki ana adımdan o
 
 2. Azure genel yönetici kimlik bilgilerini sağlayın.
 
-   ![Azure AD'ye bağlan](media/active-directory-aadconnect-federation-management/wapserver2.PNG)
+   ![Azure AD'ye Bağlanma](media/active-directory-aadconnect-federation-management/wapserver2.PNG)
 
 3. Üzerinde **belirtin SSL sertifikası** sayfa, Azure AD Connect ile AD FS grubu yapılandırıldığında, sağlanan PFX dosyası için parola sağlayın.
    ![Sertifika parolası](media/active-directory-aadconnect-federation-management/WapServer3.PNG)
@@ -160,7 +160,7 @@ Azure AD Connect kullanarak Azure AD ile birleştirilecek bir etki alanına ekle
 
 2. Sihirbazın sonraki sayfasında, Azure AD genel yönetici kimlik bilgilerini sağlayın.
 
-   ![Azure AD'ye bağlan](media/active-directory-aadconnect-federation-management/AdditionalDomain2.PNG)
+   ![Azure AD'ye Bağlanma](media/active-directory-aadconnect-federation-management/AdditionalDomain2.PNG)
 
 3. Üzerinde **uzaktan erişim kimlik bilgileri** sayfasında, etki alanı yönetici kimlik bilgilerini sağlayın.
 

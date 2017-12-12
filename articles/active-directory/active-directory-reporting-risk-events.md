@@ -4,21 +4,21 @@ description: "Bu konu, risk olaylarını nelerdir ayrıntılı genel bakış sa�
 services: active-directory
 keywords: "Azure active directory kimlik koruması, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory risk olayları
 
@@ -31,9 +31,13 @@ Güvenlik ihlallerini çoğunluğu saldırganlar bir ortamda bir kullanıcının
 - [Alışılmadık konumlara imkansız seyahat](#impossible-travel-to-atypical-locations) 
 - [Virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri](#sign-ins-from-infected-devices) 
 - [Şüpheli etkinlik gösteren IP adreslerinden gerçekleştirilen oturum açma işlemleri](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Oturum açma işlemleri tanınmayan konumlardan](#sign-in-from-unfamiliar-locations) (özel **Azure Active Directory Premium P2** sürümleri)
+- [Fazla tanınmayan konumlardan gerçekleştirilen oturum açma işlemleri](#sign-in-from-unfamiliar-locations) 
+
 
 ![Risk olayı](./media/active-directory-reporting-risk-events/91.png)
+
+Algılanan risk olayı için alma Insight Azure AD aboneliğinizi bağlıdır. (EMS E3 Sunumda dahil) bir Azure AD Premium P1 sürümü varsa, lisansınız tarafından kapsanmayan algılamaların olarak bildirilen **algılanan ek risk ile oturum açma**. Diğer bir deyişle, Azure AD Identity Protection abonelere özel algılamaları algılanan ek risk ile oturum açma risk olayı bakın.
+
 
 Bu konuda, hangi risk olaylarını ayrıntılı bir genel bakış olduğunuz ve Azure AD kimliklerinizi korumak için bunları nasıl kullanabileceğiniz sağlar.
 

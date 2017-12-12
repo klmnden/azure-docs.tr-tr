@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory IMPAC Risk Yöneticisi 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 4d77390e-898c-4258-a562-a1181dfe2880
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 0d3f17b86caaf781ab8825b047853f2949828e9e
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: ade4076917988c5747a0d10a99578b49c917e1db
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Öğretici: Azure Active Directory Tümleştirme ile IMPAC Risk Yöneticisi
 
@@ -113,9 +113,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     | Ortam | URL deseni |
     | ---------------|--------------- |    
-    | Üretim için |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
+    | Üretim İçin |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Hazırlama ve eğitim  |`https://staging.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
-    | Geliştirme için  |`https://dev.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
+    | Geliştirme İçin  |`https://dev.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | QA için |`https://QA.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Test için |`https://test.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
 
@@ -126,9 +126,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     | Ortam | URL deseni |
     | ---------------|--------------- |    
-    | Üretim için |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
+    | Üretim İçin |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Hazırlama ve eğitim  |`https://staging.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
-    | Geliştirme için  |`https://dev.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
+    | Geliştirme İçin  |`https://dev.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | QA için |`https://QA.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Test için |`https://test.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
 

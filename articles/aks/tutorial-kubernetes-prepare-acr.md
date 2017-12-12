@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1283d3cff4edc0c99d22612c65fda48f9dddfbd3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Dağıtma ve Azure kapsayıcı kayıt defteri kullanma
 
@@ -28,21 +28,21 @@ Sonraki öğreticilerde bu ACR örneği AKS Kubernetes kümede tümleşiktir.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-İçinde [önceki öğretici](./tutorial-kubernetes-prepare-app.md), basit bir Azure oylama uygulaması için bir kapsayıcı görüntüsü oluşturuldu. Azure oylama uygulama görüntüsü oluşturmadıysanız, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./tutorial-kubernetes-prepare-app.md).
+İçinde [önceki öğretici][aks-tutorial-prepare-app], basit bir Azure oylama uygulaması için bir kapsayıcı görüntüsü oluşturuldu. Azure oylama uygulama görüntüsü oluşturmadıysanız, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app].
 
-Bu öğretici, Azure CLI Sürüm 2.0.21 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
+Bu öğretici, Azure CLI Sürüm 2.0.21 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Gerekirse yükleyin veya yükseltin, bakın [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="deploy-azure-container-registry"></a>Azure kapsayıcı kayıt defteri dağıtın
 
 Azure kapsayıcı kayıt defteri dağıtırken, önce bir kaynak grubu gerekir. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Bu örnekte, bir kaynak grubu adında `myResourceGroup` oluşturulan `eastus` bölge.
+[az group create][az-group-create] komutuyla bir kaynak grubu oluşturun. Bu örnekte, bir kaynak grubu adında `myResourceGroup` oluşturulan `eastus` bölge.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Azure kapsayıcı kayıt defteri ile oluşturma [az acr oluşturmak](/cli/azure/acr#create) komutu. Bir kapsayıcı kayıt defteri adını **benzersiz olmalıdır**.
+Azure kapsayıcı kayıt defteri ile oluşturma [az acr oluşturma] [ az-acr-create] komutu. Bir kapsayıcı kayıt defteri adını **benzersiz olmalıdır**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -52,7 +52,7 @@ Bu öğreticinin geri kalanını, kullandığımız `<acrName>` kapsayıcı kay�
 
 ## <a name="container-registry-login"></a>Kapsayıcı kayıt defteri oturum açma
 
-Kullanım [az acr oturum açma](https://docs.microsoft.com/cli/azure/acr#az_acr_login) ACR örneğinde oturum açma için komutu. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir ad vermeniz gerekir.
+Kullanım [az acr oturum açma] [ az-acr-login] ACR örneğinde oturum açma için komutu. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir ad vermeniz gerekir.
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +62,7 @@ Komut tamamlandıktan sonra 'Başarılı oturum açma' iletisi döndürür.
 
 ## <a name="tag-container-images"></a>Etiket kapsayıcı görüntüleri
 
-Geçerli görüntüleri listesini görmek için [docker görüntüleri](https://docs.docker.com/engine/reference/commandline/images/) komutu.
+Geçerli görüntüleri listesini görmek için [docker görüntüleri] [ docker-images] komutu.
 
 ```console
 docker images
@@ -91,7 +91,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Etiketli sonra [docker görüntüler] çalıştırma işlemi doğrulamak için (https://docs.docker.com/engine/reference/commandline/images/).
+Etiketlenmiş bir kez çalıştır [docker görüntüleri] [ docker-images] işlemi doğrulamak için.
 
 ```console
 docker images
@@ -121,7 +121,7 @@ Bu, birkaç tamamlamak için dakika sürer.
 
 ## <a name="list-images-in-registry"></a>Kayıt defterinde listesi görüntüler
 
-Azure kapsayıcı kaydınız gönderilen görüntüleri listesini döndürmek için kullanıcı [az acr deposu listesi](/cli/azure/acr/repository#list) komutu. Komut ACR örnek adıyla güncelleştirin.
+Azure kapsayıcı kaydınız gönderilen görüntüleri listesini döndürmek için kullanıcı [az acr deposu listesi] [ az-acr-repository-list] komutu. Komut ACR örnek adıyla güncelleştirin.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-Ve ardından belirli bir resim için etiketleri görmek için [az acr deposunu Göster-etiketleri](/cli/azure/acr/repository#show-tags) komutu.
+Ve ardından belirli bir resim için etiketleri görmek için [az acr deposunu Göster-etiketleri] [ az-acr-repository-show-tags] komutu.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -163,4 +163,17 @@ Bu öğreticide, Azure kapsayıcı kayıt defteri AKS kümesinde kullanmak için
 Azure Kubernetes kümede dağıtma hakkında bilgi edinmek için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Kubernetes kümesi dağıtma](./tutorial-kubernetes-deploy-cluster.md)
+> [Kubernetes kümesi dağıtma][aks-tutorial-deploy-cluster]
+
+<!-- LINKS - external -->
+[docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+
+<!-- LINKS - internal -->
+[az-acr-create]: /cli/azure/acr#create
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-repository-list]: /cli/azure/acr/repository#list
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
+[az-group-create]: /cli/azure/group#az_group_create
+[azure-cli-install]: /cli/azure/install-azure-cli
+[aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
