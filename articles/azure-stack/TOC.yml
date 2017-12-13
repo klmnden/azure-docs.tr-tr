@@ -45,6 +45,8 @@
       items:
         - name: Ön koşullar
           href: azure-stack-deploy.md
+        - name: Telemetri
+          href: azure-stack-telemetry.md
         - name: Dağıtma
           href: azure-stack-run-powershell-script.md
         - name: PowerShell yükleme
@@ -231,6 +233,10 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: İlgili
+  items:
+    - name: Azure Stack Kullanıcı Belgeleri
+      href: /azure/azure-stack/user/
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası
