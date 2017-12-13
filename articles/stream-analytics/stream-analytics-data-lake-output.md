@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2010e86e56c1ce7a98fae97a8f6f00c30b61035
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Stream Analytics Data Lake Store çıktı
 Akış analizi işleri birkaç çıktı yöntemlerini destekleyen bir anda bir [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store, büyük veri analitik iş yükleri için kuruluş çapında hiper ölçekli bir depodur. Data Lake Store herhangi boyutu, türü ve alım hızına işletimsel ve keşifsel analiz için verilerin depolamanıza olanak sağlar.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Bir Data Lake Store hesabı yetki
-1. Data Lake Store, Azure portalında bir çıkış olarak seçildiğinde, Data Lake Store'a Klasik Portal üzerinden erişim istemek için veya varolan Data Lake Store kullanımını yetkilendirmek için istenir.
+1. Data Lake Store, Azure portalında bir çıkış olarak seçildiğinde, Data Lake Store için erişim istemek için veya varolan Data Lake Store kullanımını yetkilendirmek için istenir.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
@@ -43,7 +43,7 @@ Kimliği doğrulanmış Data Lake Store hesabına sahip olduğunda, Data Lake St
 <td><B>AÇIKLAMA</B></td>
 </tr>
 <tr>
-<td>Çıkış diğer adları</td>
+<td>Çıkış Diğer Adı</td>
 <td>Bu, sorgu çıktısı bu Data Lake Store'a doğrudan sorgularda kullanılan kolay bir addır.</td>
 </tr>
 <tr>
@@ -63,7 +63,7 @@ Kimliği doğrulanmış Data Lake Store hesabına sahip olduğunda, Data Lake St
 <td>Zaman belirteci önek yolunda kullanılırsa, dosyalarınızı düzenlenmiş zaman biçimini belirtin. Şu anda desteklenen tek değer HH ' dir.</td>
 </tr>
 <tr>
-<td>Olayı seri hale getirme biçimi</td>
+<td>Olay Serileştirme Biçimi</td>
 <td>Çıkış verileri seri hale getirme biçimi. JSON, CSV ve Avro desteklenir.</td>
 </tr>
 <tr>
@@ -71,11 +71,11 @@ Kimliği doğrulanmış Data Lake Store hesabına sahip olduğunda, Data Lake St
 <td>Bir kodlama, CSV veya JSON biçiminde, belirtilmiş olması gerekir. Şu anda desteklenen tek kodlama biçimi UTF-8'dir.</td>
 </tr>
 <tr>
-<td>sınırlayıcı</td>
+<td>Sınırlayıcı</td>
 <td>Yalnızca, CSV serileştirme için de geçerlidir. Akış analizi, CSV verileri seri hale getirme için bir dizi ortak sınırlayıcıları destekler. Virgül, noktalı virgül, boşluk, sekme ve dikey çubuk bunun desteklenen değerlerdir.</td>
 </tr>
 <tr>
-<td>Biçimi</td>
+<td>Biçim</td>
 <td>Yalnızca JSON serileştirmesi için geçerlidir. Ayrılmış çizgi çıkış sahip yeni bir çizgiyle ayrılmış her bir JSON nesnesi olarak biçimlendirileceğini belirtir. Dizi çıkışı bir dizi JSON nesnesi biçimlendirileceğini belirtir.</td>
 </tr>
 </tbody>

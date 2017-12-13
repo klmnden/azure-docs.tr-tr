@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Performansı ve ölçeği Azure Cosmos DB ile test etme
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Performans ve ölçek testi adımdır bir anahtar uygulama geliştirme. Birçok uygulama için veritabanı katmanı genel performans ve ölçeklenebilirlik üzerinde önemli bir etkiye sahiptir. Bu nedenle performans testi için kritik bir bileşen olur. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) esnek ölçek ve tahmin edilebilir performans için amaca değil. Bu özellikler bir yüksek performanslı veritabanı katmanı gereken uygulamalar için mükemmel bir sığdırma kolaylaştırır. 
 
 Bu makalede kendi Azure Cosmos DB iş yükleri için performansı test paketleri uygulama geliştiricileri için başvuru değildir. Ayrıca, yüksek performanslı uygulama senaryoları için Azure Cosmos DB değerlendirmek için de kullanılabilir. Yalıtılmış performans veritabanını öncelikle sınama odaklanır, ancak aynı zamanda üretim uygulamaları için en iyi yöntemleri içerir.
@@ -54,7 +57,7 @@ Başlamak için en hızlı derlemek ve .NET örneği çalıştırmak için aşa�
 
 **3. adım:** derleyin ve komut satırından konsol uygulamasını çalıştırın. Aşağıdakine benzer bir çıktı görmeniz gerekir:
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/

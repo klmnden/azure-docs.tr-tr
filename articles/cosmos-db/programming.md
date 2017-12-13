@@ -1,7 +1,7 @@
 ---
 title: "Sunucu tarafı JavaScript programlama Azure Cosmos DB için | Microsoft Docs"
 description: "Saklı yordamlar, veritabanı tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) JavaScript'te yazmak için Azure Cosmos DB kullanmayı öğrenin. Veritabanı programing ipuçları ve daha fazla bilgi edinin."
-keywords: "Veritabanı tetikleyici, saklı yordam, saklı yordamı, veritabanı programı, sproc, documentdb, azure, Microsoft azure"
+keywords: "Veritabanı tetikleyici, saklı yordam, saklı yordamı, veritabanı programı, sproc, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: 
 author: aliuy
@@ -13,15 +13,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2016
+ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: ef191c3c8d85afa389859956d30b5ac0275053d2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 2fbf716422df324ad15c9400fe1f2e88b1415620
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'lerin
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos veritabanı dil nasıl tümleşik öğrenin, JavaScript işlem tabanlı olarak yürütülmesini sağlar yazma geliştiriciler **saklı yordamlar**, **Tetikleyicileri** ve **kullanıcı tanımlı işlevler (UDF'ler)** yerel olarak bir [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Bu, gönderilen ve veritabanı depolama bölümlere doğrudan üzerinde yürütülen veritabanı program uygulama mantığı yazmak sağlar. 
 
 Burada Barış Liu Cosmos DB'ın sunucu tarafı veritabanı programlama modeli kısa bir giriş sağlar aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz. 
@@ -53,7 +56,7 @@ Bu yaklaşım *"JavaScript T-SQL modern gün olarak"* tür sistem uyuşmazlıkla
   * Uygulamalarını bağımsız olarak verilerden gelişmesi veri mimarları etkinleştirir ham verileri en üstünde bir soyutlama katmanı ekler. Veri şeması az verilerle doğrudan dağıtılacak varsa uygulamasına baked gerekebilir kırılır varsayımlar nedeniyle, bu özellikle yararlı olur.  
   * Bu soyutlama kuruluşların betikleri erişimden hızlandırma tarafından verilerine güvenli kalmasına izin verir.  
 
-Oluşturma ve yürütme veritabanı tetikleyici, saklı yordam ve özel sorgu işleçleri aracılığıyla desteklenir [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), ve [istemci SDK'ları](documentdb-sdk-dotnet.md).NET, Node.js ve JavaScript gibi birçok platformda.
+Oluşturma ve yürütme veritabanı tetikleyici, saklı yordam ve özel sorgu işleçleri aracılığıyla desteklenir [Azure portal](https://portal.azure.com), [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), ve [istemci SDK'ları](documentdb-sdk-dotnet.md) .NET, Node.js ve JavaScript gibi birçok platformda.
 
 Bu öğretici kullanır [Node.js SDK'sı ile Q öneriler](http://azure.github.io/azure-documentdb-node-q/) sözdizimi ve saklı yordamlar, tetikleyiciler ve UDF'lerin kullanımını göstermek için.   
 
@@ -437,7 +440,7 @@ Bu tetikleyici için meta veri belgesi sorgular ve yeni oluşturulan belge hakk�
 Dikkat edilecek önemli bir şey **işlem** Cosmos DB Tetikleyicileri yürütülmesi. Aynı işlem özgün belgeye oluşturulmasını olarak bir parçası olarak bu sonrası tetikleyici çalışır. Bu nedenle, biz sonrası tetikleyici (meta veri belgesi güncelleştirmek bağlanamıyoruz varsa say) bir özel durum, tüm işlem başarısız olur ve geri alındı. Bir belge oluşturulur ve bir özel durum döndürdü.  
 
 ## <a id="udf"></a>Kullanıcı tanımlı işlevler
-Kullanıcı tanımlı işlevler (UDF'ler), özel iş mantığı uygulamanız ve DocumentDB API SQL Sorgu Dili Dilbilgisi genişletmek için kullanılır. Öğesinden yalnızca çağrılabilir sorguları içinde. Bunlar erişim kapsamı nesnesine sahip değil ve yalnızca işlem JavaScript kullanılması amaçlanmıştır. Bu nedenle, UDF'ler Cosmos DB hizmet ikincil çoğaltmalar üzerinde çalıştırılabilir.  
+Kullanıcı tanımlı işlevler (UDF'ler), özel iş mantığı uygulamanız ve Azure Cosmos DB SQL Sorgu Dili Dilbilgisi genişletmek için kullanılır. Öğesinden yalnızca çağrılabilir sorguları içinde. Bunlar erişim kapsamı nesnesine sahip değil ve yalnızca işlem JavaScript kullanılması amaçlanmıştır. Bu nedenle, UDF'ler Cosmos DB hizmet ikincil çoğaltmalar üzerinde çalıştırılabilir.  
 
 Aşağıdaki örnek gelir çeşitli gelir köşeli için hızlarını göre vergi hesaplamak için bir UDF oluşturur ve ardından birden fazla $20.000 vergiler Ücretli tüm kişilerin bulmak için bir sorgu içinde kullanır.
 
@@ -479,7 +482,7 @@ UDF daha sonra aşağıdaki örnekteki gibi sorgularında kullanılabilir:
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript dil ile tümleşik sorgu API
-Documentdb'nin SQL dil bilgisinin kullanarak sorgu göndermeye ek olarak, sunucu tarafı SDK'sı SQL bilgisi olmadan fluent JavaScript arabirimi kullanarak en iyi duruma getirilmiş sorguları gerçekleştirmenizi sağlar. API chainable işlevdeki koşul işlevleri geçirerek sorguları programlı olarak oluşturmanıza olanak sağlayan JavaScript sorgu ECMAScript5'ın dizi öğelerin ve lodash gibi popüler JavaScript kitaplıklarını tanıdık bir sözdizimi ile çağırır. Sorguları verimli bir şekilde Azure Cosmos veritabanı dizinlerini kullanarak çalıştırılacak JavaScript çalışma zamanı tarafından ayrıştırılır.
+Azure Cosmos veritabanı SQL dil bilgisinin kullanarak sorgu göndermeye ek olarak, sunucu tarafı SDK'sı SQL bilgisi olmadan fluent JavaScript arabirimi kullanarak en iyi duruma getirilmiş sorguları gerçekleştirmenizi sağlar. API chainable işlevdeki koşul işlevleri geçirerek sorguları programlı olarak oluşturmanıza olanak sağlayan JavaScript sorgu ECMAScript5'ın dizi öğelerin ve lodash gibi popüler JavaScript kitaplıklarını tanıdık bir sözdizimi ile çağırır. Sorguları verimli bir şekilde Azure Cosmos veritabanı dizinlerini kullanarak çalıştırılacak JavaScript çalışma zamanı tarafından ayrıştırılır.
 
 > [!NOTE]
 > `__`(çift alt çizgi) olan bir diğer ad `getContext().getCollection()`.
@@ -642,7 +645,7 @@ Aşağıdaki açıklamaları Yukarıdaki tablodaki her sorgu açıklanmaktadır.
 
 
 ## <a name="runtime-support"></a>Çalışma zamanı desteği
-[DocumentDB JavaScript sunucu tarafı API](http://azure.github.io/azure-documentdb-js-server/) tarafından standartlaştırılmış olarak temel JavaScript dil özelliklerinin çoğu için destek sağlayan [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+Azure Cosmos DB [JavaScript sunucu tarafı API](http://azure.github.io/azure-documentdb-js-server/) tarafından standartlaştırılmış olarak temel JavaScript dil özelliklerinin çoğu için destek sağlayan [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Güvenlik
 JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece tek bir betik etkilerini diğer veritabanı düzeyinde snapshot işlem yalıtım üzerinden geçmeden sızıntısı değil. Çalışma zamanı ortamları havuza alınmış ancak sonra her çalışma bağlamında temizlendi. Bu nedenle bunlar birbirinden herhangi istenmeyen yan etkileri güvenli olması garanti.
@@ -651,7 +654,7 @@ JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece tek bir bet
 Saklı yordamlar, tetikleyiciler ve UDF'lerin her komut dosyası çağırma aynı anda derleme maliyet önlemek için bayt kodu biçimine örtük olarak önceden derlenmiş. Bu saklı yordam çağrılarını hızlı ve az alan kaplaması sahip sağlar.
 
 ## <a name="client-sdk-support"></a>İstemci SDK'sı desteği
-DocumentDB API'si yanı sıra [Node.js](documentdb-sdk-node.md) istemci, Azure Cosmos DB [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [ JavaScript](http://azure.github.io/azure-documentdb-js/), ve [Python SDK'ları](documentdb-sdk-python.md) API DocumentDB için. Saklı yordamlar, tetikleyiciler ve UDF'lerin oluşturulabilir ve bu SDK de birini kullanarak çalıştırılabilir. Aşağıdaki örnekte, oluşturma ve .NET İstemcisi'ni kullanarak bir saklı yordam yürütme gösterilmektedir. .NET türleri nasıl JSON olarak saklı yordam içinde geçirilen ve geri okuma unutmayın.
+Azure Cosmos DB yanı sıra [Node.js](documentdb-sdk-node.md) API, Azure Cosmos DB sahip [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), ve [Python SDK'ları](documentdb-sdk-python.md) SQL API'si de. Saklı yordamlar, tetikleyiciler ve UDF'lerin oluşturulabilir ve bu SDK de birini kullanarak çalıştırılabilir. Aşağıdaki örnekte, oluşturma ve .NET İstemcisi'ni kullanarak bir saklı yordam yürütme gösterilmektedir. .NET türleri nasıl JSON olarak saklı yordam içinde geçirilen ve geri okuma unutmayın.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -684,7 +687,7 @@ DocumentDB API'si yanı sıra [Node.js](documentdb-sdk-node.md) istemci, Azure C
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "ValidateDocumentAge"), document, 1920);
 
 
-Bu örnek nasıl kullanılacağını göstermektedir [DocumentDB .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) için ön tetikleyici ve etkinleştirilmiş tetikleyici ile bir belge oluşturun. 
+Bu örnek nasıl kullanılacağını göstermektedir [SQL .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) için ön tetikleyici ve etkinleştirilmiş tetikleyici ile bir belge oluşturun. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -705,7 +708,7 @@ Bu örnek nasıl kullanılacağını göstermektedir [DocumentDB .NET API](/dotn
         });
 
 
-Ve aşağıdaki örnekte, kullanıcı tanımlı işlev (UDF) oluşturmak ve bunu kullanmak gösterilmiştir bir [DocumentDB API SQL sorgusu](documentdb-sql-query.md).
+Ve aşağıdaki örnekte, kullanıcı tanımlı işlev (UDF) oluşturmak ve bunu kullanmak gösterilmiştir bir [SQL sorgusu](documentdb-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {

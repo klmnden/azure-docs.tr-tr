@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Kodunuzu test
 
 1. Kodunuzu Aygıt/Öykünücüsü için dağıtın.

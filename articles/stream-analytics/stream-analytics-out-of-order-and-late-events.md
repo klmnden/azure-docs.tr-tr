@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 208dfa14d5d18e106d654539cd80bafdeb90cdf8
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: b4ce26fbbb2a494004e9c80462881dd754531497
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics olay sipariş değerlendirme
 
 ## <a name="understand-arrival-time-and-application-time"></a>Geliş saati ve uygulama zamanı anlayın.
 
-Olayları bir zamana bağlı veri akışında her olay bir zaman damgası atanır. Azure Stream Analytics geliş saati ya da uygulama zamanı kullanarak her olay zaman damgası atar. "System.Timestamp" sütun olaya atanan zaman damgası vardır. Olay kaynağı ulaştığında geliş saati giriş kaynakta atanır. Geliş saati için olay hub'ı giriş EventEnqueuedTime olduğu ve [blob son değiştirme zamanı](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) blob giriş. Uygulama zamanı olayı oluşturulur ve yükü parçası olduğunda atanır. Uygulama zamanına göre olayları işlemek için "Zaman damgası tarafından" yan tümcesi select sorgusundaki kullanın. "Zaman damgası tarafından" yan tümcesi olmazsa olayları geliş saati tarafından işlenir. Geliş saati, olay hub'ı için EventEnqueuedTime özelliğini kullanarak ve blob giriş BlobLastModified özelliği kullanılarak erişilebilir. Azure Stream Analytics zaman damgası sırada bir çıktı üretir ve bozuk verilerle mücadele etmek için birkaç ayarları sağlar.
+Olayları bir zamana bağlı veri akışında her olay bir zaman damgası atanır. Azure Stream Analytics geliş saati ya da uygulama zamanı kullanarak her olay zaman damgası atar. "System.Timestamp" sütun olaya atanan zaman damgası vardır. Olay kaynağı ulaştığında geliş saati giriş kaynakta atanır. Geliş saati için olay hub'ı giriş EventEnqueuedTime olduğu ve [blob son değiştirme zamanı](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) blob giriş. Uygulama zamanı olayı oluşturulur ve yükü parçası olduğunda atanır. Uygulama zamanına göre olayları işlemek için "Zaman damgası tarafından" yan tümcesi select sorgusundaki kullanın. "Zaman damgası tarafından" yan tümcesi olmazsa olayları geliş saati tarafından işlenir. Geliş saati, olay hub'ı için EventEnqueuedTime özelliğini kullanarak ve blob giriş BlobLastModified özelliği kullanılarak erişilebilir. Azure Stream Analytics zaman damgası sırada bir çıktı üretir ve bozuk verilerle mücadele etmek için birkaç ayarları sağlar.
 
 
 ## <a name="azure-stream-analytics-handling-of-multiple-streams"></a>Birden çok akış Azure Stream Analytics işlenmesi
@@ -78,7 +78,7 @@ Geç varış toleransı göre ayarlama ilk yapılır ve bozuk sonraki yapılır.
    * Olay 4 _uygulama zamanı_ 00:09:00 = _geliş saati_ 00:10:03 = _System.Timestamp_ 00:09: uygulama süresi içinde olduğu gibi özgün damgasıyla kabul 00 = Sipariş dayanıklılık.
    * Olay 5 _uygulama zamanı_ 00:06:00 = _geliş saati_ 00:10:04 = _System.Timestamp_ 00:07: uygulama zamanı bozuk eski olduğu için ayarlanmış 00 = dayanıklılık.
 
-## <a name="practical-considerations"></a>Dikkat edilecek noktalar
+### <a name="practical-considerations"></a>Dikkat edilecek noktalar
 Yukarıda belirtildiği gibi *geç varış dayanıklılık* en fazla uygulama zamanı ve geliş saati arasındaki farktır.
 Ayrıca zaman uygulama tarafından işleme süresi, yapılandırılan sonraki olayları *geç varış dayanıklılık* önce ayarlanmış *sıralama dışı tolerans* ayarı uygulanır. Bu nedenle, bozuk en az geç varış dayanıklılık ve sıralama dışı tolerans geçerlidir.
 
@@ -94,22 +94,33 @@ Yapılandırılırken *geç varış dayanıklılık* ve *sıralama dışı toler
 
 Aşağıda birkaç örnek verilmiştir
 
-### <a name="example-1"></a>Örnek 1: 
+#### <a name="example-1"></a>Örnek 1: 
 Sorgu "Bölümü tarafından PartitionID" yan tümcesine sahip ve tek bir bölüm içinde eşzamanlı gönderme yöntemlerini kullanarak olayları gönderilir. Zaman uyumlu olaylar gönderilen kadar yöntemleri blok gönderin.
 Bu durumda, sonraki olay göndermeden önce açık onay sırayla olayları gönderildiğinden sıfır bozuk. Olay oluşturma ve gönderme olay + gönderen ve giriş kaynağı arasındaki en büyük gecikme süresi arasında en büyük gecikme geç varış olduğu
 
-### <a name="example-2"></a>Örnek 2:
+#### <a name="example-2"></a>Örnek 2:
 Sorgu "Bölümü tarafından PartitionID" yan tümcesi varsa ve tek bir bölüm içinde zaman uyumsuz gönderme yöntemini kullanarak olayları gönderilir. Zaman uyumsuz gönderme yöntemlerini bozuk olayları neden aynı anda birden çok gönderir başlatabilirsiniz.
 Bu durumda, bozuk ve geç varış, olay oluşturma ve gönderme olay + gönderen ve giriş kaynağı arasındaki en büyük gecikme süresi arasında en az en büyük gecikme şunlardır.
 
-### <a name="example-3"></a>Örnek 3:
+#### <a name="example-3"></a>Örnek 3:
 Sorgu "Bölümü tarafından PartitionID" sahip değil ve en az iki bölümü vardır.
 Örnek 2 aynı yapılandırmadır. Bölümleri birindeki verileri yokluğu çıkış ancak, ek bir tarafından geciktirebilir * geç varış dayanıklılık "penceresi.
+
+## <a name="handling-event-producers-with-differing-timelines"></a>Olay üreticileri farklı zaman çizelgeleri ile işleme
+Tek bir giriş olay akışı genellikle birden çok olay üreticileri (örneğin, bireysel aygıtlar) kaynaklanan olayları içerir.  Bu olaylar daha önce bahsedilen nedenlerden dolayı bozuk gelebilir. Olay üreticileri arasında düzensiz büyük olabilir ancak bu senaryolarda, küçük (veya hatta olmayan) tek bir üretici olayların içinde düzensiz olacaktır.
+Azure Stream Analytics düzen dışı olayları ilgilenmek için genel mekanizmaları sağlarken, böyle (beklenirken sistem ulaşması için straggling olayları), ya da işleme gecikmeleri mekanizmaları sonucunda bırakılmış veya olayları veya her ikisi de ayarlandı.
+Henüz birçok senaryolarda, istenen sorgu farklı olay üreticileri olaylarından bağımsız olarak işliyor.  Örneği için bu olayları penceresi başına cihaz başına bir araya getirildiği.  Böyle durumlarda, diğer olay üreticileri Yakala beklenirken bir olay üretici karşılık gelen çıktı gecikme gerek yoktur.  Diğer bir deyişle, üreticiler arasında eğme zaman uğraşmanız gerek yoktur ve yalnızca yoksayılabilir.
+Elbette, bu çıkış olaylarındaki kendilerini düzen dışı olacağı anlamına gelir; damgalarını göre Aşağı Akış tüketici bu tür davranış ile mücadele etmek mümkün olması gerekir.  Ancak her olay çıktıda doğru olacaktır.
+
+Azure Stream Analytics uygulayan kullanarak bu işlevselliği [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) yan tümcesi.
+
+
 
 ## <a name="to-summarize"></a>Özetlemek için
 * Geç varış dayanıklılık ve bozuk penceresi doğruluk, gecikme gereksinimlerine göre yapılandırılmalıdır ve olayları nasıl gönderileceğini de dikkate almalısınız.
 * Sıralama dışı tolerans geç varış dayanıklılık küçük önerilir.
 * Birden çok zaman çizelgelerini birleştirilirken veri kaynakları veya bölümleri birinde olmaması çıktı ek bir geç gerçekleşme tolerans penceresi tarafından geciktirebilir.
+* Sipariş yalnızca olay üretici zaman çizelgesi önemli olduğu durumlarda her olay üretici bağımsız bir alt akış olarak işlemek için TIMESTAMP BY OVER yan tümcesi kullanmak da mümkündür.
 
 ## <a name="get-help"></a>Yardım alın
 Ek Yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).

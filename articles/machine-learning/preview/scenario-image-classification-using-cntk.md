@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 64a035c216e4d7aa4c14baf1812b9a25e27b3e19
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 2410ed152674637cb1b287db55da67b8d5f5f072
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak görüntü sınıflandırma
 
@@ -63,7 +63,7 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 - Bellek hataları DNN eğitim sırasında minibatch boyutunu azaltarak kaçınılabilir (değişken `cntk_mb_size` içinde `PARAMETERS.py`).
 - Kod CNTK 2.2 kullanılarak test edilmiştir ve çalıştırılacak de eski (yukarı) v2.0 için ve daha yeni sürümleri kalmaksızın veya yalnızca küçük değiştirir.
 - Yazma zaman Azure Machine Learning çalışma ekranı not defterlerini 5 MB büyük gösteren sorunlarla karşılaştı. Not Defteri ile kaydedilirse, bu büyük boyuttaki not defterlerini oluşabilir tüm görüntülenen çıktı hücre. Bu hatayla karşılaşırsanız, ardından çalışma ekranı içinde Dosya menüsünden komut istemini açın, yürütmeyi `jupyter notebook`, Not Defteri, Temizle tüm çıktı açıp not defteri kaydedin. Bu adımları gerçekleştirdikten sonra dizüstü bilgisayar düzgün bir şekilde Azure Machine Learning çalışma ekranı içinde yeniden açılır.
-- Bu örnekte sağlanan tüm komut dosyaları yerel olarak yürütülmesi sahip ve örneğin docker uzak ortamda üzerinde değil. Tüm not defterlerini ada sahip yerel proje çekirdeğe ayarlamak çekirdek yürütülmesi gerekir "<projectname> yerel" (örneğin "myImgClassUsingCNTK yerel").
+- Bu örnekte sağlanan tüm komut dosyaları yerel olarak yürütülmesi sahip ve örneğin docker uzak ortamda üzerinde değil. Tüm not defterlerini yerel proje çekirdeğe "PROJECTNAME yerel" adıyla (örn. "myImgClassUsingCNTK yerel") ayarlamak çekirdek yürütülmesi gerekir.
 
     
 ## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
@@ -115,7 +115,7 @@ Tüm önemli parametreleri belirtilir ve kısa bir açıklama sağlanan, tek bir
 ### <a name="step-1-data-preparation"></a>1. adım: Verileri hazırlama
 `Script: 1_prepareData.py. Notebook: showImages.ipynb`
 
-Not Defteri `showImages.ipynb` görüntüleri görselleştirmek için ve gerektiğinde, ek açıklama düzeltmek için kullanılabilir. Not Defteri çalıştırmak için Azure Machine Learning çalışma ekranı, üzerinde "Başlat not defteri sunucusunu" Bu seçeneği gösteriliyorsa, değiştirme ada sahip yerel proje çekirdeğe tıklayın açın "<projectname> yerel" (örneğin "myImgClassUsingCNTK yerel") ve ardından tüm hücreleri yürütme dizüstü bilgisayar. Not Defteri görüntülenecek büyük olduğunu şikayetçi bir hata alırsanız, bu belgedeki sorun giderme bölümüne bakın.
+Not Defteri `showImages.ipynb` görüntüleri görselleştirmek için ve gerektiğinde, ek açıklama düzeltmek için kullanılabilir. Not Defteri çalıştırmak için Azure Machine Learning çalışma ekranındaki, üzerinde "Başlat not defteri sunucuyu" Bu seçeneği gösteriliyorsa, değiştirmek adlı "PROJECTNAME yerel" (örneğin "myImgClassUsingCNTK yerel"), yerel proje çekirdeğe tıklayın açın ve sonra tüm hücreleri yürütün dizüstü bilgisayar. Not Defteri görüntülenecek büyük olduğunu şikayetçi bir hata alırsanız, bu belgedeki sorun giderme bölümüne bakın.
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showImages.jpg" alt="alt text" width="700"/>
 </p>
@@ -179,7 +179,7 @@ Doğruluk ek olarak, ilgili alanı altında-eğrisini ile (soldaki); ROC eğrisi
 <img src="media/scenario-image-classification-using-cntk/roc_confMat.jpg" alt="alt text" width="700"/>
 </p>
 
-Son olarak, Not Defteri `showResults.py` test resimler arasında gezinmek ve ilgili sınıflandırma puanlarını görselleştirmek için sağlanmıştır. Bu örnekteki her dizüstü Adım1 içinde açıklandığı gibi yerel proje çekirdek adıyla kullanması gereken "<projectname> yerel":
+Son olarak, Not Defteri `showResults.py` test resimler arasında gezinmek ve ilgili sınıflandırma puanlarını görselleştirmek için sağlanmıştır. 1. Adım ' açıklandığı gibi bu örnekteki her bir dizüstü bilgisayarın yerel proje çekirdek "PROJECTNAME yerel" adıyla kullanması gerekir:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/notebook_showResults.jpg" alt="alt text" width="700"/>
 </p>
@@ -191,7 +191,7 @@ Son olarak, Not Defteri `showResults.py` test resimler arasında gezinmek ve ilg
 ### <a name="step-6-deployment"></a>6. adım: dağıtım
 `Scripts: 6_callWebservice.py, deploymain.py. Notebook: deploy.ipynb`
 
-Eğitilmiş sistem artık bir REST API yayımlanabilir. Dağıtım not defterinde açıklandığı `deploy.ipynb`ve Azure Machine Learning çalışma ekranının içinden işlevselliği temel (ada sahip yerel proje çekirdek çekirdek ayarlamayı unutmayın "<projectname> yerel"). Ayrıca mükemmel dağıtımı bölümüne bakın [IRIS öğretici](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) daha fazla dağıtım için ilgili bilgiler.
+Eğitilmiş sistem artık bir REST API yayımlanabilir. Dağıtım not defterinde açıklandığı `deploy.ipynb`ve Azure Machine Learning çalışma ekranının içinden işlevselliği temel ("PROJECTNAME yerel" adıyla yerel proje çekirdek çekirdek ayarlamayı unutmayın). Ayrıca mükemmel dağıtımı bölümüne bakın [IRIS öğretici](https://docs.microsoft.com/azure/machine-learning/preview/tutorial-classifying-iris-part-3) daha fazla dağıtım için ilgili bilgiler.
 
 Uygulama dağıtıldıktan sonra web hizmeti komut dosyası kullanılarak çağrılabilir `6_callWebservice.py`. Web hizmeti IP adresi (yerel veya Bulut üzerinde) ilk komut dosyasında ayarlanan gerektiğini unutmayın. Not Defteri `deploy.ipynb` bu IP adresini bulmak açıklanmaktadır.
 

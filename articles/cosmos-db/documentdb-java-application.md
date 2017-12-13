@@ -1,7 +1,7 @@
 ---
 title: "Azure Cosmos DB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Docs"
-description: "Bu Java web uygulaması Öğreticisi Azure Web Siteleri'nde barındırılan bir Java uygulaması erişim verileri ve Azure Cosmos DB ve DocumentDB API depolamak için nasıl kullanılacağını gösterir."
-keywords: "Uygulama geliştirme, veritabanı öğreticisi, java uygulaması, java web uygulaması öğreticisi, documentdb, Azure, Microsoft Azure"
+description: "Bu Java web uygulaması Öğreticisi Azure Web Siteleri'nde barındırılan bir Java uygulaması erişim verileri ve Azure Cosmos DB ve SQL API'yi depolamak için nasıl kullanılacağını gösterir."
+keywords: "Uygulama geliştirme, veritabanı Öğreticisi, java uygulaması, java web uygulaması Öğreticisi, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0081a080e33b0377516f99d6cdeb9fcc38bc10da
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Azure Cosmos DB ve DocumentDB API kullanarak bir Java web uygulaması oluşturma
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API'yi kullanarak bir Java web uygulaması oluşturma
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -29,6 +29,8 @@ ms.lasthandoff: 10/11/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bu Java web uygulaması Öğreticisi nasıl kullanılacağını gösterir [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) depolamak ve Azure App Service Web Apps üzerinde barındırılan bir Java uygulamasında verilere erişmek için hizmet. Bu konu başlığında şunları öğreneceksiniz:
 
@@ -86,8 +88,8 @@ JSP uygulaması oluşturmak için:
    
     ![Hello World - Java Uygulaması Öğreticisi](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>3. Adım: DocumentDB Java SDK'sını yükleme
-[Apache Maven](http://maven.apache.org/), DocumentDB Java SDK'sını ve bağımlılıklarını çekmenin en kolay yolunu sağlar.
+## <a id="InstallSDK"></a>3. adım: SQL Java'yı yükleme SDK
+SQL Java SDK'sını ve bağımlılıklarını çıkarmak için kolay yolunu [Apache Maven](http://maven.apache.org/).
 
 Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven projesine dönüştürmeniz gerekir:
 
@@ -101,12 +103,12 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
    * İçinde **Artifact ID** kutusuna, azure-documentdb girin.
    * İçinde **sürüm** kutusuna, 1.5.1 girin.
      
-   ![DocumentDB Java Uygulaması SDK'sını yükleme](./media/documentdb-java-application/image13.png)
+   ![SQL Java uygulaması SDK'sını yükleyin](./media/documentdb-java-application/image13.png)
      
    * Veya bağımlılık XML'sini grup kimliği ve yapı kimliği için doğrudan bir metin düzenleyicisi aracılığıyla pom.XML'ye ekleyin:
      
         <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version></dependency>
-6. Tıklatın **Tamam** ve Maven DocumentDB Java SDK'sını yükler.
+6. Tıklatın **Tamam** ve Maven SQL Java SDK'sını yükler.
 7. Pom.xml dosyasını kaydedin.
 
 ## <a id="UseService"></a>4. Adım: Azure Cosmos DB hizmetini bir Java uygulamasında kullanma
@@ -279,7 +281,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
                 return null;
             }
         }
-7. DocumentDB SQL kullanarak bir koleksiyonu veya TodoItems listesini almak için DocumentClient'ı da kullanabiliriz:
+7. Biz de bir koleksiyon veya SQL kullanarak Todoıtems listesini almak için DocumentClient kullanabilirsiniz:
    
         @Override
         public List<TodoItem> readTodoItems() {

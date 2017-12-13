@@ -3,28 +3,28 @@ title: "Farkları ve sanal makineleri Azure yığınında dikkate alınacak nokt
 description: "Farklar ve konuları Azure yığınında sanal makinelerle çalışırken öğrenin."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
+author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
-ms.author: sngun
-ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mabrigg
+ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Sanal makineler Azure yığınında dikkate alınacak noktalar
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Sanal makine, bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynakları Azure yığını tarafından sunulan yok. Sanal makineler kullandığınızda, Azure'da kullanılabilen özellikleri ve Azure yığın arasındaki farklar olduğunu anlamanız gerekir. Bu makalede benzersiz konuları sanal makineler ve Azure yığınında özellikleri için genel bir bakış sağlar. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) konu.
+Sanal makine, bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynakları Azure yığını tarafından sunulan yok. Sanal makineler kullandığınızda, Azure'da kullanılabilen özellikleri ve Azure yığın arasındaki farklar olduğunu anlamanız gerekir. Bu makalede benzersiz konuları sanal makineler ve Azure yığınında özellikleri için genel bir bakış sağlar. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) makalesi.
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Kopya sayfası: sanal makine farklar
 
@@ -33,7 +33,7 @@ Sanal makine, bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynakları Azu
 | Sanal makine görüntüleri | Azure Marketi'nde bir sanal makine oluşturmak için kullanabileceğiniz görüntüleri içerir. Bkz: [Azure Marketi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) Azure Marketi'nde kullanılabilir görüntüleri listesini görüntülemek için sayfa. | Varsayılan olarak, yok tüm görüntüleri kullanılabilir Azure yığın marketi'ndeki. Azure yığın bulut yönetici yayımlamak veya kullanıcılar kullanabilmek için önce Azure yığın Market görüntülerini indirin. |
 | Sanal makine boyutları | Azure sanal makineler için çok çeşitli boyutlarını destekler. Kullanılabilir boyutları ve seçenekleri hakkında bilgi edinmek için bkz [Windows sanal makine boyutları](../../virtual-machines/virtual-machines-windows-sizes.md) ve [Linux sanal makine boyutlarını](../../virtual-machines/linux/sizes.md) Konular. | Azure yığını mevcut olan sanal makine boyutlarını kümesini destekler. Desteklenen boyutlar listesini görüntülemek için başvurmak [sanal makine boyutlarını](#virtual-machine-sizes) bu makalenin. |
 | Sanal makine kotaları | [Kota sınırları](../../azure-subscription-service-limits.md#service-specific-limits) Microsoft tarafından ayarlanır | Bunlar, kullanıcılar sanal makineleri sunar önce Azure yığın bulut yönetici kotaları atamanız gerekir. |
-| Sanal makine uzantıları |Azure sanal makine uzantıları çok geniş bir yelpazedeki destekler. Kullanılabilir uzantılar hakkında bilgi edinmek için bkz [sanal makine uzantıları ve özellikleri](../../virtual-machines/windows/extensions-features.md) konu.| Azure yığın Azure'da kullanılabilen uzantıları kümesini destekler ve her uzantısına sahip belirli sürümleri. Azure yığın bulut yönetici kendi kullanıcılar için kullanılabilir duruma getirilmek üzere hangi uzantıların seçebilirsiniz. Desteklenen uzantılarının listesini görüntülemek için bkz [sanal makine uzantıları](#virtual-machine-extensions) bu makalenin. |
+| Sanal makine uzantıları |Azure sanal makine uzantıları çok geniş bir yelpazedeki destekler. Kullanılabilir uzantılar hakkında bilgi edinmek için bkz [sanal makine uzantıları ve özellikleri](../../virtual-machines/windows/extensions-features.md) makalesi.| Azure yığın Azure'da kullanılabilen uzantıları kümesini destekler ve her uzantısına sahip belirli sürümleri. Azure yığın bulut yönetici kendi kullanıcılar için kullanılabilir duruma getirilmek üzere hangi uzantıların seçebilirsiniz. Desteklenen uzantılarının listesini görüntülemek için bkz [sanal makine uzantıları](#virtual-machine-extensions) bu makalenin. |
 | Sanal makine ağı | Kiracı sanal makinesi için atanan ortak IP adresleri Internet üzerinden erişilebilir.<br><br><br>Azure sanal makinelerin olduğu sabit bir DNS adı | Bir kiracı sanal makineye atanan genel IP adresleri yalnızca Azure yığın Geliştirme Seti ortamında erişilebilir. Bir kullanıcı bu Azure yığın Geliştirme Seti erişiminiz olmalıdır [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) veya [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) Azure yığınında oluşturulan bir sanal makineye bağlanmak için.<br><br>Belirli bir Azure yığın örneği içinde oluşturulan sanal makineler bulut yönetici tarafından yapılandırılan değere göre bir DNS adına sahip. |
 | Sanal makine depolama | Destekler [yönetilen diskler.](../../virtual-machines/windows/managed-disks-overview.md) | Yönetilen diskleri Azure yığınında henüz desteklenmiyor. |
 | API sürümleri | Azure her zaman en son API sürümü tüm sanal makine özellikleri vardır. | Azure yığını, bu hizmetler için belirli Azure hizmetlerinin ve belirli API sürümleri destekler. Desteklenen API sürümleri listesini görüntülemek için başvurmak [API sürümleri](#api-versions) bu makalenin. |

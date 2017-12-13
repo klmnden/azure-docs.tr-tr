@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB API Python örnekler için Azure Cosmos DB | Microsoft Docs"
+title: "SQL API Python örnekler için Azure Cosmos DB | Microsoft Docs"
 description: "Python örnekler github'da Azure Cosmos veritabanı CRUD işlemleri dahil olmak üzere, ortak görevler için bulun."
 keywords: "Python örnekleri"
 services: cosmos-db
@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2016
 ms.author: moderakh
-ms.openlocfilehash: 98c00f23a3ce7569c9cc85a62840500cc50ed3a1
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 1e46cde71eace6876f4e83ef0a2fecdb9019ecda
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python örnekleri
 > [!div class="op_single_selector"]
 > * [.NET örnekleri](documentdb-dotnet-samples.md)
 > * [Node.js Örnekleri](documentdb-nodejs-samples.md)
 > * [Python örnekleri](documentdb-python-samples.md)
-> * [Azure Kod örnek Galerisi](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+> * [Azure Kod örnek Galerisi](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçekleştirmek örnek çözümleri dahil edilmiştir [azure documentdb python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub depo. Bu makalede aşağıdakiler sunulmaktadır:
 
@@ -46,12 +48,12 @@ CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçek
 Ayrıca gerekir [Python SDK](documentdb-sdk-python.md). 
    
    > [!NOTE]
-   > Her örnek kendi içinde bulunan, kendisini ayarlayan ve kendisini sonra temizler. Bu nedenle, örnekler için birden fazla çağrı sorun [document_client. CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Bu, aboneliğinizin yapılır her zaman 1 saat performans katmanı oluşturulan koleksiyonunun başına kullanım için faturalandırılır. 
+   > Her örnek kendi içinde bulunan, kendisini ayarlayan ve kendisini sonra temizler. Bu nedenle, örnekler için birden fazla çağrı sorun [document_client. CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Bu, aboneliğinizin yapılır her zaman bir saat performans katmanı oluşturulan koleksiyonunun başına kullanım için faturalandırılır. 
    > 
    > 
 
 ## <a name="database-examples"></a>Veritabanı örnekleri
-[Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement/Program.py) dosyasının [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+[Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement/Program.py) dosyasının [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir:
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -62,13 +64,13 @@ Ayrıca gerekir [Python SDK](documentdb-sdk-python.md).
 | [Veritabanı silme](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/DatabaseManagement/Program.py#L113-L126) |[document_client. DeleteDatabase](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html) |
 
 ## <a name="collection-examples"></a>Koleksiyon örnekleri
-[Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement/Program.py) dosyasının [CollectionManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+[Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement/Program.py) dosyasının [CollectionManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir:
 
 | Görev | API başvurusu |
 | --- | --- |
 | [Koleksiyon oluşturma](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L84-L135) |[document_client. CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Veritabanındaki tüm koleksiyonlar listesini okur](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L198-L225) |[document_client. ListCollections](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
-| [Bir koleksiyon kimliğine göre alma](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L178-L195) |[document_client. ReadCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
+| [Bir koleksiyon Kimliğine göre alma](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L178-L195) |[document_client. ReadCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Bir koleksiyonun performans katmanı Al](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L139-L161) |[DocumentQueryable.QueryOffers](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Bir koleksiyonun performans katmanı değiştirme](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L163-L175) |[document_client. ReplaceOffer](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |
 | [Bir koleksiyonu silin](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/CollectionManagement/Program.py#L212-L225) |[document_client. DeleteCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html#CreateCollection) |

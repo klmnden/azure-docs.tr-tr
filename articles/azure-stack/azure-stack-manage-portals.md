@@ -3,8 +3,8 @@ title: "Azure yığınında Yönetici portalı'nı kullanarak | Microsoft Docs"
 description: "Bir Azure yığın operatör olarak, Yönetici portalı'nı kullanmayı öğrenin."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 02c7ff03-874e-4951-b591-28166b7a7a79
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
-ms.openlocfilehash: 3a1be7a08fab8ad0253f26e6a0683617bff4b7c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 34d9d207225327758d535a11c870019f3db31cb0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Azure yığınında Yönetici portalı'nı kullanarak
 

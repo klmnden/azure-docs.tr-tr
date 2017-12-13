@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36a2f99b9d5ea4b9e6b313fed79cf7f4dd0e7057
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python ve Node.js ile kullanmak için Azure Cosmos DB öykünücüsü sertifikaları verme
 
@@ -87,11 +87,11 @@ Bir kez "CosmosDBEmulatorCertificate" SSL sertifika yüklü uygulamanızı bağl
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Sertifika Python içinde kullanma
 
-Varsayılan olarak [Python SDK(version 2.0.0 or higher)](documentdb-sdk-python.md) DocumentDB API değil deneyin ve yerel öykünücüsü bağlanırken SSL sertifikası kullanın. Ancak, SSL doğrulama kullanmak istediğiniz örneklerde takip edebilirsiniz, [Python yuva sarmalayıcıları](https://docs.python.org/2/library/ssl.html) belgeleri.
+Varsayılan olarak [Python SDK(version 2.0.0 or higher)](documentdb-sdk-python.md) SQL API değil deneyin ve yerel öykünücüsü bağlanırken SSL sertifikası kullanın. Ancak, SSL doğrulama kullanmak istediğiniz örneklerde takip edebilirsiniz, [Python yuva sarmalayıcıları](https://docs.python.org/2/library/ssl.html) belgeleri.
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Sertifika Node.js içinde kullanma
 
-Varsayılan olarak [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) DocumentDB API değil deneyin ve yerel öykünücüsü bağlanırken SSL sertifikası kullanın. Ancak, SSL doğrulama kullanmak istediğiniz örneklerde takip edebilirsiniz, [Node.js belgelerine](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Varsayılan olarak [Node.js SDK(version 1.10.1 or higher)](documentdb-sdk-node.md) SQL API değil deneyin ve yerel öykünücüsü bağlanırken SSL sertifikası kullanın. Ancak, SSL doğrulama kullanmak istediğiniz örneklerde takip edebilirsiniz, [Node.js belgelerine](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

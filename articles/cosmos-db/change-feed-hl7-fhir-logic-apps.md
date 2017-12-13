@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Logic Apps ile Azure Cosmos DB HL7 FHIR sağlık kayıt değişiklikleri hastalar bildirme
 
@@ -54,7 +54,7 @@ Bu çözüm, yukarıdaki gereksinimlerini karşılamak ve çözümü iş akış�
 
 ### <a name="azure-services-used-in-the-solution"></a>Çözümde kullanılan azure Hizmetleri
 
-#### <a name="azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB DocumentDB API
+#### <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB SQL API
 Azure Cosmos DB FHIR kaynaklar için aşağıdaki resimde gösterildiği gibi depodur.
 
 ![Bu HL7 FHIR sağlık öğreticide kullanılan Azure Cosmos DB hesabı](./media/change-feed-hl7-fhir-logic-apps/account.png)
@@ -86,7 +86,7 @@ Aşağıdaki şekilde gösterilmiştir hastalar sırası. Etiket özelliği değ
 #### <a name="api-app"></a>API uygulaması
 Bir API uygulaması Azure Cosmos DB ve kaynak türüne göre yeni veya değiştirilmiş FHIR belgeler için sorgular bağlanır. Bu uygulamanın bir denetleyici yok **FhirNotificationApi** tek bir işlemle **GetNewOrModifiedFhirDocuments**, bkz: [API uygulaması için kaynak](#api-app-source).
 
-Kullanıyoruz [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) Azure Cosmos DB DocumentDB .NET API sınıfından. Daha fazla bilgi için bkz: [değişiklik akış makale](change-feed.md). 
+Kullanıyoruz [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) Azure Cosmos DB SQL .NET API sınıfından. Daha fazla bilgi için bkz: [değişiklik akış makale](change-feed.md). 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>GetNewOrModifiedFhirDocuments işlemi
 

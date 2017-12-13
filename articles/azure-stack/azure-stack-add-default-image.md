@@ -3,22 +3,22 @@ title: "Varsayılan VM görüntüsü Azure yığın Marketinde ekleme | Microsof
 description: "Windows Server 2016 VM varsayılan görüntü Azure yığın Marketinde ekleyin."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 2849E53F-3D58-48A5-8007-3238FC39F630
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
-ms.author: sngun
-ms.openlocfilehash: e5e7ab55800eccea98cbd71ae32bdc611ee3e961
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: mabrigg
+ms.openlocfilehash: ed62f2f8441220eb37aea7f4c848702e9821698b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Windows Server 2016 VM görüntüsü Azure yığın Marketinde ekleme
 

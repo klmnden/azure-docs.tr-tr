@@ -1,6 +1,6 @@
 ---
-title: "NoSQL Öğreticisi: DocumentDB API Azure Cosmos DB Java SDK'sı | Microsoft Docs"
-description: "Çevrimiçi bir veritabanı ve Azure Cosmos DB için DocumentDB API kullanarak Java konsol uygulaması oluşturan bir NoSQL Öğreticisi. Azure DocumentDB, JSON için bir NoSQL veritabanıdır."
+title: "NoSQL Öğreticisi: Azure Cosmos DB Java SDK'sı SQL API'yi | Microsoft Docs"
+description: "Çevrimiçi bir veritabanı ve Azure Cosmos DB için SQL API'yi kullanarak Java konsol uygulaması oluşturan bir NoSQL Öğreticisi. Azure SQL, JSON için bir NoSQL veritabanıdır."
 keywords: "nosql öğreticisi, çevrimiçi veritabanı, java konsol uygulaması"
 services: cosmos-db
 documentationcenter: Java
@@ -15,13 +15,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
-ms.openlocfilehash: ea667a889bc6eaed08619ee5e141d8e3e9add7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38595b18817b4034c08fa0e0ec7c5dc8cde1fbb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>NoSQL Öğreticisi: DocumentDB API Java konsol uygulaması oluşturma
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL Öğreticisi: SQL API Java konsol uygulaması oluşturma
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -32,7 +32,9 @@ ms.lasthandoff: 10/11/2017
 >  
 > 
 
-NoSQL öğreticisi için DocumentDB API için Azure Cosmos DB Java SDK Hoş Geldiniz! Bu öğreticiyi uyguladıktan sonra, Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+NoSQL Öğreticisi, Azure Cosmos DB Java SDK'sı için SQL API'yi Hoş Geldiniz! Bu öğreticiyi uyguladıktan sonra, Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
 Kapsanan konular:
 
@@ -73,7 +75,7 @@ Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zate
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-Dizini içeren bir `pom.xml` projesi için ve bir `src` Java kaynak kodu da dahil olmak üzere içeren klasörü `Program.java` hangi gösterir nasıl basit belgelerin oluşturulması ve bir koleksiyon içinde veri sorgulama gibi Azure Cosmos DB ile işlemleri . `pom.xml`, [Maven üzerindeki DocumentDB Java SDK’sı](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) bağımlılığı içerir.
+Dizini içeren bir `pom.xml` projesi için ve bir `src` Java kaynak kodu da dahil olmak üzere içeren klasörü `Program.java` hangi gösterir nasıl basit belgelerin oluşturulması ve bir koleksiyon içinde veri sorgulama gibi Azure Cosmos DB ile işlemleri . `pom.xml` Bir bağımlılık içerir [Azure Cosmos DB Java SDK'sı Maven üzerinde](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -192,6 +194,5 @@ Tebrikler! Bu NoSQL öğreticisini tamamladınız ve çalışan bir Java konsol 
 * Java web uygulaması öğreticisi ister misiniz? Bkz. [Azure Cosmos DB kullanarak Java ile bir web uygulaması oluşturma](documentdb-java-application.md).
 * [Azure Cosmos DB hesabını nasıl izleyebileceğinizi](monitor-accounts.md) öğrenin.
 * [Query Playground](https://www.documentdb.com/sql/demo)'daki örnek veri kümelerimizde sorgular çalıştırın.
-* [Azure Cosmos DB belgeleri sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png

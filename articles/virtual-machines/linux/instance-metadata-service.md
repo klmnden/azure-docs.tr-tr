@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örneği meta veri hizmeti
 
@@ -76,7 +76,7 @@ Aşağıdaki tabloda, API destekleyebilir diğer veri biçimlerini başvurudur.
 API | Varsayılan veri biçimi | Diğer biçimlere
 --------|---------------------|--------------
 /instance | JSON | Metin
-/scheduledevents | JSON | Yok
+/scheduledevents | JSON | yok
 
 Varsayılan olmayan yanıt biçimi erişmek için bir istek sorgu dizesi parametresi olarak istenen biçim belirtin. Örneğin:
 
@@ -283,10 +283,10 @@ Veriler | Açıklama | Sunulan sürüm
 -----|-------------|-----------------------
 location | Azure bölgesi VM çalışır durumda | 2017-04-02 
 ad | VM adı | 2017-04-02
-Teklif | VM görüntüsü için bilgi sunar. Bu değer yalnızca Azure resmi Galerisi'nden dağıtılan görüntüleri için mevcuttur. | 2017-04-02
+teklif | VM görüntüsü için bilgi sunar. Bu değer yalnızca Azure resmi Galerisi'nden dağıtılan görüntüleri için mevcuttur. | 2017-04-02
 Yayımcı | VM görüntüsü yayımcısı | 2017-04-02
 SKU | VM görüntüsü için belirli SKU | 2017-04-02
-Sürüm | VM görüntüsü | 2017-04-02
+sürüm | VM görüntüsü | 2017-04-02
 osType | Linux veya Windows | 2017-04-02
 platformUpdateDomain |  [Güncelleştirme etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
 platformFaultDomain | [Hata etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
@@ -391,7 +391,7 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
    * Üst bilgisi örneği meta veri hizmeti gerektiriyor `Metadata: true` istekte geçirilecek. Bu üst REST çağrısı geçirme örneği meta veri hizmeti erişmesini sağlar. 
 2. Neden VM'im için işlem bilgi alıyorum değil mi?
    * Şu anda örneği meta veri hizmeti, yalnızca Azure Kaynak Yöneticisi ile oluşturulan örnekleri destekler. Gelecekte, biz bulut hizmeti VM'ler için destek ekleyebilirsiniz.
-3. Sanal Makinem Azure Resource Manager aracılığıyla geri bir süre oluşturdum. Bkz: değil neden ben meta veri bilgileri işlem?
+3. Sanal Makinem Azure Resource Manager aracılığıyla geri bir süre oluşturdum. Neden görme işlem meta veri bilgileri değil miyim?
    * Eylül 2016 sonra oluşturulan tüm VM'ler için ekleme bir [etiketi](../../azure-resource-manager/resource-group-using-tags.md) görmeye başlayacaksınız için meta veri işlem. (Eylül 2016 öncesinde oluşturulan) eski VM'ler için ekleme/meta verilerini yenilemek için VM uzantıları veya veri diski Kaldır.
 4. 2017-08-01 yeni sürümü için doldurulmuş tüm verileri görüyorum değil
    * Eylül 2016 sonra oluşturulan tüm VM'ler için ekleme bir [etiketi](../../azure-resource-manager/resource-group-using-tags.md) görmeye başlayacaksınız için meta veri işlem. (Eylül 2016 öncesinde oluşturulan) eski VM'ler için ekleme/meta verilerini yenilemek için VM uzantıları veya veri diski Kaldır.
@@ -402,7 +402,7 @@ Bash       | https://github.com/Microsoft/azureimds/BLOB/master/IMDSSample.sh
 7. Bu sanal makine ölçek kümesi örneği için çalışır?
    * Evet meta veri hizmeti için ölçek kümesi örnek kullanılabilir. 
 8. Hizmet için nasıl destek alma?
-   * Hizmeti için destek almak için uzun denemeden sonra meta veri yanıtı alabilir olduğunuz değil VM için Azure portalında bir destek sorununu oluşturma 
+   * Hizmeti için destek almak için uzun denemeden sonra meta veri yanıtı alabilir olduğunuz değil VM için Azure portalında bir destek isteği oluşturma 
 
    ![Örnek meta verileri desteği](./media/instance-metadata-service/InstanceMetadata-support.png)
     

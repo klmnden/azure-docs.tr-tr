@@ -4,7 +4,7 @@ description: "Azure AD v2.0 uç noktası tarafından gösterilen talep ve belirt
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 belirteç başvurusu
 Azure Active Directory (Azure AD) v2.0 uç her güvenlik belirteçleri çeşitli türlerde yayar [kimlik doğrulaması akışı](active-directory-v2-flows.md). Bu başvuru biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklar.
@@ -61,13 +61,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | çıkışı |`iat` |`1452285331` |Belirteç düzenlendiği zaman dönem saatle gösterilir. |
 | süre sonu |`exp` |`1452289231` |Hangi belirteci geçersiz hale geldiği tarih dönem saatle gösterilir. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
 | önce değil |`nbf` |`1452285331` |Hangi belirtecin geçerli olduğu zaman dönem saatle gösterilir. Genellikle verme süresi ile aynı değil. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
-| Sürüm |`ver` |`2.0` |Azure AD tarafından tanımlandığı şekilde kimliği belirteci sürümü. V2.0 uç noktası için değerdir `2.0`. |
+| sürüm |`ver` |`2.0` |Azure AD tarafından tanımlandığı şekilde kimliği belirteci sürümü. V2.0 uç noktası için değerdir `2.0`. |
 | Kiracı kimliği |`tid` |`b9419818-09af-49c2-b0c3-653adc1f376e` |Kullanıcı bulunan Azure AD kiracısı temsil eden bir GUID. İş ve Okul hesapları için, kullanıcının ait olduğu kuruluşun değişmez Kiracı kimliği GUID'dir. Kişisel hesaplar için değerdir `9188040d-6c67-4c5b-b112-36a304b66dad`. `profile` Kapsam bu talebi almak için gereklidir. |
 | kod karma |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca bir OAuth 2.0 yetkilendirme koduyla kimliği belirteç kodu karma kimliği belirteçleri dahil edilir. Bir yetkilendirme kodu özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla bilgi için bkz: [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html). |
 | erişim belirteci karma |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Yalnızca zaman kimliği belirteci bir OAuth 2.0 erişim belirteci ile verilen belirteç karma Kodunda yer alan erişim belirteçleri. Bir erişim belirteci özgünlüğünü doğrulamak için kullanılabilir. Bu doğrulama gerçekleştirme hakkında daha fazla bilgi için bkz: [Openıd Connect belirtimi](http://openid.net/specs/openid-connect-core-1_0.html). |
 | nonce |`nonce` |`12345` |Nonce belirteç yeniden yürütme saldırılarını Azaltıcı stratejidir. Uygulamanızı bir nonce bir yetkilendirme isteği kullanarak belirtebilirsiniz `nonce` sorgu parametresi. İstekte sağladığınız değerin kimliği belirtecinin yayılan `nonce` değiştirilmemiş talep. Uygulamanızı değeri uygulamanın oturumunu belirli bir kimliği belirteciyle ilişkilendirir istekte belirtilen değerle karşılaştırarak doğrulayın. Uygulamanız bu doğrulama kimliği belirteci doğrulama işlemi sırasında gerçekleştirmeniz gerekir. |
 | ad |`name` |`Babe Ruth` |Ad talep belirteci konu tanımlayan okunabilir bir değer sağlar. Değerin benzersiz olması garanti edilmemiştir, değişebilir ve yalnızca görüntüleme amacıyla kullanılmak üzere tasarlanmıştır. `profile` Kapsam bu talebi almak için gereklidir. |
-| E-posta |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Varsa, kullanıcı hesabıyla ilişkili birincil e-posta adresi. Değerini değişebilir ve zaman içinde değişebilir. `email` Kapsam bu talebi almak için gereklidir. |
+| e-posta |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Varsa, kullanıcı hesabıyla ilişkili birincil e-posta adresi. Değerini değişebilir ve zaman içinde değişebilir. `email` Kapsam bu talebi almak için gereklidir. |
 | tercih edilen kullanıcı adı |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |V2.0 uç kullanıcıyı temsil eden birincil kullanıcı adı. Bir e-posta adresi, telefon numarası ya da belirtilen biçim olmadan genel bir kullanıcı adı olabilir. Değerini değişebilir ve zaman içinde değişebilir. Değişebilir olduğundan, bu değer yetkilendirme kararları için kullanılmamalıdır. `profile` Kapsam bu talebi almak için gereklidir. |
 | Konu |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Hakkında bilgi, bir uygulamanın kullanıcı gibi belirteci onaylar sorumlu. Bu değer sabittir ve yeniden atandığında yeniden ya da silinemez. Belirtecin bir kaynağa erişmek için kullanıldığında gibi güvenli bir şekilde, yetkilendirme denetimleri gerçekleştirmek için kullanılabilir ve, veritabanı tablolarındaki anahtar olarak kullanılan. Konu her zaman olduğu için Azure AD sorunları, bu değer bir genel amaçlı yetkilendirme sisteminde kullanmanızı öneririz, belirteçleri sunar. Konu, ancak, ikili bir tanımlayıcıdır. - belirli bir uygulama kimliği için benzersizdir  Bu nedenle, iki farklı istemci kimliği kullanarak iki farklı uygulamalarda tek bir kullanıcı oturum açtığında, bu uygulamaları konu talep için iki farklı değerler alır.  Bu olabilir veya mimarisi ve gizlilik gereksinimlerinize bağlı olarak gerekli değildir. |
 | Nesne Kimliği |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Microsoft kimlik sistemi, bu durumda, bir kullanıcı hesabı nesnesi için değişmez tanımlayıcısı.  Ayrıca, veritabanı tablolarında güvenle ve bir anahtar olarak yetkilendirme denetimleri gerçekleştirmek için de kullanılabilir. Bu kimliği kullanıcı uygulamalar arasında benzersiz şekilde tanımlar.-aynı kullanıcı imzalama iki farklı uygulamaları, aynı değeri alacak `oid` talep.  Başka bir deyişle, bu sorguları Microsoft Graph gibi Microsoft online Services yaparken kullanılabilir.  Microsoft Graph bu kimliği olarak döndürülecek `id` özelliği için belirtilen kullanıcı hesabı.  Çünkü `oid` kullanıcılar ilişkilendirmek birden fazla uygulama verir `profile` kapsamı bu talebi almak için gereklidir. Tek bir kullanıcı birden fazla kiracılar varsa, kullanıcının her bir kiracı farklı nesne Kimliğinde içerecek Not - kullanıcı kimlik bilgileriyle her bir hesaba oturum olsa bile farklı hesaplar kabul edilir. |

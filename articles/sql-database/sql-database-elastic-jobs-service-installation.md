@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 232d695421a417286c30dc05b35f084c551a443d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Yükleme esnek veritabanı işleri genel bakış
-[**Esnek veritabanı iş** ](sql-database-elastic-jobs-overview.md) PowerShell ile yüklenebilir veya Azure Klasik Portal.You yalnızca PowerShell paketi yüklerseniz PowerShell API'yi kullanarak işleri oluşturmak ve yönetmek için erişim sağlayabilir. Ayrıca, PowerShell API'lerinden sağlayın portal önemli ölçüde daha fazla işlevsellik bu anda.
+[**Esnek veritabanı iş** ](sql-database-elastic-jobs-overview.md) PowerShell aracılığıyla veya Azure portalı üzerinden yüklenebilir. Yalnızca PowerShell paketi yüklerseniz PowerShell API'yi kullanarak işleri oluşturmak ve yönetmek için erişim sağlayabilir. Ayrıca, PowerShell API'lerinden sağlayın portal önemli ölçüde daha fazla işlevsellik bu anda.
 
 Zaten yüklediyseniz, **esnek veritabanı işleri** varolan bir Portal üzerinden **esnek havuz**, en son Powershell Önizleme, mevcut yüklemenizi yükseltmek için komut dosyalarını içerir. Yüklemenizin en son sürüme yükseltmek için önerilir **esnek veritabanı işleri** PowerShell API'leri kullanıma sunulan yeni işlevsellikten yararlanmak için bileşenleri.
 

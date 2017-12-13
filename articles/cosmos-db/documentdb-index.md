@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: DocumentDB API makaleleri | Microsoft Docs'
-description: "Azure Cosmos veritabanı DocumentDB API ile belge veritabanları oluşturma için belirli tüm makalelerin bir listesi."
+title: 'Azure Cosmos DB: SQL API makaleleri | Microsoft Docs'
+description: "Azure Cosmos veritabanı SQL API ile belge veritabanları oluşturma için belirli tüm makalelerin bir listesi."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,23 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8d618e00ed274f5d5705346a4ffd8281769de4e3
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: b036c52d4b06d95f701e655308d011cb92aa8780
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-documentation"></a>Azure Cosmos DB: DocumentDB API belgeleri
+# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: SQL API belgeleri
 
-Bu makalede DocumentDB API'sine belirli tüm Azure Cosmos DB içerik için bağlantılar sağlar.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Bu makalede SQL API'sine belirli tüm Azure Cosmos DB içerik için bağlantılar sağlar.
 
 Bu makaleler grafik API'si, tablo API ya da API MongoDB için geçerli değildir. 
 
 ## <a name="introduction-and-concepts"></a>Giriş ve kavramları
 
-Gereken bunlar konuları ve DocumentDB API hakkında bilgi için Azure Cosmos DB başlatmak için kaynakları okuyun.
+Gereken bunlar konuları ve SQL API'yi öğrenmeye Azure Cosmos DB için başlatmak için kaynakları okuyun.
 
-- [DocumentDB API giriş](documentdb-introduction.md)
+- [SQL API giriş](documentdb-introduction.md)
 - [Veritabanı kaynak modeli](documentdb-resources.md)
 - Web sitesi: [Query playground](https://www.documentdb.com/sql/demo)
 - Kopya sayfası: [SQL dilbilgisi](documentdb-sql-query-cheat-sheet.md)
@@ -109,7 +111,7 @@ Azure Cosmos DB istemci tarafı uygulama geliştirme etkinleştirmek için SDK'l
 
 ## <a name="samples"></a>Örnekler
 
-Bu örnek sayfalar içerik en yaygın DocumentDB API görevleri için örnek kod ve API bağlantılar başvuru sağlar.
+Bu örnek sayfalar içerik en yaygın SQL API görevleri için örnek kod ve API bağlantılar başvuru sağlar.
 
 - [.NET](documentdb-dotnet-samples.md)
 - [Node.js](documentdb-nodejs-samples.md)

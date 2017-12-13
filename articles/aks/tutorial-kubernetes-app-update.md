@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 95c609ab49fe478eda48b2a2eca6a772d1356d18
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Bir uygulamayı Azure kapsayıcı hizmeti (AKS) güncelleştir
 
@@ -35,7 +35,7 @@ Sonraki öğreticilerde Kubernetes küme izlemek için Operations Management Sui
 
 Bir uygulama havuzu da uygulamanın kaynak koduna ve Bu öğreticide kullanılan önceden oluşturulmuş bir Docker Compose dosya içeren kopyalandı. Depodaki bir kopyasını oluşturduktan ve kopyalanan dizine dizinleri değiştirilmediğini doğrulayın. İç olan adlı bir dizin `azure-vote` ve adlı bir dosya `docker-compose.yml`.
 
-Bu adımları tamamladıysanız henüz ve izlemek istediğiniz dönmek [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./tutorial-kubernetes-prepare-app.md). 
+Bu adımları tamamladıysanız henüz ve izlemek istediğiniz dönmek [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app]. 
 
 ## <a name="update-application"></a>Uygulamayı güncelleştirme
 
@@ -61,7 +61,7 @@ Dosyasını kaydedin ve kapatın.
 
 ## <a name="update-container-image"></a>Güncelleştirme kapsayıcı resmi
 
-Kullanım [docker compose'u](https://docs.docker.com/compose/) ön uç görüntüyü yeniden oluşturun ve güncelleştirilmiş uygulamayı çalıştırın. `--build` Bağımsız değişkeni uygulama görüntüsünü yeniden oluşturmak için Docker Compose'u istemek için kullanılır.
+Kullanım [docker compose'u] [ docker-compose] ön uç görüntüyü yeniden oluşturun ve güncelleştirilmiş uygulamayı çalıştırın. `--build` Bağımsız değişkeni uygulama görüntüsünü yeniden oluşturmak için Docker Compose'u istemek için kullanılır.
 
 ```console
 docker-compose up --build -d
@@ -83,13 +83,13 @@ Oturum açma sunucu adıyla alma [az acr listesi](/cli/azure/acr#list) komutu.
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Kullanım [docker etiketi](https://docs.docker.com/engine/reference/commandline/tag/) görüntü etiketlemek için. Değiştir `<acrLoginServer>` Azure kapsayıcı kayıt defteri oturum açma sunucu adı veya ortak kayıt defteri ana bilgisayar adı. Ayrıca Image sürüm için güncelleştirilen bildirim `redis-v2`.
+Kullanım [docker etiketi] [ docker-tag] görüntü etiketlemek için. Değiştir `<acrLoginServer>` Azure kapsayıcı kayıt defteri oturum açma sunucu adı veya ortak kayıt defteri ana bilgisayar adı. Ayrıca Image sürüm için güncelleştirilen bildirim `redis-v2`.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Kullanım [docker itme](https://docs.docker.com/engine/reference/commandline/push/) kayıt defterine görüntüyü karşıya yüklemek için. Değiştir `<acrLoginServer>` , Azure kapsayıcı kayıt defteri oturum açma sunucu adına sahip.
+Kullanım [docker itme] [ docker-push] kayıt defterine görüntüyü karşıya yüklemek için. Değiştir `<acrLoginServer>` , Azure kapsayıcı kayıt defteri oturum açma sunucu adına sahip.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -97,7 +97,7 @@ docker push <acrLoginServer>/azure-vote-front:redis-v2
 
 ## <a name="deploy-update-application"></a>Güncelleştirme uygulaması dağıtma
 
-En fazla çalışma süresi emin olmak için uygulama pod birden çok örneğini çalıştırması gerekir. Bu yapılandırma ile doğrulayın [kubectl alma pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu.
+En fazla çalışma süresi emin olmak için uygulama pod birden çok örneğini çalıştırması gerekir. Bu yapılandırma ile doğrulayın [kubectl alma pod] [ kubectl-get] komutu.
 
 ```
 kubectl get pod
@@ -120,13 +120,13 @@ Birden çok pod'ları azure oy ön görüntüsünü çalıştıran yoksa ölçek
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Uygulamayı güncelleştirmek için [kubectl kümesi](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#set) komutu. Güncelleştirme `<acrLoginServer>` kapsayıcı kaydınız oturum açma sunucusu veya ana bilgisayar adı.
+Uygulamayı güncelleştirmek için [kubectl kümesi] [ kubectl-set] komutu. Güncelleştirme `<acrLoginServer>` kapsayıcı kaydınız oturum açma sunucusu veya ana bilgisayar adı.
 
 ```azurecli
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Dağıtımını izlemek için kullanmak [kubectl alma pod](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) komutu. Güncelleştirilmiş uygulamayı dağıtılan gibi pod'ları sonlandırıldı ve yeni kapsayıcı görüntüsü ile yeniden oluşturulacak.
+Dağıtımını izlemek için kullanmak [kubectl alma pod] [ kubectl-get] komutu. Güncelleştirilmiş uygulamayı dağıtılan gibi pod'ları sonlandırıldı ve yeni kapsayıcı görüntüsü ile yeniden oluşturulacak.
 
 ```azurecli
 kubectl get pod
@@ -167,4 +167,15 @@ Bu öğreticide, bir uygulamanın güncelleştirilmiş ve bu güncelleştirmeyi 
 Operations Management Suite ile Kubernetes izleme hakkında bilgi edinmek için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Log Analytics ile Kubernetes’i izleme](./tutorial-kubernetes-monitor.md)
+> [Günlük analizi ile İzleyici Kubernetes][aks-tutorial-monitor]
+
+<!-- LINKS - external -->
+[docker-compose]: https://docs.docker.com/compose/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-set]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#set
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md

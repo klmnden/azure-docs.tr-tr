@@ -4,7 +4,7 @@ description: "Adım adım yönergeler ve bir OAuth almak için bir Azure VM MSI 
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 20ab8c9ceeb28c92b02a50ab03c9a7fa3fb7c7b7
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 9d80e0e4dbaa010aabd0e7aad91ac79cf2d433d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Belirteç alımı için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
@@ -261,7 +261,7 @@ Bir hata oluşursa, karşılık gelen HTTP yanıt gövdesi JSON ile hata ayrınt
 
 Bu bölümde, olası hata yanıtları belgeler. A "200 Tamam" durumu başarılı bir yanıt ve erişim belirteci yanıt gövdesinde JSON, access_token öğesi bulunur.
 
-| Durum kodu | Hata | Hata Açıklaması | Çözüm |
+| Durum kodu | Hata | Hata açıklaması | Çözüm |
 | ----------- | ----- | ----------------- | -------- |
 | 400 Hatalı istek | invalid_resource | AADSTS50001: uygulama adlı  *\<URI\>*  adlı Kiracı bulunamadı  *\<KİRACI kimliği\>*. Uygulama değil Kiracı Yöneticisi tarafından yüklendikten veya Kiracı herhangi bir kullanıcı tarafından izin verdiği gerçekleşebilir. Yanlış Kiracı kimlik doğrulama isteği gönderilen. \ | (Yalnızca Linux) |
 | 400 Hatalı istek | bad_request_102 | Gerekli meta veriler üstbilgisi belirtilmedi | Her iki `Metadata` isteği üstbilgisi alanının isteğinizden eksik veya yanlış biçimlendirilmiş. Değer olarak belirtilmelidir `true`, tüm alt durumda. "Örnek istek" bölümüne bakın [geri KALAN bölümü önceki](#rest) bir örnek.|

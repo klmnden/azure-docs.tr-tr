@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: bf68e9af7592d5abe5a4c9aba8c5061819cbc97a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Yükleme ve Hue Hdınsight Hadoop kümeleri kullanma
 
@@ -37,7 +37,7 @@ Hue Hadoop kümeyle etkileşim kurmak için kullanılan Web uygulamaları kümes
 * Meta depo Yöneticisi
 * Oozie
 * (Hangi WASB varsayılan kapsayıcı ettiği) FileBrowser
-* İş tarayıcı
+* İş Tarayıcısı
 
 > [!WARNING]
 > Hdınsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenleri ilgili sorunları gidermek için yardımcı olur.

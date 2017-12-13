@@ -6,19 +6,18 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 115ad9dfd88062f23d5d17eed8897ce5d2ca8484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd422308ed728ed4e8bc35daee3bd50f0f02aaac
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure medya Analizi ile hareketlerin Algıla
 ## <a name="overview"></a>Genel Bakış
@@ -28,7 +27,7 @@ Doğru güvenlik video akışları hedeflenen, bu teknolojiyi ilgili olayları v
 
 **Azure medya hareket algılayıcısı** MP şu anda önizlemede.
 
-Bu konu hakkında ayrıntılar verir **Azure medya hareket algılayıcısı** ve .NET için Media Services SDK'sı ile kullanmak nasıl gösterir
+Bu makalede, ilgili ayrıntıları verir **Azure medya hareket algılayıcısı** ve .NET için Media Services SDK'sı ile kullanmak nasıl gösterir
 
 ## <a name="motion-detector-input-files"></a>Hareket algılayıcısı giriş dosyaları
 Video dosyaları. Şu anda aşağıdaki biçimlerden desteklenir: MP4, MOV ve WMV.
@@ -41,11 +40,11 @@ Bir görev oluştururken **Azure medya hareket algılayıcısı**, bir yapıland
 
 | Ad | Seçenekler | Açıklama | Varsayılan |
 | --- | --- | --- | --- |
-| sensitivityLevel |Dize: 'düşük', 'Orta', 'yüksek' |Hangi hareketlerin duyarlılık düzeyinde bildirilen ayarlar. Hatalı pozitif sonuç miktarını ayarlamak için bunu ayarlayın. |'Orta' |
+| sensitivityLevel |Dize: 'düşük', 'Orta', 'yüksek' |Hangi hareketlerin duyarlılık düzeyinde bildirilen ayarlar. Hatalı pozitif uyarıların sayısını ayarlamak için bunu ayarlayın. |'Orta' |
 | frameSamplingValue |Pozitif tamsayı |Algoritmayı sıklığında çalışan ayarlar. Her çerçeve eşittir 1, 2 her 2 çerçeve ve benzeri anlamına gelir. |1 |
 | detectLightChange |Boolean: 'true', 'false' |Hafif değişiklikleri sonuçlarında bildirilen olup olmadığını belirler |'False' |
 | mergeTimeThreshold |Xs zamanı: Ss: dd:<br/>Örnek: 00:00:03 |Burada 2 olayları birleştirilmiş ve olması 1 bildirilen hareket olaylar arasındaki zaman penceresi belirtir. |00:00:00 |
-| detectionZones |Algılama bölgeleri dizisi:<br/>-3 veya daha fazla noktalar dizisi algılama bölgedir<br/>-Noktasıdır x ve y koordinat 0'dan 1. |Kullanılacak Çokgen algılama bölgelerinin listesi açıklar.<br/>Sonuçları ilk olan 'ID' ile bir kimliği olarak bölge ile bildirilir: 0 |Tüm çerçeve kapsayan tek bir bölge. |
+| detectionZones |Algılama bölgeleri dizisi:<br/>-3 veya daha fazla noktalar dizisi algılama bölgedir<br/>-Noktasıdır x ve y koordinat 0'dan 1. |Kullanılacak Çokgen algılama bölgelerinin listesi açıklar.<br/>Sonuçları bölgeleri ilk olan 'ID' ile bir kimliği olarak raporlanır: 0 |Tek bölge tüm çerçeve kapsar. |
 
 ### <a name="json-example"></a>JSON örneği
     {
@@ -78,9 +77,9 @@ Bir görev oluştururken **Azure medya hareket algılayıcısı**, bir yapıland
 
 
 ## <a name="motion-detector-output-files"></a>Hareket algılayıcısı çıktı dosyaları
-Hareket algılama işi hareket uyarılar ve video içinde kendi kategorilerine tanımlayan çıkış varlığına bir JSON dosyası döndürür. Dosyanın saatini ve süresini videoda algılanan hareket hakkında bilgi içerir.
+Hareket algılama işi hareket uyarılar ve video içinde kendi kategorilerine açıklar çıkış varlığına bir JSON dosyası döndürür. Dosyanın saatini ve süresini videoda algılanan hareket hakkında bilgi içerir.
 
-Bir sabit arka planda video (örn. bir izleme video) hareket nesneleri olduğunuzda hareket algılayıcısı API göstergeleri sağlar. Hareket algılayıcısı aydınlatma ve gölge değişiklikleri gibi yanlış alarmlar azaltmak için eğitildi. Geçerli sınırlamalar algoritmalarının gece görme videoları, yarı saydam nesneleri ve küçük nesneleri içerir.
+Bir sabit arka planda video hareket nesneleri (örneğin, bir izleme video) eklendiğinde hareket algılayıcısı API göstergeleri sağlar. Hareket algılayıcısı aydınlatma ve gölge değişiklikleri gibi yanlış alarmlar azaltmak için eğitildi. Geçerli sınırlamalar algoritmalarının gece görme videoları, yarı saydam nesneleri ve küçük nesneleri içerir.
 
 ### <a id="output_elements"></a>Çıkış JSON dosyasının öğeleri
 > [!NOTE]
@@ -90,7 +89,7 @@ Bir sabit arka planda video (örn. bir izleme video) hareket nesneleri olduğunu
 
 Aşağıdaki tabloda çıkış JSON dosyasının öğelerini açıklar.
 
-| Öğesi | Açıklama |
+| Öğe | Açıklama |
 | --- | --- |
 | Sürüm |Video API sürümüne başvuruyor. Geçerli sürüm 2'dir. |
 | Zaman Çizelgesi |Videonun saniyede "çizgilerine". |
@@ -99,7 +98,7 @@ Aşağıdaki tabloda çıkış JSON dosyasının öğelerini açıklar.
 | Genişlik, Yükseklik |Genişlik ve yükseklik piksel cinsinden videonun ifade eder. |
 | Başlatma |Başlangıç zaman damgasına "çizgilerine". |
 | Süre |Olay, "çizgilerine" uzunluğu. |
-| aralığı |Her giriş olayda "çizgilerine" aralığı. |
+| Aralık |Her giriş olayda "çizgilerine" aralığı. |
 | Olaylar |Her olay parça bu süre içinde algılanan hareket içerir. |
 | Tür |Geçerli sürümde, bu her zaman genel hareket ' 2' dir. Bu etiket verir Video kategorilere ayırmak için API esnekliği gelecekteki sürümleri hareket. |
 | RegionID |Yukarıda açıklandığı şekilde, bu her zaman bu sürümde 0 olacaktır. Bu etiket Video API gelecekteki sürümlerinde çeşitli bölgelerdeki hareket bulmak için esneklik sunar. |
@@ -156,14 +155,14 @@ JSON çıkış örnek verilmiştir
 ## <a name="limitations"></a>Sınırlamalar
 * Desteklenen giriş video biçimleri MP4, MOV ve WMV içerir.
 * Hareket algılama sabit arka plan videolar için optimize edilmiştir. Algoritma aydınlatma değişiklikleri ve gölgeleri gibi yanlış alarmlar azaltma odaklanır.
-* Bazı hareket nedeniyle teknik zorluklar algılanamayabilir; Örneğin gece görme videoları, yarı saydam nesneler ve küçük nesneleri.
+* Bazı hareket nedeniyle teknik zorluklar algılanamayabilir; Örneğin, gece görme videoları, yarı saydam nesneleri ve küçük nesneleri.
 
 ## <a name="net-sample-code"></a>.NET örnek kod
 
 Aşağıdaki program gösterir nasıl yapılır:
 
 1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
-2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir video hareket algılama görev ile bir iş oluşturun. 
+2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir video hareket algılama görev ile bir iş oluşturun: 
    
         {
           "Version": "1.0",
@@ -200,164 +199,174 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 #### <a name="example"></a>Örnek
 
+```
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
-    using System.Threading.Tasks;
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
+using System.Threading.Tasks;
 
-    namespace VideoMotionDetection
+namespace VideoMotionDetection
+{
+    class Program
     {
-        class Program
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
+        // Field for service context.
+        private static CloudMediaContext _context = null;
+
+        static void Main(string[] args)
         {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
 
-            // Field for service context.
-            private static CloudMediaContext _context = null;
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-            static void Main(string[] args)
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+
+            // Run the VideoMotionDetection job.
+            var asset = RunVideoMotionDetectionJob(@"C:\supportFiles\VideoMotionDetection\BigBuckBunny.mp4",
+                                        @"C:\supportFiles\VideoMotionDetection\config.json");
+
+            // Download the job output asset.
+            DownloadAsset(asset, @"C:\supportFiles\VideoMotionDetection\Output");
+        }
+
+        static IAsset RunVideoMotionDetectionJob(string inputMediaFilePath, string configurationFile)
+        {
+            // Create an asset and upload the input media file to storage.
+            IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
+                "My Video Motion Detection Input Asset",
+                AssetCreationOptions.None);
+
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("My Video Motion Detection Job");
+
+            // Get a reference to Azure Media Motion Detector.
+            string MediaProcessorName = "Azure Media Motion Detector";
+
+            var processor = GetLatestMediaProcessorByName(MediaProcessorName);
+
+            // Read configuration from the specified file.
+            string configuration = File.ReadAllText(configurationFile);
+
+            // Create a task with the encoding details, using a string preset.
+            ITask task = job.Tasks.AddNew("My Video Motion Detection Task",
+                processor,
+                configuration,
+                TaskOptions.None);
+
+            // Specify the input asset.
+            task.InputAssets.Add(asset);
+
+            // Add an output asset to contain the results of the job.
+            task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
+
+            // Use the following event handler to check job progress.  
+            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
+
+            // Launch the job.
+            job.Submit();
+
+            // Check job execution and wait for job to finish.
+            Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
+
+            progressJobTask.Wait();
+
+            // If job state is Error, the event handling
+            // method for job progress should log errors.  Here we check
+            // for error state and exit if needed.
+            if (job.State == JobState.Error)
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
-                var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-                _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
-                // Run the VideoMotionDetection job.
-                var asset = RunVideoMotionDetectionJob(@"C:\supportFiles\VideoMotionDetection\BigBuckBunny.mp4",
-                                            @"C:\supportFiles\VideoMotionDetection\config.json");
-
-                // Download the job output asset.
-                DownloadAsset(asset, @"C:\supportFiles\VideoMotionDetection\Output");
+                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                Console.WriteLine(string.Format("Error: {0}. {1}",
+                                                error.Code,
+                                                error.Message));
+                return null;
             }
 
-            static IAsset RunVideoMotionDetectionJob(string inputMediaFilePath, string configurationFile)
+            return job.OutputMediaAssets[0];
+        }
+
+        static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
+        {
+            IAsset asset = _context.Assets.Create(assetName, options);
+
+            var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+            assetFile.Upload(filePath);
+
+            return asset;
+        }
+
+        static void DownloadAsset(IAsset asset, string outputDirectory)
+        {
+            foreach (IAssetFile file in asset.AssetFiles)
             {
-                // Create an asset and upload the input media file to storage.
-                IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
-                    "My Video Motion Detection Input Asset",
-                    AssetCreationOptions.None);
-
-                // Declare a new job.
-                IJob job = _context.Jobs.Create("My Video Motion Detection Job");
-
-                // Get a reference to Azure Media Motion Detector.
-                string MediaProcessorName = "Azure Media Motion Detector";
-
-                var processor = GetLatestMediaProcessorByName(MediaProcessorName);
-
-                // Read configuration from the specified file.
-                string configuration = File.ReadAllText(configurationFile);
-
-                // Create a task with the encoding details, using a string preset.
-                ITask task = job.Tasks.AddNew("My Video Motion Detection Task",
-                    processor,
-                    configuration,
-                    TaskOptions.None);
-
-                // Specify the input asset.
-                task.InputAssets.Add(asset);
-
-                // Add an output asset to contain the results of the job.
-                task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
-
-                // Use the following event handler to check job progress.  
-                job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-
-                // Launch the job.
-                job.Submit();
-
-                // Check job execution and wait for job to finish.
-                Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-
-                progressJobTask.Wait();
-
-                // If job state is Error, the event handling
-                // method for job progress should log errors.  Here we check
-                // for error state and exit if needed.
-                if (job.State == JobState.Error)
-                {
-                    ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-                    Console.WriteLine(string.Format("Error: {0}. {1}",
-                                                    error.Code,
-                                                    error.Message));
-                    return null;
-                }
-
-                return job.OutputMediaAssets[0];
+                file.Download(Path.Combine(outputDirectory, file.Name));
             }
+        }
 
-            static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
+        static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
+            var processor = _context.MediaProcessors
+                .Where(p => p.Name == mediaProcessorName)
+                .ToList()
+                .OrderBy(p => new Version(p.Version))
+                .LastOrDefault();
+
+            if (processor == null)
+                throw new ArgumentException(string.Format("Unknown media processor",
+                                                           mediaProcessorName));
+
+            return processor;
+        }
+
+        static private void StateChanged(object sender, JobStateChangedEventArgs e)
+        {
+            Console.WriteLine("Job state changed event:");
+            Console.WriteLine("  Previous state: " + e.PreviousState);
+            Console.WriteLine("  Current state: " + e.CurrentState);
+
+            switch (e.CurrentState)
             {
-                IAsset asset = _context.Assets.Create(assetName, options);
-
-                var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-                assetFile.Upload(filePath);
-
-                return asset;
-            }
-
-            static void DownloadAsset(IAsset asset, string outputDirectory)
-            {
-                foreach (IAssetFile file in asset.AssetFiles)
-                {
-                    file.Download(Path.Combine(outputDirectory, file.Name));
-                }
-            }
-
-            static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
-                var processor = _context.MediaProcessors
-                    .Where(p => p.Name == mediaProcessorName)
-                    .ToList()
-                    .OrderBy(p => new Version(p.Version))
-                    .LastOrDefault();
-
-                if (processor == null)
-                    throw new ArgumentException(string.Format("Unknown media processor",
-                                                               mediaProcessorName));
-
-                return processor;
-            }
-
-            static private void StateChanged(object sender, JobStateChangedEventArgs e)
-            {
-                Console.WriteLine("Job state changed event:");
-                Console.WriteLine("  Previous state: " + e.PreviousState);
-                Console.WriteLine("  Current state: " + e.CurrentState);
-
-                switch (e.CurrentState)
-                {
-                    case JobState.Finished:
-                        Console.WriteLine();
-                        Console.WriteLine("Job is finished.");
-                        Console.WriteLine();
-                        break;
-                    case JobState.Canceling:
-                    case JobState.Queued:
-                    case JobState.Scheduled:
-                    case JobState.Processing:
-                        Console.WriteLine("Please wait...\n");
-                        break;
-                    case JobState.Canceled:
-                    case JobState.Error:
-                        // Cast sender as a job.
-                        IJob job = (IJob)sender;
-                        // Display or log error details as needed.
-                        // LogJobStop(job.Id);
-                        break;
-                    default:
-                        break;
-                }
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished.");
+                    Console.WriteLine();
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
+                    // Display or log error details as needed.
+                    // LogJobStop(job.Id);
+                    break;
+                default:
+                    break;
             }
         }
     }
+}
+```
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

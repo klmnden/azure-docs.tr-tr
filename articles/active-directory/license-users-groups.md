@@ -4,7 +4,7 @@ description: "Kendinizin ve kullanıcılarınızın Azure Active Directory'de li
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc210b83a9eeb947a15b60548e43096bd9e11c45
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'deki kullanıcı lisansı
 Lisans tabanlı Azure AD, Azure kiracınızdaki bir Azure Active Directory (Azure AD) aboneliği etkinleştirerek iş Hizmetleri. Abonelik etkinleştirildikten sonra hizmet özellikleri Azure AD yöneticileri tarafından yönetilir ve lisanslı kullanıcılar tarafından kullanılır. Enterprise Mobility + güvenlik, Azure AD Premium veya Azure AD temel satın aldığınızda, Kiracı, geçerlilik süresi ve ön ödemeli lisansları dahil olmak üzere abonelikle güncelleştirilir. Atanan veya kullanılabilir lisans sayısı gibi abonelik bilgilerinizi altında Azure Portalı aracılığıyla kullanılabilir **Azure Active Directory** açarak **lisansları** döşeme. **Lisansları** dikey olan lisans anlaşmalarını yönetme için en iyi yerdir.

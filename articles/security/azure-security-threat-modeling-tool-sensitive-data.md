@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Güvenlik çerçeve: Hassas verileri | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Web uygulaması** | <ul><li>[Hassas içerikleri tarayıcıda önbelleğe alınmamış emin olun](#cache-browser)</li><li>[Hassas verileri içeren Web uygulamanızın yapılandırma dosyalarını bölümlerini şifrele](#encrypt-data)</li><li>[Otomatik Tamamlama HTML öznitelik hassas formlar ve girişleri açıkça devre dışı](#autocomplete-input)</li><li>[Kullanıcının ekranda görüntülenen hassas verileri maskelenir emin olun](#data-mask)</li></ul> | 
 | **Veritabanı** | <ul><li>[Gizli verilerin açığa olmayan ayrıcalıklı kullanıcıları sınırlamak için dinamik veri maskeleme gerçekleştir](#dynamic-users)</li><li>[Parolaları karma güvenlik biçiminde depolandığından emin olun](#salted-hash)</li><li>[Veritabanı sütunlarını postalardaki hassas verilerin şifrelendiğinden emin olun](#db-encrypted)</li><li>[Bu veritabanı düzeyi şifreleme (TDE) etkin olduğundan emin olun](#tde-enabled)</li><li>[Veritabanı Yedeklemeleri şifrelendiğinden emin olun](#backup)</li></ul> | 
 | **Web API** | <ul><li>[Hassas verileri Web API'sine ilgili tarayıcının depoda depolanmaz emin olun](#api-browser)</li></ul> | 
-| Azure belge DB | <ul><li>[Documentdb'de depolanan hassas verileri şifrele](#encrypt-docdb)</li></ul> | 
+| Azure belge DB | <ul><li>[Azure Cosmos DB içinde depolanan hassas verileri şifrele](#encrypt-docdb)</li></ul> | 
 | **Azure Iaas VM güven sınırı** | <ul><li>[Sanal makineler tarafından kullanılan diskler şifrelemek için Azure Disk şifrelemesi kullanın](#disk-vm)</li></ul> | 
 | **Service Fabric güven sınırı** | <ul><li>[Service Fabric uygulamaları parolaları şifrelemek](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Güvenlik modelleme gerçekleştirebilir ve iş birimleri/takımlar kullanmak gerektiğinde](#modeling-teams)</li><li>[Kritik varlıkları özelliğini paylaşmak için erişim simge durumuna küçült](#entities)</li><li>[Dynamics CRM paylaşım özelliğini ve iyi güvenlik uygulamaları ile ilişkili riskleri kullanıcıları eğitme](#good-practices)</li><li>[Özel Durum Yönetimi'nde yapılandırma ayrıntıları gösteren proscribing geliştirme standartları Kuralı Ekle](#exception-mgmt)</li></ul> | 

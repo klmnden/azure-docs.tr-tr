@@ -1,6 +1,6 @@
 ---
-title: "DocumentDB API performans düzeyleri | Microsoft Docs"
-description: "DocumentDB API performans düzeyleri, üretilen iş başına kapsayıcı olarak ayırmak nasıl etkinleştirme hakkında bilgi edinin."
+title: "Kullanımdan Azure Cosmos DB performans düzeyleri | Microsoft Docs"
+description: "Daha önce Azure Cosmos DB'de kullanılabilir S1, S2 ve S3 performans düzeyleri hakkında bilgi edinin."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,17 +15,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 01b44169349d8b79cf5861328170916a57df6811
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 ve S3 performans düzeyleri devre dışı bırakma
 
 > [!IMPORTANT] 
-> Bu makalede açıklanan S1, S2 ve S3 performans düzeyleri kullanımdan kaldırılacak ve artık yeni DocumentDB API hesapları için kullanılabilir.
+> Bu makalede açıklanan S1, S2 ve S3 performans düzeyleri kullanımdan kaldırılacak ve artık yeni Azure Cosmos DB hesapları için kullanılabilir.
 >
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bu makalede, S1, S2 ve S3 performans düzeyleri genel bir bakış sağlar ve geç 2017 içinde nasıl bu performans düzeyleri kullanmak koleksiyonlar için tek bölüm koleksiyonları geçirilecek açıklanır. Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:
 
@@ -44,7 +46,7 @@ Bu makalede, S1, S2 ve S3 performans düzeyleri genel bir bakış sağlar ve ge�
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>S1, S2 ve S3 performans neden olan kaldırılan düzeyleri?
 
-S1, S2 ve S3 performans düzeyleri esneklik, DocumentDB API koleksiyonları teklif sağlamaz. S1, S2, S3 performans düzeyleri ile üretilen iş ve depolama kapasitesini önceden ayarlanmış ve esneklik sunmadı. Azure Cosmos DB işleme ve depolama, özelleştirme yeteneği gereksinimleriniz değiştikçe ölçeklendirme yeteneğinizi çok daha fazla esneklik sunumu olarak sunar.
+S1, S2 ve S3 performans düzeyleri standart Azure Cosmos DB teklif sağlar esnekliği sağlamaz. S1, S2, S3 performans düzeyleri ile üretilen iş ve depolama kapasitesini önceden ayarlanmış ve esneklik sunmadı. Azure Cosmos DB işleme ve depolama, özelleştirme yeteneği gereksinimleriniz değiştikçe ölçeklendirme yeteneğinizi çok daha fazla esneklik sunumu olarak sunar.
 
 <a name="compare"></a>
 
@@ -141,7 +143,7 @@ Azure Portalı'nı kullanarak tek bölüm koleksiyonları S1, S2 ve S3 performan
 
 **.NET SDK kullanarak tek bölüm koleksiyonları geçirmek için**
 
-Koleksiyonları performans düzeylerini değiştirmek için başka bir seçenek Azure Cosmos DB SDK'ları olur. Bu bölüm, yalnızca bir koleksiyona ait performansının değiştirilmesi kapsar kullanarak düzey [DocumentDB .NET API](documentdb-sdk-dotnet.md), ancak bizim diğer SDK için benzer bir işlemdir.
+Koleksiyonları performans düzeylerini değiştirmek için başka bir seçenek Azure Cosmos DB SDK'ları olur. Bu bölüm, yalnızca bir koleksiyona ait performansının değiştirilmesi kapsar kullanarak düzey [SQL .NET API](documentdb-sdk-dotnet.md), ancak bizim diğer SDK için benzer bir işlemdir.
 
 Saniye başına 5.000 istek birimlerine koleksiyonu verimlilik değiştirmek için bir kod parçacığı aşağıda verilmiştir:
     

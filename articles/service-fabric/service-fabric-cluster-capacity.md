@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: chackdan
-ms.openlocfilehash: f7c4a00d2c9be2d6b4d3d0b4dfb152deb2d0e217
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlama konuları
 Her üretim dağıtımı için kapasite planlamasının önemli bir adımdır. Bu işlemin bir parçası olarak göz önünde bulundurmanız gereken öğelerin bazıları aşağıda verilmiştir.
@@ -107,7 +107,7 @@ Durum bilgisi olan hizmetleri beklediğiniz ölçek bileşenini barındıran tü
 
 
 > [!WARNING]
-> VM ölçek kümesi VM SKU boyutunu değiştirme en az Gümüş dayanıklılık çalıştırmayan maskelenmesi önerilen değil. VM SKU boyutunu değiştirme veri bozucu yerinde altyapı bir işlemdir. Gecikme veya bu değişikliği izlemek için en az bazı özelliği olmadan işlemi dataloss durum bilgisi olan hizmetler için neden veya durum bilgisiz iş yükleri için bile diğer unforseen işletimsel sorunlara neden olabilir. 
+> VM ölçek kümesi VM SKU boyutunu değiştirme en az Gümüş dayanıklılık çalıştırmayan önerilmez. VM SKU boyutunu değiştirme veri bozucu yerinde altyapı bir işlemdir. Gecikme veya bu değişikliği izlemek için en az bazı özelliği olmadan işlemi durum bilgisi olan hizmetler için veri kaybına neden veya durum bilgisiz iş yükleri için bile öngörülemeyen diğer işlemsel sorunlara neden olabilir. 
 > 
     
 3. Tüm sanal makine ölçek altın dayanıklılık düzeyine sahip kümesi için en az beş düğüm sayısını korumak veya gümüş etkin

@@ -4,7 +4,7 @@ description: "Bu makalede Azure Active Directory'de üzerinde tek oturum SAML Pr
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: f41402fc2cb282975b93071d998365fdb0a21941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-on-saml-protocol"></a>Çoklu oturum açma SAML Protokolü
 Bu makalede Azure Active Directory (Azure AD) için çoklu oturum açmayı destekleyen yanıtlar ve SAML 2.0 kimlik doğrulama isteklerini kapsar.
@@ -47,9 +47,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Kimlik |Gerekli |Azure AD doldurmak için bu öznitelik kullanan `InResponseTo` döndürülen yanıtın özniteliği. Kimliği bir GUID dize gösterimini için "id" gibi bir dizeyi önüne eklediğinizden ortak bir strateji olacak şekilde bir rakamla başlayamaz. Örneğin, `id6c1c178c166d486687be4aaf5e482730` geçerli kimliğidir. |
 | Sürüm |Gerekli |Bu olmalıdır **2.0**. |
 | IssueInstant |Gerekli |Bu, UTC değerine sahip DateTime dizedir ve [gidiş dönüş biçimi ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD bu türde bir DateTime değer bekler ancak değerlendirmek veya değerini kullanın. |
-| AssertionConsumerServiceUrl |İsteğe bağlı |Sağlanırsa, bu eşleşmelidir `RedirectUri` Azure AD bulut hizmetinin. |
-| ForceAuthn |İsteğe bağlı | Bu mantıksal bir değerdir. TRUE ise, bu geçerli bir oturum Azure AD ile olsa bile yeniden kimlik doğrulaması için kullanıcı zorlanır anlamına gelir. |
-| IsPassive |İsteğe bağlı |Azure AD kullanıcı sessizce, kullanıcı etkileşimi olmadan oturum tanımlama bilgisi varsa kullanarak kimlik doğrulamalıdır olup olmadığını belirten bir Boole değeri budur. True ise, Azure AD oturum tanımlama bilgisi kullanarak kullanıcı kimlik doğrulamasını dener. |
+| AssertionConsumerServiceUrl |isteğe bağlı |Sağlanırsa, bu eşleşmelidir `RedirectUri` Azure AD bulut hizmetinin. |
+| ForceAuthn |isteğe bağlı | Bu mantıksal bir değerdir. TRUE ise, bu geçerli bir oturum Azure AD ile olsa bile yeniden kimlik doğrulaması için kullanıcı zorlanır anlamına gelir. |
+| IsPassive |isteğe bağlı |Azure AD kullanıcı sessizce, kullanıcı etkileşimi olmadan oturum tanımlama bilgisi varsa kullanarak kimlik doğrulamalıdır olup olmadığını belirten bir Boole değeri budur. True ise, Azure AD oturum tanımlama bilgisi kullanarak kullanıcı kimlik doğrulamasını dener. |
 
 Diğer tüm `AuthnRequest` öznitelikleri gibi onay, hedef, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex ve ProviderName **göz ardı**.
 

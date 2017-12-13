@@ -4,7 +4,7 @@ description: "Kullanıcıların kişisel bir Microsoft hesabı ve iş veya Okul 
 services: active-directory
 documentationcenter: 
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c30362a7b14c8f7f0c44d911c46c491b3de3c0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Grafik API'si v2.0 uç noktası kullanarak bir üçüncü taraf kitaplık kullanılarak bir Android uygulaması için oturum açma ekleme
 Microsoft kimlik platformu OAuth2 ve OpenID Connect gibi açık standartlar kullanır. Geliştiricilerin hizmetlerimizle tümleştirmek istediği herhangi bir kitaplığı kullanabilirsiniz. Geliştiricilerin platformumuzu diğer kitaplıklarla birlikte kullanmak için Microsoft identity platformuna bağlanmak için üçüncü taraf kitaplıklarını yapılandırmak nasıl göstermek için bunun gibi birkaç izlenecek yazdıktan. Uygulayan çoğu kitaplık [RFC6749 OAuth2 belirtimi](https://tools.ietf.org/html/rfc6749) Microsoft identity platformuna bağlanabilir.

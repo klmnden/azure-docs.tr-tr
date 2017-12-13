@@ -11,13 +11,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 12/11/2017
 ms.author: alkohli
-ms.openlocfilehash: b5c84dbea574afceba93d978425a70ce33271e36
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>8000 serisi aygıta StorSimple 5000-7000 Serisi veri geçirme
 
@@ -73,12 +73,12 @@ Geçişe başlamadan önce emin olun:
     > [!IMPORTANT]
     > Geçiş işlemi boyunca bu cihaz seri erişimi olmasını öneririz. Cihaz sorunları var olmalıdır, seri erişim sorun gidermenize yardımcı olabilir.
 
-* 5000 veya 7000 Serisi kaynak Cihazınızı yazılım sürüm v2.1.1.518 çalışıyor. Önceki sürümlerinde desteklenmez.
+* 5000 veya 7000 Serisi kaynak Cihazınızı yazılım sürüm v2.1.1.518 çalışıyor veya sonraki bir sürümü. Önceki sürümlerinde desteklenmez.
 * 5000 veya 7000 Serisi çalıştığı sürüm doğrulamak için Web kullanıcı arabirimini sağ üst köşesinde bakın. Bu, Cihazınızı çalışan yazılım sürümü görüntülemesi gerekir. Geçiş için 5000 veya 7000 Serisi v2.1.1.518 çalıştırıyor olması gerekir.
 
     ![Eski aygıt yazılım sürümünü denetleyin](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Lütfen canlı Cihazınızı v2.1.1.518 çalışmıyorsa, sisteminiz için gerekli en düşük sürümü yükseltin. Ayrıntılı yönergeler için bkz [v2.1.1.518 için sisteminizi yükseltin](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
+    * Canlı Cihazınızı v2.1.1.518 çalışmıyor ya da daha sonra sisteminiz için gerekli en düşük sürümü Lütfen yükseltin. Ayrıntılı yönergeler için bkz [v2.1.1.518 için sisteminizi yükseltin](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
     * V2.1.1.518 çalıştırıyorsanız, web kayıt defterini geri yükleme hataları için herhangi bir bildirim olup olmadığını görmek için kullanıcı Arabirimi gidin. Kayıt defteri geri yükleme başarısız oldu, kayıt defterini geri yükleme çalıştırın. Nasıl daha fazla bilgi için Git [kayıt defterini geri yüklemeyi Çalıştır](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
     * V2.1.1.518 çalıştırmayan bir aşağı cihazınız varsa, v2.1.1.518 çalıştıran bir değiştirme cihaza bir yük devretme gerçekleştirin. 5000/7000 Serisi StorSimple Cihazınızı DR için ayrıntılı yönergeler için bkz.
     * Bir bulut anlık cihazınız için verileri yedekleyin.

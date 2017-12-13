@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 22e1768257524400f341cf881dfebfb35115a43b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b67e72af8a34799af97cd46f968636050f4ce485
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Kaynak türleri ve sistem durumu denetler Azure kaynak durumu
 Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir listesi aşağıdadır.
@@ -73,7 +73,7 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir l
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |Yürütülen denetimleri|
 |---|
-|<ul><li>Bulunmamış bir DocumentDB hizmet kullanılamazlık nedeniyle hizmet değil veritabanı veya koleksiyon istekleri?</li><li>Bulunmamış DocumentDB hizmet kullanılamazlık nedeniyle hizmet olmayan herhangi bir belge isteğini?</li></ul>|
+|<ul><li>Bulunmamış bir Azure Cosmos DB hizmet kullanılamazlık nedeniyle hizmet olmayan veritabanı veya koleksiyon istekleri?</li><li>Bulunmamış bir Azure Cosmos DB hizmet kullanılamazlık nedeniyle hizmet olmayan herhangi bir belge isteğini?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
 |Yürütülen denetimleri|

@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Services için sürüm notları
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Microsoft Azure BizTalk Services için sürüm notları bu sürümdeki bilinen sorunları içerir.
 
@@ -34,8 +36,8 @@ Microsoft Azure BizTalk Services için sürüm notları bu sürümdeki bilinen s
 * Kurumsal hesaplar desteklenir:  
   * **Senaryo**: bir Microsoft hesabı kullanarak bir BizTalk hizmeti dağıtımı kayıtlı (gibi user@live.com). Bu senaryoda, BizTalk Services Portalı'nı kullanarak BizTalk hizmeti yalnızca Microsoft Account kullanıcıları yönetebilirsiniz. Bir kurumsal hesap kullanılamaz.  
   * **Senaryo**: Azure Active Directory'de bir kurumsal hesap kullanarak bir BizTalk hizmeti dağıtımı kayıtlı (gibi user@fabrikam.com veya user@contoso.com). Bu senaryoda, yalnızca Azure Active Directory kullanıcıları aynı kuruluş içindeki BizTalk Services Portalı'nı kullanarak BizTalk hizmeti yönetebilirsiniz. Bir Microsoft hesabı kullanılamaz.  
-* Klasik Azure portalında bir BizTalk hizmeti oluşturduğunuzda, BizTalk Services Portalı'nda otomatik olarak kaydedilir.
-  * **Senaryo**: Klasik Azure portalında oturum BizTalk hizmeti oluşturma ve ardından **Yönet** çok ilk kez. BizTalk Services portalı açıldığında, BizTalk hizmeti otomatik olarak kaydeder ve dağıtımları için hazırdır.  
+* BizTalk hizmeti oluşturduğunuzda, BizTalk Services Portalı'nda otomatik olarak kaydedilir.
+  * **Senaryo**: Azure'da, oturum BizTalk hizmeti oluşturma ve ardından **Yönet** çok ilk kez. BizTalk Services portalı açıldığında, BizTalk hizmeti otomatik olarak kaydeder ve dağıtımları için hazırdır.  
     Bkz: [kaydetme ve BizTalk hizmeti dağıtımını BizTalk Güncelleştirme Hizmetleri portalı](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>14 Ağustos güncelleştirme

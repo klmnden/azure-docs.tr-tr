@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: cba1dd7e5f7c9f30db5d1dccd41a3262af668bce
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: b5a3537355bef593cc7796af041a53a5eca76b23
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -46,10 +46,12 @@ Azure dosya eşitleme Aracısı'nı Windows Server'ın bir Azure dosya paylaşı
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Sunucusu uç noktası
-Sunucusu uç noktası kayıtlı bir sunucuda, bir sunucu birimdeki bir klasörü gibi belirli bir konuma temsil eder.  Not, yoksa belirli bir konuma bir birim kökünde olamaz (örneğin f:\) rağmen bu gelecekteki Önizleme güncelleştirmede desteklenecektir. Kendi ad alanları (örneğin, F:\sync1 ve F:\sync2) çakışmazsa birden çok sunucu bitiş noktaları aynı birimde bulunabilir. Bulut katmanlama ilkeleri her sunucusu uç noktası için ayrı ayrı yapılandırabilirsiniz. Var olan bir dosya sunucusu uç noktası bir eşitleme grubuna sahip bir sunucu konumu eklerseniz, bu dosyaları eşitleme grubundaki diğer uç nokta zaten bulunan diğer dosyaları ile birleştirilir.
+Sunucusu uç noktası kayıtlı bir sunucuda, bir sunucu birimdeki bir klasörü gibi belirli bir konuma temsil eder. Kendi ad alanları çakışmıyorsa birden çok sunucu bitiş noktaları aynı birimde bulunabilir (örneğin, `F:\sync1` ve `F:\sync2`). Bulut katmanlama ilkeleri her sunucusu uç noktası için ayrı ayrı yapılandırabilirsiniz. Şu anda bir birim kök sunucusu uç noktası oluşturmak mümkün değildir (örneğin `F:\` veya `C:\myvolume`, bir birimin bir bağlama noktası olarak bağlı değilse).
 
 > [!Note]  
 > Sunucusu uç noktası Windows Sistem biriminde bulunabilir. Bulut katmanlandırma sistem biriminde desteklenmiyor.
+
+Var olan bir dosya sunucusu uç noktası bir eşitleme grubuna sahip bir sunucu konumu eklerseniz, bu dosyaları eşitleme grubundaki diğer uç nokta zaten bulunan diğer dosyaları ile birleştirilir.
 
 ### <a name="cloud-endpoint"></a>Bulut uç noktası
 Bulut uç noktasına bir eşitleme grubunun parçası olan bir Azure dosya paylaşımıdır. Tüm Azure dosya paylaşımı eşitlemeler ve Azure dosya paylaşımının yalnızca bir bulut uç noktası üyesi olabilir. Bu nedenle, Azure dosya paylaşımının yalnızca bir eşitleme grubunun bir üyesi olabilir. Dosyaları var olan bir bulut uç noktasına bir eşitleme grubuna sahip bir Azure dosya paylaşımı eklerseniz, var olan dosyaları eşitleme grubundaki diğer uç nokta zaten bulunan diğer dosyaları ile birleştirilir.

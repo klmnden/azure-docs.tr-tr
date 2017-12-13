@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure’da bir HPC Pack kümesindeki işlem düğümlerinin sayısını ve kullanılabilirliğini yönetme
 Azure Vm'lerinde bir HPC Pack 2012 R2 kümesi oluşturduysanız, kolayca eklemek, kaldırmak, (sağlayamaz) Başlat veya Durdur (deprovision) yolları isteyebilirsiniz bazı kümedeki düğüm Vm'lerle işlem. Bu görevleri gerçekleştirmek için VM baş düğümünde yüklü olan Azure PowerShell betikleri çalıştırın. Bu komut dosyaları sayısı ve HPC paketi küme kaynaklarınızın kullanılabilirliğini maliyetleri denetimi denetlemenize yardımcı.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>Parametreler
 * **ServiceName**: yeni düğümü VM'ler işlem bulut hizmeti adını eklenir.
-* **Görüntü adı**: Klasik Azure portalında veya Azure PowerShell cmdlet'i aracılığıyla alınabilir Azure VM görüntü adı **Get-AzureVMImage**. Görüntünün aşağıdaki gereksinimleri karşılamalıdır:
+* **Görüntü adı**: Azure portal ya da Azure PowerShell cmdlet'i alınabilir Azure VM görüntü adı **Get-AzureVMImage**. Görüntünün aşağıdaki gereksinimleri karşılamalıdır:
   
   1. Bir Windows işletim sistemi yüklenmelidir.
   2. HPC Pack ise bilgi işlem düğümü rolü yüklü olmalıdır.

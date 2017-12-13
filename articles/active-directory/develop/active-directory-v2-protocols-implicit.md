@@ -4,7 +4,7 @@ description: "Tek sayfa uygulamaları için Azure AD v2.0 uygulaması örtük ak
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3bd8256814036a357b30b69286da6bb7c974162f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak SPAs
 V2.0 uç noktası ile kullanıcılar, tek sayfa uygulamaları Microsoft'tan hem kişisel hem de iş/Okul hesaplarıyla içine imzalayabilirsiniz.  Tek sayfa ve diğer JavaScript uygulamalar, öncelikle birkaç ilginç sınar kimlik doğrulaması geldiğinde bir tarayıcı yazıtipi olarak çalıştırın:
@@ -76,9 +76,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_mode |Önerilen |Sonuçta elde edilen belirteci geri uygulamanıza göndermek için kullanılacak yöntemi belirtir.  Olmalıdır `fragment` örtük akış için. |
 | durum |Önerilen |Belirteç yanıtta döndürülen de istekte bulunan bir değer.  İstediğiniz herhangi bir içerik dizesi olabilir.  Rastgele oluşturulan benzersiz bir değer tipik olarak kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12).  Durumu, sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
 | nonce |Gerekli |Bir talep olarak elde edilen id_token dahil edilecek ve uygulama tarafından üretilen istekte bulunan bir değer.  Uygulama sonra belirteç yeniden yürütme saldırıları azaltmak için bu değeri doğrulayabilirsiniz.  Genellikle istek kaynağını tanımlamak için kullanılan rastgele, benzersiz bir dize değeridir. |
-| istemi |İsteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü belirtir.  Geçerli değerler yalnızca şu anda 'oturum açma', 'none' olan ve 'onay'.  `prompt=login`Bu isteğin negating çoklu oturum açma kimlik bilgilerini girmesini zorunlu tutar.  `prompt=none`- tersidir kullanıcı hiçbir etkileşimli istemi doğabilecek sunulmayan garanti eder.  İstek sessizce çoklu oturum açma aracılığıyla tamamlanamazsa, v2.0 uç noktası bir hata döndürür.  `prompt=consent`Uygulama izinleri vermek için kullanıcı isteyen kullanıcı, oturum sonra OAuth onay iletişim tetikler. |
-| login_hint |İsteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, oturum açma sayfasında kullanıcının kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Username önceki oturum açma kullanarak bir zaten ayıklanan yeniden kimlik doğrulaması sırasında bu parametre genellikle uygulamaları kullanacak `preferred_username` talep. |
-| domain_hint |İsteğe bağlı |Aşağıdakilerden biri olabilir `consumers` veya `organizations`.  Dahil edilmişse, e-posta tabanlı bulma işlemini atlar kullanıcı v2.0 oturum açma sayfasında, biraz daha kolay bir kullanıcı deneyimi baştaki geçtiği.  Genellikle uygulamaları kullanacağınız Bu parametre yeniden kimlik doğrulaması sırasında çıkartarak `tid` id_token talep.  Varsa `tid` değer talep `9188040d-6c67-4c5b-b112-36a304b66dad`, kullanmanız gereken `domain_hint=consumers`.  Aksi takdirde kullanın `domain_hint=organizations`. |
+| istemi |isteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü belirtir.  Geçerli değerler yalnızca şu anda 'oturum açma', 'none' olan ve 'onay'.  `prompt=login`Bu isteğin negating çoklu oturum açma kimlik bilgilerini girmesini zorunlu tutar.  `prompt=none`- tersidir kullanıcı hiçbir etkileşimli istemi doğabilecek sunulmayan garanti eder.  İstek sessizce çoklu oturum açma aracılığıyla tamamlanamazsa, v2.0 uç noktası bir hata döndürür.  `prompt=consent`Uygulama izinleri vermek için kullanıcı isteyen kullanıcı, oturum sonra OAuth onay iletişim tetikler. |
+| login_hint |isteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, oturum açma sayfasında kullanıcının kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Username önceki oturum açma kullanarak bir zaten ayıklanan yeniden kimlik doğrulaması sırasında bu parametre genellikle uygulamaları kullanacak `preferred_username` talep. |
+| domain_hint |isteğe bağlı |Aşağıdakilerden biri olabilir `consumers` veya `organizations`.  Dahil edilmişse, e-posta tabanlı bulma işlemini atlar kullanıcı v2.0 oturum açma sayfasında, biraz daha kolay bir kullanıcı deneyimi baştaki geçtiği.  Genellikle uygulamaları kullanacağınız Bu parametre yeniden kimlik doğrulaması sırasında çıkartarak `tid` id_token talep.  Varsa `tid` değer talep `9188040d-6c67-4c5b-b112-36a304b66dad`, kullanmanız gereken `domain_hint=consumers`.  Aksi takdirde kullanın `domain_hint=organizations`. |
 
 Bu noktada, kullanıcı kimlik bilgilerini girin ve kimlik doğrulamasını tamamlamak için istenir.  V2.0 uç noktası, ayrıca kullanıcı belirtilen izinleri seçtiği sağlayacak `scope` sorgu parametresi.  Kullanıcı bu izinleri hiçbirine seçtiği değil kullanıcı gerekli izinleri onayı geçersiz sorar.  Ayrıntılarını [izinleri, onay ve çok kiracılı uygulamalara sağlanan burada](active-directory-v2-scopes.md).
 

@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: b14d0aad5a1f50c225391dbab27ec6240423a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7b81c12c31fe7de40acca6baa8972e65c306ee0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-databases-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse veritabanlarında yönetme
 SQL veri ambarı veritabanlarınızı yönetme birçok nokta otomatikleştirir. Örneğin, performans ölçeklendirmek için ayarlamak ve işlem kaynaklarını doğru düzeyde için ödeme ve SQL Data Warehouse ölçeğini genişletme ve geri ölçeklendirme tüm yapması izin vermek yeterlidir.
@@ -47,7 +47,7 @@ Azure portalı ile çalışmaya başlamak için bkz: [SQL veri ambarı (Azure po
 ### <a name="sql-server-data-tools-in-visual-studio"></a>SQL Server veri araçları Visual Studio
 [SQL Server veri Araçları] [ SQL Server Data Tools] (SSDT) Visual Studio için bağlanmanıza olanak sağlayan yönetmek ve veritabanlarınızı geliştirin. Bir uygulama geliştiricisi Visual Studio'ya veya diğer tümleşik geliştirme ortamlarını (IDE) hakkında bilgi sahibi değilseniz, Visual Studio'da SSDT kullanmayı deneyin.
 
-SSDT görselleştirme, bağlanmak ve SQL Data Warehouse veritabanlarında komut dosyaları yürütme olanak tanıyan SQL Server Nesne Gezgini içerir. Hızlı bir şekilde SQL veri ambarı'na bağlanmak için basitçe tıklayabilirsiniz **Visual Studio'da Aç** ne zaman veritabanı görüntüleme Azure Klasik Portalı'nda ayrıntıları çubuğu komut düğmesi.  
+SSDT görselleştirme, bağlanmak ve SQL Data Warehouse veritabanlarında komut dosyaları yürütme olanak tanıyan SQL Server Nesne Gezgini içerir. Hızlı bir şekilde SQL veri ambarı'na bağlanmak için basitçe tıklayabilirsiniz **Visual Studio'da Aç** ne zaman veritabanı görüntüleme Azure portalında ayrıntıları çubuğu komut düğmesi.  
 
 Visual Studio'da SSDT ile çalışmaya başlamak için bkz: [sorgu Azure SQL Data Warehouse Visual Studio ile][Query Azure SQL Data Warehouse with Visual Studio].
 

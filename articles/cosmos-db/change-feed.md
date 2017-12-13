@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Destek Azure Cosmos DB'de akış değişiklik ile çalışma
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/03/2017
 ![Akış güç gerçek zamanlı analiz ve bilgi işlem senaryolarına olay denetimli için Azure Cosmos DB Değiştir kullanma](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Destek akış değişiklik tüm veri modelleri ve Azure Cosmos DB kapsayıcılarında sağlanır. Ancak, değişiklik akış DocumentDB istemcisini kullanarak okuyun ve öğeleri JSON biçimine serileştiren. Biçimlendirme, JSON nedeniyle istemciler yaşar MongoDB biçimlendirilmiş BSON belgeler ve JSON arasında bir uyuşmazlık akış değişiklik biçimlendirilmiş. 
+> Destek akış değişiklik tüm veri modelleri ve Azure Cosmos DB kapsayıcılarında sağlanır. Ancak, değişiklik akış SQL istemcisini kullanarak okuyun ve öğeleri JSON biçimine serileştiren. Biçimlendirme, JSON nedeniyle istemciler yaşar MongoDB biçimlendirilmiş BSON belgeler ve JSON arasında bir uyuşmazlık akış değişiklik biçimlendirilmiş. 
 
 ## <a name="how-does-change-feed-work"></a>Nasıl Değiştir iş akışı?
 
@@ -90,9 +90,9 @@ Azure işlevleri Portalı'nda tetikleyicileri oluşturulabilir Azure Cosmos DB p
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>SDK'sını kullanarak
 
-[DocumentDB SDK'sı](documentdb-sdk-dotnet.md) Azure Cosmos DB okumak ve akış bir değişiklik yönetmek için tüm güç getirdiği için. Ancak çok sorumlulukları, çok sayıda harika güç ile gelir. Kontrol noktalarını yönetme, belge sıra numaraları ile ilgilidir ve bölüm anahtarlarını üzerinde ayrıntılı denetim sahibi istiyorsanız, SDK'sını kullanarak sağ yaklaşım olabilir.
+[SQL SDK](documentdb-sdk-dotnet.md) Azure Cosmos DB okumak ve akış bir değişiklik yönetmek için tüm güç getirdiği için. Ancak çok sorumlulukları, çok sayıda harika güç ile gelir. Kontrol noktalarını yönetme, belge sıra numaraları ile ilgilidir ve bölüm anahtarlarını üzerinde ayrıntılı denetim sahibi istiyorsanız, SDK'sını kullanarak sağ yaklaşım olabilir.
 
-Bu bölümde DocumentDB SDK'sı akışı bir değişiklik ile çalışmak için nasıl kullanılacağı anlatılmaktadır.
+Bu bölümde SQL SDK'sı akışı bir değişiklik ile çalışmak için nasıl kullanılacağı anlatılmaktadır.
 
 1. Appconfig aşağıdaki kaynakları okuyarak başlatın. Uç nokta ve yetkilendirme anahtar alınırken yönergeleri kullanılabilir [bağlantı dizenizi güncelleştirme](create-documentdb-dotnet.md#update-your-connection-string).
 

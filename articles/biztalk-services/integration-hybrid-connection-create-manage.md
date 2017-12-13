@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 7b8b9072d0e2fd054ca07873c0a9ce772dc2941e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Karma Bağlantıları Oluşturma ve Yönetme
 
 > [!IMPORTANT]
 > BizTalk Karma Bağlantılar kullanımdan kalktı ve yerine App Service Karma Bağlantılar kullanıma sunuldu. Var olan BizTalk Karma Bağlantılarınızı nasıl yöneteceğiniz de dahil olmak üzere daha fazla bilgi için bkz. [Azure App Service Karma Bağlantılar](../app-service/app-service-hybrid-connections.md).
 
+>[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>Adımlara genel bakış
 1. Karma bağlantı girerek oluşturabilirsiniz **ana bilgisayar adı** veya **FQDN** özel ağınızda şirket içi kaynak.
@@ -48,26 +49,9 @@ Bu konu, aşağıdaki adımları listeler.
 > 
 
 ## <a name="CreateHybridConnection"></a>Karma bağlantı oluşturma
-Web uygulamaları kullanarak Azure portalında karma bağlantı oluşturulabilir **veya** BizTalk Services'ı kullanarak. 
+Karma bağlantı oluşturulabilir [Azure App Service karma bağlantılar](../app-service/app-service-hybrid-connections.md) **veya** kullanarak [BizTalk Services REST API'leri](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
-
-**BizTalk Services'da karma bağlantılar oluşturmak için**:
-
-1. [Klasik Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
-2. Sol gezinti bölmesinde seçin **BizTalk Services** ve BizTalk hizmetinizi seçin. 
-   
-    Mevcut bir BizTalk hizmetini yoksa, şunları yapabilirsiniz [BizTalk hizmeti oluşturma](biztalk-provision-services.md).
-3. Seçin **karma bağlantılar** sekmesi:  
-   ![Karma bağlantılar sekmesi][HybridConnectionTab]
-4. Seçin **karma bir bağlantı oluşturmak** veya seçin **ekleme** görev çubuğunda düğmesi. Aşağıdakileri girin:
-   
-   | Özellik | Açıklama |
-   | --- | --- |
-   | Ad |Karma bağlantı adı benzersiz olmalıdır ve BizTalk hizmeti adıyla aynı olamaz. Herhangi bir ad girin, ancak amacı ile belirli. Örneklere şunlar dahildir:<br/><br/>Bordro*SQLServer*<br/>SupplyList*SharepointServer*<br/>Müşteriler*OracleServer* |
-   | Ana bilgisayar adı |Tam ana bilgisayar adını girin, yalnızca ana bilgisayar adını veya şirket içi kaynağa IPv4 adresidir. Örneklere şunlar dahildir:<br/><br/>(sqlsunucum)<br/>*(sqlsunucum)*. *Etki alanı*. corp.*şirketiniz*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*. *Şirketiniz*.com<br/>10.100.10.10<br/><br/>IPv4 adresi kullanırsanız, istemci veya uygulama kodunuz IP adresini çözebilir değil olduğunu unutmayın. Bu konunun başında Not önemli bakın. |
-   | Bağlantı noktası |Şirket içi kaynak bağlantı noktası numarasını girin. Örneğin, Web uygulamaları kullanıyorsanız, bağlantı noktası 80 veya 443 numaralı bağlantı noktasını girin. SQL Server kullanıyorsanız, 1433 numaralı bağlantı noktasını girin. |
-5. Kurulumu tamamlamak için onay işaretini seçin. 
 
 #### <a name="additional"></a>Ek
 * Birden çok karma bağlantılar oluşturulabilir. Bkz: [BizTalk Services: sürümler grafiği](biztalk-editions-feature-chart.md) izin verilen bağlantı sayısı. 
@@ -78,16 +62,11 @@ Bir Web uygulaması veya mobil uygulama Azure App Service'te mevcut bir karma ba
 <!-- See [Access on-premises resources using hybrid connections in Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md). -->
 
 ## <a name="InstallHCM"></a>İçi karma Bağlantı Yöneticisi'ni yükleyin
-Karma bağlantı oluşturulduktan sonra şirket içi kaynak karma Bağlantı Yöneticisi'ni yükleyin. Azure web uygulamaları ya da BizTalk hizmetinizi indirilebilir. BizTalk Services adımlar: 
+Karma bağlantı oluşturulduktan sonra şirket içi kaynak karma Bağlantı Yöneticisi'ni yükleyin. Azure web uygulamaları ya da BizTalk hizmetinizi indirilebilir. 
 
-1. [Klasik Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
-2. Sol gezinti bölmesinde seçin **BizTalk Services** ve BizTalk hizmetinizi seçin. 
-3. Seçin **karma bağlantılar** sekmesi:  
-   ![Karma bağlantılar sekmesi][HybridConnectionTab]
-4. Görev çubuğunda seçin **şirket içi Kurulum**:  
-   ![Şirket içi Kurulumu][HCOnPremSetup]
-5. Seçin **yükleme ve yapılandırma** çalıştırmak veya şirket içi sistemde karma Bağlantı Yöneticisi'ni indirin. 
-6. Yüklemeyi başlatmak için onay işaretini seçin. 
+[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+ 
+[Azure App Service karma bağlantılar](../app-service/app-service-hybrid-connections.md) de iyi bir kaynaktır.
 
 <!--
 You can also download the Hybrid Connection Manager MSI file and copy the file to your on-premises resource. Specific steps:
@@ -113,25 +92,16 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 * Karma bağlantılar, başka bir sunucuya başka bir örneği karma Bağlantı Yöneticisi'nin yükleyerek ölçeklendirebilirsiniz. Aynı adresi ilk şirket içi dinleyicisi olarak kullanmak için şirket içi dinleyicisini yapılandırın. Bu durumda, rastgele dağıtılmış (hepsini bir kez) arasında etkin şirket içi dinleyicileri trafiğidir. 
 
 ## <a name="ManageHybridConnection"></a>Karma bağlantılar yönetme
-Karma bağlantılar yönetmek için şunları yapabilirsiniz:
 
-* Azure Portalı'nı kullanın ve BizTalk hizmetinize gidin. 
-* Kullanım [REST API'leri](http://msdn.microsoft.com/library/azure/dn232347.aspx).
+[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
+
+[Azure App Service karma bağlantılar](../app-service/app-service-hybrid-connections.md) de iyi bir kaynaktır.
 
 #### <a name="copyregenerate-the-hybrid-connection-strings"></a>Kopyala/yeniden karma bağlantı dizeleri
-1. [Klasik Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
-2. Sol gezinti bölmesinde seçin **BizTalk Services** ve BizTalk hizmetinizi seçin. 
-3. Seçin **karma bağlantılar** sekmesi:  
-   ![Karma bağlantılar sekmesi][HybridConnectionTab]
-4. Karma bağlantıyı seçin. Görev çubuğunda seçin **bağlantıyı Yönet**:  
-   ![Seçeneklerini yönetin][HCManageConnection]
-   
-    **Bağlantıyı Yönet** uygulama ve şirket içi bağlantı dizeleri listelenmiştir. Bağlantı dizeleri kopyalayabilir veya bağlantı dizesinde kullanılan erişim tuşunu yeniden oluşturun. 
-   
-    **Yeniden seçerseniz**, bağlantı dizesi içinde kullanılan paylaşılan erişim anahtarı değiştirilir. Şunları yapın:
-   
-   * Klasik Azure portalında seçin **anahtarları Eşitle** Azure uygulamasında.
-   * Yeniden çalıştırma **şirket içi Kurulum**. Şirket içi Kur'u yeniden çalıştırdığınızda, şirket içi kaynağa güncelleştirilmiş birincil bağlantı dizesi kullanmak için otomatik olarak yapılandırılır.
+
+[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
+
+[Azure App Service karma bağlantılar](../app-service/app-service-hybrid-connections.md) de iyi bir kaynaktır.
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Karma bağlantı tarafından kullanılan şirket içi kaynakları denetlemek için Grup İlkesi kullanın
 1. Karşıdan [karma Bağlantı Yöneticisi Yönetim Şablonları](http://www.microsoft.com/download/details.aspx?id=42963).
@@ -149,7 +119,7 @@ Kopyalandıktan sonra ilkeyi değiştirmek için Grup İlkesi Düzenleyicisi'ni 
 ## <a name="see-also"></a>Ayrıca Bkz.
 [Microsoft Azure BizTalk hizmetlerinin yönetilmesi için REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)  
-[Klasik Azure portalını kullanarak BizTalk hizmeti oluşturma](biztalk-provision-services.md)  
+[BizTalk hizmeti oluşturma](biztalk-provision-services.md)  
 [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png

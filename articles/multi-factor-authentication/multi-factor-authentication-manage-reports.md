@@ -4,7 +4,7 @@ description: "Azure multi-Factor Authentication özelliğinin - raporların nas�
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
 ms.service: multi-factor-authentication
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 76a13467fff23ad62a857a53e0e31865b1a9fe81
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 32697eea410cb9afaa0e4347acd1a280fcf94289
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication raporlarında
 

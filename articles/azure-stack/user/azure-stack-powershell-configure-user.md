@@ -3,26 +3,26 @@ title: "Azure yığın kullanıcının PowerShell ortamını yapılandırma | Mi
 description: "Azure yığın kullanıcının PowerShell ortamını yapılandırma"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Azure yığın kullanıcının PowerShell ortamını yapılandırma
 
-Bir Azure yığın kullanıcı olarak, Azure yığın Geliştirme Seti'nın PowerShell ortam yapılandırabilirsiniz. Yapılandırdıktan sonra PowerShell Azure kaynakları gibi teklifleri için abone yığını yönetmek için kullanabileceğiniz sanal makine oluşturma, dağıtma Azure Resource Manager şablonları, vs. Bu konuda ortamlar yalnızca bulut işleci ortamı için PowerShell ayarlamak istiyorsanız başvurmak için kullanıcı ile kullanılacak kapsamlıdır [Azure yığın işlecin PowerShell ortamını yapılandırma](../azure-stack-powershell-configure-admin.md) konu. 
+Bir Azure yığın kullanıcı olarak, Azure yığın Geliştirme Seti'nın PowerShell ortam yapılandırabilirsiniz. Yapılandırdıktan sonra PowerShell Azure kaynakları gibi teklifleri için abone yığını yönetmek için kullanabileceğiniz sanal makine oluşturma, dağıtma Azure Resource Manager şablonları, vs. Bu konuda ortamlar yalnızca bulut işleci ortamı için PowerShell ayarlamak istiyorsanız başvurmak için kullanıcı ile kullanılacak kapsamlıdır [Azure yığın işlecin PowerShell ortamını yapılandırma](../azure-stack-powershell-configure-admin.md) makalesi. 
 
 ## <a name="prerequisites"></a>Ön koşullar 
 
@@ -33,7 +33,7 @@ Aşağıdaki Önkoşullar herhangi birinden çalıştırmak [Geliştirme Seti](a
 
 ## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Kullanıcı ortamını yapılandırmak ve Azure yığınına oturum açın
 
-Dağıtım bir PowerShell Azure yığınının (emin AAD tenantName, GraphAudience endpoint ve ortam yapılandırmanıza göre ArmEndpoint değerleri değiştirmek için Oluştur) yapılandırmak için aşağıdaki betiği çalıştırın (Azure AD veya AD FS) türüne göre:
+Dağıtım PowerShell Azure yığın (AAD tenantName, GraphAudience endpoint ve ortam yapılandırmanıza göre ArmEndpoint değerleri değiştirdiğinizden emin olun) yapılandırmak için aşağıdaki komut dosyalarından birini çalıştırma (Azure AD veya AD FS) türüne göre:
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>Azure Active Directory (AAD) tabanlı dağıtımlar
        
@@ -118,7 +118,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 ## <a name="test-the-connectivity"></a>Bağlantısını test etme
 
-Şimdi biz her şeyi ayarlanmış olduğuna göre Azure yığın içindeki kaynaklara oluşturmak için PowerShell kullanın. Örneğin, bir uygulama için bir kaynak grubu oluşturmak ve bir sanal makine ekleyin. "Contoso.com" adlı bir kaynak grubu oluşturmak için aşağıdaki komutu kullanın:
+Biz her şeyi olduğuna göre kurulum yapalım Azure yığın içindeki kaynaklara oluşturmak için PowerShell kullanın. Örneğin, bir uygulama için bir kaynak grubu oluşturmak ve bir sanal makine ekleyin. "Contoso.com" adlı bir kaynak grubu oluşturmak için aşağıdaki komutu kullanın:
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

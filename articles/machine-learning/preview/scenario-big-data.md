@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: a9d6ebb2ae92b631d4663b1373c684b2e10a9507
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
 
@@ -108,10 +108,10 @@ Sütun numarası | Alan adı| Tür | Açıklama |
 6 | `HTTP1` | Tamsayı|  HTTP1 veya HTTP2 oturumu kullanır
 7 |`ServerType` | Tamsayı   |Sunucu türü
 8 |`SubService_1_Load` | Çift |   Subservice 1 yük
-9 | `SubService_1_Load` | Çift |  Subservice 2 yükleme
-10 | `SubService_1_Load` | Çift |     Subservice 3 yükleme
-11 |`SubService_1_Load` | Çift |  Subservice 4 yükleme
-12 | `SubService_1_Load`| Çift |      Subservice 5 yükleme
+9 | `SubService_2_Load` | Çift |  Subservice 2 yükleme
+10 | `SubService_3_Load` | Çift |     Subservice 3 yükleme
+11 |`SubService_4_Load` | Çift |  Subservice 4 yükleme
+12 | `SubService_5_Load`| Çift |      Subservice 5 yükleme
 13 |`SecureBytes_Load`  | Çift | Güvenli bayt yükleme
 14 |`TotalLoad` | Çift | Sunucusundaki toplam yükü
 15 |`ClientIP` | Dize|    İstemci IP adresi
@@ -327,7 +327,7 @@ run_logger.log("Test Accuracy", testAccuracy)
 
 ### <a name="operationalize-the-model"></a>Model faaliyete
 
-Bu bölümde, bir web hizmeti olarak önceki adımlarda oluşturduğunuz modeli faaliyete. Ayrıca iş yükü tahmin etmek için web hizmeti kullanmayı öğrenin. Makine dili operationalization komut satırı arabirimlerinden (CLIs) kapsayıcılı web hizmeti olarak kodu ve bağımlılıklarını Docker görüntüleri olarak paketini ve modeli yayımlamak için kullanın. Daha fazla bilgi için bkz: [bu genel bakışta](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+Bu bölümde, bir web hizmeti olarak önceki adımlarda oluşturduğunuz modeli faaliyete. Ayrıca iş yükü tahmin etmek için web hizmeti kullanmayı öğrenin. Makine dili operationalization komut satırı arabirimlerinden (CLIs) kapsayıcılı web hizmeti olarak kodu ve bağımlılıklarını Docker görüntüleri olarak paketini ve modeli yayımlamak için kullanın.
 
 CLIs çalıştırmak için Machine Learning çalışma ekranı komut satırı isteminde kullanın.  İzleyerek CLIs Ubuntu Linux üzerinde de çalıştırabilirsiniz [Yükleme Kılavuzu](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

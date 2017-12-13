@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Hizmetleri (AWS) Vm'leri Azure'a geçirme
 
-Bu öğretici, Amazon Web Hizmetleri (AWS) sanal makineleri (VM'ler) geçirmek Azure Site Recovery kullanarak sanal makineleri öğretir. Azure, fiziksel, oldukları gibi kabul VMsare EC2 örnekleri geçirilirken bilgisayarların şirket içi. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğretici, Amazon Web Hizmetleri (AWS) sanal makineleri (VM'ler) geçirmek Azure Site Recovery kullanarak sanal makineleri öğretir. Azure'a geçirme EC2 örnekleri, sanal makineleri fiziksel olmaları durumunda olarak kabul edilir, şirket içi bilgisayarları. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Azure kaynaklarını hazırlama

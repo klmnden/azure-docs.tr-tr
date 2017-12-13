@@ -4,7 +4,7 @@ description: "Azure AD CONNECT'te bildirim temelli hazırlama yapılandırma mod
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect eşitleme: bildirim temelli hazırlama anlama
 Bu konuda, Azure AD Connect yapılandırma modelinde açıklanmaktadır. Bildirim temelli hazırlama modeli adı verilir ve bir yapılandırma değişikliği kolayca yapmanızı sağlar. Bu konuda açıklanan pek çok gelişmiş ve çoğu müşteri senaryoları için gerekli değildir.
@@ -88,7 +88,7 @@ Meta veri deposu nesne kapsamlı bir eşitleme kuralı olduğu kadar uzun kalır
 
 Bir meta veri deposu nesnesi silindiğinde, bir giden eşitleme kuralı ile ilişkili tüm nesneler için işaretlenmiş **sağlama** silinmek üzere işaretlenmiş.
 
-## <a name="transformations"></a>Dönüşümleri
+## <a name="transformations"></a>Dönüşümler
 Dönüşümler nasıl öznitelikleri kaynaktan hedef akış tanımlamak için kullanılır. Akışlar şunlardan biri olabilir **akış türleri**: doğrudan, sabit değer veya ifade. Doğrudan bir akış akar öznitelik değeri olarak-ile hiçbir ek dönüştürmeler değil. Sabit bir değeri belirtilen değere ayarlar. Dönüştürme nasıl olmalıdır express için bildirim temelli hazırlama ifade dili bir ifade kullanır. İfade dili ayrıntılarını bulunabilir [bildirim temelli hazırlama ifade dili anlama](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) konu.
 
 ![Sağlama veya birleştirme](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/transformations1.png)  
@@ -132,7 +132,7 @@ Genellikle eşitleme sırasında beklenen değer ("üst") kule, dışa aktarma s
 Bu işlev örneği out-of-box eşitleme kuralında bulunabilir *içinde AD'den – kullanıcı ortak Exchange'den*. Değeri başarıyla dışarı aktarıldı onaylandıktan olduğunda karma Exchange'de çevrimiçi Exchange tarafından eklenen değeri yalnızca eşitlenmesi gereken:  
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
-## <a name="precedence"></a>Önceliği
+## <a name="precedence"></a>Öncellik
 Birkaç eşitleme kuralı aynı öznitelik değeri hedefe katkıda çalıştığınızda öncelik değeri kazanan belirlemek için kullanılır. Bir çakışma özniteliğinde katkıda bulunmak için en yüksek öncelik, en düşük sayısal değer kuralla geçiyor.
 
 ![Türleri birleştirme](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/precedence1.png)  

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: ef27a15bb6a6305f7a762716a20487ef983cb5d1
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: f678bba89adf1450bd6a08909fdad51424a210e8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyicisi ile desteklenen ölçümleri
 Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümleri tam bir listesi ile Azure monitörün ölçüm ardışık düzen şu anda kullanılabilir.
 
 > [!NOTE]
-> Portalı veya eski API'lerini kullanarak diğer ölçümleri bulunabilir. Bu liste, yalnızca ölçümleri birleştirilmiş Azure ölçüm işlem hattını izleme ile kullanılabilen içerir. Sorgulamak ve erişmek için kullanım ölçümleri boyutlarla lütfen [2017-05-01-Önizleme api sürümü](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions)
+> Portalı veya eski API'lerini kullanarak diğer ölçümleri bulunabilir. Bu liste, yalnızca ölçümleri birleştirilmiş Azure ölçüm işlem hattını izleme ile kullanılabilen içerir. Sorgulamak ve erişmek için kullanım ölçümleri boyutlarla lütfen [2017-05-01-Önizleme api sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 >
 >
 
@@ -519,7 +519,9 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |DeviceAssignments|Atanan aygıtlar|Sayı|Toplam|Bir IOT hub'ına atanmış cihazların sayısı|ProvisioningServiceName, IotHubName|
 |AttestationAttempts|Kanıtlama denemeleri|Sayı|Toplam|Aygıt attestations denemesi sayısı|ProvisioningServiceName, durumu, Protokolü|
 
-## <a name="microsoftdocumentdbdatabaseaccounts-cosmosdb"></a>Microsoft.DocumentDB/databaseAccounts (CosmosDB)
+<a id="cosmosdb"></a>
+
+## <a name="microsoftdocumentdbdatabaseaccounts-azure-cosmos-db"></a>Microsoft.DocumentDB/databaseAccounts (Azure Cosmos DB)
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |TotalRequests|Toplam İstek Sayısı|Sayı|Sayı|Yapılan isteklerin sayısı|DatabaseAccount, CollectionName, DatabaseName, bölge, StatusCode|
@@ -866,7 +868,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |FileCapacity|Dosya kapasitesi|Bayt|Ortalama|Bayt cinsinden depolama hesabının dosya hizmeti tarafından kullanılan depolama alanı miktarı.|Hiç boyut|
-|FileCount|Dosya Sayısı|Sayı|Ortalama|Depolama hesabının dosya hizmeti dosyasında sayısı.|Hiç boyut|
+|FileCount|Dosya sayısı|Sayı|Ortalama|Depolama hesabının dosya hizmeti dosyasında sayısı.|Hiç boyut|
 |FileShareCount|Dosya Paylaşımı sayısı|Sayı|Ortalama|Dosya sayısı depolama hesabının dosya hizmetinde paylaşır.|Hiç boyut|
 |İşlemler|İşlemler|Sayı|Toplam|Depolama hizmet ya da belirtilen API işlemi için yapılan isteklerin sayısı. Bu sayı, hataları üretilen isteklerinin yanı sıra başarılı ve başarısız istekleri içerir. ResponseType boyut yanıt farklı türde sayısı için kullanın.|ResponseType, GeoType, ApiName|
 |Giriş|Giriş|Bayt|Toplam|Bayt cinsinden giriş veri miktarı. Bu sayı, Azure içinde giriş yanı sıra Azure Storage içine bir dış istemcinin giriş içerir.|GeoType, ApiName|

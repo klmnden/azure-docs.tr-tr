@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 176850ff69f8a6f19dda4fc3389bd2b7e022e578
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3d552ae8593773fbf17cd19344f1ddb4d3a49fba
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js ile Azure Linux üzerinde bir Cassandra küme çalıştırın
 
@@ -134,7 +134,7 @@ Böylece görüntü birçok Cassandra düğümlerini sağlamak için yeniden kul
 Azure sağlama aynı anda PEM ya da DER ortak anahtar kodlanmış bir X509 gerekir. Nasıl yapılır Linux Azure üzerinde ile SSH kullanma konumunda bulunan yönergeleri kullanarak bir genel/özel anahtar çifti oluşturur. Bir SSH istemcisi Windows veya Linux olarak putty.exe kullanmayı planlıyorsanız, kodlanmış PEM dönüştürmeniz gerekir puttygen.exe; kullanarak PPK biçimine RSA özel anahtarı Bunun için yönergeler yukarıdaki web sayfasında bulunabilir.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>2. adım: Ubuntu şablonu VM oluşturma
-VM şablonu oluşturmak için Klasik Azure portalında oturum açın ve aşağıdaki sırayı kullanır: yeni, işlem, sanal makine, başlangıç Galerisi, UBUNTU, Ubuntu Server 14.04 LTS tıklatın ve ardından sağ oka tıklayın. Bir Linux VM oluşturmayı açıklar bir öğretici için çalışan bir sanal makine Linux bkz.
+VM şablonu oluşturmak için Azure portalında oturum açın ve aşağıdaki sırayı kullanır: yeni, işlem, sanal makine, başlangıç Galerisi, UBUNTU, Ubuntu Server 14.04 LTS tıklatın ve ardından sağ oka tıklayın. Bir Linux VM oluşturmayı açıklar bir öğretici için çalışan bir sanal makine Linux bkz.
 
 #1 "sanal makine yapılandırma" ekranında aşağıdaki bilgileri girin:
 

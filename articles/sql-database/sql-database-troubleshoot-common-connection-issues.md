@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: cc9b1e1474e67628857dd80a63850634469ca5e8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1d756aa023ae143608acc988ddd0ae8acee1a113
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL veritabanı bağlantı sorunlarını giderme
 Azure SQL veritabanı bağlantısı başarısız olduğunda, aldığınız [hata iletileri](sql-database-develop-error-messages.md). Bu makalede, Azure SQL veritabanı bağlantı sorunları gidermenize yardımcı olan merkezi bir konudur. Tanıttığı [ortak nedenleri](#cause) bağlantı sorunları, önerir [bir sorun giderme aracı](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) , kimlik sorun yardımcı olur ve çözmek için sorun giderme adımlarını sağlar [geçici hataları](#troubleshoot-transient-errors) ve [kalıcı veya geçici olmayan hata](#troubleshoot-persistent-errors). 
@@ -77,7 +77,7 @@ Uygulama Azure SQL veritabanına bağlanmak kalıcı olarak başarısız olursa,
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kalıcı bağlantı sorunları gidermeye yönelik adımlar
 1. Ayarlanan [güvenlik duvarı kuralları](sql-database-configure-firewall-settings.md) istemci IP adreslerine izin vermek için. Geçici sınama amacıyla, başlangıç IP adresi aralığı olarak 0.0.0.0 kullanarak ve 255.255.255.255 bitiş IP adresi aralığı olarak kullanarak bir güvenlik duvarı kuralı ayarlayın. Bu sunucunun tüm IP adreslerine açar. Bu bağlantı sorunu çözümlenirse, bu kuralı kaldırmak ve uygun şekilde sınırlı IP adresi veya adres aralığı için bir güvenlik duvarı kuralı oluşturun. 
 2. İstemci ve Internet arasındaki tüm güvenlik duvarlarının üzerinde bağlantı noktası 1433 giden bağlantılar için açık olduğundan emin olun. Gözden geçirme [SQL Server erişim izin vermek için Windows Güvenlik Duvarı'nı yapılandırma](https://msdn.microsoft.com/library/cc646023.aspx) ve [karma kimlik gerekli bağlantı noktalarını ve protokolleri](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-ports) açık Azure Active Directory kimlik doğrulaması için gereken ek bağlantı noktaları ile ilgili ek işaretçileri için.
-3. Bağlantı dizenizi ve diğer bağlantı ayarlarını doğrulayın. Bağlantı dizesi bölümüne bakın [bağlantı sorunları konu](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+3. Bağlantı dizenizi ve diğer bağlantı ayarlarını doğrulayın. Bağlantı dizesi bölümüne bakın [bağlantı sorunları konu](sql-database-connectivity-issues.md#connections-to-sql-database).
 4. Panosunda hizmet durumunu kontrol edin. Bölgesel bir kesintinin olduğunu düşünüyorsanız, bkz: [bir kesintisinden kurtarma](sql-database-disaster-recovery.md) için yeni bir bölgeye kurtarmak için adımlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar

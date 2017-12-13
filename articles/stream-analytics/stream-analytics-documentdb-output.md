@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: ca7102f5fd4a5038cee983b5fdd588d41d1b2725
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Hedef Azure Stream Analytics JSON çıktısını Cosmos DB
 Akış analizi hedef [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) veri arşivleme ve düşük gecikme süreli sorguları yapılandırılmamış JSON verileri JSON çıktısını için etkinleştirme. Bu belgede, bu yapılandırmayı uygulamak için bazı en iyi yöntemler kapsar.
@@ -27,7 +27,7 @@ Akış analizi hedef [Azure Cosmos DB](https://azure.microsoft.com/services/docu
 Kişiler için Cosmos DB ile iyi tanımıyorsanız, bir göz atalım [Azure Cosmos veritabanı öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/) başlamak için. 
 
 > [!Note]
-> Şu anda Azure akış analizi yalnızca CosmosDB kullanarak bağlantı destekler **DocumentDB (SQL) API**.
+> Şu anda Azure akış analizi yalnızca CosmosDB kullanarak bağlantı destekler **SQL API**.
 > Diğer Azure Cosmos DB API'leri henüz desteklenmiyor. Noktası Azure akış analizi Azure Cosmos DB hesaplarına diğer API'leri ile oluşturduysanız, verilerin düzgün depolanabilir değil. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Cosmos DB bir çıktı hedefi olarak temelleri
@@ -36,7 +36,7 @@ Stream Analytics Azure Cosmos DB çıktısında sonuçları, Cosmos DB collectio
 Cosmos DB toplama seçeneklerini bazıları aşağıda açıklanmıştır.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Tutarlılık, kullanılabilirlik ve gecikme süresini ayarlama
-Uygulama gereksinimlerinizi eşleşecek şekilde Cosmos DB ince koleksiyonları ve veritabanı ayarlamak ve dengelemeler tutarlılık, kullanılabilirlik ve gecikme süresi arasında yapmak sağlar. Hangi düzeyde okuma tutarlılığı bağlı olarak senaryo gereksinimlerinize göre okuma ve veritabanı hesabınızdaki tutarlılık düzeyi seçebilirsiniz gecikme, yazma. Ayrıca varsayılan olarak, zaman uyumlu her CRUD işlemi koleksiyonunuz için dizin Cosmos DB sağlar. Cosmos DB yazma/okuma performans denetlemek için yararlı başka bir seçenek budur. Bu konu hakkında daha fazla bilgi için gözden [, veritabanı ve sorgu tutarlılık düzeylerini değiştirme](../documentdb/documentdb-consistency-levels.md) makalesi.
+Uygulama gereksinimlerinizi eşleşecek şekilde Cosmos DB ince koleksiyonları ve veritabanı ayarlamak ve dengelemeler tutarlılık, kullanılabilirlik ve gecikme süresi arasında yapmak sağlar. Hangi düzeyde okuma tutarlılığı bağlı olarak senaryo gereksinimlerinize göre okuma ve veritabanı hesabınızdaki tutarlılık düzeyi seçebilirsiniz gecikme, yazma. Ayrıca varsayılan olarak, zaman uyumlu her CRUD işlemi koleksiyonunuz için dizin Cosmos DB sağlar. Cosmos DB yazma/okuma performans denetlemek için yararlı başka bir seçenek budur. Bu konu hakkında daha fazla bilgi için gözden [, veritabanı ve sorgu tutarlılık düzeylerini değiştirme](../cosmos-db/consistency-levels.md) makalesi.
 
 ## <a name="upserts-from-stream-analytics"></a>Stream analytics'ten Upserts
 Stream Analytics tümleştirme Cosmos DB ile eklemek veya belirli bir belge kimliği sütununa dayalı Cosmos DB koleksiyonunuzdaki kayıtlarını güncelleştirmek sağlar. Bu ayrıca olarak adlandırılır bir *Upsert*.

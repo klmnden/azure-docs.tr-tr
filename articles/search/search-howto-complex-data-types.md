@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Azure Search'te model karmaşık veri türleri hakkında
 Azure Search dizini bazen doldurmak için kullanılan dış veri kümeleri düzgünce tablo satır kümesine bozmadığını hiyerarşik veya iç içe substructures içerir. Bu tür yapıları örnekleri birden çok konumda ve telefon numaraları, tek bir rehberi birden çok yazar gibi tek bir SKU için tek bir müşteri, birden çok renkleri ve boyutları içerir ve benzeri. Koşulları modelleme içinde olarak adlandırılan bu yapıları görebilirsiniz *karmaşık veri türlerini*, *bileşik veri türleri*, *bileşik veri türleri*, veya *veri türleri bir araya*, birkaçıdır.
@@ -66,7 +66,7 @@ Genellikle, söz konusu veri JSON veya XML belgeleri kümesi olarak ya da Azure 
 'ID' alanları adlı olsa da, 'name' ve 'şirket' kolayca bire bir Azure Search dizini içinde alanlar olarak eşlenebilir, hem bir dizi konumu açıklamaları yanı sıra konumu kimlikleri sahip konumları, bir dizi 'konumları' alan içerir. O Azure Search bu destekleyen bir veri türüne sahip değil, Azure Search'te Bu model için farklı bir şekilde ihtiyacımız var. 
 
 > [!NOTE]
-> Bu tekniği de blog postasına Kirk Evans tarafından açıklanan [Azure Search dizini oluşturma DocumentDB](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), "veri düzleştirme" adında bir teknik gösterir adlı bir alan olurdu aslına `locationsID` ve `locationsDescription` her ikisi de olan [koleksiyonları](https://msdn.microsoft.com/library/azure/dn798938.aspx) (veya bir dizeler dizisi).   
+> Bu teknik de blog postasına Kirk Evans tarafından açıklanan [Azure Cosmos DB Azure Search dizini oluşturma](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), "veri düzleştirme" adında bir teknik gösterir adlı bir alan olurdu aslına `locationsID` ve `locationsDescription` her ikisi de olan [koleksiyonları](https://msdn.microsoft.com/library/azure/dn798938.aspx) (veya bir dizeler dizisi).   
 > 
 > 
 

@@ -3,8 +3,8 @@ title: "Planlama konuları Azure yığınının tümleşik sistemleri | Microsof
 description: "Şimdi planlamak ve çok düğümlü Azure yığını için hazırlanmak için yapabileceğinizi öğrenin."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 90f8fa1a-cace-4bfa-852b-5abe2b307615
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: twooley
-ms.openlocfilehash: 8484f7947f23a00c05b34babf13cd75f9d227740
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: b39b3b8f73f9deef48173c712d7966eb13c6ecc3
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Planlama konuları Azure yığınının sistemleri tümleşik
 
@@ -222,9 +222,9 @@ Aşağıdaki tabloda uzmanları, simgeler ve kullanım durumları ile karma bağ
 | Senaryo | Bağlantı yöntemi | Uzmanları | Simgeler | İyi için |
 | -- | -- | --| -- | --|
 | Kiracı Azure yığını, intranet dağıtımı tek | Giden NAT | Daha hızlı aktarımları için daha iyi bant genişliği. Uygulaması kolaydır; ağ geçitleri gerekir. | Şifrelenmemiş trafik; yalıtım veya TOR ötesinde şifreleme yok. | Tüm kiracılar eşit derecede güvenilen nerede Kurumsal dağıtımlar.<br><br>Azure Azure expressroute bağlantı hattına sahip kuruluşlar. |
-| Çok kiracılı Azure yığını, intranet dağıtımı | Siteden siteye VPN | VNet Kiracı trafiğinden hedef için güvenlidir. | Bant genişliği, siteden siteye VPN tüneli ile sınırlıdır.<br><br>Sanal ağ ve hedef ağ üzerindeki bir VPN cihazı bir ağ geçidi gerektirir. | Burada bazı Kiracı trafiği Kurumsal dağıtımlar diğer kiracılardan güvenli hale getirilmelidir. |
+| Çok kiracılı Azure yığını, intranet dağıtımı | Konumdan konuma VPN | VNet Kiracı trafiğinden hedef için güvenlidir. | Bant genişliği, siteden siteye VPN tüneli ile sınırlıdır.<br><br>Sanal ağ ve hedef ağ üzerindeki bir VPN cihazı bir ağ geçidi gerektirir. | Burada bazı Kiracı trafiği Kurumsal dağıtımlar diğer kiracılardan güvenli hale getirilmelidir. |
 | Kiracı Azure yığınının Internet dağıtım tek | Giden NAT | Daha hızlı aktarımları için daha iyi bant genişliği. | Şifrelenmemiş trafik; yalıtım veya TOR ötesinde şifreleme yok. | Barındırma senaryolarında nerede Kiracı kendi Azure yığın dağıtımına ve Azure yığın ortamına ayrılmış bir hattı alır. Örneğin, ExpressRoute ve çok protokollü etiket anahtarlama (MPLS).
-| Çok kiracılı Azure yığınının Internet dağıtım | Siteden siteye VPN | VNet Kiracı trafiğinden hedef için güvenlidir. | Bant genişliği, siteden siteye VPN tüneli ile sınırlıdır.<br><br>Sanal ağ ve hedef ağ üzerindeki bir VPN cihazı bir ağ geçidi gerektirir. | Barındırma sağlayıcı burada bir çok kiracılı bulut teklifi istediği senaryolarında, kiracılar birbirine ve trafik burada güvenmediğiniz şifrelenmelidir.
+| Çok kiracılı Azure yığınının Internet dağıtım | Konumdan konuma VPN | VNet Kiracı trafiğinden hedef için güvenlidir. | Bant genişliği, siteden siteye VPN tüneli ile sınırlıdır.<br><br>Sanal ağ ve hedef ağ üzerindeki bir VPN cihazı bir ağ geçidi gerektirir. | Barındırma sağlayıcı burada bir çok kiracılı bulut teklifi istediği senaryolarında, kiracılar birbirine ve trafik burada güvenmediğiniz şifrelenmelidir.
 |  |  |  |  |  |
 
 #### <a name="using-expressroute"></a>ExpressRoute kullanarak

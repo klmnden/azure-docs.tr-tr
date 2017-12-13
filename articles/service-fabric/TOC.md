@@ -75,6 +75,7 @@
 ##### [Türü seri hale getirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 ### [Uygulama modeli](service-fabric-application-model.md)
+### [Uygulama ve hizmet bildirimleri](service-fabric-application-and-service-manifests.md)
 ### [Barındırma modeli](service-fabric-hosting-model.md)
 
 ### Hizmetler

@@ -3,7 +3,7 @@ title: Azure kimlik anlama | Microsoft Docs
 description: "Microsoft Azure kimlik çözümü koşulları, kavramlar ve öneriler, kuruluşunuz için en iyi Kimlik Yönetimi karar vermeniz temel bir anlayış alın."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure kimlik çözümleri anlama
 Microsoft Azure Active Directory (Azure AD) dizin hizmetleri, kimlik yönetimi ve uygulamaya erişim yönetimi sağlayan bir kimlik ve erişim yönetimi bulut çözümüdür. Azure AD hızla [çoklu oturum açma (SSO) etkinleştirir](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) 000 1, kullanıcının önceden tümleştirilmiş ticari ve özel uygulamalar [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/). Çoğu bu uygulamaların, büyük olasılıkla zaten Office 365, Salesforce.com, kutusunu, ServiceNow ve Workday gibi kullanın.
@@ -89,7 +89,7 @@ Bunun yerine şirket içi veya bulut tabanlı kimlik çözümleri arasında seç
 > [!TIP]
 > Cıo'lar kendi BT stratejilerini merkezi bir parçası Azure Active Directory nasıl yaptığınız hakkında daha fazla bilgi için indirme [CIO'ın Kılavuzu Azure Active Directory'ye](https://aka.ms/AzureADCIOGuide).
 
-### <a name="azure-ad-domain-services"></a>Azure AD Etki Alanı Hizmetleri
+### <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 **Azure AD etki alanı Hizmetleri** basit Azure VM yapılandırma denetimi ve ağ uygulama geliştirme ve test için şirket içi kimlik gereksinimlerini karşılamak üzere bir yol için AD DS kullanmak için bulut tabanlı bir seçenek sağlar. Azure AD Etki Alanı Hizmetleri'ni kaldırın ve şirket içi shift değil yöneliktir Azure VM'ler için AD DS altyapısı Azure AD etki alanı Hizmetleri tarafından yönetilir. Bunun yerine, yönetilen etki alanlarında Azure VM'ler, geliştirme, test ve AD DS kimlik doğrulama yöntemleri buluta gerektiren şirket içi uygulamalar hareketini desteklemek için kullanılmalıdır.
 
 ## <a name="common-scenarios-and-recommendations"></a>Yaygın senaryolar ve öneriler

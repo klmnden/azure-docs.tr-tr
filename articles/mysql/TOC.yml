@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: Uygulama geliştirme
           href: concepts-database-application-development.md
-    - name: Veritabanınızın geçişini yapma
-      items:
-        - name: Döküm ve geri yükleme
-          href: concepts-migrate-dump-restore.md
-        - name: İçeri ve dışarı aktarma
-          href: concepts-migrate-import-export.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Sunucu Yönetme
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+    - name: Veritabanını geçirme
+      items:
+        - name: Döküm ve geri yükleme
+          href: concepts-migrate-dump-restore.md
+        - name: İçeri ve dışarı aktarma
+          href: concepts-migrate-import-export.md
     - name: Uygulamaları bağlama
       items:
         - name: Kullanıcı oluşturma

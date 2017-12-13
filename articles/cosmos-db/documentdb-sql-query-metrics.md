@@ -1,5 +1,5 @@
 ---
-title: "SQL sorgu ölçümleri Azure Cosmos DB DocumentDB API'si | Microsoft Docs"
+title: "SQL sorgu ölçümleri Azure Cosmos DB SQL API'si | Microsoft Docs"
 description: "İzleme ve Azure Cosmos DB istekleri SQL sorgu performansını hata ayıklama hakkında bilgi edinin."
 keywords: "SQL söz dizimi, sql sorgusu, sql sorguları, json sorgu dili, veritabanı kavramlarını ve sql sorguları, toplama işlevleri"
 services: cosmos-db
@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2cb6319356a536aebc1db3122cf80b8736d1fd4f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Sorgu performans Azure Cosmos DB ile ayarlama
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Azure Cosmos DB sağlayan bir [SQL veri sorgulama için API](documentdb-sql-query.md), şema veya ikincil dizinler gerektirmeden. Bu makalede, geliştiriciler için aşağıdaki bilgileri sağlar:
 
 * Azure Cosmos veritabanı SQL sorgu yürütme nasıl çalıştığı hakkında üst düzey ayrıntıları
@@ -31,7 +34,7 @@ Azure Cosmos DB sağlayan bir [SQL veri sorgulama için API](documentdb-sql-quer
 
 ## <a name="about-sql-query-execution"></a>SQL sorgu yürütme hakkında
 
-Azure Cosmos DB'de herhangi büyüyebilir kapsayıcıları veri deposundaki [depolama boyutu veya istek işleme](partition-data.md). Azure Cosmos DB verileri veri artışını işlemek veya sağlanan performansı artırmak için kapsar altında fiziksel bölümleri arasında sorunsuz bir şekilde ölçeklendirir. REST API veya desteklenen birini kullanarak herhangi bir kapsayıcıya SQL sorguları verebilir [DocumentDB SDK'ları](documentdb-sdk-dotnet.md).
+Azure Cosmos DB'de herhangi büyüyebilir kapsayıcıları veri deposundaki [depolama boyutu veya istek işleme](partition-data.md). Azure Cosmos DB verileri veri artışını işlemek veya sağlanan performansı artırmak için kapsar altında fiziksel bölümleri arasında sorunsuz bir şekilde ölçeklendirir. REST API veya desteklenen birini kullanarak herhangi bir kapsayıcıya SQL sorguları verebilir [SQL SDK'ları](documentdb-sdk-dotnet.md).
 
 Bölümlendirme, kısa bir genel bakış: veri fiziksel bölümleri arasında nasıl bölünür belirler "Şehir" gibi bir bölüm anahtarı tanımlayın. Tek bir bölüm anahtarına ait veri (örneğin, "Şehir" "Seattle" ==) fiziksel bir bölüm içinde depolanır ancak genellikle tek bir fiziksel bölüm birden çok bölüm anahtarlarını sahiptir. Bir bölümü depolama boyutuna ulaştığında, hizmet sorunsuz bir şekilde bölüm iki yeni bölümlere ayırır ve bu bölümler bölüm anahtarı tam olarak böler. Bölümler geçici olduğundan, "Bölüm anahtarı karmaları aralıklarına gösterir bir bölüm anahtarı aralığı" için bir Özet API'leri kullanın. 
 
@@ -50,7 +53,7 @@ SDK'ları sorgu yürütmesi için çeşitli seçenekler sağlar. Örneğin, .NET
 | `EnableScanInQuery` | Dizin oluşturma dışında seçtiyseniz true, ancak yine de sorgu bir tarama çalıştırmak istediğiniz ayarlamanız gerekir. Yalnızca geçerli istenen filtre yolu için dizin oluşturma devre dışı bırakılır. | 
 | `MaxItemCount` | Sunucuya gidiş dönüş döndürülecek öğe maksimum sayısı. -1 ayarıyla sunucu öğe sayısını yönetme izin verebilirsiniz. Veya yalnızca az sayıda gidiş dönüş başına öğe almak için bu değeri düşürebilirsiniz. 
 | `MaxBufferedItemCount` | Bu istemci-tarafı seçenek ve çapraz bölüm ORDER BY gerçekleştirirken bellek tüketimini sınırlamak için kullanılır. Daha yüksek bir değer çapraz bölüm sıralama gecikme süresi azaltılmasına yardımcı olur. |
-| `MaxDegreeOfParallelism` | Alır veya Azure DocumentDB veritabanı hizmeti paralel sorgu yürütme sırasında istemci tarafı çalıştırmak eşzamanlı işlem sayısını ayarlar. Pozitif özellik değerini ayarla değerine eşzamanlı işlem sayısını sınırlar. 0'dan düşük bir değere ayarlanırsa, sistem otomatik olarak çalıştırmak için eşzamanlı işlem sayısını karar verir. |
+| `MaxDegreeOfParallelism` | Alır veya Azure Cosmos DB veritabanı hizmeti paralel sorgu yürütme sırasında istemci tarafı çalıştırmak eşzamanlı işlem sayısını ayarlar. Pozitif özellik değerini ayarla değerine eşzamanlı işlem sayısını sınırlar. 0'dan düşük bir değere ayarlanırsa, sistem otomatik olarak çalıştırmak için eşzamanlı işlem sayısını karar verir. |
 | `PopulateQueryMetrics` | Yükleme zamanı süre istatistiklerin ayrıntılı günlük sorgu yürütme derleme süresi, dizin döngü süresi ve belge gibi çeşitli aşamaları harcadığı etkinleştirir. Sorgu istatistiklerini çıktısı sorgu performans sorunları tanılamak için Azure desteği ile paylaşabilirsiniz. |
 | `RequestContinuation` | Herhangi bir sorgu tarafından döndürülen donuk devamlılık belirteci geçirerek sorgu yürütme devam edebilirsiniz. Devamlılık belirteci sorgu yürütme için gerekli tüm durum yalıtır. |
 | `ResponseContinuationTokenLimitInKb` | Sunucu tarafından döndürülen devam belirtecini en büyük boyutunu sınırlandırabilirsiniz. Uygulama ana bilgisayarı yanıt üstbilgi boyutu sınırları varsa bu ayarlamanız gerekebilir. Bu ayar, toplam süre ve sorgu için kullanılan RUs artırabilir.  |
@@ -137,7 +140,7 @@ Sorgudan döndürülen anahtar yanıt üstbilgilerini aşağıdakileri içerir:
 | `x-ms-documentdb-query-metrics` | Sorgu istatistiklerini yürütme. Bu, sorgu yürütme çeşitli aşamalarında harcanan zamanın istatistikleri içeren sınırlandırılmış bir dizedir. Döndürülen IF `x-ms-documentdb-populatequerymetrics` ayarlanır `True`. | 
 | `x-ms-request-charge` | Sayısı [istek birimleri](request-units.md) sorgu tarafından tüketilen. | 
 
-REST API isteği üstbilgileri ve seçenekleri hakkında daha fazla bilgi için bkz: [DocumentDB REST API kullanarak kaynak sorgulaması](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+REST API isteği üstbilgileri ve seçenekleri hakkında daha fazla bilgi için bkz: [REST API kullanarak kaynak sorgulaması](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Sorgu performansı için en iyi yöntemler
 Aşağıdaki Azure Cosmos DB sorgu performansı etkileyen en yaygın faktörlerdir. Bu makalede bu konuların her derinlere.
@@ -174,7 +177,7 @@ Bölümlendirme ve bölüm anahtarları hakkında daha fazla bilgi için bkz: [A
 Bkz: [performans ipuçları](performance-tips.md) ve [performans testi](performance-testing.md) için en iyi istemci tarafında performans Azure Cosmos DB'den alma. Bu, son SDK'ları kullanarak, platforma özgü yapılandırmaları bağlantıları, atık toplama sıklığını varsayılan sayısı gibi yapılandırma ve doğrudan/TCP gibi basit bağlantı seçenekleri kullanarak içerir. 
 
 
-#### <a name="max-item-count"></a>En fazla öğe sayısı
+#### <a name="max-item-count"></a>En Fazla Öğe Sayısı
 Sorgular, değeri için `MaxItemCount` uçtan uca sorgu zamanında önemli bir etkisi olabilir. Her sunucuya gidiş dönüş öğelerin sayısı en fazla döndürülecek `MaxItemCount` (100 öğelerinin varsayılan). Bu daha yüksek bir değere ayarlamak (-1, en fazla ve önerilen), sorgu süresi genel sorgular büyük sonuç kümeleri ile için özellikle istemci ve sunucu arasındaki gidiş dönüş sayısı sınırlayarak geliştirecektir.
 
 ```cs
@@ -212,7 +215,7 @@ Paralel sorgular P. farklı değerler için nasıl davranacaktır etkileri veril
 * (P > 1) = > Min (P, N) Paralel Görevler 
 * (P < 1) = > Min (N, D) Paralel Görevler
 
-SDK sürüm notlarında ve uygulanan sınıflar ve yöntemler ayrıntıları görmek için [DocumentDB SDK'ları](documentdb-sdk-dotnet.md)
+SDK sürüm notlarında ve uygulanan sınıflar ve yöntemler ayrıntıları görmek için [SQL SDK'ları](documentdb-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>Ağ gecikmesi
 Bkz: [Azure Cosmos DB genel dağıtım](tutorial-global-distribution-documentdb.md) genel dağıtımları ayarlar ve en yakın bölgeyi bağlanma hakkında. Birden çok gidiş dönüş yapmak veya sorgudan ayarlamak büyük bir sonuç almak gerektiğinde ağ gecikmesi sorgu performansına önemli bir etkisi vardır. 
@@ -253,9 +256,9 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milisaniye | Belgeleri yüklenirken harcanan süre  | 
 | `systemFunctionExecuteTimeInMs` | milisaniye | Yürütülen sistem (yerleşik) işlevleri milisaniye cinsinden toplam süre  | 
 | `userFunctionExecuteTimeInMs` | milisaniye | Milisaniye cinsinden yürütme kullanıcı tanımlı işlevler için harcanan toplam süre | 
-| `retrievedDocumentCount` | Sayısı | Toplam alınan belge sayısı  | 
-| `retrievedDocumentSize` | Bayt | Alınan belgeleri bayt olarak toplam boyutu  | 
-| `outputDocumentCount` | Sayısı | Çıktı belge sayısı | 
+| `retrievedDocumentCount` | sayı | Toplam alınan belge sayısı  | 
+| `retrievedDocumentSize` | bayt | Alınan belgeleri bayt olarak toplam boyutu  | 
+| `outputDocumentCount` | sayı | Çıktı belge sayısı | 
 | `writeOutputTimeInMs` | milisaniye | Milisaniye cinsinden sorgu yürütme süresi | 
 | `indexUtilizationRatio` | oranı (< = 1) | Filtre tarafından yüklenen belgelere sayısıyla eşleşen belge sayısı oranı  | 
 

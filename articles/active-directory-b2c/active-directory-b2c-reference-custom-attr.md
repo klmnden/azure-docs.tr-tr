@@ -4,7 +4,7 @@ description: "Tüketicileriniz hakkında bilgi toplamak için Azure Active Direc
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: 055ffb0a-197b-4716-8dad-1fd8a01e174f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e2c8b3ab223cf269129d7723c37d98c24f0653c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: tüketicileriniz hakkında bilgi toplamak için özel öznitelikler kullanın.
 Azure Active Directory (Azure AD) B2C dizininize bilgi (öznitelikler) yerleşik bir dizi birlikte gelir: verilen ad, Soyadı, şehir, posta kodu ve diğer öznitelikleri. Bununla birlikte, her tüketiciye yönelik uygulama tüketici toplamak için benzersiz gereksinimleri ne öznitelikleri üzerinde vardır. Azure AD B2C ile her tüketici hesapta depolanan öznitelikler kümesi genişletebilirsiniz. Özel öznitelikler oluşturabileceğiniz [Azure portal](https://portal.azure.com/) ve aşağıda gösterildiği gibi kaydolma ilkelerinizi kullanın. Aynı zamanda okuma ve yazma bu öznitelikleri kullanarak [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) B2C dizininize bilgi (öznitelikler) yerleşik
 4. Sağlayan bir **adı** özel öznitelik (örneğin, "ShoeSize") ve isteğe bağlı olarak bir **açıklama**. **Oluştur**'a tıklayın.
    
    > [!NOTE]
-   > Yalnızca "dize" **veri türü** şu anda kullanılabilir değil.
+   > Yalnızca "Dize", "Mantıksal" ve "Int" **veri türleri** şu anda kullanılabilir.
    > 
    > 
 

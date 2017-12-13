@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 006f32ea9dea18f8b8e454a256272ec87bfee7f3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 209e657678b7f300f13fc16181a14d8ef422466d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Güvenilir hizmetler iletişimi API'lerini kullanma
 Bir platform olarak Azure Service Fabric Hizmetleri arasındaki iletişim hakkında tamamen bağımsızdır. Tüm protokoller ve yığınları HTTP UDP Gelen kabul edilir. Bu hizmetleri nasıl iletişim kuracağını seçmek için hizmet geliştiriciler için hazır. Güvenilir hizmetler uygulama çerçevesi yerleşik iletişim yığınları yanı sıra, özel iletişim bileşenleri oluşturmak için kullanabileceğiniz bir API sağlar.
@@ -121,7 +121,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-Son olarak, hizmet için gerekli olan uç noktaları açıklayan [hizmet bildirimi](service-fabric-application-model.md) uç noktalarda bölümünde.
+Son olarak, hizmet için gerekli olan uç noktaları açıklayan [hizmet bildirimi](service-fabric-application-and-service-manifests.md) uç noktalarda bölümünde.
 
 ```xml
 <Resources>

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/11/2017
 ms.author: raynew
-ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş devamlılığı ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri
 
@@ -32,13 +32,14 @@ Her Azure bölgesi birlikte bölgesel çifti yapmadan aynı coğrafi konum için
 
 Şekil 1 – Azure bölgesel çifti diyagramı
 
-| coğrafi konum | Eşleştirilmiş bölgeleri |  |
+| coğrafi konum | Eşleştirilmiş bölgeler |  |
 |:--- |:--- |:--- |
 | Asya |Doğu Asya |Güneydoğu Asya |
 | Avustralya |Avustralya Doğu |Avustralya Güneydoğu |
 | Kanada |Kanada Orta |Doğu Kanada |
 | Çin |Çin Kuzey |Çin Doğu|
 | Hindistan |Orta Hindistan |Güney Hindistan |
+| Hindistan |Batı Hindistan (1) |Güney Hindistan |
 | Japonya |Japonya Doğu |Japonya Batı |
 | Kore |Kore Orta |Kore Güney |
 | Kuzey Amerika |Orta Kuzey ABD |Orta Güney ABD |
@@ -47,9 +48,9 @@ Her Azure bölgesi birlikte bölgesel çifti yapmadan aynı coğrafi konum için
 | Kuzey Amerika |Batı ABD 2 |Batı Orta ABD |
 | Avrupa |Kuzey Avrupa |Batı Avrupa |
 | Japonya |Japonya Doğu |Japonya Batı |
-| Brezilya |Brezilya Güney (1) |Orta Güney ABD |
-| ABD Devleti |ABD kamu Iowa (2) |ABD Devleti Virginia |
-| ABD Devleti |ABD kamu Virginia (3) |ABD Devleti Texas |
+| Brezilya |Brezilya Güney (2) |Orta Güney ABD |
+| ABD Devleti |ABD kamu Iowa (3) |ABD Devleti Virginia |
+| ABD Devleti |ABD kamu Virginia (4) |ABD Devleti Texas |
 | ABD Devleti |ABD Devleti Arizona |ABD Devleti Texas |
 | ABD Savunma Bakanlığı |US DoD Doğu |US DoD Orta |
 | BİRLEŞİK KRALLIK |Birleşik Krallık Batı |Birleşik Krallık Güney |
@@ -57,11 +58,10 @@ Her Azure bölgesi birlikte bölgesel çifti yapmadan aynı coğrafi konum için
 
 Tablo 1 - Azure bölgesel çiftlerini eşleme
 
-> (1) Brezilya Güney benzersiz çünkü kendi Coğrafya dışında bir bölge ile eşlenmiş. Brezilya Güney'nın ikincil bölge Orta Güney ABD, ancak orta Güney ABD'ın ikincil bölge Brezilya Güney değil.
->
-> (2) ABD kamu Iowa'nın ikincil bölge BİZE kamu Virginia ancak BİZE kamu Virginia'nın ikincil bölge BİZE kamu Iowa değil.
-> 
-> (3) ABD kamu Virginia'nın ikincil bölge BİZE kamu Texas ancak BİZE kamu Texas ikincil bölge BİZE kamu Virginia değil.
+- > (1) Batı Hindistan, yalnızca bir yöndeki başka bir bölge ile eşleştirilmiş olduğundan farklıdır. Güney Hindistan Batı Hindistan'ın ikincil bölge, ancak orta Hindistan Güney Hindistan'ın ikincil bölge gelir.
+- > (2) Brezilya Güney benzersiz çünkü kendi Coğrafya dışında bir bölge ile eşlenmiş. Brezilya Güney'nın ikincil bölge Orta Güney ABD, ancak orta Güney ABD'ın ikincil bölge Brezilya Güney değil.
+- > (3) ABD kamu Iowa'nın ikincil bölge BİZE kamu Virginia ancak BİZE kamu Virginia'nın ikincil bölge BİZE kamu Iowa değil.
+- > (4) ABD kamu Virginia'nın ikincil bölge BİZE kamu Texas ancak BİZE kamu Texas ikincil bölge BİZE kamu Virginia değil.
 
 
 Azure'nın yalıtım ve kullanılabilirlik ilkelerden yararlanmak için Bölgesel çiftleri arasında iş yükleri çoğaltmak öneririz. Örneğin, planlı Azure sistem güncelleştirmeleri sırayla dağıtılır (değil, aynı anda) eşleştirilmiş bölgeler arasında. Hatta ender olayda hatalı bir güncelleştirme, her iki bölgeleri aynı anda etkilenmez, anlamına gelir. Ayrıca, geniş bir kesinti olasılığı olayda her çifti dışında en az bir bölge kurtarılması öncelik.

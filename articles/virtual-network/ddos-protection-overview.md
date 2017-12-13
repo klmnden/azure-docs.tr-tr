@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b26108b000bac56fe7d49a3a634f2be9d7543a8
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>DDoS koruması standart Azure genel bakış
 
@@ -33,7 +33,7 @@ Azure DDoS koruması, uygulama tasarım en iyi uygulamaları ile birlikte DDoS s
 ![Azure DDoS koruması standart](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
 > [!IMPORTANT]
-> Azure DDoS koruması standart şu anda önizlemede değil. Koruma, sanal makineler, yük dengeleyici ve uygulama ağ geçitleri gibi ilişkili Azure genel IP adresine sahip herhangi bir Azure kaynak için sağlanır. Yapmanız [kaydetmek](http://aka.ms/ddosprotection) hizmeti aboneliğiniz için DDoS koruması standart etkinleştirebilmeniz için. Kaydolduktan sonra Azure DDoS conacts ve Kılavuzlar takım etkinleştirme işlemini. DDoS koruması standart kullanılabilir Doğu ABD, Doğu ABD 2, Batı ABD, Batı Orta ABD, Kuzey Avrupa, Batı Avrupa, Japonya Batı, Japonya Doğu, Doğu Asya ve Güneydoğu Asya bölgeleri. Önizleme sırasında hizmeti kullandığınız için sizden ücret istenmese.
+> Azure DDoS koruması standart şu anda önizlemede değil. Koruma, sanal makineler, yük dengeleyici ve uygulama ağ geçitleri gibi ilişkili Azure genel IP adresine sahip herhangi bir Azure kaynak için sağlanır. Yapmanız [kaydetmek](http://aka.ms/ddosprotection) hizmeti aboneliğiniz için DDoS koruması standart etkinleştirebilmeniz için. Kayıt sonra Azure DDoS ekibi, kişiler ve etkinleştirme işleminde size rehberlik eder. DDoS koruması standart kullanılabilir Doğu ABD, Doğu ABD 2, Batı ABD, Batı Orta ABD, Kuzey Avrupa, Batı Avrupa, Japonya Batı, Japonya Doğu, Doğu Asya ve Güneydoğu Asya bölgeleri. Önizleme sırasında hizmeti kullandığınız için sizden ücret istenmese.
 
 DDoS koruması standart geliştirme, test ve üretim ortamlarında deneyin öneririz. Deneyimlerinizi hakkında geri bildirim sağlamak için aşağıdaki kaynakları kullanın:
 - [Microsoft Azure Forumunda Azure DDoS koruması](https://feedback.azure.com/forums/905032-azure-ddos-protection). 

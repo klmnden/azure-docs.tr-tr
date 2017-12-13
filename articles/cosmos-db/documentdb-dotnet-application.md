@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.custom: devcenter
-ms.openlocfilehash: b7c967550f9f89eec29288b24525b5f043615437
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 619886d129c6b9fca62376e366ce3a78d57c56c0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: Azure Cosmos DB ile Web uygulaması geliştirme
 > [!div class="op_single_selector"]
@@ -30,6 +30,8 @@ ms.lasthandoff: 10/20/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bu makale, JSON belgelerini depolama ve sorgulama amacıyla Azure Cosmos DB'yi nasıl verimli bir şekilde kullanabileceğinizi vurgulamak için, Azure Cosmos DB kullanarak bir yapılacaklar uygulamasının nasıl oluşturulacağını gösteren uçtan uca bir kılavuz sağlar. Görevler, JSON belgeleri olarak Azure Cosmos DB'de depolanır.
 
@@ -55,7 +57,7 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
 Bu makaledeki tüm ekran görüntüleri Microsoft Visual Studio Community 2017 kullanılarak alınmıştır. Sisteminiz farklı bir sürüme sahip yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı, ancak yukarıdaki önkoşulları karşılarsanız bu çözümün çalışması gerekir mümkündür.
 
 ## <a name="_Toc395637761"></a>1. Adım: Azure Cosmos DB veritabanı hesabı oluşturma
-İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir SQL (DocumentDB) hesabı için Azure Cosmos DB varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü kullanıyorsanız, adımına atlayabilirsiniz [yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762).
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. SQL hesabı için Azure Cosmos DB zaten varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü kullanıyorsanız, adımına atlayabilirsiniz [yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -99,7 +101,7 @@ Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize 
    
     Sonuçlardan yüklemek **Microsoft.Azure.DocumentDB Microsoft tarafından** paket. Bu, indirin ve Newtonsoft.Json gibi tüm bağımlılıkları yanı sıra Azure Cosmos DB paketini yükleyin. **Önizleme** penceresinde **Tamam**'a tıklayıp **Lisans Kabulü** penceresinde **Kabul Ediyorum**'a tıklayarak yüklemeyi tamamlayın.
    
-    ![Microsoft Azure DocumentDB İstemci Kitaplığı vurgulanmış şekilde NuGet Paketlerini Yönet penceresinin ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Microsoft Azure Cosmos DB istemci kitaplığı vurgulanmış ile NuGet paketlerini Yönet penceresinin ekran görüntüsü](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       Alternatif olarak, paketi yüklemek için Paket Yöneticisi Konsolu'nu kullanabilirsiniz. Bunu yapmak için, **Araçlar** menüsünde **NuGet Paket Yöneticisi**'ne tıklayın ve ardından **Paket Yöneticisi Konsolu**'na tıklayın. İstendiğinde aşağıdakileri yazın.
    

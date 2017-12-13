@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Yol tabanlı yönlendirme kullanarak bir uygulama ağ geçidi oluşturma
 
@@ -55,7 +55,7 @@ Aşağıdaki örnekte uygulama ağ geçidi trafiği contoso.com için iki arka u
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Klasik Azure portalı ve Azure Resource Manager kullanma arasındaki fark uygulama ağ geçidi ve yapılandırılması gereken öğeleri oluşturma sırasıdır.
+Klasik dağıtım modeli ve Azure Resource Manager kullanma arasındaki fark uygulama ağ geçidi ve yapılandırılması gereken öğeleri oluşturma sırasıdır.
 
 Resource Manager’da uygulama ağ geçidini oluşturan öğeler ayrı ayrı yapılandırılır ve sonra uygulama ağ geçidi kaynağı oluşturmak için bir araya getirilir.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e79a63c4316c50a7af0fc7ba0979a772ff5e6a91
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -30,11 +30,15 @@ Azure Cosmos DB web, mobil, oyun için doğru çözümdür ve tahmin edilebilir 
 
 Daha fazla veritabanı soruları yanıtlar ve dağıtma ve bu hizmeti kullanmak için yönergeleri [Azure Cosmos DB belge sayfasının] görmek için ((https://docs.microsoft.com/azure/cosmos-db/).
 
-### <a name="what-happened-to-documentdb"></a>DocumentDB için ne oldu?
-DocumentDB API desteklenen API'ları ve veri modelleri için Azure Cosmos DB biridir. Ayrıca, Azure Cosmos DB, grafik API'si (Önizleme), tablo API ve MongoDB API ile destekler. Daha fazla bilgi için bkz: [DocumentDB müşterilerden sorular](#moving-to-cosmos-db).
+### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API'sine ne oldu?
 
-### <a name="how-do-i-get-to-my-documentdb-account-in-the-azure-portal"></a>Azure portalında my DocumentDB hesabına nasıl edinebilirim?
-Azure portalında, sol bölmede Azure Cosmos DB simgesine tıklayın. Bir DocumentDB hesabı önce olsaydı, artık fatura değişiklik olmadan Azure Cosmos DB hesabınız var.
+Artık Azure Cosmos DB DocumentDB API veya SQL (DocumentDB) API Azure Cosmos DB SQL API bilinir. DocumentDB API'si ile oluşturulmuş uygulamalarınızı çalıştırmaya devam etmek için herhangi bir şey değiştirmeniz gerekmez. İşlevselliği aynı kalır.
+
+Bir DocumentDB API hesabı önce olsaydı, artık bir SQL API hesabıyla fatura herhangi bir değişiklik sahipsiniz. 
+
+### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Bir hizmet olarak Azure DocumentDB ne?
+
+Azure DocumentDB hizmeti artık Azure Cosmos DB hizmetin bir parçası ve SQL API'yi biçiminde ortaya çıkmaktadır. Azure Documentdb'de oluşturulan uygulamaların hiçbir değişiklik yapmadan Azure Cosmos DB SQL API karşı çalışır. Ayrıca, Azure Cosmos DB grafik API'si (Önizleme), tablo API, API MongoDB ve Cassandra API (Önizleme) destekler.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Azure Cosmos DB için genel kullanım örnekleri nelerdir?
 Azure Cosmos DB yeni web, mobil, oyun için iyi bir seçenektir ve IOT uygulamaları burada otomatik ölçeğin, tahmin edilebilir performans, hızlı sırası milisaniye yanıt sürelerinin ve sorgulama şemasız verilerde önemlidir. Azure Cosmos DB kendisi, uygulama veri modellerinin sürekli yinelenmesini destekleme ve hızlı geliştirme için uygundur. Kullanıcı tarafından oluşturulan içeriği ve verileri yöneten uygulamalar [ortak kullanım durumları için Azure Cosmos DB](use-cases.md). 
@@ -42,11 +46,11 @@ Azure Cosmos DB yeni web, mobil, oyun için iyi bir seçenektir ve IOT uygulamal
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Azure Cosmos DB tahmin edilebilir performansı nasıl sunar?
 A [istek birimi](request-units.md) (RU) Azure Cosmos veritabanı işleme ölçü değil. 1 RU verimlilik bir 1 KB belge GET üretimini karşılık gelir. Her işlem Azure Cosmos DB, okuma, yazma, SQL sorguları ve saklı yordam yürütmeleri dahil olmak üzere, işlemi tamamlamak için gereken işlemeyi temel alan bir belirleyici RU değer içeriyor. CPU, IO, bellek ve bunların her birinin uygulama işlemenizi nasıl etkileyeceğini hakkında düşünmek yerine, tek bir RU ölçü açısından düşünebilirsiniz.
 
-Saniye başına RUs bakımından sağlanan işleme sahip her Azure Cosmos DB kapsayıcısı ayırabilirsiniz. Her ölçekten uygulama için RU değerlerini ölçmek için istekleri ayrı ayrı kıyaslayabilir ve tüm istekler genelinde istek birimlerinin toplam işlemek için bir kapsayıcı sağlayın. Ayrıca, ölçeği veya uygulamanızın ihtiyaçları geliştikçe, kapsayıcının işleme ölçeklendirin. İstek birimleri hakkında daha fazla bilgi ve Yardım için kapsayıcı belirlemek bkz gereksinimlerini [üretilen iş gereksinimlerini tahmin etme](request-units.md#estimating-throughput-needs) deneyin [verimlilik hesaplayıcı](https://www.documentdb.com/capacityplanner). Terim *kapsayıcı* burada başvuran bir DocumentDB API koleksiyonu, grafik API'si grafik, MongoDB API koleksiyonu ve tablo API tabloya başvuruyor. 
+Saniye başına RUs bakımından sağlanan işleme sahip her Azure Cosmos DB kapsayıcısı ayırabilirsiniz. Her ölçekten uygulama için RU değerlerini ölçmek için istekleri ayrı ayrı kıyaslayabilir ve tüm istekler genelinde istek birimlerinin toplam işlemek için bir kapsayıcı sağlayın. Ayrıca, ölçeği veya uygulamanızın ihtiyaçları geliştikçe, kapsayıcının işleme ölçeklendirin. İstek birimleri hakkında daha fazla bilgi ve Yardım için kapsayıcı belirlemek bkz gereksinimlerini [üretilen iş gereksinimlerini tahmin etme](request-units.md#estimating-throughput-needs) deneyin [verimlilik hesaplayıcı](https://www.documentdb.com/capacityplanner). Terim *kapsayıcı* burada başvuran bir SQL API koleksiyonu, grafik API'si grafik, MongoDB API koleksiyonu ve tablo API tabloya başvuruyor. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB anahtar/değer, sütunlu, belge ve grafik gibi çeşitli veri modelleri nasıl destekler?
 
-Anahtar/değer (tablo), sütunlu, belge ve tüm (atom, kaydeder ve dizileri) ARS nedeniyle yerel olarak desteklenen bu Azure Cosmos DB tasarım modelleri olan grafik verileri üzerine kurulmuştur. Atom, kaydeder ve dizilerini kolayca eşlenen ve çeşitli veri modelleri öngörülen. Kullanılabilir sağ şimdi (DocumentDB, MongoDB, tablo ve grafik API'leri) apı'leridir modelleri alt kümeleri için ve başkaları için ek veri modelleri belirli gelecekte kullanılabilir olacaktır.
+Anahtar/değer (tablo), sütunlu, belge ve tüm (atom, kaydeder ve dizileri) ARS nedeniyle yerel olarak desteklenen bu Azure Cosmos DB tasarım modelleri olan grafik verileri üzerine kurulmuştur. Atom, kaydeder ve dizilerini kolayca eşlenen ve çeşitli veri modelleri öngörülen. Kullanılabilir sağ şimdi (SQL, MongoDB, tablo ve grafik API'leri) apı'leridir modelleri alt kümeleri için ve başkaları için ek veri modelleri belirli gelecekte kullanılabilir olacaktır.
 
 Azure Cosmos DB bir şema belirsiz dizin oluşturma altyapısı herhangi bir şemayı ya da ikincil dizinlerin geliştiriciden gerek kalmadan alır tüm veriler otomatik olarak dizin oluşturma işlemi özellikli vardır. Hangi dizin ve sorgu alt sistemleri işleme depolama düzeninden ayırırsınız mantıksal dizin düzenleri (ters, sütunlu, ağaç) kümesi altyapısı kullanır. Cosmos DB, aynı zamanda bunları çekirdek veri modeli (1) ve (2) birden fazla veri modeli yerel olarak destekleyen benzersiz olarak özellikli kolaylaştırarak mantıksal dizin düzenleri verimli bir şekilde Çevir ve kablo protokolleri ve API kümesi genişletilebilir bir biçimde desteklemek için silebilir.
 
@@ -60,7 +64,7 @@ Bir kapsayıcı Azure Cosmos DB'de depolayabilir veri toplam miktarı için bir 
 Azure Cosmos DB içinde bir kapsayıcı destekleyen verimlilik toplam miktarı için bir sınır yoktur. İş yükünüzün kabaca eşit yeterince büyük sayıda bölüm anahtarı arasında dağıtmak için anahtar fikirdir bakın.
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Nasıl Azure Cosmos DB maliyeti nedir?
-Ayrıntılar için başvurmak [Azure Cosmos fiyatlandırma ayrıntıları DB](https://azure.microsoft.com/pricing/details/cosmos-db/) sayfası. Azure Cosmos DB kullanım ücretleri, sağlanan kapsayıcıları, kapsayıcıları çevrimiçi olduğu saat sayısı sayısı tarafından belirlenir ve her kapsayıcı için sağlanan işleme. Terim *kapsayıcıları* burada DocumentDB API koleksiyonu, grafik API'si grafik, MongoDB API koleksiyonu ve tablo API tabloları başvuruyor. 
+Ayrıntılar için başvurmak [Azure Cosmos fiyatlandırma ayrıntıları DB](https://azure.microsoft.com/pricing/details/cosmos-db/) sayfası. Azure Cosmos DB kullanım ücretleri, sağlanan kapsayıcıları, kapsayıcıları çevrimiçi olduğu saat sayısı sayısı tarafından belirlenir ve her kapsayıcı için sağlanan işleme. Terim *kapsayıcıları* burada SQL API koleksiyonu, grafik API'si grafik, MongoDB API koleksiyonu ve tablo API tabloları başvuruyor. 
 
 ### <a name="is-a-free-account-available"></a>Ücretsiz bir hesap var mı?
 Evet, hiçbir taahhüdü olmadan ücret ödemeden zaman sınırlı hesap için kaydolabilirsiniz. Kaydolmak için ziyaret [Azure Cosmos DB ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) veya daha fazla okuma [Azure Cosmos DB ile ilgili SSS deneyin](#try-cosmos-db).
@@ -81,7 +85,7 @@ Try Azure Cosmos DB abonelikleri Azure portalında sonraki kullanıcı kimliği 
 
 Aşağıdaki koşullar deneyin Azure Cosmos DB abonelikler için geçerlidir:
 
-* Bir kapsayıcı SQL (DocumentDB API), Gremlin (grafik API'si) ve tablo hesapları için abonelik başına.
+* SQL, Gremlin (grafik API'si) ve tablo hesapları için abonelik başına bir kapsayıcı.
 * MongoDB hesapları için abonelik başına en fazla 3 koleksiyonları.
 * 10 GB depolama kapasitesi.
 * Aşağıda, genel çoğaltma kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/regions/): Orta ABD, Kuzey Avrupa ve Güneydoğu Asya
@@ -91,7 +95,7 @@ Aşağıdaki koşullar deneyin Azure Cosmos DB abonelikler için geçerlidir:
 
 ## <a name="set-up-azure-cosmos-db"></a>Azure Cosmos DB'yi yedekleyin ayarlayın
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Nasıl Azure Cosmos DB kaydolabilirim?
-Azure portalında Azure Cosmos DB kullanılabilir. İlk olarak, Azure aboneliği için kaydolun. Oturum açtığınız sonra Azure Aboneliğinize bir DocumentDB API, grafik API'si (Önizleme), tablo API veya MongoDB API hesabı ekleyebilirsiniz.
+Azure portalında Azure Cosmos DB kullanılabilir. İlk olarak, Azure aboneliği için kaydolun. Oturum açtığınız sonra Azure aboneliğinize SQL API, grafik API'si (Önizleme), tablo API, API MongoDB veya Cassandra API hesabı ekleyebilirsiniz.
 
 ### <a name="what-is-a-master-key"></a>Ana anahtar nedir?
 Ana anahtar, bir hesaptaki tüm kaynaklara erişmeyi sağlayan bir güvenlik belirtecidir. Anahtara sahip kişiler okuma ve yazma erişimi veritabanı hesabındaki tüm kaynaklara. Ana anahtarları dağıtırken dikkatli olun. Birincil ana anahtar ve ikincil ana anahtar kullanılabilir **anahtarları** dikey [Azure portal][azure-portal]. Anahtarlar hakkında daha fazla bilgi için bkz: [görüntüleme, kopyalama ve yeniden oluşturma erişim tuşları](manage-account.md#keys).
@@ -104,22 +108,22 @@ Azure Cosmos DB varsa belirtildiği gibi tüm Azure bölgeler arasında [Azure b
 
 Bir bölge ayarladığınızda, Azure Cosmos DB sovereign ve kamu Bulutlar uyar unutmayın. Diğer bir deyişle, sovereign bir bölgede bir hesap oluşturursanız, o sovereign bölgesinin dışına çoğaltma yapamaz. Benzer şekilde, bir dış hesap sovereign diğer konumlardan içine çoğaltmayı etkinleştiremezsiniz. 
 
-## <a name="develop-against-the-documentdb-api"></a>API Documentdb'de geliştirme
+## <a name="develop-against-the-sql-api"></a>SQL API karşı geliştirin
 
-### <a name="how-do-i-start-developing-against-the-documentdb-api"></a>DocumentDB API karşı geliştirme nasıl başlamanız gerekir?
-Microsoft DocumentDB API sağlanmıştır [Azure portal][azure-portal]. Önce Azure aboneliği için kaydolmanız gerekir. Azure aboneliği için kaydolduktan sonra DocumentDB API kapsayıcı Azure aboneliğiniz ekleyebilirsiniz. Bir Azure Cosmos DB hesap ekleme ile ilgili yönergeler için bkz: [Azure Cosmos DB veritabanı hesabı oluşturma](create-documentdb-dotnet.md#create-account). Bir DocumentDB hesabı geçmişte olsaydı, artık Azure Cosmos DB hesabınız var. 
+### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API karşı geliştirme nasıl başlamanız gerekir?
+Önce Azure aboneliği için kaydolmanız gerekir. Azure aboneliği için kaydolduktan sonra SQL API'yi kapsayıcı Azure aboneliğiniz ekleyebilirsiniz. Bir Azure Cosmos DB hesap ekleme ile ilgili yönergeler için bkz: [Azure Cosmos DB veritabanı hesabı oluşturma](create-documentdb-dotnet.md#create-account). 
 
 .NET, Python, Node.js, JavaScript ve Java için [SDK'lar](documentdb-sdk-dotnet.md) kullanılabilir. Geliştiriciler ayrıca kullanabileceğiniz [RESTful HTTP API'lerini](/rest/api/documentdb/) çeşitli platformlardan ve dillerden Azure Cosmos DB kaynakları ile etkileşim kurmak için.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Head başlamak için hazır bazı örnekleri erişebilir mi?
-DocumentDB API için örnek [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), ve [Python](documentdb-python-samples.md) SDK'ları Github'da bulunmaktadır.
+SQL API için örnek [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), ve [Python](documentdb-python-samples.md) SDK'ları Github'da bulunmaktadır.
 
 
-### <a name="does-the-documentdb-api-database-support-schema-free-data"></a>DocumentDB API'si veritabanı şemasız verileri destekler mi?
-Evet, DocumentDB API şema tanımları veya ipuçları olmadan rastgele JSON belgelerinin depolamak uygulamaları sağlar. Veriler Azure Cosmos DB SQL sorgu arabirimi yoluyla sorgu için hemen kullanılabilir.  
+### <a name="does-the-sql-api-database-support-schema-free-data"></a>SQL API'si veritabanı şemasız verileri destekler mi?
+Evet, SQL API'yi şema tanımları veya ipuçları olmadan rastgele JSON belgelerinin depolamak uygulamaları sağlar. Veriler Azure Cosmos DB SQL sorgu arabirimi yoluyla sorgu için hemen kullanılabilir.  
 
-### <a name="does-the-documentdb-api-support-acid-transactions"></a>DocumentDB API ACID işlemlerini destekler mi?
-Evet, DocumentDB API JavaScript saklı yordamları ve Tetikleyicileri ifade edilen belgeler arası işlemleri destekler. İşlemler her bir koleksiyonun içindeki tek bir bölümün kapsamındadır ve "tümü veya hiçbiri," olarak ACID semantiği ile yürütülen diğer eş zamanlı yürütme kodları ve kullanıcı isteklerinden ayrı. Sunucu tarafı JavaScript uygulama kodunun yürütülmesi özel durumlar varsa, tüm işlem geri alındı. İşlemler hakkında daha fazla bilgi için bkz: [veritabanı program işlemleri](programming.md#database-program-transactions).
+### <a name="does-the-sql-api-support-acid-transactions"></a>SQL API ACID işlemlerini destekler mi?
+Evet, SQL API'yi JavaScript saklı yordamları ve Tetikleyicileri ifade edilen belgeler arası işlemleri destekler. İşlemler her bir koleksiyonun içindeki tek bir bölümün kapsamındadır ve "tümü veya hiçbiri," olarak ACID semantiği ile yürütülen diğer eş zamanlı yürütme kodları ve kullanıcı isteklerinden ayrı. Sunucu tarafı JavaScript uygulama kodunun yürütülmesi özel durumlar varsa, tüm işlem geri alındı. İşlemler hakkında daha fazla bilgi için bkz: [veritabanı program işlemleri](programming.md#database-program-transactions).
 
 ### <a name="what-is-a-collection"></a>Koleksiyon nedir?
 Bir koleksiyon, belgeler ve bunların ilişkili JavaScript uygulama mantığının grubudur. Faturalanabilir bir varlık, bir koleksiyondur nerede [maliyet](performance-levels.md) üretilen işi tarafından belirlenir ve depolama kullanılır. Koleksiyonlar bir veya daha fazla bölüm veya sunucuları kapsayabilir ve neredeyse sınırsız miktarda depolama veya işlemeyi işleyebilecek şekilde ölçeklendirilebilir.
@@ -132,19 +136,19 @@ Kullanarak veritabanları oluşturabilirsiniz [Azure portal](https://portal.azur
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Kullanıcıları ve izinleri nasıl ayarlarım?
 Aşağıdakilerden birini kullanarak, kullanıcılar ve izinler oluşturabilirsiniz [Cosmos DB API SDK'ları](documentdb-sdk-dotnet.md) veya [REST API'leri](/rest/api/documentdb/).  
 
-### <a name="does-the-documentdb-api-support-sql"></a>DocumentDB API SQL destekliyor mu?
-SQL sorgu dili Gelişmiş bir SQL tarafından desteklenen sorgu işlevi alt kümesidir. Azure Cosmos DB SQL sorgu dili zengin hiyerarşik ve ilişkisel işleçler ve genişletilebilirlik JavaScript tabanlı, kullanıcı tanımlı işlevler (UDF'ler) aracılığıyla sağlar. JSON dil bilgisi, hem Azure Cosmos DB otomatik dizin oluşturma teknikleri hem de Azure Cosmos DB SQL sorgu diyalekti tarafından kullanılan etiketli düğümleri ağaçlar JSON belgeleri modellenmesini sağlar. SQL dil bilgisinin kullanma hakkında daha fazla bilgi için bkz: [QueryDocumentDB] [ query] makalesi.
+### <a name="does-the-sql-api-support-sql"></a>SQL API SQL destekliyor mu?
+SQL API hesapları tarafından desteklenen SQL sorgu dili Gelişmiş bir SQL Server tarafından desteklenen sorgu işlevi alt kümesidir. Azure Cosmos DB SQL sorgu dili zengin hiyerarşik ve ilişkisel işleçler ve genişletilebilirlik JavaScript tabanlı, kullanıcı tanımlı işlevler (UDF'ler) aracılığıyla sağlar. JSON dil bilgisi, hem Azure Cosmos DB otomatik dizin oluşturma teknikleri hem de Azure Cosmos DB SQL sorgu diyalekti tarafından kullanılan etiketli düğümleri ağaçlar JSON belgeleri modellenmesini sağlar. SQL dil bilgisinin kullanma hakkında daha fazla bilgi için bkz: [SQL sorgusu] [ query] makalesi.
 
-### <a name="does-the-documentdb-api-support-sql-aggregation-functions"></a>DocumentDB API SQL toplama işlevleri destekliyor mu?
-DocumentDB API, düşük gecikme süreli toplama toplama işlevleri aracılığıyla herhangi bir ölçekte destekler `COUNT`, `MIN`, `MAX`, `AVG`, ve `SUM` SQL dil bilgisinin aracılığıyla. Daha fazla bilgi için bkz: [toplama işlevlerinin](documentdb-sql-query.md#Aggregates).
+### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>SQL API SQL toplama işlevleri destekliyor mu?
+Düşük gecikme süreli toplama toplama işlevleri aracılığıyla herhangi bir ölçekte SQL API'yi destekleyip `COUNT`, `MIN`, `MAX`, `AVG`, ve `SUM` SQL dil bilgisinin aracılığıyla. Daha fazla bilgi için bkz: [toplama işlevlerinin](documentdb-sql-query.md#Aggregates).
 
-### <a name="how-does-the-documentdb-api-provide-concurrency"></a>DocumentDB API eşzamanlılığı nasıl sağlar?
-DocumentDB API HTTP varlık etiketleri veya Etag'ler aracılığıyla iyimser eşzamanlılık denetimini (OCC) destekler. Her DocumentDB API kaynakları bir Etag'e sahiptir ve bir belgeyi her güncelleştirildiğinde ETag sunucu üzerinde ayarlanır. ETag üstbilgisi ve geçerli değeri tüm yanıt iletileri dahil edilir. Etag'ler IF-Match üst bilgisi bir kaynağın güncelleştirilmesi gerekip gerekmediğini karar vermek sunucu izin vermek için kullanılabilir. IF-Match değer karşı denetlenecek ETag değerdir. ETag değeri sunucunun ETag değeri eşleşirse, kaynak güncelleştirilir. ETag geçerli ise sunucu işlemi reddeder bir "HTTP 412 önkoşul hatası" yanıt kodu. İstemci daha sonra yeniden kaynak için geçerli ETag değeri almaya kaynak getirir. Ayrıca, Etag'ler If-None-Match üstbilgisi ile bir kaynağa yeniden getirin gerekli olup olmadığını belirlemek için kullanılabilir.
+### <a name="how-does-the-sql-api-provide-concurrency"></a>SQL API eşzamanlılığı nasıl sağlar?
+SQL API HTTP varlık etiketleri veya Etag'ler aracılığıyla iyimser eşzamanlılık denetimini (OCC) destekler. Her SQL API kaynakları bir Etag'e sahiptir ve bir belgeyi her güncelleştirildiğinde ETag sunucu üzerinde ayarlanır. ETag üstbilgisi ve geçerli değeri tüm yanıt iletileri dahil edilir. Etag'ler IF-Match üst bilgisi bir kaynağın güncelleştirilmesi gerekip gerekmediğini karar vermek sunucu izin vermek için kullanılabilir. IF-Match değer karşı denetlenecek ETag değerdir. ETag değeri sunucunun ETag değeri eşleşirse, kaynak güncelleştirilir. ETag geçerli ise sunucu işlemi reddeder bir "HTTP 412 önkoşul hatası" yanıt kodu. İstemci daha sonra yeniden kaynak için geçerli ETag değeri almaya kaynak getirir. Ayrıca, Etag'ler If-None-Match üstbilgisi ile bir kaynağa yeniden getirin gerekli olup olmadığını belirlemek için kullanılabilir.
 
 İyimser eşzamanlılık .NET içinde kullanmak için [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) sınıfı. .NET örnek için bkz: [Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) github'da DocumentManagement örnekteki.
 
-### <a name="how-do-i-perform-transactions-in-the-documentdb-api"></a>DocumentDB API içinde nasıl işlemler gerçekleştirebilir?
-DocumentDB API JavaScript saklı yordamları ve Tetikleyicileri aracılığıyla dil ile tümleşik işlemleri destekler. Betiklerin içindeki tüm veritabanı işlemleri, anlık görüntü yalıtımı altında yürütülür. Tek bölümlü bir koleksiyon ise, yürütme koleksiyona kapsamlıdır. Koleksiyon bölümlendiğinde ise, yürütme koleksiyondaki aynı bölüm anahtarı değerine sahip belgelerde kapsamlıdır. Belge sürümlerinin anlık görüntüsü (ETag'ler) ise işlem başlangıcında alınır ve yalnızca betik başarılı olursa uygulanır. JavaScript bir hata oluşturursa işlem geri alınır. Daha fazla bilgi için bkz: [Azure Cosmos DB için sunucu tarafı JavaScript programlama](programming.md).
+### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>SQL API içinde nasıl işlemler gerçekleştirebilir?
+SQL API JavaScript saklı yordamları ve Tetikleyicileri aracılığıyla dil ile tümleşik işlemleri destekler. Betiklerin içindeki tüm veritabanı işlemleri, anlık görüntü yalıtımı altında yürütülür. Tek bölümlü bir koleksiyon ise, yürütme koleksiyona kapsamlıdır. Koleksiyon bölümlendiğinde ise, yürütme koleksiyondaki aynı bölüm anahtarı değerine sahip belgelerde kapsamlıdır. Belge sürümlerinin anlık görüntüsü (ETag'ler) ise işlem başlangıcında alınır ve yalnızca betik başarılı olursa uygulanır. JavaScript bir hata oluşturursa işlem geri alınır. Daha fazla bilgi için bkz: [Azure Cosmos DB için sunucu tarafı JavaScript programlama](programming.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Nasıl ı toplu belgeleri Cosmos Veritabanına ekleme?
 Toplu belgeleri Azure Cosmos Veritabanına iki yoldan biriyle ekleme:
@@ -152,10 +156,10 @@ Toplu belgeleri Azure Cosmos Veritabanına iki yoldan biriyle ekleme:
 * Bölümünde açıklandığı gibi veri geçiş aracı [Azure Cosmos DB veritabanı geçiş aracını](import-data.md).
 * Saklı yordamlar, açıklandığı gibi [Azure Cosmos DB için sunucu tarafı JavaScript programlama](programming.md).
 
-### <a name="does-the-documentdb-api-support-resource-link-caching"></a>DocumentDB API desteği kaynak bağlantıyı önbelleğe almayı mu?
-Evet, Azure Cosmos DB bir RESTful hizmeti olduğu için kaynak bağlantıları sabittir ve önbelleğe alınabilir. DocumentDB API istemciler herhangi bir kaynak benzeri belge veya koleksiyon yapılan okumalar için bir "If-None-Match" üst bilgisi belirtin ve sunucu sürümü değiştikten sonra kendi yerel kopyalarını güncelleştirin.
+### <a name="does-the-sql-api-support-resource-link-caching"></a>SQL API desteği kaynak bağlantıyı önbelleğe almayı mu?
+Evet, Azure Cosmos DB bir RESTful hizmeti olduğu için kaynak bağlantıları sabittir ve önbelleğe alınabilir. SQL API istemciler herhangi bir kaynak benzeri belge veya koleksiyon yapılan okumalar için bir "If-None-Match" üst bilgisi belirtin ve sunucu sürümü değiştikten sonra kendi yerel kopyalarını güncelleştirin.
 
-### <a name="is-a-local-instance-of-documentdb-api-available"></a>DocumentDB API yerel bir örneğini var mı?
+### <a name="is-a-local-instance-of-sql-api-available"></a>Yerel bir SQL API örneği var mı?
 Evet. [Azure Cosmos DB öykünücüsü](local-emulator.md) Cosmos DB hizmetinin yüksek doğruluk öykünmesi sağlar. Azure Cosmos JSON belgelerini sorgulamak için destek dahil olmak üzere sağlama DB'ye, aynı işlevselliği destekler ve koleksiyonları ölçekleme ve yürütme yordamları ve Tetikleyicileri depolanır. Geliştirmek ve Azure Cosmos DB öykünücüsü kullanarak uygulamaları test ve bunları Azure'da tek bir yapılandırma için Azure Cosmos DB bağlantı uç noktasına değişikliği yaparak genel bir ölçekte dağıtabilirsiniz.
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Karşı API MongoDB için geliştirme
@@ -204,7 +208,7 @@ REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen u�
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /? restype =service@comp= özellikleri| [Tablo hizmeti özelliklerini ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) ve [tablo hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Bu uç noktaya CORS kuralları, depolama Analizi Yapılandırması ve günlüğe kaydetme ayarlarını belirlemek için kullanılır. CORS şu anda desteklenmiyor ve analizi ve günlüğe kaydetme Azure Cosmos veritabanı Azure depolama tabloları daha farklı bir şekilde ele |
 | SEÇENEKLER | / < Tablo-resource-adı > | [Ön uçuş CORS tablo isteği](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Bu, Azure Cosmos DB şu anda desteklemediği CORS parçasıdır. |
-| GET | /? restype =service@compİstatistiği = | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
+| AL | /? restype =service@compİstatistiği = | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
 | GET, PUT | /myTable? comp acl = | [Tablo ACL alma](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ve [tablo ACL ayarlayın](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Bu alır ve paylaşılan erişim imzaları (SAS) yönetmek için kullanılan depolanmış erişim ilkeleri ayarlar. SAS desteklenmesine karşın, bunların ayarlayın ve farklı şekilde yönetilir. |
 
 Ayrıca Azure Cosmos DB tablo API, yalnızca değil ATOM JSON biçimini destekler.
@@ -236,7 +240,7 @@ Geri bildiriminiz aşağıdaki yollardan biriyle paylaşabilirsiniz:
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Tablo API'sine bağlanmak için kullanılacak ihtiyacım bağlantı dizesi nedir?
 Bağlantı dizesidir:
 ```
-DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountNameFromDocumentDB>.table.cosmosdb.azure.com
+DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=<FromKeysPaneofCosmosDB>;TableEndpoint=https://<AccountName>.table.cosmosdb.azure.com
 ```
 Bağlantı dizesi Azure Portalı'nda bağlantı dizesi sayfasından alabilirsiniz. 
 
@@ -364,7 +368,7 @@ olmayan - .NET SDK'ları için dizin oluşturma ilkesini yalnızca portalında a
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Bir platform olarak Azure Cosmos DB sıralama, toplamlar, hiyerarşi ve diğer işlevleri gibi özellikleri, pek çok görünüyor. Tablo API için bu özellikler ekleme? 
-Tablo API Azure Table storage aynı sorgu işlevleri sağlar. Azure Cosmos DB, sıralama, toplamalar, Jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevler de destekler. Biz gelecekteki hizmeti güncelleştirmesine tablo API ek işlevsellik sağlar. Daha fazla bilgi için bkz: [SQL sorgularını Azure Cosmos DB DocumentDB API için](../documentdb/documentdb-sql-query.md).
+Tablo API Azure Table storage aynı sorgu işlevleri sağlar. Azure Cosmos DB, sıralama, toplamalar, Jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevler de destekler. Biz gelecekteki hizmeti güncelleştirmesine tablo API ek işlevsellik sağlar. Daha fazla bilgi için bkz: [SQL sorguları](documentdb-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Tablo API için zaman TableThroughput değiştiririm?
 Aşağıdaki koşullardan herhangi biri geçerli olduğu durumlarda TableThroughput değiştirmeniz gerekir:
@@ -534,47 +538,6 @@ Apache Cassandra API Apache Cassandra aynı CQL işlevleri sağlar. Çeşitli ö
 
 ### <a name="feature-x-of-regular-cassandra-api-is-not-working-as-today-where-can-the-feedback-be-provided"></a>Özellik x normal Cassandra API bugün olarak geri bildirim burada sağlanabilir çalışmıyor olabilir?
 İle geribildirim sağlamak [uservoice geri bildirimleri](https://feedback.azure.com/forums/263030-azure-cosmos-db).
-
-<a id="moving-to-cosmos-db"></a>
-## <a name="questions-from-documentdb-customers"></a>DocumentDB müşterilerden sorular
-### <a name="why-are-you-moving-to-azure-cosmos-db"></a>Neden Azure Cosmos DB taşıyor? 
-
-Azure Cosmos DB sonraki büyük artık genel olarak dağıtılmış ölçekli bulut veritabanlarında ' dir. Bir DocumentDB müşteri olarak devrim niteliğinde sistem ve yetenekleri Azure Cosmos DB tarafından sunulan erişim sahip.
-
-Azure Cosmos DB 2010 Microsoft içindeki büyük ölçekli uygulamalar oluşturmanın geliştiriciler tarafından karşıya kalınan adres "Proje Floransa" başlatılır. Biz bu teknoloji ilk nesil 2015'te Azure geliştiricilere Azure DocumentDB biçiminde kullanıma şekilde genel dağıtılmış uygulamalar oluşturmanın zorluklarından Microsoft'a benzersiz değil. 
-
-O zamandan bu yana, eklenen yeni özellikler artık ve önemli yeni özellikler sunulmuştur. Azure Cosmos DB sonucudur. Bu sürümde bir parçası olarak verileriyle, DocumentDB müşterilerin Azure Cosmos DB müşteriler otomatik olarak ve sorunsuz bir şekilde haline gelir. Bu özellikler temel veritabanı motoru yanı sıra genel dağıtım, esnek ölçeklenebilirlik ve endüstri lideri, kapsamlı SLA alanlarıdır. Özellikle, biz verimli bir şekilde tüm popüler veri modelleri, türü sistemleri ve API'ları Azure Cosmos DB temel alınan veri modeline eşlemek için Azure Cosmos DB veritabanı altyapısı gelişim göstermiştir. 
-
-Bu çalışmanın geçerli Geliştirici dönük göstergeleri yeni desteğidir [Gremlin](../cosmos-db/graph-introduction.md) ve [depolama API'leri tablo](../cosmos-db/table-introduction.md). Ve yalnızca başlangıç budur. Daha fazla performans ve küresel ölçekli depolama gelişmeleri, zaman içinde diğer popüler API'ler ve yeni veri modelleri eklemek planlıyoruz. 
-
-DocumentDB noktasındaki önemlidir [SQL dialect](../documentdb/documentdb-sql-query.md) her zaman temel Azure Cosmos DB destekleyebileceği birçok API'ları yalnızca biri olmuştur. Azure Cosmos DB gibi tam olarak yönetilen bir hizmet kullanan geliştiriciler için yalnızca hizmet hizmeti tarafından sunulan API'leri arabirimidir. Hiçbir şey gerçekten var olan DocumentDB müşteriler için değiştirir. Azure Cosmos DB içinde tam olarak aynı SQL DocumentDB sunan API alın. Ve şimdi (ve gelecekte), daha önce erişilemez diğer capabilities erişebilirsiniz 
-
-Bizim devam eden iş başka bir göstergeleri genel ve esnek ölçeklenebilirlik işleme ve depolama genişletilmiş temelidir. Biz, genel dağıtım alt sistemi birkaç temel geliştirmeler yapıldı. Birçok geliştirici dönük özelliklerden bir toplam beş iyi tanımlanmış tutarlılık modelleri yapar tutarlı önek tutarlılık modeli biridir. Biz, bunlar yetişkin birçok daha ilginç özellikleri serbest bırakır. 
-
-### <a name="what-do-i-need-to-do-to-ensure-that-my-documentdb-resources-continue-to-run-on-azure-cosmos-db"></a>DocumentDB Kaynaklarım Azure Cosmos DB üzerinde çalışmaya devam etmesini sağlamak için yapmanız gerekenler nelerdir?
-
-Tüm değişiklik gerekmez. DocumentDB kaynaklarınızı Azure Cosmos DB kaynakları sunulmuştur ve bu taşıma oluştuğunda hizmet kesintisine neden olmadan olmuştur.
-
-### <a name="what-changes-do-i-need-to-make-for-my-app-to-work-with-azure-cosmos-db"></a>Uygulamam Azure Cosmos DB ile çalışacak biçimde yükseltilmesi hangi değişikliklerin gerekiyor mu?
-
-Yapmak için bir değişiklik yoktur. Sınıfları, ad alanları ve NuGet paket adlarının değişmemiştir. Her zaman, SDK'ları en son özellikleri ve geliştirmeleri avantajlarından yararlanmak için güncel tutmanızı öneririz. 
-
-### <a name="whats-changed-in-the-azure-portal"></a>Azure portalında Değiştirilenler?
-
-DocumentDB portalında bir Azure hizmeti olarak artık görünür. Onun yerine aşağıdaki görüntüde gösterildiği gibi yeni bir Azure Cosmos DB simge olur. Önce oldukları ve verimlilik, değişiklik tutarlılık düzeyleri ve İzleyici SLA hala ölçeği gibi tüm koleksiyonlar kullanılabilir. Veri Gezgini (Önizleme) yeteneklerini geliştirilmiştir. Şimdi görüntüleyebilir ve belgeleri düzenleyebilir, oluşturma ve sorguları çalıştırmak ve saklı yordamlar, tetikleyiciler ve UDF ile aşağıdaki görüntüde gösterildiği gibi bir sayfadan çalışma: 
-
-![Azure Cosmos DB koleksiyonları sayfası](./media/faq/cosmos-db-data-explorer.png)
-
-### <a name="are-there-changes-to-pricing"></a>Fiyatlandırma değişiklikleri var mı?
-
-Önceki Hayır, Azure Cosmos DB'de uygulamanızı çalıştırmanın maliyeti aynıdır.
-
-### <a name="are-there-changes-to-the-slas"></a>SLA değişiklikler var mı?
-
-Hayır, kullanılabilirlik, tutarlılık, gecikme ve verimlilik için SLA değiştirilmemiştir ve hala portalda görüntülenir. Daha fazla bilgi için bkz: [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/).
-   
-![Örnek verilerle Yapılacaklar uygulama](./media/faq/azure-cosmosdb-portal-metrics-slas.png)
-
 
 [azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

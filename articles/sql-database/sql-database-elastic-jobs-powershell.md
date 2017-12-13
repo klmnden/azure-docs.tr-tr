@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell (Önizleme) kullanarak SQL Database esnek işleri oluşturmak ve yönetmek
 
@@ -42,7 +42,7 @@ Aşağıdaki tabloda tüm nesne türlerini listeler **esnek veritabanı işleri*
 
 <table style="width:100%">
   <tr>
-    <th>Nesne türü</th>
+    <th>Nesne Türü</th>
     <th>Açıklama</th>
     <th>İlgili PowerShell API'leri</th>
   </tr>
@@ -203,7 +203,7 @@ Esnek veritabanı işleri bağlantı açın:
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Esnek veritabanı işleri içinde şifrelenmiş kimlik bilgileri
 Veritabanı kimlik bilgileri işlere eklenebilir *denetim veritabanı* şifreli, parola ile. İşlerini daha sonraki bir zamanda yürütülecek (iş zamanlamalarını kullanarak) etkinleştirmek için kimlik bilgilerini depolamak gereklidir.
 
-Şifreleme yükleme komut dosyasının bir parçası oluşturulan bir sertifika ile çalışır. Yükleme komut dosyası oluşturur ve sertifika depolanan şifrelenmiş parolalar verilerin şifresini çözmek için Azure bulut hizmeti içine yükler. Azure bulut hizmeti daha sonra ortak anahtarı işleri içinde depolar *denetim veritabanı* sertifika yerel olarak yüklenmesini gerektirmeden sağlanan parola şifrelemek PowerShell API'si veya Klasik Azure portalı arabirimi sağlar.
+Şifreleme yükleme komut dosyasının bir parçası oluşturulan bir sertifika ile çalışır. Yükleme komut dosyası oluşturur ve sertifika depolanan şifrelenmiş parolalar verilerin şifresini çözmek için Azure bulut hizmeti içine yükler. Azure bulut hizmeti daha sonra ortak anahtarı işleri içinde depolar *denetim veritabanı* sertifika yerel olarak yüklenmesini gerektirmeden sağlanan parola şifrelemek PowerShell API'si veya Azure portal arabirimi sağlar .
 
 Şifrelenmiş ve salt okunur erişimi olan kullanıcılar esnek veritabanı işleri nesneler için güvenli kimlik bilgileri parolalar. Ancak bir parola ayıklamak kötü amaçlı bir kullanıcı için esnek veritabanı iş nesnelere okuma-yazma erişimi mümkündür. Kimlik bilgileri iş yürütmeleri arasında yeniden tasarlanmıştır. Kimlik bilgileri hedef veritabanlarına bağlantı kurulurken aktarılır. Şu anda her kimlik bilgisi için kullanılan hedef veritabanı üzerinde bir kısıtlama yoktur, kötü amaçlı kullanıcı kötü niyetli bir kullanıcının denetimindeki bir veritabanı için veritabanı hedef ekleyebilirsiniz. Kullanıcı kimlik bilgisi parola kazanmak için bu veritabanını hedefleyen bir işi daha sonra başlayamadı.
 

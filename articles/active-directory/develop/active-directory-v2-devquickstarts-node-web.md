@@ -4,7 +4,7 @@ description: "Kişisel bir Microsoft hesabı ve bir iş veya Okul hesabı kullan
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 1b889e72-f5c3-464a-af57-79abf5e2e147
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 230d8ad16dc62564f3c1149443dd59fbb9974db5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-a-nodejs-web-app"></a>Oturum açma bir Node.js web uygulamasına ekleme
 

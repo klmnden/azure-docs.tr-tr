@@ -1,6 +1,6 @@
 ---
-title: "Azure DB Cosmos DocumentDB API: SQL söz dizimi | Microsoft Docs"
-description: "Azure Cosmos DB DocumentDB API SQL sorgu dili için başvuru belgeleri."
+title: "Azure Cosmos DB: SQL söz dizimi sorgu başvurusu | Microsoft Docs"
+description: "Azure Cosmos DB SQL sorgu dili için başvuru belgeleri."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: mimig
-ms.openlocfilehash: 4907df15fddfb7d8d6128dc994b0920ca601f2c7
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.openlocfilehash: 73d20826f24d233653fcf4a2c16e3d14486d9eb2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-syntax-reference"></a>Azure DB Cosmos DocumentDB API: SQL söz dizimi başvurusu
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos veritabanı SQL söz dizimi başvurusu
 
-Azure Cosmos DB DocumentDB API tanıdık SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını dilbilgisi gibi hiyerarşik JSON belgelerini gerektirmeden açık şema veya ikincil dizinlerin oluşturulmasını destekler. Bu konu, başvuru belgeleri DocumentDB API SQL sorgu dili için sağlar.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-DocumentDB API SQL sorgu dili için bkz [SQL sorgularını Azure Cosmos DB DocumentDB API için](documentdb-sql-query.md).  
+Tanıdık SQL (yapılandırılmış sorgu dili) kullanan belgeleri sorgulama azure Cosmos DB destekler gerektirmeden açık şema veya ikincil dizinlerin oluşturulmasını dilbilgisi hiyerarşik JSON belgeleri ister. Bu konu, SQL API'yi hesapları ile uyumlu SQL sorgu dili başvuru belgelerine sağlar.
+
+SQL sorgu dili için bkz [SQL sorgularını Azure Cosmos DB için](documentdb-sql-query.md).  
   
 Ayrıca ziyaret etmek için davet ediyoruz [Query Playground](http://www.documentdb.com/sql/demo) burada Azure Cosmos DB deneyin ve SQL sorgularını kümemize karşı çalıştırabilirsiniz.  
   
@@ -663,7 +665,7 @@ ORDER BY <sort_specification>
   
      **Sözdizimi kuralları**  
   
-     Aşağıdaki tabloda, DocumentDB API sorgu dili başvurusu sözdizimi tanımlamak için kullanılan kuralları açıklar.  
+     Aşağıdaki tabloda, aşağıdaki SQL Başvurusu sözdiziminde tanımlamak için kullanılan kuralları açıklar.  
   
     |**Kuralı**|**İçin kullanılır**|  
     |-|-|    
@@ -672,18 +674,18 @@ ORDER BY <sort_specification>
     |\<nonterminal >|Terminal dışı, ayrı olarak tanımlı.|  
     |\<nonterminal >:: =|Nonterminal sözdizimi tanımı.|  
     |other_terminal|Sözcük içindeki ayrıntısı açıklanan Terminal (belirteç).|  
-    |Tanımlayıcı|Tanımlayıcı. Aşağıdaki karakterleri yalnızca sağlar: a-z A-Z 0-9 _First karakter, bir sayı olamaz.|  
+    |tanımlayıcı|Tanımlayıcı. Aşağıdaki karakterleri yalnızca sağlar: a-z A-Z 0-9 _First karakter, bir sayı olamaz.|  
     |"dize"|Tırnak işaretli dizesi. Geçerli bir dize verir. Bir string_literal açıklamasına bakın.|  
     |'simgesi'|Sözdizimi parçası olan değişmez değer simge.|  
     |&#124; (dikey çubuk)|Alternatifleri sözdizimi öğeleri için. Belirtilen öğeleri yalnızca birini kullanabilirsiniz.|  
     |[] /(brackets)|Köşeli bir veya daha fazla isteğe bağlı öğeleri kapatın.|  
-    |[,...n]|Önündeki öğeyi yinelenen n kaç kez uygulanıp uygulanamayacağını gösterir. Yineleme virgülle ayrılır.|  
+    |[,.. .n]|Önündeki öğeyi yinelenen n kaç kez uygulanıp uygulanamayacağını gösterir. Yineleme virgülle ayrılır.|  
     |[...n]|Önündeki öğeyi yinelenen n kaç kez uygulanıp uygulanamayacağını gösterir. Yineleme boşlukla ayrılır.|  
   
 ##  <a name="bk_built_in_functions"></a>Yerleşik işlevler  
  Azure Cosmos DB birçok yerleşik SQL işlevleri sağlar. Yerleşik işlevler kategorilerini aşağıda listelenmiştir.  
   
-|İşlevi|Açıklama|  
+|İşlev|Açıklama|  
 |--------------|-----------------|  
 |[Matematik işlevleri](#bk_mathematical_functions)|Matematik işlevleri her genellikle, bağımsız değişken olarak sağlanır ve sayısal bir değeri döndürme giriş değerlerine göre bir hesaplama gerçekleştirir.|  
 |[Denetimi işlevleri yazın](#bk_type_checking_functions)|Tür denetleme işlevleri SQL sorguları içinde bir ifade türünü kontrol olanak sağlar.|  
@@ -2791,6 +2793,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Sonraki adımlar  
  [SQL söz dizimi ve Azure Cosmos DB SQL sorgusu](documentdb-sql-query.md)   
- [Azure Cosmos DB belgeleri](https://docs.microsoft.com/en-us/azure/cosmos-db/)  
+ [Azure Cosmos DB belgeleri](https://docs.microsoft.com/azure/cosmos-db/)  
   
   

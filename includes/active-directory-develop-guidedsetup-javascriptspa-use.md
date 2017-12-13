@@ -1,4 +1,3 @@
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcı oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanın
 
 1.  Adlı bir dosya oluşturun `app.js`. Visual Studio kullanıyorsanız, projeyi (Proje kök klasöründe) seçin, sağ tıklatın ve seçin: `Add`  >  `New Item`  >  `JavaScript File`:

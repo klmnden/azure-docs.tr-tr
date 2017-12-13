@@ -4,7 +4,7 @@ description: "Azure Active en son sürüm notları, bilinen sorunlar, hata düze
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 9e2186839648ffc6492cd64cb140cc767729d189
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
@@ -178,7 +178,7 @@ Aşağıdaki koşullar ve denetimleri artık uygulama bağlı olarak koşullu er
 
 **İstemci uygulamaları koşulu**
 
-- Mobil uygulamalar ve masaüstü istemcileri
+- Mobil uygulamalar ve Masaüstü istemcileri
 
 **Erişim denetimi**
 

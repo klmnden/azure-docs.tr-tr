@@ -4,7 +4,7 @@ description: "Bu konuda Azure AD Connect engelle (yanlışlıkla silmeleri engel
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: a33fb729cff5007e40820af696cfec823a3ecfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect Eşitleme: Yanlışlıkla Silmeleri Engelleme
 Bu konuda Azure AD Connect engelle (yanlışlıkla silmeleri engelleme) yanlışlıkla silmeleri özelliğinde açıklanmaktadır.
@@ -32,7 +32,7 @@ Dahil birçok siler gördüğünüzde yaygın senaryolar:
 * Bir OU'daki tüm nesneler silinir.
 * İçindeki tüm nesneleri eşitleme için kapsam dışına olduğu kabul edilir şekilde bir OU adlandırılır.
 
-Varsayılan değer 500 nesnelerin PowerShell ile değiştirilebilir kullanarak `Enable-ADSyncExportDeletionThreshold`. Bu değer, kuruluşunuzun sığacak şekilde yapılandırmanız gerekir. Eşitleme Zamanlayıcı 30 dakikada bir çalışır olduğundan, değeri 30 dakika içinde görülen siler sayısıdır.
+Varsayılan değer 500 nesnelerin PowerShell ile değiştirilebilir kullanarak `Enable-ADSyncExportDeletionThreshold`, Azure Active Directory Connect ile yüklenen AD eşitleme modülü bir parçası olduğu. Bu değer, kuruluşunuzun sığacak şekilde yapılandırmanız gerekir. Eşitleme Zamanlayıcı 30 dakikada bir çalışır olduğundan, değeri 30 dakika içinde görülen siler sayısıdır.
 
 Azure AD'ye aktarılacak hazırlanan çok fazla silme varsa, verme durdurur ve böyle bir e-posta alırsınız:
 

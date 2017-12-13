@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: e3aa1d432cf2c510c09b13d4f07833edcb1e9b53
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Kaynaklar, rolleri ve erişim denetimi Application Insights
 Kim okuma ve güncelleştirme erişimine Azure verilerinize denetleyebilirsiniz [Application Insights][start], kullanarak [Microsoft Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
@@ -42,7 +42,7 @@ Kim okuma ve güncelleştirme erişimine Azure verilerinize denetleyebilirsiniz 
 
     ![Gözat, kaynak grupları belirtin, sonra bir grup seçin](./media/app-insights-resources-roles-access-control/11-group.png)
 
-* [**Abonelik** ](https://manage.windowsazure.com) - bir Azure aboneliğine oturum Application Insights veya diğer Azure kaynaklarını kullanmak için. Her kaynak grubu, fiyat paketi seçin ve burada, bir kuruluşun abonelik ise üyeleri ve bunların erişim izinlerini seçin Azure aboneliğiniz için aittir.
+* [**Abonelik** ](https://portal.azure.com) - bir Azure aboneliğine oturum Application Insights veya diğer Azure kaynaklarını kullanmak için. Her kaynak grubu, fiyat paketi seçin ve burada, bir kuruluşun abonelik ise üyeleri ve bunların erişim izinlerini seçin Azure aboneliğiniz için aittir.
 * [**Microsoft hesabı** ] [ account] -kullanıcı adı ve Microsoft Azure Abonelikleri, XBox Live, Outlook.com ve diğer Microsoft Hizmetleri için oturum açmak için kullandığınız parola.
 
 ## <a name="access"></a>Kaynak grubundaki erişimi denetleme

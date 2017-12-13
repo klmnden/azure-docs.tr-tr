@@ -4,7 +4,7 @@ description: "Oturum açma için Azure AD ile tümleşen bir Node.js Express MVC
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8b399bfef6422e5da0cc4b16c6bef6af6b8ff902
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3a9bc44ec9fc5a7c5e18139070bac837421efff5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Node.js web uygulamasına oturum açma ve Azure AD ile oturum kapatma
 Burada Passport kullanın:

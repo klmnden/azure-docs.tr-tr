@@ -4,7 +4,7 @@ description: "Azure AD Connect eşitleme yapılandırmasında değişiklik konus
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dc6be73abafb99772ed428bd4f22c1797c9b1bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: varsayılan yapılandırmanın bir değişiklik yapma
 Bu konunun amacı, Azure AD Connect eşitleme varsayılan yapılandırmasında değişiklik konusunda size yol sağlamaktır. Bu, bazı ortak senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırma bazı basit değişiklikler yapmak yapabiliyor olmanız gerekir.
@@ -279,11 +279,11 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
     | Bağlı sistem nesne türü | **Kullanıcı** |  |
     | Meta veri deposu nesne türü | **Kişi** |  |
     | Bağlantı türü | **Birleştir** |  |
-    | Önceliği | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
+    | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
 5. Git **Scoping filtre** sekmesinde ve ekleme bir **tek bir kapsam filtresi grubunu aşağıdaki yan tümcesiyle**:
  
-    | Öznitelik | işleci | Değer |
+    | Öznitelik | İşleç | Değer |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Kullanıcı\_ | 
  
@@ -318,11 +318,11 @@ Giden eşitleme kuralı öznitelik değerini meta veri deposu Azure AD'de Prefer
     | Bağlı sistem nesne türü | Kullanıcı ||
     | Meta veri deposu nesne türü | **Kişi** ||
     | Bağlantı türü | **Birleştir** ||
-    | Önceliği | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. YDo olmayan başka bir eşitleme kuralı tarafından kullanılan bir değer seçin. |
+    | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. YDo olmayan başka bir eşitleme kuralı tarafından kullanılan bir değer seçin. |
 
 5. Git **Scoping filtre** sekmesinde ve ekleme bir **iki maddeleri tek kapsam filtresi grubu**:
  
-    | Öznitelik | işleci | Değer |
+    | Öznitelik | İşleç | Değer |
     | --- | --- | --- |
     | sourceObjectType | EŞİTTİR | Kullanıcı |
     | cloudMastered | EŞİT DEĞİLDİR | True |

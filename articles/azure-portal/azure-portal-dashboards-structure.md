@@ -6,25 +6,25 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure panolar yapısı
 Bu belge, örnek olarak aşağıdaki Panoyu kullanarak bir Azure panonun yapısı size yol göstermektedir:
 
 ![Örnek Pano](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Paylaşılan beri [Azure panolar olan kaynakları](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), bu panoyu JSON olarak temsil edilebilir.  Aşağıdaki JSON yukarıda görselleştirilen Pano temsil eder.
+Paylaşılan beri [Azure panolar olan kaynakları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), bu panoyu JSON olarak temsil edilebilir.  Aşağıdaki JSON yukarıda görselleştirilen Pano temsil eder.
 
 ```json
 
@@ -294,7 +294,7 @@ Paylaşılan beri [Azure panolar olan kaynakları](https://docs.microsoft.com/en
 
 ### <a name="the-id-property"></a>ID özelliği
 
-Konu için Azure kaynak kimliği [adlandırma kuralları Azure kaynaklarınızın](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Portal bir Pano oluşturduğunda, genellikle bir GUID biçiminde bir kimliği seçer, ancak programlı olarak oluşturduğunuzda, geçerli bir ad kullanmak boş. 
+Konu için Azure kaynak kimliği [adlandırma kuralları Azure kaynaklarınızın](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Portal bir Pano oluşturduğunda, genellikle bir GUID biçiminde bir kimliği seçer, ancak programlı olarak oluşturduğunuzda, geçerli bir ad kullanmak boş. 
 
 ### <a name="the-name-property"></a>Name özelliği
 Kaynak abonelik, kaynak türü veya kaynak grubu bilgileri içermez kimliği segment adıdır. Esas olarak, kaynak kimliği son segmenti değil.
@@ -303,7 +303,7 @@ Kaynak abonelik, kaynak türü veya kaynak grubu bilgileri içermez kimliği seg
 Tüm panolar türlerinin __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Konum özelliği
-Diğer kaynaklar bir çalışma zamanı bileşeni panonuz yok.  Panolar için konumun Panodaki JSON gösterimi depolar birincil coğrafi konumu gösterir. Değer kullanılarak getirilen konum kodlarından birini olmalıdır [konumları API abonelikleri kaynakta](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Diğer kaynaklar bir çalışma zamanı bileşeni panonuz yok.  Panolar için konumun Panodaki JSON gösterimi depolar birincil coğrafi konumu gösterir. Değer kullanılarak getirilen konum kodlarından birini olmalıdır [konumları API abonelikleri kaynakta](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Etiketler özelliği
 Etiketler, kaynağınız rasgele ad değer çifti tarafından düzenlemenize olanak sağlayan Azure kaynaklarınızın ortak bir özelliktir. Panolar için bir olduğundan özel etiket adı verilen __gizli başlık__. Panonuz doldurulmuş bu özellik varsa, panonuz Portalı'nda görünen adı olarak kullanılır. Azure kaynak kimlikleri yeniden adlandırılamaz ancak etiketleri kullanabilirsiniz. Bu etiket panonuz renamable görünen adı için bir yol sağlar.

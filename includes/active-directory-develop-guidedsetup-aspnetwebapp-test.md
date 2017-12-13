@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Kodunuzu test
 
 Visual Studio'da uygulamanızı test etmek için basın **F5** projeyi çalıştırın. Http:// tarayıcı açar<span></span>localhost: {port} konumu ve bkz **oturum oturum Microsoft** düğmesi. Oturum açma işlemini başlatmak için düğmesini seçin.

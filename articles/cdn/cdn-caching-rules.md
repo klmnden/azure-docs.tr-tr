@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: f0d33f7671cad7e5c5ef9c2320fcca19b4c89b24
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Denetim Azure içerik teslim ağı kuralları önbelleğe alma ile önbelleğe alma davranışı
 
@@ -47,6 +47,7 @@ CDN önbelleğe alma nasıl ayarlanacağı kuralları:
 1. Genel bir önbellek kuralı gibi oluşturun:
    1. Altında **genel kurallar önbelleğe alma**ayarlayın **sorgu dizesini önbelleğe alma davranışı** için **sorgu dizelerini yoksayabilir**.
    2. Ayarlama **önbelleğe alma davranışı** için **eksikse ayarlamak**.
+       
    3. İçin **önbelleğe sona erme süresi**, 10 girin **gün** alan.
 
        Genel önbellek kuralını uç nokta için tüm istekleri etkiler. Varsa, bu kural kaynak önbellek yönergesi üstbilgileri geliştirir (`Cache-Control` veya `Expires`); Aksi halde, bunlar belirtilmezse, önbellek 10 gün olarak ayarlar. 

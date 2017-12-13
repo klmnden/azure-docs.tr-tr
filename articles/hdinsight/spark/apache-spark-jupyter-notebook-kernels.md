@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8ac45408dab31566be3089cbf2cd7d31d54b1655
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: b561352d702d1c5a415ebebc253869b8a56d68d8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure hdınsight'ta Spark kümeleri Jupyter not defteri için tekrar 
 
@@ -82,13 +82,13 @@ Spark Hdınsight kümeleri Jupyter not defteri ile yeni tekrar kullanmanın baz�
 
    | Özel numarası | Örnek | Açıklama |
    | --- | --- | --- |
-   | Yardım |`%%help` |Örnek ve açıklama ile tüm kullanılabilir sihirler oluşan bir tablo oluşturur |
+   | yardım |`%%help` |Örnek ve açıklama ile tüm kullanılabilir sihirler oluşan bir tablo oluşturur |
    | bilgileri |`%%info` |Geçerli Livy uç noktası için çıktıları oturum bilgilerini |
-   | Yapılandırma |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Oturum oluşturma için parametre yapılandırır. Force bayrağını (-f) bir oturum zaten, oturumun bırakılan ve yeniden sağlayan oluşturulduysa zorunludur. Bakmak [Livy'nın POST /sessions iste gövde](https://github.com/cloudera/livy#request-body) için geçerli parametrelerin bir listesi. Parametreleri JSON dizesi olarak geçirilmesi gerekir ve bir sonraki satırında, örnek sütununda gösterildiği gibi Sihirli sonra olması gerekir. |
+   | yapılandır |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Oturum oluşturma için parametre yapılandırır. Force bayrağını (-f) bir oturum zaten, oturumun bırakılan ve yeniden sağlayan oluşturulduysa zorunludur. Bakmak [Livy'nın POST /sessions iste gövde](https://github.com/cloudera/livy#request-body) için geçerli parametrelerin bir listesi. Parametreleri JSON dizesi olarak geçirilmesi gerekir ve bir sonraki satırında, örnek sütununda gösterildiği gibi Sihirli sonra olması gerekir. |
    | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Bir Hive sorgusu sqlContext yürütür. Varsa `-o` parametresi geçirilir, sorgunun sonucu kalıcı hale getirilir %% yerel Python bağlamı olarak bir [Pandas](http://pandas.pydata.org/) dataframe. |
    | Yerel |`%%local`<br>`a=1` |Sonraki satırların tüm kodda yerel olarak yürütülür. Kodu dahi, kullanmakta olduğunuz çekirdek yedeklemiş geçerli Python2 kodu olmalıdır. Bu nedenle, seçtiğiniz olsa bile **PySpark3** veya **Spark** kullanırsanız, Not Defteri oluşturma sırasında tekrar `%%local` Sihirli bir hücreye, o hücre yalnızca geçerli Python2 kod olmalıdır... |
    | günlükler |`%%logs` |Günlükleri geçerli Livy oturumu için çıkarır. |
-   | Sil |`%%delete -f -s <session number>` |Belirli bir oturum geçerli Livy uç noktasının siler. Başlatılan oturum çekirdek için silemezsiniz unutmayın. |
+   | sil |`%%delete -f -s <session number>` |Belirli bir oturum geçerli Livy uç noktasının siler. Başlatılan oturum çekirdek için silemezsiniz unutmayın. |
    | Temizleme |`%%cleanup -f` |Bu not defterinin oturum dahil olmak üzere geçerli Livy uç noktası için tüm oturumları siler. Force bayrağını -f zorunludur. |
 
    > [!NOTE]

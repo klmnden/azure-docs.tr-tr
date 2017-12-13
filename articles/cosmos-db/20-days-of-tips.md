@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB ipuçları 20 gün
 
@@ -103,7 +103,7 @@ Görme amaçlayan. İnceleyebilir ve, DB sorgulamak için Azure portalında #cos
 
 11 İpucu: bir kahramanı tepki, Node.js ve Azure Cosmos DB kullanarak izleme uygulaması oluşturun.
 
-Makale: [tepki ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+Makale: [tepki ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Twitter'da retweet](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![LinkedIn paylaşımında   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -119,7 +119,7 @@ Makale: [tepki ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma](https:
 
 İpucu 13: sıfırdan kahramanı ile @John_Papa ve Azure Cosmos DB. Sıfırdan ortalama uygulama oluşturmayı öğrenin
 
-Makale: [Açısal ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+Makale: [Açısal ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![Twitter'da retweet](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![LinkedIn paylaşımında   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 
@@ -177,7 +177,7 @@ Makale: [isteği Azure Cosmos DB birimleri](https://aka.ms/Kt2nbn)
 
 İpucu 20: Herkes iyi eski kopya kağıdını Sever. Azure #CosmosDB biri çok sahiptir. Konumundaki kullanıma [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
 
-Kopya kağıdını: [Azure Cosmos DB: DocumentDB API SQL sorgu kopya sayfası PDF](https://aka.ms/Nt01nl)
+Kopya kağıdını: [Azure Cosmos DB: SQL sorgusu kopya sayfası PDF](https://aka.ms/Nt01nl)
 
 [![Twitter'da retweet](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![LinkedIn paylaşımında   ](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

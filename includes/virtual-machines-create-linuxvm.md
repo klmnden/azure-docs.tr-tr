@@ -1,5 +1,5 @@
 
-1. [Azure CLI 1.0’dan Azure’a bağlanma](../articles/xplat-cli-connect.md) içinde listelenen adımları kullanarak Azure aboneliğinizde oturum açın.
+1. [Azure CLI 1.0’dan Azure’a bağlanma](/cli/azure/authenticate-azure-cli) içinde listelenen adımları kullanarak Azure aboneliğinizde oturum açın.
 
 2. Klasik dağıtım modunda olduğunuzdan emin olmak için aşağıdakileri yapın:
 

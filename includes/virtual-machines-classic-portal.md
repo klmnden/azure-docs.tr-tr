@@ -1,1 +1,1 @@
-15 Kasım 2017 başlangıç sanal makineler yalnızca kullanılabilir olacaktır [Azure portal](https://portal.azure.com). Klasik Portalı'ndan erişim artık desteklenmeyecektir.
+15 Kasım 2017 başlangıç sanal makineler yalnızca kullanılabilir olacaktır [Azure portal](https://portal.azure.com). 

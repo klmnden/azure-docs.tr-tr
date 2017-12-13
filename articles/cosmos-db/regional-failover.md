@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: b530cd6f12c08124d9483c6c4898ee4d69b8e5a2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>İş sürekliliği Azure Cosmos veritabanı için bölgesel otomatik yük devretme
 Azure Cosmos DB basitleştirir verilerin genel dağıtım sunarak tam olarak yönetilen, [bölgeli veritabanı hesaplarını](distribute-data-globally.md) tutarlılık, kullanılabilirlik ve karşılık gelen tüm ile performans arasında NET bileşim sağlayın güvence altına alır. Cosmos DB hesapları teklif yüksek kullanılabilirlik, tek bir basamak ms gecikme [iyi tanımlanmış tutarlılık düzeylerini](consistency-levels.md), çok girişli API'leri ile bölgesel saydam yük devretme ve Özellikler esnek işleme ve depolama genelinde ölçeklenme olanağı Dünya. 
@@ -46,7 +46,7 @@ Aşağıdaki kod parçacığında bölgeli uygulama başlatma gösterilmektedir.
 * İle yapılandırılmış `West US` düşük gecikme süresi için ilk tercih edilen bölge olarak okur
 * İle yapılandırılmış `North Europe` ikinci tercih edilen bölge (için yüksek kullanılabilirlik bölgesel arızalara sırasında) olarak
 
-DocumentDB API, bu yapılandırma aşağıdaki kod parçacığını gibi görünür:
+SQL API, bu yapılandırma aşağıdaki kod parçacığını gibi görünür:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ Bu makalede, Cosmos DB nasıl elle ve otomatik yük devretme işlemlerini işler
 ## <a id="NextSteps"></a>Sonraki Adımlar
 * Cosmos DB nasıl desteklediği hakkında bilgi edinin [genel dağıtım](distribute-data-globally.md)
 * Hakkında bilgi edinin [Azure Cosmos DB ile genel tutarlılık](consistency-levels.md)
-* Azure Cosmos veritabanı kullanarak birden fazla bölge ile geliştirme [DocumentDB API](../cosmos-db/tutorial-global-distribution-documentdb.md)
-* Oluşturmayı öğrenin [bölgeli yazan mimarileri](multi-region-writers.md) Azure DocumentDB ile
+* Azure Cosmos veritabanı kullanarak birden fazla bölge ile geliştirme [SQL API](tutorial-global-distribution-documentdb.md)
+* Oluşturmayı öğrenin [bölgeli yazan mimarileri](multi-region-writers.md) Azure Cosmos DB ile
 

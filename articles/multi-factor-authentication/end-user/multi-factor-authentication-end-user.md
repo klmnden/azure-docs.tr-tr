@@ -4,7 +4,7 @@ description: "Bu, son kullanıcılarınızın Azure çok faktörlü kimlik doğr
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 498dcea10b35fb8c11f848496ca403ac3e026e93
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fd8c92e575071b5b3647d51ba79603a2174dcd3f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure çok faktörlü kimlik doğrulaması için beni anlamı nedir?
 Bu nedenle, kişilerden bir e-posta getirildiğini BT ya da bunlar hesabınıza ek güvenlik doğrulaması eklediğiniz belirten yöneticinizden.  Bu nedenle bu ne anlama geliyor?

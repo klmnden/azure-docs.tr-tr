@@ -12,163 +12,173 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/11/2017
 ms.author: dobett
-ms.openlocfilehash: 32a62be9578ac802ee8fff1b0aa48e2d39362e63
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: af49a31061152cf44d3818b79b9ed7ba586f8418
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Windows veya Linux üzerinde bir ağ geçidi bağlı Fabrika önceden yapılandırılmış çözümü dağıtma
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Bir sınır ağ geçidi Windows veya Linux bağlı Fabrika önceden yapılandırılmış çözümü dağıtma
 
-Bağlı Fabrika önceden yapılandırılmış çözüm için bir ağ geçidi dağıtmak için gerekli yazılımı iki bileşenden oluşur:
+İki yazılım bileşenleri için bir sınır ağ geçidi dağıtmak için gereken *bağlı Fabrika* önceden yapılandırılmış çözüm:
 
-* *OPC Proxy* IOT Hub bağlantı kurar. *OPC Proxy* tarayıcıdan tümleşik OPC bağlı Fabrika çözüm Portalı'nda çalışan komut ve Denetim iletileri bekler.
-* *OPC yayımcı* var olan şirket içi OPC UA sunucularına bağlanır ve iletir telemetri iletilerini onlardan IOT Hub'ına.
+- *OPC Proxy* bağlı Fabrika bir bağlantı kurar. OPC Proxy sonra komut ve Denetim iletileri bağlı Fabrika çözüm Portalı'nda çalışan tümleşik OPC tarayıcıdan bekler.
 
-Her iki bileşenler açık kaynaklı ve GitHub kaynağına ve Docker kapsayıcılar olarak kullanılabilir:
+- *OPC yayımcı* var olan şirket içi OPC UA sunucularına bağlanır ve iletir telemetri iletilerini onlardan bağlı üreteci. Bir OPC Klasik aygıt kullanarak bağlanabilir [OPC Klasik bağdaştırıcısı OPC UA için](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+
+Her iki bileşenler açık kaynaklı ve GitHub kaynağına ve DockerHub Docker kapsayıcılarında olarak kullanılabilir:
 
 | GitHub | DockerHub |
 | ------ | --------- |
-| [OPC yayımcı][lnk-publisher-github] | [OPC yayımcı][lnk-publisher-docker] |
-| [OPC Proxy][lnk-proxy-github] | [OPC Proxy][lnk-proxy-docker] |
+| [OPC yayımcı](https://github.com/Azure/iot-edge-opc-publisher) | [OPC yayımcı](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
+| [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy)         | [OPC Proxy](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
 
-Genel kullanıma yönelik IP adresi veya ağ geçidi Güvenlik Duvarı'nda delik ya da bileşen için gerekli değildir. OPC Proxy ve OPC yayımcı yalnızca giden bağlantı noktası 443, 5671 ve 8883 kullanın.
+Ya da bileşen için genel kullanıma yönelik IP adresini veya ağ geçidi Güvenlik Duvarı'nda Aç gelen bağlantı noktalarının gerekmez. OPC Proxy ve OPC yayımcı bileşenleri, yalnızca giden bağlantı noktası 443'ü kullanın.
 
-Bu makaledeki adımları Docker üzerinde kullanarak bir ağ geçidi dağıtma Göster [Windows](#windows-deployment) veya [Linux](#linux-deployment). Ağ geçidi bağlı Fabrika önceden yapılandırılmış çözüm bağlantısı sağlar.
-
-> [!NOTE]
-> Docker kapsayıcısı içinde çalışan bir ağ geçidi yazılımdır [Azure IOT kenar].
-
-## <a name="windows-deployment"></a>Windows Dağıtım
+Bu makaledeki adımları Windows ya da Linux Docker kullanarak bir sınır ağ geçidi dağıtılacağı gösterilmektedir. Ağ geçidi bağlı Fabrika önceden yapılandırılmış çözüm bağlantısı sağlar. Bağlı Fabrika bileşenleri de kullanabilirsiniz.
 
 > [!NOTE]
-> Bir ağ geçidi cihazı henüz yoksa, Microsoft ticari bir ağ geçidi ortaklarından birinden satın önerir. Ziyaret [Azure IOT cihaz katalog] ağ geçidi aygıtlarını bağlı Fabrika çözümüyle uyumlu bir listesi. Ağ geçidi kurun aygıtla birlikte gelen yönergeleri izleyin. Alternatif olarak, var olan geçitlerinizin birinde el ile ayarlamak için aşağıdaki yönergeleri kullanın.
+> Her iki bileşenin modülleri olarak kullanılabilir [Azure IOT kenar](https://github.com/Azure/iot-edge).
 
-### <a name="install-docker"></a>Docker yükleyin
+## <a name="choose-a-gateway-device"></a>Bir ağ geçidi cihazı seçin
 
-Yükleme [Windows için Docker] , Windows tabanlı ağ geçidi Cihazınızda. Windows Docker Kurulum sırasında Docker ile paylaşmak için konak makinesi üzerinde bir sürücü seçin. Aşağıdaki ekran görüntüsü, D sürücüsündeki Windows sisteminize paylaşımı gösterir:
+Bir ağ geçidi cihazı henüz yoksa, Microsoft ticari bir ağ geçidi ortaklarından birinden satın önerir. Ağ geçidi aygıtların bağlı Fabrika çözümüyle uyumlu bir listesi için ziyaret [Azure IOT cihaz katalog](https://catalog.azureiotsuite.com/?q=opc). Ağ geçidi kurun aygıtla birlikte gelen yönergeleri izleyin.
 
-![Docker yükleyin][img-install-docker]
+Alternatif olarak, var olan bir ağ geçidi aygıtı el ile yapılandırmak için aşağıdaki yönergeleri kullanın.
 
-Adlı bir klasör oluşturun **docker** paylaşılan sürücü kök.
-Docker gelen yükledikten sonra da bu adımı gerçekleştirebilirsiniz **ayarları** menüsü.
+## <a name="install-and-configure-docker"></a>Yükleme ve Docker yapılandırma
 
-### <a name="configure-the-gateway"></a>Ağ geçidini yapılandırma
+Yükleme [Windows için Docker](https://www.docker.com/docker-windows) Windows tabanlı ağ geçidi aygıtı veya Linux tabanlı ağ geçidi aygıtınızda docker yüklemek için bir paket Yöneticisi'ni kullanın.
 
-1. Gereksinim duyduğunuz **iothubowner** Azure IOT paketi bağlantı dizesi ağ geçidi dağıtımını tamamlamak için Fabrika dağıtım bağlı. İçinde [Azure portal], IOT Hub'ınıza bağlı Fabrika çözümü dağıttığınızda oluşturduğunuz kaynak grubunda gidin. Tıklatın **paylaşılan erişim ilkeleri** erişimi **iothubowner** bağlantı dizesi:
+Windows için Docker Kurulum sırasında Docker ile paylaşmak için konak makinesi üzerinde bir sürücü seçin. Aşağıdaki ekran gösterilir paylaşımı **D** sürücü Windows sisteminizde docker kapsayıcısı içinde ana bilgisayar sürücüsünden erişmesine izin vermek için:
 
-    ![IOT Hub bağlantı dizesini bulun][img-hub-connection]
-
-    Kopya **bağlantı dizesi--birincil anahtar** değeri.
-
-1. İki ağ geçidi modülleri çalıştırarak ağ geçidi için IOT Hub'ınızı yapılandırma **sonra** ile bir komut isteminden:
-
-    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
-
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
-
-    * **&lt;ApplicationName&gt;**  OPC UA yayımcınıza biçimde sağlamak için ad **yayımcı.&lt; tam etki alanı adınızı&gt;**. Örneğin, Fabrika ağ olarak adlandırılır, **myfactorynetwork.com**, **ApplicationName** değer **publisher.myfactorynetwork.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;**  olan **iothubowner** önceki adımda kopyaladığınız bağlantı dizesi. Bu bağlantı dizesini yalnızca bu adımda kullanılır, aşağıdaki adımlarda gerekmez:
-
-    Eşlenen D: kullandığınız\\docker klasörü ( `-v` bağımsız değişkeni) daha sonra ağ geçidi modülleri kullanan iki X.509 sertifikaları kalıcı hale getirmek için.
-
-### <a name="run-the-gateway"></a>Ağ geçidi çalıştırın
-
-1. Aşağıdaki komutları kullanarak ağ geçidini yeniden başlatın:
-
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
-
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
-
-1. Güvenlik nedenleriyle, iki X.509 sertifikalarını D: kalıcı\\docker klasör özel anahtarı içerir. Bu klasör kimlik bilgilerine erişimi sınırlayabilir (genellikle **Yöneticiler**) Docker kapsayıcısı çalıştırmak için kullanın. D: sağ\\docker klasörü seçin **özellikleri**, ardından **güvenlik**ve ardından **Düzenle**. Vermek **Yöneticiler** tam denetim ve diğerlerinin kaldırın:
-
-    ![Docker paylaşım izinleri][img-docker-share]
-
-1. Ağ bağlantısını doğrulayın. Bir komut isteminden aşağıdaki komutu girin `ping publisher.<your fully qualified domain name>` ağ geçidiniz ping işlemi yapmak için. Hedef ulaşılamaz durumda olduğunda, ağ geçidi, ağ geçidi ana bilgisayar dosyasının adını ve IP adresi ekleyin. Hosts dosyasını bulunan **Windows\\System32\\sürücüleri\\vb.** klasör.
-
-1. Ardından, ağ geçidinde çalıştıran yerel bir OPC UA istemcisi kullanarak yayımcı bağlanmayı deneyin. URL OPC UA uç nokta `opc.tcp://publisher.<your fully qualified domain name>:62222`. OPC UA istemci yoksa kullanın indirin ve bir [açık kaynak OPC UA istemci].
-
-1. Bu yerel testleri başarıyla tamamladıktan sonra Gözat **kendi OPC UA sunucusuna** bağlı Fabrika çözüm portalında sayfası. Yayımcı uç noktasının URL'sini girin (`tcp://publisher.<your fully qualified domain name>:62222`) tıklatıp **Bağlan**. Bir sertifika uyarısı almak, ardından tıklatın **devam et.** Sonraki hata, aldığınız UA Web istemcisi yayımcısına güvendiğinizden değil. Bu hatayı gidermek için kopyalama **UA Web istemcisi** gelen sertifika **D:\\docker\\reddetti sertifikaları\\sertifikaları** klasörüne **D: \\docker\\UA uygulamaları\\sertifikaları** ağ geçidinde klasör. Ağ geçidi için yeniden başlatmanız gerekmez. Bu adımı yineleyin. Ağ geçidi buluttan şimdi bağlanabilir ve çözüme OPC UA sunucuları eklemek hazırsınız.
-
-### <a name="add-your-opc-ua-servers"></a>OPC UA sunucularınızı ekleme
-
-1. Gözat **kendi OPC UA sunucusuna** bağlı Fabrika çözüm portalında sayfası. Bağlı Fabrika portal OPC UA sunucusu arasında güven oluşturmak için önceki bölümde olduğu gibi aynı adımları izleyin. Bu adım bağlı Fabrika portal ve OPC UA sunucu sertifikaları karşılıklı güven oluşturur ve bir bağlantı oluşturur.
-
-1. OPC UA sunucunuzun OPC UA düğümleri ağaç gidin, OPC düğümleri sağ tıklatın ve seçin **yayımlama**. Bu şekilde çalışmaya yayımlamak için OPC UA sunucusu ve yayımcı, aynı ağ üzerinde olmalıdır. Diğer bir deyişle, tam etki alanı adı, yayımcı ise **publisher.mydomain.com** OPC UA sunucunun tam etki alanı adını, örneğin, bu olmalıdır **myopcuaserver.mydomain.com**. Kurulumunuzu farklıysa, el ile düğümleri bulunan publishesnodes.json dosya ekleyebileceğiniz **D:\\docker** klasör. Publishesnodes.json dosyanın ilk otomatik olarak oluşturulan başarılı bir OPC düğümünün yayımlayın.
-
-1. Telemetri şimdi ağ geçidi aygıttan akar. Telemetriyi de görüntüleyebilirsiniz **Fabrika konumları** altında bağlı Fabrika portal görünümünü **yeni Fabrika**.
-
-## <a name="linux-deployment"></a>Linux dağıtımı
+![Windows için Docker yükleyin](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> Bir ağ geçidi cihazı henüz yoksa, Microsoft ticari bir ağ geçidi ortaklarından birinden satın önerir. Ziyaret [Azure IOT cihaz katalog] ağ geçidi aygıtlarını bağlı Fabrika çözümüyle uyumlu bir listesi. Ağ geçidi kurun aygıtla birlikte gelen yönergeleri izleyin. Alternatif olarak, var olan geçitlerinizin birinde el ile ayarlamak için aşağıdaki yönergeleri kullanın.
+> Docker gelen yükledikten sonra da bu adımı gerçekleştirebilirsiniz **ayarları** iletişim. Sağ **Docker** Windows sistem tepsisi simgesi ve **ayarları**.
 
-[Docker yükleme] Linux ağ geçidi cihazınız üzerinde.
+Linux kullanıyorsanız, dosya sistemi erişimi etkinleştirmek için ek yapılandırma gerekir.
 
-### <a name="configure-the-gateway"></a>Ağ geçidini yapılandırma
+Windows, Docker ile paylaşılan sürücü üzerinde bir klasör oluşturun, Linux kök dosya sistemi altında bir klasör oluşturun. Bu klasörü olarak bu kılavuzda başvurduğu `<SharedFolder>`.
 
-1. Gereksinim duyduğunuz **iothubowner** Azure IOT paketi bağlantı dizesi ağ geçidi dağıtımını tamamlamak için Fabrika dağıtım bağlı. İçinde [Azure portal], IOT Hub'ınıza bağlı Fabrika çözümü dağıttığınızda oluşturduğunuz kaynak grubunda gidin. Tıklatın **paylaşılan erişim ilkeleri** erişimi **iothubowner** bağlantı dizesi:
+Ne zaman başvurmak için `<SharedFolder>` Docker komutta, işletim sistemi için doğru söz dizimi kullandığınızdan emin olun. İki örnek, bir Windows ve Linux için bir şunlardır:
 
-    ![IOT Hub bağlantı dizesini bulun][img-hub-connection]
+- Varsa olduğunuz klasörünü kullanarak `D:\shared` Windows, `<SharedFolder>`, Docker komut sözdizimi `//d/shared`.
 
-    Kopya **bağlantı dizesi--birincil anahtar** değeri.
+- Varsa olduğunuz klasörünü kullanarak `/shared` Linux'ta, `<SharedFolder>`, Docker komut sözdizimi `/shared`.
 
-1. İki ağ geçidi modülleri çalıştırarak ağ geçidi için IOT Hub'ınızı yapılandırma **sonra** ile Kabuğu'ndan:
+Daha fazla bilgi için bkz: [birimler kullanmak](https://docs.docker.com/engine/admin/volumes/volumes/) docker altyapısı başvuru.
 
-    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+## <a name="configure-the-opc-components"></a>OPC bileşenlerini yapılandırma
 
-    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+OPC bileşenlerini yüklemeden önce ortamınızı hazırlamak için aşağıdaki adımları tamamlayın:
 
-    * **&lt;ApplicationName&gt;**  ağ geçidi oluşturur biçiminde OPC UA uygulama adı **yayımcı.&lt; tam etki alanı adınızı&gt;**. Örneğin, **publisher.microsoft.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt;**  olan **iothubowner** önceki adımda kopyaladığınız bağlantı dizesi. Bu bağlantı dizesini yalnızca bu adımda kullanılır, aşağıdaki adımlarda gerekmez:
+1. Ağ geçidi dağıtımını tamamlamak için ihtiyacınız **iothubowner** bağlı Fabrika dağıtımınızdaki IOT hub bağlantı dizesi. İçinde [Azure portal](http://portal.azure.com/), IOT Hub'ınıza bağlı Fabrika çözümü dağıttığınızda oluşturduğunuz kaynak grubunda gidin. Tıklatın **paylaşılan erişim ilkeleri** erişimi **iothubowner** bağlantı dizesi:
 
-    Kullandığınız **/ paylaşılan** klasörü ( `-v` bağımsız değişkeni) daha sonra ağ geçidi modülleri kullanan iki X.509 sertifikaları kalıcı hale getirmek için.
+    ![IOT Hub bağlantı dizesini bulun](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
-### <a name="run-the-gateway"></a>Ağ geçidi çalıştırın
+    Kopya **bağlantı dize birincil anahtarı** değeri.
 
-1. Aşağıdaki komutları kullanarak ağ geçidini yeniden başlatın:
+1. Docker kapsayıcıları arasında iletişim sağlamak için bir kullanıcı tarafından tanımlanan köprüsü ağ gerekir. Kapsayıcılarınızı köprüsü ağı oluşturmak için bir komut isteminde aşağıdaki komutları çalıştırın:
 
-    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
+    ```cmd/sh
+    docker network create -d bridge iot_edge
+    ```
 
-    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
+    Doğrulamak için **iot_edge** köprüsü ağ oluşturuldu, aşağıdaki komutu çalıştırın:
 
-1. Güvenlik nedenleriyle, kalıcı hale iki X.509 sertifikalarını **/ paylaşılan** klasör özel anahtarı içerir. Bu klasör, Docker kapsayıcısı çalıştırmak için kullandığınız kimlik bilgilerine erişimi sınırlayın. İzinlerini ayarlamak için **kök** yalnızca kullanın `chmod` kabuk klasörü komutu.
+    ```cmd/sh
+    docker network ls
+    ```
 
-1. Ağ bağlantısını doğrulayın. Komutu bir kabuğundan girin `ping publisher.<your fully qualified domain name>` ağ geçidiniz ping işlemi yapmak için. Hedef ulaşılamaz durumda olduğunda, ağ geçidi, ağ geçidinde hosts dosyasına adını ve IP adresi ekleyin. Hosts dosyasını bulunan **/vb.** klasör.
+    **İot_edge** köprüsü ağ ağ listesinde yer almaktadır.
 
-1. Ardından, ağ geçidinde çalıştıran yerel bir OPC UA istemcisi kullanarak yayımcı bağlanmayı deneyin. URL OPC UA uç nokta `opc.tcp://publisher.<your fully qualified domain name>:62222`. OPC UA istemci yoksa kullanın indirin ve bir [açık kaynak OPC UA istemci].
+OPC yayımcı çalıştırmak için komut isteminde aşağıdaki komutu çalıştırın:
 
-1. Bu yerel testleri başarıyla tamamladıktan sonra Gözat **kendi OPC UA sunucusuna** bağlı Fabrika çözüm portalında sayfası. Yayımcı uç noktasının URL'sini girin (`tcp://publisher.<your fully qualified domain name>:62222`) tıklatıp **Bağlan**. Bir sertifika uyarısı almak, ardından tıklatın **devam et.** Sonraki hata, aldığınız UA Web istemcisi yayımcısına güvendiğinizden değil. Bu hatayı gidermek için kopyalama **UA Web istemcisi** gelen sertifika **/paylaşılan/reddedildi sertifikaları/sertifikaları** klasörüne **/shared/UA uygulamalar/sertifikaları** klasörü ağ geçidi. Ağ geçidi için yeniden başlatmanız gerekmez. Bu adımı yineleyin. Ağ geçidi buluttan şimdi bağlanabilir ve çözüme OPC UA sunucuları eklemek hazırsınız.
+```cmd/sh
+docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/corefx/cryptography/x509stores --network iot_edge --name publisher -h publisher -p 62222:62222 --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-publisher:2.1.3 publisher "<IoTHubOwnerConnectionString>" --lf /docker/publisher.log.txt --as true --si 1 --ms 0 --tm true --vc true --di 30
+```
 
-### <a name="add-your-opc-ua-servers"></a>OPC UA sunucularınızı ekleme
+- [OPC yayımcı GitHub](https://github.com/Azure/iot-edge-opc-publisher) ve [başvuru çalıştırmak docker](https://docs.docker.com/engine/reference/run/) hakkında daha fazla bilgi sağlar:
 
-1. Gözat **kendi OPC UA sunucusuna** bağlı Fabrika çözüm portalında sayfası. Bağlı Fabrika portal OPC UA sunucusu arasında güven oluşturmak için önceki bölümde olduğu gibi aynı adımları izleyin. Bu adım bağlı Fabrika portal ve OPC UA sunucu sertifikaları karşılıklı güven oluşturur ve bir bağlantı oluşturur.
+  - Belirtilen kapsayıcı adı önce docker komut satırı seçenekleri (`microsoft/iot-edge-opc-publisher:2.1.3`).
+  - Belirtilen kapsayıcı adı sonra OPC yayımcı komut satırı parametreleri anlamını (`microsoft/iot-edge-opc-publisher:2.1.3`).
 
-1. OPC UA sunucunuzun OPC UA düğümleri ağaç gidin, OPC düğümleri sağ tıklatın ve seçin **yayımlama**. Bu şekilde çalışmaya yayımlamak için OPC UA sunucusu ve yayımcı, aynı ağ üzerinde olmalıdır. Diğer bir deyişle, tam etki alanı adı, yayımcı ise **publisher.mydomain.com** OPC UA sunucunun tam etki alanı adını, örneğin, bu olmalıdır **myopcuaserver.mydomain.com**. Kurulumunuzu farklıysa, el ile düğümleri bulunan publishesnodes.json dosya ekleyebileceğiniz **/ paylaşılan** klasör. Publishesnodes.json ilk otomatik olarak oluşturulan başarılı bir OPC düğümünün yayımlayın.
+- `<IoTHubOwnerConnectionString>` Olan **iothubowner** paylaşılan erişim ilkesi bağlantı dizesi Azure portalından. Bu bağlantı dizesi bir önceki adımda kopyaladığınız. Yalnızca OPC Publisher'ın ilk çalıştırmak için bu bağlantı dizesi gerekir. Bir güvenlik riski oluşturduğundan sonraki çalışır, bu atlayın.
+
+- `<SharedFolder>` Kullanmanız ve sözdizimi bölümünde açıklanan [yükleyin ve Docker yapılandırma](#install-and-configure-docker). OPC Publisher kullandığı `<SharedFolder>` OPC yayımcı yapılandırma dosyasını okumak, günlük dosyasına yazmak ve hem de bu dosyaları dışında kapsayıcı kullanılabilir.
+
+- OPC yayımcı okur yapılandırmasını **publishednodes.json** koymanız dosya `<SharedFolder>/docker` klasör. Bu yapılandırma dosyası OPC UA düğümü veri OPC yayımcıya abone olmalısınız verilen OPC UA sunucusundaki tanımlar.
+
+- Bir veri değişikliği OPC yayımcısına OPC UA sunucusuna bildirir olduğunda, yeni değer IOT Hub'ına gönderilir. Toplu ayarlara bağlı olarak, öncelikle OPC yayımcı accumulate verileri, veri IOT Hub'ına bir toplu işlemde gönderilmeden önce.
+
+- Tam söz dizimi **publishednodes.json** dosya açıklanmaktadır [OPC yayımcı](https://github.com/Azure/iot-edge-opc-publisher) GitHub sayfasında.
+
+    Aşağıdaki kod parçacığında basit bir örneği gösterilmektedir bir **publishednodes.json** dosya. Bu örnek nasıl yayımlanacağını göstermektedir **CurrentTime** hostname OPC UA sunucusuyla değerinden **win10pc**:
+
+    ```json
+    [
+      {
+        "EndpointUrl": "opc.tcp://win10pc:48010",
+        "OpcNodes": [
+          {
+            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
+          }
+        ]
+      }
+    ]
+    ```
+
+    İçinde **publishednodes.json** dosya, sunucu tarafından uç nokta URL'si belirtilen OPC UA. Bir ana bilgisayar adı etiketi kullanarak ana bilgisayar adı belirtirseniz, (gibi **win10pc**) bir IP adresi yerine önceki örnekte olduğu gibi ağ adresi çözümleme kapsayıcısındaki bir IP adresi bu ana bilgisayar adı etiketi çözümleyebilmesi olmalıdır.
+
+- Docker NetBIOS ad çözümlemesi, yalnızca DNS ad çözümlemesi desteklemez. Ağdaki bir DNS sunucusuna sahip değilseniz, önceki komut satırı örnekte gösterilen geçici çözüm kullanabilirsiniz. Önceki komut satırı örnek kullanır `--add-host` kapsayıcıları hosts dosyasına bir giriş eklemek için parametre. Bu giriş için ana bilgisayar adı aramayı etkinleştirir verilen `<OpcServerHostname>`, verilen IP adresi çözümleme `<IpAddressOfOpcServerHostname>`.
+
+- OPC UA, kimlik doğrulama ve şifreleme için X.509 sertifikaları kullanır. OPC yayımcı sertifikası, OPC yayımcı güvenleri emin olmak için bağlandığınız OPC UA sunucuya yerleştirmeye gerekir. OPC yayımcı sertifika deposunda bulunan `<SharedFolder>/CertificateStores` klasör. OPC yayımcı sertifikası bulabilirsiniz `trusted/certs` klasöründe `CertificateStores` klasörü.
+
+  OPC UA sunucu yapılandırmak için gereken adımları kullandığınız cihazda bağlıdır. Bu adımları genellikle OPC UA sunucunun kullanıcı kılavuzda belirtilmiştir.
+
+OPC Proxy yüklemek için komut isteminde aşağıdaki komutu çalıştırın:
+
+```cmd/sh
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
+```
+
+Yalnızca yükleme bir sistemde bir kez çalıştırmanız gerekir.
+
+OPC Proxy çalıştırmak için aşağıdaki komutu kullanın:
+
+```cmd/sh
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
+```
+
+OPC Proxy bağlantı dizesi yükleme sırasında kaydeder. Sonraki çalışır bir güvenlik riski oluşturduğundan bağlantı dizesi atlayın.
+
+## <a name="enable-your-gateway"></a>Ağ geçidini etkinleştir
+
+Ağ geçidiniz bağlı Fabrika önceden yapılandırılmış çözümde etkinleştirmek için aşağıdaki adımları tamamlayın:
+
+1. Her iki bileşenin çalıştırırken, Gözat **kendi OPC UA sunucusuna** bağlı Fabrika çözüm portalında sayfası. Bu sayfa yalnızca çözümde yöneticiler tarafından kullanılabilir. Yayımcı uç noktasının URL'sini girin (opc.tcp://publisher: 62222) tıklatıp **Bağlan**.
+
+1. OPC yayımcı ve bağlı Fabrika portal arasında bir güven ilişkisi oluşturun. Bir sertifika uyarısı gördüğünüzde, tıklatın **İlerle**. Ardından, OPC yayımcı UA Web istemcisi güvenilir olmayan bir hata görürsünüz. Bu hatayı gidermek için kopyalama **UA Web istemcisi** gelen sertifika `<SharedFolder>/CertificateStores/rejected/certs` klasörüne `<SharedFolder>/CertificateStores/trusted/certs` ağ geçidinde klasör. Ağ geçidi yeniden başlatmanız gerekmez.
+
+Ağ geçidi buluttan şimdi bağlanabilir ve çözüme OPC UA sunucuları eklemek hazırsınız.
+
+## <a name="add-your-own-opc-ua-servers"></a>Kendi OPC UA sunucuları ekleme
+
+Kendi OPC ABD eklemek için çözüm bağlı Fabrika sunucularına önceden yapılandırılmış:
+
+1. Gözat **kendi OPC UA sunucusuna** bağlı Fabrika çözüm portalında sayfası. Bağlı Fabrika portal OPC UA sunucusu arasında bir güven ilişkisi oluşturmak için önceki bölümde olduğu gibi aynı adımları izleyin.
+
+    ![Çözüm portalı](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. OPC UA sunucunuzun OPC UA düğümleri ağacında göz, istediğiniz bağlı Fabrika göndermek ve seçmek için OPC düğümlerinin sağ **yayımlama**.
 
 1. Telemetri şimdi ağ geçidi aygıttan akar. Telemetriyi de görüntüleyebilirsiniz **Fabrika konumları** altında bağlı Fabrika portal görünümünü **yeni Fabrika**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bağlı Fabrika önceden yapılandırılmış çözüm mimarisi hakkında daha fazla bilgi için bkz: [bağlı Fabrika önceden yapılandırılmış çözüm izlenecek][lnk-walkthrough].
+Bağlı Fabrika önceden yapılandırılmış çözüm mimarisi hakkında daha fazla bilgi için bkz: [bağlı Fabrika önceden yapılandırılmış çözüm izlenecek](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
-Hakkında bilgi edinin [OPC yayımcı başvuru uygulaması](iot-suite-connected-factory-publisher.md).
-
-[img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
-[img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png
-[img-docker-share]: ./media/iot-suite-connected-factory-gateway-deployment/image3.png
-
-[Windows için Docker]: https://www.docker.com/docker-windows
-[Azure IOT cihaz katalog]: https://catalog.azureiotsuite.com/?q=opc
-[Azure portal]: http://portal.azure.com/
-[açık kaynak OPC UA istemci]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
-[Docker yükleme]: https://www.docker.com/community-edition#/download
-[lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
-[Azure IOT kenar]: https://github.com/Azure/iot-edge
-
-[lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
-[lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua
-[lnk-proxy-github]: https://github.com/Azure/iot-edge-opc-proxy
-[lnk-proxy-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua-proxy
+Hakkında bilgi edinin [OPC yayımcı başvuru uygulaması](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-connected-factory-publisher).

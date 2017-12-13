@@ -9,22 +9,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Şirket içi VMware Vm'leri için olağanüstü durum kurtarma Azure ayarlama
 
-Bu öğretici, olağanüstü durum kurtarma için Azure şirket içi VMware VM çalıştıran Windows nasıl ayarlanacağını gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğretici Windows çalıştıran Azure olağanüstü durum kurtarma şirket içi VMware Vm'leri için nasıl ayarlanacağını gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Site kurtarma için bir kurtarma Hizmetleri kasası oluşturma
-> * Kaynağı ayarlama ve çoğaltma ortamları hedef
+> * Çoğaltma kaynağını ve hedef belirtin.
+> * Şirket içi Site Recovery bileşenleri de dahil olmak üzere kaynak çoğaltma ortamı ve hedef çoğaltma ortamı ayarlayın.
 > * Çoğaltma ilkesi oluşturma
 > * Bir sanal makine için çoğaltmayı etkinleştirme
 
@@ -35,37 +35,28 @@ Bir dizi üçüncü öğreticide budur. Bu öğreticinin önceki eğitimlerine g
 
 Başlamadan önce için yararlı [mimarisi gözden](concepts-vmware-to-azure-architecture.md) olağanüstü durum kurtarma senaryosuna.
 
-## <a name="configure-vmware-account-permissions"></a>VMware hesap izinlerini yapılandırma
 
-1. Bir rolü vCenter düzeyinde oluşturun. Rol adını verin **Azure_Site_Recovery**.
-2. Aşağıdaki izinleri atamak **Azure_Site_Recovery** rol.
+## <a name="select-a-replication-goal"></a>Çoğaltma hedefi seçin
 
-   **Görev** | **Rol/izinleri** | **Ayrıntılar**
-   --- | --- | ---
-   **VM bulma** | Veri Merkezi Nesne –> Propagate alt nesne için rol = salt okunur | En az bir salt okunur kullanıcı.<br/><br/> Kullanıcı veri merkezi düzeyde atanan ve veri merkezinde tüm nesnelere erişimi vardır.<br/><br/> Erişimi kısıtlamak için Ata **erişim yok** rolüyle **alt Propagate** (vSphere ana bilgisayarları, datastores, sanal makineleri ve ağları) alt nesneleri için nesne.
-   **Tam çoğaltma, yük devretme, yeniden çalışma** |  Veri Merkezi Nesne –> Propagate alt nesne için rol Azure_Site_Recovery =<br/><br/> Veri deposu alanı Ayır ->, veri deposu, alt düzey dosya işlemleri göz atın, dosyayı kaldırmak, sanal makine dosyalarını güncelleştir<br/><br/> Ağ -> Ağ atama<br/><br/> Kaynak VM atamak için kaynak havuzu ->, VM güç beslemeli geçirmek, VM güç beslemeli geçirme<br/><br/> Görevler oluşturma görevi, güncelleştirme görevi -><br/><br/> Sanal Makine Yapılandırma -><br/><br/> Sanal makine -> etkileşimde bulunma yanıt soru, cihaz bağlantısı ->, CD ortamı yapılandırmak, disket ortamı, kapatma, açma, VMware araçları yükleme yapılandırın<br/><br/> Sanal makine -> Stok Oluştur ->, kaydetme, kaydı<br/><br/> Sanal makine sağlama -> izin sanal makine indirme ->, sanal makine dosyalarını karşıya yükleme izin ver<br/><br/> Sanal makine anlık görüntüleri -> Kaldır anlık görüntüleri -> | Kullanıcı veri merkezi düzeyde atanan ve veri merkezinde tüm nesnelere erişimi vardır.<br/><br/> Erişimi kısıtlamak için Ata **erişim yok** rolüyle **alt Propagate** (vSphere ana bilgisayarları, datastores, sanal makineleri ve ağları) alt nesneleri için nesne.
-
-3. VCenter sunucusu veya vSphere ana bilgisayarda bir kullanıcı oluşturun. Kullanıcıya rol atayın.
-
-## <a name="specify-what-you-want-to-replicate"></a>Çoğaltmak istediğiniz belirtin
-
-Mobility hizmetinin çoğaltmak istediğiniz her bir VM üzerinde yüklü olmalıdır. Sanal makine için çoğaltmayı etkinleştirdiğinizde, site kurtarma Bu hizmeti otomatik olarak yüklenir. Otomatik yükleme için Site Recovery VM erişmek için kullanacağı bir hesap hazırlamanız gerekir.
-
-Bir etki alanı veya yerel hesabı kullanabilirsiniz. Linux VM'ler için hesabın kaynak Linux sunucusu kökünde olması gerekir. Windows etki alanı hesabı, yerel makinede uzak kullanıcı erişim denetimi devre dışı bırak kullanmıyorsanız VM'ler için:
-
-  - Kayıt defteri içinde altında **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, DWORD girdisi eklemek **LocalAccountTokenFilterPolicy** ve değerini 1 olarak ayarlayın.
+1. İçinde **kurtarma Hizmetleri kasaları**, kasa adını tıklatın **ContosoVMVault**.
+2. İçinde **Başlarken**, Site Kurtarma'yı tıklatın. Ardından **altyapıyı hazırlama**.
+3. İçinde **koruma hedefi** > **bulunan makinelerinizi nerede**seçin **şirket içi**.
+4. İçinde ** istediğiniz makinelerinizi çoğaltmak seçin **için Azure**.
+5. İçinde **sanallaştırılmış, makine**seçin **Evet, VMware vSphere hiper yönetici ile**. Daha sonra, **Tamam**'a tıklayın.
 
 ## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
-Kaynak ortamını ayarlama, Site Recovery Kurulumu birleşik karşıdan yükleme, yapılandırma sunucusu kurma ve kasaya kaydetmeyi ve VM'ler keşfetme oluşur.
+Kaynak ortamı ayarlamak için Site Recovery birleşik Kurulumu dosyasını indirin. Şirket içi Site Recovery bileşenlerini yüklemek, VMware sunucuları kasaya kaydetmek ve şirket içi sanal makineleri bulmak için Kurulumu çalıştırın.
 
-Yapılandırma, tek bir VMware VM'ın tüm Site Recovery bileşenlerini barındırmak için şirket içi sunucusudur. Bu VM yapılandırması sunucu, işlem sunucusu ve ana hedef sunucusunda çalışır.
+### <a name="verify-on-premises-site-recovery-requirements"></a>Şirket içi Site kurtarma gereksinimlerini doğrulayın
+
+Ana bilgisayar şirket içi Site Recovery bileşenleri için tek, yüksek oranda kullanılabilir, şirket içi VMware VM gerekir. Yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu bileşenleri içerir.
 
 - Yapılandırma sunucusu yerinde bileşenler ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir.
-- İşlem sunucusu çoğaltma ağ geçidi olarak davranır. Çoğaltma verilerini alıp bu verileri önbelleğe alma, sıkıştırma ve şifreleme işlemleriyle iyileştirir ve Azure depolama alanına gönderir. İşlem sunucusu çoğaltmak istediğiniz sanal makinelerin de Mobility hizmeti yükler ve sanal makineleri otomatik olarak bulmayı şirket içi VMware sunucularda gerçekleştirir.
+- İşlem sunucusu çoğaltma ağ geçidi olarak davranır. Çoğaltma verilerini alıp bu verileri önbelleğe alma, sıkıştırma ve şifreleme işlemleriyle iyileştirir ve Azure depolama alanına gönderir. İşlem sunucusu çoğaltmak istediğiniz sanal makinelerin de Mobility hizmeti yükler ve şirket içi VMware vm'lerinin otomatik bulma işlemini gerçekleştirir.
 - Ana hedef sunucusu azure'dan yeniden çalışma sırasında çoğaltma verilerini işler.
 
-Yapılandırma sunucusu VM aşağıdaki gereksinimleri karşıladığından yüksek oranda kullanılabilir bir VMware VM olmalıdır:
+VM aşağıdaki gereksinimleri karşılaması.
 
 | **Gereksinim** | **Ayrıntılar** |
 |-----------------|-------------|
@@ -82,30 +73,25 @@ Yapılandırma sunucusu VM aşağıdaki gereksinimleri karşıladığından yük
 | IP adresi türü | Statik |
 | Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br/>9443 (Veri aktarımı)|
 
-Yapılandırma sunucusunda VM sistem saati bir saat sunucusuyla eşitlendiğinden emin olun.
-Saat 15 dakika içinde eşitlenmelidir. Zaman farkı 15 dakikadan fazla ise, kurulum başarısız olur.
+Buna ek olarak: 
+- VM üzerindeki sistem saatinin bir saat sunucusuyla eşitlendiğinden emin olun. Saat 15 dakika içinde eşitlenmelidir. Büyük olan kurulum başarısız olur.
+Kurulum başarısız olur.
+- Yapılandırma sunucusu VM bu URL'leri erişebildiğinden emin olun:
 
-Yapılandırma sunucusu bu URL'leri erişebildiğinden emin olun:
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - Herhangi bir IP adresi tabanlı güvenlik duvarı kuralı Azure ile iletişim kurmaya izin vermelidir.
-
-- [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'na ve HTTPS (443) bağlantı noktasına izin verin.
+- IP adresi tabanlı güvenlik duvarı kuralları Azure ile iletişim kurmaya izin verdiğinden emin olun.
+    - İzin [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)443 (HTTPS) bağlantı noktası ve 9443 (veri çoğaltma) bağlantı noktası.
     - IP adres aralıklarını aboneliğinizin Azure bölgesi ve Batı ABD (erişim denetimi ve kimlik yönetimi için kullanılan) izin verir.
 
-Herhangi bir IP adresi tabanlı güvenlik duvarı kuralı iletişimi sağlamalıdır [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)ve bağlantı noktası 443 (HTTPS) ve 9443 (veri çoğaltma). IP adres aralıklarını aboneliğinizin Azure bölgesi ve Batı ABD (erişim denetimi ve kimlik yönetimi için kullanılan) izin verecek şekilde emin olun.
 
-### <a name="download-the-site-recovery-unified-setup"></a>Karşıdan yükleme sitesini kurtarma birleşik Kurulumu
+### <a name="download-the-site-recovery-unified-setup-file"></a>Site Recovery birleşik Kurulumu dosyasını indirin
 
-1. Açık [Azure portal](https://portal.azure.com) ve tıklayın **tüm kaynakları**.
-2. Adlı kurtarma hizmeti kasaya tıklayın **ContosoVMVault**.
-3. Tıklatın **Site Recovery** > **altyapıyı hazırlama** > **koruma hedefi**.
-4. Seçin **şirket içi** makinelerinizi bulunduğu için **için Azure** makinelerinizi çoğaltmak istediğiniz için ve **Evet, VMware vSphere hiper yönetici ile**. Ardından **Tamam**.
-5. Prepare kaynak bölmesinde **+ yapılandırma sunucusu**.
-6. İçinde **Sunucu Ekle**, denetleyin **yapılandırma sunucusu** görünür **sunucu türü**.
-7. Site Recovery birleşik Kurulumu yükleme dosyasını indirin.
-8. Kasa kayıt anahtarını indir Birleşik Kurulum'u çalıştırdığınızda bu gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
+1. Kasadaki > **altyapıyı hazırlama**, tıklatın **kaynak**.
+1. İçinde **kaynağı**, tıklatın **+ yapılandırma sunucusu**.
+2. İçinde **Sunucu Ekle**, denetleyin **yapılandırma sunucusu** görünür **sunucu türü**.
+3. Site Recovery birleşik Kurulumu yükleme dosyasını indirin.
+4. Kasa kayıt anahtarını indir Birleşik Kurulum'u çalıştırdığınızda bu gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
    ![Kaynağı ayarlama](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -146,9 +132,11 @@ Herhangi bir IP adresi tabanlı güvenlik duvarı kuralı iletişimi sağlamalı
 
 ### <a name="configure-automatic-discovery"></a>Otomatik bulma yapılandırma
 
-Vm'leri bulma şirket içi VMware sunucularına bağlanmak yapılandırma sunucusu gerekir. Bu öğreticinin amaçları doğrultusunda vCenter sunucusu veya vSphere ana bilgisayarları, sunucu üzerinde yönetici ayrıcalıklarına sahip bir hesabı kullanarak ekleyin.
+Vm'leri bulma şirket içi VMware sunucularına bağlanmak yapılandırma sunucusu gerekir. Bu öğreticinin amaçları doğrultusunda vCenter sunucusu veya vSphere ana bilgisayarları, sunucu üzerinde yönetici ayrıcalıklarına sahip bir hesabı kullanarak ekleyin. Bu hesap içinde oluşturduğunuz [önceki Öğreticisi](tutorial-prepare-on-premises-vmware.md). 
 
-1. Yapılandırma sunucunuzda başlatma **CSPSConfigtool.exe**. Masaüstünde kısayol olarak bulunur ve *yükleme konumu*\home\svsystems\bin klasöründedir.
+Hesap eklemek için:
+
+1. Yapılandırma sunucusunda VM başlatma **CSPSConfigtool.exe**. Masaüstünde kısayol olarak bulunur ve *yükleme konumu*\home\svsystems\bin klasöründedir.
 
 2. **Hesapları Yönet** > **Hesap Ekle**’ye tıklayın.
 
@@ -158,12 +146,12 @@ Vm'leri bulma şirket içi VMware sunucularına bağlanmak yapılandırma sunucu
 
    ![Ayrıntılar](./media/tutorial-vmware-to-azure/credentials2.png)
 
-Bir sunucu eklemek için:
+VMware server eklemek için:
 
 1. Açık [Azure portal](https://portal.azure.com) ve tıklayın **tüm kaynakları**.
 2. Adlı kurtarma hizmeti kasaya tıklayın **ContosoVMVault**.
 3. Tıklatın **Site kurtarma** > **altyapıyı hazırlama** > **kaynağı**
-4. Seçin **+ vCenter** bir vCenter sunucusu veya vSphere ESXi ana bilgisayara bağlanmak için.
+4. Seçin **+ vCenter**, bir vCenter sunucusu veya vSphere ESXi ana bilgisayara bağlanmak için.
 5. İçinde **vCenter ekleme**, sunucu için kolay bir ad belirtin. Ardından, IP adresi veya FQDN belirtin.
 6. Bağlantı noktası 443'e ayarlayın, VMware sunucularınızın farklı bir bağlantı noktası isteklerini dinlemek sürece bırakın.
 7. Sunucuya bağlanmak için kullanılacak hesabı seçin. **Tamam** düğmesine tıklayın.

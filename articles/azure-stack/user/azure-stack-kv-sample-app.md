@@ -3,8 +3,8 @@ title: "Azure yığın anahtar kasası parolaları almak uygulama izin | Microso
 description: "Azure yığın anahtar kasası ile çalışmak için örnek bir uygulama kullanın"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
-ms.author: sngun
-ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 50103dca21d047c5cee211b2250e750739131bc1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Anahtarlar ve gizli anahtar kasasında depolanan kullanan örnek uygulama
 
@@ -132,7 +132,7 @@ Not **VaultUrl**, **AuthClientId**, ve **AuthClientSecret** önceki komut dosyas
 
 ## <a name="download-and-run-the-sample-application"></a>Karşıdan yükleme ve örnek uygulamayı çalıştırma
 
-Azure anahtar kasası örnek indirme [anahtar kasası istemci örnekleri](https://www.microsoft.com/en-us/download/details.aspx?id=45343) sayfası. Geliştirme iş istasyonunuzu üzerine .zip dosyasının içeriğini ayıklayın. İki örnek örnekleri klasördeki vardır. Bu konuda HellpKeyVault örnek kullanırız. Gözat **Microsoft.Azure.KeyVault.Samples** > **örnekleri** > **HelloKeyVault** klasörü ve açık HelloKeyVault uygulama Visual Studio'da. 
+Azure anahtar kasası örnek indirme [anahtar kasası istemci örnekleri](https://www.microsoft.com/en-us/download/details.aspx?id=45343) sayfası. Geliştirme iş istasyonunuzu üzerine .zip dosyasının içeriğini ayıklayın. İki örnek örnekleri klasördeki vardır. Bu makalede HellpKeyVault örnek kullanırız. Gözat **Microsoft.Azure.KeyVault.Samples** > **örnekleri** > **HelloKeyVault** klasörü ve açık HelloKeyVault uygulama Visual Studio'da. 
 
 HelloKeyVault\App.config dosyasını açın ve değerlerini değiştirmek <appSettings> öğeyle **VaultUrl**, **AuthClientId**, ve **AuthClientSecret** değerleri önceki komut dosyası tarafından döndürülen. Varsayılan olarak için bir yer tutucu App.config içerdiğine dikkat edin *AuthCertThumbprint*, ancak *AuthClientSecret* yerine. Ayarları değiştirdikten sonra çözümü yeniden derleyin ve uygulamayı başlatın.
 

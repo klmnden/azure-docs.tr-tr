@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB .NET SDK'sını & kaynakları | Microsoft Docs"
-description: ".NET API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB .NET SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
+title: "Azure Cosmos DB: SQL .NET API, SDK & kaynakları | Microsoft Docs"
+description: "SQL .NET API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB .NET SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee6d649ac1ab0813098b13750ccc1f6ebf82f684
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d68079e2bbf12f50eb74b0d2d2c5b17ddb42d28d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK'sı: İndirme ve sürüm notları
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SQL API için Azure Cosmos DB .NET SDK: indirme ve sürüm notları
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET değişiklik besleme](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/18/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -86,7 +88,7 @@ ms.lasthandoff: 11/18/2017
 *   Örnek oluşturma sırasında özel JsonSerializerSettings belirtmek için destek eklenmiştir [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet).
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   X64 etkilenen bir sorun sabit olmayan SSE4 yönerge destekleyen ve bir SEHException Azure Cosmos DB DocumentDB API sorgu çalıştırırken throw makineler.
+*   X64 etkilenen bir sorun sabit olmayan SSE4 yönerge destekleyen ve bir SEHException Azure Cosmos DB SQL sorgu çalıştırırken throw makineler.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   Yeni bir tutarlılık düzeyi için destek eklendi ConsistentPrefix çağrılır.
@@ -273,7 +275,7 @@ Kullanımdan Kaldırılan SDK kullanarak Azure Cosmos DB yapılan tüm isteklere
 
 <br/>
 
-| Sürüm | Sürüm tarihi | Sona erme tarihi |
+| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [1.19.1](#1.19.1) |16 Kasım 2017 |--- |
 | [1.19.0](#1.19.0) |10 Kasım 2017 |--- |

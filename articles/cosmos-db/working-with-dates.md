@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: b6a77e33eea24000037ffb31d7aae3cb1d345ce9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB tarihleri ile çalışma
 Azure Cosmos DB sunar şema esnekliği ve zengin bir yerel dizin oluşturma [JSON](http://www.json.org) veri modeli. Veritabanları, koleksiyonlar, belgeler ve saklı yordamları da dahil olmak üzere tüm Azure Cosmos DB kaynakları modellenir ve JSON belgeleri olarak depolanır. Olma taşınabilir bir zorunluluk, JSON (ve Azure Cosmos DB) temel türleri, yalnızca küçük bir kümesini destekler: dize, sayı, Boole değeri, dizi, nesne ve Null. Ancak, JSON esnektir ve geliştiriciler ve çerçeveleri nesneleri veya dizi oluşturma ve bu temelleri kullanarak daha karmaşık türleri temsil eden kullanmasına olanak tanır. 
@@ -75,7 +75,7 @@ Aralık sorguları içeren DateTime değerleri yaygındır. Örneğin, dünden b
 Dizin oluşturma ilkeleri yapılandırma hakkında daha fazla bilgi edinebilirsiniz [Azure Cosmos DB dizin oluşturma ilkeleri](indexing-policies.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Tarih/saat LINQ sorgulama
-DocumentDB .NET SDK'yı otomatik olarak LINQ aracılığıyla Azure Cosmos veritabanında depolanan verileri Sorgulama destekler. Örneğin, aşağıdaki kod parçacığını bir LINQ Sorgu son üç günde sevk edilen bu filtreler siparişleri gösterir.
+LINQ aracılığıyla Azure Cosmos veritabanında depolanan verileri Sorgulama SQL .NET SDK'yı otomatik olarak destekler. Örneğin, aşağıdaki kod parçacığını bir LINQ Sorgu son üç günde sevk edilen bu filtreler siparişleri gösterir.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
@@ -89,5 +89,5 @@ Bu makalede, nasıl depolamak, dizin ve tarih/saat Azure Cosmos veritabanı sorg
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * İndirme ve çalıştırma [github'daki kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Daha fazla bilgi edinmek [DocumentDB API sorgusu](documentdb-sql-query.md)
+* Daha fazla bilgi edinmek [SQL sorguları](documentdb-sql-query.md)
 * Daha fazla bilgi edinmek [Azure Cosmos DB dizin oluşturma ilkeleri](indexing-policies.md)

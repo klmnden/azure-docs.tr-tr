@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 6ea45c40bc428282faf24b4a08f8b0d345adb3fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>SQL veri ambarı veritabanında güvenli
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Bir kullanıcının Azure SQL Veritabanında yapabileceklerini sınırlamak içi
 * [Veritabanı rolleri] [ Database roles] dışında db_datareader ve db_datawriter daha güçlü uygulama kullanıcı hesaplarını veya daha az güçlü yönetim hesaplarını oluşturmak için kullanılabilir. Yerleşik sabit veritabanı rollerinin izinlerini vermek için kolay bir yol sağlar, ancak gerekenden daha fazla izin verme neden olabilir.
 * [Saklı yordamlar] [ Stored procedures] veritabanı üzerinde gerçekleştirilecek eylemler sınırlamak için kullanılabilir.
 
-Veritabanlarını ve mantıksal sunucuları Klasik Azure Portalından veya Azure Resource Manager API kullanarak yönetmek, portalınızın kullanıcı hesabına atanan roller tarafından denetlenir. Bu konu hakkında daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi][Role-based access control in Azure Portal].
+Veritabanları ve mantıksal sunucuları Azure portalından yönetmek veya Azure Resource Manager API'sini kullanarak portal kullanıcı hesabınızın rol atamalarını tarafından denetlenir. Bu konu hakkında daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi][Role-based access control in Azure Portal].
 
 ## <a name="encryption"></a>Şifreleme
 Azure SQL veri ambarı saydam veri şifreleme (TDE'nin) gerçek zamanlı şifreleme ve şifre çözme REST verilerinizin gerçekleştirerek kötü amaçlı etkinliği tehdide karşı korunmasına yardımcı olur.  Veritabanınızı şifrelerken, ilişkili yedeklemeler ve işlem günlüğü dosyalarını uygulamalarınızın herhangi bir değişiklik gerektirmeden şifrelenir. TDE, veritabanının tamamını Depolama veritabanı şifreleme anahtarını adlı bir simetrik anahtar kullanarak şifreler. SQL veritabanında veritabanı şifreleme anahtarını bir yerleşik bir sunucu sertifikası tarafından korunur. Yerleşik bir sunucu sertifikası her SQL veritabanı sunucusu için benzersizdir. Microsoft, bu sertifikalar otomatik olarak en az 90 günde döndürür. SQL veri ambarı tarafından kullanılan şifreleme algoritması AES-256'dır. TDE genel bir açıklaması için bkz [saydam veri şifreleme][Transparent Data Encryption].

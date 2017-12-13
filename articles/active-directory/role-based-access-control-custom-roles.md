@@ -4,7 +4,7 @@ description: "Azure aboneliğinizde daha kesin kimlik yönetimi için Azure rol 
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bb671e1870ae22eb515adc36ce0235e1d8ecddd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için özel roller oluşturma
 Yerleşik roller hiçbiri belirli erişim gereksinimlerinizi karşılıyorsa özel bir rol Azure rol tabanlı erişim denetimi (RBAC) oluşturun. Özel roller kullanılarak oluşturulabilir [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure komut satırı arabirimi](role-based-access-control-manage-access-azure-cli.md) (CLI) ve [REST API](role-based-access-control-manage-access-rest.md). Yalnızca yerleşik roller gibi kullanıcılar, gruplar ve uygulamalar abonelik, kaynak grubu ve kaynak kapsamları özel roller atayabilirsiniz. Özel roller Azure AD kiracısı içinde depolanır ve abonelikler arasında paylaşılabilir.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 33685152c7e7cb1d066661d85a018d30c25442dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd60026cad9246da8eba141125aebf061ecf7e9d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics içinde sorgu paralelleştirme yararlanın
 Bu makalede Azure akış analizi paralelleştirme yararlanmak nasıl gösterir. Giriş bölümlerini yapılandırma ve analizi sorgu tanımı ayarlama Stream Analytics işlerini ölçeklendirme öğrenin.
@@ -33,18 +33,18 @@ Bir işi veri akış için en az bir giriş kaynağı gerektirir. Veri akışı 
 ## <a name="partitions-in-sources-and-sinks"></a>Kaynakları ve havuzlarını bölümleri
 Akış analizi işi ölçeklendirme giriş veya çıkış bölüm yararlanır. Bir bölüm anahtarına göre alt kümeleri veri bölmek sağlar bölümleme. (Örneğin, bir akış analizi işine) veri tüketen bir işlem kullanabilir ve verimliliğini artırır paralel olarak farklı bölümleri yazma. 
 
-### <a name="inputs"></a>Girişleri
+### <a name="inputs"></a>Girişler
 Tüm Azure Stream Analytics giriş bölümleme yararlanabilirsiniz:
 -   EventHub (bölüm anahtarı açıkça ayarlamak için gereklidir)
 -   IOT hub'ı (bölüm anahtarı açıkça ayarlamak için gereklidir)
 -   Blob depolama
 
-### <a name="outputs"></a>Çıkışları
+### <a name="outputs"></a>Çıkışlar
 
 Akış Analizi ile çalışırken, çıktılarında bölümleme yararlanabilirsiniz:
 -   Azure Data Lake Storage
 -   Azure İşlevleri
--   Azure tablo
+-   Azure Tablosu
 -   Blob depolama
 -   CosmosDB (bölüm anahtarı açıkça ayarlamak için gereklidir)
 -   EventHub (bölüm anahtarı açıkça ayarlamak için gereklidir)
@@ -241,7 +241,6 @@ Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

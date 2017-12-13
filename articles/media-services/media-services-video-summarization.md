@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5d5afdaf22ffea8f3b77a154acb5d0a8dda74405
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Video özetleme oluşturmak için Azure medya Video küçük resimleri kullanın
 ## <a name="overview"></a>Genel Bakış
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 **Azure medya Video küçük** MP şu anda önizlemede.
 
-Bu konu hakkında ayrıntılar verir **Azure medya Video küçük** ve Media Services SDK'sı ile .NET için nasıl kullanılacağını gösterir.
+Bu makalede, ilgili ayrıntıları verir **Azure medya Video küçük** ve Media Services SDK'sı ile .NET için nasıl kullanılacağını gösterir.
 
 ## <a name="limitations"></a>Sınırlamalar
 
@@ -77,7 +77,7 @@ Aşağıdaki JSON kullanılabilir parametreleri ayarlar.
 Aşağıdaki program gösterir nasıl yapılır:
 
 1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
-2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir video küçük resim görevini içeren bir işi oluşturur. 
+2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir video küçük resim görevini içeren bir iş oluşturur: 
    
         {                
             "version": "1.0",
@@ -109,16 +109,24 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
         {
             // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
 
             static void Main(string[] args)
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);

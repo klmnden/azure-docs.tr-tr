@@ -4,7 +4,7 @@ description: "Sık sorulan sorular ve yanıtlar Azure çok faktörlü kimlik do�
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 4532cbab7f727e71908d5a2da43a11351f7aeeb3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması hakkında sık sorulan sorular
 Bu SSS, Azure multi-Factor Authentication ve çok faktörlü kimlik doğrulama hizmeti kullanma hakkında sık sorulan soruları yanıtlar. Bu hizmet hakkında sorular içine genel olarak, modelleri, kullanıcı deneyimleri, faturalama ve sorun giderme ayrılmıştır.
