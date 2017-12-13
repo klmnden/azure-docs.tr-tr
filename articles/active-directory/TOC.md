@@ -219,7 +219,6 @@
 ### [HRD İlkesi'ni kullanarak Oturum Açma için Otomatik Hızlandırmayı Yapılandırma](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
-#### [Self servis erişimi](active-directory-self-service-application-access.md)
 #### [SSO erişimi](active-directory-appssoaccess-whatis.md)
 #### [SSO için sertifikalar](active-directory-sso-certs.md)
 #### [Kiracı kısıtlamaları](active-directory-tenant-restrictions.md)
@@ -281,11 +280,12 @@
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Denetimler](active-directory-conditional-access-controls.md)
-#### [Başlarken](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kullanmaya Başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
+#### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
 #### Görevler
-##### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
+##### [Klasik MFA ilkesini geçirme](active-directory-conditional-access-migration-mfa.md)
 ##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Uygulama tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-mam.md)
 ##### [Kullanıcılar ve uygulamalar için kullanım koşullarını sağlayın](active-directory-tou.md)
