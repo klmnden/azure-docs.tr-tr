@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 80e797c1b53d62b08c3c7fce99ec961fe26f1f4c
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Azure portalını kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -52,25 +52,18 @@ Azure portalı küme özelliklerinin çoğu kullanıma sunar. Azure Resource Man
 
     * Gelen **abonelik** açılan listesinde, küme için kullanılacak Azure aboneliğini seçin.
 
-    * Tıklatın **küme türü**ve ardından seçin:
-   
-        * **Küme Türü**: Neyi seçeceğinizi bilmiyorsanız **Hadoop** seçeneğini belirleyin. En popüler küme türü budur.
+    * Tıklatın **küme türü**ve ardından türünü seçin, oluşturmak istediğiniz küme (Hadoop, Spark, vb.). İçin **işletim sistemi**, tıklatın **Linux** ve bir sürümü seçin. Neyi seçeceğinizi bilmiyorsanız varsayılan sürümü kullanın. Daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
      
-            > [!IMPORTANT]
-            > Hdınsight kümeleri gelen iş yükü veya küme için ayarlanmış teknoloji karşılık türleri çeşitli. Bir küme üzerinde Storm ve HBase gibi birden çok tür birleştiren bir küme oluşturmak için desteklenen yöntem yoktur. 
-            > 
-            > 
+        > [!IMPORTANT]
+        > Hdınsight kümeleri gelen iş yükü veya küme için ayarlanmış teknoloji karşılık türleri çeşitli. Bir küme üzerinde Storm ve HBase gibi birden çok tür birleştiren bir küme oluşturmak için desteklenen yöntem yoktur. 
+        > 
+        > 
         
-        * **İşletim Sistemi**: **Linux** seçeneğini belirleyin.
-        
-        * **Sürüm**: Neyi seçeceğinizi bilmiyorsanız varsayılan sürümü kullanın. Daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
-        
-
     * İçin **küme oturum açma kullanıcı** ve **küme oturum açma parolasını**, yönetici kullanıcı için kullanıcı adı ve parola sağlayın.
 
     * Girin bir **SSH kullanıcı adı** ve daha önce belirtilen yönetici parolasına aynı, select SSH parolası sahip olmak istiyorsanız **küme oturum açma aynı parolayı kullanın** onay kutusu. Değilse, ya da sağlayan bir **parola** veya **ortak anahtar**, SSH kullanıcısının kimliğini doğrulayacak. Ortak anahtar kullanılması önerilen yaklaşımdır. Alt kısımdaki **Seç**’e tıklayarak kimlik bilgileri yapılandırmasını kaydedin.
    
-        Bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     * İçin **kaynak grubu**, yeni bir kaynak grubu oluşturmak veya mevcut bir kullanmak isteyip istemediğinizi belirtin.
 

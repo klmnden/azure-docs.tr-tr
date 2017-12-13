@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 1b8010876a46999d9cfcefc8c3bf537c7a1deb4e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6247e5a9b3438b45c1694ee3b21d3891faa325a9
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) sorunlarını giderme
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -101,6 +101,9 @@ Kullanıcı hesabı rolünüz gerekli izinlere sahip olup olmadığını belirle
 4. İçinde **kaynak sağlayıcısı** listesinde **Microsoft Authorization**. 
     * **Rol ataması** olmalıdır **okuma** ve **yazma** izinleri.
     * **Rol tanımı** olmalıdır **okuma** ve **yazma** izinleri.
+
+<a id="server-endpoint-createjobfailed"></a>**Sunucu uç noktası oluşturma başarısız olur, bu hata: "MgmtServerJobFailed" (hata kodu:-2134375898)**                                                                                                                           
+Sunucu bitiş noktası yolu sistem birimi ve bulut üzerinde ise bu sorun oluşur katmanlama etkindir. Bulut katmanlandırma sistem biriminde desteklenmiyor. Sistem biriminde sunucusu uç noktası oluşturmak için bulut sunucusu uç noktası oluşturulurken katmanlama devre dışı bırakın.
 
 <a id="server-endpoint-deletejobexpired"></a>**Sunucu uç noktasını silme başarısız olursa bu hata: "MgmtServerJobExpired"**                
 Sunucu çevrimdışı veya ağ bağlantısı yok, bu sorun oluşur. Sunucu artık kullanılabilir değilse, sunucunun hangi sunucu uç noktalarını siler portalında kaydını silin. Sunucu uç noktalarını silmek için açıklanan adımları izleyin [Azure dosya eşitleme sahip bir sunucu kaydını](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: a3593611c7a2467de1c1639f8b5c6b0eb6f1ecbf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD cloud App Discovery ayarlayın
 
@@ -79,6 +79,7 @@ Cloud App Discovery rapor başarıyla oluşturmak için trafik günlüklerinizi 
 * Barracuda - Web uygulaması Güvenlik Duvarı'nı (W3C)
 * Blue Coat Proxy SG - erişim günlüğü (W3C)
 * Denetim Noktası
+* Cisco ASA FirePOWER
 * Cisco ASA Güvenlik Duvarı'nı (Cisco ASA için güvenlik duvarları, ayarlayın bilgi düzeyi 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe

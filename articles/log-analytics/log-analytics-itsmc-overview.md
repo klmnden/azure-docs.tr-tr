@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>ITSM iş öğelerini BT Hizmet Yönetimi Bağlayıcısı (Önizleme) kullanarak merkezi olarak yönetme
 
@@ -106,10 +106,10 @@ ServiceDeskWorkItemType_s "Olay" =
 - Kategori
 - Başlık
 - Açıklama
-- Oluşturulma tarihi
+- Oluşturulduğu Tarihi
 - Kapatılma tarihi
 - Çözümlenme tarihi
-- Son değiştirilme tarihi
+- Son Değişiklik Tarihi
 - Bilgisayar
 
 
@@ -132,12 +132,12 @@ ServiceDeskWorkItemType_s "ChangeRequest" =
 - Çakışma durumu
 - Aciliyet
 - Öncelik
-- Riski
+- Risk
 - Etki
 - Atanan
-- Oluşturulma tarihi
+- Oluşturulduğu Tarihi
 - Kapatılma tarihi
-- Son değiştirilme tarihi
+- Son Değişiklik Tarihi
 - İstenen tarih
 - Planlanan başlangıç tarihi
 - Planlanan bitiş tarihi
@@ -164,7 +164,7 @@ ServiceDeskWorkItemType_s "ChangeRequest" =
 | Title_s|  Kısa açıklama |
 | Description_s|  Notlar |
 | CreatedDate_t|  Açıldı |
-| ClosedDate_t| Kapalı|
+| ClosedDate_t| kapalı|
 | ResolvedDate_t|Çözümlendi|
 | Bilgisayar  | Yapılandırma öğesi |
 
@@ -182,7 +182,7 @@ ServiceDeskWorkItemType_s "ChangeRequest" =
 | CRState_s|  Durum|
 | Urgency_s|  Aciliyet |
 | Priority_s| Öncelik|
-| Risk_s| Riski|
+| Risk_s| Risk|
 | Impact_s| Etki|
 | RequestedDate_t  | Tarihe göre istendi |
 | ClosedDate_t | Kapatılma tarihi |
@@ -292,9 +292,11 @@ Azure uyarı kuralı oluşturma/düzenleme yaparken ITSM eylemi olan bir eylem g
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>OMS ITSM bağlantı sorunlarını giderme
 1.  Bağlantılı kaynağın kullanıcı Arabirimi ile gelen bağlantı başarısız olursa bir **bağlantı kaydetmede hata** iletisi, aşağıdaki adımları uygulayın:
- - ServiceNow, Cherwell ve Provance bağlantıları için-doğru girdiğiniz kullanıcı adı, parola, istemci kimliği ve istemci parolası bağlantıların her biri için emin olun.
-        -karşılık gelen ITSM üründe bağlantıyı kurmak için yeterli ayrıcalıklara sahip olmadığını denetleyin.
- - Service Manager bağlantılarında-Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturulur emin olun. Şirket içi Service Manager makineyle bağlantı kuran başarıyla doğrulamak için Web uygulaması URL'si yapma belgelerindeki ayrıntılı olarak ziyaret [karma bağlantı](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+ - ServiceNow, Cherwell ve Provance bağlantıları için  
+        -doğru girdiğiniz kullanıcı adı, parola, istemci kimliği ve istemci parolası bağlantıların her biri için emin olun.  
+        -karşılık gelen ITSM üründe bağlantıyı kurmak için yeterli ayrıcalıklara sahip olmadığını denetleyin.  
+ - Service Manager bağlantılarında  
+        -Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturulur emin olun. Şirket içi Service Manager makineyle bağlantı kuran başarıyla doğrulamak için Web uygulaması URL'si yapma belgelerindeki ayrıntılı olarak ziyaret [karma bağlantı](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  ServiceNow verileri için günlük analizi eşitlenmedi, örneği değil uykuda ServiceNow emin olun. ServiceNow geliştirme örnekleri bazen boştayken uzun bir süre için uyku moduna gidin. Aksi takdirde, sorunu bildirin.
 3.  OMS uyarıları yangın ancak iş öğeleri ITSM üründe oluşturulmamış veya yapılandırma öğeleri oluşturulan/iş öğeleri veya herhangi diğer genel bilgi için aşağıdaki konumlarda aramak için bağlı değil:

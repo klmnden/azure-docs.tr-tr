@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ec1b9868ca94392cd00875ef2913d4c14a608110
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Veri kopyalama/Dynamics 365 / Dynamics CRM Azure Data Factory kullanma
 
@@ -46,7 +46,7 @@ Dynamics 365 özellikle, aşağıdaki uygulama türleri desteklenir:
 - Dynamics 365 pazarlama
 
 > [!NOTE]
-> Dynamics bağlayıcıyı kullanmak için Azure anahtar kasası parolanızı depolamak ve veri kopyalama gerçekleştirirken ADF kopyalama etkinliklere çekme buradan sağlar. Bkz. yapılandırmak [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü.
+> Dynamics bağlayıcıyı kullanmak için Azure anahtar kasası parolanızı depolayın ve buradan kopyalama etkinliklere çekme veri kopyalama gerçekleştirirken sağlar. Bkz. yapılandırmak [bağlantılı hizmet özellikleri](#linked-service-properties) bölümü.
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -322,7 +322,7 @@ Dynamics verileri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın.
 
 Dynamics veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Dynamics veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
 
-Veri kümesi yapısında, Dynamics veri kaynağına göre karşılık gelen ADF veri türünü yapılandırmak aşağıdaki eşleme tabloyu kullanarak yazın:
+Veri kümesi yapısında, Dynamics veri kaynağına göre karşılık gelen Data Factory veri türünü yapılandırmak aşağıdaki eşleme tabloyu kullanarak yazın:
 
 | Dynamics veri türü | Veri Fabrikası geçici veri türü | Kaynak olarak desteklenen | Havuzu olarak desteklenir |
 |:--- |:--- |:--- |:--- |

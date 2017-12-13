@@ -1,9 +1,9 @@
 ---
-title: "Azure Cosmos DB: ' % s'documentdb API .NET geliştirme | Microsoft Docs"
-description: ".NET kullanarak Azure Cosmos veritabanı DocumentDB API'si ile geliştirmeyi öğrenin"
+title: "Azure Cosmos DB: .NET içinde SQL API geliştirme | Microsoft Docs"
+description: ".NET kullanarak Azure Cosmos veritabanı SQL API'si ile geliştirmeyi öğrenin"
 services: cosmos-db
 documentationcenter: 
-author: mimig1
+author: rafats
 manager: jhubbard
 editor: 
 tags: 
@@ -14,21 +14,23 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 106eaa1eb64dffd6c8362b13b4edb6452d536965
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9209d815cadcb3abfacdc765c503851ba63863bc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="azure-cosmosdb-develop-with-the-documentdb-api-in-net"></a>Azure CosmosDB: ' % s'documentdb API .NET geliştirin
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: .NET içinde SQL API geliştirin
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu öğreticide Azure portalını kullanarak bir Azure Cosmos DB hesabı oluşturmak ve bir belge veritabanı ve koleksiyonu oluşturmak nasıl gösteren bir [bölüm anahtarı](documentdb-partition-data.md#partition-keys) kullanarak [DocumentDB .NET API](documentdb-introduction.md). Bir koleksiyon oluşturduğunuzda bir bölüm anahtarı tanımlayarak, uygulamanızın verilerinizi büyüdükçe harcamadan ölçeklendirmek için hazırlanır. 
+Bu öğreticide Azure portalını kullanarak bir Azure Cosmos DB hesabı oluşturmak ve bir belge veritabanı ve koleksiyonu oluşturmak nasıl gösteren bir [bölüm anahtarı](documentdb-partition-data.md#partition-keys) kullanarak [SQL .NET API](documentdb-introduction.md). Bir koleksiyon oluşturduğunuzda bir bölüm anahtarı tanımlayarak, uygulamanızın verilerinizi büyüdükçe harcamadan ölçeklendirmek için hazırlanır. 
 
-Bu öğretici kullanarak aşağıdaki görevleri kapsar [DocumentDB .NET API](documentdb-sdk-dotnet.md):
+Bu öğretici kullanarak aşağıdaki görevleri kapsar [SQL .NET API](documentdb-sdk-dotnet.md):
 
 > [!div class="checklist"]
 > * Azure Cosmos DB hesabı oluşturma
@@ -79,7 +81,7 @@ Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.
     Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
 
 ## <a id="Connect"></a>Başvuruları projenize ekleme
-Bu öğreticide kalan adımlar oluşturmak ve Azure Cosmos DB kaynakları projenize güncelleştirmek için gereken DocumentDB API kod parçacıkları sağlar.
+Bu öğreticide kalan adımlar oluşturmak ve Azure Cosmos DB kaynakları projenize güncelleştirmek için gereken SQL API kod parçacıkları sağlar.
 
 İlk olarak, uygulamanız bu başvurular ekleyin.
 <!---These aren't added by default when you install the pkg?--->
@@ -119,7 +121,7 @@ DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 
 ## <a id="create-database"></a>Bir veritabanı oluşturun
 
-Ardından, bir Azure Cosmos DB Oluştur [veritabanı](documentdb-resources.md#databases) kullanarak [Documentclient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) yöntemi veya [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemi  **DocumentClient** sınıfıyla [DocumentDB .NET SDK'sı](documentdb-sdk-dotnet.md). Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
+Ardından, bir Azure Cosmos DB Oluştur [veritabanı](documentdb-resources.md#databases) kullanarak [Documentclient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) yöntemi veya [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemi  **DocumentClient** sınıfıyla [SQL .NET SDK'sı](documentdb-sdk-dotnet.md). Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
@@ -259,7 +261,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Paralel sorgu yürütme
-Azure Cosmos DB DocumentDB SDK'ları 1.9.0 ve hatta bunlar çok sayıda bölüm touch gerektiğinde bölümlenmiş koleksiyonlar, düşük gecikme süresi sorguları gerçekleştirmesine izin destek paralel sorgu yürütme seçenekleri üstünde. Örneğin, aşağıdaki sorguyu bölümler paralel olarak çalıştırmak için yapılandırılır.
+Azure Cosmos DB SQL SDK 1.9.0 ve hatta bunlar çok sayıda bölüm touch gerektiğinde bölümlenmiş koleksiyonlar, düşük gecikme süresi sorguları gerçekleştirmesine izin destek paralel sorgu yürütme seçenekleri üstünde. Örneğin, aşağıdaki sorguyu bölümler paralel olarak çalıştırmak için yapılandırılır.
 
 ```csharp
 // Cross-partition Order By queries
@@ -275,7 +277,7 @@ Aşağıdaki parametreleri ayarlama tarafından paralel sorgu yürütme yöneteb
 * Ayarlayarak `MaxDegreeOfParallelism`, yani, en fazla eşzamanlı ağ bağlantı sayısı koleksiyonunun bölümlere paralellik derecesini kontrol edebilirsiniz. Bu ayar, -1 olarak paralellik derecesini SDK tarafından yönetilir. Varsa `MaxDegreeOfParallelism` varsayılan değer, belirtilen veya ayarlanmış 0 değil, tek bir ağ bağlantısı koleksiyonunun bölümlere olacaktır.
 * Ayarlayarak `MaxBufferedItemCount`, sorgu gecikme süresi ve istemci tarafı bellek kullanımı devre dışı ticari. Bu parametreyi veya bu ayarlarsanız -1 olarak paralel sorgu yürütme sırasında arabelleğe alınan öğe sayısı SDK tarafından yönetilir.
 
-Koleksiyon aynı durumu verildiğinde, paralel sorgu sonuçları seri yürütme olduğu gibi aynı sırada döndürür. Sıralama (ORDER BY ve/veya üst) içeren bir çapraz bölüm sorgusu gerçekleştirirken, DocumentDB SDK'sı paralel sorguda bölümler sorunları ve genel olarak sipariş edilen sonuçlar için istemci tarafı kısmen sıralanmış sonuçları birleştirir.
+Koleksiyon aynı durumu verildiğinde, paralel sorgu sonuçları seri yürütme olduğu gibi aynı sırada döndürür. Sıralama (ORDER BY ve/veya üst) içeren bir çapraz bölüm sorgusu gerçekleştirirken, SQL SDK'sı paralel sorguda bölümler sorunları ve genel olarak sipariş edilen sonuçlar için istemci tarafı kısmen sıralanmış sonuçları birleştirir.
 
 ## <a name="execute-stored-procedures"></a>Saklı yordam yürütme
 Son olarak, aynı aygıt kimliği belgelerle karşı atomik işlemleri örneğin yürütebilir, toplamalar veya bir cihazı tek bir belgenin en son durumunu projenize aşağıdaki kodu ekleyerek koruma durumunda.

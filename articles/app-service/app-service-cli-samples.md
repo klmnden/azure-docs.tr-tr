@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 03/08/2017
+ms.date: 12/12/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8e6adf0c4b8273facce609c9e162969cdd2afaaa
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: fdc5e03350783fb8c3e30b6c9a40af45a5925ba8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cli-samples"></a>Azure CLI örnekleri
 
@@ -29,6 +29,7 @@ Aşağıdaki tabloda Azure CLI kullanarak oluşturulan komut dosyalarını bash 
 | | |
 |-|-|
 |**Uygulama oluşturma**||
+| [Bir web uygulaması oluşturma ve FTP dosyalarıyla dağıtma](./scripts/app-service-cli-deploy-ftp.md?toc=%2fcli%2fazure%2ftoc.json)| Azure web uygulaması oluşturur ve bir dosya FTP kullanarak dağıtır. |
 | [GitHub’dan web uygulaması oluşturma ve kod dağıtma](./scripts/app-service-cli-deploy-github.md?toc=%2fcli%2fazure%2ftoc.json)| Azure web uygulaması oluşturur ve genel bir GitHub depo koddan dağıtır. |
 | [GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma](./scripts/app-service-cli-continuous-deployment-github.md?toc=%2fcli%2fazure%2ftoc.json)| Sahip olduğunuz bir GitHub depodan sürekli yayımlama ile bir Azure web uygulaması oluşturur. |
 | [Yerel Git deposundan web uygulaması oluşturma ve kod dağıtma](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json) | Azure web uygulaması oluşturur ve kodun bir yerel Git deposundan yapılandırır. |

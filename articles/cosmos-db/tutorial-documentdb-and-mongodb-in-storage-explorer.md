@@ -1,10 +1,10 @@
 ---
 title: "Azure Storage Gezgini DB Azure Cosmos yönetme"
 description: "Azure Storage Gezgini Azure Cosmos DB'de yönetmeyi öğrenin."
-Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li
-ms.openlocfilehash: fc7d9494ddce127cb402d756f5fb03f21c5d3e8c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: Jejiang
+ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Azure Depolama Gezgini (Önizleme) Azure Cosmos DB yönetme
 
-Azure Storage Gezgini Azure Cosmos DB kullanarak kullanıcıların Azure Cosmos DB varlıkları yönetme, verileri işlemek, saklı yordamları ve Tetikleyicileri depolama bloblar ve kuyruklarda olduğu gibi Azure diğer varlıklar yanı sıra güncelleştirme olanak tanır. Şimdi tek bir yerde farklı Azure varlıklarınızı yönetmek için aynı aracı kullanabilirsiniz. Şu anda Azure Storage Gezgini SQL (DocumentDB) ve MongoDB hesaplarını destekler.
+Azure Storage Gezgini Azure Cosmos DB kullanarak kullanıcıların Azure Cosmos DB varlıkları yönetme, verileri işlemek, saklı yordamları ve Tetikleyicileri depolama bloblar ve kuyruklarda olduğu gibi Azure diğer varlıklar yanı sıra güncelleştirme olanak tanır. Şimdi tek bir yerde farklı Azure varlıklarınızı yönetmek için aynı aracı kullanabilirsiniz. Şu anda Azure Storage Gezgini SQL ve MongoDB hesaplarını destekler. Azure Storage Gezgini Azure Cosmos DB yerel öykünücü ile çalışmaz. 
 
 Bu makalede, Depolama Gezgini Azure Cosmos DB yönetmek için nasıl kullanılacağını öğrenebilirsiniz.
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bir SQL (DocumentDB) veya MongoDB veritabanı için bir Azure Cosmos DB hesap. Bir hesabınız yoksa, bir Azure Portalı'nda açıklandığı gibi oluşturabilirsiniz [Azure Cosmos DB: .NET ve Azure portal ile bir DocumentDB API web uygulaması oluşturma](create-documentdb-dotnet.md).
+MongoDB API ve SQL API'yi için bir Azure Cosmos DB hesap. Bir hesabınız yoksa, bir Azure Portalı'nda açıklandığı gibi oluşturabilirsiniz [Azure Cosmos DB: .NET ve Azure portal ile bir SQL API web uygulaması oluşturma](create-documentdb-dotnet.md).
 
 ## <a name="installation"></a>Yükleme
 

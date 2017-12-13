@@ -12,6 +12,8 @@
 # Nasıl yapılır?
 ## Şablon oluşturma
 ### [Şablon bölümleri](resource-group-authoring-templates.md)
+#### [Parametreler](resource-manager-templates-parameters.md)
+#### [Değişkenler](resource-manager-templates-variables.md)
 ### [Şablonlar için en iyi uygulamalar](resource-manager-template-best-practices.md)
 ### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)

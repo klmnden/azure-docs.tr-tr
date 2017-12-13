@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8aec171b46df3e0e7f2a2d3cc9d44084d064e6fd
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Son dakika haberleri göndermek için Notification Hubs kullanma
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -207,7 +207,7 @@ Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çal
 Uygulamayı şimdi kategorileri kümesi uygulama başlattığında bildirim hub'ınızla kaydolmak için kullanılan aygıt yerel depolama alanına depolar.  Kullanıcı kategorileri çalışma zamanı ve tıklatın seçimini değiştirebilir **abone** yöntemi cihazın kaydını güncelleştirin. Ardından, uygulama kendisini doğrudan son dakika haberi bildirimleri göndermek için uygulamayı güncelleştirir.
 
 ## <a name="optional-sending-tagged-notifications"></a>(isteğe bağlı) Etiketli bildirimleri gönderme
-Visual Studio erişimi yoksa, sonraki bölüme geçin ve uygulamasından bildirimleri gönderin. Uygun şablon bildirimden da gönderebilirsiniz [Klasik Azure portalı] bildirim hub'ınız için hata ayıklama sekmesini kullanarak. 
+Visual Studio erişimi yoksa, sonraki bölüme geçin ve uygulamasından bildirimleri gönderin. Uygun şablon bildirimden da gönderebilirsiniz [Azure portal] bildirim hub'ınız için hata ayıklama sekmesini kullanarak. 
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -331,4 +331,4 @@ Bu öğreticide biz kategoriye göre son dakika haberleri yayın öğrendiniz. D
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
-[Klasik Azure portalı]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com

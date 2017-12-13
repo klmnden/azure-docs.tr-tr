@@ -5,7 +5,7 @@
 
 3. **Yeni hesap** dikey penceresinde, Azure Cosmos DB hesabı için istenen yapılandırmayı belirtin. 
 
-    Azure Cosmos DB'de dört programlama modelinden birini seçebilirsiniz: Gremlin (grafik), MongoDB, SQL (DocumentDB) ve Tablo (anahtar-değer). 
+    Azure Cosmos DB ile dört programlama modeli birini seçebilirsiniz: Gremlin (grafiği), MongoDB, SQL ve tablosu (anahtar-değer). 
        
     Bu hızlı başlangıçta MongoDB API'si ile programlama yapacağımız için formu doldururken **MongoDB** seçeneğini belirleyin. Ancak bir sosyal medya uygulaması için grafik verileriniz, bir katalog uygulamasından belge verileriniz veya anahtar/değer (tablo) verileriniz varsa Azure Cosmos DB'nin tüm görev açısından kritik uygulamalarınız için yüksek oranda kullanılabilir ve genel olarak dağıtılmış bir veritabanı hizmeti platformu sunacağını unutmayın.
 

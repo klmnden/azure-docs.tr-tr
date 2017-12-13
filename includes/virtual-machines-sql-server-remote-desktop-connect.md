@@ -1,3 +1,4 @@
+
 1. Azure sanal makinesi oluşturulup çalıştırıldıktan sonra VM'lerinizi görüntülemek için Azure portalında Sanal Makineler simgesine tıklayın.
 
 1. Yeni VM’niz için üç noktaya **...** tıklayın.

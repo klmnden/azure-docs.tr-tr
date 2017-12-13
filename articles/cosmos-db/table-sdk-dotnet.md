@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablo .NET API: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/20/2017
 |**Geçerli desteklenen çerçevelerden**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 > [!IMPORTANT]
-> Önizleme sırasında bir tablo API hesabı oluşturduysanız, lütfen oluşturun bir [yeni tablo API hesabı](create-table-dotnet.md#create-a-database-account) genel olarak kullanılabilir tablo API SDK'ları ile çalışmak için.
+> Önizleme sırasında bir Tablo API hesabı oluşturduysanız, genel kullanıma açık Tablo API SDK’ları ile çalışmak için lütfen [yeni Tablo API hesabı](create-table-dotnet.md#create-a-database-account) oluşturun.
 >
 
 ## <a name="release-notes"></a>Sürüm notları
@@ -45,20 +45,22 @@ ms.lasthandoff: 11/20/2017
 * Genel kullanılabilirlik sürümü
 
 ### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-Preview
-* İlk önizleme sürümü
+* İlk önizleme yayını
 
 ## <a name="release-and-retirement-dates"></a>Yayın ve sona erme tarihleri
 Microsoft'un sağladığı bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
+
+[WindowsAzure.Storage PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) Önizleme paketini kullanım ve değiştirilmiştir [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) paket. WindowsAzure.Storage PremiumTable SDK'sı 15 Kasım 2018 kullanımdan kaldırılır, hangi zaman isteklerini en Çekildi SDK değil izin verilir.
 
 Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yalnızca eklenir, bu nedenle, her zaman en son SDK sürüme erken mümkün olduğunca yükseltmeniz önerilir. 
 
 Kullanımdan Kaldırılan SDK kullanarak Azure Cosmos DB yapılan tüm isteklere hizmet tarafından reddedilir.
 <br/>
 
-| Sürüm | Sürüm tarihi | Sona erme tarihi |
+| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 Kasım 2017|--- |
-| [0.9.0-Preview](#0.1.0-preview) |11 Kasım 2017 |--- |
+| [0.9.0-Preview](#0.9.0-preview) |11 Kasım 2017 |--- |
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

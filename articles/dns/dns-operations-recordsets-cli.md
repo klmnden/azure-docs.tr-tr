@@ -3,7 +3,7 @@ title: "Azure CLI 2.0 kullanan Azure DNS'de DNS kayıtlarını yönetme | Micros
 description: "DNS kayıt kümelerini ve Azure DNS kayıtlarını Azure DNS'nin etki alanınızda barındırdığında yönetme. Kayıt kümelerini ve kayıtları işlemleri için tüm CLI 2.0 komutları."
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,29 +13,21 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
-ms.author: subsarma
-ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: kumud
+ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>DNS kayıtlarını ve kayıt kümeleri Azure CLI 2.0 kullanan Azure DNS'de yönetme
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Bu makalede, platformlar arası Azure komut satırı arabirimi (Windows, Mac ve Linux için kullanılabilir olan CLI) 2.0 kullanarak DNS bölgenizi için DNS kayıtlarını yönetme gösterilmektedir. DNS kayıtlarınızı kullanarak da yönetebilirsiniz [Azure PowerShell](dns-operations-recordsets.md) veya [Azure portal](dns-operations-recordsets-portal.md).
-
-## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri
-
-Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
-
-* [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI'mız.
-* [Azure CLI 2.0](dns-operations-recordsets-cli.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız.
 
 Bu makaledeki örneklerde, zaten sahip varsayılmaktadır [, oturum açan Azure CLI 2.0 yüklü ve bir DNS bölgesi oluşturulan](dns-operations-dnszones-cli.md).
 

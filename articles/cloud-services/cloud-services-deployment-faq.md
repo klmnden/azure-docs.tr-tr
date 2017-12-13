@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için dağıtım sorunlarını: sık sorulan sorular (SSS)
 
@@ -75,3 +75,8 @@ Bulut hizmeti ile Azure Resource Manager modeli doğrudan uyumlu olmayan bir Kla
 
     Bu gelen çalışır [Azure portal](https://portal.azure.com) gibi bir proxy/Azure Resource Manager ve klasik kaynaklar arasında iletişime izin veren dolgusu çağrı geçer. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Azure portal neden dağıtımı için bir depolama hesabı sağlayın gerektiriyor mu? 
+
+Klasik Portalı'ndaki paketi yönetim API katmanı doğrudan yüklendi, ve ardından API katmanı geçici olarak paketi bir iç depolama dikkate alın.  Bu işlem, API katmanı dosyası yükleme hizmeti tasarlanmadığı için performans ve ölçeklenebilirlik sorunlarının neden olur.  Azure portalında (Resource Manager dağıtım modeli) daha hızlı ve daha güvenilir dağıtımlarda kaynaklanan biz ilk API katmana karşıya ara adım atlanır. 
+
+Maliyet için çok küçük olursa ve aynı depolama hesabındaki tüm dağıtımlar arasında yeniden kullanabilirsiniz. Kullanabileceğiniz [depolama maliyeti hesaplayıcı](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) (CSPKG) hizmet paketini karşıya yüklemek için maliyet belirlemek için CSPKG karşıdan yükleyin, ardından CSPKG silin. 

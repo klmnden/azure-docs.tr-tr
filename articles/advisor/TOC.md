@@ -11,7 +11,8 @@
 ## [Danışman’ı kullanmaya başlama](advisor-get-started.md)
 
 # Başvuru
-## [REST](https://docs.microsoft.com/rest/api/advisor)
+## [REST API](https://docs.microsoft.com/rest/api/advisor)
+## [CLI](https://docs.microsoft.com/cli/azure/advisor)
 
 # İlgili
 ## [Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/)

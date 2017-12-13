@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI betik örnek - bir web uygulaması Cosmos Veritabanına bağlanın | Microsoft Docs"
-description: "Azure CLI betik örnek - bir web uygulaması Cosmos Veritabanına bağlanın"
+title: "Azure CLI betik örnek - MongoDB (Cosmos DB) bir web uygulamasını bağlama | Microsoft Docs"
+description: "Azure CLI betik örnek - MongoDB (Cosmos DB) bir web uygulamasını bağlama"
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -13,26 +13,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 06/19/2017
+ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a59e0512308a85248a10a24c5951984040bedbcc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 67f5f392e360c03c231e0657d453a1df33ffee52
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connect-a-web-app-to-cosmos-db"></a>Bir web uygulaması Cosmos Veritabanına bağlanın
 
-Bu senaryoda, bir Azure Cosmos DB hesap ve bir Azure web uygulamasına nasıl oluşturulacağını öğreneceksiniz. Daha sonra uygulama ayarları kullanarak web uygulaması Cosmos DB bağlantı içerir.
-
+Bu örnek betik, MongoDB API ve Azure web uygulaması ile bir Azure Cosmos DB hesabı oluşturur. Uygulama ayarları kullanarak web uygulaması MongoDB bağlantı dizesi sonra bağlar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Yüklemek ve CLI yerel olarak kullanmak seçerseniz, 2.0 veya üstü Azure CLI sürüm gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
@@ -42,16 +40,16 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı i
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyasını bir kaynak grubu, web uygulaması Cosmos DB oluşturmak için aşağıdaki komutları kullanır ve ilişkili tüm kaynakları. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut, bir kaynak grubu, web uygulaması, Cosmos DB ve tüm ilgili kaynaklar oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az uygulama hizmeti planı oluşturma](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | App Service planı oluşturur. Bu, Azure web uygulamanız için bir sunucu grubu gibidir. |
-| [az webapp oluşturma](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Azure web uygulaması oluşturur. |
-| [az cosmosdb oluşturma](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Cosmos DB hesabı oluşturur. Veri depolanacağı budur. |
-| [az cosmosdb listesi anahtarlar](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_keys) | Belirtilen Cosmos DB hesabı için erişim anahtarlarını listeler. |
-| [az webapp config appsettings ayarlama](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) | Oluşturur veya bir Azure web uygulaması için bir uygulama ayarı güncelleştirir. Uygulama ayarları uygulamanız için ortam değişkenleri olarak sunulur. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | App Service planı oluşturur. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Azure web uygulaması oluşturur. |
+| [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) | Cosmos DB hesabı oluşturur. |
+| [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_connection_strings) | Belirtilen Cosmos DB hesap için bağlantı dizelerini listeler. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) | Oluşturur veya bir Azure web uygulaması için bir uygulama ayarı güncelleştirir. Uygulama ayarları uygulamanız için ortam değişkenleri olarak sunulur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

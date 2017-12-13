@@ -13,13 +13,13 @@ ms.devlang: c#
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 09b146740413e74e3030bf3a6cb660a3cfabd239
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d9dfd856a95d0b1f925487f4ca9d27e617093405
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Bağlı Fabrika çözüm OPC UA sunucularınızdan veri biçimini Özelleştir
 
@@ -48,7 +48,7 @@ Bağlı Fabrika çözüm çözüme bağlı OPC UA sunuculardan verileri görünt
 
 Pano çözümünüzde bağlı OPC UA sunucu gönderebilir veri öğelerini göz atabilirsiniz:
 
-1. Gidin **OPC UA sunucuyu seçin** görünümü:
+1. Seçin **tarayıcı** gitmek için **OPC UA sunucuyu seçin** görünümü:
 
     ![OPC UA sunucu görünümü seçin gidin][img-select-server]
 
@@ -57,7 +57,7 @@ Pano çözümünüzde bağlı OPC UA sunucu gönderebilir veri öğelerini göz 
     > [!NOTE]
     > Bu uyarı yalnızca bir kez her sunucu için görünür ve çözüm panosu ve sunucu arasında bir güven ilişkisi oluşturur.
 
-1. Sunucu çözüme gönderebilirsiniz veri öğelerini gözatabilirsiniz. Çözüme gönderilen öğeleri yeşil bir onay işareti vardır:
+1. Sunucu çözüme gönderebilirsiniz veri öğelerini gözatabilirsiniz. Çözüme gönderilen öğeleri bir onay işareti bulunur:
 
     ![Yayımlanan öğeler][img-published]
 
@@ -65,7 +65,7 @@ Pano çözümünüzde bağlı OPC UA sunucu gönderebilir veri öğelerini göz 
 
 ## <a name="map-the-data"></a>Verileri eşleme
 
-Bağlı Fabrika çözüm eşler ve çeşitli görünümlere çözümdeki OPC UA sunucudan yayımlanan veri öğelerini toplar. Bir çözüm sağladığınızda Azure hesabınıza bağlı Fabrika çözümü dağıtır. Visual Studio bağlı Fabrika çözümü JSON dosyasında bu eşleme bilgilerini depolar. Görüntüleyin ve bu bağlantılı Fabrika Visual Studio çözümü JSON yapılandırma dosyasında değiştirin. Değişikliği yaptıktan sonra çözümü yeniden dağıtabilirsiniz.
+Bağlı Fabrika çözüm eşler ve çeşitli görünümlere çözümdeki OPC UA sunucudan yayımlanan veri öğelerini toplar. Bir çözüm sağladığınızda Azure hesabınıza bağlı Fabrika çözümü dağıtır. Visual Studio bağlı Fabrika çözüm JSON dosyasında bu eşleme bilgilerini depolar. Görüntüleyin ve bu bağlantılı Fabrika Visual Studio çözümü JSON yapılandırma dosyasında değiştirin. Değişikliği yaptıktan sonra çözümü yeniden dağıtabilirsiniz.
 
 Yapılandırma dosyası kullanabilirsiniz:
 

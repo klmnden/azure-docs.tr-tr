@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0b6afcad6f838170d83f90a2cef8ccab0e2cfc9a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve Hdınsight ile kullanılabilir sürümlerini nelerdir?
 
@@ -77,7 +77,7 @@ Bkz: [Hdınsight sürüm notları](hdinsight-release-notes.md) Hdınsight'in en 
 Aşağıdaki tabloda Azure portalında şu anda kullanılabilir Hdınsight sürümleri listelenmiştir. Her Hdınsight sürümüne karşılık gelen HDP sürümleri ürün sürüm tarihleri ile birlikte listelenir. Bilinen zaman destek sona erme ve sona erme tarihleri de sağlanır.
 
 > [!NOTE]
-> Bir sürümünün süresi doldu için destek sonra Microsoft Azure Klasik Portalı aracılığıyla kullanılamayabilir. Ancak, küme sürümlerindeki kullanılabilir kullanarak devam `Version` Windows PowerShell parametresinde [yeni AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) komut ve sona erme tarihi sürüm kadar .NET SDK'sı.
+> Bir sürümünün süresi doldu için destek sonra Microsoft Azure Portalı aracılığıyla kullanılamayabilir. Ancak, küme sürümlerindeki kullanılabilir kullanarak devam `Version` Windows PowerShell parametresinde [yeni AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) komut ve sona erme tarihi sürüm kadar .NET SDK'sı.
 > 
 > İki baş düğümler ile yüksek oranda kullanılabilir küme Hdınsight sürüm 2.1 ve üzeri için varsayılan olarak dağıtılır. Hdınsight sürüm 1.6 kümeler için kullanılamaz.
 
@@ -186,7 +186,7 @@ Aşağıdaki tabloda, Hdınsight Premium içinde desteklenen küme türleri list
 | HBase |Evet |Hayır |
 | Storm |Evet |Hayır |
 | R Server |Evet |Hayır |
-| Etkileşimli sorgu |Evet |Hayır |
+| Interactive Query |Evet |Hayır |
 | Kafka (Önizleme) |Evet |Hayır | 
 
 ### <a name="support-for-azure-data-lake-store-in-hdinsight-premium"></a>Hdınsight Premium, Azure Data Lake Store desteği
@@ -206,28 +206,28 @@ Aşağıdaki tablolar, Hdınsight kümeleri için varsayılan sanal makine (VM) 
 
 * Desteklenen tüm bölgeler Brezilya Güney ve Japonya Batı dışında:
 
-  | Küme türü | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: varsayılan VM boyutu |D3 v2 |D3 v2 |A3 |D12 v2 |D12 v2 |
-  | HEAD: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Çalışan: varsayılan VM boyutu |D3 v2 |D3 v2 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Çalışan: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | ZooKeeper: varsayılan VM boyutu | |A3 |A2 | | |
-  | ZooKeeper: VM boyutları önerilir | |A3, A4, A5 |A2, A3, A4 | | |
-  | Edge: varsayılan VM boyutu | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Kenar: VM boyutu önerilir | | | | |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Küme türü | Hadoop | HBase | Interactive Query | Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: varsayılan VM boyutu |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
+  | HEAD: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | Çalışan: varsayılan VM boyutu |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
+  | Çalışan: VM boyutları önerilir |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: varsayılan VM boyutu | |A3 | |A2 | | |
+  | ZooKeeper: VM boyutları önerilir | |A3, A4, A5 | | A2, A3, A4 | | |
+  | Edge: varsayılan VM boyutu | | | | | |Windows: D12 v2; Linux: D4 v2 |
+  | Kenar: VM boyutu önerilir | | | | | |Windows: D12 v2 D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brezilya Güney ve yalnızca Japonya Batı (v2 boyutları):
 
-  | Küme türü | Hadoop | HBase | Storm | Spark | R Server |
-  | --- | --- | --- | --- | --- | --- |
-  | HEAD: varsayılan VM boyutu |D3 |D3 |A3 |D12 |D12 |
-  | HEAD: VM boyutları önerilir |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Çalışan: varsayılan VM boyutu |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Çalışan: VM boyutları önerilir |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
-  | ZooKeeper: varsayılan VM boyutu | |A2 |A2 | | |
-  | ZooKeeper: VM boyutları önerilir | |A2, A3, A4 |A2, A3, A4 | | |
-  | Edge: varsayılan VM boyutları | | | | |Windows: D12; Linux: D4 |
-  | Edge: VM boyutları önerilir | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Küme türü | Hadoop | HBase | Interactive Query |Storm | Spark | R Server |
+  | --- | --- | --- | --- | --- | --- | --- |
+  | HEAD: varsayılan VM boyutu |D3 |D3  | D13, D14 |A3 |D12 |D12 |
+  | HEAD: VM boyutları önerilir |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
+  | Çalışan: varsayılan VM boyutu |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
+  | Çalışan: VM boyutları önerilir |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | ZooKeeper: varsayılan VM boyutu | |A2 | | A2 | | |
+  | ZooKeeper: VM boyutları önerilir | |A2, A3, A4 | |A2, A3, A4 | | |
+  | Edge: varsayılan VM boyutları | | | | | |Windows: D12; Linux: D4 |
+  | Edge: VM boyutları önerilir | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
 
 > [!NOTE]
 > - HEAD olarak bilinir *Nimbus* Storm için küme türü.

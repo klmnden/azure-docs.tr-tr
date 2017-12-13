@@ -1,24 +1,16 @@
 ---
 title: "Bulmak ve şirket içi VMware VM'ler Azure ile Azure geçirmek için geçiş için değerlendirmek | Microsoft Docs"
 description: "Bulmak ve şirket içi VMware VM'ler Azure geçiş hizmetini kullanarak azure'a, geçiş için değerlendirmek açıklar."
-services: migration-planner
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: a2521630-730f-4d8b-b298-e459abdced46
-ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/06/2017
+ms.service: azure-migrate
+ms.topic: tutorial
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 448dda89623ca2a1e8de86773c1d6a50e708c151
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: c090605619afbaa1302932cbf9e73dbe52f5573b
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Bul ve şirket içi VMware sanal makineleri geçiş için Azure değerlendirin
 

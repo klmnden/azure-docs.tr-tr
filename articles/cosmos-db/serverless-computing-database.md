@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure işlevleri kullanarak sunucusuz veritabanı hesaplama
 
@@ -44,7 +44,7 @@ Azure Cosmos DB tetikleyici, giriş bağlama ve çıktı bağlama aşağıdaki b
 * Bir giriş bağlaması bir Azure Cosmos DB kapsayıcısına bir Azure Cosmos DB tetikleyicisi aynı işlevi kullanılabilir ve ile ya da bağlama çıktısı olmadan kullanılabilir. Bu birleşim güncel para birimi exchange bilgilerini (bir giriş bağlaması bir exchange kapsayıcısına oturum çekilen) uygulamak için yeni siparişler değişiklik akışına alışveriş sepeti hizmetinizi kullanabilirsiniz. Güncelleştirilmiş alışveriş sepeti toplam geçerli para birimi dönüştürme uygulanan bir çıktı bağlama kullanarak üçüncü bir kapsayıcıya yazılabilir.
 
 > [!NOTE]
-> Şu anda Azure Cosmos DB tetikleyici, giriş bağlamaları ve çıktı bağlamaları yalnızca DocumentDB, tablo ve grafik API'si hesaplarıyla çalışır.
+> Şu anda Azure Cosmos DB tetikleyici, giriş bağlamaları ve çıktı bağlamaları yalnızca SQL API ve grafik API'si hesaplarıyla çalışır.
 
 ## <a name="use-cases"></a>Uygulama alanları
 
@@ -86,14 +86,14 @@ Aşağıdaki görüntüler bu senaryo için Azure portalında kodu gösterir.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Oyun - Azure Cosmos DB tetikleyici kullanım ve bağlama çıkış
 
-Yeni bir kullanıcı oluşturulduğunda, oyunlar, bunları kullanarak biliyor olabilirsiniz diğer kullanıcıların arayabilirsiniz [Azure Cosmos DB grafik API'sini](graph-introduction.md). Sonra sonuçları yazabilirsiniz bir [Azure Cosmos DB tablosu veritabanı](table-introduction.md) kolay alınamayabilir.
+Yeni bir kullanıcı oluşturulduğunda, oyunlar, bunları kullanarak biliyor olabilirsiniz diğer kullanıcıların arayabilirsiniz [Azure Cosmos DB grafik API'sini](graph-introduction.md). [Azure Cosmos DB SQL veritabanına] kolay alma için sonuçları sonra yazabilirsiniz.
 
 **Uygulama:** Azure Cosmos DB tetikleyici ve bir çıkış bağlama kullanın
 
 1. Bir Azure Cosmos DB kullanarak [grafik veritabanı](graph-introduction.md) tüm kullanıcılar depolamak için bir Azure Cosmos DB tetikleyicisi ile yeni bir işlev oluşturabilirsiniz. 
 2. Yeni bir kullanıcı eklenir, işlevi çağrılır ve sonuç kullanılarak depolandığını her bir **bağlama çıktı**.
 3. İşlev, yeni bir kullanıcıya doğrudan ilişkili olan ve bu veri kümesi işlevi için döndürür tüm kullanıcıları aramak için grafik veritabanını sorgular.
-4. Bu veriler daha sonra bir Azure Cosmos DB'de depolanır [tablo veritabanı](table-introduction.md) sonra kolayca yeni kullanıcı bağlı arkadaşlarının gösteren ön uç uygulama tarafından alınabilir çiftleri anahtar-değer kümesi olarak.
+4. Bu veriler daha sonra daha sonra kolayca yeni kullanıcı bağlı arkadaşlarının gösteren ön uç uygulama tarafından alınabilmesi için bir Azure Cosmos DB depolanır.
 
 ### <a name="retail-use-case---multiple-functions"></a>Perakende kullanım örneği - birden çok işlevi
 

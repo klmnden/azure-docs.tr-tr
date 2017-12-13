@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/07/2017
+ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: fb55bbce55ba2f75ec6c8e89693799d697d64030
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: fe5d2ca6fe5327f40adf134e94cf9b00ad98d243
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app"></a>Bir web uygulaması için zamanlanmış yedekleme oluşturmak
 

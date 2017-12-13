@@ -4,11 +4,11 @@ hide_bc: True
 title: Microsoft Azure Belgeleri
 description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 featureFlags: clicktale
-ms.openlocfilehash: a29b9dcc1c31cb577306fb544013a89b2d958fee
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4cc932ca2dcdad16f4b1b7cfc2494eec0ccf18b3
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -229,11 +229,15 @@ ms.lasthandoff: 12/07/2017
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_vs-team-services.svg" alt=""> Azure’a dağıtma </a>
+                                                            <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt=""> Azure’a dağıtma </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt=""> Azure VM’lerinde Jenkins </a>
+                                                        <a class="barLink" href="/azure/jenkins">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt=""> Jenkins </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="barLink" href="/azure/terraform">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_terraform.svg" alt=""> Terraform </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -987,7 +991,7 @@ ms.lasthandoff: 12/07/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
                                                 <p>Azure Konum Tabanlı Hizmetler</p>
                                             </a>
@@ -2853,7 +2857,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+                                <a href="https://docs.microsoft.com/azure/location-based-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3224,7 +3228,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                 </a>
                             </li>
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                <a href="/azure/active-directory/develop">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4102,7 +4106,7 @@ Azure CLI </h3>
                                                     <a href="https://www.visualstudio.com/vs/azure-tools/">Azure için Visual Studio Araçları</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">İndirme</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">İndirme</a>
                                                 </p>
                                             </div>
                                         </div>

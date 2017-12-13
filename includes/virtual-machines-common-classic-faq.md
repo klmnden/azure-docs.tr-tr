@@ -58,7 +58,7 @@ Uzak Masaüstü veya SSH ile ilgili sorun yaşıyorsanız, sorunun giderilmesine
 
 Windows VM’ler için ek seçenekler şunlardır:
 
-* Klasik Azure portalında VM’yi bulun ve Komut çubuğundan **Uzaktan Erişimi Sıfırla**’ya tıklayın.
+* Azure portalında VM bulun ve ardından **sıfırlama uzaktan erişim** komut çubuğundan.
 * [Windows tabanlı Azure Sanal Makinesine Uzak Masaüstü bağlantıları ile ilgili sorunları giderme](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) konusunu gözden geçirin.
 * Windows PowerShell Uzaktan İletişimini kullanarak VM’ye bağlanın veya diğer kaynakların VM’ye bağlanması için ek uç noktalar oluşturun. Ayrıntılar için bkz. [Sanal Makineye Uç Noktaları Ayarlama](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -85,7 +85,7 @@ Kullanıcı adını veya parolayı unuttuysanız ve VM Aracısını yüklediysen
 
 Ek ayrıntılar:
 
-* Klasik Azure portalını kullanıyorsanız Linux görüntüleri için varsayılan kullanıcı adı olarak ‘azureuser’ adı verilir, ancak sanal makine oluşturma yöntemi olarak ‘Hızlı Oluştur’ yerine ‘Galeri’den’ seçeneğini kullanarak bunu değiştirebilirsiniz. ‘Galeri’den’ seçeneğini kullanmanız, oturumunuzu açmak için bir parola mı, SSH anahtarı mı yoksa ikisini birden mi kullanmak istediğinize karar vermenize de imkan tanır. Kullanıcı hesabı, ayrıcalıklı komutları çalıştırmak için ‘sudo’ erişimi olan ayrıcalıksız bir kullanıcıdır. ‘Root’ hesabı devre dışıdır.
+* Linux görüntüleri için Azure portalını kullanıyorsanız, 'azureuser' varsayılan kullanıcı adı olarak verilir, ancak bu sanal makine oluşturmak için şekilde 'Galeri'den' yerine 'Hızlı Oluştur' kullanarak değiştirebilirsiniz. ‘Galeri’den’ seçeneğini kullanmanız, oturumunuzu açmak için bir parola mı, SSH anahtarı mı yoksa ikisini birden mi kullanmak istediğinize karar vermenize de imkan tanır. Kullanıcı hesabı, ayrıcalıklı komutları çalıştırmak için ‘sudo’ erişimi olan ayrıcalıksız bir kullanıcıdır. ‘Root’ hesabı devre dışıdır.
 * Windows görüntüleri için VM’yi oluştururken bir kullanıcı adı ve parola sağlamanız gerekir. Hesap Administrators grubuna eklenir.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure sanal makinelerimde virüsten koruma yazılımı çalıştırabilir mi?
@@ -105,7 +105,7 @@ Azure, sanal makinenin boyutuna ve işletim sistemine bağlı olarak saatlik fiy
 
 VM durumu Çalışıyor veya Durduruldu olduğunda ücretlendirilirsiniz, ancak VM durumu Durduruldu (Serbest bırakıldı) olduğunda ücret ödemezsiniz. Bir sanal makinenin durumunu Durduruldu (Serbest bırakıldı) yapmak için aşağıdakilerden birini yapın:
 
-* VM’yi kapatın veya klasik Azure portalından silin.
+* Kapatıldı veya Azure portalından VM silin.
 * Azure PowerShell modülünden erişebileceğiniz Stop-AzureVM cmdlet’ini kullanın.
 * Hizmet Yönetimi REST API’sindeki Kapatma Rolü işlemini kullanarak PostShutdownAction öğesi için StoppedDeallocated değerini belirtin.
 
@@ -118,7 +118,7 @@ Azure tarafından sanal makinenizi etkileyen ciddi bir donanım sorunu algıland
 
 Herhangi bir tek başına VM (yani bir kullanılabilirlik kümesine ait olmayan bir VM) için Azure, planlı bakımdan en az bir hafta önce sanal makinelerin güncelleştirme sırasında yeniden başlatılabileceği konusunda aboneliğin Hizmet Yöneticisi’ne e-posta ile bildirim gönderir. VM’lerde çalışan uygulamalar kapalı kalma süresiyle karşılaşabilir.
 
-Ayrıca, yeniden başlatma işleminin planlı bir bakım kapsamında gerçekleştiği durumlarda klasik Azure portalını veya Azure PowerShell’i kullanarak yeniden başlatma günlüklerini görüntüleyebilirsiniz. Ayrıntılar için bkz. [VM Yeniden Başlatma Günlüklerini Görüntüleme](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Planlı bakım nedeniyle yeniden başlatma meydana geldiğinde yeniden başlatma günlükleri görüntülemek için Azure portalında veya Azure PowerShell de kullanabilirsiniz. Ayrıntılar için bkz. [VM Yeniden Başlatma Günlüklerini Görüntüleme](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Yedeklilik sağlamak için benzer şekilde yapılandırılmış iki veya daha fazla sanal makineyi aynı kullanılabilirlik kümesine koyun. Bu, planlı veya planlanmamış bakım sırasında en az bir sanal makinenin kullanılabilir kalmasına yardımcı olur. Azure, bu yapılandırma için belirli düzeylerde VM kullanılabilirliği garantisi verir. Ayrıntılar için bkz. [Sanal makinelerin kullanılabilirliğini yönetme](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
