@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Son dakika haberleri göndermek için Notification Hubs kullanma
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -278,7 +278,7 @@ Uygulama tamamlanmıştır ve kategorileri kümesi kullanıcı kategorisi seçim
 2. Bir veya daha fazla kategorileri değiştirir etkinleştirin ve ardından **abone ol**.
    
     Uygulama seçili kategorileri etiketlerine dönüştürür ve bildirim hub'ından seçili etiketleri için yeni bir cihaz kaydı ister. Kayıtlı kategorileri döndürülen ve bir bildirim görüntülenir.
-3. .NET konsol uygulaması çalıştırarak yeni bir bildirim gönderin.  Alternatif olarak, bildirim hub'ınıza hata ayıklama sekmesini kullanarak etiketli şablon bildirimleri gönderebilir [Klasik Azure portalı].
+3. .NET konsol uygulaması çalıştırarak yeni bir bildirim gönderin.  Alternatif olarak, bildirim hub'ınıza hata ayıklama sekmesini kullanarak etiketli şablon bildirimleri gönderebilir [Azure portal].
    
     Seçili kategorileri için bildirimleri bildirimleri görünür.
 
@@ -302,5 +302,5 @@ Bu öğreticide biz kategoriye göre son dakika haberleri yayın öğrendiniz. D
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Klasik Azure portalı]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

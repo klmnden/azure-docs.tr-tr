@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 2a20ee1df23df683c49444e8fb3ffdb2085b174f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için yapılandırma ve yönetme sorununu: sık sorulan sorular (SSS)
 
@@ -182,7 +182,7 @@ Yaklaşımlardan birini kullanarak, belirli ana bilgisayar adları için ilgili 
 
 Bulut hizmeti klasik bir kaynaktır. Yalnızca Azure Kaynak Yöneticisi desteği etiketleri oluşturulan kaynakları. Bulut hizmeti gibi Klasik kaynakları etiketleri uygulayamazsınız. 
 
-## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Yönetmek ve uygulamaları izlemek yardımcı olabilecek Azure Portalı'nda yaklaşan bulut hizmeti özellikleri nelerdir?
+## <a name="what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications"></a>Yönetmek ve uygulamaları izlemek yardımcı olabilecek Azure portalında yaklaşan bulut hizmeti özellikleri nelerdir?
 
 * Uzak Masaüstü Protokolü (RDP) için yeni bir sertifika oluşturma olanağı yakında sunulacaktır. Alternatif olarak, bu komut dosyası çalıştırabilirsiniz:
 
@@ -221,3 +221,59 @@ Bunu yaptıktan sonra HTTP/2 etkin olup olmadığını veya aşağıdaki yöntem
 - F12 Geliştirici aracı Internet Explorer/kenar etkinleştirin ve protokolü doğrulamak için ağ sekmesine geçin. 
 
 Daha fazla bilgi için bkz: [HTTP/2 IIS'de](https://blogs.iis.net/davidso/http2).
+
+## <a name="the-azure-portal-doesnt-display-the-sdk-version-of-my-cloud-service-how-can-i-get-that"></a>Azure portalında bulut Hizmetim SDK sürümü görüntülemez. Bu sorunu nasıl alabilirim?
+
+Bu özellik Azure portalında getirmek çalışıyoruz. Bu sırada, SDK sürümü almak için PowerShell komutlarını kullanabilirsiniz:
+
+    Get-AzureService -ServiceName "<Cloud service name>" | Get-AzureDeployment | Where-Object -Property SdkVersion -NE -Value "" | select ServiceName,SdkVersion,OSVersion,Slot
+
+## <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>RDP dosyasını kullanarak bulut hizmeti VM, Uzak Masaüstü'nü bağlanamıyorum. Hatadan sonra Al: bir kimlik doğrulama hatası oluştu (kod: 0x80004005)
+
+Azure Active Directory'ye katılmış bir makineden RDP dosyası kullanırsanız, bu hata oluşabilir. Bu sorunu çözmek için şu adımları izleyin:
+
+1. İndirdiğiniz RDP dosyasını sağ tıklatın ve ardından **Düzenle**.
+2. Ekle "&#92;" olarak önek önce kullanıcı adı. Örneğin, **. \username** yerine **kullanıcıadı**.
+
+## <a name="i-want-to-shut-down-the-cloud-service-for-several-months-how-to-reduce-the-billing-cost-of-cloud-service-without-losing-the-ip-address"></a>Bulut hizmeti için birkaç ay kapattığınız istiyorsunuz. IP adresi kaybetmeden fatura bulut hizmeti maliyetini azaltmak nasıl?
+
+Zaten dağıtılmış bir bulut hizmeti kullandığı depolama ve işlem için fatura. Azure VM kapatma olsa bile, bu nedenle, hala depolama alanı için fatura. 
+
+İşte, faturalama hizmetiniz için IP adresi kaybetmeden azaltmak için yapabilirsiniz:
+
+1. [IP adresi ayırın](../virtual-network/virtual-networks-reserved-public-ip.md) dağıtımları silmeden önce.  Yalnızca bu IP adresi için Fatura edilecek. IP adresi faturalama hakkında daha fazla bilgi için bkz: [fiyatlandırma IP adreslerini](https://azure.microsoft.com/pricing/details/ip-addresses/).
+2. Dağıtımları silin. Gelecek için kullanabilmeleri xxx.cloudapp.net silmeyin.
+3. Bulut hizmeti aynı ayrılmış IP kullanarak yeniden dağıtmak isterseniz, aboneliğinizde ayrılmış bkz [bulut Hizmetleri ve sanal makineler için ayrılmış IP adresleri](https://azure.microsoft.com/blog/reserved-ip-addresses/).
+
+## <a name="my-cloud-service-management-certificate-is-expiring-how-to-renew-it"></a>Bulut Hizmet Yönetim sertifikası'My süresi doluyor. Yenilemek nasıl?
+
+Yönetim sertifikaları yenilemek için PowerShell komutlarını kullanabilirsiniz:
+
+    Add-AzureAccount
+    Select-AzureSubscription -Current -SubscriptionName <your subscription name>
+    Get-AzurePublishSettingsFile
+
+**Get-AzurePublishSettingsFile** içinde yeni bir yönetim sertifikası oluşturacak **abonelik** > **yönetim sertifikaları** Azure portalında. Yeni sertifika adını "YourSubscriptionNam]-[günün tarihine] - kimlik bilgileri gibi" arar.
+
+## <a name="how-can-i-configure-auto-scale-based-on-memory-metrics"></a>Otomatik ölçek bellek ölçümleri temel nasıl yapılandırabilir miyim?
+
+Otomatik ölçek için bulut hizmetlerini bellek ölçülerine bağlı olarak şu anda desteklenmiyor. 
+
+Bu sorunu geçici olarak çözmek için Application Insights kullanabilirsiniz. Otomatik ölçek ölçüm kaynağı olarak Application Insights destekler ve Konuk ölçüm "Bellek" gibi temel rol örneği sayısı ölçeklendirebilirsiniz.  Application Insights, bulut hizmeti projesi paket dosyanızı (*.cspkg) içinde yapılandırmak ve bu feat uygulamak için hizmet üzerinde Azure tanılama uzantısını etkinleştirme gerekmez.
+
+Bulut hizmetleri üzerinde otomatik ölçeklendirmeye yapılandırmak için Application Insights ile özel bir ölçü kullanma konusunda daha fazla ayrıntı için bkz: [otomatik ölçek ile özel bir ölçü Azure tarafından kullanmaya başlama](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+
+
+Azure tanılama bulut Hizmetleri için Application Insights ile tümleştirme hakkında daha fazla bilgi için bkz: [Gönder bulut hizmeti, sanal makine ya da Service Fabric tanılama verilerini Application ınsights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+
+Yaklaşık Application Insights için bulut hizmetlerini etkinleştirmek daha fazla bilgi için bkz: [Azure bulut Hizmetleri için Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+
+Bulut Hizmetleri için Azure tanılama günlüğü etkinleştirme hakkında daha fazla bilgi için bkz: [tanılama Azure Cloud Services ve sanal makineler için ayarlama](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+
+## <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Ana SSL sertifika(.pfx) ve Ara certificate(.p7b) yüklenmesini otomatikleştirmek için nasıl?
+
+Bir başlangıç komut dosyası (toplu işlem/cmd/PowerShell) kullanarak bu görevi otomatikleştirmek ve hizmet tanımı dosyasında bu başlangıç komut dosyasını kaydedin. Başlangıç betiği ve sertifika (.p7b dosyası) başlangıç betiği aynı dizine proje klasöründe ekleyin.
+
+Daha fazla bilgi için aşağıdaki makalelere bakın:
+- [Nasıl yapılandırılacağı ve bir bulut hizmeti için başlangıç görevleri Çalıştır](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks)
+- [Genel bulut hizmeti başlangıç görevleri](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks-common)

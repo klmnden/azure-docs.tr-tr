@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 791446fbd7eb025441f051e2d8f8f2b1e6c47ebe
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
@@ -229,7 +229,7 @@ Otomatik olarak tüm belge dizini için koleksiyon isteyip istemediğinizi seçe
 
 Otomatik kapalı ile dizin oluşturma, yalnızca belirli belgeler için dizin hala seçmeli olarak ekleyebilirsiniz. Buna karşılık, üzerinde dizin otomatik bırakın ve yalnızca belirli belgeleri dışlamak seçmeli olarak seçin. Açık/kapalı yapılandırmaları dizin yararlı yalnızca bir alt belgelerin sorgulanmasını gerek sahip olduğunuzda.
 
-Örneğin, aşağıdaki örnek açıkça kullanarak belge dahil gösterilmektedir [DocumentDB API .NET SDK'sını](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) ve [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
+Örneğin, aşağıdaki örnek açıkça kullanarak belge dahil gösterilmektedir [SQL API .NET SDK'sını](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) ve [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -258,9 +258,9 @@ Lazy veya hiçbiri dönüştürme sırasında dizin oluşturma modu devam ediyor
 * Lazy için taşıdığınızda, dizin ilke hemen etkili değişiklik ve Azure Cosmos DB dizini zaman uyumsuz olarak yeniden başlatır. 
 * None taşıdığınızda, ardından dizin etkili hemen bırakılır. None taşıma yararlı etmekte iptal etmek istediğinizde dönüştürme ve farklı bir dizin oluşturma ilkesi temiz başlat. 
 
-.NET SDK'sı kullanıyorsanız, kullanarak yeni bir dizin oluşturma ilkesi değişikliği kazandırın **ReplaceDocumentCollectionAsync** yöntemi ve kullanarak dizin dönüştürme yüzdesi ilerleme durumunu **IndexTransformationProgress** yanıt özelliğinden bir **ReadDocumentCollectionAsync** çağırın. Diğer SDK ve REST API dizin oluşturma ilkesi değişiklikleri yapmak için eşdeğer özellikleri ve yöntemleri destekler.
-
 Bir koleksiyona ait Lazy tutarlı dizin modundan dizin oluşturma ilkesini değiştirmek nasıl oluşturulduğunu gösteren bir kod parçacığı aşağıda verilmiştir.
+
+.NET SDK'sı kullanıyorsanız, kullanarak yeni bir dizin oluşturma ilkesi değişikliği kazandırın **ReplaceDocumentCollectionAsync** yöntemi.
 
 **Dizin oluşturma ilkesinden tutarlı yavaş için değiştirme**
 
@@ -271,10 +271,9 @@ Bir koleksiyona ait Lazy tutarlı dizin modundan dizin oluşturma ilkesini deği
 
     await client.ReplaceDocumentCollectionAsync(collection);
 
-
-Aşağıda gösterildiği gibi örneğin ReadDocumentCollectionAsync, çağırarak bir dizin dönüşümü ilerlemesini denetleyebilirsiniz.
-
 **Dizin dönüştürme ilerlemesini izlemek**
+
+Kullanarak tutarlı bir dizin için dizin dönüştürme yüzdesi ilerlemesini izleyebilirsiniz **IndexTransformationProgress** yanıt özelliğinden bir **ReadDocumentCollectionAsync** çağırın. Diğer SDK ve REST API dizin oluşturma ilkesi değişiklikleri yapmak için eşdeğer özellikleri ve yöntemleri destekler. Tutarlı bir dizin için bir dizin dönüşümü ilerlemesini çağırarak denetleyebilirsiniz **ReadDocumentCollectionAsync**: 
 
     long smallWaitTimeMilliseconds = 1000;
     long progress = 0;
@@ -288,6 +287,14 @@ Aşağıda gösterildiği gibi örneğin ReadDocumentCollectionAsync, çağırar
 
         await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
     }
+
+> [!NOTE]
+> IndexTransformationProgress özelliği, yalnızca tutarlı bir dizine dönüştürülürken geçerlidir. Yavaş bir dizin dönüştürmeleri izleme için ResourceResponse.LazyIndexingProgress özelliğini kullanın.
+>
+
+> [!NOTE]
+> IndexTransformationProgress ve LazyIndexingProgress özellikleri yalnızca söz konusu olduğunda bölümlenmemiş koleksiyonu, diğer bir deyişle, bir bölüm anahtarı oluşturulan bir koleksiyonu doldurulur.
+>
 
 Bir koleksiyon için dizin hiçbiri modu dizin taşıyarak düşürebilir. Devam eden dönüştürme iptal edip yeni bir tane hemen başlatmak istiyorsanız bu yararlı bir işlemsel aracı olabilir.
 
@@ -315,7 +322,7 @@ Dizin oluşturma ilkesi değişiklikleri Azure Cosmos DB koleksiyonlarınızı y
 > 
 
 ## <a name="performance-tuning"></a>Performans ayarı
-DocumentDB API'ları, her işlem için kullanılan dizin depolama alanı gibi performans ölçümleri hakkında bilgi ve verimlilik maliyeti (istek birimleri) sağlar. Bu bilgiler çeşitli dizin oluşturma ilkeleri karşılaştırmak için kullanılabilir ve performans ayarlama.
+SQL API'leri her işlemi için performans ölçümleri kullanılan dizin depolama alanı gibi ilgili bilgileri ve işleme maliyeti (istek birimleri) girin. Bu bilgiler çeşitli dizin oluşturma ilkeleri karşılaştırmak için kullanılabilir ve performans ayarlama.
 
 Depolama kotası ve bir koleksiyon kullanımını denetlemek için HEAD veya GET isteği karşı koleksiyon kaynağı çalıştırın ve x-ms-istek-quota ve x-ms-istek kullanım üstbilgileri inceleyin. .NET SDK'sındaki [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) ve [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) özelliklerinde [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) bu karşılık gelen değerler içeriyor.
 
@@ -409,7 +416,7 @@ Pratik karşılaştırması için burada REST API sürümü 2015-06-03 kullanıl
 ## <a name="next-steps"></a>Sonraki Adımlar
 Dizin ilke yönetimi örnekleri ve Azure Cosmos veritabanı sorgu dili hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin.
 
-1. [DocumentDB API .NET dizin yönetimi kod örnekleri](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
-2. [DocumentDB API REST toplama işlemleri](https://msdn.microsoft.com/library/azure/dn782195.aspx)
+1. [SQL API .NET dizin yönetimi kod örnekleri](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
+2. [SQL API REST toplama işlemleri](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [SQL sorgusu](documentdb-sql-query.md)
 

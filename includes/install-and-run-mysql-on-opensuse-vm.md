@@ -35,12 +35,12 @@
    
         mysql -u root -p
    
-    (Önceki adımda değiştirdiğiniz) MySQL kök parola girin ve bir istemiyle, sunulur veritabanıyla etkileşim için SQL deyimleri burada verebilir.
-7. Yeni bir MySQL kullanıcı oluşturmak için aşağıdaki çalıştırın **mysql >** istemi:
+    (Önceki adımda değiştirdiğiniz) MySQL kök parolayı girin ve veritabanıyla etkileşim için SQL deyimleri nerede sorun içeren bir istem sunulur.
+7. Yeni bir MySQL kullanıcı oluşturmak için aşağıdaki komutu çalıştırın **mysql >** istemi:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Not, noktalı virgül (;) satırları sonunda komutları bitiş için önemli olan.
+    Not, noktalı virgül (;) satırın sonuna komutu bitiş için önemlidir.
 8. Bir veritabanı oluşturmak ve vermek için `mysqluser` , kullanıcı izinlerini vermek aşağıdaki komutlar:
    
         CREATE DATABASE testdatabase;
@@ -51,24 +51,24 @@
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
    
-    Burada `ip-address` içinden, bağlanan MySQL için bilgisayarın IP adresidir.
+    Burada `ip-address` MySQL için bağlandığınız bilgisayarın IP adresidir.
 10. MySQL veritabanı yönetim yardımcı programı'ndan çıkmak için şunu yazın:
     
         quit
 
 ## <a name="add-an-endpoint"></a>Bir uç nokta ekleme
-1. MySQL yüklendikten sonra MySQL uzaktan erişmek için bir uç nokta yapılandırmanız gerekir. Oturum [Klasik Azure portalı][AzurePortal]. Tıklatın **sanal makineleri**, yeni bir sanal makine adına tıklayın ve ardından **uç noktaları**.
+1. MySQL yüklendikten sonra MySQL uzaktan erişmek için bir uç nokta yapılandırmanız gerekir. Oturum [Azure portal][AzurePortal]. Tıklatın **sanal makineleri**, yeni bir sanal makine adına tıklayın ve ardından **uç noktaları**.
 2. Tıklatın **Ekle** sayfanın sonundaki.
 3. Protokolüyle "MySQL" adlı bir uç nokta ekleyin **TCP**, ve **ortak** ve **özel** bağlantı noktası "3306" ayarlayın.
 4. Uzaktan bilgisayarınızdan sanal makineye bağlanmak için şunu yazın:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
    
-    Örneğin, biz Bu öğreticide oluşturduğunuz sanal makine kullanarak, bu komutu yazın:
+    Örneğin, bu öğreticide oluşturduğunuz sanal makine kullanarak, bu komutu yazın:
    
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: http://portal.azure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png

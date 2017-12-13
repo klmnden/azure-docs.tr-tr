@@ -1,26 +1,18 @@
 ---
 title: "Azure geçirmek değerlendirme ayarlarını özelleştirme | Microsoft Docs"
 description: "Ayarlar ve bir değerlendirme geçirme VMware Vm'leri için Azure geçiş Planlayıcısını kullanarak Azure çalıştırırsınız açıklar"
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: a068b9c7-5f87-4fe1-90b9-3be48d91aa3f
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 20aeb2073ad307952f92c8377bc9d78169f1756c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: ce47790f6214864afdba33eb5cbe3a9e49b81cd5
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="customize-an-assessment"></a>Bir değerlendirme özelleştirme
+# <a name="customize-an-assessment"></a>Bir değerlendirmeyi özelleştirme
 
 [Azure geçirme](migrate-overview.md) varsayılan ayarlarla değerlendirmeleri oluşturur. Bir değerlendirme oluşturduktan sonra bu makaledeki yönergeleri kullanarak bu varsayılan ayarları değiştirebilirsiniz.
 
@@ -32,9 +24,9 @@ ms.lasthandoff: 11/29/2017
 
     **Ayar** | **Ayrıntılar** | **Varsayılan**
     --- | --- | ---
-    **Hedef konumu** | Geçirmek istediğiniz Azure konumu. |  Batı ABD 2 varsayılan konumdur.
-    **Depolama artıklığı** | Azure sanal makinelerini geçişten sonra kullanacağı depolama türü. | Yalnızca [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) çoğaltma şu anda desteklenmiyor.
-    **Rahatlık faktörü** | Rahatlık, değerlendirme sırasında kullanılan arabellek faktördür. Kullanın Mevsimlik kullanımı gibi şeyler için hesabı, performans geçmişi kısa, büyük olasılıkla gelecekte kullanımını artırır. | Varsayılan ayardır 1.3 x.
+    **Hedef konum** | Geçişi yapmak istediğiniz Azure konumu. |  Batı ABD 2 varsayılan konumdur.
+    **Depolama yedekliliği** | Azure VM’lerinin geçişten sonra kullanacağı depolama türü. | Yalnızca [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) çoğaltma şu anda desteklenmiyor.
+    **Konfor katsayısı** | Rahatlık, değerlendirme sırasında kullanılan arabellek faktördür. Kullanın Mevsimlik kullanımı gibi şeyler için hesabı, performans geçmişi kısa, büyük olasılıkla gelecekte kullanımını artırır. | Varsayılan ayardır 1.3 x.
     **Perfomance geçmişi** | Performans geçmişi değerlendirmede kullanılan süre. | Bir ay varsayılandır.
     **Yüzdelik kullanımı** | Perfomance geçmişi için dikkate alınması gereken yüzdelik değer. | Varsayılan değer % 95 ' dir.
     **Fiyatlandırma katmanı** | Belirleyebileceğiniz [fiyatlandırma katmanı](https://azure.microsoft.com/blog/basic-tier-virtual-machines-2/) bir VM için.  | Varsayılan olarak [standart](../virtual-machines/windows/sizes-general.md) katmanı kullanılır.

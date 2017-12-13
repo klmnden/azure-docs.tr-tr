@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store için tanılama günlüklerine erişme
 Data Lake Store hesabınızı ve hesabınız için toplanan günlükleri görüntülemek nasıl günlüğü tanılama etkinleştirmek bilgi edinin.
@@ -47,7 +47,7 @@ Kuruluşlar, verileri ne sıklıkta erişildiğine, verilerine erişen kullanıc
         
         * Seçeneğini **bir olay hub'ına akış** Azure olay Hub'ına günlük veri akışı için. Büyük olasılıkla gerçek zamanda gelen günlüklerini çözümlemek için bir aşağı akış işleme ardışık varsa bu seçeneği kullanır. Bu seçeneği belirlerseniz, kullanmak istediğiniz Azure olay Hub ayrıntılarını sağlamanız gerekir.
 
-        * Seçeneğini **için günlük analizi Gönder** oluşturulan günlük verileri çözümlemek için Azure günlük analizi hizmeti kullanmak için. Bu seçeneği belirlerseniz, gerçekleştirme Günlük çözümlemesi kullanacağınız için Operations Management Suite çalışma ayrıntıları sağlamanız gerekir.
+        * Seçeneğini **için günlük analizi Gönder** oluşturulan günlük verileri çözümlemek için Azure günlük analizi hizmeti kullanmak için. Bu seçeneği belirlerseniz, gerçekleştirme Günlük çözümlemesi kullanacağınız için Operations Management Suite çalışma ayrıntıları sağlamanız gerekir. Bkz: [görünüm veya günlük analizi günlük arama ile toplanan verileri çözümlemek](../log-analytics/log-analytics-tutorial-viewdata.md) günlük analizi kullanımıyla ilgili ayrıntılar için.
      
    * Denetim günlükleri veya istek günlüklerini veya her ikisini de almak isteyip istemediğinizi belirtin.
    * Verilerin korunması gereken gün sayısını belirtin. Bekletme, yalnızca günlük verileri arşivlemek için Azure depolama hesabı kullanıyorsanız geçerlidir.
@@ -177,6 +177,15 @@ Burada JSON biçimli Denetim günlüğüne örnek girişi verilmiştir. Her bir 
 | StreamName |Dize |Yolun işlemi üzerinde gerçekleştirildi |
 
 ## <a name="samples-to-process-the-log-data"></a>Günlük verileri işlemek için örnekleri
+Günlükleri Azure İzleyicisi için Azure Data Lake Deposu'ndan veri gönderirken (bkz [görünüm veya günlük analizi günlük arama ile toplanan verileri çözümlemek](../log-analytics/log-analytics-tutorial-viewdata.md) günlük analizi kullanımıyla ilgili ayrıntılar için), aşağıdaki sorguda kullanıcı listesini içeren bir tablo döndürür adları, bir görsel grafik birlikte olay süresi için zaman olayların ve etkinliklerin sayısını görüntüler. Kullanıcı GUID'si göstermek için kolayca değiştirilebilir veya diğer öznitelikleri:
+
+```
+search *
+| where ( Type == "AzureDiagnostics" )
+| summarize count(TimeGenerated) by identity_s, TimeGenerated
+```
+
+
 Azure Data Lake Store işlemek ve günlük verilerini analiz konusunda bir örnek sağlar. Örnek: bulabilirsiniz [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Ayrıca bkz.

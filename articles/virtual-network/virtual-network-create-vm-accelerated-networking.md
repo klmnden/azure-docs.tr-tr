@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2e887230a102f5c6289ca2eec0e4700a0e1fdfde
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
-ms.translationtype: HT
+ms.openlocfilehash: 233e0449bc0803709f0aa369a446c2ec5d3f177e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile bir sanal makine oluşturun
 
@@ -46,13 +46,13 @@ Hızlandırılmış ağ yararları yalnızca üzerinde etkin VM için de geçerl
 Bu özelliği kullanırken aşağıdaki sınırlamalar bulunmaktadır:
 
 * **Ağ arabirimi oluşturma:** hızlandırılmış ağ yalnızca yeni bir NIC için etkinleştirilmesi Varolan bir NIC için etkinleştirilemez
-* **VM oluşturma:** etkin hızlandırılmış ağ ile bir NIC yalnızca eklenebilir bir VM VM oluşturulduğunda. NIC için mevcut bir VM'yi eklenemiyor.
-* **Bölgeler:** Windows VM hızlandırılmış ağ iletişimi ile birlikte, çoğu Azure bölgelerde sunulur. Linux VM'ler hızlandırılmış ağ ile birden çok bölgede sunulur. Bu özellik kullanılabilir bölgeleri genişletme. Aşağıda Azure sanal ağı güncelleştirmeleri blog en son bilgiler için bkz.   
+* **VM oluşturma:** etkin hızlandırılmış ağ ile bir NIC yalnızca eklenebilir bir VM VM oluşturulduğunda. NIC için mevcut bir VM'yi eklenemiyor. VM için mevcut bir kullanılabilirlik ekleme ayarlarsanız, kullanılabilirlik kümesindeki tüm sanal makineleri de etkin ağ hızlandırılmış gerekir.
+* **Bölgeler:** Windows VM hızlandırılmış ağ iletişimi ile birlikte, çoğu Azure bölgelerde sunulur. Linux VM'ler hızlandırılmış ağ ile birden çok bölgede sunulur. Bulunan bir özelliktir bölgeleri genişletme. En son bilgiler için bkz: [Azure sanal ağı güncelleştirmeleri](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blogu.   
 * **Desteklenen işletim sistemleri:** Windows: Microsoft Windows Server 2012 R2 Datacenter ve Windows Server 2016. Linux: Ubuntu Server 16.04 LTS çekirdek 4.4.0-77 veya sonrası, SLES 12 SP2, RHEL 7.3 ve CentOS 7.3 (yayımlanmış "Standart dışı Wave yazılım").
 * **VM boyutu:** genel amaçlı ve en az sekiz çekirdeği ile işlem iyileştirilmiş örnek boyutları. Daha fazla bilgi için bkz: [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM boyutları makaleleri. Desteklenen VM örneği boyutlarının kümesi gelecekte genişletilir.
 * **Dağıtım Azure Resource Manager (ARM) aracılığıyla yalnızca:** hızlandırılmış ağ ASM/RDFE aracılığıyla dağıtımı için kullanılabilir değil.
 
-Bu sınırlamalara değişiklikler duyurdu aracılığıyla [Azure sanal ağı güncelleştirir](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/) sayfası.
+Bu sınırlamalara değişiklikler duyurdu aracılığıyla [Azure sanal ağı güncelleştirir](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) sayfası.
 
 ## <a name="create-a-windows-vm"></a>Windows VM oluşturma
 Azure portalında veya Azure kullanabilirsiniz [PowerShell](#windows-powershell) VM'yi oluşturmak için.
@@ -164,7 +164,7 @@ Azure'da VM oluşturduktan sonra Windows için hızlandırılmış ağ sürücü
 9. Hızlandırılmış ağ, VM için etkinleştirilmiştir.
 
 ## <a name="create-a-linux-vm"></a>Linux VM oluşturma
-Azure portalında veya Azure kullanabilirsiniz [PowerShell](#linux-powershell) bir Ubuntu veya SLES VM oluşturmak için. RHEL ve CentOS VM'ler için farklı bir iş akışı yok.  Lütfen aşağıdaki yönergelere bakın.
+Azure portalında veya Azure kullanabilirsiniz [PowerShell](#linux-powershell) bir Ubuntu veya SLES VM oluşturmak için. RHEL ve CentOS yönergeler için bkz: [RHEL ve CentOS](#rhel-and-centos).
 
 ### <a name="linux-portal"></a>Portal
 1. 1-5 tamamlayarak Linux Önizleme adımları için hızlandırılmış ağlar için kayıt [PowerShell bir Linux VM - oluşturma](#linux-powershell) bu makalenin.  Önizleme portalında kaydedilemiyor.
@@ -183,7 +183,7 @@ Azure portalında veya Azure kullanabilirsiniz [PowerShell](#linux-powershell) b
 2. Windows Başlat düğmesine tıklayarak bir PowerShell oturumu Başlat yazarak **powershell**, ardından **PowerShell** Arama sonuçlarından.
 3. PowerShell pencerenize girin `login-azurermaccount` oturum Azure imzalamak için komutu [hesap](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Zaten bir hesabınız yoksa, için kaydolabilirsiniz bir [ücretsiz deneme sürümü](https://azure.microsoft.com/offers/ms-azr-0044p).
 4. Kasa Azure hızlandırılmış ağ iletişimi için aşağıdaki adımları tamamlayarak önizleme:
-    - E-posta Gönder [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) Azure abonelik kimliği ve kullanım. Aboneliğiniz etkinleştirilecek hakkında Microsoft'tan bir e-posta onayı için lütfen bekleyin.
+    - E-posta Gönder [ axnpreview@microsoft.com ](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) Azure abonelik kimliği ve kullanım. Aboneliğiniz için hızlandırılmış ağ etkin olduğunu bir e-posta onayı Microsoft'tan aldıktan sonra aşağıdaki adımları kadar tamamlamayın.
     - Önizleme için kayıtlı onaylamak için aşağıdaki komutu girin:
     
         ```powershell
@@ -201,7 +201,7 @@ Azure portalında veya Azure kullanabilirsiniz [PowerShell](#linux-powershell) b
       >[!NOTE]
       >Windows sanal makineleri Önizleme (artık Windows VM'ler için ağ hızlandırılmış kullanmak üzere kaydetmek gerekli değildir) hızlandırılmış ağ katıldıysanız Linux VM'ler önizlemek için otomatik olarak hızlandırılmış ağ iletişimi için kayıtlı değil. İçinde katılmak için Linux VM'ler Önizleme hızlandırılmış ağ kaydetmeniz gerekir.
       >
-5. Tarayıcınızda, Ubuntu veya SLES istendiği gibi değiştirerek aşağıdaki komutu kopyalayın.  Yeniden Redhat ve CentOS aşağıda açıklanan farklı bir iş akışı vardır:
+5. Tarayıcınızda, Ubuntu veya SLES istendiği gibi değiştirerek aşağıdaki komutu kopyalayın.  Redhat ve CentOS ayrıntılı farklı bir iş akışı yeniden sahip [RHEL ve CentOS](#rhel-and-centos):
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -309,18 +309,18 @@ Bu noktada, yönergeleri, kullanmakta olduğunuz dağıtım göre farklılık g�
      chmod +x ./configure_hv_sriov.sh
      sudo ./configure_hv_sriov.sh
      ```
-3. Komut dosyasını çalıştırdıktan sonra 60 saniye duraklatmak sonra VM yeniden başlatılır.
+3. Betiği çalıştırdıktan sonra VM 60 saniye duraklamadan sonra yeniden başlatılır.
 4. VM yeniden başlatıldıktan sonra adım 5-7 yeniden tamamlayarak yeniden bağlanın.
 5. Çalıştırma `ifconfig` komut ve bond0 gündeme ve arabirim yukarı gösteren onaylayın. 
  
  >[!NOTE]
       >Hızlandırılmış ağ kullanan uygulamalar üzerinden iletişim kurması gerekir *bond0* arabirim, *eth0*.  Genel kullanılabilirlik hızlandırılmış ağ erişmeden önce arabirim adı değişebilir.
 
-#### <a name="rhelcentos"></a>RHEL/CentOS
+#### <a name="rhel-and-centos"></a>RHEL ve CentOS
 
 Red Hat Enterprise Linux veya CentOS 7.3 VM oluşturma SR-IOV ve sanal işlev (VF) sürücüsünün ağ kartı için gereken en son sürücüleri yüklemek için bazı ek adımlar gerektirir. Birinci aşama yönergeleri bir veya daha fazla sanal önceden yüklenen sürücülerin makinelerde yapmak için kullanılan bir görüntü hazırlar.
 
-##### <a name="phase-one-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>Aşama bir: Red Hat Enterprise Linux veya CentOS 7.3 temel görüntü hazırlayın. 
+##### <a name="phase-1-prepare-a-red-hat-enterprise-linux-or-centos-73-base-image"></a>1. Aşama: Red Hat Enterprise Linux veya CentOS 7.3 temel görüntü hazırlama 
 
 1.  Bir olmayan - SRLOV CentOS 7.3 VM Azure sağlama
 
@@ -352,9 +352,9 @@ Red Hat Enterprise Linux veya CentOS 7.3 VM oluşturma SR-IOV ve sanal işlev (V
 
 5.  Azure portalından, bu VM'yi durdurun; ve sanal makinenin "disklere" gidin, OSDisk ait VHD URİ'si yakalama. Bu URI temel görüntünün VHD adını ve kendi depolama hesabını içerir. 
  
-##### <a name="phase-two-provision-new-vms-on-azure"></a>İki aşama: sağlama yeni sanal makineleri Azure üzerinde
+##### <a name="phase-2-provision-new-vms-on-azure"></a>2. Aşama: yeni Azure Vm'lerinde sağlama
 
-1.  Sağlama yeni VM'ler aşamasında, vNIC üzerinde etkin AcceleratedNetworking ile yakalanmış VHD temel görüntü kullanarak yeni AzureRMVMConfig ile göre:
+1.  VNIC üzerinde aşamasında 1, AcceleratedNetworking ile yakalanmış VHD etkin temel görüntü kullanarak yeni AzureRMVMConfig ile sağlama yeni sanal makineleri temel:
 
     ```powershell
     $RgName="MyResourceGroup"
@@ -394,9 +394,9 @@ Red Hat Enterprise Linux veya CentOS 7.3 VM oluşturma SR-IOV ve sanal işlev (V
      -PublicIpAddressId $Pip.Id `
      -EnableAcceleratedNetworking
     
-    # Specify the base image's VHD URI (from phase one step 5). 
+    # Specify the base image's VHD URI (from phase 1, step 5). 
     # Note: The storage account of this base image vhd should have "Storage service encryption" disabled
-    # See more from here: https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption
+    # See more from here: https://docs.microsoft.com/azure/storage/storage-service-encryption
     # This is just an example URI, you will need to replace this when running this script
     $sourceUri="https://myexamplesa.blob.core.windows.net/vhds/CentOS73-Base-Test120170629111341.vhd" 
 
@@ -430,7 +430,7 @@ Red Hat Enterprise Linux veya CentOS 7.3 VM oluşturma SR-IOV ve sanal işlev (V
      -VM $VmConfig
     ```
 
-2.  Yukarı VM'ler önyükleme sonra "lspci" tarafından VF aygıt denetleyin ve Mellanox girdisine bakın. Örneğin, biz bu öğede lspci çıktı görmeniz gerekir:
+2.  Yukarı VM'ler önyükleme sonra "lspci" tarafından VF aygıt denetleyin ve Mellanox girdisine bakın. Örneğin, aşağıdaki metni lspci çıktı görmeniz gerekir:
     
     ```
     0001:00:02.0 Ethernet controller: Mellanox Technologies MT27500/MT27520 Family [ConnectX-3/ConnectX-3 Pro Virtual Function]

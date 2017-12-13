@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineleri yedekleyin
 
@@ -78,7 +78,7 @@ Bu örnekte, varsayılan web sayfasını, IIS için kullanılan görüntü dosya
     ![Varsayılan IIS web sayfası](./media/tutorial-backup-vms/iis-broken.png)
 
 5. Yerel bilgisayarınızda yeni bir sekme açın ve gidin [Azure portal](https://portal.azure.com).
-6. Soldaki menüde seçin **sanal makineleri** ve VM formun listeden seçin.
+6. Soldaki menüde seçin **sanal makineleri** ve VM listeden seçin.
 8. VM dikey olarak **ayarları** 'yi tıklatın **yedekleme**. **Yedekleme** dikey pencere açılır. 
 9. Dikey pencerenin üstündeki menüde seçin **dosya kurtarma**. **Dosya kurtarma** dikey pencere açılır.
 10. İçinde **1. adım: kurtarma noktası seçin**, açılan listeden bir kurtarma noktası seçin.

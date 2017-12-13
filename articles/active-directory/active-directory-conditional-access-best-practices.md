@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 119189415e75134ff0c77a551536559b81116fc6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi yöntemler
 
@@ -100,86 +100,18 @@ Ortamınızda, aşağıdaki yapılandırmaları kaçınmanız gerekir:
 
 ## <a name="policy-migration"></a>İlke geçişi
 
-Yapılandırılmış Azure Klasik portalında ilkeleri varsa, çünkü Azure Portalı'na geçirmeniz gerekir:
+Nedeniyle Azure portalında oluşturmadınız ilkeleri geçirme dikkate almanız gerekir:
+
+- Şimdi önce işleyemedi senaryolarını ele alabilir.
+
+- Bunları birleştirerek yönetmek zorunda ilkeleri sayısını azaltabilirsiniz.   
+
+- Tek bir merkezi konumda tüm koşullu erişim ilkelerini yönetebilirsiniz.
+
+- Klasik Azure portalı kullanımdan kaldırılacaktır.   
 
 
-- Bir Azure Klasik portalı İlkesi ve bir Azure portal ilkesi olan bir kullanıcı her iki ilkeyi gereksinimleri karşılaması gereken 
-
-- Varolan ilkelerinizi geçirirseniz yok, erişim verme ilkeleri uygulayabilirsiniz olmayacaktır.
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Klasik Azure Portalı'den geçiş
-
-Bu senaryoda: 
-
-- İçinde [Klasik Azure portalı](https://manage.windowsazure.com), yapılandırdığınız:
-
-    - SharePoint Online
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - Bir cihaz temelli koşullu erişim ilkesi
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Azure portalında mobil uygulama yönetimi koşullu erişim ilkesini yapılandırmak istediğiniz 
- 
-
-#### <a name="configuration"></a>Yapılandırma 
-
-- Cihaz temelli koşullu erişim ilkelerinizi inceleyin
-
-- Azure Portalı'na geçirme 
-
-- Mobil uygulama yönetimi koşullu erişim ilkeleri ekleme
-
-
-### <a name="migrating-from-intune"></a>Intune'dan geçirme 
-
-Bu senaryoda:
-
-- İçinde [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), bir mobil uygulama yönetimi koşullu erişim ilkesi ya da Exchange Online için sahip veya SharePoint Online yapılandırılmış
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Azure portalında mobil uygulama yönetimi koşullu erişimi kullanmaya geçirmek istediğiniz
-
-
-#### <a name="configuration"></a>Yapılandırma 
- 
-- Cihaz temelli koşullu erişim ilkelerinizi inceleyin
-
-- Azure Portalı'na geçirme 
-
-- Exchange Online veya SharePoint Online ıntune'da için yapılandırılan mobil uygulama yönetimi koşullu erişim ilkelerini gözden geçirin
-
-- Denetimi eklemek **gerektiren uygulamalar onaylanan** aygıt tabanlı denetim yanı sıra 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Klasik Azure portalı ve Intune geçiş
-
-Bu senaryoda:
-
-- Yapılandırılmış aşağıdaki vardır:
-
-    - **Klasik Azure portalı:** cihaz temelli koşullu 
-
-    - **Intune:** mobil uygulama yönetimi koşullu erişim ilkeleri 
-    
-- Azure portalında mobil uygulama yönetimi koşullu erişim ilkeleri kullanarak her iki ilkeyi geçirmek istediğiniz
-
-
-#### <a name="configuration"></a>Yapılandırma
-
-- Cihaz temelli koşullu erişim ilkelerinizi inceleyin
-
-- Azure Portalı'na geçirme 
-
-- Exchange Online veya SharePoint Online ıntune'da için yapılandırılan mobil uygulama yönetimi koşullu erişim ilkesini gözden geçirin
-
-- İçin denetim ekleme **gerektiren uygulamalar onaylanmış** aygıt tabanlı yanı sıra 
-
-
+Daha fazla bilgi için bkz: [Azure portalında Klasik ilkelerine](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

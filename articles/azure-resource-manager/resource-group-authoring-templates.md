@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: b8d1988a8705e0708e412c24fb5b49f5ece31429
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 73d3397ac6527a216eadd6d0d013c97b86c55e6b
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Yapı ve Azure Resource Manager şablonları sözdizimi anlama
 Bu makalede Azure Resource Manager şablonu yapısını tanımlar. Bir şablon ve bu bölümlerdeki özellikler farklı bölümlerini gösterir. JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler, şablon oluşur. Şablon oluşturmanın adım adım öğretici için bkz [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
@@ -44,7 +44,7 @@ En basit yapısını şablon aşağıdaki öğeleri içerir:
 | parametreler |Hayır |Dağıtım kaynağı dağıtım özelleştirmek için yürütüldüğünde, sağlanan değerler. |
 | değişkenleri |Hayır |Şablondaki JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerler. |
 | kaynaklar |Evet |Dağıtılan veya bir kaynak grubunda güncelleştirilmiş kaynak türleri. |
-| Çıkışları |Hayır |Dağıtımdan sonra döndürülen değer. |
+| çıkışlar |Hayır |Dağıtımdan sonra döndürülen değer. |
 
 Her öğe ayarlayabileceğiniz özellikler içerir. Aşağıdaki örnek, bir şablon için tam söz dizimi içerir:
 
@@ -159,227 +159,33 @@ Aşağıdaki örnek değerleri oluşturulurken, çeşitli işlevleri kullanmayı
 ## <a name="parameters"></a>Parametreler
 Şablon parametreleri bölümünde kaynakları dağıtırken giriş hangi değerlerini belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uyarlanabilir değerleri sağlayarak dağıtım özelleştirmenize olanak sağlar. Şablonunuzdaki parametreleri sağlamak zorunda değildir, ancak parametre olmadan şablonunuzu her zaman aynı kaynakları adları, konumları ve özellikleri ile dağıtmak için kullanacağınız.
 
-Şu yapıda parametrelerini tanımlayın:
+Aşağıdaki örnekte basit parametrenin tanımını gösterir:
 
 ```json
 "parameters": {
-    "<parameter-name>" : {
-        "type" : "<type-of-parameter-value>",
-        "defaultValue": "<default-value-of-parameter>",
-        "allowedValues": [ "<array-of-allowed-values>" ],
-        "minValue": <minimum-value-for-int>,
-        "maxValue": <maximum-value-for-int>,
-        "minLength": <minimum-length-for-string-or-array>,
-        "maxLength": <maximum-length-for-string-or-array-parameters>,
-        "metadata": {
-            "description": "<description-of-the parameter>" 
-        }
+  "siteNamePrefix": {
+    "type": "string",
+    "metadata": {
+      "description": "The name prefix of the web app that you wish to create."
     }
-}
+  },
+},
 ```
 
-| Öğe adı | Gerekli | Açıklama |
-|:--- |:--- |:--- |
-| parameterName |Evet |Parametrenin adı. Geçerli bir JavaScript tanımlayıcı olması gerekir. |
-| type |Evet |Parametre değeri türü. İzin verilen türleri listesini sonra bu tabloya bakın. |
-| defaultValue |Hayır |Parametresi için hiçbir değer sağlanmazsa parametre için varsayılan değer. |
-| allowedValues |Hayır |Doğru değeri sağlandığından emin olmak parametresi için izin verilen değerleri dizisi. |
-| MinValue |Hayır |İnt türü parametreler için minimum değeri, bu kapsayıcı değerdir. |
-| MaxValue |Hayır |İnt türü parametreleri için maksimum değeri, bu kapsayıcı değerdir. |
-| minLength |Hayır |Dize, secureString ve dizi türü parametreler için minimum uzunluk, bu kapsayıcı değerdir. |
-| maxLength |Hayır |Dize, secureString ve dizi türü parametreleri için en fazla uzunluk, bu kapsayıcı değerdir. |
-| açıklama |Hayır |Portal aracılığıyla kullanıcılara görüntülenen parametre açıklaması. |
-
-İzin verilen türleri ve değerleri şunlardır:
-
-* **dize**
-* **secureString**
-* **int**
-* **bool**
-* **Nesne** 
-* **secureObject**
-* **dizi**
-
-Parametre isteğe bağlı olarak belirtmek için (boş bir dize olabilir) bir defaultValue sağlayın. 
-
-Şablonunuzdaki şablonu dağıtmak için komut bir parametre ile eşleşen bir parametre adı belirtirseniz, olası karışıklığı sağladığınız değerleri hakkında yoktur. Resource Manager sonek ekleyerek bu karışıklığı çözümler **FromTemplate** şablon parametresi için. Örneğin, adlı bir parametre dahil ederseniz **ResourceGroupName** ile çakıştığı şablonunuzda, **ResourceGroupName** parametresinde [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet'i. Dağıtım sırasında için bir değer sağlamanız istenir **ResourceGroupNameFromTemplate**. Genel olarak, Karışıklığı önlemek için bu parametreleri dağıtım işlemleri için kullanılan parametreleri aynı ada sahip adlandırılmasıyla değil kaçınmalısınız.
-
-> [!NOTE]
-> Tüm parolalar, anahtarlar ve diğer parolaları kullanması gereken **secureString** türü. Bir JSON nesnesinde hassas verileri geçirdiğiniz kullanırsanız **secureObject** türü. Şablon parametreleri secureString veya secureObject türleriyle kaynak dağıtımdan sonra okunamıyor. 
-> 
-> Örneğin, dağıtım geçmişi dosyasında şu girişi değeri bir dize ve nesne için kullanılabilir ancak secureString ve secureObject gösterir.
->
-> ![Dağıtım değerlerini göster](./media/resource-group-authoring-templates/show-parameters.png)  
->
-
-Aşağıdaki örnek, parametreleri tanımlayan gösterilmektedir:
-
-```json
-"parameters": {
-    "siteName": {
-        "type": "string",
-        "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]"
-    },
-    "hostingPlanName": {
-        "type": "string",
-        "defaultValue": "[concat(parameters('siteName'),'-plan')]"
-    },
-    "skuName": {
-        "type": "string",
-        "defaultValue": "F1",
-        "allowedValues": [
-          "F1",
-          "D1",
-          "B1",
-          "B2",
-          "B3",
-          "S1",
-          "S2",
-          "S3",
-          "P1",
-          "P2",
-          "P3",
-          "P4"
-        ]
-    },
-    "skuCapacity": {
-        "type": "int",
-        "defaultValue": 1,
-        "minValue": 1
-    }
-}
-```
-
-Dağıtım sırasında parametre değerlerini giriş nasıl için [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md). 
+Parametreleri tanımlama hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları parametreleri bölümünü](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Değişkenler
 Değişkenler bölümünde şablonunuzu kullanılabilir değerleri oluşturun. Değişkenleri tanımlayın gerekmez, ancak bunlar karmaşık ifadeler azaltarak genellikle şablonunuzu basitleştirin.
 
-Şu yapıda değişkenleri tanımlayın:
+Aşağıdaki örnekte basit bir değişken tanımını gösterir:
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    }
-}
-```
-
-Aşağıdaki örnekte, iki parametre değerlerinin oluşturulan bir değişkeni tanımlamak gösterilmektedir:
-
-```json
-"variables": {
-    "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
-}
-```
-
-Sonraki örnek karmaşık bir JSON türe sahip bir değişken ve diğer değişkenlerinden oluşturulan değişkenleri gösterir:
-
-```json
-"parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
-},
-"variables": {
-    "environmentSettings": {
-        "test": {
-            "instancesSize": "Small",
-            "instancesCount": 1
-        },
-        "prod": {
-            "instancesSize": "Large",
-            "instancesCount": 4
-        }
-    },
-    "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
-    "instancesSize": "[variables('currentEnvironmentSettings').instancesSize]",
-    "instancesCount": "[variables('currentEnvironmentSettings').instancesCount]"
-}
-```
-
-Kullanabileceğiniz **kopyalama** birden çok öğe bir dizi bir değişken oluşturmak için sözdizimi. Öğe sayısı için bir sayım sağlar. Her öğe içinde özellikler içerir **giriş** nesnesi. Kopya bir değişken içinde veya bir değişken oluşturmak için kullanabilirsiniz. Her iki yaklaşımın aşağıdaki örnekte gösterilmiştir:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "disk-array-on-object": {
-      "copy": [
-        {
-          "name": "disks",
-          "count": 5,
-          "input": {
-            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-            "diskSizeGB": "1",
-            "diskIndex": "[copyIndex('disks')]"
-          }
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "disks-top-level-array",
-        "count": 5,
-        "input": {
-          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-          "diskSizeGB": "1",
-          "diskIndex": "[copyIndex('disks-top-level-array')]"
-        }
-      }
-    ]
-  },
-  "resources": [],
-  "outputs": {
-    "exampleObject": {
-      "value": "[variables('disk-array-on-object')]",
-      "type": "object"
-    },
-    "exampleArrayOnObject": {
-      "value": "[variables('disk-array-on-object').disks]",
-      "type" : "array"
-    },
-    "exampleArray": {
-      "value": "[variables('disks-top-level-array')]",
-      "type" : "array"
-    }
-  }
-}
-```
-
-Birden fazla nesne kopyalama değişkenleri oluşturmak üzere kullanılırken de belirtebilirsiniz. Aşağıdaki örnekte iki dizi değişkenleri olarak tanımlar. Bir adlandırılan **üst düzey dizi diskleri** ve beş öğesine sahip. Diğer adlı **a farklı-dizi** ve üç öğeye sahiptir.
-
-```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
+  "webSiteName": "[concat(parameters('siteNamePrefix'), uniqueString(resourceGroup().id))]",
 },
 ```
+
+Değişkenleri tanımlama hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları değişkenleri bölümünde](resource-manager-templates-variables.md).
 
 ## <a name="resources"></a>Kaynaklar
 Kaynaklar bölümünde dağıtılan veya güncelleştirilen kaynakları tanımlayın. Sağ değerlerini sağlamak için dağıtıyorsanız türlerini anlamanız gerekir çünkü bu bölümde karmaşık elde edebilirsiniz. Ayarlamak için gereken kaynak özgü değerleri için (apiVersion, türü ve özellikleri), bkz: [kaynakları tanımlayan Azure Resource Manager şablonları](/azure/templates/). 
@@ -427,14 +233,14 @@ Aşağıdaki Yapı kaynaklarını tanımlayın:
 
 | Öğe adı | Gerekli | Açıklama |
 |:--- |:--- |:--- |
-| Koşul | Hayır | Kaynak dağıtılabilir olup olmadığını gösteren Boole değeri. |
+| koşul | Hayır | Kaynak dağıtılabilir olup olmadığını gösteren Boole değeri. |
 | apiVersion |Evet |Kaynak oluşturmak için kullanmak için REST API sürümü. |
 | type |Evet |Kaynak türü. Bu değer, kaynak sağlayıcısı ve kaynak türü ad birleşimidir (gibi **Microsoft.Storage/storageAccounts**). |
 | ad |Evet |Kaynağın adı. Ad RFC3986 içinde tanımlanan URI bileşeni kısıtlamaları izlemelidir. Ayrıca, emin olmak için adı dışında tarafların doğrulamak için kaynak adı kullanıma Azure Hizmetleri değil başka bir kimlik aldatma girişimi. |
 | location |Değişir |Sağlanan kaynak coğrafi konumda desteklenmiyor. Kullanılabilir konumlardan herhangi birinden seçebilirsiniz, ancak genellikle kullanıcılarınızın yakın olan bir seçmek için mantıklıdır. Genellikle, bu da aynı bölgede birbiriyle etkileşimde kaynakları yerleştirin mantıklıdır. Çoğu kaynak türleri bir konum gerektirir, ancak bazı türleri (örneğin, bir rol ataması) bir konum gerektirmez. Bkz: [Azure Resource Manager şablonları kaynak konumunu ayarla](resource-manager-template-location.md). |
 | etiketler |Hayır |Kaynakla ilişkilendirilmiş etiketler. Bkz: [Azure Resource Manager'da kaynakları etiketi](resource-manager-template-tags.md). |
 | Açıklamaları |Hayır |Şablonunuzda kaynaklar belgeleme için notları |
-| Kopyalama |Hayır |Birden fazla örneği gerekirse oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm kullanmak istemiyorsanız, seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
+| kopyala |Hayır |Birden fazla örneği gerekirse oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm kullanmak istemiyorsanız, seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
 | dependsOn |Hayır |Bu kaynak dağıtılmadan önce dağıtılmalıdır kaynaklar. Resource Manager kaynakları arasındaki bağımlılıkları değerlendirir ve doğru sırada dağıtır. Kaynakları birbirlerine bağımlı olmadıkları zaman bunların paralel olarak dağıtılır. Değer bir kaynağın virgülle ayrılmış bir liste olabilir adları veya kaynak benzersiz tanımlayıcıları. Yalnızca bu şablonda dağıtılan kaynakları listeler. Bu şablonda tanımlı değil kaynakları önceden var olmalıdır. Dağıtımınızı yavaş ve döngüsel bağımlılıklar oluşturma gibi gereksiz bağımlılıkları eklemekten kaçının. Bağımlılıklarını ayarlama hakkında yönergeler için bkz [Azure Resource Manager'da bağımlılıkları tanımlama](resource-group-define-dependencies.md). |
 | properties |Hayır |Kaynak özgü yapılandırma ayarları. Özelliklerine ilişkin değerleri kaynak oluşturmak REST API işlemi için (PUT yöntemini) istek gövdesinde sağladığınız değerleri ile aynıdır. Ayrıca bir özelliği birden çok örneğini oluşturmak için bir kopya dizisi belirtebilirsiniz. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
 | kaynaklar |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Tam olarak nitelenmiş tür alt kaynağının üst kaynak türü gibi içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kullanılmaz. Bu bağımlılık açıkça tanımlamanız gerekir. |

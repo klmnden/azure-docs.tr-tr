@@ -12,28 +12,93 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5a47d7f589d4d2dcd40ebb6ff551f2c77fc8a8aa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
-
-Bu makalede, yayımlanan sürümleri izlemenize yardımcı olmak için ve en yeni sürüme veya güncelleştirme gerekip gerekmediğini anlamak için tasarlanmıştır.
+' Bu makalede yayımlanan sürümleri izlemenize yardımcı olacak ve en yeni sürüme veya güncelleştirme gerekip gerekmediğini anlamak için tasarlanmıştır.
 
 İlgili Konular listesidir:
+
 
 
 Konu |  Ayrıntılar
 --------- | --------- |
 Azure AD Connect'ten yükseltme adımları | İçin farklı yöntemler [en son önceki bir sürümünden yükseltme](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect sürüm.
 Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için bkz: [hesapları ve izinleri](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-İndir| [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+Karşıdan yükleme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+Durumu: 12 Aralık 2017
+
+>[!NOTE]
+>Bu bir güvenlik olan Azure AD Connect için ilgili düzeltme
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+Azure AD Connect ilk kez yüklediğinizde, yeni bir hesap Azure AD Connect hizmetini çalıştırmak için kullanılan oluşturulabilir. Bu sürümden önce hesabı parolası olan bir kullanıcı için bir değer parola değiştirme yeteneğini bilmeniz Yönetici Kılavuzu hakları bunları izin verilen ayarlarla oluşturuldu.  Bu, bu hesabı kullanarak oturum açmaya izin verilen ve bu ayrıcalık güvenlik ihlali yükselmesine oluşturur. Bu sürümde oluşturulan ve bu güvenlik açığından kaldırır hesabındaki ayarı tightens.
+
+>[!NOTE]
+>Bu sürüm yalnızca hizmet hesabı yükleme işleminin oluşturulduğu Azure AD Connect yeni yüklemeler için güvenlik açığı kaldırır. Exisating yüklemeleri için ya da hesap kendiniz verdiğiniz durumlarda, sould olun bu güvenlik açığı yok.
+
+Çalıştırabilirsiniz hizmet hesabı ayarlarını artırmak için [bu PowerShell Betiği](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Güvenlik Açığı kaldırmak için hizmet hesabı ayarlarını sıkılaştırabilirsiniz değerleri altında:
+
+*   Belirtilen nesne devralmayı devre dışı bırak
+*   Tüm ACE'ler KENDİNE özgü ACE dışında belirli nesne üzerinde kaldırın. Varsayılan izinleri KENDİSİNE geldiğinde korumanız istiyoruz.
+*   Bu özel izinleri atayın:
+
+Tür     | Ad                          | Access               | Şunun İçin Geçerli
+---------|-------------------------------|----------------------|--------------|
+İzin Ver    | SİSTEM                        | Tam Denetim         | Bu nesne  |
+İzin Ver    | Enterprise Admins             | Tam Denetim         | Bu nesne  |
+İzin Ver    | Etki alanı yöneticileri                 | Tam Denetim         | Bu nesne  |
+İzin Ver    | Yöneticiler                | Tam Denetim         | Bu nesne  |
+İzin Ver    | Kuruluş etki alanı denetleyicileri | İçeriğini listele        | Bu nesne  |
+İzin Ver    | Kuruluş etki alanı denetleyicileri | Tüm özellikleri oku  | Bu nesne  |
+İzin Ver    | Kuruluş etki alanı denetleyicileri | Okuma izinleri     | Bu nesne  |
+İzin Ver    | Kimliği doğrulanmış kullanıcılar           | İçeriğini listele        | Bu nesne  |
+İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Tüm özellikleri oku  | Bu nesne  |
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Önceden var olan bir hizmet hesabı artırmak için PowerShell Betiği
+
+Önceden var olan bir hizmet hesabı için bu ayarları uygulamak için PowerShell Betiği kullanmak (kuruluşunuz tarafından sağlanan veya Azure AD Connect, önceki bir yüklemesi tarafından oluşturulan ether Lütfen karşıdan yükleme komut dosyası yukarıdaki sağlanan bağlantıdan.
+
+##### <a name="usage"></a>Kullanım:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Burada 
+
+$ObjectDN = Active Directory hesap izinlerini sıkılaştırıldığını gerekir.
+$Credential Active Directory'ye konuşurken istemci kimlik doğrulaması için kullanılan kimlik bilgilerini =. Bu genellikle ihtiyaçlarını sıkılaştırma izinlerini hesabı oluşturmak için kullanılan kuruluş yöneticisi kimlik bilgilerini içindir.
+
+>[!NOTE] 
+>$credential. Kullanıcı adı etki alanı\kullanıcı adı biçiminde olmalıdır.  
+
+##### <a name="example"></a>Örnek:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Bu güvenlik açığından izinsiz erişim için kullanılan?
+
+Bu güvenlik açığından Azure AD aşmaya kullanılan olmadığını görmek için hizmet hesabı tarihi son parola doğrulamalısınız Connect yapılandırması sıfırlayın.  Varsa beklenmeyen timestamp, daha fazla araştırma, olay günlüğü, bu parolayı sıfırlama olayı için üstlendiği.
+
+                                                                                                               
+
+## <a name="116490"></a>1.1.649.0
+Durum: 27 Ekim 2017
+
+>[!NOTE]
+>Bu yapı müşteriler için Azure AD Connect otomatik yükseltmesi özelliği aracılığıyla kullanılabilir değil
 
 ## <a name="116490"></a>1.1.649.0
 Durum: 27 Ekim 2017

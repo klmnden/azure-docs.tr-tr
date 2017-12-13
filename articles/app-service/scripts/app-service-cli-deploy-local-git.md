@@ -13,14 +13,14 @@ ms.workload: web
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/19/2017
+ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 71cd1aeaa336d484d76e9a51511abcd38a878f00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21006e4a4f6733b54dc18163bbd2362af82fe7aa
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Bir web uygulaması oluşturma ve yerel bir Git deposu koddan dağıtma
 
@@ -31,7 +31,7 @@ Bu örnek komut dosyası ile ilgili kaynaklarını App Service'te bir web uygula
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Yüklemek ve CLI yerel olarak kullanmak seçerseniz, 2.0 veya üstü Azure CLI sürüm gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
@@ -45,12 +45,11 @@ Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri 
 
 | Komut | Notlar |
 |---|---|
-| [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [az uygulama hizmeti planı oluşturma](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | App Service planı oluşturur. |
-| [az webapp oluşturma](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | Azure web uygulaması oluşturur. |
-| [az webapp dağıtım kullanıcısı ayarlanmadı](https://review.docs.microsoft.com/cli/azure/webapp/deployment/user#set) | Hesap düzeyinde dağıtım kimlik bilgileri App Service için ayarlar. |
-| [az webapp dağıtım kaynağı config-yerel-git](https://review.docs.microsoft.com/cli/azure/webapp/deployment/source#config-local-git) | Yerel bir Git deposu için bir kaynak denetimini yapılandırma oluşturur. |
-| [az webapp Gözat](https://docs.microsoft.com/cli/azure/webapp#az_webapp_browse) | Azure web uygulaması bir tarayıcıda açın. |
+| [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) | App Service planı oluşturur. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) | Azure web uygulaması oluşturur. |
+| [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set) | Hesap düzeyinde dağıtım kimlik bilgileri App Service için ayarlar. |
+| [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git) | Yerel bir Git deposu için bir kaynak denetimini yapılandırma oluşturur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

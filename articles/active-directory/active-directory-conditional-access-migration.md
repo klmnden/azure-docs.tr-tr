@@ -1,11 +1,11 @@
 ---
 title: "Azure portalında Klasik ilkelerine | Microsoft Docs"
-description: "Azure portalında Klasik ilkelerini geçirin."
+description: "Azure portalında Klasik ilkelerine bilmeniz gerekenleri öğrenin."
 services: active-directory
 keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
 documentationcenter: 
 author: MarkusVi
-manager: mtillman
+manager: femila
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -13,162 +13,156 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 416ae171564fa23473d09bad950d149e201bcc98
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Azure portalında Klasik ilkelerine 
 
 
-[Koşullu erişim](active-directory-conditional-access-azure-portal.md) olduğunu denetlemek için nasıl sağlayan Azure Active directory (Azure AD) yeteneğini yetkili kullanıcılara erişimi, bulut uygulamalarınızı. Amacı hala aynı olsa da, yeni Azure portalına sürümü de koşullu erişimin nasıl çalıştığı için önemli geliştirmeler anlatılmıştır. Azure portal dışında yapılandırdığınız koşullu erişim ilkeleri, Azure portalında oluşturduğunuz yeni ilkeleriyle bulunabilir. Değil devre dışı bırakma veya bunları kaldırma sürece, bunlar hala ortamınızda uygulanır. Ancak, Klasik ilkelerinizin yeni Azure AD için koşullu geçirmek öneririz çünkü erişim ilkeleri:
+[Koşullu erişim](active-directory-conditional-access-azure-portal.md) olduğunu denetlemek için nasıl sağlayan Azure Active directory (Azure AD) yeteneğini yetkili kullanıcılara erişimi, bulut uygulamalarınızı. Amacı hala aynı olsa da, yeni Azure portalına sürümü koşullu erişimin nasıl çalıştığı için önemli geliştirmeler anlatılmıştır.
 
-- Yeni ilkeler Klasik ilkeleriyle işleyemedi adresi senaryoları için etkinleştirin.
+Nedeniyle Azure portalında oluşturmadınız ilkeleri geçirme dikkate almanız gerekir:
+
+- Şimdi önce işleyemedi senaryolarını ele alabilir.
 
 - Bunları birleştirerek yönetmek zorunda ilkeleri sayısını azaltabilirsiniz.   
 
-Bu konu, varolan Klasik ilkelerinizi yeni geçiş ile yeni Azure yönetmenize yardımcı olan AD koşullu erişim ilkeleri.
+- Tek bir merkezi konumda tüm koşullu erişim ilkelerini yönetebilirsiniz.
 
+- Klasik Azure portalı kullanımdan kaldırılacaktır.   
 
+Bu makalede, var olan koşullu erişim ilkelerini yeni framework geçirmek için bilmeniz gerekenler açıklanmaktadır.
+ 
 ## <a name="classic-policies"></a>Klasik ilkeler
 
-Azure AD için koşullu erişim ilkeleri ve değil oluşturduğunuz Azure portalında Intune olarak da bilinen **Klasik ilkeleri**. Klasik ilkelerinizi geçirmek için Klasik Azure portalına erişiminiz olması gerekmez. Azure portal ile sağlayan bir [ **Klasik ilkeleri (Önizleme)** Görünüm](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) Klasik ilkelerinizi inceleyin olanak sağlar.
+İçinde [Azure portal](https://portal.azure.com), [koşullu erişim - ilkeleri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) sayfasıdır giriş noktanızdır koşullu erişim ilkeleri. Ancak, ortamınızda bu sayfayı kullanarak oluşturmadınız koşullu erişim ilkeleri de olabilir. Bu ilkeler olarak da bilinir *Klasik ilkeleri*. Klasik ilkelerini koşullu erişim ilkeleri, oluşturduğunuz:
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- Klasik Azure portalı
+- Intune Klasik portal
+- Intune uygulama koruma portalı
 
 
-### <a name="open-a-classic-policy"></a>Klasik İlkesi'ni açın
+Üzerinde **koşullu erişim** sayfa, Klasik ilkelerinizi tıklatarak erişebilirsiniz [ **Klasik ilkeleri (Önizleme)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) içinde **Yönet** bölüm. 
 
-**Klasik İlkesi'ni açmak için:**
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti çubuğu üzerinde tıklatın **Azure Active Directory**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. Üzerinde **Azure Active Directory** sayfasında **Yönet** 'yi tıklatın **koşullu erişim**.
+**Klasik ilkeleri** görünümü için bir seçenek ile sağlar:
 
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/02.png)
+- Klasik ilkelerinizi filtreleyin.
  
-2. Üzerinde **koşullu erişim - ilkeleri** sayfasında **Yönet** 'yi tıklatın **Klasik ilkeleri (Önizleme)**.
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-3. Klasik ilkeleri listesinden önem verdiğiniz ilkesini seçin.   
+- Klasik ilkeleri devre dışı bırakın.
 
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/34.png)
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- Klasik ilkelerin (ve devre dışı bırakmak) ayarlarını gözden geçirin.
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+Klasik bir ilke devre dışı bırakılırsa, bu adımı artık geri alınamaz. Klasik İlkesi kullanarak grup üyeliğini değiştirebilirsiniz bu yüzden **ayrıntıları** görünümü. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+Seçilen grupları değiştirerek veya belirli grupların hariç tarafından eklenen tüm kullanıcılar ve gruplar için ilke devre dışı bırakmadan önce birkaç test kullanıcılar için devre dışı bırakılmış bir Klasik ilkesinin etkisini test edebilirsiniz. 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Azure AD koşullu erişim ilkeleri
 
-Bu konu, etkinleştirmeniz Klasik ilkelerinizi Azure AD ile koşullu erişim hakkında bilgi sahibi olmadan geçirmek ayrıntılı adımlar ilkeleri sağlar. Ancak, temel kavramlar ve terimler hakkında bilginiz olması Azure AD koşullu erişim geçiş deneyiminizi artırmaya yardımcı olur.
+Azure portalında koşullu erişim ile tek bir merkezi konumda tüm ilkelerinizi yönetebilirsiniz. Koşullu erişim uygulama önemli ölçüde değiştiğinden, Klasik ilkelerinizi geçirmeden önce şu temel kavramları kendiniz alışmanız gerekir.
 
 Bkz.:
 
-- [Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md) temel kavramları ve terminolojiyi hakkında bilgi edinmek için
+- [Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md) temel kavramları ve terminolojiyi hakkında bilgi edinmek için.
 
-- [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md) Azure portalında kullanıcı arabirimi tanımak için
+- [Azure Active Directory'de koşullu erişim için en iyi uygulamaları](active-directory-conditional-access-best-practices.md) koşullu erişim, kuruluşunuzda dağıtma konusunda bazı yönergeler almak için.
+
+- [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md) Azure portalında kullanıcı arabirimi tanımak için.
 
 
  
+## <a name="migration-considerations"></a>Geçiş konuları
+
+Bu makalede, Azure AD koşullu erişim ilkeleri de denir *yeni ilkeler*.
+Klasik ilkelerinizi devre dışı bırakmak veya silene kadar yeni ilkelerinizi yan yana çalışmaya devam eder. 
+
+Aşağıdaki durumlar İlkesi birleştirme bağlamında önemlidir:
+
+- Klasik ilkeler bir özel bulut uygulamasına bağlıdır, ancak yeni ilke için gereksinim duyduğunuz kadar çok bulut uygulamaları seçebilirsiniz.
+
+- Klasik bir ilkeyi ve bir bulut uygulaması için yeni bir ilke denetimlerin gerektiren tüm denetimler (*ve*) yerine getirilmesi için. 
+
+
+- Yeni bir ilke şunları yapabilirsiniz:
+ 
+    - Birden çok koşul senaryonuz tarafından gerekiyorsa birleştirmek. 
+
+    - Erişim gereksinimlerini denetlemek ve bir mantıksal ile birleştirip birkaç vermek seçin *veya* (Seçili denetimleri birini gerektirir) veya bir mantıksal ile *ve* (tüm seçili denetimlerin gerekir).
+
+        ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
+### <a name="office-365-exchange-online"></a>Office 365 Exchange online
 
-## <a name="multi-factor-authentication-policy"></a>Çok faktörlü kimlik doğrulama İlkesi 
+Klasik ilkelerini geçirmek istiyorsanız **Office 365 Exchange online** içeren **Exchange Active Sync** istemci uygulamaları koşulu olarak, yeni bir ilke birleştirmek kuramamış olabilir. 
 
-Bu örnek gerektiren klasik bir ilke geçirmek nasıl gösterir **çok faktörlü kimlik doğrulaması** bir bulut uygulaması için. 
+Tüm istemci uygulaması türlerini desteklemek istiyorsanız, bu, örneğin, bir durumdur. Sahip yeni bir ilke **Exchange Active Sync** istemci uygulamaları koşulu olarak diğer istemci uygulamaları seçemezsiniz.
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
+Yeni bir ilke içine bir birleştirme de klasik ilkelerinizi çeşitli koşullar içeriyorsa mümkün değildir. Sahip yeni bir ilke **Exchange Active Sync** istemci uygulamaları olarak yapılandırılmış koşul diğer koşulları desteklemez:   
 
-**Klasik bir ilke geçirmek için:**
+![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-1. [Klasik İlkesi](#open-a-classic-policy) almak için yapılandırma ayarları.
-2. Yeni bir Klasik ilkeniz değiştirmek için Azure AD koşullu erişim ilkesi. 
+Sahip yeni bir ilke varsa **Exchange Active Sync** istemci uygulamaları olarak yapılandırılmış koşul gereken diğer tüm koşulları yapılandırılmamış olduğundan emin olun. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
+ 
 
-### <a name="create-a-new-conditional-access-policy"></a>Yeni bir koşullu erişim ilkesi oluşturma
+[Uygulama tabanlı](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) içeren Office 365 Exchange Online için Klasik ilkelerini **Exchange Active Sync** istemci uygulamaları koşulu olarak izin **desteklenen** ve **desteklenmiyor** [cihaz platformları](active-directory-conditional-access-technical-reference.md#device-platform-condition). İlgili yeni ilke tek tek cihaz platformları yapılandıramazsınız olsa da, destek sınırlayabilirsiniz [desteklenen cihaz platformlarında](active-directory-conditional-access-technical-reference.md#device-platform-condition) yalnızca. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-1. İçinde [Azure portal](https://portal.azure.com), sol gezinti çubuğu üzerinde tıklatın **Azure Active Directory**.
+İçeren birden çok Klasik ilkelerini birleştirebilir **Exchange Active Sync** bunlar varsa, istemci uygulamaları koşulu olarak:
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+- Yalnızca **Exchange Active Sync** koşulu olarak 
 
-2. Üzerinde **Azure Active Directory** sayfasında **Yönet** 'yi tıklatın **koşullu erişim**.
+- Yapılandırılan erişim izni verme için birkaç gereksinimi
 
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/02.png)
+Yaygın bir senaryo birleştirilmesi şöyledir:
 
+- Bir aygıt tabanlı Klasik ilkesinden Klasik Azure portalı 
+- Bir uygulama tabanlı Klasik ilke Intune app koruma portalı 
+ 
+Bu durumda, seçilen iki gereksinimleri olan bir yeni ilkesine Klasik ilkelerinizi birleştirebilir.
 
-
-3. Üzerinde **koşullu erişim** sayfasını açmak için **yeni** üstteki araç çubuğunda sayfasını tıklatın **Ekle**.
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/03.png)
-
-4. Üzerinde **yeni** sayfasında **adı** metin kutusuna, ilkeniz için bir ad yazın.
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/29.png)
-
-5. İçinde **atamaları** 'yi tıklatın **kullanıcılar ve gruplar**.
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/05.png)
-
-    a. Klasik ilkede seçilen tüm kullanıcılar varsa, tıklatın **tüm kullanıcılar**. 
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/35.png)
-
-    b. Klasik ilkenizde seçili gruplarınız varsa, tıklatın **kullanıcıları ve grupları seçin**ve ardından gerekli kullanıcılar ve Gruplar'ı seçin.
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/36.png)
-
-    c. Dışlanan gruplarınız varsa, tıklatın **hariç** sekmesini ve ardından gerekli kullanıcılar ve Gruplar'ı seçin. 
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/37.png)
-
-6. Üzerinde **yeni** sayfasını açmak için **bulut uygulamaları** sayfasında **atama** 'yi tıklatın **bulut uygulamaları**.
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
-8. Üzerinde **bulut uygulamaları** sayfasında, aşağıdaki adımları gerçekleştirin:
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/08.png)
-
-    a. Tıklatın **uygulamaları**.
-
-    b. **Seç**'e tıklayın.
-
-    c. Üzerinde **seçin** sayfasında, bulut uygulamanızı seçin ve ardından **seçin**.
-
-    d. Üzerinde **bulut uygulamaları** sayfasında, **Bitti**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-9. Varsa **çok faktörlü kimlik doğrulaması gerektiren** seçili:
+### <a name="device-platforms"></a>Cihaz platformları
 
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/26.png)
+Klasik ilkeleriyle [uygulama tabanlı denetimler](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) iOS ve Android olarak önceden yapılandırılmış olan [cihaz platformu koşul](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-    a. İçinde **erişim denetimleri** 'yi tıklatın **Grant**.
+Yeni bir ilke seçmeniz gerekir. [cihaz platformları](active-directory-conditional-access-technical-reference.md#device-platform-condition) ayrı ayrı desteklemek istediğiniz.
 
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/27.png)
-
-    b. Üzerinde **Grant** sayfasında, **erişim izni verme**ve ardından **çok faktörlü kimlik doğrulaması gerektiren**.
-
-    c. **Seç**'e tıklayın.
-
-
-10. Tıklatın **üzerinde** ilkeniz etkinleştirmek için.
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/30.png)
-
-11. Klasik ilkeyi devre dışı bırakır. 
-
-    ![Koşullu erişim](./media/active-directory-conditional-access-migration/38.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 
 
 
+ 
  
 
 

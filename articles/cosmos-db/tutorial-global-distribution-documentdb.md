@@ -1,12 +1,11 @@
 ---
-title: "DocumentDB API için Azure Cosmos DB genel dağıtım Öğreticisi | Microsoft Docs"
-description: "DocumentDB API kullanarak Azure Cosmos DB genel dağıtım Kurulum öğrenin."
+title: "SQL API için Azure Cosmos DB genel dağıtım Öğreticisi | Microsoft Docs"
+description: "Kurulum SQL API'yi kullanarak Azure Cosmos DB genel dağıtım öğrenin."
 services: cosmos-db
-keywords: "genel dağıtım, documentdb"
+keywords: "Genel dağıtım"
 documentationcenter: 
-author: mimig1
+author: rafats
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,33 +13,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: mimig
+ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: c3d0d46ac12faa6b1e28edbeadd97c1a987bed1e
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4ccf60cdc25ffc2a0058fbcbd6285e3e8208c664
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>DocumentDB API kullanarak Azure Cosmos DB genel dağıtım ayarlama
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Kurulum SQL API'yi kullanarak Azure Cosmos DB genel dağıtım yapma
 
-Bu makalede, Azure portalında Azure Cosmos DB genel dağıtım kurulumu ve DocumentDB API kullanarak bağlanmak için nasıl kullanılacağını gösterir.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Bu makalede, Azure portalında Azure Cosmos DB genel dağıtım kurulumu ve SQL API'yi kullanarak bağlanmak için nasıl kullanılacağını gösterir.
 
 Bu makalede aşağıdaki görevleri içerir: 
 
 > [!div class="checklist"]
 > * Azure portalını kullanarak genel dağıtım yapılandırma
-> * Genel dağıtım kullanarak yapılandırma [DocumentDB API'leri](documentdb-introduction.md)
+> * Genel dağıtım kullanarak yapılandırma [SQL API'leri](documentdb-introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-documentdb-api"></a>DocumentDB API kullanarak bir tercih edilen bölge bağlanma
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>SQL API'yi kullanarak bir tercih edilen bölge bağlanma
 
-Anlamıyla yararlanabilmek için [genel dağıtım](distribute-data-globally.md), istemci uygulamaları, belge işlemlerini gerçekleştirmek için kullanılacak bölgelerin sıralı tercih listesi belirtebilirsiniz. Bu bağlantı İlkesi ayarlayarak yapılabilir. Azure Cosmos DB hesabı yapılandırması, geçerli bölge kullanılabilirliği ve belirtilen tercih listesi bağlı olarak, en iyi endpoint yazma gerçekleştirmek ve okuma işlemleri için DocumentDB SDK tarafından seçilir.
+Anlamıyla yararlanabilmek için [genel dağıtım](distribute-data-globally.md), istemci uygulamaları, belge işlemlerini gerçekleştirmek için kullanılacak bölgelerin sıralı tercih listesi belirtebilirsiniz. Bu bağlantı İlkesi ayarlayarak yapılabilir. Azure Cosmos DB hesabı yapılandırması, geçerli bölge kullanılabilirliği ve belirtilen tercih listesi bağlı olarak, en iyi endpoint yazma gerçekleştirmek ve okuma işlemleri için SQL SDK tarafından seçilir.
 
-Bu tercih listesi DocumentDB SDK'ları kullanarak bağlantı başlatırken belirtilir. SDK'ları isteğe bağlı bir parametre "PreferredLocations" kabul Azure bölgeleri diğer bir deyişle sıralı bir listesi.
+Bu tercih listesi SQL SDK'ları kullanarak bağlantı başlatırken belirtilir. SDK'ları isteğe bağlı bir parametre "PreferredLocations" kabul Azure bölgeleri diğer bir deyişle sıralı bir listesi.
 
 SDK, bölge geçerli tüm yazma işlemlerini yazma otomatik olarak gönderir.
 
@@ -169,7 +170,7 @@ Bu öğreticide, aşağıdakileri yaptığınızdan:
 
 > [!div class="checklist"]
 > * Azure portalını kullanarak genel dağıtım yapılandırma
-> * DocumentDB API'lerini kullanarak genel dağıtım yapılandırma
+> * SQL API'lerini kullanarak genel dağıtım yapılandırma
 
 Artık Azure Cosmos DB yerel öykünücüsü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğretici devam edebilirsiniz.
 

@@ -1,24 +1,16 @@
 ---
 title: "Bulma ve değerlendirmesi Azure geçirme ile ölçeklendirin | Microsoft Docs"
 description: "Çok sayıda Azure geçiş hizmeti ile şirket içi makineler değerlendirmek açıklar."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: dde0d07f-94b7-4b6a-a158-a89aa9324a35
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 930ec182cf329e7dda072dc49bd7f70abb413f2d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e28a2144dd102fcd2ec05531432cac0df250ae01
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Bul ve büyük bir VMware ortamı değerlendirin
 

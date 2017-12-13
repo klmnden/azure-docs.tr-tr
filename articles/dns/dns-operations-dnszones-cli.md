@@ -3,7 +3,7 @@ title: "Azure DNS'de - Azure CLI 2.0 DNS bölgelerini yönetme | Microsoft Docs"
 description: "DNS bölgelerini Azure CLI 2.0 kullanarak yönetebilirsiniz. Bu makalede, güncelleştirme, silme ve Azure DNS üzerinde DNS bölgeleri oluşturma gösterilmektedir."
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,30 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: gwallace
-ms.openlocfilehash: 988f6ff5158eb754cbedeb58a45fcc31f0026f03
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: kumud
+ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanan Azure DNS'de DNS bölgelerini yönetme
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
 
 
 Bu kılavuz, Windows, Mac ve Linux için kullanılabilir olduğu platformlar arası Azure CLI kullanarak DNS bölgelerini yönetme gösterir. DNS bölgelerini kullanarak da yönetebilirsiniz [Azure PowerShell](dns-operations-dnszones.md) ya da Azure portal.
-
-## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri
-
-Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
-
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI'mız.
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız.
 
 ## <a name="introduction"></a>Giriş
 

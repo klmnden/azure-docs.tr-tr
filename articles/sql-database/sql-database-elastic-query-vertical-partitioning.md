@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: d57f45066387f451463a38d76d3fe6adab77e41f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd5bd82a35c5a2ba72cffe35138311322714a1c0
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Bulut veritabanları farklı şemaları (Önizleme) ile sorgulama
 ![Farklı veritabanı tablolarında sorgulama][1]
@@ -43,7 +43,7 @@ Veritabanlarını dikey olarak bölümlenmiş tabloları kümesi farklı farklı
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Kapsamlı veritabanı ana anahtarı ve kimlik bilgileri oluşturun
 Kimlik bilgisi esnek sorgu tarafından uzak veritabanlarına bağlanmak için kullanılır.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
     SECRET = '<password>'
     [;]
@@ -155,14 +155,14 @@ Aşağıdaki sorgu müşteriler için siparişleri ve sipariş satırlarını ik
 
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>Saklı yordamı uzaktan T-SQL yürütmesi için: sp\_execute_remote
-Esnek sorgu aynı zamanda parça doğrudan erişim sağlayan bir saklı yordam sunar. Saklı yordam adlı [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) ve uzak saklı yordam veya T-SQL kodunu uzak veritabanlarına yürütmek için kullanılabilir. Aşağıdaki parametreleri alır: 
+Esnek sorgu aynı zamanda uzak veritabanına doğrudan erişim sağlayan bir saklı yordam sunar. Saklı yordam adlı [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) ve Uzak veritabanı üzerinde uzak saklı yordam veya T-SQL kodunu yürütmek için kullanılabilir. Aşağıdaki parametreleri alır: 
 
 * Veri kaynağı adı (nvarchar): türü RDBMS dış veri kaynağının adı. 
-* Sorgu (nvarchar): her parça yürütülmek üzere T-SQL sorgusu. 
+* Sorgu (nvarchar): Uzak veritabanı yürütülmek üzere T-SQL sorgusu. 
 * Parametre bildirimi (nvarchar) - isteğe bağlı: dize veri türü tanımları (gibi sp_executesql) Sorgu parametresinde kullanılan parametreler için. 
 * Parametre değeri listesi - isteğe bağlı: parametre değerleri (gibi sp_executesql) virgülle ayrılmış listesi.
 
-Sp\_yürütme\_uzaktan uzak veritabanlarına verilen T-SQL deyimi yürütmek için çağrı parametrelerini sağlanan dış veri kaynağı kullanır. Shardmap manager veritabanı ve uzak veritabanlarına bağlanmak için dış veri kaynağının kimlik bilgilerini kullanır.  
+Sp\_yürütme\_uzaktan çağırma parametreleri sağlanan dış veri kaynağı üzerinde Uzak veritabanı verilen T-SQL deyimi yürütmek için kullanır. Uzak veritabanına bağlanmak için dış veri kaynağının kimlik bilgilerini kullanır.  
 
 Örnek: 
 

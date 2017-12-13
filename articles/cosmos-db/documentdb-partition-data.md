@@ -2,9 +2,8 @@
 title: "Bölümlendirme ve Azure Cosmos DB'de ölçeklendirme | Microsoft Docs"
 description: "Azure Cosmos DB, bölümleme yapılandırmak ve anahtarları bölümlemek nasıl ve uygulamanız için doğru bölüm anahtarı almak nasıl bölümleme nasıl çalıştığı hakkında bilgi edinin."
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
-editor: monicar
 documentationcenter: 
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
@@ -13,19 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: arramac
+ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 177d28850d57c9a43c22e79cfab3699b11f4d734
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>DocumentDB API kullanarak Azure Cosmos DB içinde bölümlendirme
+# <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Azure Cosmos SQL API'yi kullanarak DB'de bölümlendirme
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) büyüdüğü gibi hızlı ve tahmin edilebilir performansı ve ölçeği sorunsuz bir şekilde uygulamanızı yanı sıra ulaşmak yardımcı olmak için tasarlanmış bir genel dağıtılmış, birden çok model veritabanı hizmetidir. 
 
-Bu makalede, DocumentDB API ile Cosmos DB kapsayıcıların bölümlendirme ile çalışmak nasıl bir bakış sağlar. Bkz: [bölümlendirme ve yatay ölçekleme](../cosmos-db/partition-data.md) genel bir bakış kavramları ve tüm Azure Cosmos DB API'si ile bölümleme için en iyi uygulamalar için. 
+Bu makalede SQL API ile Cosmos DB kapsayıcıların bölümlendirme ile çalışmak nasıl bir bakış sağlar. Bkz: [bölümlendirme ve yatay ölçekleme](../cosmos-db/partition-data.md) genel bir bakış kavramları ve tüm Azure Cosmos DB API'si ile bölümleme için en iyi uygulamalar için. 
 
 Kodu ile çalışmaya başlamak için projesinden indirmeniz [Github](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark). 
 
@@ -44,7 +45,7 @@ Kodu ile çalışmaya başlamak için projesinden indirmeniz [Azure Cosmos DB pe
 
 ## <a name="partition-keys"></a>Bölüm anahtarlarını
 
-DocumentDB API bölüm anahtar tanımı JSON yolu biçiminde belirtin. Aşağıdaki tabloda bölüm temel tanımları ve her birine karşılık gelen değerleri örnekleri gösterilmektedir. Bölüm anahtarı örneğin bir yolu olarak belirtilen `/department` özelliği departmanı temsil eder. 
+SQL API bölüm anahtar tanımı JSON yolu biçiminde belirtin. Aşağıdaki tabloda bölüm temel tanımları ve her birine karşılık gelen değerleri örnekleri gösterilmektedir. Bölüm anahtarı örneğin bir yolu olarak belirtilen `/department` özelliği departmanı temsil eder. 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -106,7 +107,7 @@ await client.CreateDocumentCollectionAsync(
 Bu yöntem Cosmos DB çağrısı bir REST API yapar ve hizmet istenen işlemeyi temel alan bölüm sayısı hazırlayacağınız. Performansınızı gelişmesi gerektiği bir kapsayıcı verimini değiştirebilirsiniz. 
 
 ### <a name="reading-and-writing-items"></a>Okuma ve yazma öğeleri
-Şimdi, şimdi Cosmos Veritabanına veri ekleyin. İşte, okuma cihaz içeren bir örnek sınıf ve Documentclient bir kapsayıcıya okuma yeni aygıt eklemek için bir çağrı. Bu, DocumentDB API yararlanan bir örnektir:
+Şimdi, şimdi Cosmos Veritabanına veri ekleyin. İşte, okuma cihaz içeren bir örnek sınıf ve Documentclient bir kapsayıcıya okuma yeni aygıt eklemek için bir çağrı. Bu, SQL API'yi yararlanan bir örnektir:
 
 ```csharp
 public class DeviceReading
@@ -223,7 +224,7 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 Sonraki bölümde, nasıl bölümlenmiş kapsayıcılara tek bölümlü kapsayıcılardan taşıyabilir arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, DocumentDB API ile Azure Cosmos DB kapsayıcıların bölümlendirme ile çalışmak nasıl bir genel bakış sağlanır. Ayrıca bkz. [bölümlendirme ve yatay ölçekleme](../cosmos-db/partition-data.md) genel bir bakış kavramları ve tüm Azure Cosmos DB API'si ile bölümleme için en iyi uygulamalar için. 
+Bu makalede, SQL API ile Azure Cosmos DB kapsayıcıların bölümlendirme ile çalışmak nasıl bir genel bakış sağlanır. Ayrıca bkz. [bölümlendirme ve yatay ölçekleme](../cosmos-db/partition-data.md) genel bir bakış kavramları ve tüm Azure Cosmos DB API'si ile bölümleme için en iyi uygulamalar için. 
 
 * Ölçek ve performans ile Azure Cosmos DB testi gerçekleştirin. Bkz: [performans ve ölçek testi Azure Cosmos DB ile](performance-testing.md) bir örnek için.
 * Kodlama ile çalışmaya başlama [SDK'ları](documentdb-sdk-dotnet.md) veya [REST API'si](/rest/api/documentdb/)

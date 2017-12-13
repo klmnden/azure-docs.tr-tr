@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: e0e58e443897adad2b6029db4e64fa220cebb6b8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Sorun giderme: Azure sanal ağ silinemedi
 
@@ -65,13 +65,7 @@ Active Directory etki alanı hizmeti etkin ve sanal ağa bağlı değilse, bu sa
 
 ![Bağlı bir aygıt denetleyin](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Hizmetini devre dışı bırakmak için aşağıdaki adımları izleyin:
-
-1. [Klasik Azure portalı](https://manage.windowsazure.com)'na gidin.
-2. Sol bölmede seçin **Active Directory**.
-3. Active Directory etki alanı hizmeti etkin olan Azure Active Directory (Azure AD) dizini seçin.
-4. **Configure (Yapılandır)** sekmesini seçin.
-5. Altında **etki alanı Hizmetleri**, değiştirme **bu dizin için etki alanı Hizmetleri'ni etkinleştirme** için seçenek **Hayır**.  
+Hizmetini devre dışı bırakmak için bkz: [devre dışı Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Sanal ağ diğer kaynağa bağlı olup olmadığını denetleyin
 
@@ -81,7 +75,7 @@ Bağlantı hattı bağlantıları, bağlantıları ve sanal ağ eşlemesi buluna
 
 1. Ağ Geçidi bağlantıları
 2. Ağ geçitleri
-3. IP'leri
+3. IP
 4. Sanal Ağ eşlemesi bulunabilir
 5. Uygulama hizmeti ortamı (ana)
 

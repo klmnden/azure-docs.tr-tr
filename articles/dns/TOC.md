@@ -11,7 +11,6 @@
 ## DNS bölgesi ve kaydı oluşturma
 ### [Azure portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
 ## Özel DNS bölgesi ve kaydı oluşturma
@@ -24,13 +23,11 @@
 ## DNS bölgelerini yönetme
 ### [Azure portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## DNS kayıtlarını yönetme
 ### [Azure portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## Ters DNS’yi yönetme

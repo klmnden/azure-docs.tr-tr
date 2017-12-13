@@ -1,31 +1,33 @@
 ---
 title: "Azure geçiş sorunlarını giderme | Microsoft Docs"
 description: "Azure geçirmek hizmet ve sorun giderme ipuçları için sık karşılaşılan bilinen sorunlar genel bir bakış sağlar."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 40faffa3f-1f44-4a72-94bc-457222ed7ac8
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: troubleshooting
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 8c7c79a23ee09a7de35252d7819d1f0e5b1d98c5
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="troubleshoot-azure-migrate"></a>Azure sorun giderme geçirme
+# <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
 ## <a name="troubleshoot-common-errors"></a>Sık karşılaşılan sorunları giderme
 
 [Azure geçirme](migrate-overview.md) geçiş Azure için şirket içi iş yüklerini değerlendirir. Dağıtma ve Azure geçişi kullanırken sorunları gidermek için bu makaleyi kullanın.
 
+
+**Toplayıcı internet'e bağlanabiliyor değil**
+
+Bu durum, kullanmakta olduğunuz makine bir proxy'nin arkasında olduğunda ortaya çıkar. Proxy gerekiyorsa yetkilendirme kimlik bilgilerini sağladığınızdan emin olun.
+Herhangi bir URL tabanlı bir güvenlik duvarı proxy kullanıyorsanız giden bağlantıyı denetlemek için bu URL'leri gerekli beyaz liste ile emin olun:
+
+**URL** | **Amacı**  
+--- | ---
+*. portal.azure.com | Azure hizmetiyle bağlantısını denetleyin ve zaman eşitlemesini doğrulamak için gerekli verir.
+*. oneget.org | Gerekli powershell indirmek için vCenter Powerclı modülü temel.
 
 **Toplayıcı Proje kimliği kullanarak proje bağlanamaz ve anahtar ı portaldan kopyalanır.**
 
