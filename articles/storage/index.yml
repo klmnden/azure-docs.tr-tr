@@ -3,50 +3,86 @@ documentType: LandingData
 title: Azure Storage Belgeleri
 metadata:
   title: "Azure Depolama Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-  description: "Microsoft Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Azure Depolama; Blob depolama, Dosya Depolama ve Kuyruk depolama hizmetlerinden oluşur."
+  description: "Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Azure Depolama; Blob depolama, Dosya Depolama ve Kuyruk depolama hizmetlerinden oluşur."
   services: storage
-  author: czeumault
-  manager: carolz
+  author: tamram
+  manager: jeconnoc
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/20/2017
-  ms.author: carolz
-  ms.openlocfilehash: b3413ad99086970357e1c2ac426150cedd0f8064
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.date: 12/08/2017
+  ms.author: tamram
+  ms.openlocfilehash: 04198a4f256be34dc0b79413c792f2e979b918ed
+  ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 12/13/2017
 abstract:
   description: "Microsoft Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Azure Depolama; Blob depolama, Dosya Depolama ve Kuyruk depolama hizmetlerinden oluşur.  Hızlı başlangıç yönergelerimiz ve öğreticilerimizden yararlanarak Azure Depolama’dan nasıl yararlanabileceğimizi öğrenin."
 sections:
 - title: "5 Dakikalık Hızlı Başlangıçlar"
   items:
   - type: paragraph
-    text: "Azure Depolama veri nesnelerinizi depolamak ve bunlara erişmek için benzersiz bir ad alanı oluşturun."
-  - type: list
-    style: icon48
-    items:
+    text: "Bu hızlı başlangıç ipuçlarını inceleyerek Azure Depolama ile çalışmayı öğrenin."
+  - type: table
+    style: dataMatrix
+    columns:
     - image:
-        src: https://docs.microsoft.com/media/common/powershell.svg
-      text: Azure PowerShell
-      href: /azure/storage/common/storage-quickstart-create-storage-account-powershell
+        src: media/index/logo_powershell.svg
+        text: PowerShell
     - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/storage/common/storage-quickstart-create-storage-account-cli
+        src: media/index/cli.svg
+        text: Azure CLI
+    - image:
+        src: media/index/logo_net.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    rows:
+    - title: "Depolama hesabı oluştur"
+      values:
+      - href: /azure/storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: /azure/storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: "Blob hızlı başlangıçları"
+      values:
+      - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
+      - href: /azure/storage/blobs/storage-quickstart-blobs-cli
+      - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
+      - href: /azure/storage/blobs/storage-quickstart-blobs-java
+      - href: /azure/storage/blobs/storage-quickstart-blobs-python
+      - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
 - title: "Adım Adım Öğreticiler"
   items:
   - type: paragraph
     text: "Karşıya yükleme ve bulutta görüntü verileri işleme işlemlerini nasıl yapabileceğinizi öğrenin."
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: "<a href=\"/azure/storage/blobs/storage-upload-process-images\">Bulutta görüntü verilerini karşıya yükleme ve kullanma</a>"
     - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json\">Blob’ları işlemek için Azure İşlevleri’ni tetikleme</a>"
     - html: "<a href=\"/azure/storage/blobs/storage-secure-access-application\">Uygulama verilerinin güvenliğini sağlama</a>"
     - html: "<a href=\"/azure/storage/blobs/storage-monitor-troubleshoot-storage-application\">Depolamayı izleme ve sorun giderme</a>"
+  - type: paragraph
+    text: "Azure Depolama’da yüksek kullanılabilirlik için uygulamanızı tasarlamayı öğrenin."
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href=\"/azure/storage/blobs/storage-create-geo-redundant-storage\">Uygulama verilerinizi yüksek oranda kullanılabilir hale getirme</a>"
+    - html: "<a href=\"/azure/storage/blobs/storage-simulate-failure-ragrs-account-app\">Okuma erişimli yedekli depolamaya erişimde hata benzetimi gerçekleştirme</a>"
+  - type: paragraph
+    text: "Azure Depolama’da yapılandırılmamış verileri aramayı öğrenin."
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href=\"/azure/storage/blobs/storage-unstructured-search\">Bulut depolama alanında yapılandırılmamış verileri arama</a>"
 - title: "Örnekler"
   items:
   - type: paragraph
@@ -55,6 +91,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: .NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Bloblar</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">Dosyalar</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">Kuyruklar</a>
+    - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Bloblar</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Dosyalar</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Kuyruklar</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
 - title: "Ücretsiz Pluralsight Video Eğitimi"
@@ -84,4 +122,4 @@ sections:
     - title: Diller
       html: <p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/storageservices/azure-storage-services-rest-api-reference\">Bloblar, Kuyruklar, Tablolar ve Dosyalar</a></p><p><a href=\"/rest/api/storagerp\">Kaynak sağlayıcısı</a></p><p><a href=\"/rest/api/storageimportexport\">İçeri/dışarı aktarma</a></p><p><a href=\"/rest/api/storageservices\">Depolama Verileri REST API</a></p>"
+      html: "<p><a href=\"/rest/api/storageservices\">Bloblar, Kuyruklar, Tablolar ve Dosyalar</a></p><p><a href=\"/rest/api/storagerp\">Kaynak sağlayıcısı</a></p><p><a href=\"/rest/api/storageimportexport\">İçeri/dışarı aktarma</a></p>"
