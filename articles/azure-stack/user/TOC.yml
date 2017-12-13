@@ -119,6 +119,10 @@
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: Azure Stack CLI
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: İlgili
+  items:
+    - name: Azure Stack Operatör Belgeleri
+      href: /azure/azure-stack/
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası
