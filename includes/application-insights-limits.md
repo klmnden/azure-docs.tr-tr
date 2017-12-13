@@ -11,7 +11,7 @@ Uygulama başına (yani, izleme anahtarı başına) ölçüm ve olay sayısı i�
 | Özellik ve ölçüm adı uzunluğu | 150 | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Özellik değeri dize uzunluğu | 8,192 | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | İzleme ve özel durum iletisi uzunluğu | 10 bin | Bkz: [yazın şemaları](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| Uygulama başına [kullanılabilirlik testi](../articles/application-insights/app-insights-monitor-web-app-availability.md) sayısı  | 10 |
+| Uygulama başına [kullanılabilirlik testi](../articles/application-insights/app-insights-monitor-web-app-availability.md) sayısı  | 100 |
 | [Profil Oluşturucu](../articles/application-insights/app-insights-profiler.md) veri saklama | 5 gün |
 | [Profil Oluşturucu](../articles/application-insights/app-insights-profiler.md) gün başına gönderilen veriler | 10GB |
 

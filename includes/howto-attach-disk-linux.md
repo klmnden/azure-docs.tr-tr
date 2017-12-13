@@ -4,7 +4,7 @@ Diskler hakkında daha fazla bilgi için bkz. [Sanal Makineler için Diskler ve 
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Boş disk ekleme
-1. Azure CLI 1.0’ı açın ve [Azure aboneliğinize bağlanın](../articles/xplat-cli-connect.md). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
+1. Azure CLI 1.0’ı açın ve [Azure aboneliğinize bağlanın](/cli/azure/authenticate-azure-cli). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
 2. `azure vm disk attach-new` yazarak aşağıdaki örnekte gösterildiği gibi yeni bir disk oluşturup ekleyin. *myVM* değerini Linux Sanal Makinenizin adıyla değiştirin ve diskin GB cinsinden boyutunu belirtin (bu örnekte *100GB*):
 
     ```azurecli
@@ -37,7 +37,7 @@ Diskler hakkında daha fazla bilgi için bkz. [Sanal Makineler için Diskler ve 
 ## <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme
 Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır.
 
-1. Azure CLI 1.0’ı açın ve [Azure aboneliğinize bağlanın](../articles/xplat-cli-connect.md). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
+1. Azure CLI 1.0’ı açın ve [Azure aboneliğinize bağlanın](/cli/azure/authenticate-azure-cli). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
 2. Eklemek istediğiniz VHD’nin Azure aboneliğinize daha önce yüklenip yüklenmediğini denetleyin:
    
     ```azurecli

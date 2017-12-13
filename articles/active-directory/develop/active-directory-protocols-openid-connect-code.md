@@ -4,7 +4,7 @@ description: "Bu makalede, web uygulamaları ve web API kullanarak Azure Active 
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1bb944997caa0c43354e82bf9b1a70e3e104a476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a813d73dc8a80c46e1b7500ec72ccb2a47bc6d5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Openıd Connect ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi
 [Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) olan OAuth 2.0 protokolünü en üstünde oluşturulan Basit kimlik katmanı. OAuth 2.0 tanımlar edinme ve kullanma mekanizmaları **erişim belirteçleri** erişmek için korumalı kaynaklara, ancak bunlar tanımlamaz kimlik bilgilerini sağlamak için standart yöntemleri. Openıd Connect, OAuth 2.0 Yetkilendirme işlemi için bir uzantısı olarak kimlik doğrulaması gerçekleştirir. Biçiminde son kullanıcı hakkında bilgi sağlayan bir `id_token` , kullanıcının kimliğini doğrular ve kullanıcının temel profil bilgilerini sağlar.
@@ -90,8 +90,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | redirect_uri |Önerilen |Burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın redirect_uri.  Bu tam bir url kodlanmış olmalıdır dışında Portalı'nda kayıtlı redirect_uris eşleşmelidir. |
 | response_mode |Önerilen |Sonuçta elde edilen authorization_code uygulamanıza geri göndermek için kullanılacak yöntemi belirtir.  Desteklenen değerler `form_post` için *HTTP form post* veya `fragment` için *URL parçası*.  Web uygulamaları için kullanılmasını öneririz `response_mode=form_post` uygulamanız en güvenli aktarımını belirteçleri sağlamak için. |
 | durum |Önerilen |Belirteç yanıtta döndürülen istek dahil bir değer.  İstediğiniz herhangi bir içerik dizesi olabilir.  Rastgele oluşturulan benzersiz bir değer tipik olarak kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12).  Durumu, sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
-| istemi |İsteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü belirtir.  Şu anda, geçerli değerler yalnızca 'oturum açma', 'none' olan ve 'onay'.  `prompt=login`Bu isteğin negating çoklu oturum açma kimlik bilgilerini girmesini zorlar.  `prompt=none`- tersidir kullanıcı hiçbir etkileşimli istemi doğabilecek sunulmayan sağlar.  İstek sessizce çoklu oturum açma aracılığıyla tamamlanamazsa, uç nokta bir hata döndürür.  `prompt=consent`Uygulama izinleri vermek için kullanıcı isteyen kullanıcı, oturum sonra Tetikleyicileri OAuth iletişim olursunuz. |
-| login_hint |İsteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Genellikle uygulamaları yeniden kimlik doğrulaması, kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan sırasında bu parametreyi kullanın `preferred_username` talep. |
+| istemi |isteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü belirtir.  Şu anda, geçerli değerler yalnızca 'oturum açma', 'none' olan ve 'onay'.  `prompt=login`Bu isteğin negating çoklu oturum açma kimlik bilgilerini girmesini zorlar.  `prompt=none`- tersidir kullanıcı hiçbir etkileşimli istemi doğabilecek sunulmayan sağlar.  İstek sessizce çoklu oturum açma aracılığıyla tamamlanamazsa, uç nokta bir hata döndürür.  `prompt=consent`Uygulama izinleri vermek için kullanıcı isteyen kullanıcı, oturum sonra Tetikleyicileri OAuth iletişim olursunuz. |
+| login_hint |isteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Genellikle uygulamaları yeniden kimlik doğrulaması, kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan sırasında bu parametreyi kullanın `preferred_username` talep. |
 
 Bu noktada, kullanıcı kimlik bilgilerini girin ve kimlik doğrulamasını tamamlamak istenir.
 

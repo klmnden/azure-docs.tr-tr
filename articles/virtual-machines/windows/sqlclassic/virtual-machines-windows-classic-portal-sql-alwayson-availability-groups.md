@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Always On kullanılabilirlik grubu Azure sanal makineleri (Klasik) yapılandırma
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Bu öğretici aşağıdaki varsayılır:
 > 
 
 ## <a name="create-the-virtual-network-and-domain-controller-server"></a>Sanal ağ ve etki alanı denetleyicisi sunucu oluşturma
-Yeni bir Azure deneme sürümü hesabı ile başlar. Hesabınızı ayarladıktan sonra Klasik Azure portalı giriş ekranında olması gerekir.
+Yeni bir Azure deneme sürümü hesabı ile başlar. Hesabınızı ayarladıktan sonra Azure portalına giriş ekranında olması gerekir.
 
 1. Tıklatın **yeni** aşağıdaki ekran görüntüsünde gösterildiği gibi sayfanın sol köşesinde düğmesine tıklayın.
    
@@ -74,7 +74,7 @@ Yeni bir Azure deneme sürümü hesabı ile başlar. Hesabınızı ayarladıktan
    
    | Sayfa | Ayarlar |
    | --- | --- |
-   | Sanal ağ ayrıntıları |**ADI ContosoNET =**<br/>**Bölge Batı ABD =** |
+   | Sanal Ağ Ayrıntıları |**ADI ContosoNET =**<br/>**Bölge Batı ABD =** |
    | DNS sunucuları ve VPN bağlantısı |None |
    | Sanal ağ adres alanları |Ayarları aşağıdaki ekran görüntüsünde gösterilmiştir: ![Sanal ağ oluşturma](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784620.png) |
 4. Etki alanı denetleyicisi (DC) olarak kullanacağınız sanal makine oluşturun. Tıklatın **yeni** > **işlem** > **sanal makine** > **Galeri'den**aşağıdaki ekran görüntüsünde gösterildiği gibi.
@@ -85,11 +85,11 @@ Yeni bir Azure deneme sürümü hesabı ile başlar. Hesabınızı ayarladıktan
    | Sayfa | Ayarlar |
    | --- | --- |
    | Sanal makine işletim sistemini seçin |Windows Server 2012 R2 Datacenter |
-   | Sanal Makine Yapılandırması |**Sürüm yayın tarihi** (son) =<br/>**SANAL makine adı** ContosoDC =<br/>**KATMAN** STANDART =<br/>**BOYUTU** A2 = (2 Çekirdek)<br/>**Yeni bir kullanıcı adı** AzureAdmin =<br/>**Yeni parola** Contoso =! 000<br/>**Onayla** Contoso =! 000 |
-   | Sanal Makine Yapılandırması |**Bulut hizmeti** = yeni bir bulut hizmeti oluşturun<br/>**Bulut hizmeti DNS adı** benzersiz bulut hizmeti adı =<br/>**DNS adı** benzersiz bir ad = (örn: ContosoDC123)<br/>**Bölge/BENZEŞİM grubu/sanal ağ** ContosoNET =<br/>**SANAL ağ alt ağları** Back(10.10.2.0/24) =<br/>**Depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik KÜMESİ** = (yok) |
-   | Sanal makine seçenekleri |Varsayılanları kullanın |
+   | Sanal makine yapılandırması |**Sürüm yayın tarihi** (son) =<br/>**SANAL makine adı** ContosoDC =<br/>**KATMAN** STANDART =<br/>**BOYUTU** A2 = (2 Çekirdek)<br/>**Yeni bir kullanıcı adı** AzureAdmin =<br/>**Yeni parola** Contoso =! 000<br/>**Onayla** Contoso =! 000 |
+   | Sanal makine yapılandırması |**Bulut hizmeti** = yeni bir bulut hizmeti oluşturun<br/>**Bulut hizmeti DNS adı** benzersiz bulut hizmeti adı =<br/>**DNS adı** benzersiz bir ad = (örn: ContosoDC123)<br/>**Bölge/BENZEŞİM grubu/sanal ağ** ContosoNET =<br/>**SANAL ağ alt ağları** Back(10.10.2.0/24) =<br/>**Depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik KÜMESİ** = (yok) |
+   | Sanal makine seçenekleri |Varsayılanları kullan |
 
-Yeni bir sanal makine yapılandırdıktan sonra sanal makine provsioned olmasını bekleyin. Bu işlemin tamamlanması biraz zaman alır. Tıklatırsanız **sanal makine** sekmesini Klasik Azure portalında ContosoDC dönüşüm durumlar görebilirsiniz **başlangıç (hazırlama)** için **durduruldu**, **başlangıç**, **çalışan (hazırlama)**ve son olarak **çalıştıran**.
+Yeni bir sanal makine yapılandırdıktan sonra sanal makine provsioned olmasını bekleyin. Bu işlemin tamamlanması biraz zaman alır. Tıklatırsanız **sanal makine** sekmesini Azure portalında ContosoDC dönüşüm durumlar görebilirsiniz **başlangıç (hazırlama)** için **durduruldu**,  **Başlangıç**, **çalışan (hazırlama)**ve son olarak **çalıştıran**.
 
 DC sunucusuna şimdi başarıyla kaynak sağlandı. Ardından, bu DC sunucu üzerinde Active Directory etki alanı yapılandırır.
 
@@ -169,9 +169,9 @@ Active Directory ve kullanıcı nesnelerini yapılandırılmış, üç SQL Serve
 | Sayfa | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | Sanal makine işletim sistemini seçin |**Windows Server 2012 R2 Datacenter** |**SQL Server 2014 RTM Enterprise** |**SQL Server 2014 RTM Enterprise** |
-| Sanal Makine Yapılandırması |**Sürüm yayın tarihi** (son) =<br/>**SANAL makine adı** ContosoWSFCNode =<br/>**KATMAN** STANDART =<br/>**BOYUTU** A2 = (2 Çekirdek)<br/>**Yeni bir kullanıcı adı** AzureAdmin =<br/>**Yeni parola** Contoso =! 000<br/>**Onayla** Contoso =! 000 |**Sürüm yayın tarihi** (son) =<br/>**SANAL makine adı** ContosoSQL1 =<br/>**KATMAN** STANDART =<br/>**BOYUTU** A3 = (4 çekirdek)<br/>**Yeni bir kullanıcı adı** AzureAdmin =<br/>**Yeni parola** Contoso =! 000<br/>**Onayla** Contoso =! 000 |**Sürüm yayın tarihi** (son) =<br/>**SANAL makine adı** ContosoSQL2 =<br/>**KATMAN** STANDART =<br/>**BOYUTU** A3 = (4 çekirdek)<br/>**Yeni bir kullanıcı adı** AzureAdmin =<br/>**Yeni parola** Contoso =! 000<br/>**Onayla** Contoso =! 000 |
-| Sanal Makine Yapılandırması |**Bulut hizmeti** önceden oluşturulmuş benzersiz bulut hizmeti DNS adı = (örn: ContosoDC123)<br/>**Bölge/BENZEŞİM grubu/sanal ağ** ContosoNET =<br/>**SANAL ağ alt ağları** Back(10.10.2.0/24) =<br/>**Depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik KÜMESİ** = oluşturun bir kullanılabilirlik kümesi<br/>**KULLANILABİLİRLİK KÜMESİ ADI** SQLHADR = |**Bulut hizmeti** önceden oluşturulmuş benzersiz bulut hizmeti DNS adı = (örn: ContosoDC123)<br/>**Bölge/BENZEŞİM grubu/sanal ağ** ContosoNET =<br/>**SANAL ağ alt ağları** Back(10.10.2.0/24) =<br/>**Depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik KÜMESİ** (de yapılandırabilirsiniz kullanılabilirlik makine oluşturulduktan sonra kümesini. SQLHADR = Üç makinenin SQLHADR kullanılabilirlik kümesine atanması gerekir.) |**Bulut hizmeti** önceden oluşturulmuş benzersiz bulut hizmeti DNS adı = (örn: ContosoDC123)<br/>**Bölge/BENZEŞİM grubu/sanal ağ** ContosoNET =<br/>**SANAL ağ alt ağları** Back(10.10.2.0/24) =<br/>**Depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik KÜMESİ** (de yapılandırabilirsiniz kullanılabilirlik makine oluşturulduktan sonra kümesini. SQLHADR = Üç makinenin SQLHADR kullanılabilirlik kümesine atanması gerekir.) |
-| Sanal makine seçenekleri |Varsayılanları kullanın |Varsayılanları kullanın |Varsayılanları kullanın |
+| Sanal makine yapılandırması |**Sürüm yayın tarihi** (son) =<br/>**SANAL makine adı** ContosoWSFCNode =<br/>**KATMAN** STANDART =<br/>**BOYUTU** A2 = (2 Çekirdek)<br/>**Yeni bir kullanıcı adı** AzureAdmin =<br/>**Yeni parola** Contoso =! 000<br/>**Onayla** Contoso =! 000 |**Sürüm yayın tarihi** (son) =<br/>**SANAL makine adı** ContosoSQL1 =<br/>**KATMAN** STANDART =<br/>**BOYUTU** A3 = (4 çekirdek)<br/>**Yeni bir kullanıcı adı** AzureAdmin =<br/>**Yeni parola** Contoso =! 000<br/>**Onayla** Contoso =! 000 |**Sürüm yayın tarihi** (son) =<br/>**SANAL makine adı** ContosoSQL2 =<br/>**KATMAN** STANDART =<br/>**BOYUTU** A3 = (4 çekirdek)<br/>**Yeni bir kullanıcı adı** AzureAdmin =<br/>**Yeni parola** Contoso =! 000<br/>**Onayla** Contoso =! 000 |
+| Sanal makine yapılandırması |**Bulut hizmeti** önceden oluşturulmuş benzersiz bulut hizmeti DNS adı = (örn: ContosoDC123)<br/>**Bölge/BENZEŞİM grubu/sanal ağ** ContosoNET =<br/>**SANAL ağ alt ağları** Back(10.10.2.0/24) =<br/>**Depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik KÜMESİ** = oluşturun bir kullanılabilirlik kümesi<br/>**KULLANILABİLİRLİK KÜMESİ ADI** SQLHADR = |**Bulut hizmeti** önceden oluşturulmuş benzersiz bulut hizmeti DNS adı = (örn: ContosoDC123)<br/>**Bölge/BENZEŞİM grubu/sanal ağ** ContosoNET =<br/>**SANAL ağ alt ağları** Back(10.10.2.0/24) =<br/>**Depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik KÜMESİ** (de yapılandırabilirsiniz kullanılabilirlik makine oluşturulduktan sonra kümesini. SQLHADR = Üç makinenin SQLHADR kullanılabilirlik kümesine atanması gerekir.) |**Bulut hizmeti** önceden oluşturulmuş benzersiz bulut hizmeti DNS adı = (örn: ContosoDC123)<br/>**Bölge/BENZEŞİM grubu/sanal ağ** ContosoNET =<br/>**SANAL ağ alt ağları** Back(10.10.2.0/24) =<br/>**Depolama hesabı** otomatik olarak oluşturulan depolama hesabı kullan =<br/>**Kullanılabilirlik KÜMESİ** (de yapılandırabilirsiniz kullanılabilirlik makine oluşturulduktan sonra kümesini. SQLHADR = Üç makinenin SQLHADR kullanılabilirlik kümesine atanması gerekir.) |
+| Sanal makine seçenekleri |Varsayılanları kullan |Varsayılanları kullan |Varsayılanları kullan |
 
 <br/>
 
@@ -257,7 +257,7 @@ Tam küme yapılandırma görevleri tamamlamak için aşağıdaki adımları kul
    
    | Sayfa | Ayarlar |
    | --- | --- |
-   | Başlamadan önce |Varsayılanları kullanın |
+   | Başlamadan önce |Varsayılanları kullan |
    | Sunucuları seçin |Tür **ContosoSQL1** içinde **sunucu adını girin** tıklatıp **Ekle** |
    | Doğrulama uyarısı |Seçin **ı bu küme için Microsoft desteğine gereksiniminiz ve bu nedenle doğrulama testlerini çalıştırmak istemiyorsanız Hayır. Sonraki tıkladığınızda, kümeyi oluşturmaya devam**. |
    | Kümeyi yönetmek için erişim noktası |Tür **Cluster1** içinde **küme adı** |

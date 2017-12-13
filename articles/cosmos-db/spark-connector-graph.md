@@ -15,11 +15,11 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.openlocfilehash: 473cc23c73a721c54bc87c03069f4f3688cde11f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: Spark ve Apache TinkerPop Gremlin kullanarak grafik analiz gerçekleştirme
 
@@ -176,7 +176,7 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
 
 ## <a name="get-the-azure-cosmos-db-spark-connector"></a>Azure Cosmos DB Spark Bağlayıcısı'nı al
 
-1. Azure Cosmos DB Spark bağlayıcı almak `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` ve Cosmos DB Java SDK'sı `azure-documentdb-1.10.0.jar` gelen [Azure Cosmos DB Spark Bağlayıcısı github'da](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
+1. Azure Cosmos DB Spark bağlayıcı almak `azure-cosmosdb-spark-0.0.3-SNAPSHOT.jar` ve Cosmos DB Java SDK'sı `azure-documentdb-1.12.0.jar` gelen [Azure Cosmos DB Spark Bağlayıcısı github'da](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
 
 2. Alternatif olarak, onu yerel olarak oluşturabilir. Spark Gremlin en son sürümünü 1.6.1 Spark ile oluşturulmuş ve Azure Cosmos DB Spark bağlayıcıda şu anda kullanılan, Spark ile 2.0.2, uyumlu olmadığından son TinkerPop3 kodu derleyin ve Kavanoz el ile yükleyin. Şunları yapın:
 

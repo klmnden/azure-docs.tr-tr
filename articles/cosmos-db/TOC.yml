@@ -9,7 +9,7 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: DocumentDB
+    - name: SQL
       items:
         - name: .NET
           href: create-documentdb-dotnet.md
@@ -71,7 +71,7 @@
   items:
     - name: 1 - Oluştur
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-develop-documentdb-dotnet.md
         - name: .NET ile MongoDB
           href: tutorial-develop-mongodb.md
@@ -87,7 +87,7 @@
           href: tutorial-develop-cassandra-java.md
     - name: 2 - İçeri Aktarma
       items:
-        - name: DocumentDB
+        - name: SQL
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
@@ -97,7 +97,7 @@
           href: cassandra-import-data.md
     - name: 3 - Sorgu
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-query-documentdb.md
         - name: MongoDB
           href: tutorial-query-mongodb.md
@@ -107,7 +107,7 @@
           href: tutorial-query-graph.md
     - name: 4 - Global olarak dağıtma
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-global-distribution-documentdb.md
         - name: MongoDB
           href: tutorial-global-distribution-mongodb.md
@@ -147,7 +147,7 @@
       href: request-units.md
     - name: Çoklu model API’ler
       items:
-        - name: DocumentDB
+        - name: SQL
           href: documentdb-introduction.md
         - name: MongoDB
           href: mongodb-introduction.md
@@ -170,7 +170,7 @@
   items:
     - name: Geliştirme
       items:
-        - name: DocumentDB API’si
+        - name: SQL API’si
           href: documentdb-index.md
           items:
             - name: Kaynaklar
@@ -239,8 +239,6 @@
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Hizmet güncelleştirmeleri
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                - name: Topluluk portalı
-                  href: community.md
                 - name: Şemadan bağımsız dizinleme sayfası
                   href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
                 - name: 'S1, S2, S3’ü devre dışı bırakma'
@@ -378,13 +376,13 @@
           href: powerbi-visualize.md
         - name: Veri görselleştirme için ODBC sürücüsünden yararlanma
           href: odbc-driver.md
-        - name: Spring Boot Başlatıcı’yı DocumentDB API’leriyle kullanma
+        - name: Spring Boot Başlatıcı’yı SQL API’leriyle kullanma
           href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Başvuru
   items:
     - name: Kod örnekleri
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
-    - name: DocumentDB API’leri
+    - name: SQL API’leri
       items:
         - name: Java
           href: documentdb-sdk-java.md

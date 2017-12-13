@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7b8732a06e54f7828418cba0c0d172e34f1f4ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Media Encoder Standard ve .NET kullanarak küçük resim oluşturma
 
-Medya Kodlayıcısı standart bir veya daha fazla küçük resimleri girişinizi video oluşturmak için kullanabileceğiniz [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), veya [BMP](https://en.wikipedia.org/wiki/BMP_file_format) görüntü dosyası biçimlerini. Yalnızca görüntü üretmek görevler gönderebilir veya kodlamalı küçük resim oluşturma birleştirebilirsiniz. Bu konu, bu tür senaryoları için birkaç örnek XML ve JSON küçük resim hazır sağlar. Konunun sonunda yoktur bir [örnek koduna](#code_sample) Media Services .NET SDK'sı kodlama görevi gerçekleştirmek için nasıl kullanılacağını gösterir.
+Medya Kodlayıcısı standart bir veya daha fazla küçük resimleri girişinizi video oluşturmak için kullanabileceğiniz [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), veya [BMP](https://en.wikipedia.org/wiki/BMP_file_format) görüntü dosyası biçimlerini. Yalnızca görüntü üretmek görevler gönderebilir veya kodlamalı küçük resim oluşturma birleştirebilirsiniz. Bu makale, bu tür senaryoları için birkaç örnek XML ve JSON küçük resim hazır sağlar. Makalenin sonunda, var olan bir [örnek koduna](#code_sample) Media Services .NET SDK'sı kodlama görevi gerçekleştirmek için nasıl kullanılacağını gösterir.
 
 Örnek hazır kullanılan öğeleri hakkında daha fazla ayrıntı için gözden geçirmeniz gereken [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).
 
@@ -30,7 +30,7 @@ Gözden geçirdiğinizden emin olun [konuları](media-services-dotnet-generate-t
     
 ## <a name="example-of-a-single-png-file-preset"></a>Örnek bir "tek PNG dosyası" hazır
 
-Aşağıdaki JSON ve XML hazır burada Kodlayıcı "ilginç" Çerçeve bulma sırasında bir en yüksek çaba girişiminde bulunur tek bir çıktı PNG dosyadan video giriş ilk birkaç saniye üretmek için kullanılır. Bunlar anlamı % 100'e, çıktı görüntü boyutları ayarlanan Not video giriş boyutlarını eşleşir. Ayrıca "Çıktı" içindeki "Format" ayarı "Codec bileşenleri" bölümündeki "PngLayers" kullanımını eşleşecek şekilde nasıl gerekli unutmayın. 
+Aşağıdaki JSON ve XML hazır burada Kodlayıcı "ilginç" Çerçeve bulma sırasında bir en yüksek çaba girişiminde bulunur tek bir çıktı PNG dosyadan video giriş ilk birkaç saniye üretmek için kullanılır. Çıktı görüntü boyutları bunların giriş video boyutları aynı anlamı % 100'e, ayarlanan unutmayın. Ayrıca "Çıktı" içindeki "Format" ayarı "Codec bileşenleri" bölümündeki "PngLayers" kullanımını eşleşecek şekilde nasıl gerekli unutmayın. 
 
 ### <a name="json-preset"></a>JSON hazır
 
@@ -138,7 +138,7 @@ Zaman damgaları 5 10 görüntülere kümesi oluşturmak için aşağıdaki JSON
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>"Bir görüntü belirli bir zaman damgası," hazır örneği
 
-Aşağıdaki JSON ve XML hazır giriş videonun 30 ikinci işaretten tek bir JPEG görüntüsü oluşturmak için kullanılabilir. Bu hazır süresi 30 saniyeden fazla olması için giriş video bekliyor (else işi başarısız olur).
+Aşağıdaki JSON ve XML hazır video giriş 30 saniyelik işaretten tek bir JPEG görüntüsü oluşturmak için kullanılabilir. Bu hazır süresi 30 saniyeden fazla olması için giriş video bekliyor (else işi başarısız).
 
 ### <a name="json-preset"></a>JSON hazır
 
@@ -267,7 +267,7 @@ Dosya adında {çözümleme} makrosu kullanımına dikkat edin; Bu, genişlik ve
 Yukarıdaki örneklerde tümünün yalnızca görüntüleri üretir kodlama bir görevin nasıl gönderebilirsiniz ele olsa da, ayrıca, küçük resim oluşturma ile video/ses kodlama birleştirebilirsiniz. Aşağıdaki JSON ve XML hazır söyleyin **Medya Kodlayıcısı standart** kodlama sırasında bir küçük resim oluşturmak için.
 
 ### <a id="json"></a>JSON hazır
-Şeması hakkında daha fazla bilgi için bkz: [bu](https://msdn.microsoft.com/library/mt269962.aspx) konu.
+Şeması hakkında daha fazla bilgi için bkz: [bu](https://msdn.microsoft.com/library/mt269962.aspx) makalesi.
 
     {
       "Version": 1.0,
@@ -330,7 +330,7 @@ Yukarıdaki örneklerde tümünün yalnızca görüntüleri üretir kodlama bir 
     }
 
 ### <a id="xml"></a>XML hazır
-Şeması hakkında daha fazla bilgi için bkz: [bu](https://msdn.microsoft.com/library/mt269962.aspx) konu.
+Şeması hakkında daha fazla bilgi için bkz: [bu](https://msdn.microsoft.com/library/mt269962.aspx) makalesi.
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -394,40 +394,49 @@ Aşağıdaki kod örneği, aşağıdaki görevleri gerçekleştirmek için Media
         string configuration = File.ReadAllText(fileName);  
 * Tek bir kodlama görev projeye ekleyin. 
 * Kodlanacak giriş varlık belirtin.
-* Kodlanmış varlık içerecek bir çıkış varlığı oluşturun.
+* Kodlanmış varlık içeren bir çıkış varlığı oluşturun.
 * İş ilerleme durumunu denetlemek için olay işleyici ekleyin.
 * İşi göndermek.
 
-Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) konu geliştirme ortamınızı ayarlama konusunda yönergeler için.
+Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) geliştirme ortamınızı ayarlama konusunda yönergeler için makalenin.
 
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-        namespace EncodeAndGenerateThumbnails
-        {
-        class Program
-        {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+namespace EncodeAndGenerateThumbnails
+{
+    class Program
+    {
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+        ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+        ConfigurationManager.AppSettings["AMSClientSecret"];
 
-            private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = null;
 
-            private static readonly string _mediaFiles =
-            Path.GetFullPath(@"../..\Media");
+        private static readonly string _mediaFiles =
+        Path.GetFullPath(@"../..\Media");
 
-            private static readonly string _singleMP4File =
+        private static readonly string _singleMP4File =
             Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
 
-            static void Main(string[] args)
-            {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -439,10 +448,10 @@ Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) 
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
-            }
+        }
 
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Thumbnail Job");
             // Get a media processor reference, and pass to it the name of the 
@@ -454,9 +463,9 @@ Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) 
 
             // Create a task
             ITask task = job.Tasks.AddNew("Media Encoder Standard Thumbnail task",
-                processor,
-                configuration,
-                TaskOptions.None);
+                    processor,
+                    configuration,
+                    TaskOptions.None);
 
             // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
@@ -464,47 +473,47 @@ Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) 
             // This output is specified as AssetCreationOptions.None, which 
             // means the output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
+                    AssetCreationOptions.None);
 
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
             job.Submit();
             job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
             return job.OutputMediaAssets[0];
-            }
+        }
 
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
             Console.WriteLine("Job state changed event:");
             Console.WriteLine("  Previous state: " + e.PreviousState);
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
                 case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
                 case JobState.Canceling:
                 case JobState.Queued:
                 case JobState.Scheduled:
                 case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
+                    Console.WriteLine("Please wait...\n");
+                    break;
                 case JobState.Canceled:
                 case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
+                    // Display or log error details as needed.
+                    break;
                 default:
-                break;
+                    break;
             }
-            }
+        }
 
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
             var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
@@ -512,25 +521,26 @@ Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) 
                 throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
-            }
         }
-
+    }
+}
+```
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 Aşağıdaki maddeler geçerlidir:
 
 * Başlangıç/adım/aralığı için açık zaman damgaları kullanımını giriş kaynağı en az 1 dakika uzun olduğunu varsayar.
-* Başlangıç, adım ve öznitelikleri dize aralığı Png/jpg/BmpImage öğeleri sahip – bu olarak yorumlanacak:
+* Png/jpg/BmpImage öğeleri başlatma, adım ve dize öznitelikleri aralığı – bu olarak yorumlanacak:
   
-  * Negatif olmayan tamsayılar ör olmaları durumunda çerçeve numarası. "Başlat": "120",
-  * Göreli % sonekine olarak ör ifade, kaynak süresi. "Başlat": "% 15", veya
-  * Ss: dd: ifade edilen, zaman damgası... biçimi. Ör. "Başlat": "00: 01:00"
+  * Çerçeve sayısı negatif olmayan tamsayılar iseler, örneğin "Başlat": "120",
+  * Göreli süresi % sonekine olarak ifade edilen, kaynak, örneğin "Başlat": "% 15", veya
+  * Ss: dd: ifade edilen, zaman damgası... biçimi. Örneğin "Başlat": "00: 01:00"
     
     Karışık ve yazarken gösterimler Lütfen eşleşmesi.
     
     Ayrıca, başlangıç özel makrosu de destekler: {, hangi içerik Not ilk "ilginç" çerçevesi belirlemeyi dener en iyi}: (adım ve aralık yok sayılır başlangıç {iyi} olarak ayarlandığında geçerlidir)
   * Varsayılan: Başlat: {en iyi}
-* Çıktı biçimi her resim biçimi için açıkça sağlanması gerekiyor: Png/Jpg/BmpFormat. Varsa, MES JpgFormat JpgVideo vb. ile eşleşir. Yeni bir görüntü codec belirli makrosu OutputFormat sunar: {Index} olması gerekiyor hangi sunmak (bir kez ve yalnızca bir kez) görüntü Çıkış biçimleri.
+* Çıktı biçimi her resim biçimi için açıkça sağlanması gerekiyor: Png/Jpg/BmpFormat. Varsa, MES JpgFormat JpgVideo vb. eşleşir. Yeni bir görüntü codec belirli makrosu OutputFormat sunar: {Index} olması gerekiyor hangi sunmak (bir kez ve yalnızca bir kez) görüntü Çıkış biçimleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

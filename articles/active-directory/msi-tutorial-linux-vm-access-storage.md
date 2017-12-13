@@ -4,7 +4,7 @@ description: "Azure depolama alanına erişmek için bir Linux VM yönetilen hiz
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: 8096ef553f6e425a7e872ce33120ba2f41c6475d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 2b264f8e2227e410caba8370d58c824d469198e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Azure depolama erişim tuşu erişmek için bir Linux VM yönetilen hizmet kimliği kullanın
 
@@ -37,7 +37,7 @@ Bu öğretici bir Linux sanal makine için Yönetilen hizmet kimliği (MSI) etki
 [!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
-Oturum açmak için Azure portalında [https://portal.azure.com](https://portal.azure.com).
+[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Linux sanal makine oluşturun

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b5b1d7723b57db2614dc889282f98e9673b4bbd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>.NET ile Media Services iş bildirimleri izlemek için Azure kuyruk depolama kullanma
 Kodlama işleri çalıştırdığınızda, genellikle iş ilerleme durumunu izlemek için bir yol gerekir. Media Services'ı için bildirimleri göndermeyi yapılandırabilirsiniz [Azure kuyruk depolama](../storage/storage-dotnet-how-to-use-queues.md). Kuyruk depolama biriminden bildirimleri alarak iş ilerleme durumunu izleyebilirsiniz. 
@@ -27,7 +27,7 @@ Kuyruk depolama için teslim edilen ileti herhangi bir yere dünyada erişilebil
 
 Media Services bildirimleri göndermek için dinleme yaygın bir senaryo, bazı ek görevi gerçekleştirmek için gereken bir içerik yönetim sistemi geliştiriyorsanız (örneğin, bir iş akışı bir sonraki adımda tetiklemek için ya da içerik yayımlamak için) bir kodlama işi tamamlar ' dir.
 
-Bu konu, kuyruk depolama biriminden bildirim iletilerini alma gösterir.  
+Bu makalede, kuyruk depolama biriminden bildirim iletilerini alma gösterilmektedir.  
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 Kuyruk depolama kullanma Media Services uygulamaları geliştirirken, aşağıdakileri dikkate alın:
@@ -54,7 +54,7 @@ Bu bölümde aşağıdaki kod örneğinde şunları yapar:
 9. Sıranın ve bildirim bitiş noktasını siler.
 
 > [!NOTE]
-> Bir işin durumunu izlemek için önerilen bildirim iletileri için dinleyerek aşağıdaki örnekte gösterildiği gibi bir yoludur.
+> Aşağıdaki örnekte gösterildiği gibi bir işin durumunu izlemek için önerilen yöntem bildirim iletileri için dinleyerek verilmiştir:
 >
 > Alternatif olarak, kullanarak bir işin durumuna iade edilemedi **IJob.State** özelliği.  Bir işin tamamlanma hakkında bir uyarı iletisi üzerinde duruma gelebilir **IJob** ayarlanır **tamamlandı**. **IJob.State** özelliği kısa bir gecikmeyle doğru durumunu yansıtır.
 >
@@ -63,7 +63,8 @@ Bu bölümde aşağıdaki kod örneğinde şunları yapar:
 ### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
 1. Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
-2. Yeni bir klasör oluşturun (yerel sürücünüzün herhangi bir yerinde) ve kodlayıp akışla aktarmak veya aşamalı indirmek istediğiniz bir .mp4 dosyasını buraya kopyalayın. Bu örnekte, "C:\Media" yol kullanılır.
+2. Yeni bir klasör oluşturun (klasör herhangi bir yerde olabilir yerel diskinize) ve kodlamak ve akışla aktarmak veya aşamalı indirmek istediğiniz bir .mp4 dosyasını kopyalayın. Bu örnekte, "C:\Media" yol kullanılır.
+3. Bir başvuru ekleyin **System.Runtime.Serialization** kitaplığı.
 
 ### <a name="code"></a>Kod
 
@@ -120,9 +121,14 @@ namespace JobNotification
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
         private static readonly string _StorageConnectionString = 
             ConfigurationManager.AppSettings["StorageConnectionString"];
 
@@ -138,11 +144,15 @@ namespace JobNotification
             string endPointAddress = Guid.NewGuid().ToString();
 
             // Create the context.
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
+            
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
@@ -326,7 +336,8 @@ namespace JobNotification
     }
 }
 ```
-Önceki örnekte, aşağıdaki çıkış üretti. Değerlerinizi değişir.
+
+Önceki örnekte aşağıdaki çıkış üretilen: değerlerinizi farklılık gösterir.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

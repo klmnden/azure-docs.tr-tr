@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ac83f948e367be2006e677d8d56fbd4c4a3ab57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: DocumentDB API SQL sorgu kopya sayfası PDF
-**Azure Cosmos DB: DocumentDB API SQL sorgu kopya sayfası** hızla DocumentDB API veri yazma sorgularında ortak veritabanı sorguları, anahtar sözcükler, yerleşik işlevler ve işleçler PDF başvuru yazdırmak bir kolay içinde görüntüleyerek yardımcı olur Sayfa. 
+# <a name="azure-cosmos-db-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: SQL sorgusu kopya sayfası PDF
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+**Azure Cosmos DB: SQL sorgusu kopya sayfası** başvuru sayfası hızla yazdığınız SQL API verilere ilişkin sorgular ortak veritabanı sorguları, anahtar sözcükler, yerleşik işlevler ve işleçler PDF yazdırmak bir kolay içinde görüntüleyerek yardımcı olur. 
 
 Cosmos DB destekler ilişkisel, hiyerarşik ve uzamsal sorgulama JSON belgeleri kullanarak [SQL](documentdb-sql-query.md) bir şema veya ikincil dizinler belirtmeden. Standart ANSI SQL anahtar sözcükleri ve işleçler ek olarak, Cosmos DB JavaScript kullanıcı tanımlı işlevler (UDF'ler), JavaScript işleçleri ve çok sayıda yerleşik işlevleri destekler.
 
@@ -38,7 +41,7 @@ SQL sorgu kopya sayfası karşıdan yükleniyor ve hızlı başvuru olarak kulla
 
 ## <a name="more-help-with-writing-sql-queries"></a>SQL sorguları yazma hakkında daha fazla yardım
 * Bir ilerleme Cosmos DB'de kullanılabilir sorgu seçenekleri için bkz: [sorgu Cosmos DB](documentdb-sql-query.md).
-* İlgili başvuru belgeleri için bkz: [Azure Cosmos DB DocumentDB API'si: SQL söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* İlgili başvuru belgeleri için bkz: [Azure Cosmos DB SQL API: SQL söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Sürüm notları
 7/29/üst içerecek şekilde 2016 tarihinde güncelleştirildi.

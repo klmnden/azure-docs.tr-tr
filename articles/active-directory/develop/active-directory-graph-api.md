@@ -4,7 +4,7 @@ description: "Azure ad REST API uç noktaları yoluyla programlı erişim sağla
 services: active-directory
 documentationcenter: 
 author: viv-liu
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: viviali
 ms.custom: aaddev
-ms.openlocfilehash: 79bb96171c00fa62f24113800c3824856febe728
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 815b9f75864ba3a08f623af12417391fba430f7d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-active-directory-graph-api"></a>Azure Active Directory Grafik API'si
+# <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API'si
 > [!IMPORTANT]
-> Azure Active Directory kaynaklarına erişmek için Azure AD Grafik API'si yerine [Microsoft Graph](https://graph.microsoft.io/) kullanmanız önemle tavsiye edilir. Geliştirme çalışmalarımız şu anda Microsoft Graph üzerine yoğunlaşmıştır ve Azure AD Grafik API'si için başka bir geliştirme planlanmamaktadır. Azure AD Grafik API'sinin hala uygun olabileceği senaryo sayısı çok sınırlıdır; daha fazla bilgi için Office Geliştirici Merkezi’ndeki [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisine bakın.
+> Azure Active Directory kaynaklarına erişmek için Azure AD Graph API'si yerine [Microsoft Graph](https://graph.microsoft.io/) kullanmanız önemle tavsiye edilir. Geliştirme çalışmalarımız şu anda Microsoft Graph üzerine yoğunlaşmıştır ve Azure AD Graph API’si için başka bir geliştirme planlanmamaktadır. Azure AD Graph API’sinin hala uygun olabileceği senaryo sayısı çok sınırlıdır; daha fazla bilgi için Office Geliştirici Merkezi’ndeki [Microsoft Graph veya Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog gönderisine bakın.
 > 
 > 
 

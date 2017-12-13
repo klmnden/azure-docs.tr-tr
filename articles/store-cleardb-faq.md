@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d1e3c826e61b8dee264e1c01fd2d54ba7ebb636
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure Uygulama Hizmeti ile ClearDB MySQL veritabanları hakkında SSS
 Bu SSS ClearDB MySQL veritabanları Azure Web uygulamaları için satın alma ve kullanma hakkında sık sorulan soruları yanıtlar.
@@ -68,7 +68,7 @@ Temel veya daha yüksek bir fiyatlandırma katmanı Web uygulamaları için kull
 İçinde [Azure portal](https://portal.azure.com), ClearDB bir paylaşılan barındırma veritabanı ölçeklendirebilirsiniz. Bu okuma [makale](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) daha fazla bilgi için. Şu anda Azure portalında ClearDB Premium kümeleri için yükseltme desteklemiyoruz.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Azure portalında my ClearDB veritabanı göremiyorum?
-Biz Azure Kaynak Yöneticisi'ni kullanarak ClearDB veritabanı oluşturursanız veya [yeni Azure Portal](https://portal.azure.com), içinde görünür olmaz [eski Azure Portal](https://manage.windowsazure.com). İş-bunu çözmek için veritabanınızı el ile web uygulaması'na bağlamaktır. Benzer şekilde, ClearDB veritabanı içinde oluşturduğunuz [eski portalı](https://manage.windowsazure.com) veritabanınızda görmeye olmaz [yeni Azure Portal](https://portal.azure.com). Yoktur hiçbir iş-geçici ikinci senaryo için.
+Klasik bir ClearDB veritabanı oluşturduysanız, veritabanınızdaki görmeye olmaz [Azure Portal](https://portal.azure.com). Var olan hiçbir iş-geçici bu senaryo için.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Veritabanı bağlantısı kesilse kimin destek için ile iletişim?
 Kişi [ClearDB Destek](https://www.cleardb.com/developers/help/support) herhangi ilgili sorunlar veritabanı için. Azure aboneliği bilgilerinizle sağlamaya hazır olun.

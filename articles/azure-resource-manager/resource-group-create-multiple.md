@@ -12,23 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 12/11/2017
 ms.author: tomfitz
-ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bir kaynak veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma
-Bu konu bir kaynak birden çok örneğini veya bir özelliği birden çok örneği üzerinde bir kaynak oluşturmak için Azure Resource Manager şablonu yineleme gösterir.
+Bu makalede, koşullu bir kaynak dağıtma ve birden fazla örneğini bir kaynak oluşturmak için Azure Resource Manager şablonu yineleme gösterir.
 
-Kaynak dağıtılabilir olup olmadığını belirlemek bkz olanak tanıyan şablonunuza mantığı eklemeniz gerekiyorsa, [koşullu kaynağını dağıtma](#conditionally-deploy-resource).
+## <a name="conditionally-deploy-resource"></a>Koşullu kaynağını dağıtma
 
-Birden çok öğe bir dizi değişken oluşturma örneği için bkz: [değişkenleri](resource-group-authoring-templates.md#variables).
+Bir örnek veya bir kaynak örneği oluşturmak için dağıtım sırasında karar verdiğinizde, kullanın `condition` öğesi. Bu öğe için değer true veya false değerine çözümler. Değer doğru olduğunda, kaynak dağıtılır. Değer false olduğunda, kaynak dağıtılmaz. Örneğin, yeni bir depolama hesabı dağıtılan ya da mevcut bir depolama hesabını kullanılan belirtmek için kullanın:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
 
 ## <a name="resource-iteration"></a>Kaynak yineleme
-Bir kaynak türü birden çok örneğini oluşturmak için Ekle bir `copy` öğesi için kaynak türü. Copy öğesinde sayısı yinelemeleri ve bu döngü için bir ad belirtin. Sayaç değerinin pozitif bir tamsayı olmalıdır ve 800 aşamaz. Resource Manager kaynakları paralel olarak oluşturur. Bu nedenle, oluşturulan siparişi garanti edilmez. Sırayla tekrarlayan kaynakları oluşturmak için bkz [seri kopyalama](#serial-copy). 
+Bir kaynak bir veya daha fazla örneğini oluşturmak için dağıtım sırasında karar verdiğinizde, ekleme bir `copy` öğesi için kaynak türü. Copy öğesinde sayısı yinelemeleri ve bu döngü için bir ad belirtin. Sayaç değerinin pozitif bir tamsayı olmalıdır ve 800 aşamaz. 
 
 Kaynak birden çok kez oluşturmak için aşağıdaki biçimi alır:
 
@@ -112,151 +127,40 @@ Bu adları oluşturur:
 * storagefabrikam
 * storagecoho
 
-## <a name="serial-copy"></a>Seri kopyalama
+Varsayılan olarak, Resource Manager kaynakları paralel olarak oluşturur. Bu nedenle, oluşturulan siparişi garanti edilmez. Ancak, kaynakları sırayla dağıtılan belirtmek isteyebilirsiniz. Örneğin, bir üretim ortamında güncelleştirirken, güncelleştirmeleri bu nedenle kademelendirebilirsiniz isteyebilirsiniz yalnızca belirli sayıda herhangi bir zamanda güncelleştirilir.
 
-Bir kaynak türü, kaynak yöneticisi, varsayılan olarak, birden çok örneğini oluşturmak için kopyalama öğesi kullandığınızda bu örneklerde paralel dağıtır. Ancak, kaynakları sırayla dağıtılan belirtmek isteyebilirsiniz. Örneğin, bir üretim ortamında güncelleştirirken, güncelleştirmeleri bu nedenle kademelendirebilirsiniz isteyebilirsiniz yalnızca belirli sayıda herhangi bir zamanda güncelleştirilir.
+Seri olarak birden fazla örneğini bir kaynak dağıtım yapmak için `mode` için **seri** ve `batchSize` aynı anda dağıtılacak örnek sayısı. Önceki toplu iş tamamlanana kadar tek bir toplu başlamıyor şekilde seri moduyla, Resource Manager döngü önceki durumlarda bir bağımlılık oluşturur.
 
-Resource Manager seri olarak birden çok örneği dağıtmanıza olanak sağlayan kopyalama öğede özellikleri sunar. Kopya öğe kümesindeki `mode` için **seri** ve `batchSize` aynı anda dağıtılacak örnek sayısı. Önceki toplu iş tamamlanana kadar tek bir toplu başlamıyor şekilde seri moduyla, Resource Manager döngü önceki durumlarda bir bağımlılık oluşturur.
-
-```json
-"copy": {
-    "name": "iterator",
-    "count": "[parameters('numberToDeploy')]",
-    "mode": "serial",
-    "batchSize": 2
-},
-```
-
-Mode özelliğini de kabul eder **paralel**, varsayılan değer olan.
-
-Fiili kaynaklar oluşturmadan seri kopyalama test etmek için boş iç içe geçmiş şablonları dağıtır aşağıdaki şablonu kullanın:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "numberToDeploy": {
-      "type": "int",
-      "minValue": 2,
-      "defaultValue": 5
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "type": "Microsoft.Resources/deployments",
-      "name": "[concat('loop-', copyIndex())]",
-      "copy": {
-        "name": "iterator",
-        "count": "[parameters('numberToDeploy')]",
-        "mode": "serial",
-        "batchSize": 1
-      },
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "parameters": {},
-          "variables": {},
-          "resources": [],
-          "outputs": {
-          }
-        }
-      }
-    }
-  ],
-  "outputs": {
-  }
-}
-```
-
-Dağıtım geçmişi iç içe geçmiş dağıtımları sırada işlenir dikkat edin.
-
-![Seri dağıtımı](./media/resource-group-create-multiple/serial-copy.png)
-
-Daha gerçekçi bir senaryo için aşağıdaki örnekte iki örneği birer birer iç içe geçmiş bir şablondan bir Linux VM dağıtır:
+Örneğin, depolama hesapları iki aynı anda seri olarak dağıtmak için kullanın:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "User name for the Virtual Machine."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "dnsLabelPrefix": {
-            "type": "string",
-            "metadata": {
-                "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-            }
-        },
-        "ubuntuOSVersion": {
-            "type": "string",
-            "defaultValue": "16.04.0-LTS",
-            "allowedValues": [
-                "12.04.5-LTS",
-                "14.04.5-LTS",
-                "15.10",
-                "16.04.0-LTS"
-            ],
-            "metadata": {
-                "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version."
-            }
-        }
-    },
-    "variables": {
-        "templatelink": "https://raw.githubusercontent.com/rjmax/Build2017/master/Act1.TemplateEnhancements/Chapter03.LinuxVM.json"
-    },
     "resources": [
         {
-            "apiVersion": "2015-01-01",
-            "name": "[concat('nestedDeployment',copyIndex())]",
-            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2016-01-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+            "location": "[resourceGroup().location]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {},
             "copy": {
-                "name": "myCopySet",
+                "name": "storagecopy",
                 "count": 4,
                 "mode": "serial",
                 "batchSize": 2
-            },
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('templatelink')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "adminUsername": {
-                        "value": "[parameters('adminUsername')]"
-                    },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    },
-                    "dnsLabelPrefix": {
-                        "value": "[parameters('dnsLabelPrefix')]"
-                    },
-                    "ubuntuOSVersion": {
-                        "value": "[parameters('ubuntuOSVersion')]"
-                    },
-                    "index":{
-                        "value": "[copyIndex()]"
-                    }
-                }
             }
         }
-    ]
+    ],
+    "outputs": {}
 }
-```
+``` 
+
+Mode özelliğini de kabul eder **paralel**, varsayılan değer olan.
 
 ## <a name="property-iteration"></a>Özellik yineleme
 
@@ -352,50 +256,56 @@ Kaynak ve özellik yineleme birlikte kullanabilirsiniz. Özellik yineleme adlar�
 }
 ```
 
-Yalnızca bir kopya öğesi her bir kaynağın özelliklerini ekleyebilirsiniz. Birden fazla özellik için bir yineleme döngüsü belirtmek için kopya dizideki birden çok nesneleri tanımlar. Her nesneyi ayrı olarak yinelendiğinde. Örneğin, her ikisini birden çok örneğini oluşturmak için `frontendIPConfigurations` özelliği ve `loadBalancingRules` bir yük dengeleyici özelliği tek bir kopya öğesinde hem nesnelerini tanımlayın: 
+## <a name="variable-iteration"></a>Değişken yineleme
+
+Birden fazla örneğini bir değişken oluşturmak için kullanın `copy` değişkenler bölümünde öğesi. İlgili değerlerle nesneleri birden çok örneğini oluşturun ve ardından bu değerleri kaynak örneklerine atayın. Kopya, bir dizi özellik veya bir dizi ya da nesne oluşturmak için kullanabilirsiniz. Her iki yaklaşımın aşağıdaki örnekte gösterilmiştir:
 
 ```json
 {
-    "name": "[variables('loadBalancerName')]",
-    "type": "Microsoft.Network/loadBalancers",
-    "properties": {
-        "copy": [
-          {
-              "name": "frontendIPConfigurations",
-              "count": 2,
-              "input": {
-                  "name": "[concat('loadBalancerFrontEnd', copyIndex('frontendIPConfigurations', 1))]",
-                  "properties": {
-                      "publicIPAddress": {
-                          "id": "[variables(concat('publicIPAddressID', copyIndex('frontendIPConfigurations', 1)))]"
-                      }
-                  }
-              }
-          },
-          {
-              "name": "loadBalancingRules",
-              "count": 2,
-              "input": {
-                  "name": "[concat('LBRuleForVIP', copyIndex('loadBalancingRules', 1))]",
-                  "properties": {
-                      "frontendIPConfiguration": {
-                          "id": "[variables(concat('frontEndIPConfigID', copyIndex('loadBalancingRules', 1)))]"
-                      },
-                      "backendAddressPool": {
-                          "id": "[variables('lbBackendPoolID')]"
-                      },
-                      "protocol": "tcp",
-                      "frontendPort": "[variables(concat('frontEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "backendPort": "[variables(concat('backEndPort' copyIndex('loadBalancingRules', 1))]",
-                      "probe": {
-                          "id": "[variables('lbProbeID')]"
-                      }
-                  }
-              }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
           }
-        ],
-        ...
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "disks-top-level-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks-top-level-array')]"
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleArray": {
+      "value": "[variables('disks-top-level-array')]",
+      "type" : "array"
     }
+  }
 }
 ```
 
@@ -435,7 +345,7 @@ Bir kaynak sonra başka bir kaynak kullanarak dağıtılmış belirttiğiniz `de
 }
 ```
 
-## <a name="create-multiple-instances-of-a-child-resource"></a>Bir alt kaynak birden çok örneğini oluşturma
+## <a name="iteration-for-a-child-resource"></a>Bir alt kaynak için yineleme
 Bir alt kaynak kopyalama döngüsü kullanamazsınız. Birden çok örneğini genellikle başka bir kaynak içinde iç içe olarak tanımlayan bir kaynak oluşturmak için bunun yerine, kaynak en üst düzey bir kaynak olarak oluşturmanız gerekir. İlişki türü ve adı özellikleri aracılığıyla üst kaynakla tanımlayın.
 
 Örneğin, data factory içinde alt kaynağı olarak bir veri kümesini tanımlama varsayalım.
@@ -485,28 +395,140 @@ Aşağıdaki örnek uygulamasını gösterir:
 }]
 ```
 
-## <a name="conditionally-deploy-resource"></a>Koşullu kaynağını dağıtma
+## <a name="deploy-example-templates"></a>Örnek şablonlarını dağıtma
 
-Bir kaynak dağıtılabilir olup olmadığını belirtmek için kullanın `condition` öğesi. Bu öğe için değer true veya false değerine çözümler. Değer doğru olduğunda, kaynak dağıtılır. Değer false olduğunda, kaynak dağıtılmaz. Örneğin, yeni bir depolama hesabı dağıtılan ya da mevcut bir depolama hesabını kullanılan belirtmek için kullanın:
+### <a name="resource-iteration"></a>Kaynak yineleme
 
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
+[Kopyalama depolama](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) şablonu bir dizin numarasını adında birden çok depolama hesaplarıyla dağıtır.
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
 ```
 
-Yeni veya mevcut bir kaynağı kullanarak bir örnek için bkz: [yeni veya varolan bir koşul şablonu](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
+Azure CLI için şunu kullanın:
 
-Sanal makineyi dağıtmak için bir parola veya SSH anahtarı kullanarak bir örnek için bkz: [kullanıcı adı veya SSH koşul şablon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
+```
+
+### <a name="serial-resource-iteration"></a>Seri kaynak yineleme
+
+[Seri kopya depolama alanı](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) şablonu aynı anda birden çok depolama hesabı bir dağıtır. Adı dizin numarasını içerir.
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
+```
+
+### <a name="resource-iteration-from-array"></a>Kaynak yineleme dizisinden
+
+[Kopyalama depolama dizisi olan](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) şablon birden çok depolama hesabı dağıtır. Adı bir dizi arasında bir değer içerir.
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
+```
+
+### <a name="conditionally-deploy-resources"></a>Kaynaklara koşullu dağıtma
+
+[VM yeni veya var olan sanal ağ, depolama ve genel IP ile](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) şablonunu yeni veya var olan bir sanal makine kaynaklarla dağıtır.
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
+```
+
+### <a name="property-iteration"></a>Özellik yineleme
+
+[Değişken bir veri diski sayısı ile VM dağıtımı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) şablonu bir sanal makineyle birden çok veri diskleri dağıtır.
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
+```
+
+### <a name="variable-iteration"></a>Değişken yineleme
+
+[Kopyalama değişkenleri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) Şablon değişkeni yineleme farklı yollarını gösterir.
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+Azure CLI için şunu kullanın:
+
+```azurecli-interactive
+az group deployment create \
+  --resource-group examplegroup \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
+```
+
+### <a name="variable-iteration-to-create-resources"></a>Kaynak oluşturmak için değişken yineleme
+
+[Birden çok güvenlik kuralları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) şablonu, bir ağ güvenlik grubu için birden çok güvenlik kuralları dağıtır. Güvenlik kuralları bir parametre oluşturur.
+
+PowerShell için şunu kullanın:
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
+  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bir şablon bölümleri hakkında bilgi edinmek istiyorsanız, bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).

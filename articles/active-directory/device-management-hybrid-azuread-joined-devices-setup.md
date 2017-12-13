@@ -4,7 +4,7 @@ description: "Karma Azure Active Directory'ye katılmış cihazları yapılandı
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 12469573eb58d53a4f6a8632c23d716ef6716263
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f503f373ec32ffcdd9be3ca03da6ec5e1b10e35a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -49,7 +49,7 @@ Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim k
 - Aşağıdaki Windows alt düzey aygıtları desteklenir:
     - Windows 8.1
     - Windows 7
-    - Windows Server 2012 R2
+    - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
 - Windows alt düzey aygıtları kaydını **olan** sorunsuz çoklu oturum açma ile federe olmayan ortamlarda desteklenen [Azure Active Directory sorunsuz çoklu oturum açma](https://aka.ms/hybrid/sso).
@@ -57,7 +57,7 @@ Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim k
 
 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Karma Azure AD alanına katılmış cihazları, kuruluşunuzda etkinleştirmeye başlamadan önce Azure AD güncel bir sürümünü çalıştırdığından emin olmanız gerekir bağlanın.
 
@@ -78,11 +78,11 @@ Senaryonuz için gerekli olan adımları özetini almak için aşağıdaki tablo
 
 | Adımlar                                      | Windows geçerli ve parola karma eşitlemesi | Windows geçerli ve Federasyon | Alt düzey Windows |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| 1. adım: hizmet bağlantı noktası yapılandırma | ![Onay işareti][1]                            | ![Onay işareti][1]                    | ![Onay işareti][1]        |
-| 2. adım: talep verme kurma           |                                        | ![Onay işareti][1]                    | ![Onay işareti][1]        |
-| 3. adım: Windows 10 cihazları etkinleştirme      |                                        |                                | ![Onay işareti][1]        |
-| Adım 4: Denetimi dağıtımı ve dağıtım     | ![Onay işareti][1]                            | ![Onay işareti][1]                    | ![Onay işareti][1]        |
-| 5. adım: alanına katılmamış aygıtlar doğrulayın          | ![Onay işareti][1]                            | ![Onay işareti][1]                    | ![Onay işareti][1]        |
+| 1. adım: hizmet bağlantı noktası yapılandırma | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
+| 2. adım: talep verme kurma           |                                        | ![İşaretli][1]                    | ![İşaretli][1]        |
+| 3. adım: Windows 10 cihazları etkinleştirme      |                                        |                                | ![İşaretli][1]        |
+| Adım 4: Denetimi dağıtımı ve dağıtım     | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
+| 5. adım: alanına katılmamış aygıtlar doğrulayın          | ![İşaretli][1]                            | ![İşaretli][1]                    | ![İşaretli][1]        |
 
 
 

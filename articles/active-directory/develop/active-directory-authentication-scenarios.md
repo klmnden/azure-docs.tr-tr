@@ -4,7 +4,7 @@ description: "Beş en yaygın kimlik doğrulama senaryoları için Azure Active 
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD için Kimlik Doğrulama Senaryoları
 Azure Active Directory (Azure AD) geliştiriciler için kimlik doğrulama kitaplıkları kodlama hızla başlamanıza yardımcı olması farklı platformlar için OAuth 2.0 ve Openıd Connect gibi endüstri standardı protokoller desteğiyle hizmet olarak açık kaynak olarak kimlik sağlayarak basitleştirir. Bu belge yardımcı olacak çeşitli senaryolar Azure AD destekler anlamak ve nasıl başlayacağınızı gösterir. Aşağıdaki bölümlere ayrılır:
@@ -87,7 +87,7 @@ Azure AD tarafından yayınlanan güvenlik belirteçleri talep veya onaylar doğ
 | Konu |Hakkında bilgi belirteci onaylar asıl gösterir. |
 | Kiracı kimliği |Değişmez, benzersiz bir tanımlayıcı belirtecin dizin Kiracı içerir. |
 | Belirteç ömrü |Bir belirtecin geçerli olduğu zaman aralığını tanımlar. |
-| Kullanıcı asıl adı |Konu kullanıcı asıl adını içerir. |
+| Kullanıcı Asıl Adı |Konu kullanıcı asıl adını içerir. |
 | Sürüm |Belirtecin sürüm numarasını içerir. |
 
 ## <a name="basics-of-registering-an-application-in-azure-ad"></a>Azure AD'de uygulama kaydetme temelleri
@@ -140,7 +140,7 @@ Bu bölümde bir web uygulaması için bir web tarayıcısında bir kullanıcın
 #### <a name="code-samples"></a>Kod Örnekleri
 Kod örnekleri için Web tarayıcısı Web uygulaması senaryoları için bkz. Ve daha sonra yeniden sık--her zaman yeni örnekler eklediğimiz denetleyin. [Web tarayıcısı Web uygulamasına](active-directory-code-samples.md#web-browser-to-web-application).
 
-#### <a name="registering"></a>Kaydetme
+#### <a name="registering"></a>Kaydediliyor
 * Tek bir kiracı: yalnızca kuruluşunuz için bir uygulama geliştiriyorsanız, şirketinizin dizininde Azure Portalı'nı kullanarak kayıtlı olması gerekir.
 * Çok Kiracılı: kuruluşunuzun dışındaki kullanıcılar tarafından kullanılan bir uygulama geliştiriyorsanız, şirketinizin dizinde kayıtlı olması gerekir, ancak da uygulamayı kullanarak her kuruluşun dizinde kayıtlı olması gerekir. Uygulamanızı directory'lerinde kullanılabilmesi için bunları uygulamanıza kabul etkinleştiren müşteriler için kaydolma işlemini içerebilir. Bunlar, uygulamanız için kaydolduğunuzda, uygulama gerektiriyor izinleri gösteren bir iletişim kutusu, ardından onay seçeneği ile sunulur. Gerekli izinleri bağlı olarak diğer kuruluştaki yönetici izni vermek için gerekebilir. Kullanıcı veya yönetici izin, uygulamanın kendi Directory'ye kaydedilir. Daha fazla bilgi için bkz: [Azure Active Directory Tümleştirme uygulamalarla](active-directory-integrating-applications.md).
 
@@ -168,7 +168,7 @@ Bu senaryoda, kullanıcı, oturum açtığında JavaScript ön uç kullanır [Ac
 #### <a name="code-samples"></a>Kod Örnekleri
 Kod örnekleri tek sayfa uygulama (SPA) senaryoları için bkz. Geri sık--her zaman yeni örnekler eklediğimiz kontrol ettiğinizden emin olun. [Tek sayfa uygulama (SPA)](active-directory-code-samples.md#single-page-application-spa).
 
-#### <a name="registering"></a>Kaydetme
+#### <a name="registering"></a>Kaydediliyor
 * Tek bir kiracı: yalnızca kuruluşunuz için bir uygulama geliştiriyorsanız, şirketinizin dizininde Azure Portalı'nı kullanarak kayıtlı olması gerekir.
 * Çok Kiracılı: kuruluşunuzun dışındaki kullanıcılar tarafından kullanılan bir uygulama geliştiriyorsanız, şirketinizin dizinde kayıtlı olması gerekir, ancak da uygulamayı kullanarak her kuruluşun dizinde kayıtlı olması gerekir. Uygulamanızı directory'lerinde kullanılabilmesi için bunları uygulamanıza kabul etkinleştiren müşteriler için kaydolma işlemini içerebilir. Bunlar, uygulamanız için kaydolduğunuzda, uygulama gerektiriyor izinleri gösteren bir iletişim kutusu, ardından onay seçeneği ile sunulur. Gerekli izinleri bağlı olarak diğer kuruluştaki yönetici izni vermek için gerekebilir. Kullanıcı veya yönetici izin, uygulamanın kendi Directory'ye kaydedilir. Daha fazla bilgi için bkz: [Azure Active Directory Tümleştirme uygulamalarla](active-directory-integrating-applications.md).
 
@@ -202,7 +202,7 @@ AD kimlik doğrulama kitaplıkları kullanıyorsanız, aşağıda açıklanan pr
 #### <a name="code-samples"></a>Kod Örnekleri
 Kod örnekleri, Web API senaryoları için yerel uygulama için bkz. Ve daha sonra yeniden sık--her zaman yeni örnekler eklediğimiz denetleyin. [Web API yerel uygulamaya](active-directory-code-samples.md#native-application-to-web-api).
 
-#### <a name="registering"></a>Kaydetme
+#### <a name="registering"></a>Kaydediliyor
 * Tek bir kiracı: Her iki yerel uygulaması ve web API kaydedilmelidir aynı dizinde Azure AD'de. Web API kaynaklarını yerel uygulamanın erişimi sınırlamak için kullanılan izinler kümesi kullanıma sunmak için yapılandırılabilir. İstemci uygulama, Azure Portalı'nda "İzinleri diğer uygulamaların" açılan menüsünden istenen izinleri seçer.
 * Çok Kiracılı: İlk olarak, yerel uygulama her zaman sadece geliştirici veya publisher'ın dizinde kayıtlı. İkinci olarak, yerel uygulama işlev için gereken izinleri belirtmek için yapılandırılır. Bir kullanıcının veya yöneticinin hedef dizinde, kuruluşları için kullanılabilir hale getirir uygulamaya izin verdiğinde bu gerekli izinlerin listesi iletişim kutusunda gösterilir. Bazı uygulamalar kuruluştaki herhangi bir kullanıcı onayı yalnızca kullanıcı düzeyinde izinler gerektirir. Diğer uygulamalar kuruluştaki bir kullanıcı için onay veremez yönetici düzeyi izinler gerektirir. Yalnızca bir dizin Yöneticisi bu izin düzeyini gerektiren uygulamalar için izin verebilirsiniz. Kullanıcı veya yönetici izin, yalnızca web API kendi Directory'ye kaydedilir. Daha fazla bilgi için bkz: [Azure Active Directory Tümleştirme uygulamalarla](active-directory-integrating-applications.md).
 
@@ -246,7 +246,7 @@ Uygulama kimliği ve temsilci olarak atanan kullanıcı kimliğini türleri akı
 #### <a name="code-samples"></a>Kod Örnekleri
 Web API senaryolarında Web uygulaması için kod örnekleri bakın. Ve daha sonra yeniden sık--her zaman yeni örnekler eklediğimiz denetleyin. Web [Web API uygulamasına](active-directory-code-samples.md#web-application-to-web-api).
 
-#### <a name="registering"></a>Kaydetme
+#### <a name="registering"></a>Kaydediliyor
 * Tek bir kiracı: uygulama kimliği hem temsilci atanan kullanıcı kimliğini çalışmaları için web uygulaması ve web API aynı dizinde Azure AD'de kayıtlı olması gerekir. Web API, web uygulamasının kaynaklarına erişimi sınırlamak için kullanılan izinler kümesi kullanıma sunmak için yapılandırılabilir. Temsilci atanan kullanıcı kimlik türü kullanılıyorsa, web uygulamasını Azure Portalı'nda "İzinleri diğer uygulamaların" açılan menüsünden istediğiniz izinleri seçin gerekiyor. Uygulama kimlik türü kullanılıyorsa bu adım gerekli değildir.
 * Çok Kiracılı: İlk olarak, web uygulaması işlevsel olmasını gerektirir izinleri belirtmek için yapılandırılmış. Bir kullanıcının veya yöneticinin hedef dizinde, kuruluşları için kullanılabilir hale getirir uygulamaya izin verdiğinde bu gerekli izinlerin listesi iletişim kutusunda gösterilir. Bazı uygulamalar kuruluştaki herhangi bir kullanıcı onayı yalnızca kullanıcı düzeyinde izinler gerektirir. Diğer uygulamalar kuruluştaki bir kullanıcı için onay veremez yönetici düzeyi izinler gerektirir. Yalnızca bir dizin Yöneticisi bu izin düzeyini gerektiren uygulamalar için izin verebilirsiniz. Kullanıcı veya yönetici izin, web uygulaması ve web API hem de bunların dizinde kaydedilir.
 
@@ -280,7 +280,7 @@ Aşağıda açıklanan akış (örneğin, bir yerel uygulamayı) başka bir uygu
 #### <a name="code-samples"></a>Kod Örnekleri
 Arka plan programı veya Web API senaryoları için sunucu uygulaması için kod örnekleri bakın. Ve daha sonra yeniden sık--her zaman yeni örnekler eklediğimiz denetleyin. [Sunucu veya Web API'si arka plan programı uygulamaya](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
 
-#### <a name="registering"></a>Kaydetme
+#### <a name="registering"></a>Kaydediliyor
 * Tek bir kiracı: uygulama kimliği hem temsilci atanan kullanıcı kimliğini çalışmaları için arka plan programı veya sunucu uygulaması aynı dizinde Azure AD'de kayıtlı olması gerekir. Web API'si arka plan programı veya kendi kaynaklarına sunucunun erişimi sınırlamak için kullanılan izinler kümesi kullanıma sunmak için yapılandırılabilir. Temsilci atanan kullanıcı kimlik türü kullanılıyorsa, sunucu uygulaması, Azure Portalı'nda "İzinleri diğer uygulamaların" açılan menüsünden istediğiniz izinleri seçin gerekiyor. Uygulama kimlik türü kullanılıyorsa bu adım gerekli değildir.
 * Çok Kiracılı: İlk olarak, arka plan programı veya sunucu uygulaması işlevsel olmasını gerektirir izinleri belirtmek için yapılandırılmış. Bir kullanıcının veya yöneticinin hedef dizinde, kuruluşları için kullanılabilir hale getirir uygulamaya izin verdiğinde bu gerekli izinlerin listesi iletişim kutusunda gösterilir. Bazı uygulamalar kuruluştaki herhangi bir kullanıcı onayı yalnızca kullanıcı düzeyinde izinler gerektirir. Diğer uygulamalar kuruluştaki bir kullanıcı için onay veremez yönetici düzeyi izinler gerektirir. Yalnızca bir dizin Yöneticisi bu izin düzeyini gerektiren uygulamalar için izin verebilirsiniz. Kullanıcı veya yönetici izin, web API'leri her ikisi de kendi dizininde kaydedilir.
 

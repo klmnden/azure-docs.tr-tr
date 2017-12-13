@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0d90f7c6ad136cd1a558f6158cf734de51b9538
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Güvenlik çerçevesi: Giriş doğrulama | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 | **Web uygulaması** | <ul><li>[XSLT güvenilmeyen stil sayfalarını kullanarak tüm dönüşümler için komut dosyası devre dışı bırak](#disable-xslt)</li><li>[Kullanıcı denetlenebilir içeriği içerebilir her sayfanın MIME otomatik algılaması dışında çevrilir emin olun](#out-sniffing)</li><li>[Sağlamlaştırmak veya XML varlık çözümleme devre dışı bırakma](#xml-resolution)</li><li>[HTTP.sys kullanan uygulamalar URL Standartlaştırma doğrulama gerçekleştirme](#app-verification)</li><li>[Uygun denetimleri dosyaların kullanıcılardan kabul ederken karşılandığından emin olun](#controls-users)</li><li>[Tür kullanımı uyumlu parametreleri veri erişimi için Web uygulamasında kullanıldığından emin olun](#typesafe)</li><li>[Ayrı model bağlama sınıflarını kullanın veya MVC yığın atama güvenlik açığı önlemek için bağlama filtresi listeler](#binding-mvc)</li><li>[Güvenilmeyen web çıkış işleme önce kodlama](#rendering)</li><li>[Giriş doğrulaması ve tüm dize türünde Model özelliklerini filtrelemesine](#typemodel)</li><li>[Tüm karakterleri, örneğin, Zengin Metin Düzenleyicisi'ni kabul eden form alanlarını temizleme işlemi uygulanmalıdır](#richtext)</li><li>[DOM öğeleri yerleşik kodlama olmayan havuzlarını atamayın](#inbuilt-encode)</li><li>[Tüm doğrulama uygulama içinde yeniden yönlendirmeleri kapalı veya güvenli bir şekilde tamamlandı](#redirect-safe)</li><li>[Uygulama giriş doğrulaması denetleyicisi yöntemler tarafından kabul edilen tüm dize türü parametreleri](#string-method)</li><li>[Normal ifade DoS nedeniyle hatalı normal ifadeler önlemek için işleme için üst sınır zaman aşımını ayarlama](#dos-expression)</li><li>[Razor görünümleri Html.Raw kullanmaktan kaçının](#html-razor)</li></ul> | 
 | **Veritabanı** | <ul><li>[Dinamik sorgular saklı yordamlarda kullanmayın](#stored-proc)</li></ul> |
 | **Web API** | <ul><li>[Model doğrulama Web API yöntemlerini yapıldığından emin olun](#validation-api)</li><li>[Web API yöntemleri tarafından kabul edilen tüm dize tür parametrelerindeki giriş doğrulaması uygulama](#string-api)</li><li>[Tür kullanımı uyumlu parametreleri Web API'si veri erişimi için kullanıldığından emin olun](#typesafe-api)</li></ul> | 
-| **Azure belge DB** | <ul><li>[DocumentDB için parametreli SQL sorgularını kullan](#sql-docdb)</li></ul> | 
+| **Azure belge DB** | <ul><li>[Parametreli SQL sorguları için Azure Cosmos DB kullanın](#sql-docdb)</li></ul> | 
 | **WCF** | <ul><li>[Şema bağlama aracılığıyla WCF girişi doğrulama](#schema-binding)</li><li>[Parametre denetçiler aracılığıyla WCF girişi doğrulama](#parameters)</li></ul> |
 
 ## <a id="disable-xslt"></a>XSLT güvenilmeyen stil sayfalarını kullanarak tüm dönüşümler için komut dosyası devre dışı bırak
@@ -660,8 +660,8 @@ myCommand.Fill(userDataset);
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Documentdb'de SQL parametrelemeyi Duyurusu](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Adımları** | DocumentDB yalnızca salt okunur sorguları destekler; ancak, SQL ekleme sorguları kullanıcı girişi ile birleştirerek oluşturulur, yine de mümkündür. Bunlar aynı koleksiyonunda kötü amaçlı SQL sorguları hazırlayın tarafından erişiyor döndürmemelidir verilere erişmek bir kullanıcı için mümkün olabilir. Sorguları oluşturulan parametreli SQL sorguları kullanıcı girişini temel alarak kullanın. |
+| **Başvuruları**              | [Azure Cosmos DB içinde SQL parametrelemeyi Duyurusu](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
+| **Adımları** | Azure Cosmos DB yalnızca salt okunur sorguları destekler; ancak, SQL ekleme sorguları kullanıcı girişi ile birleştirerek oluşturulur, yine de mümkündür. Bunlar aynı koleksiyonunda kötü amaçlı SQL sorguları hazırlayın tarafından erişiyor döndürmemelidir verilere erişmek bir kullanıcı için mümkün olabilir. Sorguları oluşturulan parametreli SQL sorguları kullanıcı girişini temel alarak kullanın. |
 
 ## <a id="schema-binding"></a>Şema bağlama aracılığıyla WCF girişi doğrulama
 

@@ -7,7 +7,7 @@ author: flanakin
 manager: lwelicki
 editor: 
 ms.assetid: d9f58c69-9163-458d-a339-ab0855e342c6
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 595039953d73c90f9772bdf62cffae4bbbc1220a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure portalında klavye kısayolları
 Bu makalede Azure portal çalışmak klavye kısayolları gösterilmektedir. Tek tek Hizmetleri kendi klavye kısayolları olabilir.
@@ -27,23 +27,23 @@ Bu makalede Azure portal çalışmak klavye kısayolları gösterilmektedir. Tek
 ## <a name="actions"></a>Eylemler
 |Bunu yapmak için |Tuşuna basın |
 | --- | --- |
-|Yeni bir kaynak oluşturun|G + N|
-|'Daha fazla hizmet' bölmesini açın|G + B|
+|Yeni kaynak oluştur|G + N|
+|'Diğer hizmetler' bölmesini aç|G + B|
 |Kaynakları Ara|G +/| 
 |Arama kaynak menü öğeleri|CTRL +/ |
 |Sol bölmede seçili öğeyi Yukarı Taşı |ALT + ÜST KARAKTER + YUKARI OK|
 |Sol bölmede seçili öğeyi aşağı taşı |ALT + üst karakter + aşağı ok|
 
-## <a name="navigation"></a>Gezinme
+## <a name="navigation"></a>Gezinti
 |Bunu yapmak için |Tuşuna basın |
 | --- | --- |
-|Odağı komut çubuğuna taşı |G + |
-|Odağı üst çubuk ve kenar çubuğu arasında değiştir | G +. |
+|Odağı Komut çubuğuna Taşı |G + |
+|Odağı üst çubuğu ve kenar çubuğu arasında geçiş | G +. |
 
 ## <a name="go-to"></a>Git
 |Bunu yapmak için |Tuşuna basın |
 | --- | --- |
-|Panoya gitmek |G + D |
+|Panoya git |G + D |
 |Tüm kaynaklara gidin|G + A |
-|Kaynak gruplarına gidin|G + R |
+|Kaynak grubuna gidin|G + R |
 |Bu konumda sol bölmesinde öğeyi açın |G + sayı|

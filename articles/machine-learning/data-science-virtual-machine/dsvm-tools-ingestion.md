@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 8f1ef4bbc050560287b8638a0f3398e02efec554
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Veri bilimi sanal makine veri alım araçları
 
@@ -62,11 +62,11 @@ Burada, üzerinde DSVM sağladık bazı veri taşıma araçları bulunmaktadır.
 | DSVM ilgili araçları      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Azure Cosmos DB: DocumentDB API veri geçiş aracı
+## <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB veri geçiş aracı
 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | JSON dosyaları, CSV dosyaları, SQL, MongoDB, Azure Table storage, Amazon DynamoDB ve Azure Cosmos DB DocumentDB API koleksiyonlara Azure Cosmos DB veya Azure DocumentDB dahil olmak üzere çeşitli kaynaklardan veri almak için aracı.      |
+| Nedir?   | JSON dosyaları, CSV dosyaları, Azure Cosmos DB SQL, MongoDB, Azure Table storage, Amazon DynamoDB ve Azure Cosmos DB SQL API koleksiyonlara dahil olmak üzere çeşitli kaynaklardan veri almak için aracı.      |
 | Desteklenen DSVM sürümleri      | Windows      |
 | Tipik kullanır      | Dosyaları bir VM'den veri CosmosDB için Azure tablo depolamasından içeri aktarma veya CosmosDB için bir SQL Server veritabanından veri alma CosmosDB içeri aktarılıyor.     |
 |  Kullanın / çalıştırmak için nasıl?    |   Komut satırını kullanmak için sürüm, açık bir komut istemi yazın `dt`. GUI aracı'nı kullanmak için bir komut istemi açın yazın `dtui`.    |

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: ab38f6866519aabe1b4740cfaa26d7ff570d78de
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 246032701d97fc7d16e6cb38ee79fbd5470f65d9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama
 Azure Resource Manager birçok şaşırtıcı özellik sunarken, sorunsuz şeyler emin olmak için geçiş Yolculuğunuzun planlama önemlidir. Planlama zaman harcama geçiş etkinliklerini yürütülürken sorunlarla değil olduğunu güvence altına alır. 
@@ -96,7 +96,7 @@ Birçok büyük geçişler bulunan sorunları oluştu. Bu kapsamlı bir liste de
 - **VM uzantıları** -sanal makine uzantıları olası en büyük roadblocks geçirme çalışan sanal makineleri için biri. Düzeltme VM uzantıları, çalınıyor 1-2 gün sürebilir, bu nedenle uygun şekilde planlamanız.  Çalışan bir Azure aracısını geri VM'ler çalıştıran VM uzantısı durumu raporlamak için gereklidir. Durumu kötü olarak çalışan bir VM için geliyorsa, bu geçiş durdurulur. Aracının kendisi geçiş etkinleştirmek için çalışma sırada olması gerekmez, ancak uzantıları VM varsa, daha sonra hem bir çalışma aracısı ve giden internet bağlantısı (DNS ile) ilerlemek için geçiş için gereklidir.
   - Bir DNS sunucusuna bağlantı geçiş sırasında Bgınfo v1 dışındaki tüm VM uzantıları kaybolursa. \* ilk her geçiş hazırlamadan önce VM ve daha sonra yeniden eklenen arka VM'ye Azure Resource Manager geçişten sonra kaldırılmaları gerekir.  **Çalıştırmakta olan VM'ler için budur.**  VM'ler deallocated durdurulmuşsa VM uzantıları kaldırılması gerekmez. **Not:** izleme edecek Azure tanılama ve Güvenlik Merkezi gibi birçok uzantıları kendilerini yeniden geçişten sonra bu nedenle bunları kaldırma bir sorun değildir.
   - Ayrıca, ağ güvenlik grupları olmadığından emin olun giden internet erişimi kısıtlama. Bu, bazı ağ güvenlik grupları yapılandırmalarla meydana gelebilir. Giden internet erişimi (ve DNS), Azure Resource Manager geçirilecek VM uzantıları için gereklidir. 
-  - Bgınfo uzantısını iki sürümü vardır: v1 ve v2.  VM Klasik portal veya PowerShell kullanarak oluşturulmuşsa VM olasılıkla üzerinde v1 uzantısı vardır. Bu uzantı kaldırılması gerekmez ve (geçiş) atlanacak geçiş API tarafından. Klasik VM yeni Azure portal ile oluşturulmuşsa, ancak, büyük olasılıkla JSON tabanlı olması için Azure Resource Manager geçirilebilecek Bgınfo v2 sürümünü sağlanan aracı çalıştığından ve giden internet erişimi (ve DNS) vardır. 
+  - Bgınfo uzantısını iki sürümü vardır: v1 ve v2.  VM Azure portal veya PowerShell kullanarak oluşturulmuşsa VM olasılıkla üzerinde v1 uzantısı vardır. Bu uzantı kaldırılması gerekmez ve (geçiş) atlanacak geçiş API tarafından. Klasik VM yeni Azure portal ile oluşturulmuşsa, ancak, büyük olasılıkla JSON tabanlı olması için Azure Resource Manager geçirilebilecek Bgınfo v2 sürümünü sağlanan aracı çalıştığından ve giden internet erişimi (ve DNS) vardır. 
   - **Düzeltme seçeneği 1**. Vm'leriniz erişim, çalışma DNS hizmeti ve Azure aracılarını sanal makinelerin çalışıyoruz. tüm VM uzantıları hazırlama önce geçişin parçası olarak kaldırın giden internet olmaz biliyorsanız, VM uzantıları geçişten sonra yeniden yükleyin. 
   - **Düzeltme seçeneği 2**. VM uzantıları hurdle çok büyük olduğunda, başka bir seçenek serbest/bırakma geçişten önce tüm VM'ler olur. Deallocated Vm'leri geçirme sonra bunları Azure Resource Manager tarafında yeniden başlatın. Burada VM uzantıları geçiş yapacağınız avantajdır. Tüm genel sanal IP'ye kullanıma yönelik kaybolacak dezavantajı olduğundan (Bu Başlatıcı olmayan olabilir) ve çok daha büyük etkisi üzerinde çalışan uygulamalar neden aşağı VM'ler açıkça kapanır.
 
@@ -114,7 +114,7 @@ Birçok büyük geçişler bulunan sorunları oluştu. Bu kapsamlı bir liste de
     >
 
     - Ağ Arabirimleri
-    - Yük Dengeleyici
+    - Yük Dengeleyiciler
     - Ortak IP'ler
     - Statik genel IP'ler
     - Çekirdek

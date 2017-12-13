@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.openlocfilehash: 32d4b4a7db134975158e53fc964c24b52b14a1e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 259ce894b9b0e4a1b2dda2bff387f97bf68ad32b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="_Toc395783175"></a>Azure Cosmos DB kullanarak bir Node.js web uygulaması oluşturma
 > [!div class="op_single_selector"]
@@ -30,7 +30,9 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Bu Node.js Öğreticisi Azure Web Siteleri'nde barındırılan bir Node.js Express uygulamasında erişim verileri ve Azure Cosmos DB ve DocumentDB API depolamak için nasıl kullanılacağını gösterir. Görevlerin oluşturulmasını, alınmasını ve tamamlanmasını sağlayan basit bir web tabanlı görev yönetimi uygulaması, yani yapılacak işler uygulaması oluşturacaksınız. Görevler, JSON belgeleri olarak Azure Cosmos DB'de depolanır. Bu öğretici, uygulamayı oluşturma ve dağıtma konusunda rehberlik yapmaktadır ve her kod parçacığında yapılanlar anlatılmaktadır.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Bu Node.js Öğreticisi Azure Web Siteleri'nde barındırılan bir Node.js Express uygulamasında erişim verileri ve Azure Cosmos DB ve SQL API'yi depolamak için nasıl kullanılacağını gösterir. Görevlerin oluşturulmasını, alınmasını ve tamamlanmasını sağlayan basit bir web tabanlı görev yönetimi uygulaması, yani yapılacak işler uygulaması oluşturacaksınız. Görevler, JSON belgeleri olarak Azure Cosmos DB'de depolanır. Bu öğretici, uygulamayı oluşturma ve dağıtma konusunda rehberlik yapmaktadır ve her kod parçacığında yapılanlar anlatılmaktadır.
 
 ![Bu Node.js öğreticisinde oluşturulan Yapılacaklar Listem uygulamasının ekran görüntüsü](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
@@ -534,7 +536,7 @@ Uygulamamızın çalışması için bunlar yeterli olacaktır.
 * Azure Cosmos DB ile ölçek ve performans testi mi yapmak istiyorsunuz? Bkz. [Azure Cosmos DB ile Performans ve Ölçek Testi](performance-testing.md)
 * [Azure Cosmos DB hesabını nasıl izleyebileceğinizi](monitor-accounts.md) öğrenin.
 * [Query Playground](https://www.documentdb.com/sql/demo)'daki örnek veri kümelerimizde sorgular çalıştırın.
-* [Azure Cosmos DB belgelerini](https://docs.microsoft.com/azure/documentdb/) keşfedin.
+* [Azure Cosmos DB belgelerini](https://docs.microsoft.com/azure/cosmos-db/) keşfedin.
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/

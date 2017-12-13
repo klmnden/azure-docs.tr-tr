@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: "çok faktörlü kimlik doğrulama istemcisi, kimlik doğrulama sorunu bağıntı kimliği"
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 7ff9f621b4ab583eed9338161e7e146405dffe96
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 20a90aa36b727b18fb37aaf658da884b5997cd44
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama için Yardım alın
 Bu makalede, iki aşamalı doğrulama hakkında yapmalarını isteriz en yaygın sorular yanıtlanmaktadır. 

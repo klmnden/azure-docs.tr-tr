@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Bit hızı Merdiveni otomatik olarak oluşturmak için Azure Medya Kodlayıcısı standart'ı kullanın
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu konu, Medya Kodlayıcısı standart (MES) giriş çözünürlük ve bit hızı dayalı bir bit hızı Merdiveni (bit hızı çözümleme çiftleri) otomatik olarak oluşturmak için nasıl kullanılacağını gösterir. Otomatik olarak oluşturulan hazır hiç giriş çözünürlük ve bit hızı aşacak. Örneğin, giriş olması durumunda 3 MB/sn, çıktı adresindeki 720p 720 p en iyi kalır ve 3 MB/sn düşük hızlarında başlar.
+Bu makalede Medya Kodlayıcısı standart (MES) giriş çözünürlük ve bit hızı dayalı bir bit hızı Merdiveni (bit hızı çözümleme çiftleri) otomatik olarak oluşturmak için nasıl kullanılacağı gösterilmektedir. Otomatik olarak oluşturulan hazır hiç giriş çözünürlük ve bit hızı aşacak. Örneğin, giriş 3 MB/sn hızında 720 p ise, çıktı 720 p en iyi kalır ve 3 MB/sn düşük hızlarında başlar.
 
 ### <a name="encoding-for-streaming-only"></a>Yalnızca akış için kodlama
 
-Maksadınızı yalnızca akış için kaynak videonuzu kodlamak için ise, sınırlandırmak kullanın "Uyarlamalı kodlama bir görev oluştururken önceden akış". Kullanırken **Uyarlamalı akış** hazır MES Kodlayıcı akıllıca bit hızı Merdiveni cap. Ancak, hizmeti kullanmak için kaç tane Katmanlar belirler beri kodlama, maliyetleri denetlemek ve hangi çözünürlükte mümkün olmayacaktır. Örnek ile kodlama sonucunda MES tarafından üretilen çıkış katmanların görebilirsiniz **Uyarlamalı akış** bu konunun sonunda hazır. Varlık MP4 dosyaları burada ses ve video içerecek çıkış değil araya.
+Ardından, amacı yalnızca akış için kaynak videonuzu kodlamak için ise, "Uyarlamalı kodlama bir görev oluştururken önceden akış" kullanmanız gerekir. Kullanırken **Uyarlamalı akış** hazır MES Kodlayıcı akıllıca bit hızı Merdiveni cap. Ancak, hizmeti kullanmak için kaç tane Katmanlar belirler beri kodlama, maliyetleri denetlemek ve hangi çözünürlükte mümkün olmayacaktır. Örnek ile kodlama sonucunda MES tarafından üretilen çıkış katmanların görebilirsiniz **Uyarlamalı akış** bu makalenin sonundaki hazır. Ses ve video burada varlık MP4 dosyaları içeren çıktı araya eklenmez.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Akış ve aşamalı indirme kodlama
 
-Maksadınızı kaynak videonuzu akışla kodlanacak yanı sıra MP4 dosyalarını aşamalı indirmek üretmek için ise, daha sonra sınırlandırmak kullanın "içerik Uyarlamalı Çoklu bit hızı kodlama bir görev oluştururken önceden MP4". Kullanırken **içerik Uyarlamalı Çoklu bit hızlı MP4** hazır MES Kodlayıcı kodlama yukarıdaki aynı mantığını uygular, ancak çıkış varlığına içerecek artık MP4 dosyaları ses burada ve video araya eklemeli. Aşamalı indirme dosyası olarak bu MP4 dosyaları (örneğin, yüksek bit hızı sürüm) kullanabilirsiniz.
+Maksadınızı kaynak videonuzu akışla kodlanacak yanı sıra MP4 dosyalarını aşamalı indirmek üretmek için ise, "içerik Uyarlamalı Çoklu bit hızı kodlama bir görev oluştururken önceden MP4" kullanmanız gerekir. Kullanırken **içerik Uyarlamalı Çoklu bit hızlı MP4** hazır MES Kodlayıcı kodlama yukarıdaki aynı mantığını uygular, ancak şimdi çıkış varlığına MP4 dosyaları ses burada içerir ve video araya eklemeli. Aşamalı indirme dosyası olarak bu MP4 dosyaları (örneğin, yüksek bit hızı sürüm) kullanabilirsiniz.
 
 ## <a id="encoding_with_dotnet"></a>Media Services .NET SDK'sı ile kodlama
 
@@ -41,7 +40,7 @@ Aşağıdaki kod örneği, aşağıdaki görevleri gerçekleştirmek için Media
 - Bir kodlama işi oluşturun.
 - Medya Kodlayıcısı standart Kodlayıcı başvuru alın.
 - Bir kodlama görev işe ekleme ve kullanılacağını belirtin **Uyarlamalı akış** hazır. 
-- Kodlanmış varlık içerecek bir çıkış varlığı oluşturun.
+- Kodlanmış varlık içeren bir çıkış varlığı oluşturun.
 - İş ilerleme durumunu denetlemek için olay işleyici ekleyin.
 - İşi göndermek.
 
@@ -51,28 +50,37 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 #### <a name="example"></a>Örnek
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>Çıktı
 

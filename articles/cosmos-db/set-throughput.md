@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69501b07369a8d5da15cf9bc7d75f07999bf0999
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Azure Cosmos DB kapsayıcıları için kümesi işleme
 
@@ -57,7 +57,7 @@ Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir liste
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-documentdb-api-for-net"></a>.NET için DocumentDB API'sini kullanarak üretilen işi ayarlamak için
+## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>.NET için SQL API'yi kullanarak üretilen işi ayarlamak için
 
 ```C#
 //Fetch the resource to be updated
@@ -81,7 +81,7 @@ Cosmos DB tek bölüm koleksiyonları (2500 RU/s bölümlenmiş koleksiyonlar i�
 
 **MongoDB API kullanarak througput nasıl ayarlarım?**
 
-Üretilen iş ayarlamak için MongoDB API uzantısı yok. DocumentDB API kullanan gösterildiği gibi önerilir [.NET için DocumentDB API'sini kullanarak üretilen işi ayarlamak için](#set-throughput-sdk).
+Üretilen iş ayarlamak için MongoDB API uzantısı yok. SQL API kullanan gösterildiği gibi önerilir [.NET için SQL API'yi kullanarak üretilen işi ayarlamak için](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

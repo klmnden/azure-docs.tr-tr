@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Kılavuzları ve önerileri Azure Service Fabric güvenilir koleksiyonlar için
 Bu bölümde, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kullanma yönergeleri sağlar. Amacı kullanıcıların yaygın tehlikesinden yardımcı olmaktır.
@@ -33,6 +33,7 @@ Yönergeler koşulları önekli basit öneriler olarak düzenlenir *yapmak*, *d�
 * Bir işlem içinde başka bir işlemdeki oluşturmayın `using` deyimi kilitlenmeleri neden.
 * Emin olun, `IComparable<TKey>` uygulamasıdır doğru. Sistem bağımlılık alır `IComparable<TKey>` kontrol noktalarına ve satır birleştirmek için.
 * Güncelleştirme kilidi belirli bir sınıf kilitlenmelerin önlemek amacıyla güncelleştirmek için bir amaç bir öğesiyle okunurken kullanın.
+* Güvenilir koleksiyon tutma sayısı 1000'den az olacak şekilde bölüm başına göz önünde bulundurun. Güvenilir koleksiyonları ile daha fazla öğe daha az öğe ile güvenilir koleksiyonlar üzerinden tercih edilir.
 * 80 Kbayt öğelerinizi (örneğin, TKey + güvenilir sözlüğü için TValue) halde tutmayı düşünün: kadar küçük olursa o kadar iyi olur. Bu, büyük nesne yığın kullanımı yanı sıra disk ve ağ g/ç gereksinimleri miktarını azaltır. Genellikle, yalnızca bir küçük değerinin bir parçası güncelleştirildiğinde yinelenen veri çoğaltmak azaltır. Bu güvenilir sözlükte elde etmek için genel yoludur, satır birden çok satıra geçirmesini.
 * Yedekleme kullanmayı düşünün ve olağanüstü durum kurtarma için işlevselliği geri yükleyin.
 * Tek bir varlık işlemleri ve birden çok varlık işlemleri karıştırma önlemek (örneğin `GetCountAsync`, `CreateEnumerableAsync`) farklı yalıtım düzeyi nedeniyle aynı işlem.

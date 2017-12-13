@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 11/03/2017
 ms.author: elbutter
-ms.openlocfilehash: a13b81213b7a47cb7209bc914f514fa10aede5c4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>Esnek sorgusu ile SQL veri ambarı yapılandırma
 
@@ -39,9 +39,9 @@ Bu öğreticide, esnek sorgu SQL veri ambarı SQL veritabanından sorguya gönde
 
 2. Oturum açma ve SQL veritabanına veri ambarı bağlantısı temsil eden kullanıcısı oluşturun.
 
-  ```sql
-  CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-  ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. SSMS veya başka bir sorgu istemcisi kullanarak açmak için yeni bir sorgu **SQL veri ambarı örneği** mantıksal sunucunuzda.
 
@@ -75,14 +75,14 @@ Bu öğreticide, esnek sorgu SQL veri ambarı SQL veritabanından sorguya gönde
 
 9. Veri ambarı örneği için işaret eden bir dış veri kaynağı oluşturun.
 
-  ```sql
-  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-      (TYPE = RDBMS, 
-      LOCATION = '<SERVER NAME>.database.windows.net', 
-      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-      CREDENTIAL = SalesDBElasticCredential, 
-  ) ;
-  ```
+   ```sql
+   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+       (TYPE = RDBMS, 
+       LOCATION = '<SERVER NAME>.database.windows.net', 
+       DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+       CREDENTIAL = SalesDBElasticCredential, 
+   ) ;
+   ```
 
 10. Artık bu dış veri kaynağına başvuran dış tablolara oluşturabilirsiniz. Bu tablolar kullanarak sorguları, işlenen ve veritabanı örneğine gönderilen veri ambarı örneği için gönderilir.
 

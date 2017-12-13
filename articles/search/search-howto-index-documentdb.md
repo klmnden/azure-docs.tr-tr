@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: search
 ms.date: 08/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa9bf1661e3a77ae4a2bf51285ab9a8da35e297
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Azure Search'te dizin oluşturucular kullanma Cosmos DB bağlanma
 
@@ -29,7 +29,7 @@ Cosmos DB dizin oluşturucu ayarlamak için bilmeniz gereken bir [Azure Search H
 Portal için seçerseniz [verilerini İçeri Aktar Sihirbazı](search-import-data-portal.md) , tüm bu kaynaklar oluşturulmasını size yol gösterir.
 
 > [!NOTE]
-> Cosmos DB DocumentDB gelecek nesil ' dir. Ürün adı değiştirilmiş olsa da, söz dizimi önce aynıdır. Belirtmek Lütfen devam `documentdb` bu dizin oluşturucu makalede yönergelerine uygun olarak. 
+> Azure Cosmos DB DocumentDB gelecek nesil ' dir. Ürün adı değiştirilmiş olsa da, söz dizimi önce aynıdır. Belirtmek Lütfen devam `documentdb` bu dizin oluşturucu makalede yönergelerine uygun olarak. 
 
 > [!TIP]
 > Başlatabilirsiniz **veri içeri aktarma** bu veri kaynağı için dizin oluşturma basitleştirmek için Cosmos DB panosundan Sihirbazı. Başlamak için sol gezinti bölmesinde **Koleksiyonlar** > **Azure Search Ekle** menüsüne gidin.
@@ -295,5 +295,5 @@ Aşağıdaki örnek, bir veri kaynağı ile bir geçici silme ilkesi oluşturur:
 ## <a name="NextSteps"></a>Sonraki adımlar
 Tebrikler! Cosmos DB için dizin oluşturucu kullanarak Azure Search'te Azure Cosmos DB tümleştirileceğini öğrendiniz.
 
-* Daha fazla nasıl Azure Cosmos DB hakkında bilgi edinmek için [Cosmos DB hizmeti sayfası](https://azure.microsoft.com/services/documentdb/).
+* Daha fazla nasıl Azure Cosmos DB hakkında bilgi edinmek için [Azure Cosmos DB hizmeti sayfası](https://azure.microsoft.com/services/cosmos-db/).
 * Daha fazla nasıl Azure Search hakkında bilgi edinmek için [arama hizmeti sayfası](https://azure.microsoft.com/services/search/).

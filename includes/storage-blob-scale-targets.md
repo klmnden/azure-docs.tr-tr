@@ -5,8 +5,7 @@
 | Bir blok blobu bloğunda en büyük boyutu | 100 MIB |
 | Bir blok blobu en büyük boyutu | 50.000 x 100 MIB (yaklaşık 4.75 Tıb) |
 | Bir ek blobu bloğunda en büyük boyutu | 4 MIB |
-| Bir ek blobunun en büyük boyutu | 50.000 x 4 MB (yaklaşık 195 GiB) |
+| Bir ek blobunun en büyük boyutu | 50.000 x 4 MIB (yaklaşık 195 GiB) |
 | Bir sayfa blob'u en büyük boyutu | 8 Tıb |
 | Blob kapsayıcısı başına depolanmış erişim ilkeleri sayısı üst sınırı | 5 |
-| Depolama hesabı başına en fazla istek oranı | saniye başına 20.000 istek<sup>2</sup> |
 | Tek blob için hedef işleme | Saniye başına ikinci ya da en fazla 500 istek başına en fazla 60 MIB |

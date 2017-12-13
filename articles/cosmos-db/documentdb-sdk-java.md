@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: DocumentDB Java API, SDK & kaynakları | Microsoft Docs"
-description: "Java API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB DocumentDB Java SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
+title: "Azure Cosmos DB: SQL Java API, SDK & kaynakları | Microsoft Docs"
+description: "SQL Java API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB SQL Java SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38737c8a296e27a4256e19b8c45cab17fc71b81a
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: c0d3bdfb607d2bbea669d2b0a76f610d42f31b33
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB: DocumentDB Java SDK'sı sürüm notları ve kaynakları
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Java SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET değişiklik besleme](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/16/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -173,13 +175,13 @@ Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yaln�
 Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir istek hizmeti tarafından reddedilir.
 
 > [!WARNING]
-> Java için DocumentDB SDK'sı tüm sürümleri sürümden önceki **1.0.0** üzerinde Çekildi **29 Şubat 2016**.
+> Java için SQL SDK'sı tüm sürümleri sürümden önceki **1.0.0** üzerinde Çekildi **29 Şubat 2016**.
 > 
 > 
 
 <br/>
 
-| Sürüm | Sürüm tarihi | Sona erme tarihi |
+| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [1.15.0](#1.15.0) |14 Kas 2017 |--- |
 | [1.14.0](#1.14.0) |28 Eki 2017 |--- |

@@ -4,7 +4,7 @@ description: "Bu makalede HTTP iletisi üzerinde-temsili akış OAuth2.0 kullana
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-temsili akış kullanıcı kimliğini kullanarak hizmeti çağrıları için hizmet temsilcisi
 Burada bir hizmet/sırayla başka çağırmak için gereken web API, uygulamanın çağırır kullanım örneği akış hizmet OAuth 2.0 On-Behalf-Of hizmeti/web API. Temsilci atanan kullanıcı kimliğini ve izinleri istek zincirinin aracılığıyla yaymak için kullanılan uygulamadır. Orta katman hizmet kimliği doğrulanmış istekler için aşağı akış hizmeti yapmak, Azure Active Directory'den (Azure AD), bir erişim belirteci güvenli kullanıcı adına gerekir.
@@ -80,7 +80,7 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 | onaylama işlemi |Gerekli | İstekte kullanılan belirteç değeri. |
 | client_id |Gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
 | client_secret |Gerekli | Anahtar arama hizmeti için Azure AD'de kayıtlı. Bu değer kayıt aynı anda not. |
-| Kaynak |Gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
+| kaynak |Gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
 | requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
 | Kapsam |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
 
@@ -113,7 +113,7 @@ Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki param
 | client_id |Gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
 | client_assertion_type |Gerekli |Değer olmalıdır`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |Gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı.  Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
-| Kaynak |Gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
+| kaynak |Gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
 | requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
 | Kapsam |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
 
@@ -148,7 +148,7 @@ Başarılı yanıt aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıt olan.
 | Kapsam |Belirtecinde verilen erişim kapsamı. |
 | expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
 | expires_on |Erişim belirtecinin süresi dolduğunda süre. Tarih 1970'ten saniyeyi temsil edilir-01-01T0:0:0Z UTC sona erme zamanı kadar. Bu değer, önbelleğe alınan belirteç ömrü belirlemek için kullanılır. |
-| Kaynak |Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). |
+| kaynak |Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). |
 | access_token |İstenen erişim belirteci. Arama hizmeti alıcı hizmete kimlik doğrulaması için bu belirteci kullanabilirsiniz. |
 | id_token |İstenen kimliği belirteci. Arama Hizmeti kullanıcının kimliğini doğrulamak ve kullanıcı oturumu başlatmak için bunu kullanabilirsiniz. |
 | refresh_token |İstenen erişim belirteci için yenileme belirteci. Arama hizmeti geçerli erişim belirtecinin süresi dolduktan sonra başka bir erişim belirteci istemek için bu belirteci kullanabilirsiniz. |

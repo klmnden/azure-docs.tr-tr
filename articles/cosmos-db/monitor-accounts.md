@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07489172306b4f6d03b5a9b1399ed92e007c3c1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB izleme
 Azure Cosmos DB hesaplarınızı izleyebilirsiniz [Azure portal](https://portal.azure.com/). Her Azure Cosmos DB hesabı için tam ölçümleri verimlilik, depolama, kullanılabilirlik, gecikme ve tutarlılık izlemek kullanılabilir paketidir.
@@ -69,7 +69,7 @@ Azure Cosmos DB hesaplarınızı izleyebilirsiniz [Azure portal](https://portal.
      ![Bir uyarı kuralı sayfasının ekran görüntüsü Ekle](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Azure Cosmos DB programlı olarak izleyin
-Hesap depolama kullanım ve toplam istekleri gibi portalında kullanılabilir hesap düzeyindeki ölçümlerini DocumentDB API kullanılabilir değil. Ancak, DocumentDB API'lerini kullanarak koleksiyon düzeyinde kullanım verileri alabilir. Koleksiyon düzeyinde veri almak için aşağıdakileri yapın:
+Hesap depolama kullanım ve toplam istekleri gibi portalında kullanılabilir hesap düzeyindeki ölçümlerini SQL API kullanılabilir değil. Ancak, SQL API'lerini kullanarak koleksiyon düzeyinde kullanım verileri alabilir. Koleksiyon düzeyinde veri almak için aşağıdakileri yapın:
 
 * REST API kullanmak için [koleksiyonda bir GET gerçekleştirmek](https://msdn.microsoft.com/library/mt489073.aspx). Koleksiyon için kota ve kullanım bilgilerini x-ms-resource-quota ve x-ms-kaynak kullanım üstbilgilerini yanıta döndürülür.
 * .NET SDK'yı kullanmak için [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) döndürür yöntemi bir [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) gibi bir dizi kullanım özellikleri içeren **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**ve daha fazlası.

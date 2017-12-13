@@ -16,18 +16,20 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: e0d69d2b744fd08269b1ef87cb60efd3f205a92e
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: c22f887f0371f70927d42130b959053ef7a0e5cc
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
 
-Bu öğretici, Azure Cosmos DB koleksiyonları ve tablolar halinde veriler çeşitli kaynaklardan içeri aktarabilirsiniz Azure Cosmos DB Veri Taşıma aracını kullanma hakkında yönergeler sağlar. JSON dosyaları, CSV dosyaları, SQL, MongoDB, Azure Table depolama, Amazon DynamoDB ve hatta Azure Cosmos DB DocumentDB API koleksiyonları alabilir ve verileri koleksiyonları ve tablolar için Azure Cosmos DB ile kullanmak geçirilir. Veri Geçiş Aracı, tek bir bölüm koleksiyondan DocumentDB API için çok bölümlü bir koleksiyon için geçirirken kullanılabilir.
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Bu öğretici, Azure Cosmos DB koleksiyonları ve tablolar halinde veriler çeşitli kaynaklardan içeri aktarabilirsiniz Azure Cosmos DB Veri Taşıma aracını kullanma hakkında yönergeler sağlar. JSON dosyaları, CSV dosyaları, SQL, MongoDB, Azure Table depolama, Amazon DynamoDB ve hatta Azure Cosmos DB SQL API koleksiyonları alabilir ve verileri koleksiyonları ve tablolar için Azure Cosmos DB ile kullanmak geçirilir. Veri Geçiş Aracı, tek bir bölüm koleksiyondan çok bölümlü bir koleksiyon için SQL API'yi geçirirken kullanılabilir.
 
 Hangi API Azure Cosmos DB ile kullanacağınız? 
-* **[DocumentDB API](documentdb-introduction.md)**  -veri almak için veri geçiş aracı sağlanan kaynak seçeneklerinden herhangi birini kullanabilirsiniz.
+* **[SQL API](documentdb-introduction.md)**  -veri almak için veri geçiş aracı sağlanan kaynak seçeneklerinden herhangi birini kullanabilirsiniz.
 * **[Tablo API](table-introduction.md)**  -verileri içe aktarmak için veri geçiş aracı veya AzCopy kullanabilirsiniz. Bkz: [Azure Cosmos DB tablo API ile kullanmak için içeri aktarma verileri](table-import.md) daha fazla bilgi için.
 * **[MongoDB API](mongodb-introduction.md)**  -veri geçiş aracı desteklememektedir Azure Cosmos DB MongoDB API'si bir kaynak veya hedef olarak. İçinde veya Azure Cosmos DB MongoDB API koleksiyonlarda dışında veri geçirmek istiyorsanız, başvurmak [Azure Cosmos DB: MongoDB API'si veri geçirmek nasıl](mongodb-migrate.md) ilişkin yönergeler. SQL API ile kullanmak için Azure Cosmos DB SQL API koleksiyonlara adresinden verilerini dışarı aktarmak için veri geçiş aracı kullanmaya devam edebilirsiniz. 
 * **[Grafik API'si](graph-introduction.md)**  -veri geçiş aracı değil grafik API'si hesapları için desteklenen alma aracı şu anda. 
@@ -76,9 +78,9 @@ Aracı yükledikten sonra verilerinizi almak için zaman yapılır. Ne tür veri
 * [Azure Tablo Depolama](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [BLOB](#BlobImport)
-* [Azure Cosmos DB koleksiyonları](#DocumentDBSource)
+* [Azure Cosmos DB koleksiyonları](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure Cosmos DB toplu içeri aktarma](#DocumentDBBulkImport)
+* [Azure Cosmos DB toplu içeri aktarma](#SQLBulkImport)
 * [Azure Cosmos DB sıralı kayıt alma](#DocumentDSeqTarget)
 
 
@@ -210,7 +212,7 @@ CSV Import için komut satırı bir örnek şudur:
 ## <a id="AzureTableSource"></a>Azure tablo depolamasından içeri aktarma
 Azure Table depolama kaynağı alma seçeneği, tek bir Azure Table depolama tablosundan içeri aktarmanıza olanak sağlar. İsteğe bağlı olarak, içeri aktarılacak tablo varlıkları filtreleyebilirsiniz. 
 
-Azure tablo depolamasından içeri veri çıktı Azure Cosmos DB tabloları ve varlıkları tablo API ile kullanılmak üzere veya koleksiyonlar ve DocumentDB API ile kullanmak için belgelere olabilir. Bununla birlikte; Tablo API yalnızca komut satırı yardımcı programı hedef olarak kullanılabilir, veri Geçiş Aracı kullanıcı arabirimini kullanarak tablo API'sine veremezsiniz. Daha fazla bilgi için bkz: [Azure Cosmos DB tablo API ile kullanmak için içeri aktarma verileri](table-import.md). 
+Azure tablo depolamasından içeri veri çıktı Azure Cosmos DB tabloları ve varlıkları tablo API ile kullanılmak üzere veya koleksiyonlar ve SQL API'yi ile kullanmak için belgelere olabilir. Bununla birlikte; Tablo API yalnızca komut satırı yardımcı programı hedef olarak kullanılabilir, veri Geçiş Aracı kullanıcı arabirimini kullanarak tablo API'sine veremezsiniz. Daha fazla bilgi için bkz: [Azure Cosmos DB tablo API ile kullanmak için içeri aktarma verileri](table-import.md). 
 
 ![Azure tablo ekran depolama kaynağı seçenekleri](./media/import-data/azuretablesource.png)
 
@@ -267,7 +269,7 @@ Azure Blob depolama alanından JSON dosyaları almak için komut satırı örnek
 
     dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:doctest
 
-## <a id="DocumentDBSource"></a>Bir DocumentDB API koleksiyonundan alma
+## <a id="SQLSource"></a>Bir SQL API koleksiyonundan alma
 Azure Cosmos DB kaynak içeri Aktarıcı seçenek, bir veya daha fazla Azure Cosmos DB koleksiyonlarından verileri alır ve isteğe bağlı olarak bir sorgu kullanarak belgelere filtre olanak tanır.  
 
 ![Azure Cosmos DB ekran kaynak seçenekleri](./media/import-data/documentdbsource.png)
@@ -342,7 +344,7 @@ HBase almak için komut satırı bir örnek şudur:
 
     dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:hbaseimport
 
-## <a id="DocumentDBBulkTarget"></a>API (Toplu içe aktarma) documentdb'ye alma
+## <a id="SQLBulkTarget"></a>İçeri aktarma SQL API (Toplu içe aktarma)
 Azure Cosmos DB toplu içeri Aktarıcı herhangi verimlilik için bir Azure Cosmos DB saklı yordamı kullanarak kullanılabilir kaynak seçeneklerinin almanıza izin verir. Aracı, tek tek bölümlenmiş Azure Cosmos DB koleksiyonuna alma yanı sıra, yapabildiği verileri birden çok tek bölümlenmiş Azure Cosmos DB koleksiyonlar genelinde bölümlenmiş parçalı alma destekler. Veri bölümlendirme hakkında daha fazla bilgi için bkz: [bölümleme ve Azure Cosmos DB'de ölçeklendirme](partition-data.md). Aracı oluşturur, yürütür ve ardından saklı yordamı hedef collection(s) siler.  
 
 ![Azure Cosmos DB ekran toplu seçenekleri](./media/import-data/documentdbbulk.png)
@@ -406,7 +408,7 @@ Azure Cosmos DB toplu içeri Aktarıcı Gelişmiş Seçenekler aşağıdaki ek s
 > 
 > 
 
-## <a id="DocumentDBSeqTarget"></a>API (sıralı kayıt içe aktarma) documentdb'ye alma
+## <a id="SQLSeqTarget"></a>İçeri aktarma SQL API (sıralı kayıt içe aktarma)
 Azure Cosmos DB sıralı kayıt alma, kayıt kayıt temelinde kullanılabilir kaynak seçeneklerinden herhangi birini alınacak olanak sağlar. Saklı yordamlar kotasına ulaştı varolan bir koleksiyona alıyorsanız bu seçeneği belirleyebilirsiniz. Aracı, verileri birden çok tek bölümlü ve/veya birden çok bölüm Azure Cosmos DB koleksiyonlar genelinde yapabildiği bölümlenmiş parçalı alma yanı sıra tek (tek bölüm ve birden çok bölüm) Azure Cosmos DB koleksiyona Al destekler. Veri bölümlendirme hakkında daha fazla bilgi için bkz: [bölümleme ve Azure Cosmos DB'de ölçeklendirme](partition-data.md).
 
 ![Azure Cosmos DB ekran sıralı kayıt içeri aktarma seçenekleri](./media/import-data/documentdbsequential.png)
@@ -466,7 +468,7 @@ Azure DB - Cosmos sıralı kayıt içeri Aktarıcı aşağıdaki ek gelişmiş s
 > 
 
 ## <a id="IndexingPolicy"></a>Bir dizin oluşturma ilkesini belirtin
-İçeri aktarma sırasında Azure Cosmos DB DocumentDB API koleksiyonları oluşturmak geçiş aracı izin verdiğinizde, koleksiyon dizin oluşturma ilkesini belirtebilirsiniz. Gelişmiş Seçenekler bölümünde Azure Cosmos DB sıralı kayıt seçenekleri ve Azure Cosmos DB toplu içeri dizin oluşturma ilkesi bölümüne gidin.
+İçeri aktarma sırasında Azure Cosmos DB SQL API koleksiyonları oluşturmak geçiş aracı izin verdiğinizde, koleksiyon dizin oluşturma ilkesini belirtebilirsiniz. Gelişmiş Seçenekler bölümünde Azure Cosmos DB sıralı kayıt seçenekleri ve Azure Cosmos DB toplu içeri dizin oluşturma ilkesi bölümüne gidin.
 
 ![Ekran Azure Cosmos DB dizin Gelişmiş Seçenekler ilke](./media/import-data/indexingpolicy1.png)
 

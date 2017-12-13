@@ -4,7 +4,7 @@ description: "Grafik API'sini kullanarak Azure Cosmos DB genel dağıtım Kurulu
 services: cosmos-db
 keywords: "genel dağıtım, grafik, gremlin"
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: denlee
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: eb55bdee60400b4b14f47a6a0b1d0682b267d26f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Grafik API'sini kullanarak Azure Cosmos DB genel dağıtım ayarlama
 
@@ -37,7 +37,7 @@ Bu makalede aşağıdaki görevleri içerir:
 
 ## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>.NET SDK kullanarak grafik API'sini kullanarak bir tercih edilen bölge bağlanma
 
-Grafik API'si, bir uzantı kitaplığı DocumentDB SDK'sı üstünde olarak sunulur.
+Grafik API'si SQL API üstünde bir uzantı kitaplığı olarak sunulur.
 
 Anlamıyla yararlanabilmek için [genel dağıtım](distribute-data-globally.md), istemci uygulamaları, belge işlemlerini gerçekleştirmek için kullanılacak bölgelerin sıralı tercih listesi belirtebilirsiniz. Bu bağlantı İlkesi ayarlayarak yapılabilir. Azure Cosmos DB hesabı yapılandırması, geçerli bölge kullanılabilirliği ve belirtilen tercih listesi bağlı olarak, en iyi endpoint yazma gerçekleştirmek ve okuma işlemleri için SDK tarafından seçilir.
 
@@ -87,7 +87,7 @@ Bu öğreticide, aşağıdakileri yaptığınızdan:
 
 > [!div class="checklist"]
 > * Azure portalını kullanarak genel dağıtım yapılandırma
-> * DocumentDB API'lerini kullanarak genel dağıtım yapılandırma
+> * SQL API'lerini kullanarak genel dağıtım yapılandırma
 
 Artık Azure Cosmos DB yerel öykünücüsü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğretici devam edebilirsiniz.
 

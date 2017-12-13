@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef01271fd4885f9bdac80194bbf72e2a10df0d27
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: ce7faa985f3616cee42a22ad7a240b1f0a674060
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB kullanarak bir Python Flask web uygulaması derleme
 > [!div class="op_single_selector"]
@@ -30,6 +30,8 @@ ms.lasthandoff: 12/01/2017
 > * [Python](documentdb-python-application.md)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bu öğreticide Azure App Service üzerinde barındırılan bir Python Flask web uygulamasından erişim verileri ve Azure Cosmos DB depolamak için nasıl kullanılacağını gösterir. Bu öğretici, Python ve Azure Web sitelerini kullanma konusunda biraz deneyim sahibi olduğunuzu varsayar.
 
@@ -213,10 +215,10 @@ def vote():
         db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
 
         # Read collections and take first since id should not be duplicated.
-        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
+        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.COSMOSDB_COLLECTION))
 
         # Read documents and take first since id should not be duplicated.
-        doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
+        doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.COSMOSDB_DOCUMENT))
 
         # Take the data from the deploy_preference and increment our database
         doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
@@ -315,21 +317,21 @@ def vote():
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>Bir yapılandırma dosyası ekleme ve \_\_init\_\_.py'yi değiştirme
 1. Çözüm Gezgini'nde **öğretici** projesine sağ tıklayın, **Ekle**'ye tıklayın, **Yeni Öğe**'ye tıklayın, **Boş Python Dosyası**'nı seçin ve ardından dosyaya **config.py** adını verin. Bu yapılandırma dosyası, Flask'taki formlar için gereklidir. Bunu gizli bir anahtar sağlamak için de kullanabilirsiniz. Ancak bu anahtar bu öğretici için gerekli değildir.
-2. Aşağıdaki kodu config.py'ye ekleyin. Bir sonraki adımda **DOCUMENTDB\_HOST** ve **DOCUMENTDB\_KEY** değerlerini değiştirmeniz gerekecektir.
+2. Aşağıdaki kodu Config.py'ye ekleyin, değerlerini değiştirmeniz gerekecektir **COSMOSDB\_KONAK** ve **COSMOSDB\_anahtar** sonraki adımda.
    
     ```python
     CSRF_ENABLED = True
     SECRET_KEY = 'you-will-never-guess'
    
-    DOCUMENTDB_HOST = 'https://YOUR_DOCUMENTDB_NAME.documents.azure.com:443/'
-    DOCUMENTDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
+    COSMOSDB_HOST = 'https://YOUR_COSMOSDB_NAME.documents.azure.com:443/'
+    COSMOSDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
    
-    DOCUMENTDB_DATABASE = 'voting database'
-    DOCUMENTDB_COLLECTION = 'voting collection'
-    DOCUMENTDB_DOCUMENT = 'voting document'
+    COSMOSDB_DATABASE = 'voting database'
+    COSMOSDB_COLLECTION = 'voting collection'
+    COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. İçinde [Azure portal](https://portal.azure.com/), gitmek **anahtarları** tıklatarak sayfa **Gözat**, **Azure Cosmos DB hesapları**, adına çift tıklayın kullanılacak hesap ve ardından **anahtarları** düğmesini **Essentials** alanı. Üzerinde **anahtarları** sayfasında, kopya **URI** değer ve yapıştırın **documentdb** değeri olarak dosya **DOCUMENTDB\_KONAK**özelliği. 
-4. Azure portalında yedekleme **anahtarları** sayfasında, değerini kopyalayın **birincil anahtar** veya **ikincil anahtar**ve yapıştırın **documentdb**değeri olarak dosya **DOCUMENTDB\_anahtar** özelliği.
+3. İçinde [Azure portal](https://portal.azure.com/), gitmek **anahtarları** tıklatarak sayfa **Gözat**, **Azure Cosmos DB hesapları**, adına çift tıklayın kullanılacak hesap ve ardından **anahtarları** düğmesini **Essentials** alanı. Üzerinde **anahtarları** sayfasında, kopya **URI** değer ve yapıştırın **documentdb** değeri olarak dosya **COSMOSDB\_KONAK**özelliği. 
+4. Azure portalında yedekleme **anahtarları** sayfasında, değerini kopyalayın **birincil anahtar** veya **ikincil anahtar**ve yapıştırın **documentdb**değeri olarak dosya **COSMOSDB\_anahtar** özelliği.
 5. İçinde  **\_ \_init\_\_.py** dosya, aşağıdaki satırı ekleyin: 
    
         app.config.from_object('config')

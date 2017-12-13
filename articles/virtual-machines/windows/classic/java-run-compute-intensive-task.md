@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Java’da bir sanal makine üzerinde yoğun işlem gücü kullanımlı görev çalıştırma
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Bu öğretici gezici satış temsilcisi işlem yoğunluklu görev için kullanı
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Sanal makine oluşturmak için
-1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 2. Tıklatın **yeni**, tıklatın **işlem**, tıklatın **sanal makine**ve ardından **Galeri'den**.
 3. İçinde **sanal makine görüntüsü seçin** iletişim kutusunda **JDK 7 Windows Server 2012**.
    Unutmayın **JDK 6 Windows Server 2012** henüz JDK 7'de çalıştırmak hazır olmayan eski uygulamaları olduğunda kullanılabilir.
@@ -74,7 +74,7 @@ Bu öğretici gezici satış temsilcisi işlem yoğunluklu görev için kullanı
    2. **Tamamla**’ya tıklayın.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Sanal makinenize uzaktan oturum açmak için
-1. Oturum [Klasik Azure portalı](https://manage.windowsazure.com).
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Tıklatın **sanal makineleri**.
 3. Oturum açmak istediğiniz sanal makinenin adına tıklayın.
 4. **Bağlan**'a tıklayın.
@@ -87,15 +87,15 @@ Azure'da Service Bus kuyruklarını kullanmaya başlamak için öncelikle bir hi
 
 Hizmet ad alanı oluşturmak için:
 
-1. Oturum [Klasik Azure portalı](https://manage.windowsazure.com).
-2. Klasik Azure portalında sol gezinti bölmesinde tıklayın **Service Bus, erişim denetimi ve önbelleğe alma**.
-3. Klasik Azure portalında sol üst bölmesinde tıklatın **Service Bus** düğümünü ve ardından **yeni** düğmesi.  
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure portalının sol gezinti bölmesinde tıklayın **Service Bus, erişim denetimi ve önbelleğe alma**.
+3. Azure portalının sol bölmesinde tıklatın **Service Bus** düğümünü ve ardından **yeni** düğmesi.  
    ![Hizmet veri yolu düğümü ekran görüntüsü][svc_bus_node]
 4. İçinde **yeni bir hizmet Namespace oluşturma** iletişim kutusuna bir **Namespace**ve ardından benzersiz olduğundan emin olmak için **Kullanılabilirliği Denetle** düğmesi.  
    ![Yeni Namespace ekran oluşturma][create_namespace]
 5. Ad alanı adı kullanılabilirliğinden emin olduktan sonra ülke veya bölge, ad alanınızın barındırılması ve ardından seçin **oluşturma Namespace** düğmesi.  
    
-   Oluşturduğunuz ad alanı sonra Klasik Azure portalında görünür ve bir dakika sürer. Durum olana kadar bekleyin **etkin** sonraki adımla devam etmeden önce.
+   Oluşturduğunuz ad alanı ardından Azure portalında görünür ve bir dakika sürer. Durum olana kadar bekleyin **etkin** sonraki adımla devam etmeden önce.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Varsayılan yönetim kimlik bilgilerini ad alanı için alma
 Yeni ad alanında bir kuyruk oluşturma gibi yönetim işlemlerini gerçekleştirmek için ad alanı için yönetim kimlik bilgilerini edinmeniz gerekir.

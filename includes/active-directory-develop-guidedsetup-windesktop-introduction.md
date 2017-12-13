@@ -1,4 +1,3 @@
-
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Windows Masaüstü uygulamasından Microsoft Graph API çağırma
 
 Bu kılavuz, nasıl bir yerel Windows Masaüstü .NET (XAML) uygulama erişim belirteci almak ve Microsoft Graph API veya Azure Active Directory v2 uç noktasından erişim belirteçleri gerektiren diğer API'leri çağırmak gösterir.

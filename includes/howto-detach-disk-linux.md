@@ -6,7 +6,7 @@ Sanal makineye (VM) bağlı bir veri diskine ihtiyacınız olmadığında bunu k
 ## <a name="find-the-disk"></a>Diski bulma
 Bir diski VM’den ayırmadan önce LUN numarasını bulmanız gerekir. Bu numara ayrılacak disk için bir tanımlayıcıdır. Bunu yapmak için şu adımları uygulayın:
 
-1. Azure CLI’yi açın ve [Azure aboneliğinize bağlanın](../articles/xplat-cli-connect.md). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
+1. Azure CLI’yi açın ve [Azure aboneliğinize bağlanın](/cli/azure/authenticate-azure-cli). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
 2. VM'nize hangi disklerin bağlı olduğunu bulun. Aşağıdaki örnekte `myVM` adlı VM’nin diskleri listelenmiştir:
 
     ```azurecli

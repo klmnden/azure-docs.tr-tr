@@ -4,7 +4,7 @@ description: "Bu makalede, Microsoft'un Lotus Domino bağlayıcısının nasıl 
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 15155fd9e1ab2dd6d58bcaf85a465c0585d3bc41
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino Bağlayıcısı Teknik Başvurusu
 Bu makalede Lotus Domino Bağlayıcısı açıklanmaktadır. Makale aşağıdaki ürünler için geçerlidir:
@@ -186,7 +186,7 @@ Bu nesneler VC sahiptir =\_ilgili kişi kendi DN eklediniz.
 
 Büyük bir Domino uygulamasında birden fazla nesne çoğaltma sorunları nedeniyle aynı DN olması mümkündür. Bu durumlarda, iki farklı UniversalIDs ancak aynı DN nesneleriyle bağlayıcı görür. Bu çakışma bağlayıcı alanı oluşturulan geçici bir nesne neden olur. Bağlayıcı Domino içinde çoğaltma kurbana seçilen nesneleri yoksayabilirsiniz. Bu onay kutusu seçili tutmanız önerilir.
 
-#### <a name="export-settings"></a>Dışa aktarma ayarları
+#### <a name="export-settings"></a>Dışarı aktarma ayarları
 Varsa seçeneği **AdminP başvurularını güncelleştirme için kullanmak** üyesi gibi başvuru öznitelikleri verilmesini doğrudan çağrısı ve AdminP işlemi kullanmıyor seçildiyse. Yalnızca AdminP tutarlılığını korumak için yapılandırılmadı olduğunda bu seçeneği kullanın.
 
 #### <a name="routing-information"></a>Yönlendirme bilgileri
@@ -265,7 +265,7 @@ Lotus Domino Bağlayıcısı'nı yapılandırırken bu iletişim sayfasını atl
 Bölümleri ve hiyerarşileri Yapılandır NAB=names.nsf adlı birincil adres defteri seçmeniz gerekir. Varsa, birincil adres defteri ek olarak ikincil adres defterleri seçebilirsiniz.  
 ![Bölümler](./media/active-directory-aadconnectsync-connector-domino/partitions.png)
 
-### <a name="select-attributes"></a>Öznitelikleri seçin
+### <a name="select-attributes"></a>Öznitelikleri Seç
 Öznitelikler yapılandırdığınızda ile önek tüm öznitelikleri seçmelisiniz  **\_MMS\_**. Lotus Domino yeni nesnelere sağlarken bu öznitelikler gereklidir
 
 ![Öznitelikler](./media/active-directory-aadconnectsync-connector-domino/attributes.png)
@@ -410,13 +410,13 @@ Lotus Domino Bağlayıcısı'nı çoğunlukla bu tür nesneleri (belge türleri)
 
 Bu bölümde bir Domino sunucuya dışarı aktarmak desteklenen her nesne için zorunlu olan öznitelikler listelenir.
 
-| Nesne türü | Zorunlu öznitelikler |
+| Nesne Türü | Zorunlu öznitelikler |
 | --- | --- |
 | Grup |<li>ListName</li> |
 | Ana veritabanı |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | Kişi |<li>Soyadı</li><li>MailFile</li><li>Kısaad</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Kişi (hiçbir certifier kişiyle) |<li>\_MMS_IDRegType</li> |
-| Kaynak |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>Görünen adı</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Kaynak |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Ortak sorunlar ve sorular
 ### <a name="schema-detection-does-not-work"></a>Şema algılama çalışmıyor

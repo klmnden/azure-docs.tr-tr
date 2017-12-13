@@ -4,7 +4,7 @@ description: "NPS uzantısı yüklendikten sonra IP uygulamaları güvenilir lis
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 98c29b4124b31868ef118c39941cf9c3829e2b26
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 23e72fdb2ed063f416e65d34727ca9babc143a26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulaması için NPS uzantısı Gelişmiş yapılandırma seçenekleri
 
@@ -35,9 +35,9 @@ Alternatif oturum açma kimliklerini yapılandırmak için şu adrese gidin `HKL
 
 | Ad | Tür | Varsayılan değer | Açıklama |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | Dize | boş | UPN yerine kullanmak istediğiniz Active Directory öznitelik adı belirtin. Bu öznitelik AlternateLoginId özniteliği olarak kullanılır. Bu kayıt defteri değeri ayarlanırsa bir [geçerli Active Directory özniteliğini](https://msdn.microsoft.com/library/ms675090.aspx) (örneğin, posta ya da displayName için), ardından özniteliğinin değeri yerine kullanıcının UPN kimlik doğrulaması için kullanılır. Bu kayıt defteri değerini veya boşsa, yapılandırıldıktan sonra AlternateLoginId devre dışıdır ve kullanıcının UPN kimlik doğrulaması için kullanılır. |
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Boş | UPN yerine kullanmak istediğiniz Active Directory öznitelik adı belirtin. Bu öznitelik AlternateLoginId özniteliği olarak kullanılır. Bu kayıt defteri değeri ayarlanırsa bir [geçerli Active Directory özniteliğini](https://msdn.microsoft.com/library/ms675090.aspx) (örneğin, posta ya da displayName için), ardından özniteliğinin değeri yerine kullanıcının UPN kimlik doğrulaması için kullanılır. Bu kayıt defteri değerini veya boşsa, yapılandırıldıktan sonra AlternateLoginId devre dışıdır ve kullanıcının UPN kimlik doğrulaması için kullanılır. |
 | LDAP_FORCE_GLOBAL_CATALOG | Boole değeri | False | Genel katalog LDAP aramaları için kullanımı AlternateLoginId bakarken zorlamak için bu bayrağı kullanın. Bir etki alanı denetleyicisi genel katalog olarak yapılandırın, genel kataloğa AlternateLoginId özniteliği ekleyin ve ardından bu bayrağı etkinleştirin. <br><br> LDAP_LOOKUP_FORESTS (boş değilse), yapılandırılmışsa, **bu bayrağı true zorlanır**ne olursa olsun, kayıt defteri ayarının değeri. Bu durumda, her orman için AlternateLoginId özniteliği ile yapılandırılması genel katalog NPS uzantısı gerekir. |
-| LDAP_LOOKUP_FORESTS | Dize | boş | Aranacak ormanlar noktalı virgülle ayrılmış listesini sağlayın. Örneğin, *contoso.com;foobar.com*. Bu kayıt defteri değeri yapılandırıldıysa, NPS uzantısı tüm ormanlardaki sipariş, bunlar listelenen ve ilk başarılı AlternateLoginId değeri döndürür tekrarlayarak arar. Bu kayıt defteri değeri yapılandırılmamışsa, AlternateLoginId arama için geçerli etki alanı sınırlıysa.|
+| LDAP_LOOKUP_FORESTS | string | Boş | Aranacak ormanlar noktalı virgülle ayrılmış listesini sağlayın. Örneğin, *contoso.com;foobar.com*. Bu kayıt defteri değeri yapılandırıldıysa, NPS uzantısı tüm ormanlardaki sipariş, bunlar listelenen ve ilk başarılı AlternateLoginId değeri döndürür tekrarlayarak arar. Bu kayıt defteri değeri yapılandırılmamışsa, AlternateLoginId arama için geçerli etki alanı sınırlıysa.|
 
 Alternatif oturum açma kimliklerini ile ilgili sorunları gidermek için önerilen adımları kullanın [alternatif oturum açma kimliği hataları](multi-factor-authentication-nps-errors.md#alternate-login-id-errors).
 
@@ -49,7 +49,7 @@ Bir IP beyaz listesi yapılandırmak için şu adrese gidin `HKLM\SOFTWARE\Micro
 
 | Ad | Tür | Varsayılan değer | Açıklama |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | Dize | boş | IP adreslerinin noktalı virgülle ayrılmış listesini sağlayın. Burada hizmet istekleri, NAS/VPN sunucusu gibi kaynaklanan makinelerin IP adreslerini içerir. IP aralıkları, alt ağlar desteklenmez:. <br><br> Örneğin, *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | string | Boş | IP adreslerinin noktalı virgülle ayrılmış listesini sağlayın. Burada hizmet istekleri, NAS/VPN sunucusu gibi kaynaklanan makinelerin IP adreslerini içerir. IP aralıkları, alt ağlar desteklenmez:. <br><br> Örneğin, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 Bir istek beyaz mevcut bir IP adresinden geldiğinde, iki aşamalı doğrulama atlandı. IP beyaz listesi içinde sağlanan IP adresi karşılaştırılır *ratNASIPAddress* RADIUS isteğini özniteliğidir. Bir RADIUS isteğini ratNASIPAddress özniteliği olmadan geliyorsa, aşağıdaki uyarı kaydedilir: "P_WHITE_LIST_WARNING::IP beyaz liste yoksayılır kaynak IP RADIUS isteğini NasIpAddress öznitelik yok."
 

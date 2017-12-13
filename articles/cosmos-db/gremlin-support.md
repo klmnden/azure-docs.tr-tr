@@ -3,7 +3,7 @@ title: Azure Cosmos DB Gremlin destek | Microsoft Docs
 description: "Özellikleri ve adımları Apache TinkerPop Gremlin dilden hakkında bilgi edinin ve Azure Cosmos veritabanı kullanılabilir"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 tags: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: lbosq
+ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin grafik desteği
 Azure Cosmos DB destekleyen [Apache Tinkerpop'ın](http://tinkerpop.apache.org) grafik geçişi dil [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), grafik varlıkları oluşturma ve grafik sorgu işlemleri gerçekleştirmek için bir grafik API'si olan. Grafik varlıkları (köşeleri ve kenarları) oluşturmak, bu varlıkların içinde özelliklerini değiştirmek, sorgular ve çapraz geçişlerine gerçekleştirmek ve varlıkları silmek için Gremlin dil kullanabilirsiniz. 

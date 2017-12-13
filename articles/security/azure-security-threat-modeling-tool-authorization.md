@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Güvenlik çerçevesi: Yetkilendirme | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 | **Veritabanı** | <ul><li>[En az ayrıcalıklı hesapları veritabanı sunucusuna bağlanmak için kullanıldığından emin olun](#privileged-server)</li><li>[Kiracıların diğer kişilerin veri erişimini engellemek için satır düzeyi güvenlik RLS uygulama](#rls-tenants)</li><li>[Sysadmin rolünün yalnızca geçerli gerekli kullanıcıların olmalıdır](#sysadmin-users)</li></ul> |
 | **IOT bulut ağ geçidi** | <ul><li>[Bulut en az ayrıcalıklı belirteçleri kullanarak ağ geçidine bağlanmak](#cloud-least-privileged)</li></ul> |
 | **Azure Event hub'ı** | <ul><li>[Cihaz belirteçleri oluşturmak için bir yalnızca gönderme izinleri SAS anahtarı kullan](#sendonly-sas)</li><li>[Olay Hub'ına doğrudan erişim sağlayan erişim belirteçleri kullanmayın](#access-tokens-hub)</li><li>[Olay gerekli en az izinlere sahip SAS anahtarları kullanarak Hub'ına bağlanın](#sas-minimum-permissions)</li></ul> |
-| **Azure belge DB** | <ul><li>[DocumentDB için mümkün olduğunca bağlanmak için kaynak belirteçleri kullanın](#resource-docdb)</li></ul> |
+| **Azure belge DB** | <ul><li>[Azure Cosmos DB mümkün olduğunca bağlanmak için kaynak belirteçleri kullanın](#resource-docdb)</li></ul> |
 | **Azure güven sınırı** | <ul><li>[Azure RBAC kullanarak abonelik için ayrıntılı erişim yönetimini etkinleştirme](#grained-rbac)</li></ul> |
 | **Service Fabric güven sınırı** | <ul><li>[RBAC kullanarak küme işlemleri için istemci erişimi kısıtlama](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Güvenlik modelleme gerçekleştirmek ve alan düzeyinde güvenliğin kullanmanız gerektiğinde](#modeling-field)</li></ul> |
@@ -224,7 +224,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | Kaynak belirteci DocumentDB izni kaynakla ilişkili olan ve ilişki yakalar bir veritabanı kullanıcısı ve izni arasında kullanıcının belirli bir DocumentDB uygulama kaynak için (örneğin, koleksiyon ve belge) sahip. Her zaman istemci ana veya salt okunur anahtarları - son kullanıcı uygulamayı bir mobil veya masaüstü istemcisi gibi gibi işleme ile güvenilir olamazsa DocumentDB erişmek için bir kaynak belirteci kullanın. Ana anahtar veya bu anahtarları güvenli bir şekilde depolayan arka uç uygulamalardan salt okunur tuşlarını kullanın.|
+| **Adımları** | Kaynak belirteci bir Azure Cosmos DB izni kaynakla ilişkili olan ve ilişki yakalar bir veritabanı kullanıcısı ve izni arasında kullanıcının belirli bir Azure Cosmos DB uygulama kaynak için (örneğin, koleksiyon ve belge) sahip. Her zaman istemci ana veya salt okunur anahtarları - son kullanıcı uygulamayı bir mobil veya masaüstü istemcisi gibi gibi işleme ile güvenilir olamazsa Azure Cosmos DB erişmek için bir kaynak belirteci kullanın. Ana anahtar veya bu anahtarları güvenli bir şekilde depolayan arka uç uygulamalardan salt okunur tuşlarını kullanın.|
 
 ## <a id="grained-rbac"></a>Azure RBAC kullanarak abonelik için ayrıntılı erişim yönetimini etkinleştirme
 

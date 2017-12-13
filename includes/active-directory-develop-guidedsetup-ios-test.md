@@ -1,4 +1,3 @@
-
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>İOS uygulamanızdan Microsoft grafik API'si sorgulanırken test
 
 Benzetici kodu çalıştırmak için basın **komutu** + **R**.

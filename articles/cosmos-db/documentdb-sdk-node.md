@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB Node.js API, SDK & kaynakları | Microsoft Docs"
-description: "Node.js API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB Node.js SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
+title: "Azure Cosmos DB: SQL Node.js API, SDK & kaynakları | Microsoft Docs"
+description: "SQL Node.js API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB Node.js SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c53a7bfdcf5105df0ed3d3f70d927fc06cf36cf
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bd50bd37baeac0b06f1b3456637f68544f55f3d5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure DB Cosmos Node.js SDK: sürüm notları ve kaynakları
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Node.js SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET değişiklik besleme](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/29/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -183,7 +185,7 @@ Kullanımdan Kaldırılan SDK Cosmos DB kullanarak herhangi bir istek hizmeti ta
 
 <br/>
 
-| Sürüm | Sürüm tarihi | Sona erme tarihi |
+| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [1.14.0](#1.14.0) |9 Kasım 2017 |--- |
 | [1.13.0](#1.13.0) |11 Ekim 2017 |--- |

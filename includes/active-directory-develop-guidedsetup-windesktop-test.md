@@ -1,4 +1,3 @@
-
 ## <a name="test-your-code"></a>Kodunuzu test
 
 Visual Studio'da uygulamanızı test etmek için basın **F5** projeyi çalıştırın. **MainWindow** uygulamanızı görüntülenir:

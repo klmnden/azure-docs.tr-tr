@@ -4,7 +4,7 @@ description: "Bu makalede, bir uygulamayı Azure Active Directory ile kaydetmek 
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınızın ile uygulamanızı kaydetme
 
@@ -45,7 +45,7 @@ Azure Portalı'nı kullanarak var olan bir uygulamanın ayarlarını kolayca de�
   * **Özellikleri** sayfası, uygulama için genel bilgileri değiştirmenize olanak sağlar. Bu, uygulama adı, oturum açma URL'si ve oturum kapatma URL'sini içerir.
   * **Yanıt URL'leri** sayfa, Azure AD belirteci yanıtları yere gönderir olan bir yanıt URL eklemenize olanak sağlar.
   * **Sahipleri** sayfası uygulama sahipleri eklemenize olanak sağlar.
-  * **İzinleri** sayfası uygulama izinlerini yapılandırmanıza olanak sağlar. Örneğin, Microsoft Graph API erişmek için tıklatın **Ekle** seçip **Microsoft Graph** API seçicide sonra Örneğin gerekli izni vermeyi **dizin verilerini okuma**.
+  * **Gerekli izinleri** sayfası uygulama izinlerini yapılandırmanıza olanak sağlar. Örneğin, Microsoft Graph API erişmek için tıklatın **Ekle** seçip **Microsoft Graph** API seçicide sonra Örneğin gerekli izni vermeyi **dizin verilerini okuma**.
   * **Anahtarları** sayfası, uygulama parolaları eklemenize olanak sağlar. Bunu yapma için kopyaladığınızdan emin hemen oluşturulduktan sonra daha sonra kullanmak gizli yalnızca görüntülenir.
 
 ## <a name="use-the-inline-manifest-editor"></a>Satır içi bildirim Düzenleyicisi'ni kullanın

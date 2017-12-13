@@ -4,7 +4,7 @@ description: "Bu konu için rol tabanlı erişim denetimi (RBAC) rollerdeki yerl
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
 Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve hizmetlere atanmış aşağıdaki yerleşik rolleri ile birlikte gelir. Yerleşik rol tanımlarını değiştiremezsiniz. Ancak, oluşturabileceğiniz [Azure rbac'de özel roller](role-based-access-control-custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
@@ -55,7 +55,7 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [Veri Fabrikası katkıda bulunan](#data-factory-contributor) |Oluşturabilir ve veri fabrikaları ve bunların içindeki alt kaynakları yönetebilirsiniz. |
 | [DevTest Labs kullanıcı](#devtest-labs-user) |Her şeyi görüntüleyebilir ve bağlanmak, Başlat, yeniden başlatma ve kapatma sanal makineler |
 | [DNS bölgesi katkıda bulunan](#dns-zone-contributor) |DNS bölgeleri ve kayıtları yönetebilir |
-| [Azure Cosmos DB hesap katkıda bulunan](#documentdb-account-contributor) |Azure Cosmos DB hesaplarını yönetme |
+| [DocumentDB hesabı katkıda bulunan](#documentdb-account-contributor) |Azure Cosmos DB hesaplarını yönetme |
 | [Akıllı sistemler hesap katkıda bulunan](#intelligent-systems-account-contributor) |Akıllı sistemler hesaplarını yönetme |
 | Mantığı uygulamasını katkıda bulunan | Bir mantıksal uygulama tüm yönlerini yönetmek, ancak yeni bir tane oluşturun değil. |
 | Mantıksal uygulama işleci |Başlangıç ve bir mantıksal uygulama içinde tanımlanan iş akışlarını durdurun kullanabilirsiniz. |
@@ -88,7 +88,7 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 ## <a name="role-permissions"></a>Rol izinleri
 Aşağıdaki tablolarda her rol için verilen özel izinler açıklanmaktadır. Bu içerebilir **Eylemler**, izinleri verin ve **NotActions**, hangi kısıtlamak bunları.
 
-### <a name="api-management-service-contributor"></a>API Management hizmeti katkıda bulunan
+### <a name="api-management-service-contributor"></a>API Yönetimi Hizmeti Katılımcısı
 API Management Hizmetleri yönetebilir.
 
 | **Eylemler** |  |
@@ -135,7 +135,7 @@ API Management Hizmetleri yönetebilir.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="application-insights-component-contributor"></a>Uygulama Öngörüler bileşen katkıda bulunan
+### <a name="application-insights-component-contributor"></a>Application Insights Bileşeni Katılımcısı
 Application Insights bileşenlerini yönetebilirsiniz
 
 | **Eylemler** |  |
@@ -274,7 +274,7 @@ Tüm faturalama bilgileri görüntüleyebilirsiniz
 | Microsoft.Billing/*/read |Faturalama bilgileri okuyun |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="biztalk-contributor"></a>BizTalk katkıda bulunan
+### <a name="biztalk-contributor"></a>BizTalk Katılımcısı
 BizTalk Hizmetleri yönetebilir.
 
 | **Eylemler** |  |
@@ -287,7 +287,7 @@ BizTalk Hizmetleri yönetebilir.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="cleardb-mysql-db-contributor"></a>ClearDB MySQL DB katkıda bulunan
+### <a name="cleardb-mysql-db-contributor"></a>ClearDB MySQL DB Katılımcısı
 ClearDB MySQL veritabanları yönetebilirsiniz
 
 | **Eylemler** |  |
@@ -312,7 +312,7 @@ Erişim dışında her şeyi yönetebilir
 | Microsoft.Authorization/*/Delete |Rolleri ve rol atamalarını silinemiyor |
 | Microsoft.Authorization/*/Write |Rolleri ve rol atamalarını oluşturulamıyor |
 
-### <a name="data-factory-contributor"></a>Veri Fabrikası katkıda bulunan
+### <a name="data-factory-contributor"></a>Data Factory Katılımcısı
 Oluşturun ve veri fabrikaları ve bunların içindeki alt kaynakları yönetin.
 
 | **Eylemler** |  |
@@ -325,7 +325,7 @@ Oluşturun ve veri fabrikaları ve bunların içindeki alt kaynakları yönetin.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="devtest-labs-user"></a>DevTest Labs kullanıcı
+### <a name="devtest-labs-user"></a>DevTest Labs Kullanıcısı
 Her şeyi görüntüleyebilir ve bağlanmak, Başlat, yeniden başlatma ve kapatma sanal makineler
 
 | **Eylemler** |  |
@@ -371,20 +371,20 @@ DNS bölgeleri ve kayıtları yönetebilirsiniz.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/\* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Azure Cosmos DB hesap katkıda bulunan
-Azure Cosmos DB hesaplarını yönetme
+### <a name="documentdb-account-contributor"></a>DocumentDB Hesabı Katılımcısı
+Azure Cosmos DB hesapları yönetebilirsiniz. Azure Cosmos DB önceden DocumentDB bilinirdi.
 
 | **Eylemler** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
-| Microsoft.DocumentDb/databaseAccounts/* |DocumentDB hesapları oluşturma ve yönetme |
+| Microsoft.DocumentDb/databaseAccounts/* |Azure Cosmos DB hesapları oluşturma ve yönetme |
 | Microsoft.Insights/alertRules/* |Oluşturma ve uyarı kurallarını yönetme |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="intelligent-systems-account-contributor"></a>Akıllı sistemler hesap katkıda bulunan
+### <a name="intelligent-systems-account-contributor"></a>Akıllı Sistemler Hesap Katılımcısı
 Akıllı sistemler hesaplarını yönetme
 
 | **Eylemler** |  |
@@ -467,7 +467,7 @@ Her şeyi görüntüleyebilir ancak değişiklik yapamaz
 | --- | --- |
 | * / Okuma |Gizli dışındaki tüm türlerinin kaynakları okuyun. |
 
-### <a name="redis-cache-contributor"></a>Redis önbelleği katkıda bulunan
+### <a name="redis-cache-contributor"></a>Redis Önbelleği Katılımcısı
 Redis önbellekleri yönetebilirsiniz.
 
 | **Eylemler** |  |
@@ -480,7 +480,7 @@ Redis önbellekleri yönetebilirsiniz.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="scheduler-job-collections-contributor"></a>Zamanlayıcı İş koleksiyonları katkıda bulunan
+### <a name="scheduler-job-collections-contributor"></a>Zamanlayıcı İşi Koleksiyonları Katılımcısı
 Zamanlayıcı İş koleksiyonları yönetebilir
 
 | **Eylemler** |  |
@@ -493,7 +493,7 @@ Zamanlayıcı İş koleksiyonları yönetebilir
 | Microsoft.Scheduler/jobcollections/* |Oluşturma ve iş koleksiyonları yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="search-service-contributor"></a>Arama hizmeti katkıda bulunan
+### <a name="search-service-contributor"></a>Search Hizmeti Katılımcısı
 Arama Hizmetleri yönetebilir.
 
 | **Eylemler** |  |
@@ -698,7 +698,7 @@ SQL sunucularının ve veritabanlarının güvenlikle ilgili ilkelerini yöneteb
 | Microsoft.Sql/servers/securityAlertPolicies/* |SQL server güvenlik uyarısı ilkeleri oluşturun ve yönetin |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="sql-server-contributor"></a>SQL Server katkıda bulunan
+### <a name="sql-server-contributor"></a>SQL Server Katılımcısı
 SQL sunucuları ve veritabanları ancak değil güvenlikle ilgili ilkelerini yönetebilirsiniz.
 
 | **Eylemler** |  |
@@ -724,7 +724,7 @@ SQL sunucuları ve veritabanları ancak değil güvenlikle ilgili ilkelerini yö
 | Microsoft.Sql/servers/databases/securityMetrics/* |SQL server veritabanı güvenlik ölçümleri düzenlenemez. |
 | Microsoft.Sql/servers/securityAlertPolicies/* |SQL server güvenlik uyarısı ilkeleri düzenleyemezsiniz |
 
-### <a name="classic-storage-account-contributor"></a>Klasik depolama hesabı katkıda bulunan
+### <a name="classic-storage-account-contributor"></a>Klasik Depolama Hesabı Katılımcısı
 Klasik depolama hesaplarını yönetme
 
 | **Eylemler** |  |
@@ -737,7 +737,7 @@ Klasik depolama hesaplarını yönetme
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="storage-account-contributor"></a>Depolama hesabı katkıda bulunan
+### <a name="storage-account-contributor"></a>Depolama Hesabı Katılımcısı
 Depolama hesaplarını yönetme, ancak onlara erişimi yok.
 
 | **Eylemler** |  |
@@ -769,7 +769,7 @@ Azure kaynakları için kullanıcı erişimini yönetebilirsiniz
 | Microsoft.Authorization/* |Yetkilendirme yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="classic-virtual-machine-contributor"></a>Klasik sanal makine Katılımcısı
+### <a name="classic-virtual-machine-contributor"></a>Klasik Sanal Makine Katılımcısı
 Klasik sanal makineleri ancak bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
 
 | **Eylemler** |  |
@@ -792,7 +792,7 @@ Klasik sanal makineleri ancak bağlı sanal ağ veya depolama hesabı değil yö
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="virtual-machine-contributor"></a>Sanal makine Katılımcısı
+### <a name="virtual-machine-contributor"></a>Sanal Makine Katılımcısı
 Sanal makineler ancak bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
 
 | **Eylemler** |  |
@@ -823,7 +823,7 @@ Sanal makineler ancak bağlı sanal ağ veya depolama hesabı değil yönetebili
 | Microsoft.Storage/storageAccounts/read |Depolama hesapları okuma |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="classic-network-contributor"></a>Klasik ağ Katılımcısı
+### <a name="classic-network-contributor"></a>Klasik Ağ Katılımcısı
 Klasik sanal ağlar ve ayrılmış IP yönetebilir
 
 | **Eylemler** |  |
@@ -836,7 +836,7 @@ Klasik sanal ağlar ve ayrılmış IP yönetebilir
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="web-plan-contributor"></a>Web planı katkıda bulunan
+### <a name="web-plan-contributor"></a>Web Planı Katılımcısı
 Web planlarını yönetme
 
 | **Eylemler** |  |
@@ -849,7 +849,7 @@ Web planlarını yönetme
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 | Microsoft.Web/serverFarms/* |Oluşturma ve sunucu grupları yönetme |
 
-### <a name="website-contributor"></a>Web sitesi katkıda bulunan
+### <a name="website-contributor"></a>Web Sitesi Katılımcısı
 Web siteleri ancak olmayan bağlı web planlarını yönetme
 
 | **Eylemler** |  |

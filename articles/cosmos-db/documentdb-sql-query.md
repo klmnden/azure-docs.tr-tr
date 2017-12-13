@@ -1,5 +1,5 @@
 ---
-title: "SQL sorguları Azure Cosmos DB DocumentDB API'si | Microsoft Docs"
+title: "SQL Azure Cosmos DB sorgularında | Microsoft Docs"
 description: "Azure Cosmos DB SQL söz dizimi, veritabanı kavramlarını ve SQL sorguları hakkında bilgi edinin. SQL Azure Cosmos veritabanı bir JSON sorgu dili olarak kullanabilir."
 keywords: "SQL söz dizimi, sql sorgusu, sql sorguları, json sorgu dili, veritabanı kavramlarını ve sql sorguları, toplama işlevleri"
 services: cosmos-db
@@ -15,19 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.openlocfilehash: 862594bcbd6df8a2c62a12340ceb8096fb6bd691
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f620e7eac0bd0c9d3e5047b52bcc149aa11c5644
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>SQL sorguları Azure Cosmos DB DocumentDB API'si
-Microsoft Azure Cosmos DB bir JSON sorgu dili SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını destekler. Cosmos DB gerçekten şemasız. Doğrudan veritabanı altyapısının içinde JSON veri modeli için kendi taahhüt, otomatik JSON belgelerinin dizinini gerektirmeden açık şema veya ikincil dizinlerin oluşturulmasını sağlar. 
+# <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB SQL sorguları
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Microsoft Azure Cosmos DB SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını SQL API hesapları bir JSON sorgu dili olarak destekler. Azure Cosmos DB gerçekten şemasız. Doğrudan veritabanı altyapısının içinde JSON veri modeli için kendi taahhüt, otomatik JSON belgelerinin dizinini gerektirmeden açık şema veya ikincil dizinlerin oluşturulmasını sağlar.
 
 Cosmos DB için sorgu dili tasarlarken size iki hedefleri düşünerek vardı:
 
 * Yeni bir JSON sorgu dili inventing yerine biz SQL desteği istedik. SQL en tanıdık ve popüler sorgu dilleri biridir. Cosmos veritabanı SQL, JSON belgelerini zengin sorgular için resmi bir programlama modeli sağlar.
-* Bir JSON belgesi veritabanı doğrudan veritabanı altyapısının içinde JavaScript yürütme özellikli, biz JavaScript'in programlama modeli bizim sorgu dili için temel olarak kullanmak istedik. DocumentDB API SQL JavaScript'in tür sistemi, ifade değerlendirmesi ve işlev çağrısını kökü belirtilmiş. Bu içinde dönüş JSON belgeleri, kendi kendine birleşimler, uzamsal sorguları ve kullanıcı tanımlı işlevler (UDF'ler) diğer özellikler arasında JavaScript tamamen yazılmış çalıştırılışı arasında ilişkisel projeksiyonları, hiyerarşik gezinti için doğal bir programlama modeli sağlar. 
+* Bir JSON belgesi veritabanı doğrudan veritabanı altyapısının içinde JavaScript yürütme özellikli, biz JavaScript'in programlama modeli bizim sorgu dili için temel olarak kullanmak istedik. SQL API JavaScript'in tür sistemi, ifade değerlendirmesi ve işlev çağrısını kökü belirtilmiş. Bu içinde dönüş JSON belgeleri, kendi kendine birleşimler, uzamsal sorguları ve kullanıcı tanımlı işlevler (UDF'ler) diğer özellikler arasında JavaScript tamamen yazılmış çalıştırılışı arasında ilişkisel projeksiyonları, hiyerarşik gezinti için doğal bir programlama modeli sağlar. 
 
 Bu özellikler uygulama ve veritabanı arasında uyuşmazlık azaltmak için anahtar ve geliştirici üretkenliği için kritik önem taşıyan inanıyoruz.
 
@@ -99,7 +102,7 @@ Bir fark – sahip ikinci bir belge işte `givenName` ve `familyName` yerine kul
 }
 ```
 
-Şimdi DocumentDB API SQL anahtar yönlerini bazıları anlamak için bu verileri birkaç sorguları deneyelim. Örneğin, aşağıdaki sorguyu ID alanı eşleştiği belgeleri döndürür `AndersenFamily`. Olduğundan bir `SELECT *`, tam JSON belgesi sorgunun çıktısı şöyledir:
+Artık Azure Cosmos veritabanı SQL sorgu dili anahtar yönlerini bazıları anlamak için bu verileri birkaç sorguları deneyelim. Örneğin, aşağıdaki sorguyu ID alanı eşleştiği belgeleri döndürür `AndersenFamily`. Olduğundan bir `SELECT *`, tam JSON belgesi sorgunun çıktısı şöyledir:
 
 **Sorgu**
 
@@ -166,13 +169,13 @@ Sonraki sorgu kimliğine eşleşen ailesinde alt tüm verilen adlarını döndü
 
 Dikkat çekmek için birkaç önemli yönleri kadarki gördük örnekler üzerinden Cosmos DB sorgu dili isteriz:  
 
-* DocumentDB API SQL JSON değerler üzerinde çalışır olduğundan, satır ve sütunların yerine varlıklar şeklinde ağaç ile ilgilidir. Bu nedenle, dil, herhangi bir rastgele derinliğe ağacını düğümlerinin gibi bakın sağlar `Node1.Node2.Node3…..Nodem`benzer şekilde iki bölümü referansı başvuran ilişkisel SQL `<table>.<column>`.   
+* SQL API'si JSON değerler üzerinde çalışır olduğundan, satır ve sütunların yerine varlıklar şeklinde ağaç ile ilgilidir. Bu nedenle, dil, herhangi bir rastgele derinliğe ağacını düğümlerinin gibi bakın sağlar `Node1.Node2.Node3…..Nodem`benzer şekilde iki bölümü referansı başvuran ilişkisel SQL `<table>.<column>`.   
 * Yapılandırılmış sorgu dili şema daha az verilerle çalışır. Bu nedenle, tür sistemi dinamik olarak bağlı gerekir. Aynı ifadeye farklı belgelere farklı türlerde üretebilir. Bir sorgunun sonucu, geçerli bir JSON değer, ancak bir sabit şemasına olması garanti edilmez.  
 * Cosmos DB yalnızca Katı JSON belgelerini destekler. Bu tür sistemi ve ifadeler yalnızca JSON türleri ile mücadele etmek için sınırlı olduğu anlamına gelir. Başvurmak [JSON belirtimi](http://www.json.org/) daha fazla ayrıntı için.  
 * Cosmos DB koleksiyon JSON belgeleri, şemasız bir kapsayıcısıdır. İlişkileri veri varlıklarında içinde ve bir koleksiyondaki belgeler arasında örtük olarak kapsama ve birincil anahtar ve yabancı anahtar ilişkileri tarafından yakalanır. Bu makalenin sonraki bölümlerinde ele alınan içi belge birleştirmeler etkinliğinin düzenleyicileri gösteren değer önemli bir yönü budur.
 
 ## <a id="Indexing"></a>Cosmos DB dizin oluşturma
-Biz DocumentDB API SQL söz dizimi ulaşmadan Cosmos DB dizin tasarımında incelenmesi yararlı olan. 
+Biz SQL söz dizimi alın önce Azure Cosmos DB dizin tasarımında incelenmesi yararlı vardır. 
 
 Veritabanı dizinlerini amacı, çeşitli formlar ve şekiller sorgularda (örneğin, CPU ve giriş/çıkış) en düşük kaynak kullanımına sahip görev iyi performans ve düşük gecikme süresi sunarken yapmaktır. Genellikle, bir veritabanını sorgulamak için doğru dizin seçimi kadar planlama ve deneme gerektirir. Bu yaklaşım, burada veri katı bir şemaya uygun değil ve hızlı bir şekilde dönüşmesi şema daha az veritabanları için bir zorluk oluşturur. 
 
@@ -280,7 +283,7 @@ Aşağıdaki sorgu, değeri olan bir ad özelliği içeren belgeleri istekleri `
     }]
 
 
-Önceki örnekte basit eşitlik sorgu gösterdi. DocumentDB API SQL skaler ifadelerin çeşitli de destekler. En yaygın kullanılan ikili ve birli ifadelerini. Kaynak JSON nesnesi özelliği başvurularından da geçerli ifadelerini. 
+Önceki örnekte basit eşitlik sorgu gösterdi. SQL API skaler ifadelerin çeşitli de destekler. En yaygın kullanılan ikili ve birli ifadelerini. Kaynak JSON nesnesi özelliği başvurularından da geçerli ifadelerini. 
 
 Aşağıdaki ikili işleçler şu anda desteklenen ve aşağıdaki örneklerde gösterildiği gibi sorgularında kullanılabilir:  
 
@@ -338,7 +341,7 @@ Birli işleçleri +,-, ~ değil de desteklenir ve aşağıdaki örnekte gösteri
 İkili ve birli işleçler ek olarak, özellik başvuruları de izin verilir. Örneğin, `SELECT * FROM Families f WHERE f.isRegistered` içeren özellik JSON belgesini döndürür `isRegistered` özelliğin değeri olduğu için JSON eşit `true` değeri. Diğer tüm değerler (false, null, tanımlanmamış, `<number>`, `<string>`, `<object>`, `<array>`, vs.) sonucundan dışlanan kaynak belge için yol açar. 
 
 ### <a name="equality-and-comparison-operators"></a>Eşitlik ve Karşılaştırma işleçleri
-Aşağıdaki tabloda, her iki JSON türleri arasında DocumentDB API SQL'de eşitlik karşılaştırmaları sonucunu gösterir.
+Aşağıdaki tabloda, her iki JSON türleri arasındaki SQL API'sindeki eşitlik karşılaştırmaları sonucunu gösterir.
 
 <table style = "width:300px">
    <tbody>
@@ -373,136 +376,136 @@ Aşağıdaki tabloda, her iki JSON türleri arasında DocumentDB API SQL'de eşi
             <strong>Tanımlanmamış<strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Null<strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Boole değeri<strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Sayı<strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Dize<strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Nesne<strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
       </tr>
       <tr>
          <td valign="top">
             <strong>Dizi<strong>
          </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
-Tanımlanmamış </td>
+Tanımlanmadı </td>
          <td valign="top">
             <strong>TAMAM</strong>
          </td>
@@ -533,28 +536,28 @@ Farklı ANSI-SQL'de de BETWEEN yan tümcesi aşağıdaki örnekteki gibi FROM ya
 
 Tüm sayısal özellikleri/BETWEEN yan tümcesinde filtrelenen yolları karşı bir aralık dizin türünü kullanan bir dizin oluşturma ilkesi oluşturmak daha hızlı sorgu yürütme süreleri için unutmayın. 
 
-DocumentDB API ve ANSI SQL BETWEEN kullanımı arasındaki temel fark karma türlerinin özellikleri aralığı sorguları express – Örneğin, "bir sayı (5) düzeyde" olabilir bazı belgelerde ve diğerleri ("grade4") dizelerde ' dir. Bu gibi durumlarda gibi JavaScript'te, iki farklı sonuçlarında "tanımsız" ve belge arasında bir karşılaştırma atlanacak.
+BETWEEN ANSI SQL ve SQL API'yi kullanarak arasındaki temel fark karma türlerinin özellikleri aralığı sorguları express – Örneğin, "bir sayı (5) düzeyde" olabilir bazı belgelerde ve diğerleri ("grade4") dizelerde ' dir. Bu gibi durumlarda gibi JavaScript'te, iki farklı sonuçlarında "tanımsız" ve belge arasında bir karşılaştırma atlanacak.
 
 ### <a name="logical-and-or-and-not-operators"></a>Mantıksal (AND, OR ve NOT) işleçleri
 Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçlere için mantıksal gerçekte tabloları aşağıdaki tablolarda gösterilmiştir.
 
-| OR | True | False | Tanımlanmamış |
+| OR | True | False | Tanımlanmadı |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Tanımlanmamış |
-| Tanımlanmamış |True |Tanımlanmamış |Tanımlanmamış |
+| False |True |False |Tanımlanmadı |
+| Tanımlanmadı |True |Tanımlanmadı |Tanımlanmadı |
 
-| VE | True | False | Tanımlanmamış |
+| VE | True | False | Tanımlanmadı |
 | --- | --- | --- | --- |
-| True |True |False |Tanımlanmamış |
+| True |True |False |Tanımlanmadı |
 | False |False |False |False |
-| Tanımlanmamış |Tanımlanmamış |False |Tanımlanmamış |
+| Tanımlanmadı |Tanımlanmadı |False |Tanımlanmadı |
 
 | DEĞİL |  |
 | --- | --- |
 | True |False |
 | False |True |
-| Tanımlanmamış |Tanımlanmamış |
+| Tanımlanmadı |Tanımlanmadı |
 
 ### <a name="in-keyword"></a>Anahtar SÖZCÜĞÜ
 IN anahtar sözcüğü, belirtilen bir değeri bir listedeki herhangi bir değer eşleşip eşleşmediğini kontrol etmek için kullanılabilir. Örneğin, bu sorgu kimliği "WakefieldFamily" veya "AndersenFamily" biri olduğu tüm ailesi belgeleri döndürür. 
@@ -750,7 +753,7 @@ Aşağıdaki örnekte, bir Boole değeri bir skaler ifade sonucudur.
 
 
 ### <a name="object-and-array-creation"></a>Nesne ve dizi oluşturma
-Başka bir anahtar DocumentDB API SQL dizi/nesne oluşturma özelliğidir. Önceki örnekte yeni bir JSON nesnesi oluşturduğumuz unutmayın. Benzer şekilde, biri de diziler aşağıdaki örneklerde gösterildiği gibi oluşturabilirsiniz:
+Başka bir anahtar SQL API dizi/nesne oluşturma özelliğidir. Önceki örnekte yeni bir JSON nesnesi oluşturduğumuz unutmayın. Benzer şekilde, biri de diziler aşağıdaki örneklerde gösterildiği gibi oluşturabilirsiniz:
 
 **Sorgu**
 
@@ -921,14 +924,14 @@ Filtrelerle birlikte toplamalar de gerçekleştirebilirsiniz. Örneğin, aşağ�
 
     [ 1 ]
 
-Aşağıdaki tabloda, DocumentDB API desteklenen toplama işlevleri listesini gösterir. `SUM`ve `AVG` ise sayısal değer üzerinde gerçekleştirilen `COUNT`, `MIN`, ve `MAX` numaraları, dizeleri, Boole değerlerini ve null değerlere gerçekleştirilebilir. 
+Aşağıdaki tabloda SQL API desteklenen toplama işlevleri listesini gösterir. `SUM`ve `AVG` ise sayısal değer üzerinde gerçekleştirilen `COUNT`, `MIN`, ve `MAX` numaraları, dizeleri, Boole değerlerini ve null değerlere gerçekleştirilebilir. 
 
 | Kullanım | Açıklama |
 |-------|-------------|
 | SAYISI | İfade öğe sayısını döndürür. |
 | TOPLA   | İfadedeki tüm değerlerin toplamını döndürür. |
-| MIN   | İfade en küçük değeri döndürür. |
-| EN BÜYÜK   | İfade en büyük değeri döndürür. |
+| EN DÜŞÜK   | İfade en küçük değeri döndürür. |
+| EN YÜKSEK   | İfade en büyük değeri döndürür. |
 | ORTALAMA   | İfade değerlerin ortalamasını döndürür. |
 
 Toplamalar, bir dizi yineleme sonuçları de gerçekleştirilebilir. Daha fazla bilgi için bkz: [dizi yineleme sorgularda](#Iteration).
@@ -987,7 +990,7 @@ Ve aileleri dönem temsil eden bir sayı olarak depolanan oluşturma tarih sıra
 ## <a id="Advanced"></a>Gelişmiş veritabanı kavramlarını ve SQL sorguları
 
 ### <a id="Iteration"></a>Yineleme
-Yeni bir yapı aracılığıyla eklendi **IN** JSON diziler yineleme için destek sağlamak için DocumentDB API SQL anahtar sözcük. FROM kaynak yineleme için destek sağlar. Aşağıdaki örnek ile başlayalım:
+Yeni bir yapı aracılığıyla eklendi **IN** JSON diziler yineleme için destek sağlamak için SQL API anahtar sözcük. FROM kaynak yineleme için destek sağlar. Aşağıdaki örnek ile başlayalım:
 
 **Sorgu**
 
@@ -1081,7 +1084,7 @@ Toplama dizi yineleme sonuç de gerçekleştirebilirsiniz. Örneğin, aşağıda
     ]
 
 ### <a id="Joins"></a>Birleşimler
-İlişkisel bir veritabanında tablolar katılmak için gereken önemlidir. Normalleştirilmiş şemaları tasarlama için mantıksal corollary olur. Bu aykırı DocumentDB API şemasız belgeleri Normalleştirilmemiş veri modeli ile ilgilidir. Bu mantıksal eşdeğerdir "Self Katıl" a.
+İlişkisel bir veritabanında tablolar katılmak için gereken önemlidir. Normalleştirilmiş şemaları tasarlama için mantıksal corollary olur. Bu aykırı SQL API belgeleri şemasız Normalleştirilmemiş veri modeli ile ilgilidir. Bu mantıksal eşdeğerdir "Self Katıl" a.
 
 Dilin desteklediği sözdizimi < from_source1 > JOIN < from_source2 > birleştirme ediyor... < From_sourceN > katılın. Genel olarak, bu bir dizi döndürür **N**- diziler (ile tanımlama grubu **N** değerleri). Her tanımlama grubu tüm koleksiyon diğer adları kendi ilgili ayarlar yineleme tarafından üretilen değerler içeriyor. Diğer bir deyişle, bu bir tam çapraz birleştirme katılan kümeleri ürünüdür.
 
@@ -1236,9 +1239,9 @@ Azure Cosmos DB JavaScript tabanlı uygulama mantığını saklı yordamları ve
 * Denetim akışı, değişken kapsamı, atama ve özel durum işleme temelleri veritabanı işlemleri ile tümleştirilmesi doğal bir model. JavaScript tümleştirme için Azure Cosmos DB desteği hakkında daha fazla ayrıntı için lütfen JavaScript sunucu tarafı programlama belgelerine başvurun.
 
 ### <a id="UserDefinedFunctions"></a>Kullanıcı tanımlı işlevler (UDF'ler)
-Bu makalede önceden tanımlanmış türleri ile birlikte, DocumentDB API SQL kullanıcı tanımlı işlevler (UDF) için destek sağlar. Özellikle, skaler UDF'ler burada geliştiriciler sıfır veya daha çok değişkenlerinde geçirmek ve geri tek bağımsız değişken sonuç desteklenir. Bu değişkenin her biri geçerli JSON değerleri olmak için denetlenir.  
+Bu makalede önceden tanımlanmış türleri yanı sıra, SQL API'yi kullanıcı tanımlı işlevler (UDF) için destek sağlar. Özellikle, skaler UDF'ler burada geliştiriciler sıfır veya daha çok değişkenlerinde geçirmek ve geri tek bağımsız değişken sonuç desteklenir. Bu değişkenin her biri geçerli JSON değerleri olmak için denetlenir.  
 
-DocumentDB API SQL söz dizimi, bu kullanıcı tanımlı işlevler kullanılarak özel uygulama mantığını destekleyecek şekilde genişletilir. UDF'ler DocumentDB API'si ile kayıtlı olması ve sonra bir SQL sorgusu bir parçası olarak başvurulan. Aslında, UDF'ler exquisitely sorgular tarafından çağrılan için tasarlanmıştır. Bu seçenek için bir corollary UDF'ler diğer JavaScript türleri (saklı yordamları ve Tetikleyicileri) olan bağlam nesnesi erişiminiz yok. Salt okunur olarak sorguları yürütmek olduğundan, birincil veya ikincil çoğaltmaları çalıştırabilirsiniz. Bu nedenle, UDF'ler, diğer JavaScript türlerinin aksine ikincil çoğaltmalar üzerinde çalışmak üzere tasarlanmıştır.
+SQL söz dizimi, bu kullanıcı tanımlı işlevler kullanılarak özel uygulama mantığını destekleyecek şekilde genişletilir. UDF'ler SQL API'si ile kayıtlı olması ve sonra bir SQL sorgusu bir parçası olarak başvuru. Aslında, UDF'ler exquisitely sorgular tarafından çağrılan için tasarlanmıştır. Bu seçenek için bir corollary UDF'ler diğer JavaScript türleri (saklı yordamları ve Tetikleyicileri) olan bağlam nesnesi erişiminiz yok. Salt okunur olarak sorguları yürütmek olduğundan, birincil veya ikincil çoğaltmaları çalıştırabilirsiniz. Bu nedenle, UDF'ler, diğer JavaScript türlerinin aksine ikincil çoğaltmalar üzerinde çalışmak üzere tasarlanmıştır.
 
 Aşağıda, özellikle bir belge koleksiyonu altında Cosmos DB veritabanı sırasında bir UDF nasıl kaydedilebilir bir örnektir.
 
@@ -1341,18 +1344,18 @@ UDF uygular örneği aşağıdadır.
     ]
 
 
-Önceki örneklerde sergiler gibi UDF'ler JavaScript dil gücünü yerleşik JavaScript çalışma zamanı yeteneklerini yardımıyla karmaşık bir yordam, koşullu mantık yapmak için zengin bir programlanabilir arabirimi sağlamak için DocumentDB API SQL ile tümleştirin.
+Önceki örneklerde sergiler gibi UDF'ler JavaScript dil gücünü yerleşik JavaScript çalışma zamanı yeteneklerini yardımıyla karmaşık bir yordam, koşullu mantık yapmak için zengin bir programlanabilir arabirimi sağlamak için SQL API ile tümleştirin.
 
-DocumentDB API SQL bağımsız değişkenler için UDF'ler kaynağındaki her belge için UDF işleme geçerli aşamada (WHERE yan tümcesi veya SELECT yan tümcesi) sağlar. Sonuç genel yürütme ardışık düzeninde sorunsuz olarak eklenmiştir. Özellikler başvurulan tarafından UDF parametreleri JSON değeri kullanılabilir değil, parametre olarak kabul tanımlanmamış ve bu nedenle UDF çağırma tamamen atlandı. Benzer şekilde UDF sonucu tanımsız ise, sonuçta bulunmaz. 
+SQL API bağımsız değişkenler için UDF'ler kaynağındaki her belge için UDF işleme geçerli aşamada (WHERE yan tümcesi veya SELECT yan tümcesi) sağlar. Sonuç genel yürütme ardışık düzeninde sorunsuz olarak eklenmiştir. Özellikler başvurulan tarafından UDF parametreleri JSON değeri kullanılabilir değil, parametre olarak kabul tanımlanmamış ve bu nedenle UDF çağırma tamamen atlandı. Benzer şekilde UDF sonucu tanımsız ise, sonuçta bulunmaz. 
 
 Özet olarak, UDF'ler karmaşık iş mantığı sorgu bir parçası olarak yapmak için harika araçlardır.
 
 ### <a name="operator-evaluation"></a>İşleç değerlendirme
 Cosmos DB, bir JSON veritabanı olan virtue tarafından JavaScript işleçleri ve değerlendirme semantiği ile parallels çizer. JSON desteği bakımından JavaScript sematiğini korumak Cosmos DB çalışır, ancak bazı durumlarda işlemi değerlendirme farklıdır.
 
-Değerleri veritabanından kadar DocumentDB API SQL'de aksine geleneksel SQL değerlerin türleri bilinmez genellikle. Verimli bir şekilde sorguları yürütmek için işleçleri çoğunu sıkı tür gereksinimleri vardır. 
+Değerleri veritabanından alınana kadar SQL API'yi aksine geleneksel SQL değerlerin türleri bilinmez genellikle. Verimli bir şekilde sorguları yürütmek için işleçleri çoğunu sıkı tür gereksinimleri vardır. 
 
-DocumentDB API SQL JavaScript aksine örtük dönüşümler gerçekleştirmez. Örneğin, bir sorgu ister `SELECT * FROM Person p WHERE p.Age = 21` eşleşen değeri olan 21 yaş özelliği içeren belgeleri. "021", "21.0", "0021", "00021" dize "21", veya diğer büyük olasılıkla sonsuz Çeşitlemeler, yaş özelliği eşleşen herhangi bir belge ister, vb. eşlenemiyor. Bunun aksine dize değerleri nerede sayılara örtük olarak Integer JavaScript sağlamaktır (örneğin, operatöre dayanan: ==). Bu seçenek, DocumentDB API SQL'de eşleşen verimli dizin için önemlidir. 
+SQL API JavaScript aksine örtük dönüşümler gerçekleştirmez. Örneğin, bir sorgu ister `SELECT * FROM Person p WHERE p.Age = 21` eşleşen değeri olan 21 yaş özelliği içeren belgeleri. "021", "21.0", "0021", "00021" dize "21", veya diğer büyük olasılıkla sonsuz Çeşitlemeler, yaş özelliği eşleşen herhangi bir belge ister, vb. eşlenemiyor. Bunun aksine dize değerleri nerede sayılara örtük olarak Integer JavaScript sağlamaktır (örneğin, operatöre dayanan: ==). Bu seçenek, SQL API'yi eşleşen verimli dizin için önemlidir. 
 
 ## <a name="parameterized-sql-queries"></a>Parametreli SQL sorguları
 Cosmos DB bilinen gösterimi @ ile ifade parametrelerle sorguları destekler. Parametreli SQL sağlam işleme ve kullanıcı girişi, SQL ekleme üzerinden veri yanlışlıkla açığa çıkmaya önleme, kaçış sağlar. 
@@ -1665,12 +1668,12 @@ Uzamsal işlevleri uzamsal veriler yakınlaştırmalı sorguları gerçekleştir
 
 Cosmos DB Jeo-uzamsal desteği hakkında daha fazla ayrıntı için lütfen bkz. [Azure Cosmos veritabanı Jeo-uzamsal verilerle çalışma](geospatial.md). Cosmos DB için uzamsal işlevleri ve SQL söz dizimi, sarmalar. Şimdi nasıl çalışır ve sözdizimi ile nasıl etkileşim kurduğu sorgulama LINQ kadarki gördük bir bakalım.
 
-## <a id="Linq"></a>LINQ-DocumentDB API SQL
+## <a id="Linq"></a>LINQ-SQL API
 LINQ, hesaplama nesnelerin akışları sorgular olarak ifade eder ve .NET çalışan bir programlama modelidir. Cosmos DB LINQ ile arabirim oluşturmak için bir istemci-tarafı kitaplığı, JSON ve .NET nesneleri ve bir alt kümesinden LINQ sorgularını eşleme Cosmos DB sorgulara arasında dönüştürme kolaylaştırarak sağlar. 
 
 Aşağıdaki resimde Cosmos DB kullanarak LINQ sorgularını destekleme mimarisi gösterilmektedir.  Cosmos DB İstemcisi'ni kullanarak geliştiriciler oluşturabilir bir **Iqueryable** doğrudan sonra Cosmos DB sorguda LINQ sorgusu çevirir Cosmos DB sorgu sağlayıcısı sorgular nesnesi. Sorgu daha sonra bir JSON biçiminde sonuç kümesi almak için Cosmos DB sunucuya geçirilir. Döndürülen sonuçların, istemci tarafında .NET nesnelerin bir akışa serisi.
 
-![DocumentDB API - kullanarak LINQ sorgularını SQL söz dizimi, JSON sorgu dili, veritabanı kavramlarını ve SQL sorguları destekleyen mimarisi][1]
+![SQL API'yi - kullanarak LINQ sorgularını SQL söz dizimi, JSON sorgu dili, veritabanı kavramlarını ve SQL sorguları destekleyen mimarisi][1]
 
 ### <a name="net-and-json-mapping"></a>.NET ve JSON eşleme
 .NET nesneleri ve JSON belgeleri arasında eşleme doğal - her bir veri üyesi alan burada alan adı nesne "anahtarı" parçası eşlendi ve "value" bölümü nesne değer bölümünü eşlenen yinelemeli bir JSON nesnesi ile eşleştirilir. Aşağıdaki örneği göz önünde bulundurun: oluşturulan aile nesnesi, JSON belgesi eşlendiği, aşağıda gösterildiği gibi. Ve tersi, JSON belgesini bir .NET nesnesine eşlendi.
@@ -1775,7 +1778,7 @@ Cosmos DB sorgu Sağlayıcısı'nı bir en iyi çaba eşleme Cosmos DB SQL sorgu
      Yeni int [] {3, child.grade, 5};
 
 ### <a id="SupportedLinqOperators"></a>Desteklenen LINQ işleçlerin listesi
-DocumentDB .NET SDK'sıyla dahil LINQ Sağlayıcısı'nda desteklenen LINQ işleçlerin bir listesi aşağıda verilmiştir.
+SQL .NET SDK'sı ile dahil LINQ Sağlayıcısı'nda desteklenen LINQ işleçlerin bir listesi aşağıda verilmiştir.
 
 * **Seçin**: tahminleri Çevir SQL nesne oluşturması dahil olmak üzere SEÇMEK için
 * **Burada**: filtreleri SQL WHERE için çevirin ve Destek arasında çeviri & &, || ve! SQL işleçleri
@@ -1992,7 +1995,7 @@ Cosmos DB HTTP üzerinden açık bir RESTful programlama modeli sunar. Bir Azure
 
 Temel etkileşim bu kaynaklarla HTTP fiilleri GET, PUT, POST ve silme ile standart kullanıcıların yorumu modelidir. POST fiil yeni bir kaynak oluşturulmasını, bir saklı yordamı yürütmek veya Cosmos DB sorgu verme için kullanılır. Sorguları her zaman salt okunur hiçbir yan etkileri olan işlemleridir.
 
-Aşağıdaki örnekler, biz kadarki geçirdikten iki örnek belgeleri içeren bir koleksiyon karşı yapılan bir DocumentDB API sorgu için bir POST gösterir. Sorgu basit bir filtre JSON name özelliğine göre sahiptir. Kullanımına dikkat edin `x-ms-documentdb-isquery` ve Content-Type: `application/query+json` işlemi bir sorgu olduğunu belirtmek için üstbilgiler.
+Aşağıdaki örnekler, biz kadarki geçirdikten iki örnek belgeleri içeren bir koleksiyon karşı yapılan bir SQL API sorgu için bir POST gösterir. Sorgu basit bir filtre JSON name özelliğine göre sahiptir. Kullanımına dikkat edin `x-ms-documentdb-isquery` ve Content-Type: `application/query+json` işlemi bir sorgu olduğunu belirtmek için üstbilgiler.
 
 **İstek**
 
@@ -2120,7 +2123,7 @@ Sorguları için veri tutarlılığı ilkelerini yönetmek için `x-ms-consisten
 
 Koleksiyon için yapılandırılan dizin oluşturma ilkesini belirtilen sorgu destekleyemiyorsa, Azure Cosmos DB sunucusu 400 "hatalı istek" döndürür. Bu karma (eşitlik) aramaları için ve dizine almasını açıkça yolları için yapılandırılmış yolları aralığı sorguları için döndürülür. `x-ms-documentdb-query-enable-scan` Başlığı, bir dizini olmadığında bir tarama gerçekleştirmek sorgu izin vermek için belirtilebilir.
 
-Ayrıntılı ölçümler ayarlayarak sorgu yürütme elde edebilirsiniz `x-ms-documentdb-populatequerymetrics` başlığına `True`. Daha fazla bilgi için bkz: [SQL sorgu ölçümleri Azure Cosmos DB DocumentDB API'si](documentdb-sql-query-metrics.md).
+Ayrıntılı ölçümler ayarlayarak sorgu yürütme elde edebilirsiniz `x-ms-documentdb-populatequerymetrics` başlığına `True`. Daha fazla bilgi için bkz: [Azure Cosmos DB SQL sorgu ölçümlerini](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 LINQ ve SQL .NET SDK'yı destekleyen sorgulama. Aşağıdaki örnek, bu belgenin önceki bölümlerinde sunulan basit filtre sorgusu gerçekleştirmeye gösterilmiştir.

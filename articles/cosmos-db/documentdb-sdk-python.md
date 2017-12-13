@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB Python API, SDK & kaynakları | Microsoft Docs"
-description: "Python API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB Python SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
+title: "Azure Cosmos DB: SQL Python API, SDK & kaynakları | Microsoft Docs"
+description: "SQL Python API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB Python SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6aecdce1de2e852c8683df0ec29e91de940ba25
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 891af14f347c798d7c661e19d110b5c0a2d8982c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure DB Cosmos Python SDK: sürüm notları ve kaynakları
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Python SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET değişiklik besleme](documentdb-sdk-dotnet-changefeed.md)
@@ -34,6 +34,8 @@ ms.lasthandoff: 11/15/2017
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -81,8 +83,8 @@ ms.lasthandoff: 11/15/2017
 * Bölümlenmiş koleksiyonlar için üst/ORDERBY sorgular için destek eklendi.
 
 ### <a name="a-name190190"></a><a name="1.9.0"/>1.9.0
-* Daraltılmış istekleri için eklenen yeniden deneme ilkesi desteği. (Daraltılmış isteklerini bir istek oranı çok büyük özel durumu, hata kodu 429 alır.) Hata kodu 429 karşılaşıldığında, varsayılan olarak, Azure Cosmos DB dokuz kez her istek için yanıt üst bilgisi retryAfter zamanında uygularken yeniden dener. Yeniden denemeler arasında sunucu tarafından döndürülen retryAfter zaman yoksay istiyorsanız sabit yeniden deneme zaman aralığını şimdi RetryOptions özelliğinin bir parçası olarak ConnectionPolicy nesne üzerinde ayarlanabilir. Azure Cosmos DB şimdi en fazla (bağımsız olarak yeniden deneme sayısı) kısıtlanan ve 429 hata koduyla yanıt döndüren her istek için 30 saniye bekler. Bu süre kılınmadı ConnectionPolicy nesnesinde RetryOptions özelliğinde de olabilir.
-* Yanıt Üstbilgileri kısıtlama belirtmek için her istekte yeniden deneme sayısı ve isteği yeniden denemeler arasında beklenen cummulative süre gibi cosmos DB x-ms-kısıtlama-yeniden deneme-sayısı ve x-ms-throttle-retry-wait-time-ms şimdi döndürür.
+* Daraltılmış istekleri için eklenen yeniden deneme ilkesi desteği. (Daraltılmış isteklerini bir istek oranı çok büyük özel durumu, hata kodu 429 alır.) Hata kodu 429 karşılaşıldığında, varsayılan olarak, Azure Cosmos DB dokuz kez her istek için yanıt üst bilgisi retryAfter zamanında uygularken yeniden dener. Yeniden denemeler arasında sunucu tarafından döndürülen retryAfter zaman yoksay istiyorsanız sabit yeniden deneme zaman aralığını şimdi RetryOptions özelliğinin bir parçası olarak ConnectionPolicy nesne üzerinde ayarlanabilir. Azure Cosmos DB şimdi en fazla (bağımsız olarak yeniden deneme sayısı) kısıtlanan ve 429 hata koduyla yanıt döndüren her istek için 30 saniye bekler. Bu süre de ConnectionPolicy nesnesindeki RetryOptions özelliği geçersiz kılınabilir.
+* Yanıt üstbilgilerini kısıtlama belirtmek için her istekte yeniden deneme sayısı ve isteği yeniden denemeler arasında beklenen toplam süre gibi cosmos DB x-ms-kısıtlama-yeniden deneme-sayısı ve x-ms-throttle-retry-wait-time-ms şimdi döndürür.
 * Bunun yerine bazı geçersiz kılmak için kullanılan ConnectionPolicy sınıfı RetryOptions özellikte gösterme RetryOptions sınıfı sunulan ve RetryPolicy sınıfı ve document_client sınıf üzerinde gösterilen karşılık gelen özelliği (retry_policy) kaldırıldı Varsayılan yeniden deneme seçeneklerini.
 
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
@@ -92,7 +94,7 @@ ms.lasthandoff: 11/15/2017
 * Belgeler için zaman için Live(TTL) özelliği için destek eklendi.
 
 ### <a name="a-name161161"></a><a name="1.6.1"/>1.6.1
-* Özel karakterler partitionkey yolunda izin vermek için sunucu tarafı bölümleme için ilgili hata düzeltmeleri.
+* Hata düzeltmeleri özel karakterler bölüm anahtar yoluna izin vermek için sunucu tarafı bölümleme için ilgili.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 * Uygulanan [bölümlenmiş koleksiyonlar](partition-data.md) ve [kullanıcı tanımlı performans düzeyleri](performance-levels.md). 
@@ -119,20 +121,20 @@ ms.lasthandoff: 11/15/2017
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Yayın & sona erme tarihleri
-Microsoft sağlayacaktır bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
+Microsoft'un sağladığı bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
 
 Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yalnızca eklenir, olduğundan bu nedenle önerilir, her zaman en son SDK sürüme erken mümkün olduğunca yükseltmeniz. 
 
 Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir istek hizmeti tarafından reddedilir.
 
 > [!WARNING]
-> Python için Azure DocumentDB SDK'sı tüm sürümleri sürümden önceki **1.0.0** üzerinde Çekildi **29 Şubat 2016**. 
+> Python için Azure SQL SDK'sı tüm sürümleri sürümden önceki **1.0.0** üzerinde Çekildi **29 Şubat 2016**. 
 > 
 > 
 
 <br/>
 
-| Sürüm | Sürüm tarihi | Sona erme tarihi |
+| Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
 | [2.3.0](#2.3.0) |10 Kasım 2017 |--- |
 | [2.2.1](#2.2.1) |Eylül 29, 2017 |--- |

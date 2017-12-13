@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: e6399831fe7c6cc727e92b13719df3b69e9981bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>İzleme ve ölçümleri Azure Cosmos veritabanı ile hata ayıklama
 
@@ -72,7 +72,7 @@ Dizin alanından tasarruf etmek istiyorsanız, ayarlayabileceğiniz [dizin oluş
 
 ## <a name="debugging-why-queries-are-running-slow"></a>Sorguları yavaş çalışıyor neden hata ayıklama
 
-DocumentDB API SDK Azure Cosmos DB sorgu yürütme istatistikleri sağlar. 
+SQL API SDK Azure Cosmos DB sorgu yürütme istatistikleri sağlar. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

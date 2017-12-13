@@ -4,7 +4,7 @@ description: "Anlama ve Azure Active Directory (AAD tarafından) yayınlanan SAM
 documentationcenter: na
 author: dstrockis
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD belirteç başvurusu
 Azure Active Directory (Azure AD), her kimlik doğrulama akışı işlenmesini güvenlik belirteçlerinde çeşitli türlerde yayar. Bu belgede biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklanmaktadır.
@@ -71,7 +71,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `sub` |Konu |Hakkında bilgi, bir uygulamanın kullanıcısı gibi belirteci onaylar asıl tanımlar. Bu değer sabittir ve atanamaz veya yeniden, bu nedenle bu yetkilendirme denetimleri güvenli bir şekilde gerçekleştirmek için kullanılabilir. Konu her zaman Azure AD sorunları belirteçlerinde mevcut olduğundan, bu değerin bir genel amaçlı yetkilendirme sisteminde kullanılması önerilir. <br> `SubjectConfirmation`bir talep değil. Bu konu belirtecin nasıl doğrulanır açıklar. `Bearer`Konu belirteç kendi mülkü tarafından onaylandıktan gösterir. <br><br> **Örnek SAML değer**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Örnek JWT değer**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
 | `tid` |Kiracı Kimliği |Belirtecin dizin Kiracı tanımlayan bir değişmez, yeniden kullanılabilir olmayan tanımlayıcısı. Çok kiracılı uygulama Kiracı özgü dizin kaynaklara erişim için bu değeri kullanın. Örneğin, Kiracı grafik API'sine çağrıda tanımlamak için bu değeri kullanın. <br><br> **Örnek SAML değer**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Örnek JWT değer**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
 | `nbf`, `exp` |Belirteç ömrü |Bir belirtecin geçerli olduğu zaman aralığını tanımlar. Belirteci doğrular hizmeti geçerli tarih belirteci reddetme belirteç ömrü içinde başka olduğunu doğrulamanız gerekir. Hizmet için beş dakika belirteç ömrü aralık ötesinde farklılıklarını saatin ("saat eğriltme") için hesap için Azure AD arasında izin verebilir ve hizmeti. <br><br> **Örnek SAML değer**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Örnek JWT değer**: <br> `"nbf":1363289634, "exp":1363293234` |
-| `upn` |Kullanıcı asıl adı |Kullanıcı asıl kullanıcı adını depolar.<br><br> **Örnek JWT değer**: <br> `"upn": frankm@contoso.com` |
+| `upn` |Kullanıcı Asıl Adı |Kullanıcı asıl kullanıcı adını depolar.<br><br> **Örnek JWT değer**: <br> `"upn": frankm@contoso.com` |
 | `ver` |Sürüm |Belirteç sürüm numarasını depolar. <br><br> **Örnek JWT değer**: <br> `"ver": "1.0"` |
 
 ## <a name="access-tokens"></a>Erişim belirteçleri
@@ -96,7 +96,7 @@ Yeni bir erişim belirteci için bir yenileme belirteci almak, belirteç yanıt 
 
 ## <a name="validating-tokens"></a>Belirteçleri doğrulanıyor
 
-Bir id_token veya bir access_token doğrulamak için uygulamanızı belirtecinin imzası ve talep doğrulamalıdır. Erişim belirteçleri doğrulamak için uygulamanız da veren, İzleyici ve imzalama belirteçleri doğrulamalıdır. Bunlar, Openıd bulma belgesindeki değerler karşı doğrulanması gerekir. Örneğin, belge Kiracı bağımsız sürümü bulunur [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD Ara erişim belirteçleri doğrulamak için yerleşik özellikleri vardır ve aracılığıyla göz atabilirsiniz bizim [örnekleri](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) tercih ettiğiniz dilde bulmak için. Açıkça bir JWT belirteci doğrulama hakkında daha fazla bilgi için lütfen bkz [el ile JWT doğrulama örnek](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Bir id_token veya bir access_token doğrulamak için uygulamanızı belirtecinin imzası ve talep doğrulamalıdır. Erişim belirteçleri doğrulamak için uygulamanız da veren, İzleyici ve imzalama belirteçleri doğrulamalıdır. Bunlar, Openıd bulma belgesindeki değerler karşı doğrulanması gerekir. Örneğin, belge Kiracı bağımsız sürümü bulunur [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Azure AD Ara erişim belirteçleri doğrulamak için yerleşik özellikleri vardır ve aracılığıyla göz atabilirsiniz bizim [örnekleri](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) tercih ettiğiniz dilde bulmak için. Açıkça bir JWT belirteci doğrulama hakkında daha fazla bilgi için lütfen bkz [el ile JWT doğrulama örnek](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Kitaplıkları ve kolayca belirteci doğrulama - nasıl ele alınacağını gösteren kod örnekleri sunuyoruz altındaki bilgi yalnızca temel alınan işlem anlamak isteyen olanlar için sağlanır.  Ayrıca çeşitli üçüncü taraf açık kaynak kitaplıkları JWT doğrulama için kullanılabilir olduğundan - neredeyse her platform ve ölçeklendiriyor dili için en az bir seçenek yoktur. Azure AD kimlik doğrulama kitaplıkları ve kod örnekleri hakkında daha fazla bilgi için lütfen bkz [Azure AD kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md).
 

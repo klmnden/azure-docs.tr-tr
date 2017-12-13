@@ -3,33 +3,33 @@ title: "PowerShell için Azure yığın yükleme | Microsoft Docs"
 description: "PowerShell için Azure yığınına yüklemeyi öğrenin."
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: sngun
-ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell için Azure yığın yükle  
 
 Azure yığın uyumlu Azure PowerShell modülleri Azure yığın ile çalışmak için gereklidir. Bu kılavuzda, biz, PowerShell için Azure yığınına yüklemek için gereken adımlarda size yol. Bu makalede Azure yığın Geliştirme Setinden veya Windows tabanlı bir dış istemci VPN üzerinden bağlandığı sırada açıklanan adımları kullanabilirsiniz.
 
-Bu makalede Azure yığını için PowerShell yüklemek için yönergeleri açıklanmıştır. Ancak, hızlı bir şekilde yüklemek ve PowerShell yapılandırmak istiyorsanız, "hazır ve çalışır PowerShell ile Al" konuda sağlanan komut dosyasını kullanabilirsiniz. 
+Bu makalede Azure yığını için PowerShell yüklemek için yönergeleri açıklanmıştır. Ancak, hızlı bir şekilde yüklemek ve PowerShell yapılandırmak istiyorsanız, "hazır ve çalışır PowerShell ile Al" makalesinde sağlanan komut dosyasını kullanabilirsiniz. 
 
 > [!NOTE]
 > Aşağıdaki adımları PowerShell 5.0 gerektirir. Sürümünüzü denetlemek için $PSVersionTable.PSVersion çalıştırın ve "Ana" sürümüne karşılaştırın.
 
-Azure yığını için PowerShell komutlarını PowerShell Galerisi aracılığıyla yüklenir. VPN üzerinden bağlı ve aşağıdaki komutu çalıştırırsanız regiser PSGallery deposu için Geliştirme Seti ya da Windows tabanlı bir dış istemci yükseltilmiş bir PowerShell oturumu açın:
+Azure yığını için PowerShell komutlarını PowerShell Galerisi aracılığıyla yüklenir. PSGallery depo kaydetmek için VPN yoluyla bağlı ve aşağıdaki komutu çalıştırırsanız yükseltilmiş bir PowerShell oturumu Geliştirme Seti ya da Windows tabanlı bir dış istemci açın:
 
 ```powershell
 Set-PSRepository `
@@ -78,7 +78,7 @@ Yükleme işlemini onaylamak için aşağıdaki komutu çalıştırın:
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  Yükleme başarılı olursa, AzureRM ve AzureStack modülleri çıktısında görüntülenir.
+  Yükleme başarılı olursa, AzureRM ve Azure yığın modülleri çıktısında görüntülenir.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>PowerShell bir bağlantısı kesilmiş veya kısmen bağlı bir senaryo (sınırlı internet bağlantısı ile) yükleyin
 

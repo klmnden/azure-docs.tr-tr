@@ -4,7 +4,7 @@ Genel amaçlı VM boyutları dengeli CPU bellek oranı sağlar. Test ve gelişti
 
 - D Serisi VM'ler, daha yüksek işlem gücüne ve geçici süreli disk performansına ihtiyaç duyan uygulamaları çalıştıracak şekilde tasarlanmıştır. D Serisi VM'ler daha hızlı işlemcilere, daha yüksek bellek-vCPU oranına ve geçici disk için katı hal sürücüsüne (SSD) sahiptir. Ayrıntılı bilgi için Azure blogundaki [Yeni D Serisi Sanal Makine Boyutları](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) duyurusunu inceleyin.
 
-- Orijinal D Serisinin üzerine geliştirilen Dv2 Serisi, daha güçlü bir CPU'ya sahiptir. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
+- Dv3-serisi, Dv2 serisi, özgün D-serisi için bir devamı olarak geliştirilen, daha güçlü bir CPU özellikleri. Dv2 Serisi CPU, D Serisi CPU'dan yaklaşık %35 daha hızlıdır. Yeni nesil 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,1 GHz'e varan hızlara çıkabilir. Dv2 Serisi, D Serisi ile aynı bellek ve disk yapılandırmalarına sahiptir.
 
 - Temel katman boyutları genelde geliştirme iş yükleri ve yük dengeleme, otomatik ölçeklendirme veya bellek kullanımı yoğun sanal makineler gerektirmeyen diğer uygulamalar içindir. Üretim uygulamaları için daha uygun VM boyutları hakkında daha fazla bilgi için bkz. (Sanal makine boyutları)[virtual-machines-size-specs.md] ve VM fiyatlandırma bilgileri için bkz. [Sanal Makine Fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
@@ -23,11 +23,11 @@ B-serisi burstable VM'ler CPU tam performansını sürekli olarak, web sunucular
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3-serisi *
+## <a name="dsv3-series-sup1sup"></a>Dsv3-serisi <sup>1</sup>
 
 ACU: 160-190
 
-Dsv3 serisi boyutları, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi temel alır, Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza çıkabilir ve premium depolama kullanır. Dsv3 serisi boyutları, üretim iş yüklerinin çoğu için uygun bir vCPU, bellek ve geçici depolama kombinasyonu sunar.
+Dsv3-serisi boyutları üzerinde 2.4 GHz Intel Xeon® E5-2673 v3 dayalı (Haswell) işlemci veya son 2.3 GHz Intel XEON® E5-2673 v4 3.5 GHz Intel Turbo artırma teknolojisi 2.0 ile elde etmek ve premium depolama kullanın (Broadwell) işlemci. Dsv3 serisi boyutları, üretim iş yüklerinin çoğu için uygun bir vCPU, bellek ve geçici depolama kombinasyonu sunar.
 
 
 | Boyut             | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
@@ -38,13 +38,14 @@ Dsv3 serisi boyutları, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi 
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25.600/384                              | 8/yüksek                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51.200/768                              | 8 / çok yüksek                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8 / çok yüksek                                       |
-* Dsv3-serisi VM'in Intel® Hyper-Threading Teknolojisi özelliği
 
-## <a name="dv3-series"></a>Dv3-serisi * 
+<sup>1</sup> Dsv3-serisi VM'in özellik Intel® Hyper-Threading Teknolojisi
+
+## <a name="dv3-series-sup1sup"></a>Dv3-serisi <sup>1</sup>
 
 ACU: 160-190
 
-Dv3 serisi boyutları, 2,3 GHz Intel XEON ® E5-2673 v4 (Broadwell) işlemciyi temel alır ve Intel Turbo Boost Technology 2.0 ile 3,5 GHz hıza çıkabilir. Dv3 serisi boyutları, üretim iş yüklerinin çoğu için uygun bir vCPU, bellek ve geçici depolama kombinasyonu sunar.
+Dv3-serisi boyutları üzerinde 2.4 GHz Intel Xeon® E5-2673 v3 dayalı (Haswell) işlemci veya 2.3 GHz Intel XEON® E5-2673 v4 3.5 GHz Intel Turbo artırma teknolojisi 2.0 ile elde edebilirsiniz (Broadwell) işlemci. Dv3 serisi boyutları, üretim iş yüklerinin çoğu için uygun bir vCPU, bellek ve geçici depolama kombinasyonu sunar.
 
 Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Premium depolama disklerini kullanmak için Dsv3 boyutlarını kullanın. Dsv3 boyutları için fiyatlandırma ve faturalandırma oranları Dv3 serisi ile aynıdır. 
 
@@ -57,7 +58,8 @@ Veri disk depolaması, sanal makinelerden ayrı olarak faturalandırılır. Prem
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8/yüksek                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / çok yüksek                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / çok yüksek                     |
-* Dv3-serisi VM'in Intel® Hyper-Threading Teknolojisi özelliği
+
+<sup>1</sup> Dv3-serisi VM'in özellik Intel® Hyper-Threading Teknolojisi
 
 ## <a name="dsv2-series"></a>DSv2 serisi
 
@@ -137,7 +139,7 @@ ACU: 50-100
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (HDD): GiB | Maksimum veri diskleri | Maksimum veri diski aktarım hızı: IOPS | Max NIC'ler / beklenen ağ bant genişliği (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0* |1 |0,768 |20 |1 |1x500 |2 / 100 |
+| Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1,75 |70 |2 |2x500 |2 / 500  |
 | Standard_A2 |2 |3,5 |135 |4 |4x500 |2 / 500 |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / 1000 |
@@ -147,7 +149,7 @@ ACU: 50-100
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
 <br>
 
-*A0 boyutunun fiziksel donanım üzerindeki abone sayısı planlanandan fazladır. Yalnızca bu boyutta diğer müşteri dağıtımları, çalışan iş yükünüzün performansını etkileyebilir. Göreli performans aşağıda beklenen temel düzey olarak belirtilmiştir ve %15 oranında değişiklik gösterebilir.
+<sup>1</sup> A0 boyutudur fiziksel donanım üzerinde aşırı abone olmuş. Yalnızca bu boyutta diğer müşteri dağıtımları, çalışan iş yükünüzün performansını etkileyebilir. Göreli performans aşağıda beklenen temel düzey olarak belirtilmiştir ve %15 oranında değişiklik gösterebilir.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 - A4, CLI ve PowerShell kullanarak
 Klasik dağıtım modelinde bazı VM boyutu adları CLI ve PowerShell'dekilerden biraz farklıdır:

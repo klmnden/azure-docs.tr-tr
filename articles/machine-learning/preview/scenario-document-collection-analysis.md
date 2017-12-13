@@ -2,18 +2,17 @@
 title: Koleksiyon analiz - Azure belge | Microsoft Docs
 description: "Özetlemek ve belgeleri, tümcecik öğrenme, modelleme konu ve Azure ML çalışma ekranı kullanarak konu modeli çözümlemesi gibi teknikler de dahil olmak üzere büyük topluluğu analiz etme."
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 49e215e723728f54a34f7c4e3a89217f16250002
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="document-collection-analysis"></a>Belge koleksiyonu çözümleme
 
@@ -72,7 +71,7 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 
 ## <a name="data-description"></a>Veri açıklaması
 
-Bu senaryoda kullanılan dataset metin özetler ve BİZE Kongre tarafından alma legislative her eylem için ilişkili meta verileri içerir. Veriler toplanır [GovTrack.us](https://www.govtrack.us/), Amerika Birleşik Devletleri Kongre etkinliklerini izler ve yardımcı Americans kendi Ulusal legislative işleminde katılın. Toplu veri aracılığıyla indirilebilir [bu bağlantıyı](https://www.govtrack.us/data/congress/) bu senaryoya dahil edilmeyen el ile bir betik kullanarak. Veri yüklemek nasıl ayrıntılarını bulunamadı [GovTrack API belgelerine](https://www.govtrack.us/developers/api).
+Bu senaryoda kullanılan dataset metin özetler ve BİZE Kongre tarafından yapılan her legislative eylemi için ilişkili meta verileri içerir. Veriler toplanır [GovTrack.us](https://www.govtrack.us/), Amerika Birleşik Devletleri Kongre etkinliklerini izler ve yardımcı Americans kendi Ulusal legislative işleminde katılın. Toplu veri aracılığıyla indirilebilir [bu bağlantıyı](https://www.govtrack.us/data/congress/) bu senaryoya dahil edilmeyen el ile bir betik kullanarak. Veri yüklemek nasıl ayrıntılarını bulunamadı [GovTrack API belgelerine](https://www.govtrack.us/developers/api).
 
 ### <a name="data-source"></a>Veri kaynağı
 
@@ -100,7 +99,7 @@ Belge koleksiyonu analiz örneği iki tür sonuçlara düzenlenmiştir. İlk tü
 
 Bu örnekte dosyaları şu şekilde düzenlenmiştir.
 
-| Dosya adı | Tür | Açıklama |
+| Dosya Adı | Tür | Açıklama |
 |-----------|------|-------------|
 | `aml_config` | Klasör | Azure Machine Learning çalışma ekranı yapılandırma klasörü başvurmak [bu belge](./experimentation-service-configuration-reference.md) ayrıntılı deneme yürütme yapılandırması için |
 | `Code` | Klasör | Python betiği ve Python paketini kaydetmek için kullanılan kod klasörü |

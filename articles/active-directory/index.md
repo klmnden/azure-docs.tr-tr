@@ -4,7 +4,7 @@ description: "Dizinleri eşitleme ve çoklu oturum açmayı etkinleştirme hakk�
 title: "Azure Active Directory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 services: active-directory
 author: czeumault
-manager: carolz
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: e5c39e10e79cd1b1277e5e238f34146a20575ca8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: ae0dfb7e6033a85cc32434bbbbde336fbc0903ea
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory Belgeleri
 

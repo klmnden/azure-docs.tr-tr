@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Stream Analytics işe akış veri girişi veya başvuru veri ekleme
 Olay hub'ları veya başvuru verileri Blob depolama biriminden veri girişten akış olarak Stream Analytics işiniz için bir veri kaynağı bağlanacağını öğrenin.
@@ -38,7 +38,7 @@ Stream Analytics işiniz için bir giriş eklemek için:
 
 1. Azure portal'ı tıklayın **girişleri** ve ardından **bir giriş eklemek** Stream Analytics işi.
    
-    ![Klasik Azure portalı - bir giriş ekleyin.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure portal - bir giriş ekleyin.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     Azure portal'ı tıklayın **girişleri** döşeme Stream Analytics işinde.  
    

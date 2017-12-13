@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uygulaması yükseltme
-Azure Service Fabric uygulama hizmetleri koleksiyonudur. Yükseltme sırasında Service Fabric yeni karşılaştırır [uygulama bildirimi](service-fabric-application-model.md#describe-an-application) önceki sürümüyle ve hangi uygulama iste güncelleştirmeleri Hizmetleri belirler. Service Fabric önceki sürümde sürüm numaralarıyla numaraları hizmet bildirimlerini sürüm karşılaştırır. Bu hizmet, hizmet değişmemişse yükseltilmez.
+Azure Service Fabric uygulama hizmetleri koleksiyonudur. Yükseltme sırasında Service Fabric yeni karşılaştırır [uygulama bildirimi](service-fabric-application-and-service-manifests.md) önceki sürümüyle ve hangi uygulama iste güncelleştirmeleri Hizmetleri belirler. Service Fabric önceki sürümde sürüm numaralarıyla numaraları hizmet bildirimlerini sürüm karşılaştırır. Bu hizmet, hizmet değişmemişse yükseltilmez.
 
 ## <a name="rolling-upgrades-overview"></a>Yükseltmeler genel bakış alınıyor
 Çalışırken uygulama yükseltmesinde, yükseltme aşamada gerçekleştirilir. Her aşamada yükseltme bir güncelleştirme etki alanı adı verilen kümedeki düğümlerin bir alt uygulanır. Sonuç olarak, uygulama yükseltme kullanılabilir olarak kalır. Yükseltme sırasında küme eski ve yeni sürümlerin bir karışımını içerebilir.
@@ -47,14 +47,14 @@ Uygulama yükseltme için öneririz modu yaygın olarak kullanılan modu izlenen
 İzlenmeyen el ile moduna el ile müdahale sonraki güncelleştirme etki alanı yükseltme kapalı kazandırın için bir güncelleştirme etki alanındaki her yükseltme sonrasında gerekir. Herhangi bir Service Fabric sistem durumu denetimi gerçekleştirilir. Yönetici, sonraki güncelleştirme etki alanında Yükseltmeyi başlatmadan önce sistem durumu veya durum denetimi yapar.
 
 ## <a name="upgrade-default-services"></a>Varsayılan Hizmetleri yükseltme
-Varsayılan Hizmetleri Service Fabric uygulaması içindeki bir uygulama yükseltme işlemi sırasında yükseltilebilir. Varsayılan Hizmetleri tanımlanmış [uygulama bildirimi](service-fabric-application-model.md#describe-an-application). Varsayılan Hizmetleri yükseltme standart kurallar şunlardır:
+Varsayılan Hizmetleri Service Fabric uygulaması içindeki bir uygulama yükseltme işlemi sırasında yükseltilebilir. Varsayılan Hizmetleri tanımlanmış [uygulama bildirimi](service-fabric-application-and-service-manifests.md). Varsayılan Hizmetleri yükseltme standart kurallar şunlardır:
 
-1. Varsayılan hizmetlerini yeni [uygulama bildirimi](service-fabric-application-model.md#describe-an-application) kümede olmayan oluşturulur.
+1. Varsayılan hizmetlerini yeni [uygulama bildirimi](service-fabric-application-and-service-manifests.md) kümede olmayan oluşturulur.
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) aşağıdaki kuralları etkinleştirmek için true olarak ayarlanması gerekir. Bu özellik, v5.5 desteklenir.
 
-2. Varsayılan hem de önceki varolan hizmetlerini [uygulama bildirimi](service-fabric-application-model.md#describe-an-application) ve yeni sürümü güncelleştirilir. Hizmet açıklamasında yeni sürümü kümeye de zaten üzerine yazacak. Uygulama yükseltme varsayılan hizmet hatası güncelleştirme sırasında otomatik olarak geri alma olacaktır.
-3. Varsayılan hizmetlerini önceki [uygulama bildirimi](service-fabric-application-model.md#describe-an-application) ancak yeni sürümde silinir. **Bu silme varsayılan Hizmetleri değil döndürülebilir unutmayın.**
+2. Varsayılan hem de önceki varolan hizmetlerini [uygulama bildirimi](service-fabric-application-and-service-manifests.md) ve yeni sürümü güncelleştirilir. Hizmet açıklamasında yeni sürümü kümeye de zaten üzerine yazacak. Uygulama yükseltme varsayılan hizmet hatası güncelleştirme sırasında otomatik olarak geri alma olacaktır.
+3. Varsayılan hizmetlerini önceki [uygulama bildirimi](service-fabric-application-and-service-manifests.md) ancak yeni sürümde silinir. **Bu silme varsayılan Hizmetleri değil döndürülebilir unutmayın.**
 
 Bir uygulama durumunda yükseltme geri, yükseltmeyi başlatmadan önce Hizmetleri durumuna geri alınır varsayılan alınır. Ancak silinmiş Hizmetleri hiçbir zaman oluşturulabilir.
 

@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 05b57a065f6d92c7c285ef5178b465dc8f419dbc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 9360d29eb30171651b0bcc688fe7884614b50cf4
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle Service Fabric hakkında bilgi edinmek istiyorsunuz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, büyük bir yüzey alanı Service Fabric sahiptir ve öğrenmek için çok yok.  Bu makale, Service Fabric özeti sağlar ve modeller, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme programlama temel kavramlarını açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro nelerdir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro oluşturmak için nasıl kullanılabilir. Bu makalede kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve her Service Fabric alanı için Başlarken makaleleri bağlayın. 
@@ -103,7 +103,7 @@ A [Konuk yürütülebilir](service-fabric-deploy-existing-app.md) olduğu diğer
 ## <a name="application-lifecycle"></a>Uygulama yaşam döngüsü
 Diğer platformlar ile bir uygulama Service Fabric genellikle aşağıdaki aşamaları geçtikçe: tasarım, geliştirme, test, dağıtım, yükseltme, Bakım ve kaldırma. Service Fabric, nihai yetkisini için bulut uygulamalarından, geliştirme aşamasından dağıtım, günlük yönetim ve Bakım tam uygulama yaşam döngüsü için birinci sınıf destek sağlar. Hizmet modeli bağımsız olarak uygulama yaşam döngüsü katılmak birçok farklı rol sağlar. [Service Fabric uygulama yaşam döngüsü](service-fabric-application-lifecycle.md) API'ler ve Service Fabric uygulama yaşam döngüsü aşamaları boyunca farklı rolleri tarafından nasıl kullanıldıkları hakkında genel bir bakış sağlar. 
 
-Tüm uygulama yaşam döngüsü kullanılarak yönetilebilir [PowerShell cmdlet'leri](/powershell/module/ServiceFabric/), [C# API'leri](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/system.fabric._application_management_client), ve [REST API'leri](/rest/api/servicefabric/). Gibi araçları kullanılarak sürekli tümleştirme/sürekli dağıtım ardışık düzen de ayarlayabilirsiniz [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) veya [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+Tüm uygulama yaşam döngüsü kullanılarak yönetilebilir [PowerShell cmdlet'leri](/powershell/module/ServiceFabric/), [CLI komutları](service-fabric-sfctl.md), [C# API'leri](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient), [Java API](/java/api/system.fabric._application_management_client), ve [ REST API'leri](/rest/api/servicefabric/). Gibi araçları kullanılarak sürekli tümleştirme/sürekli dağıtım ardışık düzen de ayarlayabilirsiniz [Visual Studio Team Services](service-fabric-set-up-continuous-integration.md) veya [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
 
 Aşağıdaki Microsoft Virtual Academy video, uygulama yaşam döngüsü açıklar:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
 <img src="./media/service-fabric-content-roadmap/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
@@ -124,7 +124,7 @@ Gerçekten bulut ölçekli hizmetler oluşturmak için uygulama ve hizmetleriniz
 * [Chaos senaryo](service-fabric-controlled-chaos.md)-küme boyunca sürekli, araya eklemeli hataları (normal ve durunda) uzun süreler boyunca benzetimini yapar.
 * [Yük devretme senaryosu](service-fabric-testability-scenarios.md#failover-test)-diğer hizmetler etkilenmemesini bırakarak belirli hizmet bölüm hedefler chaos test senaryosu sürümü.
 
-## <a name="clusters"></a>Kümeleri
+## <a name="clusters"></a>Kümeler
 [Service Fabric kümesi](service-fabric-deploy-anywhere.md), mikro hizmetlerin dağıtılıp yönetildiği, ağa bağlı bir sanal veya fiziksel makine kümesidir. Kümeleri makineler binlerce ölçeklendirebilirsiniz. Bir küme düğümü bir makine ya da bir kümenin parçasıysa VM adı verilir. Her düğüme bir düğüm adı (dize) atanır. Düğümleri yerleşim özellikleri gibi özelliklere sahiptir. Her makine ya da VM otomatik başlatılan hizmet sahip `FabricHost.exe`, önyükleme sırasında çalışmaya başlar ve ardından iki yürütülebilir dosyalar başlatır: Fabric.exe ve FabricGateway.exe. Bu iki yürütülebilir dosyalar düğümü olun. Senaryoları test etmek için bir tek makine ya da VM birden çok düğümde birden çok örneğini çalıştırarak barındırabilir `Fabric.exe` ve `FabricGateway.exe`.
 
 Service Fabric kümeleri, Windows Server veya Linux çalıştıran sanal veya fiziksel makineler üzerinde oluşturulabilir. Dağıtıp Service Fabric uygulamaları birbirine bağlı bir Windows Server veya Linux bilgisayarlar kümesi sahip olduğu herhangi bir ortamda çalıştırılabilir: şirket içi, Microsoft Azure veya herhangi bir bulut sağlayıcısı.
@@ -184,12 +184,31 @@ Kutudan çıktığında, Service Fabric bileşenleri kümedeki tüm varlıklar s
 
 Service Fabric için birden çok yöntemleri sağlayan [görüntülemek sistem durumu raporlarının](service-fabric-view-entities-aggregated-health.md) health store içinde toplanır:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) veya diğer görsel araçlar.
-* Sistem durumu sorgularının (aracılığıyla [PowerShell](/powershell/module/ServiceFabric/), [C# FabricClient API'leri](/dotnet/api/system.fabric.fabricclient.healthclient) ve [Java FabricClient API'leri](/java/api/system.fabric._health_client), veya [REST API'leri](/rest/api/servicefabric)).
-* Genel sistem durumu (PowerShell, API veya aracılığıyla REST) özelliklerinden biri olarak varlıklar, bu dönüş listesini sorgular.
+* Sistem durumu sorgularının (aracılığıyla [PowerShell](/powershell/module/ServiceFabric/), [CLI](service-fabric-sfctl.md), [C# FabricClient API'leri](/dotnet/api/system.fabric.fabricclient.healthclient) ve [Java FabricClient API'leri](/java/api/system.fabric._health_client), veya [REST API](/rest/api/servicefabric)).
+* Genel sistem durumu (aracılığıyla PowerShell'i, CLI, API veya REST) özelliklerinden biri olarak varlıklar, bu dönüş listesini sorgular.
 
 Aşağıdaki Microsoft Virtual Academy video Service Fabric sistem durumu modeli ve nasıl kullanıldığı açıklanmaktadır:<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-content-roadmap/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
+
+## <a name="monitoring-and-diagnostics"></a>İzleme ve tanılama
+[İzleme ve tanılama](service-fabric-diagnostics-overview.md) geliştirme, test ve uygulamaları ve Hizmetleri herhangi bir ortamda dağıtmak için kritik öneme sahiptir. Service Fabric çözümleri, planlama ve izleme uygulama Yardım tanılama uygulamaları emin olmak ve Hizmetleri yerel geliştirme ortamında veya üretim beklendiği gibi çalıştığını en iyi çalışır.
+
+İçin izleme ve tanılama başlıca amaçları şunlardır:
+
+- Donanım ve altyapı sorunlarını tanılamak ve Algıla
+- Hizmeti kapalı kalma süresini kısaltabilir, yazılım ve uygulama sorunlarını Algıla
+- Kaynak tüketimi ve Yardım sürücü işlemleri kararları anlama
+- Uygulama, hizmet ve altyapı performansı en iyi duruma getirme
+- İşletme öngörüleri oluşturmak ve geliştirme alanlarını tanımlayacak
+ 
+Genel iş akışını izleme ve tanılama ve üç adımdan oluşur:
+
+1. Olay oluşturma: Bu altyapı (küme), platform ve uygulama / hizmet düzeyinde (günlüklerini, izlemeleri, özel olaylar) olaylarını içerir
+2. Olay toplama: oluşturulan olaylar gereken toplanacağı ve bunların görüntülenebilmesi bir araya getirilir
+3. Analiz: olayları görselleştirilmiş ve analiz için izin vermek ve gerektiği gibi görüntülemek için bazı biçiminde erişilebilir olması gerekir
+
+Birden çok ürün kullanılabilir, bu üç alanlarını kapsar ve her biri için farklı teknolojilerin seçmek boş. Daha fazla bilgi için okuma [izleme ve tanılama Azure Service Fabric için](service-fabric-diagnostics-overview.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure’da küme](service-fabric-cluster-creation-via-portal.md) veya [Windows’ta tek başına küme](service-fabric-cluster-creation-for-windows-server.md) oluşturma hakkında bilgi edinin.

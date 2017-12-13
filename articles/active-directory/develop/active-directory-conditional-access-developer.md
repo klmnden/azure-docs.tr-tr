@@ -4,7 +4,7 @@ description: "Geliştirici Kılavuzu ve Azure AD koşullu erişim senaryoları"
 services: active-directory
 keywords: 
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: a348647becbb9119cc649e366f34c4c37f2bea43
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim için Geliştirici Kılavuzu
 
 Azure Active Directory (AD), uygulamanızın güvenli ve bir hizmet korumak için çeşitli yollar sunar.  Bu benzersiz özellikleri koşullu erişim biridir.  Geliştiricilerin ve kurumsal müşteriler dahil olmak üzere çok sayıda hizmetlerini korumak koşullu erişim sağlar:
 
-* Multi-Factor Authentication
+* Multi-factor authentication
 * Kayıtlı cihazlar belirli hizmetlere erişmek için yalnızca Intune izin verme
 * Kullanıcı konumları ve IP kısıtlama aralıkları
 
@@ -74,7 +74,7 @@ Geliştiriciler, bu sorunu ele ve Azure ad ile yeni bir istek üzerine ekleyin. 
 
 ## <a name="scenarios"></a>Senaryolar
 
-### <a name="prerequisites"></a>Önkoşullar
+### <a name="prerequisites"></a>Ön koşullar
 
 Azure AD koşullu erişim, bulunan bir özelliktir [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Lisans gereksinimleri hakkında daha fazla bilgiyi [lisanssız kullanım raporu](../active-directory-conditional-access-unlicensed-usage-report.md).  Geliştiriciler birleştirme [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), Azure AD Premium içeren Enterprise Mobility Suite için ücretsiz bir abonelik içerir.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Veri ya da Azure Cosmos Azure Data Factory kullanarak DB'den kopyalayın
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/10/2017
 > * [Sürüm 1 - Genel Kullanım](v1/data-factory-azure-documentdb-connector.md)
 > * [Sürüm 2 - Önizleme](connector-azure-cosmos-db.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de ilk ve son Azure Cosmos DB (DocumentDB API) verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede kopya etkinliği Azure Data Factory'de ilk ve son Azure Cosmos DB (SQL API) verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 içinde Azure Cosmos DB connnector](v1/data-factory-azure-documentdb-connector.md).
@@ -36,7 +36,7 @@ Verileri Azure Cosmos DB'den tüm desteklenen havuz veri deposuna kopyalamak ya 
 
 Özellikle, bu Azure Cosmos DB bağlayıcı destekler:
 
-- Cosmos DB [DocumentDB API](https://docs.microsoft.com/en-us/azure/cosmos-db/documentdb-introduction).
+- Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
 - JSON belgeleri olarak alma/verme- ya da veri kopyalama/tablo dataset ör. SQL veritabanı, CSV dosyaları, vb.
 
 Kopyalamak için belgeleri olarak-olduğu için/JSON dosyalarında veya başka bir Cosmos DB koleksiyonu bkz [içeri/dışarı aktarma JSON belgeleri](#importexport-json-documents).

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c8789f08a37466862120dda88a0bce7da3e9a91
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6b72bdc546c824515867daa062c4a94f7326d7fb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Azure Cosmos DB ve Hdınsight kullanarak bir Apache Hive, Pig veya Hadoop işini çalıştır
 Bu öğretici nasıl çalıştırılacağını gösterir [Apache Hive][apache-hive], [Apache Pig][apache-pig], ve [Apache Hadoop] [ apache-hadoop] Cosmos veritabanı Hadoop Bağlayıcısı ile MapReduce işleri Azure hdınsight'ta. Cosmos veritabanı Hadoop Bağlayıcısı Cosmos hem kaynak hem de Hive, Pig ve MapReduce işleri için havuz olarak davranacak şekilde DB sağlar. Bu öğretici Cosmos DB Hadoop işleri veri kaynağı ve hedef kullanır.
@@ -86,7 +86,7 @@ Bu öğretici Azure Portal'dan betik eylemi Hdınsight kümenize özelleştirmek
         <tr><td>Küme adı</td><td>Küme adı.<br/>
 DNS adı olmalıdır başlangıç ve bitiş bir alfasayısal karakter ile ve kısa çizgi içerebilir.<br/>
 Alan 3 ile 63 karakter arasında bir dize olmalıdır.</td></tr>
-        <tr><td>Abonelik adı</td>
+        <tr><td>Abonelik Adı</td>
             <td>Birden fazla Azure aboneliğiniz varsa, Hdınsight kümenize barındıracak aboneliği seçin. </td></tr>
     </table>
 5.Tıklatın **küme türü seçin** ve aşağıdaki özellikleri belirtilen değerlere ayarlayın.
@@ -178,7 +178,7 @@ Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scripta
         $clusterName = "<HDInsightClusterName>"
 2. <p>Sorgu dizesi oluşturma başlayalım. Biz tüm belgeleri sistem tarafından oluşturulan zaman damgaları (_ts) ve bir Azure Cosmos DB koleksiyonundan benzersiz kimlikler (_rid) alır, tüm belgeleri dakikaya göre hesaplar ve ardından sonuçları geri yeni bir Azure Cosmos DB koleksiyona depolayan bir Hive sorgusu yazacaksınız.</p>
 
-    <p>İlk olarak, bir Hive tablosu bizim Azure Cosmos DB koleksiyonundan oluşturalım. Aşağıdaki kod parçacığını PowerShell betik bölmesine eklemek <strong>sonra</strong> kod parçacığı # 1. Bizim belgelere yalnızca _ts isteğe bağlı DocumentDB.query t parametresi kırpma eklediğinizden emin olun ve _rid.</p>
+    <p>İlk olarak, bir Hive tablosu bizim Azure Cosmos DB koleksiyonundan oluşturalım. Aşağıdaki kod parçacığını PowerShell betik bölmesine eklemek <strong>sonra</strong> kod parçacığı # 1. Yalnızca _ts belgelere kırpma için isteğe bağlı sorgu parametresi dahil ettiğinizden emin olun ve _rid.</p>
 
    > [!NOTE]
    > **DocumentDB.inputCollections adlandırma bir hata oldu.** Evet, bir giriş olarak birden çok koleksiyon ekleme ver: </br>
@@ -276,7 +276,7 @@ Lütfen girin: </br> <strong>https://portalcontent.BLOB.Core.Windows.NET/scripta
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>Sorgu dizesi oluşturma başlayalım. Biz tüm belgeleri sistem tarafından oluşturulan zaman damgaları (_ts) ve bir Azure Cosmos DB koleksiyonundan benzersiz kimlikler (_rid) alır, tüm belgeleri dakikaya göre hesaplar ve ardından sonuçları geri yeni bir Azure Cosmos DB koleksiyona depolayan bir Pig sorgu yazacaksınız.</p>
-    <p>İlk olarak, belge Hdınsight'a Cosmos DB'den yükleme. Aşağıdaki kod parçacığını PowerShell betik bölmesine eklemek <strong>sonra</strong> kod parçacığı # 1. Bizim belgelere yalnızca _ts kırpma için isteğe bağlı DocumentDB sorgu parametresi için bir DocumentDB sorgu eklediğinizden emin olun ve _rid.</p>
+    <p>İlk olarak, belge Hdınsight'a Cosmos DB'den yükleme. Aşağıdaki kod parçacığını PowerShell betik bölmesine eklemek <strong>sonra</strong> kod parçacığı # 1. Bizim belgelere yalnızca _ts kırpma için isteğe bağlı DocumentDB sorgu parametresi için bir sorgu eklediğinizden emin olun ve _rid.</p>
 
    > [!NOTE]
    > Evet, bir giriş olarak birden çok koleksiyon ekleme ver: </br>

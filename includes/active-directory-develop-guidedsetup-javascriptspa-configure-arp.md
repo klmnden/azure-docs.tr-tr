@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Uygulamanın kayıt bilgileri ekleme
 
 Bu adımda, uygulama kayıt bilgilerinizi yeniden yönlendirme URL'sini yapılandırın ve ardından uygulama kimliği JavaScript SPA uygulamanıza eklemeniz gerekir.

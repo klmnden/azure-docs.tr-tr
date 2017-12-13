@@ -4,7 +4,7 @@ description: "Oturum açma için Azure AD ile tümleşir ve OAuth kullanarak Azu
 services: active-directory
 documentationcenter: 
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4153910bc03f112f84c26cda6f9c78f11028b934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f2bf857d2618a8cfe7094c7f3124be20db3ff39
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>AngularJS tek sayfa uygulamaları Azure AD kullanarak korunmasına yardımcı olma
 

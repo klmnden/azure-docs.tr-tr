@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure Tanıtımı
 Microsoft Azure Microsoft'un uygulama için genel bulut platformudur.  Bu makalede bulut ilgili herhangi bir şey tanımadığınız olsa bile bir temel Azure, temelleri anlamak için size hedefidir bilgi işlem.
@@ -40,7 +40,7 @@ Bu makalede kullanacağı bir **farklı Kuruluş** benzer işlevine bağlı hizm
  *Şekil: Azure Azure veri merkezlerinde çalışan Internet'ten erişilebilen uygulama hizmetleri sağlar.*
 
 ## <a name="management-portal"></a>Yönetim Portalı
-Azure adında bir web arabirimi olan [Yönetim Portalı](http://manage.windowsazure.com) erişmek ve çoğu, ancak tüm Azure özelliklerini yönetmek yöneticilerin sağlar.  Microsoft, beta yeni UI portalında genellikle daha eski bir devre dışı bırakmadan önce yayımlar. Daha yeni bir adlı ["Azure Önizleme portalı"](https://portal.azure.com/).
+Azure adında bir web arabirimi olan [Yönetim Portalı](http://manage.windowsazure.com) erişmek ve çoğu, ancak tüm Azure özelliklerini yönetmek yöneticilerin sağlar.  Microsoft, beta yeni UI portalında genellikle daha eski bir devre dışı bırakmadan önce yayımlar. Daha yeni bir adlı ["Azure Portal"](https://portal.azure.com/).
 
 Aynı zamanda hem portalları etkin olduğunda genellikle uzun bir çakışma yoktur. Çekirdek Hizmetleri her iki portallarında görünür, ancak tüm işlevselliği hem de kullanılabilir. Daha yeni hizmetleri yeni portalı ilk ve eski Hizmetleri'nde gösterebilir ve işlevselliği, yalnızca daha eski bir mevcut olabilir.  Burada eski Portalı'nda, bir değer bulamazsanız, daha yeni bir tam tersini denetleyip iletisidir.
 
@@ -218,7 +218,7 @@ Bir uygulama sahibi kullanıcıların isteklerini veri merkezlerini nasıl yönl
 Trafik Yöneticisi için rota kullanıcılar hizmet uç noktaları için dizin adı hizmeti (DNS) kullanır, ancak o bağlantı yapıldıktan sonra daha fazla trafiği trafik Yöneticisi ile geçmez. Bu trafik Yöneticisi, hizmet iletişimleri yavaşlatabilir bir performans sorunu engeller.
 
 ## <a name="developer-services"></a>Geliştirici Hizmetleri
-Azure, geliştiriciler ve BT oluşturmak ve bulut uygulamalarında korumak Professional yardımcı olan araçlar sunar.  
+Azure geliştiricilere yardımcı olan araçlar sunar ve BT uzmanları oluşturup uygulamalarını bulutta.  
 
 ### <a name="azure-sdk"></a>Azure SDK
 Geri 2008'de, yalnızca .NET development Azure ilk yayım öncesi sürümü desteklenmiyor. Bugün, Bununla birlikte, Azure uygulamalarını neredeyse herhangi bir dilde oluşturabilirsiniz. Microsoft, şu anda .NET, Java, PHP, Node.js, Ruby ve Python için dile özgü SDK'ları sağlar. C++ gibi herhangi bir dil için temel destek sağlayan genel bir Azure SDK yoktur.  
@@ -228,7 +228,7 @@ Bu SDK'ları oluşturmak, dağıtmak ve Azure uygulamaları yönetmenize yardım
 Azure uygulamalar oluşturmanıza yardımcı yanı sıra bu SDK'ları da yardımcı istemci kitaplıkları, yazılım oluşturmak sağlamak Azure hizmetlerini kullanır. Örneğin, okuyan ve Azure BLOB'ları yazan bir uygulama oluşturmak veya Azure Yönetimi arabirimi aracılığıyla Azure uygulamalarını dağıtan bir aracı oluşturun.
 
 ### <a name="visual-studio-team-services"></a>Visual Studio Team Services
-Visual Studio Team Services Azure uygulamaları geliştirmek için yardımcı olan bir sayı Hizmetleri kapsayan pazarlama bir addır.
+Visual Studio Team Services, Azure uygulamaları geliştirmek için yardımcı olan bir sayı Hizmetleri kapsayan bir pazarlama adıdır.
 
 -Karışıklığı önlemek için Visual Studio barındırılan veya Web tabanlı bir sürümü sağlamaz. Visual Studio çalışan yerel kopyasını yine gerekir. Ancak, çok yararlı olabilecek diğer birçok araçlar sağlar.
 
@@ -368,7 +368,7 @@ Veriler Aktarımdan önce yedekler şifrelendiği daha güvenli ve şifrelenmiş
 
 **Azure yedekleme için senaryolar**
 
-Windows Server veya System Center zaten kullanıyorsanız, Azure yedekleme sunucuları dosya sistemi, sanal makineler ve SQL Server veritabanlarını yedeklemek için doğal bir çözüm varsa.  Şifrelenmiş, seyrek ve sıkıştırılmış dosyaları ile çalışır. Bazı sınırlamalar vardır, size gereken şekilde [Azure Backup önkoşulları denetleyin](http://technet.microsoft.com/library/dn296608.aspx) ilk.
+Windows Server veya System Center zaten kullanıyorsanız, Azure yedekleme sunucuları dosya sistemi, sanal makineler ve SQL Server veritabanlarını yedeklemek için doğal bir çözümdür.  Şifrelenmiş, seyrek ve sıkıştırılmış dosyaları ile çalışır. Bazı sınırlamalar vardır, size gereken şekilde [Azure Backup önkoşulları denetleyin](http://technet.microsoft.com/library/dn296608.aspx) ilk.
 
 ## <a name="messaging-and-integration"></a>Mesajlaşma ve Tümleştirme
 Ne yapmakta olduğu olsun, kod sık diğer kodu ile etkileşimde olmalıdır.  Bazı durumlarda, gereken tek şey temel kuyruğa alınan Mesajlaşma. Diğer durumlarda, daha karmaşık etkileşimler gereklidir. Azure, bu sorunları çözmek için birkaç farklı şekilde sağlar. Şekil 5 seçenekler gösterilmektedir.
@@ -424,11 +424,11 @@ Dilediğiniz zaman burada tüm önemli birçok iletileri vardır, ancak çeşitl
 ![BizTalk Hizmetleri](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
  *Şekil: BizTalk Services XML iletileri biçimleri bulutta dönüştürme yeteneği sağlar.*
 
-Bazen farklı ileti biçimi kullanarak iletişim sistemlerini bağlamak. İş için farklı bir veritabanı şemaları ve XML biçimleri, ortak bir standart kullanılabilir olduğunda bile messaging sağlamak yaygın bir durumdur. Çok fazla özel kod yazmak yerine, çeşitli sistemleri tümleştirmek için şirket içi BizTalk Server'ı kullanabilirsiniz.  Azure BizTalk Services hizmetinin ancak bulutta aynı tür sağlar. Yalnızca ne kullanın ve şirket içi olurdu gibi ölçek hakkında endişelenmeniz değil için ödeme.
+Bazen farklı ileti biçimi kullanarak iletişim sistemlerini bağlanmanız gerekir. Farklı veritabanı şemaları ve XML biçimleri, ortak bir standart kullanılabilir olduğunda bile messaging sahip işletmeler için yaygın bir durumdur. Çok fazla özel kod yazmak yerine, çeşitli sistemleri tümleştirmek için şirket içi BizTalk Server'ı kullanabilirsiniz.  Azure BizTalk Services hizmetinin ancak bulutta aynı tür sağlar. Yalnızca ne kullanın ve şirket içi olurdu gibi ölçek hakkında endişelenmeniz değil için ödeme.
 
 **Senaryoları BizTalk Hizmetleri**
 
-İşletmeden işletmeye (B2B) etkileşimleri çeviri bu tür sık gerektirir.  Örneğin, Uçaklar oluşturma şirket çeşitli bölümlerini Üreticiler kaydının parça sipariş gerekiyor. Birçok bölümleri sağlayıcıdan sahip olur.  Bu sipariş doğrudan uçak oluşturucular sistemlerden Üreticiler sistemlere gitmek için otomatik.  Hiçbiri İş çekirdek sistemlerini ve ileti formatları değiştirmek ister ve bu biçimleri aynı olduğunu çok olası değil. BizTalk Services iletiler alabilir ve her iki yönde yeni biçim arasında çeviri. Uçak tedarikçi Çevir çalışmaya yapabilirsiniz veya çeşitli tedarikçileri olabilir, bağlı olarak daha fazla denetim ve gerekli çeviri miktarını isteyen.     
+İşletmeden işletmeye (B2B) etkileşimleri çeviri bu tür sık gerektirir.  Örneğin, Uçaklar oluşturma şirket sipariş bölümlerine çeşitli bölümlerini sağlayıcıdan gerekir. Birçok bölümleri sağlayıcıdan sahip olur.  Bu sipariş doğrudan uçak oluşturucular sistemlerden Üreticiler sistemlere gitmek için otomatik.  Hiçbiri İş çekirdek sistemlerini ve ileti formatları değiştirmek ister ve bu biçimleri aynı olduğunu çok olası değil. BizTalk Services iletiler alabilir ve her iki yönde yeni biçim arasında çeviri. Uçak tedarikçi Çevir çalışmaya yapabilirsiniz veya çeşitli tedarikçileri olabilir, bağlı olarak daha fazla denetim ve gerekli çeviri miktarını isteyen.     
 
 ## <a name="compute-assistance"></a>Yardım işlem
 Azure her zaman çalışması gerekmez Hizmetleri için desteği sağlar.  
@@ -437,7 +437,7 @@ Azure her zaman çalışması gerekmez Hizmetleri için desteği sağlar.
 ![Azure Scheduler](./media/fundamentals-introduction-to-azure/SchedulerIntroNew.png)   
 *Şekil: Azure zamanlayıcı işleri belirli bir süre için belirli bir zamanda zamanlamak için bir yol sağlar.*
 
-Bazen uygulamalar yalnızca belirli bir süre sonunda çalıştırmanız gerekir. Azure üzerinde bu uygulamanın yalnızca 24 x 7 verilerinin işlemek bekleyen çalışmaya devam izin vererek yerine uygulama türü ile paradan tasarruf edebilirsiniz. Azure Zamanlayıcı bir uygulama süresi veya bir takvim aralığına göre çalıştırılması gereken zaman zamanlamanıza olanak sağlar. Güvenilir ve ağ, makine ve veri merkezi hataları olsa bile bir işlemin çalıştığını doğrulayın. Scheduler REST API, bu eylemleri yönetmek için kullanın.
+Bazen uygulamalar yalnızca belirli bir süre sonunda çalıştırmanız gerekir. Azure üzerinde bu uygulamanın yalnızca 24 x 7 verilerinin işlemek bekleyen çalışmaya devam izin vererek yerine uygulama türü ile paradan tasarruf edebilirsiniz. Azure Zamanlayıcı bir uygulama süresi veya bir takvim bir aralık tabanlı çalıştırılması gereken zaman zamanlamanıza olanak sağlar. Güvenilir ve ağ, makine ve veri merkezi hataları olsa bile bir işlemin çalıştığını doğrulayın. Scheduler REST API, bu eylemleri yönetmek için kullanın.
 
 Zamanlanmış bir uyarı oluştuğunda, Zamanlayıcı belirli bir uç noktası için HTTP veya HTTPS iletileri gönderir veya bir ileti bir depolama kuyruğu koyabilirsiniz.  Bu nedenle erişilebilir bir uç nokta olması ya da sahip bir depolama kuyruğu izlemek uygulamanızın olması gerekir. İletiyi alır sonra için programlanmış hangi eylemi gerçekleştirebilirsiniz.
 
@@ -493,7 +493,7 @@ Hdınsight Apache Hadoop tabanlı Azure'nın hizmetin adıdır. Hdınsight küme
 Hdınsight Hive veya Pig dahil olmak üzere diğer bileşenleri Hadoop ekosistemi de destekler. Microsoft ayrıca, Hdınsight tarafından üretilen verilerle çalışmak HiveODBC bağdaştırıcısı gibi geleneksel BI araçları kullanarak kolaylaştıran bileşenleri ve Excel ile iş Veri Gezgini oluşturmuştur.
 
 ### <a name="high-performance-computing-big-compute"></a>Yüksek performanslı bilgi işlem (Big Compute)
-Bulut platformu kullanmak için en cazip yollarından biri, yüksek performanslı bilgi işlem (HPC) ve diğer "Big Compute" uygulamaları çalıştırmaktır. Örnekler endüstri standardı ileti geçirme arabirimi (MPI) yanı sıra sözde utandırıcı derecede paralel uygulamalar, bu tür finansal risk modelleri kullanmak üzere geliştirilmiş özel mühendislik uygulamaları içerir.
+Bulut platformu kullanmak için en cazip yollarından biri, yüksek performanslı bilgi işlem (HPC) ve diğer "Big Compute" uygulamaları çalıştırmaktır. Örnekler endüstri standardı ileti geçirme arabirimi (MPI) yanı sıra, finansal risk modelleri gibi sözde utandırıcı derecede paralel uygulamaları kullanmak için oluşturulan özel mühendislik uygulamalar içerir.
 
 Big Compute özünü kodu aynı anda birçok makinelerde yürütüyor. Çoğu sanal makineleri çalıştıran Bunun anlamı, Azure üzerinde tüm bazı sorunu çözmek için paralel çalışan aynı anda makineleri. Bunu yapmak için kaynaklar ve uygulamalar, yani zamanlamak için işlerini Bu örnekler arasında dağıtmak için bazı yolu gerektirir. Microsoft'un ücretsiz HPC Pack ve diğer bilgi işlem küme çözümleri Azure, yararlanarak kapasite isteğe bağlı bir şirket içi işlem kümesi ya da çalışma Big Compute uygulamalarını bulutta tamamen eklemek için Azure işlem ve altyapı Hizmetleri içinde de gerçekleştirebilirsiniz.
 
@@ -515,7 +515,7 @@ Aşağıdaki şekilde gösterildiği gibi Media Services, video ve diğer medya 
 
 Bu platform kullanan uygulamaları Azure veya başka bir yerde çalıştırabilirsiniz. Örneğin, bir masaüstü uygulaması bir video üretim ev görüntü Media Services için karşıya yükleme kullanıcılarına sağlayabilir için daha sonra işlemek, çeşitli yollarla. Alternatif olarak, Azure üzerinde çalışan bir bulut tabanlı içerik yönetim hizmeti Hizmetleri'ni işlemek ve video dağıtmak için medya kullanır. Yerde çalışır ve bunu yapar, her bir uygulama kullanmak için gereken hangi bileşenlerin RESTful arabirimleri aracılığıyla erişme seçer.
 
-Ne üreten dağıtmak için bir uygulamayı Azure CDN, başka bir CDN kullanan veya yalnızca BITS doğrudan kullanıcılara gönderin. Ancak, var. alır, görüntü Media Services'i kullanarak oluşturulan Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash ve Silverlight dahil olmak üzere çeşitli istemci sistemleri tarafından kullanılabilecek. Modern medya uygulamaları oluşturmayı kolaylaştırmak için belirtilir.
+Ne üreten dağıtmak için bir uygulamayı Azure CDN, başka bir CDN kullanan veya yalnızca BITS doğrudan kullanıcılara gönderin. Ancak, var. aldığında görüntü Media Services'i kullanarak oluşturulan Windows, Macintosh, HTML 5, iOS, Android, Windows Phone, Flash ve Silverlight dahil olmak üzere çeşitli istemci sistemleri tarafından tüketilebilir. Modern medya uygulamaları oluşturmayı kolaylaştırmak için belirtilir.
 
 **Başvuruları**
 

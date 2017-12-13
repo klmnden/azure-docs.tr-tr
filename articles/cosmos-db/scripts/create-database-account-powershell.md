@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell komut dosyası oluştur Azure Cosmos DB DocumentDB API'si hesabınız | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - bir Azure Cosmos DB DocumentDB API hesap oluşturma"
+title: "Azure PowerShell komut dosyası oluştur Azure Cosmos DB SQL API'si hesabınız | Microsoft Docs"
+description: "Azure PowerShell Betiği örnek - bir Azure Cosmos DB SQL API hesap oluşturma"
 services: cosmos-db
 documentationcenter: cosmosdb
 author: mimig1
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 9b54236ce3446fe1c6a2a30b31f6d91ad43a92d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 060270f424cb3bbb984430d9e17656453fa30c4d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-create-a-documentdb-api-account-using-powershell"></a>Azure Cosmos DB: PowerShell kullanarak DocumentDB API hesabı oluşturma
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB: PowerShell kullanarak SQL API hesabı oluşturma
 
 Bu örnek PowerShell komut dosyasını bir Azure Cosmos DB API hesabı oluşturur. 
 

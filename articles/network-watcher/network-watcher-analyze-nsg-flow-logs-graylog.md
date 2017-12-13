@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Yönetmek ve Ağ İzleyicisi'ni ve Graylog kullanarak azure'daki ağ güvenlik grubu akışı günlüklerini analiz edin
 
@@ -152,8 +152,8 @@ Ayrı bir Logstash olay böylece her bireysel akış tanımlama grubu ve ilişki
 
 Son olarak, çıktı bölümündeki her Logstash olay Graylog sunucusuna iletir. Özel gereksinimlerine uyacak şekilde, Logstash yapılandırma dosyası, gerektiği gibi değiştirin.
 
-    > [!NOTE]
-    > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
+   > [!NOTE]
+   > Önceki yapılandırma dosyası Graylog sunucunun yerel ana geri döngü IP adresi 127.0.0.1 yapılandırılmış olduğunu varsayar. Değilse, doğru IP adresine Çıktı bölümündeki konak parametresi değiştirdiğinizden emin olun.
 
 Logstash Logstash yükleme hakkında daha ayrıntılı yönergeler için bkz: [belgelerine](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 96202a4d7e91a221aa655f58f29f2c8e24b86e4e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 9bcf30fbf1febbd80aa8899253de8cb61f4ae6f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Sorun giderme: Azure siteden siteye VPN aralıklı keser
 
-Yeni veya var olan bir Microsoft Azure noktadan siteye VPN bağlantısı kararlı değilse veya düzenli olarak keser sorunla karşılaşabilirsiniz. Bu makalede, sorun giderme belirlemek ve sorunun nedenini çözümlemenize yardımcı olması için adımlar sağlanmaktadır. 
+Yeni veya var olan bir Microsoft Azure siteden siteye VPN bağlantısı kararlı değilse veya düzenli olarak keser sorunla karşılaşabilirsiniz. Bu makalede, sorun giderme belirlemek ve sorunun nedenini çözümlemenize yardımcı olması için adımlar sağlanmaktadır. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 

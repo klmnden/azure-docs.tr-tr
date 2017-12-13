@@ -1,4 +1,3 @@
-
 ## <a name="setting-up-your-ios-application"></a>İOS uygulamanızı kurma
 
 Bu bölümde bir iOS uygulaması (Swift) tümleştirme göstermek için yeni bir proje oluşturmak için adım adım yönergeler sağlar *Microsoft ile oturum açma* bir belirteci gerektiren Web API'leri sorgulayabilirsiniz şekilde.

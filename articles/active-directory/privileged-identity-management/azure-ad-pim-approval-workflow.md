@@ -4,7 +4,7 @@ description: "Onay iş akışları ayrıcalıklı Kimlik Yönetimi'nın (PIM) ha
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f30dd06417d9ce4d71c88ba170a4f3169b5fccd7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="approvals"></a>Onaylar
 
@@ -61,7 +61,7 @@ Privileged Identity Management için onayları sayesinde, etkinleştirme için o
 
 -   [etkinleştirme onaylanırsa Azure AD'de Görevinizi tamamlamak](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
-### <a name="navigation"></a>Gezinme
+### <a name="navigation"></a>Gezinti
 
 Biz onayları desteklemek için Gezinti güncelleştirdik
 

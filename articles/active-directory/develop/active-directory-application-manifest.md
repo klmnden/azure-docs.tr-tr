@@ -4,7 +4,7 @@ description: "Azure AD kiracısı bir uygulamanın kimlik yapılandırmada temsi
 services: active-directory
 documentationcenter: 
 author: sureshja
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c92631323040f9be015d3824b9803cdde95d874b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Azure Active Directory Uygulama bildirimini anlama
 Azure Active Directory (AD ile) tümleştirme uygulamaları uygulaması için sürekli kimlik yapılandırma sağlayan bir Azure AD kiracısı ile kayıtlı olması gerekir. Bu yapılandırma, dış ve kimlik doğrulama/yetkilendirme Azure AD ile aracısı için bir uygulama izin senaryoları etkinleştirme zamanında alınmadığında. Azure AD uygulama modeli hakkında daha fazla bilgi için bkz: [ekleme, güncelleştirme ve uygulama kaldırma] [ ADD-UPD-RMV-APP] makalesi.
@@ -28,7 +28,7 @@ Azure Active Directory (AD ile) tümleştirme uygulamaları uygulaması için s�
 ## <a name="updating-an-applications-identity-configuration"></a>Bir uygulamanın kimlik yapılandırması güncelleştiriliyor
 Özellikleri ve derece zorluk, aşağıdakiler de dahil olmak üzere farklılık bir uygulamanın kimlik yapılandırma özelliklerini güncelleştirmek için kullanılabilir gerçekte birden çok seçenek vardır:
 
-* **[Azure portal'ın] [ AZURE-PORTAL] Web kullanıcı arabirimi** , bir uygulamanın en yaygın özelliklerini güncelleştirmenizi sağlar. Bu, uygulamanızın özelliklerini güncelleştirme, hızlı ve en az bir hata potansiyeli yoludur, ancak sonraki iki yöntemleri gibi tüm özellikler için tam erişim sağlamaz.
+*  **[Azure portal'ın] [ AZURE-PORTAL] Web kullanıcı arabirimi** , bir uygulamanın en yaygın özelliklerini güncelleştirmenizi sağlar. Bu, uygulamanızın özelliklerini güncelleştirme, hızlı ve en az bir hata potansiyeli yoludur, ancak sonraki iki yöntemleri gibi tüm özellikler için tam erişim sağlamaz.
 * Azure Klasik Portalı'nda gösterilmez özellikleri güncelleştirmek için gereken burada daha Gelişmiş senaryolar için değiştirebileceğiniz **uygulama bildirimi**. Bu makalede odak ve sonraki bölümde başlangıç daha ayrıntılı ele alınmıştır.
 * Ayrıca mümkün **kullanan bir uygulamayı yazma [grafik API'si] [ GRAPH-API]**  en çaba gerektirir uygulamanızı güncelleştirmek için. Yönetim yazılımı yazma veya uygulama özellikleri otomatik bir şekilde, düzenli olarak güncelleştirmek ihtiyacınız varsa bu rağmen çekici bir seçenek olabilir.
 
