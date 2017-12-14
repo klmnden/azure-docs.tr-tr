@@ -150,7 +150,7 @@
         - name: Yüz
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
-        - name: Language Understanding Intelligent Service (LUIS)
+        - name: Dil Anlama (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: Metin Analizi

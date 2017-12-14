@@ -176,8 +176,10 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: VMware’den Azure’a çoğaltma ayarlarını yapılandırma
           href: site-recovery-setup-replication-settings-vmware.md
-        - name: Diskleri çoğaltmanın dışında tutma
+        - name: VMware’den Azure’a geçişte diskleri çoğaltmanın dışında tutma
           href: site-recovery-exclude-disk.md
+        - name: Hyper-V’den Azure’a geçişte diskleri çoğaltmanın dışında tutma
+          href: site-recovery-hyper-v-exclude-disk.md
         - name: VMware çoğaltma için Mobility hizmetini dağıtma
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
