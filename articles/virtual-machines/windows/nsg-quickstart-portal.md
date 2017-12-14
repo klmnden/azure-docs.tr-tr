@@ -4,7 +4,7 @@ description: "Bir bağlantı noktasını açmak bir uç noktası, Windows Azure 
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure portal ile bir sanal makineye bağlantı noktalarının nasıl
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ Yeni bir ağ güvenlik grubu seçin. 'Gelen güvenlik kuralları' seçin ve ard�
 
 ![Bir gelen kuralı Ekle](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Bir ortak seçin **hizmet** açılır menüsünden gibi *HTTP*. Öğesini de seçebilirsiniz *özel* kullanmak için belirli bir bağlantı sağlamak için. İsterseniz, öncelik veya adını değiştirin. Öncelik, kuralları uygulanır - sırasını düşük sayısal değer etkiler, kural önce uygulanır. Öğesini de seçebilirsiniz **Gelişmiş** belirli bir kaynak IP Blok veya bağlantı noktası aralığı, örneğin girmek için bu ekranın üstünde. Hazır olduğunuzda seçin **Tamam** kuralı oluşturmak için:
+Trafiğe izin veren bir kural oluşturmak için:
+
+- Seçin **temel** düğmesi. Varsayılan olarak, **Gelişmiş** penceresi altında bazı ek yapılandırma seçeneklerini gibi belirli kaynak IP Blok veya bağlantı noktası aralığı tanımlamak için olarak sağlar.
+- Bir ortak seçin **hizmet** açılır menüsünden gibi *HTTP*. Öğesini de seçebilirsiniz *özel* kullanmak için belirli bir bağlantı sağlamak için. 
+- İsterseniz, öncelik veya adını değiştirin. Öncelik, kuralları uygulanır - sırasını düşük sayısal değer etkiler, kural önce uygulanır.
+- Hazır olduğunuzda seçin **Tamam** kuralı oluşturmak için:
 
 ![Bir gelen kuralı oluşturun](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

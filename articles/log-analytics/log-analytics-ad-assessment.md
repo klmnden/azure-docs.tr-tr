@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Active Directory ortamınızı günlük analizi Active Directory sistem durumu denetimi çözümde ile en iyi duruma getirme
 
@@ -52,7 +52,7 @@ Kuruluşunuz için en önemli ve ücretsiz ve sağlam bir risk ortam çalıştı
 
 Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicileriniz karşı sistem durumu denetimi gerçekleştirmek için bunlar bir aracı ve aşağıdaki desteklenen yöntemlerden birini kullanarak günlük analizi için bağlantı gerektir:
 
-1. Yükleme [Microsoft İzleme Aracısı'nı (MMA)](log-analytics-windows-agents.md) etki alanı denetleyicisi zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izleniyorsa değil.
+1. Yükleme [Microsoft İzleme Aracısı'nı (MMA)](log-analytics-windows-agent.md) etki alanı denetleyicisi zaten System Center 2016 - Operations Manager veya Operations Manager 2012 R2 tarafından izleniyorsa değil.
 2. System Center 2016 - Operations Manager veya Operations Manager 2012 R2 ile izlenir ve yönetim grubu günlük analizi hizmeti ile tümleşik değil, etki alanı denetleyicisi veri toplamak ve iletmek için günlük analizi ile çok konaklı olabilir Hizmet ve Operations Manager tarafından yine izlenmelidir.  
 3. Operations Manager yönetim grubunuzu hizmeti ile tümleşik çalışıyorsa, aksi takdirde, veri toplama için etki alanı denetleyicileri altındaki adımları izleyerek hizmeti tarafından eklemeniz gerekir [aracıyla yönetilen bilgisayarlar eklemek](log-analytics-om-agents.md#connecting-operations-manager-to-oms) etkinleştirdikten sonra Çalışma alanınızı çözümde.  
 
@@ -62,7 +62,7 @@ Bir Operations Manager yönetim grubu için hangi raporların toplar, etki alan�
 
 Active Directory sistem durumu denetimi etkinleştirdiğiniz aracısını kullanarak aşağıdaki kaynaklardan toplar:
 
-- Kayıt defteri 
+- Kayıt Defteri 
 - LDAP 
 - .NET framework
 - Olay günlüğü 
@@ -108,8 +108,8 @@ Yüklendikten sonra çözüm sayfasında Azure Portalı'ndaki Sistem durumu dene
 Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk değerlendirmesi görüntüleyin.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için öneriler görüntülemek ve düzeltici işlemleri için
-1. Oturum açtığınızda Azure portalında [https://portal.azure.com](https://portal.azure.com). 
-2. Azure portalında tıklatın **daha fazla hizmet** sol alt köşesindeki üzerinde bulunamadı. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **oturum Analytics**.
+1. [https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın. 
+2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 3. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **OMS portalı** döşeme.  
 4. Üzerinde **genel bakış** sayfasında, **AD sistem durumu denetimi** döşeme. 
 5. Üzerinde **sistem durumu denetimi** sayfasında odak alanı Kanatlar birinde özet bilgilerini inceleyin ve sonra bu odak alanı için öneriler görüntülemek için tıklatın.

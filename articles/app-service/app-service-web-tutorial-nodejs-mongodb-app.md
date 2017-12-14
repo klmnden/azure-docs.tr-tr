@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9fc11352a031ac1c1abcc6c6bd173bd9b0e8a222
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.openlocfilehash: c1c18deb41e16ec57eacd8272094dc418503b0fc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Azure'da Node.js ve MongoDB bir web uygulaması oluşturma
 
@@ -43,6 +43,7 @@ Bu öğreticiyi tamamlamak için:
 
 1. [Git'i yükleyin](https://git-scm.com/)
 1. [Node.js ve NPM'yi yükleyin](https://nodejs.org/)
+1. [Bower yükleme](https://bower.io/) (gerektirdiği [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Gulp.js yükleme](http://gulpjs.com/) (gerektirdiği [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
 1. [Yükleyip çalıştırabilirsiniz MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 

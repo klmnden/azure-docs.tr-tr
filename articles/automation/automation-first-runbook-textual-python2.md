@@ -3,7 +3,7 @@ title: Azure automation'da ilk Python runbook Uygulamam | Microsoft Docs
 description: "Test ve basit bir Python runbook yayımlama oluşturma adımlarını anlatan öğretici."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
+ms.author: gwallace
+ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-python-runbook"></a>İlk Python runbook Uygulamam
 
@@ -213,5 +213,5 @@ Tıklatın **Tamam** runbook'u başlatın. Runbook çalıştırır ve belirttiğ
 * Grafik runbook'ları kullanmaya başlamak için bkz. [İlk grafik runbook uygulamam](automation-first-runbook-graphical.md)
 * PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
 * Runbook türleri, avantajları ve sınırlamaları hakkında daha fazla bilgi için bkz. [Azure Automation runbook türleri](automation-runbook-types.md)
-* Python ile Azure için geliştirme hakkında bilgi edinmek için [Python geliştiricileri için Azure](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Örnek Python 2 runbook'ları görüntülemek için bkz: [Azure Otomasyon GitHub](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Python ile Azure için geliştirme hakkında bilgi edinmek için [Python geliştiricileri için Azure](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Örnek Python 2 runbook'ları görüntülemek için bkz: [Azure Otomasyon GitHub](https://docs.microsoft.com/python/azure/?view=azure-python).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Otomatik ölçeklendirme için en iyi uygulamalar
 Bu makalede, azure'da otomatik ölçeklendirme için en iyi yöntemler öğretir. Azure İzleyici otomatik ölçeklendirme uygular yalnızca [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/). Diğer Azure hizmetleriyle farklı ölçekleme yöntemlerini kullanın.
@@ -44,9 +44,6 @@ Bir değere üstüne veya altına en fazla örnek sayısı el ile güncelleştir
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Her zaman bir artırma ve azaltma yapan bir genişleme ve ölçek bileşenini kural bileşimi kullanın
 Otomatik ölçeklendirme ölçek maksimum veya en düşük gereksinim, kadar tek çıkışı veya, bileşeni yalnızca bir bölümü birleşimi kullanırsanız, ulaşıldı.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Azure portalı ve Azure Klasik portalı arasında otomatik ölçeklendirme yönetirken geçme
-Bulut Hizmetleri ve uygulama Hizmetleri (Web uygulamaları) için Azure portal (portal.azure.com) oluşturmak ve otomatik ölçeklendirme ayarlarını yönetmek için kullanın. Sanal makine ölçek kümeleri oluşturmak ve otomatik ölçeklendirme ayarı yönetmek için PowerShell'i, CLI veya REST API'yi kullanın. Klasik Azure portalı (manage.windowsazure.com) ve Azure Portalı'nı (portal.azure.com) arasında otomatik ölçeklendirme yapılandırmaları yönetirken geçiş değil. Klasik Azure portalı ve arka plandaki kendi arka uç sınırlamalara sahiptir. Otomatik ölçeklendirme bir grafik kullanıcı arabirimini kullanarak yönetmek için Azure portalında taşıyın. Otomatik ölçeklendirme PowerShell'i, CLI veya REST API (üzerinden Azure kaynak Gezgini) kullanmak için Seçenekler şunlardır.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Tanılama ölçümü için uygun istatistiği seçin
 Tanılama ölçümleri arasından seçim yapabilirsiniz *ortalama*, *Minimum*, *maksimum* ve *toplam* göre ölçeklendirme ölçüm olarak. En yaygın istatistik *ortalama*.

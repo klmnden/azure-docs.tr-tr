@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: 6ca04cf773fc337694626f21ab785baecf68858b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 14a7fdb304e90aec10bee9167817f564870cd6c1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="securing-your-sql-database"></a>SQL Veritabanınızı güvenli hale getirme
 
@@ -42,7 +42,7 @@ Verilerinizi şifrelemek için kullanabileceğiniz diğer yöntemler şunlardır
 SQL Veritabanı veritabanınıza erişimi sınırlamak için güvenlik duvarı kurallarını, kullanıcıların kimliğini doğrulamak için kimlik doğrulama sistemlerini, rol tabanlı üyelikler ve izinler ile veri yetkilendirmeyi, satır düzeyi güvenliği ve dinamik veri maskelemeyi kullanarak verilerinizin güvenliğini sağlar. SQL Veritabanındaki erişim denetimi özelliklerinin kullanımı hakkında ayrıntılı bilgi için bkz. [Erişim denetimi](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> Azure’daki veritabanlarının ve mantıksal sunucuların yönetilmesi, portal kullanıcısı hesabınıza atanan rollerle denetlenir. Bu konu hakkında daha fazla bilgi için bkz. [Azure portalında rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md).
+> Azure’daki veritabanlarının ve mantıksal sunucuların yönetilmesi, portal kullanıcısı hesabınıza atanan rollerle denetlenir. Bu konu hakkında daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Güvenlik duvarı ve güvenlik duvarı kuralları

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Uyarı yönetimi çözümü Operations Management Suite (OMS)
 
@@ -49,7 +49,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 | Bağlı Kaynak | Destek | Açıklama |
 |:--- |:--- |:--- |
-| [Windows aracıları](log-analytics-windows-agents.md) | Hayır |Doğrudan Windows aracıları uyarılar oluşturmaz.  Günlük analizi uyarılar olaylarından oluşturulabilir ve aracıları Windows'dan toplanan performans verileri. |
+| [Windows aracıları](log-analytics-windows-agent.md) | Hayır |Doğrudan Windows aracıları uyarılar oluşturmaz.  Günlük analizi uyarılar olaylarından oluşturulabilir ve aracıları Windows'dan toplanan performans verileri. |
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır |Doğrudan Linux aracılarını uyarılar oluşturmaz.  Günlük analizi uyarılar olayları ve performans verilerini Linux aracılarını toplanan oluşturulabilir.  Nagios ve Zabbix uyarıları Linux Aracısı gerektiren bu sunuculardan toplanır. |
 | [System Center Operations Manager yönetim grubu](log-analytics-om-agents.md) |Evet |Operations Manager aracıları oluşturulan uyarıların yönetim grubuna teslim ve günlük analizi iletilir.<br><br>Günlük analizi Operations Manager aracıları arasında doğrudan bağlantı gerekli değildir. Uyarı verileri yönetim grubundan günlük analizi depoya iletilir. |
 

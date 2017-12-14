@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: 5ce6b19ebe0b7159b6c68fc50d7d47f0479e0c27
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Azure erişim denetimi Hizmeti'nden geçirme
 
@@ -85,7 +85,7 @@ Erişim denetimi tarafından şimdi verilen belirteçleri kabul eder her Microso
 | ------- | -------- |
 | Azure Service Bus | [Paylaşılan erişim imzaları geçirme](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus geçişi | [Paylaşılan erişim imzaları geçirme](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Redis Cache | [Azure Redis Önbelleğine Geçiş](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure yönetilen önbellek | [Azure Redis Önbelleğine Geçiş](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [Bilişsel hizmetler API'leri geçirme](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk Services | [Azure App Service Logic Apps özelliğini geçirme](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure Media Services | [Azure AD kimlik doğrulaması için geçirme](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
@@ -146,7 +146,7 @@ Yüksek bir düzeyde *Azure Active Directory büyük olasılıkla en iyi seçene
 | WS-Trust | Destekleniyor | Desteklenmiyor |
 | **Belirteç biçimleri** | | |
 | JWT | Beta'de desteklenen | Destekleniyor |
-| SAML 1.1 | Destekleniyor | Destekleniyor |
+| SAML 1.1 | Destekleniyor | Önizleme |
 | SAML 2.0 | Destekleniyor | Destekleniyor |
 | SWT | Destekleniyor | Desteklenmiyor |
 | **Özelleştirmeleri** | | |
@@ -226,29 +226,26 @@ Azure AD B2C uygulamaları ve Hizmetleri için en iyi geçiş yolu olduğuna kar
 - [Azure AD B2C fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 
-#### <a name="other-migration-options"></a>Diğer geçiş seçenekleri
+#### <a name="migrate-to-ping-identity-or-auth0"></a>Ping kimliği veya Auth0 geçirme
 
-Varsa Azure AD ve Azure AD B2C, web uygulamanızın ihtiyaçlarını karşılayan yok, bize başvurun. En iyi geçiş yolunu tanımlamak yardımcı olabiliriz.
+Bazı durumlarda, Azure AD ve Azure AD bulabilirsiniz B2C ana kod değişiklik yapmadan erişim denetimi web uygulamalarınızda değiştirmek yeterli değil. Sık karşılaşılan örnekleri içerebilir:
 
-<!--
+- Google veya Facebook gibi sosyal kimlik sağlayıcıları ile oturum açma için WIF veya WS-Federasyon kullanan web uygulamaları.
+- Bir kuruluş için doğrudan Federasyon gerçekleştirmek web uygulamaları WS-Federasyon protokolü üzerinden sağlayıcı tanımlar.
+- Erişim denetimi tarafından yayınlanan belirteçleri, bir talep olarak sosyal kimlik sağlayıcısı (örneğin, Google veya Facebook) tarafından verilen erişim belirteci gerektiren uygulamalar web.
+- Azure AD veya Azure AD B2C oluşturamadığı karmaşık belirteci dönüştürme kuralları ile Web uygulamaları.
+- Federasyon birçok farklı kimlik sağlayıcısı için merkezi olarak yönetmek için ACS kullanan çok kiracılı web uygulamaları
 
-#### Migrate to Ping Identity or Auth0
+Bu durumlarda, web uygulamanıza başka bir bulut kimlik doğrulama hizmeti geçirmeyi düşünün isteyebilirsiniz. Aşağıdaki seçenekler keşfetme öneririz. Aşağıdaki seçeneklerin her biri için erişim denetimi benzer özellikleri sunar:
 
-In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient to replace Access Control in your web applications without making major code changes. Some common examples might include:
 
-- Web applications that use WIF or WS-Federation for sign-in with social identity providers such as Google or Facebook.
-- Web applications that perform direct federation to an enterprise identify provider over the WS-Federation protocol.
-- Web applications that require the access token issued by a social identity provider (such as Google or Facebook) as a claim in the tokens issued by Access Control.
-- Web applications with complex token transformation rules that Azure AD or Azure AD B2C can't reproduce.
 
-In these cases, you might want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
+|     |     | 
+| --- | --- |
+| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) oluşturduğu bir esnek bulut kimlik hizmetidir [erişim denetimi müşterileri için üst düzey Geçiş Kılavuzu](https://auth0.com/acs)ve ACS mu neredeyse her özelliğini destekler. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
 
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
-- Enterprise customers also should consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
-
-Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
-
--->
+Ping kimlik ve Auth0 ile çalışırken bizim AIM tüm erişim denetimi müşteriler erişim denetiminden taşımak için gereken iş miktarını bir geçiş yolu uygulamaları ve Hizmetleri sahip olduğunuzdan emin olmaktır.
 
 <!--
 
@@ -295,28 +292,22 @@ Uygulama sunucusu sunucusu senaryoları hakkında yönergeler için aşağıdaki
 - [Basit parola istemci kimlik bilgilerini kullanarak arka plan kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Sertifika istemci kimlik bilgilerini kullanarak arka plan kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
-#### <a name="other-migration-options"></a>Diğer geçiş seçenekleri
+#### <a name="migrate-to-ping-identity-or-auth0"></a>Ping kimliği veya Auth0 geçirme
 
-Azure AD web hizmetiniz gereksinimlerini karşılamıyorsa, bir yorum bırakın. Belirli durumunuz için en iyi plan tanımlamaya yardımcı olabiliriz.
+Bazı durumlarda, Azure AD istemci kimlik ve OAuth uygulama Mimarinizi ana kod değişiklikleri olmadan erişim denetimi değiştirmek yeterli değil vermek bulabilirsiniz. Sık karşılaşılan örnekleri içerebilir:
 
-<!--
+- Sunucu-sunucu kimlik doğrulama belirteci kullanarak Jwt'ler dışında biçimlendirir.
+- Bir dış kimlik sağlayıcısı tarafından sağlanan bir giriş belirteci kullanarak sunucu-sunucu kimlik doğrulaması.
+- Azure AD oluşturamadığı belirteci dönüştürme kuralları ile sunucu-sunucu kimlik doğrulaması.
 
-#### Migrate to Ping Identity or Auth0
+Bu durumlarda, web uygulamanıza başka bir bulut kimlik doğrulama hizmeti geçirme düşünebilirsiniz. Aşağıdaki seçenekler keşfetme öneririz. Aşağıdaki seçeneklerin her biri için erişim denetimi benzer özellikleri sunar:
 
-In some cases, you might find that the Azure AD client credentials and the OAuth grant implementation aren't sufficient to replace Access Control in your architecture without major code changes. Some common examples might include:
+|     |     | 
+| --- | --- |
+| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) oluşturduğu bir esnek bulut kimlik hizmetidir [erişim denetimi müşterileri için üst düzey Geçiş Kılavuzu](https://auth0.com/acs)ve ACS mu neredeyse her özelliğini destekler. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
 
-- Server-to-server authentication using token formats other than JWTs.
-- Server-to-server authentication using an input token provided by an external identity provider.
-- Server-to-server authentication with token transformation rules that Azure AD cannot reproduce.
-
-In these cases, you might consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
-
-- [Auth0](https://auth0.com/) has created [high-level migration guidance for customers of Access Control](https://auth0.com/blog/windows-azure-acs-alternative-replacement/), and provides a feature-by-feature comparison of Access Control and Auth0.
-- Enterprise customers should also consider [Ping Identity](https://www.pingidentity.com). If you contact us, we can connect you with a representative from Ping who is prepared to help identify potential solutions.
-
-Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
-
--->
+Ping kimlik ve Auth0 ile çalışırken bizim AIM tüm erişim denetimi müşteriler erişim denetiminden taşımak için gereken iş miktarını bir geçiş yolu uygulamaları ve Hizmetleri sahip olduğunuzdan emin olmaktır.
 
 ## <a name="questions-concerns-and-feedback"></a>Sorular, sorunları ve geri bildirim
 

@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0f784e8ecd8fc94c12df1a819055718e06547b6b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f2be9ca98330866ac8b6fb12efd56efdc711eedf
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="route-to-a-point-of-interest-using-azure-location-based-services"></a>Azure konum tabanlı Hizmetleri kullanarak ilgi noktasına yönlendirmek
 
@@ -65,12 +65,12 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
             }
         </style>
     </head>
+
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
-
     </body>
 
     </html>
@@ -79,68 +79,67 @@ Konum tabanlı hizmetlerin Harita Denetim API'si ile katıştırılmış bir sta
 
 3. Şu JavaScript kodunu eklemek *betik* HTML dosyası bloğu. Yer tutucu Değiştir *< anahtar Ekle >* konum tabanlı Hizmetleri hesabınızın birincil anahtara sahip.
 
-    ```HTML
-            // Instantiate map to the div with id "map"
-            var subscriptionKey = "<insert-key>";
-            var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey
-            });
-
+    ```JavaScript
+    // Instantiate map to the div with id "map"
+    var subscriptionKey = "<insert-key>";
+    var map = new atlas.Map("map", {
+        "subscription-key": subscriptionKey
+    });
     ```
     **Atlas. Harita** denetim için bir görsel ve etkileşimli web eşleme sağlar ve Azure Harita Denetim API'si bir bileşenidir.
 
 4. Şu JavaScript kodunu eklemek *betik* bloğu. Bu bir katmanı ekler *MultiPoint* yol göstermek için harita denetiminin için:
 
-    ```HTML
-            // Initialize the linestring layer for routes on the map
-            var routeLinesLayerName = "routes";
-            map.addLinestrings([], {
-                name: routeLinesLayerName,
-                color: "#2272B9",
-                width: 5,
-                cap: "round",
-                join: "round",
-                before: "labels"
-            });
+    ```JavaScript
+    // Initialize the linestring layer for routes on the map
+    var routeLinesLayerName = "routes";
+    map.addLinestrings([], {
+        name: routeLinesLayerName,
+        color: "#2272B9",
+        width: 5,
+        cap: "round",
+        join: "round",
+        before: "labels"
+    });
     ```
 
 5. Başlangıç ve bitiş noktalarını rota oluşturmak için aşağıdaki JavaScript kodu ekleyin:
 
-    ```HTML
-            // Create the GeoJSON objects which represent the start and end point of the route
-            var startPoint = new atlas.data.Point([-122.130137, 47.644702]);
-            var startPin = new atlas.data.Feature(startPoint, {
-                title: "Microsoft",
-                icon: "pin-round-blue"
-            });
+    ```JavaScript
+    // Create the GeoJSON objects which represent the start and end point of the route
+    var startPoint = new atlas.data.Point([-122.130137, 47.644702]);
+    var startPin = new atlas.data.Feature(startPoint, {
+        title: "Microsoft",
+        icon: "pin-round-blue"
+    });
 
-            var destinationPoint = new atlas.data.Point([-122.3352, 47.61397]);
-            var destinationPin = new atlas.data.Feature(destinationPoint, {
-                title: "Contoso Oil & Gas",
-                icon: "pin-blue"
-            });
+    var destinationPoint = new atlas.data.Point([-122.3352, 47.61397]);
+    var destinationPin = new atlas.data.Feature(destinationPoint, {
+        title: "Contoso Oil & Gas",
+        icon: "pin-blue"
+    });
     ```
     Bu kod iki oluşturur [GeoJSON nesne](https://en.wikipedia.org/wiki/GeoJSON) başlangıç ve bitiş noktalarını rotanın temsil etmek için. Uç noktası biri için enlem/boylam birleşimidir *Akaryakıt istasyonları* önceki öğreticide aranır [arama ilgi çekici Azure konum tabanlı Hizmetleri kullanarak yakındaki](./tutorial-search-location.md).
 
 6. Başlangıç ve bitiş noktaları için PIN eşlemesine eklemek için aşağıdaki JavaScript kodu ekleyin:
 
-    ```HTML
-            // Fit the map window to the bounding box defined by the start and destination points
-            var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-            var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-            var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-            var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-            map.setCameraBounds({
-                bounds: [swLon, swLat, neLon, neLat],
-                padding: 50
-            });
+    ```JavaScript
+    // Fit the map window to the bounding box defined by the start and destination points
+    var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
+    var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
+    var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
+    var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
+    map.setCameraBounds({
+        bounds: [swLon, swLat, neLon, neLat],
+        padding: 50
+    });
 
-            // Add pins to the map for the start and end point of the route
-            map.addPins([startPin, destinationPin], {
-                name: "route-pins",
-                textFont: "SegoeUi-Regular",
-                textOffset: [0, -20]
-            });
+    // Add pins to the map for the start and end point of the route
+    map.addPins([startPin, destinationPin], {
+        name: "route-pins",
+        textFont: "SegoeUi-Regular",
+        textOffset: [0, -20]
+    });
     ``` 
     API **map.setCameraBounds** Haritası penceresini başlangıç ve bitiş noktası koordinatları göre ayarlar. API **map.addPins** görsel bileşenleri olarak harita denetim noktaları ekler.
 
@@ -154,38 +153,38 @@ Bu bölümde Azure konum tabanlı hizmetlerin rota hizmeti API'si bir hedef içi
 
 1. Açık **MapRoute.html** dosyası önceki bölümde oluşturulan ve şu JavaScript kodunu ekleyin *betik* rota hizmeti göstermeye bloğu.
 
-    ```HTML
-            // Perform a request to the route service and draw the resulting route on the map
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(xhttp.responseText);
+    ```JavaScript
+    // Perform a request to the route service and draw the resulting route on the map
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(xhttp.responseText);
 
-                    var route = response.routes[0];
-                    var routeCoordinates = [];
-                    for (var leg of route.legs) {
-                        var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                        routeCoordinates = routeCoordinates.concat(legCoordinates);
-                    }
+            var route = response.routes[0];
+            var routeCoordinates = [];
+            for (var leg of route.legs) {
+                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
+                routeCoordinates = routeCoordinates.concat(legCoordinates);
+            }
 
-                    var routeLinestring = new atlas.data.LineString(routeCoordinates);
-                    map.addLinestrings([new atlas.data.Feature(routeLinestring)], { name: routeLinesLayerName });
-                }
-            };
+            var routeLinestring = new atlas.data.LineString(routeCoordinates);
+            map.addLinestrings([new atlas.data.Feature(routeLinestring)], { name: routeLinesLayerName });
+        }
+    };
     ```
     Bu kod parçacığını oluşturur bir [XMLHttpRequest](https://xhr.spec.whatwg.org/), ve gelen yanıtı ayrıştırılamadı olay işleyicisi ekler. Başarılı bir yanıt için bir dizi satır bölümü döndürülen ilk rotanın koordinatları oluşturur. Ardından haritanın koordinatları bu yol için bu kümesini ekler *MultiPoint* katmanı.
 
 2. Aşağıdaki kodu ekleyin *betik* Azure konum tabanlı hizmetlerin rota hizmete XMLHttpRequest göndermeye engelle:
 
-    ```HTML
-            var url = "https://atlas.microsoft.com/route/directions/json?";
-            url += "&api-version=1.0";
-            url += "&subscription-key=" + subscriptionKey;
-            url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-                destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-    
-            xhttp.open("GET", url, true);
-            xhttp.send();
+    ```JavaScript
+    var url = "https://atlas.microsoft.com/route/directions/json?";
+    url += "&api-version=1.0";
+    url += "&subscription-key=" + subscriptionKey;
+    url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
+        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
+
+    xhttp.open("GET", url, true);
+    xhttp.send();
     ```
     Yukarıdaki istek hesabınızın abonelik anahtarı ve başlangıç ve bitiş noktası koordinatları olduğundan, gerekli parametreleri verildikleri sırada gösterilir. 
 

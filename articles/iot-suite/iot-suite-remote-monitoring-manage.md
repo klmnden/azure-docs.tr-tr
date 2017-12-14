@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>Yönetmek ve cihazlarınızı yapılandırmak
 
@@ -40,13 +40,13 @@ Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü da
 
 Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [önceden yapılandırılmış Uzaktan izleme çözümü dağıtma](iot-suite-remote-monitoring-deploy.md) Öğreticisi.
 
-## <a name="provision-a-simulated-device"></a>Bir sanal cihaz sağlama
+## <a name="add-a-simulated-device"></a>Bir sanal cihaz ekleme
 
-Gidin **aygıtları** sayfasında çözümde ve ardından **sağlama**. İçinde **sağlama** paneli, seçin **benzetimli**:
+Gidin **aygıtları** sayfasında çözümde ve ardından **yeni cihaz**. İçinde **yeni cihaz** paneli, seçin **benzetimli**:
 
 ![Bir sanal cihaz sağlama](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Kümesine sağlamak için aygıt sayısını bırakın **1**. Seçin **altyapısı** olarak **cihaz modeli**ve ardından **Uygula** sanal cihazı oluşturmak için:
+Kümesine sağlamak için aygıt sayısını bırakın **1**. Seçin **hatalı altyapısı** olarak **cihaz modeli**ve ardından **Uygula** sanal cihazı oluşturmak için:
 
 ![Benzetimli altyapısı cihazı hazırlama](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Ayrıntılı tanılama görüntülemek için kaydırma görmek üzere **tanılam
 
 ## <a name="act-on-a-device"></a>Bir cihazda hareket
 
-Bir cihaz üzerinde çalışmak için aygıtlar listesinde seçin ve ardından **zamanlama**. **Altyapısı** cihaz modeli belirtir dört yöntem bir aygıtı desteklemesi gerekir:
+Bir veya daha fazla aygıtlar üzerinde çalışmak için aygıt listesinden seçin ve ardından **zamanlama**. **Altyapısı** cihaz modeli belirtir dört yöntem bir aygıtı desteklemesi gerekir:
 
 ![Altyapısı yöntemleri](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Seçin **yeniden**, iş adı ayarlamak **RestartEngine**ve ardından **Uygula**:
 
 ![Zamanlama yeniden başlatma yöntemi](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-İşin durumunu izlemek için **Bakım** sayfasında, **sistem durumu**:
+İşin durumunu izlemek için **Bakım** sayfasında, **işleri**:
 
 ![Zamanlamalar iş izleme](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Değişiklik yapmak için iş için bir ad eklemek, özellik değerlerini günce
 
 ![Bir cihaz özelliği değeri güncelleştirin](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-İşin durumunu izlemek için **Bakım** sayfasında, **sistem durumu**.
+İşin durumunu izlemek için **Bakım** sayfasında, **işleri**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

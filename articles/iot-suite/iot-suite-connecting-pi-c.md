@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 45f4de7e9ec880775f9ccf77b7d945766d465aa7
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: cec5d9c2e81e6311514536f7605777d48d1f1c46
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Uzaktan izleme önceden yapılandırılmış çözümü (C) Raspberry Pi'yi Cihazınızı bağlama
 
@@ -80,7 +80,7 @@ Aşağıdaki adımlar, Raspberry Pi'yi önceden yapılandırılmış çözümü 
     git clone https://github.com/kgabis/parson.git
     ```
 
-## <a name="create-a-project"></a>Proje oluşturma
+## <a name="create-a-project"></a>Proje oluştur
 
 Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
 

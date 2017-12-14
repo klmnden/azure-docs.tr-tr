@@ -3,7 +3,7 @@ title: "Azure Otomasyon karma Runbook çalışanını runbook'ları çalıştır
 description: "Bu makalede, yerel veri merkezinde veya Bulut sağlayıcısı karma Runbook çalışan rolü ile makinelerde çalışan runbook'ları hakkında bilgi sağlar."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 06227cda-f3d1-47fe-b3f8-436d2b9d81ee
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d069b5040e0e280e54d4ffd8eccdacca302b7cc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9eb4407e537d6a6d45c2fb685c3dcd37bd511a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde çalışan runbook'ları 
 Azure Automation ve karma Runbook çalışanı üzerinde çalışacak çalışan runbook'ları yapısını fark yoktur. Her ile kullandığınız runbook'ları kaynakları yerel bilgisayarda veya dağıtıldığı, runbook'ları sırasında yerel ortamında kaynaklara karşı bir karma Runbook çalışanı genellikle hedefleyen runbook'ları yönetmek beri büyük olasılıkla ancak önemli ölçüde farklı Azure Otomasyonu, Azure bulut kaynaklarında genellikle yönetin.

@@ -3,7 +3,7 @@ title: " Otomasyon runbook'ları ile Azure VM uyarıları düzeltmek | Microsoft
 description: "Bu makalede, Azure sanal makine uyarıları Azure Otomasyon çalışma kitabı ile tümleştirmek ve sorunları otomatik olarak düzeltmek gösterilmiştir"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1f7baa7f-7283-4a4f-9385-3f5cd1062c7f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: csand;magoedte
-ms.openlocfilehash: 18cccc88ab74235722e2f4886671fc483ab67da8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef18a2de8ce62de945c49b91dc74aca7d7f408b0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Azure otomasyonu senaryosu - Azure VM uyarıları Düzelt
 Azure Otomasyonu ve Azure sanal makineleri Otomasyon runbook'ları çalıştırmak için sanal makine (VM) uyarıları yapılandırmanıza olanak sağlayan yeni bir özellik yayımlandı. Bu yeni özellik otomatik olarak yeniden başlatma veya durdurma VM gibi VM uyarılara yanıt olarak standart düzeltme gerçekleştirmenize olanak sağlar.

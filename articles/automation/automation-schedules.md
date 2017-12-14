@@ -3,7 +3,7 @@ title: "Azure Otomasyon zamanlamaları | Microsoft Docs"
 description: "Otomasyon zamanlamaları runbook'ları otomatik olarak başlatmak için Azure automation'da zamanlamak için kullanılır. Oluşturma ve belirli bir zamanda veya yinelenen bir zamanlamaya göre otomatik olarak bir runbook başlatabilirsiniz bir zamanlama yönetme açıklar."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 446dc79202938ee96cbb090345d9c191060afe76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Otomasyonu’nda runbook zamanlama
 Belirli bir zamanda başlatmak için Azure automation'da bir runbook'u zamanlamak için bir veya daha fazla zamanlamaya bağlayın. Klasik Azure portalı runbook'larda ve runbook'ları Azure portalında bir kez veya bir yinelenmeye saatlik çalıştırma ya da günlük zamanlama için bir zamanlama yapılandırılabilir, ayrıca bunları için haftalık, aylık, haftanın belirli günlerinde veya gün ayın veya ayın belirli zamanlayabilirsiniz.  Bir runbook için birden çok zamanlama bağlanabilir ve bir zamanlama birden çok runbook bağlı olabilir.

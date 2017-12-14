@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack Geliştirme Seti dağıtımına hızlı başlangıç
 
@@ -31,9 +31,9 @@ ms.lasthandoff: 10/11/2017
 
 2. [**Karşıdan yükleme ve dağıtım paketi ayıklayın**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). Dağıtım paketi Geliştirme Seti ana bilgisayara veya başka bir bilgisayara yükleyebilirsiniz. Başka bir bilgisayar kullanılarak Geliştirme Seti ana bilgisayar için donanım gereksinimlerini azaltmaya yardımcı olacak ayıklanan dağıtım dosyaları 60 GB boş disk alanı alın.
 
-3. [**Geliştirme Seti konak hazırlama** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) yükleyici kullanarak. Bu adımdan sonra Geliştirme Seti ana bilgisayar (önyüklenebilir bir işletim sistemi ve Azure yığını içeren sanal bir sabit sürücüye yükleme dosyaları) Cloudbuilder.vhdx önyükleme yapmaz.
+3. [**Geliştirme Seti konak hazırlama** ](azure-stack-run-powershell-script.md) yükleyici kullanarak. Bu adımdan sonra Geliştirme Seti ana bilgisayar (önyüklenebilir bir işletim sistemi ve Azure yığını içeren sanal bir sabit sürücüye yükleme dosyaları) Cloudbuilder.vhdx önyükleme yapmaz.
 
-4. [**Geliştirme Seti dağıtmak** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) Geliştirme Seti konaktaki.
+4. [**Geliştirme Seti dağıtmak** ](azure-stack-run-powershell-script.md) Geliştirme Seti konaktaki.
 
 5. Azure yığın dağıtımınızı Azure Active Directory kullanıyorsa, yapmanız gerekenler [Azure yığın Azure ile kaydedin](azure-stack-register.md) yapabilmeniz [Azure Market öğesi karşıdan](azure-stack-download-azure-marketplace-item.md) Azure yığınına.
 

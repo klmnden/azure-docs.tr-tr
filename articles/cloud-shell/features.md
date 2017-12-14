@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 79c3f376c2800e2ce9123c31af6e1aa2aacfcf00
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 24b4f92a0a575939d3cf10fc8ec2fe877316f82c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Özellikler ve Azure bulut Kabuk Bash'te için araçları
 
-[!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Özellikleri & araçlarla [PowerShell](features-powershell.md) da kullanılabilir.

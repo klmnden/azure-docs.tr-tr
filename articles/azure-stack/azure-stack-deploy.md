@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack dağıtım önkoşulları
 
@@ -85,7 +85,7 @@ Bir Azure AD hesabı kullanarak Azure yığın dağıtmak için dağıtım Power
 
 1. İçin en az bir Azure AD directory yönetici olan bir Azure AD hesabı oluşturun. Zaten bir hesabınız varsa bu hesabı kullanabilirsiniz. Aksi takdirde, bir ücretsiz oluşturabilirsiniz [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (Çin'de ziyaret <http://go.microsoft.com/fwlink/?LinkID=717821> yerine). İçin daha sonra planlıyorsanız [Azure yığın Azure ile kaydedin](azure-stack-register.md), ayrıca bir abonelik bu hesap yeni oluşturulmuş olması gerekir.
    
-    6. adımda bu kimlik bilgilerini kullanmak için kaydetme [Geliştirme Seti dağıtmak](azure-stack-run-powershell-script.md#deploy-the-development-kit). Bu *hizmet yöneticisi* hesabı; kaynak bulutlarını, kullanıcı hesaplarını, kiracı planlarını, kotaları ve fiyatlandırmayı yapılandırıp yönetebilir. Portalda web sitesi bulutları, sanal makine özel bulutları ve planlar oluşturup kullanıcı aboneliklerini yönetebilir.
+    6. adımda bu kimlik bilgilerini kullanmak için kaydetme [Geliştirme Seti dağıtmak](azure-stack-run-powershell-script.md). Bu *hizmet yöneticisi* hesabı; kaynak bulutlarını, kullanıcı hesaplarını, kiracı planlarını, kotaları ve fiyatlandırmayı yapılandırıp yönetebilir. Portalda web sitesi bulutları, sanal makine özel bulutları ve planlar oluşturup kullanıcı aboneliklerini yönetebilir.
 2. [Oluşturma](azure-stack-add-new-user-aad.md) en az bir hesabı böylece Kiracı Geliştirme Seti için oturum açabilirsiniz.
    
    | **Azure Active Directory hesabı** | **Destekleniyor mu?** |

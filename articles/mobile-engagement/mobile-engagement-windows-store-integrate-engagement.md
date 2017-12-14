@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 898160814304fa8ec65622056a77ca9d4caf2c99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows Evrensel uygulamaları Engagement SDK tümleştirmesi
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Bunun yerine çalışma zamanında belirtmek istiyorsanız, katılım aracı ba�
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-Bağlantı dizesi, uygulamanız için Azure Klasik Portalı'ndaki görüntülenir.
+Bağlantı dizesi, uygulamanız için Azure portalda görüntülenir.
 
 ### <a name="engagement-initialization"></a>Katılım başlatma
 Yeni bir proje oluşturduğunuzda, bir `App.xaml.cs` dosyası oluşturulur. Bu sınıf devraldığı `Application` ve birçok önemli yöntemler içerir. Engagement SDK'sı başlatmak için de kullanılır.

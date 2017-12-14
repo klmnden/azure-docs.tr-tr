@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 69d0c368eb11953d1a6e954990a3be10df7044f0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Güvenlik Merkezi platformu geçiş ile ilgili SSS
 Erken Haziran 2017 toplamak ve verilerini depolamak için Microsoft Monitoring Agent'ı kullanarak Azure Güvenlik Merkezi başlamıştır. Daha fazla bilgi için bkz: [Azure Güvenlik Merkezi platformu geçiş](security-center-platform-migration.md). Bu SSS platform geçiş ile ilgili sorular yanıtlanmaktadır.
@@ -175,7 +175,7 @@ Aşağıdaki sizin için geçerliyse, otomatik sağlamayı dışında opt isteye
 Geçiş tamamlandıktan sonra Güvenlik Merkezi güvenlik verileri VM ve bazı güvenlik önerileri toplamanın mümkün değildir ve Uyarıları kullanılamaz. Çıkarsanız, Microsoft Monitoring Agent el ile yüklemeniz gerekir. Bkz: [kullanmama, önerilen adımlar](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Otomatik sağlama dışında kullanmama zaman önerilen adımları nelerdir?
-Güvenlik Merkezi, VM'lerin güvenlik verileri toplamak ve önerileri ve uyarılar sağlayabilmesi için Microsoft Monitoring Agent el ile yüklemeniz gerekir. Bkz: [Azure günlük analizi hizmeti bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agents.md) yükleme hakkında yönergeler için.
+Güvenlik Merkezi, VM'lerin güvenlik verileri toplamak ve önerileri ve uyarılar sağlayabilmesi için Microsoft Monitoring Agent el ile yüklemeniz gerekir. Bkz: [Azure günlük analizi hizmeti bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agent.md) yükleme hakkında yönergeler için.
 
 Aracıyı tüm mevcut özel çalışma alanına bağlayın veya Güvenlik Merkezi çalışma alanı oluşturulur. Özel bir çalışma alanı etkin 'Security' veya 'SecurityCenterFree' çözümleri yoksa, bir çözümü uygulamak gerekir. Uygulamak için özel çalışma veya aboneliği seçin ve bir fiyatlandırma katmanı üzerinden uygulama **güvenlik ilkesi – fiyatlandırma katmanı** dikey.
 

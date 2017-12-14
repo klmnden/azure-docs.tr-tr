@@ -3,7 +3,7 @@ title: Azure Otomasyonu runbook'u test etme | Microsoft Docs
 description: "Azure Otomasyonu runbook'u yayımlamadan önce beklendiği gibi çalıştığından emin olmak için test edebilirsiniz.  Bu makalede, bir runbook'u test ve çıktısını görüntülemek açıklar."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 2c811cc8c8277e9840babcf1043cde44238b8661
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df675dbf915d0fe08905a83b7874fdd95deed42d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Azure Otomasyonu runbook'u test etme
 Bir runbook'u test ettiğinizde [taslak sürüm](automation-creating-importing-runbook.md#publishing-a-runbook) yürütülür ve gerçekleştirdiği tüm işlemler tamamlanır. Hiçbir iş geçmişi oluşturulmaz, ancak [çıkış](automation-runbook-output-and-messages.md#output-stream) ve [uyarı ve hata](automation-runbook-output-and-messages.md#message-streams) akışları Test görüntülenen bölmesinde çıktı. İletileri için [ayrıntılı akış](automation-runbook-output-and-messages.md#message-streams) çıkış bölmesi eksikse görüntülenen [$VerbosePreference değişkeni](automation-runbook-output-and-messages.md#preference-variables) devam et ayarlanır.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Ağ Performans İzleyicisi'ni (Önizleme) ExpressRoute için yapılandırma
 
@@ -129,7 +129,7 @@ Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağ
 
 ### <a name="proxy"></a>2.3: (isteğe bağlı) proxy ayarlarını yapılandır
 
-Internet'e erişmek için bir web proxy kullanıyorsanız, Microsoft İzleme Aracısı için proxy ayarlarını yapılandırmak için aşağıdaki adımları kullanın. Her sunucu için aşağıdaki adımları gerçekleştirin. Yapılandırmanız gereken birden çok sunucu olması durumunda, bu işlemi otomatikleştirmek için bir betik kullanmak sizin için daha kolay olabilir. Aksi takdirde bkz [Microsoft İzleme Aracısı bir betik kullanarak proxy ayarlarını yapılandırmak için](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Internet'e erişmek için bir web proxy kullanıyorsanız, Microsoft İzleme Aracısı için proxy ayarlarını yapılandırmak için aşağıdaki adımları kullanın. Her sunucu için aşağıdaki adımları gerçekleştirin. Yapılandırmanız gereken birden çok sunucu olması durumunda, bu işlemi otomatikleştirmek için bir betik kullanmak sizin için daha kolay olabilir. Aksi takdirde bkz [Microsoft İzleme Aracısı bir betik kullanarak proxy ayarlarını yapılandırmak için](../log-analytics/log-analytics-windows-agent.md).
 
 Microsoft Monitoring Agent Denetim Masası'nı kullanarak proxy ayarlarını yapılandırmak için:
 
@@ -200,7 +200,7 @@ NPM ExpressRoute izleme özelliğini kullanmaya başlamadan önce çalışma ala
   ![özellik kurulumu](.\media\how-to-npm\npm2.png)
 3. Yapılandırma sayfasında, sol tarafındaki Panoda bulunan 'ExpressRoute eşlemeler' sekmesine gidin. Tıklatın **Şimdi Bul**.
 
-  ![Bul](.\media\how-to-npm\13.png)
+  ![bul](.\media\how-to-npm\13.png)
 4. Bulma tamamlandığında benzersiz hattı adı ve sanal ağ adı için kurallar konusuna bakın. Başlangıçta, bu kuralları devre dışı bırakılır. Kuralları etkinleştirin, ardından izleme aracıları ve eşik değerleri seçin.
 
   ![rules](.\media\how-to-npm\14.png)
@@ -239,7 +239,7 @@ Tıklayarak **özel eşlemeler** panosundaki bölümünden getirir sanal ağlar 
 Bağlantı hattı topolojisini görüntülemek için tıklatın **topoloji** döşeme. Bu seçili topoloji görünümü sürer hattı veya eşliği. Topoloji diyagramı ağdaki her segment için gecikme süresini sağlar ve her katman 3 atlama diyagramın bir düğümle temsil edilir. Atlama tıklatarak atlama hakkında daha fazla ayrıntı ortaya çıkarır.
 Şirket içi atlama çubuğu aşağıdaki taşıyarak dahil etmek için görünürlük düzeyini artırabilirsiniz **filtreleri**. Kaydırıcı çubuğun sola veya sağa hareket, artar/topoloji grafikte durak sayısını azaltır. Her segment arasında gecikme yüksek gecikme kesimleri ağınızdaki daha hızlı yalıtım sağlayan, görülebilir.
 
-![filtreleri](.\media\how-to-npm\topology.png)
+![filtreler](.\media\how-to-npm\topology.png)
 
 #### <a name="detailed-topology-view-of-a-circuit"></a>Bir bağlantı hattının ayrıntılı topoloji görünümü
 

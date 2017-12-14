@@ -3,7 +3,7 @@ title: "Bir Azure Otomasyonu runbook'u içinde bir Azure Resource Manager şablo
 description: "Bir runbook'tan Azure Storage'da depolanan bir Azure Resource Manager şablonu dağıtma"
 services: automation
 documentationcenter: dev-center-name
-author: eslesar
+author: georgewallace
 manager: carmonm
 keywords: PowerShell runbook, json, azure Otomasyonu
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 07/09/2017
-ms.author: eslesar
-ms.openlocfilehash: e511eee2f9eac3969b15ad3d45558dc7034f330a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: gwallace
+ms.openlocfilehash: dc283973efd936d50418d303bbc359dd4312a121
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Bir Azure Otomasyonu PowerShell runbook'taki bir Azure Resource Manager şablonu dağıtma
 

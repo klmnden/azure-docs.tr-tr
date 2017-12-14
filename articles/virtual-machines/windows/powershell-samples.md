@@ -16,8 +16,8 @@ ms.workload: infrastructure
 ms.date: 09/20/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 042b2b4a5c4ccb573b0d1d13abe7855aea779348
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: d30361a7149342000c6e6cfdbfe1ee7e6caf945d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
@@ -29,7 +29,7 @@ Aşağıdaki tabloda, Windows sanal makineler oluşturun ve yönetin PowerShell 
 | | |
 |---|---|
 |**Sanal makineler oluşturma**||
-| [Hızla bir sanal makine oluşturulur](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir kaynak grubu, sanal makineyi ve ilgili tüm kaynakları istemleri az ile oluşturur.|
+| [Hızla bir sanal makine oluşturun](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir kaynak grubu, sanal makineyi ve ilgili tüm kaynakları istemleri az ile oluşturur.|
 | [Tam olarak yapılandırılmış bir sanal makine oluşturun](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir kaynak grubu, sanal makine ve tüm ilgili kaynaklar oluşturur.|
 | [Yüksek oranda kullanılabilir sanal makineler oluşturma](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Birkaç yüksek oranda kullanılabilir sanal makineleri ve yükü dengelenmiş yapılandırma oluşturur.|
 | [Bir VM oluşturma ve yapılandırma komut dosyası çalıştırma](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur ve IIS yüklemek için Azure özel betik uzantısı kullanır. |

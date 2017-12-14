@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/13/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9e2186839648ffc6492cd64cb140cc767729d189
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: febb00cb6d1b28e1166562c53e2d05c3e7aba36b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
 
 
 
-> Bu abone olarak Azure Active Directory'de yenilikler ile güncel kalmasını [akış](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) bir RSS Okuyucu sık kullanılan olarak.
+> Abone tarafından Azure Active Directory'de yenilikler ile güncel kalmasını bizim ![RSS](./media/whats-new/feed-icon-16x16.png) [akış](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 

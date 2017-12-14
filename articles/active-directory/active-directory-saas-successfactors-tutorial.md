@@ -1,56 +1,54 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile SuccessFactors | Microsoft Docs"
-description: "Çoklu oturum açma, otomatik sağlama ve daha fazla etkinleştirmek için Azure Active Directory ile SuccessFactors kullanmayı öğrenin!"
+description: "Çoklu oturum açma Azure Active Directory ile SuccessFactors arasında yapılandırmayı öğrenin."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 12/08/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: d206298f8c0af6c3f96740594c6ff904228ee48b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b9545599b4ac02927c38931777a3cee623a4e940
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Öğretici: Azure Active Directory Tümleştirme SuccessFactors ile
-Bu öğreticinin amacı SuccessFactors Azure Active Directory (Azure AD) ile tümleştirme Göster sağlamaktır.
+
+Bu öğreticide, Azure Active Directory (Azure AD) ile SuccessFactors tümleştirmek öğrenin.
 
 SuccessFactors Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-* SuccessFactors erişimi, Azure AD'de kontrol edebilirsiniz
-* Otomatik olarak için SuccessFactors (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-* Hesaplarınızı bir merkezi konumda - Klasik Azure portalı Yönet
+- SuccessFactors erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak için SuccessFactors (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
+
 Azure AD tümleştirme SuccessFactors ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
-* Geçerli bir Azure aboneliği
-* Bir kiracı SuccessFactors içinde
+- Bir Azure AD aboneliği
+- Bir SuccessFactors çoklu oturum açma etkin abonelik
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
-> 
-> 
 
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
-* Bu gerekli olmadığı sürece, üretim ortamınızın kullanmamanız gerekir.
-* Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticinin amacı, Azure AD çoklu oturum açma bir test ortamında test etmenizi hale getirmektir.
-
-Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
 1. Galeriden SuccessFactors ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
@@ -60,104 +58,126 @@ Azure AD SuccessFactors tümleştirilmesi yapılandırmak için yönetilen SaaS 
 
 **Galeriden SuccessFactors eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure Klasik portalında, sol gezinti bölmesinde, tıklatın **Active Directory**.
-   
-    ![Çoklu oturum açmayı yapılandırma][1]
-2. Gelen **Directory** listesinde, directory tümleştirmesini etkinleştirmek istediğiniz dizini seçin.
-3. Dizin görünümünde uygulamaları görünümü açmak için **uygulamaları** üst menüde.
-   
-    ![Çoklu oturum açmayı yapılandırma][2]
-4. Tıklatın **Ekle** sayfanın sonundaki.
-   
-    ![Uygulamalar][3]
-5. Üzerinde **ne yapmak istiyorsunuz** iletişim kutusunda, tıklatın **Galeriden bir uygulama eklemek**.
-   
-    ![Çoklu oturum açmayı yapılandırma][4]
-6. İçinde **arama kutusu**, türü **SuccessFactors**.
-   
-    ![Çoklu oturum açmayı yapılandırma][5]
-7. Sonuçlar panelinde seçin **SuccessFactors**ve ardından **tam** uygulama eklemek için.
-   
-    ![Çoklu oturum açmayı yapılandırma][6]
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümün amacı, size nasıl yapılandırılacağı ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı SuccessFactors test göstermektir.
+    ![Azure Active Directory düğmesi][1]
 
-Tekli çalışmaya oturum için Azure AD ne SuccessFactors Azure AD'de bir kullanıcıya karşılık gelen kullanıcı olduğunu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının SuccessFactors ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** SuccessFactors içinde.
+    ![Kurumsal uygulamalar dikey penceresi][2]
+    
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+
+    ![Yeni Uygulama düğmesi][3]
+
+4. Arama kutusuna **SuccessFactors**seçin **SuccessFactors** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+
+    ![Sonuçlar listesinde SuccessFactors](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
+
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı SuccessFactors sınayın.
+
+Tekli çalışmaya oturum için Azure AD SuccessFactors karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının SuccessFactors ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+
+SuccessFactors içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
 Yapılandırma ve Azure AD çoklu oturum açma SuccessFactors ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[SuccessFactors test kullanıcısı oluşturma](#creating-a-successfactors-test-user)**  - Britta Simon, karşılık gelen her, Azure AD gösterimine bağlı SuccessFactors sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[SuccessFactors test kullanıcısı oluşturma](#create-a-successfactors-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı SuccessFactors sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
-Bu bölümde, Azure AD çoklu oturum açma Klasik portalında etkinleştirin ve çoklu oturum açma SuccessFactors uygulamanızda yapılandırın.
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
+
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma SuccessFactors uygulamanızda yapılandırın.
 
 **Azure AD çoklu oturum açma ile SuccessFactors yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure Klasik portalında üzerinde **SuccessFactors** uygulama tümleştirmesi sayfasında, tıklatın **çoklu oturum açma özelliğini yapılandırın** açmak için **tek oturum yapılandırma üzerinde aktar** iletişim.
-   
-    ![Çoklu oturum açmayı yapılandırma][7]
-2. Üzerinde **SuccessFactors için oturum açmasını nasıl istiyorsunuz** sayfasında, **Microsoft Azure AD çoklu oturum açma**ve ardından **sonraki**.
-   
-    ![Çoklu oturum açmayı yapılandırma][8]
-3. Üzerinde **uygulama URL'sini Yapılandır** sayfasında, aşağıdaki adımları uygulayın ve ardından **sonraki**.
-   
-    ![Çoklu oturum açmayı yapılandırma][9]
-   
-    a. İçinde **oturum üzerinde URL'si** metin kutusuna, aşağıdaki desenleri birini kullanarak URL yazın: 
-   
-    |  |
-    | --- |
-    | `https://<company name>.successfactors.com/<company name>` |
-    | `https://<company name>.sapsf.com/<company name>` |
-    | `https://<company name>.successfactors.eu/<company name>` |
-    | `https://<company name>.sapsf.eu` |
-   
-    b. İçinde **yanıt URL'si** metin kutusuna, aşağıdaki desenleri birini kullanarak URL yazın: 
-   
-    |  |
-    | --- |
-    | `https://<company name>.successfactors.com/<company name>` |
-    | `https://<company name>.sapsf.com/<company name>` |
-    | `https://<company name>.successfactors.eu/<company name>` |
-    | `https://<company name>.sapsf.eu` |
-    | `https://<company name>.sapsf.eu/<company name>` |
-   
-    c. **İleri**’ye tıklayın. 
+1. Azure portalında üzerinde **SuccessFactors** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    > [!NOTE]
-    > Lütfen bu gerçek değerlerin olmadığına dikkat edin. Gerçek oturum üzerinde URL'si ve yanıt URL'si bu değerleri güncelleştirmeniz gerekir. Bu değerleri almak için başvurun [SuccessFactors destek ekibi](https://www.successfactors.com/en_us/support.html).
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-1. Üzerinde **çoklu oturum açma sırasında SuccessFactors yapılandırma** sayfasında, **indirme sertifika**ve yerel olarak bilgisayarınızda sertifika dosyasını kaydedin.
-   
-    ![Çoklu oturum açmayı yapılandırma][10]
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+ 
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_samlbase.png)
 
-2. Farklı web tarayıcısı penceresinde oturum açın, **SuccessFactors Yönetici portalı** yönetici olarak.
+3. Üzerinde **SuccessFactors etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-3. Ziyaret **uygulama güvenliği** ve yerel **tek oturum açma özelliğini**. 
+    ![SuccessFactors etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_url.png)
 
-4. Herhangi bir değer yerleştirin **sıfırlama belirteci** tıklatıp **Kaydet belirteci** SAML SSO'yu etkinleştirmek için.
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
+    | |
+    |--|
+    | `https://<companyname>.successfactors.com/<companyname>`|
+    | `https://<companyname>.sapsf.com/<companyname>`|
+    | `https://<companyname>.successfactors.eu/<companyname>`|
+    | `https://<companyname>.sapsf.eu`|
+
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
+    | |
+    |--|
+    | `https://www.successfactors.com/<companyname>`|
+    | `https://www.successfactors.com`|
+    | `https://<companyname>.successfactors.eu`|
+    | `https://www.successfactors.eu/<companyname>`|
+    | `https://<companyname>.sapsf.com`|
+    | `https://hcm4preview.sapsf.com/<companyname>`|
+    | `https://<companyname>.sapsf.eu`|
+    | `https://www.successfactors.cn`|
+    | `https://www.successfactors.cn/<companyname>`|
+
+    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
+    | |
+    |--|
+    | `https://<companyname>.successfactors.com/<companyname>`|
+    | `https://<companyname>.successfactors.com`|
+    | `https://<companyname>.sapsf.com/<companyname>`|
+    | `https://<companyname>.sapsf.com`|
+    | `https://<companyname>.successfactors.eu/<companyname>`|
+    | `https://<companyname>.successfactors.eu`|
+    | `https://<companyname>.sapsf.eu`|
+    | `https://<companyname>.sapsf.eu/<companyname>`|
+    | `https://<companyname>.sapsf.cn`|
+    | `https://<companyname>.sapsf.cn/<companyname>`|
+         
+    > [!NOTE] 
+    > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [SuccessFactors istemci destek ekibi](https://www.successfactors.com/en_us/support.html) bu değerleri almak için. 
+
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_certificate.png) 
+
+5. Tıklatın **kaydetmek** düğmesi.
+
+    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-successfactors-tutorial/tutorial_general_400.png)
+    
+6. Üzerinde **SuccessFactors yapılandırma** 'yi tıklatın **yapılandırma SuccessFactors** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_configure.png) 
+
+7. Farklı web tarayıcısı penceresinde oturum açın, **SuccessFactors Yönetici portalı** yönetici olarak.
+    
+8. Ziyaret **uygulama güvenliği** ve yerel **tek oturum açma özelliğini**. 
+
+9. Herhangi bir değer yerleştirin **sıfırlama belirteci** tıklatıp **Kaydet belirteci** SAML SSO'yu etkinleştirmek için.
    
     ![Çoklu oturum açma uygulama tarafında yapılandırma][11]
 
     > [!NOTE] 
-    > Bu değer yalnızca açık/kapalı anahtar kullanılır. Herhangi bir değer kaydettiyseniz, SAML SSO açık'tır. Boş bir değer kaydettiyseniz SAML SSO Kapalı'dır.
+    > Bu değer, açık/kapalı anahtar kullanılır. Herhangi bir değer kaydettiyseniz, SAML SSO açık'tır. Boş bir değer kaydettiyseniz SAML SSO Kapalı'dır.
 
-1. Yerel ekran görüntüsü aşağıda ve aşağıdaki eylemleri gerçekleştirin.
+10. Yerel ekran görüntüsü aşağıda ve aşağıdaki eylemleri gerçekleştirin:
    
     ![Çoklu oturum açma uygulama tarafında yapılandırma][12]
    
     a. Seçin **SAML v2 SSO** radyo düğmesi
    
-    b. SAML sunduğundan taraf Name(e.g. SAml issuer + company name) ayarlayın.
+    b. Ayarlama **SAML sunduğundan taraf adı**(örneğin, SAML veren + şirket adı).
    
-    c. İçinde **SAML veren** textbox değeri put **veren URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
+    c. İçinde **veren URL'si** metin kutusuna, Yapıştır **SAML varlık kimliği** Azure portalından kopyaladığınız değeri.
    
     d. Seçin **yanıt (müşteri oluşturulan/IDP/AP)** olarak **zorunlu imza gerektir**.
    
@@ -169,18 +189,18 @@ Bu bölümde, Azure AD çoklu oturum açma Klasik portalında etkinleştirin ve 
    
     h. Seçin **Hayır** olarak **sertifika geçerli süresi zorunlu**.
    
-    ı. İndirilen sertifika dosyasının içeriğini kopyalayın ve ardından yapıştırın **SAML doğrulama sertifikası** metin kutusu.
+    ı. Azure Portalı'ndan indirilen sertifika dosyasının içeriğini kopyalayın ve ardından yapıştırın **SAML doğrulama sertifikası** metin kutusu.
 
     > [!NOTE] 
     > Sertifika içeriği sahip başlamalıdır sertifika ve bitiş sertifika etiketler.
 
-1. SAML V2'ye gidin ve ardından aşağıdaki adımları gerçekleştirin:
+11. SAML V2'ye gidin ve ardından aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açma uygulama tarafında yapılandırma][13]
    
     a. Seçin **Evet** olarak **destek SP tarafından başlatılan genel oturum kapatma**.
    
-    b. İçinde **genel oturum kapatma hizmeti URL'si (LogoutRequest hedef)** textbox değeri put **uzak oturum kapatma URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
+    b. İçinde **genel oturum kapatma hizmeti URL'si (LogoutRequest hedef)** metin kutusuna, Yapıştır **Sign-Out URL** kopyaladığınız değeri form Azure portalı.
    
     c. Seçin **Hayır** olarak **sp tüm NameID öğesi şifrelemek gerekir gerektiren**.
    
@@ -188,145 +208,125 @@ Bu bölümde, Azure AD çoklu oturum açma Klasik portalında etkinleştirin ve 
    
     e. Seçin **Evet** olarak **etkinleştir sp tarafından başlatılan oturum açma (AuthnRequest)**.
    
-    f. İçinde **şirket çapında veren olarak gönderme isteği** textbox değeri put **uzaktan oturum açma URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
-2. Oturum açma kullanıcı adları yapmak istiyorsanız bu adımları uygulamadan büyük küçük harf duyarsız.
+    f. İçinde **şirket çapında veren olarak gönderme isteği** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri.
+
+12. Oturum açma kullanıcı adları yapmak istiyorsanız bu adımları uygulamadan büyük küçük harfe duyarlı.
    
+    ![Çoklu oturum açmayı yapılandırın][29]
+    
     a. Ziyaret **şirket ayarları**(yakınında alt).
    
     b. yakın onay kutusunu seçin **etkinleştirmek olmayan durumda duyarlı kullanıcıadı**.
    
     c.Click **kaydetmek**.
    
-    ![Çoklu oturum açmayı yapılandırın][29]
-
     > [!NOTE] 
-    > Bu ayarı etkinleştirmek çalışırsanız, yinelenen bir SAML oturum açma adı oluşturur, sistem denetler. Örneğin, müşterinin kullanıcı adları Kullanıcı1 hem Kullanıcı1 varsa. Büyük küçük harfe duyarlılığın hemen alma bu yinelemeleri yapar. Sistem, bir hata iletisi alır ve özelliği izin vermez. Müşteri, gerçekte farklı yazıldığından için kullanıcı adları birini değiştirmeniz gerekir. 
+    > Bunu etkinleştirmek çalışırsanız, yinelenen bir SAML oturum açma adı oluşturur sistem denetler. Örneğin, müşterinin kullanıcı adları Kullanıcı1 hem Kullanıcı1 varsa. Büyük küçük harfe duyarlılığın hemen alma bu yinelemeleri yapar. Sistem, bir hata iletisi verir ve özelliğini etkinleştirmez. Farklı yazıldığından biçimde bir kullanıcı adlarını değiştirmek müşteri gerekir.
 
-1. Klasik Azure portalı, çoklu oturum açma yapılandırması onay seçin ve ardından **tam** kapatmak için **tek oturum yapılandırma üzerinde aktar** iletişim.
-   
-    ![Uygulamalar][14]
-2. Üzerinde **tek oturum açma onay** sayfasında, **tam**.
-   
-    ![Uygulamalar][15]
+> [!TIP]
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Klasik portalda bir test kullanıcı oluşturmaktır.
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-![Azure AD Kullanıcı oluşturma][16]
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Klasik Azure portalı**, sol gezinti bölmesinde tıklatın **Active Directory**.
-   
-    ![Bir Azure AD test kullanıcısı oluşturma][17]
-2. Gelen **Directory** listesinde, directory tümleştirmesini etkinleştirmek istediğiniz dizini seçin.
-3. Üstteki menüde kullanıcıların listesini görüntülemek için tıklatın **kullanıcılar**.
-   
-    ![Bir Azure AD test kullanıcısı oluşturma][18]
-4. Açmak için **Kullanıcı Ekle** iletişim kutusunda, araç çubuğunda alt tıklatın **Kullanıcı Ekle**.
-   
-    ![Bir Azure AD test kullanıcısı oluşturma][19]
-5. Üzerinde **bu kullanıcı hakkında bize** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
-   
-    ![Bir Azure AD test kullanıcısı oluşturma][20]
-   
-    a. Kullanıcı türü olarak, kuruluşunuzdaki yeni kullanıcı seçin.
-   
-    b. Kullanıcı adı **textbox**, türü **BrittaSimon**.
-   
-    c. **İleri**’ye tıklayın.
-6. Üzerinde **kullanıcı profili** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
-   
-    ![Bir Azure AD test kullanıcısı oluşturma][21]
-   
-    a. İçinde **ad** metin kutusuna, türü **Britta**.  
-   
-    b. İçinde **Soyadı** metin kutusuna, türü, **Simon**.
-   
-    c. İçinde **görünen adı** metin kutusuna, türü **Britta Simon**.
-   
-    d. İçinde **rol** listesinde **kullanıcı**.
-   
-    e. **İleri**’ye tıklayın.
-7. Üzerinde **Get geçici parola** iletişim sayfasında, tıklatın **oluşturma**.
-   
-    ![Bir Azure AD test kullanıcısı oluşturma][22]
-8. Üzerinde **Get geçici parola** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
-   
-    ![Bir Azure AD test kullanıcısı oluşturma][23]
-   
-    a. Değerini yazmak **yeni parola**.
-   
-    b. **Tamamla**’ya tıklayın.  
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-### <a name="creating-a-successfactors-test-user"></a>SuccessFactors test kullanıcısı oluşturma
-Azure AD kullanıcıların SuccessFactors oturum etkinleştirmek için bunların SuccessFactors sağlanmalıdır.  
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-successfactors-tutorial/create_aaduser_01.png)
+
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-successfactors-tutorial/create_aaduser_02.png)
+
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+
+    ![Ekle düğmesi](./media/active-directory-saas-successfactors-tutorial/create_aaduser_03.png)
+
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-successfactors-tutorial/create_aaduser_04.png)
+
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+
+    d. **Oluştur**'a tıklayın.
+ 
+### <a name="create-a-successfactors-test-user"></a>SuccessFactors test kullanıcısı oluşturma
+
+Azure AD kullanıcıları için SuccessFactors oturum açmak etkinleştirmek için bunların SuccessFactors sağlanmalıdır.  
 SuccessFactors söz konusu olduğunda, sağlama bir el ile bir görevdir.
 
 SuccessFactors içinde oluşturulan kullanıcıların almak için başvurmanız gerekir [SuccessFactors destek ekibi](https://www.successfactors.com/en_us/support.html).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
-Bu bölümün amacı Britta SuccessFactors için kendi erişim vererek, Azure çoklu oturum açma kullanılacak Simon için etkinleştirmektir.
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-![Kullanıcı atama][24]
+Bu bölümde, Britta SuccessFactors için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+
+![Kullanıcı rolü atayın][200] 
 
 **SuccessFactors için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Klasik portalı üzerinde dizin görünümünde uygulamaları görünümü açmak için tıklatın **uygulamaları** üst menüde.
-   
-    ![Kullanıcı atama][25]
-2. Uygulamalar listesinde **SuccessFactors**.
-   
-    ![Çoklu oturum açmayı yapılandırın][26]
-3. Üstteki menüde tıklatın **kullanıcılar**.
-   
-    ![Kullanıcı atama][27]
-4. Kullanıcılar listesinden seçin **Britta Simon**.
-5. Araç çubuğunda alt tıklatın **atamak**.
-   
-    ![Kullanıcı atama][28]
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
-Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.
+    ![Kullanıcı atama][201] 
+
+2. Uygulamalar listesinde **SuccessFactors**.
+
+    ![Uygulamalar listesinde SuccessFactors bağlantı](./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_app.png)  
+
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
+
+4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+
+    ![Ekleme atama bölmesi][203]
+
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+
+6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+
+7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
+    
+### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
+
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli SuccessFactors parçasında tıklattığınızda, otomatik olarak SuccessFactors uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
+
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
+
+
 <!--Image references-->
 
-[0]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_00.png
 [1]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_02.png
 [3]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_04.png
-[5]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_01.png
-[6]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_02.png
-[7]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_03.png
-[8]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_04.png
-[9]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_05.png
-[10]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_06.png
 
 [11]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_07.png
 [12]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_08.png
 [13]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_09.png
 [14]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_05.png
 [15]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_06.png
-
-[16]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_00.png
-[17]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_01.png
-[18]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_02.png
-[19]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_03.png
-[20]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_04.png
-[21]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_05.png
-[22]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_06.png
-[23]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_07.png
-
-[24]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_07.png
-[25]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_08.png
-[26]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_11.png
-[27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
-[28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
+
+[100]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_203.png
+

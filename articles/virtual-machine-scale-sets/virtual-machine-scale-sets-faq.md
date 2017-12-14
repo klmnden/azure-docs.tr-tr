@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/8/2017
+ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 1d7d6200196eee96186dc5e597abc84fa0aa86c5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek SSS ayarlar
 
@@ -219,7 +219,7 @@ Bir Linux VM oluşturduğunuzda SSH ortak anahtarları düz metin sağlayabilirs
 linuxConfiguration öğe adı | Gerekli | Tür | Açıklama
 --- | --- | --- | --- |  ---
 SSH | Hayır | Koleksiyon | Linux işletim sistemi SSH anahtar yapılandırması belirtir
-Yol | Evet | Dize | Burada SSH anahtarlarını veya sertifika yerleştirilmelidir Linux dosya yolunu belirtir
+yol | Evet | Dize | Burada SSH anahtarlarını veya sertifika yerleştirilmelidir Linux dosya yolunu belirtir
 anahtar verileri | Evet | Dize | Bir base64 ile kodlanmış SSH ortak anahtarını belirtir
 
 Bir örnek için bkz: [101 vm sshkey GitHub Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
@@ -369,7 +369,13 @@ Sanal makine ölçek kümeleri uzantısı sıralaması hakkında bilgi için bkz
  
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Nasıl ı parola VM'ler için my sanal makine ölçek kümesindeki sıfırlama?
 
-Sanal makine ölçek kümesindeki sanal makineleri için parolayı sıfırlamak için VM erişimi uzantılarını kullanın. 
+Ölçek kümesinde VM'ler için parolayı değiştirmek için başlıca iki yolu vardır.
+
+1. VMSS modelini doğrudan değiştirin. İle işlem API 2017-12-01 ve daha sonra kullanılabilir.
+
+Doğrudan (örneğin Azure kaynak Gezgini, PowerShell veya CLI kullanarak) ölçek kümesi model yönetici kimlik bilgilerini güncelleştirin. Ölçek kümesini sonra güncelleştirilmiş, tüm yeni sanal makineleri yeni kimlik bilgilerine sahip olmaz. Bunlar yeniden değilse var olan sanal makineleri yalnızca yeni kimlik bilgileri gerekir. 
+
+2. VM erişim uzantıları kullanarak parola sıfırlama.
 
 Aşağıdaki PowerShell örneğini kullanın:
 

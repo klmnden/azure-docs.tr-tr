@@ -12,25 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: e433baf69ea0e66465612de077d8e59f5e234ee5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.custom: aaddev;it-pro
+ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için etki alanları arası kimlik yönetimi sistemi kullanarak
 
 ## <a name="overview"></a>Genel Bakış
 Azure Active Directory (Azure AD) otomatik olarak kullanıcı sağlama ve tanımlanan gruplar arabirimi ile bir web hizmeti tarafından fronted uygulama ya da kimliği deposuna [sistemi etki alanları arası Kimlik Yönetimi (SCIM'yi) 2.0 protokolü belirtimi için](https://tools.ietf.org/html/draft-ietf-scim-api-19). Delete kullanıcılar ve gruplar web hizmetine atanan veya Azure Active Directory oluşturmak, değiştirmek için istek gönderemez. Web hizmeti, hedef kimlik deposu işlemlere bu istekleri sonra anlamına gelebilir. 
-
-> [!IMPORTANT]
-> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor. 
-
-
 
 ![][0]
 *Şekil 1: Bir web hizmeti aracılığıyla bir kimlik deposu için Azure Active Directory'den sağlama*
@@ -383,7 +378,7 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan http://sche
 | Görünen adı |externalID |
 | Posta |e-postaları [türü eq "İş"] .value |
 | mailNickname |Görünen adı |
-| Üyeleri |Üyeleri |
+| üyeler |üyeler |
 | objectID |id |
 | proxyAddresses |e-postaları [eq "diğer" yazın]. Değer |
 

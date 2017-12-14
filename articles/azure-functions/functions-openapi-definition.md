@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2017
+ms.date: 12/09/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ad23a098ee0482b3c8c853ab5cee989f752a101
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Bir işlev için bir OpenAPI tanımı oluştur
 REST API'leri, OpenAPI tanımı kullanılarak genellikle açıklanmıştır (önceki adıyla bilinen bir [Swagger](http://swagger.io/) dosyası). Bu tanım hangi işlemlerin bir API kullanılabilir olduğunu ve API istek ve yanıt verilerini nasıl yapılandırılacağını hakkında bilgi içerir.
@@ -48,9 +48,17 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğretici iki parametre isteyen bir HTTP tetiklenen işlevi kullanır: (saat); onarma türbin yapmak için gereken tahmini süre ve (içinde kilowatt) Türbin kapasitesi. İşlev sonra ne kadar onarım maliyetlidir, hesaplar ve ne kadar gelir türbin yapmak 24 saatlik süre içinde.
 
-1. İşlev uygulamanızı genişletin, tıklayın  **+**  düğmesine **işlevleri**, tıklatın **HTTPTrigger** şablonu. Girin `TurbineRepair` işlevi için **adı** tıklatıp **oluşturma**.
+1. İşlev uygulamanızı genişletin ve seçin  **+**  düğmesine **işlevler**. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir. 
 
-    ![İşlev uygulamalar dikey penceresinde, İşlevler +](media/functions-openapi-definition/add-function.png)
+    ![Azure portalındaki İşlevler hızlı başlangıç sayfası](media/functions-openapi-definition/add-first-function.png)
+
+2. Arama alanına yazın `http` ve ardından **C#** HTTP tetikleyicisi şablonu için. 
+ 
+    ![HTTP tetikleyicisini seçin](./media/functions-openapi-definition/select-http-trigger-portal.png)
+
+3. Tür `TurbineRepair` işlevi için **adı**, seçin `Function` için  **[kimlik doğrulama düzeyi](functions-bindings-http-webhook.md#http-auth)**ve ardından **oluşturma**.  
+
+    ![HTTP tetiklenen bir işlev oluşturun](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Run.csx dosyasının içeriğini aşağıdaki kodla değiştirin ve ardından **kaydetmek**:
 

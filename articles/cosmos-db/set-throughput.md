@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 12/13/2017
 ms.author: mimig
-ms.openlocfilehash: 69501b07369a8d5da15cf9bc7d75f07999bf0999
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: ba24ee0926928503b3f466405d8651b1dab6fb95
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Azure Cosmos DB kapsayıcıları için kümesi işleme
 
@@ -36,7 +36,7 @@ Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir liste
         <tr>
             <td valign="top"><p>En düşük işleme</p></td>
             <td valign="top"><p>saniye başına 400 istek birimleri</p></td>
-            <td valign="top"><p>saniye başına 2.500 istek birimleri</p></td>
+            <td valign="top"><p>saniye başına 1000 isteği birim</p></td>
         </tr>
         <tr>
             <td valign="top"><p>En yüksek verimlilik</p></td>
@@ -51,7 +51,7 @@ Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir liste
 1. Yeni bir pencerede açmak [Azure portal](https://portal.azure.com).
 2. Sol çubuğunda **Azure Cosmos DB**, veya **daha Hizmetleri** kısımda, daha sonra kaydırın **veritabanları**ve ardından **Azure Cosmos DB**.
 3. Cosmos DB hesabınızı seçin.
-4. Yeni pencerede **Veri Gezgini (Önizleme)** Gezinti menüsünde.
+4. Yeni pencerede **Veri Gezgini** Gezinti menüsünde.
 5. Yeni pencerede, veritabanı ve kapsayıcısını genişletin ve ardından **ölçek & ayarları**.
 6. Yeni pencerede yeni işleme değeri yazın **işleme** kutusuna ve ardından **kaydetmek**.
 
@@ -60,7 +60,7 @@ Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir liste
 ## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>.NET için SQL API'yi kullanarak üretilen işi ayarlamak için
 
 ```C#
-//Fetch the resource to be updated
+// Fetch the offer of the collection whose throughput needs to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -69,7 +69,7 @@ Offer offer = client.CreateOfferQuery()
 // Set the throughput to the new value, for example 12,000 request units per second
 offer = new OfferV2(offer, 12000);
 
-//Now persist these changes to the database by replacing the original resource
+// Now persist these changes to the collection by replacing the original offer resource
 await client.ReplaceOfferAsync(offer);
 ```
 
@@ -77,7 +77,7 @@ await client.ReplaceOfferAsync(offer);
 
 **My verimlilik değerinden 400 RU/s ayarlayabilir miyim?**
 
-Cosmos DB tek bölüm koleksiyonları (2500 RU/s bölümlenmiş koleksiyonlar için en düşük gereksinimdir) üzerinde kullanılabilir en düşük işleme 400 RU/s olur. İstek birimleri 100 RU/s aralıklarla ayarlanmış, ancak işleme 100 RU/s veya herhangi bir değer 400 RU/s küçük olacak şekilde ayarlanamaz. Geliştirmek ve Cosmos DB sınamak için uygun maliyetli bir yöntem arıyorsanız, ücretsiz kullanabileceğiniz [Azure Cosmos DB öykünücüsü](local-emulator.md), hangi hiçbir ücret yerel olarak dağıtabilirsiniz. 
+400 RU/s (1000 RU/s bölümlenmiş kapsayıcıları için en düşük gereksinimdir) Cosmos DB tek bölüm kapsayıcılarında kullanılabilir en düşük işleme ' dir. İstek birimleri 100 RU/s aralıklarla ayarlanmış, ancak işleme 100 RU/s veya herhangi bir değer 400 RU/s küçük olacak şekilde ayarlanamaz. Geliştirmek ve Cosmos DB sınamak için uygun maliyetli bir yöntem arıyorsanız, ücretsiz kullanabileceğiniz [Azure Cosmos DB öykünücüsü](local-emulator.md), hangi hiçbir ücret yerel olarak dağıtabilirsiniz. 
 
 **MongoDB API kullanarak througput nasıl ayarlarım?**
 

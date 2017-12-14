@@ -3,7 +3,7 @@ title: Azure Automation'da grafik yazma | Microsoft Docs
 description: "Grafik yazma kodu ile çalışma olmadan için Azure Automation runbook'ları oluşturmanızı sağlar. Bu makale, grafik yazma giriş bilgileri ve grafik runbook oluşturmaya başlamak için gerekli tüm ayrıntılar sağlar."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafik Azure Otomasyonu'nda yazma
 ## <a name="introduction"></a>Giriş
@@ -67,7 +67,7 @@ Yalnızca bir grafik runbook yayımlanan sürümüne dışarı aktarabilirsiniz.
 
 Seçerek bir grafik veya grafik PowerShell iş akışı runbook dosyasını da içeri aktarabilirsiniz **alma** bir runbook eklerken seçeneği.   Alınacak dosyayı seçtiğinizde, aynı tutabilirsiniz **adı** veya yeni bir tane girin.  Runbook türü alan runbook türü seçilen dosyanın değerlendirir ve doğru değil farklı bir tür seçin çalışırsanız, bir ileti olası çakışmaları vardır ve dönüştürme sırasında olabilir sözdizimi sunulur sonra görüntüler hatalar.  
 
-![Runbook'u İçeri Aktar](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
+![Runbook'u içeri aktar](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
 ### <a name="testing-a-graphical-runbook"></a>Grafik runbook'u test etme
 Runbook'un yayımlanan sürümünde değişiklik yapmadan ya da onu yayımlamadan önce yeni bir runbook test edebilirsiniz Azure portalında bir runbook'un taslak sürümünü test edebilirsiniz. Bu, yayımlanan sürümü değiştirmeden önce runbook'un doğru çalıştığını doğrulamanızı sağlar. Bir runbook'u test ettiğinizde taslak runbook yürütülür ve gerçekleştirdiği tüm işlemler tamamlanır. İş Geçmişi oluşturulmaz, ancak çıktı Test çıkışı bölmesinde görüntülenir. 
@@ -112,9 +112,9 @@ Aşağıdaki örnekte, Get-AzureRmVM cmdlet'i üç parametre kümesine sahiptir.
 #### <a name="parameter-values"></a>Parametre değerleri
 Bir parametre için değer belirttiğinizde, değeri belirtilen nasıl belirlemek için bir veri kaynağı seçin.  Bu parametre için geçerli değerler için belirli bir parametre kullanılabilir veri kaynakları bağlıdır.  Örneğin, Null, null değerlere izin vermiyor bir parametre için kullanılabilir bir seçenek olmaz.
 
-| Veri kaynağı | Açıklama |
+| Veri Kaynağı | Açıklama |
 |:--- |:--- |
-| Sabit değer |Parametresi için bir değer yazın.  Bu sadece aşağıdaki veri türleri için kullanılabilir: Int32, Int64, dize, Boolean, DateTime, anahtarı. |
+| Sabit Değer |Parametresi için bir değer yazın.  Bu sadece aşağıdaki veri türleri için kullanılabilir: Int32, Int64, dize, Boolean, DateTime, anahtarı. |
 | Etkinlik çıkışı |İş akışında geçerli etkinlik önündeki bir etkinliğin çıkışı.  Tüm geçerli etkinlikleri listelenir.  Yalnızca çıktısını için parametre değeri kullanmak için etkinliği seçin.  Birden fazla özelliğe sahip bir nesne etkinlik çıkışı yapıyorsa etkinlik seçtikten sonra özellik adını yazabilirsiniz. |
 | Runbook giriş |Etkinlik parametresi için giriş olarak bir runbook giriş parametresi seçin. |
 | Değişken varlığı |Bir Otomasyon değişkeni giriş olarak seçin. |
@@ -185,7 +185,7 @@ Yapılandırma dikey penceresinde özelliklerini yapılandırmak için bağlant�
 | Bağlantı türü | Açıklama |
 |:--- |:--- |
 | İşlem hattı |Hedef etkinlik, kaynak etkinliğinden her nesne çıktısı için bir kez çalıştırılır.  Kaynak etkinliği hiçbir çıkış sonuçlanırsa, hedef etkinlik çalışmaz.  Kaynak etkinliği çıktısını bir nesne olarak kullanılabilir. |
-| Sırası |Hedef etkinlik yalnızca bir kez çalışır.  Bunu kaynak etkinliğinden nesnelerinin bir dizisi alır.  Kaynak etkinliği çıktısını nesnelerinin bir dizisi kullanılabilir. |
+| Sequence |Hedef etkinlik yalnızca bir kez çalışır.  Bunu kaynak etkinliğinden nesnelerinin bir dizisi alır.  Kaynak etkinliği çıktısını nesnelerinin bir dizisi kullanılabilir. |
 
 ### <a name="starting-activity"></a>Başlangıç etkinliği
 Bir grafik runbook gelen bağlantısına sahip olmayan tüm etkinlikleri ile başlar.  Bu, genellikle runbook için başlangıç etkinliği olarak davranan yalnızca bir etkinlik olacaktır.  Birden çok etkinliği bir gelen bağlantı yoksa, runbook paralel olarak çalıştırarak başlar.  Ardından, her tamamladıkça diğer etkinlikleri çalıştırmak için bağlantıları de izler.
@@ -245,10 +245,10 @@ Bir etkinlik çıktısı da alabilir bir **PowerShell ifadesi** veri kaynağı v
     $ActivityOutput['Activity Label']
     $ActivityOutput['Activity Label'].PropertyName 
 
-### <a name="checkpoints"></a>Kontrol noktaları
+### <a name="checkpoints"></a>Denetim Noktaları
 Ayarlayabileceğiniz [kontrol noktaları](automation-powershell-workflow.md#checkpoints) seçerek bir grafik PowerShell iş akışı runbook'ta *denetim noktası runbook* herhangi bir etkinlik üzerinde.  Bu etkinliğin çalıştıktan sonra ayarlamak bir denetim noktası neden olur.
 
-![Denetim noktası](media/automation-graphical-authoring-intro/set-checkpoint.png)
+![Kontrol noktası](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 Kontrol noktaları grafik PowerShell iş akışı runbook'ları yalnızca etkinleştirilen, grafik runbook'larında kullanılabilir değildir.  Runbook Azure cmdlet'lerini kullanıyorsa, runbook askıya alınır ve yeniden durumda Add-AzureRMAccount belirttiğinizde herhangi bir etkinliği izlemelisiniz farklı bir çalışan üzerinde bu kontrol noktasından. 
 
@@ -292,7 +292,7 @@ Her giriş parametresi, aşağıdaki tabloda özellikleri tarafından tanımlan�
 | Açıklama |Giriş parametresi isteğe bağlı bir açıklama. |
 | Tür |Veri türü için parametre değeri bekleniyor.  Azure portalı uygun bir denetim her parametre için veri türü için giriş isterken sağlar. |
 | Zorunlu |Bir değer parametresi için sağlanan olup olmadığını belirtir.  Tanımlanmış bir varsayılan değeri yok zorunlu her parametre için bir değer belirtmezseniz, runbook başlatılamıyor. |
-| Varsayılan değer |Bir sağlanmazsa, parametresi için hangi değerin kullanıldığını belirtir.  Bu Null ya da belirli bir değer olabilir. |
+| Varsayılan Değer |Bir sağlanmazsa, parametresi için hangi değerin kullanıldığını belirtir.  Bu Null ya da belirli bir değer olabilir. |
 
 ### <a name="runbook-output"></a>Runbook çıkışı
 Giden bir bağlantı yok herhangi bir etkinlik tarafından oluşturulan veriler eklenir [runbook'un çıktı](http://msdn.microsoft.com/library/azure/dn879148.aspx).  Çıktı runbook işi ile kaydedilen ve runbook bir alt öğesi olarak kullanıldığında, üst runbook için kullanılabilir.  

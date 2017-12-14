@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f83d019c0168aa5abbf3211b4a599f631e9f426
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS altyapınızın DNS Analytics Önizleme çözümü ile ilgili Öngörüler toplayın
 
@@ -42,7 +42,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynakları aç
 
 | **Bağlı kaynak** | **Destek** | **Açıklama** |
 | --- | --- | --- |
-| [Windows aracıları](log-analytics-windows-agents.md) | Evet | Çözüm Windows aracılardan DNS bilgilerini toplar. |
+| [Windows aracıları](log-analytics-windows-agent.md) | Evet | Çözüm Windows aracılardan DNS bilgilerini toplar. |
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Çözüm, doğrudan Linux aracılarını DNS bilgilerini toplamaz. |
 | [System Center Operations Manager yönetim grubu](log-analytics-om-agents.md) | Evet | Çözüm aracıları bağlı Operations Manager yönetim grubunda DNS bilgilerini toplar. Operations Management Suite Operations Manager aracısı arasında doğrudan bağlantı gerekli değildir. Veri yönetim grubundaki Operations Management Suite depoya iletilir. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Azure depolama çözümü tarafından kullanılmaz. |
@@ -55,7 +55,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynakları aç
 
 Çözümü yapılandırmak için aşağıdaki bilgileri kullanın:
 
-- Bilmeniz gereken bir [Windows](log-analytics-windows-agents.md) veya [Operations Manager](log-analytics-om-agents.md) Aracısı'nı izlemek istediğiniz her DNS sunucusu.
+- Bilmeniz gereken bir [Windows](log-analytics-windows-agent.md) veya [Operations Manager](log-analytics-om-agents.md) Aracısı'nı izlemek istediğiniz her DNS sunucusu.
 - Operations Management Suite alanınızdan DNS analiz çözümü ekleyebilirsiniz [Azure Marketi](https://aka.ms/dnsanalyticsazuremarketplace). Açıklanan işlemi de kullanabilirsiniz [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
 
 Çözüm ek yapılandırma gerekmeden veri toplamayı başlatır. Ancak, veri toplama özelleştirmek için aşağıdaki yapılandırma kullanabilirsiniz.

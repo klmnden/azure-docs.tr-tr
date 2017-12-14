@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5a97a5d9f06aa73f1ad521e112fa25f215724f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Azure İçeri/Dışarı Aktarma hizmeti REST API’sini kullanma
 
-Microsoft Azure içeri/dışarı aktarma hizmetini içeri/dışarı aktarma işleri programsal denetimi etkinleştirmek için bir REST API gösterir. REST API tüm ile gerçekleştirebileceğiniz içeri/dışarı aktarma işlemlerini gerçekleştirmek için kullanabileceğiniz [Azure portal](https://portal.azure.com/). Ayrıca, REST API Klasik Azure portalında şu anda kullanılabilir değil bir işin tamamlanma sorgulama gibi belirli ayrıntılı işlemler gerçekleştirmek için kullanabilirsiniz.
+Microsoft Azure içeri/dışarı aktarma hizmetini içeri/dışarı aktarma işleri programsal denetimi etkinleştirmek için bir REST API gösterir. REST API tüm ile gerçekleştirebileceğiniz içeri/dışarı aktarma işlemlerini gerçekleştirmek için kullanabileceğiniz [Azure portal](https://portal.azure.com/). Ayrıca, Azure portalında şu anda kullanılabilir değil bir işin tamamlanma sorgulama gibi belirli ayrıntılı işlemler gerçekleştirmek için REST API'sini kullanabilirsiniz.
 
-Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanılarak](../storage-import-export-service.md) içeri/dışarı aktarma hizmeti ve klasik Portalı'nı oluşturmak ve içeri aktarma yönetmek ve işleri dışarı aktarmak için nasıl kullanılacağını gösteren bir eğitim genel bakış.
+Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanılarak](../storage-import-export-service.md) içeri/dışarı aktarma hizmeti ve Portalı'nı oluşturmak ve içeri aktarma yönetmek ve işleri dışarı aktarmak için nasıl kullanılacağını gösteren bir eğitim genel bakış.
 
 ## <a name="service-endpoints"></a>Hizmet uç noktaları
 

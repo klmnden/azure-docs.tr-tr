@@ -7,20 +7,20 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Çözümünüzü sanal cihazlar ile test
 
-Bu öğretici nasıl kullanılacağını gösterir önceden yapılandırılmış Uzaktan izleme çözümü ile aygıt benzeticisi mikro özelleştirin. Aygıt benzeticisi özelliklerini göstermek için Bu öğretici Contoso IOT uygulamada iki senaryo kullanır.
+Bu öğretici, önceden yapılandırılmış Uzaktan izleme çözümü, aygıt benzeticisi mikro özelleştirmek nasıl gösterir. Aygıt benzeticisi özelliklerini göstermek için Bu öğretici Contoso IOT uygulamada iki senaryo kullanır.
 
 İlk senaryoda, Contoso yeni bir akıllı ampul aygıt test istiyor. Testleri gerçekleştirmek için aşağıdaki özelliklere sahip yeni bir sanal cihaz oluşturun:
 
@@ -34,7 +34,7 @@ Bu öğretici nasıl kullanılacağını gösterir önceden yapılandırılmış
 
 *Telemetri*
 
-Aşağıdaki tabloda, bir veri akışı olarak buluta ligthbulb raporları veri gösterilmektedir:
+Aşağıdaki tabloda, bir veri akışı olarak buluta ampul raporları veri gösterilmektedir:
 
 | Ad   | Değerler      |
 | ------ | ----------- |
@@ -177,7 +177,7 @@ Yeni bir aygıt türü benzetimi mikro oluşturmanın kolay kopyalamak ve mevcut
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -273,9 +273,9 @@ Test ve değişikliklerinizi yerel olarak hata ayıklama için bkz: [cihaz benze
 
 Yeni kopyalamak için projeyi yapılandırmak **ampul** çıktı dizinine cihaz dosyaları:
 
-* Visual Studio kullanıyorsanız, önceki bölümde oluşturduğunuz üç yeni ampul dosyalarını eklediğinizden emin olun **Hizmetleri** çözümde projesine. Ardından **Çözüm Gezgini** bunları çıkış dizinine kopyalanacağını işaretlenecek.
+* Visual Studio kullanıyorsanız, önceki bölümde oluşturduğunuz yeni dört ampul dosyalarını eklediğinizden emin olun **Hizmetleri** çözümde projesine. Ardından **Çözüm Gezgini** bunları çıkış dizinine kopyalanacağını işaretlenecek.
 
-* Visual Studio Code kullanıyorsanız, açık **Services.csproj** dosya ve önceki bölümde oluşturduğunuz üç yeni ampul dosyalarını ekleyin. Var olan aygıt modeli dosyası girdileri bkz **Services.csproj** dosyası örnekleri olarak.
+* Visual Studio Code kullanıyorsanız, açık **Services.csproj** dosya ve önceki bölümde oluşturduğunuz yeni dört ampul dosyalarını ekleyin. Var olan aygıt modeli dosyası girdileri bkz **Services.csproj** dosyası örnekleri olarak.
 
 Yeni cihaz dağıtılan bir çözümde sınamak için aşağıdakilerden birini bakın:
 

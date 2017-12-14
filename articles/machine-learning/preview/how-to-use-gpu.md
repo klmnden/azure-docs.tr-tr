@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 4ef5c9ad58f86a669fc5c0bceb085ef2a266a008
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: ce1557aed09384b0d7a0b65aabd473fe72ab740c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>GPU Azure Machine Learning ile kullanma
 Grafik işlem birimi (GPU) genellikle belirli derin sinir ağı modelleri eğitim ortaya çıkar pkı'ya yoğun görevler işlemek için yaygın olarak kullanılır. GPU kullanarak modellerin eğitim süresini önemli ölçüde azaltabilir. Bu belgede, Azure ML çalışma ekranı kullanacak şekilde yapılandırma konusunda bilgi edinin [DSVM (veri bilimi sanal makine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) yürütme hedef olarak GPU ile donatılmış. 
@@ -64,10 +64,10 @@ Azure ML çalışma ekranı ayrıca desteği yürütme Azure Linux VM'de Docker.
 4. Tıklatın **oluşturma** bir Ubuntu DSVM oluşturmak için.
 
 5. Doldurmak **Temelleri** form gerekli bilgileri.
-VM için konum seçerken, GPU VM'ler yalnızca belirli Azure bölgelerde, örneğin, kullanılabilir olduğuna dikkat edin **Orta Güney ABD**. Bkz: [bölgeye göre ürünleri işlem](https://azure.microsoft.com/en-us/regions/services/).
+VM için konum seçerken, GPU VM'ler yalnızca belirli Azure bölgelerde, örneğin, kullanılabilir olduğuna dikkat edin **Orta Güney ABD**. Bkz: [bölgeye göre ürünleri işlem](https://azure.microsoft.com/regions/services/).
 Kaydetmek için Tamam'ı **Temelleri** bilgi.
 
-6. Sanal makine boyutunu seçin. NVIDIA GPU yongaları ile donatılmış NC önekli VM'ler ile boyutlarından birini seçin.  Tıklatın **tümünü görüntüle** gerektiği gibi tam listesini görmek için. Daha fazla bilgi edinmek [GPU donatılmış Azure Vm'leri](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu).
+6. Sanal makine boyutunu seçin. NVIDIA GPU yongaları ile donatılmış NC önekli VM'ler ile boyutlarından birini seçin.  Tıklatın **tümünü görüntüle** gerektiği gibi tam listesini görmek için. Daha fazla bilgi edinmek [GPU donatılmış Azure Vm'leri](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 7. Kalan ayarlarını tamamlayın ve satın alma bilgileri gözden geçirin. VM oluşturmak için satın alma'ı tıklatın. Sanal makine için ayrılmış IP adresini not alın. 
 
@@ -119,7 +119,7 @@ dependencies:
     - https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp35-cp35m-linux_x86_64.whl
 ```
 
-Microsoft Bilişsel çoklu GPU Vm'lerinde performans iyileştirmeleri sağlayan araç seti 1 bit SGD sürümünü de kullanabilirsiniz. Not [1 bit SGD lisans gereksinimini](https://docs.microsoft.com/en-us/cognitive-toolkit/cntk-1bit-sgd-license).
+Microsoft Bilişsel çoklu GPU Vm'lerinde performans iyileştirmeleri sağlayan araç seti 1 bit SGD sürümünü de kullanabilirsiniz. Not [1 bit SGD lisans gereksinimini](https://docs.microsoft.com/cognitive-toolkit/cntk-1bit-sgd-license).
 
 ```yaml
 name: project_environment

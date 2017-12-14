@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b099abb27fbd2adf78b65123a62048967406d401
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -97,7 +97,7 @@ Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesapla
 | --- | --- |
 | İzin verilen karakter |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
 | Karakterlere izin verilmez |<ul><li>Unicode karakterler.</li><li>Alanları.</li><li> Güçlü parolalar: bir nokta karakterini içeremez "." hemen önceki "@" simgesi.</li></ul> |
-| Parola kısıtlamaları |<ul><li>En az 8 karakter ve en fazla 16 karakter.</li><li>Güçlü parolalar: dışı üç dört birini gerektirir:<ul><li>Character.s küçük harf</li><li>Büyük harf karakterler.</li><li>Sayılar (0-9).</li><li>Simgeler (önceki parola kısıtlamaları bakın).</li></ul></li></ul> |
+| Parola kısıtlamaları |<ul><li>En az 8 karakter ve en fazla 16 karakter.</li><li>Güçlü parolalar: dışı üç dört birini gerektirir:<ul><li>Küçük harf karakterler.</li><li>Büyük harf karakterler.</li><li>Sayılar (0-9).</li><li>Simgeler (önceki parola kısıtlamaları bakın).</li></ul></li></ul> |
 | Parola geçerlilik süresi |<ul><li>Varsayılan değer: **90** gün.</li><li>Kullanarak yapılandırılabilir bir değerdir `Set-MsolPasswordPolicy` Azure Active Directory modülü için Windows PowerShell cmdlet'i.</li></ul> |
 | Parola sona erme bildirimi |<ul><li>Varsayılan değer: **14** (parolasının süresi dolmadan).</li><li>Kullanarak yapılandırılabilir bir değerdir `Set-MsolPasswordPolicy` cmdlet'i.</li></ul> |
 | Parola süre sonu |<ul><li>Varsayılan değer: **false** gün (Bu parola süre sonu etkinleştirildiğini gösteren).</li><li>Değeri kullanarak bireysel kullanıcı hesapları için yapılandırılabilir `Set-MsolUser` cmdlet'i.</li></ul> |

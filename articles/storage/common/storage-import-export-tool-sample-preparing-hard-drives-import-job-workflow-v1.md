@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 179c6bac9a2d9509baa0007a7008d75d0874a25e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı
 Bu konu, sürücüler için içeri aktarma işi hazırlama tam işlemi açıklanmaktadır.  
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>Kopya oturum tamamlama
 
-Kopyalama oturumları tamamladıktan sonra iki sürücüsü kopyalama bilgisayardan bağlantısını kesmek ve uygun Windows Azure veri merkezine sevk. İki günlük dosyalarını karşıya `FirstDrive.jrn` ve `SecondDrive.jrn`, içeri aktarma işi oluşturduğunuzda [Windows Azure portalında](https://manage.windowsazure.com/).  
+Kopyalama oturumları tamamladıktan sonra iki sürücüsü kopyalama bilgisayardan bağlantısını kesmek ve uygun Windows Azure veri merkezine sevk. İki günlük dosyalarını karşıya `FirstDrive.jrn` ve `SecondDrive.jrn`, içeri aktarma işi oluşturduğunuzda [Azure portal](https://portal.azure.com).  
   
 ## <a name="next-steps"></a>Sonraki adımlar
 

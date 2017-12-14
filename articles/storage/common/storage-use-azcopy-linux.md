@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 28/9/2017
+ms.date: 12/11/2017
 ms.author: seguler
-ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 1cf1ce1cb739d8958767f0e84380ff6ba57eb1b6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux'ta AzCopy ile veri aktarımı
-Linux üzerinde AzCopy en uygun performans ile basit komutları kullanarak Microsoft Azure Blob ve dosya depolama gelen ve giden veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Verileri bir nesneden diğerine depolama hesabınızda veya depolama hesapları arasında kopyalayabilirsiniz.
+Linux üzerinde AzCopy en uygun performans ile basit komutları kullanarak Microsoft Azure Blob ve dosya depolama gelen ve giden veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Ayrıca verileri bir nesneden diğerine depolama hesabınızda veya depolama hesapları arasında kopyalayabilirsiniz.
 
 İndirebilirsiniz AzCopy iki sürümü vardır. Linux üzerinde AzCopy .NET Core POSIX stili komut satırı seçenekleri sunan Linux platformlar hedefler Framework ile yerleşik olarak bulunur. [AzCopy Windows](../storage-use-azcopy.md) .NET Framework ile oluşturulan ve Windows stili komut satırı seçenekleri sunar. Bu makalede, AzCopy Linux üzerinde yer almaktadır.
 
@@ -30,7 +30,7 @@ Linux üzerinde AzCopy en uygun performans ile basit komutları kullanarak Micro
 
 Makaleyi Ubuntu çeşitli sürümleri için komutlar içerir.  Kullanım `lsb_release -a` doğrulamak için dağıtım sürümü ve kod adı komutu. 
 
-Linux üzerinde AzCopy .NET Core framework gerektirir (sürüm 1.1.x) platformunda. Yükleme yönergelerine bakın [.NET Core](https://www.microsoft.com/net/download/linux) sayfası.
+AzCopy Linux'ta platformunda .NET Core framework (sürüm 2.0) gerektirir. Yükleme yönergelerine bakın [.NET Core](https://www.microsoft.com/net/download/linux) sayfası.
 
 Örnek olarak, .NET Core üzerinde Ubuntu 16.04 şimdi yükleyin. En son kurulum kılavuzunu için ziyaret [.NET Core Linux'ta](https://www.microsoft.com/net/download/linux) yükleme sayfası.
 
@@ -40,7 +40,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.1.4
+sudo apt-get install dotnet-sdk-2.0.2
 ```
 
 .NET Core yüklendiğinde, indirin ve AzCopy yükleyin.
@@ -68,22 +68,20 @@ Aşağıdaki örnekler verileri için ve Microsoft Azure BLOB'ları ve dosyalar�
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key> 
 ```
 
-Varsa klasörü `/mnt/myfiles` yok, AzCopy oluşturur ve indirir `abc.txt ` yeni klasöre.
+Varsa klasörü `/mnt/myfiles` yok, AzCopy oluşturur ve indirir `abc.txt ` yeni klasöre. 
 
 ### <a name="download-single-blob-from-secondary-region"></a>Tek blob ikincil bölge ' indirin
 
 ```azcopy
 azcopy \
-    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount-secondary.blob.core.windows.net/mynewcontainer/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 Okuma erişimli coğrafi olarak yedekli depolama etkin olması gerektiğini unutmayın.
@@ -189,10 +187,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/abc.txt \
+    --dest-key <key>
 ```
 
 Belirtilen hedef kapsayıcı mevcut değilse, AzCopy oluşturur ve dosyayı içine yükler.
@@ -201,10 +198,9 @@ Belirtilen hedef kapsayıcı mevcut değilse, AzCopy oluşturur ve dosyayı içi
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --include "abc.txt"
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer/vd/abc.txt \
+    --dest-key <key>
 ```
 
 Belirtilen sanal dizin yoksa, AzCopy sanal dizin içinde blob adını içerecek şekilde dosyayı yükler (*örneğin*, `vd/abc.txt` Yukarıdaki örnekteki).
@@ -315,11 +311,10 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key> \
-    --dest-key <key> \
-    --include "abc.txt"
+    --dest-key <key>
 ```
 
 Bir blob--eşitleme kopyalama seçeneği olmadan kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
@@ -328,11 +323,10 @@ Bir blob--eşitleme kopyalama seçeneği olmadan kopyaladığınızda bir [sunuc
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 Bir blob--eşitleme kopyalama seçeneği olmadan kopyaladığınızda bir [sunucu tarafı kopyası](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) işlemi gerçekleştirilir.
@@ -341,11 +335,10 @@ Bir blob--eşitleme kopyalama seçeneği olmadan kopyaladığınızda bir [sunuc
 
 ```azcopy
 azcopy \
-    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 \
-    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2 \
+    --source https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1/abc.txt \
+    --destination https://myaccount2.blob.core.windows.net/mynewcontainer2/abc.txt \
     --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt"
+    --dest-key <key2>
 ```
 
 Okuma erişimli coğrafi olarak yedekli depolama etkin olması gerektiğini unutmayın.
@@ -354,8 +347,8 @@ Okuma erişimli coğrafi olarak yedekli depolama etkin olması gerektiğini unut
 
 ```azcopy
 azcopy \
-    --source https://sourceaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://destaccount.blob.core.windows.net/mycontainer2 \
+    --source https://sourceaccount.blob.core.windows.net/mycontainer1/ \
+    --destination https://destaccount.blob.core.windows.net/mycontainer2/ \
     --source-key <key1> \
     --dest-key <key2> \
     --include "abc.txt" \
@@ -392,10 +385,9 @@ azcopy \
 
 ```azcopy
 azcopy \
-    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/ \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --include "abc.txt"
+    --source https://myaccount.file.core.windows.net/myfileshare/myfolder1/abc.txt \
+    --destination /mnt/myfiles/abc.txt \
+    --source-key <key>
 ```
 
 Belirtilen kaynak bir Azure dosya paylaşımıdır sonra ya da tam dosya adını belirtmeniz gerekir (*örneğin* `abc.txt`) tek bir dosya indirme veya seçenek belirtmek için `--recursive` paylaşımı yinelemeli olarak tüm dosyaları indirmek için. Bir dosya düzeni ve seçenek belirtmek çalışırken `--recursive` birlikte hatayla sonuçlanır.
@@ -417,10 +409,9 @@ Boş klasörleri indirilmez unutmayın.
 
 ```azcopy
 azcopy \
-    --source /mnt/myfiles \
-    --destination https://myaccount.file.core.windows.net/myfileshare/ \
-    --dest-key <key> \
-    --include abc.txt
+    --source /mnt/myfiles/abc.txt \
+    --destination https://myaccount.file.core.windows.net/myfileshare/abc.txt \
+    --dest-key <key>
 ```
 
 ### <a name="upload-all-files"></a>Tüm dosyaları karşıya yükleme
@@ -543,11 +534,10 @@ AzCopy bozulursa parametresi iki satır arasında bölmek için aşağıda göst
 
 ```azcopy
 azcopy \
-    --source https://myaccount.blob.core.windows.net/mycontainer1 \
-    --destination https://myaccount.blob.core.windows.net/mycontainer2 \
+    --source https://myaccount.blob.core.windows.net/mycontainer1/abc.txt \
+    --destination https://myaccount.blob.core.windows.net/mycontainer2/abc.txt \
     --source-sas <SAS1> \
-    --dest-sas <SAS2> \
-    --include abc.txt
+    --dest-sas <SAS2>
 ```
 
 Ayrıca, bir SAS kapsayıcısında URI belirtebilirsiniz:
@@ -558,8 +548,6 @@ azcopy \
     --destination /mnt/myfiles \
     --recursive
 ```
-
-AzCopy şu anda yalnızca destekler Not [hesap SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Günlük dosyası klasörü
 AzCopy için bir komut sorun her zaman varsayılan klasöründe bir günlük dosyası var olup var veya bu seçeneği belirtilen bir klasörde varolup denetler. Günlük dosyası her iki yerde mevcut değilse, AzCopy işlemi yeni olarak değerlendirir ve yeni bir günlük dosyası oluşturur.
@@ -609,47 +597,12 @@ azcopy \
 ### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Başlatmak için eşzamanlı işlem sayısını belirtin
 Seçenek `--parallel-level` eşzamanlı kopyalama işlemlerinin sayısını belirtir. Varsayılan olarak, belirli bir sayıda veri aktarımı verimliliğini artırmak için eşzamanlı işlem AzCopy başlatır. Eşzamanlı işlem sayısını eşittir sekiz katı elinizde işlemci sayısı. Düşük bant genişlikli ağ üzerinden AzCopy çalıştırıyorsanız, kaynak rekabet tarafından nedeniyle başarısız oldu önlemek için daha düşük bir sayı--paralel düzeyi için belirtebilirsiniz.
 
-[!TIP]
+>[!TIP]
 >AzCopy parametreler tam listesini görüntülemek için 'azcopy--Yardım' denetleyin menüsü.
 
 ## <a name="known-issues-and-best-practices"></a>Bilinen sorunlar ve en iyi uygulamalar
-### <a name="error-net-core-is-not-found-in-the-system"></a>Hata: .NET Core sistemde bulunamadı.
-.NET Core .NET Core ikili yolu sisteminde yüklü olmadığını belirten bir hatayla karşılaşırsanız `dotnet` eksik olabilir.
-
-Bu sorunu gidermek için .NET Core sisteminde ikili bulun:
-```bash
-sudo find / -name dotnet
-```
-
-Bu yol için dotnet ikili döndürür. 
-
-    /opt/rh/rh-dotnetcore11/root/usr/bin/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
-    /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
-
-Şimdi bu yolu PATH değişkenine ekleyin. Sudo için secure_path ikili dotnet yolunu içerecek şekilde düzenleyin:
-```bash 
-sudo visudo
-### Append the path found in the preceding example to 'secure_path' variable
-```
-
-Bu örnekte, secure_path değişken olarak okur:
-
-```
-secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
-```
-
-Geçerli kullanıcı için PATH değişkeni ikili dotnet yolunu içerecek şekilde.bash_profile/.profile Düzenle 
-```bash
-vi ~/.bash_profile
-### Append the path found in the preceding example to 'PATH' variable
-```
-
-.NET Core şimdi yolunda olduğundan emin olun:
-```bash
-which dotnet
-sudo which dotnet
-```
+### <a name="error-net-sdk-20-is-not-found-in-the-system"></a>Hata: .NET SDK 2.0 sistemde bulunamadı.
+.NET SDK sürüm AzCopy 7.0 başlangıç 2.0 AzCopy bağlıdır. Önce bu sürümü, .NET Core 1.1 AzCopy kullanılır. .NET Core 2.0 sistemde yüklü olmadığını belirten bir hatayla karşılaşırsanız, yükleme veya kullanarak yükseltme gerekebilir [.NET Core yükleme yönergeleri](https://www.microsoft.com/net/learn/get-started/linuxredhat).
 
 ### <a name="error-installing-azcopy"></a>AzCopy yükleme hatası
 AzCopy yükleme ile ilgili sorunlarla karşılaşırsanız, AzCopy bash betik ayıklanan kullanarak çalıştırmak çalışabilir `azcopy` klasör.

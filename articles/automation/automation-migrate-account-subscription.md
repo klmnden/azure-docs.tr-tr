@@ -3,7 +3,7 @@ title: "Otomasyon hesabı ve kaynakları geçirmek | Microsoft Docs"
 description: "Bu makalede, Azure Automation ve ilişkili kaynakları Automation hesabında bir aboneliği taşımak açıklar."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9c2db4a2-f324-48dc-8ce7-3343bf7230d5
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 6a6765753e0dadf31692819a9d8f2ca7e77c7f10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c13ee767cc2a1fb7880e6d0491cd6a247c737c13
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="migrate-automation-account-and-resources"></a>Otomasyon hesabı ve kaynakları geçirme
 Automation hesapları ve Azure portalında oluşturduğunuz ve bir kaynak grubundan diğerine veya bir abonelik diğerine geçirmek istiyorsanız, ilişkili kaynakları (diğer bir deyişle, varlıkları, runbook'ları, modüller, vb.) için bunu kolayca gerçekleştirebilirsiniz [kaynakları taşımak](../azure-resource-manager/resource-group-move-resources.md) Özelliği Azure portalında kullanılabilir. Ancak, bu eylem işlemine devam etmeden önce önce aşağıdakileri gözden geçirmeniz gereken [kaynakları geçmeden önce denetim listesi](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) ve ek olarak, aşağıdaki listede Otomasyon için belirli.   

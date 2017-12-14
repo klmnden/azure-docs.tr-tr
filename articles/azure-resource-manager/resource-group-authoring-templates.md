@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 73d3397ac6527a216eadd6d0d013c97b86c55e6b
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: c0ec888dbe94229701391f1aed79a78d3cb90d77
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Yapı ve Azure Resource Manager şablonları sözdizimi anlama
 Bu makalede Azure Resource Manager şablonu yapısını tanımlar. Bir şablon ve bu bölümlerdeki özellikler farklı bölümlerini gösterir. JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler, şablon oluşur. Şablon oluşturmanın adım adım öğretici için bkz [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
@@ -188,152 +188,23 @@ Aşağıdaki örnekte basit bir değişken tanımını gösterir:
 Değişkenleri tanımlama hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları değişkenleri bölümünde](resource-manager-templates-variables.md).
 
 ## <a name="resources"></a>Kaynaklar
-Kaynaklar bölümünde dağıtılan veya güncelleştirilen kaynakları tanımlayın. Sağ değerlerini sağlamak için dağıtıyorsanız türlerini anlamanız gerekir çünkü bu bölümde karmaşık elde edebilirsiniz. Ayarlamak için gereken kaynak özgü değerleri için (apiVersion, türü ve özellikleri), bkz: [kaynakları tanımlayan Azure Resource Manager şablonları](/azure/templates/). 
-
-Aşağıdaki Yapı kaynaklarını tanımlayın:
+Kaynaklar bölümünde dağıtılan veya güncelleştirilen kaynakları tanımlayın. Sağ değerlerini sağlamak için dağıtıyorsanız türlerini anlamanız gerekir çünkü bu bölümde karmaşık elde edebilirsiniz.
 
 ```json
 "resources": [
   {
-      "condition": "<boolean-value-whether-to-deploy>",
-      "apiVersion": "<api-version-of-resource>",
-      "type": "<resource-provider-namespace/resource-type-name>",
-      "name": "<name-of-the-resource>",
-      "location": "<location-of-resource>",
-      "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-      },
-      "comments": "<your-reference-notes>",
-      "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
-          "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
-      },
-      "dependsOn": [
-          "<array-of-related-resource-names>"
-      ],
-      "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-              {
-                  "name": ,
-                  "count": ,
-                  "input": {}
-              }
-          ]
-      },
-      "resources": [
-          "<array-of-child-resources>"
-      ]
-  }
-]
-```
-
-| Öğe adı | Gerekli | Açıklama |
-|:--- |:--- |:--- |
-| koşul | Hayır | Kaynak dağıtılabilir olup olmadığını gösteren Boole değeri. |
-| apiVersion |Evet |Kaynak oluşturmak için kullanmak için REST API sürümü. |
-| type |Evet |Kaynak türü. Bu değer, kaynak sağlayıcısı ve kaynak türü ad birleşimidir (gibi **Microsoft.Storage/storageAccounts**). |
-| ad |Evet |Kaynağın adı. Ad RFC3986 içinde tanımlanan URI bileşeni kısıtlamaları izlemelidir. Ayrıca, emin olmak için adı dışında tarafların doğrulamak için kaynak adı kullanıma Azure Hizmetleri değil başka bir kimlik aldatma girişimi. |
-| location |Değişir |Sağlanan kaynak coğrafi konumda desteklenmiyor. Kullanılabilir konumlardan herhangi birinden seçebilirsiniz, ancak genellikle kullanıcılarınızın yakın olan bir seçmek için mantıklıdır. Genellikle, bu da aynı bölgede birbiriyle etkileşimde kaynakları yerleştirin mantıklıdır. Çoğu kaynak türleri bir konum gerektirir, ancak bazı türleri (örneğin, bir rol ataması) bir konum gerektirmez. Bkz: [Azure Resource Manager şablonları kaynak konumunu ayarla](resource-manager-template-location.md). |
-| etiketler |Hayır |Kaynakla ilişkilendirilmiş etiketler. Bkz: [Azure Resource Manager'da kaynakları etiketi](resource-manager-template-tags.md). |
-| Açıklamaları |Hayır |Şablonunuzda kaynaklar belgeleme için notları |
-| kopyala |Hayır |Birden fazla örneği gerekirse oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm kullanmak istemiyorsanız, seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
-| dependsOn |Hayır |Bu kaynak dağıtılmadan önce dağıtılmalıdır kaynaklar. Resource Manager kaynakları arasındaki bağımlılıkları değerlendirir ve doğru sırada dağıtır. Kaynakları birbirlerine bağımlı olmadıkları zaman bunların paralel olarak dağıtılır. Değer bir kaynağın virgülle ayrılmış bir liste olabilir adları veya kaynak benzersiz tanımlayıcıları. Yalnızca bu şablonda dağıtılan kaynakları listeler. Bu şablonda tanımlı değil kaynakları önceden var olmalıdır. Dağıtımınızı yavaş ve döngüsel bağımlılıklar oluşturma gibi gereksiz bağımlılıkları eklemekten kaçının. Bağımlılıklarını ayarlama hakkında yönergeler için bkz [Azure Resource Manager'da bağımlılıkları tanımlama](resource-group-define-dependencies.md). |
-| properties |Hayır |Kaynak özgü yapılandırma ayarları. Özelliklerine ilişkin değerleri kaynak oluşturmak REST API işlemi için (PUT yöntemini) istek gövdesinde sağladığınız değerleri ile aynıdır. Ayrıca bir özelliği birden çok örneğini oluşturmak için bir kopya dizisi belirtebilirsiniz. Daha fazla bilgi için bkz: [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
-| kaynaklar |Hayır |Tanımlanan kaynağına bağımlı alt kaynakları. Yalnızca üst kaynak şema tarafından izin verilen kaynak türleri sağlar. Tam olarak nitelenmiş tür alt kaynağının üst kaynak türü gibi içerir **Microsoft.Web/sites/extensions**. Üst Kaynak bağımlılığı kullanılmaz. Bu bağımlılık açıkça tanımlamanız gerekir. |
-
-Kaynaklar bölümünde dağıtmak amacıyla kaynaklarınızı dizisi içerir. Her kaynak içinde bir dizi alt kaynakları da tanımlayabilirsiniz. Bu nedenle, kaynakları bölümünüzü gibi bir yapıya sahip:
-
-```json
-"resources": [
-  {
-      "name": "resourceA",
-  },
-  {
-      "name": "resourceB",
-      "resources": [
-        {
-            "name": "firstChildResourceB",
-        },
-        {   
-            "name": "secondChildResourceB",
-        }
-      ]
-  },
-  {
-      "name": "resourceC",
-  }
-]
-```      
-
-Alt kaynakları tanımlama hakkında daha fazla bilgi için bkz: [Resource Manager şablonunda alt kaynak için ad ve tür ayarlamak](resource-manager-template-child-resource.md).
-
-**Koşulu** öğesi kaynak dağıtılabilir olup olmadığını belirtir. Bu öğe için değer true veya false değerine çözümler. Örneğin, yeni bir depolama hesabı dağıtılabilir olup olmadığını belirtmek için kullanın:
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
+    "apiVersion": "2016-08-01",
+    "name": "[variables('webSiteName')]",
+    "type": "Microsoft.Web/sites",
     "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
+    "properties": {
+      "serverFarmId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Web/serverFarms/<plan-name>"
+    }
+  }
+],
 ```
 
-Yeni veya mevcut bir kaynağı kullanarak bir örnek için bkz: [yeni veya varolan bir koşul şablonu](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResources.NewOrExisting.json).
-
-Bir sanal makine bir parola veya SSH anahtarı ile birlikte dağıtılabilir olup olmadığını belirlemek için iki sürümünü sanal makine, şablon ve kullanım tanımlama **koşulu** kullanım ayırt etmek için. Dağıtmak için hangi senaryonun belirten bir parametre geçirin.
-
-```json
-{
-    "condition": "[equals(parameters('passwordOrSshKey'),'password')]",
-    "apiVersion": "2016-03-30",
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[concat(variables('vmName'),'password')]",
-    "properties": {
-        "osProfile": {
-            "computerName": "[variables('vmName')]",
-            "adminUsername": "[parameters('adminUsername')]",
-            "adminPassword": "[parameters('adminPassword')]"
-        },
-        ...
-    },
-    ...
-},
-{
-    "condition": "[equals(parameters('passwordOrSshKey'),'sshKey')]",
-    "apiVersion": "2016-03-30",
-    "type": "Microsoft.Compute/virtualMachines",
-    "name": "[concat(variables('vmName'),'ssh')]",
-    "properties": {
-        "osProfile": {
-            "linuxConfiguration": {
-                "disablePasswordAuthentication": "true",
-                "ssh": {
-                    "publicKeys": [
-                        {
-                            "path": "[variables('sshKeyPath')]",
-                            "keyData": "[parameters('adminSshKey')]"
-                        }
-                    ]
-                }
-            }
-        },
-        ...
-    },
-    ...
-}
-``` 
-
-Sanal makineyi dağıtmak için bir parola veya SSH anahtarı kullanarak bir örnek için bkz: [kullanıcı adı veya SSH koşul şablon](https://github.com/rjmax/Build2017/blob/master/Act1.TemplateEnhancements/Chapter05.ConditionalResourcesUsernameOrSsh.json).
+Daha fazla bilgi için bkz: [Azure Resource Manager şablonları kaynakları bölümünü](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Çıkışlar
 Çıkış bölümünde dağıtımından döndürülen değerlerini belirtin. Örneğin, dağıtılan bir kaynağa erişmek için URI döndürebilirsiniz.

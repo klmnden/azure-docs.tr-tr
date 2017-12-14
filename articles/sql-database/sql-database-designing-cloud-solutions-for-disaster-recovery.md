@@ -13,21 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
 ms.workload: On Demand
-ms.date: 09/08/2017
 ms.author: sashan
-ms.openlocfilehash: 0fb11ee553685618cc7466d3ad8b07ba01611027
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.reviewer: carlrab
+ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Azure SQL veritabanı kullanarak yüksek oranda kullanılabilir hizmetler tasarlama
 
 Derleme ve Azure SQL veritabanı yüksek oranda kullanılabilir hizmetleri dağıtma, kullandığınız [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) bölgesel kesintiler ve geri dönülemez hataları için esneklik sağlamak için. Ayrıca, ikincil veritabanlarıyla Hızlı Kurtarma sağlar. Bu makale üzerinde ortak uygulama düzenleri odaklanır ve avantajları ve dengelemeler her seçenekle ele almaktadır. Esnek havuzlar etkin coğrafi çoğaltma hakkında daha fazla bilgi için bkz: [esnek havuz olağanüstü durum kurtarma stratejilerini](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Senaryo 1: en az kapalı kalma süresi ile iş sürekliliği için iki Azure bölgeleri kullanma
-Bu senaryoda, uygulamalar, aşağıdaki özelliklere sahiptir: 
+Bu senaryoda, uygulamaları aşağıdaki özelliklere sahiptir: 
 *   Uygulama bir Azure bölgesinde etkindir
 *   Tüm veritabanı oturumları okuma ve yazma erişimi (RW) veri gerektirir
 *   Web Katmanı ve veri katmanı gecikme süresi ve trafik maliyetini azaltmak için birlikte bulunan gerekir 
@@ -109,7 +110,7 @@ Bu senaryoda, uygulama aşağıdaki özelliklere sahiptir:
 * Okuma gecikmesi için son kullanıcı deneyimi kritik 
 
 
-Kullanıcı cihazı güvence altına almak gereken bu gereksinimleri ka|rşılamak için **her zaman** gözatma verileri gibi salt okunur işlemler için aynı Coğrafya dağıtılan uygulamayı bağlandığı analytics vb. OLTP işlemleri aynı Coğrafya işlenir ancak **çoğu zaman**. Örneğin, günlük süre içinde aynı coğrafi bölge OLTP işlemleri işlenir ancak kapalı saatlerde bunlar farklı bir Coğrafya işlenemedi. Son kullanıcı etkinliği çoğunlukla çalışma saatlerinde olursa, en iyi performans için kullanıcıların çoğunun garanti edebilir çoğu zaman. Aşağıdaki diyagramda bu topoloji gösterilmektedir. 
+Kullanıcı cihazı güvence altına almak gereken bu gereksinimleri karşılamak için **her zaman** gözatma verileri gibi salt okunur işlemler için aynı Coğrafya dağıtılan uygulamayı bağlandığı analytics vb. OLTP işlemleri aynı Coğrafya işlenir ancak **çoğu zaman**. Örneğin, günlük süre içinde aynı coğrafi bölge OLTP işlemleri işlenir ancak kapalı saatlerde bunlar farklı bir Coğrafya işlenemedi. Son kullanıcı etkinliği çoğunlukla çalışma saatlerinde olursa, en iyi performans için kullanıcıların çoğunun garanti edebilir çoğu zaman. Aşağıdaki diyagramda bu topoloji gösterilmektedir. 
  
 Uygulamanın kaynaklarını önemli kullanım isteğe bağlı olduğu her Coğrafya dağıtılmalıdır. Uygulamanızı etkin olarak Amerika Birleşik Devletleri'nde kullandıysanız, örneğin, Avrupa Birliği ve Güneydoğu Asya uygulamanın tüm bu coğrafyalara dağıtılmalıdır. Birincil veritabanı dinamik olarak bir Coğrafya'dan sonraki çalışma saatleri sona erdiğinde geçirilmesi. Bu yöntem, "sun takip" adı verilir. OLTP iş yükü veritabanını okuma-yazma dinleyicisi aracılığıyla her zaman bağlandığı  **&lt;yük devretme grup adı&gt;. database.windows.net** (1). Salt okunur iş yükü veritabanları sunucusu uç noktası kullanarak doğrudan yerel veritabanına bağlanan  **&lt;sunucu adı&gt;. database.windows.net** (2). Trafik Yöneticisi ile yapılandırıldığında [performans yönlendirme yöntemini](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Bu, son kullanıcının aygıtı en yakın bölgeyi web hizmetinde bağlandığı sağlar. Trafik Yöneticisi uç noktası izleme her web hizmeti uç noktası (3) etkin ayarlanmalıdır.
 
@@ -151,7 +152,7 @@ Ancak bazı **dengelerin**:
 ## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>İş sürekliliği planlama: Bulut olağanüstü durum kurtarma için bir uygulama tasarımı seçin
 Özel bulut olağanüstü durum kurtarma stratejiniz birleştirebilir veya en iyi uygulamanızın ihtiyaçlarını karşılamak için bu tasarım desenleri genişletir.  Daha önce belirtildiği gibi seçtiğiniz stratejisi müşterileriniz ve uygulama dağıtım topolojisi sunmak isteyebilirsiniz SLA temel alır. Kararınızı yol göstermesi için kurtarma noktası hedefi (RPO) ve tahmini kurtarma saatini (Ekle) temel alan seçenekleri aşağıdaki tabloda karşılaştırır.
 
-| düzeni | RPO | EKLE |
+| Desen | RPO | EKLE |
 |:--- |:--- |:--- |
 | Aktif-Pasif dağıtım birlikte bulunan veritabanı erişimi olan olağanüstü durum kurtarma |Okuma-yazma erişimi < 5 saniye |Hata algılama süresi + DNS TTL |
 | Uygulama Yük Dengeleme için etkin-etkin dağıtım |Okuma-yazma erişimi < 5 saniye |Hata algılama süresi + DNS TTL |

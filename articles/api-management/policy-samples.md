@@ -10,14 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: ae62638fd1d325822b15b7de998861d4df67bd8e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.custom: mvc
+ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="api-management-policy-samples"></a>API Management ilkesi örnekleri
 

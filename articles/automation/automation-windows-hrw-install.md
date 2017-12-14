@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: d889fda72f54af3a5f6db24f7ee6632f72eacb88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 5f55d64d08a9c3ed98a47aa4ba00a6b1f698144e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -96,7 +96,7 @@ Bölümündeki yönergeleri izleyin [Çözümleri Galerisi kullanarak bir çöz�
 
 Microsoft Monitoring Agent, Operations Management Suite bilgisayarlara bağlanır.  Şirket içi bilgisayarınıza aracıyı yüklemek ve alanınıza bağlanın, karma Runbook çalışanı için gerekli bileşenleri otomatik olarak indirir.
 
-Bölümündeki yönergeleri izleyin [günlük analizi bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agents.md) şirket içi bilgisayara aracı yüklemek için.  Birden çok Worker ortamınıza eklemek için birden çok bilgisayar için bu işlemi yineleyebilirsiniz.
+Bölümündeki yönergeleri izleyin [günlük analizi bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agent.md) şirket içi bilgisayara aracı yüklemek için.  Birden çok Worker ortamınıza eklemek için birden çok bilgisayar için bu işlemi yineleyebilirsiniz.
 
 Aracı başarıyla Operations Management Suite bağlandığında, üzerinde listelenecektir **bağlı kaynakları** Operations Management Suite sekmesinde **ayarları** bölmesi.  Adlı bir klasör varsa, aracı doğru Otomasyon çözümünü indirdiğini doğrulamak **AzureAutomationFiles** C:\Program Files\Microsoft Monitoring Agent\Agent içinde.  Karma Runbook çalışanı sürümünü onaylamak için C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ ve Not gezinebilirsiniz \\ *sürüm* alt klasörü.   
 

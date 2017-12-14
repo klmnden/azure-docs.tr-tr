@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 0f7b90a77ab321ee726245c82ea27635438070c0
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
@@ -113,7 +113,7 @@ Ne yazık ki bu bir kolay düzeltme yoktur. Yüklü BITS kaldırın ve çalışm
    - Yukarıdaki komut dosyasını başlatır masaüstü kısayolu
    - Yükleyici https://aka.ms/azureml-wb-msi indirin ve yükleyin.
 
-## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Oturum açtıktan sonra "deneme hesabı denetim" ekranında takılı
+## <a name="stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Oturum açtıktan sonra "deneme hesabı denetim" ekranında takılmış
 Oturum açtıktan sonra çalışma ekranı uygulama boş bir ekranda dönen Tekerlek "denetleme deneme hesabı" gösteren bir iletiyle takılı. Bu sorunu çözmek için aşağıdaki adımları uygulayın:
 1. Uygulama kapatma
 2. Aşağıdaki dosya sil:
@@ -147,6 +147,13 @@ Windows 10 sonbaharda oluşturucuları güncelleştirme varsa ve projenizin OneD
 
 ## <a name="file-name-too-long-on-windows"></a>Windows dosya adı çok uzun
 Windows çalışma ekranı kullanıyorsanız, "Sistem belirtilen yol bulunamıyor" hata olarak yüzey varsayılan en fazla 260 karakter dosya adı uzunluğu sınırı içinde çalıştırabilirsiniz. Çok uzun dosya yolu adı izin vermek için bir kayıt defteri anahtarı ayarı değiştirebilirsiniz. Gözden geçirme [bu makalede](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) nasıl ayarlanacağı hakkında daha fazla ayrıntı için _MAX_PATH_ kayıt defteri anahtarı.
+
+## <a name="interrupt-cli-execution-output"></a>CLI yürütme çıktısını kesme
+Kullanarak çalışan bir deneme kazandırın varsa `az ml experiment submit` veya `az ml notebook start` ve çıktı kesmek istiyor musunuz: 
+- Windows üzerinde klavyeden Ctrl-Break tuş bileşimini kullanın
+- Ctrl + c macOS üzerinde kullanın
+
+Bu yalnızca CLI penceresinde çıkış akışı keser unutmayın. Yürütülmekte olan bir işi aslında durdurmaz. Devam eden işi iptal etmek istiyorsanız, kullanmak `az ml experiment cancel -r <run_id> -t <target name>` komutu.
 
 ## <a name="docker-error-read-connection-refused"></a>Docker hata "okuma: bağlantı reddedildi"
 Bazen yerel bir Docker kapsayıcısı karşı çalıştırırken şu hatayı görebilirsiniz: 
@@ -198,9 +205,9 @@ Bir hızlı düzeltme artık kullanmadığınız tüm Docker görüntüleri kald
 $ docker system prune -a
 ```
 
-Ayrıca, bir veri diski ekleyin ve görüntüleri saklamak için veri diski kullanmak için Docker altyapısına yapılandırın. Burada [bir veri diski ekleme](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk). Daha sonra [Docker görüntüleri depoladığı değişiklik](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
+Ayrıca, bir veri diski ekleyin ve görüntüleri saklamak için veri diski kullanmak için Docker altyapısına yapılandırın. Burada [bir veri diski ekleme](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk). Daha sonra [Docker görüntüleri depoladığı değişiklik](https://forums.docker.com/t/how-do-i-change-the-docker-image-installation-directory/1169).
 
-Veya, işletim sistemi diski genişletebilirsiniz ve Docker altyapısı yapılandırması touch gerekmez. Burada [nasıl işletim sistemi diski genişletebilirsiniz](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/add-disk).
+Veya, işletim sistemi diski genişletebilirsiniz ve Docker altyapısı yapılandırması touch gerekmez. Burada [nasıl işletim sistemi diski genişletebilirsiniz](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ## <a name="sharing-c-drive-on-windows"></a>Windows C sürücüsünde paylaşımı
 Windows yerel bir Docker kapsayıcısı içinde çalıştırıldığında, ayarı `sharedVolumes` için `true` içinde `docker.compute` altında dosya `aml_config` yürütme performansını iyileştirebilir. Ancak, bu C sürücüsünde paylaşmak gerektirir _Windows aracı için Docker_. C sürücüsünün paylaşmak mümkün değilse, aşağıdaki ipuçlarını deneyin:

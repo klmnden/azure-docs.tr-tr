@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir dışa aktarma işi oluşturma
 REST API kullanarak Microsoft Azure içeri/dışarı aktarma hizmeti için bir dışarı aktarma işinin oluşturma, aşağıdaki adımları içerir:
@@ -57,7 +57,7 @@ Sevkiyat konumu ad ve adres çağırarak elde etmeniz bir dışarı aktarma işi
 
 Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 
--   Konumun depolama hesabınızın adını belirleyin. Bu değer altında bulunabilir **konumu** depolama hesabının alanını **Pano** Klasik portal ya da hizmet yönetimi API işlemi kullanarak için sorgulanan içinde [depolama hesabı özellikleri Al](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Konumun depolama hesabınızın adını belirleyin. Bu değer altında bulunabilir **konumu** depolama hesabının alanını **Pano** Azure portal ya da hizmet yönetimi API işlemi kullanarak için sorgulanan [depolama hesabı özellikleri Al](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
 -   Bu depolama hesabını çağırarak işlemek için kullanılabilecek konumu almak `Get Location` işlemi.
 

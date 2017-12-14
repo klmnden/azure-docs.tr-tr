@@ -3,7 +3,7 @@ title: "Runbook giriş parametreleri | Microsoft Docs"
 description: "Runbook giriş parametreleri başlatıldığında bir runbook'a veri iletmek sağlayarak runbook'lar esnekliğini artırır. Bu makalede giriş parametreleri runbook'ları kullanıldığı farklı senaryolar anlatılmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: e5a2afdc0dbe6171b27c11400f460eac46147f37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-input-parameters"></a>Runbook giriş parametreleri
 
@@ -97,7 +97,7 @@ Kullanabileceğiniz [ **Write-Output** ](https://technet.microsoft.com/library/h
    | Açıklama |İsteğe bağlı. Giriş parametresi amacı hakkında açıklama. |
    | Tür |İsteğe bağlı. Parametre değeri beklenen veri türü. Desteklenen parametre türleri **dize**, **Int32**, **Int64**, **ondalık**, **Boolean**, **DateTime**, ve **nesne**. Bir veri türü seçili değilse, varsayılan olarak **dize**. |
    | Zorunlu |İsteğe bağlı. Bir değer parametresi için sağlanan olup olmadığını belirtir. Seçerseniz **Evet**, sonra da runbook başlatılırken bir değer sağlanmalıdır. Seçerseniz **hiçbir**, bir değer runbook başlatıldığında ve varsayılan bir değer ayarlanabilir gerekli değildir. |
-   | Varsayılan değer |İsteğe bağlı. Runbook başlatılırken bir değer değil geçtiyse parametresi için kullanılan bir değeri belirtir. Varsayılan değer, zorunlu olmayan bir parametre için ayarlanabilir. Varsayılan bir değer ayarlamak için seçin **özel**. Runbook başlatılırken başka bir değer sağlanmadığı sürece bu değer kullanılır. Seçin **hiçbiri** herhangi bir varsayılan değer sağlamak istemiyorsanız. |
+   | Varsayılan Değer |İsteğe bağlı. Runbook başlatılırken bir değer değil geçtiyse parametresi için kullanılan bir değeri belirtir. Varsayılan değer, zorunlu olmayan bir parametre için ayarlanabilir. Varsayılan bir değer ayarlamak için seçin **özel**. Runbook başlatılırken başka bir değer sağlanmadığı sürece bu değer kullanılır. Seçin **hiçbiri** herhangi bir varsayılan değer sağlamak istemiyorsanız. |
    
     ![Yeni giriş Ekle](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. Tarafından kullanılan aşağıdaki özelliklere sahip iki parametre oluşturma **Get-AzureRmVm** etkinlik:
