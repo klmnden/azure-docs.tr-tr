@@ -4,7 +4,7 @@ description: "Bu, nasıl Azure MFA ve kullanıcı portalını kullanmaya başlay
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 2a4f64524f94a782434306f89f6ad1034297c4cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını kullanma
 
@@ -45,7 +45,7 @@ Ortamınıza bağlı olarak, kullanıcı portalını Azure Multi-Factor Authenti
 3. Herhangi bir nedenden dolayı değiştirmeniz gerekmiyorsa varsayılan değerleri kullanarak yüklemeyi tamamlayın.
 4. IIS'de siteye bir SSL sertifikası bağlayın.
 
-IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa bkz. [IIS'de SSL ayarlama](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa bkz. [IIS'de SSL ayarlama](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 Web Hizmeti SDK’sı bir SSL sertifikası ile güvenli hale getirilmelidir. Bu amaç için otomatik olarak imzalanan bir sertifika kullanılabilir. Kullanıcı Portalı web sunucusunun SSL bağlantısı başlatırken bu sertifikaya güvenebilmesi için sertifikayı sunucudaki Yerel Bilgisayar hesabının “Güvenilen Kök Sertifika Yetkilileri” deposuna aktarın.
 
@@ -73,7 +73,7 @@ Kullanıcı portalını dağıtmak için aşağıdaki adımları izleyin:
 
 ![MFA Sunucusu Kullanıcı Portalını yükleme](./media/multi-factor-authentication-get-started-portal/install.png)
 
-IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa bkz. [IIS'de SSL ayarlama](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa bkz. [IIS'de SSL ayarlama](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Kullanıcı portalını ayrı bir sunucuya dağıtma
 
@@ -110,7 +110,7 @@ Azure Multi-Factor Authentication Sunucusu dışında bir sunucuya kullanıcı p
 
 6. Herhangi bir bilgisayarda web tarayıcısını açın ve kullanıcı portalının yüklendiği URL’ye gidin (örneğin https://mfa.contoso.com/MultiFactorAuth). Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
 
-IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa bkz. [IIS'de SSL ayarlama](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa bkz. [IIS'de SSL ayarlama](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nda kullanıcı portalı ayarlarını yapılandırma
 

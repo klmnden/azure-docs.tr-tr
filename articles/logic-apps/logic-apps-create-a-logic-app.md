@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: LADocs; estfan
 ms.openlocfilehash: 5906605192f9b03f612e6ca3a445434a23713d7f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="automate-your-first-workflow-to-process-data-with-a-logic-app"></a>Bir mantıksal uygulamayla veri işlemek için ilk iş akışınızı otomatikleştirme
 

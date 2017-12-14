@@ -4,7 +4,7 @@ description: "Bu Azure AD Connect Health sayfasında, AD FS ve Eşitleme için a
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: aa371372dd07b8a5c8bd988c84b830a18c560953
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ad61870b49f7a8753e4dbd2e34847daf14b793a0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
 Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.

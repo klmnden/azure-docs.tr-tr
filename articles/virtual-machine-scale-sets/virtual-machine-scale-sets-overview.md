@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a786e9baa275e029343571bdb9a6480334f5cf3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure’daki sanal makine ölçek kümeleri nedir?
 Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure işlem kaynağıdır. Tüm sanal makinelerin aynı şekilde yapılandırıldığı ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır ve sanal makinelerin önceden hazırlanması gerekmez. Bu nedenle büyük işlem, büyük veri ve kapsayıcı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
@@ -124,7 +124,7 @@ Bu bölümde tipik ölçek kümesi senaryolarından bazıları listelenmektedir.
 * Bir ölçek kümesi en çok 1.000 VM’yi destekler. Kendi özel VM görüntülerinizi oluşturur ve karşıya yüklerseniz, sınır 300’dür. Büyük ölçek kümeleri kullanma hakkında konular için bkz. [Büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md).
 * Ölçek kümelerini kullanmak için Azure depolama hesaplarını önceden oluşturmanız gerekmez. Ölçek kümeleri Azure yönetilen diskleri destekleyerek depolama hesabı başına disk sayısı ile ilgili performans endişelerini giderir. Daha fazla bilgi için bkz. [Azure sanal makine ölçek kümeleri ve yönetilen diskler](virtual-machine-scale-sets-managed-disks.md).
 * Daha hızlı, daha öngörülebilir VM sağlama zamanları ve gelişmiş G/Ç performansı için Azure Depolama yerine Azure Premium Depolama kullanmayı düşünün.
-* Dağıtım yaptığınız bölgedeki vCPU kotası, oluşturabileceğiniz VM sayısını sınırlar. Şu anda Azure Cloud Services ile kullanmak üzere yüksek vCPU sınırına sahip olsanız bile, işlem kota sınırınızı yükseltmek için Müşteri Desteği ile iletişim kurmanız gerekebilir. Kotanızı sorgulamak için bu Azure CLI komutunu çalıştırın: `azure vm list-usage`. Veya bu PowerShell komutunu çalıştırın: `Get-AzureRmVMUsage`.
+* Dağıtım yaptığınız bölgedeki vCPU kotası, oluşturabileceğiniz VM sayısını sınırlar. Şu anda Azure Cloud Services ile kullanmak üzere yüksek vCPU sınırına sahip olsanız bile, işlem kota sınırınızı yükseltmek için Müşteri Desteği ile iletişim kurmanız gerekebilir. Kotanızı sorgulamak için bu Azure CLI komutunu çalıştırın: `az vm list-usage`. Veya bu PowerShell komutunu çalıştırın: `Get-AzureRmVMUsage`.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Ölçek kümeleri için sık sorulan sorular
 **S.** Bir ölçek kümesinde kaç tane sanal makinem olabilir?

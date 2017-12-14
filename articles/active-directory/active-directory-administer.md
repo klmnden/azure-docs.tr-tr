@@ -4,7 +4,7 @@ description: "Azure AD kiracısının ne olduğu ve Azure'ın, Azure Active Dire
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: f0ffb0b82acd002cb02adc6e82a447d2b788496f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-your-azure-ad-directory"></a>Azure AD dizininizi yönetme
 
@@ -98,7 +98,7 @@ Her dizini tamamen bağımsız bir kaynak olarak yönetebilirsiniz: Her dizin e�
   * Dizinde bir kullanıcının yönetici rolünü değiştirirseniz (ekler veya kaldırırsanız) bu değişiklik, kullanıcının başka bir dizinde sahip olduğu herhangi bir yönetici rolünü etkilemez.
 * **Eşitleme bağımsızlığı**. Her Azure AD kiracısını bağımsız olarak tek örnek Azure AD Connect dizin eşitleme aracı verilerini almak için yapılandırabilirsiniz.
 
-Diğer Azure kaynaklarının aksine dizinlerinizin bir Azure aboneliğinin alt kaynakları olmadığını unutmayın. Bu nedenle Azure aboneliğinizi iptal etseniz veya aboneliğinizin süresi dolsa bile Azure AD PowerShell'i, Azure Grafik API'sini veya Office 365 Yönetim Merkezi gibi diğer arabirimleri kullanarak dizin verilerinize erişmeye devam edersiniz. Ayrıca başka bir aboneliği dizinle ilişkilendirebilirsiniz.
+Diğer Azure kaynaklarının aksine dizinlerinizin bir Azure aboneliğinin alt kaynakları olmadığını unutmayın. Bu nedenle Azure aboneliğinizi iptal etseniz veya aboneliğinizin süresi dolsa bile Azure AD PowerShell'i, Azure Graph API'sini veya Office 365 Yönetim Merkezi gibi diğer arabirimleri kullanarak dizin verilerinize erişmeye devam edersiniz. Ayrıca başka bir aboneliği dizinle ilişkilendirebilirsiniz.
 
 ## <a name="how-to-prepare-to-delete-an-azure-ad-directory"></a>Azure AD dizinini silmeye hazırlanma
 Azure AD dizinini portaldan genel yönetici silebilir. Bir dizin silindiğinde dizinde bulunan tüm kaynaklar da silinir. Silmeden önce dizinin gerekmediğini doğrulayın.

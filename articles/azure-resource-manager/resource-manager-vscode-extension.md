@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 71544726b4ec8701ef558bf50d15bddfabd830cc
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 0dd48146624052fbd00093066d79067b75e33c92
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Azure Resource Manager şablonu oluşturmak için Visual Studio Code uzantısı kullanma
 Bu makalede, Visual Studio Code içinde Azure Resource Manager Araçları uzantısını kullanmanın avantajları gösterilir. VS Code'da uzantısı olmadan Resource Manager şablonları oluşturabilirsiniz, ancak uzantı, şablon geliştirmeyi kolaylaştıran otomatik tamamlama seçenekleri sağlar. Şablon işlevleri, parametreler ve şablonda kullanılabilir değişkenler önerir.
@@ -179,8 +179,8 @@ Bu makalede, [İlk Azure Resource Manager şablonunuzu oluşturma ve dağıtma](
          "value": "[resourceGroup().location]"
        },
        "storageUri": {
-         "type": "object",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
+         "type": "string",
+         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
        }
    }
    ```
@@ -247,8 +247,8 @@ Son şablon şöyledir:
       "value": "[resourceGroup().location]"
     },
     "storageUri": {
-      "type": "object",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
+      "type": "string",
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
     }
   }
 }

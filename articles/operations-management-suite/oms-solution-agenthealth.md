@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>OMS’de Aracı Durumu çözümü
 OMS’deki Aracı Durumu çözümü, doğrudan bir OMS çalışma alanına veya OMS’ye bağlı bir System Center Operations Manager yönetim grubuna bildirimde bulunan, yanıt vermeyen ve işletimsel veriler gönderen tüm aracıları anlamanıza yardımcı olur.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu çözümü dağıtmadan önce, OMS çalışma alanına veya OMS çalışma alanınızla tümleşik bir [Operations Manager yönetim grubuna](../log-analytics/log-analytics-om-agents.md) bildirimde bulunan ve geçerli olarak desteklenen [Windows aracılarınız](../log-analytics/log-analytics-windows-agents.md) olduğunu doğrulayın.    
+Bu çözümü dağıtmadan önce, OMS çalışma alanına veya OMS çalışma alanınızla tümleşik bir [Operations Manager yönetim grubuna](../log-analytics/log-analytics-om-agents.md) bildirimde bulunan ve geçerli olarak desteklenen [Windows aracılarınız](../log-analytics/log-analytics-windows-agent.md) olduğunu doğrulayın.    
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 Bu çözüm, çalışma alanınıza eklenen aşağıdaki kaynaklardan ve doğrudan bağlanılan aracılardan veya Operations Manager bağlantılı yönetim grubundan oluşur.

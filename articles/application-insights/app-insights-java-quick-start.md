@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 3c56719d99a5a3cc3e650b72ecd2e92438533448
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9246def86fa647213aa3ec12427d829c24fa8034
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java Web Uygulamanızı İzlemeye Başlama
 
@@ -30,7 +30,7 @@ Bu hızlı başlangıcı tamamlamak için:
 - [Ücretsiz Java EE Geliştiricileri için Eclipse IDE](http://www.eclipse.org/downloads/) yükleyin. Bu hızlı başlangıçta Eclipse Oxygen (4.7) kullanılır.
 - Bir Azure Aboneliği ve var olan bir Java Dynamic Web Projesi gerekir
  
-Bir Java Dynamic Web Projeniz yoksa [Java web uygulaması oluşturma hızlı başlangıcı](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-java) ile bir tane oluşturabilirsiniz.
+Bir Java Dynamic Web Projeniz yoksa [Java web uygulaması oluşturma hızlı başlangıcı](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java) ile bir tane oluşturabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -138,4 +138,4 @@ Sonraki hızlı başlangıçlar veya öğreticilerle devam etmeyi planlıyorsan�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Performans sorunlarını bulma ve tanılama](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)
+> [Performans sorunlarını bulma ve tanılama](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

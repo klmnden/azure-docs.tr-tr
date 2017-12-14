@@ -4,7 +4,7 @@ description: "Uygulamanızı Azure Active Directory B2C'ye kaydetme"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 6232459326599d244c6d3f055bf890e78ecf631e
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Uygulamanızı kaydetme
 
@@ -127,7 +127,7 @@ Yeniden yönlendirme URI'sinde alt çizgi gibi özel karakterler olmadığından
 B2C uygulamaları şu durumlarda DÜZENLENMEMELİDİR:
 
 * [Klasik Azure portalı](https://manage.windowsazure.com/) ve [Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/) gibi diğer uygulama yanıt portallarında.
-* Grafik API'si veya PowerShell kullanılarak
+* Graph API'si veya PowerShell kullanılarak
 
 B2C uygulamasını yukarıda açıklanan şekilde düzenleyip Azure portalının Azure AD B2C özellikleri dikey penceresinde yeniden düzenlemeye çalışırsanız, uygulama hatalı bir hale gelir ve Azure AD B2C ile artık kullanılamaz. Uygulamayı silip yeniden oluşturmanız gerekir.
 
