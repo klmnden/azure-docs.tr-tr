@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>System Center Configuration Manager’ı OMS Güncelleştirme Yönetimi ile Tümleştirme
 
@@ -41,7 +41,7 @@ Azure IaaS içinde barındırılan istemcileri mevcut Configuration Manager orta
 
 Güncelleştirme dağıtımlarını Configuration Manager’dan yönetmeye devam edecekseniz aşağıdaki adımları gerçekleştirin.  OSM, Log Analytics çalışma alanınıza bağlı istemci bilgisayarlara güncelleştirmeleri uygulamak için Configuration Manager’a bağlanır. Güncelleştirme içeriği, dağıtım Configuration Manager’dan yönetiliyormuş gibi istemci bilgisayar önbelleğinden alınabilir.  
 
-1. Configuration Manager hiyerarşinizde en üst düzeydeki siteden bir yazılım güncelleştirme dağıtımı oluşturmak için [yazılım güncelleştirme işlemini dağıtma](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates) bölümünde açıklanan işlemi kullanın.  Standart bir dağıtımdan farklı şekilde yapılandırılması gereken tek ayar, dağıtım paketinin indirme davranışını denetlemeye yönelik **Yazılım güncelleştirmelerini yükleme** seçeneğidir. Bu davranış, sonraki adımda zamanlanmış bir güncelleştirme dağıtımı oluşturularak OMS Güncelleştirme Yönetimi çözümü tarafından yönetilir.  
+1. Configuration Manager hiyerarşinizde en üst düzeydeki siteden bir yazılım güncelleştirme dağıtımı oluşturmak için [yazılım güncelleştirme işlemini dağıtma](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates) bölümünde açıklanan işlemi kullanın.  Standart bir dağıtımdan farklı şekilde yapılandırılması gereken tek ayar, dağıtım paketinin indirme davranışını denetlemeye yönelik **Yazılım güncelleştirmelerini yükleme** seçeneğidir. Bu davranış, sonraki adımda zamanlanmış bir güncelleştirme dağıtımı oluşturularak OMS Güncelleştirme Yönetimi çözümü tarafından yönetilir.  
 
 1. OMS portalında Güncelleştirme Yönetimi panosunu açın.  [Güncelleştirme Dağıtımı Oluşturma](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) içinde açıklanan adımları izleyerek yeni bir dağıtım oluşturun ve açılır listeden OMS bilgisayar grubu olarak ifade edilen uygun Configuration Manager koleksiyonunu seçin.  Aşağıdaki önemli noktaları göz önünde bulundurun:
     1. Seçili Configuration Manager cihaz koleksiyonunda bir bakım penceresi tanımlanmışsa, koleksiyonun üyeleri OMS’deki zamanlanmış dağıtımda tanımlanan **Süre** ayarı yerine bunu kullanır.

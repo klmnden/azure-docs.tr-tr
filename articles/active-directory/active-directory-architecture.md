@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 writer: v-lorisc
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: fa25f0435df79a78d39e8f89d702d3b64db79d65
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 3917984e4d7567fb70a34497cc1dd68a8e8c32b0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Azure Active Directory mimarisini anlama
 Azure Active Directory (Azure AD), kullanıcılarınız için Azure hizmet ve kaynaklarına erişimi güvenli bir şekilde yönetmenizi sağlar. Azure AD ile birlikte eksiksiz kimlik yönetimi olanakları sunulur. Azure AD özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
@@ -83,7 +83,7 @@ Azure AD çoğaltmaları, dünyanın dört bir yanında bulunan veri merkezlerin
 
 Azure AD aşağıdaki özelliklere sahip veri merkezlerinde çalışır:
 
- * Kimlik Doğrulama, Graph ve diğer AD hizmetleri, Gateway hizmetinin arkasında bulunur. Gateway bu hizmetlerin yük dengelemesini yönetir. İşlemsel durum yoklamaları kullanılarak sorunlu durumda olan sunucuların algılanması halinde, otomatik olarak yük devretmesi yapar. Bu durum yoklamalarına göre Gateway, trafiği sorunsuz çalışır durumda olan veri merkezlerine dinamik olarak yönlendirir.
+ * Kimlik Doğrulama, Graf ve diğer AD hizmetleri, Gateway hizmetinin arkasında bulunur. Gateway bu hizmetlerin yük dengelemesini yönetir. İşlemsel durum yoklamaları kullanılarak sorunlu durumda olan sunucuların algılanması halinde, otomatik olarak yük devretmesi yapar. Bu durum yoklamalarına göre Gateway, trafiği sorunsuz çalışır durumda olan veri merkezlerine dinamik olarak yönlendirir.
  * *Okumalar* için, dizin etkin-etkin bir yapılandırmada birden fazla veri merkezinde çalışan ikincil çoğaltmalara ve bunlara karşılık gelen ön uç hizmetlerine sahiptir. Tüm veri merkezinde hata oluşması durumunda, trafik otomatik olarak farklı bir veri merkezine yönlendirilir.
  *  *Yazma* işlemleri için dizin, birincil (ana) çoğaltmayı planlı (yeni birincil, eski birincil ile eşitlenir) veya acil durum yük devretme yordamları ile veri merkezlerine devreder. Veri dayanıklılığı, herhangi bir işlemenin en az iki veri merkezine çoğaltılması yoluyla elde edilir.
 
@@ -93,7 +93,7 @@ Dizin modeli nihai tutarlılığa sahiptir. Zaman uyumsuz olarak çoğaltılan d
 
 Azure AD, yazma işlemlerini birincil çoğaltmaya yönlendirerek ve eşzamanlı olarak ikincil çoğaltmaya geri çekerek, ikincil çoğaltmayı hedefleyen uygulamalar için okuma-yazma tutarlılığı sağlar.
 
-Azure AD’nin Graph API’sini kullanan uygulama yazma işlemleri, okuma-yazma tutarlılığı için dizin çoğaltması ile benzeşim sağlama yönteminden yararlanır. Azure AD Graph hizmeti, okumalar için kullanılan bir ikincil çoğaltma ile benzeşimi olan mantıksal bir oturum sürdürür; benzeşim, graph hizmetinin dağıtılmış bir önbellek kullanarak önbelleğe aldığı bir “çoğaltma belirtecinde” yakalanır. Bu belirteç aynı mantıksal oturumun daha sonraki işlemleri için kullanılır. 
+Azure AD’nin Graph API’sini kullanan uygulama yazma işlemleri, okuma-yazma tutarlılığı için dizin çoğaltması ile benzeşim sağlama yönteminden yararlanır. Azure AD Graph hizmeti, okumalar için kullanılan bir ikincil çoğaltma ile benzeşimi olan mantıksal bir oturum sürdürür; benzeşim, graf hizmetinin dağıtılmış bir önbellek kullanarak önbelleğe aldığı bir “çoğaltma belirtecinde” yakalanır. Bu belirteç aynı mantıksal oturumun daha sonraki işlemleri için kullanılır. 
 
  >[!NOTE]
  >Yazma işlemleri, mantıksal oturumdaki okumaların verildiği ikincil çoğaltmaya hemen çoğaltılır.

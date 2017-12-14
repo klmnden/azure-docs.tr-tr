@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: "kimlik doğrulama sunucusu, azure multi factor authentication uygulaması etkinleştirme sayfası, kimlik doğrulama sunucusu indirme"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a164dfa23a0bd8a598eb8871a160ced4158b172a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
 
@@ -89,7 +89,7 @@ Olay Onayı özelliğini kullanmıyorsanız ve kullanıcılarınız şirket ağ�
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-mfa-server---public-preview"></a>MFA Sunucusu'nu indirme - Genel önizleme
+## <a name="download-the-mfa-server"></a>MFA Sunucusu'nu indirme
 
 Azure portalından Azure Multi-Factor Authentication Sunucusu'nu indirmek için aşağıdaki adımları izleyin:
 
@@ -101,28 +101,6 @@ Azure portalından Azure Multi-Factor Authentication Sunucusu'nu indirmek için 
    ![MFA sunucusu indirme](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
 5. Yükleyiciyi çalıştırdıktan sonra bakacağımızdan bu sayfayı açık tutun.
-
-
-## <a name="download-the-mfa-server"></a>MFA Sunucusu'nu indirme
-
-pfweb portalından Azure Multi-Factor Authentication Sunucusu'nu indirmek için aşağıdaki adımları izleyin:
-
-1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
-2. Sol taraftaki **Active Directory** öğesini seçin.
-3. **Kullanıcı ve gruplar**'ı seçin
-4. **Tüm kullanıcılar**'ı seçin
-5. **Multi-Factor Authentication**'ı seçin
-6. **Multi-factor authentication** altında, **Hizmet ayarları**'nı seçin
-
-   ![Hizmet ayarları sayfası](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-
-6. Hizmetleri ayarları sayfasında, ekranın alt kısmında **Portal'a git**’e tıklayın. Yeni bir sayfa açılır.
-7. **İndirmeler**'i seçin.
-8. **İndir** bağlantısına tıklayıp yükleyici kaydedin.
-
-   ![MFA sunucusu indirme](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. Yükleyiciyi çalıştırdıktan sonra bakacağımızdan bu sayfayı açık tutun.
 
 ## <a name="install-and-configure-the-mfa-server"></a>MFA Sunucusu'nu yükleme ve yapılandırma
 
