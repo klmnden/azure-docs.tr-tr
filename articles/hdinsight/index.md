@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/05/2017
 ms.author: carolz
-ms.openlocfilehash: 8dce980e50b465b67d3d6f14dc79c48c5f2fcdb5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12fbfada95f9356b1d32c0edd3346a57c6ffa26f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 #<a name="azure-hdinsight-documentation"></a>Azure HDInsight Belgeleri
 
-Azure HDInsight’ı kullanarak akışı veya geçmiş verileri nasıl çözümleyebileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, küme oluşturma; büyük verileri işleme ve çözümleme ile Hadoop, Spark, Hive, LLAP, Kafka, Storm, R ve birçok diğer popüler açık kaynak altyapılarını kullanarak çözüm geliştirme konularında bilgiler sağlanmıştır 
+Azure HDInsight’ı kullanarak akışı veya geçmiş verileri nasıl çözümleyebileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, küme oluşturma; büyük verileri işleme ve çözümleme ile Hadoop, Spark, Hive, LLAP, Kafka, Storm, R ve birçok diğer popüler açık kaynak altyapılarını kullanarak çözüm geliştirme konularında bilgiler sağlanmıştır. 
 
 Azure HDInsight kuruluşlara yönelik tam yönetilen, tam spektrumlu ve açık kaynaklı bir analiz hizmetidir. HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getiren bir bulut hizmetidir. HDInsight ayıklama, dönüştürme ve yükleme (ETL), veri ambarı, makine öğrenmesi ve Nesnelerin İnterneti (IoT) gibi diğer senaryoları da destekler.  
 

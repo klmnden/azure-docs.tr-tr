@@ -1,0 +1,31 @@
+- name: Microsoft Genomiks belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Microsoft Genomiks nedir?
+      href: overview-what-is-genomics.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Örnek Genomiks iş akışı çalıştırma
+      href: quickstart-run-genomics-workflow-portal.md
+    - name: Farklı giriş dosyası biçimleri kullanma
+      items:
+        - name: FASTQ dosyası çifti
+          href: quickstart-input-pair-fastq.md
+        - name: BAM dosyası
+          href: quickstart-input-bam.md
+        - name: Birden fazla FASTQ veya BAM dosyası
+          href: quickstart-input-multiple.md
+- name: Kaynaklar
+  items:
+    - name: Sık sorulan sorular
+      href: frequently-asked-questions-genomics.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/genomics/'
+    - name: Bölge kullanılabilirliği
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Destek seçenekleri
+      href: 'https://azure.microsoft.com/support/options/'

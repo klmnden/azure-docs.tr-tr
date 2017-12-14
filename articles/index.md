@@ -4,11 +4,11 @@ hide_bc: True
 title: Microsoft Azure Belgeleri
 description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 featureFlags: clicktale
-ms.openlocfilehash: 4cc932ca2dcdad16f4b1b7cfc2494eec0ccf18b3
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 41b9a56fbf0979dfc8bd228c5eff0ae4c74864b0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -109,6 +109,7 @@ ms.lasthandoff: 12/13/2017
                                                     <li><a class="barLink" href="/azure/cost-management/">Azure Maliyet Yönetimi</a></li>
                                                     <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure/migrate/">Azure Geçişi</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -653,7 +654,7 @@ ms.lasthandoff: 12/13/2017
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Language Understanding Intelligent Services (LUIS)</p>
+                                                <p>Dil Anlama (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2343,7 +2344,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                         </div>
                                     </div>
                                 </a>
-                            </li>   
+                            </li>
                             <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
@@ -2669,7 +2670,7 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing Yazım Denetimi</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding Intelligent Services (LUIS)&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Dil Anlama (LUIS)</span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Dil Çözümleme&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a>

@@ -17,7 +17,7 @@
 # Örnekler
 ## [Bash’te Terraform ile Azure kaynaklarını dağıtma](example-terraform-bash.md)
 
-# [Fiyatlandırma](pricing.md)
+# [Cloud Shell’i Ekleme](embed-cloud-shell.md)
 
 # [Sorun giderme](troubleshooting.md)
 
