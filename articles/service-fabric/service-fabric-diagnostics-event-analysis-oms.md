@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Olay çözümleme ve OMS Görselleştirme
 
@@ -41,7 +41,7 @@ Bkz: [OMS günlük analizi ayarlamak](service-fabric-diagnostics-oms-setup.md) b
 
 ## <a name="using-the-oms-agent"></a>OMS Aracısı'nı kullanma
 
-Tanılama daha modüler bir yaklaşım için izin vermek için EventFlow ve WAD toplama çözümler olarak kullanmak için önerilen ve izleme. Örneğin, EventFlow, çıkışları değiştirmek istiyorsanız, hiçbir değişiklik, gerçek araçları yalnızca basit bir değişiklikle config dosyasına gerektirir. Ancak, OMS günlük analizi kullanarak yatırım karar verirseniz, ayarladığınız [OMS Aracısı](../log-analytics/log-analytics-windows-agents.md). Ayrıca OMS Aracısı kapsayıcıları, kümeniz için dağıtırken aşağıda açıklandığı gibi kullanmanız gerekir. 
+Tanılama daha modüler bir yaklaşım için izin vermek için EventFlow ve WAD toplama çözümler olarak kullanmak için önerilen ve izleme. Örneğin, EventFlow, çıkışları değiştirmek istiyorsanız, hiçbir değişiklik, gerçek araçları yalnızca basit bir değişiklikle config dosyasına gerektirir. Ancak, OMS günlük analizi kullanarak yatırım karar verirseniz, ayarladığınız [OMS Aracısı](../log-analytics/log-analytics-windows-agent.md). Ayrıca OMS Aracısı kapsayıcıları, kümeniz için dağıtırken aşağıda açıklandığı gibi kullanmanız gerekir. 
 
 Üzerinden baş [OMS Aracısı bir kümeye ekleme](service-fabric-diagnostics-oms-agent.md) bu adımları için.
 

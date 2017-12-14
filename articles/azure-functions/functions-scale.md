@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 38499fd1e27cf6e8253ad1172701fd18b338abad
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevleri ölçek ve barındırma
 
 Azure işlevlerinin iki farklı modda çalıştırabilirsiniz: Tüketim planı ve Azure uygulama hizmeti planı. Kodunuzu çalışıyorsa, çıkışı yükü işlemek için gerekli olan ölçeklendirir ve kod çalışmadığı zaman sonra ölçeklendirir tüketim planı otomatik olarak işlem gücü ayırır. Boşta VM'ler için ödeme gerekmez ve yedek kapasite önceden gerekmez. Bu makalede tüketim plan üzerinde odaklanan bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) uygulama modeli. Uygulama hizmeti planı nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> Linux barındırma şu anda yalnızca bir uygulama hizmeti plan üzerinde kullanılabilir.
+> [Linux barındırma](functions-create-first-azure-function-azure-cli-linux.md) şu anda yalnızca bir uygulama hizmeti plan üzerinde kullanılabilir.
 
 Azure işlevleriyle alışık değilseniz, bkz: [Azure işlevlerine genel bakış](functions-overview.md).
 
@@ -46,7 +46,7 @@ Bir uygulama hizmeti planı farklı miktarda kaynak ayırmak için Katmanlar ara
 Tüketim planı kullanırken, Azure işlevleri konak örnekleri dinamik olarak eklenir ve gelen olayların sayısına göre kaldırıldı. Bu plan otomatik olarak ölçeklendirir ve yalnızca işlevlerinizi çalıştırırken işlem kaynakları için ücretlendirilirsiniz. Tüketim plan üzerinde bir işlev en fazla 10 dakika için çalıştırabilirsiniz. 
 
 > [!NOTE]
-> Tüketim planı işlevleri için varsayılan zaman aşımı 5 dakikadır. Değer 10 dakika için işlev uygulaması özelliğini değiştirerek artırılabilir `functionTimeout` içinde [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> Tüketim planı işlevleri için varsayılan zaman aşımı 5 dakikadır. Değer 10 dakika için işlev uygulaması özelliğini değiştirerek artırılabilir `functionTimeout` içinde [host.json](functions-host-json.md#functiontimeout) proje dosyası.
 
 Faturalama yürütmeleri, yürütme zamanı ve kullanılan bellek sayısına bağlıdır. Faturalama işlevi uygulamasında tüm işlevleri üzerinden toplanır. Daha fazla bilgi için bkz: [Azure fiyatlandırma sayfası işlevleri].
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -177,6 +177,8 @@ Sevkiyat konumlar desteklenir:
 * Çin Doğu
 * Çin Kuzey
 * Birleşik Krallık Güney
+* Almanya Orta
+* Almanya Kuzeydoğu
 
 ### <a name="shipping"></a>Aktarma
 **Veri merkezine sevkiyat sürücüler:**
@@ -246,14 +248,14 @@ Alma durumunu izlemek veya Azure portalından işleri verebilirsiniz. Tıklatın
 
 Sürücünüzü işlemde olduğu bağlı olarak aşağıdaki iş durumlardan birini görürsünüz.
 
-| İş durumu | Açıklama |
+| İş Durumu | Açıklama |
 |:--- |:--- |
 | Oluşturma | Bir işi oluşturulduktan sonra durumu oluşturma için ayarlanır. Proje oluşturma durumundayken içeri/dışarı aktarma hizmeti sürücüleri veri merkezine sevk edilmiş değil varsayar. Bir işi haftaya kadar iki daha sonra otomatik olarak hizmet tarafından silinir, oluşturma durumda kalabilir. |
 | Aktarma | Paketinizi sevk sonra Azure portalında izleme bilgilerini güncelleştirmeniz gerekir.  Bu iş "İçine aktarma" açın. İş için iki haftalık sevkiyat durumunda kalır. 
-| Alınan | Tüm sürücüleri veri merkezinde alınmış olan sonra iş durumu için alınan ayarlanır. |
+| Alındı | Tüm sürücüleri veri merkezinde alınmış olan sonra iş durumu için alınan ayarlanır. |
 | Aktarma | En az bir sürücü işleme başladıktan sonra iş durumu aktarma için ayarlanacak. Ayrıntılı bilgi için aşağıdaki sürücü durumları bölümüne bakın. |
 | Paketleme | Tüm sürücüler işlemeyi tamamladıktan sonra sürücüleri size geri gönderilir kadar iş paketleme durumda yerleştirilir. |
-| tamamlandı | İş bir hata olmadan tamamlandı, müşteri için tüm sürücülerin sevk edilmiş sonra iş tamamlandı durumuna ayarlanır. İş Tamamlandı durumunda otomatik olarak 90 gün sonra silinir. |
+| Tamamlandı | İş bir hata olmadan tamamlandı, müşteri için tüm sürücülerin sevk edilmiş sonra iş tamamlandı durumuna ayarlanır. İş Tamamlandı durumunda otomatik olarak 90 gün sonra silinir. |
 | Kapalı | İş işleme sırasında hataları olmuştur, müşteri için tüm sürücülerin sevk edilmiş sonra iş kapalı duruma ayarlanır. İş kapalı durumda otomatik olarak 90 gün sonra silinir. |
 
 Bir içe veya dışa aktarma işi ile geçiş yapıldığı gibi ayrı ayrı bir sürücü yaşam döngüsünü aşağıdaki tabloda açıklanmıştır. Geçerli bir işi her sürücüde şimdi Azure portalından görünür durumda.
@@ -262,10 +264,10 @@ Aşağıdaki tabloda her bir iş sürücüde geçirir her durumu açıklar.
 | Sürücü durumu | Açıklama |
 |:--- |:--- |
 | Belirtilen | Azure portalından, iş oluşturulduğunda bir içeri aktarma işi için bir sürücü için ilk durumu belirtilen durumudur. İş oluşturulduğunda, hiçbir sürücü belirtildiği için dışa aktarma işi, ilk sürücü durumu alınan durumudur. |
-| Alınan | İçeri/dışarı aktarma hizmeti işleci bir içeri aktarma işi için sevkiyat şirketten alınan sürücüleri işlendiğinde alınan duruma sürücü geçişleri. Bir dışarı aktarma işi için ilk sürücü durumu alınan durumudur. |
+| Alındı | İçeri/dışarı aktarma hizmeti işleci bir içeri aktarma işi için sevkiyat şirketten alınan sürücüleri işlendiğinde alınan duruma sürücü geçişleri. Bir dışarı aktarma işi için ilk sürücü durumu alınan durumudur. |
 | NeverReceived | Sürücü NeverReceived durumuna işi için paket ulaşır ancak paketin sürücü içermiyor taşınır. İki hafta teslimat hizmeti aldı, ancak paket henüz veri merkezinde geldi değil bu yana olması durumunda bir sürücü de bu duruma taşıyabilirsiniz. |
 | Aktarma | Windows Azure depolama alanına sürücüden veri aktarmak hizmet başladığında, bir sürücü aktarma durumuna taşınır. |
-| tamamlandı | Hizmet başarıyla hatasız tüm verileri aktarıldığında bir sürücü tamamlandı durumuna taşınır.
+| Tamamlandı | Hizmet başarıyla hatasız tüm verileri aktarıldığında bir sürücü tamamlandı durumuna taşınır.
 | CompletedMoreInfo | Hizmet gelen veya sürücüye veri kopyalanırken bazı sorunlarla karşılaştı, bir sürücü CompletedMoreInfo durumuna taşınır. Hataları, uyarı veya bilgilendirme iletileri BLOB'lar üzerine hakkında bilgiler içerebilir.
 | ShippedBack | Sürücü, veri merkezi arkadan dönüş adresi sevk edilmiş zaman ShippedBack durumuna taşınır. |
 
@@ -493,7 +495,7 @@ Hayır. Her iki içeri aktarma için kendi sürücüleri sevk ve işleri dışar
 
 ** Bu hizmet ** tarafından alınan veri nasıl erişebilir mi
 
-Verileri Azure depolama hesabınızın altında Azure portalı üzerinden erişilebilir veya ayrı bir araç kullanarak Depolama Gezgini çağrılır. https://docs.microsoft.com/en-us/Azure/VS-Azure-Tools-Storage-Manage-With-Storage-Explorer 
+Verileri Azure depolama hesabınızın altında Azure portalı üzerinden erişilebilir veya ayrı bir araç kullanarak Depolama Gezgini çağrılır. https://docs.microsoft.com/Azure/VS-Azure-Tools-Storage-Manage-With-Storage-Explorer 
 
 **İçeri aktarma işi tamamlandıktan sonra ne depolama hesabında my veri görünümü ister? Belgelerim dizini hiyerarşi korunur?**
 

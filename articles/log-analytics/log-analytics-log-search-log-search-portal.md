@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Günlük arama Portalı'nı kullanarak Azure günlük analizi günlük aramalar oluşturun
 
@@ -34,7 +34,7 @@ Günlük arama portalı yerine Advanced Analytics portalında aramaları oluştu
 Bu öğretici, bir günlük analizi çalışma alanı çözümlemek için sorgular için veri üretir en az bir bağlı kaynağıyla zaten sahip olduğunuzu varsayar.  
 
 - Bir çalışma alanı yoksa, en yordamı kullanarak boş bir tane oluşturabilirsiniz [günlük analizi çalışma alanı ile çalışmaya başlama](log-analytics-get-started.md).
-- En az bir bağlanma [Windows Aracısı](log-analytics-windows-agents.md) veya bir [Linux Aracısı](log-analytics-linux-agents.md) çalışma alanı.  
+- En az bir bağlanma [Windows Aracısı](log-analytics-windows-agent.md) veya bir [Linux Aracısı](log-analytics-linux-agents.md) çalışma alanı.  
 
 ## <a name="open-the-log-search-portal"></a>Günlük arama portalını açın
 Günlük arama Portalı'nı açarak başlayın.  Azure portal veya OMS portalı erişebilir.

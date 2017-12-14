@@ -8,7 +8,7 @@
 Bu öğreticide, uygulamanız bir **Soğutucu** Uzaktan izleme için aşağıdaki telemetri gönderen aygıt [önceden yapılandırılmış çözüm](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md):
 
 * Sıcaklık
-* baskısı
+* Basınç
 * Nem oranı
 
 Kolaylık olması için örnek telemetri değerleri için kod oluşturur **Soğutucu**. Örnek gerçek algılayıcılar aygıtınıza bağlanma ve gerçek telemetri göndermesini genişletebilirsiniz.
@@ -54,7 +54,7 @@ Cihazınızı önceden yapılandırılmış çözümü bağlanmak için kullanma
 
 1. Uzaktan izleme çözümünüz kullandığı Azure hizmetleri içeren kaynak grubunu bulun. Kaynak grubu sağladığınız Uzaktan izleme çözümü ile aynı ada sahiptir.
 
-1. Bu kaynak grubundaki IOT hub'ına gidin. Ardından **aygıt explorer**:
+1. Bu kaynak grubundaki IOT hub'ına gidin. Ardından **IOT cihazları**:
 
     ![Cihaz Gezgini](media/iot-suite-selector-connecting/deviceexplorer.png)
 

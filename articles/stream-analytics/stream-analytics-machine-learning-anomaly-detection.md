@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>ANOMALYDETECTION işlecini kullanarak
 
@@ -38,12 +38,12 @@ Olayları ayrı ayrı belirtilen anahtarı temel alan ve grupları ayrıca iste�
 
 ## <a name="syntax"></a>Sözdizimi
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>Örnek Kullanım
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>Bağımsız Değişkenler
@@ -56,7 +56,7 @@ Olayları ayrı ayrı belirtilen anahtarı temel alan ve grupları ayrıca iste�
 
 - **partition_by_clause** 
 
-  `PARTITION BY \<partition key\>` Yan tümcesi, ayrı bölümler öğrenme ve eğitim böler. Diğer bir deyişle, ayrı bir model değerini kullanılacak `\<partition key\>` ve bu değer yalnızca olaylarla öğrenme ve bu modelde eğitim için kullanılabilir. Örneğin,
+  `PARTITION BY <partition key>` Yan tümcesi, ayrı bölümler öğrenme ve eğitim böler. Diğer bir deyişle, ayrı bir model değerini kullanılacak `<partition key>` ve bu değer yalnızca olaylarla öğrenme ve bu modelde eğitim için kullanılabilir. Örneğin,
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -80,7 +80,7 @@ Olayları ayrı ayrı belirtilen anahtarı temel alan ve grupları ayrıca iste�
 
 Kaydı dışında değerlerini ayrı ayrı ayıklamak için kullanma **getrecordpropertyvalue'öğesinin** işlevi. Örneğin:
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 Bu anomali puanları birini bir eşik kestiği zaman belirli bir türdeki bir anomali algılandı. Eşik herhangi kayan olabilir nokta sayısı \>= 0. Eşik kolaylığını duyarlılık güvenirlik arasındaki ise. Örneğin, düşük bir Eşikte algılama daha önemli değişiklikler yapmak ve daha yüksek bir eşik algılama daha az hassas ve daha emin olun ancak bazı anormallikleri maske ancak daha fazla uyarılar oluşturur. Kullanılacak tam eşik değeri senaryoya bağlıdır. Üst sınır yoktur ancak önerilen aralık 3,25-5.
@@ -160,12 +160,12 @@ Giriş akışı Tekdüzen olmadığı durumlarda, toplama adım Tekdüzen zaman 
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>Başvurular

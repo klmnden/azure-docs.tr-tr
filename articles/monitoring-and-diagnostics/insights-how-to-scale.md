@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Örnek sayısı el ile veya otomatik olarak ölçeklendirme
 İçinde [Azure Portal](https://portal.azure.com/), hizmetiniz örnek sayısını elle ayarlayabilirsiniz veya, parametreleri sağlamak için talebe göre ölçeklendirin otomatik olarak ayarlayabilirsiniz. Bu tipik olarak adlandırılır *ölçeğini* veya *içinde ölçeklendirmek*.
@@ -26,11 +26,6 @@ ms.lasthandoff: 10/11/2017
 Örnek sayısına göre ölçeklendirme önce tarafından ölçeklendirme etkilenir düşünmelisiniz **fiyatlandırma katmanı** yanı sıra örnek sayısı. Farklı fiyatlandırma katmanlarına sahip farklı numaraları çekirdek ve bellek ve bu nedenle bunlar olacaktır örnekleri aynı sayıda daha iyi performans (olduğu *ölçeği* veya *ölçeklendirmeyi azaltın*). Bu makalede özellikle kapsayan *içinde ölçeklendirmek* ve *çıkışı*.
 
 Portalda ölçeklendirebilirsiniz ve aynı zamanda [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) veya [.NET SDK'sı](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) ölçeği el ile veya otomatik olarak ayarlamak için.
-
-> [!NOTE]
-> Bu makalede portalında bir otomatik ölçeklendirme ayarı oluşturmak nasıl [http://portal.azure.com](http://portal.azure.com). Bu Portalı'nda oluşturulan otomatik ölçeklendirme ayarlarını olamaz Klasik Portalı'nı düzenlenebilir ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
-> 
-> 
 
 ## <a name="scaling-manually"></a>El ile ölçeklendirme
 1. İçinde [Azure Portal](https://portal.azure.com/), tıklatın **Gözat**, gibi ölçeklendirmek istediğiniz kaynak gidin bir **uygulama hizmeti planı**.

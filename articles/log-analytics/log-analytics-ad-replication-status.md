@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfe52ef5d9d09ffe179faaf6ffbd90ef964fbda9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Günlük analizi ile Active Directory çoğaltma durumunu izleme
 
@@ -32,7 +32,7 @@ AD çoğaltma durumunu çözüm paketi düzenli olarak çoğaltma hatalar için 
 ## <a name="installing-and-configuring-the-solution"></a>Yükleme ve çözüm yapılandırılıyor
 Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 
-* Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinde aracıları yüklemeniz gerekir. Veya üye sunuculara aracıları yükleyene ve aracıları için OMS AD çoğaltma veri göndermek için yapılandırmanız gerekir. Windows bilgisayarları için OMS bağlanmak nasıl anlamak için bkz: [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agents.md). Etki alanı denetleyicisi için OMS bağlanma, görmek istediğiniz mevcut bir System Center Operations Manager ortamının bir parçası ise [Operations Manager'a günlük analizi](log-analytics-om-agents.md).
+* Değerlendirilecek etki alanının üyesi olan etki alanı denetleyicilerinde aracıları yüklemeniz gerekir. Veya üye sunuculara aracıları yükleyene ve aracıları için OMS AD çoğaltma veri göndermek için yapılandırmanız gerekir. Windows bilgisayarları için OMS bağlanmak nasıl anlamak için bkz: [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agent.md). Etki alanı denetleyicisi için OMS bağlanma, görmek istediğiniz mevcut bir System Center Operations Manager ortamının bir parçası ise [Operations Manager'a günlük analizi](log-analytics-om-agents.md).
 * Active Directory çoğaltma durumunu çözümü açıklanan işlemi kullanarak OMS çalışma alanınıza ekleyin [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).  Başka bir yapılandırma işlemi gerekmez.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD çoğaltma durumu verileri toplama ayrıntıları
@@ -47,7 +47,7 @@ Herhangi bir etki alanı denetleyicileriniz doğrudan OMS bağlamak istemiyorsan
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>OMS için AD veri göndermek bir etki alanı dışı denetleyicisi etkinleştirmek için
 1. Bilgisayar, AD çoğaltma durumunu çözümünü kullanarak izlemek istediğiniz etki alanının bir üyesi olduğundan emin olun.
-2. [Windows bilgisayarına bağlanmak için OMS](log-analytics-windows-agents.md) veya [var olan Operations Manager ortamınıza OMS kullanarak bağlanmak](log-analytics-om-agents.md), zaten bağlı değilse.
+2. [Windows bilgisayarına bağlanmak için OMS](log-analytics-windows-agent.md) veya [var olan Operations Manager ortamınıza OMS kullanarak bağlanmak](log-analytics-om-agents.md), zaten bağlı değilse.
 3. Bu bilgisayarda, aşağıdaki kayıt defteri anahtarını ayarlayın:
 
    * Anahtar: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management grupları\<ManagementGroupName > \Solutions\ADReplication**
@@ -148,7 +148,7 @@ A: Active Directory normal kullanıcı izinlerini yeterlidir.
 ## <a name="troubleshoot-data-collection-problems"></a>Veri toplama sorunlarını giderme
 Verileri toplamak için AD çoğaltma durumunu çözüm paketi, OMS çalışma alanınızla bağlanması için en az bir etki alanı denetleyicisi gerektirir. Bir etki alanı denetleyicisine bağlanmak kadar belirten bir ileti görüntülenir **veri devam toplanır**.
 
-Etki alanı denetleyicilerinden biri bağlama konusunda yardıma ihtiyacınız varsa, belgeleri görüntüleyebilirsiniz [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agents.md). Alternatif olarak, etki alanı denetleyicinizi zaten mevcut bir System Center Operations Manager ortamına bağlı ise, belgeleri görüntüleyebilirsiniz [System Center Operations Manager bağlanmak için günlük analizi](log-analytics-om-agents.md).
+Etki alanı denetleyicilerinden biri bağlama konusunda yardıma ihtiyacınız varsa, belgeleri görüntüleyebilirsiniz [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agent.md). Alternatif olarak, etki alanı denetleyicinizi zaten mevcut bir System Center Operations Manager ortamına bağlı ise, belgeleri görüntüleyebilirsiniz [System Center Operations Manager bağlanmak için günlük analizi](log-analytics-om-agents.md).
 
 Herhangi bir etki alanı denetleyicileriniz doğrudan OMS veya SCOM bağlanmak istemiyorsanız bkz [olmayan etki alanı denetleyicisi için OMS AD veri göndermesini sağlamak için](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 

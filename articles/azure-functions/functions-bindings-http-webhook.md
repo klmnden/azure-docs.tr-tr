@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 6b3da498a613d63515ecb624b87496cf536c0ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 26b9a468684cda344a6ab1b5a2e467d2735f4f71
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 
@@ -383,12 +383,13 @@ Tam bir örnek için bkz: [tetikleyici - önceden derlenmiş C# örnek](#trigger
 
 Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanmaktadır *function.json* dosya ve `HttpTrigger` özniteliği.
 
+
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
 | **türü** | yok| Gerekli - kümesine olmalıdır `httpTrigger`. |
 | **yönü** | yok| Gerekli - kümesine olmalıdır `in`. |
 | **adı** | yok| Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. |
-| **authLevel** |  **AuthLevel** |Anahtarlar, varsa, işlevin çalıştırılabilmesi için istekte bulunması gerekenleri belirler. Yetki düzeyini aşağıdaki değerlerden biri olabilir: <ul><li><code>anonymous</code>&mdash;API anahtarı gereklidir.</li><li><code>function</code>&mdash;Bir işlev özgü API anahtarı gereklidir. Bu, hiçbiri sağlanmazsa varsayılan değerdir.</li><li><code>admin</code>&mdash;Ana anahtar gereklidir.</li></ul> Daha fazla bilgi için, bkz [yetkilendirme anahtarları](#authorization-keys). |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Anahtarlar, varsa, işlevin çalıştırılabilmesi için istekte bulunması gerekenleri belirler. Yetki düzeyini aşağıdaki değerlerden biri olabilir: <ul><li><code>anonymous</code>&mdash;API anahtarı gereklidir.</li><li><code>function</code>&mdash;Bir işlev özgü API anahtarı gereklidir. Bu, hiçbiri sağlanmazsa varsayılan değerdir.</li><li><code>admin</code>&mdash;Ana anahtar gereklidir.</li></ul> Daha fazla bilgi için, bkz [yetkilendirme anahtarları](#authorization-keys). |
 | **yöntemleri** |**Yöntemleri** | İşlev yanıt vereceği HTTP yöntemlerinin dizisi. Belirtilmezse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [http uç noktası özelleştirme](#trigger---customize-the-http-endpoint). |
 | **Rota** | **Rota** | İçin işlevinizin yanıt URL'leri isteği denetlemek için rota şablonu tanımlar. Varsayılan değer hiçbiri sağlanmazsa `<functionname>`. Daha fazla bilgi için bkz: [http uç noktası özelleştirme](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |HTTP tetikleyici olarak görev yapması için yapılandırır bir [Web kancası](https://en.wikipedia.org/wiki/Webhook) belirtilen sağlayıcı için alıcı. Ayarlamazsanız `methods` bu özelliği ayarlarsanız özelliği. Web kancası türü aşağıdaki değerlerden biri olabilir:<ul><li><code>genericJson</code>&mdash;Genel amaçlı Web kancası uç noktası için belirli bir sağlayıcıyı mantığı olmadan. Bu ayar, yalnızca HTTP POST ve ile kullanmak için istekleri sınırlar `application/json` içerik türü.</li><li><code>github</code>&mdash;İşlev yanıtlar [GitHub Web kancası](https://developer.github.com/webhooks/). Kullanmayın _authLevel_ GitHub Web kancası özellik. Daha fazla bilgi için bu makalenin sonraki bölümlerinde GitHub Web kancası bölümüne bakın.</li><li><code>slack</code>&mdash;İşlev yanıtlar [Slack kancalarını](https://api.slack.com/outgoing-webhooks). Kullanmayın _authLevel_ Slack Web kancası özellik. Daha fazla bilgi için bu makalenin sonraki bölümlerinde Slack Web kancalarını bölümüne bakın.</li></ul>|

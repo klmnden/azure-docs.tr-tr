@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: ba6dc69fa4aca8e0ee03ba97668d8b2ab1191002
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Operations Management Suite içinde hizmet Haritası yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -37,7 +37,7 @@ Hizmet eşlemesi Microsoft bağımlılık Aracısı'ndan verileri alır. Operati
 
 | Bağlı kaynak | Destekleniyor | Açıklama |
 |:--|:--|:--|
-| Windows aracıları | Evet | Hizmet eşlemesi analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-windows-agents.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
+| Windows aracıları | Evet | Hizmet eşlemesi analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-windows-agent.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
 | Linux aracıları | Evet | Hizmet eşlemesi analiz eder ve Linux Aracısı bilgisayarlardan verileri toplar. <br><br>Ek olarak [OMS Aracısı](../log-analytics/log-analytics-linux-agents.md), Linux aracılarını Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
 | System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi Windows ve Linux aracıları bağlı bir veri toplar ve analiz eder [System Center Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md). <br><br>Operations Management Suite System Center Operations Manager Aracısı bilgisayardan doğrudan bir bağlantı gereklidir. Veri yönetim grubundaki Operations Management Suite depoya iletilir.|
 | Azure depolama hesabı | Hayır | Azure depolama biriminden toplamak için hiçbir veri nedenle hizmet eşlemesi Aracısı bilgisayarlardan verileri toplar. |
@@ -74,7 +74,7 @@ Bağımlılık Aracısı'nı InstallDependencyAgent Windows.exe üzerinden Windo
 
 Her Windows bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
-1.  Kısmındaki yönergeleri kullanarak OMS Aracısı'nı yükleme [Azure günlük analizi hizmeti bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agents.md).
+1.  Kısmındaki yönergeleri kullanarak OMS Aracısı'nı yükleme [Azure günlük analizi hizmeti bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agent.md).
 2.  Windows Aracısı'nı indirin ve çalıştırın aşağıdaki komutu kullanarak: <br>`InstallDependencyAgent-Windows.exe`
 3.  Aracıyı yüklemek için sihirbazı izleyin.
 4.  Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracısında %Programfiles%\Microsoft bağımlılık Agent\logs günlük dizindir. 

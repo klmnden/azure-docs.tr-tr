@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory koşullu erişim Teknik Başvurusu | Microsoft Docs"
-description: "Azure Active Directory'de koşullu erişim denetimi kullanmayı öğrenin. Kullanıcıların kimliklerini doğrulamak ve uygulamanıza erişimi denetlemek için koşulları belirtin. Belirtilen koşullar karşılandığında, kullanıcıların kimlik doğrulaması ve uygulamanıza erişimi verilir."
+title: "Azure Active Directory koşullu erişim ayarları başvurusu | Microsoft Docs"
+description: "Desteklenen ayarlar genel bir bakış Azure Active Directory koşullu erişim ilkesinde alın."
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 871c1d222d78eccdb7e25bf22276b5f63f8f3b8f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory koşullu erişim Teknik Başvurusu
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
-Kullanabileceğiniz [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md) ince ayar yapmak için nasıl yetkili kullanıcılar, kaynaklara erişebilir.   
+Kullanabileceğiniz [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md) nasıl yetkili kullanıcıların denetlemek için kaynaklara erişebilir.   
 
-Bu makalede, destek bilgileri için bir koşullu erişim ilkesi için aşağıdaki yapılandırma seçeneklerini sağlar: 
+Bu makalede, destek bilgileri için bir koşullu Erişim İlkesi'nde aşağıdaki yapılandırma seçeneklerini sağlar: 
 
 - Bulut uygulamaları atamaları
 
@@ -35,6 +35,7 @@ Bu makalede, destek bilgileri için bir koşullu erişim ilkesi için aşağıda
 - Onaylanmış istemci uygulama gereksinimi
 
 
+Aradığınız bilgiler bu değilse, lütfen bu makalenin sonunda bir yorum bırakın.
 
 ## <a name="cloud-apps-assignments"></a>Bulut uygulamaları atamaları
 

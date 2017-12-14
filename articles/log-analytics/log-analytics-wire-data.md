@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 3bb4c82268fe7805227c213000dc803307876fe7
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Kablo verileri 2.0 (Önizleme) çözümüne günlük analizi
 
@@ -58,7 +58,7 @@ Kablo verileri Microsoft bağımlılık Aracısı'ndan verileri alır. Günlük 
 
 | **Bağlı kaynak** | **Destekleniyor** | **Açıklama** |
 | --- | --- | --- |
-| Windows aracıları | Evet | Kablo verileri analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br> Ek olarak [OMS Aracısı](log-analytics-windows-agents.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
+| Windows aracıları | Evet | Kablo verileri analiz eder ve Windows Aracısı bilgisayarlardan verileri toplar. <br><br> Ek olarak [OMS Aracısı](log-analytics-windows-agent.md), Windows aracıları Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
 | Linux aracıları | Evet | Kablo verileri analiz eder ve Linux Aracısı bilgisayarlardan verileri toplar.<br><br> Ek olarak [OMS Aracısı](log-analytics-quick-collect-linux-computer.md), Linux aracılarını Microsoft bağımlılık Aracısı gerektirir. Bkz: [desteklenen işletim sistemleri](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) işletim sistemi sürümleri tam bir listesi. |
 | System Center Operations Manager yönetim grubu | Evet | Kablo verileri analiz eder ve Windows ve Linux aracıları bağlı bir veri toplar [System Center Operations Manager yönetim grubu](log-analytics-om-agents.md). <br><br> System Center Operations Manager Aracısı bilgisayardan doğrudan bağlantı günlük analizi için gereklidir. Veri yönetim grubu için günlük analizi iletilir. |
 | Azure depolama hesabı | Hayır | Bu yüzden, Azure depolama biriminden toplamak için hiçbir veri kablo verileri Aracısı bilgisayarlardan verileri toplar. |
@@ -208,7 +208,7 @@ Bağımlılık Aracısı'nı InstallDependencyAgent Windows.exe Windows çalış
 
 Windows çalıştıran her bilgisayarda bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
-1. İçindeki adımları izleyerek OMS Aracısı [ortamınızda barındırılan Windows bilgisayarlarından verileri toplama](log-analytics-windows-agents.md).
+1. İçindeki adımları izleyerek OMS Aracısı [ortamınızda barındırılan Windows bilgisayarlarından verileri toplama](log-analytics-windows-agent.md).
 2. Önceki bölümde bağlantıyı kullanarak Windows bağımlılık aracısı yükleyin ve sonra aşağıdaki komutu kullanarak çalıştırın:`InstallDependencyAgent-Windows.exe`
 3. Aracıyı yüklemek için sihirbazı izleyin.
 4. Bağımlılık Aracısı'nı başlatmak başarısız olursa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracılar için %Programfiles%\Microsoft bağımlılık Agent\logs günlük dizindir.

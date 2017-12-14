@@ -4,7 +4,7 @@ description: "Bir bağlantı noktasını açmak Azure resource manager dağıtı
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
 ms.service: virtual-machines-linux
@@ -12,23 +12,33 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: d176187fe465264b5f433260de5178b48ca9dd4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaa3039c369057d39dfce0896b9a4d1cfad75550
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Açık bağlantı noktalarını ve Azure CLI'dan bir Linux VM için uç noktaları
 Bir bağlantı noktasını açmak veya bir alt ağ veya VM ağ arabirimine bir ağ filtre oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturun. Trafiği alır kaynağa bağlı bir ağ güvenlik grubu hem gelen hem de giden trafiği denetleyen bu filtreler yerleştir. Bağlantı noktası 80 üzerinde web trafiği yaygın bir örneği kullanalım. Bu makalede Azure CLI 2.0 ile bir VM için bağlantı noktası açma gösterilmiştir. Bu adımları [Azure CLI 1.0](nsg-quickstart-nodejs.md) ile de gerçekleştirebilirsiniz.
 
-
-## <a name="quick-commands"></a>Hızlı komutlar
 Bir ağ güvenlik grubu ve en son gereksinim kuralları oluşturmak için [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myNetworkSecurityGroup*, ve *myVnet*.
 
+
+## <a name="quickly-open-a-port-for-a-vm"></a>Hızla bir VM için bir bağlantı noktasını açın
+Hızlı geliştirme ve test senaryosunda, bir VM için bir bağlantı noktası açmanız gerekiyorsa, kullanabileceğiniz [az vm Aç-port](/cli/azure/vm#az_vm_open_port) komutu. Bu komut, bir ağ güvenlik grubu oluşturur, bir kuralı ekler ve bir VM veya alt ağ için geçerlidir. Aşağıdaki örnekte, bağlantı noktası açar. *80* adlı VM üzerinde *myVM* kaynak grubunda adlı *myResourceGroup*.
+
+```azure-cli
+az vm open-port --resource-group myResourceGroup --name myVM --port 80
+```
+
+Bir kaynak IP adresi aralığı tanımlama gibi kuralları üzerinde daha fazla denetim için ek adımlar bu makalenin devam edin.
+
+
+## <a name="create-a-network-security-group-and-rules"></a>Bir ağ güvenlik grubu ve kuralları oluşturma
 Ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#create). Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNetworkSecurityGroup* içinde *eastus* konumu:
 
 ```azurecli
@@ -50,6 +60,8 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
+
+## <a name="apply-network-security-group-to-vm"></a>VM ağ güvenlik grubuna Uygula
 Ağ güvenlik grubu VM ağ arabirimi (NIC) ilişkilendirmek [az ağ NIC güncelleştirmesi](/cli/azure/network/nic#update). Aşağıdaki örnek adlı mevcut NIC'in ilişkilendirir *myNic* adlı ağ güvenlik grubu ile *myNetworkSecurityGroup*:
 
 ```azurecli

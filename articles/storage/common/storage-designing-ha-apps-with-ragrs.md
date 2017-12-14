@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 9/06/2017
+ms.date: 12/11/2017
 ms.author: tamram
-ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68986f1c8a8d3a2c4c763958e141bc3830c6b5bb
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Yüksek oranda kullanılabilir RA-GRS kullanarak uygulamalar tasarlama
 
@@ -26,7 +26,7 @@ Ortak bir Azure depolama gibi bulut tabanlı altyapılarının uygulamalarını 
 
 Azure depolama artıklığı depolama hesabınızdaki veriler için dört seçenek sunar:
 
-– LRS (yerel olarak Refdundant depolama)
+– LRS (yerel olarak yedekli depolama)
 - ZRS (bölge olarak yedekli depolama) 
 - GRS (coğrafi olarak yedekli depolama)
 - RA-GRS (coğrafi olarak yedekli depolamaya okuma erişimi). 

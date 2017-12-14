@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Internet erişimi olmayan bilgisayarları OMS ağ geçidini kullanma OMS Bağlan
 
@@ -129,7 +129,7 @@ Tasarım ve bir Windows Server 2016 Ağ Yükü Dengeleme kümesi dağıtma hakk�
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS aracısı ve Operations Manager yönetim grubu yapılandırma
 Aşağıdaki bölümde OMS ile iletişim kurmak için OMS ağ geçidi ile doğrudan bağlı OMS Aracısı, bir Operations Manager yönetim grubu ya da Azure Otomasyon karma Runbook çalışanlarını yapılandırma adımlarını içerir.  
 
-Gereksinimleri ve Windows bilgisayarlar için OMS doğrudan bağlanan OMS Aracısı'nı yüklemek adımları anlamak için bkz: [OMS bağlanmak Windows bilgisayarlara](log-analytics-windows-agents.md) veya Linux bilgisayarları bakın [OMSbağlanmakLinuxbilgisayarlara](log-analytics-linux-agents.md). 
+Gereksinimleri ve Windows bilgisayarlar için OMS doğrudan bağlanan OMS Aracısı'nı yüklemek adımları anlamak için bkz: [OMS bağlanmak Windows bilgisayarlara](log-analytics-windows-agent.md) veya Linux bilgisayarları bakın [OMSbağlanmakLinuxbilgisayarlara](log-analytics-linux-agents.md). 
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>OMS aracısı ve Operations Manager OMS ağ geçidi bir proxy sunucusu olarak kullanacak şekilde yapılandırma
 

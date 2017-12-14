@@ -4,20 +4,21 @@ description: "Azure Active Directory ArcGIS Online arasında tek oturum açma ya
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: a9e132a4-29e7-48bf-beb9-4148e617c8a9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 12/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 31ac119878eb1f23672495e53e0ac185662a86c6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b09dd977cbf5c4273667167217e86bb79ac2a9d8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Öğretici: Azure Active Directory Tümleştirme ArcGIS Online ile
 
@@ -25,26 +26,18 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile ArcGIS çevrimiçi tümle
 
 ArcGIS çevrimiçi Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- ArcGIS çevrimiçi erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak ArcGIS Online'a (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- ArcGIS çevrimiçi erişimi, Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına otomatik olarak ArcGIS Online'a (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
-
-<!--## Overview
-
-To enable single sign-on with ArcGIS Online, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in ArcGIS Online.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Azure AD tümleştirme ArcGIS Online ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir ArcGIS çevrimiçi çoklu oturum açma etkin abonelik
+- Bir ArcGIS çevrimiçi çoklu oturum açma abonelik etkin
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
@@ -52,7 +45,7 @@ Azure AD tümleştirme ArcGIS Online ile yapılandırmak için aşağıdaki öğ
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -67,40 +60,37 @@ Azure AD ArcGIS Online tümleştirilmesi yapılandırmak için ArcGIS çevrimiç
 
 1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. Tıklatın **yeni uygulama** yeni bir uygulama eklemek için iletişim kutusunun üst kısmında düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **ArcGIS çevrimiçi**.
+4. Arama kutusuna **ArcGIS çevrimiçi**seçin **ArcGIS çevrimiçi** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_search.png)
+    ![ArcGIS çevrimiçi sonuçlar listesinde](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
 
-5. Sonuçlar panelinde seçin **ArcGIS çevrimiçi**ve ardından **Ekle** uygulama eklemek için düğmesi.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ArcGIS "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Online ile test etme
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ArcGIS "Britta Simon" adlı bir test kullanıcı tabanlı Online ile test etme.
 
 Tekli çalışmaya oturum için Azure AD ne karşılık gelen ArcGIS çevrimiçi bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı ArcGIS çevrimiçi arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** ArcGIS çevrimiçi.
+Çevrimiçi ArcGIS olarak değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
 Yapılandırma ve Azure AD çoklu oturum açma ArcGIS Online ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[ArcGIS çevrimiçi bir test kullanıcısı oluşturma](#creating-an-arcgis-online-test-user)**  - ArcGIS kullanıcı Azure AD gösterimini bağlantılı çevrimiçi Britta Simon, karşılık gelen sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[ArcGIS çevrimiçi test kullanıcısı oluşturma](#create-a-arcgis-online-test-user)**  - ArcGIS kullanıcı Azure AD gösterimini bağlantılı çevrimiçi Britta Simon, karşılık gelen sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma ArcGIS çevrimiçi uygulamanızda yapılandırın.
 
@@ -108,28 +98,32 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 1. Azure portalında üzerinde **ArcGIS çevrimiçi** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_samlbase.png)
 
-3. Üzerinde **ArcGIS çevrimiçi etki alanı ve URL'leri** bölümünde, aşağıdaki adımı gerçekleştirin:
+3. Üzerinde **ArcGIS çevrimiçi etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
+    ![ArcGIS çevrimiçi etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://<company>.maps.arcgis.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.maps.arcgis.com`
+
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`<companyname>.maps.arcgis.com`
 
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [ArcGIS çevrimiçi istemci destek ekibi](http://support.esri.com/) bu değeri alınamıyor. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [ArcGIS çevrimiçi istemci destek ekibi](http://support.esri.com/en/) bu değerleri almak için. 
+ 
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_certificate.png) 
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_certificate.png) 
 
 5. Tıklatın **kaydetmek** düğmesi.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-arcgis-tutorial/tutorial_general_400.png)
+    ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-arcgis-tutorial/tutorial_general_400.png)
 
 6. Farklı web tarayıcısı penceresinde ArcGIS şirket sitenize yönetici olarak oturum açın.
 
@@ -159,40 +153,41 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-arcgis-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-arcgis-tutorial/create_aaduser_01.png)
 
-2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcıların listesini görüntülemek için.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-arcgis-tutorial/create_aaduser_02.png) 
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-arcgis-tutorial/create_aaduser_03.png) 
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-arcgis-tutorial/create_aaduser_02.png)
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-arcgis-tutorial/create_aaduser_04.png) 
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    ![Ekle düğmesi](./media/active-directory-saas-arcgis-tutorial/create_aaduser_03.png)
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** Britta Simon biri.
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-arcgis-tutorial/create_aaduser_04.png)
+
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**'a tıklayın.
  
-### <a name="creating-an-arcgis-online-test-user"></a>ArcGIS çevrimiçi bir test kullanıcısı oluşturma
+### <a name="create-a-arcgis-online-test-user"></a>ArcGIS çevrimiçi test kullanıcısı oluşturma
 
 Azure AD kullanıcıların ArcGIS çevrimiçi oturum etkinleştirmek için bunlar ArcGIS çevrimiçi sağlanmalıdır.  
 ArcGIS söz konusu olduğunda, sağlama el ile bir görev çevrimiçidir.
@@ -223,11 +218,11 @@ ArcGIS söz konusu olduğunda, sağlama el ile bir görev çevrimiçidir.
     > [!NOTE]
     > Azure Active Directory hesap sahibi bir e-posta alır ve onu etkinleştirilmeden önce kendi hesabı onaylamak için bağlantıyı izleyin.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Britta ArcGIS Online'a erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı rolü atayın][200] 
 
 **Britta Simon ArcGIS Online'a atamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -237,15 +232,15 @@ Bu bölümde, Britta ArcGIS Online'a erişim vererek, Azure çoklu oturum açma 
 
 2. Uygulamalar listesinde **ArcGIS çevrimiçi**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png) 
+    ![Uygulamalar listesinde ArcGIS çevrimiçi bağlantı](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Ekleme atama bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
@@ -253,19 +248,17 @@ Bu bölümde, Britta ArcGIS Online'a erişim vererek, Azure çoklu oturum açma 
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde ArcGIS çevrimiçi kutucuğa tıkladığınızda, otomatik olarak ArcGIS çevrimiçi uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

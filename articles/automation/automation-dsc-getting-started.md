@@ -3,7 +3,7 @@ title: "Azure Otomasyonu DSC ile çalışmaya başlama | Microsoft Docs"
 description: "Açıklama ve en yaygın görevleri de Azure Otomasyonu istenen durum yapılandırması (DSC) örnekleri"
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
@@ -13,26 +13,26 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
-ms.author: magoedte;eslesar
-ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: magoedte;gwallace
+ms.openlocfilehash: e8b7d0d38f59589cbe6f82798b4e725af7b20e23
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Azure Otomasyonu DSC ile çalışmaya başlama
-Bu konu ile Azure Otomasyonu istenen durum yapılandırması (oluşturma, alma ve yapılandırmaları, onboarding makineleri yönetmek için derleme ve raporları görüntüleme gibi DSC), en yaygın görevlerin nasıl yapılacağını açıklar. Hangi Azure Otomasyonu DSC genel bir bakış için bkz: [Azure Automation DSC genel bakış](automation-dsc-overview.md). DSC belgeler için bkz: [Windows PowerShell istenen durum yapılandırması genel bakış](https://msdn.microsoft.com/PowerShell/dsc/overview).
+Bu makale ile Azure Otomasyonu istenen durum yapılandırması (oluşturma, alma ve yapılandırmaları, onboarding makineleri yönetmek için derleme ve raporları görüntüleme gibi DSC), en yaygın görevlerin nasıl yapılacağını açıklar. Hangi Azure Otomasyonu DSC genel bir bakış için bkz: [Azure Automation DSC genel bakış](automation-dsc-overview.md). DSC belgeler için bkz: [Windows PowerShell istenen durum yapılandırması genel bakış](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Bu konu Azure Otomasyonu DSC kullanarak adım adım yönergeler sağlar. Zaten bu konuda açıklanan adımları izleyerek olmadan ayarlanmış bir örnek ortamı istiyorsanız kullanabileceğiniz [aşağıdaki ARM şablonu](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Bu şablon tamamlanmış bir Azure Otomasyonu DSC ortam, Azure Otomasyonu DSC tarafından yönetilen bir Azure VM dahil olmak üzere ayarlar.
+Bu makale Azure Otomasyonu DSC kullanarak adım adım yönergeler sağlar. Zaten bu makalede açıklanan adımları izleyerek olmadan ayarlanmış bir örnek ortamı isterseniz, aşağıdakileri kullanabilirsiniz [Resource Manager şablonu](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Bu şablon tamamlanmış bir Azure Otomasyonu DSC ortam, Azure Otomasyonu DSC tarafından yönetilen bir Azure VM dahil olmak üzere ayarlar.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu konudaki örnekler tamamlamak için aşağıdakiler gereklidir:
+Bu makaledeki örneklerde tamamlamak için aşağıdakiler gereklidir:
 
 * Azure Otomasyonu hesabı. Bir Azure Otomasyonu Garklı Çalıştır hesabı oluşturma yönergeleri için bkz. [Azure Farklı Çalıştır Hesabı](automation-sec-configure-azure-runas-account.md).
 * Bir Azure Kaynak Yöneticisi'ni VM (Klasik değil) Windows Server 2008 R2 çalıştıran veya sonraki bir sürümü. VM oluşturma yönergeleri için bkz. [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>DSC yapılandırması oluşturma
-Basit bir oluşturacağız [DSC Yapılandırması](https://msdn.microsoft.com/powershell/dsc/configurations) varlığının veya yokluğunun sağlar **Web sunucusu** Windows özelliği (düğümler nasıl atadığınız bağlı olarak IIS).
+Basit bir [DSC Yapılandırması](https://msdn.microsoft.com/powershell/dsc/configurations) varlığının veya yokluğunun sağlar **Web sunucusu** Windows özelliği (düğümler nasıl atadığınız bağlı olarak IIS).
 
 1. Windows PowerShell ISE (veya herhangi bir metin düzenleyicisi) başlatın.
 2. Aşağıdaki metni yazın:
@@ -67,7 +67,7 @@ Basit bir oluşturacağız [DSC Yapılandırması](https://msdn.microsoft.com/po
 Bu yapılandırma bir kaynak her düğümü blok çağırır [WindowsFeature kaynak](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), varlığı veya yokluğuna göre sağlar **Web sunucusu** özelliği.
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Bir yapılandırma Azure Automation'a içeri aktarma
-Ardından, biz yapılandırmayı Otomasyon dikkate almak.
+Ardından, yapılandırmayı Otomasyon dikkate alın.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
@@ -129,7 +129,7 @@ Derleme işi başarılı şekilde tamamlandığını bir veya daha fazla yeni d�
     ![DSC düğüm yapılandırmaları dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/NodeConfigs.png)
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-dsc"></a>Azure Otomasyonu DSC ile bir Azure VM yönetimi için hazırlanma
-Azure Otomasyonu DSC, Azure Vm'leri (Klasik ve Resource Manager), şirket içi sanal makineleri, Linux makineler, AWS VM'ler ve şirket içi fiziksel makineleri yönetmek için kullanabilirsiniz. Bu konuda, biz kapak yerleşik yalnızca Azure Kaynak Yöneticisi Vm'leri nasıl. Ekleme hakkında bilgi için bkz: diğer türleri makine [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md).
+Azure Otomasyonu DSC, Azure Vm'leri (Klasik ve Resource Manager), şirket içi sanal makineleri, Linux makineler, AWS VM'ler ve şirket içi fiziksel makineleri yönetmek için kullanabilirsiniz. Bu makalede, bilgi yerleşik yalnızca Azure Kaynak Yöneticisi Vm'leri nasıl. Ekleme hakkında bilgi için bkz: diğer türleri makine [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md).
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Onboarding için Azure Otomasyonu DSC tarafından Yönetim için bir Azure Kaynak Yöneticisi'ni VM
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -151,10 +151,10 @@ Azure Otomasyonu DSC, Azure Vm'leri (Klasik ve Resource Manager), şirket içi s
    
     ![Kayıt dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/RegisterVM.png)
    
-    Belirtilen düğüm yapılandırması tarafından belirtilen aralıklarla VM'ye uygulanacak olan **yapılandırma modu sıklığı**, ve VM tarafından belirlenen aralıklarla düğüm yapılandırması için güncelleştirmeleri kontrol eder **yenileme sıklığı**. Bu değerleri nasıl kullanıldığı konusunda daha fazla bilgi için bkz: [yerel Configuration Manager Yapılandırma](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
+    Belirtilen uygulanır VM tarafından belirlenen aralıklarla düğüm yapılandırması **yapılandırma modu sıklığı**, ve VM tarafından belirlenen aralıklarla düğüm yapılandırması için güncelleştirmeleri denetler **Yenile Sıklık**. Bu değerleri nasıl kullanıldığı konusunda daha fazla bilgi için bkz: [yerel Configuration Manager Yapılandırma](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
 9. İçinde **eklemek Azure Vm'leri** dikey penceresinde tıklatın **oluşturma**.
 
-Azure VM ekleme işlemi başlar. Tamamlandığında, VM görünecek **DSC düğümleri** dikey penceresinde Otomasyon hesabı.
+Azure VM ekleme işlemini başlatır. Tamamlandığında, VM görünür **DSC düğümleri** dikey penceresinde Otomasyon hesabı.
 
 ## <a name="viewing-the-list-of-dsc-nodes"></a>DSC düğümleri listesini görüntüleme
 Otomasyon hesabınızda Yönetimi edildi kaldırılmış tüm makinelerin listesini görüntüleyebileceğiniz **DSC düğümleri** dikey.

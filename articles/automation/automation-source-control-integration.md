@@ -3,7 +3,7 @@ title: "Kaynak denetimi tümleştirmesi Azure Automation | Microsoft Docs"
 description: "Bu makalede, Azure automation'da GitHub ile kaynak denetimi tümleştirme açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 224d7375-9887-44dd-b137-06ffe396a4b4
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: d8f236a012648062e703fa2c4123d139c0e115ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb1ce4ceaa3d0c9aea014fc810ea269641dec14c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
 Kaynak denetimi tümleştirmesinin Automation hesabınız GitHub kaynak denetim deponuza runbook'larda ilişkilendirmenizi sağlar. Kaynak denetimi kolayca ekibinizle işbirliği, değişiklikleri izlemek ve runbook'larınızın önceki sürümleri geri sağlar. Örneğin, kaynak denetimi geliştirme ortamınızda Otomasyon üretim test kodu Yükselt kolaylaşır, geliştirme, test veya üretim Automation hesapları, kaynak denetimine farklı dallarda eşitleme sağlar hesabı.
@@ -46,7 +46,7 @@ GitHub hesabı ve Azure Otomasyonu bağlantı kurmak istediğiniz bir depo zaten
    | Kaynak Seç |Bir kaynak seçin. Şu anda yalnızca **GitHub** desteklenir. |
    | Yetkilendirme |Tıklatın **Authorize** düğmesi, GitHub deposunu Azure Otomasyonu erişim vermek için. Zaten başka bir pencerede GitHub hesabınızda oturum açtıysanız, bu hesabı kimlik bilgileri kullanılır. Yetkilendirme başarılı olduktan sonra sayfanın altında GitHub kullanıcı adınızı gösterecektir **yetkilendirme özelliği**. |
    | Depo seçin |GitHub depo kullanılabilir depoları listeden seçin. |
-   | Dal seçin |Bir dal kullanılabilir dalları listeden seçin. Yalnızca **ana** şube herhangi dalları oluşturmadıysanız, gösterilir. |
+   | Şube seçin |Bir dal kullanılabilir dalları listeden seçin. Yalnızca **ana** şube herhangi dalları oluşturmadıysanız, gösterilir. |
    | Runbook klasörü yolu |Runbook klasörü yolu İtme veya kodunuzu çekmek istediğiniz GitHub deposunda yolunu belirtir. Şu biçimde girilmelidir **/KlasörAdı/altklasöradı**. Yalnızca runbook klasör yolu runbook Otomasyon hesabınızı senkronize edilir. Runbook klasör yolunun alt klasörlerdeki runbook'ları olacak **değil** işlemleri senkronize edilir. Kullanım  **/**  depo altındaki tüm runbook'lar eşitlenecek. |
 3. Adlı depo varsa, örneğin, **PowerShellScripts** adlı bir klasör içeren **RootFolder**, adında bir klasör içeren **alt**. Her klasör düzeyinde eşitlemek için aşağıdaki dizelerini kullanabilirsiniz:
    

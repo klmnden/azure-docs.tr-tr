@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Kapasite ve performans çözümü (Önizleme) ile Hyper-V sanal makine kapasite planlaması
 
@@ -45,7 +45,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 | Bağlı Kaynak | Destek | Açıklama |
 |---|---|---|
-| [Windows aracıları](log-analytics-windows-agents.md) | Evet | Çözüm Windows aracılardan kapasite ve performans verileri bilgi toplar. |
+| [Windows aracıları](log-analytics-windows-agent.md) | Evet | Çözüm Windows aracılardan kapasite ve performans verileri bilgi toplar. |
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır    | Çözüm, doğrudan Linux aracılarını kapasite ve performans verileri bilgi toplamaz.|
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Evet |Çözüm bağlı SCOM yönetim grubunda aracıları kapasite ve performans verilerini toplar. OMS SCOM Aracısı'nı arasında doğrudan bağlantı gerekli değildir. Veriler yönetim grubundan OMS deposuna iletilir.|
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Azure depolama kapasite ve performans verilerini içermez.|

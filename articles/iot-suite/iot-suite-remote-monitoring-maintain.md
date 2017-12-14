@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 46b0269b3f5b98e1bcecdbeabd5544e97bb5c06c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Aygıt sorunlarını gidermek ve
 
@@ -46,11 +46,7 @@ Sorunu daha fazla araştırmak için seçin **keşfedin Alarm** uyarının yanı
 
 ![Panodan alarm keşfedin](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-Üzerinde alarmlar listesi şimdi görebilirsiniz **Bakım** sayfa:
-
-![Bakım sayfasında alarmlar listesi](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
-
-Uyarı ayrıntılarını görüntülemek için uyarı seçin **alarmlar** listesi. Ayrıntı görünüm gösterir:
+Uyarı ayrıntı görünümünü gösterir:
 
 * Ne zaman uyarı tetiklendi
 * Alarm ile ilişkili cihazlar hakkındaki durum bilgilerini
@@ -70,7 +66,7 @@ Listede, gördüğünüz **prototip** aygıt sıcaklık alarm tetikleme sorumlu:
 
 Sorunu düzeltmek için **prototip** aygıtı ihtiyacınız çağırmak **DecreaseTemperature** cihazda yöntemi.
 
-Bir cihaz üzerinde çalışmak için aygıtlar listesinde seçin ve ardından **zamanlama**. **Altyapısı** cihaz modeli belirtir üç yöntem bir aygıtı desteklemesi gerekir:
+Bir cihaz üzerinde çalışmak için aygıtlar listesinde seçin ve ardından **zamanlama**. **Prototip** cihaz modeli belirtir dört yöntem bir aygıtı desteklemesi gerekir:
 
 ![Aygıt destekler yöntemlerini görüntülemek](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -78,11 +74,11 @@ Seçin **DecreaseTemperature** ve iş adı ayarlamak **DecreaseTemperature**. Ar
 
 ![Sıcaklık azaltmak için proje oluşturma](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-İşin durumunu izlemek için **Bakım** sayfasında, **sistem durumu**. Kullanım **sistem durumu** tüm işleri izlemek için görüntüleme ve yöntemini çağıran çözümde:
+İşin durumunu izlemek için **Bakım** sayfasında, **işleri**. Kullanım **işleri** tüm işleri izlemek için görüntüleme ve yöntemini çağıran çözümde:
 
 ![Sıcaklık azaltmak için iş İzleyicisi](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-Belirli bir proje veya yöntem çağrısı ayrıntılarını görüntülemek için listede seçin **sistem durumu** görünümü:
+Belirli bir proje veya yöntem çağrısı ayrıntılarını görüntülemek için listede seçin **işleri** görünümü:
 
 ![İş ayrıntılarını görüntüleme](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

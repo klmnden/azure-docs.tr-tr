@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 3173964f0315559b0839fd7e659f8f3bd2c30b2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: d84a9fd45f2e6e44218ebd36d19c6a6c5f3438ce
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL bağlantısı Azure veritabanı'nda PostgreSQL için yapılandırın.
 Azure veritabanı PostgreSQL için istemci uygulamalarınızı Güvenli Yuva Katmanı (SSL) kullanarak PostgreSQL hizmetine bağlanma tercih eder. Veritabanı sunucunuz ve istemci uygulamalarınız arasında SSL bağlantılarını zorlamayı "ortadaki adam" saldırılarına karşı uygulamanız ile sunucu arasındaki veri akışını şifreleyerek korunmasına yardımcı.
@@ -110,10 +110,6 @@ openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Azure veritabanına PostgreSQL için SSL sertifikası kimlik doğrulaması ile bağlanma
 Sertifikanızı başarıyla kodunu çözdü olduğunuza göre şimdi veritabanı sunucunuz için güvenli bir şekilde SSL üzerinden bağlayabilirsiniz. Sunucu sertifika doğrulaması izin vermek için kullanıcının giriş dizini içinde dosya ~/.postgresql/root.crt Sertifika yerleştirilmelidir. (Microsoft Windows dosya % APPDATA%\postgresql\root.crt olarak adlandırılır.). Aşağıdakiler için PostgreSQL Azure veritabanına bağlanmak için yönergeler sağlar.
-
-> [!NOTE]
-> Şu anda olduğunda bir bilinen sorun kullanırsanız "sslmode doğrulayın tam =" hizmet, bağlantı bağlantı şu hatayı vererek başarısız olur: _için sunucu sertifikası "&lt;bölge&gt;. Control.Database.Windows.NET"(ve diğer adları 7) ana bilgisayar adı eşleşmiyor"&lt;servername&gt;. postgres.database.azure.com "._
-> Varsa "sslmode doğrulayın tam =" olan gerekli, lütfen sunucu adlandırma kuralı kullanmak  **&lt;servername&gt;. database.windows.net** ana bilgisayar adı, bağlantı dizesi olarak. Bu sınırlama gelecekte kaldırmak planlıyoruz. Diğer kullanarak bağlantı [SSL modları](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) tercih edilen konak adlandırma kuralını kullanmaya devam etmelidir  **&lt;servername&gt;. postgres.database.azure.com**.
 
 #### <a name="using-psql-command-line-utility"></a>Psql komut satırı yardımcı programını kullanma
 Aşağıdaki örnek başarıyla psql komut satırı yardımcı programını kullanarak PostgreSQL sunucunuza bağlanmak nasıl gösterir. Kullanım `root.crt` oluşturulan dosya ve `sslmode=verify-ca` veya `sslmode=verify-full` seçeneği.

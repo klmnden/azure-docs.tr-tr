@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanı'nda Bellek içi teknolojileri kullanılarak performansı en iyi duruma getirme
 
@@ -77,9 +77,7 @@ Teknolojileri hakkında ayrıntılı videolar:
 
 Bellek içi OLTP kullanıcı verilerini depolamak için kullanılan bellek için iyileştirilmiş tablolar içerir. Bu tablolar belleğe sığması için gereklidir. SQL veritabanı hizmetinin bellekte doğrudan yönetmek için biz kullanıcı verileri için bir kota kavramı vardır. Bu fikir olarak adlandırılır *bellek içi OLTP depolama*.
 
-Belirli bir miktarda bellek içi OLTP depolama fiyatlandırma katmanı ve fiyatlandırma katmanı her esnek havuz her desteklenen tek başına veritabanı içerir. Yazma zaman, her 125 veritabanı işlem birimleri (Dtu'lar) veya esnek veritabanı işlem birimleri (Edtu'lar) için depolama gigabayt alırsınız.
-
-[SQL Database hizmet katmanlarına](sql-database-service-tiers.md) makale her desteklenen tek başına veritabanı ve fiyatlandırma katmanı esnek havuz için kullanılabilir olan bellek içi OLTP depolama resmi listesi vardır.
+Belirli bir miktarda bellek içi OLTP depolama fiyatlandırma katmanı ve fiyatlandırma katmanı her esnek havuz her desteklenen tek başına veritabanı içerir. Yazma zaman, her 125 veritabanı işlem birimleri (Dtu'lar) veya esnek veritabanı işlem birimleri (Edtu'lar) için depolama gigabayt alırsınız. Daha fazla bilgi için bkz: [kaynak sınırları](sql-database-resource-limits.md).
 
 Aşağıdaki öğeler, bellek içi OLTP depolama cap doğru sayısı:
 

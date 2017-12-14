@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Olay hub'ları kullanarak Azure Tanılama verileri etkin yolunuzda akış
 Azure tanılama bulut Hizmetleri sanal makinelerden (VM'ler) ölçümleri ve günlükleri toplamak ve sonuçları Azure depolama birimine aktarmak için esnek yöntemler sağlar. Mart 2016 (SDK 2.9) zaman çerçevesinde başlayarak, özel veri kaynaklarına tanılama gönderebilir ve etkin yolunuzda veri aktarımının saniye cinsinden kullanarak [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -104,7 +104,7 @@ Olay hub'ları havuz gerekir de bildirilen ve içinde tanımlanan **PrivateConfi
 }
 ```
 
-`SharedAccessKeyName` Değeri bir paylaşılan erişim imzası (SAS) anahtarı ve içinde tanımlanan ilke eşleşmelidir **olay hub'ları** ad alanı. Olay hub'ları panoya göz atın [Azure portal](https://manage.windowsazure.com), tıklatın **Yapılandır** sekmesini tıklatın ve sahip bir adlandırılmış ilkeyi kurmak (örneğin, "SendRule") *Gönder* izinleri. **StorageAccount** içinde bildirilmiş **PrivateConfig**. Bunlar çalışıyorsanız burada değerlerini değiştirmek için gerek yoktur. Bu örnekte, biz değerleri boş bir aşağı akış varlık değerleri ayarlayacaksınız oturum olduğu bırakın. Örneğin, *ServiceConfiguration.Cloud.cscfg* ortam yapılandırma dosyası ayarlar ortam uygun adları ve anahtarları.  
+`SharedAccessKeyName` Değeri bir paylaşılan erişim imzası (SAS) anahtarı ve içinde tanımlanan ilke eşleşmelidir **olay hub'ları** ad alanı. Olay hub'ları panoya göz atın [Azure portal](https://portal.azure.com), tıklatın **Yapılandır** sekmesini tıklatın ve sahip bir adlandırılmış ilkeyi kurmak (örneğin, "SendRule") *Gönder* izinleri. **StorageAccount** içinde bildirilmiş **PrivateConfig**. Bunlar çalışıyorsanız burada değerlerini değiştirmek için gerek yoktur. Bu örnekte, biz değerleri boş bir aşağı akış varlık değerleri ayarlayacaksınız oturum olduğu bırakın. Örneğin, *ServiceConfiguration.Cloud.cscfg* ortam yapılandırma dosyası ayarlar ortam uygun adları ve anahtarları.  
 
 > [!WARNING]
 > Olay hub'ları SAS anahtarı düz metin halinde depolanır *.wadcfgx* dosya. Genellikle, bu anahtarı kaynak kod denetimine iade veya uygun şekilde korumanız gerekir böylece yapı sunucunuz bir varlığı olarak kullanılabilir. Bir SAS anahtarıyla burada kullanmanızı öneririz *yalnızca gönderme* izinleri böylece kötü niyetli bir kullanıcı event hub'ına yazma ancak kendisine dinleme veya yönetme.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Tüm Azure Web uygulaması kaynaklarına arasında ölçümleri ilişkin analitik verileri görüntüle
 
@@ -39,7 +39,7 @@ Azure Web uygulamaları analizi (Önizleme) çözümü Öngörüler sunar, [Azur
 
 | Bağlı Kaynak | Destekleniyor | Açıklama |
 | --- | --- | --- |
-| [Windows aracıları](log-analytics-windows-agents.md) | Hayır | Çözüm Windows aracılardan bilgi toplamaz. |
+| [Windows aracıları](log-analytics-windows-agent.md) | Hayır | Çözüm Windows aracılardan bilgi toplamaz. |
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Çözüm, Linux aracılarını bilgi toplamaz. |
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Hayır | Çözüm bağlı SCOM yönetim grubunda aracılardan gelen bilgiler toplamaz. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Çözüm koleksiyonu bilgileri Azure depolama biriminden değil yapar. |
@@ -58,19 +58,19 @@ Alanlarınızı için Azure Web Apps analiz çözümü yapılandırmak için aş
 Azure Web Apps analiz çözümü Azure'dan iki kümesi ölçümleri toplar:
 
 - Azure Web Apps ölçümleri
-  - Ortalama bellek çalışma kümesi
-  - Ortalama yanıt süresi
+  - Ortalama Bellek Çalışma Kümesi
+  - Ortalama Yanıt Süresi
   - Bayt alınan/gönderilen
-  - CPU süresi
+  - CPU Süresi
   - İstekler
   - Bellek çalışma kümesi
   - Httpxxx
 - Uygulama hizmeti planı ölçümleri
   - Bayt alınan/gönderilen
   - CPU Yüzdesi
-  - Disk Sırası Uzunluğu
-  - HTTP sırası uzunluğu
-  - Bellek yüzdesi
+  - Disk Kuyruğu Uzunluğu
+  - Http Kuyruk Uzunluğu
+  - Bellek Yüzdesi
 
 Ayrılmış hizmet planı kullanıyorsanız, uygulama hizmeti planı ölçümleri yalnızca toplanır. Bu ücretsiz veya paylaşılan uygulama hizmeti planları için geçerli değil.
 

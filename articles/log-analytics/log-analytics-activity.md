@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-azure-activity-logs"></a>Azure etkinlik günlüklerini görüntüle
 
@@ -52,7 +52,7 @@ Diğer çoğu günlük analizi çözümleri, etkinlik günlükleri için aracıl
 
 | Bağlı Kaynak | Destekleniyor | Açıklama |
 | --- | --- | --- |
-| [Windows aracıları](log-analytics-windows-agents.md) | Hayır | Çözüm Windows aracılardan bilgi toplamaz. |
+| [Windows aracıları](log-analytics-windows-agent.md) | Hayır | Çözüm Windows aracılardan bilgi toplamaz. |
 | [Linux aracıları](log-analytics-linux-agents.md) | Hayır | Çözüm, Linux aracılarını bilgi toplamaz. |
 | [SCOM yönetim grubu](log-analytics-om-agents.md) | Hayır | Çözüm bağlı SCOM yönetim grubunda aracılardan gelen bilgiler toplamaz. |
 | [Azure depolama hesabı](log-analytics-azure-storage.md) | Hayır | Çözüm, Azure depolama biriminden bilgi toplamaz. |
@@ -88,7 +88,7 @@ Tıklatın **Azure etkinlik günlükleri** açmak için kutucuğa **Azure etkinl
 
 Etkinlik günlüğü verileri yalnızca görünür *sonra* , daha önce verileri görüntüleyemezsiniz şekilde çözüme gitmek için etkinlik günlükleri yapılandırdığınız.
 
-| Dikey penceresi | Açıklama |
+| Dikey pencere | Açıklama |
 | --- | --- |
 | Azure etkinlik günlüğü girişleri | Çubuk grafik Azure etkinlik günlüğü girişi üst halinde seçtiğiniz tarih aralığını kayıt toplamlarını gösterir ve üst 10 etkinlik arayanlar listesini gösterir. Günlük aramasını çalıştırmak için çubuk grafiği tıklatın <code>Type=AzureActivity</code>. Bu öğe için tüm etkinlik günlüğü girişleri döndüren bir günlük arama çalıştırmak için bir arayan öğesini tıklatın. |
 | Duruma göre etkinlik günlükleri | Azure etkinlik günlüğü durumu seçtiğiniz tarih aralığı için bir halka grafik gösterir. Ayrıca bir liste üst on durum kayıtların listesini gösterir. Günlük aramasını çalıştırmak için grafiği tıklatın <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Bu durum kaydı tüm etkinlik günlüğü girişlerini döndüren bir günlük arama çalıştırmak için bir durum öğesini tıklatın. |

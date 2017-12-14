@@ -3,7 +3,7 @@ title: "Azure otomasyonu için PowerShell iş akışı öğrenme | Microsoft Doc
 description: "Bu makalede PowerShell ve PowerShell iş akışı ve kavramları Automation runbook'larına geçerli arasındaki belirli farkları anlamak için hızlı Ders yazarlar PowerShell ile tanıdık yöneliktir."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Otomasyon runbook'ları için temel Windows PowerShell iş akışı kavramları öğrenme 
 Azure Otomasyonu runbook'ları Windows PowerShell iş akışları olarak uygulanır.  Bir Windows PowerShell iş akışı, bir Windows PowerShell komut dosyası için benzer ancak yeni bir kullanıcıya kafa karıştırıcı olabilir önemli bazı farklar vardır.  Bu makale, PowerShell iş akışı kullanarak runbook'ları yazmanıza yardımcı olmak için tasarlanmıştır, ancak denetim noktaları gerekmedikçe PowerShell kullanarak runbook'ları yazma öneririz.  PowerShell iş akışı runbook'ları yazarken birkaç söz dizimi farkları yüklenir ve bu farklılıklar etkin iş akışları yazmak için biraz daha fazla iş gerektirmez.  
@@ -198,7 +198,7 @@ Aşağıdaki örnek, paralel olarak dosyaları kopyalanıyor önceki örneğe be
 > Bu güvenilir olmayan sonuçlar vermek için göstermiştir bu yana çalışan alt runbook'ları paralel olarak önermiyoruz.  Bazen alt runbook'tan çıkış gösterilmez ve bir alt runbook ayarlarında diğer paralel alt runbook'lar etkileyebilir
 >
 
-## <a name="checkpoints"></a>Kontrol noktaları
+## <a name="checkpoints"></a>Denetim Noktaları
 A *denetim noktası* değişkenlerin geçerli değerlerini ve bu noktaya kadar üretilen çıktıyı içerir iş akışının geçerli durumuna anlık görüntüsüdür. Bir iş akışı hata sona erer veya askıya alındı, ardından İleri çalıştırıldığında, akışı başlangıcı yerine en son denetim noktasından başlayacaktır.  İle bir iş akışında bir denetim noktası ayarlayabilirsiniz **Checkpoint-Workflow** etkinlik.
 
 Aşağıdaki örnek kodda bir özel durum activity2 sonrasında sona erdirmek iş akışı neden olur. İş akışını yeniden çalıştırdığınızda, yalnızca son denetim noktasının ayarlandığı sonra bu yana Activity2 çalıştırarak başlatır.

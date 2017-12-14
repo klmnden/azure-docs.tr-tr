@@ -1,6 +1,6 @@
 ## <a name="webapi-project"></a>Webapı proje
 1. Visual Studio'da açın **AppBackend** oluşturduğunuz proje **kullanıcılara bildirme** Öğreticisi.
-2. Tüm Notifications.cs içinde Değiştir **bildirimleri** aşağıdaki kodla sınıfı. Yer tutucuları bağlantı dizenizi (tam erişimli) için bildirim hub'ınızı ve hub adı ile değiştirdiğinizden emin olun. Bu değerleri elde edebilirsiniz [Klasik Azure portalı](http://manage.windowsazure.com). Bu modül şimdi gönderilecek farklı güvenli bildirimleri temsil eder. Tam bir uygulama bildirimleri bir veritabanında depolanır; Kolaylık olması için bu durumda bunları bellekte depolarız.
+2. Tüm Notifications.cs içinde Değiştir **bildirimleri** aşağıdaki kodla sınıfı. Yer tutucuları bağlantı dizenizi (tam erişimli) için bildirim hub'ınızı ve hub adı ile değiştirdiğinizden emin olun. Bu değerleri elde edebilirsiniz [Azure portal](http://portal.azure.com). Bu modül şimdi gönderilecek farklı güvenli bildirimleri temsil eder. Tam bir uygulama bildirimleri bir veritabanında depolanır; Kolaylık olması için bu durumda bunları bellekte depolarız.
    
         public class Notification
         {

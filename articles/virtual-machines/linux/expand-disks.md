@@ -4,7 +4,7 @@ description: "Bir Linux VM Azure CLI 2.0 ile sanal sabit disklerde genişletin �
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc370c1f02eedf996824136b117a4021915fc57
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Bir Linux VM Azure CLI ile sanal sabit disklerde genişletmek nasıl
 Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Linux sanal makine (VM) genellikle 30 GB açıktır. Yapabilecekleriniz [veri diski Ekle](add-disk.md) ek depolama alanı, ancak için sağlamak üzere ayrıca istediğiniz varolan bir veri diski genişletin. Bu makale için bir Linux VM Azure CLI 2.0 ile yönetilen diskleri genişletmek nasıl ayrıntılarını verir. Yönetilmeyen işletim sistemi diski ile genişletebilirsiniz [Azure CLI 1.0](expand-disks-nodejs.md).
@@ -26,7 +26,7 @@ Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Lin
 > [!WARNING]
 > Her zaman, disk gerçekleştirmeden önce verileri yedekleyin operations yeniden boyutlandırma emin olun. Daha fazla bilgi için bkz: [Linux VM'ler için Azure'da yedekleme](tutorial-backup-vms.md).
 
-## <a name="expand-disk"></a>Disk genişletme
+## <a name="expand-azure-managed-disk"></a>Azure yönetilen Disk genişletme
 En son sahip olduğunuzdan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/#login).
 
 Bu makalede Azure mevcut bir VM'yi sahip bağlı ve hazırlanan en az bir veri diski gerektirir. Kullanabileceğiniz VM zaten yoksa bkz [oluşturma ve veri diskleri içeren bir VM hazırlama](tutorial-manage-disks.md#create-and-attach-disks).
@@ -40,7 +40,7 @@ Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiş
     ```
 
     > [!NOTE]
-    > `az vm stop`işlem kaynaklarını serbest değil. İşlem kaynakları serbest bırakmak için kullanmak `az vm deallocate`. Sanal sabit diski genişletmek için VM serbest gerekir.
+    > Sanal sabit diski genişletmek için VM serbest gerekir. `az vm stop`işlem kaynaklarını serbest değil. İşlem kaynakları serbest bırakmak için kullanmak `az vm deallocate`.
 
 2. Bir kaynak grubu ile yönetilen disklerin listesini görüntülemek [az disk listesi](/cli/azure/disk#list). Aşağıdaki örnek adlı kaynak grubunda yönetilen disklerin listesini görüntüler *myResourceGroup*:
 
@@ -69,13 +69,17 @@ Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiş
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH, VM uygun kimlik bilgilerine sahip. VM ile genel IP adresi elde edebilirsiniz [az vm Göster](/cli/azure/vm#show):
+
+## <a name="expand-disk-partition-and-filesystem"></a>Disk bölümü ve dosya sistemi genişletin
+Genişletilmiş disk kullanmak için temel alınan bölümü ve dosya sistemi genişletmek gerekir.
+
+1. SSH, VM uygun kimlik bilgilerine sahip. VM ile genel IP adresi elde edebilirsiniz [az vm Göster](/cli/azure/vm#show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. Genişletilmiş disk kullanmak için temel alınan bölümü ve dosya sistemi genişletmek gerekir.
+2. Genişletilmiş disk kullanmak için temel alınan bölümü ve dosya sistemi genişletmek gerekir.
 
     a. Takılı, disk çıkarın:
 
@@ -116,25 +120,25 @@ Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiş
 
     d. Çıkmak için girin`quit`
 
-5. Yeniden boyutlandırılabilir bölümüyle ile bölüm tutarlılığını doğrula `e2fsck`:
+3. Yeniden boyutlandırılabilir bölümüyle ile bölüm tutarlılığını doğrula `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-6. Artık dosya sistemi ile yeniden boyutlandırın `resize2fs`:
+4. Artık dosya sistemi ile yeniden boyutlandırın `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-7. İstenen konuma bölüm gibi takma `/datadrive`:
+5. İstenen konuma bölüm gibi takma `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-8. İşletim sistemi diski yeniden doğrulamak için kullanılan `df -h`. Aşağıdaki örnek çıkış veri sürücüsü gösterir */dev/sdc1*, 200 GB sunulmuştur:
+6. İşletim sistemi diski yeniden doğrulamak için kullanılan `df -h`. Aşağıdaki örnek çıkış veri sürücüsü gösterir */dev/sdc1*, 200 GB sunulmuştur:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

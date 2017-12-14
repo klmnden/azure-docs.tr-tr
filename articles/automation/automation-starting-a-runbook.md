@@ -3,7 +3,7 @@ title: "Azure Otomasyonu runbook başlatma | Microsoft Docs"
 description: "Azure portalı ve Windows PowerShell kullanma hakkında ayrıntılar verilmiştir ve Azure Otomasyon runbook'u başlatmak için kullanılır farklı yöntemleri özetler."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6ee756b4-9200-4eb2-9bda-ec156853803b
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 7537a50d3d9b773f48bc498f946ea5f63f6d530b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4387f3ed56f1adb562e29b9d152d113859c88b06
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Azure Otomasyonu runbook başlatma
 Aşağıdaki tabloda, Azure automation'da belirli senaryonuza en uygun bir runbook'u başlatmak için bu yöntem belirlemenize yardımcı olur. Bu makalede Azure portal ile ve Windows PowerShell ile bir runbook'u başlatma hakkında bilgi içerir. Aşağıdaki bağlantılardan erişebilirsiniz diğer belgelerinde diğer yöntemler hakkında ayrıntılar verilmiştir.

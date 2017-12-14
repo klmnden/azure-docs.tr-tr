@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 12/13/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 0ecba72de9604fe1fd13a993f58bcdb1e8097501
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 66df4d709b60f2eb80329b8527b2a6edeb123168
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -76,7 +76,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 * **Ayrıcalıklı Rol Yöneticisi**: Bu rolüne sahip kullanıcılar, Azure Active Directory'de yanı sıra Azure AD Privileged Identity Management içinde rol atamalarını yönetebilir. Ayrıca, bu rolün tüm yönlerini Privileged Identity Management yönetilmesine izin verir.
 
-* **Güvenlik Yöneticisi**: Bu rol ile kullanıcınız tüm güvenlik okuyucu rolüne yanı sıra güvenlikle ilgili hizmetler için yapılandırma yönetme olanağı salt okunur izinleri: Azure Active Directory kimlik koruması, Privileged Identity Management ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Güvenlik Yöneticisi**: Bu rol ile kullanıcınız tüm güvenlik okuyucu rolüne yanı sıra güvenlikle ilgili hizmetler için yapılandırma yönetme olanağı salt okunur izinleri: Azure Active Directory kimlik koruması, Azure Information Protection, Privileged Identity Management ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Güvenlik okuyucu**: kullanıcılar bu rol ile Azure Active Directory, kimlik koruması, Privileged Identity Management, aynı zamanda Özelliği Azure Active Directory oturum açma raporları okuma ve Denetim günlükleri için tüm bilgileri de dahil olmak üzere genel salt okunur erişim. Rol, ayrıca Office 365 güvenlik ve Uyumluluk Merkezi salt okunur izni verir. Office 365 izinleri hakkında daha fazla bilgi için bkz. [izinleri Office 365 güvenlik ve Uyumluluk Merkezi](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 

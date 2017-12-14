@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Platform düzeyi olay ve günlük oluşturma
 
@@ -105,7 +105,7 @@ Service Fabric kullanırken toplamak için performans sayaçları listesi için 
 
 Kümeniz için performans verilerini toplama yukarı ayarlayabilirsiniz iki genel yolu şunlardır:
 
-* Bir aracı kullanarak: Bu, aracıları toplanabilir olası performans ölçümleri listesi genellikle sahip olduğu bir makineden performans toplama, tercih edilen yoludur ve toplama veya bunları değiştirmek istediğiniz ölçümler seçmek için görece olarak daha kolay bir işlemdir. Hakkında bilgi edinin [için Service Fabric OMS yapılandırma](service-fabric-diagnostics-event-analysis-oms.md) ve [OMS Windows aracınızı ayarlama](../log-analytics/log-analytics-windows-agents.md) performansını çekme mümkün olan bir tür İzleme Aracısı OMS Aracısı hakkında daha fazla bilgi makaleleri küme sanal makineleri ve dağıtılan kapsayıcıları için verileri.
+* Bir aracı kullanarak: Bu, aracıları toplanabilir olası performans ölçümleri listesi genellikle sahip olduğu bir makineden performans toplama, tercih edilen yoludur ve toplama veya bunları değiştirmek istediğiniz ölçümler seçmek için görece olarak daha kolay bir işlemdir. Hakkında bilgi edinin [için Service Fabric OMS yapılandırma](service-fabric-diagnostics-event-analysis-oms.md) ve [OMS Windows aracınızı ayarlama](../log-analytics/log-analytics-windows-agent.md) performansını çekme mümkün olan bir tür İzleme Aracısı OMS Aracısı hakkında daha fazla bilgi makaleleri küme sanal makineleri ve dağıtılan kapsayıcıları için verileri.
 
 * Performans sayaçları için bir tablo yazmak için tanılama yapılandırılıyor: Azure ile ilgili daha fazla kümeler için bu kümenizdeki vm'lerden uygun performans sayaçları kuruluyor almak için Azure Tanılama yapılandırmasını değiştirme ve docker istatistikleri çekme gerekmiyorsa kendisine etkinleştirme anlamına gelir Tüm kapsayıcıları dağıtma. Yapılandırma hakkında okuyun [WAD performans sayaçları](service-fabric-diagnostics-event-aggregation-wad.md) performans sayacı toplamayı ayarlama için Service Fabric içinde.
 

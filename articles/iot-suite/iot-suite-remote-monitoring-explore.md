@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 6533889411c3dbadbbabdbe1239050c941a9c300
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış Uzaktan izleme çözümü özelliklerini keşfedin
 
@@ -101,11 +101,11 @@ Bir operatör olarak panosunda bir Soğutucu baskısı için ilgili bir uyarı o
 
 1. Kapat **aygıt ayrıntı**.
 
-1. Gitmek için **Bakım** sayfasında, **...**  içinde **keşfedin Alarm** alarm kılavuzunda alarm yanındaki sütuna.
+1. Gitmek için **Bakım** sayfasında, **Bakım** Gezinti menüsünde.
 
 Üzerinde **Bakım** sayfasında Soğutucu baskısı uyarı tetikleyen kuralı ayrıntılarını görüntüleyebilirsiniz.
 
-1. Uyarı tetikleyen sayısı, bildirimler ve açık ve kapalı uyarıları görebilirsiniz:
+1. Bildirimleri listesini uyarı tetikleyen sayısı, bildirimler ve açık ve kapalı uyarıları gösterir:
 
     ![Bakım Sayfası tetiklemesi alarmlar listesini gösterir](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Bir operatör olarak panosunda bir Soğutucu baskısı için ilgili bir uyarı o
 
     ![Cihazı seçin ve bir eylem zamanlama](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. İş durumunu görüntülemek için dönmek **Bakım** sayfasında ve işlerinin listesini görüntülemek **sistem durumu** görünümü. İş Soğutucu Vana Basıncı yayımlamayı çalıştırıldı görebilirsiniz:
+1. İş durumunu görüntülemek için dönmek **Bakım** sayfasında ve işlerinin listesini görüntülemek **işleri** görünümü. İş Soğutucu Vana Basıncı yayımlamayı çalıştırıldı görebilirsiniz:
 
-    ![Sistem durumu işlerin durumunu](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![İşler görünümünde işlerin durumunu](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Son olarak, telemetri değerleri Soğutucu normal olarak olduğunu onaylayın.
 
@@ -159,7 +159,7 @@ Gerekli cihaz yönetim görevlerini gerçekleştirmek için kullanın **aygıtla
     ![Cihazdaki üretici yazılımı güncelleştirmesini zamanla](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Sanal cihazlar ile olarak istediğiniz herhangi bir URL kullanabilirsiniz **Firemware URI** değeri. Sanal cihazlar URL erişmez.
+    > Sanal cihazlar ile olarak istediğiniz herhangi bir URL kullanabilirsiniz **bellenim URI** değeri. Sanal cihazlar URL erişmez.
 
 1. İş etkiler kaç cihaz not edin ve seçin **Uygula**:
 
@@ -167,13 +167,13 @@ Gerekli cihaz yönetim görevlerini gerçekleştirmek için kullanın **aygıtla
 
 Kullanabileceğiniz **Bakım** çalışırken işi izlemek için sayfa.
 
-1. İşlerin listesini görüntülemek için gidin **Bakım** sayfasında ve tıklayın **sistem durumu**.
+1. İşlerin listesini görüntülemek için gidin **Bakım** sayfasında ve tıklayın **işleri**.
 
 1. Oluşturduğunuz proje için ilgili olay bulun. Bellenim güncelleştirme işlemini doğru bir şekilde başlatıldı doğrulayın.
 
-Bellenim sürümü güncelleştirme doğru doğrulamak için bir filtre oluşturabilirsiniz.
+Doğru güncelleştirilmiş bellenim sürümü doğrulamak için bir filtre oluşturabilirsiniz.
 
-1. Bir filtre oluşturmak için gidin **aygıtları** sayfasından seçim yapıp **Yönet**:
+1. Bir filtre oluşturmak için gidin **aygıtları** sayfasından seçim yapıp **yönetmek filtreleri**:
 
     ![Aygıt filtreleri yönetme](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Cihazlarla kullanım için etiket adları oluşturabilirsiniz.
 
     ![Prototip ve kamyon cihazları seçin](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Seçin **etiketi** ve adlı yeni bir dize etiket oluşturma **FieldService** bir değerle **ConnectedVehicle**. İş için bir ad seçin. Ardından **Uygula**:
+1. Seçin **etiketi** ve adlı yeni bir metin etiketi oluşturmak **FieldService** bir değerle **ConnectedVehicle**. İş için bir ad seçin. Ardından **Uygula**:
 
     ![Prototip ve kamyon cihazlara etiket ekleme](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ Cihazlarla kullanım için etiket adları oluşturabilirsiniz.
 
     ![Soğutucu, altyapısı ve fırsatınızdır cihazları seçin](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Seçin **etiketi** ve adlı yeni bir etiket oluşturmak **FieldService** bir değerle **SmartBuilding**. İş için bir ad seçin. Ardından **kaydetmek**:
+1. Seçin **etiketi** ve adlı yeni bir metin etiketi oluşturmak **FieldService** bir değerle **SmartBuilding**. İş için bir ad seçin. Ardından **kaydetmek**:
 
     ![Soğutucu, altyapısı ve fırsatınızdır cihazlara etiket ekleme](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

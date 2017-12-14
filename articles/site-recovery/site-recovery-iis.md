@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cff6a7502e80eb4ff447cc99fe31b48cb660c27e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Azure Site Recovery kullanan çok katmanlı tabanlı IIS web uygulamasına Çoğalt
 
@@ -71,6 +71,7 @@ Windows Server 2012 R2 Enterprise 7.5 sürümünde IIS sunucuyla Bu makale VMwar
 **Hyper-V** | Evet | Evet
 **VMware** | Evet | Evet
 **Fiziksel sunucu** | Hayır | Evet
+**Azure**|NA|Evet
 
 ## <a name="replicate-virtual-machines"></a>Çoğaltma sanal makineler
 

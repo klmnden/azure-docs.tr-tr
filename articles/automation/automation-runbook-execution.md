@@ -3,7 +3,7 @@ title: "Azure Otomasyonu Runbook yürütme | Microsoft Docs"
 description: "Azure automation'da bir runbook nasıl işleneceğini ayrıntılarını açıklar."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 22852fed184022b4eae298d6cc531fd383eff552
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: c883421c6fc79b233b2d47afde9cbe6edb909a51
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Otomasyonu Runbook yürütme
 Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş bir runbook tek yürütme örneğidir. Bir Azure Otomasyonu çalışan her bir iş çalıştırmak için atanır. Çalışan birden çok Azure paylaştığı olsa da, farklı Automation hesapları işlerden birbirinden yalıtılır. Değil sahip denetim işinizi isteği hangi çalışan hizmetleri. Tek bir runbook'ta aynı anda çalışan birden çok iş bulunabilir.  Aynı Otomasyon hesabı işlerden yürütme ortamı yeniden kullanılabilir. Azure portalında listesini görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek için her runbook için iş listesini görüntüleyebilirsiniz. Farklı iş durumları açıklaması [iş durumları](#job-statuses).
@@ -49,7 +49,7 @@ Aşağıdaki tabloda, bir iş için olası farklı durumlarını tanımlar.
 | Durduruldu |İş tamamlanmadan kullanıcı tarafından durduruldu. |
 | Durduruluyor |İşi durdurma işleminde sistemidir. |
 | Askıya Alındı |İş, kullanıcı, sistem veya runbook'taki bir komut tarafından askıya alındı. Askıya alınmış bir iş yeniden başlatılabilir ve kontrol noktası yoksa en son denetim noktasından veya runbook'un başından devam. Özel durum oluştuğunda runbook yalnızca sistem tarafından askıya alınır. Varsayılan olarak, ErrorActionPreference ayarlamak **devam**, yani bir hatayla işi tutar. Bu tercih değişkeni ayarlanmışsa **durdurmak**, sonra da bir hata işini askıya alır.  Uygulandığı öğe [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md) yalnızca. |
-| Askıya alma |Sistem, kullanıcının isteği üzerine işi askıya almaya çalışıyor. Runbook, askıya alınmadan önce sonraki denetim noktasına erişmelidir. Askıya alınmadan önce tamamlandıktan sonra zaten en son denetim aktarılırsa.  Uygulandığı öğe [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md) yalnızca. |
+| Askıya alınıyor |Sistem, kullanıcının isteği üzerine işi askıya almaya çalışıyor. Runbook, askıya alınmadan önce sonraki denetim noktasına erişmelidir. Askıya alınmadan önce tamamlandıktan sonra zaten en son denetim aktarılırsa.  Uygulandığı öğe [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md) yalnızca. |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Azure portalından işi durumunu görüntüleme
 Tüm runbook işleri özetlenen durumunu görüntüleyin ya da belirli bir runbook işi Azure portalında veya runbook iş durumu ve iş iletmek için Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanınız ile tümleştirme yapılandırarak ayrıntılarını incelemek Akışlar.  OMS günlük analizi ile tümleştirme hakkında daha fazla bilgi için bkz: [Otomasyon iş durumu ve iş akışları günlük analizi (OMS) iletmek](automation-manage-send-joblogs-log-analytics.md).  

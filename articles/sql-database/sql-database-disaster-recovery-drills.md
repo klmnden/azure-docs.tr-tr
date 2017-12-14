@@ -12,14 +12,15 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 10/20/2016
 ms.workload: Inactive
-ms.date: 07/31/2016
 ms.author: sashan
-ms.openlocfilehash: 8e395153fc9907107156c3412e5e0de554c83750
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.reviewer: carlrab
+ms.openlocfilehash: 55f73c30db96d91a642daee98832b1e1c9a38035
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Olağanüstü durum kurtarma ayrıntıya gerçekleştirme
 Kurtarma iş akışı için uygulama hazırlık doğrulanması düzenli aralıklarla gerçekleştirilen önerilir. Uygulama davranışına ve etkileri doğrulama veri kaybına ve/veya kesintisi Bu yük devretme içerir iyi bir mühendislik uygulamadır. Ayrıca, çoğu endüstri standartlarına göre gerekli iş sürekliliği sertifika kapsamında değildir.
@@ -30,10 +31,10 @@ Bir olağanüstü durum kurtarma ayrıntıya gerçekleştirme oluşur:
 * Kurtarma
 * Uygulama bütünlüğü post kurtarma doğrula
 
-Nasıl bağlı olarak, [uygulamanız iş sürekliliği için tasarlanmış](sql-database-business-continuity.md), ayrıntıya yürütmek için iş akışı değişebilir. Aşağıda Azure SQL veritabanı bağlamında bir olağanüstü durum kurtarma ayrıntıya gerçekleştirme en iyi uygulamaları açıklar.
+Nasıl bağlı olarak, [uygulamanız iş sürekliliği için tasarlanmış](sql-database-business-continuity.md), ayrıntıya yürütmek için iş akışı değişebilir. Bu makalede bir olağanüstü durum kurtarma ayrıntıya Azure SQL veritabanı bağlamında yürütülmesi için en iyi uygulamaları açıklar.
 
 ## <a name="geo-restore"></a>Coğrafi Geri Yükleme
-Bir olağanüstü durum kurtarma ayrıntıya yürütülürken olası veri kaybını önlemek için üretim ortamında bir kopyasını oluşturarak ve uygulamanın yük devretme iş akışı doğrulamak için kullanılarak bir test ortamı kullanarak ayrıntıya gerçekleştirme öneririz.
+Bir olağanüstü durum kurtarma ayrıntıya yürütülürken olası veri kaybını önlemek için üretim ortamında bir kopyasını oluşturarak ve uygulamanın yük devretme iş akışı doğrulamak için kullanılarak bir test ortamı kullanarak ayrıntıya gerçekleştirin.
 
 #### <a name="outage-simulation"></a>Kesinti benzetimi
 Kesinti benzetimini yapmak için silebilir veya kaynak veritabanını yeniden adlandırın. Bu uygulama bağlantısı hataları neden olur.
@@ -45,22 +46,22 @@ Kesinti benzetimini yapmak için silebilir veya kaynak veritabanını yeniden ad
 #### <a name="validation"></a>Doğrulama
 * Ayrıntıya (bağlantı dizeleri, oturum açma bilgileri, temel işlevselliğini test etme veya diğer standart uygulama signoffs yordamları doğrulamaları parçası dahil) uygulama bütünlüğü post kurtarma doğrulayarak tamamlayın.
 
-## <a name="geo-replication"></a>Coğrafi çoğaltma
-Coğrafi çoğaltma kullanılarak korunan bir veritabanı için planlanan yük devretme ikincil veritabanına ayrıntıya alıştırma içerir. Planlanmış yük devretme rolleri anahtarlı zaman birincil ve ikincil veritabanlarıyla eşitlenmiş kalmasını sağlar. Üretim ortamında ayrıntıya gerçekleştirilebilir şekilde planlanmamış yük devretme farklı olarak bu işlem veri kaybına oluşmaz.
+## <a name="failover-groups"></a>Yük devretme grupları
+Yük devretme grupları kullanılarak korunan bir veritabanı için planlanan yük devretme ikincil sunucuya ayrıntıya alıştırma içerir. Planlanmış yük devretme rolleri anahtarlı zaman birincil ve ikincil veritabanları yük devretme grubunda eşitlenmiş kalmasını sağlar. Üretim ortamında ayrıntıya gerçekleştirilebilir şekilde planlanmamış yük devretme farklı olarak bu işlem veri kaybına oluşmaz.
 
 #### <a name="outage-simulation"></a>Kesinti benzetimi
 Kesinti benzetimini yapmak için web uygulaması ya da sanal makinenin veritabanına bağlı devre dışı bırakabilirsiniz. Bu web istemcileri için bağlantı hataları sonuçlanır.
 
 #### <a name="recovery"></a>Kurtarma
-* Uygulama yapılandırması DR bölgede hangi tamamen erişilebilir yeni birincil hale eski ikincil işaret ettiğinden emin olun.
-* Gerçekleştirmek [planlanan yük devretme](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) ikincil veritabanını yeni bir birincil yapmak için
+* Tamamen erişilebilir yeni birincil hale uygulama yapılandırması ikincil, eski DR bölgeye işaret emin olun.
+* Başlatma [planlanan yük devretme](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) ikincil sunucudan yük devretme grubunun.
 * İzleyin [bir veritabanını kurtarma işleminden sonra yapılandırma](sql-database-disaster-recovery.md) kurtarma işlemini tamamlamak için kılavuz.
 
 #### <a name="validation"></a>Doğrulama
-* Ayrıntıya (bağlantı dizeleri, oturum açma bilgileri, temel işlevselliğini test etme veya diğer standart uygulama signoffs yordamları doğrulamaları parçası dahil) uygulama bütünlüğü post kurtarma doğrulayarak tamamlayın.
+Ayrıntıya (bağlantı, temel işlevselliğini test etme veya ayrıntıya signoffs için gereken başka doğrulama dahil) uygulama bütünlüğü post kurtarma doğrulayarak tamamlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* İş sürekliliği senaryoları hakkında bilgi edinmek için [sürekliliği senaryoları](sql-database-business-continuity.md)
+* İş sürekliliği senaryoları hakkında bilgi edinmek için [sürekliliği senaryoları](sql-database-business-continuity.md).
 * Veritabanı Yedeklemeleri otomatik Azure SQL hakkında bilgi edinmek için bkz: [SQL veritabanı otomatik yedeklemeler](sql-database-automated-backups.md)
-* Kurtarma için otomatik yedeklemeler kullanma hakkında bilgi edinmek için bkz: [bir veritabanı hizmeti tarafından başlatılan yedeklerden geri yükleme](sql-database-recovery-using-backups.md)
-* Daha hızlı kurtarma seçenekleri hakkında bilgi edinmek için [aktif coğrafi çoğaltma](sql-database-geo-replication-overview.md)  
+* Kurtarma için otomatik yedeklemeler kullanma hakkında bilgi edinmek için bkz: [bir veritabanını hizmeti tarafından başlatılan yedeklerden geri](sql-database-recovery-using-backups.md).
+* Daha hızlı kurtarma seçenekleri hakkında bilgi edinmek için [etkin coğrafi çoğaltma ve yük devretme gruplar](sql-database-geo-replication-overview.md).  

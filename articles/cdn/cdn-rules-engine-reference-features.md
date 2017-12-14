@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: f60b858d76dd021a158a62b32199be9b1c4ed822
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 858bc1dd2880583a3283522a01c9a48679b76296
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kuralları özellikleri altyapısı
 Kullanılabilir özelliklerin ayrıntılı açıklamaları Azure içerik teslim ağı (CDN) için bu makalede listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
@@ -48,13 +48,13 @@ Ad | Amaç
 [Bant genişliği parametreleri](#bandwidth-parameters) | Bant genişliği azaltma parametreler (örneğin, ec_rate ve ec_prebuf) etkin olup olmadığını belirler.
 [Bant genişliği azaltma](#bandwidth-throttling) | Edge sunucuları tarafından sağlanan yanıt için bant genişliği kısıtlar.
 [Önbelleği atlama](#bypass-cache) | İstek önbelleğe almayı Atla gerekmediğini belirler.
-[Cache-Control üstbilgisi işleme](#cache-control-header-treatment) | Dış Max-Age özelliği etkin olduğunda Cache-Control üstbilgileri nesil kenar sunucu tarafından denetler.
+[Cache-Control üstbilgisi işleme](#cache-control-header-treatment) | Nesil denetimleri `Cache-Control` dış Max-Age özelliği etkin olduğunda uç sunucusu tarafından üstbilgileri.
 [Önbellek anahtarı sorgu dizesi](#cache-key-query-string) | Önbellek anahtarı eklemek veya bir istekle ilişkili sorgu dizesi parametreleri hariç belirler.
 [Önbellek anahtarı yeniden yazma](#cache-key-rewrite) | Bir istekle ilişkili önbellek anahtarını yeniden yazar.
 [Önbellek dolgu tamamlayın](#complete-cache-fill) | Uç sunucusunda isteği sonuçları yokken Kısmi önbellek isabetsizliği ne olacağını belirler.
 [Sıkıştırma dosya türleri](#compress-file-types) | Sıkıştırılacak dosya biçimlerini sunucuda tanımlar.
 [Varsayılan iç Max-Age](#default-internal-max-age) | Kaynak sunucu önbelleği yeniden doğrulanması için uç sunucusu için varsayılan max-age aralığı belirler.
-[Üstbilgi işleme süresi](#expires-header-treatment) | Dış Max-Age özelliği etkin olduğunda Expires üstbilgileri nesil bir uç sunucusu tarafından denetler.
+[Üstbilgi işleme süresi](#expires-header-treatment) | Nesil denetimleri `Expires` dış Max-Age özelliği etkinken bir uç sunucusu tarafından üstbilgileri.
 [Dış Maksimum yaş](#external-max-age) | Edge sunucusu önbellek COLLECTION tarayıcıya max-age aralığını belirler.
 [İç Max-Age zorla](#force-internal-max-age) | Kaynak sunucu önbelleği COLLECTION uç sunucuya, max-age aralığını belirler.
 [H.264 desteği (HTTP aşamalı indirme)](#h264-support-http-progressive-download) | İçerik akışını sağlamak için kullanılabilir H.264 dosya biçimleri türlerini belirler.
@@ -162,7 +162,7 @@ Ad | Amaç
 -----|--------
 [Önbelleğe alınabilir HTTP yöntemleri](#cacheable-http-methods) | Ağ üzerinde önbelleğe ek HTTP yöntemleri kümesini belirler.
 [Önbelleğe alınabilir istek gövdesi boyutu](#cacheable-request-body-size) | Bir POST yanıt önbelleğe olup olmadığını belirlemek için eşiğini tanımlar.
-[Kullanıcı değişkeni](#user-variable) | Kullanılan primarity Lua kodlarıyla.
+[Kullanıcı değişkeni](#user-variable) | Yalnızca dahili kullanım için.
 
  
 ## <a name="url-features"></a>URL özellikleri
@@ -181,7 +181,7 @@ Ad | Amaç
 
 ---
 ### <a name="age-response-header"></a>Age yanıtı üstbilgisi
-**Amaç**: Age yanıtı üstbilgisi istemciye gönderilen yanıtı dahil edilip edilmeyeceğini belirler.
+**Amaç**: Age yanıtı üstbilgisi istemciye gönderilen yanıta dahil edilip edilmeyeceğini belirler.
 Değer|Sonuç
 --|--
 Etkin | Age yanıtı üstbilgisi istemciye gönderilen yanıtı dahil edilir.
@@ -295,10 +295,10 @@ Bu tür bir yapılandırma elde etmek için en kolay yolu dış Max-Age ve Cache
 
 Değer|Sonuç
 --|--
-Üzerine Yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/> -Kaynak sunucu tarafından üretilen Cache-Control üstbilgisinin üzerine yazar. <br/>-Ekler `Cache-Control` üstbilgi üretilen yanıta dış Max-Age özelliğiyle.
+Üzerine Yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/> -Üzerine yazar `Cache-Control` kaynak sunucu tarafından üretilen üstbilgi. <br/>-Ekler `Cache-Control` üstbilgi üretilen yanıta dış Max-Age özelliğiyle.
 Geçirir|Sağlar `Cache-Control` dış Max-Age özelliği tarafından üretilen üstbilgi hiçbir zaman yanıta eklenir. <br/> Kaynak sunucu oluşturursa bir `Cache-Control` üstbilgisi, bunu geçirir aracılığıyla son kullanıcıya. <br/> Kaynak sunucu üretmek değil, bir `Cache-Control` üstbilgi sonra bu seçeneği değil içerecek şekilde yanıt üstbilgisi neden olabilir bir `Cache-Control` üstbilgi.
-Eksik varsa ekleyin.|Varsa bir `Cache-Control` üstbilgi kaynak sunucudan alınmadı sonra bu seçeneği ekler `Cache-Control` üstbilgi dış Max-Age özelliği tarafından üretilen. Bu seçenek, tüm varlıklar atanır sağlamak için yararlıdır bir `Cache-Control` üstbilgi.
-Kaldır| Bu seçenek sağlar bir `Cache-Control` başlık üstbilgisi Yanıtla dahil değildir. Varsa bir `Cache-Control` üstbilgi zaten atanmış sonra üstbilgi yanıttan atılması.
+Eksik varsa ekleyin.|Varsa bir `Cache-Control` üstbilgi kaynak sunucudan alınmadı sonra bu seçeneği ekler `Cache-Control` üstbilgi dış Max-Age özelliği tarafından üretilen. Bu seçenek, tüm varlıklar atanan sağlamak için yararlıdır bir `Cache-Control` üstbilgi.
+Kaldır| Bu seçenek sağlar bir `Cache-Control` başlık üstbilgisi Yanıtla dahil değildir. Varsa bir `Cache-Control` üstbilgi zaten atanmış sonra üstbilgi yanıttan kaldırılır.
 
 **Varsayılan davranış:** üzerine yazın.
 
@@ -424,7 +424,7 @@ This feature is not available for the ADN platform. The typical traffic on this 
 --->
 Kısmi önbellek isabetsizliği genellikle bir kullanıcı bir indirme durdurur sonra veya yalnızca HTTP Aralık isteklerini kullanarak istenen varlıklar için oluşur. Bu özellik burada kullanıcıları genellikle bunları (örneğin, videoları) başından yüklemez büyük varlıkları için kullanışlıdır. Sonuç olarak, bu özellik HTTP büyük platform üzerinde varsayılan olarak etkindir. Diğer tüm platformlarda devre dışı bırakılır.
 
-Bu, müşteri kaynak sunucu üzerindeki yükü azaltmak ve hangi müşterilerin içeriğinizi karşıdan yükle hızını artırmak bu yana HTTP büyük platform için varsayılan yapılandırmayı bırakmanız önerilir.
+Çünkü müşteri kaynak sunucu üzerindeki yükü azaltır ve hangi müşterilerin içeriğinizi karşıdan yükle hızını artırır HTTP büyük bir platform için varsayılan yapılandırmayı tutun.
 
 Hangi önbelleğinde ayarları izlenir şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: kenar Cname, üstbilgi değişmez değer isteği, istek üstbilgisi joker, URL sorgu değişmez değer ve URL sorgu joker karakter.
 
@@ -527,15 +527,15 @@ Devre dışı|X EC Debug yanıt üstbilgisi yanıttan edilmeyecek.
 
 Anahtar bilgileri:
 
-- Bu eylem yalnızca yanıtlar için bir kaynak sunucudan, max-age göstergesi Cache-Control veya Expires üst bilgisindeki atamadığınız gerçekleşir.
+- Bu eylem yalnızca yanıtlar için bir kaynak sunucudan bir max-age göstergesi atamadığınız gerçekleşecek `Cache-Control` veya `Expires` üstbilgi.
 - Bu eylem bağlantısı alınabilir olarak kabul edilen olmayan varlıklar için olmayacaktır.
-- Bu eylem, kenar sunucusu önbellek revalidations tarayıcıya etkilemez. Bu tür revalidations Cache-Control veya dış Max-Age özelliğiyle özelleştirilebilir tarayıcıya gönderilen Expires üstbilgileri tarafından belirlenir.
+- Bu eylem, kenar sunucusu önbellek revalidations tarayıcıya etkilemez. Bu tür revalidations tarafından belirlenen `Cache-Control` veya `Expires` dış Max-Age özelliğiyle özelleştirilebilir tarayıcıya gönderilen üstbilgileri.
 - Bu eylem sonuçlarını bir observable yanıt üstbilgileri üzerinde etkisi ve içeriğiniz için uç sunuculardan içerik döndürdü, ancak kaynak sunucunuz uç sunuculardan gönderilen COLLECTION trafik miktarı üzerinde bir etkisi olabilir.
 - Bu özellik tarafından yapılandırın:
     - Bir varsayılan iç Maksimum yaş uygulanabilir durum kodu seçme.
     - Bir tamsayı değeri belirtme ve istediğiniz zaman birimi (örneğin, saniye, dakika, saat, vb.) seçme. Bu değer varsayılan iç max-age aralığı tanımlar.
 
-- Zaman birimi "Off" ayarı, bir varsayılan iç max-age aralığı, max-age göstergesi kendi Cache-Control veya Expires üstbilgisinde atanan değil istekleri için 7 gün atar.
+- Zaman birimi "Off" ayarını bir varsayılan iç max-age aralığı 7 gün istekleri için bir Maksimum yaş göstergesi atanan değil atamak kendi `Cache-Control` veya `Expires` üstbilgi.
 - Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
     - Edge 
     - CNAME
@@ -571,16 +571,16 @@ Devre dışı| Varsayılan davranışını geri yükler. Döndürülecek yanıt 
 
 ---
 ### <a name="expires-header-treatment"></a>Üstbilgi işleme süresi
-**Amaç:** dış Max-Age özelliği etkinken bir uç sunucusu tarafından Expires üstbilgileri nesil denetler.
+**Amaç:** oluşturulmasını denetler `Expires` dış Max-Age özelliği etkinken bir uç sunucusu tarafından üstbilgileri.
 
 Bu tür bir yapılandırma elde etmek için en kolay yolu dış Max-Age ve üstbilgisi işleme süresi özellikleri aynı deyiminde yerleştirmektir.
 
 Değer|Sonuç
 --|--
-Üzerine Yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/>-Kaynak sunucu tarafından üretilen Expires üstbilgi üzerine yazar.<br/>-Yanıta dış Max-Age özelliği tarafından üretilen Expires üstbilgisi ekler.
-Geçirir|Dış Max-Age özelliği tarafından üretilen Expires üst bilgisini hiçbir zaman yanıta eklenmesini sağlar. <br/> Kaynak sunucu bir Expires üstbilgisi oluşturursa, son kullanıcıya geçirilir. <br/>Kaynak sunucu bir Expires üstbilgisi vermezse, bu seçenek bir Expires üstbilgisi içermiyor yanıt üstbilgisi neden olabilir.
-Eksik varsa ekleyin.| Expires üst bilgisini ve kaynak sunucudan alınmadı, bu seçenek dış Max-Age özelliği tarafından üretilen Expires üstbilgisi ekler. Bu seçenek, tüm varlıklar bir Expires üstbilgisi atanacak sağlamak için kullanışlıdır.
-Kaldır| Expires üst bilgisi üstbilgisi Yanıtla dahil değildir sağlar. Expires üst bilgisi zaten atanmışsa sonra onu üstbilgi yanıttan atılması.
+Üzerine Yaz|Aşağıdaki eylemler gerçekleşir sağlar:<br/>-Üzerine yazar `Expires` kaynak sunucu tarafından üretilen üstbilgi.<br/>-Ekler `Expires` üstbilgi üretilen yanıta dış Max-Age özelliğiyle.
+Geçirir|Sağlar `Expires` dış Max-Age özelliği tarafından üretilen üstbilgi hiçbir zaman yanıta eklenir. <br/> Kaynak sunucu oluşturursa bir `Expires` üstbilgisi, onu geçecek aracılığıyla son kullanıcıya. <br/>Kaynak sunucu üretmek değil, bir `Expires` üstbilgi sonra bu seçeneği değil içerecek şekilde yanıt üstbilgisi neden olabilir bir `Expires` üstbilgi.
+Eksik varsa ekleyin.| Varsa bir `Expires` üstbilgi kaynak sunucudan alınmadı sonra bu seçeneği ekler `Expires` üstbilgi dış Max-Age özelliği tarafından üretilen. Bu seçenek, tüm varlıklar atanacak sağlamak için yararlıdır bir `Expires` üstbilgi.
+Kaldır| Sağlar bir `Expires` başlık üstbilgisi Yanıtla dahil değildir. Varsa bir `Expires` üstbilgi zaten atanmış sonra üstbilgi yanıttan kaldırılır.
 
 **Varsayılan davranış:** üzerine yaz
 
@@ -592,14 +592,14 @@ Kaldır| Expires üst bilgisi üstbilgisi Yanıtla dahil değildir sağlar. Expi
 ### <a name="external-max-age"></a>Dış Maksimum yaş
 **Amaç:** uç sunucusu önbellek COLLECTION tarayıcıya max-age aralığını belirler. Diğer bir deyişle, bir tarayıcı önce geçecek süreyi uç sunucusundan bir varlığı yeni bir sürümünü denetleyebilir.
 
-Bu özelliği etkinleştirmek önbellek oluşturacağını-denetimi: max-age ve uç sunuculardan üstbilgileri süresi dolar ve HTTP istemciye göndermek. Varsayılan olarak, bu üstbilgileri kaynak sunucu tarafından oluşturulanlar üzerine yazar. Ancak, Cache-Control üstbilgisi işleme ve üstbilgisi işleme süresi özellikleri bu davranışı değiştirmek için kullanılabilir.
+Bu özelliği etkinleştirmek oluşturacağını `Cache-Control: max-age` ve `Expires` uç sunuculardan üstbilgileri ve HTTP istemciye göndermek. Varsayılan olarak, bu üstbilgileri kaynak sunucu tarafından oluşturulanlar üzerine yazar. Ancak, Cache-Control üstbilgisi işleme ve üstbilgisi işleme süresi özellikleri bu davranışı değiştirmek için kullanılabilir.
 
 Anahtar bilgileri:
 
-- Bu eylem, kaynak sunucu önbelleği revalidations uç sunucuya etkilemez. Bu tür revalidations kaynak sunucudan alınan önbellek-denetim/Expires üstbilgileri tarafından belirlenir ve varsayılan iç Max-Age ve zorla iç Max-Age özelliklerle özelleştirilebilir.
+- Bu eylem, kaynak sunucu önbelleği revalidations uç sunucuya etkilemez. Bu tür revalidations tarafından belirlenen `Cache-Control` ve `Expires` üstbilgi kaynak sunucudan alınan ve varsayılan iç Max-Age ve zorla iç Max-Age özelliklerle özelleştirilebilir.
 - Bu özellik bir tamsayı değeri belirterek ve istediğiniz zaman birimi (örneğin, saniye, dakika, saat, vb.) seçerek yapılandırın.
-- Bu özelliği negatif bir değere ayarlama neden olan bir önbellek göndermek uç sunucuların-denetim: Hayır-önbellek ve her yanıtı tarayıcıya ile geçmişte ayarlamak bir süre sonu zamanı. Bir HTTP istemci yanıt önbelleğe almaz karşın, bu ayar uç sunucuların kaynak sunucudan yanıt önbelleğe alma yeteneğini etkilemez.
-- Zaman birimi "Off" ayarı, bu özellik devre dışı bırakır. Kaynak sunucunun yanıt ile önbelleğe alınmış önbellek-denetim/Expires üstbilgileri tarayıcıya geçirilir.
+- Bu özelliği negatif bir değere ayarlama neden göndermek uç sunucuların bir `Cache-Control: no-cache` ve bir `Expires` her yanıtı tarayıcıya ile geçmişte ayarlamak zaman. Bir HTTP istemci yanıt önbelleğe almaz karşın, bu ayar uç sunucuların kaynak sunucudan yanıt önbelleğe alma yeteneğini etkilemez.
+- Zaman birimi "Off" ayarı, bu özellik devre dışı bırakır. `Cache-Control` Ve `Expires` kaynak sunucunun yanıt ile önbelleğe alınmış üstbilgileri geçecek aracılığıyla tarayıcıya.
 
 **Varsayılan davranış:** devre dışı
 
@@ -674,7 +674,7 @@ Anahtar bilgileri:
 ### <a name="honor-no-cache-request"></a>Uy No Cache isteği
 **Amaç:** bir HTTP istemcisi no-cache mi istekleri iletilir kaynak sunucuya belirler.
 
-Hayır önbellek isteği HTTP istemcisi bir önbellek gönderdiğinde oluşur-denetim: Hayır-önbellek ve/veya Pragma:no-cache üstbilgisi HTTP isteği.
+HTTP istemcisi gönderdiğinde no-cache isteği gerçekleştiği bir `Cache-Control: no-cache` ve/veya `Pragma: no-cache` HTTP isteği üstbilgisi.
 
 Değer|Sonuç
 --|--
@@ -747,7 +747,7 @@ Uç sunucusunu bu tür bir yeniden doğrulanması çalışırken kaynak sunucu i
 
 Varlığın, max-age dolduğunda değil başarısız COLLECTION oluştuğunda bu zaman aralığı başlatır. Bu nedenle, hangi sırasında başarılı COLLECTION bir varlık sunulabilecek en uzun süresi, max-age artı max eski birleşimi tarafından belirtilen zaman miktarıdır. Bir varlık 9:00 30 dakika cinsinden maksimum yaş ve en çok eski 15 dakika ile önbelleğe alınmışsa, örneğin, ardından 9:44 başarısız COLLECTION teşebbüs 9:46 başarısız COLLECTION teşebbüs tr oluşturacağı sırada eski önbelleğe alınan varlık alma bir son kullanıcı neden olacak d kullanıcı 504 ağ geçidi zaman aşımı alma.
 
-Bu özellik yerine geçen için yapılandırılan herhangi bir değer `Cache-Control:must-revalidate` veya `Cache-Control:proxy-revalidate` kaynak sunucudan alınan üstbilgileri. Bu üstbilgiler birini alındığında, kaynak sunucudan bir varlık başlangıçta önbelleğe alındığında sonra uç sunucu eski bir önbelleğe alınan varlık hizmet vermeyecek. Uç sunucusunu varlığın, max-age aralığı sona erdiğinde kaynağa düzeltin kaydedemediği böyle bir durumda uç sunucu 504 ağ geçidi zaman aşımı hatası döndürür.
+Bu özellik yerine geçen için yapılandırılan herhangi bir değer `Cache-Control: must-revalidate` veya `Cache-Control: proxy-revalidate` kaynak sunucudan alınan üstbilgileri. Bu üstbilgiler birini alındığında, kaynak sunucudan bir varlık başlangıçta önbelleğe alındığında sonra uç sunucu eski bir önbelleğe alınan varlık hizmet vermeyecek. Uç sunucusunu varlığın, max-age aralığı sona erdiğinde kaynağa düzeltin kaydedemediği böyle bir durumda uç sunucu 504 ağ geçidi zaman aşımı hatası döndürür.
 
 Anahtar bilgileri:
 
@@ -823,7 +823,7 @@ Sil|Belirtilen istek üstbilgisi siler.|**Üstbilgi değeri (istemci) istek:**Va
 Anahtar bilgileri:
 
 - Adı seçeneğinde belirtilen değeri istenen istek üstbilgisi için tam bir eşleşme olduğundan emin olun.
-- Servis talebi üstbilgi tanımlamak amacıyla dikkate alınmaz. Örneğin, aşağıdaki Cache-Control üstbilgisi adı varyasyonları hiçbirini tanımlamak için kullanılabilir:
+- Servis talebi üstbilgi tanımlamak amacıyla dikkate alınmaz. Aşağıdaki değişkenleri, örneğin, birini `Cache-Control` üstbilgi adı tanımlamak için kullanılabilir:
     - ön bellek denetimi
     - CACHE-CONTROL
     - cachE-Control
@@ -861,7 +861,7 @@ Sil|Belirtilen yanıt üst bilgisi siler.|**Yanıt üstbilgi değeri (istemci):*
 Anahtar bilgileri:
 
 - Adı seçeneğinde belirtilen değeri istenen yanıt üst bilgisi için tam bir eşleşme olduğundan emin olun. 
-- Servis talebi üstbilgi tanımlamak amacıyla dikkate alınmaz. Örneğin, aşağıdaki Cache-Control üstbilgisi adı varyasyonları hiçbirini tanımlamak için kullanılabilir:
+- Servis talebi üstbilgi tanımlamak amacıyla dikkate alınmaz. Aşağıdaki değişkenleri, örneğin, birini `Cache-Control` üstbilgi adı tanımlamak için kullanılabilir:
     - ön bellek denetimi
     - CACHE-CONTROL
     - cachE-Control
@@ -1241,8 +1241,11 @@ Bu özellik için bir istek uygulanmadan önce karşılanması gereken ölçütl
 
 ---
 ### <a name="user-variable"></a>Kullanıcı değişkeni
-**Amaç:** primarity Lua kodlarla kullanılır. Kullanıcı değişken özelliğiyle karma benzeri işlevsellik güvenli hale getirmek için kullanabileceğiniz URL'leri bir Lua betiği indirilemedi.
+**Amaç:** yalnızca iç kullanım için.
 
+[Başa dön](#azure-cdn-rules-engine-features)
+
+</br>
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Kuralları altyapısı başvurusu](cdn-rules-engine-reference.md)

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/13/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 1a6dbe2f4a66a44222e0b34b34a283c101b055de
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 8a4e92dbcf65d907e7b95b5f52597fc625e77897
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -29,6 +29,7 @@ Microsoft Azure yığın Azure Marketi aşağıdakileri destekler:
 |  | Öğe adı | Açıklama | Yayımcı |
 | --- | --- | --- | --- |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.docker-arm?tab=Overview) | Linux sanal makineleri için docker uzantısı. | Microsoft |
+| ![](media/azure-stack-marketplace-azure-items/sql.png) | SQL Iaas uzantısı | <b>Herhangi bir SQL sunucusu Windows Market öğesi üzerinde dağıtmak için bu uzantıyı indirin.<b> | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makinesi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onWindowsServer2016?tab=Overview) | Microsoft Windows Server 2016 9.2.1 sunucuda öğrenme makine. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onUbuntu1604?tab=Overview) | Microsoft makine Ubuntu 16.04 9.2.1 sunucuda öğrenme. | Microsoft |
 | ![](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft makine CentOS Linux 7.2 9.2.1 sunucuda öğrenme](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.MicrosoftMachineLearningServer921onCentOSLinux72?tab=Overview) | Microsoft Server 9.2.1 CentOS Linux 7.2 öğrenme makine. | Microsoft |
@@ -156,8 +157,8 @@ Microsoft Azure yığın Azure Marketi aşağıdakileri destekler:
 | ![](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine satış CRM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.x2enginesalescrm?tab=Overview) | Compact pazarlama, satış ve müşteri hizmeti uygulaması. | Bitnami |
 | ![](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.xoops?tab=Overview) | CMS ve Web portalı Program'de, dinamik Web siteleri oluşturur.
 | ![](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.zurmo?tab=Overview) | Açık kaynak CRM sistemine: Mobil sosyal ve Gamified. | Bitnami |
-| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Denetim noktası vSEC güvenlik yönetimi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Denetim noktası vSEC Azure müşteri varlıkları kötü amaçlı yazılım ve Gelişmiş tehditlerine karşı korumak için Gelişmiş, çok katmanlı tehdit önleme sunar. | Denetim Noktası |
-| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef otomatikleştirme](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Derleme, dağıtma ve Chef otomatikleştirmek, sürekli Otomasyon Platform ile yönetin. | Chef yazılımı, Inc |
+| ![](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Denetim noktası vSEC güvenlik yönetimi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec?tab=Overview) | Denetim noktası vSEC Azure müşteri varlıkları kötü amaçlı yazılım ve Gelişmiş tehditlerine karşı korumak için Gelişmiş, çok katmanlı tehdit önleme sunar. <b>Her iki onay noktası vSEC Market öğesi indirin.</b> | Denetim Noktası |
+| ![](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef otomatikleştirme](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview) | Derleme, dağıtma ve Chef otomatikleştirmek, sürekli Otomasyon Platform ile yönetin. <b>Her iki Chef Market öğesi indirin</b> | Chef yazılımı, Inc |
 | ![](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS tarafından kapsayıcı Linux](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CoreOS.CoreOS?tab=Overview) | Kapsayıcı Linux modern ve en az Linux dağıtım kapsayıcıları çalıştırmak, kümelerin yönetimi ve sorunsuz bir şekilde sunucularınızı güncelleştirmek için kolay bir yol sağlayarak - ambar ölçekli etkinleştirmek tüm bileşenleri işlem. | CoreOS |
 | ![](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Canonical.UbuntuServer?tab=Overview) | Ubuntu, dünyanın en popüler Linux bulut ortamları için sunucusudur. | Canonical |
 | ![](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian?tab=Overview) | Debian GNU/Linux en popüler Linux dağıtımları biridir. | credativ |
@@ -171,7 +172,9 @@ Microsoft Azure yığın Azure Marketi aşağıdakileri destekler:
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Linux için ayrıntılı güvenlik aracısı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-linux?tab=Overview) | Linux için eğilim mikro derin güvenlik uzantısı. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Windows için ayrıntılı güvenlik aracısı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm?tab=Overview) | Windows için eğilim mikro derin güvenlik uzantısı. | Trend Micro |
 | ![](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown yazılım aracı](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zerodown_software.zerodown-software-tool-7_1?tab=Overview) | ZeroDown yazılım aracı v7.1 - geçirmek + HA. | ZeroDown yazılım |
-
+| ![](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet kuruluş Azure yığın altyapınızın tüm yaşam döngüsü otomatikleştirmenizi sağlar. <b>Her iki Puppet Market öğesi indirin.</b> | Puppet |
+| ![](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa karma AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Ortak yayılan ve şirket içi kapasite kaynakları S3 uyumlu depolama hizmeti. | NooBaa |
+| ![](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks veri Platformu (HDP) korumalı alan](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | HDP tarafından desteklenen %2,5 100 kaynak platform açın Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari için. | Hortonworks |
 
 ### <a name="next-steps"></a>Sonraki adımlar
 [Market öğesi indirin](azure-stack-download-azure-marketplace-item.md)

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/12/2017
+ms.date: 12/13/2017
 ms.author: billmath
-ms.openlocfilehash: f2d4c3007fb8474da11587973e7623143bf118b1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -42,12 +42,16 @@ Durumu: 12 Aralık 2017
 >Bu bir güvenlik olan Azure AD Connect için ilgili düzeltme
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
-Azure AD Connect ilk kez yüklediğinizde, yeni bir hesap Azure AD Connect hizmetini çalıştırmak için kullanılan oluşturulabilir. Bu sürümden önce hesabı parolası olan bir kullanıcı için bir değer parola değiştirme yeteneğini bilmeniz Yönetici Kılavuzu hakları bunları izin verilen ayarlarla oluşturuldu.  Bu, bu hesabı kullanarak oturum açmaya izin verilen ve bu ayrıcalık güvenlik ihlali yükselmesine oluşturur. Bu sürümde oluşturulan ve bu güvenlik açığından kaldırır hesabındaki ayarı tightens.
+Bir geliştirme önerilen izni altında açıklanan bölüm değiştirdiğinden emin olmak için Azure AD Connect sürüm 1.1.654.0 (ve sonra) eklendi [AD DS hesabı için erişim kilitleme](#lock) otomatik olarak zaman uygulanan Azure AD Connect AD DS hesabı oluşturur. 
+
+- Azure AD Connect ayarlarken, yükleme yönetici mevcut bir AD DS hesap sağlayın veya Azure AD Connect otomatik olarak hesabı oluşturmak istiyorum. İzin değişiklikleri otomatik olarak Azure AD Connect tarafından kurulumu sırasında oluşturulan AD DS hesabı için uygulanır. Yükleme yönetici tarafından sağlanan mevcut AD DS hesabı için uygulanmaz.
+- Azure AD Connect eski bir sürümden izni 1.1.654.0 (veya sonra), yükselten müşterilerin için değişiklikleri firmalarda geriye dönük yükseltmeden önce oluşturulan mevcut AD DS hesaplarına uygulanmaz. Bunlar yalnızca yükseltme işleminden sonra oluşturulan yeni AD DS hesaplara uygulanır. Bu durum, Azure AD ile eşitlenecek yeni AD ormanına eklemekte olduğunuz oluşur.
 
 >[!NOTE]
->Bu sürüm yalnızca hizmet hesabı yükleme işleminin oluşturulduğu Azure AD Connect yeni yüklemeler için güvenlik açığı kaldırır. Exisating yüklemeleri için ya da hesap kendiniz verdiğiniz durumlarda, sould olun bu güvenlik açığı yok.
+>Bu sürüm yalnızca hizmet hesabı yükleme işleminin oluşturulduğu Azure AD Connect yeni yüklemeler için güvenlik açığı kaldırır. Var olan yüklemeler için ya da hesap kendiniz verdiğiniz durumlarda, sould olun bu güvenlik açığı yok.
 
-Çalıştırabilirsiniz hizmet hesabı ayarlarını artırmak için [bu PowerShell Betiği](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Güvenlik Açığı kaldırmak için hizmet hesabı ayarlarını sıkılaştırabilirsiniz değerleri altında:
+#### <a name="lock"></a>AD DS hesabı için erişim kilitleme
+Şirket içi aşağıdaki izin değişiklikleri uygulayarak AD DS hesabı için erişim kilitleme AD:  
 
 *   Belirtilen nesne devralmayı devre dışı bırak
 *   Tüm ACE'ler KENDİNE özgü ACE dışında belirli nesne üzerinde kaldırın. Varsayılan izinleri KENDİSİNE geldiğinde korumanız istiyoruz.
@@ -64,10 +68,13 @@ Tür     | Ad                          | Access               | Şunun İçin Ge
 İzin Ver    | Kuruluş etki alanı denetleyicileri | Okuma izinleri     | Bu nesne  |
 İzin Ver    | Kimliği doğrulanmış kullanıcılar           | İçeriğini listele        | Bu nesne  |
 İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Tüm özellikleri oku  | Bu nesne  |
+İzin Ver    | Kimliği doğrulanmış kullanıcılar           | Okuma izinleri     | Bu nesne  |
+
+AD DS hesabı için ayarları artırmak için çalıştırabilirsiniz [bu PowerShell Betiği](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). PowerShell komut dosyası, AD DS hesabı için yukarıdaki izinleri atar.
 
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Önceden var olan bir hizmet hesabı artırmak için PowerShell Betiği
 
-Önceden var olan bir hizmet hesabı için bu ayarları uygulamak için PowerShell Betiği kullanmak (kuruluşunuz tarafından sağlanan veya Azure AD Connect, önceki bir yüklemesi tarafından oluşturulan ether Lütfen karşıdan yükleme komut dosyası yukarıdaki sağlanan bağlantıdan.
+Önceden var olan bir AD DS hesabı için bu ayarları uygulamak için PowerShell Betiği kullanmak (kuruluşunuz tarafından sağlanan veya Azure AD Connect, önceki bir yüklemesi tarafından oluşturulan ether Lütfen karşıdan yükleme komut dosyası yukarıdaki sağlanan bağlantıdan.
 
 ##### <a name="usage"></a>Kullanım:
 
@@ -92,13 +99,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 Bu güvenlik açığından Azure AD aşmaya kullanılan olmadığını görmek için hizmet hesabı tarihi son parola doğrulamalısınız Connect yapılandırması sıfırlayın.  Varsa beklenmeyen timestamp, daha fazla araştırma, olay günlüğü, bu parolayı sıfırlama olayı için üstlendiği.
 
-                                                                                                               
-
-## <a name="116490"></a>1.1.649.0
-Durum: 27 Ekim 2017
-
->[!NOTE]
->Bu yapı müşteriler için Azure AD Connect otomatik yükseltmesi özelliği aracılığıyla kullanılabilir değil
+Daha fazla bilgi için bkz: [Microsoft güvenlik önerisi 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Durum: 27 Ekim 2017

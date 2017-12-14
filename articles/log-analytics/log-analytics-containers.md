@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: d200587e211758ade85b14cbeb206ebce9291f1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kapsayıcı izleme çözümüne günlük analizi
 
@@ -52,7 +52,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanter, performans
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Hizmet<br>Yapı | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat Aç<br>Kaydırma | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Red Hat Aç<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(tek başına) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux Sunucu<br>(tek başına) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
@@ -113,7 +113,7 @@ Gözden geçirme [Docker altyapısına Windows](https://docs.microsoft.com/virtu
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Yükleme ve Linux kapsayıcı konakları yapılandırma
 
-Docker yükledikten sonra aracı kullanmak için Docker ile yapılandırmak için kapsayıcı ana bilgisayarınız için aşağıdaki ayarları kullanın. Öncelikle, OMS çalışma alanı kimliği ve Azure portalında bulabilirsiniz anahtarınızı gerekir. Çalışma alanınızda tıklatın **Hızlı Başlangıç** > **bilgisayarlar** görüntülemek için **çalışma alanı kimliği** ve **birincil anahtar**.  Kopyalayın ve her ikisi de, sık kullanılan düzenleyicisine yapıştırın.
+Docker yükledikten sonra aracı kullanmak için Docker ile yapılandırmak için kapsayıcı ana bilgisayarınız için aşağıdaki ayarları kullanın. Öncelikle, OMS çalışma alanı kimliği ve Azure portalında bulabilirsiniz anahtarınızı gerekir. Çalışma alanınızda tıklatın **Hızlı Başlangıç** > **bilgisayarlar** görüntülemek için **çalışma alanı kimliği** ve **birincil anahtar**.  Her ikisini de kopyalayıp sık kullandığınız bir düzenleyiciye yapıştırın.
 
 **Tüm Linux kapsayıcı ana bilgisayarlar için CoreOS dışında:**
 
@@ -137,7 +137,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Bir kapsayıcıda yüklü bir Linux aracı kullanarak değiştirme**
 
-Daha önce yüklenmiş doğrudan Aracısı kullanılan ve bunun yerine bir kapsayıcıda çalışan bir aracının kullanmak istiyorsanız, önce Linux için OMS Aracısı'nı kaldırmanız gerekir. Bkz: [Linux için OMS Aracısı'nı kaldırma](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) başarıyla aracıyı kaldırmak nasıl anlamak için.  
+Daha önce yüklenmiş doğrudan Aracısı kullanılan ve bunun yerine bir kapsayıcıda çalışan bir aracının kullanmak istiyorsanız, önce Linux için OMS Aracısı'nı kaldırmanız gerekir. Bkz: [Linux için OMS Aracısı'nı kaldırma](log-analytics-agent-linux.md) başarıyla aracıyı kaldırmak nasıl anlamak için.  
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Docker Swarm için OMS Aracısı'nı yapılandırma
 
@@ -515,9 +515,9 @@ Windows Server için adlandırılmış TCP ayarlamak için gereken adımlar şun
 
 #### <a name="install-windows-agents"></a>Windows aracılarını yükleme
 
-Windows ve Hyper-V kapsayıcı izlemeyi etkinleştirmek için kapsayıcı konaklar Windows bilgisayarlarda Microsoft İzleme Aracısı'nı (MMA) yükleyin. Şirket içi ortamınızda Windows çalıştıran bilgisayarlar için bkz: [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agents.md). Sanal makineler için Azure'da çalışan bunları günlük analizi için kullanılacak bağlantı [sanal makine uzantısı](log-analytics-azure-vm-extension.md).
+Windows ve Hyper-V kapsayıcı izlemeyi etkinleştirmek için kapsayıcı konaklar Windows bilgisayarlarda Microsoft İzleme Aracısı'nı (MMA) yükleyin. Şirket içi ortamınızda Windows çalıştıran bilgisayarlar için bkz: [günlük analizi bağlanmak Windows bilgisayarlara](log-analytics-windows-agent.md). Sanal makineler için Azure'da çalışan bunları günlük analizi için kullanılacak bağlantı [sanal makine uzantısı](log-analytics-azure-vm-extension.md).
 
-Service Fabric üzerinde çalışan Windows kapsayıcıları izleyebilirsiniz. Ancak, yalnızca [Azure'da çalışan sanal makineler](log-analytics-azure-vm-extension.md) ve [şirket içi ortamınızda Windows çalıştıran bilgisayarlar](log-analytics-windows-agents.md) için Service Fabric şu anda desteklenmiyor.
+Service Fabric üzerinde çalışan Windows kapsayıcıları izleyebilirsiniz. Ancak, yalnızca [Azure'da çalışan sanal makineler](log-analytics-azure-vm-extension.md) ve [şirket içi ortamınızda Windows çalıştıran bilgisayarlar](log-analytics-windows-agent.md) için Service Fabric şu anda desteklenmiyor.
 
 Kapsayıcı izleme çözümü Windows için doğru ayarlandığını doğrulayabilirsiniz. Yönetim Paketi indirme doğru olduğunu denetlemek için Ara *ContainerManagement.xxx*. Dosyaları C:\Program Files\Microsoft Monitoring Agent\Agent\Health hizmet State\Management paketleri klasörde olmalıdır.
 
@@ -534,7 +534,7 @@ Kapsayıcı izleme çözümü, kapsayıcı konakları ve etkinleştirmeniz arac�
 Verileri üç dakikada aşağıdaki Aracısı türleri tarafından toplanır.
 
 - [Linux için OMS Aracısı](log-analytics-linux-agents.md)
-- [Windows Aracısı](log-analytics-windows-agents.md)
+- [Windows Aracısı](log-analytics-windows-agent.md)
 - [Log Analytics VM uzantısı](log-analytics-azure-vm-extension.md)
 
 
@@ -542,7 +542,7 @@ Verileri üç dakikada aşağıdaki Aracısı türleri tarafından toplanır.
 
 Aşağıdaki tablo kapsayıcı izleme çözümü ve günlük arama sonuçlarında görünecek veri türleri tarafından toplanan kayıtları örnekleri gösterir.
 
-| Veri türü | Günlük arama veri türü | Alanları |
+| Veri türü | Günlük arama veri türü | Alanlar |
 | --- | --- | --- |
 | Konaklar ve kapsayıcıları için performans | `Type=Perf` | Bilgisayar, ObjectName, CounterName &#40; % işlemci zamanı, Disk MB okur, MB, bellek kullanımı MB Disk Yazar ağ Al bayt, ağ gönderme bayt, işlemci kullanımı sn, ağ &#41; CounterValue, TimeGenerated, sayaç yolu, SourceSystem |
 | Kapsayıcı envanteri | `Type=ContainerInventory` | TimeGenerated, bilgisayar, ContainerHostname, görüntü, ImageTag, ContainerState, ExitCode, EnvironmentVar, komutu, CreatedTime, StartedTime, FinishedTime, SourceSystem, Containerıd, ImageID kapsayıcı adı |
