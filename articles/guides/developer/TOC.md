@@ -64,8 +64,8 @@
 ## Verileri depolama
 ### [Bloblar](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [Dosya paylaşımları](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Anahtar-değer çiftleri](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [JSON belgeleri](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Anahtar-değer çiftleri](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [JSON belgeleri](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [İlişkisel tablolar](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [İleti kuyrukları](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 

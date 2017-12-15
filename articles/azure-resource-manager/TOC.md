@@ -19,11 +19,7 @@
 ### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
 ### [Birden çok örnek oluşturma](resource-group-create-multiple.md)
-### [Konum ayarlama](resource-manager-template-location.md)
-### [Etiket atama](resource-manager-template-tags.md)
-### [Alt kaynak adı ve türünü ayarlama](resource-manager-template-child-resource.md)
 ### [Güncelleştirme kaynağı](resource-manager-update.md)
-### [Parametreler için nesneleri kullanma](resource-manager-objects-as-parameters.md)
 ### [Bağlı şablonlar arasında durum paylaşma](best-practices-resource-manager-state.md)
 ### [Şablon tasarlamaya yönelik desenler](best-practices-resource-manager-design-templates.md)
 
