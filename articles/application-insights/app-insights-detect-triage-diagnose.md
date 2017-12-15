@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights DevOps için genel bakış | Microsoft Docs"
-description: "Application Insights geliştirme Ops ortamında kullanmayı öğrenin."
+title: "DevOps için Azure Application Insights’a genel bakış | Microsoft Docs"
+description: "Dev Ops ortamında Application Insights kullanmayı öğrenin."
 author: mrbullwinkle
 services: application-insights
 documentationcenter: 
@@ -16,99 +16,99 @@ ms.date: 06/26/2017
 ms.author: mbullwin
 ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/01/2017
 ---
-# <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights genel bakış
+# <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
-İle [Application Insights](app-insights-overview.md), uygulamanızı nasıl gerçekleştiriyor hızlıca bulabilir ve canlı olduğunda kullanılıyor. Bir sorun varsa, bunu, etkisini değerlendirmenize yardımcı olur ve nedenini belirlemeye yardımcı hakkında bilmenizi sağlar.
+[Application Insights](app-insights-overview.md) ile uygulamanızın canlıyken nasıl performans gösterdiğini ve kullanıldığını hızlıca bulabilirsiniz. Bir sorun olduğunda bunu bilmenizi sağlar, etkisini değerlendirmenize ve nedenini belirlemenize yardımcı olur.
 
-Web uygulamaları geliştirir ekibinden bir hesap şöyledir:
+Web uygulamaları geliştiren bir ekip şunları anlatıyor:
 
-* *"Birkaç gün önce bir 'ikincil' düzeltme dağıttığımız. Biz geniş test geçişi çalıştırılmadı, ancak bazı beklenmeyen değişiklik ön ve arka uç arasındaki uyumsuzluk neden yükü içine ne yazık ki birleştirilmiş. Hemen bizim uyarı surged sunucu özel durumlar harekete ve sizi durumdan haberdar. Birkaç tıklama Application Insights portalındaki hemen problemi daraltmak için özel durum callstacks gelen yeterli bilgi aldı. Biz geri hemen ve hasarı sınırlıdır. Application Insights yaptı döngüsü bu kısmı devops çok kolay ve işlem yapılabilir."*
+* *"Birkaç gün önce 'küçük' bir düzeltmeyi dağıttık. Kapsamlı bir başarı testi çalıştırmadık, ancak ne yazık ki beklenmeyen bir değişiklik yüke karışarak ön ve arka uçlar arasında uyumsuzluğa neden oldu. Anında sunucu özel durumları arttı, uyarımız tetiklendi ve durumdan haberdar edildik. Application Insights portalında birkaç tıklamada sorunu sınırlandırmak için özel durum çağrı yığınlarından yeterli bilgi bilgi aldık. Anında geri alıp hasarı sınırladık. Application Insights devops döngüsünün bu kısmını çok kolay ve işlem yapılabilir yapmış."*
 
-Bu makalede bir ekipte çevrimiçi bankacılık sistem nasıl Application Insights hızla müşterilere yanıt ve güncelleştirme yapmak için kullandıkları görmek için (RÇY) geliştirir Fabrikam banka izleyin.  
+Bu makalede, müşterilere hızla yanıt verir ve güncelleştirmeler yaparken Application Insights’ı nasıl kullandıklarını görmek için Fabrikam Bank’ta çevrimiçi bankacılık sistemi (OBS) geliştiren bir ekibi izliyoruz.  
 
-Aşağıdaki çizimde gösterilen bir DevOps döngüde takım çalışır:
+Ekip, aşağıdaki çizimde gösterilen bir DevOps döngüsünde çalışıyor:
 
 ![DevOps döngüsü](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
 
-Gereksinimleri geliştirme biriktirme (görev listesi) akış. Bunlar genellikle çalışma - genellikle geliştirmeleri ve uzantıları var olan uygulamaya biçiminde yazılımlara sprint kısa çalışır. Dinamik uygulama sık sık yeni özelliklerle güncelleştirilmiştir. Canlı olsa da, takım performans ve kullanım Application Insights yardımıyla izler. Bu APM veri kendi geliştirme biriktirme akışları.
+Gereksinimler geliştirme kapsamlarına (görev listesi) girer. Çalışan yazılımların sık teslim edildiği, genellikle var olan uygulamanın geliştirmeleri ve uzantıları biçimindeki kısa sprintlerle çalışırlar. Dinamik uygulama sık sık yeni özelliklerle güncelleştirilir. Uygulama canlıyken ekip onun performansını ve kullanımını Application Insights’ın yardımıyla izler. Bu APM verileri kendi geliştirme kapsamlarına geri beslenir.
 
-Takım, canlı web uygulaması için yakından izlemek için Application Insights kullanır:
+Ekip, Application Insights’ı kullanarak canlı Web uygulamasını şunun için yakından izler:
 
-* Performans. Nasıl yanıt süreleri olan istek sayısı değişir anlamak istedikleri; ne kadar CPU, ağ, disk ve diğer kaynakları kullanılıyor; hangi uygulama kodunun performansını yavaşlatabilecek; ve performans sorunlarını olduğu.
-* Hataları. Özel durumlar varsa veya başarısız istekleri, veya bir performans sayacı kendi rahat aralığın dışında kalırsa, takım eylem yararlanabilirsiniz hızlı bir şekilde bilmesi gerekir.
-* Kullanımı. Yeni bir özellik yayımlandığında, takım ne ölçüde kullanıldığı ve kullanıcıların bir güçlükle onunla olup olmadığına bilmek ister.
+* Performans. Yanıt sürelerinin istek sayısıyla nasıl değiştiğini; ne kadar CPU, ağ, disk ve diğer kaynakların kullanıldığını; hangi uygulama kodunun performansı yavaşlattığını; ve performans sorunlarının nerede olduğunu bilmek isterler.
+* Hatalar. Özel durumlar veya başarısız istekler varsa ya da bir performans sayacı sorunsuz bölgenin dışına çıkıyorsa önlem alabilmesi için ekibin bunu hızlı öğrenmesi gerekir.
+* Kullanım. Yeni bir özellik her yayımlandığında ekip onun hangi ölçekte kullanıldığını ve kullanıcıların herhangi bir güçlük çekip çekmediğini bilmek ister.
 
-Şimdi döngüsü geri bildirim parçası odaklanır:
+Şimdi döngünün geri bildirim kısmına odaklanalım:
 
-![Algılama-önceliklendirme-tanılama](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
+![Algıla-Önceliklendir-Tanıla](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
-## <a name="detect-poor-availability"></a>Zayıf kullanılabilirlik Algıla
-Marcela Markova RÇY ekipteki Kıdemli bir geliştiricinin ve çevrimiçi performansını izleme sağlama alır. Aynen birkaç ayarlar [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md):
+## <a name="detect-poor-availability"></a>Zayıf kullanılabilirliği algılama
+Marcela Markova OBS ekibinde kıdemli bir geliştiricidir ve çevrimiçi performansı izlemeden sorumludur. Birkaç [kullanılabilirlik testi](app-insights-monitor-web-app-availability.md) kurar:
 
-* Uygulama için ana giriş sayfası için bir tek URL testi http://fabrikambank.com/onlinebanking/. Aynen 'Hoş Geldiniz!' HTTP kodu 200 ve metin ölçütüne göre ayarlar. Bu test başarısız olursa, ağ veya sunucular veya belki de bir dağıtım sorunu ciddi yanlış bir şey yoktur. (Veya birisi Hoş Geldiniz değiştirildi! ileti kendi bilinen izin vererek olmadan sayfasında.)
-* Her oturum açtığında ve geçerli listeleme, birkaç önemli ayrıntıları her sayfada denetimi hesap alır daha derin çok adımlı bir test. Bu test hesapları veritabanı bağlantısını çalıştığını doğrular. Aynen kurgusal Müşteri Kimliği kullanır: test amaçları için birkaç tanesi tutulur.
+* Uygulamanın ana giriş sayfası http://fabrikambank.com/onlinebanking/ için tek URL’li bir test. HTTP kodu 200 ölçütlerini ve 'Hoş Geldiniz!' metnini ayarlar. Bu test başarısız olursa ağda veya sunucularda ciddi bir yanlışlık veya belki de bir dağıtım sorunu vardır. (Ya da birisi ona bilgi vermeden sayfadaki Hoş Geldiniz! mesajını değiştirmiştir.)
+* Oturum açıp geçerli hesap listesini alan, her sayfada birkaç önemli ayrıntıyı denetleyen daha derin ve çok adımlı bir test. Bu test, hesapların olduğu veritabanı bağlantısının çalıştığını doğrular. Kurgusal bir müşteri kimliğini kullanır: test amacıyla böyle birkaç kimlik bulundurulmaktadır.
 
-Bu testler ayarlama, Marcela takım herhangi kesinti hakkında hızlı bir şekilde bilir emin olur.  
+Bu testler ayarlandığında Marcela ekibin tüm kesintileri hızlı bir şekilde öğreneceğinden emindir.  
 
-Web testi grafik kırmızı nokta olarak hataları görünecektir:
+Web testi grafiğinde hatalar kırmızı nokta olarak görünür:
 
-![Önceki süresi içinde çalıştıran web testleri görüntüleme](./media/app-insights-detect-triage-diagnose/04-webtests.png)
+![Önceki dönem boyunca çalıştırılmış olan Web testlerinin görüntüsü](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
-Ancak daha da önemlisi, herhangi bir hata hakkında uyarı Geliştirme ekibine e-posta ile. Bu şekilde, bunlar önce neredeyse tüm müşteriler bildirin.
+Ancak daha da önemlisi, herhangi bir hata hakkındaki uyarı geliştirme ekibine e-posta ile gönderilir. Bu şekilde, neredeyse müşterilerin tümünden önce bunu öğrenirler.
 
-## <a name="monitor-performance"></a>Performansı İzle
-Application Insights genel bakış sayfasında çeşitli gösteren bir grafik olduğundan [anahtar ölçümleri](app-insights-web-monitor-performance.md).
+## <a name="monitor-performance"></a>Performansı izleme
+Application Insights’ta genel bakış sayfasında çeşitli [ana ölçümleri](app-insights-web-monitor-performance.md) gösteren bir grafik vardır.
 
-![Çeşitli ölçümleri](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Çeşitli ölçümler](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-Tarayıcı sayfa yükleme süresi doğrudan web sayfalarından gönderilen telemetri türetilir. Sunucu yanıt süresi, sunucu istek sayısı ve başarısız istek sayısı tüm web sunucusunda ölçülen ve buradan Application Insights'a gönderilir.
+Tarayıcı sayfa yüklenme süresi doğrudan Web sayfalarından gönderilen telemetriden türetilir. Sunucu yanıt süresi, sunucu istek sayısı ve başarısız istek sayılarının tümü Web sunucusunda ölçülür ve oradan Application Insights'a gönderilir.
 
-Marcela ile sunucu yanıt grafiğini biraz ilgilenen ' dir. Bu grafik zaman sunucu kullanıcının tarayıcıdan bir HTTP isteğini alır ve yanıt döndüğünde arasında geçen ortalama süre gösterir. Sistemdeki yük değiştikçe bu grafikteki bir değişim görmek alışılmadık değil. Ancak bu durumda olduğu anlaşılıyor küçük miktarı artar isteklerinin ve büyük sayısı arasında bir bağıntı yanıt süresini miktarı artar olmalıdır. Yalnızca kendi sınırlarına işletim sistemi belirtebilir.
+Marcela, sunucu yanıt grafiğinden biraz endişelenmiştir. Bu grafik, sunucunun kullanıcının tarayıcısından HTTP isteği alması ile yanıt döndürmesi arasındaki ortalama zamanı gösterir. Sistemdeki yük değiştiği için bu grafikte de bir değişim görmek tuhaf değildir. Ancak buradaki durumda, isteklerin sayısındaki küçük artışlar ile yanıt süresindeki büyük artışlar arasında bir bağıntı var gibi duruyor. Bu, sistemin sınırlarda çalıştığının göstergesi olabilir.
 
-Aynen sunucuları grafikleri açar:
+Marcela Sunucu grafiklerini açıyor:
 
-![Çeşitli ölçümleri](./media/app-insights-detect-triage-diagnose/06.png)
+![Çeşitli ölçümler](./media/app-insights-detect-triage-diagnose/06.png)
 
-Veritabanıyla ilgili hiçbir belirtisi kaynak sınırlaması, böylece belki darbe sunucu yanıt grafiklerde yalnızca bir rastlantı olan olması.
+Burada kaynak sınırlaması ile ilgili hiçbir belirti yok göründüğünden sunucu yanıt grafiklerindeki tepeler belki de yalnızca bir rastlantıdır.
 
-## <a name="set-alerts-to-meet-goals"></a>Hedeflerinizi karşılamak için Uyarıları Ayarla
-Bununla birlikte, aynen yanıt sürelerini takip istiyor. Çok yüksek gidin, kendisi hakkında hemen bilmek ister.
+## <a name="set-alerts-to-meet-goals"></a>Hedeflere ulaşmak için uyarılar ayarlama
+Bununla birlikte, yanıt sürelerinden gözünü ayırmamak ister. Çok yükselirlerse bunu hemen bilmek istemektedir.
 
-Aynen ayarlar için bir [uyarı](app-insights-metrics-explorer.md), yanıt zamanları tipik bir eşik değerinden yüksek. Bu yanıt süreleri yavaşsa, kendisi hakkında anlarsınız kendi güven verir.
+Bu nedenle, belirli bir eşikten yüksek olan yanıt süreleri için [uyarı](app-insights-metrics-explorer.md) ayarlar. Yanıt süreleri yavaşsa bunu öğreneceği için bu ona güven verir.
 
-![Uyarı dikey ekleme](./media/app-insights-detect-triage-diagnose/07-alerts.png)
+![Uyarı dikey penceresi ekleme](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
-Uyarılar, çok çeşitli diğer ölçümleri üzerinde ayarlanabilir. Örneğin, özel durum sayısı yüksek olur ya da kullanılabilir bellek düşük gider veya istemci isteklerini bir en yüksek ise e-postaları alabilir.
+Uyarılar, başka birçok ölçümün üzerinde ayarlanabilir. Örneğin, özel durum sayısı yükseldiğinde ya da kullanılabilir bellek düştüğünde veya istemci isteklerinde bir sıçrama olduğunda e-posta alabilirsiniz.
 
-## <a name="stay-informed-with-smart-detection-alerts"></a>Akıllı algılama Uyarıları hakkında bilgi sahibi olmak
-Ertesi gün, bir uyarı e-posta Application Insights ulaşır. Ancak kendisi açıldığında, aynen aynen ayarlamak yanıt süresi uyarı değil bulur. Bunun yerine, her başarısız isteklerin - diğer bir deyişle, 500 veya daha fazla hata kodları döndürmüş istekleri ani bir artışa olmamıştı söyler.
+## <a name="stay-informed-with-smart-detection-alerts"></a>Akıllı Algılama Uyarıları ile haberdar olma
+Ertesi gün, gerçekten Application Insights’tan bir uyarı e-postası ulaşır. Ancak açtığında ayarlamış olduğu yanıt süresi uyarısı olmadığını görür. Bunun yerine, başarısız isteklerde, diğer bir deyişle hata kodu 500 veya üzerini döndüren isteklerde ani bir artış olduğu söylenmektedir.
 
-Kullanıcıları genellikle bir özel durum kodu aşağıdaki hata - burada gördünüz başarısız isteklerdir. "Üzgünüz ayrıntılarınızı şu an güncelleştiremedik." söyleyen bir ileti görürler olabilir Ya da kullanıcının ekranında, web sunucusu'nın bir yığın dökümü mutlak utanç en kötü görünür.
+Başarısız istekler genellikle koddaki bir özel durumdan sonra oluşturulan ve kullanıcıların hatayı gördükleri yerlerdir. Belki, "Üzgünüz, bilgilerinizi şu an güncelleştiremedik" gibi bir ileti görebilirler. Ya da kesinlikle en utanç verici olanı, kullanıcının ekranında Web sunucusunun marifetiyle bir yığın dökümü görünmesidir.
 
-Bu uyarı bir beklenmedik biçimde çünkü aynen olduğundan, aranan en son ne zaman encouragingly düşük başarısız istek sayısı. Bir küçük hataları meşgul Server'da beklenen sayısıdır.
+Bu uyarı beklenmediktir, çünkü en son ona baktığında başarısız istek sayısı rahatlatıcı şekilde düşüktür. Meşgul bir sunucuda az sayıda hata beklenebilir.
 
-Ayrıca edildi beklenmedik biçimde her için biraz çünkü aynen bu uyarıyı yapılandırmak zorunda alamadık. Application Insights akıllı algılama içerir. Otomatik olarak, uygulamanızın normal hatası düzeni ve belirli bir sayfada ya da yüksek yük altında "için kullanılan" hataları için ayarlar veya diğer ölçümleri bağlı. Yalnızca bu beklediğiniz gelen yukarıda neden olduğunda uyarı başlatır.
+Bu uyarıyı yapılandırmak zorunda olmadığı için bu durum onun için biraz da şaşkınlık vericidir. Application Insights, Akıllı Algılama’yı içerir. Uygulamanızın normal hata düzenine otomatik olarak uyum sağlar ve belirli bir sayfadaki, ağır yük altındaki ya da diğer ölçümlere bağlı olan hatalara "alışır". Uyarıyı yalnızca beklenegelenin üzerinde bir artış olduğunda başlatır.
 
-![Öngörülü tanılama e-posta](./media/app-insights-detect-triage-diagnose/21.png)
+![öngörülü tanılama e-postası](./media/app-insights-detect-triage-diagnose/21.png)
 
-Bu çok kullanışlı bir e-postadır. Yalnızca bir alarm yükseltmek değil. Çok sayıda önceliklendirme ve tanılama iş çok yapar.
+Bu çok kullanışlı bir e-postadır. Yalnızca bir uyarı başlatmaz. Çok sayıda önceliklendirme ve tanılama işi de yapar.
 
-Etkilenen kaç müşteriler ve hangi web sayfaları veya işlemleri gösterir. Marcela olup bu yangın ayrıntıya çalışan tüm ekip almak ihtiyaç duyacağı veya olup haftaya kadar yoksayılabilir karar verebilirsiniz.
+Kaç müşterinin etkilendiğini ve bunların hangi Web sayfaları veya işlemleri olduğunu gösterir. Marcela ekibin tamamının yangın talimi gibi bunun üzerinde çalışması gerekip gerekmediğine veya bunun gelecek haftaya kadar göz ardı edilip edilemeyeceğine karar verebilir.
 
-E-posta Ayrıca belirli bir özel durum oluştu ve daha ilginç - hatası belirli bir veritabanının başarısız çağrılar ile ilişkili olduğunu bile, - gösterir. Bu Marcela'nın takım yakın zamanda herhangi bir güncelleştirme dağıtılmamış olsa bile neden hata aniden görünen açıklanmaktadır.
+E-posta ayrıca, belirli bir özel durumun oluştuğunu ve daha da ilginci, hatanın belirli bir veritabanına yönelik başarısız çağrılarla ilişkili olduğunu gösterir. Bu durum, Marcela'nın ekibi yakın zamanda herhangi bir güncelleştirme dağıtmamış olsa da hatanın neden aniden göründüğünü açıklamaktadır.
 
-Marcella bu e-postaya göre veritabanı takım lideri ping atar. Aynen son yarım saat içinde bir düzeltmenin yayımlanan öğrenir; ve hata, belki de bulunmamış olabilir ikincil şema değişikliği...
+Marcela, bu e-postaya dayanarak veritabanı ekip liderine ping atar. Son yarım saat içinde bir yama yayımladıklarını ve bakın şu işe, belki de küçük bir şema değişikliği yapılmış olabileceğini öğrenir...
 
-Bu nedenle, günlükleri araştırma önce bile ve bunu doğan 15 dakika içinde sabit yolu sorunu açıktır. Ancak, Marcela Application Insights açmak için bağlantıyı tıklatır. Düz başarısız bir istek açar ve kârlılığı bağımlılık çağrıları ilişkili listesinde çağrısı başarısız veritabanı görebilir.
+Böylece, daha günlükleri bile araştırmadan ve ortaya çıktıktan sonra 15 dakika içinde sorun düzeltilme yoluna girmiştir. Ancak Marcela, Application Insights’ı açma bağlantısına tıklar. Uygulama doğrudan başarısız istekle açılır ve ilişkili bağımlılık çağrıları listesinde başarısız veritabanı çağrısını görür.
 
 ![başarısız istek](./media/app-insights-detect-triage-diagnose/23.png)
 
-## <a name="detect-exceptions"></a>Özel durumlar Algıla
-Kurulum, biraz ile [özel durumları](app-insights-asp-net-exceptions.md) Application Insights'a otomatik olarak raporlanır. Bunlar aynı zamanda açıkça çağrıları ekleyerek yakalanabilir [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) koda:  
+## <a name="detect-exceptions"></a>Özel durumları algılama
+Ufak bir kurulumla [özel durumlar](app-insights-asp-net-exceptions.md) otomatik olarak Application Insights'a bildirilir. Koda [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) çağrıları ekleyerek de açık olarak yakalanabilirler:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -129,9 +129,9 @@ Kurulum, biraz ile [özel durumları](app-insights-asp-net-exceptions.md) Applic
     }
 
 
-Belirgin bir kurtarma olmadıkça Fabrikam banka takım uygulama olarak her zaman bir özel durum telemetri göndermesini gelişmiştir.  
+Fabrikam Bank ekibi, kurtarma kaçınılmaz olmadığı sürece bir özel durum olduğunda her zaman telemetri gönderme uygulamasını geliştirmiştir.  
 
-Aslında, bunların daha da geniş stratejidir: Burada müşteri, bir özel durum kodu veya karşılık gelir olup olmadığını ne yapmak istedikleri engellenen her durumda telemetri gönderdikleri. Dış arası banka aktarım sistemi işletimsel bir nedenden dolayı (hata müşterinin) "Bu işlem tamamlanamıyor" iletisi döndürürse, örneğin, sonra bunlar bu olay izleme.
+Aslında stratejileri daha da geniştir: Müşterinin yapmak istediği şeyi yapamadığı her durumda, bu ister kodda bir özel duruma karşılık gelsin ister gelmesin telemetri gönderirler. Örneğin, bankalar arası dış transfer sistemi bir operasyonel nedenle (müşterinin kusuru olmadan) “bu işlem tamamlanamıyor” mesajı veriyorsa o olayı izlerler.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
@@ -143,96 +143,96 @@ Aslında, bunların daha da geniş stratejidir: Burada müşteri, bir özel duru
        telemetry.TrackEvent("transfer failed", properties, measurements);
     }
 
-TrackException özel durum yığını kopyasını gönderdiğinden bildirmek için kullanılır. TrackEvent diğer olaylarını bildirmek için kullanılır. Tanılama aşamasında yararlı olabilecek herhangi bir özellik ekleyebilirsiniz.
+Yığının bir kopyasını gönderdiğinden özel durumları bildirmek için TrackException kullanılır. Diğer olayları bildirmek için de TrackEvent kullanılır. Tanılama aşamasında yararlı olabilecek herhangi bir özelliği iliştirebilirsiniz.
 
-Özel durumlar ve olayları gösterilmiyor [tanılama arama](app-insights-diagnostic-search.md) dikey. Bunlara ek özellikleri görmek ve izleme yığın için ayrıntıya inebilir.
+Özel durumlar ve olaylar [Tanılama Araması](app-insights-diagnostic-search.md) dikey penceresinde gösterilir. Ek özellikleri ve yığın izlemesini görmek için bunlarda ayrıntıya inebilirsiniz.
 
-![Tanılama Arama'da, belirli veri türlerini göstermek için filtreleri kullanın.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
+![Tanılama Araması'nda, belirli veri türlerini göstermek için filtreleri kullanın.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
 
 ## <a name="monitor-proactively"></a>Proaktif izleme
-Marcela, yalnızca uyarılar için beklerken kalmaya devam etmez. Yeniden her dağıtım hemen sonra aynen bir inceler [yanıt sürelerini](app-insights-web-monitor-performance.md) -genel şekil ve özel durum sayısı yanı sıra, en yavaş istekler tablosu.  
+Marcela, öyle oturup uyarıları beklemez. Her dağıtımdan hemen sonra [yanıt sürelerini](app-insights-web-monitor-performance.md) inceler; özel durum sayılarının yanı sıra hem genel rakamlara hem de en yavaş istekler tablosuna bakar.  
 
-![Yanıt süresi grafiği ve sunucu yanıt sürelerinin kılavuz.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Yanıt süresi grafiği ve sunucu yanıt süreleri kılavuzu.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
-Genellikle her hafta son ile karşılaştırma aynen her dağıtım performans etkisini değerlendirebilirsiniz. Varsa ani worsening, kârlılığı, ilgili geliştiricilere başlatır.
+Genellikle her haftayı bir önceki ile karşılaştırarak her dağıtımın performans üzerindeki etkisini değerlendirebilir. Ani bir kötüleşme olduğunda durumu ilgili geliştiricilere iletir.
 
 ## <a name="triage-issues"></a>Önceliklendirme sorunları
--Bir sorun kapsamını ve önem derecesi değerlendiriliyor - önceliklendirme ilk adımı sonra algılamadır. Takım gece yarısı diyoruz? Veya sonraki uygun boşluğu biriktirme, kadar bırakılabilir? Değerlendirme içinde anahtar bazı sorular verilmiştir.
+Önceliklendirme, yani bir sorunun önem derecesini ve kapsamını değerlendirmek algılamadan sonraki ilk adımdır. Ekibe gece yarısı çağrı yapmalı mıyız? Yoksa kapsamdaki sonraki uygun boşluğa kadar bekletilebilir mi? Önceliklendirmede bazı temel sorular vardır.
 
-Ne sıklıkta gerçekleştiriliyor? Genel Bakış dikey penceresinde grafiklerde bazı perspektif bir soruna verin. Örneğin, Fabrikam uygulama bir gece dört web testi uyarılar oluşturulur. Hala çoğu testler yeşil oturuyormuş grafiği sabah baktığınızda, takım gerçekten bazı kırmızı nokta olduğunu görebilir. Kullanılabilirlik grafiğe ayrıntılara, tüm bu zaman zaman ortaya çıkan sorunları bir test konumdan olduğunu açıktı. Bu açıkça yalnızca bir rota etkileyen bir ağ sorunu oluştu ve büyük olasılıkla kendisini temizler.  
+Bu ne sıklıkta oluyor? Genel Bakış dikey penceresindeki grafikler soruna bazı bakış açıları verir. Örneğin, Fabrikam uygulaması bir gecede dört Web test uyarısı oluşturmuştur. Ekip sabah grafiğe baktığında testlerin çoğu yeşil olsa da hala bazı kırmızı noktalar olduğunu görebilir. Kullanılabilirlik grafiğinde ayrıntılara inildiğinde aralıklı olarak ortaya çıkan bu sorunların tümünün tek bir test konumundan geldiği açıktır. Bunun yalnızca bir yolu etkileyen bir ağ sorunu olduğu ve büyük olasılıkla kendi kendine temizleneceği açıktır.  
 
-Bunun aksine, özel durum sayısı veya yanıt sürelerinin grafik çarpıcı ve kararlı bir artışa açıkça için hakkında Panik şeydir.
+Aksine, özel durum sayıları ve yanıt sürelerinin grafiğindeki çarpıcı ve kararlı artış, kuşkusuz endişelenilmesi gereken bir şeydir.
 
-Yararlı önceliklendirme Taktik bunun deneyin, kendiniz ' dir. Aynı sorunla çalıştırırsanız, gerçek olduğunu bilirsiniz.
+Yararlı bir önceliklendirme taktiği Önce Kendinizin Denemesidir. Aynı sorunla karşılaştıysanız gerçek olduğunu bilirsiniz.
 
-Kullanıcıların hangi kesir etkilendiğini? Bir kaba yanıt almak için hata oranı göre oturum sayısı bölün.
+Kullanıcıların kaçta kaçı etkilendi? Kaba bir yanıt almak için hata oranını oturum sayısına bölün.
 
-![Başarısız istekler ve oturumlarının grafikleri](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
+![Başarısız istekler ve oturumlar grafiği](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
-Yavaş yanıtlar olduğunda, her sayfanın kullanım sıklığı en yavaş yanıt istekleriyle tablosunun karşılaştırın.
+Yavaş yanıtlar olduğunda, en yavaş yanıtlanan istekler tablosunu her sayfanın kullanım sıklığı ile karşılaştırın.
 
-Engellenen senaryo ne kadar önemli mi? Belirli bir kullanıcı hikayesinin engelleme işlevsel bir sorun varsa, çok önemli midir? Müşteriler, faturalar ödeme edilemez, bu ciddi olur; Ekran rengi tercihlerini değiştiremezsiniz, belki de bekleyebilir. Olay ya da özel durum ayrıntısı veya yavaş sayfa kimliğini müşteriler burada yaşıyorsanız söyler.
+Engellenen senaryo ne kadar önemli? Bu, belirli bir kullanıcı hikayesine engel olan işlevsel bir sorunsa çok önemli midir? Müşteriler, faturalarını ödeyemiyorsa bu ciddidir; ekran rengi tercihlerini değiştiremiyorsa belki de bekleyebilir. Olayın ya da özel durumun ayrıntısı veya yavaş sayfanın kimliği, müşterilerin nerede sorun yaşadığını size söyler.
 
 ## <a name="diagnose-issues"></a>Sorunları tanılama
-Tanılama oldukça aynı hata ayıklama değil. Kod aracılığıyla İzleme başlamadan önce neden, kaba fikrini olmalıdır sorun nerede ve ne zaman oluştuğunu.
+Tanılama hata ayıklama ile pek aynı değildir. Kodu izlemeye başlamadan önce sorunun niçin, nerede ve ne zaman oluştuğu üzerine kaba bir fikriniz olmalıdır.
 
-**Ne zaman böyle bir durum?** Olay ve ölçüm grafikleri tarafından sağlanan Geçmiş görünümünü efektleri ile olası nedenleri ilişkilendirmek kolaylaştırır. Yanıt süresi veya özel durum hızları aralıklı yükselme olup, istek sayısına ulaştığı arayın: aynı anda tarafı sonra kaynak sorunu gibi görünüyor. Daha fazla CPU veya bellek atamanız gerekiyor mu? Yoksa yük yönetemez bir bağımlılık mı?
+**Ne zaman oluyor?** Olay ve ölçüm grafikleri tarafından sağlanan geçmiş görünümü, etkileri olası nedenlerle ilişkilendirmeyi kolaylaştırır. Yanıt süresinde veya özel durum oranlarında aralıklı yükselmeler oluyorsa istek sayısına bakın: aynı zamanda tepe yapıyorsa bu bir kaynak sorunu olabilir. Daha fazla CPU mu yoksa bellek mi atamanız gerekiyor? Yoksa bu, yükü yönetemeyen bir bağımlılık mı?
 
-**Bu bize?**  Olasılığı daha sonra - Örneğin, müşterinin hesap özetine istediği - isteğinin belirli bir türdeki performans ani açılan varsa, web uygulamanızın yerine bir dış alt olabilir. Ölçüm Gezgini bağımlılık süresi hızları ve bağımlılık hata oranı seçin ve son birkaç saat veya gün, algılanan soruna ile üzerinden kendi geçmişlerini karşılaştırın. Değişiklikler var. ilişkilendirerek, dış bir alt sistemi için blame olabilir.  
+**Sorun biz miyiz?**  Belirli bir istek türünün performansında ani düşme ile karşılaşıyorsanız (örneğin, müşteri hesap özeti istediğinde) sorun Web uygulamanızda değil bir dış alt sistemde olabilir. Ölçüm Gezgini’nde Bağımlılık Hatası ve Bağımlılık Süresi oranlarını seçin ve son birkaç saatlik ya da günlük geçmişlerini algıladığınız sorunla karşılaştırın. İlişkili değişiklikler varsa bir dış alt sistem suçlanabilir.  
 
 
-![Bağımlılık hatası ve bağımlılıkları yapılan çağrıların süresi grafikleri](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
+![Bağımlılık hatası ve bağımlılıklara yapılan çağrıların süresi grafikleri](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
-Coğrafi konuma sorunları bazı yavaş bağımlılık sorunlardır. Fabrikam banka Azure sanal makineleri kullanır ve bunlar yanlışlıkla hesap sunucusu ve web sunucusu farklı bir ülkede bulunan olduğunu buldu. Çarpıcı geliştirme geçirerek olana bunlardan biri.
+Bazı yavaş bağımlılık sorunları coğrafi konum sorunlarıdır. Fabrikam Bank, Azure sanal makinelerini kullanmaktadır ve Web sunucuları ile hesap sunucularının yanlışlıkla farklı ülkelerde konumlandırıldığı keşfedilir. Bunlardan biri geçirildiğinde çarpıcı bir iyileşme yaşanmıştır.
 
-**Biz ne?** Varsa sorun bağımlılık olarak görünmüyor ve her zaman vardır durumda değilse, büyük olasılıkla tarafından son zamanlarda bir değişiklik neden oldu. Ölçüm ve olay grafikleri tarafından sağlanan geçmiş perspektif ani değişiklikler dağıtımlar ile ilişkilendirmek kolaylaştırır. Bu sorun için arama aşağı daraltır. Uygulama kodundaki hangi satırların performansını yavaşlatabilecek belirlemek için uygulama Öngörüler profil oluşturucu etkinleştirin. Lütfen [profil oluşturma Canlı Azure web uygulamaları Application Insights ile](./app-insights-profiler.md). Profil Oluşturucu etkinleştirildikten sonra aşağıdakine benzer bir izleme görürsünüz. Bu örnekte, kolayca belirgin, yöntem *GetStorageTableData* sorunu neden oldu.  
+**Biz ne yaptık?** Sorun bağımlılıkta değil görünüyorsa ve hiçbir zaman da olmadıysa büyük olasılıkla buna son zamanlarda yapılan bir değişiklik neden olmuştur. Ölçüm ve olay grafikleri tarafından sağlanan geçmiş perspektif, tüm ani değişiklikleri dağıtımlarla ilişkilendirmeyi kolaylaştırır. Bu durum, sorunun aranacağı yeri daraltır. Uygulama kodundaki hangi satırların performansı yavaşlattığını belirlemek için Application Insights Profiler’ı etkinleştirin. Lütfen [Application Insights ile canlı Azure Web uygulamalarının profilini oluşturma](./app-insights-profiler.md) sayfasına bakın. Profiler etkinleştirildikten sonra, aşağıdakine benzer bir izleme görürsünüz. Bu örnekte, soruna *GetStorageTableData* yönteminin neden olduğu kolayca görülebilir.  
 
-![App Insights profil oluşturucu izleme](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
+![App Insights Profiler İzlemesi](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-**Ne var ne yok?** Bazı sorunlar nadiren oluşur ve çevrimdışı test ederek izlemek zor olabilir. Tüm yapabiliriz etmektir Canlı oluştuğunda hata yakalamaya çalışın. Özel durum raporlarında yığın dökümleri inceleyebilirsiniz. Ayrıca, sık kullandığınız günlük ile veya TrackTrace() ya da TrackEvent() ile izleme çağrıları yazabilirsiniz.  
+**Neler oluyor?** Bazı sorunlar nadiren oluşur ve çevrimdışı test ederken izlenmeleri güç olabilir. Tek yapabileceğimiz hatayı canlı oluştuğu sırada yakalamaya çalışmaktır. Özel durum raporlarındaki yığın dökümlerini inceleyebilirsiniz. Ayrıca, ister sık kullandığınız günlük çerçevesi ile ister TrackTrace() ya da TrackEvent() ile izleme çağrıları yazabilirsiniz.  
 
-Fabrikam ile arası hesap aktarımları, ancak yalnızca hesap türleri için belirli zaman zaman ortaya çıkan bir sorun var. Neler daha iyi anlamak için hesap türünü bir özellik olarak her çağrı ekleme koddaki anahtar noktalarda TrackTrace() çağrıları eklenir. Yalnızca bu izlemeler tanılama arama filtrelemek kolay hale. Bunlar, ayrıca parametre değerlerini özellikleri ve ölçümleri izleme çağrıları iliştirilmiş.
+Fabrikam hesaplar arası aktarımlarda zaman zaman ortaya çıkan ancak yalnızca belirli hesap türlerinde olan bir sorunla karşılaştı. Neler olduğunu daha iyi anlamak için hesap türünü her çağrıya bir özellik olarak iliştirerek koddaki anahtar noktalara TrackTrace() çağrıları eklediler. Bunu yapmak, yalnızca Tanılama Aramasındaki izlemeleri filtrelemeyi kolaylaştırdı. Ayrıca parametre değerlerini izleme çağrılarına özellikler ve ölçümler olarak iliştirdiler.
 
-## <a name="respond-to-discovered-issues"></a>Bulunan sorunları yanıt
-Sorunu tanı koydu sonra düzeltmek için bir plan yapabilirsiniz. Son zamanlarda bir değişiklik geri almanıza gerek olabilir, veya belki yalnızca devam edin ve düzeltin. Düzeltme yaptıktan sonra Application Insights başarılı olup olmadığını bildirir.  
+## <a name="respond-to-discovered-issues"></a>Bulunan sorunlara çözüm bulma
+Soruna tanı koyduktan sonra düzeltmek için bir plan yapabilirsiniz. Belki son zamanlarda yapılan bir değişikliği geri almanız gerekiyordur veya belki de yalnızca devam edip düzeltebilirsiniz. Düzeltme yapıldıktan sonra Application Insights başarılı olup olmadığınızı bildirir.  
 
-Fabrikam Bank'ın geliştirme ekibi için bunlar kullanılan Application Insights kullanmadan önce daha fazla yapılandırılmış bir yaklaşım performans ölçümü için gerçekleştirin.
+Fabrikam Bank'ın geliştirme ekibi, performans ölçümü için Application Insights kullanmazdan öncesine göre daha fazla yapılandırılmış bir yaklaşımı benimser.
 
-* Bunlar, Application Insights genel bakış sayfasında belirli ölçümleri açısından performans hedefleri ayarlayın.
-* Bunlar performans ölçümleri 'funnels.' kullanıcı ilerlemeyi ölçmek ölçümleri gibi başlangıç uygulaması tasarlama  
+* Performans hedeflerini Application Insights genel bakış sayfasındaki belirli ölçümlere göre ayarlarlar.
+* 'Huniler' aracılığıyla kullanıcının ilerlemesini ölçen ölçümler gibi performans ölçümlerini, uygulamaya ilk başından tasarımdan yerleştirirler.  
 
 
 ## <a name="monitor-user-activity"></a>Kullanıcı etkinliğini izleme
-Yanıt süresi sürekli olarak iyi ve birkaç özel durum olduğunda geliştirme ekibi için kullanılabilirlik taşıyabilirsiniz. Bunlar, kullanıcıların deneyimini iyileştirmek ve istenilen hedeflere ulaşmak için daha fazla kullanıcı teşvik eden hakkında düşünebilirsiniz.
+Yanıt süresi tutarlı bir şekilde iyiyken birkaç özel durum olduğunda geliştirme ekibi kullanılabilirlik aşamasına geçebilir. Kullanıcıların deneyimini nasıl iyileştirecekleri ve istenilen hedeflere ulaşmak için daha fazla kullanıcıyı nasıl teşvik edecekleri hakkında düşünebilirler.
 
-Application Insights ile bir uygulama kullanıcıların ne öğrenmek için de kullanılabilir. Sorunsuz çalışmaya başladıktan sonra takım hangi özelliklerin en popüler olduğunu hangi kullanıcıların veya gibi zorluk ile ve ne sıklıkta geri dönmeden isterdiniz. Bunları yaklaşan işlerini önceliklendirmek yardımcı olur. Ve her bir özelliğin başarısını geliştirme döngüsü bir parçası olarak ölçmek planlayabilirsiniz.
+Application Insights, kullanıcıların bir uygulama ile neler yaptıklarını öğrenmek için de kullanılabilir. Sorunsuz çalışmaya başladıktan sonra ise ekip hangi özelliklerin en popüler olduğunu, hangi kullanıcıların hoşuna gidip hangilerinin zorluk çektiğini ve ne sıklıkta geri döndüklerini öğrenmek ister. Bu onların sonraki işlerini önceliklendirmelerine yardımcı olur. Ayrıca, geliştirme döngüsü bir parçası olarak her özelliğin başarısını ölçmeyi planlayabilirler.
 
-Örneğin, tipik kullanıcı gezisine web sitesi aracılığıyla bir Temizle "Huni." sahip Birçok müşteri kredi farklı türlerde oranlarda arayın. Daha küçük bir sayı Git tırnak formu doldurun. Olanların bir teklif almak, birkaç bir tane kredisi alın.
+Örneğin, Web sitesinde tipik bir kullanıcı gezintisinde belirgin bir "huni" vardır. Birçok müşteri, farklı türlerdeki kredi oranlarına bakar. Daha küçük bir grup da devam ederek teklif formunu doldurur. Teklif alanlardan birkaçı devam eder ve krediyi alır.
 
-![Sayfa görünümü sayar](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Sayfa görüntüleme sayıları](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Müşteriler büyük sayıda burada bırakma dikkate alarak, iş daha fazla kullanıcı Huni altına alma kullanıma çalışabilir. Bazı durumlarda, bir kullanıcı deneyimi (UX) hatası olabilir - örneğin, 'İleri' düğmesine zor veya yönergeleri açık değil. Büyük olasılıkla, açılan aşımı ayarlarına daha önemli iş nedenleri vardır: Kredi oranları çok yüksek olabilir.
+En çok müşterinin nerede çıktığını değerlendiren işletme, daha fazla kullanıcıyı huninin altına kadar nasıl çekeceği üzerine çalışabilir. Bazı durumlarda, bir kullanıcı deneyimi (UX) hatası olabilir; örneğin, 'İleri' düğmesini bulmak zordur veya yönergeler açık değildir. Büyük olasılıkla, çıkma nedenleri belirgin bir şekilde işle ilgili nedenlerdir: belki de kredi oranları çok yüksektir.
 
-Bir nedeniyle ne olursa olsun, verileri kullanıcıların ne yaptıklarını iş takım yardımcı olur. Daha fazla izleme çağrıları ayrıntılı çalışmaya eklenebilir. TrackEvent() tüm kullanıcı eylemlerden, bireysel düğme tıklama ince ayrıntılarıyla devre dışı bir kredi ödeme gibi önemli başarılar için saymak için kullanılabilir.
+Nedenler ne olursa olsun, veriler ekibin kullanıcıların neler yaptığını ortaya çıkarmasına yardımcı olur. Daha fazla ayrıntı ortaya çıkarmak için daha çok izleme çağrısı eklenebilir. Her bir düğmeye tıklanması gibi en ince ayrıntısından kredinin ödenmesi gibi önemli başarılara kadar tüm kullanıcı eylemlerini saymak için TrackEvent() kullanılabilir.
 
-Takım kullanıcı etkinliği hakkında bilgi zorunda kullanılan alma. Günümüzde, yeni bir özellik tasarım olduğunda, kullanım hakkında geri bildirim nasıl elde çalışırlar. Bunlar başlatma özelliğinden izleme çağrıları tasarlayın. Bu özellik her geliştirme döngüsü geliştirmek için geri bildirim kullanırlar.
+Ekip kullanıcı etkinliği ile ilgili bilgilere ulaşmaya alışıyor. Günümüzde, yeni bir özelliği her tasarladıklarında, kullanımı hakkında geri bildirimi nasıl alacakları üzerine çalışıyorlar. İzleme çağrılarını daha en başından özelliğin içinde tasarlıyorlar. Her geliştirme döngüsünde özelliği geliştirmek için bu geri bildirimleri kullanıyorlar.
 
-[Kullanımı izleme hakkında daha fazla okuma](app-insights-usage-overview.md).
+[Kullanımı izleme hakkında daha fazla bilgi edinin](app-insights-usage-overview.md).
 
-## <a name="apply-the-devops-cycle"></a>DevOps döngüsü Uygula
-Bu nedenle, bir takım Application Insights yalnızca tek tek sorunlarını gidermek için ancak kendi geliştirme yaşam döngüsü geliştirmek için kullanılır. I bunu nasıl Application Insights ile uygulama performans yönetimi, kendi uygulamalarında yardımcı olabileceği hakkında fikir edinmek verdiği umuyoruz.
+## <a name="apply-the-devops-cycle"></a>DevOps döngüsünü uygulama
+Bir ekip Application Insights’ı sadece bağımsız sorunları düzeltmek için değil aynı zamanda geliştirme yaşam döngülerini de iyileştirmek için işte böyle kullanır. Umarım, bu Application Insights’ın kendi uygulamalarınızdaki uygulama performans yönetiminde size nasıl yardımcı olabileceği hakkında bazı fikirler vermiştir.
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Uygulamanızın özelliklerine bağlı olarak çeşitli şekillerde başlayabiliriz. En iyi uyan seçin:
+Uygulamanızın özelliklerine bağlı olarak çeşitli şekillerde başlayabilirsiniz. Size en çok uyanı seçin:
 
-* [ASP.NET web uygulaması](app-insights-asp-net.md)
-* [Java web uygulaması](app-insights-java-get-started.md)
-* [Node.js web uygulaması](app-insights-nodejs.md)
-* Üzerinde barındırılan uygulamalar, dağıtılmış [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md), veya [Azure](app-insights-azure.md).
-* [Web sayfaları](app-insights-javascript.md) -tek sayfa uygulaması veya normal web sayfası - bu kendi başına veya kullanın ayrıca herhangi bir sunucu seçenekleri.
-* [Kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md) genel internet'ten uygulamanızı test etmek.
+* [ASP.NET Web uygulaması](app-insights-asp-net.md)
+* [Java Web uygulaması](app-insights-java-get-started.md)
+* [Node.js Web uygulaması](app-insights-nodejs.md)
+* [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) veya [Azure](app-insights-azure.md) üzerinde barındırılan önceden dağıtılmış uygulamalar.
+* [Web sayfaları](app-insights-javascript.md) -Tek Sayfalık Uygulama veya normal Web sayfası - bunu kendi başına veya sunucu seçeneklerinden herhangi biriyle birlikte kullanın.
+* Uygulamanızı genel İnternet'ten test etmek için [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md).
