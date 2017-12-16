@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2fb989d1fd9ee76ee1d21323574971438d607238
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure Tanıtımı
 Microsoft Azure Microsoft'un uygulama için genel bulut platformudur.  Bu makalede bulut ilgili herhangi bir şey tanımadığınız olsa bile bir temel Azure, temelleri anlamak için size hedefidir bilgi işlem.
@@ -534,6 +534,6 @@ Hizmet olarak yazılım neden uygulamaları nasıl oluşturuyoruz dönüştürme
 SendGrid, e-posta göndermenize olanak sağlayan Azure depolama için kullanılan bir uygulamadır. Güvenilir teslim ve istatistikler gibi ek işlevsellik sağlar.  Bu uygulama ve ilgili hizmetler satın yerine, böyle bir altyapı kendiniz yapılandırmak deneyin.  
 
 ## <a name="getting-started"></a>Başlarken
-Büyük-resmi sahip olduğunuza göre sonraki adıma ilk Azure uygulamanızı yazmaktır. Dilinizi seçin [uygun SDK'sı Al](/downloads/)ve bunun için gidin. Bulut bilgi işlem varsayılandır yeni--hemen kullanmaya başlayın.
+Büyük-resmi sahip olduğunuza göre sonraki adıma ilk Azure uygulamanızı yazmaktır. Dilinizi seçin [uygun SDK'sı Al](https://azure.microsoft.com/en-us/downloads/)ve bunun için gidin. Bulut bilgi işlem varsayılandır yeni--hemen kullanmaya başlayın.
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/

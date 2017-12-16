@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/09/2017
+ms.date: 12/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N-serisi Vm'lerinde NVIDIA GPU sürücüleri yükleyin
 
@@ -32,6 +32,150 @@ N-serisi VM özellikleri, depolama kapasitesi ve disk Ayrıntılar için bkz: [G
 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
+
+## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>NC, NCv2 ve ND VM'ler CUDA sürücüleri yükleyin
+
+Linux NC VM'ler NVIDIA CUDA araç setinden NVIDIA sürücülerini yüklemek için adımlar şunlardır. 
+
+C ve C++ geliştiriciler GPU hızlandırılmış uygulamaları oluşturmak için tam Araç Seti isteğe bağlı olarak yükleyebilirsiniz. Daha fazla bilgi için bkz: [CUDA Yükleme Kılavuzu'na](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+
+
+> [!NOTE]
+> CUDA sürücü yükleme bağlantıları burada geçerli yayın zamanında sağlanır. En son CUDA sürücüleri için ziyaret [NVIDIA](https://developer.nvidia.com/cuda-zone) Web sitesi.
+>
+
+CUDA Araç Seti yüklemek için her VM için bir SSH bağlantısı oluşturun. Sistem CUDA özellikli GPU sahip olduğunu doğrulamak için aşağıdaki komutu çalıştırın:
+
+```bash
+lspci | grep -i NVIDIA
+```
+(Bir NVIDIA Tesla K80 kartı gösteren) aşağıdaki örneğe benzer bir çıktı görürsünüz:
+
+![lspci komut çıktısı](./media/n-series-driver-setup/lspci.png)
+
+Sonra dağıtım için belirli çalışma yükleme komutları.
+
+### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+
+1. CUDA sürücüleri yükleyip yeniden açın.
+  ```bash
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+
+  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+
+  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-get update
+
+  sudo apt-get install cuda-drivers
+
+  ```
+
+  Yükleme birkaç dakika sürebilir.
+
+2. İsteğe bağlı olarak tam CUDA Araç Seti yüklemek için şunu yazın:
+
+  ```bash
+  sudo apt-get install cuda
+  ```
+
+3. VM yeniden başlatma ve yüklendiğini doğrulamak için devam edin.
+
+#### <a name="cuda-driver-updates"></a>CUDA sürücü güncelleştirmesi
+
+CUDA sürücüleri düzenli aralıklarla dağıtımdan sonra güncelleştirmenizi öneririz.
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
+### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS tabanlı 7.3 veya Red Hat Enterprise Linux 7.3
+
+1. Hyper-V için en son Linux Tümleştirme hizmetlerini yükleyin.
+
+  > [!IMPORTANT]
+  > CentOS tabanlı HPC görüntü NC24r VM üzerinde yüklü değilse, adım 3'e geçin. Azure RDMA sürücüleri ve Linux Tümleştirme hizmetleri HPC görüntüde önceden yüklenmiş olduğundan, LIS yükseltilmez ve çekirdek güncelleştirmeler varsayılan olarak devre dışıdır.
+  >
+
+  ```bash
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
+ 
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
+ 
+  cd LISISO
+ 
+  sudo ./install.sh
+ 
+  sudo reboot
+  ```
+ 
+3. VM yeniden bağlanın ve aşağıdaki komutları yüklemeye devam edin:
+
+  ```bash
+  sudo yum install kernel-devel
+
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+  sudo yum install dkms
+
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+
+  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+
+  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+
+  rm -f /tmp/${CUDA_REPO_PKG}
+
+  sudo yum install cuda-drivers
+  ```
+
+  Yükleme birkaç dakika sürebilir. 
+
+4. İsteğe bağlı olarak tam CUDA Araç Seti yüklemek için şunu yazın:
+
+  ```bash
+  sudo yum install cuda
+  ```
+
+5. VM yeniden başlatma ve yüklendiğini doğrulamak için devam edin.
+
+
+### <a name="verify-driver-installation"></a>Sürücü yükleme doğrulayın
+
+
+GPU cihaz durumu, SSH VM ve Çalıştır sorgulamak için [NVIDIA SMI](https://developer.nvidia.com/nvidia-system-management-interface) komut satırı yardımcı programının sürücüsüyle yüklü. 
+
+Sürücü yüklüyse, aşağıdakine benzer bir çıktı görürsünüz. Unutmayın **GPU kul** GPU iş yükü VM çalıştırmakta olduğunuz sürece %0 gösterir. Sürücü sürümü ve GPU ayrıntıları gösterilen olanlardan farklı olabilir.
+
+![NVIDIA cihaz durumu](./media/n-series-driver-setup/smi.png)
+
+
+
+## <a name="rdma-network-connectivity"></a>RDMA ağ bağlantısı
+
+RDMA ağ bağlantısı gibi NC24r aynı kullanılabilirlik kümesinde dağıtılan RDMA özellikli N-serisi Vm'lerinde etkinleştirilebilir. RDMA ağ Intel MPI ile çalışan uygulamalar için ileti geçirme arabirimi (MPI) trafiğini destekler 5.x veya sonraki bir sürümü. Ek gereksinimler izleyin:
+
+### <a name="distributions"></a>Dağıtımları
+
+RDMA bağlantısı destekleyen Azure Marketi aşağıdaki görüntüleri birinden RDMA özellikli N-serisi VM'ler dağıtın:
+  
+* **Ubuntu** -Ubuntu Server 16.04 LTS. RDMA sürücüleri VM yapılandırın ve Intel MPI indirmek için Intel ile kaydedin:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+* **CentOS tabanlı HPC** -CentOS tabanlı 7.3 HPC. RDMA sürücüler ve Intel MPI 5.1 VM yüklenir. 
 
 ## <a name="install-grid-drivers-for-nv-vms"></a>NV VM'ler için kılavuz sürücüleri yükleyin
 
@@ -95,10 +239,6 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS tabanlı 7.3 veya Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Çalıştırmayan `sudo yum update` CentOS 7.3 veya Red Hat Enterprise Linux 7.3 Çekirdek sürümüne güncelleştirmek için. Çekirdek güncel değilse, sürücü yükleme ve güncelleştirmeleri şu anda çalışmıyor.
->
-
 1. Çekirdek ve DKMS güncelleştirin.
  
   ```bash  
@@ -122,9 +262,9 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 3. VM yeniden başlatma, yeniden bağlanma ve Hyper-V: için son Linux Tümleştirme hizmetlerini yükleyin
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-2.tar.gz
 
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-2.tar.gz
 
   cd LISISO
 
@@ -165,7 +305,7 @@ NV Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir
 
 GPU cihaz durumu, SSH VM ve Çalıştır sorgulamak için [NVIDIA SMI](https://developer.nvidia.com/nvidia-system-management-interface) komut satırı yardımcı programının sürücüsüyle yüklü. 
 
-Çıktı aşağıdakine benzer görünür. Sürücü sürümü ve GPU ayrıntıları gösterilen olanlardan farklı olabilir.
+Sürücü yüklüyse, aşağıdakine benzer bir çıktı görürsünüz. Unutmayın **GPU kul** GPU iş yükü VM çalıştırmakta olduğunuz sürece %0 gösterir. Sürücü sürümü ve GPU ayrıntıları gösterilen olanlardan farklı olabilir.
 
 ![NVIDIA cihaz durumu](./media/n-series-driver-setup/smi-nv.png)
  
@@ -202,163 +342,13 @@ if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; 
 
 Bu dosya önyüklemede kök olarak içinde için bir giriş oluşturarak çağrılabilir `/etc/rc.d/rc3.d`.
 
-
-## <a name="install-cuda-drivers-for-nc-vms"></a>NC VM'ler için CUDA sürücüleri yükleyin
-
-Linux NC VM'ler NVIDIA CUDA araç setinden NVIDIA sürücülerini yüklemek için adımlar şunlardır. 
-
-C ve C++ geliştiriciler GPU hızlandırılmış uygulamaları oluşturmak için tam Araç Seti isteğe bağlı olarak yükleyebilirsiniz. Daha fazla bilgi için bkz: [CUDA Yükleme Kılavuzu'na](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
-
-
-> [!NOTE]
-> CUDA sürücü yükleme bağlantıları burada geçerli yayın zamanında sağlanır. En son CUDA sürücüleri için ziyaret [NVIDIA](https://developer.nvidia.com/cuda-zone) Web sitesi.
->
-
-CUDA Araç Seti yüklemek için her VM için bir SSH bağlantısı oluşturun. Sistem CUDA özellikli GPU sahip olduğunu doğrulamak için aşağıdaki komutu çalıştırın:
-
-```bash
-lspci | grep -i NVIDIA
-```
-(Bir NVIDIA Tesla K80 kartı gösteren) aşağıdaki örneğe benzer bir çıktı görürsünüz:
-
-![lspci komut çıktısı](./media/n-series-driver-setup/lspci.png)
-
-Sonra dağıtım için belirli çalışma yükleme komutları.
-
-### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-
-1. CUDA sürücüleri yükleyip yeniden açın.
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
-
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
-
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo apt-get update
-
-  sudo apt-get install cuda-drivers
-
-  ```
-
-  Yükleme birkaç dakika sürebilir.
-
-2. İsteğe bağlı olarak tam CUDA Araç Seti yüklemek için şunu yazın:
-
-  ```bash
-  sudo apt-get install cuda
-  ```
-
-3. VM yeniden başlatma ve yüklendiğini doğrulamak için devam edin.
-
-#### <a name="cuda-driver-updates"></a>CUDA sürücü güncelleştirmesi
-
-CUDA sürücüleri düzenli aralıklarla dağıtımdan sonra güncelleştirmenizi öneririz.
-
-```bash
-sudo apt-get update
-
-sudo apt-get upgrade -y
-
-sudo apt-get dist-upgrade -y
-
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>CentOS tabanlı 7.3 veya Red Hat Enterprise Linux 7.3
-
-1. Hyper-V için en son Linux Tümleştirme hizmetlerini yükleyin.
-
-  > [!IMPORTANT]
-  > CentOS tabanlı HPC görüntü NC24r VM üzerinde yüklü değilse, adım 3'e geçin. Azure RDMA sürücüleri ve Linux Tümleştirme hizmetleri HPC görüntüde önceden yüklenmiş olduğundan, LIS yükseltilmez ve çekirdek güncelleştirmeler varsayılan olarak devre dışıdır.
-  >
-
-  ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
- 
-  tar xvzf lis-rpms-4.2.3-1.tar.gz
- 
-  cd LISISO
- 
-  sudo ./install.sh
- 
-  sudo reboot
-  ```
- 
-3. VM yeniden bağlanın ve aşağıdaki komutları yüklemeye devam edin:
-
-  ```bash
-  sudo yum install kernel-devel
-
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-
-  sudo yum install dkms
-
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
-
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-
-  rm -f /tmp/${CUDA_REPO_PKG}
-
-  sudo yum install cuda-drivers
-  ```
-
-  Yükleme birkaç dakika sürebilir. 
-
-4. İsteğe bağlı olarak tam CUDA Araç Seti yüklemek için şunu yazın:
-
-  ```bash
-  sudo yum install cuda
-  ```
-
-5. VM yeniden başlatma ve yüklendiğini doğrulamak için devam edin.
-
-
-### <a name="verify-driver-installation"></a>Sürücü yükleme doğrulayın
-
-
-GPU cihaz durumu, SSH VM ve Çalıştır sorgulamak için [NVIDIA SMI](https://developer.nvidia.com/nvidia-system-management-interface) komut satırı yardımcı programının sürücüsüyle yüklü. 
-
-Aşağıdakine benzer bir çıktı görünür:
-
-![NVIDIA cihaz durumu](./media/n-series-driver-setup/smi.png)
-
-
-
-## <a name="rdma-network-for-nc24r-vms"></a>RDMA ağ NC24r VM'ler için
-
-RDMA ağ bağlantısı NC24r aynı kullanılabilirlik kümesinde dağıtılan VM'ler üzerinde etkinleştirilebilir. RDMA ağ Intel MPI ile çalışan uygulamalar için ileti geçirme arabirimi (MPI) trafiğini destekler 5.x veya sonraki bir sürümü. Ek gereksinimler izleyin:
-
-### <a name="distributions"></a>Dağıtımları
-
-RDMA bağlantısı destekleyen Azure Marketi aşağıdaki görüntüleri birinden NC24r VM'ler dağıtın:
-  
-* **Ubuntu** -Ubuntu Server 16.04 LTS. RDMA sürücüleri VM yapılandırın ve Intel MPI indirmek için Intel ile kaydedin:
-
-  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
-
-* **CentOS tabanlı HPC** -CentOS tabanlı 7.3 HPC. RDMA sürücüler ve Intel MPI 5.1 VM yüklenir. 
-
-
-## <a name="troubleshooting"></a>Sorun Giderme
+## <a name="troubleshooting"></a>Sorun giderme
 
 * CUDA sürücüleri 4.4.0-75 Linux çekirdek Ubuntu 16.04 LTS üzerinde çalışan Azure N-serisi vm'lerde bilinen bir sorun yoktur. Çekirdek bir sürümden yükseltme yapıyorsanız, en az yükseltme çekirdek sürüm 4.4.0-77.
 
-* Kalıcılık modunu kullanarak ayarlayabilirsiniz `nvidia-smi` sorgu kartlar gerektiğinde komutunun çıkışını daha hızlı olacak şekilde. Kalıcılık modu ayarlamak için yürütme `nvidia-smi -pm 1`. VM yeniden başlatılırsa, modu ayarı kaybolur olduğunu unutmayın. Her zaman modu ayarı başlatma sırasında yürütülecek komut dosyası oluşturabilirsiniz.
+* Kalıcılık modunu kullanarak ayarlayabilirsiniz `nvidia-smi` sorgu kartlar gerektiğinde komutunun çıkışını daha hızlı olacak şekilde. Kalıcılık modu ayarlamak için yürütme `nvidia-smi -pm 1`. VM yeniden başlatılırsa, modu ayarı kaybolduktan olduğunu unutmayın. Her zaman modu ayarı başlatma sırasında yürütülecek komut dosyası oluşturabilirsiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-* N-serisi VM'ler NVIDIA GPU hakkında daha fazla bilgi için bkz:
-    * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (için Azure NC VM'ler)
-    * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (için Azure NV VM'ler)
 
 * Yüklü NVIDIA sürücülerinizi bir Linux VM görüntü yakalamak için bkz: [nasıl generalize ve Linux sanal makine yakalama](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

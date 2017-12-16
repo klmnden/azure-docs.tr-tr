@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) Azure AD etki alanı Hizmetleri yönetilen etki alanı için yapılandırma
 
@@ -117,6 +117,7 @@ Güvenli LDAP kullanarak yönetilen etki alanına bağlanma konusunda sorun yaş
 * LDAP istemcisi (örneğin, ldp.exe) bir DNS adı, IP adresi kullanarak güvenli LDAP uç noktasına bağlandığını doğrulayın.
 * LDAP istemcisi ortak IP adresine çözümlenecek şekilde yönetilen etki alanı güvenli LDAP bağlanır DNS adını doğrulayın.
 * Yönetilen etki alanınız için güvenli LDAP sertifikası konu veya konu alternatif adlarını özniteliği DNS adına sahip doğrulayın.
+* Güvenli LDAP Internet üzerinden bağlanıyorsanız, sanal ağı için NSG ayarlarını trafiğine bağlantı noktası 636 internet'ten izin emin olun.
 
 Güvenli LDAP kullanarak yönetilen etki alanına bağlanırken sorun yaşamaya devam ediyorsanız [ürün ekibine başvurun](active-directory-ds-contact-us.md) Yardım. Sorunu daha iyi tanılamaya yardımcı olması için aşağıdaki bilgileri içerir:
 * Bağlantı yapma ve başarısız olan Ldp.exe'yi ekran görüntüsü.

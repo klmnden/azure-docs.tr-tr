@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV’leri kullanarak iş yükünüzü izleme
 Bu makalede dinamik yönetim görünümlerini (Dmv'leri), iş yükünü izlemek ve sorgu yürütme Azure SQL Data Warehouse araştırmak için nasıl kullanılacağını açıklar.
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Sorgu etkin olarak başka bir sorgu kaynaklardan bekleyen sonra durumu olacaktır **AcquireResources**.  Sorgu gerekli tüm kaynaklara sahip sonra durumu olacaktır **izin verildi**.
 
 ## <a name="monitor-tempdb"></a>İzleyici tempdb
-Yüksek tempdb kullanımı yavaş performans ve bellek sorunları dışında kök neden olabilir. İlk veri eğme veya zayıf kalitesi rowgroups varsa ve uygun eylemleri gözden geçirin. Sorgu yürütme sırasında sınırlarına ulaşması tempdb bulursanız, veri ambarı ölçeklendirme göz önünde bulundurun. Aşağıdaki sorgu her düğümde başına tempdb kullanımı tanımlamak açıklar. 
+Yüksek tempdb kullanımı yavaş performans ve bellek sorunları dışında kök neden olabilir. Sorgu yürütme sırasında sınırlarına ulaşması tempdb bulursanız, veri ambarı ölçeklendirme göz önünde bulundurun. Aşağıdaki sorgu her düğümde başına tempdb kullanımı tanımlamak açıklar. 
 
 Sys.dm_pdw_sql_requests için uygun düğüm kimliği ilişkilendirmek için aşağıdaki görünümü oluşturun. Bu, diğer geçiş Dmv'leri yararlanır ve bu tabloları sys.dm_pdw_sql_requests ile birleştirme olanak tanır.
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>İzleyici bellek
 
-Bellek yetersiz bellek sorunları ve yavaş performans için kök neden olabilir. İlk veri eğme veya zayıf kalitesi rowgroups varsa ve uygun eylemleri gözden geçirin. SQL Server bellek kullanımı sorgu yürütme sırasında sınırlarına ulaşması bulursanız, veri ambarı ölçeklendirme göz önünde bulundurun.
+Bellek yetersiz bellek sorunları ve yavaş performans için kök neden olabilir. SQL Server bellek kullanımı sorgu yürütme sırasında sınırlarına ulaşması bulursanız, veri ambarı ölçeklendirme göz önünde bulundurun.
 
 Aşağıdaki sorgu düğümü başına SQL Server bellek kullanımı ve bellek baskısı döndürür:   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>İzleyici işlem günlüğü boyutu
-Aşağıdaki sorguda her dağıtım noktasında işlem günlüğü boyutu döndürür. Veri eğme veya zayıf kalitesi rowgroups varsa ve uygun eylemleri gözden geçirin. Günlük dosyaları birini 160 GB ulaşıyor varsa, örnek, ölçeklendirme veya işlem boyutunuz sınırlama düşünmelisiniz. 
+Aşağıdaki sorguda her dağıtım noktasında işlem günlüğü boyutu döndürür. Günlük dosyaları birini 160 GB ulaşıyor varsa, örnek, ölçeklendirme veya işlem boyutunuz sınırlama düşünmelisiniz. 
 ```sql
 -- Transaction log size
 SELECT

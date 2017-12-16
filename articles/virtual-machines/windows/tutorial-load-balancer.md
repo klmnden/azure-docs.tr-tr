@@ -4,7 +4,7 @@ description: "Üç Windows sanal makineyi yüksek oranda kullanılabilir ve güv
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 6738d88d5a0430abaf3855dbf97a618e4c83617f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eee852e703d25ccc4b13401c3e4ab46d09655da
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Nasıl yükleneceğini yüksek oranda kullanılabilir bir uygulama oluşturmak için azure'da Windows sanal makineler Bakiye
 Yük Dengeleme, birden çok sanal makine genelinde gelen istekleri yayarak daha yüksek düzeyde kullanılabilirlik sağlar. Bu öğreticide, trafiği dağıtmak ve yüksek kullanılabilirlik sağlayan farklı bileşenleri, Azure yük dengeleyici hakkında bilgi edinin. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
@@ -68,7 +68,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 
 ### <a name="create-a-load-balancer"></a>Yük dengeleyici oluşturma
-Bir ön uç IP adresiyle oluşturma [yeni AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). Aşağıdaki örnek, adlandırılmış bir ön uç IP adresi oluşturur *myFrontEndPool*: 
+Bir ön uç IP havuzu oluşturma [yeni AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). Aşağıdaki örnek adlı bir ön uç IP havuzu oluşturur *myFrontEndPool* ve ekler *myPublicIP* adresi: 
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
@@ -76,13 +76,13 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-Olan bir arka uç adres havuzu oluşturma [yeni AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). Aşağıdaki örnek, adlandırılmış bir arka uç adres havuzu oluşturur *myBackEndPool*:
+Olan bir arka uç adres havuzu oluşturma [yeni AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). Kalan adımlar bu arka uç havuzundaki sanal makineleri iliştirin. Aşağıdaki örnek, adlandırılmış bir arka uç adres havuzu oluşturur *myBackEndPool*:
 
 ```powershell
 $backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
 ```
 
-Şimdi, olan yük dengeleyici oluşturma [yeni AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). Aşağıdaki örnek, adlandırılmış bir yük dengeleyici oluşturur *myLoadBalancer* kullanarak *myPublicIP* adresi:
+Şimdi, olan yük dengeleyici oluşturma [yeni AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). Aşağıdaki örnek, adlandırılmış bir yük dengeleyici oluşturur *myLoadBalancer* ön uç ve arka uç IP havuzları kullanılarak oluşturulan önceki adımlarda:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -98,7 +98,7 @@ Uygulamanızın durumunu izlemek yük dengeleyici izin vermek için bir sistem d
 
 Aşağıdaki örnekte bir TCP araştırması oluşturur. Daha fazla hassas sistem durumu denetimlerinin özel HTTP araştırmalara de oluşturabilirsiniz. Özel bir HTTP araştırma kullanırken, sistem durumu denetimi sayfası gibi oluşturmalısınız *healthcheck.aspx*. Araştırma döndürmelidir bir **HTTP 200 Tamam** dönüş konak tutmak yük dengeleyici için yanıt.
 
-TCP durumu araştırması oluşturmak için kullandığınız [Ekle AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). Aşağıdaki örnek adlı bir sistem durumu araştırması oluşturur *myHealthProbe* her VM izler:
+TCP durumu araştırması oluşturmak için kullandığınız [Ekle AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). Aşağıdaki örnek adlı bir sistem durumu araştırması oluşturur *myHealthProbe* , izleyen her VM üzerinde *TCP* bağlantı noktası *80*:
 
 ```powershell
 Add-AzureRmLoadBalancerProbeConfig `
@@ -110,7 +110,7 @@ Add-AzureRmLoadBalancerProbeConfig `
   -ProbeCount 2
 ```
 
-Yük Dengeleyici ile güncelleştirme [kümesi AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
+Durum araştırması uygulanacak olan yük dengeleyici güncelleştirme [kümesi AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer):
 
 ```powershell
 Set-AzureRmLoadBalancer -LoadBalancer $lb
@@ -119,7 +119,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ### <a name="create-a-load-balancer-rule"></a>Yük Dengeleyici kuralı oluşturma
 Yük Dengeleyici kuralı trafiğin Vm'lere nasıl dağıtıldığını tanımlamak için kullanılır. Gelen trafiği ve gerekli kaynak ve hedef bağlantı noktası ile birlikte trafiği almak için arka uç IP havuzu için ön uç IP yapılandırmasını tanımlayın. Yalnızca sağlıklı VM'ler trafiği aldığınızdan emin olmak için aynı zamanda kullanmak için sistem durumu araştırma tanımlar.
 
-Yük Dengeleyici kuralı ile oluşturma [Ekle AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). Aşağıdaki örnek adlı yük dengeleyici kuralı oluşturur *myLoadBalancerRule* ve bağlantı noktası üzerinde trafiği dengeler *80*:
+Yük Dengeleyici kuralı ile oluşturma [Ekle AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). Aşağıdaki örnek adlı yük dengeleyici kuralı oluşturur *myLoadBalancerRule* ve trafiği dengeler *TCP* bağlantı noktası *80*:
 
 ```powershell
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name myHealthProbe

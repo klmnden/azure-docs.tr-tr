@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: trinadhk;markgal;
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3d3de79c7f2465791ec68f850df2fc6317880f9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d8dcefacd700f3b475eb477f80201659a2bea802
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Ortak Azure yedekleme işleri ve tetikleyici uyarıları Klasik portalda yönetin
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ Koruma için yapılandırıldıktan sonra isteğe bağlı bir sanal makine yedek
 
 1. Gidin **korunan öğeler** sayfasından seçim yapıp **Azure sanal makine** olarak **türü** (henüz seçili değilse) ve tıklayın **seçin** düğmesi.
 
-    ![VM türü](./media/backup-azure-manage-vms/vm-type.png)
+    ![VM Türü](./media/backup-azure-manage-vms/vm-type.png)
 2. İsteğe bağlı yedekleme alıp tıklayın istediğiniz sanal makineyi seçin **şimdi yedek** altındaki sayfasının düğmesini.
 
     ![Şimdi Yedekle](./media/backup-azure-manage-vms/backup-now.png)
@@ -100,7 +100,7 @@ Bir sanal makine için korumayı durdurmak için:
 
 1. Gidin **korunan öğeler** sayfasından seçim yapıp **Azure sanal makinesi** 'ı tıklatın ve (henüz seçili değilse) filtre türü olarak **seçin** düğmesi.
 
-    ![VM türü](./media/backup-azure-manage-vms/vm-type.png)
+    ![VM Türü](./media/backup-azure-manage-vms/vm-type.png)
 2. Sanal makineyi seçin ve tıklayın **korumayı Durdur** sayfanın sonundaki.
 
     ![Korumayı Durdur](./media/backup-azure-manage-vms/stop-protection.png)
@@ -156,7 +156,7 @@ Ya da bir sanal makineyle ilişkili yedekleme verileri silebilirsiniz:
 
 1. Gidin **korunan öğeler** sayfasından seçim yapıp **Azure sanal makine** olarak *türü* tıklatıp **seçin** düğmesi.
 
-    ![VM türü](./media/backup-azure-manage-vms/vm-type.png)
+    ![VM Türü](./media/backup-azure-manage-vms/vm-type.png)
 2. Sanal makineyi seçin. Sanal makine olacaktır **koruması durdurulmuş** durumu.
 
     ![Koruma durduruldu](./media/backup-azure-manage-vms/protection-stopped-b.png)
@@ -195,7 +195,7 @@ Aşağıdaki işlemleri işlem günlüklerine kaydedilir:
 * Korumayı Durdur
 * Yedekleme verilerini sil
 * İlke ekleme
-* İlkeyi Sil
+* İlkeyi sil
 * Güncelleştirme ilkesi
 * İşi iptal et
 
@@ -203,7 +203,7 @@ Bir yedekleme Kasası'na karşılık gelen işlem günlükleri görüntülemek i
 
 1. Gidin **Yönetim Hizmetleri** Azure portal ve ardından **işlem günlükleri** sekmesi.
 
-    ![İşlem günlükleri](./media/backup-azure-manage-vms/ops-logs.png)
+    ![İşletim Günlükleri](./media/backup-azure-manage-vms/ops-logs.png)
 2. Filtreleri seçin **yedekleme** olarak *türü* ve yedekleme kasasının adını belirtin *hizmet adı* ve tıklayın **gönderme**.
 
     ![İşlem günlükleri filtresi](./media/backup-azure-manage-vms/ops-logs-filter.png)

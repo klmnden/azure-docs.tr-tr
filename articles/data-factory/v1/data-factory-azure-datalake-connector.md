@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/15/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ceac2897e7b584c90945f3f556afc12891bf8a25
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Veri Fabrikası kullanarak Data Lake Store gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,9 +86,9 @@ Hizmet asıl kimlik doğrulaması kullanmak için Azure Active Directory (Azure 
 
 > [!IMPORTANT]
 > Hizmet asıl uygun Azure Data Lake Store'da izni olduğundan emin olun:
->- Data Lake Store kaynağı olarak kullanmak için en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi gereksinimi yoktur.
->- Data Lake Store havuzu olarak kullanmak için en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopya güçlendirmeniz Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol önlemek istiyorsanız [executionLocation belirtin](data-factory-data-movement-activities.md#global) Data Lake Store kopyalama etkinliğinde konumu ile.
->- Ardışık Düzen yazmak için kopyalama Sihirbazı'nı kullanırsanız en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Ayrıca, en az izni **okuma + yürütme** ("/"), Data Lake Store kök ve alt öğelerini izni. Aksi takdirde, "sağlanan kimlik bilgileri geçersiz." iletisi görebilirsiniz
+>- **Data Lake Store kaynağı olarak kullanmak için**, en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi gereksinimi yoktur.
+>- **Data Lake Store havuzu olarak kullanılacak**, en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopya güçlendirmeniz Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol önlemek istiyorsanız [executionLocation belirtin](data-factory-data-movement-activities.md#global) Data Lake Store kopyalama etkinliğinde konumu ile.
+>- Varsa, **ardışık düzen yazmak için kopyalama Sihirbazı'nı kullanın**, en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Ayrıca, en az izni **okuma + yürütme** ("/"), Data Lake Store kök ve alt öğelerini izni. Aksi takdirde, "sağlanan kimlik bilgileri geçersiz." iletisi görebilirsiniz
 
 Hizmet asıl kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
 
@@ -126,9 +126,9 @@ Alternatif olarak, aşağıdaki özellikleri belirterek veya bu Data Lake Store 
 
 > [!IMPORTANT]
 > Azure Data Lake Store'da kullanıcı uygun izni vermek emin olun:
->- Data Lake Store kaynağı olarak kullanmak için en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi gereksinimi yoktur.
->- Data Lake Store havuzu olarak kullanmak için en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopya güçlendirmeniz Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol önlemek istiyorsanız [executionLocation belirtin](data-factory-data-movement-activities.md#global) Data Lake Store kopyalama etkinliğinde konumu ile.
->- Ardışık Düzen yazmak için kopyalama Sihirbazı'nı kullanırsanız en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Ayrıca, en az izni **okuma + yürütme** ("/"), Data Lake Store kök ve alt öğelerini izni. Aksi takdirde, "sağlanan kimlik bilgileri geçersiz." iletisi görebilirsiniz
+>- **Data Lake Store kaynağı olarak kullanmak için**, en az izni **okuma + yürütme** veri erişim izni listesi ve bir klasörün içeriğini kopyalayın veya **okuma** tek bir dosya kopyalama izni. Hesap düzeyinde erişim denetimi gereksinimi yoktur.
+>- **Data Lake Store havuzu olarak kullanılacak**, en az izni **yazma + yürütme** veri erişim alt öğeleri klasöründe oluşturma izni. Kopya güçlendirmeniz Azure IR kullanıyorsanız (kaynak ve havuz olan buluta), veri fabrikası Data Lake Store'nın bölge algılamak izin için en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Bu IAM rol önlemek istiyorsanız [executionLocation belirtin](data-factory-data-movement-activities.md#global) Data Lake Store kopyalama etkinliğinde konumu ile.
+>- Varsa, **ardışık düzen yazmak için kopyalama Sihirbazı'nı kullanın**, en az izni **okuyucu** hesap erişim denetimi (IAM) rolü. Ayrıca, en az izni **okuma + yürütme** ("/"), Data Lake Store kök ve alt öğelerini izni. Aksi takdirde, "sağlanan kimlik bilgileri geçersiz." iletisi görebilirsiniz
 
 **Örnek: Kullanıcı kimlik bilgileri doğrulaması**
 ```json
@@ -189,6 +189,49 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 Kod içinde kullanılan veri fabrikası sınıfları hakkında daha fazla ayrıntı için bkz: [AzureDataLakeStoreLinkedService sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), ve [ AuthorizationSessionGetResponse sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) Konular. Sürümü bir başvuru ekleyin `2.9.10826.1824` , `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` için `WindowsFormsWebAuthenticationDialog` kod içinde kullanılan bir sınıftır.
+
+## <a name="troubleshooting-tips"></a>Sorun giderme ipuçları
+
+**Belirti:** veri kopyalama işlemi sırasında **içine** kopyalama etkinliği şu hata ile başarısız olursa Azure Data Lake Store,:
+
+  ```
+  Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
+  ```
+
+**Kök neden:** 2 olası nedeni vardır:
+
+1. `resourceGroupName` Ve/veya `subscriptionId` Azure Data Lake bağlantılı Store'a içinde hizmet yanlış; için belirtilen
+2. Kullanıcı veya hizmet sorumlusu gerekli izne sahip değil.
+
+**Çözüm:**
+
+1. Emin olun `subscriptionId` ve `resourceGroupName` bağlantılı hizmeti belirtin `typeProperties` gerçekten veri gölü hesabına ait olanlardır.
+
+2. En az izni olduğundan emin olun "**okuyucu**" kullanıcı veya hizmet asıl veri gölü hesabı üzerinde rol. Bunu yapmak nasıl şöyledir:
+
+    1. Azure Portal -> Data Lake Store hesabınız
+    2. Data Lake Store dikey "erişim denetimi (IAM)"'i tıklatın
+    3. Dikey penceresinde "erişim denetimi (IAM)", "Ekle"'yi tıklatın
+    4. "Rol" "Okuyucu" olarak ayarlayın ve kullanıcı veya kopya için erişim vermek için kullandığınız hizmet sorumlusu seçin
+
+3. Kullanıcı veya hizmet sorumlusu "Okuyucu" rolü vermek istemiyorsanız, alernative kullanmaktır [açıkça bir yürütme konumu belirtmek](data-factory-data-movement-activities.md#global) kopyalama activitywith Data Lake Store konumunu içinde. Örnek:
+
+    ```json
+    {
+      "name": "CopyToADLS",
+      "type": "Copy",
+      ......
+      "typeProperties": {
+        "source": {
+          "type": "<source type>"
+        },
+        "sink": {
+          "type": "AzureDataLakeStoreSink"
+        },
+        "exeuctionLocation": "West US"
+      }
+    }
+    ```
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 Bir Data Lake Store giriş verilerini göstermek için bir veri kümesi belirtmek için ayarladığınız **türü** dataset özelliğinin **AzureDataLakeStore**. Ayarlama **linkedServiceName** Data Lake Store adını dataset özelliğinin bağlı hizmeti. JSON bölümler ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. JSON, bir veri kümesini bölümlerini gibi **yapısı**, **kullanılabilirlik**, ve **İlkesi**, tüm veri kümesi türleri için benzerdir (Azure SQL database, Azure blob ve Azure tablo için Örnek). **TypeProperties** bölüm veri kümesi her tür için farklıdır ve konum ve verilerin veri deposunda biçimi gibi bilgiler sağlar. 

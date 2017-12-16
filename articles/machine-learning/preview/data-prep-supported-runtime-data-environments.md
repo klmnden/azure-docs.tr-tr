@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 413bc8a0e0347498c004b93fb37f51d86ad029f5
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 93acec3bada30364b6e3338e037b442d7e6cd309
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Bu sürüm için desteklenen Matrisi 
 Ne zaman Azure Machine Learning veri kaynakları veya Azure Machine Learning veri ya da bir Pandas alma hazırlıklar, kullanarak verileri kodunuzu yükler veya Spark dataframe, deneme aşağıdaki birleşimlerini işlem ortamlarını ve veri konumlar desteklenir:
@@ -37,4 +37,4 @@ Azure Data Lake Store için herhangi bir işlem hedef şu anda desteklenmiyor.
 
 ** Maven JDBC SQL Server sürücüsü 6.2.1 kullanır. Bu paket (veya uyumlu bir) bilgi işlem ortamı için spark_dependencies.yml dosyanızdaki bulunduğundan emin olun gerekir.
 
-Destekleyen Azure SQL Database, Azure SQL Data Warehouse veya SQL Server veritabanı işlem ortamından ulaşılabilen sağlanan. 
+Destekleyen Azure SQL Database veya SQL Server veritabanı işlem ortamından ulaşılabilen sağlanan. 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 35c8e2a2029b3f29b45004c1308de8b3a108f698
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 3d8dde74687154eaf173f3ca7316262e5c1a871c
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için yapılandırma ve yönetme sorununu: sık sorulan sorular (SSS)
 
@@ -98,7 +98,7 @@ Bir statik IP adresi ayarlamak için ayrılmış bir IP oluşturmanız gerekir. 
 Bkz: [hizmete özgü sınırlar](../azure-subscription-service-limits.md#subscription-limits).
 
 ## <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>My bulut hizmeti VM sürücüde çok az boş disk alanı neden Göster?
-Bu beklenen davranıştır ve uygulamanız için herhangi bir sorun neden döndürmemelidir. % Uproot için temelde çift dosyaları normalde kapladığı alanı miktarını tüketir Azure PaaS VM'ler % sürücüde günlük kaydı etkinleştirilir. Ancak aslında, dikkate etmeniz gereken birkaç nokta vardır, bu bir olmayan-sorunu yaşayıp açın.
+Bu beklenen davranıştır ve uygulamanız için herhangi bir sorun neden döndürmemelidir. Günlük kaydı temelde çift dosyaları normalde kapladığı alanı miktarını tüketir Azure PaaS VM'ler % approot % sürücüde için açık. Ancak aslında, dikkate etmeniz gereken birkaç nokta vardır, bu bir olmayan-sorunu yaşayıp açın.
 
 % Approot % sürücü boyutu hesaplanan < .cspkg + max günlük boyutu boyutunu > + Kenar boşluğu boş alan olarak ya da 1,5 GB, hangisi daha büyüktür. VM boyutu şifrelemeyle Bu hesaplamayı vardır. (VM boyutu yalnızca geçici C: sürücüsü boyutunu etkiler.) 
 

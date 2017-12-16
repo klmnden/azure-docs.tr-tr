@@ -4,7 +4,7 @@ description: "Depolama, bir Linux VM, bir sanal ağ ve alt ağ, bir yük dengele
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2017
+ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: e5c4785428b2150e951923e98079e00808a82d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd470144dc0fcbbfab662125b57d414c6ee1ccdd
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI ile tam Linux sanal makine oluşturma
 Hızla bir sanal makine (VM) oluşturmak için gerekli tüm destekleyici kaynakları oluşturmak için varsayılan değerleri kullanan tek bir Azure CLI komutu kullanabilirsiniz. Bir sanal ağ, genel IP adresi ve ağ güvenlik grubu kuralları gibi kaynakları otomatik olarak oluşturulur. Üretim ortamınızda, daha fazla denetim için kullanmak, önceden bu kaynakları oluşturmak ve bunları Vm'leriniz Ekle. Bu makalede, VM ve destekleyici kaynakları tek tek her nasıl oluşturulacağını aracılığıyla size yol gösterir.
@@ -61,7 +61,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-Çıktı olarak mantıksal olarak sanal ağ içinde oluşturulmuş alt ağ gösterir:
+Alt ağ içindeki sanal ağı mantıksal olarak oluşturulan çıkış gösterir:
 
 ```json
 {
@@ -102,7 +102,7 @@ az network vnet create \
 
 
 ## <a name="create-a-public-ip-address"></a>Genel IP adresi oluşturma
-Şimdi bir genel IP adresiyle oluşturalım [az ağ genel IP oluşturun](/cli/azure/network/public-ip#create). Bu genel IP adresi Vm'leriniz için Internet'ten bağlanmanıza olanak sağlar. Varsayılan Adres dinamik olduğundan, biz de içeren adlandırılmış bir DNS girişi oluşturmak `--domain-name-label` seçeneği. Aşağıdaki örnek adlı ortak IP oluşturur *myPublicIP* DNS adı ile *mypublicdns*. DNS adının benzersiz olması gerektiğinden, kendi benzersiz DNS adını belirtin:
+Şimdi bir genel IP adresiyle oluşturalım [az ağ genel IP oluşturun](/cli/azure/network/public-ip#create). Bu genel IP adresi Vm'leriniz için Internet'ten bağlanmanıza olanak sağlar. Varsayılan Adres dinamik olduğundan içeren adlandırılmış bir DNS girişi oluşturmak `--domain-name-label` parametresi. Aşağıdaki örnek adlı ortak IP oluşturur *myPublicIP* DNS adı ile *mypublicdns*. DNS adının benzersiz olması gerektiğinden, kendi benzersiz DNS adını belirtin:
 
 ```azurecli
 az network public-ip create \
@@ -140,8 +140,8 @@ az network public-ip create \
 ```
 
 
-## <a name="create-a-network-security-group"></a>Bir ağ güvenlik grubu oluşturun
-Vm'leriniz ve trafik akışını denetlemek için bir ağ güvenlik grubu oluşturun. Bir ağ güvenlik grubu, bir NIC veya alt ağ için uygulanabilir. Aşağıdaki örnek kullanır [az ağ nsg oluşturma](/cli/azure/network/nsg#create) adlı bir ağ güvenlik grubu oluşturmak için *myNetworkSecurityGroup*:
+## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
+Vm'leriniz ve trafik akışını denetlemek için bir ağ güvenlik grubu bir sanal NIC veya alt ağ için geçerlidir. Aşağıdaki örnek kullanır [az ağ nsg oluşturma](/cli/azure/network/nsg#create) adlı bir ağ güvenlik grubu oluşturmak için *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -149,7 +149,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-İzin veren veya belirli bir trafik reddeden kuralları tanımlar. Bağlantı noktası 22 (SSH desteklemek için) gelen bağlantılara izin vermek için ağ güvenlik grubu için bir gelen kuralı oluşturun [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create). Aşağıdaki örnek, adında bir kural oluşturur *myNetworkSecurityGroupRuleSSH*:
+İzin veren veya belirli bir trafik reddeden kuralları tanımlar. Bağlantı noktası 22 (SSH erişimini etkinleştirmek için) gelen bağlantılara izin vermek için bir gelen kuralı ile oluşturma [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create). Aşağıdaki örnek, adında bir kural oluşturur *myNetworkSecurityGroupRuleSSH*:
 
 ```azurecli
 az network nsg rule create \
@@ -162,7 +162,7 @@ az network nsg rule create \
     --access allow
 ```
 
-(Web trafiği desteklemek için) 80 numaralı bağlantı noktasında gelen bağlantılara izin vermek için başka bir ağ güvenlik grubu kural ekleyin. Aşağıdaki örnek, adında bir kural oluşturur *myNetworkSecurityGroupRuleHTTP*:
+(Web trafiği için) 80 numaralı bağlantı noktasında gelen bağlantılara izin vermek için başka bir ağ güvenlik grubu kural ekleyin. Aşağıdaki örnek, adında bir kural oluşturur *myNetworkSecurityGroupRuleHTTP*:
 
 ```azurecli
 az network nsg rule create \
@@ -332,7 +332,7 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
 ```
 
 ## <a name="create-a-virtual-nic"></a>Sanal bir NIC'ye oluşturma
-Sanal ağ arabirimi kartlarıyla (NIC) program aracılığıyla kullanılabilir olduklarından kullanımları kuralları uygulayabilirsiniz. Birden fazla olabilir. Aşağıdaki [az ağ NIC oluşturma](/cli/azure/network/nic#create) komutunu adlı bir NIC oluşturduğunuz *myNic* ve ağ güvenlik grubuyla ilişkilendirin. Genel IP adresi *myPublicIP* de bir sanal NIC ile ilişkilidir
+Sanal ağ arabirimi kartlarıyla (NIC) program aracılığıyla kullanılabilir olduklarından kullanımları kuralları uygulayabilirsiniz. Bağlı olarak [VM boyutu](sizes.md), bir VM'ye birden çok sanal NIC ekleyebilirsiniz. Aşağıdaki [az ağ NIC oluşturmak](/cli/azure/network/nic#create) komutunu adlı bir NIC oluşturduğunuz *myNic* ve ağ güvenlik grubuyla ilişkilendirin. Genel IP adresi *myPublicIP* de bir sanal NIC ile ilişkilidir
 
 ```azurecli
 az network nic create \
@@ -476,12 +476,12 @@ az vm availability-set create \
 ```
 
 
-## <a name="create-the-linux-vms"></a>Linux VM oluşturma
-Internet'ten erişilebilen sanal makineleri desteklemek için ağ kaynaklarına oluşturduğunuzu düşünün. Şimdi bir VM oluşturun ve bir SSH anahtarı ile güvenliğini sağlayın. Bu durumda, bir Ubuntu VM en son LTS göre oluşturmak için yapacağız. Ek görüntülerle bulabilirsiniz [az vm görüntü listesi](/cli/azure/vm/image#list)açıklandığı gibi [Azure VM görüntülerini bulma](cli-ps-findimage.md).
+## <a name="create-a-vm"></a>VM oluşturma
+Internet'ten erişilebilen sanal makineleri desteklemek için ağ kaynaklarına oluşturduğunuzu düşünün. Şimdi bir VM oluşturun ve bir SSH anahtarı ile güvenliğini sağlayın. Bu örnekte, bir Ubuntu VM en son LTS dayalı oluşturalım. Ek görüntülerle bulabilirsiniz [az vm görüntü listesi](/cli/azure/vm/image#list)açıklandığı gibi [Azure VM görüntülerini bulma](cli-ps-findimage.md).
 
-Biz de kimlik doğrulaması için kullanılacak bir SSH anahtarı belirtin. SSH ortak anahtar çifti yoksa, şunları yapabilirsiniz [bunları oluşturmanız](mac-create-ssh-keys.md) veya `--generate-ssh-keys` bunları sizin için oluşturmak için parametre. Varolan anahtarların, zaten bir anahtar çifti, bu parametre kullanıyorsa `~/.ssh`.
+Kimlik doğrulaması için kullanılacak bir SSH anahtarı belirtin. SSH ortak anahtar çifti yoksa, şunları yapabilirsiniz [bunları oluşturmanız](mac-create-ssh-keys.md) veya `--generate-ssh-keys` bunları sizin için oluşturmak için parametre. Bir anahtar çifti zaten varsa, bu parametre varolan anahtarların kullanan `~/.ssh`.
 
-Bizim tüm kaynakları ve bilgileri ile birlikte getirerek VM oluşturma [az vm oluşturma](/cli/azure/vm#create) komutu. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM*:
+Tüm kaynaklara ve bilgi ile birlikte getirerek VM oluşturma [az vm oluşturma](/cli/azure/vm#create) komutu. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM*:
 
 ```azurecli
 az vm create \
@@ -521,7 +521,7 @@ The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' 
 ECDSA key fingerprint is SHA256:SylINP80Um6XRTvWiFaNz+H+1jcrKB1IiNgCDDJRj6A.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'mypublicdns.eastus.cloudapp.azure.com,13.90.94.252' (ECDSA) to the list of known hosts.
-Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-81-generic x86_64)
+Welcome to Ubuntu 16.04.3 LTS (GNU/Linux 4.11.0-1016-azure x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com

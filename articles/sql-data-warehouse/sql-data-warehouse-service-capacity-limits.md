@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için izin verilen en yüksek değerleri içerir.
@@ -37,7 +37,7 @@ Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için iz
 ## <a name="database-objects"></a>Veritabanı nesneleri
 | Kategori | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| Veritabanı |En büyük boyutu |Disk üzerinde sıkıştırılmış 240 TB<br/><br/>Bu alan, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış olabilir.  Kümelenmiş columnstore sıkıştırma 5 X tahmin.  Bu sıkıştırma yaklaşık 1 büyümeye veritabanı sağlayan tüm tabloları kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. |
+| Database |En büyük boyutu |Disk üzerinde sıkıştırılmış 240 TB<br/><br/>Bu alan, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış olabilir.  Kümelenmiş columnstore sıkıştırma 5 X tahmin.  Bu sıkıştırma yaklaşık 1 büyümeye veritabanı sağlayan tüm tabloları kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. |
 | Tablo |En büyük boyutu |60 disk üzerinde sıkıştırılmış TB |
 | Tablo |Her bir veritabanı tabloları |2 milyara |
 | Tablo |Tablo başına sütun |1024 sütunları |

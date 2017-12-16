@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 12/14/2017
 ms.author: barbkess
-ms.openlocfilehash: d736ad0dbfb109500a150d2bc3f7c40b16206fdb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda genel bakış
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ SQL veri ambarı kullanarak daha gelişmiş haline gelir ve performansı en iyi 
 Geçici tablolar yalnızca oturum boyunca var ve diğer kullanıcılar tarafından görülemeyen tablolardır.  Geçici tablolara başkalarının geçici sonuçları görmemesi ve ayrıca temizleme gereksinimini azaltmak için en iyi yolu olabilir.  Geçici tablolara ayrıca yerel depolama alanını olduğundan, bunlar bazı işlemler için daha hızlı performans sunabilir.  Bkz: [geçici tablo] [ Temporary] makaleleri geçici tabloları hakkında daha fazla ayrıntı için.
 
 ## <a name="external-tables"></a>Dış tablolar
-Dış tablolar, Polybase tablolar olarak da bilinen SQL veri ambarından dış verileri SQL Data Warehouse, ancak noktası sorgulanabilir tabloların değildir.  Örneğin, bir dış tablo Azure Blob Depolama birimindeki dosyalara hangi noktası oluşturabilirsiniz.  Oluşturma ve bir dış tablo sorgulama hakkında daha fazla ayrıntı için bkz: [Polybase ile veri yükleme][Load data with Polybase].  
+Dış tablolar, Polybase tablolar olarak da bilinen SQL veri ambarından dış verileri SQL Data Warehouse, ancak noktası sorgulanabilir tabloların değildir.  Örneğin, bir dış tablo dosyaları Azure Blob Storage veya Azure Data Lake Store için hangi noktası oluşturabilirsiniz.  Oluşturma ve bir dış tablo sorgulama hakkında daha fazla ayrıntı için bkz: [Polybase ile veri yükleme][Load data with Polybase].  
 
 ## <a name="unsupported-table-features"></a>Desteklenmeyen tablo özellikleri
 SQL veri ambarı diğer veritabanı tarafından sunulan aynı tablo özelliklerinin çoğunu içerirken, henüz desteklenmeyen bazı özellikler vardır.  Tablo özelliklerden bazıları henüz desteklenmemektedir listesi aşağıdadır.

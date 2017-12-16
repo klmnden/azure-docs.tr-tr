@@ -4,7 +4,7 @@ description: "MongoDB bir Linux sanal makine iusing Azure CLI 2.0 yükleyip öğ
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/23/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: e19c09558285497f29eb78b4f4ae5b15d7f1a191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a9797e1fe3d03840e3a20589a50c90968ea5de0
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Yükleme ve bir Linux VM MongoDB yapılandırın
 [MongoDB](http://www.mongodb.org) bir popüler açık kaynak, yüksek performanslı NoSQL veritabanıdır. Bu makalede yükleme ve Azure CLI 2.0 ile bir Linux VM üzerinde MongoDB yapılandırma gösterilmektedir. Bu adımları [Azure CLI 1.0](install-mongodb-nodejs.md) ile de gerçekleştirebilirsiniz. Örnekleri gösterilir, ayrıntı nasıl için:
@@ -57,18 +57,18 @@ ssh azureuser@<publicIpAddress>
 MongoDB için yükleme kaynakları eklemek için oluşturma bir **yum** şekilde depo dosyası:
 
 ```bash
-sudo touch /etc/yum.repos.d/mongodb-org-3.4.repo
+sudo touch /etc/yum.repos.d/mongodb-org-3.6.repo
 ```
 
-MongoDB depodaki dosyayı düzenlemek için açın. Aşağıdaki satırları ekleyin:
+Düzenlemek için MongoDB depodaki dosyasını gibi açın ile `vi` veya `nano`. Aşağıdaki satırları ekleyin:
 
 ```sh
-[mongodb-org-3.4]
+[mongodb-org-3.6]
 name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.6/x86_64/
 gpgcheck=1
 enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 ```
 
 MongoDB kullanarak yükleyin **yum** gibi:
@@ -125,26 +125,17 @@ Bu ortamı oluşturmak için en son gereksinim [Azure CLI 2.0](/cli/azure/instal
 az group create --name myResourceGroup --location eastus
 ```
 
-Ardından, MongoDB şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). Kendi kaynak tanımlamak adları ve gibi gerektiğinde boyutları *newStorageAccountName*, *virtualNetworkName*, ve *vmSize*:
+Ardından, MongoDB şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). İstendiğinde, kendi benzersiz değerleri girin *newStorageAccountName*, *dnsNameForPublicIP*ve yönetici kullanıcı adı ve parola:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
-  --parameters '{"newStorageAccountName": {"value": "mystorageaccount"},
-    "adminUsername": {"value": "azureuser"},
-    "adminPassword": {"value": "P@ssw0rd!"},
-    "dnsNameForPublicIP": {"value": "mypublicdns"},
-    "virtualNetworkName": {"value": "myVnet"},
-    "vmSize": {"value": "Standard_DS2_v2"},
-    "vmName": {"value": "myVM"},
-    "publicIPAddressName": {"value": "myPublicIP"},
-    "nicName": {"value": "myNic"}}' \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
 VM Genel DNS adresi kullanarak VM oturum açın. Genel DNS adresi ile görüntüleyebilirsiniz [az vm Göster](/cli/azure/vm#show):
 
 ```azurecli
-az vm show -g myResourceGroup -n myVM -d --query [fqdns] -o tsv
+az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
 ```
 
 SSH kullanıcı adı ve Genel DNS adresi kullanarak, VM için:

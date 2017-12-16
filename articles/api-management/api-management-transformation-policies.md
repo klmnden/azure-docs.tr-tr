@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 18b0a7d15c50ee147690063ac251f815c7fa34be
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkelerini
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -264,6 +264,7 @@ Bu örnekte, bölüm anahtarı olarak UserID sorgu dizesi kullanılarak ve birin
 |BT çoğaltma türü|Yalnızca arka uç Service Fabric hizmeti ve 'arka uç-ID' kullanılarak belirtilen olduğunda geçerlidir. İstek bir bölüm birincil veya ikincil çoğaltmasının görünmeliyse denetler. |Hayır|Yok|    
 |BT çözümleme durumu|Yalnızca arka uç Service Fabric hizmeti olduğunda geçerlidir. Service Fabric arka uç çağrısı ile yeni çözünürlüğü yinelenmesini varsa tanımlama koşulu.|Hayır|Yok|    
 |BT hizmet örneği adı|Yalnızca arka uç Service Fabric hizmeti olduğunda geçerlidir. Hizmet örnekleri çalışma zamanında değiştirmesine olanak verir. |Hayır|Yok|    
+|BT dinleyici adı|Yalnızca arka uç Service Fabric hizmeti ve 'arka uç-ID' kullanılarak belirtilen olduğunda geçerlidir. Service Fabric güvenilir hizmetler, bir hizmet olarak birden çok dinleyici oluşturmanızı sağlar. Bu öznitelik, bir arka uç güvenilir hizmet birden çok dinleyici olduğunda belirli bir dinleyici seçmek için kullanılır. Bu özniteliği belirtilmezse, API Management bir ad olmadan bir dinleyici kullanmayı dener. Adı olmayan bir dinleyici güvenilir hizmetler için tek bir dinleyicisi olması normaldir. |Hayır|Yok|  
 
 ### <a name="usage"></a>Kullanım  
  Bu ilke aşağıdaki ilkesi kullanılabilir [bölümleri](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) ve [kapsamları](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

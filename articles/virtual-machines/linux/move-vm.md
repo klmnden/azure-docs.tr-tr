@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 4695a9c934f97f2b2d448c4990e7ad5533e38e9f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Bir Linux VM başka bir abonelik veya kaynak grubuna taşıma
 Bu makalede, bir Linux VM kaynak grupları veya abonelikler arasında taşıma hakkında adım adım anlatılmaktadır. Bir VM abonelikler arasında taşıma kişisel bir abonelikte VM oluşturduysanız kullanışlı ve şirketinizin aboneliği taşımak şimdi istiyorsunuz.
@@ -32,27 +32,41 @@ Bu makalede, bir Linux VM kaynak grupları veya abonelikler arasında taşıma h
 > 
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>Bir VM taşımak için Azure CLI kullanın
-Başarıyla bir VM taşımak için VM ve tüm destekleyici kaynakları taşımanız gerekir. Kullanım **azure Grup Göster** tüm kaynakları bir kaynak grubu ve kimlikleri listelemek için komutu. Böylece kopyalayıp kimlikleri Yapıştır sonraki komutlarını bu komutun çıktısı bir dosyaya kanal yardımcı olabilir.
 
-    azure group show <resourceGroupName>
 
-Bir VM ve kaynaklarını başka bir kaynak grubuna taşımak için kullanın **azure kaynak taşıma** CLI komutu. Aşağıdaki örnek, bir VM ve gerektirdiği en yaygın kaynaklarını taşımak gösterilmiştir. Kullanırız **-i** parametre ve virgülle ayrılmış listesini (boşluksuz) taşımak için kaynaklar için kimlikleri geçirin.
+CLI kullanarak VM taşımadan önce kaynak ve hedef abonelikler aynı Kiracı içinde var olduğundan emin olmanız gerekir. Her iki aboneliğin aynı Kiracı kimliği olduğunu denetlemek için kullanın [az hesabı Göster](/cli/azure/account#az_account_show).
 
-    vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
-    nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
-    nsg=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkSecurityGroups/<nsgName>
-    pip=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/publicIPAddresses/<publicIPName>
-    vnet=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/virtualNetworks/<vnetName>
-    diag=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<diagnosticStorageAccountName>
-    storage=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Storage/storageAccounts/<storageAcountName>      
+```azurecli-interactive
+az account show --subscription mySourceSubscription --query tenantId
+az account show --subscription myDestinationSubscription --query tenantId
+```
+Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, başvurmalıdır [Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) kaynakları için yeni bir kiracı taşımak için.
 
-    azure resource move --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag -d "<destinationResourceGroup>"
+Başarıyla bir VM taşımak için VM ve tüm destekleyici kaynakları taşımanız gerekir. Kullanım [az kaynak listesi](/cli/azure/resource#az_resource_list) tüm kaynakları bir kaynak grubu ve kimlikleri listelemek için komutu. Böylece kopyalayıp kimlikleri Yapıştır sonraki komutlarını bu komutun çıktısı bir dosyaya kanal yardımcı olabilir.
 
-Farklı bir aboneliğe VM ve kaynaklarını taşımak istiyorsanız, ekleme **--hedef-Subscriptionıd &#60; destinationSubscriptionID &#62;** parametresi hedef abonelik belirtin.
+```azurecli-interactive
+az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
+```
 
-Bir Windows bilgisayarda komut isteminden çalışıyorsanız, eklemek gereken bir  **$**  bunları bildirirken değişken adlarının önünde. Bu Linux gerekli değildir.
+Bir VM ve kaynaklarını başka bir kaynak grubuna taşımak için kullanın [az kaynak taşıma](/cli/azure/resource#az_resource_move). Aşağıdaki örnek, bir VM ve gerektirdiği en yaygın kaynaklarını taşımak gösterilmiştir. Kullanım **-kimlikleri** parametre ve virgülle ayrılmış listesini (boşluksuz) taşımak için kaynaklar için kimlikleri geçirin.
 
-Belirtilen kaynak taşımak istediğiniz onaylamanız istenir. Tür **Y** kaynakları taşımak istediğinizi onaylamak için.
+```azurecli-interactive
+vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM
+nic=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkInterfaces/myNIC
+nsg=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG
+pip=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIPAddress
+vnet=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet
+diag=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mydiagnosticstorageaccount
+storage=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageacountname    
+
+az resource move \
+    --ids $vm,$nic,$nsg,$pip,$vnet,$storage,$diag \
+    --destination-group "myDestinationResourceGroup"
+```
+
+Farklı bir aboneliğe VM ve kaynaklarını taşımak istiyorsanız, ekleme **--hedef-Subscriptionıd** parametresi hedef abonelik belirtin.
+
+Belirtilen kaynak taşımak istediğiniz onaylamanız istenirse. Tür **Y** kaynakları taşımak istediğinizi onaylamak için.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: ac72190ddf01301eba595995d2167904ba4b0c05
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e19833cb58f37f5f8b83d5558d74255583137684
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bir kaynak veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma
 Bu makalede, koşullu bir kaynak dağıtma ve birden fazla örneğini bir kaynak oluşturmak için Azure Resource Manager şablonu yineleme gösterir.
@@ -395,140 +395,19 @@ Aşağıdaki örnek uygulamasını gösterir:
 }]
 ```
 
-## <a name="deploy-example-templates"></a>Örnek şablonlarını dağıtma
+## <a name="example-templates"></a>Örnek şablonları
 
-### <a name="resource-iteration"></a>Kaynak yineleme
+Aşağıdaki örnekler, birden çok kaynakları veya özellikleri oluşturmak için genel senaryolar gösterir.
 
-[Kopyalama depolama](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) şablonu bir dizin numarasını adında birden çok depolama hesaplarıyla dağıtır.
-
-PowerShell için şunu kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-Azure CLI için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystorage.json
-```
-
-### <a name="serial-resource-iteration"></a>Seri kaynak yineleme
-
-[Seri kopya depolama alanı](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) şablonu aynı anda birden çok depolama hesabı bir dağıtır. Adı dizin numarasını içerir.
-
-PowerShell için şunu kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-Azure CLI için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/serialcopystorage.json
-```
-
-### <a name="resource-iteration-from-array"></a>Kaynak yineleme dizisinden
-
-[Kopyalama depolama dizisi olan](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) şablon birden çok depolama hesabı dağıtır. Adı bir dizi arasında bir değer içerir.
-
-PowerShell için şunu kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-Azure CLI için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copystoragewitharray.json
-```
-
-### <a name="conditionally-deploy-resources"></a>Kaynaklara koşullu dağıtma
-
-[VM yeni veya var olan sanal ağ, depolama ve genel IP ile](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) şablonunu yeni veya var olan bir sanal makine kaynaklarla dağıtır.
-
-PowerShell için şunu kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-Azure CLI için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-new-or-existing-conditions/azuredeploy.json
-```
-
-### <a name="property-iteration"></a>Özellik yineleme
-
-[Değişken bir veri diski sayısı ile VM dağıtımı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) şablonu bir sanal makineyle birden çok veri diskleri dağıtır.
-
-PowerShell için şunu kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-Azure CLI için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-windows-copy-datadisks/azuredeploy.json
-```
-
-### <a name="variable-iteration"></a>Değişken yineleme
-
-[Kopyalama değişkenleri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) Şablon değişkeni yineleme farklı yollarını gösterir.
-
-PowerShell için şunu kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-Azure CLI için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create \
-  --resource-group examplegroup \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/copyvariables.json
-```
-
-### <a name="variable-iteration-to-create-resources"></a>Kaynak oluşturmak için değişken yineleme
-
-[Birden çok güvenlik kuralları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) şablonu, bir ağ güvenlik grubu için birden çok güvenlik kuralları dağıtır. Güvenlik kuralları bir parametre oluşturur.
-
-PowerShell için şunu kullanın:
-
-```powershell
-New-AzureRmResourceGroupDeployment `
-  -ResourceGroupName examplegroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json `
-  -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json
-```
+|Şablon  |Açıklama  |
+|---------|---------|
+|[Kopya depolama alanı](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Bir dizin numarasını adında birden çok depolama hesaplarıyla dağıtır. |
+|[Seri kopya depolama alanı](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Aynı anda birden çok depolama hesabı bir dağıtır. Adı dizin numarasını içerir. |
+|[Depolama dizisi olan kopyalama](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Birden çok depolama hesabı dağıtır. Adı bir dizi arasında bir değer içerir. |
+|[VM bir yeni veya var olan sanal ağ, depolama ve genel IP ile](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Koşullu bir sanal makine yeni veya var olan kaynaklarla dağıtır. |
+|[Değişken bir veri diski sayısı ile VM dağıtımı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Bir sanal makineyle birden çok veri diskleri dağıtır. |
+|[Kopyalama değişkenleri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Değişkenlerde yineleme farklı yollarını gösterir. |
+|[Birden çok güvenlik kuralları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Birden çok güvenlik kuralları bir ağ güvenlik grubuna dağıtır. Güvenlik kuralları bir parametre oluşturur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bir şablon bölümleri hakkında bilgi edinmek istiyorsanız, bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
