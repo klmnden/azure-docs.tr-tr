@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Oluşturma ve birden çok NIC sahip olan bir Windows sanal makine yönetme
 Azure sanal makineleri (VM'ler) kendisine bağlı birden çok sanal ağ arabirim kartı (NIC) olabilir. Ön uç ve arka uç bağlantısı ya da izleme veya yedekleme çözümü için ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede, birden çok NIC bağlı olan bir VM oluşturmak nasıl ayrıntıları verilmektedir. Aynı zamanda NIC var olan bir sanal makineden ekleyip öğrenin. Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu.
@@ -232,6 +232,60 @@ Aynı zamanda `copyIndex()` bir kaynak adı için bir sayı eklenecek. Daha sonr
 ```
 
 Tam örnek okuyabilirsiniz [Resource Manager şablonları kullanarak birden çok NIC oluşturma](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+## <a name="configure-guest-os-for-multiple-nics"></a>Konuk işletim sistemi için birden çok NIC yapılandırın
+
+Azure sanal makineye bağlı ilk (birincil) ağ arabirimi için varsayılan ağ geçidi atar. Azure, bir sanal makineye bağlı ek (ikincil) ağ arabirimlerine varsayılan ağ geçidi atamaz. Bu nedenle varsayılan olarak, alt ağın dışında kalan ve ikincil bir ağ arabirimi içeren kaynaklarla iletişim kurulamaz. İletişimi etkinleştirmek için adımları farklı işletim sistemleri için farklı ancak ikincil ağ arabirimlerine ancak, kendi alt ağı dışından kaynaklarla iletişim kurabilirsiniz.
+
+1. Bir Windows komut isteminden çalıştırın `route print` çıkış iki bağlı ağ arabirimine sahip bir sanal makine için çıktı aşağıdakine benzer döndürür komutu:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    Bu örnekte, **Microsoft Hyper-V ağ bağdaştırıcısı #4** (7) arabirimidir kendisine atanmış bir varsayılan ağ geçidi yok ikincil ağ arabirimi.
+
+2. Bir komut isteminden çalıştırın `ipconfig` ikincil ağ arabirimi için hangi IP adresi atanır görmek için komutu. Bu örnekte, 192.168.2.4 arabirimi 7 atanır. İkincil ağ arabirimi için bir varsayılan ağ geçidi adresi döndürülür.
+
+3. Alt ağ için ağ geçidi için ikincil ağ arabirimi alt ağı dışında adresler için giden tüm trafiği yönlendirmek için aşağıdaki komutu çalıştırın:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    Alt ağ için ağ geçidi adresi, alt ağ için tanımlanan adres aralığındaki (Bitiş içinde.1) ilk IP adresi değil. Alt ağ dışında tüm trafiği yönlendirmek istemiyorsanız, bireysel rotaların belirli hedeflere, bunun yerine ekleyebilirsiniz. Örneğin, yalnızca 192.168.3.0 ikincil ağ arabirimi trafiği yönlendirmek istiyorsanız ağ, aşağıdaki komutu girin:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. 192.168.3.0 kaynakta ile başarıyla iletişim onaylamak için ağ, örneğin, 7 (192.168.2.4) arabirimini kullanarak 192.168.3.4 ping işlemi yapmak için aşağıdaki komutu girin:
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Aşağıdaki komutla ping işlemi sırasında aygıt Windows Güvenlik Duvarı üzerinden ICMP açmanız gerekebilir:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Eklenen yoldur rota tablosunda onaylamak için girin `route print` çıkışı aşağıdaki metni benzer döndürür komutu:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    Listelenen rota *192.168.1.1* altında **ağ geçidi**, birincil ağ arabirimi için varsayılan olarak olduğundan yoldur. Rota ile *192.168.2.1* altında **ağ geçidi**, eklediğiniz yoldur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Gözden geçirme [Windows VM boyutları](sizes.md) zaman çalıştığınız birden çok NIC sahip bir VM oluşturun. Her VM boyutu destekliyorsa NIC sayısı dikkat edin. 

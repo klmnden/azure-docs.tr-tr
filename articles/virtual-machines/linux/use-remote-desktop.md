@@ -4,7 +4,7 @@ description: "Yükleme ve uzak grafik araçları kullanarak azure'da bir Linux V
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Yükleme ve azure'da bir Linux VM bağlanmak için Uzak Masaüstü yapılandırma
 Azure'daki Linux sanal makineleri (VM'ler) genellikle bir güvenli Kabuk (SSH) bağlantısı kullanarak komut satırından yönetilir. Linux veya hızlı sorun giderme senaryoları için yeni, Uzak Masaüstü kullanımını daha kolay olabilir. Bu makalede yüklemek ve bir masaüstü ortamını yapılandırma ayrıntıları ([xfce](https://www.xfce.org)) ve Uzak Masaüstü'nü ([xrdp](http://www.xrdp.org)) Resource Manager dağıtım modeli kullanarak, Linux VM için.
@@ -85,16 +85,10 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Uzak Masaüstü trafiği için ağ güvenlik grubu kural oluşturma
 Grup Kuralı gereksinimlerini, oluşturulacak Linux VM, ağ güvenliği ulaşmak Uzak Masaüstü trafiğine izin vermek için VM ulaşmak TCP bağlantı noktası 3389 sağlar. Ağ güvenlik grubu kuralları hakkında daha fazla bilgi için bkz: [bir ağ güvenlik grubu nedir?](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Ayrıca [bir ağ güvenlik grubu kural oluşturmak için Azure portal'ı kullanmanızı](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Aşağıdaki örnekler sahip bir ağ güvenlik grubu kural oluşturma [az ağ nsg kuralı oluşturma](/cli/azure/network/nsg/rule#create) adlı *myNetworkSecurityGroupRule* için *izin* trafiğinde*tcp* bağlantı noktası *3389*.
+Aşağıdaki örnek, bir ağ güvenlik grubu kural ile oluşturur [az vm Aç-port](/cli/azure/vm#open-port) bağlantı noktasında *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
@@ -122,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Xrdp hizmet dinleme yapmıyorsanız bir Ubuntu VM üzerinde şu şekilde hizmeti yeniden başlatın:
+Varsa *xrdp sesman* hizmet dinlemiyor, bir Ubuntu VM hizmeti aşağıdaki gibi yeniden başlatın:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Gözden geçirme oturum açtığında */var/log*Thug neden hizmeti yanıt vermiyor olabilir ilişkin göstergeleri için Ubuntu VM üzerinde. Syslog hataları görüntülemek için bir Uzak Masaüstü bağlantı girişimi sırasında da izleyebilirsiniz:
+Gözden geçirme oturum açtığında */var/log* neden ilişkin göstergeleri için Ubuntu VM üzerinde hizmeti yanıt vermiyor olabilir. Syslog hataları görüntülemek için bir Uzak Masaüstü bağlantı girişimi sırasında da izleyebilirsiniz:
 
 ```bash
 tail -f /var/log/syslog

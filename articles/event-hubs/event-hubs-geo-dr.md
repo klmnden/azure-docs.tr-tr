@@ -3,7 +3,7 @@ title: "Azure Event Hubs coğrafi olağanüstü durum kurtarma | Microsoft Docs"
 description: "Coğrafi bölgeler için yük devretme kullanın ve Azure Event Hubs olağanüstü durum kurtarma gerçekleştirmek nasıl"
 services: event-hubs
 documentationcenter: 
-author: ShubhaVijayasarathy
+author: sethmanheim
 manager: timlt
 editor: 
 ms.service: event-hubs
@@ -11,103 +11,94 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 94c2782b3166fbc65ae755291a82a2a14556b96f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery-preview"></a>Azure Event Hubs coğrafi olağanüstü durum kurtarma (Önizleme)
+# <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs coğrafi olağanüstü durum kurtarma
 
-Bölgesel veri merkezleri kapalı kalma süresi karşılaştığınızda farklı bir bölge veya veri merkezi içinde çalışmaya devam etmek veri işleme için önemlidir. Bu nedenle, *coğrafi olağanüstü durum kurtarma* ve *coğrafi çoğaltma* tüm kuruluş için önemli özelliklerdir. Azure Event Hubs coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma, ad alanı düzeyinde destekler. 
+Tüm zaman Azure bölgeleri veya veri merkezleri (yoksa [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md) kullanılır), sürecek farklı bölge veya veri merkezi içinde çalışmaya devam etmek veri işleme için önemlidir. Bu nedenle, *coğrafi olağanüstü durum kurtarma* ve *coğrafi çoğaltma* tüm kuruluş için önemli özelliklerdir. Azure Event Hubs coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma, ad alanı düzeyinde destekler. 
 
-Azure Event Hubs coğrafi olağanüstü durum kurtarma özelliği bir olağanüstü durum kurtarma çözümüdür. Bu makalede açıklanan iş akışı ve kavramları olağanüstü durum senaryoları ve değil geçici ya da geçici kesintileri uygulanır.
+Coğrafi olağanüstü durum kurtarma özelliği, olay hub'ları standart SKU için genel olarak kullanılabilir.
 
-Microsoft Azure olağanüstü durum kurtarma hakkında ayrıntılı bilgi için bkz: [bu makalede](/azure/architecture/resiliency/disaster-recovery-azure-applications). 
+## <a name="outages-and-disasters"></a>Kesintiler ve olağanüstü durumları
 
-## <a name="terminology"></a>Terminoloji
+"Kesintileri" ve "afetler." arasında ayrım dikkate almak önemlidir Bir *kesinti* geçici olarak kullanım dışı kalması Azure Event Hubs olduğu ve bazı bileşenleri bir Mesajlaşma deposu veya hatta tüm veri merkezi gibi hizmet etkileyebilir. Sorun düzeltildikten sonra Bununla birlikte, olay hub'ları yeniden kullanılabilir hale gelir. Genellikle, bir kesinti iletileri veya diğer veri kaybına neden olmaz. Bu tür bir kesinti örneği veri merkezinde bir güç kesintisi olabilir. Bazı kesintiler yalnızca kısa bağlantı zararları geçici ya da ağ sorunları nedeniyle ' dir. 
 
-**Eşleştirme**: birincil ad alanı olarak adlandırılır *etkin* ve iletileri alır. Yük devretme ad alanı *pasif* ve iletileri almaz. Her ikisi arasındaki bir meta veri eşitleme, olduğundan her ikisi de iletileri uygulama kod değişiklikleri olmadan sorunsuz bir şekilde kabul edebilir. Etkin Bölge ve edilgen bölge arasında olağanüstü durum kurtarma yapılandırması oluşturma olarak bilinir *eşleştirme* bölgeleri.
+A *olağanüstü durum* kalıcı ya da daha uzun vadeli kaybı bir olay hub'ları küme, Azure bölgesi veya veri merkezi tanımlanmış. Bölge veya veri merkezi olabilir veya yeniden kullanılabilir olmaktan veya aşağı saatlerce veya günlerce olması olabilir. Bu tür afetler yangın, taşmasını veya deprem gösterilebilir. Kalıcı hale bir olağanüstü durum bazı iletiler, olayları ya da diğer veri kaybına neden olabilir. Ancak, çoğu durumda olması gerekir veri kaybı ve yedekleme veri merkezi başladıktan sonra iletileri kurtarılabilir.
 
-**Diğer ad**: sizin ayarladığınız bir olağanüstü durum kurtarma yapılandırması için bir ad. Diğer adı tek bir tutarlı tam etki alanı adı (FQDN) bağlantı dizesini sağlar. Uygulamalar, bir ad alanına bağlanmak için bu diğer ad bağlantı dizesini kullanın.
+Azure Event Hubs coğrafi olağanüstü durum kurtarma özelliği bir olağanüstü durum kurtarma çözümüdür. Bu makalede açıklanan iş akışı ve kavramları olağanüstü durum senaryoları ve değil geçici ya da geçici kesintileri uygulanır. Microsoft Azure olağanüstü durum kurtarma hakkında ayrıntılı bilgi için bkz: [bu makalede](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
-**Meta veri**: olay hub'ı adları, tüketici grupları, bölümler, üretilen iş birimleri, varlıkları ve ad alanınızla ilişkilendirilen özellikleri başvuruyor.
+## <a name="basic-concepts-and-terms"></a>Temel kavramlar ve terimler
 
-## <a name="enable-geo-disaster-recovery"></a>Coğrafi olağanüstü durum kurtarmayı etkinleştir
+Olağanüstü Durum Kurtarma özelliği meta verileri olağanüstü durum kurtarma uygular ve birincil ve ikincil olağanüstü durum kurtarma ad alanında bulunan dayanır. Coğrafi olağanüstü durum kurtarma özelliği için kullanılabilir olduğunu unutmayın [standart SKU](https://azure.microsoft.com/pricing/details/event-hubs/) yalnızca. Bağlantı bir diğer ad üzerinden yapılan gibi herhangi bir bağlantı dizesi değişiklik yapılması gerekmez.
 
-Olay hub'ları coğrafi olağanüstü durum kurtarma 3 adımda etkinleştirin: 
+Bu makalede aşağıdaki terimler kullanılır:
 
-1. Bir coğrafi-bir diğer ad bağlantı dizesi oluşturur ve canlı meta veri çoğaltma sağlayan eşleme oluşturun. 
-2. 1. adımda oluşturduğunuz diğer mevcut istemci bağlantı dizelerini güncelleştirin.
-3. Yük devretme başlatın: coğrafi eşleştirme bozuluyor ve diğer ikincil ad alanı, yeni birincil ad alanı olarak işaret eder.
+-  *Diğer ad*: sizin ayarladığınız bir olağanüstü durum kurtarma yapılandırması için ad. Diğer adı tek bir tutarlı tam etki alanı adı (FQDN) bağlantı dizesini sağlar. Uygulamalar, bir ad alanına bağlanmak için bu diğer ad bağlantı dizesini kullanın. 
 
-Aşağıdaki şekilde, bu iş akışı gösterilmektedir:
+-  *Birincil/ikincil ad alanı*: diğer adı için karşılık gelen ad alanları. Birincil ad "etkin" (Bu, mevcut veya yeni bir ad olabilir) iletileri ve alır. İkincil ad "pasif" ve iletileri almaz. Her ikisi arasındaki bir meta veri eşitleme, olduğundan her ikisi de sorunsuz olarak hiçbir uygulama kodu veya bağlantı dizesi değişiklik yapmadan iletileri kabul edebilir. Yalnızca etkin ad iletileri aldığından emin olmak için diğer adı kullanmanız gerekir. 
 
-![Akış coğrafi eşleştirme][1] 
+-  *Meta veri*: olay hub'ları ve tüketici grupları; ve ad alanınızla ilişkilendirilen özelliklerinin hizmetinin gibi varlıklar. Yalnızca varlıkları ve ayarlarını otomatik olarak çoğaltılır unutmayın. İletileri ve olayları çoğaltılmaz. 
 
-### <a name="step-1-create-a-geo-pairing"></a>1. adım: coğrafi çifti oluşturma
+-  *Yük devretme*: ikincil ad alanı etkinleştirme işlemi.
 
-İki bölgeler arasında eşleştirme oluşturmak için birincil ad alanı ve ikincil bir ad alanı gerekir. Coğrafi çifti oluşturmak için bir diğer ad oluşturursunuz. Ad bir diğer ad ile eşleştirilmiş sonra meta verileri düzenli aralıklarla her iki ad alanlarında çoğaltılır. 
+## <a name="setup-and-failover-flow"></a>Kurulum ve yük devretme akışı
 
-Aşağıdaki kod bunun nasıl yapılacağı gösterilmektedir:
+Aşağıdaki bölümde yük devretme işlemini bir genel bakıştır ve ilk yük devretmeyi ayarlanacağı açıklanmaktadır. 
 
-```csharp
-ArmDisasterRecovery adr = await client.DisasterRecoveryConfigs.CreateOrUpdateAsync(
-                                    config.PrimaryResourceGroupName,
-                                    config.PrimaryNamespace,
-                                    config.Alias,
-                                    new ArmDisasterRecovery(){ PartnerNamespace = config.SecondaryNamespace});
-```
+![1][]
 
-### <a name="step-2-update-existing-client-connection-strings"></a>2. adım: var olan istemci bağlantı dizelerini güncelleştirmek
+### <a name="setup"></a>Kurulum
 
-Coğrafi eşleştirme tamamlandıktan sonra birincil ad alanlarına noktası bağlantı dizeleri diğer ad ile bağlantı dizesi işaret edecek şekilde güncelleştirilmesi gerekir. Bağlantı dizeleri, aşağıdaki örnekte gösterildiği gibi alın:
+İlk oluşturmak veya var olan bir birincil ad alanını ve yeni bir ikincil ad alanı kullanın ve sonra iki eşleştirin. Bu eşleştirme bağlanmak için kullanabileceğiniz bir diğer ad sağlar. Bir diğer ad kullandığından, bağlantı dizelerinizi değiştirmeniz gerekmez. Yalnızca yeni ad alanları, yük devretme çifti için eklenebilir. Son olarak, bazı bir yük devretme gerekli olup olmadığını algılamak için izleme eklemeniz gerekir. Çoğu durumda, hizmet büyük bir ekosistem bir parçası, bu nedenle çok sık yerine kalan alt sistemi veya altyapı ile eşitleme gerçekleştirilmelidir gibi otomatik yük devretme işlemlerini nadiren mümkün.
 
-```csharp
-var accessKeys = await client.Namespaces.ListKeysAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, "RootManageSharedAccessKey");
-var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-```
+### <a name="example"></a>Örnek
 
-### <a name="step-3-initiate-a-failover"></a>3. adım: bir yük devretme başlatın
+Bu senaryo bir örnekte iletileri veya olayları yayar bir satış noktası (POS) çözümünü göz önünde bulundurun. Olay hub'ları, başka bir işleme için başka bir sistem için eşlenen veri ileten bazı eşleştirme veya yeniden biçimlendirme çözüme olayları geçirir. Bu noktada, tüm bu sistemleri aynı Azure bölgesinde barındırılabilir. Karar ne zaman ve hangi bölümü üzerinden vermesine altyapınızdaki veri akışını bağlıdır. 
 
-Bir olağanüstü durum oluştuğunda ya da ikincil ad alanı için bir yük devretme başlatın karar verirseniz, verileri ve meta verileri ikincil ad alanına akan başlatın. Uygulamalar diğer bağlantı dizeleri kullandığından, otomatik olarak okuma ve ikincil ad alanında olay hub'ları yazma başlangıç olarak başka bir eylem gereklidir. 
+Yük devretme sistemleri izleme ile ya da özel olarak geliştirilmiş izleme çözümleriyle otomatik hale getirebilirsiniz. Ancak, bu tür Otomasyon ek planlama ve bu makalenin kapsamı dışında olan iş alır.
 
-Aşağıdaki kod, yük devretme tetiklemek gösterilmektedir:
+### <a name="failover-flow"></a>Yük devretme akışı
 
-```csharp
-await client.DisasterRecoveryConfigs.FailOverAsync(config.SecondaryResourceGroupName,
-                                                   config.SecondaryNamespace, config.Alias);
-```
+Yük devretme'ı başlattığınızda, iki adım gerekli değildir:
 
-Veri ayıklamak için birincil ad alanında mevcut verileri gerekir ve yük devretme işlemi tamamlandıktan sonra açık bir bağlantı dizesi olay hub'ları için birincil ad alanında kullanmanız gerekir.
+1. Başka bir kesinti oluşursa yeniden yük devretme kullanabilmek ister. Bu nedenle, başka bir pasif ad alanı ayarlama ve eşleştirme güncelleştirin. 
 
-### <a name="other-operations-optional"></a>Diğer işlemleri (isteğe bağlı)
+2. Yeniden kullanılabilir olduğunda eski birincil ad alanından iletileri çeker. Bundan sonra normal coğrafi kurtarma kurulumunuzu dışında ileti için bu ad alanını kullanmak veya eski birincil ad alanını silin.
 
-Ayrıca, coğrafi eşleştirme bölün veya bir diğer ad aşağıdaki kodda gösterildiği gibi silebilirsiniz. Not: bir diğer ad bağlantı dizesi silmek için önce coğrafi paring bölmeniz gerekir
+> [!NOTE]
+> Yalnızca hata iletme semantiği desteklenir. Bu senaryoda, yük devri ve yeni bir ad alanı ile yeniden eşleştirin. Geri başarısız desteklenmiyor; Örneğin, bir SQL kümesinde. 
 
-```csharp
-// Break pairing
-await client.DisasterRecoveryConfigs.BreakPairingAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, config.Alias);
+![2][]
 
-// Delete alias connection string
-// Before the alias is deleted, pairing must be broken
-await client.DisasterRecoveryConfigs.DeleteAsync(config.PrimaryResourceGroupName,
-                                                 config.PrimaryNamespace, config.Alias);
-```
+## <a name="management"></a>Yönetim
 
-## <a name="considerations-for-public-preview"></a>Genel Önizleme için ilgili önemli noktalar
+Hata yaptıysanız; Örneğin, yanlış bölgeler ilk kurulum sırasında eşlenmiş, herhangi bir anda iki ad alanlarını eşleştirme bölün. Eşleştirilmiş ad alanları normal ad kullanmak istiyorsanız, diğer adı silin.
 
-Bu sürüm için aşağıdaki konuları göz önünde bulundurun:
+## <a name="samples"></a>Örnekler
 
-1. Coğrafi olağanüstü durum kurtarma özelliği yalnızca Kuzey Orta ABD ve orta Güney ABD bölgelerde kullanılabilir. 
-2. Bu özellik yalnızca yeni oluşturulan ad alanları için desteklenir.
-3. Önizleme sürümü için yalnızca meta veri çoğaltma etkinleştirilir. Gerçek veri çoğaltılmaz.
-4. Önizleme sürümü ile özelliği etkinleştirmek için herhangi bir ücret yoktur. Ancak, hem birincil hem de ikincil ad alanları için ayrılmış üretilen iş birimleri ücret uygulanabilir.
+[Github'da örnek](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) ayarlamak ve yük devretme işlemi gösterilmektedir. Bu örnek aşağıdaki kavramları göstermektedir:
+
+- Azure Active Directory'de Azure Resource Manager Event Hubs ile kullanmak için gerekli ayarları. 
+- Örnek kod yürütmek için gerekli adımlar. 
+- Geçerli birincil ad alanından gönderip yeniden açın. 
+
+## <a name="considerations"></a>Dikkat edilmesi gerekenler
+
+Bu sürüm ile göz önünde bulundurmanız gereken aşağıdaki konuları göz önünde bulundurun:
+
+1. Planınızı yük devretme zaman faktörü de dikkate almalısınız. Örneğin, 15-20 dakikadan fazla bağlantısı kesilirse, yük devretme başlatın karar verebilirsiniz. 
+ 
+2. Hiçbir veri çoğaltılır olgu şu anda etkin oturumları değil çoğaltıldığından emin anlamına gelir. Ayrıca, yinelenen algılama ve zamanlanmış iletileri çalışmayabilir. Yeni oturumlar, zamanlanmış iletileri ve yeni yinelenen çalışır. 
+
+3. Karmaşık bir dağıtılmış altyapı yapabilmesini olmalıdır [prova](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) en az bir kez. 
+
+4. Varlıkları eşitleme dakika başına yaklaşık 50-100 varlık biraz zaman alabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -120,5 +111,5 @@ Event Hubs hakkında daha fazla bilgi için şu bağlantıları ziyaret edin:
 * [Event Hubs ile ilgili SSS](event-hubs-faq.md)
 * [Event Hubs kullanan örnek uygulamalar](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-[1]: ./media/event-hubs-geo-dr/eh-geodr1.png
-
+[1]: ./media/event-hubs-geo-dr/geo1.png
+[2]: ./media/event-hubs-geo-dr/geo2.png

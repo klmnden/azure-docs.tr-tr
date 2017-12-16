@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: ca3fb650a133efb67c0ad2cd96847c6a0e21c876
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.author: cwatson
+ms.openlocfilehash: f2165edf67c1d512342084d6fe80ed6c264ee53a
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>Azure sanal makineleri yedeklemek (Klasik portalı)
 > [!div class="op_single_selector"]

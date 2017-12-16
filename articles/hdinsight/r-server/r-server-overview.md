@@ -15,15 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 247cc4175b70e31c9496df7037d45e8c7e2c7494
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/16/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>R Server ve açık kaynaklı R yetenekleri hdınsight'ta giriş
 
 Azure Hdınsight kümeleri oluşturduğunuzda Microsoft R Server bir dağıtım seçeneği olarak kullanılabilir. Bu yeni özellik, veri bilimcileri, istatistikçiler ve ölçeklenebilir, isteğe bağlı erişimi olan R programcıları hdınsight'ta analytics yöntemlerinin dağıtılmış sağlar.
+
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 Kümeler projeler ve elinizdeki görevleri uygun şekilde boyutlandırılmış ve artık gerekmediğinde sonra bozuk. Azure Hdınsight parçası olup olmadıklarını olduğundan, bu kümeleri kuruluş düzeyinde 7/24 destek, % 99,9 çalışma süresi SLA'sı ve diğer bileşenler Azure ekosistemi ile tümleştirme özelliği gelir.
 
@@ -96,7 +98,7 @@ Başka bir tam IDE Masaüstü IDE yüklemek ve bir uzak eşleme azaltın veya Sp
 Son olarak, kenar düğümüne R Server konsolda yazarak erişebileceğiniz **R** SSH veya PuTY aracılığıyla bağlandıktan sonra Linux komut isteminde. Konsol arabirimini kullanırken, bir metin düzenleyicisi R betiği geliştirme için başka bir penceresinde çalıştırın ve kesip kodunuzu bölümlerini R konsola gerektiğinde kullanışlıdır.
 
 ## <a name="learn-about-pricing"></a>Fiyatlandırma hakkında bilgi edinin
-R Server Hdınsight kümesiyle ilişkili ücretleri standart Hdınsight kümeleri ücretlerinin benzer şekilde yapılandırılmıştır. Bunlar temel VM'ler boyutlandırma üzerinde adı, veri ve çekirdek saatlik uplift eklenmesi ile kenar düğümler arasında temel alır. Hdınsight fiyatlandırma ve 30 günlük ücretsiz deneme kullanılabilirliği hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
+R Server Hdınsight kümesiyle ilişkili ücretleri standart Hdınsight kümeleri ücretlerinin benzer şekilde yapılandırılmıştır. Bunlar temel VM'ler boyutlandırma üzerinde adı, veri ve çekirdek saatlik uplift eklenmesi ile kenar düğümler arasında temel alır. Hdınsight fiyatlandırma hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 R Server Hdınsight kümeleri ile kullanma hakkında daha fazla bilgi için aşağıdaki konulara bakın:

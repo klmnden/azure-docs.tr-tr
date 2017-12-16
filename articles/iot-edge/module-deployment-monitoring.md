@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 54c92937c507cabd9053920baef97e745c2300f6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>IOT kenar dağıtımları tek cihazlar için veya ölçekte anlamak - Önizleme
 
@@ -62,7 +62,7 @@ Hedef durumu gereksinimlerini karşılayan yeni aygıtları dahil etmek veya art
 Herhangi bir Boolean koşul cihaz çiftlerini etiketler veya DeviceID hedef cihazlar seçmek için kullanın. Koşul etiketleriyle kullanmak istiyorsanız, "etiketler" özellikleri aynı düzeyde altında cihaz çiftine :{} bölümü eklemeniz gerekir. [Cihaz çifti etiketleri hakkında daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
 
 Hedef koşul örnekleri:
-* cihaz Kimliği ='linuxprod1
+* DeviceID 'linuxprod1' =
 * Tags.Environment 'üretim' =
 * Tags.Environment 'üretim' ve tags.location = 'westus' =
 * Tags.Environment 'üretim' veya tags.location = 'westus' =

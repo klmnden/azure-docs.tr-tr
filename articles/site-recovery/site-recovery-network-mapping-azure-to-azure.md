@@ -4,7 +4,7 @@ description: "Azure Site Recovery, çoğaltma, yük devretme ve sanal makineleri
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
-manager: gauravd
+manager: rochakm
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: manayar
-ms.openlocfilehash: 85baa829020529b628dfaa5578e5d76724834b33
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: bf3d557c77e3cb6ade6f1bb3773c807f9c8b43f6
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>İki Azure bölgeleri arasında ağ eşlemesi
 
 
-Bu makalede, Azure sanal ağlar birbirlerine iki Azure bölgelerinin eşlemek açıklar. Ağ eşlemesi hedef Azure bölgesi çoğaltılmış sanal makine oluşturulduğunda, kaynak sanal makinenin sanal ağa eşlenen sanal ağda oluşturulduğunu sağlar.  
+Bu makalede, Azure sanal ağlar birbirlerine iki Azure bölgelerinin eşlemek açıklar. Ağ eşlemesi, çoğaltılmış bir sanal makine hedef Azure bölgesi oluşturduğunuzda, kaynak sanal makinenin sanal ağa eşlenen sanal ağda oluşturulduğunu sağlar.  
 
 ## <a name="prerequisites"></a>Ön koşullar
-Eşledikten önce ağları oluşturduğunuzdan emin olun [Azure sanal ağlar](../virtual-network/virtual-networks-overview.md) hem de kaynak ve hedef Azure bölgeleri.
+Ağlarını eşlemek önce oluşturduğunuz olun [Azure sanal ağlar](../virtual-network/virtual-networks-overview.md) hem de kaynak ve hedef Azure bölgeleri.
 
 ## <a name="map-networks"></a>Ağ eşleme
 
@@ -35,20 +35,21 @@ Bir Azure bölgesindeki bir Azure sanal ağı başka bir bölgede başka bir san
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 
-Aşağıdaki örnekte sanal Makinem Doğu Asya bölgesinde çalıştığından ve Güneydoğu Asya çoğaltılır.
+Aşağıdaki örnekte, sanal makine Doğu Asya bölgesinde çalıştığından ve Güneydoğu Asya çoğaltılır.
 
-Kaynak ve hedef ağ seçin ve ardından Güneydoğu Asya Doğu Asya ağ eşlemesi oluşturmak için Tamam'ı tıklatın.
+Bir kaynak seçin ve hedef ağ ve Güneydoğu Asya Doğu Asya ağ eşlemesi oluşturmak için Tamam'ı tıklatın.
 
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-Ağ eşlemesi Güneydoğu Asya Doğu Asya oluşturmak için aynı işlevi görür.  
+Ağ eşlemesi Güneydoğu Asya Doğu Asya oluşturmak için yukarıdaki işlemi yineleyin.
+
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
 ## <a name="mapping-network-when-enabling-replication"></a>Çoğaltma etkinleştirirken eşleme ağ
 
-Ardından, bir sanal makine için ilk kez bir Azure bölgesinden diğerine çoğaltma yapıyorsanız, ağ eşlemesi yapılmazsa hedef ağ aynı işleminin bir parçası olarak seçebilirsiniz. Site Recovery, hedef bölgeye kaynak bölgesinden ve bu seçime dayalı kaynak bölge için hedef bölgesinden ağ eşlemeleri oluşturur.   
+Bir sanal makine için ilk kez bir Azure bölgesinden diğerine çoğaltma yapıyorsanız, ağ eşlemesi yapılmadıysa hedef ağ aynı işleminin bir parçası olarak seçebilirsiniz. Site Recovery, hedef bölgeye kaynak bölgesinden ve bu seçime dayalı kaynak bölge için hedef bölgesinden ağ eşlemeleri oluşturur.   
 
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -70,14 +71,14 @@ Ağ eşlemesi zaten yapıldığında, çoğaltmayı etkinleştirirken hedef sana
 
 
 ## <a name="subnet-selection"></a>Alt ağ seçimi
-Hedef sanal makinenin, kaynak sanal makinenin adını temel alarak seçilir. Hedef ağ kullanılabilir, kaynak sanal makine olarak aynı ada sahip bir alt ağ ise, hedef sanal makine için seçilir. Varsa hedef ağdaki aynı ada sahip bir alt ağ sonra alfabetik olarak ilk alt ağ hedef alt ağ seçilir. Bu alt ağ, işlem ve ağ sanal makinenin ayarlarını giderek değiştirebilirsiniz.
+Hedef sanal makinenin, kaynak sanal makinenin adını temel alarak seçilir. Hedef ağ olarak, kaynak sanal makinenin aynı ada sahip bir alt ağ varsa, o alt hedef sanal makine için seçilir. Hedef ağdaki aynı ada sahip bir alt ağ varsa, ardından alfabetik olarak ilk alt ağ hedef alt ağ seçilir. Bu alt ağ, işlem ve ağ sanal makinenin ayarlarını giderek değiştirebilirsiniz.
 
 ![Alt ağ değiştirme](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## <a name="ip-address"></a>IP adresi
 
-Her hedef sanal makinenin ağ arabirimi için IP adresi gibi seçilir:
+Hedef sanal makinenin her ağ arabirimi için IP adresi gibi seçilir:
 
 ### <a name="dhcp"></a>DHCP
 Kaynak sanal makinenin Ağ arabiriminin DHCP kullanıyorsanız, hedef sanal makine ağ arabiriminin Ayrıca DHCP ayarlanır.
@@ -87,14 +88,14 @@ Kaynak sanal makinenin Ağ arabiriminin statik IP kullanıyorsanız, ardından h
 
 #### <a name="same-address-space"></a>Aynı adres alanı
 
-Kaynak alt ağı ve hedef alt aynı adres alanı varsa, hedef IP aynı kaynak sanal makinenin Ağ arabiriminin IP ayarlanır. Aynı IP kullanılabilir durumda değilse, başka bir kullanılabilir IP hedef IP olarak ayarlanır.
+Kaynak alt ağı ve hedef alt aynı adres alanı varsa, kaynak sanal makinenin Ağ arabiriminin IP adresini hedef IP adresi olarak ayarlanır. Aynı IP adresi kullanılabilir durumda değilse, bir sonraki kullanılabilir IP adresi hedef IP adresi olarak ayarlanır.
 
 #### <a name="different-address-space"></a>Farklı bir adres alanı
 
-Kaynak alt ağı ve hedef alt farklı bir adres alanı varsa, hedef IP hedef alt ağdaki kullanılabilir herhangi bir IP'yi olarak ayarlanır.
+Kaynak alt ağı ve hedef alt farklı adres alanları varsa, hedef alt ağdaki bir sonraki kullanılabilir IP adresi hedef IP adresi olarak ayarlanır.
 
 Her ağ arabiriminin hedef IP, sanal makinenin işlem ve ağ ayarlarına giderek değiştirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [Azure Vm'lerini çoğaltma kılavuz ağ](site-recovery-azure-to-azure-networking-guidance.md).
+Hakkında bilgi edinin [Azure Vm'lerini çoğaltma kılavuz ağ](site-recovery-azure-to-azure-networking-guidance.md).

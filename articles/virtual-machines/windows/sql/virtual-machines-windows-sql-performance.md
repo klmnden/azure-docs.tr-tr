@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 03580952800e595125fc48d169f7d4aa7846dd3f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makinelerde SQL Server için performansa yönelik en iyi yöntemler
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/15/2017
 
 Bu konu, Microsoft Azure sanal makinesi'nın SQL Server performansını iyileştirmek için en iyi yöntemler sağlar. Azure sanal makinelerde SQL Server çalışırken, şirket içi sunucu ortamında SQL Server için geçerli olan seçenekleri ayarlama aynı veritabanı performansını kullanmaya devam öneririz. Ancak, genel bulutta ilişkisel veritabanı performansını bir sanal makine boyutunu ve veri diskleri yapılandırması gibi birçok faktöre bağlıdır.
 
-SQL Server görüntülerini oluştururken [Vm'lerinizi Azure portalında sağlama göz önünde bulundurun](virtual-machines-windows-portal-sql-server-provision.md). Depolama yapılandırması dahil olmak üzere tüm bu en iyi uygulamaları, SQL Server Resource Manager ile Portalı'nda sağlanan VM'ler uygulayın.
+SQL Server görüntülerini oluştururken [Vm'lerinizi Azure portalında sağlama göz önünde bulundurun](virtual-machines-windows-portal-sql-server-provision.md). Resource Manager ile Portalı'nda sağlanan SQL Server Vm'lerinin en iyi uygulamaları izleyin.
 
 Bu makalede odaklanmıştır *en iyi* Azure Vm'lerde SQL Server için performans. İş yükünüzün daha az yoğun ise, aşağıda listelenen her iyileştirme gerektirmeyebilecek. Bu öneriler değerlendirirken yükünün desenleri ve performans gereksinimlerini göz önünde bulundurun.
 
@@ -90,6 +90,9 @@ Premium depolama (DS serisi, DSv2 serisi ve GS serisi) desteği VM'ler için etk
 ### <a name="data-disks"></a>Veri diskleri
 
 * **Veri diskleri veri ve günlük dosyaları için kullanan**: en az 2 Premium depolama kullanan [P30 diskleri](../premium-storage.md#scalability-and-performance-targets) burada bir disk günlük dosyalarını ve diğer TempDB dosyaları ve verileri içerir. Aşağıdaki makalesinde açıklandığı gibi bir dizi IOPS ve bant genişliği (MB/sn) boyutuna bağlı olarak her Premium depolama diskini sağlar: [diskler için Premium depolama alanını kullanarak](../premium-storage.md).
+
+   > [!NOTE]
+   > Bir SQL Server VM portalında sağladığınızda, depolama yapılandırmanızı düzenleme seçeneğiniz vardır. Yapılandırmanıza bağlı olarak, bir veya daha fazla disk Azure yapılandırır. Birden çok disk şeritleme ile tek bir depolama havuzu birleştirilir. Veri ve günlük dosyaları, bu yapılandırma, yerine iki ayrı disk birlikte bulunur. Daha fazla bilgi için bkz: [SQL Server VM'ler için depolama yapılandırması](virtual-machines-windows-sql-server-storage-configuration.md).
 
 * **Disk şeritleme**: daha fazla verimlilik için ek veri disklerinin ekleyebilir ve Disk şeritleme kullanabilirsiniz. Veri diskleri sayısını belirlemek için IOP ve günlük dosyalarınızı ve verilerinizi ve TempDB dosyalar için gereken bant sayısını çözümlemek gerekir. Farklı VM boyutları IOPS ve desteklenen bant genişliği sayısına farklı sınırlar olduğunu fark, tablo başına IOPS bakın [VM boyutu](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Aşağıdaki yönergeleri kullanın:
 

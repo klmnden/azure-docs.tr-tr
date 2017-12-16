@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrol noktalarına ve yeniden yürütme dayanıklı işlevlerinde (Azure işlevleri)
 
@@ -63,10 +63,10 @@ Denetim noktası işlemi tamamlandıktan sonra bunu yapmak daha fazla çalışma
 
 Tamamlandığında, daha önce gösterilen işlevi geçmişini aşağıdakine benzer Azure Table Storage'nın (gösterim amacıyla kısaltılmış) arar:
 
-| PartitionKey (InstanceId)                     | Olay türü             | zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum | 
+| PartitionKey (InstanceId)                     | Olay türü             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null   | E1_HelloSequence |                                                           |                     | 
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 
@@ -79,7 +79,7 @@ Tamamlandığında, daha önce gösterilen işlevi geçmişini aşağıdakine be
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     | 
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | "" "Merhaba Londra!" ""                                       |                     | 
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Tokyo! Hello" ifadesini",""Merhaba Seattle!" ",""Merhaba Londra!" "]" | tamamlandı           | 
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Tokyo! Hello" ifadesini",""Merhaba Seattle!" ",""Merhaba Londra!" "]" | Tamamlandı           | 
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     | 
 
 Sütun değerleri birkaç Notlar:
@@ -90,7 +90,7 @@ Sütun değerleri birkaç Notlar:
     * **TaskScheduled**: bir etkinlik işlevi zamanlandı. Etkinlik işlevin adını, yakalanan `Name` sütun.
     * **TaskCompleted**: tamamlanmış bir etkinlik işlevi. İşlevin sonucu olarak `Result` sütun.
     * **TimerCreated**: dayanıklı süreölçer oluşturuldu. `FireAt` Sütun süreölçer süresinin dolma zamanlanmış UTC saati içerir.
-    * **TimerFired**: dayanıklı sayacının süresi.
+    * **TimerFired**: dayanıklı süreölçer tetiklenir.
     * **EventRaised**: bir dış olay orchestration örneğine gönderildi. `Name` Sütunu olayın adı yakalar ve `Input` sütun olay yükü yakalar.
     * **OrchestratorCompleted**: beklemenin orchestrator işlevi.
     * **ContinueAsNew**: orchestrator işlevi tamamlandı ve kendisini yeni durumuyla yeniden. `Result` Sütun giriş yeniden örneği olarak kullanılan değer içeriyor.
@@ -98,7 +98,7 @@ Sütun değerleri birkaç Notlar:
 * **Zaman damgası**: geçmiş olayın UTC zaman damgası.
 * **Ad**: çağrıldı işlevin adı.
 * **Giriş**: işlevinin giriş JSON biçimli.
-* **Çıktı**: işlevi çıktısını; diğer bir deyişle, kendi dönüş değeri.
+* **Sonuç**: işlevi çıktısını; diğer bir deyişle, kendi dönüş değeri.
 
 > [!WARNING]
 > Hata ayıklama aracı olarak yararlı olsa da, herhangi bir bağımlılığı bu tabloda etkili olmaz. Dayanıklı işlevleri uzantısı geliştikçe değişebilir.

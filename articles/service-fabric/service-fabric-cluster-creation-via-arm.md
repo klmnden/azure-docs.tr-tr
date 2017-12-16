@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: 0065874c2f992ad9c18f68303878fb580ee8b391
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 251f7fc99f1c8d79f31118df11b7522930903c25
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ni kullanarak bir Service Fabric kümesi oluştur 
 > [!div class="op_single_selector"]
@@ -377,7 +377,7 @@ WebApplicationReplyUrl oturum açma işlemini tamamladıktan sonra kullanıcıla
 
 https://&lt;cluster_domain&gt;: 19080/Explorer
 
-Azure AD kiracısı için yönetici ayrıcalıklarına sahip bir hesapla oturum açmak için istenir. Oturum açtıktan sonra Service Fabric kümesi temsil etmek için yerel uygulamalar ve web komut dosyası oluşturur. Kiracının uygulamaları bakarsanız [Klasik Azure portalı][azure-classic-portal], iki yeni giriş görmeniz gerekir:
+Azure AD kiracısı için yönetici ayrıcalıklarına sahip bir hesapla oturum açmak için istenir. Oturum açtıktan sonra Service Fabric kümesi temsil etmek için yerel uygulamalar ve web komut dosyası oluşturur. Kiracının uygulamaları bakarsanız [Azure portal][azure-portal], iki yeni giriş görmeniz gerekir:
 
    * *ClusterName*\_küme
    * *ClusterName*\_istemci
@@ -615,17 +615,22 @@ Sorunla çalıştırın ve şifreli iletileri alma durumunda, daha sonra kullanm
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>Kullanıcıları rollere atama
-Kümenizin temsil etmek üzere uygulamalar oluşturduktan sonra kullanıcılarınızın Service Fabric tarafından desteklenen rolleri atayın: salt okunur ve yönetici Kullanarak roller atayabilirsiniz [Klasik Azure portalı][azure-classic-portal].
+Kümenizin temsil etmek üzere uygulamalar oluşturduktan sonra kullanıcılarınızın Service Fabric tarafından desteklenen rolleri atayın: salt okunur ve yönetici Kullanarak roller atayabilirsiniz [Azure portal][azure-portal].
 
-1. Azure portalında kiracınıza gidin ve ardından **uygulamaları**.
-2. Bir ada sahip web uygulaması seçin gibi `myTestCluster_Cluster`.
-3. Tıklatın **kullanıcılar** sekmesi.
-4. Atayın ve ardından bir kullanıcı seçin **atamak** ekranın altındaki düğmesini.
+1. Azure portalında kiracınızın sağ üst köşede seçin.
 
-    ![Kullanıcı rolleri düğmesi atama][assign-users-to-roles-button]
-5. Kullanıcıya atamak için rol seçin.
+    ![Kiracı düğmesini seçin][select-tenant-button]
+2. Seçin **Azure Active Directory** sol sekmesini ve ardından seçin "Kurumsal uygulamalar".
+3. "Tüm uygulamaları" seçin ve ardından bulmak ve bir ada sahip web uygulaması seçin gibi `myTestCluster_Cluster`.
+4. Tıklatın **kullanıcılar ve gruplar** sekmesi.
 
-    !["Kullanıcılar atama" iletişim kutusu][assign-users-to-roles-dialog]
+    ![Kullanıcılar ve Gruplar sekmesinde][users-and-groups-tab]
+5. Tıklatın **Kullanıcı Ekle** düğmesini yeni sayfada, bir kullanıcı rolü atayın ve ardından seçip **seçin** altındaki sayfasının düğmesini.
+
+    ![Kullanıcı rolleri sayfasına atama][assign-users-to-roles-page]
+6. Tıklatın **atamak** altındaki sayfasının düğmesini.
+
+    ![Atama onay Ekle][assign-users-to-roles-confirm]
 
 > [!NOTE]
 > Service Fabric rolleri hakkında daha fazla bilgi için bkz: [Service Fabric istemciler için rol tabanlı erişim denetimi](service-fabric-cluster-security-roles.md).
@@ -665,7 +670,7 @@ Service Fabric Explorer Azure AD'de oturum açmaya çalıştığınızda hata sa
 Service Fabric Explorer gösteren küme (web) uygulaması karşı Azure AD kimlik doğrulama girişiminde ve isteğin bir parçası yeniden yönlendirme dönüş URL'SİYLE sağlar. Ancak URL Azure AD uygulama içinde listelenmeyen **yanıt URL'si** listesi.
 
 #### <a name="solution"></a>Çözüm
-Üzerinde **yapılandırma** sekmesini küme (web) uygulamasının URL'si, Service Fabric Gezgini'ne ekleme **yanıt URL'si** listelemek veya listedeki öğelerden birini değiştirin. İşiniz bittiğinde, değişikliğinizi kaydedin.
+AAD sayfasında "Uygulamanın kayıtlar" seçin, küme uygulamanızı seçin ve ardından **yanıt URL'leri** düğmesi. "Yanıt URL'leri" sayfasında, listedeki öğelerden birini değiştirin veya Service Fabric Explorer URL listeye ekleyin. İşiniz bittiğinde, değişikliğinizi kaydedin.
 
 ![Web uygulaması yanıtı URL'si][web-application-reply-url]
 
@@ -693,7 +698,7 @@ Bu noktada, Azure Active Directory sağlayan yönetim kimlik doğrulama ile güv
 [azure-CLI]:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
-[azure-classic-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
@@ -703,13 +708,15 @@ Bu noktada, Azure Active Directory sağlayan yönetim kimlik doğrulama ile güv
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
 [resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
 [x509-certificates-and-service-fabric]: service-fabric-cluster-security.md#x509-certificates-and-service-fabric
-[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#Create-a-Service-Fabric-cluster- Resource-Manager-template
+[customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-arm-dependency-map.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-[assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
-[assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
+[select-tenant-button]: ./media/service-fabric-cluster-creation-via-arm/select-tenant-button.png
+[users-and-groups-tab]: ./media/service-fabric-cluster-creation-via-arm/users-and-groups-tab.png
+[assign-users-to-roles-page]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-page.png
+[assign-users-to-roles-confirm]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-confirm.png
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png

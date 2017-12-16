@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama hizmeti ile sağlamak için bir aygıtı ayarlama
 
@@ -55,17 +55,17 @@ Cihaz sağlama hizmeti istemci SDK'sı seçilen güvenlik mekanizması yazılım
 1. Cihazınız için komut isteminde aşağıdaki komutlardan birini kullanarak seçtiğiniz HSM türü için SDK oluşturun:
     - TPM aygıtları için:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
     - TPM simülatörü:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm_simulator ..
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
     - X.509 cihazlar ve simulator için:
         ```cmd/sh
-        cmake -Ddps_auth_type=x509 ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
 1. SDK, TPM ve X.509 HSM'ler Windows veya Ubuntu uygulamaları çalıştıran cihazlar için varsayılan destek sağlar. Bu HSM'ler desteklenen için başlıklı bölüme geçin [güvenlik yapıları ayıklamak](#extractsecurity) aşağıda. 
@@ -76,27 +76,25 @@ Cihaz sağlama sistem istemci SDK'sı, Windows ya da Ubuntu çalıştırmayan t�
 
 ### <a name="develop-your-custom-repository"></a>Özel deponuz geliştirin
 
-1. HSM erişmek için GitHub deposunu geliştirin. Cihaz sağlama kullanmak SDK'sı statik kitaplık üretmek bu proje gerekir.
-1. Kitaplığınızı aşağıdaki üstbilgi dosyasında tanımlanan işlevler uygulamanız gerekir: bir. Özel TPM için tanımlanan işlevlerini gerçekleştirmek `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h`.
-    b. Özel X.509 için tanımlanan işlevlerini gerçekleştirmek `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h`. 
-1. HSM deponuz da içermelidir bir `CMakeLists.txt` oluşturulmalıdır depo kökündeki dosya.
+1. HSM erişmek için bir kitaplık geliştirin. Cihaz sağlama kullanmak SDK'sı statik kitaplık üretmek bu proje gerekir.
+1. Kitaplığınızı aşağıdaki üstbilgi dosyasında tanımlanan işlevler uygulamanız gerekir: bir. Özel TPM için tanımlanan işlevlerini gerçekleştirmek [özel HSM belge](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
+    b. Özel X.509 için tanımlanan işlevlerini gerçekleştirmek [özel HSM belge](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>Cihaz hizmeti istemcisi sağlama ile tümleştirme
 
-Kitaplığınızı başarıyla kendi üzerine kurulur sonra Iothub C-SDK taşıyın ve deponuz içinde çekme:
+Kitaplığınızı başarıyla kendi üzerine kurulur sonra Iothub C-SDK taşıyın ve kitaplığınızın karşı bağlantı:
 
 1. Özel HSM GitHub deposunu, kitaplık yolu ve adı aşağıdaki cmake komutta sağlayın:
     ```cmd/sh
-    cmake -Ddps_auth_type=<custom_hsm> -Ddps_hsm_custom_repo=<github_repo_name> -Ddps_hsm_custom_lib=<path_and_name_of library> <PATH_TO_AZURE_IOT_SDK>
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
-   Değiştir `<custom_hsm>` ya da bu komutla içinde `tpm` veya `x509`. Bu komut, içinde özel HSM deponuz için bir işaretçi oluşturur `cmake` dizin. Özel HSM TPM veya X.509 güvenlik mekanizmalarına hala dayanması gerektiğini unutmayın.
-
+   
 1. Visual studio SDK'yı açmak ve onu oluşturun. 
 
-    - Derleme işlemi özel depo klonlar ve kitaplığı oluşturur.
+    - Derleme işlemi, SDK'sı kitaplığı derlenir.
     - SDK cmake komut içinde tanımlanmış özel HSM karşı bağlantı dener.
 
-1. Çalıştırma `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c` , HSM doğru uygulanmışsa doğrulamak için örnek.
+1. Çalıştırma `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` , HSM doğru uygulanmışsa doğrulamak için örnek.
 
 <a id="extractsecurity"></a>
 ## <a name="extract-the-security-artifacts"></a>Güvenlik yapıları Ayıkla
@@ -116,21 +114,30 @@ Cihazınızı ilk kez önyükleme yaptığında, istemci SDK güvenlik yapılar�
 İşlem üretim aygıt son adımda, cihaz hizmete kaydolmak için cihaz sağlama hizmeti istemci SDK kullanan bir uygulamayı yazmaktır. Bu SDK kullanmak, uygulamalarınız için aşağıdaki API'ler sağlar:
 
 ```C
-typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
-DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
-void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub Device Provisioning Service module.
-DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with Device Provisioning Service
-void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the Device Provisioning Service and calls any user callbacks that are required.
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
+
+// Disposes of resources allocated by the provisioning Client.
+void Prov_Device_LL_Destroy(PROV_DEVICE_LL_HANDLE handle)
+
+// Asynchronous call initiates the registration of a device.
+PROV_DEVICE_RESULT Prov_Device_LL_Register_Device(PROV_DEVICE_LL_HANDLE handle, PROV_DEVICE_CLIENT_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, PROV_DEVICE_CLIENT_REGISTER_STATUS_CALLBACK reg_status_cb, void* status_user_ctext)
+
+// Api to be called by user when work (registering device) can be done
+void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
+
+// API sets a runtime option identified by parameter optionName to a value pointed to by value
+PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Değişkenleri başlatmayı unutmayın `dps_uri` ve `dps_scope_id` bölümünde belirtildiği gibi [benzetim Bu hızlı başlangıç aygıt bölümünün ilk önyükleme sırası](./quick-create-simulated-device.md#firstbootsequence), kullanmadan önce. Bir cihaz sağlamayı istemci kaydı için API `DPS_Client_LL_Create` genel cihaz sağlama Hizmeti'ne bağlanır. *Kimliği kapsam* hizmeti tarafından oluşturulan ve benzersizliği garanti eder. Bu sabit ve kayıt kimlikleri benzersiz şekilde tanımlamak için kullanılan olur. `iothub_uri` IOT Hub istemci kaydı API sağlayan `IoTHubClient_LL_CreateFromDeviceAuth` sağ IOT hub ile bağlanmak için. 
+Değişkenleri başlatmayı unutmayın `uri` ve `id_scope` bölümünde belirtildiği gibi [benzetim Bu hızlı başlangıç aygıt bölümünün ilk önyükleme sırası](./quick-create-simulated-device.md#firstbootsequence), kullanmadan önce. Bir cihaz sağlamayı istemci kaydı için API `Prov_Device_LL_Create` genel cihaz sağlama Hizmeti'ne bağlanır. *Kimliği kapsam* hizmeti tarafından oluşturulan ve benzersizliği garanti eder. Bu sabit ve kayıt kimlikleri benzersiz şekilde tanımlamak için kullanılan olur. `iothub_uri` IOT Hub istemci kaydı API sağlayan `IoTHubClient_LL_CreateFromDeviceAuth` sağ IOT hub ile bağlanmak için. 
 
 
-Bu API'leri bağlanmak ve bu önyüklendiğinde cihaz sağlama hizmeti ile kaydetme, IOT hub'ınız hakkında bilgi alın ve buna bağlanmak için Cihazınızı yardımcı olur. Dosya `dps_client/samples/dps_client_sample/dps_client_sample.c` bu API'leri kullanmayı gösterir. Genel olarak, istemci kaydı için aşağıdaki çerçevesi oluşturmanız gerekir:
+Bu API'leri bağlanmak ve bu önyüklendiğinde cihaz sağlama hizmeti ile kaydetme, IOT hub'ınız hakkında bilgi alın ve buna bağlanmak için Cihazınızı yardımcı olur. Dosya `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` bu API'leri kullanmayı gösterir. Genel olarak, istemci kaydı için aşağıdaki çerçevesi oluşturmanız gerekir:
 
 ```C
-static const char* dps_uri = "global.azure-devices-provisioning.net";
-static const char* dps_scope_id = "[ID scope for your provisioning service]";
+static const char* global_uri = "global.azure-devices-provisioning.net";
+static const char* id_scope = "[ID scope for your provisioning service]";
 ...
 static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
 {
@@ -143,18 +150,23 @@ static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_co
 }
 int main()
 {
-    ...    
-    security_device_init(); // initialize your HSM 
+    ...
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    prov_dev_security_init(hsm_type); // initialize your HSM 
 
-    DPS_CLIENT_LL_HANDLE handle = DPS_Client_LL_Create(dps_uri, dps_scope_id, dps_transport, on_dps_error_callback, &user_info); // Create your DPS client
+    prov_transport = Prov_Device_HTTP_Protocol;
+    
+    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
 
-    if (DPS_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
+    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
         do {
-            // The dps_register_callback is called when registration is complete or fails
-            DPS_Client_LL_DoWork(handle);
+        // The register_callback is called when registration is complete or fails
+            Prov_Client_LL_DoWork(handle);
         } while (user_info.reg_complete == 0);
     }
-    DPS_Client_LL_Destroy(handle); // Clean up the DPS client
+    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
     ...
     iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
     ...

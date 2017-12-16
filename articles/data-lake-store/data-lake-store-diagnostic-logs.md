@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: de71c03784571f4adab9b8936ec1968373c9ac3e
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store için tanılama günlüklerine erişme
 Data Lake Store hesabınızı ve hesabınız için toplanan günlükleri görüntülemek nasıl günlüğü tanılama etkinleştirmek bilgi edinin.
@@ -177,7 +177,7 @@ Burada JSON biçimli Denetim günlüğüne örnek girişi verilmiştir. Her bir 
 | StreamName |Dize |Yolun işlemi üzerinde gerçekleştirildi |
 
 ## <a name="samples-to-process-the-log-data"></a>Günlük verileri işlemek için örnekleri
-Günlükleri Azure İzleyicisi için Azure Data Lake Deposu'ndan veri gönderirken (bkz [görünüm veya günlük analizi günlük arama ile toplanan verileri çözümlemek](../log-analytics/log-analytics-tutorial-viewdata.md) günlük analizi kullanımıyla ilgili ayrıntılar için), aşağıdaki sorguda kullanıcı listesini içeren bir tablo döndürür adları, bir görsel grafik birlikte olay süresi için zaman olayların ve etkinliklerin sayısını görüntüler. Kullanıcı GUID'si göstermek için kolayca değiştirilebilir veya diğer öznitelikleri:
+Günlükleri Azure günlük analizi için Azure Data Lake Deposu'ndan veri gönderirken (bkz [görünüm veya günlük analizi günlük arama ile toplanan verileri çözümlemek](../log-analytics/log-analytics-tutorial-viewdata.md) günlük analizi kullanımıyla ilgili ayrıntılar için), aşağıdaki sorguda kullanıcı listesini içeren bir tablo döndürür adları, bir görsel grafik birlikte olay süresi için zaman olayların ve etkinliklerin sayısını görüntüler. Kullanıcı GUID'si göstermek için kolayca değiştirilebilir veya diğer öznitelikleri:
 
 ```
 search *

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 717d1f377e1a074984a0332b978754bea26ce144
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.author: cwatson
+ms.openlocfilehash: 16d4581b94501203707099692b37fd9a04a213f1
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>Bir Windows server veya iş istasyonu için Azure Klasik portalı kullanarak yedekleme
 > [!div class="op_single_selector"]

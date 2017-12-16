@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/9/2017
-ms.author: markgal;trinadhk;jimpark
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88ca71f83696c5865405799cddc3645778261408
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 379686f70518b3c7773f1e0e0461eda2a4934d64
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Sanal makineleri yedeklemek için AzureRM.Backup cmdlet'leri kullanın
 > [!div class="op_single_selector"]

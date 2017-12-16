@@ -1,6 +1,6 @@
 ---
-title: "Azure Search güvenlik kırpma"
-description: "Uygulama güvenlik kırpma Azure Search filtrelerini kullanma."
+title: "Azure arama sonuçlarında kırpma için güvenlik filtreleri | Microsoft Docs"
+description: "Güvenlik filtreleri ve kullanıcı kimliklerini kullanarak Azure Search içeriği üzerinde erişim denetimi."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Azure Search güvenlik kırpma
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure arama sonuçlarında kırpma için güvenlik filtreleri
 
-Kullanıcı kimliğine göre belge erişimi kısıtlamak için arama sonuçlarını güvenlik filtre uygulayabilirsiniz. Bu arama deneyimi genellikle aktaranın belge izinlerine sahip ilkeleri içeren bir alana göre arama istekleri kimliği karşılaştırma gerektirir. Bir eşleşme bulunduğunda, kullanıcı veya asıl (örneğin, grubu veya rolüne) bu belgeye erişimi vardır.
+Azure Search kullanıcı kimliğine göre arama sonuçlarında kırpma için güvenlik filtre uygulayabilirsiniz. Bu arama deneyimi genellikle aktaranın belge izinlerine sahip ilkeleri içeren bir alana göre arama istekleri kimliği karşılaştırma gerektirir. Bir eşleşme bulunduğunda, kullanıcı veya asıl (örneğin, grubu veya rolüne) bu belgeye erişimi vardır.
 
 Güvenlik elde etmek için tek yönlü filtreleme karmaşık bir eşitlik ifadeleri ayrım olduğu: Örneğin, `Id eq 'id1' or Id eq 'id2'`, vb. Bu yaklaşım hataya, sağlamak zor ve sorgu yanıt süresi çok sayıda saniye olarak, listenin içerdiği yüzlerce veya binlerce değerlerin durumlarda yavaşlatır. 
 
@@ -108,13 +108,13 @@ Var olan bir belgeyi grupları listesini güncelleştirmek gerekiyorsa, kullanab
 }
 ```
 
-Belgeler eklemek veya ilgili tam Ayrıntılar için okuduğunuz [Düzenle belgeleri](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Belgeler eklemek veya ilgili tam Ayrıntılar için okuduğunuz [Düzenle belgeleri](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Güvenlik filtresini uygulayın
 
 Dayanan belgeler kırpma için `group_ids` erişim, bir arama sorgusuyla vermek bir `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filtre, burada 'group_id1, group_id2,...' arama isteği veren ait olduğu gruplarıdır.
 Bu filtre tüm belgeler için eşleşen `group_ids` alan verilen tanımlayıcıları birini içerir.
-Azure Search kullanarak belgeleri arama ile ilgili tam Ayrıntılar için okuduğunuz [Search belgeleri](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Azure Search kullanarak belgeleri arama ile ilgili tam Ayrıntılar için okuduğunuz [Search belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Bu örnek bir POST isteği kullanarak belgeleri aramak nasıl gösterdiğine dikkat edin.
 
 HTTP POST isteği gönderin:
@@ -155,3 +155,8 @@ Belgeleri alması gereken durumlarda, geri `group_ids` "group_id1" veya "group_i
 
 Kullanıcı kimliği ve Azure Search bağlı olarak sonuç nasıl filtreleyebilirsiniz budur `search.in()` işlevi. Her hedef belgeyle ilişkili asıl tanımlayıcıları eşleştirilecek isteyen kullanıcı için asıl tanımlayıcıları geçirmek için bu işlevi kullanabilirsiniz. Bir arama isteğine işlendiğinde `search.in` işlevi filtreler arama sonuçları kullanıcının sorumluları hiçbiri olan okuma erişimi. Asıl tanımlayıcıları güvenlik grupları, roller ya da hatta kullanıcının kendi kimliğini gibi şeyleri temsil edebilir.
  
+## <a name="see-also"></a>Ayrıca bkz.
+
++ [Azure Search filtreleri kullanarak active Directory kimlik tabanlı erişim denetimi](search-security-trimming-for-azure-search-with-aad.md)
++ [Azure Search'te filtreleri](search-filters.md)
++ [Azure Search işlemlerinde veri güvenliği ve erişim denetimi](search-security-overview.md)

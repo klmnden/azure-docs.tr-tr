@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory ile Azure Search'te kırpma güvenlik | Microsoft Docs"
-description: "Azure arama filtresi ve Azure Active Directory kullanılarak güvenlik kırpma uygulayın."
+title: "Azure arama sonuçları kullanarak Active Directory kimlikleri kırpma için güvenlik filtreleri | Microsoft Docs"
+description: "Güvenlik filtreleri ve Active Directory kimlikleri kullanarak Azure Search içeriği üzerinde erişim denetimi."
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Azure Search'te Azure Active Directory ile güvenlik kırpma
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Azure arama sonuçları kullanarak Active Directory kimlikleri kırpma için güvenlik filtreleri
 
-Bu makalede, Azure Active Directory (AAD) Azure arama ile birlikte kullanıcı grup üyeliğine dayalı belge erişimi kısıtlamak için nasıl kullanılacağı gösterilmektedir.
+Bu makalede, Azure Active Directory (AAD) güvenlik kimlikleri filtreleri birlikte Azure Search'te kullanıcının grup üyeliğini temel alarak arama sonuçlarını kırpma için nasıl kullanılacağı gösterilmektedir.
 
 Bu makalede aşağıdaki görevleri içerir:
 > [!div class="checklist"]
@@ -187,5 +187,6 @@ Bu kılavuzda, istek üzerine sağlanan filtre eşleşmiyor belgeleri sonuçlar�
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-+ [Azure Search güvenlik kırpma](search-security-trimming-for-azure-search.md)
++ [Azure Search filtreleri kullanarak kimlik tabanlı erişim denetimi](search-security-trimming-for-azure-search.md)
 + [Azure Search'te filtreleri](search-filters.md)
++ [Azure Search işlemlerinde veri güvenliği ve erişim denetimi](search-security-overview.md)

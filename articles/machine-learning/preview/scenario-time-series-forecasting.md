@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d1e6dc7899a9f3367c8aa05d862a863f1f88135
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Enerji talep zaman serisi tahmin
 
@@ -56,13 +56,11 @@ Bu senaryo bir machine learning çözüm tahmin enerji talep yapımı ayrıntıl
 - Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir).
 - Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](./quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için.
 - Bu örnek, Windows 10 ile Azure ML çalışma ekranı çalıştığını varsayar [Docker altyapısına](https://www.docker.com/) yerel olarak yüklü. MacOS kullanıyorsanız, büyük ölçüde aynı yönergelerdir.
-- Bu konuda açıklandığı gibi Azure Machine Learning ayarlanmış bir yerel dağıtım ortamı ve bir model yönetim hesabı ile yüklü Operationalization oluşturulan [Kılavuzu](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Bu konuda açıklandığı gibi Azure Machine Learning ayarlanmış bir yerel dağıtım ortamı ve bir model yönetim hesabı ile yüklü Operationalization oluşturulan [Kılavuzu](./model-management-configuration.md).
 - Bu örnek 0.20.3 sürüme Pandas yükleme güncelleştirmenin gerektirdiği veya üstü ve matplotlib yükleyin. Tıklatın *komut istemini açın* gelen *dosya* menüde çalışma ekranı ve bu bağımlılıklar yüklemek için aşağıdaki komutları çalıştırın:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
@@ -77,7 +75,7 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 
 ## <a name="data-description"></a>Veri açıklaması
 
-İki veri kümesi vardır: `nyc_demand.csv` ve `nyc_weather.csv`:
+İki veri kümesi ile bu örnek sağlanır ve kullanılarak yüklenen `1-data-preparation.ipynb` Not: `nyc_demand.csv` ve `nyc_weather.csv`.
 
 **nyc_demand.csv** saatlik 2012 2017 yıldır New York şehrinde enerji talep değerlerini içerir. Verileri aşağıdaki basit yapıya sahiptir:
 

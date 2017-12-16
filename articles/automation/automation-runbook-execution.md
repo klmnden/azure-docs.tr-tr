@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c883421c6fc79b233b2d47afde9cbe6edb909a51
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Otomasyonu Runbook yürütme
 Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş bir runbook tek yürütme örneğidir. Bir Azure Otomasyonu çalışan her bir iş çalıştırmak için atanır. Çalışan birden çok Azure paylaştığı olsa da, farklı Automation hesapları işlerden birbirinden yalıtılır. Değil sahip denetim işinizi isteği hangi çalışan hizmetleri. Tek bir runbook'ta aynı anda çalışan birden çok iş bulunabilir.  Aynı Otomasyon hesabı işlerden yürütme ortamı yeniden kullanılabilir. Azure portalında listesini görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek için her runbook için iş listesini görüntüleyebilirsiniz. Farklı iş durumları açıklaması [iş durumları](#job-statuses).
@@ -40,12 +40,12 @@ Aşağıdaki tabloda, bir iş için olası farklı durumlarını tanımlar.
 |:--- |:--- |
 | Tamamlandı |İş başarıyla tamamlandı. |
 | Başarısız |İçin [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md), runbook derlenemedi.  İçin [PowerShell Betiği runbook'ları](automation-runbook-types.md), runbook başlatılamadı veya iş bir özel durumla karşılaştı. |
-| Başarısız oldu, kaynaklar bekleniyor |İşi başarısız oldu, ulaştığından [Orta paylaşımı](#fairshare) sınırlamak üç kez ve her zaman aynı denetim noktasından veya runbook'un başından başlatıldı. |
+| Başarısız oldu, kaynaklar bekleniyor |İşi başarısız oldu, ulaştığından [Orta paylaşımı](#fair-share) sınırlamak üç kez ve her zaman aynı denetim noktasından veya runbook'un başından başlatıldı. |
 | Sıraya Alındı |İş başlatılabilir başlatılabilmek için Otomasyon çalışanındaki kaynakları bekliyor. |
 | Başlangıç |İş bir çalışana atandı ve bunu başlatma işleminde sistemidir. |
 | Sürdürülüyor |Askıya alındıktan sonra işi sürdürme işleminde sistemidir. |
 | Çalışıyor |İşi çalışıyor. |
-| Çalıştıran, kaynaklar bekleniyor |Bunu ulaştığından iş kaldırıldı [Orta paylaşımı](#fairshare) sınırı. Kısa bir süre sonra son denetim noktasından sürdürür. |
+| Çalıştıran, kaynaklar bekleniyor |Bunu ulaştığından iş kaldırıldı [Orta paylaşımı](#fair-share) sınırı. Kısa bir süre sonra son denetim noktasından sürdürür. |
 | Durduruldu |İş tamamlanmadan kullanıcı tarafından durduruldu. |
 | Durduruluyor |İşi durdurma işleminde sistemidir. |
 | Askıya Alındı |İş, kullanıcı, sistem veya runbook'taki bir komut tarafından askıya alındı. Askıya alınmış bir iş yeniden başlatılabilir ve kontrol noktası yoksa en son denetim noktasından veya runbook'un başından devam. Özel durum oluştuğunda runbook yalnızca sistem tarafından askıya alınır. Varsayılan olarak, ErrorActionPreference ayarlamak **devam**, yani bir hatayla işi tutar. Bu tercih değişkeni ayarlanmışsa **durdurmak**, sonra da bir hata işini askıya alır.  Uygulandığı öğe [grafik ve PowerShell iş akışı runbook'ları](automation-runbook-types.md) yalnızca. |

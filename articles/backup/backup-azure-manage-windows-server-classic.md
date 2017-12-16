@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
-ms.author: markgal;
-ms.openlocfilehash: ecc2eb996546810dad169dc25175ab10ebb164aa
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.author: cwatson
+ms.openlocfilehash: 3a54abe5b86aab41544e61d311ecfab19b577aa7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Klasik dağıtım modelini kullanarak Azure Backup kasa ve sunucularını yönetme
 > [!div class="op_single_selector"]
