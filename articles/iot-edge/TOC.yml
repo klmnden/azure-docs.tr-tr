@@ -32,11 +32,11 @@
       href: how-to-deploy-monitor.md
     - name: IoT Core cihazı hazırlama
       href: how-to-install-iot-core.md
+    - name: Sorun giderme
+      href: troubleshoot.md
 - name: Kavramlar
   items:
-    - name: IoT Edge sözlüğü
-      href: iot-edge-glossary.md
-    - name: Iot Edge modülleri
+    - name: IoT Edge modülleri
       href: iot-edge-modules.md
       items:
         - name: Geliştirme
@@ -51,6 +51,8 @@
       href: iot-edge-as-gateway.md
     - name: Güvenlik
       href: security.md
+    - name: IoT Edge sözlüğü
+      href: iot-edge-glossary.md
 - name: Kaynaklar
   items:
     - name: IoT için Azure Sertifikalı cihaz kataloğu
