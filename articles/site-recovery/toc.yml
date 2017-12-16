@@ -211,7 +211,7 @@
       items:
         - name: Active Directory ve DNS
           href: site-recovery-active-directory.md
-        - name: SQL Server çoğaltma
+        - name: SQL Server
           href: site-recovery-sql.md
         - name: SharePoint
           href: site-recovery-sharepoint.md
@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: vCenter sunucularını yönetme
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: CSP ile çok kiracılı olma özelliğini yönetme
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Sunucuları kaldırma ve korumayı devre dışı bırakma
           href: site-recovery-manage-registration-and-protection.md
         - name: Bir kasayı silme

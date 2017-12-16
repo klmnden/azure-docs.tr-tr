@@ -26,14 +26,13 @@
 
 ## SQL Veri Ambarı’na geçiş
 ### [Genel Bakış](sql-data-warehouse-overview-migrate.md)
-### [Geçiş Yardımcı Programı](sql-data-warehouse-migrate-migration-utility.md)
 ### [Geçiş şeması](sql-data-warehouse-migrate-schema.md)
 ### [Geçiş kodu](sql-data-warehouse-migrate-code.md)
 ### [Geçiş verileri](sql-data-warehouse-migrate-data.md)
 
 ## Verileri yükleme ve taşıma
-### [Genel Bakış](sql-data-warehouse-overview-load.md)
-### [PolyBase](sql-data-warehouse-load-polybase-guide.md)
+### [Genel Bakış](design-elt-data-loading.md)
+### [Rehber](guidance-for-loading-data.md)
 
 
 ## Tümleştirme
