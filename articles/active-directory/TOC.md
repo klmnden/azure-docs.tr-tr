@@ -58,6 +58,7 @@
 #### [Bir role B2B kullanıcısı ekleme](active-directory-b2b-add-guest-to-role.md)
 #### [Dinamik gruplar ve B2B kullanıcıları](active-directory-b2b-dynamic-groups.md)
 #### [Denetim ve raporlar](active-directory-b2b-auditing-and-reporting.md)
+#### [Hibrit kuruluşlar için B2B](active-directory-b2b-hybrid-organizations.md)
 #### [B2B ve Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
 #### [B2B lisansı](active-directory-b2b-licensing.md)
 #### [Geçerli sınırlamalar](active-directory-b2b-current-limitations.md)
@@ -265,6 +266,7 @@
 #### [Yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
+### [Acil durum erişimi yönetici hesaplarını yönetin](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Erişim gözden geçirmeleri
 ### [Erişim gözden geçirmelerine genel bakış](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -280,7 +282,7 @@
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
 #### [Denetimler](active-directory-conditional-access-controls.md)
-#### [Kullanmaya Başlama](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
 #### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
 #### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)

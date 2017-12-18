@@ -6,13 +6,13 @@ author: sewatson
 manager: lwelicki
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 30ffaff9c4a7bacbda1f6b973f328a345eb5d5b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9644a587d72973239e34073188ad2cd37eaab5dc
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-documentation"></a>Azure Cosmos DB Belgeleri
 
@@ -22,12 +22,12 @@ Azure Cosmos DB, esnek ve bağımsız olarak kapsamlı bir SLA ile herhangi bir 
 
 Çok modelli API’lerden birini kullanarak global olarak dağıtılmış veritabanı oluşturmak için Azure Cosmos DB kullanmayı öğrenin:
 
-### <a name="documentdb-api"></a>DocumentDB API’si
+### <a name="sql-api"></a>SQL API’si
 
-- [.NET](/azure/cosmos-db/create-documentdb-dotnet)
-- [Java](/azure/cosmos-db/create-documentdb-java)
-- [Node.js](/azure/cosmos-db/create-documentdb-nodejs)
-- [Python](/azure/cosmos-db/create-documentdb-python)
+- [.NET](/azure/cosmos-db/create-sql-api-dotnet)
+- [Java](/azure/cosmos-db/create-sql-api-java)
+- [Node.js](/azure/cosmos-db/create-sql-api-nodejs)
+- [Python](/azure/cosmos-db/create-sql-api-python)
 
 ### <a name="mongodb-api"></a>MongoDB API’si
 
@@ -50,11 +50,11 @@ Azure Cosmos DB, esnek ve bağımsız olarak kapsamlı bir SLA ile herhangi bir 
 
 Azure Cosmos DB kullanarak uygulama geliştirmeyi öğrenin:
 
-- Cosmos DB ile uygulama geliştirme: [DocumentDB](/azure/cosmos-db/tutorial-develop-documentdb-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Tablo](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Grafik](/azure/cosmos-db/tutorial-develop-graph-dotnet)
-- Verileri Cosmos DB'ye aktarma: [DocumentDB](/azure/documentdb/documentdb-import-data) | [MongoDB](/azure/documentdb/documentdb-mongodb-migrate) 
-- Cosmos DB ile verileri sorgulama: [DocumentDB](/azure/cosmos-db/tutorial-query-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Tablo](/azure/cosmos-db/tutorial-query-table) | [Grafik](/azure/cosmos-db/tutorial-query-graph)
-- Cosmos DB ile genel veritabanı çoğaltması: [DocumentDB](/azure/cosmos-db/tutorial-global-distribution-documentdb) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tablo](/azure/cosmos-db/tutorial-global-distribution-table | [Grafik](/azure/cosmos-db/tutorial-global-distribution-graph)
-- [Öykünücüyü kullanarak uygulamanızı yerel ortamda geliştirin](/azure/documentdb/documentdb-nosql-local-emulator)
+- Cosmos DB ile uygulama geliştirme: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Tablo](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graf](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Verileri Cosmos DB'ye aktarma: [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
+- Cosmos DB ile veri sorgulama: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Tablo](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
+- Cosmos DB ile genel veritabanı çoğaltması: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Tablo](/azure/cosmos-db/tutorial-global-distribution-table | [Graf](/azure/cosmos-db/tutorial-global-distribution-graph)
+- [Öykünücüyü kullanarak uygulamanızı yerel ortamda geliştirin](/azure/cosmos-db/local-emulator)
 
 ## <a name="samples"></a>Örnekler
 
