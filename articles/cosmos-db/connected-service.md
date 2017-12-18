@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio Bağlı Hizmeti (Önizleme)
 
@@ -119,8 +119,8 @@ Bu belgede aşağıdakileri öğrendiniz:
 
 Bağlı Hizmetleri Azure Cosmos DB hesabınızla birlikte çalışır hale getirdiniz. Aşağıdaki öğreticilerden birine geçerek çözümünüzü geliştirmeye başlayabilirsiniz:
 
-* [.NET'te DocumentDB API'siyle geliştirme](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB: DocumentDB API başlangıç öğreticisi](documentdb-get-started.md).
+* [.NET’te SQL API’siyle geliştirme](tutorial-develop-documentdb-dotnet.md).
+* [Azure Cosmos DB: SQL API’yi kullanmaya başlama öğreticisi](documentdb-get-started.md).
 * Azure Cosmos DB ile ölçek ve performans testi mi yapmak istiyorsunuz? Bkz. [Azure Cosmos DB ile Performans ve Ölçek Testi](performance-testing.md).
 * [Azure Cosmos DB hesabını nasıl izleyebileceğinizi](monitor-accounts.md) öğrenin.
 

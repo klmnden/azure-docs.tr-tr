@@ -3,7 +3,7 @@ title: "Bir Log Analytics Uyarısından Azure Otomasyonu Runbook’u Çağırma 
 description: "Bu makalede bir Microsoft OMS Log Analytics uyarısından Otomasyon runbook’u çağırma işlemine genel bakış sunulmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 10b445f8fcaa80182119e47f37ffb11240a46869
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Bir OMS Log Analytics uyarısından Azure Otomasyonu runbook’u çağırma
 
@@ -43,7 +43,7 @@ OMS çalışma alanınızda yüklü ve yapılandırılmış bir Otomasyon ve Den
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Bir runbook’un özellikleri (her iki seçenek için)
 
-Log Analytics uyarısından runbook çağırmaya yönelik her iki yöntem de uyarı kurallarınızı yapılandırmadan önce anlaşılması gereken farklı davranış özelliklerine sahiptir.
+Log Analytics uyarısından runbook çağırmaya yönelik her iki yöntem de uyarı kurallarınızı yapılandırmadan önce anlaşılması gereken farklı davranış özelliklerine sahiptir. Uyarı verileri JSON biçimindedir ve **SearchResult** adlı tek bir özellik içinde yer alır. Bu biçim, standart yüke sahip runbook ve web kancası eylemlerine yöneliktir. **RequestBody** içinde **IncludeSearchResults:True** dahil olan özel yüklere yönelik web kancası işlemleri için özellik, **SearchResults**’tur.
 
 * **Object** türünde **WebhookData** adlı bir runbook girdi parametreniz olmalıdır. Zorunlu veya isteğe bağlı olabilir. Uyarı bu girdi parametresini kullanarak arama sonuçlarını runbook’a geçirir.
 
@@ -61,6 +61,7 @@ Log Analytics uyarısından runbook çağırmaya yönelik her iki yöntem de uya
     ```
 
     *$SearchResults* bir nesne dizisidir; her nesne bir arama sonucunun değerlerini içeren alanlardan oluşur
+
 
 ## <a name="example-walkthrough"></a>Örnek kılavuz
 
@@ -80,6 +81,9 @@ $SearchResult.SvcDisplayName_CF
 Hizmet durdurulduğunda, Log Analytics'teki uyarı kuralı bir eşleşme saptar ve runbook’u tetikleyip uyarı bağlamını runbook'a gönderir. Runbook, hizmetin durdurulduğunu doğrulamak için işlem yapar ve durdurulmuşsa hizmeti yeniden başlatmayı deneyip doğru başlatıldığını onaylar ve sonuçları gönderir.     
 
 Otomasyon hesabınız OMS çalışma alanınıza bağlı değilse alternatif olarak, runbook’u tetiklemenin yanı sıra JSON ile biçimlendirilmiş dizeyi dönüştürecek ve daha önce bahsedilen adımlarla \*.SearchResult\* öğesini filtreleyecek şekilde yapılandırmak için, uyarı kuralını bir web kancası ile yapılandırabilirsiniz.    
+
+>[!NOTE]
+> Çalışma alanınız [yeni Log Analytics sorgu diline](../log-analytics/log-analytics-log-search-upgrade.md) yükseltilmişse ağ kancası yükü değiştirilmiştir.  Biçimle ilgili ayrıntılar için bkz. [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

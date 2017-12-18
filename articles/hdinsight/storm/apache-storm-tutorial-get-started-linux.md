@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d8b7d5830684b5e19eadd1b145a933527c2aa9fd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
 
@@ -47,7 +47,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
     ![HDInsight kümesi oluşturma](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
-2. **Temel bilgiler** dikey penceresinde aşağıdaki bilgileri girin:
+2. **Temel bilgiler** bölümünde aşağıdaki bilgileri girin:
 
     * **Küme Adı**: HDInsight kümesinin adı.
     * **Abonelik**: Kullanılacak abonelik.
@@ -58,7 +58,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
    ![Abonelik seçme](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
-3. **Küme türü**’nü seçin, ardından **Küme yapılandırması** dikey penceresinde aşağıdaki değerleri ayarlayın:
+3. **Küme türü**’nü seçin, ardından **Küme yapılandırması** bölümünde aşağıdaki değerleri ayarlayın:
 
     * **Küme Türü**: Storm
 
@@ -74,11 +74,11 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
 4. Küme türünü seçtikten sonra __Seç__ düğmesini kullanarak küme türünü ayarlayın. Ardından, __İleri__ düğmesini kullanarak temel yapılandırmayı tamamlayın.
 
-5. **Depolama** dikey penceresinden bir depolama hesabı seçin veya oluşturun. Bu belgedeki adımlar için bu dikey penceredeki diğer alanları varsayılan değerlerinde bırakın. __İleri__ düğmesini kullanarak depolama yapılandırmasını kaydedin.
+5. **Depolama** bölümünden bir depolama hesabı seçin veya oluşturun. Bu belgedeki adımlar için bu bölümdeki diğer alanları varsayılan değerlerinde bırakın. __İleri__ düğmesini kullanarak depolama yapılandırmasını kaydedin.
 
     ![HDInsight depolama hesabı ayarlarını belirleme](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. **Özet** dikey penceresinden kümenin yapılandırmasını gözden geçirin. Yanlış olan ayarları değiştirmek için __Düzenle__ bağlantılarını kullanın. Son olarak, __Oluştur__ düğmesini kullanarak kümeyi oluşturun.
+6. **Özet** bölümünden kümenin yapılandırmasını gözden geçirin. Yanlış olan ayarları değiştirmek için __Düzenle__ bağlantılarını kullanın. Son olarak, __Oluştur__ düğmesini kullanarak kümeyi oluşturun.
 
     ![Küme yapılandırma özeti](./media/apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -103,10 +103,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
 
-    > [!NOTE]
-    > HDInsight’ın önceki sürümlerinde, topolojinin sınıf adı `storm.starter.WordCountTopology` yerine `org.apache.storm.starter.WordCountTopology` şeklindedir.
-
-    Bu komut kümede "wordcount" kolay adı ile örnek WordCount topolojisini başlatır. Rastgele cümleler oluşturur ve cümlelerde her bir sözcüğün kaç kez geçtiğini sayar.
+    Bu komut, kümede örnek WordCount topolojisini başlatır. Bu topoloji, rastgele tümceler oluşturur ve kelimelerin tekrarlama sayısını belirler. Bu topolojinin kolay adı: `wordcount`.
 
     > [!NOTE]
     > Kümeye kendi topolojilerinizi gönderirken `storm` komutunu kullanmadan önce kümeyi içeren jar dosyasını kopyalamanız gerekir. Dosyayı kopyalamak için `scp` komutunu kullanın. Örneğin, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -199,7 +196,7 @@ HDInsight kümesi oluştururken sorun yaşarsanız bkz. [erişim denetimi gereks
 
 Bu Apache Storm öğreticisinde HDInsight üzerinde Storm ile çalışma hakkındaki temel bilgileri edindiniz. Ardından, [Maven kullanarak Java tabanlı topolojiler geliştirme](apache-storm-develop-java-topology.md) hakkında bilgi edindiniz.
 
-Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevcut bir topolojiyi HDInsight’a dağıtmak istiyorsanız bkz. [HDInsight’ta Apache Storm topolojilerini dağıtma ve yönetme](apache-storm-deploy-monitor-topology-linux.md).
+Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz [HDInsight’ta Apache Storm topolojilerini dağıtma ve yönetme](apache-storm-deploy-monitor-topology-linux.md) belgesine göz atın.
 
 .NET geliştiricisiyseniz Visual Studio'yu kullanarak C# veya karma C#/Java topolojileri oluşturabilirsiniz. Daha fazla bilgi edinmek için bkz. [Visual Studio için Hadoop araçlarını kullanarak HDInsight'ta Apache Storm için C# topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 992c438ab2dac8dc20ba284bd095afbcd801a62f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="hybrid-connections-overview"></a>Karma Bağlantılara genel bakış
 
@@ -90,12 +90,12 @@ Aşağıdaki TCP bağlantı noktaları Karma Bağlantılar tarafından kullanıl
 | 80, 443 |Bu bağlantı noktaları Azure’e bazı veri isteklerini iletmek için kullanılır. Ayrıca, 9352 ve 5671 bağlantı noktaları kullanıma hazır değilse, *bu nedenle* 80 ve 443 bağlantı noktaları, veri iletimi ve denetim kanalı için kullanılan temel bağlantı noktalarıdır.<br/><br/>Bu bağlantı noktalarına giden bağlantılara izin verin. <br/><br/>**Not** Diğer TCP bağlantı noktaları yerine bunların temel bağlantı noktası olarak kullanılması önerilmez. HTTP/WebSocket, veri kanallarına yönelik yerel TCP yerine protokol olarak kullanılır. Düşük performansa neden olabilir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Karma Bağlantıları oluşturma ve yönetme](integration-hybrid-connection-create-manage.md)<br/>
+[Karma Bağlantıları oluşturma ve yönetme](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Microsoft Azure’de BizTalk hizmetlerinin yönetilmesi için REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)
-[BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)<br/>
-[Azure portalını kullanarak BizTalk Hizmeti oluşturma](biztalk-provision-services.md)<br/>
-[BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[Microsoft Azure’da BizTalk hizmetlerinin yönetilmesi için REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)  
+[BizTalk Hizmeti oluşturma](biztalk-provision-services.md)  
+[BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)  
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png

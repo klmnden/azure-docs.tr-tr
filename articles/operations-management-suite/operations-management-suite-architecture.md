@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>OMS mimarisi
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/), şirket içi ve bulut ortamlarınızın yönetilmesine yönelik bulut tabanlı hizmetler koleksiyonudur.  Bu makalede, OMS'nin farklı şirket içi ve bulut bileşenlerinin yanı sıra bunların üst düzey bulut bilgi işlem mimarisi açıklanmaktadır.  Ayrıntılı bilgi için her bir hizmete ilişkin belgelere göz atabilirsiniz.
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="log-analytics"></a>Log Analytics
 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) tarafından toplanan tüm veriler, Azure'da barındırılan OMS deposunda depolanır.  Bağlı Kaynaklar, OMS deposunda toplanan veriler oluşturur.  Şu anda desteklenen üç bağlı kaynak türü mevcuttur.
 
-* Doğrudan OMS'ye bağlı bir [Windows](../log-analytics/log-analytics-windows-agents.md) veya [Linux](../log-analytics/log-analytics-linux-agents.md) bilgisayarda yüklü olan bir aracı.
+* Doğrudan OMS'ye bağlı bir [Windows](../log-analytics/log-analytics-windows-agent.md) veya [Linux](../log-analytics/log-analytics-linux-agents.md) bilgisayarda yüklü olan bir aracı.
 * [Log Analytics'e bağlı](../log-analytics/log-analytics-om-agents.md) bir System Center Operations Manager (SCOM) yönetim grubu.  SCOM aracıları, olayları ve performans verilerini Log Analytics'e yönlendiren yönetim sunucuları ile iletişim kurmaya devam eder.
 * Azure'daki bir çalışan rolünden, web rolünden veya sanal makineden [Azure Tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md) verileri toplayan bir [Azure depolama hesabı](../log-analytics/log-analytics-azure-storage.md).
 

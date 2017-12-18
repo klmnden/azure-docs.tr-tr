@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Tam kapsamlı bir örnek için bkz. [Hızlı başlangıç: .NET kullanarak veri 
 ## <a name="triggers"></a>Tetikleyiciler
 Tetikleyiciler bir işlem hattı çalıştırmasını yürütmenin ikinci yoludur. Tetikleyiciler, bir işlem hattı çalıştırmasının başlatılması gereken zamanı belirleyen işlem birimini temsil eder. Şu anda Data Factory, bir işlem hattını duvar saati zamanlamasıyla çağıran tetikleyicileri destekler. Buna **Zamanlayıcı Tetikleyicisi** denir. Data Factory şu anda dosya ulaştığında bir işlem hattı çalıştırılmasının tetikleyicisi gibi olay tabanlı tetikleyicileri desteklememektedir.
 
-İşlem hatları ve tetikleyiciler "n-m" ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını, bir tetikleyici de birden fazla işlem hattını başlatabilir. Aşağıdaki JSON tetikleyici tanımında **pipelines** özelliği belirli bir tetikleyici tarafından tetiklenen işlem hattı listesine ve işlem hattı parametresi değerlerine başvurmaktadır.
+İşlem hatları ve tetikleyiciler çoka çok ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını başlatırken, bir tetikleyici birden fazla işlem hattını başlatabilir. Aşağıdaki JSON tetikleyici tanımında **pipelines** özelliği belirli bir tetikleyici tarafından tetiklenen işlem hattı listesine ve işlem hattı parametresi değerlerine başvurmaktadır.
 
 ### <a name="basic-trigger-definition"></a>Temel tetikleyici tanımı: 
 ```json
@@ -165,7 +165,7 @@ Zamanlayıcı tetikleyicisi işlem hatlarını duvar saati zamanlamasıyla çal�
 ### <a name="scheduler-trigger-json-definition"></a>Zamanlayıcı tetikleyicisi JSON tanımı
 Zamanlayıcı tetikleyicisi oluşturduğunuzda bu bölümdeki örnekte gösterilen şekilde JSON kullanarak zamanlama ve yinelenme bildirimi yapabilirsiniz. 
 
-Zamanlayıcı tetikleyicinizin bir işlem hattı çalıştırmasını başlatması için tetikleyici tanımındaki belirli işlem hattının işlem hattı başvurusunu ekleyin. İşlem hatları ve tetikleyiciler "n-m" ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını başlatabilir. Aynı tetikleyici birden fazla işlem hattını başlatabilir.
+Zamanlayıcı tetikleyicinizin bir işlem hattı çalıştırmasını başlatması için tetikleyici tanımındaki belirli işlem hattının işlem hattı başvurusunu ekleyin. İşlem hatları ve tetikleyiciler çoka çok ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını başlatabilir. Tek bir tetikleyici birden fazla işlem hattını başlatabilir.
 
 ```json
 {

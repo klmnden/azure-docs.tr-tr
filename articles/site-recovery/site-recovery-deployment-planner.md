@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 665bb65d17e9abec98262b92afffba008ed6c891
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware’den Azure’a Azure Site Recovery Dağıtım Planlayıcısı
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -42,6 +42,8 @@ Araç aşağıdaki bilgileri sağlar:
 * Delta çoğaltma için gereken tahmini ağ bant genişliği
 * Site Recovery’nin şirket içinden Azure’a alabileceği aktarım hızı
 * Belirli bir süre içinde ilk çoğaltmayı tamamlamak için tahmin edilen bant genişliğine göre toplu hale getirilecek VM sayısı
+* Belirli bir bant genişliğinde ulaşılabilecek RPO
+* Daha düşük bant genişliği sağlandığında istenen RPO üzerinde etki.
 
 **Azure altyapı gereksinimleri**
 
@@ -55,7 +57,7 @@ Araç aşağıdaki bilgileri sağlar:
 **Şirket içi altyapı gereksinimleri**
 * Şirket içinde dağıtılması gereken yapılandırma sunucusu ve işlem sunucusu sayısı
 
-**Azure için tahmini DR maliyeti** 
+**Azure için tahmini DR maliyeti**
 * Azure için tahmini DR maliyeti: işlem, depolama, ağ ve Azure Site Recovery lisans maliyeti
 * VM başına ayrıntılı maliyet analizi
 

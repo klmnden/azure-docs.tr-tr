@@ -3,21 +3,21 @@ title: "Azure Active Directory Power BI İçerik Paketi'ni kullanma | Microsoft 
 description: "Azure Active Directory Power BI İçerik Paketi'ni kullanmayı öğrenin"
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba3f9f74fd7ba658b4e082775e471ed65a386fed
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 503b3f4c576382d8ce965d1f90aadda32c819a0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI İçerik Paketi'ni kullanma
 
@@ -46,7 +46,7 @@ Bu konu içerik paketini ortamınıza yüklemeniz ve kullanmanız için izlemeni
 5.  İstendiğinde Azure AD Kiracı Kimliğinizi girin ve **İleri**'ye tıklayın.
 
     > [!TIP] 
-    > Office 365/Azure AD kiracınızın kimliğini hızlıca bulmak için Azure AD Portalında oturum açın, dizine gidin ve şu URL'deki kimliği kopyalayın: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+    > Office 365 / Azure AD kiracınız için Kiracı kimliğinizi öğrenmenin en hızlı yolu, dizinde detaya giderek [**Özellikler** sayfasında](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) **Dizin kimliği**’ni kopyalamaktır.
 
     ![Azure Active Directory Power BI İçerik Paketi](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 
