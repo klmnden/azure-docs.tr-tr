@@ -15,45 +15,42 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2017
+ms.date: 12/08/2017
 ms.author: larryfr
-ms.openlocfilehash: c978a9ba97ecb9b8facaf32cbefbdd06cab8df67
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2232ae8a838ae2d7feb9a66e0953f006bf45c644
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight’ta Apache Storm nedir?
 
 [Apache Storm](http://storm.apache.org/); dağıtılmış, hataya dayanıklı, açık kaynaklı bir hesaplama sistemidir. Veri akışlarını Hadoop ile gerçek zamanlı olarak işlemek için Storm’u kullanabilirsiniz. Storm çözümleri ayrıca ilk seferde başarılı bir şekilde işlenmemiş verileri yeniden yürütme özelliğiyle birlikte verilerin garantili işlenmesini sağlayabilir.
 
-HDInsight üzerinde Storm aşağıdaki önemli avantajları sunar:
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-* Yüzde 99,9 çalışma zamanı SLA'sı ile yönetilen bir hizmet olarak çalışır.
+## <a name="why-use-storm-on-hdinsight"></a>HDInsight üzerinde Storm neden kullanılmalıdır?
+
+HDInsight üzerinde Storm aşağıdaki özellikleri sunar:
+
+* __Storm çalışma süresiyle ilgili %99 Hizmet Düzeyi Sözleşmesi__ : Daha fazla bilgi için [HDInsight için SLA bilgileri](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) belgesine göz atın.
 
 * Oluşturma sırasında veya sonrasında Storm kümesinde betik çalıştırarak kolay özelleştirmeyi destekler. Daha fazla bilgi için bkz. [HDInsight kümelerini betik eylemi kullanarak özelleştirme](../hdinsight-hadoop-customize-cluster-linux.md).
 
-* Çeşitli diller kullanır. Storm bileşenlerini Java, C# ve Python gibi dilediğiniz bir dilde yazabilirsiniz.
+* **Birden fazla dilde çözümler oluşturma**: Storm bileşenlerini Java, C# ve Python gibi dilediğiniz bir dilde yazabilirsiniz.
 
     * C# topolojisi geliştirme, yönetme ve izleme için HDInsight ile Visual Studio’yu tümleştirir. Daha fazla bilgi için bkz. [Visual Studio için HDInsight Araçlarıyla C# Storm topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md).
 
     * Trident Java arabirimini destekler. İletilerin tam olarak bir kez işlenmesini, işlemsel veri deposu kalıcılığını ve sık kullanılan Stream Analytics işlemlerini destekleyen Storm topolojileri oluşturabilirsiniz.
 
-*  Storm kümelerinin ölçeğini kolayca artırın veya azaltın. Çalışan Storm topolojilerini etkilemeden çalışan düğümleri ekleyebilir veya kaldırabilirsiniz.
+* **Dinamik ölçeklendirme**: Çalışan Storm topolojilerini etkilemeden çalışan düğümleri ekleyebilir veya kaldırabilirsiniz.
 
-* Aşağıdaki Azure Hizmetleri ile tümleştirilir:
+    > [!NOTE]
+    > Ölçeklendirme işlemleriyle eklenen birkaç yeni düğümden yararlanmak için, çalışan topolojileri devre dışı bırakıp yeniden etkinleştirebilirsiniz.
 
-    * Azure Event Hubs
+* **Birden fazla Azure hizmeti kullanarak akış işlem hatları oluşturma**: HDInsight’ta Storm, Event Hubs, SQL Veritabanı, Azure Depolama ve Azure Data Lake Store gibi diğer Azure hizmetleriyle tümleşir.
 
-    * Azure Sanal Ağ
-
-    * Azure SQL Database
-
-    * Azure Storage
-
-    * Azure Cosmos DB
-
-* Sanal Ağ kullanarak birden fazla HDInsight kümesinin özelliklerini güvenli bir şekilde birleştirir. Storm, Kafka, Spark, HBase veya Hadoop kümeleri kullanan analitik işlem hatları oluşturabilirsiniz.
+    Azure hizmetleriyle tümleşen örnek bir çözüm için bkz. [HDInsight’ta Storm ile Event Hubs etkinliklerini işleme](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 Gerçek zamanlı analiz çözümleri için Apache Storm kullanan şirketlerin listesi için bkz. [Apache Storm Kullanan Şirketler](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -68,6 +65,16 @@ Storm, alışkın olabileceğiniz MapReduce işlerinin yerine topolojiler çalı
 * Spout bileşenleri, verileri bir topolojiye getirir. Bu bileşenler topolojiye bir veya daha fazla akış yayar.
 
 * Bolt bileşenleri, spout veya diğer boltlardan yayılan akışları kullanır. Boltlar topolojiye isteğe bağlı olarak akışlar yayabilir. Boltlar ayrıca HDFS, Kafka veya HBase gibi dış hizmetlere veya depolama alanlarına veri yazmaktan sorumludur.
+
+## <a name="reliability"></a>Güvenilirlik
+
+Apache Storm, veri analizi yüzlerce düğüme dağıldığında bile tüm gelen iletilerin her zaman tamamen işleneceğini garanti eder.
+
+Nimbus düğümü, Hadoop JobTracker’a benzer bir işlevsellik sağlar ve Zookeeper aracılığıyla kümedeki diğer düğümlere görevler atar. Zookeeper düğümleri küme için eşgüdüm sağlar ve çalışan düğümleri üzerinde Nimbus ile Supervisor işlemi arasındaki iletişimi kolaylaştırır. Bir işleme düğümü devre dışı kalırsa Nimbus düğümü bilgilendirilir ve görevi ve ilişkili verileri başka bir düğüme atar.
+
+Apache Storm kümeleri için varsayılan yapılandırma yalnızca bir Nimbus düğümü içerir. HDInsight üzerindeki Storm iki Nimbus düğümü sağlar. Birincil düğüm başarısız olursa birincil düğüm kurtarılırken Storm kümesi ikincil düğüme geçiş yapar. Aşağıdaki diyagramda HDInsight üzerinde Storm için görev akışı yapılandırması gösterilmektedir:
+
+![Nimbus, zookeeper ve supervisor diyagramı](./media/apache-storm-overview/nimbus.png)
 
 ## <a name="ease-of-creation"></a>Oluşturma kolaylığı
 
@@ -100,23 +107,6 @@ HDInsight üzerinde dakikalar için yeni bir Storm kümesi oluşturabilirsiniz. 
     * [HDInsight üzerinde Storm ile Azure Event Hubs’tan olay işleme (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
 * __SQL Veritabanı__, __Cosmos DB__, __Event Hubs__ ve __HBase__: Visual Studio için Data Lake Araçlarına şablon örnekleri eklenmiştir. Daha fazla bilgi için bkz. [HDInsight'ta Storm için C# topolojisi geliştirme](apache-storm-develop-csharp-visual-studio-topology.md).
-
-## <a name="reliability"></a>Güvenilirlik
-
-Apache Storm, veri analizi yüzlerce düğüme dağıldığında bile tüm gelen iletilerin her zaman tamamen işleneceğini garanti eder.
-
-Nimbus düğümü, Hadoop JobTracker’a benzer bir işlevsellik sağlar ve Zookeeper aracılığıyla kümedeki diğer düğümlere görevler atar. Zookeeper düğümleri küme için eşgüdüm sağlar ve çalışan düğümleri üzerinde Nimbus ile Supervisor işlemi arasındaki iletişimi kolaylaştırır. Bir işleme düğümü devre dışı kalırsa Nimbus düğümü bilgilendirilir ve görevi ve ilişkili verileri başka bir düğüme atar.
-
-Apache Storm kümeleri için varsayılan yapılandırma yalnızca bir Nimbus düğümü içerir. HDInsight üzerindeki Storm iki Nimbus düğümü sağlar. Birincil düğüm başarısız olursa birincil düğüm kurtarılırken Storm kümesi ikincil düğüme geçiş yapar. Aşağıdaki diyagramda HDInsight üzerinde Storm için görev akışı yapılandırması gösterilmektedir:
-
-![Nimbus, zookeeper ve supervisor diyagramı](./media/apache-storm-overview/nimbus.png)
-
-## <a name="scale"></a>Ölçek
-
-Çalışan düğümleri ekleyerek veya kaldırarak HDInsight kümeleri ölçeklendirilebilir. Bu işlem, veriler işlenirken gerçekleştirilebilir.
-
-> [!IMPORTANT]
-> Ölçeklendirme aracılığıyla eklenen yeni düğümlerden yararlanmak için küme boyutu artırılmadan önce Storm topolojilerini yeniden dengelemeniz gerekir.
 
 ## <a name="support"></a>Destek
 

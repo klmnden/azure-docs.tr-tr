@@ -16,23 +16,23 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 638c3bfb5a312c196d09216f3f7bf95bbc983c10
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: MT
+ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Azure portalında ilk işlevinizi oluşturma
 
-Azure işlevleri sağlar, kodunuzda yürütme bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) önce bir VM oluşturun veya bir web uygulaması yayımlamak zorunda kalmadan ortamı. Bu konu başlığında, Azure portalında İşlevler’i kullanarak bir "hello world" işlevi oluşturmayı öğrenebilirsiniz.
+Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) bir ortamda yürütmenize olanak tanır. Bu konu başlığında, Azure portalında İşlevler’i kullanarak bir "hello world" işlevi oluşturmayı öğrenebilirsiniz.
 
 ![Azure portalında işlev uygulaması oluşturma](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+Azure portalı açın. Bunu yapmak için, Azure hesabınızla [Azure portalında](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 

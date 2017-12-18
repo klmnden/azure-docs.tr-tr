@@ -2,16 +2,16 @@ Lütfen daha önce [burada][namespace-how-to] gösterildiği gibi bir Service Bu
 
 1. [Azure portalında][azure-portal] oturum açın.
 2. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Diğer hizmetler**'e tıklayın).
-3. Kuyruğu oluşturmak istediğiniz ad alanına tıklayın. Bu durumda **nstest1** değerini kullanacaksınız.
+3. Kuyruğu oluşturmak istediğiniz ad alanına tıklayın. Bu durumda **sbnstest1** değerini kullanırsınız.
    
-    ![Kuyruk oluşturma][createqueue1]
-4. **Service Bus ad alanı** dikey penceresinde **Kuyruklar** seçeneğini belirleyin ve **Kuyruk ekle** düğmesine tıklayın.
+    ![Bir kuyruk oluşturma][createqueue1]
+4. Ad alanı penceresinde **Kuyruklar**’a ve sonra **Kuyruklar** penceresinde **Kuyruk Ekle**’ye tıklayın.
    
     ![Kuyruk Seçme][createqueue2]
 5. **Kuyruk Adını** girin ve diğer değerleri varsayılan olarak bırakın.
    
     ![Yeni Seçme][createqueue3]
-6. Dikey pencerenin altında yer alan **Oluştur** düğmesine tıklayın.
+6. Pencerenin altında yer alan **Oluştur** düğmesine tıklayın.
 
 [createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png

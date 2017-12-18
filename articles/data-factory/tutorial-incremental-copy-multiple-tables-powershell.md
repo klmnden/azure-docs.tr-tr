@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5472c41af9b0c524b931ed3e6b149270e17a633a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2d9213a74fd881a7be52f51ff8ebb49171c77283
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database"></a>SQL Server’daki birden fazla tabloyu Azure SQL Veritabanı’na artımlı olarak yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -215,7 +215,8 @@ END
 
 ```
 
-[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
+[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 1. Daha sonra PowerShell komutlarında kullanacağınız kaynak grubu adı için bir değişken tanımlayın. Aşağıdaki komut metnini PowerShell'e kopyalayın [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) için çift tırnak içinde bir ad belirtin ve ardından komutu çalıştırın. Örneğin: `"adfrg"`. 
@@ -504,7 +505,7 @@ Bu işlem hattı parametre olarak tablo adları listesini alır. **ForEach etkin
 4. Bir sonraki yinelemede kullanılacak eski eşik değerini güncelleştirmek için **saklı yordam etkinliğini** kullanın. 
 
 ### <a name="create-the-pipeline"></a>İşlem hattını oluşturma
-1. Aşağıdaki içeriğe sahip klasörde bir IncrementalCopyPipeline.json adlı bir JSON dosyası oluşturun: 
+1. Şu içeriğe sahip klasörde bir IncrementalCopyPipeline.json adlı bir JSON dosyası oluşturun: 
 
     ```json
     {
@@ -866,6 +867,6 @@ Bu öğreticide aşağıdaki adımları gerçekleştirdiniz:
 Azure üzerinde bir Spark kümesi kullanarak veri dönüştürme hakkında bilgi edinmek için aşağıdaki öğreticiye geçin:
 
 > [!div class="nextstepaction"]
->[Değişiklik İzleme teknolojisini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Değişiklik İzleme teknolojisini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 

@@ -15,16 +15,18 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: f24dc2600bec8b7086ee34a960e777a8a1b288ad
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 861c2c977fa9d0341125127852bc7747dfd6001a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için en iyi yöntemler
 Bu makalede, Azure SQL Veri Ambarı çözümünüzden yüksek performans almanıza yardımcı olacak en iyi yöntemler bir arada sunulmaktadır.  Bu makalede, temel ve kolay anlaşılır kavramların yanı sıra ileri düzey kavramlarla ilgili özet bilgilere yer verilmektedir.  Bu makalenin amacı, veri ambarınızı oluşturmanız sırasında size temel noktalarda rehberlik yapmak ve odaklanmanız gereken önemli noktalara dikkat çekmektir.  Her bölümde bir kavram tanıtılmakta ve ardından ilgili kavramı ayrıntılı bir şekilde açıklayan ileri düzey makalelere bağlantı verilmektedir.
 
 Azure SQL Veri Ambarı ile çalışmaya yeni başladıysanız, bu makale gözünüzü korkutmasın.  Konular genelde önem sırasına göre verilmiştir.  Başlangıç olarak ilk birkaç kavrama odaklanırsanız, daha kolay ilerleyebilirsiniz.  SQL Veri Ambarı hakkında daha fazla bilgi edinip daha çok kullanmaya başladıktan sonra bu makaleye dönerek birkaç kavrama daha göz atabilirsiniz.  Tüm kavramların oturması çok uzun sürmeyecektir.
+
+Yüklemeyle ilgili rehber için bkz. [Veri yükleme rehberi](guidance-for-loading-data.md).
 
 ## <a name="reduce-cost-with-pause-and-scale"></a>Duraklatma ve ölçeklendirme ile maliyetleri azaltın
 SQL Veri Ambarı’nın önemli özelliklerinden biri, kullanmadığınız zaman duraklatarak işlem kaynakların maliyetlerini durdurma şansına sahip olmanızdır.  Bir diğer önemli özellik ise kaynakları ölçeklendirmektir.  Duraklatma ve Ölçeklendirme işlemlerini Azure portal üzerinden veya PowerShell komutları aracılığıyla yapabilirsiniz.  Veri ambarınız kullanılmadığında ilgili maliyetleri önemli ölçüde düşürebildiğinden bu özellikleri inceleyip keşfetmeniz önerilir.  Veri ambarınızın her zaman erişilebilir durumda olmasını istiyorsanız, duraklatmak yerine en küçük boyut olan DW100’e ölçeklendirmeyi tercih edebilirsiniz.
@@ -52,7 +54,7 @@ SQL Veri Ambarı, veri yüklemek ve dışarı aktarmak için Azure Data Factory,
 Ayrıca bkz. [Yerel veriler][Load data], [PolyBase kullanma kılavuzu][Guide for using PolyBase], [Azure SQL Veri Ambarı yükleme modelleri ve stratejileri][Azure SQL Data Warehouse loading patterns and strategies], [Azure Data Factory ile veri yükleme][Load Data with Azure Data Factory], [Azure Data Factory ile veri taşıma][Move data with Azure Data Factory], [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT], [Create table as select (CTAS)][Create table as select (CTAS)]
 
 ## <a name="load-then-query-external-tables"></a>Dış tabloları önce yükleyip sonra sorgu çalıştırın
-Dış tablolar olarak da bilinen Polybase, veri yüklemenin en hızlı yolu olsa da sorgular için en iyi çözüm değildir. SQL Veri Ambarı Polybase tabloları şimdilik yalnızca Azure blob dosyalarını desteklemektedir. Bu dosyaları destekleyen herhangi bir işlem kaynağı yoktur.  Bu nedenle SQL Veri Ambarı bu işin yükünü boşaltamaz ve verileri okumak için dosyanın tamamını tempdb içine yüklemesi gerekir.  Sonuç olarak bu veriler için birden fazla sorgunuz varsa, verileri bir kez yükleyip sorguların yerel tabloyu kullanmalarını sağlamak daha iyi olacaktır.
+Dış tablolar olarak da bilinen Polybase, veri yüklemenin en hızlı yolu olsa da sorgular için en iyi çözüm değildir. SQL Veri Ambarı Polybase tabloları şimdilik yalnızca Azure blob dosyalarını ve Azure Data Lake depolama alanını desteklemektedir. Bu dosyaları destekleyen herhangi bir işlem kaynağı yoktur.  Bu nedenle SQL Veri Ambarı bu işin yükünü boşaltamaz ve verileri okumak için dosyanın tamamını tempdb içine yüklemesi gerekir.  Sonuç olarak bu veriler için birden fazla sorgunuz varsa, verileri bir kez yükleyip sorguların yerel tabloyu kullanmalarını sağlamak daha iyi olacaktır.
 
 Ayrıca bkz. [PolyBase kullanma kılavuzu][Guide for using PolyBase]
 
@@ -127,8 +129,8 @@ Son olarak özellik isteğinde bulunmak için lütfen [Azure SQL Veri Ambarı Ge
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary tables]: ./sql-data-warehouse-tables-temporary.md
-[Guide for using PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
-[Load data]: ./sql-data-warehouse-overview-load.md
+[Guide for using PolyBase]: ./guidance-for-loading-data.md
+[Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
 [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md

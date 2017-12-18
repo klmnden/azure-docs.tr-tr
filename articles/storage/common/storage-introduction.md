@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage’a Giriş
 
-Microsoft Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Microsoft bakımı üstlenir ve kritik sorunları sizin yerinize çözer. 
+Microsoft Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Microsoft bakımı üstlenir ve kritik sorunları sizin yerinize çözer.
 
 Azure Depolama üç veri hizmetinden oluşur: Blob depolama, Dosya depolama ve Kuyruk depolama. Blob depolama, standart ve premium depolama seçeneklerini destekler. Premium depolamada olabilecek en yüksek performans için yalnızca SSD kullanılır. Seyrek erişimli depolama, seyrek erişilen büyük miktarlarda verileri düşük maliyetli depolama olanağı sunan başka bir özelliktir.
 
@@ -31,9 +31,9 @@ Bu makalede, aşağıdakiler hakkında bilgi edinirsiniz:
 * Depolama hesabı türleri
 * Bloblara, kuyruklara ve dosyalara erişme
 * şifreleme
-* çoğaltma 
+* çoğaltma
 * Depolama içine veya dışına veri aktarma
-* kullanabileceğiniz çok sayıda depolama istemcisi. 
+* kullanabileceğiniz çok sayıda depolama istemcisi.
 
 Azure Depolama ile hemen çalışmaya başlamak için aşağıdaki hızlı başlangıç belgelerini inceleyin:
 * [PowerShell kullanarak depolama hesabı oluşturma](storage-quickstart-create-storage-account-powershell.md)
@@ -41,28 +41,28 @@ Azure Depolama ile hemen çalışmaya başlamak için aşağıdaki hızlı başl
 
 ## <a name="introducing-the-azure-storage-services"></a>Azure Depolama hizmetlerine giriş
 
-Azure Depolama tarafından sağlanan hizmetlerden (Blob depolama, Dosya depolama ve Kuyruk depolama) birini kullanmak için önce bir depolama hesabı oluşturmanız gerekir. Ardından o depolama hesabındaki belirli bir hizmete/hizmetten veri aktarabilirsiniz. 
+Azure Depolama tarafından sağlanan hizmetlerden (Blob depolama, Dosya depolama ve Kuyruk depolama) birini kullanmak için önce bir depolama hesabı oluşturmanız gerekir. Ardından o depolama hesabındaki belirli bir hizmete/hizmetten veri aktarabilirsiniz.
 
 ## <a name="blob-storage"></a>Blob depolama
 
-Bloblar, temelde bilgisayarda (veya tablet, mobil cihaz ve benzeri) depoladığınız dosyalara benzer dosyalardır. Bu dosyalar resimler, Microsoft Excel dosyaları, HTML dosyaları, sanal sabit diskler (VHD) olabileceği gibi, günlükler, veritabanı yedeklemeleri gibi büyük veriler de dahil olmak üzere neredeyse her şey olabilir. Bloblar klasörlere benzer kapsayıcılarda depolanır. 
+Bloblar, temelde bilgisayarda (veya tablet, mobil cihaz ve benzeri) depoladığınız dosyalara benzer dosyalardır. Bu dosyalar resimler, Microsoft Excel dosyaları, HTML dosyaları, sanal sabit diskler (VHD) olabileceği gibi, günlükler, veritabanı yedeklemeleri gibi büyük veriler de dahil olmak üzere neredeyse her şey olabilir. Bloblar klasörlere benzer kapsayıcılarda depolanır.
 
-Blob depolamada depoladığınız dosyalara URL'leri, REST arabirimi ya da Azure SDK'sı depolama istemci kitaplıklarından birini kullanarak tüm dünyadan erişebilirsiniz. Depolama istemcisi kitaplıkları, Node.js, Java, PHP, Ruby, Python ve .NET dahil olmak üzere birden çok dil için kullanılabilir. 
+Blob depolamada depoladığınız dosyalara URL'leri, REST arabirimi ya da Azure SDK'sı depolama istemci kitaplıklarından birini kullanarak tüm dünyadan erişebilirsiniz. Depolama istemcisi kitaplıkları, Node.js, Java, PHP, Ruby, Python ve .NET dahil olmak üzere birden çok dil için kullanılabilir.
 
 Blok bloblar, sayfa blobları (VHD dosyaları için kullanılır) ve ekleme blobları olmak üzere üç tür blob vardır.
 
-* Blok blobları, yaklaşık 4,7 TB’a kadar boyutta sıradan dosyaları saklamak için kullanılır. 
+* Blok blobları, yaklaşık 4,7 TB’a kadar boyutta sıradan dosyaları saklamak için kullanılır.
 * Sayfa blobları, 8 TB’a kadar boyutta rastgele erişimli dosyaları saklamak için kullanılır. Bunlar, sanal makineleri içeren VHD dosyaları için kullanılır.
 * Ekleme blobları blok bloblarına benzer bloklardan oluşur ancak ekleme işlemleri için en iyi duruma getirilmiştir. Bunlar, aynı bloba birden çok VM'den günlük bilgileri kaydı gibi şeyler için kullanılır.
 
 Ağ kısıtlamalarının kablo üzerinden Blob depolamaya veri yükleme veya indirme yapmayı kullanışsız hale getirdiği çok büyük veri kümelerinde verileri doğrudan veri merkezinden içeri veya dışarı aktarmak için Microsoft’a sabit sürücüler gönderebilirsiniz. Bkz: [Blob Storage’a Veri Aktarmak için Microsoft Azure İçeri/Dışarı Aktarma Hizmeti Kullanma](../storage-import-export-service.md).
 
 ## <a name="azure-files"></a>Azure Dosyaları
-[Azure Dosyaları](../files/storage-files-introduction.md), standart Sunucu İleti Bloğu (SMB) protokolü kullanılarak erişilebilen yüksek oranda kullanılabilir ağ dosya paylaşımları oluşturmanıza olanak tanır. Bu durum, birden fazla VM’nin hem okuma hem de yazma erişimi ile aynı dosyaları paylaşabildiği anlamına gelir. Dosyaları REST arabirimi veya depolama istemci kitaplıkları kullanarak da okuyabilirsiniz. 
+[Azure Dosyaları](../files/storage-files-introduction.md), standart Sunucu İleti Bloğu (SMB) protokolü kullanılarak erişilebilen yüksek oranda kullanılabilir ağ dosya paylaşımları oluşturmanıza olanak tanır. Bu durum, birden fazla VM’nin hem okuma hem de yazma erişimi ile aynı dosyaları paylaşabildiği anlamına gelir. Dosyaları REST arabirimi veya depolama istemci kitaplıkları kullanarak da okuyabilirsiniz.
 
-Dosyalara dünyanın herhangi bir yerinden dosyayı işaret eden ve paylaşılan erişim imzası (SAS) belirteci içeren bir URL kullanarak erişebilme olanağı, Azure Dosyaları'nı kurumsal bir dosya paylaşımındaki dosyalardan ayıran özelliklerden biridir. SAS belirteçleri oluşturabilirsiniz; bunlar, belirli bir süre için özel bir varlığa belirli bir erişim izni verir. 
+Dosyalara dünyanın herhangi bir yerinden dosyayı işaret eden ve paylaşılan erişim imzası (SAS) belirteci içeren bir URL kullanarak erişebilme olanağı, Azure Dosyaları'nı kurumsal bir dosya paylaşımındaki dosyalardan ayıran özelliklerden biridir. SAS belirteçleri oluşturabilirsiniz; bunlar, belirli bir süre için özel bir varlığa belirli bir erişim izni verir.
 
-Dosya paylaşımları için birçok yaygın senaryoda kullanılabilir: 
+Dosya paylaşımları için birçok yaygın senaryoda kullanılabilir:
 
 * Birçok şirket içi uygulama, dosya paylaşımlarını kullanır. Bu özellik, veri paylaşan uygulamaları Azure’a geçirmeyi kolaylaştırır. Dosya paylaşımını şirket içi uygulamanın kullandığı sürücü harfine bağlarsanız, uygulamanızın dosya paylaşımına erişen kısmı, varsa minimum değişikliklerle çalışır.
 
@@ -74,7 +74,7 @@ Dosya paylaşımları için birçok yaygın senaryoda kullanılabilir:
 
 ## <a name="queue-storage"></a>Kuyruk depolama
 
-Azure Kuyruk hizmeti, iletileri depolamak ve almak için kullanılır. Kuyruk iletilerinin boyutu 64 KB'ye kadar olabilir ve bir kuyruk, milyonlarca ileti içerebilir. Kuyruklar, genellikle zaman uyumsuz olarak işlenecek ileti listelerini depolamak için kullanılır. 
+Azure Kuyruk hizmeti, iletileri depolamak ve almak için kullanılır. Kuyruk iletilerinin boyutu 64 KB'ye kadar olabilir ve bir kuyruk, milyonlarca ileti içerebilir. Kuyruklar, genellikle zaman uyumsuz olarak işlenecek ileti listelerini depolamak için kullanılır.
 
 Örneğin, müşterilerinizin resimleri karşıya yükleyebilmesini ve her resmin küçük resimlerini oluşturabilmesini istediğinizi düşünelim. Müşterinizin resimleri karşıya yüklerken küçük resimleri oluşturmanızı beklemesini sağlayabilirsiniz. Alternatif olarak bir kuyruk kullanabilirsiniz. Müşteri, karşıya yüklemeyi tamamladığında, kuyruğa bir ileti yazın. Ardından Azure İşlevinin iletiyi kuyruktan alıp ve küçük resimleri oluşturmasını sağlayın. Bu işlemin tüm bölümleri ayrıca ölçeklendirilebileceğinden kullanımınız için ayarlarken daha fazla kontrol sunar.
 
@@ -86,7 +86,7 @@ Azure Tablo depolama artık Azure Cosmos DB’nin bir parçasıdır. Azure Tablo
 
 Azure Depolama ayrıca sanal makineler tarafından kullanılan, yönetilen ve yönetilmeyen disk özelliklerine sahiptir. Bu özellikler hakkında daha fazla bilgi için bkz. [İşlem Hizmetleri belgeleri](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
-## <a name="types-of-storage-accounts"></a>Depolama hesabı türleri 
+## <a name="types-of-storage-accounts"></a>Depolama hesabı türleri
 
 Bu tabloda, çeşitli depolama hesapları ve hangi nesnelerin bunlarda kullanılabildiği gösterilmektedir.
 
@@ -97,9 +97,9 @@ Bu tabloda, çeşitli depolama hesapları ve hangi nesnelerin bunlarda kullanıl
 
 ### <a name="general-purpose-storage-accounts"></a>Genel amaçlı depolama hesapları
 
-Genel amaçlı depolama hesaplarının iki türü vardır. 
+Genel amaçlı depolama hesaplarının iki türü vardır.
 
-#### <a name="standard-storage"></a>Standart depolama 
+#### <a name="standard-storage"></a>Standart depolama
 
 En yaygın olarak kullanılan depolama hesapları tüm veri türleri için kullanılabilen standart depolama hesaplarıdır. Standart depolama hesapları, manyetik ortam verilerini depolamak için kullanılır.
 
@@ -109,39 +109,39 @@ Premium depolama hesapları öncelikle VHD dosyaları için kullanılan sayfa bl
 
 ### <a name="blob-storage-accounts"></a>Blob Depolama Hesapları
 
-Blob Depolama hesabı, blok blobları ve ek bloblar depolamak için kullanılan bir özel depolama hesabıdır. Sayfa bloblarını bu hesaplarda depolayacağınızdan, VHD dosyalarını da depolayamazsınız. Bu hesaplar, erişim katmanını sık veya seyrek erişimli olarak ayarlamanıza olanak verir; katman herhangi bir zamanda değiştirilebilir. 
+Blob Depolama hesabı, blok blobları ve ek bloblar depolamak için kullanılan bir özel depolama hesabıdır. Sayfa bloblarını bu hesaplarda depolayacağınızdan, VHD dosyalarını da depolayamazsınız. Bu hesaplar, erişim katmanını sık veya seyrek erişimli olarak ayarlamanıza olanak verir; katman herhangi bir zamanda değiştirilebilir.
 
 Sık erişim katmanı sık erişilen dosyalar için kullanılır.-Depolama için daha yüksek bir maliyet ödersiniz, ancak bloblara erişme maliyeti çok daha düşüktür. Seyrek erişimli erişim katmanında depolanan bloblara erişmek için daha yüksek bir maliyet ödersiniz, ancak depolama maliyeti çok daha düşüktür.
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Bloblara, kuyruklara ve dosyalara erişme
 
-Her depolama hesabı herhangi bir işlem için kullanılabilen iki kimlik doğrulama anahtarına sahiptir. İki anahtar olduğundan güvenliği artırmak için anahtarları değiştirebilirsiniz. Hesap adı ile birlikte depolama hesabındaki tüm verilere sınırsız erişim olanağı verdiğinden bu anahtarların korunması önemlidir. 
+Her depolama hesabı herhangi bir işlem için kullanılabilen iki kimlik doğrulama anahtarına sahiptir. İki anahtar olduğundan güvenliği artırmak için anahtarları değiştirebilirsiniz. Hesap adı ile birlikte depolama hesabındaki tüm verilere sınırsız erişim olanağı verdiğinden bu anahtarların korunması önemlidir.
 
 Bu bölümde, depolama hesabını ve verilerini güvenceye almak için iki yöntem incelenir. Depolama hesabınız ve verilerinizin güvenliğini sağlama hakkında ayrıntılı bilgi için bkz. [Azure Depolama güvenlik kılavuzu](storage-security-guide.md).
 
 ### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Azure AD kullanarak depolama hesaplarında erişim güvenliğini sağlama
 
-Depolama verilerinize erişim güvenliğini sağlamak için seçeneklerden biri depolama hesabı anahtarlarına erişimi denetlemektir. Kaynak Yöneticisi Rol Tabanlı Erişim Denetimi (RBAC) ile kullanıcılar, gruplar veya uygulamalar için roller atayabilirsiniz. Bu roller, belirli bir izin verilen veya izin verilmeyen eylemler kümesine bağlıdır. RBAC kullanarak bir depolama hesabına erişim izni vermek, yalnızca bu depolama hesabı için erişim katmanını değiştirme işlemi gibi yönetim işlemlerini işler. RBAC’yi belirli bir kapsayıcı veya dosya paylaşımı gibi veri nesnelerine erişim vermek için kullanamazsınız. Ancak RBAC ile depolama hesabı anahtarlarına erişim verebilirsiniz, bu anahtarlar veri nesnelerini okumak için kullanılabilir. 
+Depolama verilerinize erişim güvenliğini sağlamak için seçeneklerden biri depolama hesabı anahtarlarına erişimi denetlemektir. Kaynak Yöneticisi Rol Tabanlı Erişim Denetimi (RBAC) ile kullanıcılar, gruplar veya uygulamalar için roller atayabilirsiniz. Bu roller, belirli bir izin verilen veya izin verilmeyen eylemler kümesine bağlıdır. RBAC kullanarak bir depolama hesabına erişim izni vermek, yalnızca bu depolama hesabı için erişim katmanını değiştirme işlemi gibi yönetim işlemlerini işler. RBAC’yi belirli bir kapsayıcı veya dosya paylaşımı gibi veri nesnelerine erişim vermek için kullanamazsınız. Ancak RBAC ile depolama hesabı anahtarlarına erişim verebilirsiniz, bu anahtarlar veri nesnelerini okumak için kullanılabilir.
 
-### <a name="securing-access-using-shared-access-signatures"></a>Paylaşılan erişim imzalarını kullanarak erişim güvenliğini sağlama 
+### <a name="securing-access-using-shared-access-signatures"></a>Paylaşılan erişim imzalarını kullanarak erişim güvenliğini sağlama
 
 Veri nesnelerini güvenli hale getirmek için paylaşılan erişim imzalarını ve depolanan erişim ilkelerini kullanabilirsiniz. Paylaşılan erişim imzası (SAS), belirli depolama nesnelerine erişim yetkisi vermenizi, erişim için izinleri ve erişim tarih/zaman aralığı kısıtlamaları belirlemenizi sağlayan bir varlığın URI’sına eklenebilen bir güvenlik belirteci içeren bir dizedir. Bu özellik kapsamlı olanaklar sağlar. Ayrıntılı bilgi için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
 ### <a name="public-access-to-blobs"></a>Bloblara genel erişim
 
-Blob Hizmeti, bir kapsayıcıya ve bloblarına veya belirli bir bloba genel erişim sağlamanıza izin verir. Bir kapsayıcı veya bir blobun genel erişime açıldığını belirttiğinizde herkes anonim olarak okuyabilir, herhangi bir kimlik doğrulama gerekli değildir. Görüntü, video veya Blob depolama biriminden belgeler kullanan bir web siteniz varsa bunu yapmak isteyebilirsiniz. Daha fazla bilgi için bkz. [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md). 
+Blob Hizmeti, bir kapsayıcıya ve bloblarına veya belirli bir bloba genel erişim sağlamanıza izin verir. Bir kapsayıcı veya bir blobun genel erişime açıldığını belirttiğinizde herkes anonim olarak okuyabilir, herhangi bir kimlik doğrulama gerekli değildir. Görüntü, video veya Blob depolama biriminden belgeler kullanan bir web siteniz varsa bunu yapmak isteyebilirsiniz. Daha fazla bilgi için bkz. [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).
 
 ## <a name="encryption"></a>Şifreleme
 
-Depolama hizmetleri için birkaç temel şifreleme seçeneği vardır. 
+Depolama hizmetleri için birkaç temel şifreleme seçeneği vardır.
 
-### <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme 
+### <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
 
-Depolama Hizmeti Şifrelemesini bir Azure depolama hesabının Dosyalar hizmetinde (önizleme) veya Blob hizmetinde (SSE) etkinleştirebilirsiniz. Etkinleştirilirse, ilgili hizmete yazılan tüm veriler yazılmadan önce şifrelenir. Okunmadan önce verilerin şifresi çözülür. 
+Depolama Hizmeti Şifrelemesini bir Azure depolama hesabının Dosyalar hizmetinde (önizleme) veya Blob hizmetinde (SSE) etkinleştirebilirsiniz. Etkinleştirilirse, ilgili hizmete yazılan tüm veriler yazılmadan önce şifrelenir. Okunmadan önce verilerin şifresi çözülür.
 
 ### <a name="client-side-encryption"></a>İstemci Tarafında Şifreleme
 
-Depolama istemcisi kitaplıklarında, verileri istemciden Azure'a göndermeden önce programlı olarak şifrelemek için çağırabileceğiniz yöntemler vardır. Şifreli olarak depolandığından, bekleme sırasında da şifrelenmiş olacaktır. Veriler geri okunurken bilgileri aldıktan sonra şifresini çözersiniz. 
+Depolama istemcisi kitaplıklarında, verileri istemciden Azure'a göndermeden önce programlı olarak şifrelemek için çağırabileceğiniz yöntemler vardır. Şifreli olarak depolandığından, bekleme sırasında da şifrelenmiş olacaktır. Veriler geri okunurken bilgileri aldıktan sonra şifresini çözersiniz.
 
 ### <a name="encryption-in-transit-with-azure-file-shares"></a>Azure Dosya paylaşımları ile aktarım sırasında şifreleme
 
@@ -151,27 +151,27 @@ Depolama hesabınızın ve verilerinizin güvenliğini sağlama hakkında daha f
 
 ## <a name="replication"></a>Çoğaltma
 
-Azure Depolama, verilerinizin güvende olmasını sağlamak için verilerinizin birden çok kopyasını tutma (ve yönetme) özelliğine sahiptir. Buna çoğaltma veya yedekleme denir. Depolama hesabınızı ayarladığınızda, çoğaltma türünü seçersiniz. Çoğu durumda, depolama hesabı ayarlandıktan sonra bu ayar değiştirilebilir. 
+Azure Depolama, verilerinizin güvende olmasını sağlamak için verilerinizin birden çok kopyasını tutma (ve yönetme) özelliğine sahiptir. Buna çoğaltma veya yedekleme denir. Depolama hesabınızı ayarladığınızda, çoğaltma türünü seçersiniz. Çoğu durumda, depolama hesabı ayarlandıktan sonra bu ayar değiştirilebilir.
 
-Tüm depolama hesaplarında **yerel olarak yedekli depolama (LRS)** vardır. Bu, verilerinizin üç kopyasının, depolama hesabı ayarlandığı zaman belirtilen veri merkezinde Azure depolama veri merkezi tarafından yönetildiği anlamına gelir. Bir kopyada değişiklik yapıldığında, başarılı sonuç döndürülmeden önce diğer iki kopya güncelleştirilir. Bu, üç kopyanın her zaman eşitlenmiş durumda olduğu anlamına gelir. Ayrıca, üç kopya ayrı hata etki alanları ve yükseltme etki alanlarında bulunur, böylece verilerinizin bulunduğu bir depolama düğümü arızalanır veya güncelleştirme amacıyla devreden çıkarılırsa bile verileriniz kullanılabilir. 
+Tüm depolama hesapları, belirli bir yıl boyunca en az %99,999999999% (11 basamaklı) nesne dayanıklılığı sağlamak için tasarlanan **yerel olarak yedekli depolamaya (LRS)** sahiptir. Bu, verilerinizin birden çok kopyasının, depolama hesabı ayarlandığı zaman belirtilen veri merkezinde Azure Depolama veri merkezi tarafından yönetildiği anlamına gelir. Değişiklik yapıldığında, başarılı sonuç döndürülmeden önce tüm kopyalar güncelleştirilir. Bu, kopyaların her zaman eşitlenmiş durumda olduğu anlamına gelir. Ayrıca, kopyalar ayrı hata etki alanları ve yükseltme etki alanlarında bulunur, böylece verilerinizin bulunduğu bir depolama düğümü arızalanır veya güncelleştirme amacıyla devreden çıkarılırsa bile verileriniz kullanılabilir.
 
 **Yerel olarak yedekli depolama (LRS)**
 
-Yukarıda da açıklandığı şekilde, LRS ile tek bir veri merkezinde verilerinizin üç kopyasına sahip olursunuz. Bu da verilerinizin, bir depolama düğümü arızalanır veya güncelleştirme amacıyla devreden çıkarılırsa bile kullanılabileceği, ancak veri merkezinin tamamı devre dışı olduğunda kullanılamayacağı anlamına gelir.
+Yukarıda da açıklandığı şekilde, LRS ile tek bir veri merkezinde verilerinizin birden çok kopyasına sahip olursunuz. Bu da verilerinizin, bir depolama düğümü arızalanır veya güncelleştirme amacıyla devreden çıkarılırsa bile kullanılabileceği, ancak veri merkezinin tamamı devre dışı olduğunda kullanılamayacağı anlamına gelir.
 
 **Bölgesel olarak yedekli depolama (ZRS)**
 
-Bölgesel olarak yedekli depolama (ZRS) verilerinizin üç yerel kopyasını ve ek bir üç kopyasını tutar. İkinci küme üç kopya, bir veya iki bölgedeki veri merkezleri arasında zaman uyumsuz olarak çoğaltılır. ZRS’nin yalnızca genel amaçlı depolama hesaplarındaki blok bloblar için kullanılabilir olduğunu unutmayın. Ayrıca, Depolama hesabınızı oluşturup ZRS’yi seçtiğinizde farklı bir tür çoğaltma seçeneği kullanmak üzere dönüştüremezsiniz; tersi durumda da aynısı söz konusudur.
+Bölgesel olarak yedekli depolama (ZRS), verilerinizin yerel kopyalarının yanı sıra başka bir kopya kümesini de saklayarak belirli bir yıl boyunca en az %99,9999999999 (12 basamaklı) nesne dayanıklılığı sağlamak için tasarlanmıştır. İkinci kopya kümesi, bir veya iki bölgedeki veri merkezleri arasında zaman uyumsuz olarak çoğaltılır. ZRS’nin yalnızca genel amaçlı depolama hesaplarındaki blok bloblar için kullanılabilir olduğunu unutmayın. Ayrıca, Depolama hesabınızı oluşturup ZRS’yi seçtiğinizde farklı bir tür çoğaltma seçeneği kullanmak üzere dönüştüremezsiniz; tersi durumda da aynısı söz konusudur.
 
-ZRS hesapları LRS’ye göre daha fazla dayanıklılık sağlar, ancak ZRS hesaplarının ölçüm ve günlüğe kaydetme özelliği yoktur. 
+ZRS hesapları LRS’ye göre daha fazla dayanıklılık sağlar, ancak ZRS hesaplarının ölçüm ve günlüğe kaydetme özelliği yoktur.
 
 **Coğrafi olarak yedekli depolama (GRS)**
 
-Coğrafi olarak yedekli depolama (GRS), verilerinizin bir birincil bölgede üç yerel kopyasını, ayrıca birincil bölgeden yüzlerce mil uzaktaki ikincil bir bölgede üç kopyasını tutar. Birincil bölgede bir arıza olması durumunda Azure Storage ikincil bölgeye yük devredecektir. 
+Coğrafi olarak yedekli depolama (GRS), verilerinizin bir birincil bölgede yerel kopyalarının yanı sıra birincil bölgeden yüzlerce mil uzaktaki ikincil bir bölgede kopyalarını saklayarak belirli bir yıl boyunca en az %99,99999999999999 (16 basamaklı) nesne dayanıklılığı sağlamak için tasarlanmıştır. Birincil bölgede bir arıza olması durumunda Azure Storage ikincil bölgeye yük devredecektir.
 
-**Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)** 
+**Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)**
 
-Okuma erişimli coğrafi olarak yedekli depolama, ikincil konumdaki verilere yalnızca okuma erişimi sağlaması dışında aynı GRS gibidir. Birincil veri merkezi geçici olarak kullanılamaz duruma gelirse, verileri ikincil konumdan okumaya devam edebilirsiniz. Bu çok yararlı olabilir. Örneğin, bir web uygulamanız salt okunur moda geçip ikincil kopyaya başvurabilir. Böylece güncelleştirmeler kullanılabilir olmasa da belirli bir düzey erişim sağlanır. 
+Okuma erişimli coğrafi olarak yedekli depolama, ikincil konumdaki verilere yalnızca okuma erişimi sağlaması dışında aynı GRS gibidir. Birincil veri merkezi geçici olarak kullanılamaz duruma gelirse, verileri ikincil konumdan okumaya devam edebilirsiniz. Bu çok yararlı olabilir. Örneğin, bir web uygulamanız salt okunur moda geçip ikincil kopyaya başvurabilir. Böylece güncelleştirmeler kullanılabilir olmasa da belirli bir düzey erişim sağlanır.
 
 > [!IMPORTANT]
 > Hesabınızı oluştururken ZRS seçmediyseniz, depolama hesabınız oluşturulduktan sonra verilerinizin çoğaltılma yöntemini değiştirebilirsiniz. Buna karşın LRS’den GRS’ye veya RA-GRS’ye geçiş yaparsanız tek seferlik veri aktarımı ücreti ödemeniz gerekebileceğini unutmayın.

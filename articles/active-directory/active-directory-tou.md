@@ -4,7 +4,7 @@ description: "Azure AD Kullanım Koşulları, size ve şirketinize Azure AD hizm
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: d55872ef-7e45-4de5-a9a0-3298e3de3565
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Azure Active Directory Kullanım Koşulları özelliği (Önizleme)
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar.  Böylece kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlanır.
@@ -52,7 +52,7 @@ Kullanım Koşullarınıza son şeklini verdikten sonra, bunları eklemek için 
 ### <a name="to-add-terms-of-use"></a>Kullanım Koşulları eklemek için
 1. [https://aka.ms/catou](https://aka.ms/catou) adresindeki panoya gidin
 2. Ekle'ye tıklayın.</br>
-![Kullanım Koşulları ekleme](media/active-directory-tou/tou2.png)
+![Kullanım Koşullarını Ekleme](media/active-directory-tou/tou2.png)
 3. Kullanım Koşulları için bir **Ad** girin
 4. **Görünen Ad** girin.  Kullanıcılar oturum açtıklarında bu üst bilgiyi görür.
 5. Kullanım Koşullarınızın son halinin bulunduğu PDF’ye **gözatın** ve bunu seçin.  Önerilen yazı tipi boyutu 24’tür.

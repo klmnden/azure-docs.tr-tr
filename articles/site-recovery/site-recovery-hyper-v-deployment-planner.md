@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V’den Azure’a Azure Site Recovery Dağıtım Planlayıcısı
 Bu makale, Hyper-V’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
@@ -40,6 +40,9 @@ Araç aşağıdaki bilgileri sağlar:
 
 * Delta çoğaltma için gereken tahmini ağ bant genişliği
 * Azure Site Recovery’nin şirket içinden Azure’a alabileceği aktarım hızı
+* Belirli bir bant genişliğinde ulaşılabilecek RPO
+* Daha düşük bant genişliği sağlandığında istenen RPO üzerinde etki.
+
     
 **Azure altyapı gereksinimleri**
 
@@ -52,6 +55,7 @@ Araç aşağıdaki bilgileri sağlar:
 
 **Şirket içi altyapı gereksinimleri**
 * Ürün uygulamalarınızın için istenmeyen biçimde kapalı kalmasına neden olmayacak VM çoğaltması sağlamak üzere ilk çoğaltma ve değişim çoğaltmasının başarılı olması için her bir Hyper-V depolama biriminde olması gereken boş depolama alanı
+* Hyper-V çoğaltması için ayarlanabilecek en yüksek kopya sıklığı
 
 **İlk çoğaltma işlem grubu oluşturma rehberi** 
 * Koruma için kullanılacak VM batch sayısı
@@ -79,7 +83,7 @@ Desteklenen Sürüm | vCenter 6.5, 6.0 veya 5.5| Windows Server 2016, Windows Se
 Desteklenen yapılandırma|vCenter, ESXi| Hyper-V kümesi, Hyper-V konağı|NA|Hyper-V kümesi, Hyper-V konağı|NA|
 Çalışan Azure Site Recovery Dağıtım Planlayıcısı örneği başına profili oluşturulabilecek sunucu sayısı |Tek (bir vCenter Server ve bir ESXi sunucusuna ait VM’lerin profili aynı anda oluşturulabilir)|Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| NA |Birden çok (birden çok konak veya konak kümesindeki sanal makinelerin profili tek seferde oluşturulabilir)| NA
 
-*Bu araç, öncelikli olarak Hyper-V’den Azure’a olağanüstü durum kurtarma senaryosuna yöneliktir. Hyper-V’den ikincil olağanüstü durum kurtarmaya senaryosunda yalnızca gereken ağ bant genişliği, kaynak Hyper-V sunucuların her birinde gereken boş depolama alanı ve ilk çoğaltmadaki batch numaralarıyla batch açıklamaları gibi kaynak tarafı önerilerin anlaşılması için kullanılabilir.  Rapordaki Azure önerileriniz ve maliyetleri dikkate almayın. Ayrıca Aktarım Hızı Alma işlemi, Hyper-V’den ikincil olağanüstü durum kurtarmaya senaryosu için kullanılamaz.
+*Bu araç, öncelikli olarak Hyper-V’den Azure’a olağanüstü durum kurtarma senaryosuna yöneliktir. Hyper-V’den ikincil olağanüstü durum kurtarmaya senaryosunda yalnızca gereken ağ bant genişliği, kaynak Hyper-V sunucuların her birinde gereken boş depolama alanı ve ilk çoğaltmadaki batch numaralarıyla batch açıklamaları gibi kaynak tarafı önerilerin anlaşılması için kullanılabilir.  Rapordaki Azure önerilerini ve maliyetleri dikkate almayın. Ayrıca Aktarım Hızı Alma işlemi, Hyper-V’den ikincil siteye olağanüstü durum kurtarma senaryosu için kullanılamaz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Araç, Hyper-V için üç ana aşama içerir: VM listesini alma, profil oluşturma ve rapor oluşturma. Yalnızca aktarım hızını hesaplamaya yönelik dördüncü bir seçenek de mevcuttur. Farklı aşamaların çalıştırılacağı sunucuya ilişkin gereksinimler aşağıdaki tabloda verilmiştir:
@@ -106,7 +110,7 @@ Araç, Hyper-V için üç ana aşama içerir: VM listesini alma, profil oluştur
 
             Enable-PSRemoting -Force
 
-## <a name="download-and-extract-the-deployment-planner-tool"></a>Dağıtım planlayıcısı arasını indirme ve ayıklama
+## <a name="download-and-extract-the-deployment-planner-tool"></a>Dağıtım planlayıcısı aracını indirme ve ayıklama
 
 1.  [Azure Site Recovery dağıtım planlayıcısı](https://aka.ms/asr-deployment-planner)’nın en son sürümünü indirin.
 Araç bir zip klasöründe paketlenmiştir. Aynı araç hem VMware’den Azure’a hem de Hyper-V’den Azure’a olağanüstü durum kurtarma senaryolarını destekler. Bu aracı Hyper-V’den ikincil siteye olağanüstü durum kurtarma senaryoları için de kullanabilirsiniz. Ancak bu durumda, rapordaki Azure altyapısı önerilerini dikkate almayın.
@@ -122,7 +126,7 @@ Klasör birden fazla dosya ve alt klasör içerir. Yürütülebilir dosya, üst 
 E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Dağıtım planlayıcısını en son sürüme güncelleştirme
-Dağıtım planlayıcısının önceki sürümüne sahipseniz aşağıdakilerden birini yapın:
+Dağıtım planlayıcısının önceki sürümüne sahipseniz şunlardan birini yapın:
  * En son sürüm bir profil oluşturma düzeltmesi içermiyor ve profil oluşturma planlayıcının geçerli sürümünde devam ediyorsa, profil oluşturmaya devam edin.
  * En son sürüm bir profil oluşturma düzeltmesi içeriyorsa, geçerli sürümünüzde profil oluşturmayı durdurmanız ve profil oluşturma işlemini yeni sürümle yeniden başlatmanız önerilir.
 

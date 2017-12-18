@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka’ya giriş
 
@@ -62,6 +62,8 @@ HDInsight üzerinde Kafka aşağıdaki özellikleri sunar:
 ![Kafka kümesi yapılandırması](./media/apache-kafka-introduction/kafka-cluster.png)
 
 Bu şemada olayların hata dayanıklılığı ile paralel olarak okunması için tüketici gruplarını, bölümlemeyi ve çoğaltmayı kullanan tipik Kafka yapılandırması gösterilmektedir. Kafka kümesinin durumunu yöneten Apache ZooKeeper eş zamanlı, esnek ve düşük gecikmeli işlemler için derlenmiştir. Kafka, kayıtları *başlıklar* halinde depolar. Kayıtlar, *Üreticiler* tarafından oluşturulur ve *tüketiciler* tarafından kullanılır. Üreticiler, kayıtları Kafka *aracılarından* alır. HDInsight kümenizdeki her çalışan düğümü bir Kafka aracısıdır. Her tüketici için bir bölüm oluşturulduğundan akış verileri paralel olarak işlenebilir. Çoğaltma, bölmeleri düğümlere yaymak ve düğüm (aracı) kesintilerine karşı koruma sağlamak için kullanılır. *(L)* harfi bulunan bölüm, verilen bölümün lideridir. Üretici trafiği ZooKeeper tarafından yönetilen durum kullanılarak her düğümün liderine yönlendirilir.
+
+Her Kafka aracısı, Azure Yönetilen Diskler’i kullanır. Disk sayısı kullanıcı tarafından tanımlanmıştır ve diskler aracı başına 16 TB’a varan depolama alanı sunabilir.
 
 > [!IMPORTANT]
 > Kafka, Azure veri merkezindeki temel donanımın (raf) farkında değildir. Bölümlerin temel donanım üzerinde doğru şekilde dengelendiğinden emin olmak için bkz. [yüksek kullanılabilirliği yapılandırma (Kafka)](apache-kafka-high-availability.md).

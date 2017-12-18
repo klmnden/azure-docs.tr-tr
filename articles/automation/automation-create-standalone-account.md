@@ -3,7 +3,7 @@ title: "Tek başına Azure Otomasyonu Hesabı oluşturma | Microsoft Docs"
 description: "Eğitici, Azure Automation’da güvenlik temel elemanı kimlik doğrulaması oluşturulması, test edilmesi ve örneklerinde size yol göstermektedir."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
 Bu konu başlığında, runbook işlerinin gelişmiş izlemesini sağlayan ek yönetim çözümlerini veya OMS Log Analytics tümleştirmesini dahil etmeden Azure Otomasyonu’nu değerlendirip öğrenmek istiyorsanız, Azure portalından Otomasyon hesabı oluşturma işlemini göstermektedir.  Daha sonra dilediğiniz zaman bu yönetim çözümlerini ekleyebilir veya Log Analytics ile tümleştirebilirsiniz.  Otomasyon hesabı ile, Azure Resource Manager veya Azure klasik dağıtımında kaynakları yöneten runbook’ların kimliğini doğrulayabilirsiniz.
@@ -69,7 +69,7 @@ Otomasyon hesabı başarıyla oluşturulduğunda bazı kaynaklar sizin için oto
 
 | Kaynak | Açıklama |
 | --- | --- |
-| AzureAutomationTutorial Runbook |Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren ve tüm Resource Manager kaynaklarını alan örnek bir Grafik runbook. |
+| AzureAutomationTutorial Runbook |Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren ve tüm Resource Manager kaynaklarını alan örnek bir Graf runbook. |
 | AzureAutomationTutorialScript Runbook |Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren ve tüm Resource Manager kaynaklarını alan örnek bir PowerShell runbook. |
 | AzureAutomationTutorialPython2 Runbook |Farklı Çalıştır hesabını kullanarak kimlik doğrulaması gerçekleştiren ve belirtilen abonelik içindeki kaynak gruplarını listeleyen örnek Python runbook. |
 | AzureRunAsCertificate |Otomasyon hesabı oluşturulurken otomatik olarak oluşturulan ya da var olan bir hesap için aşağıdaki PowerShell komut dosyası kullanılarak oluşturulan sertifika varlığı.  Azure Resource Manager kaynaklarını runbook’lardan yönetebilmeniz için Azure kimlik doğrulaması yapmanıza imkan tanır.  Bu sertifikanın bir yıllık kullanım ömrü vardır. |

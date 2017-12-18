@@ -1,26 +1,25 @@
 ---
-title: "Azure ortamınızda uyumlu olmayan kaynakları tanımlamak için bir ilke ataması oluşturmak için Azure CLI kullanın | Microsoft Docs"
-description: "Uyumlu olmayan kaynakları tanımlamak için bir Azure ilke ataması oluşturmak için PowerShell kullanın."
+title: "Azure ortamınızda uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturmak için Azure CLI kullanma | Microsoft Docs"
+description: "Uyumlu olmayan kaynakları belirlemek üzere bir Azure İlkesi ataması oluşturmak için PowerShell kullanın."
 services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.openlocfilehash: 88ceb47d46b66e716c6c263098d5b9458e4aff22
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Azure CLI ile Azure ortamınızda uyumlu olmayan kaynakları tanımlamak için bir ilke atamasını oluşturma
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Azure CLI ile Azure ortamınızda uyumlu olmayan kaynakları belirlemek üzere bir ilke ataması oluşturun
 
-Azure'da anlama uyumluluk ilk adımı, kendi geçerli kaynaklarla göze burada bilmektir. Bu hızlı başlangıç yönetilen diskleri kullanmıyorsanız sanal makineleri tanımak amacıyla bir ilke atamasını oluşturma sürecinde adımları.
+Azure’da uyumluluğu anlamanın ilk adımı kendi mevcut kaynaklarınızın durumunu bilmektir. Bu hızlı başlangıç, yönetilen disk kullanmayan sanal makineleri belirlemek üzere ilke ataması oluşturma işleminde size yol gösterir.
 
-Bu işlemin sonunda hangi sanal makineleri yönetilen diskleri kullanmıyorsanız başarıyla tanımladınız ve bu nedenle *uyumlu olmayan*.
-.
+Bu işlemin sonunda, hangi sanal makinelerin yönetilen disk kullanmadığını ve bu nedenle *uyumsuz* olduğunu başarılı bir şekilde belirlemiş olacaksınız.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -28,69 +27,55 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-## <a name="opt-in-to-azure-policy"></a>Azure ilke kabul
+## <a name="create-a-policy-assignment"></a>İlke ataması oluşturma
 
-Azure ilke genel Önizleme'de kullanıma sunulmuştur ve erişim isteyen kaydetmeniz gerekir.
+Bu hızlı başlangıçta, bir ilke ataması oluşturup Yönetilen Diskleri Olmayan Sanal Makineleri Denetle tanımını atayacağız. Bu ilke tanımı, ilke tanımında ayarlanan koşullar ile uyumlu olmayan kaynakları belirler.
 
-1. Git Azure ilke https://aka.ms/getpolicy ve select **kaydolun** sol bölmede.
+Yeni ilke ataması oluşturmak için bu adımları izleyin.
 
-   ![İlke Ara](media/assign-policy-definition/sign-up.png)
-
-2. Azure ilke Aboneliklerde seçerek kabul **abonelik** çalışmak istediğiniz listesi. Ardından **kaydetmek**.
-
-   ![Azure ilke kullanmayı kabulü](media/assign-policy-definition/preview-opt-in.png)
-
-   İsteğiniz Önizleme için otomatik olarak onaylanır. Lütfen sisteme kaydınızı işlemek 30 dakika bekleyin.
-
-## <a name="create-a-policy-assignment"></a>Bir ilke atamasını oluşturma
-
-Bu hızlı başlangıç içinde bir ilke ataması oluşturun ve yönetilen diskleri tanımı olmadan denetim sanal makineleri atayın. Bu ilke tanımı ilke tanımı'nda ayarlanan koşulları ile uyumlu olmayan kaynakları tanımlar.
-
-Yeni bir ilke ataması oluşturmak için aşağıdaki adımları izleyin.
-
-Tüm ilke tanımları görüntüleyebilir ve "Yönetilen diskleri olmadan denetim sanal makineler" ilke tanımı bulunamadı:
+Tüm ilke tanımlarını görüntüleyin ve “Yönetilen Diskleri Olmayan Sanal Makineleri Denetle” ilke tanımını bulun:
 
 ```azurecli
 az policy definition list
 ```
 
-Azure ilke ile birlikte gelen zaten yerleşik ilke tanımlarında kullanabilirsiniz. Yerleşik ilke tanımları gibi görürsünüz:
+Azure İlkesi, kullanabileceğiniz yerleşik ilke tanımlarıyla birlikte gelir. Şunlara benzer yerleşik ilke tanımları görürsünüz:
 
-- Etiket ve değerini zorla
-- Etiket ve değerini Uygula
-- SQL Server sürümü 12.0 gerektirir
+- Etiketi ve değerini zorla
+- Etiketi ve değerini uygula
+- SQL Server Sürüm 12.0 gerektir
 
-Ardından, aşağıdaki bilgileri sağlayın ve ilke tanımı atamak için aşağıdaki komutu çalıştırın:
+Daha sonra, ilke tanımını atamak için aşağıdaki bilgileri sağlayıp aşağıdaki komutu çalıştırın:
 
-- Görüntü **adı** ilke ataması için. Bu durumda, kullanalım *yönetilen diski olmayan sanal makineler denetim*.
-- **İlke** – devre dışı, kullanmakta olduğunuz atamayı oluşturmak için temel ilke tanımı, budur. Bu durumda, ilke tanımı – olduğu *denetim yönetilen diski olmayan sanal makineler*
-- A **kapsam** - hangi kaynakların bir kapsamı belirler veya kaynakları gruplandırma ilke ataması üzerinde zorlanan. Bir abonelik için kaynak gruplarını aralığında.
+- İlke ataması için **Ad**’ı görüntüler. Bu durumda, *Yönetilen Diskleri Olmayan Sanal Makineleri Denetle* seçeneğini kullanalım.
+- **İlke** - Bu, atamayı oluşturmak için kullandığınız ilke tanımıdır. Bu durumda, *Yönetilen Diskleri Olmayan Sanal Makineleri Denetle* ilke tanımıdır
+- Bir **kapsam** - Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler. Bir abonelikten kaynak gruplarına kadar değişiklik gösterebilir.
 
-  Bu abonelik kimliği - kullanarak Biz bu örnekte, daha önce kaydettiğiniz Azure ilkesine seçti zaman abonelik (veya kaynak grubu) kullanmak **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** ve kaynak grubu adı - **FabrikamOMS**. Bu abonelik Kimliğini ve çalıştığınız kaynak grubunun adı ile değiştirdiğinizden emin olun.
+  Önceden kaydolduğunuz aboneliği (veya kaynak grubunu) kullanın. Bu örnekte sırasıyla şu abonelik kimliğini ve kaynak grubu adını kullanıyoruz: **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** - **FabrikamOMS**. Bunları çalıştığınız aboneliğin kimliği ve kaynak grubunun adıyla değiştirdiğinizden emin olun.
 
-Bu komut aşağıdaki gibi görünmelidir.
+Komut şöyle görünmelidir:
 
 ```azurecli
 az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
 bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
-Bir ilke atamasını belirli bir kapsamda gerçekleşmesi için atanan bir ilkedir. Bu kapsam için bir kaynak grubu yönetim grubundan değişiklik gösterebilir.
+İlke ataması, belirli bir kapsamda gerçekleşmesi için atanmış bir ilkedir. Bu kapsamın dahilinde de yönetim gruplarından kaynak gruplarına kadar birçok grup bulunabilir.
 
-## <a name="identify-non-compliant-resources"></a>Uyumlu olmayan kaynakları belirleyin
+## <a name="identify-non-compliant-resources"></a>Uyumlu olmayan kaynakları belirleme
 
 Bu yeni atama altında uyumlu olmayan kaynakları görüntülemek için:
 
-1. Azure ilke sayfasına gidin.
-2. Seçin **Uyumluluk** sol bölmesinde ve arama **ilke ataması** oluşturduğunuz.
+1. Azure İlkesi sayfasına geri dönün.
+2. Sol bölmede **Uyumluluk**’u seçin ve oluşturduğunuz **İlke Ataması**’nı arayın.
 
    ![İlke uyumluluğu](media/assign-policy-definition/policy-compliance.png)
 
-   Bu yeni atama ile uyumlu olmayan tüm mevcut kaynaklar varsa, bunlar altında görünmesini **uyumsuz kaynakları** sekmesinde, yukarıda gösterildiği gibi.
+   Bu yeni atamayla uyumlu olmayan mevcut kaynaklar varsa, yukarıda gösterildiği gibi **Uyumlu olmayan kaynaklar** sekmesinde görünür.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu koleksiyondaki diğer kılavuzlarını Bu hızlı başlangıç oluşturun. Sonraki öğreticilerde ile çalışmaya devam etmeyi planlıyorsanız, temiz bu quickstart oluşturulan kaynakları yukarı değil. Devam etmek düşünmüyorsanız, şu komutu çalıştırarak oluşturduğunuz atamasını silin:
+Bu koleksiyondaki diğer kılavuzlar, bu hızlı başlangıcı temel alır. Sonraki kılavuzlarla çalışmaya devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız, bu komutu çalıştırarak oluşturduğunuz atamayı silin:
 
 ```azurecli
 az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
@@ -98,9 +83,9 @@ az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç Azure ortamınızda uyumlu olmayan kaynakları tanımlamak için bir ilke tanımı atanır.
+Bu hızlı başlangıçta, Azure ortamınızda uyumlu olmayan kaynakları belirlemek üzere bir ilke tanımı atadınız.
 
-Kaynakları oluşturduğunuz emin olmak için ilke atama hakkında daha fazla bilgi edinmek için **gelecekteki** uyumlu, Öğretici için devam edin:
+İlkeleri atama hakkında daha fazla bilgi edinmek için, **gelecekte** oluşturduğunuz kaynakların uyumlu olduğundan emin olmak üzere, şu öğretici ile devam edin:
 
 > [!div class="nextstepaction"]
-> [Oluşturma ve ilkelerini yönetme](./create-manage-policy.md)
+> [İlke oluşturma ve yönetme](./create-manage-policy.md)

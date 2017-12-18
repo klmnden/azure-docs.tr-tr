@@ -9,15 +9,15 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a217f4cc8ac18888de8dfa803b4b8667a566dc0b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Azure Container Service (AKS) ile hizmet sorumluları
 
-AKS kümesi, Azure API'leri ile etkileşime geçmek için [Azure Active Directory hizmet sorumlusu](../active-directory/develop/active-directory-application-objects.md) gerektirir. Hizmet sorumlusu, [kullanıcı tanımlı yollar](../virtual-network/virtual-networks-udr-overview.md) ve [4. Katman Azure Load Balancer](../load-balancer/load-balancer-overview.md) gibi kaynakları dinamik olarak yönetmek için gereklidir.
+AKS kümesi, Azure API'leri ile etkileşime geçmek için [Azure Active Directory hizmet sorumlusu][aad-service-principal] gerektirir. Hizmet sorumlusu, [kullanıcı tanımlı yollar][user-defined-routes] ve [4. Katman Azure Load Balancer][azure-load-balancer-overview] gibi kaynakları dinamik olarak yönetmek için gereklidir.
 
 Bu makalede AKS'deki Kubernetes kümeniz için hizmet sorumlusu ayarlamak üzere kullanabileceğiniz farklı seçenekler gösterilmektedir.
 
@@ -26,7 +26,7 @@ Bu makalede AKS'deki Kubernetes kümeniz için hizmet sorumlusu ayarlamak üzere
 
 Azure AD hizmet sorumlusu oluşturmak için, Azure AD kiracınızla bir uygulamayı kaydetme ve uygulamanızı aboneliğinizdeki bir role atama izinlerinizin olması gerekir. Gerekli izinlere sahip değilseniz Azure AD veya abonelik yöneticinizden gerekli izinleri atamasını istemeniz veya Kubernetes kümesi için bir hizmet sorumlusu oluşturma ön işlemlerini tamamlamanız gerekebilir.
 
-Ayrıca Azure CLI sürüm 2.0.21 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
+Ayrıca Azure CLI sürüm 2.0.21 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="create-sp-with-aks-cluster"></a>AKS kümesi ile hizmet sorumlusu oluşturma
 
@@ -44,7 +44,7 @@ Var olan bir Azure AD hizmet sorumlusu AKS kümesiyle kullanılabilir veya kulla
 
 ## <a name="pre-create-a-new-sp"></a>Yeni bir hizmet sorumlusunu önceden oluşturma
 
-Hizmet sorumlusunu Azure CLI ile oluşturmak için [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) komutunu kullanın.
+Hizmet sorumlusunu Azure CLI ile oluşturmak için [az ad sp create-for-rbac][az-ad-sp-create] komutunu kullanın.
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -83,7 +83,7 @@ AKS ve Azure AD hizmet sorumlularıyla çalışırken aşağıdaki noktalara dik
 * Hizmet sorumlusu **İstemci Kimliğini** belirtirken `appId` değerini (bu makalede gösterilen şekilde) veya karşılık gelen hizmet sorumlusu `name` değerini (örneğin, `https://www.contoso.org/example`) kullanabilirsiniz.
 * Kubernetes kümesindeki ana VM’lerde ve düğüm VM'lerinde hizmet sorumlusu kimlik bilgileri, `/etc/kubernetes/azure.json` dosyasında depolanır.
 * Hizmet sorumlusunu otomatik olarak oluşturmak için `az aks create` komutunu kullandığınızda, hizmet sorumlusu kimlik bilgileri komutun çalıştırıldığı makinede `~/.azure/acsServicePrincipal.json` dosyasına yazılır.
-* `az aks create` komutu ile hizmet sorumlusunu otomatik olarak oluşturduğunuzda, hizmet sorumlusu aynı abonelikte oluşturulan bir [Azure kapsayıcı kayıt defteri](../container-registry/container-registry-intro.md) ile de kimlik doğrulaması yapabilir.
+* `az aks create` komutu ile hizmet sorumlusunu otomatik olarak oluşturduğunuzda, hizmet sorumlusu aynı abonelikte oluşturulan bir [Azure kapsayıcı kayıt defteri][acr-into] ile de kimlik doğrulaması yapabilir.
 * `az aks create` tarafından oluşturulan bir AKS kümesi silinirken, otomatik olarak oluşturulan hizmet sorumlusu silinmez. Silmek için `az ad sp delete --id $clientID` kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -91,4 +91,13 @@ AKS ve Azure AD hizmet sorumlularıyla çalışırken aşağıdaki noktalara dik
 Azure Active Directory hizmet sorumluları hakkında daha fazla bilgi için Azure AD uygulamaları belgelerine bakın.
 
 > [!div class="nextstepaction"]
-> [Uygulama ve hizmet sorumlusu nesneleri](../active-directory/develop/active-directory-application-objects.md)
+> [Uygulama ve hizmet sorumlusu nesneleri][service-principal]
+
+<!-- LINKS - internal -->
+[aad-service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[acr-intro]: ../container-registry/container-registry-intro.md
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[user-defined-routes]: ../load-balancer/load-balancer-overview.md

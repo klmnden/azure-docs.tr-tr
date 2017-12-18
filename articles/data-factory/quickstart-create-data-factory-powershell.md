@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 4bbac0e82181e46b84afee5ff7601da018226ec0
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 1e58dd50931f994ca2c6233e3e97022957c85327
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>PowerShell kullanarak Azure veri fabrikası oluşturma 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,27 @@ Bu hızlı başlangıç, PowerShell kullanarak bir Azure veri fabrikası oluştu
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
+[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
+
+#### <a name="log-in-to-powershell"></a>PowerShell’de oturum açın
+
+1. Makinenizde **PowerShell**'i başlatın. Bu hızlı başlangıcın sonuna kadar PowerShell’i açık tutun. Kapatıp yeniden açarsanız, bu komutları yeniden çalıştırmanız gerekir.
+2. Aşağıdaki komutu çalıştırın ve Azure Portal'da oturum açmak için kullandığınız aynı Azure kullanıcı adını ve parolasını girin:
+       
+    ```powershell
+    Login-AzureRmAccount
+    ```        
+3. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın:
+
+    ```powershell
+    Get-AzureRmSubscription
+    ```
+4. Hesabınızla ilişkili birden çok aboneliğiniz varsa, birlikte çalışmak istediğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **SubscriptionId**’yi Azure aboneliğinizin kimliği ile değiştirin:
+
+    ```powershell
+    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    ```
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 1. Daha sonra PowerShell komutlarında kullanacağınız kaynak grubu adı için bir değişken tanımlayın. Aşağıdaki komut metnini PowerShell'e kopyalayın [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) için çift tırnak içinde bir ad belirtin ve ardından komutu çalıştırın. Örneğin: `"adfrg"`. 
@@ -46,7 +66,7 @@ Bu hızlı başlangıç, PowerShell kullanarak bir Azure veri fabrikası oluştu
 2. Azure kaynak grubunu oluşturmak için aşağıdaki komutu çalıştırın: 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'East US'
     ``` 
     Kaynak grubu zaten varsa, üzerine yazılmasını istemeyebilirsiniz. `$ResourceGroupName` değişkenine farklı bir değer atayın ve komutu yeniden çalıştırın. 
 3. Veri fabrikasının adı için bir değişken tanımlayın. 
@@ -55,7 +75,7 @@ Bu hızlı başlangıç, PowerShell kullanarak bir Azure veri fabrikası oluştu
     >  Veri fabrikasının adını genel olarak benzersiz olacak şekilde güncelleştirin. Örneğin, ADFTutorialFactorySP1127. 
 
     ```powershell
-    $DataFactoryName = "ADFQuickStartFactory";
+    $dataFactoryName = "ADFQuickStartFactory";
     ```
 
 5. Veri fabrikası oluşturmak için, $ResGrp değişkenindeki Location ve ResourceGroupName özelliğini kullanarak şu **Set-AzureRmDataFactoryV2** cmdlet’ini çalıştırın: 
@@ -100,10 +120,9 @@ Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için 
     Not Defteri’ni kullanıyorsanız, **Farklı kaydet** iletişim kutusunda **Farklı kaydetme türü** için **Tüm dosyalar**’ı seçin. Aksi takdirde, dosyaya `.txt` uzantısını ekleyebilir. Örneğin, `AzureStorageLinkedService.json.txt`. Dosyayı Not Defteri’nde açmadan önce Dosya Gezgini’nde oluşturduysanız, **Bilinen dosya türleri için uzantıları gizle** seçeneği varsayılan olarak ayarlandığı için `.txt` uzantısını görmeyebilirsiniz. Sonraki adıma geçmeden önce `.txt` uzantısını kaldırın.
 2. **PowerShell**’de **ADFv2QuickStartPSH** klasörüne geçin.
 
-```powershell
-Set-Location 'C:\ADFv2QuickStartPSH'
-```
-
+    ```powershell
+    Set-Location 'C:\ADFv2QuickStartPSH'
+    ```
 3. **AzureStorageLinkedService** bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet’ini çalıştırın. 
 
     ```powershell

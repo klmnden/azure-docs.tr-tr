@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 22d63ff5e9fd33db8711b0c5125ab0882b9f6a74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5529f67ac03fe5c9b09203556f365a6009cf579a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>.NET çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
@@ -74,9 +74,9 @@ Aşağıdaki adımlar, ortak canlı akış uygulamaları oluşturmak için gerek
 15. Programı silin (ve isteğe bağlı olarak varlığı da silin).
 
 ## <a name="what-youll-learn"></a>Öğrenecekleriniz
-Bu konuda, Media Services .NET SDK'sını kullanarak kanallar ve programlarda farklı işlemlerin nasıl yürütüleceği gösterilmektedir. İşlemlerin çoğu uzun süre çalışacağından, uzun süre çalışan işlemleri yöneten .NET API'leri kullanılmaktadır.
+Bu makalede, Media Services .NET SDK'sını kullanarak kanallar ve programlarda farklı işlemlerin nasıl yürütüleceği gösterilmektedir. İşlemlerin çoğu uzun süre çalışacağından, uzun süre çalışan işlemleri yöneten .NET API'leri kullanılmaktadır.
 
-Bu konuda aşağıdakilerin nasıl gerçekleştirileceği gösterilmektedir.
+Bu makalede aşağıdakilerin nasıl gerçekleştirileceği gösterilmektedir:
 
 1. Bir kanal oluşturup başlatın. Uzun süre çalışan API'ler kullanılacaktır.
 2. Kanalın alma (giriş) uç noktasını alın. Bu uç noktası, tek bit hızlı bir canlı akış gönderebilen kodlayıcıya sağlanmalıdır.
@@ -98,11 +98,11 @@ Bu konuda aşağıdakilerin nasıl gerçekleştirileceği gösterilmektedir.
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 * Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
-* Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+* Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
 ## <a name="download-sample"></a>Örnek indirme
 
-Bu konu başlığı altında açıklanan örneği [buradan](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/) indirebilirsiniz.
+Bu makale başlığı altında açıklanan örneği [buradan](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/) indirebilirsiniz.
 
 ## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>.NET için Media Services SDK ile geliştirme amaçlı ayarlama
 
@@ -110,34 +110,43 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
 ## <a name="code-example"></a>Kod örneği
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Net;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Net;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-    namespace EncodeLiveStreamWithAmsClear
+namespace EncodeLiveStreamWithAmsClear
+{
+    class Program
     {
-        class Program
-        {
         private const string ChannelName = "channel001";
         private const string AssetlName = "asset001";
         private const string ProgramlName = "program001";
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -161,9 +170,9 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
             // The thumbnail is exposed via the same end-point as the Channel Preview URL.
             string thumbnailUri = new UriBuilder
             {
-            Scheme = Uri.UriSchemeHttps,
-            Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
-            Path = "thumbnails/input.jpg"
+                Scheme = Uri.UriSchemeHttps,
+                Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
+                Path = "thumbnails/input.jpg"
             }.Uri.ToString();
 
             Console.WriteLine("Thumbain URL: {0}", thumbnailUri);
@@ -191,11 +200,11 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
             ChannelCreationOptions options = new ChannelCreationOptions
             {
-            EncodingType = ChannelEncodingType.Standard,
-            Name = ChannelName,
-            Input = channelInput,
-            Preview = channePreview,
-            Encoding = channelEncoding
+                EncodingType = ChannelEncodingType.Standard,
+                Name = ChannelName,
+                Input = channelInput,
+                Preview = channePreview,
+                Encoding = channelEncoding
             };
 
             Log("Creating channel");
@@ -219,10 +228,10 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
         {
             return new ChannelInput
             {
-            StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                 {
                     new IPRange
                     {
@@ -231,7 +240,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -243,9 +252,9 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
         {
             return new ChannelPreview
             {
-            AccessControl = new ChannelAccessControl
-            {
-                IPAllowList = new List<IPRange>
+                AccessControl = new ChannelAccessControl
+                {
+                    IPAllowList = new List<IPRange>
                 {
                     new IPRange
                     {
@@ -254,7 +263,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
                     SubnetPrefixLength = 0
                     }
                 }
-            }
+                }
             };
         }
 
@@ -266,11 +275,11 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
         {
             return new ChannelEncoding
             {
-            SystemPreset = "Default720p",
-            IgnoreCea708ClosedCaptions = false,
-            AdMarkerSource = AdMarkerSource.Api,
-            // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
-            AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
+                SystemPreset = "Default720p",
+                IgnoreCea708ClosedCaptions = false,
+                AdMarkerSource = AdMarkerSource.Api,
+                // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
+                AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
             };
         }
 
@@ -383,35 +392,35 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
             IAsset asset;
             if (channel != null)
             {
-            foreach (var program in channel.Programs)
-            {
-                asset = _context.Assets.Where(se => se.Id == program.AssetId)
-                            .FirstOrDefault();
-
-                Log("Stopping program");
-                var programStopOperation = program.SendStopOperation();
-                TrackOperation(programStopOperation, "Program stop");
-
-                program.Delete();
-
-                if (asset != null)
+                foreach (var program in channel.Programs)
                 {
-                Log("Deleting locators");
-                foreach (var l in asset.Locators)
-                    l.Delete();
+                    asset = _context.Assets.Where(se => se.Id == program.AssetId)
+                                .FirstOrDefault();
 
-                Log("Deleting asset");
-                asset.Delete();
+                    Log("Stopping program");
+                    var programStopOperation = program.SendStopOperation();
+                    TrackOperation(programStopOperation, "Program stop");
+
+                    program.Delete();
+
+                    if (asset != null)
+                    {
+                        Log("Deleting locators");
+                        foreach (var l in asset.Locators)
+                            l.Delete();
+
+                        Log("Deleting asset");
+                        asset.Delete();
+                    }
                 }
-            }
 
-            Log("Stopping channel");
-            var channelStopOperation = channel.SendStopOperation();
-            TrackOperation(channelStopOperation, "Channel stop");
+                Log("Stopping channel");
+                var channelStopOperation = channel.SendStopOperation();
+                TrackOperation(channelStopOperation, "Channel stop");
 
-            Log("Deleting channel");
-            var channelDeleteOperation = channel.SendDeleteOperation();
-            TrackOperation(channelDeleteOperation, "Channel delete");
+                Log("Deleting channel");
+                var channelDeleteOperation = channel.SendDeleteOperation();
+                TrackOperation(channelDeleteOperation, "Channel delete");
             }
         }
 
@@ -429,9 +438,9 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
             Log("starting to track ", null, operation.Id);
             while (isCompleted == false)
             {
-            operation = _context.Operations.GetOperation(operation.Id);
-            isCompleted = IsCompleted(operation, out entityId);
-            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+                operation = _context.Operations.GetOperation(operation.Id);
+                isCompleted = IsCompleted(operation, out entityId);
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
             }
             // If we got here, the operation succeeded.
             Log(description + " in completed", operation.TargetEntityId, operation.Id);
@@ -456,20 +465,20 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 
             switch (operation.State)
             {
-            case OperationState.Failed:
-                // Handle the failure. 
-                // For example, throw an exception. 
-                // Use the following information in the exception: operationId, operation.ErrorMessage.
-                Log("operation failed", operation.TargetEntityId, operation.Id);
-                break;
-            case OperationState.Succeeded:
-                completed = true;
-                entityId = operation.TargetEntityId;
-                break;
-            case OperationState.InProgress:
-                completed = false;
-                Log("operation in progress", operation.TargetEntityId, operation.Id);
-                break;
+                case OperationState.Failed:
+                    // Handle the failure. 
+                    // For example, throw an exception. 
+                    // Use the following information in the exception: operationId, operation.ErrorMessage.
+                    Log("operation failed", operation.TargetEntityId, operation.Id);
+                    break;
+                case OperationState.Succeeded:
+                    completed = true;
+                    entityId = operation.TargetEntityId;
+                    break;
+                case OperationState.InProgress:
+                    completed = false;
+                    Log("operation in progress", operation.TargetEntityId, operation.Id);
+                    break;
             }
             return completed;
         }
@@ -483,8 +492,9 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
             entityId ?? string.Empty,
             operationId ?? string.Empty);
         }
-        }
     }
+}
+```
 
 ## <a name="next-step"></a>Sonraki adım
 Media Services öğrenme yollarını gözden geçirin.

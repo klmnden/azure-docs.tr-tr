@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b30a444150c6ace87e9d506da9335373b5e017af
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: de595c8a840cd19b0f46071edd67c6cc1d32feb8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma
 
@@ -39,7 +39,7 @@ Media Services, anahtar isteğinde bulunan kullanıcıları yetkilendirmenin bir
 
 Dinamik şifrelemeden yararlanmak için, bir grup çoklu bit hızlı MP4 dosyası ya da çoklu bit hızlı Kesintisiz Akış kaynak dosyası içeren bir varlığınız olması gerekir. Aynı zamanda varlığın teslim ilkelerini de yapılandırmalısınız (bu konunun ilerideki bölümlerinde açıklanmaktadır). Ardından, akış URL'sinde belirtilen biçime bağlı olarak, İsteğe Bağlı Akış sunucusu akışın seçtiğiniz protokolde teslim edilmesini sağlar. Bunun sonucunda dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
-Bu konu, PlayReady ve Widevine benzeri birden çok DRM ile korunan medya teslim eden uygulamalar üzerinde çalışan geliştiricilere yararlı olacaktır. Konuda, yalnızca yetkili istemcilerin PlayReady veya Widevine lisansları alabilmesini sağlamak üzere PlayReady lisans teslimat hizmetinin yetkilendirme ilkeleri ile nasıl yapılandırılacağı gösterilmektedir. Ayrıca, PlayReady veya Widevine DRM ile DASH üzerinde dinamik şifrelemenin nasıl kullanılacağı açıklanmaktadır.
+Bu makale, PlayReady ve Widevine benzeri birden çok DRM ile korunan medya teslim eden uygulamalar üzerinde çalışan geliştiriciler için yararlıdır. Makalede, yalnızca yetkili istemcilerin PlayReady veya Widevine lisansları alabilmesini sağlamak üzere PlayReady lisans teslimat hizmetinin yetkilendirme ilkeleri ile nasıl yapılandırılacağı gösterilmektedir. Ayrıca, PlayReady veya Widevine DRM ile DASH üzerinde dinamik şifrelemenin nasıl kullanılacağı açıklanmaktadır.
 
 >[!NOTE]
 >AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
@@ -64,13 +64,13 @@ Media Services lisans teslimat hizmeti ve dinamik şifreleme kullanarak PlayRead
 
 6. Akış URL’si almak için bir OnDemand bulucu oluşturun.
 
-Konunun sonunda eksiksiz bir .NET örneği bulabilirsiniz.
+Makalenin sonunda eksiksiz bir .NET örneği bulabilirsiniz.
 
 Aşağıdaki görüntüde, yukarıda açıklanan iş akışı gösterilmektedir. Burada kimlik doğrulaması için belirteç kullanılmaktadır.
 
 ![PlayReady ile koruma](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-Bu konunun geri kalanı, yukarıda açıklanan görevlerin nasıl yerine getirileceğini gösteren ayrıntılı açıklamalar, kod örnekleri ve başka konulara bağlantılar sağlamaktadır.
+Bu makalenin geri kalanı, yukarıda açıklanan görevlerin nasıl yerine getirileceğini gösteren ayrıntılı açıklamalar, kod örnekleri ve başka konulara bağlantılar sağlamaktadır.
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 Bir varlık teslim ilkesi ekler veya ilkeyi güncelleştirirseniz, ilişkili bulucuyu (varsa) silip yeni bir bulucu oluşturmanız gerekir.
@@ -83,7 +83,7 @@ Videolarınızı yönetmek, kodlamak ve akışla aktarmak için önce içeriğin
 Ayrıntılı bilgi için bkz. [Media Services hesabına dosya yükleme](media-services-dotnet-upload-files.md).
 
 ## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>Dosyayı içeren varlığı, bit hızı uyarlamalı MP4 kümesine kodlayın.
-Dinamik şifreleme ile tek ihtiyacınız, bir grup çoklu bit hızlı MP4 dosyası ya da çoklu bit hızlı Kesintisiz Akış kaynak dosyası içeren bir varlık oluşturmaktır. Ardından, bildirimde ve parça isteğindeki belirtilen biçime bağlı olarak, İsteğe Bağlı Akış sunucusu akışı seçtiğiniz protokolde almanızı sağlar. Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar. Daha fazla bilgi için [Dinamik Paketlemeye Genel Bakış](media-services-dynamic-packaging-overview.md) konusuna bakın.
+Dinamik şifreleme ile tek ihtiyacınız, bir grup çoklu bit hızlı MP4 dosyası ya da çoklu bit hızlı Kesintisiz Akış kaynak dosyası içeren bir varlık oluşturmaktır. Ardından, bildirimde ve parça isteğindeki belirtilen biçime bağlı olarak, İsteğe Bağlı Akış sunucusu akışı seçtiğiniz protokolde almanızı sağlar. Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar. Daha fazla bilgi için [Dinamik Paketlemeye Genel Bakış](media-services-dynamic-packaging-overview.md) makalesine bakın.
 
 Kodlama yönergeleri için bkz. [Medya Kodlayıcı Standart kullanarak bir varlık kodlama](media-services-dotnet-encode-with-media-encoder-standard.md).
 
@@ -104,10 +104,10 @@ Varlığınıza ilişkin teslim ilkesini yapılandırın. Varlık teslim ilkesi 
 * Varlık teslim protokolü (örneğin MPEG DASH, HLS, Kesintisiz Akış veya tümü).
 * Dinamik şifreleme türü (bu durumda, Ortak Şifreleme).
 
-Ayrıntılı bilgi için bkz. [Varlık teslim ilkesini yapılandırma](media-services-rest-configure-asset-delivery-policy.md).
+Ayrıntılı bilgi için bkz. [Varlık teslim ilkesini yapılandırma.
 
 ## <a id="create_locator"></a>Akış URL’si almak için bir OnDemand akış bulucusu oluşturma
-Kesintisiz, DASH veya HLS için kullanıcınıza akış URL'sini sağlamanız gerekir.
+Smooth, DASH veya HLS için kullanıcınıza akış URL'sini sağlamanız gerekir.
 
 > [!NOTE]
 > Varlığınızın teslim ilkesini ekler veya güncelleştirirseniz, mevcut bulucuyu (varsa) silip yeni bir bulucu oluşturmanız gerekir.
@@ -148,31 +148,36 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
 Bu bölümde gösterilen kodu Program.cs dosyanızdaki kodun üzerine yazın.
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu makaleye](media-services-dotnet-manage-entities.md#limit-access-policies) bakın.
 
 Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek şekilde güncelleştirdiğinizden emin olun.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using System.Threading;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-    using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-    using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
-    using Newtonsoft.Json;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Threading;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
+using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
+using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
+using Newtonsoft.Json;
 
-    namespace DynamicEncryptionWithDRM
+namespace DynamicEncryptionWithDRM
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static readonly Uri _sampleIssuer =
             new Uri(ConfigurationManager.AppSettings["Issuer"]);
@@ -190,7 +195,11 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -210,9 +219,9 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
             Console.WriteLine();
 
             if (tokenRestriction)
-            tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
+                tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
             else
-            AddOpenAuthorizationPolicy(key);
+                AddOpenAuthorizationPolicy(key);
 
             Console.WriteLine("Added authorization policy: {0}", key.AuthorizationPolicyId);
             Console.WriteLine();
@@ -223,19 +232,19 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
 
             if (tokenRestriction && !String.IsNullOrEmpty(tokenTemplateString))
             {
-            // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
-            // back into a TokenRestrictionTemplate class instance.
-            TokenRestrictionTemplate tokenTemplate =
-                TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
+                // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
+                // back into a TokenRestrictionTemplate class instance.
+                TokenRestrictionTemplate tokenTemplate =
+                    TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-            // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-            // Note, you need to pass the key id Guid because we specified
-            // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
-            Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
-            string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
-                                        DateTime.UtcNow.AddDays(365));
-            Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
-            Console.WriteLine();
+                // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+                // Note, you need to pass the key id Guid because we specified
+                // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
+                Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
+                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
+                                            DateTime.UtcNow.AddDays(365));
+                Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+                Console.WriteLine();
             }
 
             // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
@@ -251,8 +260,8 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
         {
             if (!File.Exists(singleFilePath))
             {
-            Console.WriteLine("File does not exist.");
-            return null;
+                Console.WriteLine("File does not exist.");
+                return null;
             }
 
             var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
@@ -465,8 +474,8 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
         {
             var template = new WidevineMessage
             {
-            allowed_track_types = AllowedTrackTypes.SD_HD,
-            content_key_specs = new[]
+                allowed_track_types = AllowedTrackTypes.SD_HD,
+                content_key_specs = new[]
             {
                     new ContentKeySpecs
                     {
@@ -475,12 +484,12 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
                     track_type = "SD"
                     }
                 },
-            policy_overrides = new
-            {
-                can_play = true,
-                can_persist = true,
-                can_renew = false
-            }
+                policy_overrides = new
+                {
+                    can_play = true,
+                    can_persist = true,
+                    can_renew = false
+                }
             };
 
             string configuration = JsonConvert.SerializeObject(template);
@@ -570,14 +579,14 @@ Değişkenleri, giriş dosyalarınızın bulunduğu klasörlere işaret edecek �
             using (var rng =
             new System.Security.Cryptography.RNGCryptoServiceProvider())
             {
-            rng.GetBytes(returnValue);
+                rng.GetBytes(returnValue);
             }
 
             return returnValue;
         }
-        }
     }
-
+}
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Media Services öğrenme yollarını gözden geçirin.

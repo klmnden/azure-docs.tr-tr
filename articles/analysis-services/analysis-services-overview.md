@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Azure Güvenliği hakkında daha fazla bilgi edinmek için bkz. [Microsoft Güve
 ## <a name="supports-the-latest-client-tools"></a>En son istemci araçlarını destekler
 ![Veri görselleştirmeleri](./media/analysis-services-overview/aas-overview-clients.png)
 
-Power BI, Excel ve üçüncü taraf araçları gibi modern veri keşif ve görselleştirme araçları, kullanıcılara modern verileriniz üzerinde üst düzeyde etkileşimli ve görsel açıdan zengin öngörüler sağlar.
+Power BI, Excel, SQL Server 2017 Reporting Services ve üçüncü taraf araçlar gibi modern veri keşif ve görselleştirme araçlarının tümü desteklenir ve kullanıcılara modern verileriniz üzerinde üst düzeyde etkileşimli ve görsel açıdan zengin öngörüler sağlar. 
 
 İstemciler, Analysis Services sunucularına bağlanmak için MSOLAP, AMO veya ADOMD [istemci kitaplıklarını](analysis-services-data-providers.md) kullanır. Power BI Masaüstü ve Excel gibi Microsoft istemci uygulamaları bu istemci kitaplıklarının üçünü de yükler. Ama sürüme veya güncelleştirme sıklığına bağlı olarak, istemci kitaplıklarının Azure Analysis Services için gereken en son sürümlerde olmayabileceğini unutmayın. Aynı durum AsCmd, TOM, ADOMD.NET gibi özel uygulamalar ve diğer arabirimler için de geçerlidir. Bu uygulamalar için normalde, paketin parçası olarak kitaplıkların el ile yüklenmesi gerekir.
 
