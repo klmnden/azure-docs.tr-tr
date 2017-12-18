@@ -27,17 +27,17 @@
 ### [Kurumsal seçeneği için Ayrılmış Örnek kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)
 
 ## Abonelikleri yönetme
+### [Abonelik veya yönetim grubu bulma](billing-enterprise-mgmt-grp-find.md)
 ### [Yönetici rollerini yönetme](billing-add-change-azure-subscription-administrator.md)
 ### [Aboneliğin sahipliğini devretme](billing-subscription-transfer.md)
 ### [Devre dışı bırakılmış aboneliği yeniden etkinleştirme](billing-subscription-become-disable.md)
 ### [Ücretsiz aboneliği yükseltme](billing-upgrade-azure-subscription.md)
 ### [Abonelik teklifi değiştirme](billing-how-to-switch-azure-offer.md)
+### [Azure AD kiracısını bağlama](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Aboneliği iptal etme](billing-how-to-cancel-azure-subscription.md)
-### [Abonelik veya yönetim grubu bulma](billing-enterprise-mgmt-grp-find.md)
 ## Hesabı yönetme
 ### [Profili düzenleme](billing-how-to-change-azure-account-profile.md)
 ### [Ödeme bilgilerini güncelleştirme](billing-how-to-change-credit-card.md)
-### [Office 365 kiracısını bağlama](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Abonelikler için fatura ile ödeme](billing-how-to-pay-by-invoice.md)
 ## [Ayrılmış VM Örneklerini yönetme](billing-manage-reserved-vm-instance.md)
 ## Sorun giderme

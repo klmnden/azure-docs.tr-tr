@@ -28,11 +28,15 @@
 
 # Nasıl yapılır?
 
-## Planlama ve tasarım
+## Planlama ve Tasarım
 ### [SKU seçme](search-sku-tier.md)
 ### [Hizmet sınırlamaları](search-limits-quotas-capacity.md)
 ### [Hizmet ölçeklenebilirliği](search-capacity-planning.md)
 ### [Çoklu müşteri mimarisi için tasarım desenleri](search-modeling-multitenant-saas-applications.md)
+## Güvenlik
+### [Veri ve çalışma güvenliği](search-security-overview.md)
+### [Kimlik filtreleriyle koruma](search-security-trimming-for-azure-search.md)
+### [Active Directory ile koruma](search-security-trimming-for-azure-search-with-aad.md)
 ## Geliştirme
 ### [API sürümleri](search-api-versions.md)
 ### [Node.js’de geliştirme](search-get-started-nodejs.md)
@@ -42,13 +46,6 @@
 ### [Karmaşık veri türlerini modelleme](search-howto-complex-data-types.md)
 ### [Eş zamanlı güncelleştirmelerini tanımlama](search-howto-concurrency.md)
 ### [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=search)
-## Yönet
-### Azure Search Yönetimi
-#### [Azure portal](search-manage.md)
-#### [Azure PowerShell](search-manage-powershell.md)
-### [Kullanımı ve istatistikleri izleme](search-monitor-usage.md)
-### [Arama trafiği analizi](search-traffic-analytics.md)
-### [Performans ve iyileştirme](search-performance-optimization.md)
 ## Veri yükleme
 ### [Dizin Oluşturucu’ya genel bakış](search-indexer-overview.md)
 ### [Azure Blob Depolama dizin oluşturucu](search-howto-indexing-azure-blob-storage.md)
@@ -73,8 +70,6 @@
 #### [Genel Bakış](search-filters.md)
 #### [Model filtreleri](search-filters-facets.md)
 #### [Dil filtreleri](search-filters-language.md)
-#### [Güvenlik filtreleri (genel)](search-security-trimming-for-azure-search.md)
-#### [Güvenlik filtreleri (AAD)](search-security-trimming-for-azure-search-with-aad.md)
 #### [İfade söz dizimi başvurusu](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Disk belleği sonuçları](search-pagination-page-layout.md)
 ### [Puanlama](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
@@ -82,6 +77,12 @@
 ### [Çok yönlü gezinme](search-faceted-navigation.md)
 ### [Eş anlamlılar önizleme](search-synonyms.md)
 ### [moreLikeThis önizlemesi](search-more-like-this.md)
+## Yönetim ve Analiz
+### [Azure portalını kullanarak yönetme](search-manage.md)
+### [PowerShell’i kullanarak yönetme](search-manage-powershell.md)
+### [Kullanımı ve istatistikleri izleme](search-monitor-usage.md)
+### [Arama trafiği analizi](search-traffic-analytics.md)
+### [Performans ve iyileştirme](search-performance-optimization.md)
 
 # Başvuru
 
