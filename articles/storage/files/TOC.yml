@@ -24,6 +24,8 @@
   items:
     - name: Planlama ve tasarım
       items:
+        - name: Depolama hesabı seçenekleri
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Azure Dosyaları dağıtımı planlama
           href: storage-files-planning.md
         - name: Azure Dosyaları’nı dağıtma

@@ -46,16 +46,16 @@
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: MSDN forumu
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+      href: 'https://social.msdn.microsoft.com/Forums/azure'
     - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+      href: 'https://azure.microsoft.com/pricing/details/location-based-services'
     - name: Fiyatlandırma hesaplayıcı
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Hizmet güncelleştirmeleri
-      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+      href: 'https://azure.microsoft.com/updates'
     - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
     - name: Teknik örnek olay incelemeleri
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Videolar
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'
+      href: 'https://azure.microsoft.com/documentation/videos'
