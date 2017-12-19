@@ -51,6 +51,8 @@
           href: app-insights-windows-desktop.md
         - name: ASP.NET Çekirdeği
           href: app-insights-asp-net-core.md
+        - name: Konsol
+          href: application-insights-console.md
     - name: Java uygulamalarını izleme
       items:
         - name: Web uygulamaları

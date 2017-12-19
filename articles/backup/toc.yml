@@ -59,8 +59,6 @@
           items:
             - name: Azure portalında Azure Backup Sunucusu iş yükleri hazırlama
               href: backup-azure-microsoft-azure-backup.md
-            - name: Klasik portalda Azure Backup Sunucusu iş yükleri hazırlama
-              href: backup-azure-microsoft-azure-backup-classic.md
             - name: Azure Backup Sunucusu’na depolama alanı ekleme
               href: backup-mabs-add-storage.md
             - name: Azure Backup Sunucusu’nu v.2 sürümüne yükseltme
@@ -89,8 +87,6 @@
               href: backup-azure-arm-vms-prepare.md
             - name: Uygulama ile tutarlı Linux VM yedekleri
               href: backup-azure-linux-app-consistent.md
-            - name: Azure sanal makinelerini hazırlama
-              href: backup-azure-vms-prepare.md
         - name: Ortamınızı planlama
           items:
             - name: VM yedekleme altyapısını planlama
@@ -101,16 +97,12 @@
               href: backup-azure-arm-vms.md
             - name: Şifrelenmiş sanal makineleri yedekleme
               href: backup-azure-vms-encryption.md
-            - name: Azure sanal makinelerini yedekleme
-              href: backup-azure-vms.md
         - name: VM’leri yönetme ve izleme
           items:
             - name: Azure portalında Azure VM yedeklemelerini yönetme
               href: backup-azure-manage-vms.md
             - name: Azure portalında Azure VM yedeklemeleri için uyarıları yönetme
               href: backup-azure-monitor-vms.md
-            - name: Klasik portalda Azure VM yedeklemelerini yönetme ve izleme
-              href: backup-azure-manage-vms-classic.md
         - name: Verileri VM'lerden geri yükleme
           items:
             - name: Azure VM yedeklerinden dosya kurtarma
@@ -119,8 +111,6 @@
               href: backup-azure-arm-restore-vms.md
             - name: Şifrelenmiş sanal makineleri geri yükleme
               href: backup-azure-vms-encryption.md
-            - name: Azure’da sanal makineleri geri yükleme
-              href: backup-azure-restore-vms.md
             - name: Şifrelenmiş VM’ler için Key Vault anahtarını ve gizli dizisini geri yükleme
               href: backup-azure-restore-key-secret.md
     - name: Azure Backup raporlarını yapılandırma
@@ -135,8 +125,6 @@
       items:
         - name: Azure portalında DPM iş yükleri hazırlama
           href: backup-azure-dpm-introduction.md
-        - name: Klasik portalda DPM iş yükleri hazırlama
-          href: backup-azure-dpm-introduction-classic.md
         - name: Exchange sunucusunu yedeklemek için System Center DPM'yi kullanma
           href: backup-azure-backup-exchange-server.md
         - name: Verileri başka bir DPM sunucusuna kurtarma
@@ -149,16 +137,10 @@
       items:
         - name: Azure portalındaki Azure VM'leri
           href: backup-azure-vms-automation.md
-        - name: Klasik portaldaki Azure VM'leri
-          href: backup-azure-vms-classic-automation.md
         - name: Azure portalındaki DPM
           href: backup-dpm-automation.md
-        - name: Klasik portaldaki DPM
-          href: backup-dpm-automation-classic.md
         - name: Azure portalındaki Windows Server
           href: backup-client-automation.md
-        - name: Klasik portaldaki Windows Server
-          href: backup-client-automation-classic.md
     - name: Azure SQL Database
       items:
         - name: Uzun süreli yedek saklama yapılandırma
@@ -181,14 +163,6 @@
           href: backup-azure-restore-system-state.md
         - name: Kurtarma Hizmetleri kasalarını izleme ve yönetme
           href: backup-azure-manage-windows-server.md
-        - name: Klasik portalı kullanarak yedekleme ve geri yükleme
-          items:
-            - name: Klasik dağıtım modelini kullanan Windows Server
-              href: backup-configure-vault-classic.md
-            - name: Klasik dağıtım modelini kullanarak Backup kasalarını yönetme
-              href: backup-azure-manage-windows-server-classic.md
-            - name: Klasik dağıtım modelini kullanarak dosyaları Windows Server'a kurtarma
-              href: backup-azure-restore-windows-server-classic.md
     - name: Kurtarma Hizmetleri kasası
       items:
         - name: Kurtarma Hizmetleri kasalarına genel bakış
@@ -201,8 +175,6 @@
       items:
         - name: Azure portalındaki Azure VM yedekleme sorunları
           href: backup-azure-vms-troubleshoot.md
-        - name: Klasik portaldaki Azure VM yedekleme sorunları
-          href: backup-azure-vms-troubleshoot-classic.md
         - name: 'Azure VM Yedeklemesi başarısız oluyor: Anlık görüntü durumu için VM aracısı ile iletişim kurulamadı - Anlık görüntü VM alt görevi zaman aşımına uğradı'
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Azure Backup'ta dosya ve klasörlerin yavaş yedeklenmesi
