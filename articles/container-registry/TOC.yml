@@ -47,6 +47,8 @@
       href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
     - name: Kayıt defteri ile kimlik doğrulaması
       href: container-registry-authentication.md
+    - name: Klasik kayıt defterini yükseltme
+      href: container-registry-upgrade.md
     - name: ACR web kancalarını kullanma
       href: ./container-registry-webhook.md
 - name: Başvuru

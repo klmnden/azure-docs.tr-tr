@@ -61,6 +61,9 @@
 
 ## [Laboratuvarınızı ölçeklendirme](devtest-lab-scale-lab.md)
 
+## CI/CD ile tümleştirme
+### [VSTS CI/CD ardışık düzeninizi laboratuvarlarla tümleştirme](devtest-lab-integrate-ci-cd-vsts.md)
+
 # Başvuru
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
