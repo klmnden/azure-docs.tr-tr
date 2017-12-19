@@ -195,6 +195,8 @@
               href: site-recovery-replicate-vmware-to-azure.md
     - name: Otomatikleştirme
       items:
+        - name: PowerShell kullanarak VMware sanal makinelerini Azure’a çoğaltma
+          href: site-recovery-vmware-to-azure-powershell.md
         - name: Azure’a Hyper-V çoğaltma işlemini (VMM olmadan) PowerShell kullanarak ayarlama
           href: site-recovery-deploy-with-powershell-resource-manager.md
         - name: Azure’a Hyper-V çoğaltma işlemini (VMM ile) PowerShell kullanarak ayarlama
@@ -262,7 +264,7 @@
 - name: Başvuru
   items:
     - name: Azure PowerShell
-      href: /powershell/module/azurerm.siterecovery
+      href: /powershell/module/azurerm.recoveryservices.siterecovery
     - name: Azure PowerShell klasik
       href: /powershell/module/azure/?view=azuresmps-3.7.0
     - name: REST
