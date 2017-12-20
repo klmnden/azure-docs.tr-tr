@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: kumud
 ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>DNS kayıtlarını ve kayıt kümeleri Azure CLI 2.0 kullanan Azure DNS'de yönetme
 

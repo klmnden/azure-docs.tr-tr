@@ -17,10 +17,10 @@ ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>SQL Server için Azure anahtar kasası tümleştirme Azure sanal makinelerde (Klasik) yapılandırma
 > [!div class="op_single_selector"]

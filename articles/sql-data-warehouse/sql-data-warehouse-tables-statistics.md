@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
 ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda istatistiklerle yönetme
 > [!div class="op_single_selector"]
@@ -421,7 +421,7 @@ AND     st.[user_created] = 1
 ## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() örnekleri
 DBCC SHOW_STATISTICS() istatistikleri nesnesi içinde tutulan verileri gösterir. Bu veriler üç bölümlerinde gelir.
 
-1. Üst bilgi
+1. Üstbilgi
 2. Yoğunluğu vektör
 3. Çubuk grafik
 

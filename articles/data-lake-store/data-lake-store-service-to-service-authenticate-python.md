@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 9f23a5e24067dab29a21a44404a912588b46d3b0
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Python kullanarak Data Lake Store ile hizmet kimlik doğrulaması
 > [!div class="op_single_selector"]

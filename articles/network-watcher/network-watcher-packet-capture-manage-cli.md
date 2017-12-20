@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 66f53f97220f8fd23fa38bece0025f8b48289e23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2c0cb9b72d23f46e60c96efe96a9ad32ba6fc746
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Paket yakalama Azure CLI 2.0 kullanan Azure Ağ İzleyicisi ile yönetme
 
@@ -33,7 +33,7 @@ Ağ İzleyicisi paket yakalama, bir sanal makine gelen ve giden trafiği izlemek
 
 Bu makalede, Windows, Mac ve Linux için kullanılabilir olduğu, kaynak yönetimi için dağıtım modelini, Azure CLI 2.0 bizim nesil CLI kullanılmaktadır.
 
-Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Bu makaledeki adımları gerçekleştirmek için gerek [Mac, Linux ve Windows (Azure CLI) için Azure komut satırı arabirimini yükleyin](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 Bu makalede paket yakalama için şu anda kullanılabilir farklı yönetim görevleri yoluyla alır.
 

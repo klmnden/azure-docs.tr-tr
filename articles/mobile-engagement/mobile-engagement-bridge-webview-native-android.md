@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: f4fc7b3c81747ec80974a99084eeb1acc311f11f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="bridge-android-webview-with-native-mobile-engagement-android-sdk"></a>Yerel Mobile Engagement Android SDK'sı Android WebView köprüsü
 > [!div class="op_single_selector"]

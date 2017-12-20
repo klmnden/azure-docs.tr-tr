@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: abf8f0b1005aec71812dc8ebfd12fe65250d7a0e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="sql-data-warehouse-restore"></a>SQL veri ambarı geri yükleme
 > [!div class="op_single_selector"]

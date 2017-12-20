@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
 ms.openlocfilehash: 8e6c82aa60544d672bb249d589b63d55b48309fe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyonu
 > [!div class="op_single_selector"]

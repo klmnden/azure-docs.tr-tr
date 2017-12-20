@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
 ms.openlocfilehash: 4d0f085423d5bd60b24d88649ee1d77bcd1d009f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>PowerShell kullanarak bir sanal ağ geçidini Sil
 > [!div class="op_single_selector"]

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: gwallace
 ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell kullanarak DNS bölgelerini yönetme
 

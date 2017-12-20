@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 09/22/2017
 ms.author: nitinme
 ms.openlocfilehash: 71a64f3d23b495a3b00d36b1d4557425604a772d
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Hdınsight'ta Apache Spark kümeleri Jupyter not defterlerinde ile dış paketleri kullanma
 > [!div class="op_single_selector"]

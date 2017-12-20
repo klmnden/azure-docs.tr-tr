@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
 ms.openlocfilehash: b207e7e7bd83e56db68288190c7bedafa8b5b7fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-azure-portal"></a>Azure portalı kullanarak bir uygulama ağ geçidi için bir yol tabanlı kuralı oluşturma
 

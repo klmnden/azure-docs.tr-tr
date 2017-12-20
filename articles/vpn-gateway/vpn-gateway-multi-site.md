@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
 ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Mevcut bir VPN ağ geçidi bağlantısı olan (Klasik) bir sanal ağa bir siteden siteye bağlantı Ekle
 

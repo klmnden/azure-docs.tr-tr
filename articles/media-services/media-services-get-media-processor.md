@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
 ms.openlocfilehash: c2cbe41b71afa8acc184f9d7f4cfe94686de783e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Nasıl yapılır: bir medya işlemci örneği Al
 > [!div class="op_single_selector"]

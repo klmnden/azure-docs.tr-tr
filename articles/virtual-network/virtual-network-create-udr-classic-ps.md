@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.openlocfilehash: e9564d223cb85529f1fa97bc398d35c6debcedae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>Yönlendirme denetlemek ve PowerShell kullanarak sanal gereçler (Klasik) kullanma
 

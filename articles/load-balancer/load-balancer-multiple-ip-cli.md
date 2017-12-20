@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
 ms.openlocfilehash: 23dd3bf6a50a30477014081a955c3c154b765c5d
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>Yük Dengeleme üzerinde birden fazla IP yapılandırması
 

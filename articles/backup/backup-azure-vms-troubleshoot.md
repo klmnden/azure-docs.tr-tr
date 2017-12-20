@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
-> [!div class="op_single_selector"]
-> * [Kurtarma Hizmetleri kasası](backup-azure-vms-troubleshoot.md)
-> * [Yedekleme kasası](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında oluşan hatalar giderebilirsiniz.
 
 ## <a name="backup"></a>Backup
@@ -34,14 +28,14 @@ Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında o
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Hata: Belirtilen Disk yapılandırması desteklenmiyor
 
 > [!NOTE]
-> Özel önizleme olan VM'ler için yedeklemeler desteklemek için sahip olduğumuz > 1TB yönetilmeyen diskler. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> 1 TB’den düşük ve yönetilmeyen disklere sahip sanal makineler için yedeklemeyi destekleyen özel bir önizlememiz var. Ayrıntı için [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
 Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
-- Diskler 1 TB'den büyük varsa [yeni diskleri ekleme](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) 1 TB'den olduğu <br>
-- Sonra verileri disk 1 TB'den büyük 1 TB'den küçük boyutu, yeni oluşturulan diskler kopyalayın. <br>
-- Tüm verileri kopyaladığınız emin olun ve 1 TB'den büyük disklerin Kaldır
+- 1 TB’den büyük diskleriniz varsa, 1 TB’den düşük [yeni diskleri kullanıma açın](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) <br>
+- Ardından 1 TB’den büyük olan diskten verileri kopyalayıp yeni oluşturulan 1 TB’den küçük disklere aktarın. <br>
+- Tüm verilerin kopyalandığından emin olun ve 1 TB’den büyük diskleri kaldırın
 - Yedeklemeyi başlatın.
 
 | Hata ayrıntıları | Geçici çözüm |
@@ -69,7 +63,7 @@ Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](h
 | Sanal makine BEK ile tek başına şifrelenmiş olarak doğrulaması başarısız oldu. Yalnızca şifrelenmiş BEK ve KEK ile sanal makineleri için yedeklemeleri etkinleştirilebilir. |Sanal makine, BitLocker şifreleme anahtarını ve anahtar şifreleme anahtarı kullanarak şifrelenmelidir. Bundan sonra yedekleme etkinleştirilmelidir. |
 | Azure Backup hizmeti, anahtar kasası için yeterli izinlere için yedekleme şifrelenmiş sanal makinelerin yok. |Yedekleme hizmeti sağlanmalıdır PowerShell'de bu izinleri belirtilen adımları kullanarak **yedeklemeyi etkinleştir** bölümünü [PowerShell belgelerine](backup-azure-vms-automation.md). |
 |Yüklemesini anlık görüntü uzantı hatasıyla başarısız oldu - COM + Microsoft Dağıtılmış İşlem Düzenleyicisi ile iletişim kuramadı | Lütfen windows hizmeti "COM + Sistem uygulaması" başlatmayı deneyin (yükseltilmiş komut isteminden - _net Başlat COMSysApp_). <br>Başlatma sırasında başarısız olursa, lütfen aşağıdaki adımları izleyin:<ol><li> "Dağıtılmış İşlem Düzenleyicisi" hizmetinin oturum açma hesabı "Network Service" olduğunu doğrulayın. Değilse, lütfen "Network Service" değiştirin, bu hizmeti yeniden başlatın ve "COM + Sistem uygulaması" hizmetini başlatmak daha sonra deneyin.'<li>Başlatmak yine başarısız olursa, kaldırma/hizmet "Dağıtılmış İşlem Düzenleyicisi" aşağıdaki adımları izleyerek yükle:<br> -MSDTC hizmetini durdurun<br> -Bir komut istemi (cmd) açın <br> -Komutu çalıştır "msdtc-kaldırma" <br> -Komutu çalıştır "msdtc-yükleyin" <br> -MSDTC hizmeti Başlat<li>Windows hizmeti "COM + Sistem uygulaması" başlatın ve başlatıldıktan sonra portalından yedeklemeyi başlatın.</ol> |
-|  Anlık görüntü işlemi COM + hata nedeniyle başarısız oldu | Önerilen eylemi "COM + Sistem uygulaması" windows hizmeti yeniden başlatmaktır (yükseltilmiş komut isteminden - _net Başlat COMSysApp_). Sorun devam ederse, VM'yi yeniden başlatın. VM'yi yeniden başlatırken işe yaramazsa, deneyin [VMSnapshot uzantısını kaldırma](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) ve yedeklemeyi el ile başlatın. |
+|  Anlık görüntü işlemi COM + hata nedeniyle başarısız oldu | Önerilen eylemi "COM + Sistem uygulaması" windows hizmeti yeniden başlatmaktır (yükseltilmiş komut isteminden - _net Başlat COMSysApp_). Sorun devam ederse, VM'yi yeniden başlatın. VM'yi yeniden başlatırken işe yaramazsa, deneyin [VMSnapshot uzantısını kaldırma](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) ve yedeklemeyi el ile başlatın. |
 | Bir veya daha fazla bağlama noktalarının dosya sistemi ile tutarlı bir anlık görüntü almak için VM'nin dondurmak başarısız oldu | Aşağıdaki adımları kullanın: <ol><li>Tüm takılı cihazlar kullanarak dosya sistemi durumunu denetleyip _'tune2fs'_ komutu.<br> Örn: tune2fs -m/dev/sdb1 \| GREP "Dosya sistemi durumu" <li>İçin hangi dosya sistemi durumu değil temiz kullanarak cihazları çıkarın _'umount'_ komutu <li> Kullanarak bu cihazları üzerinde FileSystemConsistency denetimi Çalıştır _'fsck'_ komutu <li> Aygıtları yeniden bağlayın ve yedekleme deneyin.</ol> |
 | Anlık görüntü işlemi iletişim kanalını güvenli ağ oluşturma hatası nedeniyle başarısız oldu | <ol><Li> Yükseltilmiş modda regedit.exe çalıştırarak kayıt defteri Düzenleyicisi'ni açın. <li> Tüm sürümleri tanımlayın. NetFramework sistemde mevcut. Kayıt defteri anahtarı "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" hiyerarşisi altında mevcut <li> Her biri için. Kayıt defteri anahtarında mevcut NetFramework anahtarı ekleyin: <br> "SchUseStrongCrypto" = dword: 00000001 </ol>|
 | Visual C++ yeniden dağıtılabilir yüklenmesi için Visual Studio 2012 hata nedeniyle anlık görüntü işlemi başarısız oldu | İçin C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion gidin ve vcredist2012_x64 yükleyin. Bu hizmeti yüklemesi izin vermek için kayıt defteri anahtarı değerini yani kayıt defteri anahtarının değeri doğru değerine ayarlandığından emin olun _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MSIServer_ 3 ve 4'değil ayarlayın. Yükleme sorunları devam bakacak, çalıştırarak Yükleme hizmeti yeniden başlatın _MSIEXEC /UNREGISTER_ arkasından _MSIEXEC /REGISTER_ yükseltilmiş bir komut isteminden.  |
@@ -137,7 +131,7 @@ Windows vm'lerde VM Aracısı'nın sürümünü denetlemek nasıl:
 VM yedekleme anlık görüntü komutları için temel alınan depolama veren kullanır. Depolama veya gecikmeleri erişimi bir anlık görüntü görev yürütme olmaması, yedekleme işi başarısız olmasına neden olabilir. Aşağıdaki anlık görüntü görev başarısız olmasına neden olabilir.
 
 1. NSG kullanılarak depolamaya ağ erişimi engellendi<br>
-    Nasıl konusunda daha fazla bilgi edinin [ağ erişimini etkinleştir](backup-azure-vms-prepare.md#network-connectivity) ya da uygulamaları güvenilir listeye almayı IP kullanarak depolama alanına veya proxy sunucu üzerinden.
+    Nasıl konusunda daha fazla bilgi edinin [ağ erişimini etkinleştir](backup-azure-arm-vms-prepare.md#network-connectivity) ya da uygulamaları güvenilir listeye almayı IP kullanarak depolama alanına veya proxy sunucu üzerinden.
 2. Yapılandırılan Sql Server Yedekleme ile VM anlık görüntü görev gecikmeye neden olabilir <br>
    Varsayılan VM yedekleme sorunları VSS tam yedekleme ile Windows sanal makineleri üzerinde. Sql sunucuları ve Sql Server Yedekleme yapılandırılıp yapılandırılmadığını çalıştırmakta olan VM'ler üzerinde bu anlık görüntü yürütme gecikmesi neden olabilir. Lütfen yedekleme hataları nedeniyle anlık görüntü sorunları yaşıyorsanız, aşağıdaki kayıt defteri anahtarını ayarlayın.
 
@@ -169,7 +163,7 @@ Ad çözümlemesi doğru yaptıktan sonra Azure IP'leri erişimi de sağlanmalı
    * IP'leri kullanarak engellemesini [yeni NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet'i. Azure VM dahilinde bu cmdlet'i yükseltilmiş bir PowerShell penceresi (yönetici olarak çalıştır) çalıştırın.
    * (Bir yerinde yoksa) kuralları NSG'yi IP'leri erişmesine izin vermek için ekleyin.
 2. Akış HTTP trafiği için bir yol oluşturma
-   * Varsa bazı ağ kısıtlaması yerde (bir ağ güvenlik grubu, örneğin) trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın. Bir HTTP Proxy sunucusu dağıtmak için adımları bulunan [burada](backup-azure-vms-prepare.md#network-connectivity).
+   * Varsa bazı ağ kısıtlaması yerde (bir ağ güvenlik grubu, örneğin) trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın. Bir HTTP Proxy sunucusu dağıtmak için adımları bulunan [burada](backup-azure-arm-vms-prepare.md#network-connectivity).
    * (Bir yerinde yoksa) kuralları NSG'yi HTTP Proxy sunucudan INTERNET'e erişim izni ekleyin.
 
 > [!NOTE]

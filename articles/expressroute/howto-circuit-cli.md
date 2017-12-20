@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
 ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Oluşturma ve CLI kullanarak bir expressroute bağlantı hattı değiştirme
 

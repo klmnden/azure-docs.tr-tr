@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
 ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure PowerShell ile Azure Redis önbelleği Yönet
 > [!div class="op_single_selector"]
@@ -81,8 +81,8 @@ or
 
 Azure Bulutu önbellek oluşturmak için aşağıdaki konumlardan birini kullanın.
 
-* ABD hükümeti Virginia
-* ABD hükümeti Iowa
+* USGov Virginia
+* USGov Iowa
 
 Azure Bulutu hakkında daha fazla bilgi için bkz: [Microsoft Azure kamu](https://azure.microsoft.com/features/gov/) ve [Microsoft Azure kamu Geliştirici Kılavuzu](../azure-government-developer-guide.md).
 

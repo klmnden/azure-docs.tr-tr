@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 04/05/2017
 ms.author: jroth
 ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>SQL Server 2016 Azure sanal makineleri için (Resource Manager) yedekleme v2 otomatik
 
@@ -74,7 +74,7 @@ Aşağıdaki tabloda otomatik yedekleme v2 için yapılandırılabilir seçenekl
 | **Şifreleme** |Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya şifreleme devre dışı bırakır. Şifreleme etkinleştirildiğinde, yedeklemeyi geri yüklemek için kullanılan sertifikaları aynı belirtilen depolama hesabında bulunan **automaticbackup** aynı adlandırma kuralını kullanarak kapsayıcı. Parola değişirse, bu parola ile yeni bir sertifika oluşturulur, ancak önceki yedekleri geri yüklemek için eski sertifika kalır. |
 | **Parola** |Parola metin | Şifreleme anahtarları için bir parola. Yalnızca budur şifreleme etkin olup olmadığını gerekli. Şifrelenmiş bir yedeklemeyi geri yüklemek için doğru parolayı ve yedeğin alındığı anda kullanılan ilgili sertifika olması gerekir. |
 
-### <a name="advanced-settings"></a>Gelişmiş ayarlar
+### <a name="advanced-settings"></a>Gelişmiş Ayarlar
 
 | Ayar | Aralık (varsayılan) | Açıklama |
 | --- | --- | --- |

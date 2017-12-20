@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: a1a0679b91304df5cbc3dcaec14abfeaaa25c04f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Öğretici: Verileri Hadoop kümesi kullanarak dönüştürmek için ilk işlem hattınızı oluşturma
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/02/2017
 
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [hızlı başlangıç: Azure Data Factory sürüm 2 kullanarak bir veri fabrikası oluşturma](../quickstart-create-data-factory-dot-net.md).
+> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Data Factory hizmetinin önizleme aşamasında olan 2. sürümünü kullanıyorsanız [Hızlı Başlangıç: Azure Data Factory sürüm 2’yi kullanarak veri fabrikası oluşturma](../quickstart-create-data-factory-dot-net.md) konusunu inceleyin.
 
 Bu öğreticide, veri ardışık ile ilk Azure data factory'nizi derleme. Ardışık Düzen giriş verileri çıktı verileri üretemedi bir Azure Hdınsight (Hadoop) kümesinde Hive betiğini çalıştırarak dönüştürür.  
 

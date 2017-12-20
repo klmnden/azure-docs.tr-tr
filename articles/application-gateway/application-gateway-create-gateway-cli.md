@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
 ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanarak bir uygulama ağ geçidi oluşturma
 

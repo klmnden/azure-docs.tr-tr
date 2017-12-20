@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/11/2017
 ms.author: nitinme
 ms.openlocfilehash: 43cb2225d7fbf2fc7f8d93c78415f0f2c1a3fa25
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması
 > [!div class="op_single_selector"]

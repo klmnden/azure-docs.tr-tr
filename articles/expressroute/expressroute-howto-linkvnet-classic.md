@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2017
 ms.author: ganesr
 ms.openlocfilehash: 8df8a4c6ff0897c821e13248e0494b17e1a4992d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Bir sanal ağ (Klasik) PowerShell kullanarak bir expressroute bağlantı
 > [!div class="op_single_selector"]

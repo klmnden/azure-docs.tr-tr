@@ -17,10 +17,10 @@ ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.openlocfilehash: 3f57e1a0ded679325c8c739e73cc79f69c037191
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Grup Yönetimi için Azure Active Directory sürüm 2 cmdlet'leri
 > [!div class="op_single_selector"]
@@ -168,7 +168,7 @@ Dizininizden grubunu silmek için Remove-AzureADGroup cmdlet'ini aşağıdaki ş
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
 ## <a name="manage-group-membership"></a>Grup üyeliğini yönet 
-### <a name="add-members"></a>Üye ekle
+### <a name="add-members"></a>Üye ekleme
 Bir gruba yeni üye eklemek için Add-AzureADGroupMember cmdlet'ini kullanın. Bu komut, önceki örnekte kullandık Intune Administrators grubuna üye ekler:
 
     PS C:\Windows\system32> Add-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea

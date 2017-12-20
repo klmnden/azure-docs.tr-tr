@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: 034bfe6fbab3da083d6c63f99f960467fd0a84e9
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>İzleme ve yerel makine geliştirme Kurulum Hizmetleri'nde tanılama
 > [!div class="op_single_selector"]

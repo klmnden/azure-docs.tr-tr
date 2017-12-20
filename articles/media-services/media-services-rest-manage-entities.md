@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
 ms.openlocfilehash: 645d417e22b32e6da978e8d94e67f9615100ea89
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Media Services REST varlıklarıyla yönetme 
 > [!div class="op_single_selector"]

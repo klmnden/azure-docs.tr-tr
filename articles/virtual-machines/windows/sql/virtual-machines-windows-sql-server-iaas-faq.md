@@ -19,7 +19,7 @@ ms.openlocfilehash: 141dd1fe9e727f430b7c45dbb798f5471167c355
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Sık Sorulan Sorular SQL Server için Windows Azure sanal makinelerde
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: b27e0684b0914764f22b59e050e75c7be3a82cc6
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Paket yakalama PowerShell kullanarak Azure Ağ İzleyicisi ile yönetme
 

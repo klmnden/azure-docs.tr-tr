@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 8c5afc96cc8101345f00b5d435e9f393d22672de
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak Data Lake Store ile Hdınsight kümesi oluşturma
 > [!div class="op_single_selector"]

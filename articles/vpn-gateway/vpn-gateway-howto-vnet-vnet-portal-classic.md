@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: cherylmc
 ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet bağlantı (Klasik) yapılandırma
 

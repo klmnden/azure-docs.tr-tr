@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
 ms.openlocfilehash: 1959871141f196ba80ffd7b37e62e5ea5b42dba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Otomatik Azure sanal makinelerde (Klasik) SQL Server için düzeltme eki uygulama
 > [!div class="op_single_selector"]

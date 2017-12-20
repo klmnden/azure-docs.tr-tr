@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Azure Media Services’ta Widevine lisansları vermek için castLabs kullanma
 > [!div class="op_single_selector"]
@@ -53,9 +53,9 @@ Aşağıdaki tabloda AMS JWT belirteci açıklanmaktadır.
 | Veren | Seçilen veren dizeden güvenli belirteç hizmeti (STS) |
 | --- | --- |
 | Hedef kitle |Kullanılan STS dizeden hedef kitle |
-| Talepleri |Talepler kümesi |
+| Talepler |Talepler kümesi |
 | NotBefore |Belirtecin geçerliliğini Başlat |
-| Süre sonu |Son belirtecin geçerliliğini |
+| Süre Sonu: |Son belirtecin geçerliliğini |
 | SigningCredentials |Lisans sunucusu ve STS, castLabs olan PlayReady lisans sunucusu arasında paylaşılan anahtarı simetrik ya da asimetrik olabilir anahtarı. |
 
 ### <a name="jwt-token-in-castlabs"></a>CastLabs JWT belirteci

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: ef092a48994b68268109cb98bd6cd4526e259d5b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Oluşturma ve PowerShell kullanarak bir expressroute bağlantı hattı değiştirme
 > [!div class="op_single_selector"]

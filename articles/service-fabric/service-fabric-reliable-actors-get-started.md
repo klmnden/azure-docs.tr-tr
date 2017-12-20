@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
 ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors ile çalışmaya başlama
 > [!div class="op_single_selector"]

@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: c3a2d4b126d43017ec004bde82deb190584455c4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Öğretici: verileri Blob depolama alanından Data Factory kullanarak SQL veritabanına kopyalamak
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 11/02/2017
 > * [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [kopyalama etkinliği öğretici sürüm 2 belgelerinde](../quickstart-create-data-factory-dot-net.md). 
+> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Data Factory hizmetinin önizleme aşamasında olan 2. sürümünü kullanıyorsanız [sürüm 2’de kopyalama etkinliği öğreticisi belgeleri](../quickstart-create-data-factory-dot-net.md) konusunu inceleyin. 
 
 Bu öğreticide, verileri Blob depolama alanından SQL veritabanına kopyalamak için bir komut zinciriyle bir veri fabrikası oluşturun.
 

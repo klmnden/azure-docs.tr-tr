@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: andredm
 ms.openlocfilehash: 51b158ebfeea52e726213edd042277779f52124b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="view-access-assignments-for-users-and-groups-in-the-azure-portal"></a>Kullanıcılar ve gruplar Azure portalında için erişim atamalarını görüntüle
 > [!div class="op_single_selector"]

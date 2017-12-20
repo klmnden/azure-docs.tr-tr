@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/29/2017
 ms.author: cherylmc
 ms.openlocfilehash: d62fa14ea24a9b62e793ef7022a761897984df32
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Azure CLI kullanarak yerel ağ geçidi ayarlarını değiştirme
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Birden çok IP yapılandırmalarını Azure portalını kullanarak yük dengelemenin
 

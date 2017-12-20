@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: 7f13208a55d19930aed99017221386a4498307d1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 6be187784a68174b63f7fc068c772826a0db52c6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Azure SQL Data Warehouse (portal) geri yükleme
 > [!div class="op_single_selector"]
@@ -104,7 +104,7 @@ Azure SQL veritabanı sürümlerini iş sürekliliği özellikleri hakkında bil
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 
