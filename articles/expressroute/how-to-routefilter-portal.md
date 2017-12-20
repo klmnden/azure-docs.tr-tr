@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
 ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft eşliği için rota filtrelerini yapılandırın: Azure portal
 > [!div class="op_single_selector"]

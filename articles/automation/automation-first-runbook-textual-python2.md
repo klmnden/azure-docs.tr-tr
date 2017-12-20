@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
 ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="my-first-python-runbook"></a>İlk Python runbook Uygulamam
 

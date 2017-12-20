@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 8/10/2017
 ms.author: chackdan
 ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Azure Service Fabric kümesi yükseltme
 > [!div class="op_single_selector"]

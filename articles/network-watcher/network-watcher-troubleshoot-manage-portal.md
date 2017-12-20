@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
 ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Sanal ağ geçidi ve Azure Ağ İzleyicisi PowerShell kullanarak bağlantı sorunlarını giderme
 
@@ -65,7 +65,7 @@ Tamamlandığında, Durum sütununda değişikliklerini **sağlıklı** veya **s
 |Kaynak     | Kaynak bağlantı.        |
 |Depolama alanı yolu     |  Depolama hesabı ve kapsayıcı günlükleri (herhangi bir çalışma sırasında oluşturulamadığı varsa) içeren yolu. Portal çıktıktan sonra bu ayarı kalmaz.        |
 |Özet     | Kaynak durumu özeti.        |
-|Ayrıntısı     | Kaynak durumu hakkında ayrıntılı bilgiler.        |
+|Ayrıntı     | Kaynak durumu hakkında ayrıntılı bilgiler.        |
 |Son çalıştırma     | Son sorun giderme zaman saat kaldı.        |
 
 

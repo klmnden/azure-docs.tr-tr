@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell kullanarak Windows Server/Windows İstemcisi için Azure’a yedekleme dağıtma ve yönetme
-> [!div class="op_single_selector"]
-> * [ARM](backup-client-automation.md)
-> * [Klasik](backup-client-automation-classic.md)
->
->
-
 Bu makalede Azure yedekleme Windows Server veya Windows İstemcisi ayarlama ve yedekleme ve kurtarma yönetmek için PowerShell kullanmayı gösterir.
 
 ## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
@@ -204,7 +198,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Ayarlandıktan sonra parola bilgilerini güvenli ve güvenli tutar. Olan değil veri bu parolayı Azure'dan geri yükleyebilirsiniz.
+> Ayarlandıktan sonra parola bilgilerini güvenli ve güvenli tutar. Bu parola veri Azure'dan geri yükleyemezsiniz.
 >
 >
 
@@ -425,7 +419,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Kullanarak varolan yedekleme ilkesi ayrıntılarını görüntüleyebilirsiniz [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet'i. Kullanarak daha fazla ayrıntıya [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet'i için yedekleme zamanlamasını ve [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) bekletme ilkeleri için cmdlet
+Kullanarak varolan yedekleme ilkesi ayrıntılarını görüntüleyebilirsiniz [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet'i. Daha fazla kullanarak aşağı inebilir [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet'i için yedekleme zamanlamasını ve [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) bekletme ilkeleri için cmdlet
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -465,8 +459,8 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>Bir geçici yedekleme gerçekleştirme
-Bir yedekleme İlkesi ayarladıktan sonra yedeklemeler zamanlama meydana gelir. Bir geçici yedekleme tetikleme olduğunu da olası kullanarak [başlangıç OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
+### <a name="performing-an-ad-hoc-backup"></a>Geçici bir yedeklemenin
+Bir yedekleme İlkesi ayarladıktan sonra yedeklemeler zamanlama meydana gelir. Geçici bir yedeklemeyi tetikleme olduğunu da olası kullanarak [başlangıç OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
@@ -506,7 +500,7 @@ ServerName : myserver.microsoft.com
 ```
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Geri yüklemek yedek bir noktası seçme
-Çalıştırarak yedekleme noktalarının bir listesini alma [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) uygun parametreleri cmdlet'iyle. Bizim örneğimizde, en son yedekleme noktası kaynak birimin seçeceğiz *D:* ve belirli bir dosya kurtarmak için kullanın.
+Yürüterek yedekleme noktalarının bir listesini almak [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) uygun parametreleri cmdlet'iyle. Bizim örneğimizde, en son yedekleme noktası kaynak birimin seçeceğiz *D:* ve belirli bir dosya kurtarmak için kullanın.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]

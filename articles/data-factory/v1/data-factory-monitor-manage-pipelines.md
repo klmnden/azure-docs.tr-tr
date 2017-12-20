@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>İzleme ve Azure portalı ve PowerShell kullanarak Azure Data Factory işlem hatlarını yönetme
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Bu bölümde, nasıl bir veri kümesi dilim başka bir duruma bir durumdan diğe
    ![Tümüne Gözat > veri fabrikaları](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Üzerinde **veri fabrikaları** dikey penceresinde, ilgilendiğiniz data factory seçin.
 
-    ![Veri Fabrikası seçin](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    ![Veri fabrikası seçme](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
    Data factory giriş sayfasını görmeniz gerekir.
 
@@ -86,7 +86,7 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan biri olabilir:
 
 <table>
 <tr>
-    <th align="left">Durum</th><th align="left">Bölgesine</th><th align="left">Açıklama</th>
+    <th align="left">Durum</th><th align="left">Alt durum</th><th align="left">Açıklama</th>
 </tr>
 <tr>
     <td rowspan="8">Bekleniyor</td><td>ScheduleTime</td><td>Saat dilimi çalıştırmak gelen kurmadı.</td>
@@ -104,7 +104,7 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan biri olabilir:
 <td>ActivityResume</td><td>Etkinlik duraklatıldı ve etkinlik sürdürülene kadar dilimler çalıştırılamaz.</td>
 </tr>
 <tr>
-<td>Yeniden deneyin</td><td>Etkinlik yürütme yeniden deneniyor.</td>
+<td>Yeniden Dene</td><td>Etkinlik yürütme yeniden deneniyor.</td>
 </tr>
 <tr>
 <td>Doğrulama</td><td>Doğrulama henüz başlatılmadı.</td>
@@ -114,13 +114,13 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan biri olabilir:
 </tr>
 <tr>
 <tr>
-<td rowspan="2">Devam ediyor</td><td>Doğrulama</td><td>Doğrulama devam ediyor.</td>
+<td rowspan="2">İlerliyor</td><td>Doğrulanıyor</td><td>Doğrulama devam ediyor.</td>
 </tr>
 <td>-</td>
 <td>Dilim işleniyor.</td>
 </tr>
 <tr>
-<td rowspan="4">Başarısız oldu</td><td>Süresi sona erdi</td><td>Etkinlik yürütme etkinlik tarafından izin daha uzun sürdü.</td>
+<td rowspan="4">Başarısız</td><td>Süresi sona erdi</td><td>Etkinlik yürütme etkinlik tarafından izin daha uzun sürdü.</td>
 </tr>
 <tr>
 <td>İptal edildi</td><td>Dilim kullanıcı eylemi tarafından iptal edildi.</td>
@@ -368,9 +368,9 @@ Aşağıdaki tabloda kullanılabilir işlemleri ve durumları (ve alt durumlar) 
 
 | İşlem adı | Durum | Alt durum |
 | --- | --- | --- |
-| RunStarted |başlatıldı |Başlangıç |
+| RunStarted |Başlatıldı |Başlangıç |
 | RunFinished |Başarısız / başarılı oldu |FailedResourceAllocation<br/><br/>Başarılı oldu<br/><br/>FailedExecution<br/><br/>Süresi sona erdi<br/><br/>< iptal edildi<br/><br/>FailedValidation<br/><br/>terk |
-| OnDemandClusterCreateStarted |başlatıldı | |
+| OnDemandClusterCreateStarted |Başlatıldı | |
 | OnDemandClusterCreateSuccessful |Başarılı oldu | |
 | OnDemandClusterDeleted |Başarılı oldu | |
 

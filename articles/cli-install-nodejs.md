@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
 ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="install-the-azure-cli-10"></a>1.0 Azure CLI'yı yükleme
 > [!div class="op_single_selector"]

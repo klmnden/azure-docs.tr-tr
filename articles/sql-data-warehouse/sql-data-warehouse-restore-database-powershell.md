@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 12/06/2017
 ms.author: barbkess
-ms.openlocfilehash: 59d172d56511ac39aa2b1b2989a9800ee83eed39
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 3b39e87946f3787c71872c7b98db419f1f239e7a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Bir Azure SQL veri ambarı (PowerShell) geri yükleme
 > [!div class="op_single_selector"]
@@ -161,7 +161,7 @@ Azure SQL veritabanı sürümlerini iş sürekliliği özellikleri hakkında bil
 
 <!--Article references-->
 [Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Overview]: ./sql-data-warehouse-restore-database-overview.md

@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure sanal makine yedeklemelerini yönetme
-> [!div class="op_single_selector"]
-> * [Azure VM yedeklemeleri yönetme](backup-azure-manage-vms.md)
-> * [Klasik VM yedeklemeleri yönetme](backup-azure-manage-vms-classic.md)
->
->
 
 Bu makalede VM yedekleri yönetmeyle ilgili yönergeler sağlar ve portal panosunda kullanılabilir yedekleme uyarıları bilgileri açıklar. Bu makalede yer alan yönergeleri VM'ler ile kurtarma Hizmetleri kasaları kullanılarak uygulanır. Bu makalede, sanal makinelerin oluşturulmasını kapsamaz ya da sanal makineleri korumak nasıl açıklayan yapar. Azure Resource Manager tarafından dağıtılan Vm'leri Azure kurtarma Hizmetleri kasası ile koruma öncü için bkz: [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md).
 
@@ -208,11 +203,11 @@ Bir sanal makineyle yedek verileri silmek için *yedekleme devre dışı*:
 
 1. Üzerinde [kasa öğesi Panosu](backup-azure-manage-vms.md#open-a-vault-item-dashboard), tıklatın **Delete yedekleme**.
 
-    ![VM türü](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+    ![VM Türü](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
     **Yedekleme verilerini Sil** dikey pencere açılır.
 
-    ![VM türü](./media/backup-azure-manage-vms/delete-backup-blade.png)
+    ![VM Türü](./media/backup-azure-manage-vms/delete-backup-blade.png)
 2. Kurtarma noktaları silme isteğinizi onaylamak için öğeyi adını yazın.
 
     ![Doğrulama Durdur](./media/backup-azure-manage-vms/item-verification-box.png)
@@ -224,4 +219,4 @@ Bir sanal makineyle yedek verileri silmek için *yedekleme devre dışı*:
     Bir bildirim iletisi, yedekleme verilerini silinmiş bilmenizi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir sanal makine bir kurtarma noktasından yeniden oluşturma hakkında daha fazla bilgi için kullanıma [geri Azure Vm'leri](backup-azure-restore-vms.md). Sanal makinelerinizi koruma bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). Olayları izleme hakkında daha fazla bilgi için bkz: [izlemek için Azure sanal makine yedeklerini uyarıları](backup-azure-monitor-vms.md).
+Bir sanal makine bir kurtarma noktasından yeniden oluşturma hakkında daha fazla bilgi için kullanıma [geri Azure Vm'leri](backup-azure-arm-restore-vms.md). Sanal makinelerinizi koruma bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). Olayları izleme hakkında daha fazla bilgi için bkz: [izlemek için Azure sanal makine yedeklerini uyarıları](backup-azure-monitor-vms.md).

@@ -15,18 +15,13 @@ ms.workload: storage-backup-recovery
 ms.date: 11/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b873337cf69ea1dda956ebf8c004754a7737e79c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Sanal makineleri yedeklemek için AzureRM.RecoveryServices.Backup cmdlet'leri kullanın
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-vms-automation.md)
-> * [Klasik](backup-azure-vms-classic-automation.md)
->
->
 
 Bu makalede Azure PowerShell cmdlet'leri yedekleme ve kurtarma Hizmetleri Kasası'nı bir Azure sanal makinesini (VM) kurtarmak için nasıl kullanılacağı gösterilmektedir. Kurtarma Hizmetleri kasası bir Azure Resource Manager kaynaktır ve veri ve varlıkların Azure Backup ve Azure Site Recovery Services korumak için kullanılır. Azure Service Manager tarafından dağıtılan VM'ler ve Azure Resource Manager tarafından dağıtılan Vm'leri korumak için bir kurtarma Hizmetleri kasası kullanabilirsiniz.
 
@@ -169,7 +164,7 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-En az bir bekletme ilkesiyle ilişkili bir yedekleme koruma ilkesidir. Bekletme İlkesi silinmeden önce ne kadar bir kurtarma noktası tutulur tanımlar. Kullanım  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  varsayılan bekletme ilkesini görüntülemek için.  Benzer şekilde kullanabilirsiniz  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  varsayılan zamanlama ilkesi elde edilir. **[Yeni AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet'i, yedekleme ilkesi bilgilerini tutan bir PowerShell nesnesi oluşturur. Zamanlama ve Bekletme İlkesi nesneleri giriş olarak kullanılan  **[yeni AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet'i. Aşağıdaki örnek zamanlama ilkesini ve bekletme ilkesini değişkenleri depolar. Örnek, bir koruma ilkesi oluşturulurken parametreleri tanımlamak için bu değişkenleri kullanır. *NewPolicy*.
+En az bir bekletme ilkesiyle ilişkili bir yedekleme koruma ilkesidir. Bekletme İlkesi silinmeden önce ne kadar bir kurtarma noktası tutulur tanımlar. Kullanım  **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)**  varsayılan bekletme ilkesini görüntülemek için.  Benzer şekilde kullanabilirsiniz  **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)**  varsayılan zamanlama ilkesi elde edilir.  **[Yeni AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet'i, yedekleme ilkesi bilgilerini tutan bir PowerShell nesnesi oluşturur. Zamanlama ve Bekletme İlkesi nesneleri giriş olarak kullanılan  **[yeni AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)**  cmdlet'i. Aşağıdaki örnek zamanlama ilkesini ve bekletme ilkesini değişkenleri depolar. Örnek, bir koruma ilkesi oluşturulurken parametreleri tanımlamak için bu değişkenleri kullanır. *NewPolicy*.
 
 ```
 PS C:\> $schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"

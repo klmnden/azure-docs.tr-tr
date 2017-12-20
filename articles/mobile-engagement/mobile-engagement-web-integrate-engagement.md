@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
 ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Bir web uygulamasına Azure Mobile Engagement tümleştirme
 > [!div class="op_single_selector"]
