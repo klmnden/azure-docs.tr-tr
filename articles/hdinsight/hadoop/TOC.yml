@@ -13,6 +13,9 @@
       href: apache-hadoop-linux-tutorial-get-started.md
     - name: Hadoop korumalı alanı
       href: apache-hadoop-emulator-get-started.md
+    - name: HDInsight uygulamaları yükleme
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Küme kapasitesi planlama
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -25,23 +28,6 @@
           maintainContext: true
         - name: Azure Data Lake Store’u kullanma
           href: ../hdinsight-hadoop-use-data-lake-store.md
-          maintainContext: true
-    - name: Çok kullanıcılı küme kullanma
-      items:
-        - name: Genel Bakış
-          href: ../domain-joined/apache-domain-joined-introduction.md
-          maintainContext: true
-        - name: HDInsight’ta etki alanına katılımı planlama
-          href: ../domain-joined/apache-domain-joined-architecture.md
-          maintainContext: true
-        - name: Etki alanına katılmış HDInsight kümelerini yapılandırma
-          href: ../domain-joined/apache-domain-joined-configure.md
-          maintainContext: true
-        - name: Hive ilkelerini yapılandırma
-          href: ../domain-joined/apache-domain-joined-run-hive.md
-          maintainContext: true
-        - name: Çok kullanıcılı kümeyi yönetme
-          href: ../domain-joined/apache-domain-joined-manage.md
           maintainContext: true
     - name: Toplu sorgular için Hadoop kullanma
       items:
@@ -158,17 +144,11 @@
           maintainContext: true
     - name: Kümeleri genişletme
       items:
-        - name: Güvenli aktarım özellikli depolama hesabı kullanma
-          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-          maintainContext: true
         - name: Bootstrap ile kümeleri özelleştirme
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
         - name: Script Action kullanarak kümeleri özelleştirme
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
-        - name: HDInsight’ı şirket içi ağınıza bağlama
-          href: ../connect-on-premises-network.md
           maintainContext: true
         - name: Betik eylemleri geliştirme
           href: ../hdinsight-hadoop-script-actions-linux.md
@@ -194,17 +174,11 @@
         - name: Solr kullanma
           href: ../hdinsight-hadoop-solr-install-linux.md
           maintainContext: true
-        - name: Sanal Ağ kullanma
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Zeppelin kullanma
           href: ../hdinsight-apache-spark-zeppelin-notebook.md
           maintainContext: true
         - name: HDInsight uygulamalarını derleme
           items:
-            - name: HDInsight uygulamaları yükleme
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: Özel uygulamaları yükleme
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -315,20 +289,6 @@
         - name: HDInsight kümesi için işletim sistemi düzeltme eki uygulama
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: İzleme
-      items:
-        - name: Azure Log Analytics’i kullanma
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Kümeye özgü panolar
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Log Analytics ile sorguları kullanma
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Küme performansını izleme
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: Sorun giderme
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -368,6 +328,53 @@
             - name: Hive sorgularını en iyi duruma getirme
               href: ../hdinsight-hadoop-optimize-hive-query.md
               maintainContext: true
+- name: Kurumsal kullanıma hazır olma
+  items:
+    - name: Kurumsal güvenlik
+      items:
+        - name: Genel Bakış
+          href: ../domain-joined/apache-domain-joined-introduction.md
+          maintainContext: true
+        - name: Kurumsal güvenliğe yönelik plan
+          href: ../domain-joined/apache-domain-joined-architecture.md
+          maintainContext: true
+        - name: HDInsight’ta kurumsal güvenliği yapılandırma
+          href: ../domain-joined/apache-domain-joined-configure.md
+          maintainContext: true
+        - name: Azure AD DS kullanarak HDInsight’ta kurumsal güvenliği yapılandırma
+          href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
+          maintainContext: true
+        - name: Hive ilkelerini yapılandırma
+          href: ../domain-joined/apache-domain-joined-run-hive.md
+          maintainContext: true
+        - name: Kurumsal güvenlik ile kümeleri yönetme
+          href: ../domain-joined/apache-domain-joined-manage.md
+          maintainContext: true
+    - name: Verilerin güvenliğini sağlama
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Ağ erişimi
+      items:
+        - name: Azure VNet’te HDInsight
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: HDInsight’a şirket içi ağınızla bağlanma
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: OMS’leri kullanarak izleme
+      items:
+        - name: Azure Log Analytics’i kullanma
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: Kümeye özgü panolar
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Log Analytics ile sorguları kullanma
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: Küme performansını izleme
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: Başvuru
   items:
     - name: Kod örnekleri
@@ -420,9 +427,6 @@
           maintainContext: true
         - name: YARN uygulama günlüklerine erişim
           href: ../hdinsight-hadoop-access-yarn-app-logs.md
-          maintainContext: true
-        - name: Apache Phoenix ve SQuirreL kullanma
-          href: ../hdinsight-hbase-phoenix-squirrel.md
           maintainContext: true
         - name: Mahout kullanarak film önerileri oluşturma
           href: ../hdinsight-mahout.md

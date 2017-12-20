@@ -32,7 +32,7 @@
 
 ## Verileri yükleme ve taşıma
 ### [Genel Bakış](design-elt-data-loading.md)
-### [Rehber](guidance-for-loading-data.md)
+### [En iyi uygulamalar](guidance-for-loading-data.md)
 
 
 ## Tümleştirme
