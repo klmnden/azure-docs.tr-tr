@@ -32,6 +32,7 @@
 ### [Lisanslı görüntü etkinleştirme](devtest-lab-enable-licensed-images.md)
 ### [Laboratuvara etiket ekleme](devtest-lab-add-tag.md)
 ### [Laboratuvarda duyuru yayınlama](devtest-lab-announcements.md)
+### [Laboratuvara destek bilgisi ekleme](devtest-lab-internal-support-message.md)
 
 ## [Özel görüntü veya formül seçme](devtest-lab-comparing-vm-base-image-types.md)
 
