@@ -91,8 +91,7 @@
 #### Birden çok IP adresi ile VM oluşturma
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [Azure CLI 2.0](virtual-network-multiple-ip-addresses-cli.md)
-##### [Azure CLI 1.0](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Şablon](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Hızlandırılmış ağ ile bir VM oluşturma](virtual-network-create-vm-accelerated-networking.md)
