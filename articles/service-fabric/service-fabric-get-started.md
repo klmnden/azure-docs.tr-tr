@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: c22d516506ae89d8591e8fe162347e115a89cb34
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 
 ## <a name="install-the-sdk-and-tools"></a>SDK'yı ve araçları yükleme
 ### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017’yi kullanmak için
-Service Fabric Araçları, Visual Studio 2017’de Azure Geliştirme ve Yönetim iş yükünün parçasıdır. Bu iş yükünü Visual Studio yüklemenizin bir parçası olarak etkinleştirin.
+Service Fabric Araçları, Visual Studio 2017’de Azure Geliştirme iş yükünün parçasıdır. Bu iş yükünü Visual Studio yüklemenizin bir parçası olarak etkinleştirin.
 Ayrıca Web Platformu Yükleyicisini kullanarak Microsoft Azure Service Fabric SDK'sını da yüklemeniz gerekir.
 
 * [Microsoft Azure Service Fabric SDK'sını yükleyin][core-sdk]

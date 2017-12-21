@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 10/02/2017
 ms.author: jroth
-ms.openlocfilehash: 787e696edd2a446bec280b763fe5ac591782c8ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Sanal Makinelerinde SQL Server'a Genel Bakış (Linux)
 
@@ -37,7 +37,7 @@ Verilerinizi Azure’da barındırmayı seçmeniz için birçok neden vardır. U
 
 Azure VM’lerinde çalışan SQL Server, ilişkisel verilerinizi Azure’da depolamak için yararlanabileceğiniz bir seçenektir. Azure SQL Veritabanı hizmetini de kullanabilirsiniz. Sanal Makineler üzerinde SQL Server ile Azure SQL Veritabanı arasında seçim yapmanıza yardımcı olacak bilgiler için bkz. [Bulut SQL Server seçeneği belirleme: Azure SQL (PaaS) Veritabanı veya Azure VM'leri üzerinse SQL Server (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-## <a name="create-a-new-sql-vm"></a>Yeni bir SQL sanal makinesi oluşturma
+## <a id="create"></a> Yeni bir SQL sanal makinesi oluşturma
 
 Yeni SQL VM oluşturmaya yönelik adım adım yönergeleri, [Azure'da Linux SQL Server VM'si sağlama](provision-sql-server-linux-virtual-machine.md) öğreticisinde bulabilirsiniz.
 
