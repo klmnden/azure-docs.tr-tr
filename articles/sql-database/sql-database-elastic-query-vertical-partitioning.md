@@ -4,7 +4,7 @@ description: "veritabanları arası sorgulamalarını dikey bölümleri ayarlama
 services: sql-database
 documentationcenter: 
 manager: jhubbard
-author: torsteng
+author: MladjoA
 ms.assetid: 84c261f2-9edc-42f4-988c-cf2f251f5eff
 ms.service: sql-database
 ms.custom: scale out apps
@@ -12,13 +12,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
-ms.author: torsteng
-ms.openlocfilehash: fd5bd82a35c5a2ba72cffe35138311322714a1c0
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 12/12/2017
+ms.author: mlandzic
+ms.openlocfilehash: f3bf919aa4aab8d37a5a97b90138b1f5434eb6ea
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Bulut veritabanları farklı şemaları (Önizleme) ile sorgulama
 ![Farklı veritabanı tablolarında sorgulama][1]

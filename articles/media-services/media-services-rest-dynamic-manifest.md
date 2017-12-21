@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 76d2721138668d9f0a908af3fa42840309b068ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 98df3b6592ed865fc0eb4b942d298b26e930365f
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>İle Azure Media Services REST API filtreleri oluşturma
 > [!div class="op_single_selector"]
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-2.11 sürümünden başlayarak, Media Services, varlıklarınızı filtrelerini tanımlamanızı sağlar. Bu filtreler müşterilerinizin gibi şeyler seçmesine izin veren sunucu tarafı kurallardır: kayıttan yürütme (yerine tüm video oynatma), bir video yalnızca bir bölümünü veya yalnızca bir alt kümesini, müşterinizin aygıt (yerine varlıkla ilişkilendirilen tüm yorumlama) işleyebilir ses ve video yorumlama belirtin. Bu varlıklarınızı filtreleme aracılığıyla arşivlenmiş **dinamik bildirim**video akışını sağlamak için Müşteri'nin istek üzerine oluşturulan s tabanlı üzerinde belirtilen filtreler.
+2.17 sürümünden başlayarak, Media Services, varlıklarınızı filtrelerini tanımlamanızı sağlar. Bu filtreler gibi şeyler seçim yapmasını sağlayan sunucu tarafı kurallardır: kayıttan yürütme (yerine tüm video oynatma), bir video yalnızca bir bölümünü veya yalnızca bir alt kümesini (yerine, müşterinizin aygıt işleyebilir ses ve video yorumlama belirtin varlık ile ilişkili tüm yorumlama). Bu varlıklarınızı filtreleme aracılığıyla arşivlenmiş **dinamik bildirim**video akışını sağlamak için Müşteri'nin istek üzerine oluşturulan s tabanlı üzerinde belirtilen filtreler.
 
 Daha ayrıntılı filtreler ve dinamik bildirim ilgili bilgi için bkz: [dinamik bildirimleri genel bakış](media-services-dynamic-manifest-overview.md).
 
-Bu konu, REST API'ları oluşturmak, güncelleştirmek ve filtreleri silmek için nasıl kullanılacağını gösterir. 
+Bu makalede, REST API'ları oluşturmak, güncelleştirmek ve filtreleri silmek için nasıl kullanılacağı gösterilmektedir. 
 
 ## <a name="types-used-to-create-filters"></a>Filtreleri oluşturmak için kullanılan türleri
 Aşağıdaki türlerden filtreleri oluşturulurken kullanılır:  
@@ -49,9 +49,6 @@ Aşağıdaki türlerden filtreleri oluşturulurken kullanılır:
 
 AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir.
-
 ## <a name="create-filters"></a>Filtre oluşturma
 ### <a name="create-global-filters"></a>Genel filtrelerin oluşturma
 Genel filtre oluşturmak için aşağıdaki HTTP isteklerini kullanın:  
@@ -66,7 +63,7 @@ Genel filtre oluşturmak için aşağıdaki HTTP isteklerini kullanın:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
 
@@ -119,7 +116,7 @@ Yerel AssetFilter oluşturmak için aşağıdaki HTTP isteklerini kullanın:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
 
@@ -169,7 +166,7 @@ Yerel AssetFilter oluşturmak için aşağıdaki HTTP isteklerini kullanın:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 ### <a name="get-assetfilters-associated-with-an-asset"></a>Alma **AssetFilter**bir varlıkla ilişkilendirilen s
@@ -180,7 +177,7 @@ Yerel AssetFilter oluşturmak için aşağıdaki HTTP isteklerini kullanın:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -192,14 +189,14 @@ Yerel AssetFilter oluşturmak için aşağıdaki HTTP isteklerini kullanın:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000
 
 
 ## <a name="update-filters"></a>Güncelleştirme filtreleri
-PUT veya birleştirme ile yeni özellik değerlerinin bir filtre güncelleştirmek için kullanım düzeltme.  Bu işlemler hakkında daha fazla bilgi için bkz: [düzeltme eki, YERLEŞTİRME, birleştirme](http://msdn.microsoft.com/library/dd541276.aspx).
+Düzeltme eki, PUT ya da birleştirme ile yeni özellik değerlerinin bir filtre güncelleştirmek için kullanın.  Bu işlemler hakkında daha fazla bilgi için bkz: [düzeltme eki, YERLEŞTİRME, birleştirme](http://msdn.microsoft.com/library/dd541276.aspx).
 
-Bir filtre güncelleştirirseniz, kuralları yenilemek akış uç 2 dakika kadar sürebilir. İçerik bu filtre kullanarak sunulduğu (ve proxy'ler ve CDN önbellekleri önbelleğe alınmış), bu filtre güncelleştiriliyor player hatalarına neden olabilir. Bu filtre güncelleştirdikten sonra önbelleğini temizlemek için önerilir. Bu seçenek yoksa, başka bir filtre kullanmayı düşünün.  
+Bir filtre güncelleştirirseniz, kuralları yenilemek akış uç iki dakika kadar sürebilir. İçerik bu filtre kullanarak sunulduğu (ve proxy'ler ve CDN önbellekleri önbelleğe alınmış), bu filtre güncelleştiriliyor player hatalarına neden olabilir. Filtre güncelleştirdikten sonra önbelleğini temizleyebilirsiniz. Bu seçenek yoksa, başka bir filtre kullanmayı düşünün.  
 
 ### <a name="update-global-filters"></a>Genel filtrelerin güncelleştir
 Genel filtre güncelleştirmek için aşağıdaki HTTP isteklerini kullanın: 
@@ -214,7 +211,7 @@ Genel filtre güncelleştirmek için aşağıdaki HTTP isteklerini kullanın:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
     Content-Length: 384
@@ -254,7 +251,7 @@ Yerel bir filtre güncelleştirmek için aşağıdaki HTTP isteklerini kullanın
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -292,7 +289,7 @@ Genel filtre silmek için aşağıdaki HTTP isteklerini kullanın:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 
@@ -306,7 +303,7 @@ Yerel AssetFilter silmek için aşağıdaki HTTP isteklerini kullanın:
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <token value> 
-    x-ms-version: 2.11 
+    x-ms-version: 2.17 
     Host: media.windows.net 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Akış filtreleri kullanın URL'lerini derleme

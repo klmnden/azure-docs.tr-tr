@@ -12,28 +12,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 12/13/2017
 ms.author: juluk
-ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 129b43db85a0962005352e0f1e6ad2ad3be2c7d5
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure bulut Kabuk genel bakış
 Azure bulut Kabuk Azure kaynaklarını yönetmek için etkileşimli, tarayıcı erişilebilir bir kabuk ' dir.
 Bu çalışma şeklinize uygun kabuk deneyimi seçme esnekliğini size verir.
 Linux kullanıcıları Bash deneyimini, Windows kullanıcıları ise PowerShell’i tercih edebilir.
 
-Bulut Kabuk simgesinden Azure portalı üzerinden başlatın:
+Bu düğme kullanarak shell.azure.com deneyin.
+
+[![](https://shell.azure.com/images/launchcloudshell.png "Azure bulut Kabuğu'nu başlatın")](https://shell.azure.com)
+
+Bulut Kabuk simgesini kullanarak Azure portalından deneyin.
 
 ![Portal başlatma](media/overview/portal-launch-icon.png)
-
-Bash veya PowerShell Kabuk Seçici açılan listeden yararlanan:
-
-![Bulut Kabuğu'nda bash](media/overview/overview-bash-pic.png)
-
-![PowerShell bulut Kabuğu (Önizleme)](media/overview/overview-ps-pic.png)
 
 ## <a name="features"></a>Özellikler
 ### <a name="browser-based-shell-experience"></a>Kabuk tarayıcı tabanlı deneyimi
@@ -41,23 +39,29 @@ Bulut Kabuk aklınızda Azure yönetim görevleri ile yerleşik bir tarayıcı t
 Bir yalnızca bulut yolla yerel makineden untethered çalışması için Dengeleme bulut Kabuk sağlayabilir.
 
 ### <a name="choice-of-preferred-shell-experience"></a>Tercih edilen Kabuğu deneyiminin seçimi
-Azure Cloud Shell, çalışma biçiminize en uygun kabuk deneyimini seçme esnekliği sunar.
-Windows kullanıcıları bulut Kabuğu (Önizleme) PowerShell seçebilirsiniz ancak Linux kullanıcıları bulut kabuğunda geçirmesi için tercih edebilirsiniz.
+Windows kullanıcıları bulut Kabuğu'nda (Önizleme) PowerShell kullanabilirsiniz, ancak Linux kullanıcıları Kabuk aşağı açılır listeden bulut Kabuk Bash'te kullanabilirsiniz.
+
+![Bulut Kabuğu'nda bash](media/overview/overview-bash-pic.png)
+
+![PowerShell bulut Kabuğu (Önizleme)](media/overview/overview-ps-pic.png)
 
 ### <a name="authenticated-and-configured-azure-workstation"></a>Kimliği doğrulanmış ve yapılandırılmış Azure iş istasyonu
-Bulut Kabuk, böylece popüler komut satırı araçlarıyla birlikte önceden yüklenir ve dil desteği daha hızlı çalışabilmek için Microsoft tarafından yönetilen birlikte gelir. Ayrıca, bulut Kabuğu güvenli bir şekilde otomatik olarak anlık kaynaklarınıza erişmek için Azure CLI 2.0 veya Azure PowerShell cmdlet'leri aracılığıyla için kimliğini doğrular.
+Yaygın komut satırı araçları ve dil desteği gelecektir bulut Kabuk Microsoft tarafından yönetilir. Bulut Kabuk de güvenli bir şekilde otomatik olarak anlık kaynaklarınıza erişmek için Azure CLI 2.0 veya Azure PowerShell cmdlet'leri aracılığıyla için kimliğini doğrular.
 
 Tam araç listesini görüntülemek [Bash deneyimi](features.md#tools) ve [PowerShell (Önizleme) deneyimi.](features-powershell.md#tools)
 
 ### <a name="multiple-access-points"></a>Birden çok erişim noktası
-Bulut Azure portalından kullanılabilir olmasını durduracak Kabuk yanı sıra, aynı zamanda erişilebilir:
+Bulut Kabuk alanından kullanılabilen esnek bir araçtır:
+* [Portal.Azure.com](https://portal.azure.com)
+* [Shell.Azure.com](https://shell.azure.com)
 * [Azure CLI 2.0 "Deneyin" belgeleri](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest)
 * [Azure mobil uygulaması](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [Visual Studio kod uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [VS Code Azure hesabı uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure dosyaları depolama birimini bağlayın
-Bulut Kabuk makine geçicidir ve sonuç olarak bir Azure dosyaları paylaşımı olarak bağlanmasını gerektiren `clouddrive` $Home dizininize kalıcı hale getirmek için.
-Bir kaynak grubu oluşturmak için bulut Kabuk ister ilk kez başlatıldığında, sizin adınıza depolama hesabı ve bir Azure dosya paylaşımı. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. Tek Azure dosya paylaşımı eşlenebilir ve Bash ve PowerShell bulut Kabuğu (Önizleme) tarafından kullanılır.
+Bulut Kabuk makine geçicidir ve bir Azure dosyaları paylaşımı olarak bağlanmasını gerektiren `clouddrive` dosyalarınızı kalıcı hale getirmek için.
+
+Bir kaynak oluşturmak için bulut Kabuk ister ilk başlatılırken grubu, depolama hesabı ve Azure dosyaları sizin adınıza paylaşır. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. Tek bir dosya paylaşımı eşlenebilir ve Bash ve PowerShell bulut Kabuğu (Önizleme) tarafından kullanılır.
 
 #### <a name="create-new-storage"></a>Yeni depolama alanı oluşturma
 ![](media/overview/basic-storage.png)
@@ -77,7 +81,9 @@ Bir yerel olarak yedekli depolama (LRS) hesabı ve Azure dosya paylaşımı sizi
 
 Gelişmiş bir seçenek bulut Kabuğu mevcut kaynaklarla ilişkilendirmek için sağlanır.
 "Göster Gelişmiş ayarları" depolama Kurulum isteminde tıklatın ek seçenekleri göstermek için.
-Bırakmalar atanmış olan bulut Kabuk bölge ve yerel olarak/genel-yedekli depolama hesapları için filtrelenir.
+
+> [!Note]
+> Bırakmalar önceden atanmış bulut Kabuk bölge ve LRS/GRS depolama hesapları için filtrelenir.
 
 [Öğrenin bulut Kabuk depolama hakkında Azure dosya paylaşımları güncelleştirme ve karşıya yükleme ve indirme dosyaları.](persisting-shell-storage.md)
 
@@ -87,16 +93,10 @@ Bırakmalar atanmış olan bulut Kabuk bölge ve yerel olarak/genel-yedekli depo
 * Bulut Kabuk takılması Azure dosya paylaşımının gerektirir
 * Bulut Kabuk aynı Azure dosya paylaşımı için Bash ve PowerShell kullanır
 * Bulut Kabuk atanmış bir makine her kullanıcı hesabı
+* Dosya paylaşımınızı tutulan 5GB görüntüsünü kullanarak $Home bash devam ettirir
 * İzinler normal Linux kullanıcı Bash olarak ayarlanır
 
 Özellikleri hakkında daha fazla bilgi [bulut Kabuğu'nda Bash](features.md) ve [PowerShell bulut Kabuğu (Önizleme)](features-powershell.md).
-
-## <a name="examples"></a>Örnekler
-* Azure yönetim görevlerini otomatikleştirmek için komut dosyası kullanma
-* Aynı anda Azure portalı ve Azure komut satırı araçları aracılığıyla Azure kaynaklarını yönetme
-* Azure CLI 2.0 veya Azure PowerShell cmdlet'leri dediğini
-
-Hızlı Başlangıç ipuçları için bu örneklerde denemek [bulut Kabuğu'nda Bash](quickstart.md) ve [PowerShell bulut Kabuğu (Önizleme)](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Fiyatlandırma
 Bulut Kabuk barındıran makine, bir önkoşul bağlı Azure dosya paylaşımı ile ücretsizdir. Normal depolama ücretleri.

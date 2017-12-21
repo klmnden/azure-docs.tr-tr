@@ -32,7 +32,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Ağ Arabirimleri (NIC) |350 |20000 |
 | Ağ Güvenlik Grupları (NSG) |100 |5000 |
 | NSG başına NSG kuralları |200 |500 |
-| IP adresleri ve aralıkları için kaynak veya hedef güvenlik kuralı olarak belirtilmiş |2000 |4000 |
+| IP adresleri ve aralıkları kaynak veya hedef bir güvenlik grubu için belirtilen |2000 |4000 |
 | Uygulama güvenliği grupları |200 |500 |
 | NIC başına IP yapılandırması başına uygulama güvenlik grupları |10 |20 |
 | Uygulama güvenlik grubu başına IP yapılandırmaları |1000 |4000 |
@@ -48,7 +48,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 
 | Kaynak | Varsayılan limit | Üst Sınır |
 | --- | --- | --- |
-| Yük Dengeleyici | 100 | 1000 |
+| Yük Dengeleyiciler | 100 | 1000 |
 | Her bir kaynak, Basic kuralları | 150 | 250 |
 | Her bir kaynak, standart kuralları | 1250 | 1500 |
 | IP yapılandırması başına kuralı | 299 |299 |

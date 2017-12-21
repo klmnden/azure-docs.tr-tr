@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 660c0fbe80af125a840ef9ae324a72261c8adc24
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: bcafc999c30d1e72971c8e26e951169ea6b56416
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Ortak Azure Cosmos DB kullanım durumları
 Bu makalede Azure Cosmos DB için birkaç ortak kullanım durumları genel bir bakış sağlar.  Bu makalede önerileri Cosmos DB ile Uygulamanızı geliştirirken bir başlangıç noktası olarak hizmet.   
@@ -105,7 +105,7 @@ JSON, Cosmos DB tarafından desteklenen bir biçim yalnızca basit değildir anc
 ![Azure Cosmos DB web uygulaması başvuru mimarisi](./media/use-cases/personalization.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Cosmos DB ile çalışmaya başlamak için izleyin bizim [hızlı başlangıçlar](create-documentdb-dotnet.md), hangi yol, bir hesap ve Cosmos DB ile çalışmaya başlama oluşturmada size. 
+Azure Cosmos DB ile çalışmaya başlamak için izleyin bizim [hızlı başlangıçlar](create-sql-api-dotnet.md), hangi yol, bir hesap ve Cosmos DB ile çalışmaya başlama oluşturmada size. 
 
 Veya daha fazla bilgi istiyorsanız aşağıdaki müşteri hikayeleri Cosmos DB kullanan müşteriler hakkında kullanılabilir:
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 12/14/2017
 ms.author: magoedte
-ms.openlocfilehash: 473b8d1a735f4b6b1dfd0935f9d6950431f3d245
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 35e271f943901091041f7b1e9fad6cb9cd46df5b
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure günlük analizi hizmetine bağlanın
 
@@ -32,6 +32,8 @@ Aracı, aşağıdaki yöntemlerden biri kullanılarak yüklenebilir. Çoğu yük
 * Azure Otomasyonu istenen durum yapılandırması (DSC). DSC Azure Otomasyonu'nda ortamınızda dağıtılmış Windows bilgisayarları için bir komut dosyasıyla kullanma.  
 * PowerShell Betiği.
 * Şirket içi için Windows Azure yığınında çalışan sanal makineler için Resource Manager şablonu.  
+
+Windows Aracısı dağıtmak için ağ ve sistem gereksinimlerini anlamak için gözden [Azure günlük analizi ile ortamınızdan verileri toplama](log-analytics-concept-hybrid.md#prerequisites).
 
 ## <a name="obtain-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
 Microsoft İzleme Aracısı için Windows yüklemeden önce çalışma alanı kimliği ve anahtarı ihtiyacınız günlük analizi çalışma alanınız için.  Bu bilgiler, düzgün olarak aracıyı yapılandırmak ve günlük analizi ile başarıyla iletişim kurabilmesini sağlamak için her yükleme yönteminden Kurulum sırasında gereklidir.  

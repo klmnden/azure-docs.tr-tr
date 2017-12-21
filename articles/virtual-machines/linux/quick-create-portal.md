@@ -18,13 +18,13 @@ ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/09/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Azure portal ile Linux sanal makinesi oluşturma
 
-Azure sanal makineleri, Azure portalı üzerinden oluşturulabilir. Bu yöntem, sanal makineleri ve tüm ilgili kaynakları oluşturup yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Bir sanal makine oluşturma ve bir Web sunucusu üzerinde VM yükleme ile bu hızlı başlangıç adımları.
+Azure sanal makineleri, Azure portalı üzerinden oluşturulabilir. Bu yöntem, sanal makineleri ve tüm ilgili kaynakları oluşturup yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Bu hızlı başlangıç, sanal makine oluşturma ve VM’ye web sunucusu yüklemeye yönelik adımları gösterir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -108,13 +108,13 @@ Ağ güvenlik grubu (NSG), gelen ve giden trafiğin güvenliğini sağlar. Azure
 
 ## <a name="view-the-nginx-welcome-page"></a>NGINX karşılama sayfasını görüntüleme
 
-NGINX yüklüyken ve 80 numaralı bağlantı noktası sanal makineniz için açıkken, web sunucusuna İnternet üzerinden erişilebilir. Bir web tarayıcısı açın ve VM’nin ortak IP adresini girin. Genel IP adresi VM Özellikleri'Azure portalında bulunabilir.
+NGINX yüklüyken ve 80 numaralı bağlantı noktası sanal makineniz için açıkken, web sunucusuna İnternet üzerinden erişilebilir. Bir web tarayıcısı açın ve VM’nin ortak IP adresini girin. Genel IP adresi, Azure portalındaki VM özelliklerinde bulunabilir.
 
 ![Varsayılan NGINX sitesi](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olmadığında kaynak grubunu, sanal makineyi ve tüm ilişkili kaynakları silin. Bunu yapmak için sanal makine için kaynak grubu seçin ve **silmek**.
+Artık gerekli olmadığında kaynak grubunu, sanal makineyi ve tüm ilişkili kaynakları silin. Bunu yapmak için sanal makine için kaynak grubunu seçip **Sil**’e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -6,21 +6,22 @@ services: sql-database
 documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
+editor: 
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview, mvc
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
+ms.date: 12/13/2017
 ms.workload: Active
-ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 884935074dd19304f72fc761c89fc7ae8fd5b3a3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.reviewer: carlrab
+ms.openlocfilehash: fef35e8c100bb6a9e96f16b81fe44e9ae9e504d0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Veritabanı hizmeti nedir? 
 
@@ -86,18 +87,18 @@ SQL Veritabanı ile veritabanı çalıştırma ve yönetim maliyetlerini önemli
 
 ### <a name="automatic-performance-monitoring-and-tuning"></a>Otomatik performans izleme ve ayarlama
 
-SQL Veritabanı izlemeniz gereken sorgularla ilgili ayrıntılı öngörüler sunar. SQL Veritabanı'nın veritabanı desenleriniz hakkında öğrendikleri sayesinde veritabanı şemanızı iş yükünüze uyarlayabilirsiniz. SQL veritabanı sağlar [performans ayarlama önerileri](sql-database-advisor.md), burada ayarlama eylemleri gözden geçirin ve bunları uygulayabilirsiniz. 
+SQL Veritabanı izlemeniz gereken sorgularla ilgili ayrıntılı öngörüler sunar. SQL Veritabanı'nın veritabanı desenleriniz hakkında öğrendikleri sayesinde veritabanı şemanızı iş yükünüze uyarlayabilirsiniz. SQL Veritabanı, [performans ayarlama önerilerinde](sql-database-advisor.md) bulunur. Siz de bu ayarları gözden geçirebilir ve uygulayabilirsiniz. 
 
-Ancak özellikle birden fazla veritabanıyla ilgilenirken bir veritabanını sürekli izlemek zor ve yorucu bir görevdir. [Akıllı Öngörüler](sql-database-intelligent-insights.md) olmadığından bu iş sizin için otomatik olarak ölçekte SQL veritabanı performansı izleyerek ve performans düşüşünü sorunların bildirir, sorunun kök nedenini tanımlar ve performans geliştirmesi sağlar mümkün olduğunda öneriler.
+Ancak özellikle birden fazla veritabanıyla ilgilenirken bir veritabanını sürekli izlemek zor ve yorucu bir görevdir. [Akıllı Öngörüler](sql-database-intelligent-insights.md), SQL Veritabanı performansını otomatik olarak ölçekte izleyerek bu işi sizin için yapar ve performans düşüşü sorunlarını size bildirir, sorunun kök kaynağını belirler ve mümkün olduğunda performans iyileştirme önerileri sağlar.
 
-Çok sayıda veritabanını yönetmek SQL Veritabanı ve Azure portalı tarafından sunulan araçlarla bile verimli şekilde yapılması imkanız bir görev haline gelebilir. İzleme ve veritabanınızı el ile ayarlama yerine bazı izleme için temsilci seçme ve SQL veritabanı kullanarak eylemleri ayarlama düşünebilirsiniz [otomatik ayarlama](sql-database-automatic-tuning.md). SQL Veritabanı önerileri otomatik olarak uygular, test eder ve yapılan tüm ayarları doğrulayarak performansın arttığından emin olur. SQL Veritabanı bu şekilde iş yükünüze kontrollü ve güvenli bir şekilde ayak uydurur. Otomatik ayarlama, veritabanınızın performansının dikkatli bir şekilde izlenmesi ve her ayar işleminden önce ve sonraki durumunun karşılaştırılarak performans artışı görülmediği durumlarda ayarların geri alındığı bir durumdur.
+Çok sayıda veritabanını yönetmek SQL Veritabanı ve Azure portalı tarafından sunulan araçlarla bile verimli şekilde yapılması imkanız bir görev haline gelebilir. Veritabanınızı el ile izlemek ve ayarlamak yerine izleme ve ayarlama işlerinin bazılarını SQL Veritabanı'na bırakarak [otomatik ayarlamayı](sql-database-automatic-tuning.md) kullanabilirsiniz. SQL Veritabanı önerileri otomatik olarak uygular, test eder ve yapılan tüm ayarları doğrulayarak performansın arttığından emin olur. SQL Veritabanı bu şekilde iş yükünüze kontrollü ve güvenli bir şekilde ayak uydurur. Otomatik ayarlama, veritabanınızın performansının dikkatli bir şekilde izlenmesi ve her ayar işleminden önce ve sonraki durumunun karşılaştırılarak performans artışı görülmediği durumlarda ayarların geri alındığı bir durumdur.
 
 Bugün SQL Veritabanı üzerinde [çok kiracılı SaaS multi-tenant uygulamaları](sql-database-design-patterns-multi-tenancy-saas-applications.md) çalıştıran iş ortaklarımızın çoğu uygulamalarının kararlı ve tahmin edilebilir performansa sahip olduğundan emin olmak için otomatik performans ayarlarına güveniyor. İş ortaklarımız bu özelliğin gecenin ortasında performans sorunu yaşama riskini önemli ölçüde azalttığını söylüyor. Ayrıca müşterilerinin belirli bölümü SQL Server kullandığından SQL Server müşterilerine yardımcı olmak için SQL Veritabanı tarafından sunulan dizinleme önerilerinden faydalanıyorlar.
 
-Olan iki otomatik ayarlama nokta [kullanılabilir SQL veritabanında](sql-database-automatic-tuning.md):
+[SQL Veritabanında](sql-database-automatic-tuning.md) iki otomatik ayarlama yöntemi mevcuttur:
 
-- **Otomatik dizin yönetimi**: veritabanınızda eklenmelidir dizinler ve kaldırılmalıdır dizinleri tanımlar.
-- **Otomatik planı düzeltme**: sorunlu planları tanımlar ve SQL planı performans sorunlarını giderir (, yakında zaten bulunan SQL Server 2017).
+- **Otomatik dizin yönetimi**: Veritabanınıza eklenmesi ve veritabanınızdan kaldırılması gereken dizinleri tanımlar.
+- **Otomatik plan düzeltme**: Sorunlu planları tanımlar ve SQL planı performans sorunlarını düzeltir (çok yakında, SQL Server 2017 ile kullanılabilir).
 
 ### <a name="adaptive-query-processing"></a>Uyarlamalı sorgu işleme
 
@@ -133,7 +134,7 @@ SQL Veritabanı, [Always Encrypted](https://docs.microsoft.com/sql/relational-da
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory tümleştirmesi ve çok faktörlü kimlik doğrulaması
 
-SQL Veritabanı, [Azure Active Directory tümleştirmesi](sql-database-aad-authentication.md) ile veritabanı kullanıcısı ve diğer Microsoft hizmetleri kimliklerini bir merkezden yönetmenizi sağlar. Bu özellik, izin yönetimini kolaylaştırırken güvenliği artırır. Azure Active Directory destekler [çok faktörlü kimlik doğrulaması](sql-database-ssms-mfa-authentication.md) tek bir oturum açma işlemi desteklerken veri ve uygulama güvenliği artırmak için (MFA).
+SQL Veritabanı, [Azure Active Directory tümleştirmesi](sql-database-aad-authentication.md) ile veritabanı kullanıcısı ve diğer Microsoft hizmetleri kimliklerini bir merkezden yönetmenizi sağlar. Bu özellik, izin yönetimini kolaylaştırırken güvenliği artırır. Azure Active Directory, veri ve uygulama güvenliğini artırmak için [çok faktörlü kimlik doğrulamasını](sql-database-ssms-mfa-authentication.md) (MFA) ve çoklu oturum açma işlemini destekler.
 
 ### <a name="compliance-certification"></a>Uyumluluk sertifikası
 

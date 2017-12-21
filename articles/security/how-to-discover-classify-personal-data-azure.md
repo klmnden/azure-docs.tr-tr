@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39286104474ae0f91195ab578a58dacdb2f27d18
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Bulmak, tanımlamak ve Microsoft Azure kişisel verileri sınıflandırmak
 
@@ -183,9 +183,9 @@ blog postası. Ve daha fazla bağlantılar Azure Information Protection hakkınd
 
 Başından itibaren temelleri ziyaret [Azure CosmosD DB: SQL kullanarak nasıl](../cosmos-db/tutorial-query-documentdb.md) Öğreticisi. Öğretici, örnek bir belge ve iki örnek SQL sorguları ve sonuçları sağlar.
 
-SQL sorguları oluşturma konusunda daha fazla ayrıntılı yönergeler için ziyaret [SQL sorgularını Azure Cosmos DB belge DB API için.](../cosmos-db/documentdb-sql-query.md)
+SQL sorguları oluşturma konusunda daha fazla ayrıntılı yönergeler için ziyaret [SQL sorgularını Azure Cosmos DB belge DB API için.](../cosmos-db/sql-api-sql-query.md)
 
-Azure Cosmos DB yeni ve bir veritabanı oluşturmayı öğrenmek istiyorsanız, bir koleksiyonu ekleyin ve veri ekleme, ziyaret [Azure Cosmos DB: SQL API web uygulaması oluşturma](../cosmos-db/create-documentdb-dotnet.md) hızlı başlangıç Öğreticisi. Siteye aldıktan sonra tercih ettiğiniz dili yalnızca .NET, Java veya Python gibi dışındaki bir dilde bunu istiyorsanız seçin.
+Azure Cosmos DB yeni ve bir veritabanı oluşturmayı öğrenmek istiyorsanız, bir koleksiyonu ekleyin ve veri ekleme, ziyaret [Azure Cosmos DB: SQL API web uygulaması oluşturma](../cosmos-db/create-sql-api-dotnet.md) hızlı başlangıç Öğreticisi. Siteye aldıktan sonra tercih ettiğiniz dili yalnızca .NET, Java veya Python gibi dışındaki bir dilde bunu istiyorsanız seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

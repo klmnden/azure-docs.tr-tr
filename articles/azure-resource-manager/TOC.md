@@ -15,12 +15,11 @@
 #### [Parametreler](resource-manager-templates-parameters.md)
 #### [Değişkenler](resource-manager-templates-variables.md)
 #### [Kaynaklar](resource-manager-templates-resources.md)
-### [Şablonlar için en iyi uygulamalar](resource-manager-template-best-practices.md)
+#### [Çıkışlar](resource-manager-templates-outputs.md)
 ### [Diğer şablonlara bağlantı](resource-group-linked-templates.md)
 ### [Kaynaklar arasında bağımlılık tanımlama](resource-group-define-dependencies.md)
 ### [Birden çok örnek oluşturma](resource-group-create-multiple.md)
-### [Güncelleştirme kaynağı](resource-manager-update.md)
-### [Bağlı şablonlar arasında durum paylaşma](best-practices-resource-manager-state.md)
+### [Güncelleştirme kaynağı](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Şablon tasarlamaya yönelik desenler](best-practices-resource-manager-design-templates.md)
 
 

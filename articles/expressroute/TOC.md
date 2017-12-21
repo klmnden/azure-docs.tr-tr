@@ -85,6 +85,7 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Abonelik ve Hizmet Sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+## [Bulut Çözüm Sağlayıcıları (CSP) için ExpressRoute](expressroute-for-cloud-solution-providers.md)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Bir sanal ağ geçidini bağlantı hattına bağlama](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [ExpressRoute için sanal ağ oluşturma](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)

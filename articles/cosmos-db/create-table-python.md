@@ -1,6 +1,6 @@
 ---
-title: "Hızlı Başlangıç: Tablo API Python - Azure Cosmos DB ile | Microsoft Docs"
-description: "Bu hızlı başlangıç Azure Cosmos DB tablo API Python ve Azure portal ile bir uygulama oluşturmak için nasıl kullanılacağını gösterir"
+title: "Hızlı Başlangıç: Python ile Tablo API’si - Azure Cosmos DB | Microsoft Docs"
+description: "Bu hızlı başlangıçta Azure portalı ve Python ile uygulama oluşturmak için Azure Cosmos DB Tablo API’sinin nasıl kullanılacağı gösterilmektedir"
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -14,17 +14,18 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 56c52aef2dda899a7f7ce90a26068897781773da
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Hızlı Başlangıç: bir tablo Python ve Azure Cosmos DB ile API uygulaması oluşturma
+# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Hızlı Başlangıç: Python ve Azure Cosmos DB ile Tablo API’si uygulaması oluşturma
 
-Bu hızlı başlangıç Python ve Azure Cosmos DB nasıl kullanılacağını gösterir [tablo API](table-introduction.md) örneği github'dan kopyalanarak bir uygulama oluşturmak için. Bu hızlı başlangıç ayrıca bir Azure Cosmos DB hesabının nasıl oluşturulacağını ve Veri Gezgini tabloları ve varlıkları web tabanlı Azure portalında oluşturmak için nasıl kullanılacağı gösterilmektedir.
+Bu hızlı başlangıçta GitHub’dan bir örneği kopyalayarak bir uygulama oluşturmak için Python ve Azure Cosmos DB [Tablo API’sini](table-introduction.md) nasıl kullanacağınız gösterilmektedir. Bu hızlı başlangıçta ayrıca Azure Cosmos DB hesabı oluşturma ve web tabanlı Azure portalında tablo ve varlıklar oluşturmak için Veri Gezgini’ni kullanma da gösterilmektedir.
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızlı bir şekilde oluşturmak ve belge, anahtar/değer, genişliğinde bir sütun ve grafik veritabanları, her biri genel dağıtım ve yatay ölçek yetenekleri Azure Cosmos DB en yararlı sorgulayabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer,geniş sütun ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -40,7 +41,7 @@ Buna ek olarak:
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
 > [!IMPORTANT] 
-> Genel olarak kullanılabilir tablo API SDK'ları ile çalışmak için yeni bir tablo API hesabı oluşturmanız gerekir. Önizleme sırasında oluşturulan tablo API hesaplarını genel olarak kullanılabilir SDK'ları tarafından desteklenmez.
+> Genel olarak kullanılabilir Tablo API’si SDK’ları ile çalışmak için yeni bir Tablo API’si hesabı oluşturmanız gerekir. Önizleme sırasında oluşturulan Tablo API’si hesapları genel olarak kullanılabilir SDK’lar tarafından desteklenmez.
 >
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
@@ -56,7 +57,7 @@ Buna ek olarak:
 1. Veri Gezgini'nde **sample-table** seçeneğini genişletin, **Varlıklar**'a ve ardından **Varlık Ekle**'ye tıklayın.
 
    ![Azure portalındaki Veri Gezgini'nde yeni varlık oluşturma](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Şimdi veri PartitionKey değer kutusuna ve RowKey değer kutularına ekleyin ve **varlık Ekle**.
+2. Şimdi PartitionKey değer kutusu ile RowKey değer kutularına verileri ekleyin ve **Varlık Ekle**’ye tıklayın.
 
    ![Yeni bir varlık için Bölüm Anahtarını ve Satır Anahtarını ayarlama](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -66,13 +67,13 @@ Buna ek olarak:
 
 Şimdi GitHub'dan bir Tablo uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
-1. Git bash gibi bir git terminal penceresi açın ve kullanmak `cd` örnek uygulamayı yüklemek için bir klasör olarak değiştirmek için komutu. 
+1. Git Bash gibi bir Git terminal penceresi açın ve örnek uygulamayı yüklemek üzere bir klasör olarak değiştirmek için `cd` komutunu kullanın. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulaması bir kopyasını oluşturur. 
+2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulamanın bir kopyasını oluşturur. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-python-getting-started.git
@@ -82,27 +83,27 @@ Buna ek olarak:
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, barındırılan veritabanıyla iletişim kurmak uygulamanızı sağlar. 
+Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır. 
 
-1. İçinde [Azure portal](http://portal.azure.com/), tıklatın **bağlantı dizesi**. 
+1. [Azure portalda](http://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
 
-    ![Görüntüleyin ve bağlantı dizesi Bölmesi'nde bağlantı DİZESİNİ kopyalayın](./media/create-table-python/connection-string.png)
+    ![Bağlantı Dizesi bölmesindeki CONNECTION STRING’i kopyalama ve görüntüleme](./media/create-table-python/connection-string.png)
 
-2. Sağ tarafta düğmesini kullanarak hesap adını kopyalayın.
+2. Sağ taraftaki düğmeyi kullanarak ACCOUNT NAME’i kopyalayın.
 
-3. Documentdb dosyasını açın ve 19 satırındaki STORAGE_ACCOUNT_NAME değeri portalından hesap adı yapıştırın.
+3. Config.py dosyasını açın ve portaldan ACCOUNT NAME değerini 19. satırdaki STORAGE_ACCOUNT_NAME değerine yapıştırın.
 
-4. Portalına geri dönün ve birincil anahtarı kopyalayın.
+4. Portala geri dönüp PRIMARY KEY’i kopyalayın.
 
-5. BİRİNCİL anahtar portalından 20 satırındaki STORAGE_ACCOUNT_KEY değeri yapıştırın.
+5. Portaldan PRIMARY KEY değerini 20. satırdaki STORAGE_ACCOUNT_KEY değerine yapıştırın.
 
-3. Documentdb dosyasını kaydedin.
+3. Config.py dosyasını kaydedin.
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
 1. Visual Studio'nun **Çözüm Gezgini** bölümünde projeye sağ tıklayın, geçerli Python ortamını seçin ve sağ tıklayın.
 
-2. Python paketini yükle seçin ve ardından yazın **azure depolama tablosu**
+2. Python Paketini Yükle'yi seçip **azure-storage-table** yazın
 
 3. Uygulamayı çalıştırmak için F5'e basın. Uygulamanız tarayıcınızda görüntülenir. 
 
@@ -121,4 +122,4 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak tablo oluşturmayı ve bir uygulamayı çalıştırmayı öğrendiniz.  Şimdi Tablo API'sini kullanarak verilerinizi sorgulayabilirsiniz.  
 
 > [!div class="nextstepaction"]
-> [Tablo API için tablo verileri alma](table-import.md)
+> [Tablo verilerini Tablo API’sine aktarma](table-import.md)

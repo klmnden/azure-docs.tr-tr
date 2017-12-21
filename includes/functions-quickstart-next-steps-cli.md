@@ -1,6 +1,6 @@
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure işlevleri çekirdek araçları kullanarak yerel olarak Azure işlevleri geliştirme hakkında daha fazla bilgi edinin.
+Azure İşlevleri Çekirdek Araçları’nı kullanarak yerel olarak Azure İşlevleri geliştirme hakkında daha fazla bilgi edinin.
 
 > [!div class="nextstepaction"] 
-> [Yerel kod ve test Azure işlevleri](../articles/azure-functions/functions-run-local.md)
+> [Azure İşlevleri’ni yerel olarak kodlama ve test etme](../articles/azure-functions/functions-run-local.md)

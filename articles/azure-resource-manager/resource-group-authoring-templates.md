@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: c0ec888dbe94229701391f1aed79a78d3cb90d77
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Yapı ve Azure Resource Manager şablonları sözdizimi anlama
 Bu makalede Azure Resource Manager şablonu yapısını tanımlar. Bir şablon ve bu bölümlerdeki özellikler farklı bölümlerini gösterir. JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler, şablon oluşur. Şablon oluşturmanın adım adım öğretici için bkz [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
@@ -139,18 +139,16 @@ Her öğe ayarlayabileceğiniz özellikler içerir. Aşağıdaki örnek, bir şa
 
 Bu makalede daha ayrıntılı şablon bölümlerini açıklanmaktadır.
 
-## <a name="expressions-and-functions"></a>İfadeler ve işlevleri
+## <a name="syntax"></a>Sözdizimi
 Şablonun temel sözdizimi JSON şeklindedir. Ancak, ifadeler ve işlevleri şablonu içinde kullanılabilir olan JSON değerlerin genişletir.  İfadeler, ilk JSON dize değişmez değerleri içinde yazılır ve son karakterler olan ayraçlar: `[` ve `]`sırasıyla. Şablon dağıtıldığında ifade değeri değerlendirilir. Bir dize yazılmış olsa da, ifade değerlendirme sonucu gibi bir dizi veya tamsayı, gerçek ifade bağlı olarak farklı bir JSON türde olabilir.  Başlangıç noktası ile sabit değerli bir dize olması `[`, ancak olmayan bir ifade olarak yorumlanır olması, dizesiyle başlatmak için ek bir köşeli ayraç eklemek `[[`.
 
 Genellikle, ifadeler işlevleriyle dağıtım yapılandırma işlemleri gerçekleştirmek için kullanın. JavaScript'te, işlev çağrıları olarak biçimlendirilmiş gibi yalnızca `functionName(arg1,arg2,arg3)`. Nokta ve [dizin] işleçleri kullanarak özellikleri başvuru.
 
-Aşağıdaki örnek değerleri oluşturulurken, çeşitli işlevleri kullanmayı gösterir:
+Aşağıdaki örnek bir değer oluşturulurken, çeşitli işlevleri kullanmayı gösterir:
 
 ```json
 "variables": {
-    "location": "[resourceGroup().location]",
-    "usernameAndPassword": "[concat(parameters('username'), ':', parameters('password'))]",
-    "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -209,35 +207,16 @@ Daha fazla bilgi için bkz: [Azure Resource Manager şablonları kaynakları bö
 ## <a name="outputs"></a>Çıkışlar
 Çıkış bölümünde dağıtımından döndürülen değerlerini belirtin. Örneğin, dağıtılan bir kaynağa erişmek için URI döndürebilirsiniz.
 
-Aşağıdaki örnek bir çıktı tanımının yapısını gösterir:
-
 ```json
 "outputs": {
-    "<outputName>" : {
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "newHostName": {
+    "type": "string",
+    "value": "[reference(variables('webSiteName')).defaultHostName]"
+  }
 }
 ```
 
-| Öğe adı | Gerekli | Açıklama |
-|:--- |:--- |:--- |
-| outputName |Evet |Çıkış değeri adı. Geçerli bir JavaScript tanımlayıcı olması gerekir. |
-| type |Evet |Çıktı değerin türü. Şablon giriş parametreleri aynı türlerine çıkış değerlerini destekler. |
-| değer |Evet |Hesaplanan ve çıktı değeri olarak döndürülen şablon dili ifadesi. |
-
-Aşağıdaki örnek çıkış bölümünde döndürülen bir değer gösterir.
-
-```json
-"outputs": {
-    "siteUri" : {
-        "type" : "string",
-        "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-    }
-}
-```
-
-Çıktı ile çalışma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları durumda paylaşımı](best-practices-resource-manager-state.md).
+Daha fazla bilgi için bkz: [çıkarır Azure Resource Manager şablonları bölümünü](resource-manager-templates-outputs.md).
 
 ## <a name="template-limits"></a>Şablon sınırları
 

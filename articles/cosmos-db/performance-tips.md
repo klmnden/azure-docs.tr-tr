@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: ab7448d3f55a921d3fb8c06d54c230d262dbec6a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1f56e7ae96388ff1135017e07771138ebfc5ac33
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Azure Cosmos DB performans ipuçları
 
@@ -88,7 +88,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 ## <a name="sdk-usage"></a>SDK kullanımı
 1. **En son SDK'sını yükleyin**
 
-    Cosmos DB SDK'ları en iyi performansı sağlamak için sürekli geliştirilen. Bkz: [Cosmos DB SDK](documentdb-sdk-dotnet.md) en son SDK belirlemek ve geliştirmeleri gözden geçirmek için sayfaları.
+    Cosmos DB SDK'ları en iyi performansı sağlamak için sürekli geliştirilen. Bkz: [Cosmos DB SDK](sql-api-sdk-dotnet.md) en son SDK belirlemek ve geliştirmeleri gözden geçirmek için sayfaları.
 2. **Bir singleton Cosmos DB istemci uygulamanızın ömrü boyunca kullanın**
 
     Her DocumentClient örnek iş parçacığı açısından güvenli ve verimli bağlantı yönetimi ve doğrudan modunda çalışırken adresi önbelleğe alma gerçekleştirir unutmayın. Verimli bağlantı yönetimi ve daha iyi performans DocumentClient ile izin vermek için uygulama yaşam süresi için DocumentClient AppDomain başına tek bir örneğini kullanmak için önerilir.
@@ -99,7 +99,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
     Cosmos DB istekleri, HTTPS/REST yapılır, ağ geçidi modu kullanırken ve varsayılan bağlantı sınırını ana bilgisayar adı veya IP adresi başına tabi. Böylece istemci kitaplığı Cosmos DB birden çok eşzamanlı bağlantıların kullanabilir MaxConnections daha yüksek bir değer (100-1000) ayarlamanız gerekebilir. .NET SDK'sındaki 1.8.0 ve varsayılan değerin üzerinde [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50'dir ve değerini değiştirmek için ayarlayabileceğiniz [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)daha yüksek bir değere.   
 4. **Paralel sorgular bölümlenmiş koleksiyonlar için ayarlama**
 
-     SQL .NET SDK sürüm 1.9.0 ve paralel bölümlendirilmiş bir koleksiyon sorgulamak etkinleştirme desteği paralel sorgular yukarıda (bkz [SDK'ları ile çalışma](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) ve ilgili [kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) daha fazla bilgi için). Paralel sorgular seri bunların karşılık gelen sorgu gecikme süresi ve üretilen işi artırmak için tasarlanmıştır. Paralel sorguları, kullanıcılar için özel Sığdır gereksinimlerine, (a) MaxDegreeOfParallelism ayarlayabilirsiniz iki parametre sağlar: en çok sonra bölüm sayısı sorgulanan paralel ve (b) MaxBufferedItemCount denetlemek için: sayısını kontrol etmek için önceden getirilen sonuç.
+     SQL .NET SDK sürüm 1.9.0 ve paralel bölümlendirilmiş bir koleksiyon sorgulamak etkinleştirme desteği paralel sorgular yukarıda (bkz [SDK'ları ile çalışma](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) ve ilgili [kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) daha fazla bilgi için). Paralel sorgular seri bunların karşılık gelen sorgu gecikme süresi ve üretilen işi artırmak için tasarlanmıştır. Paralel sorguları, kullanıcılar için özel Sığdır gereksinimlerine, (a) MaxDegreeOfParallelism ayarlayabilirsiniz iki parametre sağlar: en çok sonra bölüm sayısı sorgulanan paralel ve (b) MaxBufferedItemCount denetlemek için: sayısını kontrol etmek için önceden getirilen sonuç.
 
     (a) ***ayarlama MaxDegreeOfParallelism\:***  paralel sorgu works birden çok bölümü paralel sorgulayarak. Ancak, tek bir bölümlenmiş toplama verileri seri olarak sorgu göre getirilir. Bu nedenle, diğer tüm sistem koşulları aynı kalır sağlanan çoğu kullanıcı sorgu elde maksimum fırsat bir bölüm sayısı MaxDegreeOfParallelism ayarlama sahiptir. Bölüm sayısı bilmiyorsanız, yüksek bir sayıya MaxDegreeOfParallelism ayarlayabilir ve sistem MaxDegreeOfParallelism en az (bölüm, kullanıcı tarafından sağlanan girdi sayısı) seçer.
 
@@ -113,7 +113,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
     Çöp toplama sıklığını azaltmayı bazı durumlarda yardımcı olabilir. .NET ile ayarlamak [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) true.
 6. **Geri Çekilme RetryAfter aralıklarla uygulama**
 
-    Performans testi sırasında istekleri küçük oranını kısıtlanan kadar yük artırmanız gerekir. Kısıtlanan, istemci uygulamasına geri Çekilme kısıtlama üzerinde sunucu belirtilen yeniden deneme aralığını gerekir. Geri Çekilme uyarak denemeler arasındaki bekleme süresi en az miktarda harcamanızı sağlar. Yeniden deneme ilkesi desteği eklenmiştir sürümünde 1.8.0 ve yukarıda SQL [.NET](documentdb-sdk-dotnet.md) ve [Java](documentdb-sdk-java.md), sürüm 1.9.0 ve üstü, [Node.js](documentdb-sdk-node.md) ve [Python](documentdb-sdk-python.md), ve tüm desteklenen sürümlerinde [.NET Core](documentdb-sdk-dotnet-core.md) SDK'ları. Daha fazla bilgi için bkz: [Exceeding ayrılmış işleme sınırları](request-units.md#RequestRateTooLarge) ve [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Performans testi sırasında istekleri küçük oranını kısıtlanan kadar yük artırmanız gerekir. Kısıtlanan, istemci uygulamasına geri Çekilme kısıtlama üzerinde sunucu belirtilen yeniden deneme aralığını gerekir. Geri Çekilme uyarak denemeler arasındaki bekleme süresi en az miktarda harcamanızı sağlar. Yeniden deneme ilkesi desteği eklenmiştir sürümünde 1.8.0 ve yukarıda SQL [.NET](sql-api-sdk-dotnet.md) ve [Java](sql-api-sdk-java.md), sürüm 1.9.0 ve üstü, [Node.js](sql-api-sdk-node.md) ve [Python](sql-api-sdk-python.md), ve tüm desteklenen sürümlerinde [.NET Core](sql-api-sdk-dotnet-core.md) SDK'ları. Daha fazla bilgi için bkz: [Exceeding ayrılmış işleme sınırları](request-units.md#RequestRateTooLarge) ve [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **İstemci-iş yükünü ölçeklendirme**
 
     Yüksek işleme düzeyleri sınıyorsanız (> 50.000 RU/s), istemci uygulaması makine çıkışı CPU veya ağ kullanımını capping nedeniyle ayak bağı. Bu noktaya ulaştıysanız, birden çok sunucu arasında istemci uygulamalarının ölçeklendirme tarafından Cosmos DB hesap ek itme devam edebilirsiniz.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: e0a1613f2f820f0c108e97c2c15585a581041181
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: f287b0287ad85ffe1654e0d574cd44aa4dd81a0f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure veri fabrikası'nda arama etkinliği
 Arama Etkinliği herhangi bir dış kaynaktan bir record/ table name/ değerini okumak veya aramak için kullanılabilir. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
@@ -61,7 +61,7 @@ Aşağıdaki veri kaynakları şu anda arama için desteklenir:
 Ad | Açıklama | Tür | Gerekli
 ---- | ----------- | ---- | --------
 Veri kümesi | Veri kümesi özniteliği, arama için veri kümesi başvurusu sağlamaktır. Şu anda desteklenen veri türleri şunlardır:<ul><li>`AzureBlobDataset`için [Azure Blob Storage](connector-azure-blob-storage.md#dataset-properties) kaynağı olarak</li><li>`FileShareDataset`için [dosya sistemi](connector-file-system.md#dataset-properties) kaynağı olarak</li><li>`AzureSqlTableDataset`için [Azure SQL veritabanı](connector-azure-sql-database.md#dataset-properties) veya [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) kaynağı olarak</li><li>`SqlServerTable`için [SQL Server](connector-sql-server.md#dataset-properties) kaynağı olarak</li><li>`AzureTableDataset`için [Azure Table Storage](connector-azure-table-storage.md#dataset-properties) kaynağı olarak</li> | Anahtar/değer çifti | Evet
-kaynak | Veri kümesi-özel kaynak özellikleri, kopyalama etkinliği kaynakla aynı. Karşılık gelen her bağlayıcı konu içindeki "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi. | Anahtar/değer çifti | Evet
+kaynak | Veri kümesi-özel kaynak özellikleri, kopyalama etkinliği kaynakla aynı. Karşılık gelen her bağlayıcı makale içindeki "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi. | Anahtar/değer çifti | Evet
 firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülmeyeceğini gösterir. | Boole değeri | Hayır. Varsayılan değer `ture`.
 
 ## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Arama etkinlik sonuç izleyen bir etkinlikte kullanma
@@ -80,7 +80,7 @@ Arama sonuç döndürülür `output` etkinliğin sonucu çalışma bölümünde.
 }
 ```
 
-**Zaman `firstRowOnly` ayarlanır `false`** , çıktı foramt aşağıdaki gibidir. A `count` alan gösterir kaç kayıtlar döndürülür ve ayrıntılı değerlerdir sabit altında `value` dizi. Böyle bir durumda arama etkinliği genellikle tarafından izlenir bir [Foreach etkinlik](control-flow-for-each-activity.md), geçirebilirsiniz `value` ForEach etkinlik dizisine `items` desenini kullanarak alan `@activity('MyLookupActivity').output.value`.
+**Zaman `firstRowOnly` ayarlanır `false`** , çıktı biçimi aşağıdaki gibidir. A `count` alan gösterir kaç kayıtlar döndürülür ve ayrıntılı değerlerdir sabit altında `value` dizi. Böyle bir durumda arama etkinliği genellikle tarafından izlenir bir [Foreach etkinlik](control-flow-for-each-activity.md), geçirebilirsiniz `value` ForEach etkinlik dizisine `items` desenini kullanarak alan `@activity('MyLookupActivity').output.value`. Erişim öğelerine `value`, aşağıdaki sözdizimini kullanın: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Örnek aşağıda verilmiştir:`@{activity('lookupActivity').output.value[0].tablename}`
 
 ```json
 {
@@ -101,7 +101,7 @@ Arama sonuç döndürülür `output` etkinliğin sonucu çalışma bölümünde.
 ## <a name="example"></a>Örnek
 Bu örnekte, kopya etkinliği verileri Azure SQL veritabanındaki bir SQL tablosundan Azure Blob Depolama birimine kopyalar. SQL tablosu adı Blob Storage JSON dosyasında depolanır. Çalışma zamanında tablo adı arama etkinliği arar. Bu yaklaşım JSON ardışık düzen/veri kümeleri yeniden dağıtmadan dinamik olarak değiştirilmesine izin verir. 
 
-Bu örnek demostrates yalnızca ilk satır yukarı arayın. Tüm satırlar ve zinciri ForEach etkinliği ile arayın başvurmak [Öğreticisi - toplu kopyalama veri](tutorial-bulk-copy.md) örnek.
+Bu örnek yalnızca ilk satır Ara gösterir. Tüm satırlar ve zinciri ForEach etkinliği ile arayın başvurmak [Öğreticisi - toplu kopyalama veri](tutorial-bulk-copy.md) örnek.
 
 ### <a name="pipeline"></a>İşlem hattı
 Bu ardışık düzen iki etkinlik içerir: **aramak** ve **kopya**. 

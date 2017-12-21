@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 69736670068479ce90cc346a163fe27b340cdb0a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 240961e0caa1cf2b5c31e854e925f914eb7edc00
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve sınama için Azure Cosmos DB öykünücüsünü kullanma
 
@@ -136,7 +136,7 @@ Yerel bir ağda öykünücü çalıştırabilirsiniz. Ağ erişimini etkinleşti
 İlk kez ağ erişimini etkinleştirmek için kullanıcı kapatma öykünücü gerekir ve öykünücüsü'nın veri dizini (C:\Users\user_name\AppData\Local\CosmosDBEmulator) silin.
 
 ## <a name="developing-with-the-emulator"></a>Öykünücü ile geliştirme
-Masaüstünde çalışan Azure Cosmos DB öykünücüsü olduktan sonra desteklenen herhangi biri kullanabilirsiniz [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) veya [Azure Cosmos DB REST API](/rest/api/documentdb/) öykünücü ile etkileşim kurmak için. Azure Cosmos DB öykünücüsü ayrıca SQL ve MongoDB API'ları ve görünüm için koleksiyonları oluşturun ve hiçbir kod yazmadan belgeleri düzenlemesine olanak tanır yerleşik bir Veri Gezgini içerir.   
+Masaüstünde çalışan Azure Cosmos DB öykünücüsü olduktan sonra desteklenen herhangi biri kullanabilirsiniz [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) veya [Azure Cosmos DB REST API](/rest/api/documentdb/) öykünücü ile etkileşim kurmak için. Azure Cosmos DB öykünücüsü ayrıca SQL ve MongoDB API'ları ve görünüm için koleksiyonları oluşturun ve hiçbir kod yazmadan belgeleri düzenlemesine olanak tanır yerleşik bir Veri Gezgini içerir.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(

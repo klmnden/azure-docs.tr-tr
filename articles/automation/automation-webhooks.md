@@ -3,7 +3,7 @@ title: "Bir Azure Otomasyonu runbook'u ile bir Web kancası başlangıç | Micro
 description: "Bir HTTP çağrısından Azure Otomasyon runbook'u başlatmak bir istemci izin veren bir Web kancası.  Bu makalede, bir Web kancası oluşturma ve bir runbook'u başlatmak için bir çağrı açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 9b20237c-a593-4299-bbdc-35c47ee9e55d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: d384a1f6e0f6bf49cf94020265fe5675ffc0029d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1b9b804aa696419b52a03f127c59037c337be66
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 A *Web kancası* , belirli bir runbook, tek bir HTTP isteği aracılığıyla Azure Otomasyonu'nda başlatmanıza olanak verir. Bu, Visual Studio Team Services, GitHub, Microsoft Operations Management Suite günlük analizi veya runbook'ları Azure Otomasyon API'sini kullanarak tam bir çözüm uygulama olmadan başlatmak için özel uygulamalar gibi dış hizmetler sağlar.  
@@ -33,7 +33,7 @@ Aşağıdaki tabloda, bir Web kancası için yapılandırmanız gerekir özellik
 |:--- |:--- |
 | Ad |Bu istemciye gösterilmez bu yana bir Web kancası için istediğiniz herhangi bir ad sağlayabilirsiniz.  Yalnızca sizin için Azure Automation runbook tanımlamak için kullanılır. <br>  En iyi uygulama, Web kancası kullanacağı istemcisiyle ilgili bir ad vermeniz gerekir. |
 | URL |Web kancası URL'si için Web kancası bağlı runbook'u başlatmak için bir HTTP POST ile bir istemci çağıran benzersiz adrestir.  Web kancası oluşturduğunuzda otomatik olarak oluşturulur.  Özel bir URL belirtemezsiniz. <br> <br>  URL runbook'un başka kimlik doğrulama ile üçüncü taraf sistemleri tarafından çağrılan izin veren bir güvenlik belirteci içeriyor. Bu nedenle, bir parola gibi değerlendirilmelidir.  Güvenlik nedeniyle, Web kancası oluşturulduğunda Azure portalında yalnızca URL görüntüleyebilirsiniz. Gelecekte kullanım için güvenli bir konumda URL unutmamalısınız. |
-| Sona erme tarihi |Bir sertifika gibi her Web kancası aynı zamanda bu artık kullanılabilir bir sona erme tarihi vardır.  Web kancası oluşturulduktan sonra bu süre sonu tarihi değiştirilebilir. |
+| Bitiş tarihi |Bir sertifika gibi her Web kancası aynı zamanda bu artık kullanılabilir bir sona erme tarihi vardır.  Web kancası oluşturulduktan sonra bu süre sonu tarihi değiştirilebilir. |
 | Etkin |Bir Web kancası oluşturulduğunda varsayılan olarak etkindir.  Devre dışı olarak ayarlarsanız, hiçbir istemci kullanmak mümkün olacaktır.  Ayarlayabileceğiniz **etkin** Web kancası veya dilediğiniz zaman bir kez oluşturduğunuzda özelliği oluşturulur. |
 
 ### <a name="parameters"></a>Parametreler
@@ -85,10 +85,10 @@ Bir Web kancası isteği alındığında bir dış koşulun bazı doğrulama ger
 ## <a name="creating-a-webhook"></a>Bir Web kancası oluşturma
 Azure Portalı'nda runbook'un bağlı yeni bir Web kancası oluşturmak için aşağıdaki yordamı kullanın.
 
-1. Gelen **Runbook'lar dikey** Azure portalında, ayrıntı dikey penceresini görüntülemek için Web kancası başlatacak ' a tıklayın.
-2. Tıklatın **Web kancası** açmak için dikey pencerenin üstündeki **ekleme Web kancası** dikey. <br>
+1. Gelen **Runbook'lar sayfa** Azure portalında kendi ayrıntı sayfası görüntülemek için Web kancası başlatacak ' a tıklayın.
+2. Tıklatın **Web kancası** açmak için sayfanın üstündeki **ekleme Web kancası** sayfası. <br>
    ![Web kancası düğmesi](media/automation-webhooks/webhooks-button.png)
-3. Tıklatın **yeni Web kancası oluşturma** açmak için **oluşturma Web kancası dikey**.
+3. Tıklatın **yeni Web kancası oluşturma** açmak için **Oluştur Web kancası sayfası**.
 4. Belirtin bir **adı**, **sona erme tarihi** Web kancası ve olup etkinleştirilmelidir. Bkz: [bir Web kancası ayrıntılarını](#details-of-a-webhook) daha fazla bilgi için bu özellikleri.
 5. Kopyala simgesine tıklayın ve Web kancası URL'yi kopyalamak için Ctrl + C tuşlarına basın.  Ardından güvenli bir yerde kaydedin.  **Web kancası oluşturulduktan sonra URL'yi yeniden alınamıyor.** <br>
    ![Web kancası URL'si](media/automation-webhooks/copy-webhook-url.png)
@@ -104,10 +104,10 @@ Bir Web kancası oluşturulduktan sonra kullanmak için istemci uygulamanız bir
 
 | Kod | Metin | Açıklama |
 |:--- |:--- |:--- |
-| 202 |Kabul edildi |İstek kabul edildi ve runbook başarıyla sıraya alındı. |
-| 400 |Hatalı istek |İstek aşağıdaki nedenlerden birinden dolayı kabul edilmedi. <ul> <li>Web kancası süresi doldu.</li> <li>Web kancası devre dışı bırakılır.</li> <li>URL'deki belirteci geçersiz.</li>  </ul> |
+| 202 |Kabul Edildi |İstek kabul edildi ve runbook başarıyla sıraya alındı. |
+| 400 |Hatalı İstek |İstek aşağıdaki nedenlerden birinden dolayı kabul edilmedi. <ul> <li>Web kancası süresi doldu.</li> <li>Web kancası devre dışı bırakılır.</li> <li>URL'deki belirteci geçersiz.</li>  </ul> |
 | 404 |Bulunamadı |İstek aşağıdaki nedenlerden birinden dolayı kabul edilmedi. <ul> <li>Web kancası bulunamadı.</li> <li>Runbook bulunamadı.</li> <li>Hesap bulunamadı.</li>  </ul> |
-| 500 |İç sunucu hatası |URL geçerli, ancak bir hata oluştu.  Lütfen isteği yeniden gönderin. |
+| 500 |İç Sunucu Hatası |URL geçerli, ancak bir hata oluştu.  Lütfen isteği yeniden gönderin. |
 
 İstek başarılı olduğunu varsayarak, Web kancası yanıt gibi JSON biçiminde iş kimliğini içerir. Tek iş kimliği yer alır ancak JSON biçimi için gelecekteki olası geliştirmeleri sağlar.
 
@@ -189,7 +189,7 @@ Web kancası etkin runbook'ları için tepki vermek için kullanılabilir [Azure
 
 Azure Uyarıları Bildirim sistemi olarak kullanmanın yanı sıra, ayrıca uyarılara yanıt olarak runbook'ları devre dışı tetiklersiniz. Azure Otomasyonu Web kancası etkin runbook'ları ile Azure uyarılar yeteneği sağlar. Ölçüm aştığında, yapılandırılan eşik değeri sonra uyarı kuralı etkin hale gelir ve runbook sırayla yürütür Otomasyonu Web kancası tetikler.
 
-![Web kancaları](media/automation-webhooks/webhook-alert.jpg)
+![Web Kancaları](media/automation-webhooks/webhook-alert.jpg)
 
 ### <a name="alert-context"></a>Uyarı bağlamı
 Bir sanal makine gibi bir Azure kaynağı düşünün, CPU kullanımı bu makinenin anahtar performans ölçüm biridir. CPU kullanımı % 100 veya belirli bir miktar fazla uzun süre, sorunu düzeltmek için sanal makineyi yeniden isteyebilirsiniz. Bu sanal makineye bir uyarı kuralı yapılandırarak çözülebilir ve bu kural CPU yüzdesi, ölçüm olarak alır. CPU yüzdesi burada yalnızca bir örnek olarak alınır ancak Azure kaynaklarınızı yapılandırabileceğiniz birçok ölçümleri vardır ve sanal makinenin yeniden başlatılması bu sorunu gidermek için gerçekleştirilecek bir eylem, diğer işlemler için runbook yapılandırabilirsiniz.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows Evrensel uygulamaları Engagement SDK tümleştirmesi
 > [!div class="op_single_selector"]

@@ -4,7 +4,7 @@ description: "Bulut Init ve anahtar kasası customze Linux VM'ler için Azure'da
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>İlk önyükleme Linux sanal makine özelleştirme
 Bir önceki öğreticide öğrenilen nasıl NGINX SSH bir sanal makine (VM) ve el ile yükleyin. VM'ler hızlı ve tutarlı bir şekilde oluşturmak için tür Otomasyon genellikle istendiğini. İlk önyükleme bir VM özelleştirmek için ortak bir yaklaşım kullanmaktır [bulut init](https://cloudinit.readthedocs.io). Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -39,7 +39,7 @@ Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI S�
 
 
 
-## <a name="cloud-init-overview"></a>Bulut init genel bakış
+## <a name="cloud-init-overview"></a>Cloud-init genel bakış
 [Bulut init](https://cloudinit.readthedocs.io) ilk kez önyükleme gibi bir Linux VM özelleştirmek için yaygın olarak kullanılan bir yaklaşımdır. Bulut init paketleri yüklemek ve dosyaları yazma veya kullanıcılar ve güvenlik yapılandırmak için kullanabilirsiniz. Bulut init ilk önyükleme işlemi sırasında çalışırken, ek adımlar veya yapılandırmanızı uygulamak için gerekli aracıların yok.
 
 Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
@@ -51,6 +51,8 @@ Bulut dahil ve Azure'a sağladıkları görüntülerinde çalışma başlatma al
 | UbuntuLTS |Canonical |UbuntuServer |16.04 LTS |en son |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |en son |
 | CoreOS |CoreOS |CoreOS |Dengeli |en son |
+| | OpenLogic | CentOS | 7 CI | en son |
+| | RedHat | RHEL | 7 HAM-CI | en son
 
 
 ## <a name="create-cloud-init-config-file"></a>Bulut init yapılandırma dosyası oluşturma

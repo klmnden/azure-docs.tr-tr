@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 20532763c46f6e87808e36f6dc06aecbd7a426ac
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a0e19fc9a5ee41dc61c8ced65206e81efe817681
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
@@ -229,7 +229,7 @@ Otomatik olarak tüm belge dizini için koleksiyon isteyip istemediğinizi seçe
 
 Otomatik kapalı ile dizin oluşturma, yalnızca belirli belgeler için dizin hala seçmeli olarak ekleyebilirsiniz. Buna karşılık, üzerinde dizin otomatik bırakın ve yalnızca belirli belgeleri dışlamak seçmeli olarak seçin. Açık/kapalı yapılandırmaları dizin yararlı yalnızca bir alt belgelerin sorgulanmasını gerek sahip olduğunuzda.
 
-Örneğin, aşağıdaki örnek açıkça kullanarak belge dahil gösterilmektedir [SQL API .NET SDK'sını](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet) ve [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
+Örneğin, aşağıdaki örnek açıkça kullanarak belge dahil gösterilmektedir [SQL API .NET SDK'sını](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) ve [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) özelliği.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a Document from indexing,
@@ -418,5 +418,5 @@ Dizin ilke yönetimi örnekleri ve Azure Cosmos veritabanı sorgu dili hakkında
 
 1. [SQL API .NET dizin yönetimi kod örnekleri](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [SQL API REST toplama işlemleri](https://msdn.microsoft.com/library/azure/dn782195.aspx)
-3. [SQL sorgusu](documentdb-sql-query.md)
+3. [SQL sorgusu](sql-api-sql-query.md)
 

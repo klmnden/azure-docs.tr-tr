@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile sosyal gitme
 Yüksek düzeyde birbirine topluluğu içinde yaşayan anlamına gelir hayatta bir noktada, bir parçası haline gelir, bir **sosyal ağ**. Sosyal ağlar tutmak arkadaşlarınız, iş arkadaşlarınızı, aile olmanızı sağlar, veya bazen bizim tutku ortak ilgi alanlarına sahip kişilerle paylaşmak için kullanın.
@@ -103,7 +103,7 @@ Akışlar oluşturma verilen ilgi sırasıyla post kimlikleri listesini tutabili
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Biz "en son" akış oluşturma tarihine göre sıralanmış gönderileri sahip, bu gönderileri olan bir "sıcak" akış daha son 24 saat içindeki yöntemlerine, biz followers ve ilgi alanları gibi mantığı göre her bir kullanıcı için özel bir akış bile uygulamak ve hala p listesini olacaktır osts. Sağlasa da, bu listeleri nasıl oluşturacağınızı olduğu, ancak okuma performans unhindered kalır. Biz bu listelerden birine elde sonra biz tek bir sorgu Cosmos DB kullanarak sorun [İŞLECİNDE](documentdb-sql-query.md#WhereClause) gönderileri sayfaların aynı anda elde etmek için.
+Biz "en son" akış oluşturma tarihine göre sıralanmış gönderileri sahip, bu gönderileri olan bir "sıcak" akış daha son 24 saat içindeki yöntemlerine, biz followers ve ilgi alanları gibi mantığı göre her bir kullanıcı için özel bir akış bile uygulamak ve hala p listesini olacaktır osts. Sağlasa da, bu listeleri nasıl oluşturacağınızı olduğu, ancak okuma performans unhindered kalır. Biz bu listelerden birine elde sonra biz tek bir sorgu Cosmos DB kullanarak sorun [İŞLECİNDE](sql-api-sql-query.md#WhereClause) gönderileri sayfaların aynı anda elde etmek için.
 
 Akış akışları kullanılarak oluşturulabilir [Azure App Services](https://azure.microsoft.com/services/app-service/) arka plan işlemleri: [Webjobs](../app-service/web-sites-create-web-jobs.md). Bir post oluşturulduktan sonra arka plan işleme kullanarak tetiklenebilir [Azure Storage](https://azure.microsoft.com/services/storage/) [sıraları](../storage/queues/storage-dotnet-how-to-use-queues.md) ve Webjobs kullanarak tetiklenen [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uygulama kendi özel mantığına göre akışları içinde yayma gönderin. 
 
@@ -237,7 +237,7 @@ Saat ile sonunda trafik ve kaynak tüketimini büyüyecektir (cinsinden [RUs](re
 
 Ancak bekleyin... yakında deneyimlerini platformunuz ile en iyi; değil unutmayın şu ana kadar işletimsel bölgenizi çıktığınızda gecikme korkunç ve bunları çıkmak için açıkça istemiyorsanız oldukları. Oluştu, kolay bir yol yalnızca **genel elinizin genişletme**... yoktur ancak!
 
-Cosmos DB olanak tanır [verilerinizi genel çoğaltmak](../cosmos-db/tutorial-global-distribution-documentdb.md) ve saydam bir birkaç tıklama ve otomatik olarak kullanılabilir bölgelerden arasından, [istemci kodu](../cosmos-db/tutorial-global-distribution-documentdb.md). Bu aynı zamanda, olabilir gelir [birden çok yük devretme bölgeleri](regional-failover.md). 
+Cosmos DB olanak tanır [verilerinizi genel çoğaltmak](../cosmos-db/tutorial-global-distribution-sql-api.md) ve saydam bir birkaç tıklama ve otomatik olarak kullanılabilir bölgelerden arasından, [istemci kodu](../cosmos-db/tutorial-global-distribution-sql-api.md). Bu aynı zamanda, olabilir gelir [birden çok yük devretme bölgeleri](regional-failover.md). 
 
 Verilerinizi genel çoğalttığınızda, istemcilerinizin bunu yararlanabilir emin olmanız gerekir. Bir web ön uç veya belirtilmemelidir API'leri mobil istemcilerden kullanıyorsanız, dağıtabileceğiniz [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) ve tüm istenen bölgeler Azure App, genişletilmiş desteklemek için bir performans Yapılandırması kullanılarak hizmet kopyalama genel kapsamı. İstemcilerinizi ön uç veya API'leri eriştiğinizde, sırasıyla yerel Cosmos DB çoğaltma bağlanacak en yakın uygulama hizmeti, yönlendirilir.
 

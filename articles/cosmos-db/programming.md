@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: andrl
-ms.openlocfilehash: 2fbf716422df324ad15c9400fe1f2e88b1415620
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d8438d126c1f994e51871e80bb11610ec95b0814
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'lerin
 
@@ -56,7 +56,7 @@ Bu yaklaşım *"JavaScript T-SQL modern gün olarak"* tür sistem uyuşmazlıkla
   * Uygulamalarını bağımsız olarak verilerden gelişmesi veri mimarları etkinleştirir ham verileri en üstünde bir soyutlama katmanı ekler. Veri şeması az verilerle doğrudan dağıtılacak varsa uygulamasına baked gerekebilir kırılır varsayımlar nedeniyle, bu özellikle yararlı olur.  
   * Bu soyutlama kuruluşların betikleri erişimden hızlandırma tarafından verilerine güvenli kalmasına izin verir.  
 
-Oluşturma ve yürütme veritabanı tetikleyici, saklı yordam ve özel sorgu işleçleri aracılığıyla desteklenir [Azure portal](https://portal.azure.com), [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), ve [istemci SDK'ları](documentdb-sdk-dotnet.md) .NET, Node.js ve JavaScript gibi birçok platformda.
+Oluşturma ve yürütme veritabanı tetikleyici, saklı yordam ve özel sorgu işleçleri aracılığıyla desteklenir [Azure portal](https://portal.azure.com), [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), ve [istemci SDK'ları](sql-api-sdk-dotnet.md) .NET, Node.js ve JavaScript gibi birçok platformda.
 
 Bu öğretici kullanır [Node.js SDK'sı ile Q öneriler](http://azure.github.io/azure-documentdb-node-q/) sözdizimi ve saklı yordamlar, tetikleyiciler ve UDF'lerin kullanımını göstermek için.   
 
@@ -654,7 +654,7 @@ JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece tek bir bet
 Saklı yordamlar, tetikleyiciler ve UDF'lerin her komut dosyası çağırma aynı anda derleme maliyet önlemek için bayt kodu biçimine örtük olarak önceden derlenmiş. Bu saklı yordam çağrılarını hızlı ve az alan kaplaması sahip sağlar.
 
 ## <a name="client-sdk-support"></a>İstemci SDK'sı desteği
-Azure Cosmos DB yanı sıra [Node.js](documentdb-sdk-node.md) API, Azure Cosmos DB sahip [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), ve [Python SDK'ları](documentdb-sdk-python.md) SQL API'si de. Saklı yordamlar, tetikleyiciler ve UDF'lerin oluşturulabilir ve bu SDK de birini kullanarak çalıştırılabilir. Aşağıdaki örnekte, oluşturma ve .NET İstemcisi'ni kullanarak bir saklı yordam yürütme gösterilmektedir. .NET türleri nasıl JSON olarak saklı yordam içinde geçirilen ve geri okuma unutmayın.
+Azure Cosmos DB yanı sıra [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB sahip [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), ve [Python SDK'ları](sql-api-sdk-python.md) SQL API'si de. Saklı yordamlar, tetikleyiciler ve UDF'lerin oluşturulabilir ve bu SDK de birini kullanarak çalıştırılabilir. Aşağıdaki örnekte, oluşturma ve .NET İstemcisi'ni kullanarak bir saklı yordam yürütme gösterilmektedir. .NET türleri nasıl JSON olarak saklı yordam içinde geçirilen ve geri okuma unutmayın.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -708,7 +708,7 @@ Bu örnek nasıl kullanılacağını göstermektedir [SQL .NET API](/dotnet/api/
         });
 
 
-Ve aşağıdaki örnekte, kullanıcı tanımlı işlev (UDF) oluşturmak ve bunu kullanmak gösterilmiştir bir [SQL sorgusu](documentdb-sql-query.md).
+Ve aşağıdaki örnekte, kullanıcı tanımlı işlev (UDF) oluşturmak ve bunu kullanmak gösterilmiştir bir [SQL sorgusu](sql-api-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -805,7 +805,7 @@ Bir veya daha fazla saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı i�
 
 Aynı zamanda aşağıdaki başvuru ve kaynaklar Azure Cosmos dB sunucu tarafı programlama hakkında daha fazla bilgi için yolundaki yararlı olabilir:
 
-* [Azure Cosmos DB SDK'ları](documentdb-sdk-dotnet.md)
+* [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

@@ -1,6 +1,6 @@
 ---
-title: "Hızlı Başlangıç: Cassandra API'si Java - Azure Cosmos DB ile | Microsoft Docs"
-description: "Bu hızlı başlangıç Azure Cosmos DB Cassandra API Java ve Azure portal ile bir profil uygulaması oluşturmak için nasıl kullanılacağını gösterir"
+title: "Hızlı Başlangıç: Java ile Cassandra API’si - Azure Cosmos DB | Microsoft Docs"
+description: "Bu hızlı başlangıçta Azure portalı ve Java ile profil uygulaması oluşturmak için Azure Cosmos DB Cassandra API’sinin nasıl kullanılacağı gösterilmektedir"
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -11,26 +11,26 @@ ms.custom: quick start connect, mvc
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2097aa1c158f88a06ab93123f4e374b4245430d6
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: MT
+ms.openlocfilehash: 4d12fe3890b1d3190af1bc94eba7b93059a03f10
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Hızlı Başlangıç: Java ve Azure Cosmos DB ile Cassandra uygulaması oluşturma
+# <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Hızlı Başlangıç: Java ve Azure Cosmos DB ile Cassandra uygulaması derleme
 
-Bu hızlı başlangıç Java ve Azure Cosmos DB nasıl kullanılacağını gösterir [Cassandra API](cassandra-introduction.md) örneği github'dan kopyalanarak profili uygulamanızı oluşturmak için. Bu hızlı başlangıç Ayrıca, bir Azure Cosmos DB hesap oluşturulmasını web tabanlı Azure portalını kullanarak açıklanmaktadır.
+Bu hızlı başlangıçta GitHub’dan bir örneği kopyalayarak bir profil uygulaması derlemek için Java ve Azure Cosmos DB [Cassandra API’sini](cassandra-introduction.md) nasıl kullanacağınız gösterilmektedir. Bu hızlı başlangıç ayrıca web tabanlı Azure portalını kullanarak bir Azure Cosmos DB hesabı oluşturma adımlarını da gösterir.
 
-Azure Cosmos DB Microsoft'un Genel dağıtılmış birden çok model veritabanı hizmetidir. Hızlı bir şekilde oluşturmak ve belge, tablo, anahtar-değer ve grafik veritabanları, her biri genel dağıtım ve yatay ölçek yetenekleri Azure Cosmos DB en yararlı sorgulayabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, tablo, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]Alternatif olarak, [Azure Cosmos DB ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) gider ve taahhüt bir Azure aboneliği boş.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatif olarak, [Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)’yi ücretsiz olarak, Azure aboneliği olmadan ve herhangi bir taahhütte bulunmadan deneyebilirsiniz.
 
-Azure Cosmos DB Cassandra API Önizleme programına erişim. Erişim için henüz yapmadıysanız uyguladıysanız [şimdi kaydolun](cassandra-introduction.md#sign-up-now).
+Azure Cosmos DB Cassandra API’si önizleme programına erişim. Erişim için henüz başvurmadıysanız [şimdi kaydolun](cassandra-introduction.md#sign-up-now).
 
 Buna ek olarak: 
 
@@ -46,21 +46,21 @@ Buna ek olarak:
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
-Bir belge veritabanı oluşturmadan önce Azure Cosmos DB ile Cassandra hesabı oluşturmanız gerekir.
+Bir belge veritabanı oluşturmadan önce Azure Cosmos DB ile bir Cassandra hesabı oluşturmanız gerekir.
 
 [!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi kod ile çalışmaya geçelim. Şimdi Cassandra uygulama github'dan bağlantı dizesini ayarlamak ve çalıştırın kopyalayın. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi kod ile çalışmaya geçelim. GitHub’dan bir Cassandra uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
-1. Git bash gibi bir git terminal penceresi açın ve kullanmak `cd` örnek uygulamayı yüklemek için bir klasör olarak değiştirmek için komutu. 
+1. Git Bash gibi bir Git terminal penceresi açın ve örnek uygulamayı yüklemek üzere bir klasör olarak değiştirmek için `cd` komutunu kullanın. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulaması bir kopyasını oluşturur.
+2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulamanın bir kopyasını oluşturur.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started.git
@@ -68,23 +68,23 @@ Bir belge veritabanı oluşturmadan önce Azure Cosmos DB ile Cassandra hesabı 
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Bu adım isteğe bağlıdır. Veritabanı kaynakları kodda nasıl oluşturulduğunu öğrenmek isterseniz, aşağıdaki kod parçacıkları gözden geçirebilirsiniz. Aksi takdirde, atlayabilirsiniz [bağlantı dizenizi güncelleştirme](#update-your-connection-string). Bu parçacıkları tüm src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java alınır.  
+Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. Bu kod parçacıklarının tümü src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java dizininden alınır.  
 
-* Cassandra konak, bağlantı noktası, kullanıcı adı, parola ve SSL seçeneklerini ayarlayın. Azure Portalı'ndaki bağlantı dizesi sayfasından bağlantı dizesi bilgilerini gelir.
+* Cassandra konağı, bağlantı noktası, kullanıcı adı, parola ve SSL seçenekleri ayarlanmıştır. Bağlantı dizesi bilgileri Azure portalındaki bağlantı dizesi sayfasından gelir.
 
    ```java
    cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
    ```
 
-* `cluster` Azure Cosmos DB Cassandra API'sine bağlanır ve erişmek için bir oturum döndürür.
+* `cluster`, Azure Cosmos DB Cassandra API’sine bağlanır ve erişilecek bir oturum döndürür.
 
     ```java
     return cluster.connect();
     ```
 
-Src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java dosyasından parçacıklarıdır.
+Aşağıdaki kod parçacıkları src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java dosyasında bulunur.
 
-* Yeni bir keyspace oluşturun.
+* Yeni bir anahtar alanı oluşturun.
 
     ```java
     public void createKeyspace() {
@@ -104,7 +104,7 @@ Src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java dosyas
    }
    ```
 
-* Hazırlanmış deyim nesnesini kullanarak kullanıcı varlıkları ekleyin.
+* Hazırlanmış bir deyim nesnesini kullanarak kullanıcı varlıkları ekleyin.
 
     ```java
     public PreparedStatement prepareInsertStatement() {
@@ -118,7 +118,7 @@ Src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java dosyas
     }
     ```
 
-* Tüm kullanıcı bilgilerini almak için sorgu.
+* Tüm kullanıcı bilgilerini almak için sorgulayın.
 
     ```java
    public void selectAllUsers() {
@@ -131,7 +131,7 @@ Src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java dosyas
     }
     ```
 
-* Tek bir kullanıcının bilgilerini almak için sorgu.
+* Tek bir kullanıcının bilgilerini almak için sorgulayın.
 
     ```java
     public void selectUser(int id) {
@@ -144,67 +144,67 @@ Src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java dosyas
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, barındırılan veritabanıyla iletişim kurmak uygulamanızı sağlar.
+Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır.
 
-1. İçinde [Azure portal](http://portal.azure.com/), tıklatın **bağlantı dizesi**. 
+1. [Azure portalında](http://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
 
-    ![Görüntüleme ve bir kullanıcı adı Azure portal, bağlantı dizesi sayfasından kopyalama](./media/create-cassandra-java/keys.png)
+    ![Azure portalı, Bağlantı Dizesi sayfasından kullanıcı adını görüntüleme ve kopyalama](./media/create-cassandra-java/keys.png)
 
-2. Kullanın ![Kopyala düğmesi](./media/create-cassandra-java/copy.png) KİŞİ nokta değeri kopyalamak için ekranın sağ taraftaki düğmesi.
+2. CONTACT POINT değerini kopyalamak için ekranın sağ tarafındaki ![Kopyala düğmesini](./media/create-cassandra-java/copy.png) kullanın.
 
-3. Açık `config.properties` C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources klasöründen dosya. 
+3. C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources klasöründen `config.properties` dosyasını açın. 
 
-3. Üzerinden portalı kişi noktası değerinden Yapıştır `<Cassandra endpoint host>` satırında 2.
+3. Portaldan CONTACT POINT değerini 2. satırdaki `<Cassandra endpoint host>` üzerine yapıştırın.
 
-    Config.properties 2 kolu benzer görünmelidir 
+    Config.properties 2. satırı şuna benzer görünmelidir: 
 
     `cassandra_host=cosmos-db-quickstarts.documents.azure.com`
 
-3. Portalına geri dönün ve kullanıcı adı değerini kopyalayın. Portal USERNAME değerini aşan `<cassandra endpoint username>` satırında 4.
+3. Portala geri dönün ve USERNAME değerini kopyalayın. Portaldan USERNAME değerini 4. satırdaki `<cassandra endpoint username>` üzerine yapıştırın.
 
-    Config.properties 4 satırlık benzer görünmelidir 
+    Config.properties 4. satırı şuna benzer görünmelidir: 
 
     `cassandra_username=cosmos-db-quickstart`
 
-4. Portalına geri dönün ve parola değerini kopyalayın. Üzerinden Portalı'ndan parola değeri yapıştırın `<cassandra endpoint password>` satırında 5.
+4. Portala geri dönün ve PASSWORD değerini kopyalayın. Portaldan PASSWORD değerini 5. satırdaki `<cassandra endpoint password>` üzerine yapıştırın.
 
-    Config.properties 5 kolu benzer görünmelidir 
+    Config.properties 5. satırı şuna benzer görünmelidir: 
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
-5. Belirli bir SSL sertifikası kullanmak istiyorsanız, satır 6, ardından Değiştir `<SSL key store file location>` SSL sertifikasının konumu ile. Bir değer sağlanmazsa, < JAVA_HOME > konumundaki yüklü/jre/lib/güvenlik/cacerts JDK sertifika kullanılır. 
+5. Belirli bir SSL sertifikasını kullanmak istiyorsanız 6. satırda `<SSL key store file location>` değerini SSL sertifikasının konumuyla değiştirin. Bir değer sağlanmamışsa, <JAVA_HOME>/jre/lib/security/cacerts konumuna yüklenen JDK sertifikası kullanılır. 
 
-6. Satır belirli bir SSL sertifikası kullanmak için 6'yı değiştirdiyseniz, satır bu sertifika için parola kullanılacak 7 güncelleştirin. 
+6. 6. satırı belirli bir SSL sertifikası kullanmak üzere değiştirdiyseniz, 7. satırı bu sertifikanın parolasını kullanacak şekilde güncelleştirin. 
 
 7. Config.properties dosyasını kaydedin.
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-1. Git terminal penceresinde `cd` azure-cosmosdb-cassandra-java-getting-started\java-examples klasörüne.
+1. Git terminal penceresinde, `cd` komutuyla azure-cosmosdb-cassandra-java-getting-started\java-examples klasörüne gidin.
 
     ```git
     cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples"
     ```
 
-2. Git terminal penceresi cosmosdb cassandra-examples.jar dosyası oluşturmak için aşağıdaki komutu kullanın.
+2. Git terminal penceresinde aşağıdaki komutu kullanarak cosmosdb cassandra-examples.jar dosyasını oluşturun.
 
     ```git
     mvn clean install
     ```
 
-3. Git terminal penceresinde Java uygulamasını başlatmak için aşağıdaki komutu çalıştırın.
+3. Git terminal penceresinde, Java uygulamasını başlatmak için aşağıdaki komutu çalıştırın.
 
     ```git
     java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.examples.UserProfile
     ```
 
-    Terminal penceresi keyspace ve tablo oluşturulan bildirimleri görüntüler. Ardından seçer ve tablodaki tüm kullanıcılar döndürür ve çıktısını görüntüler ve sonra bir satır kimliğine göre seçer ve değeri görüntüler.  
+    Terminal penceresinde anahtar alanı ve tablonun oluşturulduğuna yönelik bildirimler gösterilir. Daha sonra tablodaki tüm kullanıcıları seçip döndürür ve çıktıyı gösterir, ardından kimliğe göre bir satır seçip değeri gösterir.  
 
-    Programın exection durdurun ve konsol penceresini kapatmak için CTRL + C tuşlarına basın. 
+    Programın yürütülmesini durdurup konsol penceresini kapatmak için CTRL + C tuşlarına basın. 
     
-    Sorgu görmek, değiştirmek ve bu yeni verilerle çalışmak için Azure portalında Veri Gezgini artık açabilirsiniz. 
+    Şimdi Azure portalında Veri Gezgini'ni açıp bu yeni verileri görebilir, sorgulayabilir, değiştirebilir ve onlarla çalışabilirsiniz. 
 
-    ![Verileri veri Gezgini'nde görüntüleyin](./media/create-cassandra-java/data-explorer.png)
+    ![Veri Gezgini’nde verileri görüntüleme](./media/create-cassandra-java/data-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 
@@ -216,7 +216,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç bir Azure Cosmos DB hesap, Cassandra veritabanı ve Veri Gezgini'ni kullanarak koleksiyonu oluşturmak ve aynı şeyi programlı olarak yapmak için bir uygulamayı çalıştırmak nasıl öğrendiniz. Şimdi, Azure Cosmos DB koleksiyona ek verileri içeri aktarabilirsiniz. 
+Bu hızlı başlangıçta Azure Cosmos DB hesabını ve Cassandra veritabanını oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bu işlemleri programlı bir şekilde yapacak bir uygulamayı çalıştırmayı öğrendiniz. Şimdi Azure Cosmos DB koleksiyonunuza ek veri aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos Veritabanına Cassandra veri alma](cassandra-import-data.md)
+> [Cassandra verilerini Azure Cosmos DB’ye aktarma](cassandra-import-data.md)

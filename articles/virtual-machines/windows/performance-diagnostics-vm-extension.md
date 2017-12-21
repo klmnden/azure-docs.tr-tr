@@ -14,23 +14,22 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 5a7dc313f1d6453562e4d5a11ceca03e4459b043
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
 
-## <a name="summary"></a>Özet
-Azure performans tanılama VM uzantısı Windows Vm'lerden performans tanılama verisi toplama yardımcı olur, çözümleme yapar ve rapor bulgularını & tanımlamak ve sanal makinede performans sorunlarını gidermek için öneriler sağlar. Bu uzantı adı verilen bir sorun giderme aracı yükler [PerfInsights](http://aka.ms/perfinsights).
+Azure performans tanılama VM uzantısı, Windows Vm'lerden performans tanılama verisi toplama yardımcı olur. Uzantısı çözümleme yapar ve rapor bulgularını ve sanal makinede performans sorunları tanımlamaya ve çözümlemeye için öneriler sağlar. Bu uzantı adı verilen bir sorun giderme aracı yükler [PerfInsights](http://aka.ms/perfinsights).
 
 ## <a name="prerequisites"></a>Ön koşullar
-### <a name="operating-systems"></a>İşletim Sistemleri
-Bu uzantı, 2016 2012 R2, 2012, Windows Server 2008 R2 üzerinde yüklenebilir; Windows 8.1 ve Windows 10 işletim sistemleri.
+
+Bu uzantı, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016 yüklenebilir. Ayrıca Windows 8.1 ve Windows 10 yüklenebilir.
 
 ## <a name="extension-schema"></a>Uzantı Şeması
-Aşağıdaki JSON şeması için Azure performans tanılama uzantısını gösterir. Bu uzantı adı ve depolama tanılama çıkış için bir depolama hesabı için anahtar ve rapor gerektirir. Bu değerler duyarlıdır ve korumalı ayarını yapılandırma içinde depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hedef sanal makineye şifresi. StorageAccountName ve storageAccountKey büyük küçük harfe duyarlı olduğunu unutmayın. Diğer gerekli Parametreler bölümünde listelenir.
+Aşağıdaki JSON şeması Azure performans tanılama VM uzantısı için gösterir. Bu uzantı adı ve tanılama çıkış ve raporu depolamak için bir depolama hesabı anahtarı gerektirir. Bu değerler duyarlıdır ve korumalı ayarını yapılandırma içinde depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve hedef sanal makinede yalnızca şifresi çözülür. Unutmayın **storageAccountName** ve **storageAccountKey** büyük küçük harfe duyarlıdır. Diğer gerekli parametreleri aşağıdaki bölümünde listelenir.
 
 ```JSON
     {
@@ -65,57 +64,57 @@ Aşağıdaki JSON şeması için Azure performans tanılama uzantısını göste
 
 |   **Ad**   |**Değer / örnek**|       **Açıklama**      |
 |--------------|-------------------|----------------------------|
-|apiVersion|2015-06-15|API sürümü
-|Yayımcı|Microsoft.Azure.Performance.Diagnostics|Yayımcı ad uzantısı
-|type|AzurePerformanceDiagnostics|VM uzantısı türü
-|typeHandlerVersion|1.0|Uzantı işleyicisi sürümü
-|performanceScenario|temel|Verilerini yakalamak için performans senaryosu. Geçerli değerler: **temel**, **vmslow**, **geçirme**, ve **özel**.
-|traceDurationInSeconds|300|İzleme seçeneklerinden herhangi birini seçtiyseniz izlemeleri süresi.
-|perfCounterTrace|P|Performans sayacı izlemeyi Etkinleştir seçeneği. Geçerli değerler **p** veya değer boş. Yalnızca bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
-|networkTrace|n|Netmon izlemeyi Etkinleştir seçeneği. Geçerli değerler  **n**  veya değer boş. Yalnızca bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
-|xperfTrace|x|XPerf'in izlemeyi Etkinleştir seçeneği. Geçerli değerler **x** veya değer boş. Yalnızca bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
-|storPortTrace|s|StorPort izlemeyi Etkinleştir seçeneği. Geçerli değerler s ya da boş bir değer var. Yalnızca bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
-|srNumber|123452016365929|Bilet numarası varsa destekler. Elinizde yoksa boş bırakın.
-|storageAccountName|mystorageaccount|Tanılama günlüklerini ve sonuçları depolamak için depolama hesabının adı.
+|apiVersion|2015-06-15|API sürümü.
+|Yayımcı|Microsoft.Azure.Performance.Diagnostics|Yayımcı için ad alanı uzantı.
+|type|AzurePerformanceDiagnostics|VM uzantısı türü.
+|typeHandlerVersion|1.0|Uzantı işleyicisi sürümü.
+|performanceScenario|temel|Veri yakalamak üzere performans senaryosu. Geçerli değerler: **temel**, **vmslow**, **geçirme**, ve **özel**.
+|traceDurationInSeconds|300|İzleme, izleme seçeneklerinden herhangi birini seçtiyseniz süresi.
+|perfCounterTrace|P|Performans sayacı izlemeyi Etkinleştir seçeneği. Geçerli değerler **p** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
+|networkTrace|n|Ağ izlemeyi etkinleştirmek için seçeneği. Geçerli değerler  **n**  veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
+|xperfTrace|x|XPerf'in izlemeyi Etkinleştir seçeneği. Geçerli değerler **x** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
+|storPortTrace|s|StorPort izlemeyi Etkinleştir seçeneği. Geçerli değerler **s** veya değer boş. Bu izleme yakalamak istemiyorsanız, değeri olarak boş bırakın.
+|srNumber|123452016365929|Destek bileti numarası, varsa. Değer olarak, yoksa boş bırakın.
+|storageAccountName|mystorageaccount|Tanılama günlüklerini ve sonuçları depolamak için depolama hesabı adı.
 |storageAccountKey|lDuVvxuZB28NNP... hAiRF3voADxLBTcc ==|Depolama hesabı anahtarı.
 
 ## <a name="install-the-extension"></a>Uzantıyı yükleme
 
-Windows sanal makinelerde VM uzantısı yüklemek için aşağıdaki adımları izleyin:
+Windows sanal makinelerde uzantıyı yüklemek için aşağıdaki adımları izleyin:
 
 1. [Azure Portal](http://portal.azure.com) oturum açın.
 2. Bu uzantıyı yüklemek istediğiniz sanal makineyi seçin.
 
-    ![Sanal makineyi seçin](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
-3. Seçin **uzantıları** tıklayın ve dikey **Ekle** düğmesi.
+    ![Vurgulanan sanal makinelerle ekran görüntüsü, Azure portalı](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
+3. Seçin **uzantıları** dikey penceresinde ve select **Ekle**.
 
-    ![Uzantıları seçme](media/performance-diagnostics-vm-extension/select-extensions.png)
-4. Azure performans tanılama uzantısını seçin, hüküm ve koşulları gözden geçirin ve **oluşturma** düğmesi.
+    ![Vurgulanan Ekle ekran görüntüsü, uzantıları dikey penceresi](media/performance-diagnostics-vm-extension/select-extensions.png)
+4. Seçin **Azure Performans Tanılama**hüküm ve koşulları gözden geçirme ve seçme **oluşturma**.
 
-    ![Azure performans tanılama uzantısı oluşturma](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. ' I tıklatın ve yükleme için parametre değerlerini sağlayın **Tamam** uzantıyı yüklemek için. Desteklenen sorun giderme senaryoları hakkında daha fazla bilgi bulabilirsiniz [burada](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+    ![Azure performans vurgulanmış Tanılama ile yeni ekran kaynak ekranı](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
+5. Yükleme için parametre değerlerini sağlayın ve seçin **Tamam** uzantıyı yüklemek için. Desteklenen senaryolar hakkında daha fazla bilgi için bkz: [PerfInsights kullanmayı](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
 
-    ![Uzantıyı yükleme](media/performance-diagnostics-vm-extension/install-the-extension.png)
-6. Yükleme başarılı olduktan sonra başarılı sağlama belirten bir ileti görürsünüz.
+    ![Genişletme iletişim kutusu, yükleyin ekran görüntüsü](media/performance-diagnostics-vm-extension/install-the-extension.png)
+6. Yükleme başarılı olduğunda, bu durum belirten bir ileti görürsünüz.
 
-    ![İleti sağlama başarılı oldu](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
+    ![Ekran başarılı bir şekilde sağlanmasını iletisi](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > Uzantı yürütme sağlama başarılı oldu ve birkaç dakika veya temel senaryo için yürütme tamamlamak için daha az alan sonra başlar. Diğer senaryolar için yükleme sırasında belirtilen süre üzerinden çalışır.
+    > Sağlama başarılı olduktan sonra uzantısı çalıştırır. İki dakika sürer veya temel senaryo için tamamlamak için daha az. Diğer senaryolar için yükleme sırasında belirtilen süre üzerinden çalışır.
 
 ## <a name="remove-the-extension"></a>Uzantıyı kaldırın
 Uzantı sanal makineden kaldırmak için aşağıdaki adımları izleyin:
 
-1. Oturum [Azure portal](http://portal.azure.com), istediğiniz bu uzantıyı kaldırmak ve uzantıları dikey seçmek için sanal makineyi seçin. 
-2. ' İ tıklatın (**...** ) performans tanılama uzantısını girişinin listesi ve Kaldır seçeneğini belirleyin.
+1. Oturum [Azure portal](http://portal.azure.com), istediğiniz bu uzantıyı kaldırın ve ardından sanal makineyi seçin **uzantıları** dikey. 
+2. Seçin (**...** ) performans tanılama uzantısını girişi listelemek ve seçmek için **kaldırma**.
 
-    ![Uzantısını Kaldır](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
+    ![Ekran görüntüsü, uzantıları dikey, vurgulanmış Kaldır](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
     > [!NOTE]
-    > Ayrıca, bir uzantı girişini seçin ve Kaldır seçeneğini belirleyin.
+    > Ayrıca, bir uzantı girişini seçin ve Seç **kaldırma** seçeneği.
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
-Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında Azure performans tanılama uzantısını çalıştırmak için kullanılabilir. Şablon dağıtımı ile kullanılan bir örnek şablonu şöyledir:
+Azure sanal makine uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şeması bir Azure Resource Manager şablonu kullanılabilir. Bu, bir Azure Resource Manager şablon dağıtımı sırasında Azure performans tanılama VM uzantısı çalıştırır. Örnek şablon şöyledir:
 
 ````
 {
@@ -203,7 +202,7 @@ Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir.
 ````
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
-`Set-AzureRmVMExtension` Komutu, Azure performans tanılama sanal makine uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir. Komutu çalıştırmadan önce genel ve özel yapılandırmaları bir PowerShell karma tablosunda depolanması gerekir.
+`Set-AzureRmVMExtension` Komutu, Azure performans tanılama VM uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir. Komutu çalıştırmadan önce genel ve özel yapılandırmaları bir PowerShell karma tablosunda depolar.
 
 PowerShell
 
@@ -223,35 +222,32 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Yakalanan veriler hakkında bilgi
-PerfInsights aracı çeşitli günlükleri, yapılandırma, tanılama veri vb. seçilen senaryoya bağlı olarak toplar. Senaryo toplanan veriler hakkında daha fazla bilgi için ziyaret [PerfInsights belgelerine](http://aka.ms/perfinsights).
+PerfInsights aracı çeşitli günlükleri, yapılandırma ve seçilen senaryoya bağlı olarak tanılama verilerini toplar. Daha fazla bilgi için bkz: [PerfInsights belgelerine](http://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Görüntülemek ve sonuçları paylaşmak
 
-Uzantı çıktısı varsayılan olarak Temp sürücüsü (genellikle D:\log_collection) altındaki log_collection adlı bir klasör içinde depolanır. Bu klasörü altında tanılama günlüklerini ve bulguları ve öneriler içeren bir rapor içeren zip dosyaların görebilirsiniz.
+Uzantı çıktısını bir klasörde depolanır. Klasör log_collection olarak adlandırılır ve varsayılan olarak (genellikle D:\log_collection) Temp sürücü altında bulunabilir. Bu klasörü altında tanılama günlüklerini ve bulguları ve öneriler içeren bir rapor içeren zip dosyaları görebilirsiniz.
 
-Oluşturulan ZIP dosyası yükleme sırasında sağlanan depolama hesabı da karşıya ve 30 gün boyunca kullanarak paylaşılan [paylaşılan erişim imzaları (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Adlı bir metin dosyası *zipfilename*_saslink.txt de log_collection klasöründe oluşturulur. Bu dosya zip dosyasını karşıdan yüklemek için oluşturulan SAS bağlantı içerir. Bu bağlantıya sahip olan herkes zip dosyası indirebilirsiniz.
+Zip dosyası yükleme sırasında sağlanan depolama hesabı bulabilirsiniz. 30 gün boyunca kullanılarak paylaşılmaktadır [paylaşılan erişim imzaları (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Adlı bir metin dosyası *zipfilename*_saslink.txt de log_collection klasöründe oluşturulur. Bu dosya zip dosyasını karşıdan yüklemek için oluşturulan SAS bağlantı içerir. Bu bağlantıya sahip olan herkes zip dosyası indirebilirsiniz.
 
-Microsoft, destek bileti çalışma destek mühendisi tarafından daha fazla araştırma için tanılama veri indirmek için bu SAS bağlantı kullanabilir.
+Üzerinde destek bileti çalışma destek mühendisine yardımcı olmak için Microsoft bu SAS bağlantı tanılama verilerini yüklemek için kullanabilirsiniz.
 
-Raporu görüntülemek için yalnızca zip dosyasını ayıklayın ve açın **PerfInsights raporu.HTML** dosya.
+Raporu görüntülemek için zip dosyasını ayıklayın ve açın **PerfInsights raporu.HTML** dosya.
 
-ZIP dosyasının uzantısı seçerek doğrudan portalından karşıdan yüklemek mümkün olabilir.
+Zip dosyası doğrudan portalından uzantısı seçerek yükleyebilirsiniz olabilir.
 
-![Ayrıntılı durumunu görüntüleme](media/performance-diagnostics-vm-extension/view-detailed-status.png)
+![Performans Tanılama ekran ayrıntılı durumu](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> Portalda görüntülenen SAS bağlantı bazen hatalı biçimlendirilmiş Url (tarafından özel karakterler neden) nedeniyle kodlama ve kod çözme işlemi sırasında çalışmayabilir. VM *_saslink.txt dosyasından doğrudan bağlantı almak için geçici bir çözüm değildir.
+> Portalda görüntülenen SAS bağlantı çalışmayabilir. Bu tarafından hatalı biçimlendirilmiş bir URL kodlama ve kod çözme işlemleri sırasında neden olabilir. Bunun yerine, doğrudan VM'den *_saslink.txt dosyasından bağlantı alabilirsiniz.
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
-### <a name="troubleshoot"></a>Sorun giderme
 
 - Uzantı başarıyla kaynak sağlandı olsa bile uzantı dağıtım durumunu (bildirim alanındaki) "Dağıtımı devam ediyor" gösterebilir.
 
     Uzantısı başarıyla hazırlandı uzantı durumunu gösteren sürece bu sorunu güvenle yoksayılabilir.
-- Yükleme sırasında bazı sorunlar olması sorun giderme uzantısı günlüklerini kullanma. Uzantı yürütme çıktısı aşağıdaki dizinde bulunan dosyalara kaydedilir:
+- Uzantı günlükleri'ni kullanarak yükleme sırasında bazı sorunlar ele alabilir. Uzantı yürütme çıktısı aşağıdaki dizinde bulunan dosyalara kaydedilir:
 
         C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics
 
-### <a name="support"></a>Destek
-
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) ve Get destek seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/support/faq/).
+Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/)seçip **alma desteği**. Azure destek kullanma hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/support/faq/).

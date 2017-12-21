@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: kraig
 ms.openlocfilehash: f0d0815e71149749cb52efe21e1f0af3cabae21c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure blob depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 

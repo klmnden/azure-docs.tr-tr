@@ -15,11 +15,11 @@ ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7c2e56a5f747aa2a37fc4bed0e3f3877b64f2be2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5b05813034a08457ca46ef47c93e16016534f0ef
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Uygulama proxy'si ve PingAccess ile çoklu oturum açma için üstbilgi tabanlı kimlik doğrulaması
 
@@ -73,6 +73,10 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: izle
 4. Seçin **şirket içi uygulama**.
 5. Yeni uygulamanızı hakkındaki bilgilerle gerekli alanları doldurun. Ayarları için aşağıdaki yönergeleri kullanın:
    - **İç URL**: normalde şirket ağında olduğunuzda, uygulamanın oturum açma sayfası götüren URL'sini sağlayın. Bu senaryo için bağlayıcı PingAccess proxy uygulama ön sayfası olarak işlemek gerekir. Şu biçimi kullanın: `https://<host name of your PA server>:<port>`. Bağlantı noktası, varsayılan değer 3000 olmakla birlikte PingAccess yapılandırabilirsiniz.
+
+    > [!WARNING]
+    > SSO bu tür, iç URL, https kullanmalıdır ve http kullanamazsınız.
+
    - **Ön kimlik doğrulama yöntemi**: Azure Active Directory
    - **Üstbilgiler URL'de çevir**: Hayır
 
@@ -135,7 +139,7 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: izle
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>İsteğe bağlı - güncelleştirme GraphAPI özel alanlar göndermek için
 
-Azure AD kimlik doğrulaması için gönderir güvenlik belirteçleri listesi için bkz: [Azure AD belirteç başvurusu](./develop/active-directory-token-and-claims.md). Diğer belirteçleri gönderir bir özel talep gerekiyorsa, GraphAPI uygulaması alanı ayarlamak için kullanın *acceptMappedClaims* için **doğru**. Azure AD Graph Explorer'a yalnızca bu yapılandırma yapmak için de kullanabilirsiniz. 
+Azure AD kimlik doğrulaması için gönderir güvenlik belirteçleri listesi için bkz: [Azure AD belirteç başvurusu](./develop/active-directory-token-and-claims.md). Diğer belirteçleri gönderir bir özel talep gerekiyorsa, Graph Explorer'a ya da bildirim Azure Portalı'nda uygulama için uygulama alan ayarlamak için kullanın *acceptMappedClaims* için **doğru**.    
 
 Bu örnek Graph Explorer'a kullanır:
 
@@ -146,6 +150,13 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+Bu örnekte [Azure portal](https://portal.azure.com) udpate için *acceptedMappedClaims* alan:
+1. Oturum [Azure portal](https://portal.azure.com) genel yönetici olarak.
+2. Seçin **Azure Active Directory** > **uygulama kayıtlar**.
+3. Uygulamanızı seçin > **bildirim**.
+4. Seçin **Düzenle**, arama *acceptedMappedClaims* alan ve değerini değiştirin **doğru**.
+![Uygulama bildirimi](media/application-proxy-ping-access/application-proxy-ping-access-manifest.PNG)
+1. **Kaydet**’i seçin.
 
 >[!NOTE]
 >Bir özel talep kullanmak için de tanımlanır ve uygulamaya atanan özel bir ilke olması gerekir.  Bu ilke tüm gerekli özel öznitelikleri içermelidir.

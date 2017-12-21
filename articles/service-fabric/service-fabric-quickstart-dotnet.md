@@ -1,6 +1,6 @@
 ---
-title: ".NET Service Fabric uygulaması oluşturma | Microsoft Docs"
-description: "Bir .NET uygulaması için Azure Service Fabric hızlı başlangıç örnek kullanarak oluşturun."
+title: "Azure'da .NET Service Fabric uygulaması oluşturma | Microsoft Docs"
+description: "Service Fabric hızlı başlangıç örneğini kullanarak Azure için .NET uygulaması oluşturun."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -17,190 +17,190 @@ ms.author: mikhegn
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
 ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/09/2017
 ---
-# <a name="create-a-net-service-fabric-application-in-azure"></a>.NET Service Fabric uygulaması oluşturma
+# <a name="create-a-net-service-fabric-application-in-azure"></a>Azure'da .NET Service Fabric uygulaması oluşturma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
 
-Bu hızlı başlangıç ilk .NET uygulamanızı Service Fabric dağıtmak gösterilmektedir. İşlemi tamamladığınızda, oylama bir durum bilgisi olan bir arka uç hizmetinde kümedeki Oylama sonuçlarını kaydettiği ön uç bir ASP.NET Core web uygulamasıyla sahip.
+Bu hızlı başlangıçta ilk .NET uygulamanızın Service Fabric'e nasıl dağıtılacağı gösterilir. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir ASP.NET Core web ön ucuna sahip oylama uygulaması sağlanır.
 
-![Uygulama ekran görüntüsü](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
+![Uygulama Ekran Görüntüsü](./media/service-fabric-quickstart-dotnet/application-screenshot.png)
 
-Bu uygulama hakkında bilgi edineceksiniz kullanarak nasıl yapılır:
+Bu uygulamayı kullanarak şunları yapmayı öğrenirsiniz:
 > [!div class="checklist"]
 > * .NET ve Service Fabric kullanarak uygulama oluşturma
-> * Bir web ön uç ASP.NET core kullanın
-> * Durum bilgisi olan hizmet uygulama verilerini depolamak
-> * Uygulamanızı yerel olarak hata ayıklama
-> * Bir kümede Azure uygulamayı dağıtmak
-> * Genişleme uygulama birden çok düğüm arasında
-> * Uygulama yükseltme gerçekleştirme
+> * ASP.NET Core'u web ön ucu olarak kullanma
+> * Uygulama verilerini durum bilgisi içeren bir hizmette depolama
+> * Uygulamanızda yerel olarak hata ayıklama
+> * Uygulamayı Azure'da bir kümeye dağıtma
+> * Birden çok düğüm arasında uygulamanın ölçeğini genişletme
+> * Toplu uygulama yükseltmesi yapma
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıcı tamamlamak için:
-1. [Visual Studio 2017 yükleme](https://www.visualstudio.com/) ile **Azure geliştirme** ve **ASP.NET ve web geliştirme** iş yükleri.
+1. [Azure geliştirme](https://www.visualstudio.com/) ve **ASP.NET ve Web geliştirme** iş yükleriyle **Visual Studio 2017’yi yükleyin**.
 2. [Git'i yükleyin](https://git-scm.com/)
-3. [Microsoft Azure Service Fabric SDK yükleme](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
-4. Yerel Service Fabric kümesi dağıtmak Visual Studio etkinleştirmek için aşağıdaki komutu çalıştırın:
+3. [Microsoft Azure Service Fabric SDK'sını yükleyin](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
+4. Visual Studio'nun yerel Service Fabric kümesine dağıtım yapmasını sağlamak için aşağıdaki komutu çalıştırın:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
 
 ## <a name="download-the-sample"></a>Örneği indirme
-Bir komut penceresinde örnek uygulama depoyu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
+Komut penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 ```
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
 ## <a name="run-the-application-locally"></a>Uygulamayı yerel olarak çalıştırma
-Başlat menüsü Visual Studio simgesini sağ tıklatın ve seçin **yönetici olarak çalıştır**. Hata ayıklayıcı hizmetlerinize iliştirmek için Visual Studio'yu yönetici olarak çalıştırmanız gerekir.
+Başlat Menüsünde Visual Studio'ya sağ tıklayın ve **Yönetici olarak çalıştır**'ı seçin. Hizmetlerinize hata ayıklayıcıyı eklemek için Visual Studio'yu yönetici olarak çalıştırmalısınız.
 
-Açık **Voting.sln** kopyaladığınız deponun Visual Studio çözümü.  
+Kopyaladığınız depodan **Voting.sln** Visual Studio çözümünü açın.  
 
-Varsayılan olarak, oylama uygulaması, 8080 bağlantı noktasında dinleyecek şekilde ayarlanır.  Uygulama bağlantı noktası kümesinde */VotingWeb/PackageRoot/ServiceManifest.xml* dosya.  Güncelleştirerek uygulama bağlantı noktasını değiştirebilirsiniz **bağlantı noktası** özniteliği **Endpoint** öğesi.  Dağıtma ve uygulama yerel olarak çalıştırmak için uygulama bağlantı noktası açık ve bilgisayarınızdaki kullanılabilir olması gerekir.  Uygulama bağlantı noktasını değiştirirseniz, bu makale boyunca "8080" için yeni uygulama bağlantı noktası değeri değiştirin.
+Varsayılan olarak, Oylama uygulaması bağlantı noktası 8080'den dinleyecek şekilde ayarlanır.  Uygulama bağlantı noktası */VotingWeb/PackageRoot/ServiceManifest.xml* dosyasında ayarlanır.  **Endpoint** öğesinin **Port** özniteliğini güncelleştirerek uygulama bağlantı noktasını değiştirebilirsiniz.  Uygulamayı yerel olarak dağıtmak ve çalıştırmak için, uygulama bağlantı noktasının bilgisayarınızda açık ve kullanılabilir olması gerekir.  Uygulama bağlantı noktasını değiştirirseniz, bu makalenin tamamında "8080" değerinin yerine yeni uygulama bağlantı noktası değerini koyun.
 
-Uygulamayı dağıtmak için basın **F5**.
+Uygulamayı dağıtmak için **F5** tuşuna basın.
 
 > [!NOTE]
-> İlk kez çalıştırın ve uygulama dağıtma, Visual Studio hata ayıklama için yerel bir küme oluşturur. Bu işlem biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.  Çıktıda "Uygulama URL'si ayarlanmadı veya tarayıcı uygulamaya açılmaz için bir HTTP/HTTPS URL'si değil." iletisini görürsünüz  Bir tarayıcı olmayan otomatik başlatılan ancak bu bu iletiyi bir hata olduğunu göstermez.
+> Uygulamayı ilk kez çalıştırdığınızda ve dağıttığınızda, Visual Studio hata ayıklama için yerel bir küme oluşturur. Bu işlem biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.  Çıkışta, "Uygulama URL'si ayarlanmadığı veya bir HTTP/HTTPS URL'si olmadığı için tarayıcı, uygulamaya açılmayacak" iletisini görürsünüz.  Bu ileti bir hataya işaret etmez ama tarayıcının otomatik olarak başlatılmayacağını belirtir.
 
-Dağıtım tamamlandığında, bir tarayıcı başlatmak ve bu sayfayı açın: `http://localhost:8080` -uygulamanın ön uç web.
+Dağıtım tamamlandığında, tarayıcıyı başlatın ve şu sayfayı açın: `http://localhost:8080` - uygulamanın web ön ucu.
 
-![Uygulama ön uç](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
+![Uygulama ön ucu](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
-Şimdi, oylama seçenekleri kümesi ekleyin ve oy almaya başlayın. Uygulamayı çalışır ve ayrı bir veritabanı gerek kalmadan, Service Fabric kümesindeki tüm verileri depolar.
+Şimdi bir dizi oylama seçeneği ekleyebilir ve oyları almaya başlayabilirsiniz. Uygulama çalıştırılır ve ayrı bir veritabanına gerek kalmadan tüm verileri Service Fabric kümenizde depolar.
 
-## <a name="walk-through-the-voting-sample-application"></a>Yol üzerinden oylama örnek uygulama
-Oylama uygulaması iki hizmetinden oluşur:
-- Web ön uç hizmeti (VotingWeb) - bir ASP.NET Core web web sayfası hizmet ön uç hizmeti ve düzenlemenizi sağlayan web arka uç hizmeti ile iletişim için API'ler.
-- Arka uç hizmetine (VotingData)-oy sonuçları güvenilir sözlükte depolamak için bir API sunar bir ASP.NET Core web hizmeti kalıcı disk üzerinde.
+## <a name="walk-through-the-voting-sample-application"></a>Oylama örnek uygulamasında izlenecek yol
+Oylama uygulaması iki hizmetten oluşur:
+- Web ön uç hizmeti (VotingWeb)- Web sayfasına hizmet veren ve arka uç hizmetiyle iletişim için web API'lerini kullanıma sunan bir ASP.NET Core web ön uç hizmeti.
+- Arka uç hizmeti (VotingData)- Oy sonuçlarını diskte kalıcı olan güvenilir bir sözlükte depolamak için API'yi kullanıma sunan bir ASP.NET Core web hizmeti.
 
-![Uygulama diyagramı](./media/service-fabric-quickstart-dotnet/application-diagram.png)
+![Uygulama Diyagramı](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
-Aşağıdaki olaylar, uygulamada oy oluşur:
-1. JavaScript oy isteği için web ön uç hizmeti web API'si bir HTTP PUT İsteği gönderir.
+Uygulamada oy kullandığınızda aşağıdaki olaylar gerçekleşir:
+1. Oy isteğini bir JavaScript HTTP PUT isteği olarak web ön uç hizmetindeki web API'sine gönderir.
 
-2. Web ön uç hizmeti bulun ve bir HTTP PUT İsteği arka uç hizmetine iletmek için bir proxy kullanır.
+2. Web ön uç hizmeti bir ara sunucu kullanarak HTTP PUT isteğini bulur ve arka uç hizmetine iletir.
 
-3. Arka uç hizmetine gelen isteği alır ve güncelleştirilmiş sonuç kümesi içinde birden çok düğüm çoğaltılan alır ve diskte kalıcı bir güvenilir bir sözlük depolar. Hiçbir veritabanı gerektiği şekilde uygulamanın tüm veri kümesinde depolanır.
+3. Arka uç hizmeti gelen isteği alır ve güncelleştirilmiş sonucu güvenilir bir sözlükte depolar. Bu sözlük küme içinde birden çok düğüme çoğaltılır ve diskte kalıcı olur. Uygulamanın tüm verileri kümede depolandığından, veritabanına gerek yoktur.
 
 ## <a name="debug-in-visual-studio"></a>Visual Studio'da hata ayıklama
-Visual Studio uygulamasında hata ayıklama sırasında yerel bir Service Fabric geliştirme küme kullanıyor. Hata ayıklama deneyiminizi senaryonuz için ayarlamak için seçeneğiniz vardır. Bu uygulama, verileri güvenilir sözlüğünü kullanarak arka uç hizmetinde depolanır. Hata ayıklayıcıyı durdurduğunuzda visual Studio uygulama varsayılan başına kaldırır. Uygulama kaldırma verileri de kaldırılacak arka uç hizmetinde neden olur. Hata ayıklama oturumları arasında veri kalıcı hale getirmek için değiştirebileceğiniz **uygulama hata ayıklama modu** bir özellik olarak **oylama** Visual Studio projesi.
+Visual Studio'da uygulamada hata ayıklaması yaparken yerel bir Service Fabric geliştirme kümesi kullanırsınız. Hata ayıklama deneyiminizi senaryonuza göre ayarlama seçeneğiniz vardır. Bu uygulamada, verileri güvenilir bir sözlük kullanılarak arka uç hizmetinde depolanır. Hata ayıklayıcıyı durdurduğunuzda Visual Studio varsayılan olarak uygulamayı kaldırır. Uygulamanın kaldırılması arka uç hizmetindeki verilerin de kaldırılmasına neden olur. Hata ayıklama oturumları arasında verilerin kalıcı olmasını sağlamak için, Visual Studio'da **Oylama** projesindeki bir özellik olarak **Uygulama Hata Ayıklama Modu**'nu değiştirebilirsiniz.
 
-Kod içinde neler aramak için aşağıdaki adımları tamamlayın:
-1. Açık **/VotingWeb/Controllers/VotesController.cs** dosya ve web API'ın bir kesme noktası belirleyerek **Put** yöntemi (satır 47) - Visual Studio'daki Çözüm Gezgini'nde dosyayı arayabilirsiniz.
+Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
+1. **/VotingWeb/Controllers/VotesController.cs** dosyasını açın ve web API'sinin **Put** yönteminde (47. satır) bir kesme noktası ayarlayın. Dosyayı Visual Studio'daki Çözüm Gezgini'nde arayıp bulabilirsiniz.
 
-2. Açık **/VotingData/ControllersVoteDataController.cs** dosya ve bu web API'nin bir kesme noktası belirleyerek **Put** yöntemi (satır 50).
+2. **/VotingData/ControllersVoteDataController.cs** dosyasını açın ve bu web API'sinin **Put** yönteminde (50. satır) bir kesme noktası ayarlayın.
 
-3. Tarayıcıya geri dönün ve oylama seçeneği tıklatın veya yeni bir oylama seçeneği ekleyin. Web ön uç 's API denetleyicisi içinde ilk kesme noktası isabet.
-    - Burada tarayıcısında JavaScript bir isteği ön uç hizmeti olan web API denetleyicisi gönderir budur.
+3. Tarayıcıya dönün ve bir oylama seçeneğine tıklayın veya yeni oylama seçeneği ekleyin. Web ön ucunun api denetleyicisinde ilk kesme noktasına ulaşırsınız.
+    - Burası, tarayıcıda JavaScript'in ön uç hizmetindeki API denetleyicisine istek gönderdiği yerdir.
     
-    ![Oy ön uç Hizmet Ekle](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+    ![Oy Ön Uç Hizmeti Ekleme](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    - İlk olarak, arka uç hizmetimizi ReverseProxy URL'si oluşturmak **(1)**.
-    - Ardından, ReverseProxy PUT HTTP isteği göndermek **(2)**.
-    - Son olarak, arka uç hizmetinden yanıt istemciye Döndür **(3)**.
+    - İlk olarak, arka uç hizmetimiz için ReverseProxy'nin URL'sini oluşturun **(1)**.
+    - Ardından, HTTP PUT İsteğini ReverseProxy'ye gönderin **(2)**.
+    - Son olarak, yanıtı arka uç hizmetinden istemciye döndürün **(3)**.
 
-4. Tuşuna **F5** devam etmek için
-    - Artık arka uç hizmetinde kesme noktasında bulunur.
+4. Devam etmek için **F5** tuşuna basın
+    - Şimdi arka uç hizmetindeki kesme noktasındasınız.
     
-    ![Oy arka uç hizmeti ekleme](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+    ![Oy Arka Uç Hizmeti Ekleme](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    - Yönteminin ilk satırında **(1)** `StateManager` alır veya adlı güvenilir sözlüğü ekler `counts`.
-    - Kullanarak bu işlem, güvenilir bir sözlükteki değerlerle tüm etkileşimleri gerektiren deyimi **(2)** bu işlem oluşturur.
-    - İşlem, oylama seçeneği için ilgili anahtarının değerini güncelleştirin ve işlemi yürütme **(3)**. Yürütme yöntemi döndürür, veri sözlüğünde güncelleştirilmiş ve kümedeki diğer düğümlere çoğaltılan sonra. Veri şimdi güvenle kümede depolanır ve arka uç hizmeti üzerinden kullanılabilir veri yaşamaya diğer düğümlere başarısız olabilir.
-5. Tuşuna **F5** devam etmek için
+    - Yöntemin ilk satırında **(1)**, `StateManager` `counts` adlı güvenilir bir sözlük alır veya ekler.
+    - Güvenilir bir sözcükteki değerlerle tüm etkileşimler bir işlem gerektirir; bu using deyimi **(2)** o işlemi oluşturur.
+    - İşlemde, oylama seçeneği için uygun anahtarın değerini güncelleştirin ve işlemi yürütün **(3)**. Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
+5. Devam etmek için **F5** tuşuna basın
 
-Hata ayıklama oturumu durdurmak için basın **Shift + F5**.
+Hata ayıklama oturumunu durdurmak için **Shift+F5** tuşlarına basın.
 
 ## <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure’a dağıtma
-Uygulamayı Azure'a dağıtmak için uygulama çalışan bir Service Fabric kümesi gerekir. 
+Uygulamayı Azure'a dağıtmak için, uygulamayı çalıştıran bir Service Fabric kümesine ihtiyacınız vardır. 
 
-### <a name="join-a-party-cluster"></a>Taraf kümeye Katıl
+### <a name="join-a-party-cluster"></a>Grup kümesine katılma
 Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. 
 
-Oturum açın ve [Windows kümeye](http://aka.ms/tryservicefabric). Unutmayın **bağlantı uç noktasının** adımları izleyerek kullanılan değer.
+Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). Aşağıdaki adımlarda kullanılan **Bağlantı uç noktası** değerini unutmayın.
 
 > [!Note]
-> Varsayılan olarak, web ön uç hizmeti 8080 bağlantı noktasından gelen trafiği dinleyecek şekilde yapılandırılır. Bağlantı noktası 8080 taraf kümede açıktır.  Uygulama bağlantı noktasını değiştirmeniz gerekirse, bir taraf kümede açık bağlantı noktalarını değiştirin.
+> Varsayılan olarak, web ön uç hizmeti 8080 numaralı bağlantı noktasında gelen trafiği dinleyecek şekilde yapılandırılmıştır. Grup Kümesinde bağlantı noktası 8080 açıktır.  Uygulama bağlantı noktasını değiştirmeniz gerekiyorsa, bunu Grup Kümesinde açık olan bağlantı noktalarından biriyle değiştirin.
 >
 
-### <a name="deploy-the-application-using-visual-studio"></a>Visual Studio kullanarak uygulamayı dağıtın
+### <a name="deploy-the-application-using-visual-studio"></a>Visual Studio kullanarak uygulamayı dağıtma
 Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıtabilirsiniz.
 
-1. Sağ **oylama** Çözüm Gezgini'nde ve **Yayımla**. Yayımla iletişim kutusu görüntülenir.
+1. Çözüm Gezgini'nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin. Yayımla iletişim kutusu görüntülenir.
 
     ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Kopya **bağlantı uç noktasının** taraf küme sayfasından **bağlantı uç noktasının** alanına gelin ve **Yayımla**. Örneğin, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın ve **Yayımla**’ya tıklayın. Örneğin, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
-    Kümedeki her bir uygulama benzersiz bir ad olmalıdır.  Ancak bir ortak, paylaşılan ortamı parti kümeleri olan ve var olan bir uygulama ile bir çakışma olabilir.  Bir ad çakışması varsa, Visual Studio projesi yeniden adlandırın ve yeniden dağıtın.
+    Kümedeki her uygulamanın benzersiz bir adı olmalıdır.  Bununla birlikte grup kümeleri ortak, paylaşılan bir ortamdır ve mevcut uygulamalardan biriyle çakışma olabilir.  Ad çakışması varsa, Visual Studio projesini yeniden adlandırın ve bir kez daha dağıtın.
 
-3. Tarayıcı ve küme adresini yazın ve ardından Aç ': 8080 kümedeki - Örneğin, uygulama almak için ' `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Artık Azure kümede çalışan uygulama görmeniz gerekir.
+3. Tarayıcıyı açın, küme adresini yazın ve kümedeki uygulamaya gelmek için arkasına ':8080' ekleyin; örneğin, `http://winh1x87d1d.westus.cloudapp.azure.com:8080`. Artık Azure'da kümede çalıştırılan uygulamayı görüyor olmalısınız.
 
-![Uygulama ön uç](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+![Uygulama ön ucu](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Bir kümedeki uygulamaları ve hizmetleri ölçeklendirme
-Service Fabric Hizmetleri, bir değişiklik Hizmetleri üzerindeki yükü için uygun hale getirmek için bir küme içinde kolayca genişletilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizin ölçeklendirme birkaç yolu vardır, betikleri veya komutları PowerShell veya Service Fabric CLI (sfctl) kullanabilirsiniz. Bu örnekte, Service Fabric Explorer kullanın.
+Hizmet yükündeki bir değişikliği karşılamak için kümedeki Service Fabric hizmetleri kolayca ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizi ölçeklendirmenin birçok yolu vardır; PowerShell veya Service Fabric CLI'den (sfctl) betikler veya komutlar kullanabilirsiniz. Bu örnekte, Service Fabric Explorer'ı kullanın.
 
-Service Fabric Explorer tüm Service Fabric kümelerinde çalışır ve kümeleri HTTP yönetim bağlantı noktası (19080), örneğin, göz atarak bir tarayıcıdan erişilebilir `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+Service Fabric Explorer tüm Service Fabric kümelerinde çalıştırılır ve tarayıcıdan kümelerin HTTP yönetim bağlantı noktasına (19080) göz atarak (örneğin, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`) erişilebilir.
 
 Web ön uç hizmetini ölçeklendirmek için aşağıdaki adımları gerçekleştirin:
 
 1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-2. Yanındaki üç nokta (üç nokta) tıklayın **fabric: / oylama/VotingWeb** treeview düğümüne ve **ölçek hizmet**.
+2. Ağaç görünümünde **fabric:/Voting/VotingWeb** düğümünün yanındaki üç noktaya tıklayın ve **Hizmeti Ölçeklendir**'i seçin.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
 
     Şimdi web ön uç hizmetindeki örnek sayısını ölçeklendirebilirsiniz.
 
 3. Rakamı **2** olarak değiştirin ve **Hizmeti Ölçeklendir**'e tıklayın.
-4. Tıklayın **fabric: / oylama/VotingWeb** ağaç görünümünde düğümünü ve (bir GUID ile temsil edilen) bölüm düğümünü genişletin.
+4. Ağaç görünümünde **fabric:/Voting/VotingWeb** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin.
 
-    ![Service Fabric Explorer ölçek hizmeti](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
+    ![Service Fabric Explorer Hizmeti Ölçeklendir](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scaled-service.png)
 
-    Bir gecikmeden sonra hizmet iki örneği olduğunu görebilirsiniz.  Ağaç görünümünde örnekleri çalıştıracağınız hangi düğümlerin bakın.
+    Bir gecikmenin ardından, hizmetin iki örneği olduğunu görebilirsiniz.  Ağaç görünümünde örneklerin üzerinde çalıştığı düğümleri görürsünüz.
 
-Bu basit yönetim görevi tarafından kullanıcı yükünü işlemek ön uç hizmeti için kullanılabilir kaynakları iki katına. Bir hizmetin güvenilir bir şekilde çalışması için birden fazla örneğe ihtiyaç duymadığını anlamanız önemlidir. Bir hizmet başarısız olursa Service Fabric kümede yeni bir hizmet örneği çalışmasını sağlar.
+Bu basit yönetim görevi sayesinde ön uç hizmetinizde kullanıcı yükünü işleyecek kaynak sayısı iki katına çıkar. Bir hizmetin güvenilir bir şekilde çalışması için birden fazla örneğe ihtiyaç duymadığını anlamanız önemlidir. Bir hizmet başarısız olursa Service Fabric kümede yeni bir hizmet örneği çalışmasını sağlar.
 
-## <a name="perform-a-rolling-application-upgrade"></a>Uygulama yükseltme gerçekleştirme
-Service Fabric yeni güncelleştirmeleri uygulamanızı dağıtırken güncelleştirmeyi güvenli bir yolla yapar. Çalışırken hataları gerçekleşeceğini yanı sıra otomatik geri alma yükseltirken kapalı kalma süresi sağlar.
+## <a name="perform-a-rolling-application-upgrade"></a>Toplu uygulama yükseltmesi yapma
+Uygulamanıza yeni güncelleştirmeleri dağıtırken, Service Fabric güncelleştirmeyi güvenli bir yolla dağıtır. Sıralı yükseltmeler, yükseltme yaparken sistemi kapatma gereğini ortadan kaldırır ve hata olması durumunda otomatik geri almaya olanak tanır.
 
-Uygulama yükseltmek için aşağıdakileri yapın:
+Uygulamayı yükseltmek için aşağıdakileri yapın:
 
-1. Açık **/VotingWeb/Views/Home/Index.cshtml** dosyasını Visual Studio'da.
-2. Değiştirme <h2> Başlık ekleyerek veya metnini güncelleştirme sayfada. Örneğin, "Service Fabric oylama örnek v2" başlığı değiştirin.
+1. Visual Studio'da **/VotingWeb/Views/Home/Index.cshtml** dosyasını açın.
+2. Metin ekleyerek veya <h2> metni güncelleştirerek sayfadaki başlığı değiştirin. Örneğin, başlığı "Service Fabric Oylama Örneği v2" olarak değiştirin.
 3. Dosyayı kaydedin.
-4. Sağ **oylama** Çözüm Gezgini'nde ve **Yayımla**. Yayımla iletişim kutusu görüntülenir.
-5. ' I tıklatın **bildirim sürüm** düğmesi hizmet ve uygulama sürümü değiştirin.
-6. Sürümünü değiştirmek **kod** öğesinin altında **VotingWebPkg** "2.0.0" Örneğin ve tıklatın için **kaydetmek**.
+4. Çözüm Gezgini'nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin. Yayımla iletişim kutusu görüntülenir.
+5. Hizmetin ve uygulamanın sürümünü değiştirmek için **Bildirim Sürümü** düğmesine tıklayın.
+6. **VotingWebPkg**'nin altındaki **Code** öğesinin sürümünü örneğin "2.0.0" olarak değiştirin ve **Kaydet**'e tıklayın.
 
-    ![Değişiklik sürüm iletişim](./media/service-fabric-quickstart-dotnet/change-version.png)
-7. İçinde **Service Fabric uygulaması yayımlama** iletişim kutusu, onay yükseltme uygulama onay kutusunu ve tıklatın **Yayımla**.
+    ![Sürümü Değiştir İletişim Kutusu](./media/service-fabric-quickstart-dotnet/change-version.png)
+7. **Service Fabric Uygulamasını Yayımla** iletişim kutusunda Uygulamayı Yükselt onay kutusunu işaretleyin ve **Yayımla**'ya tıklayın.
 
-    ![Yayımlama iletişim kutusu ayarı yükseltme](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
-8. Tarayıcınızı açın ve Gözat küme adresine bağlantı noktası 19080 - Örneğin, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
-9. Tıklayın **uygulamaları** ağaç görünümünde düğümünü ve ardından **yükseltme devam eden** sağ taraftaki bölmeden. Her etki alanı sonraki geçmeden önce sağlıklı olduğundan emin olmanızı nasıl yükseltme kümenizdeki, yükseltme etki alanlarında ilerlerken yapar bakın. Etki alanının sistem belirlediğinizde bir yükseltme etki alanında ilerleme çubuğu yeşil görüntülenir.
-    ![Service Fabric Explorer görünümünde yükseltme](./media/service-fabric-quickstart-dotnet/upgrading.png)
+    ![Yayımla İletişim Kutusu Yükseltme Ayarı](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
+8. Tarayıcınızı açın ve bağlantı noktası 19080'de küme adresine göz atın; örneğin, `http://winh1x87d1d.westus.cloudapp.azure.com:19080`.
+9. Ağaç görünümünde **Uygulamalar** düğümüne tıklayın ve ardından sağ bölmede **Devam Eden Yükseltmeler**'e tıklayın. Güncelleştirmenin kümenizdeki yükseltme etki alanlarında nasıl ilerlediğini görür, bir sonrakine geçmeden önce her etki alanının iyi durumda olduğundan emin olursunuz. Durumu doğrulanan yükseltme etki alanı, ilerleme çubuğunda yeşil gösterilir.
+    ![Service Fabric Explorer'da Yükseltme Görünümü](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
-    Service Fabric yükseltmelerinin hizmeti kümedeki her düğümde yükselttikten sonra iki dakika bekleyerek güvenli hale getirir. Tüm güncelleştirme yaklaşık sekiz dakika bekler.
+    Service Fabric, kümedeki bir düğümde hizmeti yükselttikten sonra iki dakika bekleyerek yükseltmelerin güvenle yapılmasını sağlar. Tüm güncelleştirmenin yaklaşık sekiz dakika sürmesini bekleyebilirsiniz.
 
-10. Yükseltme çalışırken, uygulamayı kullanmaya devam edebilirsiniz. Kümede çalışan hizmetin iki örneğini bulunduğundan, diğerleri hala eski sürümü alabilir ancak bazı isteklerinizi uygulama yükseltilmiş sürümünü alabilirsiniz.
+10. Yükseltme çalışırken, uygulamayı kullanmaya devam edebilirsiniz. Kümede hizmetin iki örneği çalıştığından, isteklerinizden bazıları uygulamanın yükseltilmiş sürümünü alırken, diğerleri eski sürümü almaya devam edebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu hızlı başlangıçta şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * .NET ve Service Fabric kullanarak uygulama oluşturma
-> * Bir web ön uç ASP.NET core kullanın
-> * Durum bilgisi olan hizmet uygulama verilerini depolamak
-> * Uygulamanızı yerel olarak hata ayıklama
-> * Bir kümede Azure uygulamayı dağıtmak
-> * Genişleme uygulama birden çok düğüm arasında
-> * Uygulama yükseltme gerçekleştirme
+> * ASP.NET Core'u web ön ucu olarak kullanma
+> * Uygulama verilerini durum bilgisi içeren bir hizmette depolama
+> * Uygulamanızda yerel olarak hata ayıklama
+> * Uygulamayı Azure'da bir kümeye dağıtma
+> * Birden çok düğüm arasında uygulamanın ölçeğini genişletme
+> * Toplu uygulama yükseltmesi yapma
 
-Service Fabric ve .NET hakkında daha fazla bilgi için Bu öğretici göz atın:
+Service Fabric ve .NET hakkında daha fazla bilgi edinmek için şu öğreticiyi gözden geçirin:
 > [!div class="nextstepaction"]
 > [Service Fabric üzerinde .NET uygulaması](service-fabric-tutorial-create-dotnet-app.md)

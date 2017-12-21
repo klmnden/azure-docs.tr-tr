@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
 ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure portal kullanarak Azure'da bir Service Fabric kümesi oluştur
 > [!div class="op_single_selector"]

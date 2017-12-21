@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: bdb68c4e68f6868c596d8e8410b94223cc5e535a
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: İle API MongoDB için nasıl?
 
@@ -312,5 +312,5 @@ Bu öğreticide, aşağıdakileri yaptığınızdan:
 Verilerinizi Genel dağıtma konusunda bilgi almak için sonraki öğretici şimdi devam edebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Verilerinizi genel Dağıt](tutorial-global-distribution-documentdb.md)
+> [Verilerinizi genel Dağıt](tutorial-global-distribution-sql-api.md)
 

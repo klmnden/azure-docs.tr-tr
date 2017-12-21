@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir .NET Core ve SQL veritabanı web uygulaması oluşturma
 
@@ -93,7 +93,7 @@ SQL veritabanı için Bu öğretici kullanır [Azure SQL veritabanı](/azure/sql
 
 ### <a name="create-a-sql-database-logical-server"></a>SQL Database mantıksal sunucusu oluşturma
 
-SQL Database mantıksal sunucusu ile bulut Kabuğu'nda oluşturma [az sql server oluşturun](/cli/azure/sql/server#create) komutu.
+SQL Database mantıksal sunucusu ile bulut Kabuğu'nda oluşturma [az sql server oluşturun](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create) komutu.
 
 Değiştir  *\<sunucu_adı >* yer tutucu içeren benzersiz bir SQL veritabanı adı. Bu ad, SQL veritabanı endpoint parçası olarak kullanılacaktır `<server_name>.database.windows.net`, adının Azure içindeki tüm mantıksal sunucular arasında benzersiz olması gerekir. Ad yalnızca küçük harf, sayı ve tire (-) karakterini içermelidir ve 3 ila 50 karakter uzunluğunda olmalıdır. Ayrıca, değiştirin  *\<db_username >* ve  *\<db_password >* bir kullanıcı adı ve parolayla tercih ettiğiniz. 
 
@@ -124,7 +124,7 @@ SQL Database mantıksal sunucusu oluşturulduğunda, Azure CLI bilgileri aşağ�
 
 ### <a name="configure-a-server-firewall-rule"></a>Sunucu güvenlik duvarı kurallarını yapılandırma
 
-[az sql server firewall create](/cli/azure/sql/server#create) komutunu kullanarak [sunucu düzeyinde bir Azure SQL Veritabanı güvenlik duvarı kuralı](../../sql-database/sql-database-firewall-configure.md) oluşturun. Başlangıç IP ve bitiş IP 0.0.0.0 olarak ayarladığınızda, Güvenlik Duvarı'nı yalnızca diğer Azure kaynakları için açıldı. 
+[az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create) komutunu kullanarak [sunucu düzeyinde bir Azure SQL Veritabanı güvenlik duvarı kuralı](../../sql-database/sql-database-firewall-configure.md) oluşturun. Başlangıç IP ve bitiş IP 0.0.0.0 olarak ayarladığınızda, Güvenlik Duvarı'nı yalnızca diğer Azure kaynakları için açıldı. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Veritabanı oluşturma
 
-[az sql db create](/cli/azure/sql/db#create) komutunu kullanarak [S0 performans düzeyine](../../sql-database/sql-database-service-tiers.md) sahip bir veritabanı oluşturun.
+[az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) komutunu kullanarak [S0 performans düzeyine](../../sql-database/sql-database-service-tiers.md) sahip bir veritabanı oluşturun.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +166,7 @@ Bu adımda, .NET Core SQL veritabanına bağlı uygulamanızı Linux'ta App Serv
 
 ### <a name="configure-an-environment-variable"></a>Bir ortam değişkeni yapılandırın
 
-Azure uygulamanızı bağlantı dizesini ayarlamak için kullanın [az webapp config appsettings güncelleştirme](/cli/azure/webapp/config/appsettings#update) bulut Kabuğu'nda komutu. Aşağıdaki komutta,  *\<uygulama adı >*, yanı sıra  *\<connection_string >* daha önce oluşturduğunuz bağlantı dizesiyle parametresi.
+Azure uygulamanızı bağlantı dizesini ayarlamak için kullanın [az webapp config appsettings kümesi](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) bulut Kabuğu'nda komutu. Aşağıdaki komutta,  *\<uygulama adı >*, yanı sıra  *\<connection_string >* daha önce oluşturduğunuz bağlantı dizesiyle parametresi.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer

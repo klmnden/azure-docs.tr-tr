@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
 ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablo .NET API: İndirme ve sürüm notları
 > [!div class="op_single_selector"]

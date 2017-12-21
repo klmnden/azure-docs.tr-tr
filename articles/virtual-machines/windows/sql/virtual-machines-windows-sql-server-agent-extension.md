@@ -17,10 +17,10 @@ ms.date: 12/12/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 414c985d21112d658b6e22473f67ed1c3afd00ef
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server Aracısı uzantısı (Resource Manager) ile Azure sanal makineler üzerinde yönetim görevlerini otomatik hale getirme
 > [!div class="op_single_selector"]

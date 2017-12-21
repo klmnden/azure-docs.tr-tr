@@ -1,6 +1,6 @@
 ---
-title: "Azure hızlı başlangıç - aktarımı nesneleri/Python kullanarak Azure Blob depolama biriminden | Microsoft Docs"
-description: "Python kullanarak Azure Blob storage/gruptan nesneleri aktarmak hızlı bir şekilde öğrenin"
+title: "Azure Hızlı Başlangıç - Python kullanarak nesneleri Azure Blob depolama içine/dışına aktarma | Microsoft Docs"
+description: "Python kullanarak nesneleri Azure Blob depolama içine/dışına aktarmayı kısa sürede öğrenin"
 services: storage
 documentationcenter: storage
 author: ruthogunnnaike
@@ -17,45 +17,45 @@ ms.date: 10/12/2017
 ms.author: v-ruogun
 ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
 ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/13/2017
 ---
-#  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Aktarım nesneleri/Python kullanarak Azure Blob depolama biriminden
-Bu hızlı başlangıç Python karşıya yükleyin, indirin ve blok blobları Azure Blob Depolama birimindeki bir kapsayıcıda listelemek için nasıl kullanılacağını öğrenin. 
+#  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Python kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
+Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için Python’ı nasıl kullanabileceğinizi öğreneceksiniz. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için: 
-* Yükleme [Python](https://www.python.org/downloads/)
-* İndirme ve yükleme [Python için Azure depolama SDK'sı](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python). 
+* [Python](https://www.python.org/downloads/)’ı yükleyin
+* [Python için Azure Depolama SDK](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)’yı indirin ve yükleyin. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
-[Örnek uygulama](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) Bu hızlı başlangıç temel bir Python uygulama kullanılır.  
+Bu [hızlı başlangıçta](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) kullanılan örnek uygulama, temel bir Python uygulamasıdır.  
 
-Kullanım [git](https://git-scm.com/) geliştirme ortamınızı uygulamaya bir kopyasını indirmek için. 
+Uygulamanın bir kopyasını geliştirme ortamınıza indirmek içi [Git](https://git-scm.com/)’i kullanın. 
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
 ```
 
-Bu komut, yerel git klasörünüze depoya klonlar. Python programı açmak için depolama BLOB'lar python quickstart klasör ve example.py dosya için bakın.  
+Bu komut, depoyu yerel Git klasörünüze kopyalar. Python programını açmak için, storage-blobs-python-quickstart klasörünü ve example.py dosyasını açın.  
 
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
-Uygulamada, oluşturmak için depolama hesabı adı ve hesap anahtarınızı sağlamanız gereken bir `BlockBlobService` nesnesi. Açık `example.py` IDE'yi Çözüm Gezgini'nde dosyasından. Değiştir **accountname** ve **accountkey** değerleri, hesap adı ve anahtarınız ile. 
+Uygulamada, `BlockBlobService` nesnesi oluşturmak için depolama hesabı adınızı ve hesap anahtarınızı sağlamanız gerekir. IDE’nizdeki Çözüm Gezgini'nde `example.py` dosyasını açın. **accountname** ve **accountkey** değerlerini, hesap adınız ve anahtarınızla değiştirin. 
 
 ```python 
 block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
 ```
 
-## <a name="run-the-sample"></a>Örnek çalıştırın
-Bu örnek 'Belgeleri' klasöründe bir test dosyası oluşturur. Örnek program test dosyası Blob depolama alanına yükler, BLOB kapsayıcı'ları listeler ve dosyanın yeni bir adla yükler. 
+## <a name="run-the-sample"></a>Örneği çalıştırma
+Bu örnek, 'Belgeler' klasöründe bir sınama dosyası oluşturur. Örnek program sınama dosyasını Blob depolamaya yükler, kapsayıcıdaki blobları listeler ve dosyayı yeni bir adla indirir. 
 
-Örnek uygulamayı çalıştırın. Aşağıdaki çıkış uygulama çalışırken döndürülen çıktının bir örneği verilmiştir:
+Örnek uygulamayı çalıştırın. Aşağıdaki çıktı, uygulama çalıştırılırken döndürülen çıktının bir örneğidir:
   
 ```
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -67,29 +67,29 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-Devam etmek için herhangi bir tuşa basın, örnek program depolama kapsayıcısı ve dosyaları siler. Devam etmeden önce iki dosya için 'Belgeleri' klasörünüzü kontrol edin. Ekleri açmak ve aynı görebilirsiniz.
+Devam etmek için herhangi bir tuşa bastığınızda, örnek program depolama kapsayıcısını ve dosyaları siler. Devam etmeden önce, iki dosya için 'Belgeler' klasörünüzü kontrol edin. Dosyaları açarak aynı olduklarını görebilirsiniz.
 
-Bir aracı gibi kullanabilir [Azure Storage Gezgini](http://storageexplorer.com) Blob storage'da dosyaları görüntülemek için. Azure Depolama Gezgini, depolama hesabı bilgilerinizi erişmenize olanak sağlayan ücretsiz bir platformlar arası aracıdır. 
+Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](http://storageexplorer.com) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenize olanak tanıyan ücretsiz ve platformlar arası bir araçtır. 
 
-Dosyaları doğrulandıktan sonra tanıtım ve test dosyalarını silmeniz herhangi bir tuşa basın. Örnek yaptığı bildiğinize göre kodu aramak için example.py dosyasını açın. 
+Dosyaları doğruladıktan sonra, tanıtımı tamamlamak ve sınama dosyalarını silmek için herhangi bir tuşa basın. Artık örnek dosyanın işlevini gördüğünüze göre, koda göz atmak için example.py dosyasını açabilirsiniz. 
 
 ## <a name="understand-the-sample-code"></a>Örnek kodu anlama
 
-Ardından, böylece nasıl çalıştığını anlamanız biz örnek kodda yol.
+Sonraki aşamada, nasıl çalıştığını anlayabilmeniz için örnek kodu inceleyeceğiz.
 
-### <a name="get-references-to-the-storage-objects"></a>Depolama nesneleri başvuruları alma
-Yapılacak ilk şey erişmek ve Blob Depolama yönetmek için kullanılan nesnelerin referansları oluşturmaktır. Bu nesneler birbirine oluşturun ve her bir sonraki listesinde tarafından kullanılır.
+### <a name="get-references-to-the-storage-objects"></a>Depolama nesneleriyle ilgili başvuruları alma
+İlk önce, Blob depolamaya erişmek ve Blob depolamayı yönetmek için kullanılan nesnelere başvuru oluşturmaktır. Bu nesneler birbirleri üzerinde derlenir ve her bir dosya, listede yanında yer alan dosya tarafından kullanılır.
 
-* Örneği **BlockBlobService** depolama hesabınızdaki Blob hizmetine işaret nesnesi. 
+* Depolama hesabınızdaki Blob hizmetine işaret eden bir **BlobService** nesne örneği oluşturun. 
 
-* Örneği **CloudBlobContainer** erişme kapsayıcı temsil eden nesne. Kapsayıcıları dosyalarınızı düzenlemek için bilgisayarınızda klasörleri kullanmak gibi bloblarınızın düzenlemek için kullanılır.
+* Eriştiğiniz kapsayıcıyı ifade eden bir **CloudBlobContainer** nesne örneği oluşturun. Kapsayıcılar, tıpkı bilgisayarınızdaki dosyaları düzenlemek için klasörleri kullandığınız gibi blobları düzenlemek için kullanılır.
 
-Bulut Blob kapsayıcısı oluşturduktan sonra örneğini oluşturabilirsiniz **CloudBlockBlob** , ilgilendiğiniz ve karşıya yükleme, indirme ve kopyalama gibi işlemler gerçekleştirmek belirli blob'u işaret eden nesne.
+Bulut Blob kapsayıcısına sahip olduğunuzda, dilediğiniz bloba işaret eden **CloudBlockBlob** nesne örneği oluşturabilir ve karşıya yükleme, indirme ve kopyalama işlemleri gerçekleştirebilirsiniz.
 
 > [!IMPORTANT]
-> Kapsayıcı adları küçük harf olmalıdır. Bkz: [adlandırma ve başvuran kapsayıcıları, Blobları ve meta veri](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) kapsayıcı ve blob adları hakkında daha fazla bilgi için.
+> Kapsayıcı adlarının küçük harfle yazılması gerekir. Kapsayıcılar ve blob adları hakkında daha fazla bilgi için bkz. [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Bu bölümde, nesne örneği, yeni bir kapsayıcı oluşturmak ve BLOB ortak; bu nedenle kapsayıcısında izinleri ayarlama. Kapsayıcı adı verilen **quickstartblobs**. 
+Bu bölümde nesne örneği ve yeni bir kapsayıcı oluşturacak ve ardından kapsayıcıdaki izinleri bloblar herkese açık olacak şekilde ayarlayacaksınız. Bu kapsayıcının adı **quickstartblobs**’dur. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account
@@ -102,13 +102,13 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-### <a name="upload-blobs-to-the-container"></a>BLOB kapsayıcıya karşıya yükle
+### <a name="upload-blobs-to-the-container"></a>Blobları kapsayıcıya yükleme
 
-Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları en yaygın olarak kullanılır ve bu hızlı başlangıç içinde kullanılan olmasıdır.  
+Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları en sık kullanılan bloblardır ve bu hızlı başlangıçta bu bloblar kullanılmıştır.  
 
-Bir blobu bir dosyayı karşıya yüklemek için yerel diskinizde dizin adı ve dosya adını birleştirerek dosyasının tam yolunu alır. Ardından, belirtilen yolu kullanarak dosyası yükleyebilir **oluşturma\_blob\_gelen\_yolu** yöntemi. 
+Bir dosyayı bloba yüklemek için, yerel diskinizdeki dizin adıyla dosya adını birleştirerek dosyanın tam yolunu alın. Sonra, dosyayı belirtilen yola **create\_blob\_from\_path** metoduyla yükleyebilirsiniz. 
 
-Örnek kod, yükleme ve indirme, olarak karşıya yüklenecek dosyayı depolamak için kullanılacak yerel bir dosya oluşturur **dosya\_yolu\_için\_dosya** ve blob adını **yerel\_dosya\_adı**. Aşağıdaki örnek dosya adında, kapsayıcıya yüklemeleri **quickstartblobs**.
+Örnek kod, karşıya yükleme ve indirme için kullanılacak yerel bir dosya oluşturur, karşıya yüklenecek dosyayı **file\_path\_to\_file** olarak ve blob adını **local\_file\_name** olarak depolar. Aşağıdaki örnek, dosyayı **quickstartblobs** adlı kapsayıcınıza yükler.
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -128,13 +128,13 @@ print("\nUploading to Blob storage as blob" + local_file_name)
 block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
 ```
 
-Blob storage ile kullanabileceğiniz çeşitli karşıya yükleme yöntemler vardır. Örneğin, bir bellek akış varsa, kullanabileceğiniz **oluşturmak\_blob\_gelen\_akış** yöntemi yerine **oluşturma\_blob\_gelen\_yolu**. 
+Blob depolamayla kullanabileceğiniz çeşitli karşıya yükleme yöntemleri vardır. Örneğin, bellek akışınız varsa **create\_blob\_from\_path**. yerine **create\_blob\_from\_stream** metodunu kullanabilirsiniz. 
 
-Blok blobları 4.7 TB büyüklüğünde olabilir ve herhangi bir şeyin büyük video dosyaları için Excel elektronik tablolar olabilir. Sayfa blobları Iaas sanal makineleri yedeklemek için kullanılan VHD dosyalarını için birincil olarak kullanılır. Ekleme blobları gibi bir dosyaya yazmak ve daha fazla bilgi ekleme tutmak istediğiniz günlük için kullanılır. BLOB storage'da depolanan çoğu blok blobları nesneleridir.
+Blok bloblarının boyutu 4,7 TB’yi bulabilir ve bu bloblar Excel elektronik tablolarından büyük video dosyalarına kadar birçok türde olabilir. Sayfa blobları öncelikli olarak IaaS VM'leri desteklemek için kullanılan VHD dosyalarında kullanılır. Ekleme blobları, bir dosyaya yazıp daha sonradan daha fazla bilgi eklemek istediğiniz durumlarda günlüğe kaydetme için kullanılır. Blob depolamada depolanan nesnelerin çoğu blok blobudur.
 
 ### <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
-Kapsayıcı kullanarak dosyaların bir listesini almak **list_blobs** yöntemi. Bu yöntem bir oluşturucuyu döndürür. Aşağıdaki kod BLOB'lar listesini alır ve ardından bunları bir kapsayıcıda bulunan blobların adlarını gösteren döngü.  
+**list_blobs** metodunu kullanarak kapsayıcıdaki dosya listesini alın. Bu yöntem bir oluşturucu döndürür. Aşağıdaki kod blob listesini alır, ardından bu bloblarda döngü yapar ve kapsayıcıda bulunan blobların adlarını gösterir.  
 
 ```python
 # List the blobs in the container
@@ -144,9 +144,9 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-### <a name="download-the-blobs"></a>BLOB'ları indirme
+### <a name="download-the-blobs"></a>Blobları indirme
 
-Kullanarak yerel disk blobları indirmek **almak\_blob\_için\_yolu** yöntemi. Aşağıdaki kod, önceki bölümde karşıya blob indirir. Her iki dosyaları yerel diskteki görebilmek için "_DOWNLOADED" blob adı sonek olarak eklenir. 
+**get\_blob\_to\_path** metodunu kullanarak blobları yerel diskinize indirin. Aşağıdaki kod, önceki bir bölüme yüklenen blobu indirir. Yerel diskte yer alan iki dosyayı da görebilmeniz için, blob adının sonuna "_DOWNLOADED" son eki getirilir. 
 
 ```python
 # Download the blob(s).
@@ -157,7 +157,7 @@ block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_t
 ```
 
 ### <a name="clean-up-resources"></a>Kaynakları temizleme
-Bu hızlı başlangıcı karşıya BLOB'ları artık ihtiyacınız varsa, tüm kapsayıcı kullanarak silebilirsiniz **silmek\_kapsayıcı**. Oluşturulan dosyalar artık gerekirse, kullandığınız **silmek\_blob** dosyaları silmek için yöntem.
+Bu hızlı başlangıçta karşıya yüklenen bloblara artık ihtiyacınız kalmadığında, **delete\_container** kullanarak kapsayıcının tamamını silebilirsiniz. Oluşturulan dosyalara artık ihtiyaç duymuyorsanız dosyaları silmek için **delete\_blob** metodunu kullanırsınız.
 
 ```python
 # Clean up resources. This includes the container and the temp files
@@ -168,10 +168,10 @@ os.remove(full_path_to_file2)
 
 ## <a name="next-steps"></a>Sonraki adımlar
  
-Bu hızlı başlangıç yerel disk ve Python kullanarak Azure blob storage arasında dosyaları aktarmak nasıl öğrendiniz. Blob storage ile çalışma hakkında daha fazla bilgi için nasıl yapılır Blob depolama alanına devam edin.
+Bu hızlı başlangıçta, dosyaları Python kullanarak yerel bir disk ve Azure blob depolama arasında aktarmayı öğrendiniz. Blob depolamayla çalışma hakkında daha fazla bilgi edinmek için, Blob depolama nasıl yapılır öğreticisiyle devam edin.
 
 > [!div class="nextstepaction"]
-> [BLOB Depolama işlemleri nasıl yapılır konuları](./storage-python-how-to-use-blob-storage.md)
+> [Blob Depolama İşlemleri Nasıl Yapılır](./storage-python-how-to-use-blob-storage.md)
  
 
-BLOB'ları ve Depolama Gezgini hakkında daha fazla bilgi için bkz: [Depolama Gezgini ile yönetme Azure Blob storage kaynaklarını](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Depolama Gezgini ve Bloblar hakkında daha fazla bilgi için bkz. [Azure Blob depolama kaynaklarını Depolama Gezgini'yle yönetme](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

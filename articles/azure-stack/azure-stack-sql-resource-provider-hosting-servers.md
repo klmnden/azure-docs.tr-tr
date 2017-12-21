@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>SQL bağdaştırıcısı tarafından kullanım için barındırma sunucuları ekleme
 
@@ -28,11 +28,9 @@ ms.lasthandoff: 10/11/2017
 * SQL örneği RP ve kullanıcı iş yükleri tarafından kullanım için ayrılmış olmalıdır. Uygulama Hizmetleri dahil olmak üzere diğer herhangi bir tüketici tarafından kullanılan bir SQL örneğini kullanamazsınız.
 * RP bağdaştırıcısı etki alanına katılmamışsa ve yalnızca SQL kimlik doğrulaması kullanarak bağlanabilir.
 * RP tarafından kullanım için uygun ayrıcalıklara sahip bir hesap yapılandırmanız gerekir.
-* RP ağ trafiğini SQL bağlantı noktası 1433'ü kullanır ve değiştirilemez.
 * Bu ağ üzerindeki bir SQL örneğine bağlanma gerekli olacak şekilde RP ve kullanıcıların Web uygulamaları gibi kullanıcı ağ kullanın. Bu gereksinim genellikle IP SQL örnekleri için ortak bir ağda olması gerektiği anlamına gelir.
 * SQL örnekleri ve konaklarının Yönetimi kadar; RP düzeltme eki uygulama, Yedekleme gerçekleştirmek yok, döndürme, vb. kimlik bilgisi.
 * SKU'ları, her zaman açık, vb. gibi performans, SQL yeteneklerini farklı sınıflar oluşturmak için kullanılabilir.
-
 
 
 Bir dizi SQL Iaas sanal makine görüntülerini Market yönetim özelliği kullanılarak kullanılabilir. Market öğesi kullanarak bir VM'i dağıtmadan önce her zaman SQL Iaas uzantısı'nın en son sürümü karşıdan emin olun. SQL görüntüleri mevcut olan SQL VM'ler ile aynıdır. SQL Iaas uzantısı bu görüntüleri kullanılarak oluşturulan ve portal geliştirmeleri karşılık gelen VM'ler için otomatik düzeltme eki uygulama ve yedekleme özellikleri gibi özellikler sağlar.
@@ -73,6 +71,8 @@ Barındırma zaten sağlandı sunucusu tek başına eklemek için aşağıdaki a
 
   ![Yeni barındırma sunucusu](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    İsteğe bağlı olarak bir örnek adı içerebilir ve bir bağlantı noktası numarası örneği için varsayılan bağlantı noktası 1433'ü atanmamışsa sağlanabilir.
+
   > [!NOTE]
   > SQL örneğinde yönetici Azure Resource Manager ve kullanıcı tarafından erişilen sürece, kaynak sağlayıcısı denetiminde yerleştirilebilir. SQL örneği __gerekir__ özel olarak RP ayrılamadı.
 
@@ -86,10 +86,10 @@ Barındırma zaten sağlandı sunucusu tek başına eklemek için aşağıdaki a
 
     Örnek:
 
-    ![SKU'ları](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKU'lar](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-SKU'ları portalında görünür olması için bir saat sürebilir. SKU tam olarak oluşturulana kadar bir veritabanı oluşturulamıyor.
+> SKU'ları portalında görünür olması için bir saat sürebilir. SKU tam olarak oluşturulana kadar kullanıcılar bir veritabanı oluşturulamıyor.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>SQL Always On kullanılabilirlik grupları kullanarak kapasitesi sağlar
 SQL Always On örnekleri yapılandırma ek adımlar gerektirir ve en az üç sanal makineleri (veya fiziksel makineler) içerir.
@@ -126,7 +126,7 @@ SQL Always On barındırma sunucuları eklemek için aşağıdaki adımları izl
     **SQL barındırma sunucuları** dikey olan SQL Server'ın kaynak sağlayıcısının arka ucu olarak hizmet gerçek örnekleri için SQL Server Kaynak sağlayıcısı burada bağlanabilir.
 
 
-3. Formun her zaman üzerinde dinleyicisinin FQDN veya IPv4 adresi kullandığınızdan emin olmak için SQL Server örneği ile bağlantı ayrıntıları doldurun. Sistem yönetici ayrıcalıklarıyla yapılandırılmış hesap için hesap bilgilerini sağlayın.
+3. Form üzerinde her zaman dinleyicisi (ve isteğe bağlı bağlantı noktası numarası) FQDN veya IPv4 adresi kullandığınızdan emin olmak için SQL Server örneği ile bağlantı ayrıntıları doldurun. Sistem yönetici ayrıcalıklarıyla yapılandırılmış hesap için hesap bilgilerini sağlayın.
 
 4. SQL her zaman üzerindeki kullanılabilirlik grubu örnekleri desteğini etkinleştirmek için bu onay kutusunu işaretleyin.
 
@@ -137,7 +137,7 @@ SQL Always On barındırma sunucuları eklemek için aşağıdaki adımları izl
 
 ## <a name="making-sql-databases-available-to-users"></a>SQL veritabanları kullanıcılar için kullanılabilir hale getirme
 
-Planları ve SQL veritabanları kullanıcılar için kullanılabilir hale getirmek için teklifleri oluşturun. Microsoft.SqlAdapter hizmet planına ekleme ve var olan bir kota ekleyin veya yeni bir tane oluşturun. Bir kota oluşturursanız, izin vermek için kapasite belirtebilirsiniz.
+Planları ve SQL veritabanları kullanıcılar için kullanılabilir hale getirmek için teklifleri oluşturun. Microsoft.SqlAdapter hizmet planına ekleme ve var olan bir kota ekleyin veya yeni bir tane oluşturun. Bir kota oluşturursanız, izin vermek için kapasitesini belirtin.
 
 ![Planları ve veritabanlarını içerecek şekilde teklifleri oluştur](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 

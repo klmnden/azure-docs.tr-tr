@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Azure yığın Geliştirme Seti dağıtma
 
@@ -104,7 +104,7 @@ ASDK ana bilgisayar hazırladıktan sonra aşağıdaki adımları kullanarak Clo
 1. Ana bilgisayar CloudBuilder.vhdx görüntüsüne başarıyla başlatıldıktan sonra önceki adımlarda belirtilen yönetici kimlik bilgilerini kullanarak oturum açın. 
 2. Yükseltilmiş bir PowerShell konsolunu açın ve Çalıştır **\AzureStack_Installer\asdk-installer.ps1** (olabilen şimdi CloudBuilder.vhdx görüntüdeki farklı bir sürücüde) komut dosyası. **Yükle**'ye tıklayın.
 3. İçinde **türü** açılan kutusunda **Azure bulut** veya **AD FS**.
-    - **Azure bulut**: yapılandırır Azure Active Directory (Azure AD) kimlik sağlayıcısı. Bu seçeneği kullanmak için tam adı Azure AD, bir internet bağlantısına ihtiyacınız vardır dizin Kiracı biçiminde *domainname*. onmicrosoft.com ve belirtilen dizin için genel yönetici kimlik bilgileri. 
+    - **Azure bulut**: yapılandırır Azure Active Directory (Azure AD) kimlik sağlayıcısı. Bu seçeneği kullanmak için tam adı Azure AD, bir internet bağlantısına ihtiyacınız vardır dizin Kiracı biçiminde *domainname*. onmicrosoft.com veya Azure AD için özel etki alanı adını ve genel yönetici kimlik bilgilerini doğrulandı Belirtilen dizin. 
     - **AD FS**: dizin hizmeti, kimlik sağlayıcısı olarak kullanılacak varsayılan Damga. Oturum açmak için varsayılan hesaptır azurestackadmin@azurestack.local, ve kullanmak için kurulumunun bir parçası sağlanan bir paroladır.
 4. Altında **yerel yönetici parolasını**, **parola** kutusuna (hangi geçerli yapılandırılmış yerel yönetici parolası eşleşmelidir) yerel yönetici parolasını yazın ve ardından**Sonraki**.
 5. Geliştirme Seti için kullanın ve ardından bir ağ bağdaştırıcısı seçin **sonraki**.
@@ -206,7 +206,7 @@ Azure AD kimlik bilgilerinizi ilişkilendirilen **birden büyük** Azure AD dizi
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 Varsa ortamınızı **yok** aşağıdaki ek parametreleri (örnek kullanım sağlanan) yukarıdaki seçeneklerden birini içermelidir etkinleştirilirse DHCP sahip: 
@@ -219,7 +219,7 @@ Varsa ortamınızı **yok** aşağıdaki ek parametreleri (örnek kullanım sağ
 |Parametre|Gerekli/isteğe bağlı|Açıklama|
 |-----|-----|-----|
 |AdminPassword|Gerekli|Geliştirme Seti dağıtımının bir parçası oluşturulan tüm sanal makineler üzerinde yerel yönetici hesabı ve diğer tüm kullanıcı hesaplarını ayarlar. Bu parola ana bilgisayardaki geçerli yerel yönetici parolası eşleşmelidir.|
-|InfraAzureDirectoryTenantName|Gerekli|Kiracı dizinini ayarlar. AAD hesabıyla birden çok dizin Yönetme iznine sahip olduğu belirli bir dizin belirtmek için bu parametreyi kullanın. Tam bir AAD dizini Kiracı biçiminde adı. onmicrosoft.com.|
+|InfraAzureDirectoryTenantName|Gerekli|Kiracı dizinini ayarlar. AAD hesabıyla birden çok dizin Yönetme iznine sahip olduğu belirli bir dizin belirtmek için bu parametreyi kullanın. Tam bir AAD dizini Kiracı biçiminde adı. onmicrosoft.com veya Azure AD doğrulandı özel etki alanı adı.|
 |Zaman sunucusunu|Gerekli|Belirli bir saat sunucusu belirtmek için bu parametreyi kullanın. Bu parametre, geçerli saat sunucusu IP adresi olarak sağlanmalıdır. Sunucu adları desteklenmez.|
 |InfraAzureDirectoryTenantAdminCredential|İsteğe bağlı|Azure Active Directory kullanıcı adı ve parola ayarlar. Bu Azure kimlik bilgileri kuruluş kimliği olmalıdır|
 |InfraAzureEnvironment|İsteğe bağlı|Bu Azure yığın dağıtımına kaydetmek istediğiniz Azure ortamı seçin. Seçenekler, ortak Azure, Azure - Çin'de Azure - ABD devlet kurumları içerir.|

@@ -16,7 +16,7 @@ Ad alanı oluşturmak için:
 ### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
 Yeni bir ad alanı otomatik olarak oluşturma, her ad alanı tüm yönleri üzerinde tam denetim izni verin birincil ve ikincil anahtarları ilişkili bir çifti ile bir ilk paylaşılan erişim imzası (SAS) kural oluşturur. Bkz: [Service Bus kimlik doğrulama ve yetkilendirme](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) ile daha fazla başka kuralları oluşturma hakkında bilgi için kısıtlı haklar normal göndericiler ile alıcılar için. İlk kuralı kopyalamak için aşağıdaki adımları takip edin: 
 
-1. Ad alanları listesinde, yeni oluşturulan ad alanı adına tıklayın.
+1.  Tıklatın **tüm kaynakları**, yeni oluşturulan ad alanı adına tıklayın.
 2. Ad alanı penceresinde **paylaşılan erişim ilkeleri**.
 3. İçinde **paylaşılan erişim ilkeleri** ekranında **RootManageSharedAccessKey**.
    

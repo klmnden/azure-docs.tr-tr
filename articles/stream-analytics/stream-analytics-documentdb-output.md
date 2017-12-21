@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: b596b74f0aec0c561c8ad48647c16cd0f5c58d83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29be0f5100aabe8374a26e6548effe20ccb9ac86
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Hedef Azure Stream Analytics JSON çıktısını Cosmos DB
 Akış analizi hedef [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) veri arşivleme ve düşük gecikme süreli sorguları yapılandırılmamış JSON verileri JSON çıktısını için etkinleştirme. Bu belgede, bu yapılandırmayı uygulamak için bazı en iyi yöntemler kapsar.
@@ -48,7 +48,7 @@ Cosmos DB [bölümlenmiş koleksiyonlar](../cosmos-db/partition-data.md) veriler
 
 Akış analizi, tek Cosmos DB koleksiyonlar için hem sorgu desenlerine hem de, uygulamanızın performans gereksinimlerine göre verilerinizi bölümlemek hala sağlar. Her koleksiyon 10 GB veri (maksimum) içerebilir ve şu anda Yukarı (veya taşması koleksiyonuna) bir yolu yoktur. Ölçeğini için akış analizi, belirli bir önek ile birden çok koleksiyon yazmak sağlar (aşağıda kullanım ayrıntılarını bakın). Stream Analytics kullanır tutarlı [karma bölüm çözümleyici](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) kullanıcıyı temel alarak stratejisi sağlanan çıkış kayıtlarını bölümlemek için PartitionKey sütun. Belirtilen öneke sahip bir koleksiyon akış işin başlangıç saatinde sayısı, iş yazacağı için paralel olarak çıkış bölüm sayısı olarak kullanılır (Cosmos DB koleksiyonları çıkış bölümleri =). Yavaş dizin ile tek bir koleksiyon için yalnızca eklemeleri yapılması, MB/sn üretilen iş yazma 0.4 hakkında beklenebilir. Birden çok koleksiyonları kullanarak, daha yüksek verimlilik ve daha yüksek kapasite elde etmek izin verebilirsiniz.
 
-Bölüm sayısı gelecekte artırmak istiyorsanız, işi durdurma, varolan koleksiyonlarınızı yeni koleksiyonlara verileri bölümlendirmek ve akış analizi işi yeniden başlatmak gerekebilir. Örnek kod ile birlikte yeniden bölümlendirme ve PartitionResolver kullanma hakkında daha fazla bilgi dahil izleme postasına edilir. Makaleyi [bölümleme ve Cosmos DB'de ölçeklendirme](../documentdb/documentdb-partition-data.md) de bu ayrıntıları sağlar.
+Bölüm sayısı gelecekte artırmak istiyorsanız, işi durdurma, varolan koleksiyonlarınızı yeni koleksiyonlara verileri bölümlendirmek ve akış analizi işi yeniden başlatmak gerekebilir. Örnek kod ile birlikte yeniden bölümlendirme ve PartitionResolver kullanma hakkında daha fazla bilgi dahil izleme postasına edilir. Makaleyi [bölümleme ve Cosmos DB'de ölçeklendirme](../cosmos-db/sql-api-partition-data.md) de bu ayrıntıları sağlar.
 
 ## <a name="cosmos-db-settings-for-json-output"></a>JSON çıktısını cosmos DB ayarları
 Stream Analytics bir çıkış olarak Cosmos DB oluşturma aşağıda görüldüğü gibi bilgileri için bir istem oluşturur. Bu bölümde özellikler tanımının bir açıklama sağlar.

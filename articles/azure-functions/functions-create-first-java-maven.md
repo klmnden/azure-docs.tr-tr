@@ -1,6 +1,6 @@
 ---
-title: "Azure Java ve Maven içinde ilk işlevinizi oluşturma | Microsoft Docs"
-description: "Oluşturma ve basit bir HTTP tetiklenen işlevi Java ve Maven ile azure'a yayımlama."
+title: "Azure’da Java ve Maven ile ilk işlevinizi oluşturma | Microsoft Docs"
+description: "Java ve Maven ile basit bir HTTP tetiklemeli işlev oluşturup Azure’da yayımlayın."
 services: functions
 documentationcenter: na
 author: rloutlaw
@@ -16,47 +16,47 @@ ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 3762a6e267540ef79577c3bf94ce27b648bd3534
 ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-your-first-function-with-java-and-maven-preview"></a>Java ve Maven (Önizleme) ilk işlevinizi oluşturma
+# <a name="create-your-first-function-with-java-and-maven-preview"></a>Java ve Maven (Önizleme) ile ilk işlevinizi oluşturma
 
 > [!NOTE] 
-> Java için Azure işlevleri, şu anda önizlemede değil.
+> Azure İşlevleri için Java şu anda önizleme aşamasındadır.
 
-Bu hızlı başlangıç kılavuzları oluşturmada size bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) yerel olarak test etme ve Azure işlevleri dağıtma Maven işlevi projeyle. İşiniz bittiğinde, Azure'da çalışan bir HTTP tetiklemeli işlevin uygulamanız.
+Bu hızlı başlangıç, Maven ile [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) işlev projesi oluşturma, bunu yerel olarak test etme ve Azure İşlevleri’ne dağıtma konusunda rehberlik sağlar. Hızlı başlangıcı bitirdiğinizde, Azure’da çalışan HTTP tetiklemeli bir işlev uygulamanız olur.
 
-![Hello World işlevi cURL ile komut satırından erişim](media/functions-create-java-maven/hello-azure.png)
+![cURL ile komut satırından bir Hello World işlevine erişme](media/functions-create-java-maven/hello-azure.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
-Java ile işlevleri uygulama geliştirmek için aşağıdakilerin yüklü olması gerekir:
+Java ile işlev uygulamaları geliştirebilmeniz için şunlar yüklü olmalıdır:
 
--  [.NET core](https://www.microsoft.com/net/core), en son sürümü.
--  [Java Geliştirme Seti](https://www.azul.com/downloads/zulu/), sürüm 8.
+-  [.NET Core](https://www.microsoft.com/net/core), en son sürüm.
+-  [Java Developer Kit](https://www.azul.com/downloads/zulu/), sürüm 8.
 -  [Azure CLI](https://docs.microsoft.com/cli/azure)
--  [Apache Maven](https://maven.apache.org), sürüm 3.0 veya üstü.
--  [Node.js](https://nodejs.org/download/), 8,6 veya daha yüksek bir sürümü.
+-  [Apache Maven](https://maven.apache.org), sürüm 3.0 veya üzeri.
+-  [Node.js](https://nodejs.org/download/), sürüm 8.6 veya üzeri.
 
 > [!IMPORTANT] 
-> Bu hızlı başlangıç tamamlamak için JAVA_HOME ortam değişkeni JDK yükleme konumuna ayarlanması gerekir.
+> Bu hızlı başlangıcın tamamlanabilmesi için JAVA_HOME ortam değişkeni JDK’nin yükleme konumu olarak ayarlanmalıdır.
 
-## <a name="install-the-azure-functions-core-tools"></a>Azure işlevleri çekirdek Araçları'nı yükleme
+## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools’u Yükleme
 
-[Azure işlevleri çekirdek araçları 2.0](https://www.npmjs.com/package/azure-functions-core-tools) yazma, çalıştırma ve Azure işlevlerinde hata ayıklama için bir yerel geliştirme ortamı sağlar. Araçlarla Yükle [npm](https://www.npmjs.com/)ile birlikte sunulan [Node.js](https://nodejs.org/).
+[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools), Azure İşlevleri yazmak, çalıştırmak ve bunların hatalarını ayıklamak için yerel bir geliştirme ortamı sağlar. Araçları [Node.js](https://nodejs.org/)’ye dahil edilen [npm](https://www.npmjs.com/) ile yükleyin.
 
 ```
 npm install -g azure-functions-core-tools@core
 ```
 
 > [!NOTE]
-> Azure işlevleri çekirdek Araçları sürüm 2.0 yükleme konusunda sorun yaşıyorsanız, bkz: [sürüm 2.x çalışma zamanı](/azure/azure-functions/functions-run-local#version-2x-runtime).
+> Azure Functions Core Tools 2.0 sürümünü yükleme sorunu yaşıyorsanız bkz. [Sürüm 2.x çalışma zamanı](/azure/azure-functions/functions-run-local#version-2x-runtime).
 
-## <a name="generate-a-new-functions-project"></a>Yeni işlevleri projesi oluştur
+## <a name="generate-a-new-functions-project"></a>Yeni İşlevler projesi oluşturma
 
-Boş bir klasöre işlevleri projeden oluşturmak için aşağıdaki komutu çalıştırın bir [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+İşlevler projesini bir [Maven arketipinden](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) oluşturmak için boş bir klasörde aşağıdaki komutu çalıştırın.
 
 ### <a name="linuxmacos"></a>Linux/MacOS
 
@@ -73,7 +73,7 @@ mvn archetype:generate ^
     -DarchetypeArtifactId=azure-functions-archetype
 ```
 
-Maven projesi oluşturma tamamlamak için gereken değeri ister. İçin _GroupID_, _Artifactıd_, ve _sürüm_ değerler, bakın [Maven adlandırma kuralları](https://maven.apache.org/guides/mini/guide-naming-conventions.html) başvuru. _AppName_ Maven üzerinde önceden girilen tabanlı bir uygulama adı oluşturur şekilde değeri Azure arasında benzersiz olmalıdır _Artifactıd_ varsayılan olarak. _PackageName_ değeri oluşturulan işlev kodu için Java Paketi belirler.
+Maven, proje oluşturma işleminin tamamlanması için gereken değerleri ister. _groupId_, _artifactId_ ve _version_ değerleri için [Maven adlandırma kuralları](https://maven.apache.org/guides/mini/guide-naming-conventions.html) başvurusuna bakın. _appName_ değerinin Azure genelinde benzersiz olması gerektiğinden, Maven bir varsayılan olarak daha önce girilen _artifactId_’yi temel alarak bir uygulama adı oluşturur. _packageName_ değeri, oluşturulan işlev kodu için Java paketini belirler.
 
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
@@ -84,7 +84,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven adıyla yeni bir klasör içinde proje dosyalarını oluşturur _Artifactıd_. Basit bir projedeki oluşturulan kodu [tetiklenen HTTP](/azure/azure-functions/functions-bindings-http-webhook) istek gövdesi görüntülemektedir işlevi:
+Maven, _artifactId_ adlı yeni bir dosyada proje dosyalarını oluşturur. Projede oluşturulan bu kod, isteğin gövdesini yankılayan [HTTP tetiklemeli](/azure/azure-functions/functions-bindings-http-webhook) basit bir işlevdir:
 
 ```java
 public class Function {
@@ -96,9 +96,9 @@ public class Function {
 }
 ```
 
-## <a name="run-the-function-locally"></a>İşlev yerel olarak çalıştırma
+## <a name="run-the-function-locally"></a>İşlevi yerel olarak çalıştırma
 
-Yeni oluşturulan proje klasörüne dizini değiştirin ve oluşturup işlevi ile Maven çalıştırın:
+Yeni oluşturulan proje klasörünün dizinine geçerek Maven ile işlevi derleyin ve çalıştırın:
 
 ```
 cd fabrikam-function
@@ -106,7 +106,7 @@ mvn clean package
 mvn azure-functions:run
 ```
 
-İşlev çalıştığında bu Çıktıyı görürsünüz:
+İşlev çalışırken bu çıktıyı görürsünüz:
 
 ```Output
 Listening on http://localhost:7071
@@ -117,7 +117,7 @@ Http Functions:
    hello: http://localhost:7071/api/hello
 ```
 
-Yeni bir terminal curl kullanarak komut satırından işlevi tetikler:
+Komut satırından yeni bir terminalde curl kullanarak işlevi tetikleyin:
 
 ```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
@@ -127,18 +127,18 @@ curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 Hello LocalFunction!
 ```
 
-Kullanım `Ctrl-C` işlev kodu durdurmak için Terminal.
+İşlev kodunu durdurmak için terminalde `Ctrl-C` komutunu kullanın.
 
-## <a name="deploy-the-function-to-azure"></a>İşlev Azure'a dağıtma
+## <a name="deploy-the-function-to-azure"></a>İşlevi Azure’a dağıtma
 
-Azure işlevleri dağıtma işlemi, Azure CLI hesap kimlik bilgilerini kullanır. [Oturum ile Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) ve kodunuzu kullanarak yeni bir işlev uygulaması uygulamasına dağıtırsınız `azure-functions:deploy` Maven hedef.
+Azure İşlevleri’ne dağıtım işlemi, Azure CLI’dan hesap kimlik bilgilerini kullanır. [Azure CLI ile oturum açın](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) ve sonra `azure-functions:deploy` Maven hedefini kullanarak kodunuzu yeni bir İşlev uygulamasına dağıtın.
 
 ```
 az login
 mvn azure-functions:deploy
 ```
 
-Dağıtım tamamlandığında, Azure işlevi uygulamanıza erişmek için kullanabileceğiniz URL bakın:
+Dağıtım tamamlandığında, Azure işlev uygulamanıza erişmek için kullanabileceğiniz URL’yi görürsünüz:
 
 ```output
 [INFO] Successfully deployed Function App with package.
@@ -148,7 +148,7 @@ Dağıtım tamamlandığında, Azure işlevi uygulamanıza erişmek için kullan
 [INFO] ------------------------------------------------------------------------
 ```
 
-Curl kullanarak Azure üzerinde çalışan işlev uygulaması test edin:
+Azure’da çalışan işlev uygulamasını curl kullanarak test edin:
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
@@ -160,11 +160,11 @@ Hello AzureFunctions!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Java işlev uygulaması ile basit bir HTTP tetikleyicisi oluşturduğunuz ve Azure işlevleri için Dağıtılmış.
+Basit bir HTTP tetikleyicisine sahip bir Java işlev uygulaması oluşturdunuz ve Azure İşlevleri’ne dağıttınız.
 
-- Gözden geçirme [Java işlevleri Geliştirici Kılavuzu](functions-reference-java.md) Java işlevleri geliştirme hakkında daha fazla bilgi için.
-- Kullanarak proje farklı tetikleyici içeren ek işlevler eklemek `azure-functions:add` Maven hedef.
-- Visual Studio Code ile yerel olarak işlevlerinde hata ayıklama. İle [Java uzantısı paketi](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) yüklü ve işlevleri projenizi açın Visual Studio Code [hata ayıklayıcısını](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) 5005 numaralı bağlantı noktasına. Ardından Düzenleyicisi'nde bir kesme noktası ayarlayın ve yerel olarak çalışırken tetikleyicileri, işlevinizi tetiklemeleri: ![Visual Studio Code işlevlerinde hata ayıklama](media/functions-create-java-maven/vscode-debug.png)
+- Java işlevleri geliştirme hakkında daha fazla bilgi edinmek için [Java İşlevleri geliştirici kılavuzunu](functions-reference-java.md) gözden geçirin.
+- `azure-functions:add` Maven hedefini kullanarak projenize farklı tetikleyicilere sahip ek işlevler ekleyin.
+- Visual Studio Code ile işlevlerde yerel olarak hata ayıklayın. [Java uzantı paketi](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) yüklü ve İşlevler projeniz Visual Studio Code’da açık haldeyken, 5005 bağlantı noktasına [hata ayıklayıcıyı bağlayın](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations). Sonra düzenleyicide bir kesme noktası ayarlayın ve işleviniz yerel olarak çalışırken tetikleyin: ![Visual Studio Code’da işlevlerin hatalarını ayıklama](media/functions-create-java-maven/vscode-debug.png)
 
 
 

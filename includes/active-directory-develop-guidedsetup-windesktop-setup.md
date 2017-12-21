@@ -1,59 +1,59 @@
 
 ## <a name="set-up-your-project"></a>Projenizin kurulumunu
 
-Bu bölümde bir Windows Masaüstü .NET uygulaması (XAML) tümleştirme göstermek için yeni bir proje oluşturmak için adım adım yönergeler sağlar *Microsoft ile oturum açma* için bir belirteç gerekiyor Web API'leri sorgulayabilirsiniz.
+Bu bölümde bir Windows Masaüstü .NET uygulaması (XAML) tümleştirme göstermek için yeni bir proje ile oluşturduğunuz *Microsoft ile oturum açma* uygulama bir belirteci gerektiren Web API'leri sorgulayabilmesi.
 
-Bu kılavuz tarafından oluşturulan uygulama grafiği ve sonuçları ekran ve oturum kapatma düğmesini göster düğmesini gösterir.
+Bu kılavuz ile oluşturduğunuz uygulama bir grafik ekranında sonuçları görüntülemek için bir alana çağırmak için kullanılan bir düğme ve oturum kapatma düğmesini görüntüler.
 
-> Bunun yerine bu örneği ait Visual Studio projesi indirmeyi tercih ediyorsunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip) ve geçin [yapılandırma adımı](#create-an-application-express) kod örneği çalıştırmadan önce yapılandırmak için.
+> [!NOTE]
+> Bunun yerine bu örneği ait Visual Studio projesi indirmeyi tercih ediyorsunuz? [Bir proje indirme](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)ve geçin [yapılandırma adımı](#create-an-application-express) kod örneği, yürütmeden önce yapılandırmak için.
+>
 
+Uygulamanızı oluşturmak için aşağıdakileri yapın:
+1. Visual Studio'da seçin **dosya** > **yeni** > **proje**.
+2. Altında **şablonları**seçin **Visual C#**.
+3. Seçin **WPF uygulaması** veya **WPF uygulaması**bağlı olarak kullanmakta olduğunuz Visual Studio sürümü.
 
-### <a name="create-your-application"></a>Uygulamanızı oluşturun
-1. Visual Studio'da:`File` > `New` > `Project`<br/>
-2. Altında *şablonları*seçin`Visual C#`
-3. Seçin `WPF App` (veya *WPF uygulaması* , Visual Studio sürümüne bağlı olarak)
+## <a name="add-msal-to-your-project"></a>MSAL projenize ekleyin
+1. Visual Studio'da seçin **Araçları** > **NuGet Paket Yöneticisi**> **Paket Yöneticisi Konsolu**.
+2. Paket Yöneticisi konsolu penceresinde, aşağıdaki Azure PowerShell komutunu yapıştırın:
 
-## <a name="add-the-microsoft-authentication-library-msal-to-your-project"></a>Microsoft kimlik doğrulama kitaplığı (MSAL) projenize ekleyin
-1. Visual Studio'da:`Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Paket Yöneticisi konsolu penceresinde aşağıdakileri kopyalayıp yapıştırın:
+    ```powershell
+    Install-Package Microsoft.Identity.Client -Pre
+    ```
 
-```powershell
-Install-Package Microsoft.Identity.Client -Pre
-```
-
-> Yukarıdaki paket Microsoft kimlik doğrulama kitaplığı (MSAL) yükler. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2 tarafından korunan API'leri erişmek için kullanılan kullanıcı toskens yenilemeyi işler.
+    > [!NOTE] 
+    > Bu komut, Microsoft kimlik doğrulama kitaplığı yükler. MSAL alınırken önbelleğe alma ve Azure Active Directory v2 tarafından korunan API'leri erişmek için kullanılan kullanıcı belirteçleri yenilemeyi işler.
+    >
 
 ## <a name="add-the-code-to-initialize-msal"></a>MSAL başlatmak için kod ekleme
-Bu adımı MSAL kitaplığı ile etkileşim belirteçleri işleme gibi işlemek için bir sınıf oluşturmanıza yardımcı olur.
+Bu adımda, MSAL, etkileşim belirteçleri işleme gibi işlemek için bir sınıf oluşturun.
 
-1. Açık `App.xaml.cs` dosya ve MSAL Kitaplığı Başvurusu sınıfına ekleyin:
+1. Açık *App.xaml.cs* dosyasını bulun ve ardından başvuru için MSAL sınıfına ekleyin:
 
-```csharp
-using Microsoft.Identity.Client;
-```
+    ```csharp
+    using Microsoft.Identity.Client;
+    ```
 <!-- Workaround for Docs conversion bug -->
-<ol start="2">
-<li>
-Uygulama sınıfı şu güncelleştirin:
-</li>
-</ol>
 
-```csharp
-public partial class App : Application
-{
-    //Below is the clientId of your app registration. 
-    //You have to replace the below with the Application Id for your app registration
-    private static string ClientId = "your_client_id_here";
+2. Uygulama sınıfı şu güncelleştirin:
 
-    public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+    ```csharp
+    public partial class App : Application
+    {
+        //Below is the clientId of your app registration. 
+        //You have to replace the below with the Application Id for your app registration
+        private static string ClientId = "your_client_id_here";
 
-}
-```
+        public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
 
-## <a name="create-your-applications-ui"></a>Uygulamanızın kullanıcı Arabirimi oluşturma
-Aşağıdaki bölümü, bir uygulama gibi Microsoft Graph korumalı arka uç sunucusuna nasıl sorgulayabilir gösterir. MainWindow.xaml dosya proje şablonu bir parçası olarak otomatik olarak oluşturulması gerekir. Bu dosya bu dosyayı açın ve aşağıdaki yönergeleri izleyin:
+    }
+    ```
 
-Uygulamanızın Değiştir `<Grid>` aşağıdaki olmalıdır:
+## <a name="create-the-application-ui"></a>Uygulama kullanıcı Arabirimi oluşturma
+Bu bölümde, bir uygulama gibi Microsoft Graph korumalı bir arka uç sunucusu nasıl sorgulayabilir gösterir. 
+
+A *MainWindow.xaml* dosya proje şablonu bir parçası olarak otomatik olarak oluşturulmalıdır. Bu dosyayı açın ve ardından, uygulamanızın değiştirin  *\<kılavuz >* aşağıdaki kodla düğümü:
 
 ```xml
 <Grid>
@@ -69,3 +69,4 @@ Uygulamanızın Değiştir `<Grid>` aşağıdaki olmalıdır:
     </StackPanel>
 </Grid>
 ```
+

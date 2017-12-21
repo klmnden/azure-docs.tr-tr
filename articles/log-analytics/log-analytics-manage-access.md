@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -51,7 +51,7 @@ Günümüzde bir çalışma alanı aşağıdakileri sağlar:
 * Yönetilen bir hizmet sağlayıcısıysanız ve yönettiğiniz her bir müşteriye ilişkin Log Analytics verilerini diğer müşterilerin verilerinden yalıtmak istiyorsanız.
 * Birden çok müşteriyi yönetiyorsanız ve her bir müşterinin/departmanın/iş grubunun yalnızca kendi verilerini görmesini istiyorsanız.
 
-Verileri toplamak için aracıları kullanıyorsanız [her bir aracıyı, bir veya daha fazla çalışma alanına raporlama yapacak şekilde yapılandırabilirsiniz](log-analytics-windows-agents.md).
+Verileri toplamak için aracıları kullanıyorsanız [her bir aracıyı, bir veya daha fazla çalışma alanına raporlama yapacak şekilde yapılandırabilirsiniz](log-analytics-windows-agent.md).
 
 System Center Operations Manager'ı kullanıyorsanız her bir Operations Manager yönetim grubu yalnızca bir çalışma alanıyla bağlantılı olabilir. Ancak, bilgisayardaki Microsoft Monitoring Agent, hem Operations Manager hem de farklı bir Log Analytics çalışma alanına rapor verecek şekilde yapılandırılabilir.  
 

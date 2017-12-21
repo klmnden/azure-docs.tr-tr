@@ -1,35 +1,27 @@
 ---
-title: "Bir Azure kapsayıcı hizmeti (AKS) küme ölçeklendirin | Microsoft Docs"
-description: "Bir Azure kapsayıcı hizmeti (AKS) küme ölçeklendirme."
+title: "Azure Container Service (AKS) kümesini ölçeklendirme"
+description: "Azure Container Service (AKS) kümesini ölçeklendirin."
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Kubernetes, Docker, Kapsayıcılar, Mikro Hizmetler, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: b2fa3ebb7a22b9d19678d45cc50806627ab80e90
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: a5380a3815335d7347b57dac49a3dca02c9d981c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Bir Azure kapsayıcı hizmeti (AKS) küme ölçeklendirme
+# <a name="scale-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini ölçeklendirme
 
-Düğümlerin farklı sayıda AKS kümeye ölçeklendirme kolaydır.  İstenilen düğüm sayısına seçin ve Çalıştır `az aks scale` komutu.  Ölçeklendirme, düğümleri dikkatle olacak [cordoned ve boşaltmış](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) çalışan uygulamalar engellemeyi en aza indirmek için.  Ölçekleme sırasında `az` komutu düğümleri işaretlenmiş kadar bekler `Ready` Kubernetes küme tarafından.
+AKS kümesini farklı bir düğüm sayısına ölçeklendirmek kolaydır.  İstenen düğüm sayısını seçip `az aks scale` komutunu çalıştırın.  Ölçeklendirme, düğümleri dikkatle olacak [cordoned ve boşaltmış] [ kubernetes-drain] çalışan uygulamalar engellemeyi en aza indirmek için.  Ölçeği artırma sırasında, `az` komutu düğümler Kubernetes kümesi tarafından `Ready` olarak işaretlenene kadar bekler.
 
-## <a name="scale-the-cluster-nodes"></a>Küme düğümleri ölçeklendirme
+## <a name="scale-the-cluster-nodes"></a>Küme düğümlerini ölçeklendirme
 
-Kullanım `az aks scale` küme düğümleri ölçeklendirmek için komutu. Aşağıdaki örnek adlı bir küme ölçeklendirir *myK8SCluster* tek bir düğüme.
+Küme düğümlerini ölçeklendirmek için `az aks scale` komutunu kullanın. Aşağıdaki örnekte, *myK8SCluster* adlı bir küme tek bir düğümde ölçeklendirilmiştir.
 
 ```azurecli-interactive
 az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
@@ -93,7 +85,13 @@ az aks scale --name myK8sCluster --resource-group myResourceGroup --node-count 1
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Dağıtma ve AKS AKS öğreticileri ile yönetme hakkında daha fazla bilgi edinin.
+AKS öğreticileri ile AKS dağıtma ve yönetme hakkında daha fazla bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [AKS Öğreticisi](./tutorial-kubernetes-prepare-app.md)
+> [AKS Öğreticisi][aks-tutorial]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

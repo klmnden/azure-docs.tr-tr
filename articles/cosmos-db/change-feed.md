@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: e825968981df1aaee4ceb037995209ba48a8f4ec
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Destek Azure Cosmos DB'de akış değişiklik ile çalışma
 
@@ -90,11 +90,11 @@ Azure işlevleri Portalı'nda tetikleyicileri oluşturulabilir Azure Cosmos DB p
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>SDK'sını kullanarak
 
-[SQL SDK](documentdb-sdk-dotnet.md) Azure Cosmos DB okumak ve akış bir değişiklik yönetmek için tüm güç getirdiği için. Ancak çok sorumlulukları, çok sayıda harika güç ile gelir. Kontrol noktalarını yönetme, belge sıra numaraları ile ilgilidir ve bölüm anahtarlarını üzerinde ayrıntılı denetim sahibi istiyorsanız, SDK'sını kullanarak sağ yaklaşım olabilir.
+[SQL SDK](sql-api-sdk-dotnet.md) Azure Cosmos DB okumak ve akış bir değişiklik yönetmek için tüm güç getirdiği için. Ancak çok sorumlulukları, çok sayıda harika güç ile gelir. Kontrol noktalarını yönetme, belge sıra numaraları ile ilgilidir ve bölüm anahtarlarını üzerinde ayrıntılı denetim sahibi istiyorsanız, SDK'sını kullanarak sağ yaklaşım olabilir.
 
 Bu bölümde SQL SDK'sı akışı bir değişiklik ile çalışmak için nasıl kullanılacağı anlatılmaktadır.
 
-1. Appconfig aşağıdaki kaynakları okuyarak başlatın. Uç nokta ve yetkilendirme anahtar alınırken yönergeleri kullanılabilir [bağlantı dizenizi güncelleştirme](create-documentdb-dotnet.md#update-your-connection-string).
+1. Appconfig aşağıdaki kaynakları okuyarak başlatın. Uç nokta ve yetkilendirme anahtar alınırken yönergeleri kullanılabilir [bağlantı dizenizi güncelleştirme](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ Bu nedenle, kontrol noktası dizinizi yalnızca her bölüm için LSN engelliyor
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Değişiklik akış işlemci kitaplığı kullanma 
 
-[Azure Cosmos DB Değiştir Akış işlemci Kitaplığı](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) kolayca olay işleme arasında birden çok tüketiciye dağıtmak yardımcı olabilir. Bu kitaplık, bölümler ve paralel çalışan birden çok iş parçacığı üzerinde okuma değişiklikleri basitleştirir.
+[Azure Cosmos DB Değiştir Akış işlemci Kitaplığı](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) kolayca olay işleme arasında birden çok tüketiciye dağıtmak yardımcı olabilir. Bu kitaplık, bölümler ve paralel çalışan birden çok iş parçacığı üzerinde okuma değişiklikleri basitleştirir.
 
 Ana avantajı değişiklik akış işlemci kitaplığının her bölüm yönetmek zorunda değilsiniz ve devamlılık belirteci ve her bir koleksiyon el ile yoklamaya yok ' dir.
 
@@ -276,11 +276,11 @@ Azure işlevleriyle Azure Cosmos DB kullanma hakkında daha fazla bilgi için bk
 
 Değişiklik akış işlemci kitaplığını kullanarak daha fazla bilgi için aşağıdaki kaynakları kullanın:
 
-* [Bilgileri sayfası](documentdb-sdk-dotnet-changefeed.md) 
+* [Bilgileri sayfası](sql-api-sdk-dotnet-changefeed.md) 
 * [Nuget paketi](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [1-6 yukarıdaki adımları gösteren örnek kod](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Github'da ek örnekleri](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 SDK akış değişiklik kullanma hakkında daha fazla bilgi için aşağıdaki kaynakları kullanın:
 
-* [SDK bilgileri sayfası](documentdb-sdk-dotnet.md)
+* [SDK bilgileri sayfası](sql-api-sdk-dotnet.md)

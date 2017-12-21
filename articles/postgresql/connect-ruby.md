@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 11/03/2017
 ms.openlocfilehash: 0b8ee73ab86dde2b2c09c9fe2e73209d000b3f26
 ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Ruby’yi kullanma
-Bu hızlı başlangıçta, [Ruby](https://www.ruby-lang.org) uygulaması kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makaledeki adımları Ruby kullanarak geliştirme ile tanıdık ve PostgreSQL için Azure veritabanı ile çalışmaya yeni varsayalım.
+Bu hızlı başlangıçta, [Ruby](https://www.ruby-lang.org) uygulaması kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Ayrıca veritabanında veri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini nasıl kullanacağınız da gösterilmiştir. Bu makaledeki adımlarda, Ruby kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
@@ -53,7 +53,7 @@ Ruby’yi kendi makinenize yükleyin.
 - `sudo gem install pg` komutunu çalıştırarak Gem kullanan Ruby pg modülünü oluşturun.
 
 ## <a name="run-ruby-code"></a>Ruby kodunu çalıştırma 
-- Kodu dosya uzantısı .rb ile bir metin dosyasına kaydetmek ve dosyayı gibi bir proje klasörüne kaydedin `C:\rubypostgres\read.rb` veya`/home/username/rubypostgres/read.rb`
+- Kodu bir metin dosyasına kaydedin ve dosyayı `C:\rubypostgres\read.rb` veya `/home/username/rubypostgres/read.rb` gibi .rb dosya uzantısıyla bir proje klasörüne yükleyin
 - Kodu çalıştırmak için komut istemi veya bash kabuğu başlatın. Dizini `cd rubypostgres` proje klasörünüzle değiştirin, ardından uygulamayı çalıştırmak için `ruby read.rb` komutunu yazın.
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma

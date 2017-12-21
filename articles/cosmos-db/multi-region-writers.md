@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03000679ef7fc36842b1f55d4d98131dfe400c87
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Birden çok ana veritabanı mimarileri Azure Cosmos DB ile genel çoğaltılan
 Azure Cosmos DB destekleyen anahtar teslimi [genel çoğaltma](distribute-data-globally.md), iş yükünü başka bir yerindeki düşük gecikme süresi erişimi olan birden çok bölgeye verilerini dağıtmak sağlar. Bu model yayımcı/tüketici iş yükleri için yaygın olarak kullanılan bir yazıcı tek bir coğrafi bölge içinde ve genel olarak dağıtılmış okuyucuları (okuma) diğer bölgelerdeki olduğu. 
@@ -318,6 +318,6 @@ Bu makalede, Azure Cosmos Örnek senaryo olarak içerik yayımlama kullanarak DB
 * Azure Cosmos DB nasıl desteklediği hakkında bilgi edinin [genel dağıtım](distribute-data-globally.md)
 * Hakkında bilgi edinin [Azure Cosmos veritabanı otomatik ve el ile yük devretme](regional-failover.md)
 * Hakkında bilgi edinin [Azure Cosmos DB ile genel tutarlılık](consistency-levels.md)
-* Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - SQL API](tutorial-global-distribution-documentdb.md)
+* Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md)
 * Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md)
 * Kullanarak birden fazla bölge ile geliştirme [Azure Cosmos DB - tablo API](tutorial-global-distribution-table.md)
