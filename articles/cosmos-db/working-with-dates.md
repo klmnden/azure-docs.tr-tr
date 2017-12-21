@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: arramac
-ms.openlocfilehash: 0f26aea674eb2317c976af0cb8e81f619a8d64ae
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB tarihleri ile çalışma
 Azure Cosmos DB sunar şema esnekliği ve zengin bir yerel dizin oluşturma [JSON](http://www.json.org) veri modeli. Veritabanları, koleksiyonlar, belgeler ve saklı yordamları da dahil olmak üzere tüm Azure Cosmos DB kaynakları modellenir ve JSON belgeleri olarak depolanır. Olma taşınabilir bir zorunluluk, JSON (ve Azure Cosmos DB) temel türleri, yalnızca küçük bir kümesini destekler: dize, sayı, Boole değeri, dizi, nesne ve Null. Ancak, JSON esnektir ve geliştiriciler ve çerçeveleri nesneleri veya dizi oluşturma ve bu temelleri kullanarak daha karmaşık türleri temsil eden kullanmasına olanak tanır. 
@@ -26,7 +26,7 @@ Azure Cosmos DB sunar şema esnekliği ve zengin bir yerel dizin oluşturma [JSO
 Temel türlerine ek olarak birçok uygulama gereksinim [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) tarihleri ve tarih damgası temsil eden tür. Bu makalede nasıl geliştiriciler depolamak, alabilir ve .NET SDK kullanarak Azure Cosmos DB tarihleri sorgu açıklanmaktadır.
 
 ## <a name="storing-datetimes"></a>Tarih/saat depolanması
-Varsayılan olarak, [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) DateTime değerleri olarak serileştiren [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) dizeleri. Uygulamaların çoğu, aşağıdaki nedenlerle DateTime için varsayılan dize gösterimi kullanabilirsiniz:
+Varsayılan olarak, [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) DateTime değerleri olarak serileştiren [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) dizeleri. Uygulamaların çoğu, aşağıdaki nedenlerle DateTime için varsayılan dize gösterimi kullanabilirsiniz:
 
 * Dizeleri karşılaştırma ve dizeye dönüştürülen DateTime değerlerini göreli sıralama korunur. 
 * Bu yaklaşım, JSON dönüştürme için herhangi bir özel kod veya öznitelikleri gerektirmez.
@@ -83,11 +83,11 @@ LINQ aracılığıyla Azure Cosmos veritabanında depolanan verileri Sorgulama S
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-Azure Cosmos veritabanı SQL sorgu dili ve LINQ sağlayıcısındaki hakkında daha fazla bilgiyi [sorgulama Cosmos DB](documentdb-sql-query.md).
+Azure Cosmos veritabanı SQL sorgu dili ve LINQ sağlayıcısındaki hakkında daha fazla bilgiyi [sorgulama Cosmos DB](sql-api-sql-query.md).
 
 Bu makalede, nasıl depolamak, dizin ve tarih/saat Azure Cosmos veritabanı sorgu inceledik.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * İndirme ve çalıştırma [github'daki kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Daha fazla bilgi edinmek [SQL sorguları](documentdb-sql-query.md)
+* Daha fazla bilgi edinmek [SQL sorguları](sql-api-sql-query.md)
 * Daha fazla bilgi edinmek [Azure Cosmos DB dizin oluşturma ilkeleri](indexing-policies.md)

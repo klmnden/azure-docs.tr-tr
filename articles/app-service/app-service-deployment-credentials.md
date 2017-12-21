@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Dağıtım kimlik bilgileri Azure App Service için yapılandırma
 [Azure uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714) iki tür kimlik bilgilerini destekler [yerel Git dağıtımı](app-service-deploy-local-git.md) ve [FTP/S dağıtım](app-service-deploy-ftp.md). Bu, Azure Active Directory kimlik bilgileri ile aynı değildir.
 
-* **Kullanıcı düzeyinde kimlik**: bir tüm Azure hesabı için kimlik bilgileri kümesi. Azure hesabı erişim iznine sahip herhangi bir abonelikte, herhangi bir uygulama için uygulama hizmeti dağıtmak için kullanılabilir. Yapılandırdığınız varsayılan kimlik bilgileri kümesi bunlar **uygulama hizmetleri** > **&lt;app_name >** > **dağıtım kimlik bilgileri**. Bu aynı zamanda varsayılandır GUI portalında ortaya kümesi (gibi **genel bakış** ve **özellikleri** , uygulamanızın, [kaynak dikey](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+* **Kullanıcı düzeyinde kimlik**: bir tüm Azure hesabı için kimlik bilgileri kümesi. Azure hesabı erişim iznine sahip herhangi bir abonelikte, herhangi bir uygulama için uygulama hizmeti dağıtmak için kullanılabilir. Yapılandırdığınız varsayılan kimlik bilgileri kümesi bunlar **uygulama hizmetleri** > **&lt;app_name >** > **dağıtım kimlik bilgileri**. Bu aynı zamanda varsayılandır GUI portalında ortaya kümesi (gibi **genel bakış** ve **özellikleri** , uygulamanızın, [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
     > Rol tabanlı erişim denetimi (RBAC) veya ortak yönetici izinleri üzerinden Azure kaynaklarına erişimi temsilci atarken, bir uygulamaya erişim alan her bir Azure kullanıcı erişimi iptal kadar güncelleştirmesini kişisel kullanıcı düzeyinde kimlik bilgilerini kullanabilir. Bu dağıtım kimlik bilgileri Azure diğer kullanıcılarla Paylaşılmaması gerekiyor.
@@ -38,14 +38,14 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="userscope"></a>Ayarlama ve kullanıcı düzeyinde kimlik bilgilerini sıfırlama
 
-Bir uygulamanın ait kullanıcı düzeyinde kimlik bilgilerinizi yapılandırabilirsiniz [kaynak dikey](../azure-resource-manager/resource-group-portal.md#manage-resources). Ne olursa olsun hangi uygulamanın bu kimlik bilgilerini yapılandırın, bu tüm uygulamalar ve Azure hesabınızda tüm abonelikler için geçerlidir. 
+Bir uygulamanın ait kullanıcı düzeyinde kimlik bilgilerinizi yapılandırabilirsiniz [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources). Ne olursa olsun hangi uygulamanın bu kimlik bilgilerini yapılandırın, bu tüm uygulamalar ve Azure hesabınızda tüm abonelikler için geçerlidir. 
 
 Kullanıcı düzeyinde kimlik bilgilerinizi yapılandırmak için:
 
 1. İçinde [Azure portal](https://portal.azure.com), uygulama hizmeti tıklayın >  **&lt;any_app >** > **dağıtım kimlik bilgileri**.
 
     > [!NOTE]
-    > Portalda dağıtım kimlik bilgileri dikey penceresini erişebilmeniz için önce en az bir uygulama olmalıdır. Bununla birlikte, [Azure CLI](/cli/azure/webapp/deployment/user#set), kullanıcı düzeyinde kimlik bilgileri olan bir uygulama olmadan yapılandırabilirsiniz.
+    > Portalda dağıtım kimlik bilgileri sayfasında erişebilmeniz için önce en az bir uygulama olmalıdır. Bununla birlikte, [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), kullanıcı düzeyinde kimlik bilgileri olan bir uygulama olmadan yapılandırabilirsiniz.
 
 2. Kullanıcı adını ve parolasını yapılandırın ve ardından **kaydetmek**.
 

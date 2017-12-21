@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: c22f887f0371f70927d42130b959053ef7a0e5cc
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 103f4200ea24c34c066a11c7b49676f51f252589
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
 
@@ -561,4 +561,4 @@ Bu öğreticide, aşağıdaki görevleri yaptığınızı:
 Şimdi, sonraki öğretici devam etmek ve Azure Cosmos DB kullanarak verileri sorgulamak öğrenin. 
 
 > [!div class="nextstepaction"]
->[Sorgu verileri nasıl?](../cosmos-db/tutorial-query-documentdb.md)
+>[Sorgu verileri nasıl?](../cosmos-db/tutorial-query-sql-api.md)

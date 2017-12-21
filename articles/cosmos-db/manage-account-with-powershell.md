@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>PowerShell kullanarak bir Azure Cosmos DB hesabı oluşturma
 
-Aşağıdaki kılavuz, Azure Powershell kullanarak Azure Cosmos DB veritabanı hesaplarınızı yönetimini otomatikleştirmek için komutları açıklar. Ayrıca hesabı anahtarları ve yük devretme öncelikleri yönetmek için komutlar içerir [bölgeli veritabanı hesaplarını][scaling-globally]. Veritabanı hesabını güncelleştirme tutarlılık ilkeleri değiştirebilirsiniz ve bölgeler Ekle/Kaldır izin verir. Ya da kullanmak için platformlar arası yönetim Azure Cosmos DB hesabınızın [Azure CLI](cli-samples.md), [kaynak sağlayıcısı REST API][rp-rest-api], veya [Azure portal](create-documentdb-dotnet.md#create-account).
+Aşağıdaki kılavuz, Azure Powershell kullanarak Azure Cosmos DB veritabanı hesaplarınızı yönetimini otomatikleştirmek için komutları açıklar. Ayrıca hesabı anahtarları ve yük devretme öncelikleri yönetmek için komutlar içerir [bölgeli veritabanı hesaplarını][scaling-globally]. Veritabanı hesabını güncelleştirme tutarlılık ilkeleri değiştirebilirsiniz ve bölgeler Ekle/Kaldır izin verir. Ya da kullanmak için platformlar arası yönetim Azure Cosmos DB hesabınızın [Azure CLI](cli-samples.md), [kaynak sağlayıcısı REST API][rp-rest-api], veya [Azure portal](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -194,8 +194,7 @@ Bölgeli veritabanı hesapları için de Azure Cosmos DB veritabanı hesabı var
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* .NET kullanarak bağlanmak için bkz: [bağlanma ve sorgu .NET ile](create-documentdb-dotnet.md).
-* .NET Core kullanarak bağlanmak için bkz: [Connect ve .NET Core sorguyla](create-documentdb-dotnet-core.md).
+* .NET kullanarak bağlanmak için bkz: [bağlanma ve sorgu .NET ile](create-sql-api-dotnet.md).
 * Node.js kullanarak bağlanmak için bkz: [Connect ve Node.js ve MongoDB uygulama sorguyla](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

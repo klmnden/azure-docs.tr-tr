@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e79a63c4316c50a7af0fc7ba0979a772ff5e6a91
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -111,12 +111,12 @@ Bir bölge ayarladığınızda, Azure Cosmos DB sovereign ve kamu Bulutlar uyar 
 ## <a name="develop-against-the-sql-api"></a>SQL API karşı geliştirin
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API karşı geliştirme nasıl başlamanız gerekir?
-Önce Azure aboneliği için kaydolmanız gerekir. Azure aboneliği için kaydolduktan sonra SQL API'yi kapsayıcı Azure aboneliğiniz ekleyebilirsiniz. Bir Azure Cosmos DB hesap ekleme ile ilgili yönergeler için bkz: [Azure Cosmos DB veritabanı hesabı oluşturma](create-documentdb-dotnet.md#create-account). 
+Önce Azure aboneliği için kaydolmanız gerekir. Azure aboneliği için kaydolduktan sonra SQL API'yi kapsayıcı Azure aboneliğiniz ekleyebilirsiniz. Bir Azure Cosmos DB hesap ekleme ile ilgili yönergeler için bkz: [Azure Cosmos DB veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-account). 
 
-.NET, Python, Node.js, JavaScript ve Java için [SDK'lar](documentdb-sdk-dotnet.md) kullanılabilir. Geliştiriciler ayrıca kullanabileceğiniz [RESTful HTTP API'lerini](/rest/api/documentdb/) çeşitli platformlardan ve dillerden Azure Cosmos DB kaynakları ile etkileşim kurmak için.
+[SDK'ları](sql-api-sdk-dotnet.md) .NET, Python, Node.js, JavaScript ve Java için kullanılabilir. Geliştiriciler ayrıca kullanabileceğiniz [RESTful HTTP API'lerini](/rest/api/documentdb/) çeşitli platformlardan ve dillerden Azure Cosmos DB kaynakları ile etkileşim kurmak için.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Head başlamak için hazır bazı örnekleri erişebilir mi?
-SQL API için örnek [.NET](documentdb-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](documentdb-nodejs-samples.md), ve [Python](documentdb-python-samples.md) SDK'ları Github'da bulunmaktadır.
+SQL API için örnek [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), ve [Python](sql-api-python-samples.md) SDK'ları Github'da bulunmaktadır.
 
 
 ### <a name="does-the-sql-api-database-support-schema-free-data"></a>SQL API'si veritabanı şemasız verileri destekler mi?
@@ -131,16 +131,16 @@ Bir koleksiyon, belgeler ve bunların ilişkili JavaScript uygulama mantığın�
 Ayrıca fatura varlıklar için Azure Cosmos DB koleksiyonlarıdır. Her koleksiyon saatlik olarak faturalandırılır sağlanan işlemeyi temel alan ve kullanılan depolama alanı. Daha fazla bilgi için bkz: [Azure DB Cosmos fiyatlandırma](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Veritabanı nasıl oluşturulur?
-Kullanarak veritabanları oluşturabilirsiniz [Azure portal](https://portal.azure.com)açıklandığı gibi [bir koleksiyon Ekle](create-documentdb-dotnet.md#create-collection), bir, [Azure Cosmos DB SDK'ları](documentdb-sdk-dotnet.md), veya [REST API'leri](/rest/api/documentdb/). 
+Kullanarak veritabanları oluşturabilirsiniz [Azure portal](https://portal.azure.com)açıklandığı gibi [bir koleksiyon Ekle](create-sql-api-dotnet.md#create-collection), bir, [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md), veya [REST API'leri](/rest/api/documentdb/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Kullanıcıları ve izinleri nasıl ayarlarım?
-Aşağıdakilerden birini kullanarak, kullanıcılar ve izinler oluşturabilirsiniz [Cosmos DB API SDK'ları](documentdb-sdk-dotnet.md) veya [REST API'leri](/rest/api/documentdb/).  
+Aşağıdakilerden birini kullanarak, kullanıcılar ve izinler oluşturabilirsiniz [Cosmos DB API SDK'ları](sql-api-sdk-dotnet.md) veya [REST API'leri](/rest/api/documentdb/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>SQL API SQL destekliyor mu?
 SQL API hesapları tarafından desteklenen SQL sorgu dili Gelişmiş bir SQL Server tarafından desteklenen sorgu işlevi alt kümesidir. Azure Cosmos DB SQL sorgu dili zengin hiyerarşik ve ilişkisel işleçler ve genişletilebilirlik JavaScript tabanlı, kullanıcı tanımlı işlevler (UDF'ler) aracılığıyla sağlar. JSON dil bilgisi, hem Azure Cosmos DB otomatik dizin oluşturma teknikleri hem de Azure Cosmos DB SQL sorgu diyalekti tarafından kullanılan etiketli düğümleri ağaçlar JSON belgeleri modellenmesini sağlar. SQL dil bilgisinin kullanma hakkında daha fazla bilgi için bkz: [SQL sorgusu] [ query] makalesi.
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>SQL API SQL toplama işlevleri destekliyor mu?
-Düşük gecikme süreli toplama toplama işlevleri aracılığıyla herhangi bir ölçekte SQL API'yi destekleyip `COUNT`, `MIN`, `MAX`, `AVG`, ve `SUM` SQL dil bilgisinin aracılığıyla. Daha fazla bilgi için bkz: [toplama işlevlerinin](documentdb-sql-query.md#Aggregates).
+Düşük gecikme süreli toplama toplama işlevleri aracılığıyla herhangi bir ölçekte SQL API'yi destekleyip `COUNT`, `MIN`, `MAX`, `AVG`, ve `SUM` SQL dil bilgisinin aracılığıyla. Daha fazla bilgi için bkz: [toplama işlevlerinin](sql-api-sql-query.md#Aggregates).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>SQL API eşzamanlılığı nasıl sağlar?
 SQL API HTTP varlık etiketleri veya Etag'ler aracılığıyla iyimser eşzamanlılık denetimini (OCC) destekler. Her SQL API kaynakları bir Etag'e sahiptir ve bir belgeyi her güncelleştirildiğinde ETag sunucu üzerinde ayarlanır. ETag üstbilgisi ve geçerli değeri tüm yanıt iletileri dahil edilir. Etag'ler IF-Match üst bilgisi bir kaynağın güncelleştirilmesi gerekip gerekmediğini karar vermek sunucu izin vermek için kullanılabilir. IF-Match değer karşı denetlenecek ETag değerdir. ETag değeri sunucunun ETag değeri eşleşirse, kaynak güncelleştirilir. ETag geçerli ise sunucu işlemi reddeder bir "HTTP 412 önkoşul hatası" yanıt kodu. İstemci daha sonra yeniden kaynak için geçerli ETag değeri almaya kaynak getirir. Ayrıca, Etag'ler If-None-Match üstbilgisi ile bir kaynağa yeniden getirin gerekli olup olmadığını belirlemek için kullanılabilir.
@@ -292,7 +292,7 @@ Evet, aynı API desteklenir.
 Hayır, oluşturabilir ve varolan Azure Table depolama varlıkları herhangi bir türde kesintisiz kullanın. Ancak, tablo API kullanmıyorsanız, otomatik dizin, ek tutarlılık seçeneği veya genel dağıtım kazancı olmaz. 
 
 ### <a name="how-do-i-add-replication-of-the-data-in-the-table-api-across-multiple-regions-of-azure"></a>Nasıl veri çoğaltma işlemi tablo API çağrısında birden çok Azure bölgeler arasında ekleyebilirim?
-Cosmos DB Azure portal'ın kullanabilirsiniz [genel çoğaltma ayarları](tutorial-global-distribution-documentdb.md#portal) uygulamanız için uygun bölgeler eklemek için. Genel olarak dağıtılmış bir uygulama geliştirmek için PreferredLocation bilgi okuma düşük gecikme süresi sağlamak için yerel bölge kümesi ile uygulamanızı eklemelisiniz. 
+Cosmos DB Azure portal'ın kullanabilirsiniz [genel çoğaltma ayarları](tutorial-global-distribution-sql-api.md#portal) uygulamanız için uygun bölgeler eklemek için. Genel olarak dağıtılmış bir uygulama geliştirmek için PreferredLocation bilgi okuma düşük gecikme süresi sağlamak için yerel bölge kümesi ile uygulamanızı eklemelisiniz. 
 
 ### <a name="how-do-i-change-the-primary-write-region-for-the-account-in-the-table-api"></a>Tablo API hesap için birincil yazma bölge nasıl değişiyor?
 Bir bölge ekleyin ve ardından gerekli bölgeye yük devri için Azure Cosmos DB genel çoğaltma portal bölmesinde kullanabilirsiniz. Yönergeler için bkz: [bölgeli Azure Cosmos DB hesaplarıyla geliştirme](regional-failover.md). 
@@ -368,7 +368,7 @@ olmayan - .NET SDK'ları için dizin oluşturma ilkesini yalnızca portalında a
 ```
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Bir platform olarak Azure Cosmos DB sıralama, toplamlar, hiyerarşi ve diğer işlevleri gibi özellikleri, pek çok görünüyor. Tablo API için bu özellikler ekleme? 
-Tablo API Azure Table storage aynı sorgu işlevleri sağlar. Azure Cosmos DB, sıralama, toplamalar, Jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevler de destekler. Biz gelecekteki hizmeti güncelleştirmesine tablo API ek işlevsellik sağlar. Daha fazla bilgi için bkz: [SQL sorguları](documentdb-sql-query.md).
+Tablo API Azure Table storage aynı sorgu işlevleri sağlar. Azure Cosmos DB, sıralama, toplamalar, Jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevler de destekler. Biz gelecekteki hizmeti güncelleştirmesine tablo API ek işlevsellik sağlar. Daha fazla bilgi için bkz: [SQL sorguları](sql-api-sql-query.md).
  
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>Tablo API için zaman TableThroughput değiştiririm?
 Aşağıdaki koşullardan herhangi biri geçerli olduğu durumlarda TableThroughput değiştirmeniz gerekir:
@@ -540,4 +540,4 @@ Apache Cassandra API Apache Cassandra aynı CQL işlevleri sağlar. Çeşitli ö
 İle geribildirim sağlamak [uservoice geri bildirimleri](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: documentdb-sql-query.md
+[query]: sql-api-sql-query.md

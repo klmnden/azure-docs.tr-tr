@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7e1a17517890f8ed738b6afdcbe073a2bf1ebc6f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure CosmosDB: Java API Cassandra ile geliştirme
 
 Azure Cosmos DB Microsoft'un Genel dağıtılmış birden çok model veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu öğretici, Azure portalını kullanarak bir Azure Cosmos DB hesabı oluşturmak ve Cassandra Table(documentdb-partition-data.md#partition-keys) kullanarak oluşturmak gösterilmiştir [Cassandra API](cassandra-introduction.md). Bir tablo oluşturduğunuzda, bir birincil anahtar tanımlayarak, uygulamanızın verilerinizi büyüdükçe harcamadan ölçeklendirmek için hazırlanır. 
+Bu öğretici, Azure portalını kullanarak bir Azure Cosmos DB hesabı oluşturmak ve Cassandra Table(sql-api-partition-data.md#partition-keys) kullanarak oluşturmak gösterilmiştir [Cassandra API](cassandra-introduction.md). Bir tablo oluşturduğunuzda, bir birincil anahtar tanımlayarak, uygulamanızın verilerinizi büyüdükçe harcamadan ölçeklendirmek için hazırlanır. 
 
 Bu öğretici, Cassandra API'sini kullanarak aşağıdaki görevleri içerir:
 

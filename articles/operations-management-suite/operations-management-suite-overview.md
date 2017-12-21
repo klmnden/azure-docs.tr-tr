@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) nedir?
 Operations Management Suite (OMS) için bir giriş niteliğindeki bu makalede hizmetin sağladığı iş değerine, içerdiği hizmet ve yönetim çözümlerine ve farklı hizmet ve çözümleri bir paket altında toplayan tekliflere kısa bir genel bakış sunulmaktadır.  Her bir hizmet ve çözümün dağıtımı ve kullanımına yönelik ayrıntılı belgelerin bağlantıları da sağlanmıştır.
@@ -64,7 +64,7 @@ OMS’nin temel işlevleri Azure’da çalışan bir dizi hizmet tarafından sa�
 #### <a name="collecting-data"></a>Verileri toplama
 Verileri analiz edilmek üzere Log Analytics deposuna taşımanın birçok farklı yolu vardır.
 
-- **Windows veya Linux bilgisayarları ve sanal makineler.**  [Windows](../log-analytics/log-analytics-windows-agents.md) ve [Linux](../log-analytics/log-analytics-linux-agents.md) bilgisayarlarında ya da veri toplamak istediğiniz sanal makinelerde Microsoft Monitoring Agent’ı yüklersiniz.  Aracı, toplanması gereken olayları ve performans verilerini tanımlayan Log Analytics yapılandırmasından verileri otomatik olarak indirir.  Azure portalını kullanarak aracıyı Azure’da çalışan sanal makinelere kolayca yükleyebilirsiniz.  Mevcut bir Operations Manager ortamınız varsa yönetim grubunu Log Analytics’e bağlayabilir ve tüm mevcut aracılardan otomatik olarak veri toplamaya başlayabilirsiniz.
+- **Windows veya Linux bilgisayarları ve sanal makineler.**  [Windows](../log-analytics/log-analytics-windows-agent.md) ve [Linux](../log-analytics/log-analytics-linux-agents.md) bilgisayarlarında ya da veri toplamak istediğiniz sanal makinelerde Microsoft Monitoring Agent’ı yüklersiniz.  Aracı, toplanması gereken olayları ve performans verilerini tanımlayan Log Analytics yapılandırmasından verileri otomatik olarak indirir.  Azure portalını kullanarak aracıyı Azure’da çalışan sanal makinelere kolayca yükleyebilirsiniz.  Mevcut bir Operations Manager ortamınız varsa yönetim grubunu Log Analytics’e bağlayabilir ve tüm mevcut aracılardan otomatik olarak veri toplamaya başlayabilirsiniz.
 - **Azure hizmetleri.**  Log Analytics, Azure kaynaklarını izleyebilmeniz için [Azure Tanılama ve Azure İzleme](../log-analytics/log-analytics-azure-storage.md)’den alınan verileri depoda toplar.
 - **Veri Toplayıcı API’si**  Log Analytics, [tüm istemcilerden toplanan verilerin doldurulması için bir REST API](../log-analytics/log-analytics-data-collector-api.md) içerir.  Bu sayede üçüncü taraf uygulamalardan veri toplayabilir ve özel yönetim senaryoları uygulayabilirsiniz.  Yaygın olarak kullanılan bir yöntem, Azure Otomasyonu’nda bir runbook kullanarak verileri toplamak ve sonra Veri Toplayıcı API’sini kullanarak verileri depoya yazmaktır.
 

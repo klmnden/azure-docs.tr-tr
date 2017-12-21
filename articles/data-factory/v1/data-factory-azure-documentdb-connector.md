@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe6612e8c3fb557097866b23bad32d7edc45492f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 0338fb386fc4da3f34cb4e810dbd57d50b5d5329
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB gelen ve veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -489,7 +489,7 @@ Azure Cosmos DB iç içe geçmiş yapılar burada izin verilen bir NoSQL JSON be
 2. **Soru:** kayıtları kopyalanan nasıl bir kopya ile Azure Cosmos DB anlaşma için bir yeniden deneme zaten mu?
 
     **Yanıt:** kayıtları "ID" alanına sahipseniz ve aynı Kimliğe sahip bir kayıt eklemek kopyalama işlemi çalışırsa, kopyalama işlemi bir hata oluşturur.  
-3. **Soru:** Data Factory desteklemiyor [aralığı veya karma tabanlı veri bölümlendirme](../../cosmos-db/documentdb-partition-data.md)?
+3. **Soru:** Data Factory desteklemiyor [aralığı veya karma tabanlı veri bölümlendirme](../../cosmos-db/sql-api-partition-data.md)?
 
     **Yanıt:** No
 4. **Soru:** bir tablo için birden fazla Azure Cosmos DB koleksiyonu belirtin?

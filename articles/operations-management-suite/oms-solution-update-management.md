@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
 
@@ -81,7 +81,7 @@ Güncelleştirme dağıtımında belirtilen tarih ve saatte, hedef bilgisayarlar
     > Birden çok OMS çalışma alanına raporlayacak şekilde yapılandırılmış bir Linux için OMS Aracısı, bu çözümde desteklenmez.  
     >
 
-Linux için OMS Aracısı’nı yükleme ve en son sürümü indirme hakkında ek bilgi için, [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux) konusuna bakın.  Windows için OMS Aracısı’nı yükleme hakkında bilgi için, [Windows için Operations Management Suite Aracısı](../log-analytics/log-analytics-windows-agents.md) konusunu gözden geçirin.  
+Linux için OMS Aracısı’nı yükleme ve en son sürümü indirme hakkında ek bilgi için, [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux) konusuna bakın.  Windows için OMS Aracısı’nı yükleme hakkında bilgi için, [Windows için Operations Management Suite Aracısı](../log-analytics/log-analytics-windows-agent.md) konusunu gözden geçirin.  
 
 ### <a name="permissions"></a>İzinler
 Güncelleştirme dağıtımları oluşturmak için hem Otomasyon hesabınızda hem de Log Analytics çalışma alanınızda size katkıda bulunan rolü verilmiş olmalıdır.  
@@ -126,7 +126,7 @@ Windows bilgisayarında, OMS ile aracı bağlantısını doğrulamak için aşa�
 1.  Denetim Masası’nda Microsoft Monitoring Agent’i açın; **Azure Log Analytics (OMS)** sekmesinde aracı şöyle bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.   
 2.  Windows Olay Günlüğü’nü açın, **Uygulama ve Hizmet Günlükleri\Operations Manager** bölümüne gidin ve kaynak Hizmet Bağlayıcısı’nda Olay Kimliği 3000 ve 5002’yi arayın.  Bu olaylar bilgisayarın OMS çalışma alanına kaydolduğunu ve yapılandırmayı aldığını gösterir.  
 
-Aracı, OMS hizmetiyle iletişim kuramıyorsa ve İnternet ile güvenlik duvarı veya ara sunucu üzerinden iletişim kuracak şekilde yapılandırıldıysa [Windows aracısı için ağ yapılandırması](../log-analytics/log-analytics-windows-agents.md#network) ya da [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md#network) konu başlığını gözden geçirerek güvenlik duvarının ve ara sunucunun düzgün yapılandırıldığını doğrulayın.
+Aracı, OMS hizmetiyle iletişim kuramıyorsa ve İnternet ile güvenlik duvarı veya ara sunucu üzerinden iletişim kuracak şekilde yapılandırıldıysa [Windows aracısı için ağ yapılandırması](../log-analytics/log-analytics-windows-agent.md) ya da [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md) konu başlığını gözden geçirerek güvenlik duvarının ve ara sunucunun düzgün yapılandırıldığını doğrulayın.
 
 > [!NOTE]
 > Linux sistemleriniz bir ara sunucu veya OMS Ağ Geçidi ile iletişim kuracak şekilde yapılandırıldıysa ve bu çözümü ekliyorsanız lütfen şu komutları kullanarak *proxy.conf* izinlerini, omi kullanıcı grubuna dosyada okuma izni verilecek şekilde güncelleştirin:  

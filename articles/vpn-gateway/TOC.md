@@ -75,6 +75,7 @@
 ## Üçüncü taraf VPN cihazlarını yapılandırma
 ### [Genel bakış ve Azure yapılandırması](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Örnek: Cisco ASA cihazı (IKEv2/BGP yok)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Klasikten Kaynak Yöneticisi’ne geçiş](vpn-gateway-classic-resource-manager-migration.md)
 ## Sorun giderme
 ### [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Topluluk tarafından önerilen VPN veya güvenlik duvarı cihaz ayarları](vpn-gateway-third-party-settings.md)

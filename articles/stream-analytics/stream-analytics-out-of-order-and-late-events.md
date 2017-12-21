@@ -15,115 +15,122 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: b4ce26fbbb2a494004e9c80462881dd754531497
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-stream-analytics-event-order-consideration"></a>Azure Stream Analytics olay sipariş değerlendirme
+# <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics olay sipariş konuları
 
-## <a name="understand-arrival-time-and-application-time"></a>Geliş saati ve uygulama zamanı anlayın.
+## <a name="arrival-time-and-application-time"></a>Geliş saati ve uygulama zamanı
 
-Olayları bir zamana bağlı veri akışında her olay bir zaman damgası atanır. Azure Stream Analytics geliş saati ya da uygulama zamanı kullanarak her olay zaman damgası atar. "System.Timestamp" sütun olaya atanan zaman damgası vardır. Olay kaynağı ulaştığında geliş saati giriş kaynakta atanır. Geliş saati için olay hub'ı giriş EventEnqueuedTime olduğu ve [blob son değiştirme zamanı](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) blob giriş. Uygulama zamanı olayı oluşturulur ve yükü parçası olduğunda atanır. Uygulama zamanına göre olayları işlemek için "Zaman damgası tarafından" yan tümcesi select sorgusundaki kullanın. "Zaman damgası tarafından" yan tümcesi olmazsa olayları geliş saati tarafından işlenir. Geliş saati, olay hub'ı için EventEnqueuedTime özelliğini kullanarak ve blob giriş BlobLastModified özelliği kullanılarak erişilebilir. Azure Stream Analytics zaman damgası sırada bir çıktı üretir ve bozuk verilerle mücadele etmek için birkaç ayarları sağlar.
+Olayları bir zamana bağlı veri akışında her olayın zaman damgası atanır. Azure Stream Analytics, geliş saati ya da uygulama zamanı kullanarak, her olay için zaman damgası atar. **System.Timestamp** olaya atanan zaman damgası sütununa sahip. 
+
+Olay kaynağı ulaştığında geliş saati giriş kaynakta atanır. Kullanarak geliş saati erişebilirsiniz **EventEnqueuedTime** olay hub'ı giriş ve kullanmak için özelliği [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) blob giriş özelliği. 
+
+Uygulama zamanı olayı oluşturulur ve yükü parçası olduğunda atanır. Uygulama zamanına göre olayları işlemek için **zaman damgası tarafından** yan tümcesinde select sorgu. Varsa **zaman damgası tarafından** yan tümcesi etmeksizin, olayları geliş saati tarafından işlenir. 
+
+Azure Stream Analytics zaman damgası sırada bir çıktı üretir ve sipariş verilerle ilgili ayarları sağlar.
 
 
-## <a name="azure-stream-analytics-handling-of-multiple-streams"></a>Birden çok akış Azure Stream Analytics işlenmesi
+## <a name="handling-of-multiple-streams"></a>Birden çok akış işleme
 
-Azure Stream Analytics işi dahil olmak üzere birkaç durumda birden çok zaman çizelgelerini olaylarından birleştirir,
+Bir Azure akış analizi işi aşağıdaki gibi durumlarda birden çok zaman çizelgelerini olaylarından birleştirir:
 
-* Birden çok bölüm çıkışı üretir. Bir açık "bölümü tarafından PartitionID" yoksa sorgular tüm bölümler olaylarından birleştirmek gerekir.
+* Birden çok bölüm çıkışı üretir. Açık bir yoksa sorgular **bölüm PartitionID tarafından** yan tümcesi tüm bölümler olaylarından birleştirmek gerekir.
 * İki veya daha fazla farklı giriş kaynaklarıyla birleşimi.
 * Giriş kaynaklarıyla birleştirme.
 
-Birden çok zaman çizelgelerini burada birleştirilir senaryolarda, bir zaman damgası için çıktı Azure akış analizi üretecektir *t1* yalnızca birleştirilen tüm kaynakları en az zaman sonra *t1*.
-Örneğin, sorgu okur bir *olay hub'ı* iki bölüm ve bir bölümün bölümündeki *P1* olayları zamana kadar olan *t1* ve başka bir bölüme  *P2* olayları zamana kadar olan *t1 + x*, çıktı zamana kadar üretilen *t1*.
-Ancak olduğunda açık bir *"Bölümü tarafından PartitionID"* yan tümcesi, her iki bölüm ilerler bağımsız olarak.
-Geç varış dayanıklılık ayar bazı bölümleri verilerde yokluğu uğraşmanız kullanılır.
+Birden çok zaman çizelgelerini burada birleştirilir senaryolarda, Azure akış analizi zaman damgası için bir çıktı üretir *t1* yalnızca birleştirilen tüm kaynakları en az zaman sonra *t1*. Örneğin, sorgu bir olay hub bölümünden iki bölümü vardır okur varsayın. Bölümden biri *P1*, olayları zamana kadar olan *t1*. Başka bir bölüme *P2*, olayları zamana kadar olan *t1 + x*. Çıktı sonra zamana kadar üretilen *t1*. Ancak varsa açık bir **bölüm PartitionID tarafından** yan tümcesi, her iki bölüm ilerleme bağımsız olarak.
 
-## <a name="configuring-late-arrival-tolerance-and-out-of-order-tolerance"></a>Geç varış dayanıklılık ve sıralama dışı tolerans yapılandırma
+Geç varış dayanıklılık ayarı bazı bölümleri verilerde yokluğu uğraşmanız kullanılır.
+
+## <a name="configuring-late-arrival-tolerance-and-out-of-order-tolerance"></a>Geç varış dayanıklılık ve düzen dışı tolerans yapılandırma
 Sırayla olmayan giriş akışları ya da şunlardır:
-* Sıralanmış (ve bu nedenle **Gecikmeli**).
-* Sistem tarafından kullanıcı tanımlı ilkesine göre ayarlanır.
+* Sıralanmış (ve bu nedenle Gecikmeli)
+* Kullanıcı tarafından belirtilen ilkesine göre sistem tarafından ayarlanır
 
-Akış analizi tarafından işlerken geç ve bozuk olayları göstereceği **uygulama zamanı**. Aşağıdaki ayarlar kullanılabilir **olay sıralama** Azure portalında seçeneği: 
+Akış analizi tarafından uygulama zamanı işlerken geç ve sipariş olayları göstereceği. Aşağıdaki ayarlar kullanılabilir **olay sıralama** Azure portalında seçeneği: 
 
 ![Stream Analytics olay işleme](media/stream-analytics-event-handling/stream-analytics-event-handling.png)
 
-**Geç varış dayanıklılık**
-* Bu ayar yalnızca uygulama zamanına göre işlerken geçerlidir, aksi halde yoksayılır.
-* Geliş saati ve uygulama saat arasındaki maksimum fark budur. Uygulama süresi (saat varış - geç varış penceresi) önce ise (süresi varış - geç varış penceresi) için ayarlanır
-* Birden çok bölüm aynı giriş akışından veya birden çok giriş akışları birlikte birlikte kullanıldığında, geç varış dayanıklılık yeni veriler için her bölüm bekleyeceği en fazla süreyi ' dir. 
+### <a name="late-arrival-tolerance"></a>Geç varış dayanıklılık
+Yalnızca uygulama zamanına göre işlerken geç varış dayanıklılık geçerlidir. Aksi takdirde, ayar yok sayılır.
 
-Kısaca, geç varış pencere olay oluşturma ile olay giriş kaynağı, alınmasına arasındaki en büyük gecikme olur.
-Geç varış toleransı göre ayarlama ilk yapılır ve bozuk sonraki yapılır. **System.Timestamp** olaya atanan son zaman damgası sütunu olacaktır.
+Geç varış dayanıklılık geliş saati ve uygulama saat arasındaki en fazla farktır. Bir olay daha sonraki geç varış tolerans ulaşan varsa (örneğin, uygulama zamanı *app_t* < geliş saati *arr_t* -geç varış İlkesi dayanıklılık *late_t*), Olay geç varış tolerans üst sınır değerine ayarlanmış (*arr_t* - *late_t*). Geç varış olay oluşturma ile olay giriş kaynağı, alınmasını arasındaki en büyük gecikme penceredir. 
 
-**Sıralama dışı tolerans**
-* Sıranın dışında ancak "sıralama dışı tolerans penceresi" kümesi içinde gelmesini olaylar **zaman damgası tarafından kaldırılmasında**. 
-* Dayanıklılık daha sonra gelen olaylar **bırakılan veya ayarlanmış**.
-    * **Ayarlanmış**: kabul edilebilir en son zaman gelmedi görünecek şekilde ayarlanmış. 
-    * **Bırakılan**: atılır.
+Birden çok bölüm aynı giriş akışından veya birden çok giriş akışları birleştirildiğinde, geç varış dayanıklılık yeni veriler için her bölüm bekleyeceği en fazla süreyi ' dir. 
 
-"Sıralama dışı tolerans penceresi içinde" alınan olayları yeniden sıralamak için sorgu çıkışıdır **sıralama dışı tolerans penceresi tarafından Gecikmeli**.
+Geç varış toleransı göre ayarlama önce gerçekleşir. Düzen dışı toleransı göre ayarlama sonraki olur. **System.Timestamp** olaya atanan son zaman damgası sütununa sahip.
 
-**Örnek**
+### <a name="out-of-order-tolerance"></a>Düzen dışı tolerans
+Sıralama dışında ulaşır ancak kümesi düzen dışı tolerans penceresi içinde zaman damgası tarafından kaldırılmasında olaylar. Daha sonraki tolerans penceresi geldiğinde olayları ya da şunlardır:
+* **Ayarlanmış**: kabul edilebilir en son zaman gelmedi görünecek şekilde ayarlanmış. 
+* **Bırakılan**: atılır.
+
+Stream Analytics içinde sıra dışı tolerans penceresi alınan olayları yeniden sıralar, sorgu çıktısı düzen dışı tolerans penceresi tarafından ertelendi.
+
+### <a name="example"></a>Örnek
 
 * Geç varış dayanıklılık = 10 dakika<br/>
-* Sipariş tolerans dışı = 3 dakika<br/>
+* Düzen dışı tolerans = 3 dakika<br/>
 * Uygulama tarafından işleme<br/>
 * Etkinlikler:
-   * Olay 1 _uygulama zamanı_ 00:00:00 = _geliş saati_ 00:10:01 = _System.Timestamp_ 00:00: çünkü ayarlanmış 01, = (_geliş saati_  -  _Uygulama zamanı_) geç varış dayanıklılık büyük.
-   * Olay 2 _uygulama zamanı_ 00:00:01 = _geliş saati_ 00:10:01 = _System.Timestamp_ 00:00: uygulama süresi içinde geç varış olduğundan ayarlanmış değil 01, = penceresini açın.
-   * %3 olayı _uygulama zamanı_ 00:10:00 = _geliş saati_ 00:10:02 = _System.Timestamp_ 00:10: uygulama zamanı geç varış pencereye olduğundan ayarlanmış değil 00 = .
-   * Olay 4 _uygulama zamanı_ 00:09:00 = _geliş saati_ 00:10:03 = _System.Timestamp_ 00:09: uygulama süresi içinde olduğu gibi özgün damgasıyla kabul 00 = Sipariş dayanıklılık.
-   * Olay 5 _uygulama zamanı_ 00:06:00 = _geliş saati_ 00:10:04 = _System.Timestamp_ 00:07: uygulama zamanı bozuk eski olduğu için ayarlanmış 00 = dayanıklılık.
+   1. **Uygulama zamanı** 00:00:00 = **geliş saati** 00:10:01 = **System.Timestamp** 00:00: çünkü ayarlanmış 01, = (**geliş saati - uygulama**) değil birden çok geç varış tolerans.
+   2. **Uygulama zamanı** 00:00:01 = **geliş saati** 00:10:01 = **System.Timestamp** 00:00: uygulama zamanı geç varış pencereye olduğundan ayarlanmış değil 01, =.
+   3. **Uygulama zamanı** 00:10:00 = **geliş saati** 00:10:02 = **System.Timestamp** 00:10: uygulama zamanı geç varış pencereye olduğundan ayarlanmış değil 00 =.
+   4. **Uygulama zamanı** 00:09:00 = **geliş saati** 00:10:03 = **System.Timestamp** 00:09: uygulama zaman aşımı sıra içinde olduğundan özgün zaman damgasıyla kabul 00 = dayanıklılık.
+   5. **Uygulama zamanı** 00:06:00 = **geliş saati** 00:10:04 = **System.Timestamp** 00:07: uygulama zamanı düzen dışı tolerans eski olduğu için ayarlanmış 00 =.
 
 ### <a name="practical-considerations"></a>Dikkat edilecek noktalar
-Yukarıda belirtildiği gibi *geç varış dayanıklılık* en fazla uygulama zamanı ve geliş saati arasındaki farktır.
-Ayrıca zaman uygulama tarafından işleme süresi, yapılandırılan sonraki olayları *geç varış dayanıklılık* önce ayarlanmış *sıralama dışı tolerans* ayarı uygulanır. Bu nedenle, bozuk en az geç varış dayanıklılık ve sıralama dışı tolerans geçerlidir.
+Daha önce belirtildiği gibi geç varış dayanıklılık uygulama zamanı geliş saati arasındaki en fazla farktır. Uygulama zamanına göre işlerken düzen dışı tolerans ayarını uygulanmadan önce yapılandırılmış geç varış tolerans sonraki olayları ayarlanır. Bu nedenle, bozuk en az geç varış dayanıklılık ve düzen dışı tolerans geçerlidir.
 
-Bir akış içinde sıra dışı olaylar dahil olmak üzere nedenlerden ötürü gerçekleşir,
-* Saat eğriltme Gönderenler arasında.
+Düzen dışı olayları bir akış içinde nedenleri şunlardır:
+* Saat arasında Gönderenler eğme.
 * Gönderen ve giriş olay kaynağı arasındaki değişken gecikme süresi.
 
-Geç varış dahil olmak üzere nedenlerden ötürü olduğunda,
-* Göndericiler toplu ve olaylar için bir aralığı daha sonra aralığından sonra gönderin.
+Geç varış nedenleri şunlardır:
+* Toplu işleme ve olaylar için bir aralığı aralığından sonra daha sonra gönderme Gönderenler.
 * Olay göndereni için gönderme ve olay giriş kaynağı, alan arasında gecikme süresi.
 
-Yapılandırılırken *geç varış dayanıklılık* ve *sıralama dışı tolerans* Etkenler yukarıda ve belirli bir iş, doğruluk, gecikme gereksinimleri için kabul edilmesi.
+Geç varış dayanıklılık ve belirli bir iş için düzen dışı tolerans yapılandırırken, doğruluk, gecikme gereksinimlerine ve önceki etkenleri göz önünde bulundurun.
 
-Aşağıda birkaç örnek verilmiştir
+Aşağıda birkaç örnek verilmiştir.
 
-#### <a name="example-1"></a>Örnek 1: 
-Sorgu "Bölümü tarafından PartitionID" yan tümcesine sahip ve tek bir bölüm içinde eşzamanlı gönderme yöntemlerini kullanarak olayları gönderilir. Zaman uyumlu olaylar gönderilen kadar yöntemleri blok gönderin.
-Bu durumda, sonraki olay göndermeden önce açık onay sırayla olayları gönderildiğinden sıfır bozuk. Olay oluşturma ve gönderme olay + gönderen ve giriş kaynağı arasındaki en büyük gecikme süresi arasında en büyük gecikme geç varış olduğu
+#### <a name="example-1"></a>Örnek 1 
+Sorgunun bir **bölüm PartitionID tarafından** yan tümcesi. Tek bir bölüm içinde olayları eşzamanlı gönderme yöntemleri gönderilir. Zaman uyumlu olaylar gönderilen kadar yöntemleri blok gönderin.
 
-#### <a name="example-2"></a>Örnek 2:
-Sorgu "Bölümü tarafından PartitionID" yan tümcesi varsa ve tek bir bölüm içinde zaman uyumsuz gönderme yöntemini kullanarak olayları gönderilir. Zaman uyumsuz gönderme yöntemlerini bozuk olayları neden aynı anda birden çok gönderir başlatabilirsiniz.
-Bu durumda, bozuk ve geç varış, olay oluşturma ve gönderme olay + gönderen ve giriş kaynağı arasındaki en büyük gecikme süresi arasında en az en büyük gecikme şunlardır.
+Bu durumda, sonraki olay gönderilmeden önce olayları açık onay sırayla gönderildiğinden sıfır bozuk. Geç varış olay oluşturma ve olay yanı sıra, gönderen ve giriş kaynağı arasındaki en büyük gecikme süresi gönderme arasındaki en büyük gecikme olur.
 
-#### <a name="example-3"></a>Örnek 3:
-Sorgu "Bölümü tarafından PartitionID" sahip değil ve en az iki bölümü vardır.
-Örnek 2 aynı yapılandırmadır. Bölümleri birindeki verileri yokluğu çıkış ancak, ek bir tarafından geciktirebilir * geç varış dayanıklılık "penceresi.
+#### <a name="example-2"></a>Örnek 2
+Sorgunun bir **bölüm PartitionID tarafından** yan tümcesi. Tek bir bölüm içinde olayları zaman uyumsuz gönderme yöntemleri gönderilir. Zaman uyumsuz gönderme yöntemlerini düzen dışı olayları neden aynı anda birden çok gönderir başlatabilirsiniz.
+
+Bu durumda, bozuk ve geç varış olan en az olay oluşturma ve olay yanı sıra, gönderen ve giriş kaynağı arasındaki en büyük gecikme süresi gönderme arasındaki en büyük gecikme.
+
+#### <a name="example-3"></a>Örnek 3
+Sorgu sahip olmayan bir **bölüm PartitionID tarafından** yan tümcesi ve en az iki bölümü vardır.
+
+Yapılandırma örneği 2 ile aynıdır. Ancak, veri bölümleri birinde yokluğu çıktı ek bir geç gerçekleşme tolerans penceresi tarafından gecikmeye yol açabilir.
 
 ## <a name="handling-event-producers-with-differing-timelines"></a>Olay üreticileri farklı zaman çizelgeleri ile işleme
-Tek bir giriş olay akışı genellikle birden çok olay üreticileri (örneğin, bireysel aygıtlar) kaynaklanan olayları içerir.  Bu olaylar daha önce bahsedilen nedenlerden dolayı bozuk gelebilir. Olay üreticileri arasında düzensiz büyük olabilir ancak bu senaryolarda, küçük (veya hatta olmayan) tek bir üretici olayların içinde düzensiz olacaktır.
-Azure Stream Analytics düzen dışı olayları ilgilenmek için genel mekanizmaları sağlarken, böyle (beklenirken sistem ulaşması için straggling olayları), ya da işleme gecikmeleri mekanizmaları sonucunda bırakılmış veya olayları veya her ikisi de ayarlandı.
-Henüz birçok senaryolarda, istenen sorgu farklı olay üreticileri olaylarından bağımsız olarak işliyor.  Örneği için bu olayları penceresi başına cihaz başına bir araya getirildiği.  Böyle durumlarda, diğer olay üreticileri Yakala beklenirken bir olay üretici karşılık gelen çıktı gecikme gerek yoktur.  Diğer bir deyişle, üreticiler arasında eğme zaman uğraşmanız gerek yoktur ve yalnızca yoksayılabilir.
-Elbette, bu çıkış olaylarındaki kendilerini düzen dışı olacağı anlamına gelir; damgalarını göre Aşağı Akış tüketici bu tür davranış ile mücadele etmek mümkün olması gerekir.  Ancak her olay çıktıda doğru olacaktır.
+Tek bir giriş olay akışı genellikle tek bir cihazı gibi birden çok olay üreticileri kaynaklanan olayları da içerir. Bu olaylar daha önce bahsedilen nedenlerden dolayı bozuk ulaşır. Olay üreticileri arasında düzensiz büyük olabilir, ancak bu senaryolarda, tek bir üretici olayların içinde düzensiz küçük (veya hatta varolmayan).
 
-Azure Stream Analytics uygulayan kullanarak bu işlevselliği [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) yan tümcesi.
+Azure Stream Analytics düzen dışı olayları ilgilenmek için genel mekanizmaları sağlar. (Straggling olaylar Sistem erişmek için beklenirken), işleme gecikmeleri böyle mekanizmaları neden bırakılmış veya olayları veya her ikisi de ayarlandı.
 
+Henüz birçok senaryolarda, istenen sorgu farklı olay üreticileri olaylarından bağımsız olarak işliyor. Örneğin, bu cihaz başına penceresi başına olay toplama. Bu durumlarda, diğer olay üreticileri Yakala beklenirken bir olay üretici karşılık gelen çıktı gecikme gerek yoktur. Diğer bir deyişle, üreticiler arasında eğme zaman uğraşmanız gerek yoktur. Onu yok sayabilirsiniz.
 
+Elbette, bu çıkış olaylarındaki damgalarını göre sırası anlamına gelir. Aşağı Akış tüketici bu tür davranış ile mücadele etmek mümkün olması gerekir. Ancak her olay çıktıda doğrudur.
 
-## <a name="to-summarize"></a>Özetlemek için
-* Geç varış dayanıklılık ve bozuk penceresi doğruluk, gecikme gereksinimlerine göre yapılandırılmalıdır ve olayları nasıl gönderileceğini de dikkate almalısınız.
-* Sıralama dışı tolerans geç varış dayanıklılık küçük önerilir.
-* Birden çok zaman çizelgelerini birleştirilirken veri kaynakları veya bölümleri birinde olmaması çıktı ek bir geç gerçekleşme tolerans penceresi tarafından geciktirebilir.
-* Sipariş yalnızca olay üretici zaman çizelgesi önemli olduğu durumlarda her olay üretici bağımsız bir alt akış olarak işlemek için TIMESTAMP BY OVER yan tümcesi kullanmak da mümkündür.
+Azure Stream Analytics kullanarak bu işlevselliği uygulayan [TIMESTAMP BY OVER](https://msdn.microsoft.com/library/azure/mt573293.aspx) yan tümcesi.
+
+## <a name="summary"></a>Özet
+* Geç varış dayanıklılık ve doğruluk ve gecikme süresi gereksinimlerine göre sırası penceresini yapılandırın. Ayrıca, olayların nasıl gönderileceğini düşünün.
+* Düzen dışı tolerans geç varış dayanıklılık küçük öneririz.
+* Birden çok zaman çizelgelerini birleştirirken veri kaynakları veya bölümleri birinde olmaması çıktı ek bir geç gerçekleşme tolerans penceresi tarafından geciktirebilir.
 
 ## <a name="get-help"></a>Yardım alın
-Ek Yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Ek Yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Stream Analytics'e giriş](stream-analytics-introduction.md)

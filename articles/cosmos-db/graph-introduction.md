@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 45169394bed2287896ddc93ad56657f7394366f8
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4ae7d7e2c6ac54a6063d9ac0342083105610f026
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB giriş: grafik API'si
 
@@ -113,7 +113,7 @@ Aşağıdaki tabloda Azure Cosmos DB karşı kullanabilirsiniz popüler Gremlin 
 | [Node.js](https://www.npmjs.com/package/gremlin) |[Github'da gremlin JavaScript](https://github.com/jbmusso/gremlin-javascript) |
 | [Gremlin konsol](https://tinkerpop.apache.org/downloads.html) |[TinkerPop belgeleri](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |
 
-Azure Cosmos DB ayrıca Gremlin genişletme yöntemleri üstüne sahip bir .NET kitaplığı sağlar [Azure Cosmos DB SDK'ları](documentdb-sdk-dotnet.md) NuGet aracılığıyla. Bu kitaplığı "veri bölümlere doğrudan bağlanmak için kullanabileceğiniz bir işlem" Gremlin sunucusu sağlar.
+Azure Cosmos DB ayrıca Gremlin genişletme yöntemleri üstüne sahip bir .NET kitaplığı sağlar [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md) NuGet aracılığıyla. Bu kitaplığı "veri bölümlere doğrudan bağlanmak için kullanabileceğiniz bir işlem" Gremlin sunucusu sağlar.
 
 | İndir | Belgeler |
 | --- | --- |

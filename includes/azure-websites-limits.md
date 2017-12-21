@@ -29,7 +29,7 @@
 
 <sup>1</sup>uygulamaları ve depolama kotaları aksi belirtilmediği sürece uygulama hizmeti plan başına şunlardır.  
 <sup>2</sup>bu makinelerde barındırabilir uygulamalar gerçek sayısını uygulamaları etkinliğini, makine örnekleri ve karşılık gelen kaynak kullanımı boyutunu bağlıdır.  
-<sup>3</sup>ayrılmış örnekleri farklı boyutlarda olabilir. Bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) daha fazla ayrıntı için.  
+<sup>3</sup>ayrılmış örnekleri farklı boyutlarda olabilir. Bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/) daha fazla ayrıntı için.  
 <sup>4</sup>premium katmanı sağlayan en çok 50, örnekleri (tabi kullanılabilirlik) ve 500 GB disk alanı App Service ortamları kullanırken hesaplar ve 20 işlem örnekleri ile 250 GB depolama Aksi takdirde.  
 <sup>5</sup>depolama sınırı toplam içerik tüm uygulamalar aynı uygulama hizmeti planında boyutudur. Daha fazla depolama seçenekleri kullanılabilir [uygulama hizmeti ortamı](../articles/app-service/environment/app-service-web-configure-an-app-service-environment.md#storage)  
 <sup>6</sup>bu kaynakları (örnek boyutu ve örnek sayısı) adanmış örneklerinde fiziksel kaynaklar tarafından kısıtlanmıştır.  

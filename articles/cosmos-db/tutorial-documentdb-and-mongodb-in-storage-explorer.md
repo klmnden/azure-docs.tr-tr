@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 8afb85eac8dec502406ca419623407b1dc228931
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Azure Depolama Gezgini (Önizleme) Azure Cosmos DB yönetme
 
@@ -32,7 +32,7 @@ Bu makalede, Depolama Gezgini Azure Cosmos DB yönetmek için nasıl kullanılac
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-MongoDB API ve SQL API'yi için bir Azure Cosmos DB hesap. Bir hesabınız yoksa, bir Azure Portalı'nda açıklandığı gibi oluşturabilirsiniz [Azure Cosmos DB: .NET ve Azure portal ile bir SQL API web uygulaması oluşturma](create-documentdb-dotnet.md).
+MongoDB API ve SQL API'yi için bir Azure Cosmos DB hesap. Bir hesabınız yoksa, bir Azure Portalı'nda açıklandığı gibi oluşturabilirsiniz [Azure Cosmos DB: .NET ve Azure portal ile bir SQL API web uygulaması oluşturma](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Yükleme
 
@@ -137,7 +137,7 @@ Yeni bir belge oluşturmak için açık **belgeleri** sol penceresinde **yeni be
 #### <a name="delete-a-document"></a>Bir belgeyi silme
 Tıklatın **silmek** seçili dosyayı silmek için düğmesini.
 #### <a name="query-for-documents"></a>Belgeler için sorgu
-Belge Filtresi girerek düzenleyin bir [SQL sorgusu](documentdb-sql-query.md) ve ardından **Uygula**.
+Belge Filtresi girerek düzenleyin bir [SQL sorgusu](sql-api-sql-query.md) ve ardından **Uygula**.
 
 ![Filtre](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 

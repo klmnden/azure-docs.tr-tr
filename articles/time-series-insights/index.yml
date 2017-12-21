@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/13/2017
   ms.author: kfile
-  ms.openlocfilehash: 08532fdde75215d6f00456637615ec93af7c9d6d
-  ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+  ms.openlocfilehash: 3c181142dcdb4132964ba5da9582b9f2b1ad817e
+  ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 11/15/2017
+  ms.lasthandoff: 12/14/2017
 abstract:
   description: "Time Series Insights ortamı ayarlama hakkında bilgi edinin, IoT çözümlerinizin veya bağlı öğelerin zaman serisi verilerini araştırıp çözümleyin. Belgelerde, önkoşullar, nasıl yapılır bilgileri, API başvuruları ve birkaç dakika içinde çalışmaya başlamanıza yardımcı olacak diğer makaleler bulunur."
 sections:
@@ -39,4 +39,4 @@ sections:
     className: cardsD
     items:
     - title: API'ler
-      html: "<p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-queryapi\">Sorgu API'si</a></p><p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-query-syntax\">Sorgu Söz Dizimi</a></p>"
+      html: "<p><a href=\"/rest/api/time-series-insights-management\">Kaynak Yönetim API’si</a></p>   <p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-queryapi\">Sorgu API'si</a></p><p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-query-syntax\">Sorgu Söz Dizimi</a></p>"

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 9838f0810f4827df3eb4f9407d4d4fbc1ad0ff4d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: a0e4df0ef0a1c873f1efcac1d8dbfe3cada18218
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-file"></a>Uygulamanızı Azure App Service'e bir ZIP dosyası ile dağıtma
 
@@ -25,7 +25,7 @@ Bu makalede, bir ZIP dosyası web uygulamanıza dağıtmak için nasıl kullanı
 
 Bu ZIP dosyası dağıtım o powers sürekli tümleştirme tabanlı dağıtımlar aynı Kudu hizmeti kullanır. Kudu ZIP dosyası dağıtım için aşağıdaki işlevi destekler: 
 
-- Önceki bir dağıtımın kalan dosyaları silme.
+- Dosyaların silinmesini önceki bir dağıtımın kalan.
 - Paket geri yüklemesi içerir varsayılan derleme işlemini üzerinde bırakma seçeneği.
 - [Dağıtım özelleştirme](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings)gibi dağıtım betikleri çalıştırma.  
 - Dağıtım günlükleri. 
@@ -92,7 +92,7 @@ Bu uygulama için dağıtımları listesini görüntülemek için (sonraki böl�
 
 Daha gelişmiş dağıtım senaryoları için deneyin [Git ile azure'a dağıtma](app-service-deploy-local-git.md). Azure Git tabanlı dağıtımına sürüm denetimi, paket geri yüklemesi, MSBuild ve daha fazlasını sağlar.
 
-## <a name="more-resources"></a>Daha Fazla Kaynak
+## <a name="more-resources"></a>Diğer kaynaklar
 
 * [Kudu: zip dosyasından dağıtma](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure uygulama hizmeti dağıtım kimlik bilgileri](app-service-deploy-ftp.md)

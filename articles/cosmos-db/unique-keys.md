@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 85157f3f0bcf86ae049c0bec76afb0ca33797b11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos veritabanı benzersiz anahtar
 
 Benzersiz anahtarlar geliştiricilerin kendi veri bütünlüğü katmanı eklemek için olanak sağlar. Bir kapsayıcı oluşturulduğunda, benzersiz bir anahtar ilke oluşturarak, bir veya daha fazla değer benzersizliğini olun [bölüm anahtarı](partition-data.md). Bir kapsayıcı benzersiz bir anahtar ilkesiyle oluşturulduktan sonra tüm yeni veya güncelleştirilmiş öğeleri yinelenen değerleri benzersiz anahtar kısıtlaması tarafından belirtilen değerlerle oluşturulmasını engeller.   
 
 > [!NOTE]
-> Benzersiz anahtarlar en son sürümleri tarafından desteklenir [.NET](documentdb-sdk-dotnet.md) ve [.NET Core](documentdb-sdk-dotnet-core.md) SQL SDK'ları ve [MongoDB API](mongodb-feature-support.md#unique-indexes). Tablo API ve grafik API'si benzersiz anahtarları şu anda desteklemiyor. 
+> Benzersiz anahtarlar en son sürümleri tarafından desteklenir [.NET](sql-api-sdk-dotnet.md) ve [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK'ları ve [MongoDB API](mongodb-feature-support.md#unique-indexes). Tablo API ve grafik API'si benzersiz anahtarları şu anda desteklemiyor. 
 > 
 >
 

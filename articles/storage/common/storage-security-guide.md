@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 9cb109dd9ce5a14bb80be61577c10d7191ec5ce6
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 ## <a name="overview"></a>Genel Bakış
@@ -295,7 +295,7 @@ Tüm depolama hesabı için geçerli bir ayar budur. Etkinleştirin ve ayarın d
 
 Şu anda şifreleme için kullanılan anahtarları Microsoft tarafından yönetilir. Biz anahtarları başlangıçta oluşturur ve normal döndürme yanı sıra anahtarları Güvenli Depolama iç Microsoft İlkesi tarafından tanımlandığı şekilde yönetin. Gelecekte, kendi şifreleme anahtarlarınızı yönetme olanağı alın ve müşteri tarafından yönetilen anahtarlarına anahtarlardan Microsoft tarafından yönetilen bir geçiş yolu sağlayın.
 
-Bu özellik, Resource Manager dağıtım modeli kullanılarak oluşturulan standart ve Premium depolama hesapları için kullanılabilir. SSE yalnızca, sayfa blobları blok ve ilave blobları için geçerlidir. Veri tabloları, kuyrukları ve dosyaları da dahil olmak üzere, başka türlerde şifrelenmez.
+Bu özellik, Resource Manager dağıtım modeli kullanılarak oluşturulan standart ve Premium depolama hesapları için kullanılabilir. SSE veri herhangi bir tür için geçerlidir: blok blobları, sayfa blobları, BLOB'lar, tablolar, kuyruklar ve dosyaları ekleyin.
 
 Veriler yalnızca SSE etkin olduğunda ve veriler Blob depolama alanına yazılır şifrelenir. Etkinleştirme veya devre dışı bırakma SSE mevcut verileri etkilemez. Diğer bir deyişle, bu şifreleme etkinleştirdiğinizde, bu değil geri dönün ve zaten verileri şifrelemek; veya SSE devre dışı bıraktığınızda önceden var olan verilerin şifresini.
 
@@ -380,7 +380,7 @@ Bir veri diski ekleyin ve VM bağlamak, bu veri diskte Azure Disk şifrelemesi k
 #### <a name="storage-service-encryption-sse"></a>Depolama hizmeti şifrelemesi (SSE)
 SSE Azure Storage tarafından yönetilir. Aktarımdaki verileri güvenlik SSE kullanarak sağlamaz, ancak Azure depolama alanına yazılır gibi verileri şifreliyor. Üzerinde etkisi yoktur performansı üzerinde bu özelliği kullanırken.
 
-Yalnızca blok blobları şifreleme, ekleme blobları ve SSE kullanarak blob'lara sayfa. Tablo verisi veya sırası verileri şifrelemek gerekiyorsa, istemci tarafı şifreleme kullanmayı düşünün.
+Her türlü veri SSE kullanarak depolama hesabının şifreleyebilir (blok blobları, ekleme blobları, sayfa BLOB'ları, tablo verileri, kuyruk verileri ve dosyaları).
 
 Bir arşiv veya kitaplık yeni sanal makineler oluşturmak için temel olarak kullanmak VHD dosyalarının varsa, yeni bir depolama hesabı oluşturmak, SSE etkinleştir ve bu hesaba VHD dosyalarını karşıya yükleyin. Bu VHD dosyalarını Azure Storage tarafından şifrelenir.
 
@@ -515,7 +515,7 @@ CORS ve etkinleştirmek hakkında daha fazla bilgi için lütfen aşağıdaki ka
 
    Microsoft FIPS modunda etkinleştirmek karar vermek için her bir müşteri kadar bırakır. Varsayılan olarak FIPS modunda etkinleştirmek için kamu düzenlemeleri tabi olmayan müşteriler ilgi çekici bir neden yoktur inanıyoruz.
 
-   **Kaynakları**
+   **Kaynaklar**
 
 * [Neden biz "FIPS modunda" artık öneren değil](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 

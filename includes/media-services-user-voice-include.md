@@ -7,4 +7,4 @@ Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında öner
 * [Medya analizi](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 * [Azure portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [REST API ve platform](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
-* [Video isteğe bağlı akış](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
+* [Akış isteğe bağlı video](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

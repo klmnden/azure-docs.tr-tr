@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Belge verileri NoSQL veritabanları için modelleme
 Azure Cosmos DB gibi şemasız veritabanı yaparken veri modelinizi değişiklikler kucaklamaya Süper kolay hala bazı zaman düşünmeye verilerinizle ilgili harcadığınız. 
@@ -39,7 +39,7 @@ Varlıklarınızı davranmanız Azure Cosmos DB gibi bir belge deposundaki veril
 
 Biz daha yakından inceleyin önce çok daha çok, bize birkaç adımı yeniden alın ve nasıl biz bize çoğunu bilginiz konu ilişkisel bir veritabanındaki bir şey model bir göz gerekir. Aşağıdaki örnek, bir kişinin ilişkisel bir veritabanına nasıl depolanabilir gösterir. 
 
-![İlişkisel veritabanı modeli](./media/documentdb-modeling-data/relational-data-model.png)
+![İlişkisel veritabanı modeli](./media/sql-api-modeling-data/relational-data-model.png)
 
 İlişkisel veritabanları ile çalışırken, biz normalleştirmek için normalleştirin, normalleştirin yıldır öğrettin.
 
@@ -290,7 +290,7 @@ Yukarıdaki örnekte, biz yayımcı belge üzerinde sınırsız koleksiyonu bır
 ### <a name="how-do-i-model-manymany-relationships"></a>Çok: ilişkileri nasıl model?
 İlişkisel bir veritabanındaki *çok:* ilişkileri genellikle yalnızca diğer tablolardan kayıtları birlikte katılma birleştirme tablolarla modellenir. 
 
-![Tabloları birleştirme](./media/documentdb-modeling-data/join-table.png)
+![Tabloları birleştirme](./media/sql-api-modeling-data/join-table.png)
 
 Belgeleri kullanarak aynı şeyi çoğaltabilir ve aşağıdakine benzer bir veri modeli oluşturmak için isteği duyabilirsiniz.
 
@@ -395,4 +395,4 @@ Yalnızca olduğundan ekranda verileri bir parçasını temsil etmek için tek b
 
 Azure Cosmos DB hakkında daha fazla bilgi için hizmetin bakın [belgelerine](https://azure.microsoft.com/documentation/services/cosmos-db/) sayfası. 
 
-Parça için verilerinizi birden çok bölüm arasında nasıl başvurmak için anlamak için [bölümleme veri Azure Cosmos veritabanı](documentdb-partition-data.md). 
+Parça için verilerinizi birden çok bölüm arasında nasıl başvurmak için anlamak için [bölümleme veri Azure Cosmos veritabanı](sql-api-partition-data.md). 

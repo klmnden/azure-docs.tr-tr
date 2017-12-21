@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4e673a92a9740b96eac20cdf5673395bacca8b77
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Medya işlemcisi örneği alma
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Medya işlemcisi kodlama gibi kodlama, ek olarak, belirli işleme görevi işleyen bir bileşenidir Media Services'de şifreleme veya medya içeriği çözme dönüştürme biçimi. Kodlama, şifreleme veya medya içeriği biçimine dönüştürmek için bir görev oluştururken genellikle medya işlemcisi oluşturun.
+Medya işlemcileri belirli video veya ses işleme görevi, kodlama gibi kodlama, biçimini dönüştürme, şifreleme veya şifresi çözme medya içeriği işleyen bir bileşeni var. Media Services'e gönderilen tüm görevleri kodlamak, şifrelemek veya ses veya video içeriğin dönüştürülmesi için medya işlemcisi gerektirir. 
 
 ## <a name="azure-media-processors"></a>Azure medya işlemcileri 
 
@@ -44,8 +44,6 @@ Aşağıdaki konu medya işlemcileri listesi sağlar:
 
 AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir.
 
 ## <a name="get-a-media-processor"></a>Medya işlemcisi Al
 
@@ -60,7 +58,7 @@ Medya işlemcisi örneği tarafından adını almak nasıl aşağıdaki REST ça
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Yanıtı:
@@ -89,5 +87,5 @@ Yanıtı:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Medya işlemcisi örneği alma bildiğinize göre Git [bir varlık kodlama](media-services-rest-get-started.md) konu Medya Kodlayıcısı standart bir varlık kodlama için nasıl kullanılacağını gösterir.
+Medya işlemcisi örneği alma bildiğinize göre Git [bir varlık kodlama](media-services-rest-get-started.md) Medya Kodlayıcısı standart bir varlık kodlama nasıl kullanılacağını göstermektedir makalesi.
 

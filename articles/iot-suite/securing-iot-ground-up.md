@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.openlocfilehash: b876881af6ead69906c14cf7aeeab70130ba66ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5979e5e4baa385cc0aaff5f1277f2a0f7492c426
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Nesnelerin interneti güvenlik sıfırdan
 Nesnelerin interneti (IOT) işletmelere dünya çapındaki benzersiz güvenlik, gizlilik ve uyumluluk sorunları doğurur. Bu sorunları yazılım ve nasıl uygulandığı burada Uzayda Döndür geleneksel siber teknolojisi farklı olarak, sanal ve fiziksel dünyaları yakınsama ne olur IOT ilgilidir. IOT çözümleri koruma cihazları, bu cihazlar ve Bulut ve işleme ve depolama sırasında bulutta güvenli veri koruması arasında güvenli bağlantı güvenli sağlanmasını sağlama gerektirir. Bu tür işlevselliği karşı çalışan, ancak, kaynak kısıtlı cihazları, dağıtımları coğrafi dağıtılması ve aygıtları bir çözüm içinde çok sayıda değildir.
@@ -84,7 +84,7 @@ Ek bağlantı güvenlik özellikleri şunlardır:
 
 Verileri bulutta eklendiğinde, işlenen ve hiçbir kullanıcı tarafından tanımlanan iş akışı içinde depolanır. Her veri parçası için erişim Azure Active Directory ile kullanılan depolama hizmeti bağlı olarak denetlenir.
 
-IOT altyapısı tarafından kullanılan tüm anahtarları anahtarları yeniden sağlanan olması gerektiğinde, UTC'ye olanağı güvenli depolama bulutta depolanır. Veri depolanabilir [Azure Cosmos DB](../documentdb/documentdb-introduction.md) veya [SQL veritabanları](../sql-database/sql-database-faq.md), istenen güvenlik düzeyini tanımını etkinleştirme. Ayrıca, Azure izlemek ve verilerinize herhangi yetkisiz erişim, sizi uyarmak için tüm erişim ya da yetkisiz erişimi denetlemek için bir yol sağlar.
+IOT altyapısı tarafından kullanılan tüm anahtarları anahtarları yeniden sağlanan olması gerektiğinde, UTC'ye olanağı güvenli depolama bulutta depolanır. Veri depolanabilir [Azure Cosmos DB](../cosmos-db/introduction.md) veya [SQL veritabanları](../sql-database/sql-database-faq.md), istenen güvenlik düzeyini tanımını etkinleştirme. Ayrıca, Azure izlemek ve verilerinize herhangi yetkisiz erişim, sizi uyarmak için tüm erişim ya da yetkisiz erişimi denetlemek için bir yol sağlar.
 
 ## <a name="conclusion"></a>Sonuç
 Nesnelerin interneti, olguları başlatır — işletmeler için en önemli noktalar. IOT inanılmaz değeri maliyetlerini azaltma gelir artırma ve iş dönüştürme için bir iş sunabilir. Bu dönüşüm başarısını büyük ölçüde sağ IOT yazılım ve hizmet sağlayıcısı seçme bağlıdır. Yalnızca bu dönüşüm anlama iş gereksinimlerine göre catalyzes, ancak Ayrıca, hizmetleri ve güvenlik, gizlilik, saydamlık ve önemli tasarım konuları olarak uyum ile oluşturulan yazılım sağlar bir sağlayıcı bulma anlamına gelir. Microsoft geliştirme ve güvenli yazılım ve Hizmetleri dağıtma ile geniş kapsamlı deneyimlerden ve öncü bu yeni nesnelerin interneti geçerlilik süresi içinde olacak şekilde devam eder. 

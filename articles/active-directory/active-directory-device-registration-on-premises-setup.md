@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4117414f4605b73d8aab8acc2e788720deff8b99
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak şirket içi koşullu erişimi ayarlama
 Azure Active Directory (Azure AD) cihaz kayıt hizmeti için kişisel cihazlarını çalışma alanına katılma kullanıcılara ihtiyaç duyduğunuzda, cihazlarını kuruluşunuza bilinen olarak işaretlenebilir. Aşağıda, Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimi etkinleştirmek için adım adım yönergeler verilmektedir.
@@ -101,19 +101,13 @@ Dağıtımı tamamlanmıştır ve bazı senaryolar deneyebilirsiniz. Hizmet ile 
 | Kullanıcılar, cihazlarını kaydedebilir, uygulama oluşturabileceğiniz erişim ilkeleri yalnızca kayıtlı cihazlara izin AD FS'de. Bu görevde, bir uygulama erişim kuralı ve özel bir erişim reddedildi iletisi oluşturun. |[Bir uygulama erişim ilkesi ve özel erişim reddedildi iletisi oluştur](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Azure Active Directory şirket içi Active Directory ile tümleştirme
-Bu adım, Azure AD kiracısı Azure AD Connect kullanarak şirket içi Active Directory ile tümleştirmenize yardımcı olur. Adımları Klasik Azure portalında kullanılabilir olsa da, bu bölümde listelenen tüm özel yönergeleri not edin.
 
-1. Azure AD genel yönetici olan bir hesabı kullanarak Klasik Azure portalında oturum açın.
-2. Sol bölmede **Active Directory**'yi seçin.
-3. **Directory (Dizin)** sekmesinde dizininizi seçin.
-4. Seçin **dizin tümleştirme** sekmesi.
-5. Altında **dağıtma ve yönetme** bölümünde, 1-3 ile şirket içi dizininizi Azure Active Directory Tümleştirme arası adımları izleyin.
-   
-   1. Etki alanlarını ekleyin.
-   2. Yükleme ve yönergeleri kullanarak Azure AD Connect çalıştırma [Azure AD Connect özel yüklemesi](connect/active-directory-aadconnect-get-started-custom.md).
-   3. Doğrulayın ve directory eşitleme yönetin. Çoklu oturum açma yönergeleri Bu adımı içinde kullanılabilir.
-   
-   Ayrıca, Federasyon kısmında özetlendiği gibi AD FS ile yapılandırmak [Azure AD Connect özel yüklemesi](connect/active-directory-aadconnect-get-started-custom.md).
+**Bkz.:**
+
+- [Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](./connect/active-directory-aadconnect.md) - kavramsal bilgileri gözden geçirin.
+
+- [Azure AD Connect özel yüklemesi](./connect/active-directory-aadconnect-get-started-custom.md) - yükleme yönergeleri için.
+
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Active Directory etki alanı Hizmetleri şeması yükseltme
 > [!NOTE]

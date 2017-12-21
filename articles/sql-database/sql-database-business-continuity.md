@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: 936f95700cb57325a572e5509334398a724c4986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -129,7 +129,7 @@ Kullandığınız iş sürekliliği özelliğinden bağımsız olarak aşağıda
 Ayrıca, düzgün şekilde, bir yük devretme veya bir veritabanı kurtarma ek süre gerçekleştirildikten sonra çevrimiçi ve büyük olasılıkla uygulamalarınızı getiren değil hazırlıyorsanız stres - bozuk birlikte aynı anda sorun giderme gerektirir.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Coğrafi olarak çoğaltılmış bir ikincil veritabanı yük devri
-Aktif coğrafi çoğaltma ve otomatik yük devretme grupları (Önizleme-), kurtarma mekanizması olarak kullanıyorsanız, bir otomatik yük devretme İlkesi yapılandırmak veya kullanmak [el ile yük devretme](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-database). Yük devretme başlatılan sonra yeni birincil haline gelir ve yeni işlemleri kaydetmek ve henüz çoğaltılan veriler için en düşük düzeyde veri kaybı ile - sorgularını yanıtlamak için hazır ikincil neden olur. Yük devretme işlemini tasarlama hakkında daha fazla bilgi için bkz: [bulut olağanüstü durum kurtarma için bir uygulama tasarlamanızı](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Aktif coğrafi çoğaltma ve otomatik yük devretme grupları (Önizleme-), kurtarma mekanizması olarak kullanıyorsanız, bir otomatik yük devretme İlkesi yapılandırmak veya kullanmak [el ile yük devretme](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Yük devretme başlatılan sonra yeni birincil haline gelir ve yeni işlemleri kaydetmek ve henüz çoğaltılan veriler için en düşük düzeyde veri kaybı ile - sorgularını yanıtlamak için hazır ikincil neden olur. Yük devretme işlemini tasarlama hakkında daha fazla bilgi için bkz: [bulut olağanüstü durum kurtarma için bir uygulama tasarlamanızı](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Veri Merkezi tekrar çevrimiçi olduğunda eski ana otomatik olarak yeniden yeni birincil ve ikincil veritabanlarıyla haline gelir. Özgün bölgesine birincil geri taşıyabilir gerekiyorsa, planlanmış bir yük devretme el ile başlatabilir (yeniden çalışma). 

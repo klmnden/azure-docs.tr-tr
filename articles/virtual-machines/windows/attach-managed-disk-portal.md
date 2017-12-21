@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Nasıl bir Windows VM Azure portalında bir yönetilen veri diski kullanıma açın
 
@@ -35,26 +35,26 @@ Ayrıca [Powershell kullanarak bir veri diskini](attach-disk-ps.md).
 ## <a name="add-a-data-disk"></a>Bir veri diski Ekle
 1. Soldaki menüde tıklatın **sanal makineleri**.
 2. Listeden sanal makineyi seçin.
-3. Sanal makine dikey penceresinde **diskleri**.
-   4. Üzerinde **diskleri** dikey penceresinde tıklatın **+ Ekle veri diski**.
-5. Açılan yeni disk için seçin **boş oluşturma**.
-6. İçinde **oluşturma yönetilen disk** dikey penceresinde, disk için bir ad yazın ve diğer ayarları gerektiği gibi ayarlayın. İşiniz bittiğinde tıklatın **oluşturma**.
-7. İçinde **diskleri** dikey penceresinde, VM için yeni disk yapılandırmasını kaydetmek için Kaydet'i tıklatın.
+3. Sanal makine sayfasında, tıklatın **diskleri**.
+4. Üzerinde **diskleri** sayfasında, **+ Ekle veri diski**.
+5. Açılan yeni disk için seçin **oluşturma disk**.
+6. İçinde **oluşturma yönetilen disk** sayfasında, disk için bir ad yazın ve diğer ayarları gerektiği gibi ayarlayın. İşiniz bittiğinde tıklatın **oluşturma**.
+7. İçinde **diskleri** sayfasında, **kaydetmek** VM için yeni disk yapılandırmasını kaydetmek için.
 6. Azure disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenen **veri diskleri**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Yeni bir veri diski başlatın
 
 1. VM'ye bağlanın.
-1. Başlat menüsünü türü ve VM içinde **diskmgmt.msc** ve isabet **Enter**. Bu, Disk Yönetimi ek bileşenini başlatır.
-2. Disk Yönetimi yeni ve başlatılmamış bir disk varsa ve diski başlatma penceresini kalkar algılar.
+1. Başlat menüsünü türü ve VM içinde **diskmgmt.msc** ve isabet **Enter**. Disk Yönetimi ek bileşenini açar.
+2. Disk Yönetimi tanıdığı yeni ve başlatılmamış bir disk olması ve **diski başlatma** penceresi açılır.
 3. Yeni disk seçildiğinden emin olun ve tıklayın **Tamam** başlatmak üzere.
-4. Yeni disk şimdi olarak görünür **ayrılmamış**. Herhangi bir yere sağ tıklatın ve disk **yeni basit birim**. **Yeni Basit Birim Sihirbazı** başlar.
+4. Yeni disk olarak görüntülenir **ayrılmamış**. Herhangi bir yere sağ tıklatın ve disk **yeni basit birim**. **Yeni Basit Birim Sihirbazı** açar.
 5. Seçim yapıldığında tüm varsayılanları, tutma Sihirbazı aracılığıyla gidin **son**.
 6. Disk Yönetimi'ni kapatın.
-7. Kullanabilmeniz için önce yeni diski biçimlendirmek için gereken bir açılır pencere alırsınız. Tıklatın **biçimi disk**.
+7. Kullanabilmeniz için önce yeni diski biçimlendirmek için gereken bir açılır pencere alın. Tıklatın **biçimi disk**.
 8. İçinde **biçimi yeni disk** iletişim ayarlarını kontrol edin ve ardından **Başlat**.
-9. Diskleri biçimlendirme tüm verileri silme, tıklatın bir uyarı alırsınız **Tamam**.
+9. Diskleri biçimlendirme tüm verileri siler, bir uyarı almak, tıklatın **Tamam**.
 10. Biçimlendirme tamamlandığında tıklatın **Tamam**.
 
 ## <a name="use-trim-with-standard-storage"></a>Standart depolama ile kullanmak üzere KIRPMA
@@ -81,4 +81,4 @@ defrag.exe <volume:> -l
 Ayrıca, tüm birim birim biçimlendirme kırpılır emin olabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Uygulama, D: kullanması gerekirse, verileri depolamak için sürücü, şunları yapabilirsiniz [Windows geçici disk sürücü harfini değiştirin](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Uygulamanızı D: kullanması gerekirse, verileri depolamak için sürücü, şunları yapabilirsiniz [Windows geçici disk sürücü harfini değiştirin](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

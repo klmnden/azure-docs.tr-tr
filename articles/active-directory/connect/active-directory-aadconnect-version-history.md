@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 0781aef200ec075f8f7a21027cb8f9b65965cb43
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: HT
+ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -84,11 +84,12 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 Burada 
 
-$ObjectDN = Active Directory hesap izinlerini sıkılaştırıldığını gerekir.
-$Credential Active Directory'ye konuşurken istemci kimlik doğrulaması için kullanılan kimlik bilgilerini =. Bu genellikle ihtiyaçlarını sıkılaştırma izinlerini hesabı oluşturmak için kullanılan kuruluş yöneticisi kimlik bilgilerini içindir.
+**$ObjectDN** = Active Directory hesap izinlerini sıkılaştırıldığını gerekir.
+
+**$Credential** $ObjectDN hesap izinlerini kısıtlamak için gerekli ayrıcalıklara sahip yönetici kimlik bilgileri =. Bu genellikle kuruluş veya etki alanı yönetici olur. Hesap arama hatalarını önlemek için yönetici hesabı tam etki alanı adını kullanın. Örnek: contoso.com\admin.
 
 >[!NOTE] 
->$credential. Kullanıcı adı etki alanı\kullanıcı adı biçiminde olmalıdır.  
+>$credential. Kullanıcı adı FQDN\username biçiminde olmalıdır. Örnek: contoso.com\admin 
 
 ##### <a name="example"></a>Örnek:
 

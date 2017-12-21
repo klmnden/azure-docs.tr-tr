@@ -6,7 +6,7 @@
 2. İstenen DNS adını girin ve ardından **kaydetmek**.
    
    ![Ortak IP kaynağınız için bir DNS ad etiketi girin](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
- 
+
 
 3. VM genel bakış dikey penceresine dönmek için Kapat *genel IP adresi* dikey. Doğrulayın *DNS adı* şimdi gösterilir.
    

@@ -1,33 +1,25 @@
 ---
-title: "Hızlı Başlangıç - PowerShell ile ilk Azure kapsayıcı örnekleri kapsayıcı oluşturma"
-description: "Azure kapsayıcı örnekleriyle PowerShell ile bir Windows kapsayıcı örneği oluşturarak başlayın."
+title: "Hızlı Başlangıç - PowerShell ile ilk Azure Container Instances kapsayıcınızı oluşturma"
+description: "PowerShell ile bir Windows kapsayıcı örneği oluşturarak Azure Container Instances kullanmaya başlayın."
 services: container-instances
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/15/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: ca10274fc6a23d7f5e7436dbaf72a6e7a918f275
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.openlocfilehash: f24619c9ff2667bb96827b1f17bf9ff04b42eaff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances’da ilk kapsayıcınızı oluşturma
 
-Azure kapsayıcı örnekleri oluşturmak ve sanal makineler sağlamak veya bir üst düzey hizmet benimsemeyi zorunda kalmadan, azure'da Docker kapsayıcıları yönetmek kolay hale getirir.
+Azure Container Instances, sanal makine sağlamak veya daha yüksek düzey bir hizmet benimsemek zorunda kalmadan Azure’da Docker kapsayıcıları oluşturmayı ve yönetmeyi kolaylaştırır.
 
-Bu Hızlı Başlangıç Windows kapsayıcı oluşturmak ve genel bir IP adresi ile Internet'e kullanıma. Bu işlem tek bir komutla tamamlanır. Yalnızca birkaç dakika içinde tarayıcınızı çalışan uygulama görebilirsiniz:
+Bu hızlı başlangıç içeriğinde, bir Windows kapsayıcısı oluşturacak ve bu kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunacaksınız. Bu işlem tek bir komutla tamamlanır. Birkaç dakika içinde, çalışan uygulamayı tarayıcınızda görüntüleyebilirsiniz:
 
 ![Azure Container Instances kullanılarak dağıtılmış uygulama tarayıcıda görüntüleniyor][qs-powershell-01]
 
@@ -39,7 +31,7 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, 
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-Bir Azure kaynak grubu ile oluşturma [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+[New-AzureRmResourceGroup][New-AzureRmResourceGroup] ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
  ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
@@ -47,19 +39,19 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-Bir ad, bir Docker görüntüsü ve bir Azure kaynak grubu sağlayarak bir kapsayıcı oluşturabilirsiniz [yeni AzureRmContainerGroup] [ New-AzureRmContainerGroup] cmdlet'i. İsteğe bağlı olarak, kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunabilirsiniz. Bu durumda, Internet Information Services (IIS) çalıştıran bir Windows Nano Server kapsayıcı kullanacağız.
+[New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet’ine bir ad, Docker görüntüsü ve bir Azure kaynak grubu sağlayarak kapsayıcı oluşturabilirsiniz. İsteğe bağlı olarak, kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunabilirsiniz. Bu durumda, Internet Information Services (IIS) çalıştıran bir Windows Nano Sunucu kullanacağız.
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
 ```
 
-Birkaç saniye içinde isteğinize yanıt elde edersiniz. Başlangıçta, içinde kapsayıcıdır **oluşturma** durumu, ancak bir veya iki dakika içinde başlamalıdır. Durum kullanarak denetleyebilirsiniz [Get-AzureRmContainerGroup] [ Get-AzureRmContainerGroup] cmdlet:
+Birkaç saniye içinde isteğinize yanıt alırsınız. Kapsayıcı başlangıçta **Oluşturuluyor** durumunda olacaktır ancak bir veya iki dakika içinde başlar. [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] cmdlet’ini kullanarak durumu denetleyebilirsiniz:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-Kapsayıcının sağlama durumunu ve IP adresi cmdlet çıktısında görüntülenir:
+Kapsayıcının sağlama durumu ve IP adresi cmdlet çıkışında görüntülenir:
 
 ```
 ResourceGroupName        : myResourceGroup
@@ -78,13 +70,13 @@ OsType                   : Windows
 Volumes                  :
 ```
 
-Kapsayıcı **ProvisioningState** taşır `Succeeded`, sağlanan IP adresi kullanarak tarayıcınızda ulaşabilirsiniz.
+Kapsayıcı **ProvisioningState** `Succeeded` durumuna geçtiğinde, sağlanan IP adresini kullanarak tarayıcınızdan kapsayıcıya ulaşabilirsiniz.
 
-![Azure kapsayıcı örnekleri kullanılarak dağıtılan IIS tarayıcıda görüntülenen][qs-powershell-01]
+![Azure Container Instances kullanılarak dağıtılmış IIS tarayıcıda görüntüleniyor][qs-powershell-01]
 
 ## <a name="delete-the-container"></a>Kapsayıcıyı silme
 
-Kapsayıcıyla bittiğinde kullanarak kaldırabilirsiniz [Kaldır AzureRmContainerGroup] [ Remove-AzureRmContainerGroup] cmdlet:
+Kapsayıcıyla işiniz bittiğinde [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] cmdlet’ini kullanarak kapsayıcıyı kaldırabilirsiniz:
 
  ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -92,10 +84,10 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç Azure kapsayıcı örneği önceden oluşturulmuş bir Windows kapsayıcısında başlatıldı. Kendiniz bir kapsayıcı oluşturma ve Azure kapsayıcı kayıt defterini kullanarak Azure kapsayıcı örnekleri için dağıtımı Azure kapsayıcı örnekleri Öğreticisine devam istiyorsanız.
+Bu hızlı başlangıçta, Azure Container Instances’da önceden oluşturulmuş bir Windows kapsayıcısı başlattınız. Kapsayıcıyı kendiniz oluşturup Azure Container Registry’yi kullanarak Azure Container Instances’a dağıtmayı denemek istiyorsanız Azure Container Instances öğreticisine geçin.
 
 > [!div class="nextstepaction"]
-> [Azure kapsayıcı örnekleri Öğreticisi](./container-instances-tutorial-prepare-app.md)
+> [Azure Container Instances öğreticisi](./container-instances-tutorial-prepare-app.md)
 
 <!-- LINKS -->
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
