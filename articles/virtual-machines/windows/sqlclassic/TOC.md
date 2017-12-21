@@ -12,7 +12,6 @@
 # Nasıl yapılır?
 ## Yüksek Kullanılabilirliği Yapılandırma
 ### [Yüksek kullanılabilirlik seçenekleri](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Portalda Always On kullanılabilirlik grubu yapılandırma](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [PowerShell ile Always On kullanılabilirlik grubu yapılandırma](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Kullanılabilirlik grubu için iç dinleyici yapılandırma](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Kullanılabilirlik grubu için dış dinleyici yapılandırma](virtual-machines-windows-classic-ps-sql-ext-listener.md)

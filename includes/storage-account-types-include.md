@@ -19,7 +19,7 @@ Blob Storage hesapları, hesap oluşturma sırasında belirtilebilen, gerektiği
 * **Sık Erişimli** erişim katmanı; depolama hesabındaki nesnelere erişimin daha sık olduğunu belirtir. Bu, verileri daha düşük bir erişim maliyetiyle depolamanızı sağlar.
 * **Seyrek Erişimli** erişim katmanı; depolama hesabındaki nesnelere erişimin daha seyrek olduğunu belirtir. Bu, verileri daha düşük bir veri depolama maliyetiyle depolamanızı sağlar.
 
-Verilerinizin kullanım düzeninde bir değişiklik olursa,herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz. Erişim katmanının değiştirilmesi ek ücretlere neden olabilir. Daha fazla ayrıntı için lütfen bkz. [Blob Storage hesapları için fiyatlandırma ve faturalama](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing).
+Verilerinizin kullanım düzeninde bir değişiklik olursa,herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz. Erişim katmanının değiştirilmesi ek ücretlere neden olabilir. Daha fazla ayrıntı için lütfen bkz. [Blob Storage hesapları için fiyatlandırma ve faturalama](../articles/storage/common/storage-account-options.md#pricing-and-billing).
 
 Blob Storage hesapları hakkında daha fazla ayrıntı için bkz. [Azure Blob Storage: Seyrek Erişimli ve Sık Erişimli katmanlar](../articles/storage/blobs/storage-blob-storage-tiers.md).
 

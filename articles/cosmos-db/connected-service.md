@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio Bağlı Hizmeti (Önizleme)
 
@@ -33,7 +33,7 @@ Bağlı Hizmet içindeki Veri Gezgini'ni kullanarak ayrıca saklı yordamlar, UD
 Aşağıdaki öğelere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz. 
-* Bir Azure Cosmos DB hesabı. Hesabınız yoksa [Bir Azure Cosmos DB hesabı oluşturun](create-documentdb-dotnet.md) sayfasındaki adımları izleyerek Azure portalında hesap oluşturabilir veya [Bağlı Hizmet aracında bir Azure Cosmos DB hesabı oluşturma](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool) sayfasını inceleyebilirsiniz. 
+* Bir Azure Cosmos DB hesabı. Hesabınız yoksa [Bir Azure Cosmos DB hesabı oluşturun](create-sql-api-dotnet.md) sayfasındaki adımları izleyerek Azure portalında hesap oluşturabilir veya [Bağlı Hizmet aracında bir Azure Cosmos DB hesabı oluşturma](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool) sayfasını inceleyebilirsiniz. 
 * Geliştirme amacıyla yerel ortam kullanmak istiyorsanız [Azure Cosmos DB Öykünücüsü](local-emulator.md)'nü kullanabilirsiniz. Ortam Azure Cosmos DB hizmetine öykünür.
 * [Visual Studio](http://www.visualstudio.com/).
 * En son Azure Cosmos DB Bağlı Hizmeti bitleri. Azure Cosmos DB Bağlı Hizmetini aşağıdaki ekran görüntüsünde gösterilen şekilde Visual Studio Market'ten indirebilirsiniz. Bilgisayarınızda **Visual Studio**'yu açın. **Araçlar** menüsünde **Uzantılar ve güncelleştirme...** öğesini seçin ve ardından **Çevrimiçi** / **Visual Studio Market**'i belirleyin. Bitleri aramak için **cosmosdb** yazın.
@@ -119,8 +119,8 @@ Bu belgede aşağıdakileri öğrendiniz:
 
 Bağlı Hizmetleri Azure Cosmos DB hesabınızla birlikte çalışır hale getirdiniz. Aşağıdaki öğreticilerden birine geçerek çözümünüzü geliştirmeye başlayabilirsiniz:
 
-* [.NET’te SQL API’siyle geliştirme](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB: SQL API’yi kullanmaya başlama öğreticisi](documentdb-get-started.md).
+* [.NET’te SQL API’siyle geliştirme](tutorial-develop-sql-api-dotnet.md).
+* [Azure Cosmos DB: SQL API’yi kullanmaya başlama öğreticisi](sql-api-get-started.md).
 * Azure Cosmos DB ile ölçek ve performans testi mi yapmak istiyorsunuz? Bkz. [Azure Cosmos DB ile Performans ve Ölçek Testi](performance-testing.md).
 * [Azure Cosmos DB hesabını nasıl izleyebileceğinizi](monitor-accounts.md) öğrenin.
 
