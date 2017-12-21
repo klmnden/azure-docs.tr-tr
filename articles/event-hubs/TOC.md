@@ -22,6 +22,8 @@
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
+### [Yönetilen Hizmet Kimliği (önizleme)](event-hubs-managed-service-identity.md)
+### [Rol Tabanlı Erişim Denetimi (önizleme)](event-hubs-role-based-access-control.md)
 ### [Coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma](event-hubs-geo-dr.md)
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Kimlik doğrulama ve güvenlik modeline genel bakış](event-hubs-authentication-and-security-model-overview.md)

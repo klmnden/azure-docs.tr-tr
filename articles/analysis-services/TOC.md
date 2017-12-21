@@ -13,17 +13,21 @@
 ## [Azure portalında bir model oluşturma (önizleme)](analysis-services-create-model-portal.md)
 
 # Nasıl yapılır 
-## [Sunucu yönetme](analysis-services-manage.md)
-## [Veritabanı kullanıcılarını yönetme](analysis-services-database-users.md)
-## [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)
-## [Sunucu ölçümlerini izleme](analysis-services-monitor.md)
 ## [Şirket içi veri ağ geçidini yükleme ve yapılandırma](analysis-services-gateway-install.md)
-## [İstemci kitaplıkları alma](analysis-services-data-providers.md)
 ## [Yedekleme ve geri yükleme](analysis-services-backup.md)
+## [REST API ile yenileme](analysis-services-async-refresh.md)
 ## [Ölçek genişletmeyi yapılandırma](analysis-services-scale-out.md)
-## [Excel ile bağlanma](analysis-services-connect-excel.md)
-## [Power BI ile bağlanma](analysis-services-connect-pbi.md)
-## [.odc dosyası oluşturma](analysis-services-odc.md)
+## Sunucu yönetimi
+### [Sunucu diğer adı yapılandırma](analysis-services-server-alias.md)
+### [Sunucu yönetme](analysis-services-manage.md)
+### [Veritabanı kullanıcılarını yönetme](analysis-services-database-users.md)
+### [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)
+### [Sunucu ölçümlerini izleme](analysis-services-monitor.md)
+## Bağlan
+### [İstemci kitaplıkları alma](analysis-services-data-providers.md)
+### [Excel ile bağlanma](analysis-services-connect-excel.md)
+### [Power BI ile bağlanma](analysis-services-connect-pbi.md)
+### [.odc dosyası oluşturma](analysis-services-odc.md)
 ## Öğreticiler
 ### [Adventure Works öğreticisi](tutorials/aas-adventure-works-tutorial.md)
 ### [1. Ders: Yeni bir tablosal model projesi oluşturma](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)

@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Otomatik ölçeklendirmeyi kullanma
       items:
+        - name: Otomatik Ölçeklendirme ayarlarını anlama
+          href: monitoring-understanding-autoscale-settings.md
         - name: En iyi uygulamalar
           href: insights-autoscale-best-practices.md
         - name: Ortak ölçümler
