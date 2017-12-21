@@ -38,6 +38,10 @@
           href: how-to-vscode-develop-csharp-module.md
         - name: 'C# modülünde hata ayıklama'
           href: how-to-vscode-debug-csharp-module.md
+        - name: Azure İşlevleri’ni geliştirme ve dağıtma
+          href: how-to-vscode-develop-azure-function.md
+        - name: Azure İşlevleri’nde hata ayıklama
+          href: how-to-vscode-debug-azure-function.md
     - name: Sorun giderme
       href: troubleshoot.md
 - name: Kavramlar

@@ -26,6 +26,8 @@
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
+### [Yönetilen Hizmet Kimliği (önizleme)](service-bus-managed-service-identity.md)
+### [Rol Tabanlı Erişim Denetimi (önizleme)](service-bus-role-based-access-control.md)
 ### [Premium mesajlaşma](service-bus-premium-messaging.md)
 ### [Azure Kuyrukları ve Service Bus kuyruklarını karşılaştırması](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Performansı iyileştirme](service-bus-performance-improvements.md)

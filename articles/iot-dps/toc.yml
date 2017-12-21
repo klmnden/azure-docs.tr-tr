@@ -36,7 +36,11 @@
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Cihaz kayıtlarını yönetme
-      href: how-to-manage-enrollments.md
+      items:
+        - name: Azure portalı ile cihaz kayıtlarını yönetme
+          href: how-to-manage-enrollments.md
+        - name: Hizmet SDK’leri ile cihaz kayıtlarını yönetme
+          href: how-to-manage-enrollments-sdks.md
     - name: SDK ile HSM kullanma
       href: use-hsm-with-sdk.md
     - name: Sağlama Hizmeti’ne erişimi denetleme

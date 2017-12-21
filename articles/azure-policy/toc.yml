@@ -1,3 +1,5 @@
+- name: Azure ilkesi belgeleri
+  href: index.yml
 - name: Genel Bakış
   items:
     - name: Azure İlkesine Genel Bakış

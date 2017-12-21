@@ -313,6 +313,31 @@
     - name: Operations Management Suite
       tocHref: /azure/operations-management-suite/
       topicHref: /azure/operations-management-suite/
+    - name: İlke belgeleri
+      tocHref: /azure/azure-policy/
+      topicHref: /azure/azure-policy/
+      items:
+        - name: Azure İlkesine Genel Bakış
+          tocHref: /azure/azure-policy/azure-policy-introduction/
+          topicHref: /azureazure-policy/azure-policy-introduction/
+        - name: İlke atama - Portal
+          tocHref: /azure/azure-policy/assign-policy-definition/
+          topicHref: /azureazure-policy/assign-policy-definition/
+        - name: İlke atama - PowerShell
+          tocHref: /azure/azure-policy/assign-policy-definition-ps/
+          topicHref: /azureazure-policy/assign-policy-definition-ps/
+        - name: İlke atama - Azure CLI
+          tocHref: /azure/azure-policy/assign-policy-definition-cli/
+          topicHref: /azureazure-policy/assign-policy-definition-cli/
+        - name: Azure İlkesi oluşturma ve yönetme
+          tocHref: /azure/azure-policy/create-manage-polic/
+          topicHref: /azureazure-policy/create-manage-polic/
+        - name: İlke şablonları
+          tocHref: /azure/azure-policy/json-samples/
+          topicHref: /azureazure-policy/json-samples/
+        - name: Azure İlkesi tanım yapısı
+          tocHref: /azure/azure-policy/policy-definition/
+          topicHref: /azureazure-policy/policy-definition/
     - name: PostgreSQL
       tocHref: /azure/postgresql/
       topicHref: /azure/postgresql/

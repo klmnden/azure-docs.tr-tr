@@ -48,6 +48,10 @@
 ### [Bağlı fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
 ### [Bağlı fabrika çözümü kılavuzu](iot-suite-connected-factory-sample-walkthrough.md)
 
+## Cihaz benzetimi
+### [Cihaz benzetimini dağıtma](iot-suite-device-simulation-deploy.md)
+### [Cihaz benzetimini keşfetme](iot-suite-device-simulation-explore.md)
+
 # Nasıl yapılır kılavuzları
 ## Uzaktan izleme
 ### [Gelişmiş izleme gerçekleştirme](iot-suite-remote-monitoring-monitor.md)
@@ -71,6 +75,7 @@
 ### [Bağlı fabrika için ağ geçidi dağıtma](iot-suite-connected-factory-gateway-deployment.md)
 ### [Özel bağlı fabrika](iot-suite-connected-factory-customize.md)
 ### [Bağlı fabrika için OPC yayımcısını kullanma](iot-suite-connected-factory-publisher.md)
+### [Bağlı fabrikayı yapılandırma](iot-suite-connected-factory-configure.md)
 ## [azureiotsuite.com sitesindeki izinler](iot-suite-permissions.md)
 
 # Başvuru
