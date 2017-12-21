@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET için Batch istemci kitaplığıyla çözüm derlemeye başlama
 
@@ -124,7 +124,7 @@ Aşağıdaki bölümlerde, Batch hizmetinde iş yükünü işlemeyi gerçekleşt
 1. Adımla başlamak için *DotNetTutorial* projesinin `Program.cs` dosyasındaki `MainAsync` yönteminin en üstüne gidin. Aşağıdaki her adım bundan sonra kabaca `MainAsync` içindeki yöntem çağrılarının ilerleyişini izler.
 
 ## <a name="step-1-create-storage-containers"></a>1. Adım: Storage kapsayıcıları oluşturma
-![Azure Depolama'da kapsayıcı oluşturma][1]
+![Azure Depolama’da kapsayıcı oluşturma][1]
 <br/>
 
 Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *DotNetTutorial* istemci uygulamasının yapacağı ilk şey [Azure Blob Storage](../storage/common/storage-introduction.md)’da üç kapsayıcı oluşturmaktır:
