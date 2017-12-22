@@ -2,11 +2,14 @@
 ## [Sanal makine ölçek kümeleri nedir?](virtual-machine-scale-sets-overview.md)
 
 # Kullanmaya Başlama
-## [Azure portalında ölçek kümesi dağıtma](virtual-machine-scale-sets-portal-create.md)
-## [PowerShell veya Azure CLI kullanarak ölçek kümesi dağıtma](virtual-machine-scale-sets-create.md)
-## [Şablon kullanarak bir otomatik ölçeklendirme uygulaması dağıtma](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [Azure portalında oluşturma](virtual-machine-scale-sets-create-portal.md)
+## [Azure CLI 2.0 ile oluşturma](virtual-machine-scale-sets-create-cli.md)
+## [Azure PowerShell ile oluşturma](virtual-machine-scale-sets-create-powershell.md)
+## Şablon ile oluşturma
+### [Linux ölçek kümesi](virtual-machine-scale-sets-create-template-linux.md)
+### [Windows ölçek kümesi](virtual-machine-scale-sets-create-template-windows.md)
 
-# Nasıl yapılır
+# Nasıl yapılır?
 ## Planlama ve tasarım
 ### [Tasarım konusunda dikkat edilmesi gerekenler](virtual-machine-scale-sets-design-overview.md)
 
@@ -17,9 +20,7 @@
 ### [Bir Linux ölçek kümesi şablonuyla konuk tabanlı otomatik ölçeklendirme kullanma](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Dağıtma
-### [Azure portalı ile oluşturma](virtual-machine-scale-sets-portal-create.md)
 ### [Visual Studio ile oluşturma](virtual-machine-scale-sets-vs-create.md)
-### [Azure PowerShell veya Azure CLI ile oluşturma](virtual-machine-scale-sets-create.md)
 ### [Yönetilen diskler ile ölçek kümesi](virtual-machine-scale-sets-managed-disks.md)
 ### [Ölçek kümesini otomatik olarak ölçeklendirme](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Azure portal’ı kullanma](virtual-machine-scale-sets-autoscale-portal.md)
