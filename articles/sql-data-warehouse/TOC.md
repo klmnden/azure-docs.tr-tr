@@ -1,6 +1,7 @@
 # Genel Bakış
 
 ## [SQL Veri Ambarı Hakkında](sql-data-warehouse-overview-what-is.md)
+## [Kopya kağıdı](cheat-sheet.md)
 
 # Hızlı Başlangıçlar
 
