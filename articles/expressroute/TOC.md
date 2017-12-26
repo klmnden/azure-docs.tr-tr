@@ -59,6 +59,7 @@
 
 ## Sorun giderme
 ### [ExpressRoute bağlantısını doğrulama](expressroute-troubleshooting-expressroute-overview.md)
+### [Ağ performansı sorunlarını çözme](expressroute-troubleshooting-network-performance.md)
 ### [Başarısız olan devreyi sıfırlama](reset-circuit.md)
 ### [ARP tablolarını alma](expressroute-troubleshooting-arp-resource-manager.md)
 ### [ARP tablolarını alma (Klasik)](expressroute-troubleshooting-arp-classic.md)
