@@ -164,6 +164,8 @@
       href: monitoring-metric-charts.md
     - name: Grafana’ya ölçüm gönderme
       href: monitor-send-to-grafana.md
+    - name: İzleme verilerini olay hub’ına gönderme
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: Başvuru
   items:
     - name: Azure CLI

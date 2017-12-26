@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: Yük devretmenin ardından ikincil siteye erişim için IP adresini ayarlama
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Şirket içi Azure senaryoları için ağ arabirimi yönetimi
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Olağanüstü durum kurtarma
       items:
         - name: Hyper-V VM’lerinden Azure’a

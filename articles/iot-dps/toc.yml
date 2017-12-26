@@ -37,10 +37,14 @@
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
         - name: X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
+            - name: Node.js
+              href: quick-enroll-device-x509-node.md
 - name: Öğreticiler
   items:
     - name: 1 - Bulut kaynaklarını ayarlama
@@ -67,6 +71,8 @@
           href: how-to-manage-enrollments.md
         - name: Hizmet SDK’leri ile cihaz kayıtlarını yönetme
           href: how-to-manage-enrollments-sdks.md
+    - name: Cihaz erişimini iptal etme
+      href: how-to-revoke-device-access-portal.md
     - name: SDK ile HSM kullanma
       href: use-hsm-with-sdk.md
     - name: Sağlama Hizmeti’ne erişimi denetleme
