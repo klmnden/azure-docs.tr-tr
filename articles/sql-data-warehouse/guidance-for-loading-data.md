@@ -1,5 +1,5 @@
 ---
-title: "Veri yükleme kılavuzu - Azure SQL Veri Ambarı | Microsoft Docs"
+title: "En iyi veri yükleme uygulamaları - Azure SQL Veri Ambarı | Microsoft Docs"
 description: "Azure SQL Veri Ambarı ile veri yükleme ve ELT gerçekleştirme önerileri."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,36 +15,34 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 12/13/2017
 ms.author: barbkess
-ms.openlocfilehash: 8903be1361d1574a5d81b69223f608ccb7a698ea
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 10d06fd29640a350c5522c00c4c9ebd9c6b24c89
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/19/2017
 ---
-# <a name="guidance-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı’na veri yükleme kılavuzu
+# <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı’na veri yüklemek için en iyi uygulamalar
 Azure SQL Veri Ambarı’na veri yüklemeye yönelik öneriler ve performans iyileştirmeleri. 
 
 - PolyBase ve Ayıklama, Yükleme ve Dönüştürme (ELT) işlemi hakkında daha fazla bilgi edinmek için, bkz. [SQL Veri Ambarı için ELT Tasarlama](design-elt-data-loading.md).
 - Yükleme öğreticisi için, bkz. [Azure blob depolamadan verileri Azure SQL Veri Ambarı’na yüklemek için PolyBase kullanma](load-data-from-azure-blob-storage-using-polybase.md).
 
 
-## <a name="extract-source-data"></a>Kaynak verileri ayıklama
-
-SQL Server veya Azure SQL Veri Ambarı’nda verileri bir ORC Dosya Biçimi’ne dışarı aktarırken, Java yetersiz bellek hataları nedeniyle yoğun metin içerikli sütunların sayısı 50 ile sınırlandırılabilir. Bu sorun için bir geçici çözüm olarak, sütunların yalnızca bir alt kümesini dışarı aktarın.
-
-
-## <a name="land-data-to-azure"></a>Verileri Azure’a taşıma
-PolyBase bir milyon bayttan daha fazla veri içeren satırları yükleyemez. Azure Blob depolama veya Azure Data Lake Store’da verileri metin dosyalarına yerleştirdiğinizde, dosyaların bir milyon bayttan daha az veri içermesi gerekir. Bu, tanımlanan tablo şemasından bağımsız olarak geçerlidir.
-
+## <a name="preparing-data-in-azure-storage"></a>Azure Depolama’da verileri hazırlama
 Gecikme süresini en aza indirmek için depolama katmanınız ve veri ambarınızı birlikte bulundurun.
 
-## <a name="data-preparation"></a>Veri hazırlama
+Verileri bir ORC Dosya Biçimi’ne aktarırken, Java yetersiz bellek hataları nedeniyle yoğun metin içerikli sütunların sayısı 50 ile sınırlandırılabilir. Bu sınırlama için bir geçici çözüm olarak, sütunların yalnızca bir alt kümesini dışarı aktarın.
+
+PolyBase 1.000.000 bayttan daha fazla veri içeren satırları yükleyemez. Azure Blob depolama veya Azure Data Lake Store’da verileri metin dosyalarına yerleştirdiğinizde, dosyaların 1.000.000 bayttan daha az veri içermesi gerekir. Bu bayt sınırlaması, tablo şemasından bağımsız olarak geçerlidir.
 
 Tüm dosya biçimleri farklı performans özelliklerine sahiptir. En hızlı yükleme için, sıkıştırılmış sınırlı metin dosyaları kullanın. UTF-8 ve UTF-16 arasındaki performans farkı azdır.
 
 Büyük sıkıştırılmış dosyaları daha küçük sıkıştırılmış dosyalara bölün.
 
-## <a name="create-designated-loading-users"></a>Ayrılmış yükleme kullanıcıları oluşturma
+## <a name="running-loads-with-enough-compute"></a>Yükleri yeterli işlemle çalıştırma
+
+En yüksek yükleme hızı için aynı anda yalnızca bir yük işi çalıştırın. Bunu yapmak uygun değilse, en az sayıda yükü eşzamanlı olarak çalıştırın. Büyük bir yükleme işi bekliyorsanız, yükten önce veri ambarınızın ölçeğini genişletmeyi düşünün.
+
 Yükleri uygun bilgisayar kaynaklarıyla çalıştırmak için, çalıştırma yükleri için ayrılmış yükleme kullanıcıları oluşturun. Her bir yükleme kullanıcısını belirli bir kaynak sınıfına atayın. Bir yük çalıştırmak için, yükleme kullanıcılarından biri olarak oturum açıp yükü çalıştırın. Yük, kullanıcının kaynak sınıfıyla çalıştırılır.  Bu yöntem bir kullanıcının kaynak sınıfını geçerli sınıfı ihtiyacına uygun olarak değiştirmeye çalışmaktan daha basittir.
 
 Bu kod staticrc20 kaynak sınıfı için bir yükleme kullanıcısı oluşturur. Kullanıcılara bir veritabanında denetim izni verir ve kullanıcıyı staticrc20 veritabanı rolünün bir üyesi olarak ekler. StaticRC20 kaynak sınıflarıyla bir yükü çalıştırmak için, LoaderRC20 olarak oturum açıp yükü çalıştırın. 
@@ -58,9 +56,9 @@ Bu kod staticrc20 kaynak sınıfı için bir yükleme kullanıcısı oluşturur.
 
 Yükleri dinamik yerine statik kaynak sınıfları altında çalıştırın. Statik kaynak sınıflarını kullanmak, [hizmet düzeyinizden](performance-tiers.md#service-levels) bağımsız olarak aynı kaynakları garantiler. Bir dinamik kaynak sınıfı kullanırsanız, kaynaklar hizmet düzeyinize göre değişir. Dinamik sınıflar için, daha düşük bir hizmet düzeyi, yükleme kullanıcınız için daha büyük bir kaynak sınıfı kullanmanız gerektiğini gösteriyor olabilir.
 
-### <a name="example-for-isolating-loading-users"></a>Yükleme kullanıcılarını yalıtma örneği
+## <a name="allowing-multiple-users-to-load"></a>Birden çok kullanıcının yüklemesine izin verme
 
-Genellikle bir SQL DW’ye veri yükleyebilen birden çok kullanıcı olması gerekir. [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] veritabanında CONTROL izinleri gerektirdiğinden, tüm şemalarda denetim izinlerine sahip birden fazla kullanıcı olur. Bunu sınırlandırmak için, DENY CONTROL deyimini kullanabilirsiniz.
+Genellikle bir veri ambarına veri yükleyebilen birden çok kullanıcı olması gerekir. [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] ile yükleme için veritabanının CONTROL izinleri gerekir.  CONTROL izinleri tüm şemalara denetim erişimi verir. Tüm yükleme kullanıcılarının tüm şemalarda denetim erişimine sahip olmasını istemeyebilirsiniz. İzinleri sınırlandırmak için, DENY CONTROL deyimini kullanabilirsiniz.
 
 Örneğin, A departmanı için schema_A ve B departmanı için schema_B olduğunu düşünelim. user_A ve user_B adlı veritabanı kullanıcıları sırayla A ve B departmanları için PolyBase yükleme kullanıcıları olsun. Her ikisine de CONTROL veritabanı izinleri verilmiştir. A ve B şemasının sahipleri DENY kullanarak şemalarını kilitler:
 
@@ -72,40 +70,32 @@ Genellikle bir SQL DW’ye veri yükleyebilen birden çok kullanıcı olması ge
 User_A ve user_B artık diğer departmanın şemasına erişemez.
 
 
-## <a name="load-to-a-staging-table"></a>Hazırlama şablonuna yükleme
+## <a name="loading-to-a-staging-table"></a>Hazırlama tablosuna yükleme
 
-En hızlı yükleme hızları için, bir round_robin yığın hazırlama tablosuna yükleyin. Bu, verileri Azure Depolama katmanından SQl Veri Ambarı’na taşımanın en etkili yoludur.
+Bir veri ambarı tablosuna verileri taşımak için en yüksek yükleme hızını elde etmek üzere verileri bir hazırlama tablosuna yükleyin.  Hazırlama tablosunu bir yığın olarak tanımlayın ve dağıtım seçeneği için hepsine bir kez yöntemini kullanın. 
 
-Büyük bir yükleme işi bekliyorsanız veri ambarınızın ölçeğini artırın.
+Yüklemenin genellikle ilk olarak bir hazırlama tablosuna yüklediğiniz, daha sonra verileri bir üretim veri ambarı tablosuna eklediğiniz iki adımlı bir işlem olduğunu göz önünde bulundurun. Üretim tablosu bir karma dağıtım kullanıyorsa, hazırlama tablosunu karma dağıtımla tanımlamanız durumunda toplam yükleme ve ekleme süresi daha hızlı olabilir. Hazırlama tablosuna yükleme işlemi daha uzun sürer, ancak satırları üretim tablosuna eklemeyi içeren ikinci adım, dağıtımlar arasında veri hareketi oluşturmaz.
 
-En iyi yük performansı için tek seferde yalnızca bir iş çalıştırın
+## <a name="loading-to-a-columnstore-index"></a>Bir columnstore dizinine yükleme
 
-### <a name="optimize-columnstore-index-loads"></a>Columnstore dizin yüklemelerini en iyi duruma getirme
-
-Columnstore dizinleri, verileri yüksek kaliteli satır grupları olarak sıkıştırmak için yüksek miktarda bellek gerektirir. En iyi sıkıştırma ve dizin verimliliği için, columnstore dizininin her satır grubunda 1.048.576 satırı sıkıştırması gerekir. Bu, satır grubu başına en fazla satır sayısıdır. Bellek baskısı olduğunda, columnstore dizini en yüksek sıkıştırma oranlarına ulaşamayabilir. Bu da sorgu performansını etkiler. Derinlemesine bir bakış için, bkz. [Columnstore bellek iyileştirmeleri](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Columnstore dizinleri, verileri yüksek kaliteli satır grupları olarak sıkıştırmak için yüksek miktarlarda bellek gerektirir. En iyi sıkıştırma ve dizin verimliliği için, columnstore dizininin her satır grubunda en fazla 1.048.576 satırı sıkıştırması gerekir. Bellek baskısı olduğunda, columnstore dizini en yüksek sıkıştırma oranlarına ulaşamayabilir. Bu da sorgu performansını etkiler. Derinlemesine bir bakış için, bkz. [Columnstore bellek iyileştirmeleri](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 - Yükleme kullanıcısının en yüksek sıkıştırma oranlarına ulaşmak için yeterli belleğe sahip olduğundan emin olmak için, orta veya büyük bir kaynak sınıfının üyesi olan yükleme kullanıcılarını kullanın. 
-- Yeni satır gruplarını tamamen doldurmak için yeterli satır yükleyin. Toplu yükleme sırasında, her 1.048.576 satır doğrudan columnstore’a gider. 102.400’den az satıra sahip yükler satırları sıkıştırma için yeterli satır olana kadar kümeli bir dizinde bekleten deltastore’a gönderir. Çok az sayıda satır yüklerseniz, hepsi deltastore’a gönderilerek hemen columnstore biçiminde sıkıştırılmayabilir.
+- Yeni satır gruplarını tamamen doldurmak için yeterli satır yükleyin. Bir toplu yükleme sırasında her 1.048.576 satır, tam bir satır grubu olarak doğrudan columnstore’da sıkıştırılır. 102.400’den daha az satır içeren yükler, satırları bir b ağacı dizininde tutulduğu deltastore’a gönderir. Çok az sayıda satır yüklerseniz, hepsi deltastore’a gönderilerek hemen columnstore biçiminde sıkıştırılmayabilir.
 
 
-### <a name="handling-loading-failures"></a>Yükleme hatalarını işleme
+## <a name="handling-loading-failures"></a>Yükleme hatalarını işleme
 
-Bir dış tablo kullanan bir yük *"Sorgu iptal edildi-- dış bir kaynaktan okunurken en yüksek reddedilme sayısına ulaşıldı"* hatasıyla başarısız olabilir. Bu, dış verilerinizin *kirli* kayıtlar içerdiğini gösterir. Gerçek veri türü/sütun sayısı dış tablonun sütun tanımlarıyla eşleşmiyorsa veya veriler belirtilen dış dosya biçimine uymuyorsa veri kaydı 'kirli' olarak değerlendirilir. 
+Bir dış tablo kullanan bir yük *"Sorgu iptal edildi-- dış bir kaynaktan okunurken en yüksek reddedilme sayısına ulaşıldı"* hatasıyla başarısız olabilir. Bu ileti, dış verilerinizin kirli kayıtlar içerdiğini gösterir. Veri türleri ve sütun sayısı dış tablonun sütun tanımlarıyla eşleşmiyorsa veya veriler belirtilen dış dosya biçimine uymuyorsa veri kaydı kirli olarak değerlendirilir. 
 
-Bunu düzeltmek için dış tablo ve dış dosya biçimlerinizin doğru olduğundan ve dış verilerinizin bu tanımlara uyduğundan emin olun. Dış verilerin alt kümesinin kirli olması durumunda, CREATE EXTERNAL TABLE DDL içinde reddetme seçeneklerini kullanarak sorgularınız için bu kayıtları reddedebilirsiniz.
+Kirli kayıtları düzeltmek için dış tablo ve dış dosya biçimlerinizin doğru olduğundan ve dış verilerinizin bu tanımlara uyduğundan emin olun. Dış verilerin alt kümesinin kirli olması durumunda, CREATE EXTERNAL TABLE içinde reddetme seçeneklerini kullanarak sorgularınız için bu kayıtları reddedebilirsiniz.
 
-
-
-## <a name="insert-data-into-production-table"></a>Üretim tablosuna veri ekleme
-Bunlar üretim tablolarına satır eklemeye yönelik önerilerdir.
-
-
-### <a name="batch-insert-statements"></a>Toplu INSERT deyimleri
-Küçük bir tabloya bir [INSERT](/sql/t-sql/statements/insert-transact-sql.md) deyimiyle tek seferlik yükleme yapmak veya `INSERT INTO MyLookup VALUES (1, 'Type 1')` gibi bir deyimle bir aramanın düzenli aralıklarla yeniden yüklenmesi işinizi fazlasıyla görebilir.  Tekli ton eklemeleri toplu yükleme gerçekleştirmek kadar verimli değildir. 
+## <a name="inserting-data-into-a-production-table"></a>Üretim tablosuna veri ekleme
+Küçük bir tabloya bir [INSERT](/sql/t-sql/statements/insert-transact-sql.md) deyimiyle tek seferlik yükleme yapmak veya `INSERT INTO MyLookup VALUES (1, 'Type 1')` gibi bir deyimle bir aramanın düzenli aralıklarla yeniden yüklenmesi yeterlidir.  Ancak, tekli ton eklemeleri toplu yükleme gerçekleştirmek kadar verimli değildir. 
 
 Gün boyunca binlerce ekleme yapmanız gerekiyorsa, eklemeleri toplu olarak yüklemek için toplu iş haline getirin.  Bir dosyaya tekli eklemeleri eklemek için işlemlerinizi geliştirin ve ardından dosyayı düzenli olarak yükleyen başka bir işlem oluşturun.
 
-### <a name="create-statistics-after-the-load"></a>Yüklemeden sonra istatistik oluşturma
+## <a name="creating-statistics-after-the-load"></a>Yüklemeden sonra istatistik oluşturma
 
 Sorgu performansını geliştirmek için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra istatistiklerin tüm sütunlarda oluşturulması önemlidir.  İstatistiklerin ayrıntılı bir açıklaması için bkz. [İstatistikler][İstatistikler]. Aşağıdaki örnek Customer_Speed tablosunun beş sütununda istatistikler oluşturur.
 
@@ -118,7 +108,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## <a name="rotate-storage-keys"></a>Depolama anahtarlarını döndürme
-Blob depolamanızın erişim anahtarlarını düzenli olarak değiştirmek iyi bir güvenlik uygulamasıdır. Blob depolama hesabınız için iki depolama anahtarınız bulunur. Bu anahtarlar arasında geçiş yapabilmeniz içindir.
+Blob depolamanızın erişim anahtarlarını düzenli olarak değiştirmek iyi bir güvenlik uygulamasıdır. Blob depolama hesabınız için anahtarları geçirmenizi sağlayan iki depolama anahtarınız bulunur.
 
 Azure Depolama hesabı anahtarlarını döndürmek için:
 
@@ -126,7 +116,7 @@ Azure Depolama hesabı anahtarlarını döndürmek için:
 2. Bu yeni kimlik bilgilerini temel alan ikinci bir dış veri kaynağı oluşturun.
 3. Dış tabloları yeni dış veri kaynaklarına işaret etmek üzere bırakın ve oluşturun. 
 
-Dış tablolarınızı yeni veri kaynağına geçirdikten sonra, bu temizleme görevlerini gerçekleştirin:
+Dış tablolarınızı yeni veri kaynağına geçirdikten sonra aşağıdaki temizleme görevlerini gerçekleştirin:
 
 1. İlk dış veri kaynağını bırakın.
 2. Birincil depolama erişim anahtarını temel alan ilk veritabanı kapsamlı kimlik bilgilerini bırakın.

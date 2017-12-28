@@ -12,15 +12,15 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb4df0495420776ba2ff7b471c44c4ca3aa1dcff
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Bir olay hub'ı ile bir Event Hubs ad alanı oluşturma ve Azure Resource Manager şablonu kullanarak Yakalamayı etkinleştirme
+# <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Olay hub’ı ile bir ad alanı oluşturma ve şablon kullanarak Yakalamayı etkinleştirm
 
 Bu makalede, bir olay hub’ı örneği ile Event Hubs ad alanı oluşturan ve olay hub’ında [Yakalama özelliğini](event-hubs-capture-overview.md) etkinleştiren Azure Resource Manager şablonunun nasıl kullanılacağı gösterilmektedir. Makalede, hangi kaynakların dağıtıldığının ve dağıtım yürütülürken belirtilen parametrelerin nasıl tanımlanacağı açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
@@ -161,7 +161,7 @@ Event Hubs Yakalama özelliğinin veri yakalamaya başladığı zaman aralığı
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"the time window in seconds for the capture"
+         "description":"The time window in seconds for the capture"
     }
 }
 ```
@@ -248,7 +248,7 @@ Azure Data Lake Store ve Event Hubs ad alanı için abonelik kimliği. Bu iki ka
 "subscriptionId": {
     "type": "string",
     "metadata": {
-        "description": "Subscription Id of both Azure Data Lake Store and Event Hub namespace"
+        "description": "Subscription ID of both Azure Data Lake Store and Event Hubs namespace"
      }
  }
 ```
@@ -268,20 +268,20 @@ Yakalanan olaylar için Azure Data Lake Store adı.
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-Yakalanan olaylar için hedef klasör yolu. Bu, Capture olaylarının gönderileceği Data Lake Store klasörünüzdür. Bu klasörün izinlerini ayarlamak için lütfen [Event Hubs verilerini almak için Azure Data Lake Store kullanma](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture) makalesini inceleyin
+Yakalanan olaylar için hedef klasör yolu. Bu klasör, yakalama işlemi sırasında olayların gönderileceği Data Lake Store klasörüdür. Bu klasörün izinlerini ayarlamak için bkz. [Event Hubs verilerini almak için Azure Data Lake Store kullanma](../data-lake-store/data-lake-store-archive-eventhub-capture.md).
 
 ```json
 "dataLakeFolderPath": {
     "type": "string",
     "metadata": {
-        "description": "Destination archive folder path"
+        "description": "Destination capture folder path"
     }
 }
 ```
 
 ## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Yakalanan olaylar için hedef olarak Azure Depolama kullanıldığında dağıtılacak kaynaklar
 
-Bir olay hub’ı ile **EventHubs** türünde bir ad alanı oluşturur ve aynı zamanda Azure Blob Depolama’ya Yakalama özelliğini etkinleştirir.
+Bir olay hub’ı ile **EventHub** türünde bir ad alanı oluşturur ve aynı zamanda Azure Blob Depolama’ya Yakalama özelliğini etkinleştirir.
 
 ```json
 "resources":[  
@@ -342,7 +342,7 @@ Bir olay hub’ı ile **EventHubs** türünde bir ad alanı oluşturur ve aynı 
 
 ## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Hedef olarak Azure Data Lake Store kullanıldığında dağıtılacak kaynaklar
 
-Bir olay hub’ı ile **EventHubs** türünde bir ad alanı oluşturur ve aynı zamanda Azure Data Lake Store’a Yakalama özelliğini etkinleştirir.
+Bir olay hub’ı ile **EventHub** türünde bir ad alanı oluşturur ve aynı zamanda Azure Data Lake Store’a Yakalama özelliğini etkinleştirir.
 
 ```json
  "resources": [
@@ -407,7 +407,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Hedef olarak Azure Blob Depolamayı seçme:
+Hedef olarak Azure Blob Depolama:
 
 ```azurecli
 azure config mode arm
@@ -415,7 +415,7 @@ azure config mode arm
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
-Hedef olarak Azure Data Lake Store’u seçme:
+Hedef olarak Azure Data Lake Store:
 
 ```azurecli
 azure config mode arm

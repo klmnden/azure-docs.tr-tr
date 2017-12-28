@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cb1a70835b5fa2b615f4adac4b0d9ae31074bce
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Azure DNS'ye bir etki alanı devretme
 
@@ -29,8 +29,8 @@ Bir kayıt şirketinden satın alınan etki alanları için, kayıt şirketiniz 
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
-1. Azure portalında oturum açın
-1. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur sayfasını açın.
+1. Azure Portal’da oturum açın.
+1. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak **DNS bölgesi oluştur** sayfasını açın.
 
     ![DNS bölgesi](./media/dns-domain-delegation/dns.png)
 

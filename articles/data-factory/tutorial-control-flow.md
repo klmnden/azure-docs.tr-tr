@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory işlem hattında dallanma ve zincirleme etkinlikleri
 Bu öğreticide, bazı denetim akışı özelliklerini gösteren bir Data Factory işlem hattı oluşturacaksınız. Bu işlem hattı, Azure Blob Depolama içindeki kapsayıcıdan aynı depolama hesabındaki başka bir kapsayıcıya basit bir kopyalama işlemi yapar. Kopyalama etkinliği başarılı olursa, başarılı kopyalama işleminin ayrıntılarını (örneğin, yazılan veri miktarı) bir başarı e-postası ile göndermek istersiniz. Kopyalama etkinliği başarısız olursa, kopyalama hatasının ayrıntılarını (örneğin, hata iletisi) bir hata e-postası ile göndermek istersiniz. Öğretici boyunca parametreleri nasıl geçireceğinizi göreceksiniz.
@@ -452,7 +452,7 @@ client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, Pi
 
 - sourceBlobContainer - işlem hattında kaynak blob veri kümesi tarafından tüketilen parametre.
 - sinkBlobContainer - işlem hattında havuz blob veri kümesi tarafından tüketilen parametre
-- alıcı – işlem hattında e-posta adresinin e-postayı aldığı iki web etkinliği tarafından tüketilen parametre
+- receiver – bu parametre, işlem hattında e-posta adresi bu parametre ile belirtilen alıcıya başarı veya hata e-postaları gönderen iki Web etkinliği tarafından kullanılır.
 
 
 ```csharp

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 91ef8aece812c0495fcb3bc31401606f40b7ba97
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 20b95f16e16c4b42289e1e25def4910fbca70db5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka'yı kullanmaya başlama
 
@@ -168,7 +168,7 @@ Bu komut, **test** konu başlıklarını içeren Kafka konu başlıklarını lis
 
 ## <a name="produce-and-consume-records"></a>Kayıt oluşturma ve kullanma
 
-Kafka, konu başlıklarında *records* (kayıtlar) depolar. Kayıtlar, *Üreticiler* tarafından oluşturulur ve *tüketiciler* tarafından kullanılır. Üreticiler, kayıtları Kafka *aracılarından* alır. HDInsight kümenizdeki her çalışan düğümü bir Kafka aracısıdır.
+Kafka, konu başlıklarında *records* (kayıtlar) depolar. Kayıtlar, *Üreticiler* tarafından oluşturulur ve *tüketiciler* tarafından kullanılır. Üreticiler, Kafka *aracılarına* kayıtlar üretir. HDInsight kümenizdeki her çalışan düğümü bir Kafka aracısıdır.
 
 Daha önce oluşturduğunuz test konu başlığında kayıt depolamak ve ardından bir tüketici kullanarak bunları okumak için aşağıdaki adımları kullanın:
 

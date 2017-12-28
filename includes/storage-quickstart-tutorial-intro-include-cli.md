@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-[az storage account create](/cli/azure/storage/account#create) komutuyla bir genel amaçlı standart depolama hesabı oluşturun. Genel amaçlı standart depolama hesabı; bloblar, dosyalar, tablolar ve kuyruklar olmak üzere dört hizmet için de kullanılabilir. 
+[az storage account create](/cli/azure/storage/account#create) komutuyla bir genel amaçlı depolama hesabı oluşturun. Genel amaçlı depolama hesabı; bloblar, dosyalar, tablolar ve kuyruklar olmak üzere dört hizmet için de kullanılabilir. 
 
 ```azurecli-interactive
 az storage account create \
