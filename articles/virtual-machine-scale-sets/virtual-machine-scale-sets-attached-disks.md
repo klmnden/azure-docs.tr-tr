@@ -3,8 +3,8 @@ title: "Azure Sanal Makine Ölçek Kümeleri Bağlı Veri Diskleri | Microsoft B
 description: "Sanal makine ölçek kümelerinde bağlı veri disklerinin nasıl kullanılacağını öğrenin"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,30 +14,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
-ms.author: guybo
-ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: negat
+ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Azure VM ölçek kümeleri ve bağlı veri diskleri
+# <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure sanal makine ölçek kümeleri ve bağlı veri diskleri
 Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), bağlı veri diskleri olan sanal makineleri artık desteklemektedir. Veri diskleri, Azure Yönetilen Diskler ile oluşturulmuş olan ölçek kümeleri için depolama profilinde tanımlanabilir. Daha önce, ölçek kümelerindeki sanal makinelere doğrudan bağlı depolama seçeneği olarak yalnızca işletim sistemi sürücüsü ve geçici sürücüler kullanılabiliyordu.
 
 > [!NOTE]
->  Bağlı veri diskleri tanımlanmış bir ölçek kümesi oluşturduğunuz durumlarda da tek başına Azure sanal makinelerinde olduğu gibi, diskleri kullanabilmek için bir VM içinde takmanız ve biçimlendirmeniz gerekir. Bunu yapmanın uygun bir yolu, bir VM üzerindeki tüm verileri bölümlemek ve biçimlendirmek için standart bir betik çağıran özel bir betik uzantısı kullanılmasıdır.
+>  Bağlı veri diskleri tanımlanmış bir ölçek kümesi oluşturduğunuz durumlarda da tek başına Azure sanal makinelerinde olduğu gibi, diskleri kullanabilmek için bir VM içinde takmanız ve biçimlendirmeniz gerekir. Bu işlemi tamamlamanın uygun bir yolu, bir VM üzerindeki tüm verileri bölümlemek ve biçimlendirmek için standart bir betik çağıran özel bir betik uzantısı kullanılmasıdır.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Bağlı veri diskleri olan ölçek kümesi oluşturma
-Bağlı diskleri olan bir ölçek kümesi oluşturmanın basit bir yolu, [Azure CLI](https://github.com/Azure/azure-cli) _vmss create_ komutunu kullanmaktır. Aşağıdaki örnekte bir Azure kaynak grubu ile birlikte, her birinin boyutu sırasıyla 50 GB ve 100 GB olan 2 bağlı veri diski içeren 10 Ubuntu sanal makinesiyle bir VM ölçek kümesi oluşturulmaktadır.
+Bağlı diskleri olan bir ölçek kümesi oluşturmanın basit bir yolu, [az vmss create](/cli/azure/vmss#create) komutunu kullanmaktır. Aşağıdaki örnekte bir Azure kaynak grubu ile birlikte, her birinin boyutu sırasıyla 50 GB ve 100 GB olan 2 bağlı veri diski içeren 10 Ubuntu sanal makinesiyle bir sanal makine ölçek kümesi oluşturulmaktadır.
+
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
-Belirtmemeniz durumunda, _vmss create_ komutu bazı yapılandırma değerlerini varsayılan olarak kullanır. Geçersiz kılabileceğiniz seçenekleri görmek için şunları deneyin:
+
+Belirtmemeniz durumunda, [az vmss create](/cli/azure/vmss#create) komutu bazı yapılandırma değerlerini varsayılan olarak kullanır. Geçersiz kılabileceğiniz seçenekleri görmek için şunları deneyin:
+
 ```bash
 az vmss create --help
 ```
-Bağlı diskleri olan bir ölçek kümesi oluşturmanın başka bir yolu ise bir Azure Resource Manager şablonunda ölçek kümesi tanımlamak, _storageProfile_ içine bir _dataDisks_ bölümü eklemek ve şablonu dağıtmaktır. Yukarıdaki 50 GB ve 100 GB disk örneği, şablonda şunun gibi tanımlanır:
+
+Bağlı diskleri olan bir ölçek kümesi oluşturmanın başka bir yolu ise bir Azure Resource Manager şablonunda ölçek kümesi tanımlamak, _storageProfile_ içine bir _dataDisks_ bölümü eklemek ve şablonu dağıtmaktır. Önceki örnekte yer alan 50 GB ve 100 GB disk, aşağıdaki şablon örneğinde gösterildiği gibi tanımlanır:
+
 ```json
 "dataDisks": [
     {
@@ -54,18 +59,21 @@ Bağlı diskleri olan bir ölçek kümesi oluşturmanın başka bir yolu ise bir
     }
 ]
 ```
+
 Bağlı diski olan bir ölçek kümesi şablonunun dağıtıma hazır, tam bir örneğini şurada görebilirsiniz: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Mevcut ölçek kümesine veri diski ekleme
 > [!NOTE]
->  Veri disklerini yalnızca [Azure Yönetilen Diskleri](./virtual-machine-scale-sets-managed-disks.md) ile oluşturulmuş olan bir ölçek kümesine ekleyebilirsiniz.
+>  Veri disklerini yalnızca [Azure Yönetilen Diskler](./virtual-machine-scale-sets-managed-disks.md) ile oluşturulmuş olan bir ölçek kümesine ekleyebilirsiniz.
 
-Azure CLI _az vmss disk attach_ komutunu kullanarak bir VM ölçek kümesine veri diski ekleyebilirsiniz. Henüz kullanımda olmayan bir mantıksal birim numarası belirttiğinizden emin olun. Aşağıdaki CLI örneği mantıksal birim numarası 3’e 50 GB sürücü ekler:
+Azure CLI _az vmss disk attach_ komutunu kullanarak bir sanal makine ölçek kümesine veri diski ekleyebilirsiniz. Henüz kullanımda olmayan bir LUN belirttiğinizden emin olun. Aşağıdaki CLI örneği LUN 3’e 50 GB sürücü ekler:
+
 ```bash
 az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
 ```
 
-Aşağıdaki PowerShell örneği mantıksal birim numarası 3’e 50 GB sürücü ekler:
+Aşağıdaki PowerShell örneği LUN 3’e 50 GB sürücü ekler:
+
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
 $vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
@@ -75,7 +83,8 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
 > [!NOTE]
 > Farklı VM boyutları, destekledikleri bağlı sürücü sayısı ile ilgili farklı sınırlara sahiptir. Yeni bir disk eklemeden önce [sanal makine boyut özelliklerini](../virtual-machines/windows/sizes.md) denetleyin.
 
-Ayrıca bir ölçek kümesi tanımının _storageProfile_ kısmındaki _dataDisks_ özelliğine yeni bir giriş ekleyip değişikliği uygulayarak da bir disk ekleyebilirsiniz. Bunu test etmek için [Azure Kaynak Gezgini](https://resources.azure.com/)’nde var olan bir ölçek kümesi tanımı bulun. _Düzenle_’yi seçin ve veri diskleri listesine yeni bir disk ekleyin. Örneğin yukarıdaki örneği kullanın:
+Ayrıca bir ölçek kümesi tanımının _storageProfile_ kısmındaki _dataDisks_ özelliğine yeni bir giriş ekleyip değişikliği uygulayarak da bir disk ekleyebilirsiniz. Bunu test etmek için [Azure Kaynak Gezgini](https://resources.azure.com/)’nde var olan bir ölçek kümesi tanımı bulun. _Düzenle_’yi seçin ve aşağıdaki örnekte gösterildiği gibi veri diskleri listesine yeni bir disk ekleyin:
+
 ```json
 "dataDisks": [
     {
@@ -108,14 +117,14 @@ Ardından _PUT_ öğesini seçerek değişiklikleri ölçek kümenize uygulayın
 > Tasarım gereği, mevcut ölçek kümesi modeline disk eklediğinizde, disk her zaman boş oluşturulur. Bu senaryo ayrıca ölçek kümesi tarafından oluşturulan yeni örnekleri içerir. Bu davranışın nedeni ölçek kümesinin boş veri diski tanımına sahip olmasıdır. Mevcut bir ölçek kümesi modeli için önceden doldurulmuş veri sürücüleri oluşturmak için iki seçenekten birini seçebilirsiniz:
 
 * Örnek 0 VM’sinden verileri özel bir betik çalıştırarak diğer VM’lerdeki veri disklerine kopyalayabilirsiniz.
-* İşletim sistemi diskine ve veri diskine (gerekli verilerle) sahip yönetilen bir görüntü oluşturup görüntüde yeni bir ölçek kümesi oluşturabilirsiniz. Bu şekilde oluşturulan her yeni VM, ölçek kümesi tanımında sağlanan bir veri diskine sahip olur. Bu tanım, özelleştirilmiş verilere sahip bir veri disk görüntüsüne başvuracağından, ölçek kümesindeki her sanal makine otomatik olarak bu değişikliklerle açılır.
+* İşletim sistemi diskine ve veri diskine (gerekli verilerle) sahip yönetilen bir görüntü oluşturup görüntüde yeni bir ölçek kümesi oluşturabilirsiniz. Bu şekilde oluşturulan her yeni VM, ölçek kümesi tanımında sağlanan bir veri diskine sahip olur. Bu tanım, özelleştirilmiş verilere sahip bir veri disk görüntüsüne başvuracağından, ölçek kümesindeki her sanal makine bu değişiklikleri otomatik olarak içerir.
 
 > Özel bir görüntü oluşturmak için izlenecek yol şurada bulunabilir: [Azure’da genelleştirilmiş bir VM’nin yönetilen görüntüsü oluşturma](/azure/virtual-machines/windows/capture-image-resource/) 
 
 > Kullanıcının gerekli verileri içeren örnek 0 VM’yi yakalaması, ardından da görüntü tanımı için bu VHD’yi kullanması gerekir.
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>Bir ölçek kümesinden veri diski kaldırma
-Azure CLI _az vmss disk detach_ komutunu kullanarak bir VM ölçek kümesinden veri diski kaldırabilirsiniz. Örneğin, aşağıdaki komut mantıksal birim numarası 2’de tanımlanmış diski kaldırır:
+Azure CLI _az vmss disk detach_ komutunu kullanarak bir sanal makine ölçek kümesinden veri diski kaldırabilirsiniz. Örneğin, aşağıdaki komut LUN 2’de tanımlanmış diski kaldırır:
 ```bash
 az vmss disk detach -g dsktest -n dskvmss --lun 2
 ```  

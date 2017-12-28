@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
 
@@ -49,21 +49,20 @@ Site Recovery, uygulama düzeyinde koruma ve kurtarmaya şu yollarla katkıda bu
 ## <a name="workload-summary"></a>İş yükü özeti
 Site Recovery, desteklenen bir makinede çalışan herhangi bir uygulamayı çoğaltabilir. Ayrıca, uygulamaya özgü ek testler yapmak için ürün ekipleriyle de ortaklıklar kurduk.
 
-| **İş yükü** | **Hyper-V VM'lerini ikincil bir siteye çoğaltma** | **Hyper-V VM'lerini Azure'a çoğaltma** | **VMware VM'lerini ikincil bir siteye çoğaltma** | **VMware VM'lerini Azure'a çoğaltma** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |E |E |E |E |
-| Web uygulamaları (IIS, SQL) |E |E |E |E |
-| System Center Operations Manager |E |E |E |E |
-| SharePoint |E |E |E |E |
-| SAP<br/><br/>Küme olmayan seçenekler için SAP sitesini Azure'a çoğaltma |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |
-| Exchange (DAG olmayan) |E |E |E |E |
-| Uzak Masaüstü/VDI |E |E |E |Yok |
-| Linux (işletim sistemi ve uygulamalar) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |
-| Dynamics AX |E |E |E |E |
-| Dynamics CRM |E |Çok yakında |E |Çok yakında |
-| Oracle |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |
-| Windows Dosya Sunucusu |E |E |E |E |
-| Citrix XenApp ve XenDesktop |Yok |E |Yok |E |
+| **İş yükü** |**Azure VM’lerini Azure’a çoğaltma** |**Hyper-V VM'lerini ikincil bir siteye çoğaltma** | **Hyper-V VM'lerini Azure'a çoğaltma** | **VMware VM'lerini ikincil bir siteye çoğaltma** | **VMware VM'lerini Azure'a çoğaltma** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |E |E |E |E |E|
+| Web uygulamaları (IIS, SQL) |E |E |E |E |E|
+| System Center Operations Manager |E |E |E |E |E|
+| SharePoint |E |E |E |E |E|
+| SAP<br/><br/>Küme olmayan seçenekler için SAP sitesini Azure'a çoğaltma |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi)|
+| Exchange (DAG olmayan) |E |E |E |E |E|
+| Uzak Masaüstü/VDI |E |E |E |E |E|
+| Linux (işletim sistemi ve uygulamalar) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi)|
+| Dynamics AX |E |E |E |E |E|
+| Oracle |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi)|
+| Windows Dosya Sunucusu |E |E |E |E |E|
+| Citrix XenApp ve XenDesktop |E|Yok |E |Yok |E |
 
 ## <a name="replicate-active-directory-and-dns"></a>Active Directory'yi ve DNS'yi çoğaltma
 Çoğu kurumsal uygulama için Active Directory ve DNS gereklidir. Olağanüstü durum kurtarma sırasında, iş yüklerinizi ve uygulamalarınızı kurtarmadan önce bu altyapı bileşenlerini korumanız ve kurtarmanız gerekir.
@@ -106,20 +105,23 @@ Dynamic AX'i koruma hakkında [daha fazla bilgi edinin](site-recovery-dynamicsax
 Uzak Masaüstü Hizmetleri (RDS), sanal masaüstü altyapısını (VDI), oturum tabanlı masaüstlerini ve uygulamaları etkinleştirerek kullanıcıların herhangi bir yerden çalışabilmesine olanak sağlar. Azure Site Recovery ile şunları yapabilirsiniz:
 
 * Yönetilen veya yönetilmeyen, havuza alınmış sanal masaüstlerini ikincil bir siteye; uzak uygulamaları ve oturumları ise ikincil bir siteye ya da Azure'a çoğaltın
+
 * Şunları çoğaltabilirsiniz:
 
-| **RDS** | **Hyper-V VM'lerini ikincil bir siteye çoğaltma** | **Hyper-V VM'lerini Azure'a çoğaltma** | **VMware VM'lerini ikincil bir siteye çoğaltma** | **VMware VM'lerini Azure'a çoğaltma** | **Fiziksel sunucuları ikincil bir siteye çoğaltma** | **Fiziksel sunucuları Azure'a çoğaltma** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Havuza Alınmış Sanal Masaüstü (yönetilmeyen)** |Evet |Hayır |Yes |Hayır |Yes |Hayır |
-| **Havuza Alınmış Sanal Masaüstü (yönetilen ve UPD'siz)** |Evet |Hayır |Yes |Hayır |Yes |Hayır |
-| **Uzak uygulamalar ve Masaüstü oturumları (UPD'siz)** |Evet |Evet |Evet |Evet |Evet |Yes |
+| **RDS** |**Azure VM’lerini Azure’a çoğaltma** | **Hyper-V VM'lerini ikincil bir siteye çoğaltma** | **Hyper-V VM'lerini Azure'a çoğaltma** | **VMware VM'lerini ikincil bir siteye çoğaltma** | **VMware VM'lerini Azure'a çoğaltma** | **Fiziksel sunucuları ikincil bir siteye çoğaltma** | **Fiziksel sunucuları Azure'a çoğaltma** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **Havuza Alınmış Sanal Masaüstü (yönetilmeyen)** |Hayır|Yes |Hayır |Yes |Hayır |Yes |Hayır |
+| **Havuza Alınmış Sanal Masaüstü (yönetilen ve UPD'siz)** |Hayır|Yes |Hayır |Yes |Hayır |Yes |Hayır |
+| **Uzak uygulamalar ve Masaüstü oturumları (UPD'siz)** |Evet|Evet |Evet |Evet |Evet |Evet |Evet |
+
+[Azure Site Recovery kullanarak RDS için olağanüstü durum kurtarmayı ayarlayın](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 RDS'yi koruma hakkında [daha fazla bilgi edinin](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb).
 
 ## <a name="protect-exchange"></a>Exchange'i koruma
 Site Recovery, Exchange'in korunmasına şu şekilde yardımcı olur:
 
-* Site Recovery, tek veya tek başına sunucular gibi küçük Exchange dağıtımları için Azure'a veya ikincil bir siteye çoğaltma ve yük devretme yapabilir.
+* Site Recovery, tek veya tek başına sunucu gibi küçük Exchange dağıtımları için Azure'a veya ikincil bir siteye çoğaltma ve yük devretme yapabilir.
 * Site Recovery, daha büyük dağıtımlar için Exchange DAG'leri ile tümleşir.
 * Exchange DAG'leri, kuruluşlarda Exchange olağanüstü durum kurtarma işlemleri için önerilen çözümdür.  Site Recovery kurtarma planlarında siteler arası DAG yük devretmelerini düzenlemek üzere DAG'ler bulunabilir.
 
@@ -138,7 +140,7 @@ SAP'yi koruma hakkında [daha fazla bilgi edinin](site-recovery-sap.md).
 ## <a name="protect-iis"></a>IIS Koruma
 Site Recovery'yi kullanarak IIS dağıtımınızı şu şekilde koruyun:
 
-Azure Site Recovery, ortamınızdaki kritik bileşenleri soğuk bir uzak konuma veya Microsoft Azure gibi bir genel buluta çoğaltarak olağanüstü durum kurtarma sağlar. Web sunucusu ve veritabanı ile sanal makine, kurtarma konumuna çoğaltıldığı için yapılandırma dosyalarının veya sertifikaların ayrıca yedeklenmesi gerekmez. Yük devretme sonrasında değişen ortam değişkenlerine bağımlı uygulama eşlemeleri ve bağlamaları, olağanüstü durum kurtarma planlarına tümleştirilmiş betikler aracılığıyla güncelleştirilebilir. Sanal Makineler yalnızca yük devretme durumunda kurtarma konumuna getirilir. Azure Site Recovery ayrıca aşağıdaki özellikleri sağlayarak uçtan uca yük devretmeyi düzenlemenize yardımcı olur:
+Azure Site Recovery, ortamınızdaki kritik bileşenleri soğuk bir uzak konuma veya Microsoft Azure gibi bir genel buluta çoğaltarak olağanüstü durum kurtarma sağlar. Web sunucusu ve veritabanı ile sanal makineler, kurtarma konumuna çoğaltıldığı için yapılandırma dosyalarının veya sertifikaların ayrıca yedeklenmesi gerekmez. Yük devretme sonrasında değişen ortam değişkenlerine bağımlı uygulama eşlemeleri ve bağlamaları, olağanüstü durum kurtarma planlarına tümleştirilmiş betikler aracılığıyla güncelleştirilebilir. Sanal makineler yalnızca yük devretme durumunda kurtarma konumuna getirilir. Azure Site Recovery ayrıca aşağıdaki özellikleri sağlayarak uçtan uca yük devretmeyi düzenlemenize yardımcı olur:
 
 -   Çeşitli katmanlardaki sanal makinelerin kapatma ve başlatma sıralaması.
 -   Uygulama bağımlılıkları ve başlatıldıktan sonra sanal makineler üzerindeki bağlamaların güncelleştirilmesine olanak tanıyan betikler ekleme. Betikler ayrıca DNS sunucusunu kurtarma konumunu işaret edecek şekilde güncelleştirmek için kullanılabilir.

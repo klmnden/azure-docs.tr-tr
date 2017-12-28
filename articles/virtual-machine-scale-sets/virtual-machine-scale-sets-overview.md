@@ -3,8 +3,8 @@ title: "Azure Sanal Makine Ölçek Kümelerine Genel Bakış | Microsoft Docs"
 description: "Azure sanal makine ölçek kümeleri hakkında daha fazla bilgi edinin"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Azure’daki sanal makine ölçek kümeleri nedir?
 Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure işlem kaynağıdır. Tüm sanal makinelerin aynı şekilde yapılandırıldığı ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır ve sanal makinelerin önceden hazırlanması gerekmez. Bu nedenle büyük işlem, büyük veri ve kapsayıcı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
@@ -50,7 +50,7 @@ Hızlı Başlangıç şablon örneklerinde, her bir şablona yönelik Benioku be
 ## <a name="autoscale"></a>Otomatik Ölçeklendirme
 Uygulama performansının tutarlı olması için ölçek kümenizdeki VM örneği sayısını otomatik olarak artırabilir ve azaltabilirsiniz. Otomatik ölçeklendirme özelliği, zaman içinde değişen müşteri talebini izlemek ve buna göre ayarlama yapmak için gerekli yönetim maliyetini azaltır. Kuralları performans ölçümleri, uygulama yanıtı veya sabit bir plana göre tanımlarsınız ve ölçek kümeniz ihtiyaçlara göre otomatik olarak ölçeklendirilir.
 
-Temel otomatik ölçeklendirme kuralları için CPU kullanımı veya disk G/Ç gibi konak tabanlı performans ölçümlerini kullanabilirsiniz. Bu konak tabanlı ölçümler ek aracı veya uzantı yükleyip yapılandırmaya gerek olmadan ilk günden itibaren kullanılabilir. Konak tabanlı ölçümleri kullanan otomatik ölçeklendirme kuralları aşağıdaki araçlarla oluşturulabilir:
+Temel otomatik ölçeklendirme kuralları için CPU kullanımı veya disk G/Ç gibi konak tabanlı performans ölçümlerini kullanabilirsiniz. Bu konak tabanlı ölçümler ek aracı veya uzantı yükleyip yapılandırmaya gerek olmadan otomatik olarak kullanılabilir. Konak tabanlı ölçümleri kullanan otomatik ölçeklendirme kuralları aşağıdaki araçlarla oluşturulabilir:
 
 - [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -159,10 +159,10 @@ Bu bölümde tipik ölçek kümesi senaryolarından bazıları listelenmektedir.
 
 **S.** Bir ölçek kümesinde birden fazla uzantı kullanırken bir yürütme sırası uygulamayı zorunlu kılabilir miyim?
 
-**C.** Doğrudan olmasa da customScript uzantısı için betiğiniz başka bir uzantının tamamlanmasını bekleyebilir. Uzantı sıralama hakkında ek yönergeleri şu blog gönderisinde bulabilirsiniz: [Azure VM Ölçek Kümelerinde Uzantı Sıralama](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**C.** Doğrudan olmasa da customScript uzantısı için betiğiniz başka bir uzantının tamamlanmasını bekleyebilir. Uzantı sıralama hakkında ek yönergeleri şu blog gönderisinde bulabilirsiniz: [Azure sanal makine ölçek kümelerinde Uzantı Sıralama](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **S.** Ölçek kümeleri Azure kullanılabilirlik kümeleri ile birlikte çalışır mı?
 
-**C.** Evet. Bir ölçek kümesi, 5 hata etki alanı ve 5 güncelleştirme etki alanına sahip örtülü bir kullanılabilirlik kümesidir. 100’den fazla sanal makineden oluşan ölçek kümeleri, birden fazla kullanılabilirlik kümesine eşdeğer olan birden fazla *yerleştirme grubuna* yayılır. Yerleştirme grupları hakkında daha fazla bilgi için bkz. [Büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md). Bir sanal makine kullanılabilirlik kümesi, sanal makine ölçek kümesiyle aynı sanal ağda bulunabilir. Genellikle bir kullanılabilirlik kümesinde benzersiz yapılandırma gerektiren denetim düğümünü sanal makinelere, veri düğümlerini ise ölçek kümesine yerleştirmek, yaygın bir yapılandırmadır.
+**C.** Evet. Bir ölçek kümesi, beş hata etki alanı ve beş güncelleştirme etki alanına sahip örtülü bir kullanılabilirlik kümesidir. 100’den fazla sanal makineden oluşan ölçek kümeleri, birden fazla kullanılabilirlik kümesine eşdeğer olan birden fazla *yerleştirme grubuna* yayılır. Yerleştirme grupları hakkında daha fazla bilgi için bkz. [Büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md). Bir sanal makine kullanılabilirlik kümesi, sanal makine ölçek kümesiyle aynı sanal ağda bulunabilir. Genellikle bir kullanılabilirlik kümesinde benzersiz yapılandırma gerektiren denetim düğümünü sanal makinelere, veri düğümlerini ise ölçek kümesine yerleştirmek, yaygın bir yapılandırmadır.
 
 Ölçek kümeleriyle ilgili soruların diğer yanıtlarını [Azure sanal makine ölçek kümeleri hakkında SSS](virtual-machine-scale-sets-faq.md) bölümünde bulabilirsiniz.

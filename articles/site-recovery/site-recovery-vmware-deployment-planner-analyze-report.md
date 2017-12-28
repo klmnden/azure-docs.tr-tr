@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 1eddd18e9b5ac0b4cb174e635f0f3cfd2f41059d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery dağıtım planlayıcısı raporu
 Oluşturulan Microsoft Excel raporu şu sayfaları içerir:
@@ -190,7 +190,7 @@ Site Recovery çoğaltması için x MB/sn’den fazla bant genişliği ayarlayam
 * 1025 GB ile 2048 GB arası P40'dır.
 * 2049 GB ile 4095 GB arası P50'dir.
 
-Bir diskin iş yükü özellikleri diski P20 veya P30 kategorisine koyarken boyutu nedeniyle daha düşük bir premium depolama disk türüne eşleniyorsa, araç bu VM’yi **Evet**\* olarak işaretler. Araç ayrıca kaynak disk boyutunu önerilen premium depolama disk türüne uyacak şekilde değiştirmenizi veya hedef disk türünü yük devretme sonrasını değiştirmenizi önerir.
+Örneğin, diskin iş yükü özellikleri diski P20 veya P30 kategorisine koyarken boyutu nedeniyle daha düşük bir premium depolama disk türüne eşleniyorsa, araç bu VM’yi **Evet**\* olarak işaretler. Araç ayrıca kaynak disk boyutunu önerilen premium depolama disk türüne uyacak şekilde değiştirmenizi veya hedef disk türünü yük devretme sonrasını değiştirmenizi önerir.
 
 **Depolama Türü**: Standart veya Premium.
 
@@ -234,7 +234,7 @@ Bir diskin iş yükü özellikleri diski P20 veya P30 kategorisine koyarken boyu
 * Toplam VM boyutu (çoğaltma + TFO), desteklenen depolama hesabı boyut sınırını (35 TB) aşıyor. Bu uyumsuzluk genellikle sanal makine içindeki tek bir diskin standart depolama için desteklenen Azure veya Site Recovery sınırlarını aşan bir performans özelliği olduğunda gerçekleşir. Bu tür bir örnek, sanal makineyi premium depolama bölgesine iter. Ancak, bir premium depolama hesabı için desteklenen en büyük boyut 35 TB’dir ve tek bir korunan sanal makine birden fazla depolama hesabında korunamaz. Ayrıca, korunan bir sanal makine üzerinde yük devretme testi yürütüldüğünde, test ile çoğaltma aynı depolama hesabında devam eder. Bu örnekte, çoğaltmanın ilerlemesi ve yük devretme testinin paralel olarak başarılı olması için disk boyutunun 2 katını ayarlayın.
 * Kaynak IOPS, depolama IOPS için disk başına desteklenen 5000 limitini aşıyor.
 * Kaynak IOPS, depolama IOPS için VM başına desteklenen 80.000 limitini aşıyor.
-* Ortalama veri değişim sıklığı, disk için ortalama G/Ç’ye yönelik 10 Mb/sn’lik Site Recovery veri değişim sıklığı limitini aşıyor.
+* Ortalama veri değişim sıklığı, disk için ortalama G/Ç’ye yönelik 10 MB/sn’lik Site Recovery veri değişim sıklığı limitini aşıyor.
 * Sanal makine üzerindeki tüm disklerde bulunan toplam veri değişim sıklığı, VM başına 54 MB/sn’lik desteklenen Site Recovery veri değişim sıklığı sınırını aşıyor.
 * Algılanan ortalama yazma IOPS değeri, disk için 840 olan desteklenen Site Recovery IOPS limitini aşıyor.
 * Hesaplanan anlık görüntü depolama alanı, 10 TB’lik desteklenen anlık görüntü depolama limitini aşıyor.
@@ -259,16 +259,16 @@ Bir diskin iş yükü özellikleri diski P20 veya P30 kategorisine koyarken boyu
 
 
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery limitleri
-Şu tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için, uygulamanın gerçek performans görüntüsünü elde etmek üzere, dağıtım planlamasından sonra bile yük devretme testi kullanılarak her zaman kapsamlı uygulama testleri gerçekleştirilmesi önerilir.
+Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için, uygulamanın gerçek performans görüntüsünü elde etmek üzere, dağıtım planlamasından sonra bile yük devretme testi kullanılarak her zaman kapsamlı uygulama testleri gerçekleştirilmesi önerilir.
  
 **Çoğaltma depolama hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
 ---|---|---|---
-Standart depolama | 8 KB | 2 Mb/sn | Disk başına 168 GB
-Premium P10 veya P15 disk | 8 KB  | 2 Mb/sn | Disk başına 168 GB
-Premium P10 veya P15 disk | 16 KB | 4 Mb/sn |  Disk başına 336 GB
-Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 Mb/sn | Disk başına 672 GB
-Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 Mb/sn | Disk başına 421 GB
-Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |10 Mb/sn | Disk başına 842 GB
+Standart depolama | 8 KB | 2 MB/sn | Disk başına 168 GB
+Premium P10 veya P15 disk | 8 KB  | 2 MB/sn | Disk başına 168 GB
+Premium P10 veya P15 disk | 16 KB | 4 MB/sn |  Disk başına 336 GB
+Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 MB/sn | Disk başına 672 GB
+Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 MB/sn | Disk başına 421 GB
+Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |10 MB/sn | Disk başına 842 GB
 
 Bunlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Site Recovery; çakışma oranı, büyük yazma boyutları ve gerçek iş yükü G/Ç davranışına göre daha yüksek aktarım hızını işleyebilir. Yukarıdaki sayılar yaklaşık beş dakikalık tipik bir kapsamı varsayar. Diğer bir deyişle, veriler karşıya yüklendikten sonra işlenir ve beş dakika içinde kurtarma noktası oluşturulur.
 

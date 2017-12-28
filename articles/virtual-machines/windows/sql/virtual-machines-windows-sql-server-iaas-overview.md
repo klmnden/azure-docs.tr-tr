@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2017
+ms.date: 12/14/2017
 ms.author: jroth
-ms.openlocfilehash: 140e59b971da379d7475097bf3e26d5b070fa610
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 95a18e4b2437ca628e84f6d6f580e12f2f26e111
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Sanal Makinelerinde SQL Server nedir? (Windows)
 
@@ -42,12 +42,19 @@ SQL Server Azure sanal makineleri, blob depolama alanında düzenli olarak verit
 
 Size yüksek kullanılabilirlik gerekiyorsa, SQL Server Kullanılabilirlik gruplarını yapılandırmayı dikkate alın. Bu, bir sanal ağda birden fazla SQL Server Azure VM’leri içerir. Yüksek kullanılabilirlik çözümünüzü kendiniz yapılandırabilir veya otomatik yapılandırma için Azure portalındaki şablonları kullanabilirsiniz. Tüm yüksek kullanılabilirlik seçeneklerine genel bir bakış için bkz. [Azure Sanal Makineler’de SQL Server için Yüksek Kullanılabilirlik ve Olağanüstü Durum Kurtarma](virtual-machines-windows-sql-high-availability-dr.md).
 
+## <a name="performance"></a>Performans
+
+Azure sanal makineleri çeşitli iş yükü taleplerini karşılamak üzere farklı makine boyutları sunar. SQL VM'leri ayrıca performans gereksinimleriniz için en iyi duruma getirilmiş otomatik depolama yapılandırması sağlar. SQL VM'lerine ilişkin depolama yapılandırması hakkında daha fazla bilgi için bkz. [SQL Server VM'leri için depolama yapılandırması](virtual-machines-windows-sql-server-storage-configuration.md). Performansı ayarlamak için bkz. [Azure Sanal Makineler’de SQL Server için performansa yönelik en iyi uygulamalar](virtual-machines-windows-sql-performance.md).
+
 ## <a name="get-started-with-sql-vms"></a>SQL VM’lerini kullanmaya başlayın
 
 Kullanmaya başlamak için, gerekli olan sürüm ve işletim sisteminizle birlikte bir SQL Server sanal makine resmi seçin. Aşağıdaki bölümlerde SQL Server sanal makine galeri görüntüleri için Azure portalının doğrudan bağlantıları verilmektedir.
 
 > [!TIP]
 > Bu görüntülerin VM ve SQL fiyatlandırmasını anlamak için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
+
+> [!TIP]
+> SQL Server sanal makine galeri görüntüleri için güncelleştirme ve yaşam döngüsü ilkesini anlamak üzere bkz. [SQL Server VM'leri SSS](virtual-machines-windows-sql-server-iaas-faq.md#images).
 
 ### <a id="payasyougo"></a> Kullandıkça ödeyin
 Şu tabloda, kullandıkça öde SQL Server resimlerinin bir matrisi verilmektedir.
@@ -93,7 +100,7 @@ Müşteri Deneyimini Geliştirme Programı (CEIP) varsayılan olarak etkindir. B
 ### <a name="networking"></a>Ağ
 * [Sanal Ağ’a genel bakış](../../../virtual-network/virtual-networks-overview.md)
 * [Azure’da IP adresleri](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Azure portalda Tam Etki Alanı Adı oluşturma](../portal-create-fqdn.md)
+* [Azure Portal'da Tam Etki Alanı Adı oluşturma](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 * [SQL Server belgeleri](https://docs.microsoft.com/sql/index)

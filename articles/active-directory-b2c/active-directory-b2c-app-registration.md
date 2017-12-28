@@ -1,12 +1,11 @@
 ---
-title: "Azure Active Directory B2C: Uygulama kaydı | Microsoft Belgeleri"
+title: "Uygulama kaydı - Azure Active Directory B2C"
 description: "Uygulamanızı Azure Active Directory B2C'ye kaydetme"
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Uygulamanızı kaydetme
 
@@ -28,7 +27,7 @@ Bu Hızlı Başlangıç, bir Microsoft Azure Active Directory (Azure AD) B2C Kir
 
 Tüketicinin kaydolmasını ve oturum açmasını kabul eden bir uygulama oluşturmak için öncelikle uygulamayı Azure Active Directory B2C kiracısına kaydetmeniz gerekir. [Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md) makalesinde ana hatlarıyla belirtilen adımları izleyerek kendi kiracınızı edinin.
 
-Azure portalında Azure AD B2C dikey penceresinden oluşturulan uygulamaların aynı konumdan yönetilmesi gerekir. B2C uygulamalarını PowerShell veya başka bir portal kullanarak düzenlerseniz bu uygulamalar desteklenmez duruma gelir ve Azure AD B2C ile çalışmaz. [Hatalı uygulamalar](#faulted-apps) bölümünden ayrıntılara bakabilirsiniz. 
+Azure portalında oluşturulan uygulamaların aynı konumdan yönetilmesi gerekir. Azure AD B2C uygulamalarını PowerShell veya başka bir portal kullanarak düzenlerseniz bu uygulamalar desteklenmez duruma gelir ve Azure AD B2C ile çalışmaz. [Hatalı uygulamalar](#faulted-apps) bölümünden ayrıntılara bakabilirsiniz. 
 
 Bu makalede örneklerimizle çalışmaya başlamanıza yardımcı olacak örnekler kullanır. Bu örnekler hakkında sonraki makalelerinde daha fazla bilgi edinebilirsiniz.
 
@@ -117,7 +116,7 @@ Sonraki iki yanıt URL’si, ilk yanıt URL'si olan contoso.com’un alt etki al
 
 Mobil/yerel uygulamalar için bir yeniden yönlendirme URI’si seçerken dikkat edilmesi gereken iki önemli nokta şunlardır:
 
-* **Benzersiz**: Yeniden yönlendirme URI’si şeması her uygulama için benzersiz olmalıdır. Örneğimizde (com.onmicrosoft.contoso.appname://redirect/path), şema olarak com.onmicrosoft.contoso.appname kullanılır. Bu örneği izlemeniz önerilir. İki uygulama aynı şemayı paylaşıyorsa, kullanıcı bir “bir uygulama seçin” iletişim kutusu görür. Kullanıcı yanlış seçim yaparsa, oturum açma başarısız olur.
+* **Benzersiz**: Yeniden yönlendirme URI’si şeması her uygulama için benzersiz olmalıdır. Örnekte (com.onmicrosoft.contoso.appname://redirect/path), şema olarak com.onmicrosoft.contoso.appname kullanılır. Bu örneği izlemeniz önerilir. İki uygulama aynı şemayı paylaşıyorsa, kullanıcı bir “bir uygulama seçin” iletişim kutusu görür. Kullanıcı yanlış seçim yaparsa, oturum açma başarısız olur.
 * **Tam**: Yeniden yönlendirme URI’sinin bir şeması ve yolu olmalıdır. Yol, etki alanından sonra en az bir eğik çizgi içermelidir (örneğin, //contoso/ çalışırken //contoso başarısız olur).
 
 Yeniden yönlendirme URI'sinde alt çizgi gibi özel karakterler olmadığından emin olun.
@@ -126,16 +125,16 @@ Yeniden yönlendirme URI'sinde alt çizgi gibi özel karakterler olmadığından
 
 B2C uygulamaları şu durumlarda DÜZENLENMEMELİDİR:
 
-* [Klasik Azure portalı](https://manage.windowsazure.com/) ve [Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/) gibi diğer uygulama yanıt portallarında.
+* [Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/) gibi diğer uygulama yanıt portallarında.
 * Graph API'si veya PowerShell kullanılarak
 
-B2C uygulamasını yukarıda açıklanan şekilde düzenleyip Azure portalının Azure AD B2C özellikleri dikey penceresinde yeniden düzenlemeye çalışırsanız, uygulama hatalı bir hale gelir ve Azure AD B2C ile artık kullanılamaz. Uygulamayı silip yeniden oluşturmanız gerekir.
+Azure AD B2C uygulamasını açıklanan şekilde düzenleyip Azure portalının Azure AD B2C özellikleri menüsünde yeniden düzenlemeye çalışırsanız, uygulama hatalı bir hale gelir ve Azure AD B2C ile artık kullanılamaz. Uygulamayı silip yeniden oluşturmanız gerekir.
 
 Uygulamayı silmek için [Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/)’na gidin ve uygulamayı silin. Uygulamanın görünür olması için uygulamanın sahibi olmanız (ve yalnızca kiracının yöneticisi olmamanız) gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2C'ye kayıtlı bir uygulamaya sahip olduğunuza göre başlamak için [hızlı başlangıç öğreticilerimizden](active-directory-b2c-overview.md#get-started) birini tamamlayabilirsiniz.
+Azure AD B2C'ye kayıtlı bir uygulamaya sahip olduğunuza göre başlamak için [hızlı başlangıç öğreticilerinden](active-directory-b2c-overview.md#get-started) birini tamamlayabilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Kaydolma, oturum açma ve parola sıfırlama seçenekleriyle bir ASP.NET web uygulaması oluşturma](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

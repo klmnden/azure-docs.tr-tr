@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory ile ilgili SSS | Microsoft Belgeleri
-description: "Azure Active Directory SSS bölümünde, Azure ve Azure Active Directory, parola yönetimi ve uygulama erişimi konusunda sorular yanıtlanmaktadır."
+description: "Azure Active Directory SSS bölümünde, Azure ve Azure Active Directory, parola yönetimi ve uygulama erişimi konusundaki genel sorular yanıtlanmaktadır."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 5ec11f1a125cc4c6e7f5165091411dea7daca193
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
@@ -27,9 +27,9 @@ Daha fazla bilgi için bkz. [Azure Active Directory nedir?](active-directory-wha
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Azure ve Azure Active Directory erişimi
-**S: Klasik Azure portalında Azure AD'ye erişmeye çalıştığımda neden "Abonelik bulunamadı" yanıtını alıyorum?**
+**S: Azure portalında Azure AD'ye erişmeye çalıştığımda neden "Abonelik bulunamadı" yanıtını alıyorum?**
 
-**Y:** Klasik Azure portalına erişmek için her kullanıcının bir Azure aboneliğiyle birlikte izinleri olmalıdır. Ücretli bir Office 365 veya Azure AD aboneliğiniz varsa tek seferlik etkinleştirme adımı için [http://aka.ms/accessAAD](http://aka.ms/accessAAD) sayfasına gidin. Aksi takdirde, ücretsiz bir [Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) veya ücretli aboneliği etkinleştirmeniz gerekir.
+**Y:** Azure portalına erişmek için her kullanıcının bir Azure aboneliğiyle birlikte izinleri olmalıdır. Ücretli bir Office 365 veya Azure AD aboneliğiniz varsa tek seferlik etkinleştirme adımı için [http://aka.ms/accessAAD](http://aka.ms/accessAAD) sayfasına gidin. Aksi takdirde, ücretsiz bir [Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) veya ücretli aboneliği etkinleştirmeniz gerekir.
 
 Daha fazla bilgi için bkz.
 
@@ -44,11 +44,9 @@ Daha fazla bilgi için bkz.
 Web hizmetlerini kullanacak şekilde ayarlanmış tüm kullanıcılar, bir veya daha fazla Azure AD örneğinde kullanıcı hesabı olarak tanımlanır. Bulut uygulama erişimi gibi ücretsiz Azure AD özellikleri için bu hesapları ayarlayabilirsiniz.
 
 Enterprise Mobility + Security gibi ücretli Azure AD hizmetleri, kurumsal ölçekte kapsamlı yönetim ve güvenlik çözümleriyle Office 365 ve Microsoft Azure gibi diğer web hizmetlerini tamamlar.
-- - -
-**S:  Neden Azure portalında oturum açabiliyorken klasik Azure portalında oturum açamıyorum?**
 
-**Y:** Azure portalı geçerli bir abonelik gerektirmezken, klasik portal geçerli bir abonelik gerektirir.  Bir aboneliğiniz yoksa, klasik portalda oturum açamazsınız.
 - - -
+
 **S:  Abonelik Yöneticisi ile Dizin Yöneticisi arasındaki farklar nelerdir?**
 
 **C:** Varsayılan olarak, Azure’a kaydolurken size Abonelik Yöneticisi rolü atanır. Abonelik yöneticisi bir Microsoft hesabı ya da Azure aboneliğinin ilişkili olduğu dizinden bir çalışma veya okul hesabı kullanabilir.  Bu rol Azure portaldaki hizmetleri yönetme yetkisine sahiptir.
@@ -56,7 +54,7 @@ Enterprise Mobility + Security gibi ücretli Azure AD hizmetleri, kurumsal ölç
 Başkalarının aynı aboneliği kullanarak oturum açması ve hizmetlere erişmesi gerekiyorsa bu kişileri ortak yönetici olarak ekleyebilirsiniz. Bu rol hizmet yöneticisi ile aynı erişim ayrıcalıklarına sahiptir, ancak aboneliklerin Azure dizinleriyle ilişkisini değiştiremez.  Abonelik yöneticileri hakkında ek bilgi için bkz. [Azure yönetici rolleri ekleme veya değiştirme](../billing-add-change-azure-subscription-administrator.md) ve [Azure aboneliklerinin Azure Active Directory ile ilişkisi](active-directory-how-subscriptions-associated-directory.md).
 
 
-Azure AD, dizin ve kimlikle ilgili özelliklerin yönetilmesine ilişkin farklı bir yönetim rolleri dizisine sahiptir.  Bu yöneticiler, Azure portal veya klasik Azure portalında çeşitli özelliklere erişebilir. Yöneticinin rolü, kullanıcı oluşturma veya düzenleme, diğer kullanıcılara yönetici rolleri atama, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme veya etki alanlarını yönetme gibi yetkileri belirler.  Azure AD dizin yöneticileri ve rolleri hakkında daha fazla bilgi için bkz. [Azure Active Directory’de yönetici rolü atama](active-directory-assign-admin-roles-azure-portal.md).
+Azure AD, dizin ve kimlikle ilgili özelliklerin yönetilmesine ilişkin farklı bir yönetim rolleri dizisine sahiptir.  Bu yöneticiler, Azure portalında çeşitli özelliklere erişebilir. Yöneticinin rolü, kullanıcı oluşturma veya düzenleme, diğer kullanıcılara yönetici rolleri atama, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme veya etki alanlarını yönetme gibi yetkileri belirler.  Azure AD dizin yöneticileri ve rolleri hakkında daha fazla bilgi için bkz. [Azure Active Directory’de yönetici rolü atama](active-directory-assign-admin-roles-azure-portal.md).
 
 Ayrıca, Enterprise Mobility + Security gibi ücretli Azure AD hizmetleri, kurumsal ölçekte kapsamlı yönetim ve güvenlik çözümleriyle Office 365 ve Microsoft Azure gibi diğer web hizmetlerini tamamlar.
 
@@ -137,16 +135,20 @@ Azure AD hesapları için yöneticiler aşağıdakilerden birini kullanarak paro
 
 - - -
 ## <a name="security"></a>Güvenlik
-**S: Hesaplar belirli sayıda girişim başarısız olduktan sonra kilitleniyor mu, yoksa kullanılan daha karmaşık bir strateji mi var?**</br>
+**S: Hesaplar belirli sayıda girişim başarısız olduktan sonra kilitleniyor mu, yoksa kullanılan daha karmaşık bir strateji mi var?**
+
 Hesapları kilitlemek için daha karmaşık bir strateji kullanırız.  Bu strateji, isteğin IP adresini ve girilen parolaları temel alır. Kilitleme süresi ayrıca girişimin bir saldırı olma olasılığına göre artar.  
 
-**S:  Bazı (yaygın) parolalar ‘bu parola birçok kez kullanılmış’ iletisiyle reddediliyor; bu durum parolaların geçerli active directory’de kullanıldığı anlamına mı gelir?**</br>
+**S:  Bazı (yaygın) parolalar ‘bu parola birçok kez kullanılmış’ iletisiyle reddediliyor; bu durum parolaların geçerli active directory’de kullanıldığı anlamına mı gelir?**
+
 Bu durum, parolaların “Parola” ve “123456” değerlerinin çeşitlemeleri gibi genel olarak yaygın olduğunu ifade eder.
 
-**S: Güvenilmez kaynaklardan (botnet, tor uç noktası) gelen oturum açma istekleri bir B2C kiracısında engellenir mi veya bir Temel ya da Premium sürüm kiracı gerekir mi?**</br>
+**S: Güvenilmez kaynaklardan (botnet, tor uç noktası) gelen oturum açma istekleri bir B2C kiracısında engellenir mi veya bir Temel ya da Premium sürüm kiracı gerekir mi?**
+
 İstekleri filtreleyen ve botnetlere karşı koruma sağlayıp tüm B2C kiracılarına uygulanan bir ağ geçidine sahibiz.
 
 ## <a name="application-access"></a>Uygulama erişimi
+
 **S: Azure AD ile önceden tümleştirilmiş olan uygulamaların ve özelliklerinin listesini nereden bulabilirim?**
 
 **Y:** Azure AD, Microsoft'a, uygulama hizmeti sağlayıcılarına ve iş ortaklarına ait 2.600'ü aşkın önceden tümleştirilmiş uygulama içerir. Önceden tümleştirilmiş tüm uygulamalar çoklu oturum açmayı (SSO) destekler. SSO, uygulamalarınıza erişmek için kurumsal kimlik bilgilerinizi kullanmanıza olanak tanır. Uygulamalardan bazıları aynı zamanda otomatik hazırlama ve sağlamayı kaldırma özelliklerini destekler.

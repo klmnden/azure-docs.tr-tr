@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery dağıtım planlayıcısı raporunun analizi
 Oluşturulan Microsoft Excel raporu aşağıdaki sayfaları içerir:
@@ -235,9 +235,9 @@ Azure Site Recovery dağıtım planlayıcısı tarafından oluşturulan Microsof
 
 * Kaynak IOPS, depolama IOPS için VM başına desteklenen 80.000 limitini aşıyor.
 
-* Ortalama veri değişim sıklığı, disk için ortalama G/Ç’ye yönelik 10 Mb/sn’lik Azure Site Recovery veri değişim sıklığı sınırını aşıyor.
+* Kaynak VM ortalama veri değişim sıklığı, ortalama G/Ç’ye yönelik 10 Mb/sn’lik Azure Site Recovery veri değişim sıklığı sınırını aşıyor.
 
-* Algılanan ortalama yazma IOPS değeri, disk için 840 olan desteklenen Azure Site Recovery IOPS sınırını aşıyor.
+* Kaynak VM ortalama etkili yazma IOPS değeri, 840 olan desteklenen Azure Site Recovery IOPS sınırını aşıyor.
 
 * Hesaplanan anlık görüntü depolama alanı, 10 TB’lik desteklenen anlık görüntü depolama limitini aşıyor.
 
@@ -260,14 +260,11 @@ Azure Site Recovery dağıtım planlayıcısı tarafından oluşturulan Microsof
 ## <a name="azure-site-recovery-limits"></a>Azure Site Recovery limitleri
 Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için, uygulamanın gerçek performans görüntüsünü elde etmek üzere, dağıtım planlamasından sonra bile yük devretme testi kullanılarak her zaman kapsamlı uygulama testleri gerçekleştirilmesi önerilir.
  
-**Çoğaltma depolama hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
+**Çoğaltma depolama hedefi** | **Kaynak VM ortalama G/Ç boyutu** |**Kaynak VM ortalama veri değişim sıklığı** | **Günlük toplam kaynak VM veri değişim sıklığı**
 ---|---|---|---
-Standart depolama | 8 KB | 2 Mb/sn | Disk başına 168 GB
-Premium P10 veya P15 disk | 8 KB  | 2 Mb/sn | Disk başına 168 GB
-Premium P10 veya P15 disk | 16 KB | 4 Mb/sn |  Disk başına 336 GB
-Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 Mb/sn | Disk başına 672 GB
-Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 Mb/sn | Disk başına 421 GB
-Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |10 Mb/sn | Disk başına 842 GB
+Standart depolama | 8 KB | VM başına 2 MB/sn | VM başına 168 GB
+Premium depolama | 8 KB  | VM başına 5 MB/sn | VM başına 421 GB
+Premium depolama | 16 KB veya daha yüksek| VM başına 10 MB/sn | VM başına 842 GB
 
 Bu sınırlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Azure Site Recovery; çakışma oranı, büyük yazma boyutları ve gerçek iş yükü G/Ç davranışına göre daha yüksek aktarım hızını işleyebilir. Yukarıdaki sayılar yaklaşık beş dakikalık tipik bir kapsamı varsayar. Diğer bir deyişle, veriler karşıya yüklendikten sonra işlenir ve beş dakika içinde kurtarma noktası oluşturulur.
 

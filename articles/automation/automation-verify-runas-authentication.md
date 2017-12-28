@@ -3,7 +3,7 @@ title: "Azure Otomasyonu hesap yapılandırmasını doğrulama | Microsoft Docs"
 description: "Bu makalede Otomasyon hesabınızın doğru şekilde ayarlandığını onaylama işlemi açıklanmaktadır."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 55f5d5524019ac63565e5ddd1f47dbdd65f05065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72be69b8d48abdcb15f4a89949edc3083ce85eee
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Azure Otomasyonu Farklı Çalıştır hesabı kimlik doğrulamasını test etme
 Bir Otomasyon hesabı başarıyla oluşturulduktan sonra, yeni oluşturduğunuz veya güncelleştirdiğiniz Azure Farklı Çalıştır hesabını kullanarak Azure Resource Manager veya Azure klasik dağıtımında kimlik doğrulamasını başarıyla yapabildiğinizi onaylamak üzere basit bir test gerçekleştirebilirsiniz.    
@@ -66,9 +66,9 @@ Aşağıdaki örnek kodları Farklı Çalıştır hesabını kullanarak kimlik d
 
 Runbook’ta kimlik doğrulaması için kullanılan cmdlet’in (**Add-AzureRmAccount**) *ServicePrincipalCertificate* parametre kümesini kullandığına dikkat edin.  Kimlik bilgilerini değil, hizmet asıl sertifikasını kullanarak kimlik doğrulamasını yapar.  
 
-Farklı Çalıştır hesabınızı doğrulamak için bir [runbook’u çalıştırdığınızda](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) bir [runbook işi](automation-runbook-execution.md) oluşturulur, İş dikey penceresi gösterilir ve iş durumu **İş Özeti** kutucuğunda gösterilir. İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar. Ardından, bir çalışan işi talep ettiğinde *Başlatılıyor* olarak ve runbook gerçekten çalışmaya başladığında *Çalışıyor* olarak değiştirilir.  Runbook işi tamamlandığında **Tamamlandı** durumunu görmeniz gerekir.
+Farklı Çalıştır hesabınızı doğrulamak için bir [runbook’u çalıştırdığınızda](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) bir [runbook işi](automation-runbook-execution.md) oluşturulur, İş penceresi gösterilir ve iş durumu **İş Özeti** kutucuğunda gösterilir. İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar. Ardından, bir çalışan işi talep ettiğinde *Başlatılıyor* olarak ve runbook gerçekten çalışmaya başladığında *Çalışıyor* olarak değiştirilir.  Runbook işi tamamlandığında **Tamamlandı** durumunu görmeniz gerekir.
 
-Runbook’un ayrıntılı sonuçlarını görmek için **Çıktı** kutucuğuna tıklayın.  **Çıktı** dikey penceresinde kimlik doğrulamasının başarıyla yapıldığını ve aboneliğinizde olan tüm kaynak gruplarındaki kaynakların bir listesinin döndürüldüğünü görürsünüz.  
+Runbook’un ayrıntılı sonuçlarını görmek için **Çıktı** kutucuğuna tıklayın.  **Çıktı** sayfasında kimlik doğrulamasının başarıyla yapıldığını ve aboneliğinizde olan tüm kaynak gruplarındaki kaynakların bir listesinin döndürüldüğünü görürsünüz.  
 
 Runbook’larınız için kodları kullanırken `#Get all ARM resources from all resource groups` açıklaması ile başlayan kod bloğunu kaldırmayı unutmayın.
 
@@ -102,9 +102,9 @@ Aşağıdaki örnek kodları Klasik Farklı Çalıştır hesabını kullanarak k
     #Get all VMs in the subscription and return list with name of each
     Get-AzureVM | ft Name
 
-Farklı Çalıştır hesabınızı doğrulamak için bir [runbook’u çalıştırdığınızda](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) bir [runbook işi](automation-runbook-execution.md) oluşturulur, İş dikey penceresi gösterilir ve iş durumu **İş Özeti** kutucuğunda gösterilir. İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar. Ardından, bir çalışan işi talep ettiğinde *Başlatılıyor* olarak ve runbook gerçekten çalışmaya başladığında *Çalışıyor* olarak değiştirilir.  Runbook işi tamamlandığında **Tamamlandı** durumunu görmeniz gerekir.
+Farklı Çalıştır hesabınızı doğrulamak için bir [runbook’u çalıştırdığınızda](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) bir [runbook işi](automation-runbook-execution.md) oluşturulur, İş sayfası gösterilir ve iş durumu **İş Özeti** kutucuğunda gösterilir. İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar. Ardından, bir çalışan işi talep ettiğinde *Başlatılıyor* olarak ve runbook gerçekten çalışmaya başladığında *Çalışıyor* olarak değiştirilir.  Runbook işi tamamlandığında **Tamamlandı** durumunu görmeniz gerekir.
 
-Runbook’un ayrıntılı sonuçlarını görmek için **Çıktı** kutucuğuna tıklayın.  **Çıktı** dikey penceresinde kimlik doğrulamasının başarıyla yapıldığını ve aboneliğinizde olan Azure VM’lerinin VMName’lerini içeren bir listesinin döndürüldüğünü görürsünüz.  
+Runbook’un ayrıntılı sonuçlarını görmek için **Çıktı** kutucuğuna tıklayın.  **Çıktı** sayfasında kimlik doğrulamasının başarıyla yapıldığını ve aboneliğinizde olan Azure VM’lerinin VMName’lerini içeren bir listesinin döndürüldüğünü görürsünüz.  
 
 Runbook’larınız için kodları kullanırken **Get-AzureVM** cmdlet’ini kaldırmayı unutmayın.
 

@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse’a bağlanma
 Bu makale SQL Veri Ambarı’na ilk kez bağlanmanıza yardımcı olur.
 
 ## <a name="find-your-server-name"></a>Sunucu adınızı bulma
-SQL Veri Ambarına bağlanmanın ilk adımı, sunucunuzun adını bulmayı bilmektir.  Örneğin, aşağıdaki örnekte sunucu adı sample.database.windows.net şeklindedir. Tam sunucu adını bulmak için:
+SQL Veri Ambarına bağlanmanın ilk adımı, sunucunuzun adını bulmayı bilmektir.  Örneğin, aşağıdaki örnekte sunucu adı samplesvr.database.windows.net şeklindedir. Tam sunucu adını bulmak için:
 
 1. [Azure Portalı][Azure portal]’na gidin.
-2. **SQL veritabanları**’na tıklayın 
-3. Bağlanmak istediğiniz veritabanına tıklayın.
+2. **SQL veri ambarları**’na tıklayın.
+3. Bağlanmak istediğiniz veri ambarına tıklayın.
 4. Tam sunucu adını bulun.
    
     ![Tam sunucu adı][1]
@@ -93,6 +93,6 @@ Visual Studio ile bağlantı kurmak ve sorgulamak için bkz. [Visual Studio ile 
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

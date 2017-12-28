@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
 
@@ -54,11 +54,12 @@ Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı için
 
 Karma Bağlantılar, Azure Service Bus WCF Geçişi üzerinde oluşturulan eski ve benzer ada sahip "BizTalk Services" özelliğini tamamlar. Yeni Karma Bağlantılar özelliği mevcut WCF Geçişi özelliğini tamamlar ve bu iki hizmet özelliği Azure Geçişi hizmetinde birlikte yer alır. Ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
 
-## <a name="wcf-relays"></a>WCF Geçişleri
+## <a name="wcf-relay"></a>WCF Geçişi
 
-WCF Geçişi tam .NET Framework (NETFX) ve WCF için çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir.
+WCF Geçişi tam .NET Framework (NETFX) ve WCF için çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir. Daha fazla bilgi için bkz. [WCF Geçişi ile çalışmaya başlama](relay-wcf-dotnet-get-started.md).
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Mimari: Gelen geçiş isteklerinin işlenmesi
+
 Bir istemci [Azure Geçişi](/azure/service-bus-relay/) hizmetine istek gönderdiğinde Azure yük dengeleyici bu isteği ağ geçidi düğümlerinden herhangi birine yönlendirir. İstek, bir dinleme isteğiyse ağ geçidi düğümü yeni bir geçiş oluşturur. İstek, belirli bir geçiş için bağlantı isteğiyse ağ geçidi düğümü, geçişe sahip olan ağ geçidi düğümüne bağlantı isteğini iletir. Geçişe sahip ağ geçidi dinleyen istemciye bir randevu isteği göndererek dinleyiciden bağlantı isteğini alan ağ geçidi düğümüne geçici bir kanal kurmasını ister.
 
 Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ geçidi düğümü aracılığıyla iletileri değiştirebilir.
