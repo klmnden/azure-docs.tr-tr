@@ -96,7 +96,7 @@ Azure, virüsten koruma çözümleri için çeşitli seçenek sunar ancak bunlar
 * [Azure Sanal Makinelerinde Kötü Amaçlı Yazılıma Karşı Koruma Çözümleri Dağıtma](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>Yedekleme ve kurtarma seçeneklerim nelerdir?
-Azure Backup belirli bölgelerde önizleme olarak sunulmaktadır. Ayrıntılar için bkz. [Azure sanal makinelerini yedekleme](../articles/backup/backup-azure-vms.md). Sertifikalı iş ortaklarının sunduğu başka çözümler vardır. Şu anda hangi çözümlerin kullanılabilir olduğunu öğrenmek için Azure Market’te arama yapın.
+Azure Backup belirli bölgelerde önizleme olarak sunulmaktadır. Ayrıntılar için bkz. [Azure sanal makinelerini yedekleme](../articles/backup/backup-azure-arm-vms.md). Sertifikalı iş ortaklarının sunduğu başka çözümler vardır. Şu anda hangi çözümlerin kullanılabilir olduğunu öğrenmek için Azure Market’te arama yapın.
 
 Bir başka seçenek de blob depolamanın anlık görüntü özelliklerini kullanmaktır. Bunu yapmak için, blob anlık görüntüsüne bağlı herhangi bir işlem gerçekleştirmeden önce VM’yi kapatmanız gerekir. Bunu yaptığınızda bekleyen veri yazma işlemleri kaydedilir ve dosya sistemi kararlı bir hale getirilir.
 

@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs mesajlaşma özel durumları
-Bu makalede Azure Service Bus Event Hubs dahil API'leri Mesajlaşma tarafından oluşturulan özel durumları bazıları listelenmektedir. Bu başvuru değiştirilebilir, bu nedenle geri Güncelleştirmeleri denetle.
+
+Bu makalede, olay hub'ları API'leri içeren Azure Service Bus Mesajlaşma API kitaplığı tarafından oluşturulan özel durumları bazıları listelenmektedir. Bu başvuru değiştirilebilir, bu nedenle geri Güncelleştirmeleri denetle.
 
 ## <a name="exception-categories"></a>Özel durum kategorileri
+
 Olay hub'ları API'leri aşağıdaki kategorilere bunları çözmek için uygulayabileceğiniz ilişkili eylem birlikte dönebilir özel durumları oluşturur.
 
 1. Kullanıcı kodlama hatası: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Genel eylem: devam etmeden önce kodu düzeltmeye çalışır.
@@ -82,9 +84,9 @@ Bu hata iki nedenlerden biriyle oluşabilir:
     
     Çözüm: bölüm Dağıtım stratejisi düzeltilmesi veya çalışırken [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) yardımcı olabilir.
 
-2. Olay hub'ları ad alanı yeterli üretilen iş birimleri yok (kontrol edebilirsiniz **ölçümleri** olay hub'ları ad alanı dikey penceresinde dikey penceresinde [Azure portal](https://portal.azure.com) onaylamak için). Portal toplanmış (1 dakika) bilgileri gösterir, ancak yalnızca bir tahmin olacak şekilde size gerçek zamanlı – iş hacmini ölçmek unutmayın.
+2. Olay hub'ları ad alanı yeterli üretilen iş birimleri yok (kontrol edebilirsiniz **ölçümleri** olay hub'ları ad alanı penceresinde ekran [Azure portal](https://portal.azure.com) onaylamak için). Portal toplanmış (1 dakika) bilgileri gösterir, ancak yalnızca bir tahmin olacak şekilde size gerçek zamanlı – iş hacmini ölçmek unutmayın.
 
-    Çözüm: ad alanında üretilen iş birimleri artırma yardımcı olabilir. Bu portal üzerinde de yapabilirsiniz **ölçek** olay hub'ları ad alanı dikey dikey.
+    Çözüm: ad alanında üretilen iş birimleri artırma yardımcı olabilir. Portalında, bunu yapabilirsiniz **ölçek** olay hub'ları ad alanı ekranın penceresi.
 
 ### <a name="error-code-50001"></a>Hata kodu 50001
 

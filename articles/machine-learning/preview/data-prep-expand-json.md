@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 57f461f9a39e8069654985d86bfe3ae23dd0855a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614f4422aa987fc32dcce62826bb2477473fdc32
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="expand-json-transformation"></a>JSON dönüştürme genişletin
 **Genişletin JSON** dönüştürme birden çok sütuna geçerli JSON metni içeren varolan bir sütunla genişletmek kullanıcıların sağlar.
@@ -25,7 +25,7 @@ ms.lasthandoff: 10/11/2017
 Bu dönüştürme gerçekleştirmek için aşağıdaki adımları izleyin:
 1. JSON metni içeren kaynak sütunu seçin.
 2. Seçin **genişletin JSON** gelen **dönüştüren** menüsü. Ya da seçin ve kaynak sütun başlığına sağ tıklayın **genişletin JSON** ve bağlam menüsünden. 
-3. **Tamam** düğmesine tıklayın. 
+3. **Tamam**’a tıklayın. 
  
 Yeni sütunlar yanındaki kaynak sütunu eklenir. Bu sütun JSON metninde hiyerarşisinin sonraki düzeyinden özellikleri içerir. Özellik anahtarı varsa, karşılık gelen sütunun adı oluşturmak için kullanılır. İç içe özellikler, bu kullanıcının JSON metni olarak korunur tekrarlayarak genişletebilir veya gerektiğinde atın.
 

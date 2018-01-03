@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
 ms.openlocfilehash: e60bfc89378569b154f4f973d1dceb683fa58482
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Yeni veya var olan uygulama ağ geçidi Azure CLI ile bir web uygulaması Güvenlik Duvarı'nı yapılandırın
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-web-application-firewall-portal.md)
+> * [Azure portalı](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Azure CLI](application-gateway-web-application-firewall-cli.md)
 

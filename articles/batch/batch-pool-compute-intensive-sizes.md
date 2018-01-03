@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch havuzları, RDMA özellikli GPU etkinleştirilmiş veya örnekleri kullanın
 
@@ -47,10 +47,10 @@ Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek ist
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Linux havuzları - sanal makine yapılandırması
 
-| Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuzu ayarları |
+| Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, veya<br/>CentOS tabanlı HPC<br/>(Azure Market) | Intel MPI 5 | Düğümler arası iletişimi etkinleştirmek, eşzamanlı görev yürütme devre dışı bırakma |
-| [NC serisi *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS tabanlı 7.3<br/>(Azure Market) | NVIDIA CUDA Araç Seti 9.0 sürücüleri | Yok | 
+| [NC serisi *](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | NVIDIA Tesla K80 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS tabanlı 7.3<br/>(Azure Market) | NVIDIA CUDA Araç Seti 9.0 sürücüleri | Yok | 
 | [NV serisi](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, veya<br/>CentOS tabanlı 7.3<br/>(Azure Market) | NVIDIA Kılavuz 4.3 sürücüleri | Yok |
 
 * RDMA bağlantısı NC24r vm'lerde Ubuntu 16.04 LTS veya CentOS tabanlı 7.3 HPC (Azure Marketi'nden) Intel MPI ile desteklenir.
@@ -59,7 +59,7 @@ Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek ist
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Windows havuzları - sanal makine yapılandırması
 
-| Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuzu ayarları |
+| Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 veya<br/>Windows Server 2012 (Azure Market) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek, eşzamanlı görev yürütme devre dışı bırakma |
 | [NC serisi *](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla K80 GPU | Windows Server 2016 veya <br/>Windows Server 2012 R2 (Azure Market) | NVIDIA Tesla sürücüleri veya CUDA Araç Seti 9.0 sürücülerini| Yok | 
@@ -73,7 +73,7 @@ Kota artışı isteği gerekiyorsa, açık bir [çevrimiçi müşteri destek ist
 > N-serisi boyutları, cloud services yapılandırması ile Batch havuzlarında desteklenmez.
 >
 
-| Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuzu ayarları |
+| Boyut | Özellik | İşletim sistemleri | Gerekli yazılım | Havuz ayarları |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2<br/>Windows Server 2012 veya<br/>Windows Server 2008 R2 (konuk işletim sistemi ailesi) | Microsoft MPI 2012 R2 veya sonraki bir sürümü veya<br/>Intel MPI 5<br/><br/>HpcVMDrivers Azure VM uzantısı | Düğümler arası iletişimi etkinleştirmek,<br/> eşzamanlı görev yürütme devre dışı bırak |
 
@@ -122,7 +122,7 @@ Bir Azure A8 düğümleri havuzunda Windows MPI uygulamaları çalıştırmak i�
 Bir Linux NC düğümleri havuzunda CUDA uygulamalarını çalıştırmak için CUDA Araç Seti 9.0 düğümlerinde yüklemeniz gerekir. Araç Seti gerekli NVIDIA Tesla GPU sürücüleri yükler. GPU sürücüleri ile özel bir Ubuntu 16.04 LTS görüntü dağıtmak için örnek adımlar şunlardır:
 
 1. Bir Azure NC6 Ubuntu 16.04 LTS çalıştıran VM dağıtın. Örneğin, BİZE Güney merkez bölgede VM oluşturun. Yönetilen bir diskle VM oluşturduğunuzdan emin olun.
-2. VM'e bağlanmak için gereken adımları izleyin ve [CUDA sürücülerini yüklemek](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
+2. VM'e bağlanmak için gereken adımları izleyin ve [CUDA sürücülerini yüklemek](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
 3. Linux Aracısı'nı yetkisini kaldırma ve ardından [Linux VM görüntüsü yakalama](../virtual-machines/linux/capture-image.md).
 4. NC sanal makineleri destekleyen bir bölgede bir Batch hesabı oluşturun.
 5. Batch API'leri veya Azure portalını kullanarak oluşturduğunuz bir havuzu [özel görüntü kullanarak](batch-custom-images.md) ve istenen sayıda düğümleri ve ölçek sahip. Aşağıdaki tabloda görüntüsü için örnek havuzu ayarları gösterilmektedir:

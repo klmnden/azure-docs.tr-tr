@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: d6b25d6b9a0d5b3bcf613046a82a9c6c99475d6c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Azure AD B2C kiracısı için bir Azure aboneliği bağlama
 
@@ -58,7 +58,7 @@ Kaynak oluşturma ekranında seçin **Azure Aboneliğim bağlantı var olan bir 
 
 ## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Azure aboneliği içindeki bir Azure AD B2C kaynak oluşturma
 
-Kaynak oluşturma iletişim kutusunda, bir Azure AD B2C Kiracı aşağı açılır listeden seçin. Tüm genel Yöneticisi ve aboneliği zaten bağlı olmayan olanlar olan kiracılar görürsünüz.
+Kaynak oluşturma iletişim kutusunda, Azure AD B2C kiracısı aşağı açılır listeden seçin. Tüm genel Yöneticisi ve aboneliği zaten bağlı olmayan olanlar olan kiracılar görürsünüz.
 
 Azure AD B2C kaynak adı, Azure AD B2C Kiracı etki alanı adı ile eşleşmesi için seçilmiş.
 
@@ -68,7 +68,7 @@ Bir kaynak grubu ve kaynak grubu konumu seçin. Seçim burada Azure AD B2C Kirac
 
 ![B2C kaynağı oluşturma](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Azure AD B2C Kiracı kaynaklarını yönetme
+## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Azure AD B2C Kiracı kaynaklarını yönetme
 
 Bir Azure AD B2C kaynak içinde Azure aboneliği başarıyla oluşturulduktan sonra yeni bir kaynak türü "B2C Kiracı yanı sıra diğer Azure kaynaklarınızı eklenen" görmeniz gerekir.
 

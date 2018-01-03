@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: ecb64aa13b3b08f7b054a0665df3dc0cdb3e09bd
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Birden çok IP yapılandırmalarını Azure portalını kullanarak yük dengelemenin
 
@@ -43,7 +43,7 @@ Senaryomuzda biz aşağıdaki yapılandırma kullanıyorsanız:
 - Azure yük dengeleyici iki ön uç IP adresi, her Web sitesi için bir tane göstermek için kullanılır. Ön uç adreslerini her Web sitesi için ilgili IP yapılandırması için trafiği dağıtmak için kullanılır.
 - Aynı bağlantı noktası, ön uç IP adresleri ve arka uç havuzu IP adresleri için kullanılır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Senaryo Örneğimizde, bir kaynak grubu sahibi olduğunuzu varsayar **contosofabrikam** , aşağıdaki gibi yapılandırılmış:
 

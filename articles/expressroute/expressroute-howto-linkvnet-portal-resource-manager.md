@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: cherylmc
 ms.openlocfilehash: 34caed9323ae3067d1dc17ab9c62ebf7a9be855b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Bir expressroute bağlantı hattı için bir sanal ağa bağlanma
 > [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video - Azure portalı](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -129,7 +129,7 @@ Bağlantı hattı kullanıcının kaynak kimliği ile devre sahibinden yetkilend
 
 5.  İçinde **ayarları** dikey penceresinde, seçin **sanal ağ geçidi** ve denetleme **yetkilendirme kullanmak** onay kutusu.
 
-6.  Girin **yetkilendirme anahtar** ve **hattı URI eş** ve bağlantı bir ad verin. **Tamam** düğmesine tıklayın.
+6.  Girin **yetkilendirme anahtar** ve **hattı URI eş** ve bağlantı bir ad verin. **Tamam**’a tıklayın.
 
     ![Ayarlar dikey penceresi](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 

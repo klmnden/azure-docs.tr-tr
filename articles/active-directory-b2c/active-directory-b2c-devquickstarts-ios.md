@@ -1,24 +1,24 @@
 ---
-title: "Bir iOS uygulaması - Azure AD B2C kullanarak bir belirteç alınırken | Microsoft Docs"
-description: "Bu makale AppAuth Azure Active Directory B2C ile kullanıcı kimliklerini yönetmek ve kullanıcıların kimliğini doğrulamak için kullandığı bir iOS uygulamasının nasıl oluşturulacağını gösterir."
+title: "Bir iOS uygulaması - Azure Active Directory B2C AppAuth kullanma"
+description: "Bu makalede kullanıcı kimliklerini yönetmek ve kullanıcıların kimliğini doğrulamak için Azure Active Directory B2C ile AppAuth kullanan bir iOS uygulamasının nasıl oluşturulacağını gösterir."
 services: active-directory-b2c
 documentationcenter: ios
-author: saeedakhter-msft
+author: PatAltimore
 manager: mtillman
 editor: parakhj
-ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: cc26d4d2209564fc5c994c2bc73f6a572fe87d28
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: saeeda
+ms.openlocfilehash: b4f46129a7a18e4653d714599630d6cdddfff4ed
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Bir iOS uygulaması kullanarak oturum açın
 
@@ -40,8 +40,6 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Uygulama kaydı, uygu
 * Dahil bir **Native client** uygulamadaki.
 * Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Bu GUID daha sonra gerekir.
 * Ayarlanmış bir **yeniden yönlendirme URI'si** özel şema (örneğin, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect) sahip. Bu URI daha sonra gerekir.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>İlkelerinizi oluşturma
 Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama bir kimlik deneyimi içerir: bir birleşik oturum açma ve kaydolma. Bu ilkeyi açıklandığı gibi oluşturmak [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). İlkeyi oluştururken şunları yaptığınızdan emin olun:
@@ -131,8 +129,8 @@ Uygulamanızın yeniden yönlendirme URI'si özel şema ile ayarlamak için Info
 * Solundaki oka tıklayın ' 0 ağaç açmak için ' öğesi.
 * 'URL şemalarını' 0 öğesine altındaki ilk öğeyi yeniden adlandırın.
 * Ağaç açmak için 'URL şemalarını' solundaki oka tıklayın.
-* 'Value' sütununda solundaki boş alan yok 'Öğesi 0' 'Altında URL şemalarını'.  Değeri, uygulamanızın benzersiz düzenine ayarlayın.  Değer Redirecturl'yi OIDAuthorizationRequest nesnesi oluşturulurken kullanılan şema eşleşmelidir.  Bizim örnek düzeni 'com.onmicrosoft.fabrikamb2c.exampleapp' kullandık.
+* 'Value' sütununda solundaki boş alan yok 'Öğesi 0' 'Altında URL şemalarını'.  Değeri, uygulamanızın benzersiz düzenine ayarlayın.  Değer Redirecturl'yi OIDAuthorizationRequest nesnesi oluşturulurken kullanılan şema eşleşmelidir.  Örnekte 'com.onmicrosoft.fabrikamb2c.exampleapp' düzeni kullanılır.
 
-Başvurmak [AppAuth Kılavuzu](https://openid.github.io/AppAuth-iOS/) işleminin geri kalanında tamamlamak hakkında. Hızlı bir şekilde bir çalışma uygulaması ile çalışmaya başlamak ihtiyacınız varsa kullanıma [bizim örnek](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Adımları [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) kendi Azure AD B2C yapılandırma girmek için.
+Başvurmak [AppAuth Kılavuzu](https://openid.github.io/AppAuth-iOS/) işleminin geri kalanında tamamlamak hakkında. Hızlı bir şekilde bir çalışma uygulaması ile çalışmaya başlamak ihtiyacınız varsa kullanıma [örnek](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Adımları [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) kendi Azure AD B2C yapılandırma girmek için.
 
-Biz her zaman görüş ve öneriler için açık! Bu konu ile bir güçlükle sahip veya bu içeriğin geliştirilmesi için öneriler varsa, sayfanın sonundaki görüşlerinize değer veriyoruz. Özellik istekleri için bunları Ekle [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Biz her zaman görüş ve öneriler için açık! Bu makale ile bir güçlükle sahip veya bu içeriğin geliştirilmesi için öneriler varsa, sayfanın sonundaki görüşlerinize değer veriyoruz. Özellik istekleri için bunları Ekle [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

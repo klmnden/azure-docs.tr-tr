@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory'ye erişim panelinde nedir? | Microsoft Belgeleri"
+title: "Azure Active Directory'ye erişim panelinde nedir? | Microsoft Docs"
 description: "(Web tarayıcısı, Android uygulaması, iPhone ve iPad uygulama) SaaS uygulamalara erişmek için erişim paneli varyasyonları kullanmayı öğrenin."
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d40f67c354e29f3a58c9d0f1967e0154b5b998d0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-is-the-access-panel"></a>Erişim paneli nedir?
 
@@ -62,7 +62,7 @@ Azure AD ile tümleşik uygulamalar için oturum açacak tüm kullanıcılar iç
 
 Erişim paneli ulaşmak için bir iş veya Okul hesabı ile Azure AD içinde kimliğinin doğrulanması gerekir. Doğrudan Azure AD ile doğrulanabilir. Alternatif olarak, bir kuruluş, Active Directory Federasyon Hizmetleri (AD FS) veya diğer teknolojileri kullanarak Federasyon yapılandırdıysa, Windows Server Active Directory tarafından doğrulanabilir.
 
-Azure veya Office 365 için bir abonelik varsa ve Azure portalını veya Office 365 uygulama kullanmakta olduğunuz imzalama yeniden bileşenini olmadan uygulamaların listesini görebilirsiniz. Kullanıyorsanız doğrulanmaz hesabınız için Azure AD'de kullanıcı adı ve parola kullanarak oturum açmak isteyip istemediğiniz sorulur. Kuruluşunuzun Federasyon yapılandırdıysa, kullanıcı adı yazmaya yeterli olur.
+Azure veya Office 365 için bir abonelik varsa ve Azure portalını veya Office 365 uygulama kullanmakta olduğunuz imzalama yeniden bileşenini olmadan uygulamaların listesini görebilirsiniz. Doğrulanmamış, hesabınız için Azure AD'de kullanıcı adı ve parola kullanarak oturum açmak isteyip istemediğiniz sorulur. Kuruluşunuzun Federasyon yapılandırdıysa, kullanıcı adı yazmaya yeterli olur.
 
 Doğrulandığında, yöneticiniz directory ile tümleşik olan uygulamalar ile etkileşim kurabilir. Uygulamaları Azure AD ile tümleştirmek öğrenmek için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
 

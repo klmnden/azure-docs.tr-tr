@@ -3,8 +3,8 @@ title: "DNS bölgeleri ve kayıtları genel bakış - Azure DNS | Microsoft Docs
 description: "DNS bölgeleri ve Microsoft Azure DNS kayıtlarını barındırmak için destek genel bakış."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
-ms.author: jonatul
-ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: 0a0808d3963cc037aaf113c67fd01679ee8c1d40
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS bölgeleri ve kayıtları'na genel bakış
 
@@ -130,9 +130,9 @@ Varsayılan olarak, Azure DNS PowerShell Etag'ler bölgelere eşzamanlı değiş
 
 Azure DNS REST API düzeyinde Etag'ler HTTP üstbilgileri kullanılarak belirtilir.  Davranışlarını aşağıdaki tabloda verilmiştir:
 
-| Üstbilgi | Davranış |
+| Üst bilgi | Davranış |
 | --- | --- |
-| None |PUT (Etag denetimleri) her zaman başarılı |
+| Hiçbiri |PUT (Etag denetimleri) her zaman başarılı |
 | IF-match<etag> |PUT yalnızca kaynak var ve Etag eşleşiyorsa başarılı |
 | IF-match * |Kaynak varsa PUT yalnızca başarılı |
 | IF-none-match * |Kaynak yoksa, PUT yalnızca başarılı |

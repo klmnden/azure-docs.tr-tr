@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Azure Depolama Bloblarından Data Lake Store’a veri kopyalama
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Ayrıca, iki farklı modda AdlCopy Aracı'nı kullanabilirsiniz:
 * **Tek başına**, burada aracı görevi gerçekleştirmek için Data Lake Store kaynakları kullanır.
 * **Bir Data Lake Analytics hesabı kullanarak**, Data Lake Analytics hesabınızı atanan birim kopyalama işlemi gerçekleştirmek için kullanıldığı. Bu seçenek tahmin edilebilir bir biçimde kopyalama görevleri gerçekleştirmek için ararken kullanmak isteyebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).

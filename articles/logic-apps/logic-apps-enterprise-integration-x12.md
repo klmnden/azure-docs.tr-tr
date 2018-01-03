@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Logic apps ile Kurumsal tümleştirme için Exchange X12 iletileri
 
@@ -57,11 +57,11 @@ Herhangi bir tümleştirme hesabı görmüyorsanız, [oluşturmak ilk](../logic-
 
 4. Seçin **genel bakış**seçeneğini belirleyip **anlaşmaları** döşeme. Anlaşmaları döşeme yoksa, ilk kutucuğu ekleyin. 
 
-    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. Açılır anlaşmaları dikey penceresinde, seçin **Ekle**.
 
-    !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+    !["Ekle" yi seçin](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Altında **Ekle**, girin bir **adı** sözleşmenizi için. Anlaşma türü için **X12**. Seçin **ana iş ortağı**, **konak kimliği**, **Konuk iş ortağı**, ve **Konuk kimlik** sözleşmenizi için. Daha fazla özellik Ayrıntılar için bu adımı bölümündeki tabloya bakın.
 
@@ -94,7 +94,7 @@ Anlaşma özelliklerini ayarladıysanız, bu anlaşmanın nasıl tanımlar ve bu
 
 Artık sözleşmenizi seçili ayarlarınızı uygun gelen iletileri işlemek hazırdır.
 
-### <a name="identifiers"></a>Tanımlayıcıları
+### <a name="identifiers"></a>Tanımlayıcılar
 
 ![Tanımlayıcı özelliklerini ayarlama](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
@@ -146,8 +146,8 @@ Her işlem türü (ST1) ve gönderen uygulama (GS2) için bir şema seçin. Alma
 | Özellik | Açıklama |
 | --- | --- |
 | Değişim kontrol numarası çoğaltmaları izin verme |Yinelenen etkileşimler engelleyin. Değişim Denetimi numarasını (ISA13) alınan Değişim Denetimi numarası denetler. Bir eşleşme algılanırsa, alma ardışık düzen değişim işlemiyor. Onay için bir değer vererek gerçekleştirmek için gün sayısını belirtebilirsiniz *denetlemek için yinelenen ISA13 her (gün)*. |
-| Yinelenen Grup denetim numaralarına izin verme |Blok yinelenen grup denetimi numaralarıyla interchanges. |
-| Yinelenen İşlem kümesi denetim numaralarına izin verme |Blok yinelenen işlem kümesi denetim numaralarıyla interchanges. |
+| Grup denetim sayı çoğaltmaları izin verme |Blok yinelenen grup denetimi numaralarıyla interchanges. |
+| İşlem kümesi denetim sayı çoğaltmaları izin verme |Blok yinelenen işlem kümesi denetim numaralarıyla interchanges. |
 
 ### <a name="validations"></a>Doğrulama
 
@@ -157,7 +157,7 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti türü |EDI ileti türünü seçin. |
+| Mesaj Türü |EDI ileti türünü seçin. |
 | EDI doğrulama |Şema EDI özellikleri, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılar tarafından tanımlanan veri türleri üzerinde EDI doğrulaması gerçekleştirir. |
 | Genişletilmiş Doğrulama |Veri türü değilse EDI, doğrulama veri öğesi gereksinimdir ve yineleme, numaralandırmalar ve veri öğesi uzunluğu doğrulama (min/max) izin verilir. |
 | Başında ve sonunda sıfır izin ver |Başında veya sonunda sıfır ek korumak ve karakterleri boşluk. Bu karakterleri kaldırmayın. |
@@ -171,11 +171,11 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 | Özellik | Açıklama |
 | --- | --- |
 | Kapsanan ondalık biçiminde "Nn" temel 10 sayısal değerine dönüştürür |10 tabanında sayısal bir değer biçimine "Nn" ile belirtilen bir EDI sayıyı dönüştürür |
-| Sondaki ayırıcılara izin veriliyorsa boş XML etiketleri oluştur |Sondaki ayırıcılar boş XML etiketleri dahil değişim gönderen sağlamak için bu onay kutusunu seçin. |
-| Değişimi işlem kümeleri olarak böl; hata durumunda işlem kümelerini askıya al|İşlem kümesine uygun Zarf uygulayarak ayrı bir XML belge içine bir değişim kümesindeki her bir işlem ayrıştırır. Yalnızca hareketleri burada doğrulama başarısız askıya alır. |
-| Değişimi işlem kümeleri olarak böl; hata durumunda değişimi askıya al|Uygun Zarf uygulayarak ayrı bir XML belge içine bir değişim kümesindeki her bir işlem ayrıştırır. Değişim bir veya daha fazla işlem kümelerinde doğrulama başarısız olduğunda tüm değişim askıya alır. | 
+| Sondaki ayırıcılar izin veriliyorsa boş XML etiketleri oluşturmak |Sondaki ayırıcılar boş XML etiketleri dahil değişim gönderen sağlamak için bu onay kutusunu seçin. |
+| Bölünmüş değişim işlem kümeleri - olarak askıya alma işlem kümeleri hatası|İşlem kümesine uygun Zarf uygulayarak ayrı bir XML belge içine bir değişim kümesindeki her bir işlem ayrıştırır. Yalnızca hareketleri burada doğrulama başarısız askıya alır. |
+| Bölünmüş değişim işlem kümeleri - olarak askıya alma değişim hatası|Uygun Zarf uygulayarak ayrı bir XML belge içine bir değişim kümesindeki her bir işlem ayrıştırır. Değişim bir veya daha fazla işlem kümelerinde doğrulama başarısız olduğunda tüm değişim askıya alır. | 
 | Değişim korumak - işlem kümeleri askıya alma hatası |Değişim dokunmaz, tüm toplu değişim için bir XML belgesi oluşturur. Diğer tüm işlem kümeleri işlemeye devam ederken doğrulama, başarısız olan işlem kümeleri askıya alır. |
-| Değişimi koru; hata durumunda değişimi askıya al |Değişim dokunmaz, tüm toplu değişim için bir XML belgesi oluşturur. Değişim bir veya daha fazla işlem kümelerinde doğrulama başarısız olduğunda tüm değişim askıya alır. |
+| Değişim korumak - değişim askıya alma hatası |Değişim dokunmaz, tüm toplu değişim için bir XML belgesi oluşturur. Değişim bir veya daha fazla işlem kümelerinde doğrulama başarısız olduğunda tüm değişim askıya alır. |
 
 ## <a name="configure-how-your-agreement-sends-messages"></a>Nasıl sözleşmenizi iletileri gönderir yapılandırın
 
@@ -190,7 +190,7 @@ Bu anlaşma nasıl tanımlar ve bu anlaşma ile iş ortağınız göndermek gide
 
 Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek hazırdır.
 
-### <a name="identifiers"></a>Tanımlayıcıları
+### <a name="identifiers"></a>Tanımlayıcılar
 
 ![Tanımlayıcı özelliklerini ayarlama](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
@@ -254,7 +254,7 @@ Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek haz
 | Alan kodu |İsteğe bağlı, bildirim içinde kullanılan işlem kümesi denetim numaraları aralığını için belirlenmiş. (İsteniyorsa) için önek ve sonek alanlara Orta iki alanlar için sayısal bir değer ve alfasayısal bir değer girin. Orta alanları gereklidir ve denetim sayısı için minimum ve maksimum değerleri içeren |
 | Son eki |İsteğe bağlı, bir bildirim kullanılan işlem kümesi denetim numaraları aralığını için belirlenmiş. (İsteniyorsa) için önek ve sonek alanlara Orta iki alanlar için sayısal bir değer ve alfasayısal bir değer girin. Orta alanları gereklidir ve denetim sayısı için minimum ve maksimum değerleri içeren |
 
-### <a name="character-sets-and-separators"></a>Karakter Kümeleri ve Ayırıcılar
+### <a name="character-sets-and-separators"></a>Karakter kümeleri ve ayırıcı
 
 Karakter kümesi dışında her ileti türü için farklı bir sınırlayıcı kümesini girebilirsiniz. Karakter kümesi için belirli bir ileti şeması belirtilmezse, varsayılan karakter kümesini kullanılır.
 
@@ -282,7 +282,7 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti türü |EDI ileti türünü seçin. |
+| Mesaj Türü |EDI ileti türünü seçin. |
 | EDI doğrulama |Şema EDI özellikleri, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılar tarafından tanımlanan veri türleri üzerinde EDI doğrulaması gerçekleştirir. |
 | Genişletilmiş Doğrulama |Veri türü değilse EDI, doğrulama veri öğesi gereksinimdir ve yineleme, numaralandırmalar ve veri öğesi uzunluğu doğrulama (min/max) izin verilir. |
 | Başında ve sonunda sıfır izin ver |Başında veya sonunda sıfır ek korumak ve karakterleri boşluk. Bu karakterleri kaldırmayın. |

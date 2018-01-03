@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 12/11/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 22379dd7cb0118983505237fa16f01a865a53306
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 309396badf3a4daa4c339a280f774bcd500ce3bb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT protokolünü kullanarak, IOT hub ile iletişim
 
@@ -62,6 +62,9 @@ Bir aygıt cihaz SDK'ları kullanamıyorsanız, bağlantı noktası 8883 MQTT pr
 
     Örneğin, IOT hub'ınızın adını ise **contoso.azure devices.net** ve Cihazınızı adı ise **MyDevice01**, tam **kullanıcıadı** alan içermelidir`contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`.
 * İçin **parola** alan, bir SAS belirteci kullanın. SAS belirteci biçimi HTTPS ve AMQP protokolleri aynıdır:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
+
+    >[!NOTE]
+    >X.509 sertifikası kimlik doğrulaması kullanıyorsanız, SAS belirteci parolaları gerekli değildir. Daha fazla bilgi için bkz: [X.509 güvenlik Azure IOT Hub'ınızı ayarlayın][lnk-x509]
 
     SAS belirteci oluşturma hakkında daha fazla bilgi için aygıt bölümüne bakın [IOT Hub'ı kullanarak güvenlik belirteçleri][lnk-sas-tokens].
 
@@ -137,7 +140,7 @@ Daha fazla bilgi için bkz: [Geliştirici Kılavuzu Mesajlaşma][lnk-messaging].
 
 ### <a name="receiving-cloud-to-device-messages"></a>Bulut-cihaz iletilerini alma
 
-IOT Hub'ından iletileri almak için bir cihaz kullanarak abone olmalısınız `devices/{device_id}/messages/devicebound/#` olarak bir **konu filtre**. Birden çok düzeyli joker  **#**  konu filtresinde yalnızca ek özellikleri'nde konu adı almak cihaz sağlamak için kullanılır. IOT hub'ı kullanımını izin verme  **#**  veya **?** alt konuları filtrelemek için joker karakter. IOT hub'ı genel amaçlı pub-sub Mesajlaşma Aracısı olmadığından, yalnızca belgelenen konu adları ve konu filtreleri destekler.
+IOT Hub'ından iletileri almak için bir cihaz kullanarak abone olmalısınız `devices/{device_id}/messages/devicebound/#` olarak bir **konu filtre**. Birden çok düzeyli joker `#` konu filtresinde yalnızca ek özellikleri'nde konu adı almak cihaz sağlamak için kullanılır. IOT hub'ı kullanımını izin verme `#` veya `?` alt konuları filtrelemek için joker karakter. IOT hub'ı genel amaçlı pub-sub Mesajlaşma Aracısı olmadığından, yalnızca belgelenen konu adları ve konu filtreleri destekler.
 
 Cihaz herhangi bir ileti almazsa, cihaza özel uç noktasında başarıyla abone kadar IOT Hub'ından tarafından temsil edilen `devices/{device_id}/messages/devicebound/#` konu filtre. Başarılı abonelik kurulduktan sonra cihaz için abonelik süresi sonra gönderilmiş bulut-cihaz iletilerini alma başlatır. Aygıt ile bağlanıyorsa **CleanSession** bayrağı ayarlanmış **0**, abonelik farklı oturumlarında kalıcıdır. Bu durumda, sonraki bağladığı ile **CleanSession 0** cihaz, bağlı değilken, kendisine gönderilen bekleyen iletileri alır. Aygıt kullanıyorsa **CleanSession** bayrağı ayarlanmış **1** kendi cihaz uç noktasına abone kadar yine de, tüm iletileri IOT Hub'ından almaz.
 
@@ -250,7 +253,7 @@ IOT hub'ı dağıtımınızı planlama hakkında daha fazla bilgi için bkz:
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-mqtt-org]: http://mqtt.org/
@@ -270,6 +273,7 @@ Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-x509]: iot-hub-security-x509-get-started.md
 
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-messaging]: iot-hub-devguide-messaging.md

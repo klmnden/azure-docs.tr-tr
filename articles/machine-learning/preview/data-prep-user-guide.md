@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 1a1e12dbb5e32f62266ee6a3cdca9e781569e58c
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 9bcdd539c199086e0f48c1172853ff00cc1617f8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="data-preparations-user-guide"></a>Veriler hazırlıkları Kullanıcı Kılavuzu 
 Azure Machine Learning veriler hazırlıkları deneyimi çok zengin işlevsellik sağlar. Bu makale deneyimi derin bölümlerini içermektedir.
@@ -55,7 +55,7 @@ Her veri kaynakları dosyası için birden fazla örnek oluşturulur ve depolan�
 
 Bir dizi örnekleme stratejileri kullanılabilir, her farklı yapılandırılabilir parametrelerle vardır.
 
-#### <a name="top"></a>Sayfanın Üstü
+#### <a name="top"></a>Üst
 Bu strateji, yerel veya uzak dosyalara uygulanabilir. Veri kaynağında (sayısı tarafından belirtilen) ilk N satırları sürer.
 
 #### <a name="random-n"></a>Rastgele N 

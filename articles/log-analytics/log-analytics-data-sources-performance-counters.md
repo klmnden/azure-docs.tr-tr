@@ -1,6 +1,6 @@
 ---
 title: "Toplama ve performans sayaçları Azure günlük analizi çözümleme | Microsoft Docs"
-description: "Performans sayaçları, Windows ve Linux aracılarını performansını çözümlemek için günlük analizi tarafından toplanır.  Bu makalede, performans sayaçlarını toplama hem Windows için yapılandırmak açıklar ve Linux aracılarını, bunlar ayrıntılarını OMS depo ve OMS portalında analiz etme depolanır."
+description: "Performans sayaçları, Windows ve Linux aracılarını performansını çözümlemek için günlük analizi tarafından toplanır.  Bu makalede her iki Windows performans sayaçlarını toplamalarında yapılandırılması açıklanmaktadır ve Linux aracılarını, bunlar ayrıntılarını çalışma ve bunları Azure portalında analiz nasıl depolanır."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows ve Linux performans veri kaynaklarında günlük analizi
 Windows ve Linux performans sayaçları donanım bileşenleri, işletim sistemleri ve uygulamaların performansını bir anlayış sağlar.  Günlük analizi, performans sayaçları, uzun vadeli analiz için performans verilerini toplama ve raporlama ek olarak neredeyse gerçek zamanlı (NRT) çözümleme için sık aralıklarla toplayabilirsiniz.
@@ -26,16 +26,16 @@ Windows ve Linux performans sayaçları donanım bileşenleri, işletim sistemle
 ![Performans sayaçları](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Performans sayaçları yapılandırma
-OMS Portalı'nda performans sayaçları yapılandırmak [günlük analizi ayarları veri menüde](log-analytics-data-sources.md#configuring-data-sources).
+Performans sayaçlarını yapılandırmak [günlük analizi ayarları veri menüde](log-analytics-data-sources.md#configuring-data-sources).
 
-Windows veya Linux performans sayaçları yeni bir OMS çalışma alanı için ilk yapılandırırken hızla birçok ortak sayaçları oluşturma seçeneği verilir.  Bunlar, her yanındaki onay kutusunu ile listelenir.  Başlangıçta oluşturmak istediğiniz herhangi bir sayaç denetlenir ve ardından olun **Seçili performans sayaçlarını Ekle**.
+Windows veya Linux performans sayaçları yeni bir günlük analizi çalışma alanı için ilk yapılandırırken hızla birçok ortak sayaçları oluşturma seçeneği verilir.  Her birinin yanında bir onay kutusu görüntülenir.  Başlangıçta oluşturmak istediğiniz herhangi bir sayaç denetlenir ve ardından olun **Seçili performans sayaçlarını Ekle**.
 
 Windows performans sayaçları için her performans sayacı için belirli bir örneği seçebilirsiniz. Linux performans sayaçları için seçtiğiniz her sayaç örneği üst sayacı tüm alt sayaçları geçerlidir. Aşağıdaki tabloda, Linux ve Windows performans sayaçları için kullanılabilen ortak örnekleri gösterilmektedir.
 
 | Örnek adı | Açıklama |
 | --- | --- |
 | \_Toplam |Tüm örnekleri toplamı |
-| \* |Tüm örnekleri |
+| \* |Tüm örnekler |
 | (/ &#124; / var) |Eşleşen adlandırılmış örnekleri: / veya /var |
 
 ### <a name="windows-performance-counters"></a>Windows performans sayaçları
@@ -65,7 +65,7 @@ Toplamak için yeni bir Linux performans sayacı eklemek için bu yordamı izley
 5. Ekleme sayaçları bittiğinde, tıklatın **kaydetmek** yapılandırmayı kaydetmek için ekranın üstündeki düğmesi.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Linux performans sayaçları yapılandırma dosyasındaki yapılandırma
-OMS Portalı'nı kullanarak Linux performans sayaçları yapılandırmak yerine, Linux Aracısı'nı yapılandırma dosyalarını düzenleme seçeneğiniz vardır.  Performans ölçümleri toplamak için yapılandırmada tarafından denetlenen **/etc/opt/microsoft/omsagent/\<çalışma alanı kimliği\>/conf/omsagent.conf**.
+Azure portalını kullanarak Linux performans sayaçları yapılandırmak yerine, Linux Aracısı'nı yapılandırma dosyalarını düzenleme seçeneğiniz vardır.  Performans ölçümleri toplamak için yapılandırmada tarafından denetlenen **/etc/opt/microsoft/omsagent/\<çalışma alanı kimliği\>/conf/omsagent.conf**.
 
 Tek bir yapılandırma dosyasındaki her nesne veya toplamak için performans ölçümleri kategorisi tanımlanmalıdır `<source>` öğesi. Sözdizimi deseni izler.
 
@@ -90,13 +90,13 @@ Bu öğe parametrelerinde aşağıdaki tabloda açıklanmıştır.
 
 Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz sayaçları listeler.  Ek sayaçları belirli uygulamalar için kullanılabilir olduğundan açıklandığı gibi [toplama günlük analizi Linux uygulamaları için performans sayaçları](log-analytics-data-sources-linux-applications.md).
 
-| Nesne adı | Sayaç adı |
+| Nesne Adı | Sayaç adı |
 |:--|:--|
 | Mantıksal Disk | % Boş Inode'lar |
 | Mantıksal Disk | % Boş alan |
 | Mantıksal Disk | % Kullanılan Inode'lar |
 | Mantıksal Disk | % Kullanılan alan |
-| Mantıksal Disk | Disk okuma bayt/sn |
+| Mantıksal Disk | Disk Okuma Bayt/sn |
 | Mantıksal Disk | Disk Okuma/sn |
 | Mantıksal Disk | Disk aktarımı/sn |
 | Mantıksal Disk | Disk Yazma Bayt/sn |
@@ -143,7 +143,7 @@ Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz say
 | Sistem | Boş sanal bellek |
 | Sistem | İşlemler |
 | Sistem | Disk belleği dosyalarında depolanan boyut |
-| Sistem | Açık kalma süresi |
+| Sistem | Çalışma Süresi |
 | Sistem | Kullanıcılar |
 
 
@@ -182,7 +182,7 @@ Aşağıdaki performans ölçümleri için varsayılan yapılandırmadır.
     </source>
 
 ## <a name="data-collection"></a>Veri toplama
-Günlük analizi sayaç yüklü olan tüm aracıları, belirtilen örnek aralıkta tüm belirtilen performans sayaçlarını toplar.  Verileri değil toplanır ve ham verileri, OMS aboneliğiniz ile belirtilen süre için tüm günlük arama görünümlerde kullanılabilir durumdadır.
+Günlük analizi sayaç yüklü olan tüm aracıları, belirtilen örnek aralıkta tüm belirtilen performans sayaçlarını toplar.  Verileri değil toplanır ve ham verileri, aboneliğiniz ile belirtilen süre için tüm günlük arama görünümlerde kullanılabilir durumdadır.
 
 ## <a name="performance-record-properties"></a>Performans kaydı Özellikler
 Performans kayıtları sahip bir tür **Perf** ve aşağıdaki tabloda özelliklere sahiptir.
@@ -220,12 +220,7 @@ Aşağıdaki tabloda farklı performans kayıtları almak günlük arama örnekl
 | Perf &#124; "% işlemci zamanı" ve InstanceName CounterName burada == "_Toplam" ve bilgisayar == "Bilgisayarım" &#124; == ["min(CounterValue)"] özetlemek min(CounterValue), = ["avg(CounterValue)"] avg(CounterValue), = ["percentile75(CounterValue)"] yüzdebirlik (CounterValue, 75), = ["max(CounterValue)"] bin (TimeGenerated, 1 h), bilgisayar tarafından max(CounterValue) = |Saatlik ortalama, en az, en fazla ve 75-yüzdelik CPU kullanımı belirli bir bilgisayar için |
 | Perf &#124; Burada ObjectName == "MSSQL$ INST2: veritabanları" ve InstanceName "ana" == | Adlandırılmış SQL Server örneğinden INST2 ana veritabanı için veritabanı performans nesnesinden tüm performans verileri.  
 
-## <a name="viewing-performance-data"></a>Performans verileri görüntüleme
-Performans verileri günlük Ara çalıştırdığınızda **listesi** görünümü, varsayılan olarak görüntülenir.  Grafik formunda verileri görüntülemek için tıklatın **ölçümleri**.  Ayrıntılı bir grafik görünümü için tıklatın  **+**  bir sayaç yanındaki.  
 
-![Daraltılmış ölçümleri Görünüm](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-Günlük arama performans verilerini toplama için bkz: [isteğe bağlı ölçüm toplama ve OMS görselleştirme](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

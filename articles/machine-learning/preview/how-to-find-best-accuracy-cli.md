@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs
+ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: aaadf526577b9b6c254204aae90200661d40f325
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>En iyi doğruluk ve en düşük süre Bul çalıştırır
 Birden çok çalıştırır göz önüne alındığında, bir kullanım örneği çalıştırır ile en iyi doğruluğu bulmaktır. İle komut satırı arabirimi (CLI) kullanmak üzere bir yaklaşım ise bir [JMESPath](http://jmespath.org/) sorgu. Azure CLI JMESPath kullanma hakkında daha fazla bilgi için bkz: [Azure CLI 2.0 kullanmak JMESPath sorgularıyla](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). Aşağıdaki örnekte, dört çalıştırır 0, 0,98, 1 ve 1 doğruluğu değerlerle oluşturulur. Çalıştırır aralığında olmaları durumunda filtrelenir `[MaxAccuracy-Threshold, MaxAccuracy]` burada `Threshold = .03`.
