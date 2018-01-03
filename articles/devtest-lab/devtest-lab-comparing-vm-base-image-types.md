@@ -3,7 +3,7 @@ title: "Özel resimler ve DevTest Labs formüller karşılaştırma | Microsoft 
 description: "Hangisinin ortamınıza en uygun karar vermem VM taban gibi özel resimler ve formülleri arasındaki farklar hakkında bilgi edinin."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: a3cb259a-7d80-40ec-8ee8-45105704d589
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: tarcher
-ms.openlocfilehash: ff771abc26c08f0adb977c29739d2f5c91924b21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 78c0255f142bd3d4b2311ac953541153b72ac12d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Özel resimler ve DevTest Labs formüller karşılaştırma
-Her ikisi de [özel resimler](devtest-lab-create-template.md) ve [formüller](devtest-lab-manage-formulas.md) için tabanları olarak kullanılan [yeni VM'ler oluşturulan](devtest-lab-add-vm-with-artifacts.md). Ancak, özel resimler ve formülleri arasında anahtar fark özel görüntü yalnızca bir formül VHD dayanan bir görüntü olsa da bir VHD'de dayanan bir görüntü olmasıdır *ek olarak* ayarları - VM boyutunu, sanal ağ, alt ağ ve yapıları gibi önceden yapılandırılmış. Önceden yapılandırılmış bu ayarları VM oluşturma sırasında geçersiz kılınabilir varsayılan değerlerle ayarlanır. Bu makalede (uzmanları için) olumlu ve olumsuz (olumsuz) bazıları formülleri kullanma karşı özel resimler kullanmaya açıklanmaktadır.
+Her ikisi de [özel resimler](devtest-lab-create-template.md) ve [formüller](devtest-lab-manage-formulas.md) için tabanları olarak kullanılan [yeni VM'ler oluşturulan](devtest-lab-add-vm.md). Ancak, özel resimler ve formülleri arasında anahtar fark özel görüntü yalnızca bir formül VHD dayanan bir görüntü olsa da bir VHD'de dayanan bir görüntü olmasıdır *ek olarak* ayarları - VM boyutunu, sanal ağ, alt ağ ve yapıları gibi önceden yapılandırılmış. Önceden yapılandırılmış bu ayarları VM oluşturma sırasında geçersiz kılınabilir varsayılan değerlerle ayarlanır. Bu makalede (uzmanları için) olumlu ve olumsuz (olumsuz) bazıları formülleri kullanma karşı özel resimler kullanmaya açıklanmaktadır.
 
 ## <a name="custom-image-pros-and-cons"></a>Özel görüntü Artıları ve eksileri
 Özel resimler VM'ler istenen ortamından oluşturmak için statik, sabit bir yol sağlar. 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0752864e5074782e6c447b938f69b4502d37fb8b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b916d71cfed55c9e904caa07e8f2167d684639aa
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de özellik eşlemeleri için ifade yazma
 Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznitelik eşlemelerini tür bir ifade eşlemesi biridir. Bunlar için kullanıcılarınızın veri SaaS uygulaması için daha kabul edilebilir biçimlere dönüştürme olanak sağlayan bir betik benzeri ifadesi yazmanız gerekir.
@@ -36,7 +36,7 @@ Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznit
 * Bir ters eğik çizgi (\) ya da dizisinde tırnak işareti (") gerekiyorsa dize sabitleri için onu ters eğik çizgi (\) simgesiyle kaçış uygulanmalıdır. Örneğin: "şirket adı: \"Contoso\""
 
 ## <a name="list-of-functions"></a>İşlevlerin listesi
-[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Değiştir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Anahtarı](#switch)
+[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Değiştir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [anahtarı](#switch)
 
 - - -
 ### <a name="append"></a>Ekle
@@ -91,8 +91,8 @@ Kaynak değerlerden biri birden çok değerli özniteliği, her değer ise bu ö
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |Genellikle özniteliğinin adı. |
-| **start** |Gerekli |tamsayı |İçinde dizin **kaynak** dize substring burada başlamalıdır. Dizedeki ilk karakter dizini 1 olacaktır, ikinci karakter dizin 2 sahip ve benzeri. |
-| **uzunluğu** |Gerekli |tamsayı |Dizenin uzunluğu. Uzunluk dışında ererse **kaynak** dize işlevi alt dizeyi döndürecektir **Başlat** dizin sonuna kadar **kaynak** dize. |
+| **start** |Gerekli |integer |İçinde dizin **kaynak** dize substring burada başlamalıdır. Dizedeki ilk karakter dizini 1 olacaktır, ikinci karakter dizin 2 sahip ve benzeri. |
+| **uzunluğu** |Gerekli |integer |Dizenin uzunluğu. Uzunluk dışında ererse **kaynak** dize işlevi alt dizeyi döndürecektir **Başlat** dizin sonuna kadar **kaynak** dize. |
 
 - - -
 ### <a name="not"></a>değil
@@ -138,6 +138,18 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 | **replacementValue** |İsteğe bağlı |Dize |Eski bir öğe ile değiştirmek için yeni değer. |
 | **replacementAttributeName** |İsteğe bağlı |Dize |Kaynak yok değerine sahip olduğunda değiştirme değeri için kullanılacak özniteliğinin adı. |
 | **şablonu** |İsteğe bağlı |Dize |Zaman **şablonu** değeri sağlanır, biz görüneceğini **oldValue** şablonu içinde ve kaynak değerle değiştirin. |
+
+- - -
+### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
+**İşlev:**<br> SingleAppRoleAssignment([appRoleAssignments])
+
+**Açıklama:**<br> Belirli bir uygulamada bir kullanıcıya atanan tüm appRoleAssignments listesinden tek bir appRoleAssignment döndürür. Bu işlev, appRoleAssignments nesneyi bir tek bir rol adı dizeye dönüştürmek için gereklidir. Yalnızca bir appRoleAssignment emin olmak için en iyisi olduğuna dikkat edin tek bir kullanıcıya aynı anda atanır ve birden çok rol döndürülen rol dizesini atanmışsa tahmin edilebilir olmayabilir.
+
+**Parametreler:**<br> 
+
+| Ad | Gerekli / yinelenen | Tür | Notlar |
+| --- | --- | --- | --- |
+| **[appRoleAssignments]** |Gerekli |Dize |**[appRoleAssignments]**  nesnesi. |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -228,7 +240,7 @@ Durum kodu önceden tanımlanmış seçeneklerinden herhangi birini eşleşmiyor
 * **Giriş** (durum): "QLD"
 * **Çıktı**: "Avustralya/Brisbane"
 
-## <a name="related-articles"></a>İlgili makaleler
+## <a name="related-articles"></a>İlgili Makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Kullanıcı sağlama/sağlamayı SaaS uygulamaları için otomatik hale getirme](active-directory-saas-app-provisioning.md)
 * [Kullanıcı sağlama öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)

@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Soru- cevap Azure Machine Learning çalışma ekranı kullanarak bir eşleştirme
 Açık sona erdi sorulara yanıt verilmesi zordur ve genellikle konu uzmanları (SME) gelen el ile çaba gerektirir. İç SME taleplerini azaltmaya yardımcı olmak için şirketler genellikle kullanıcılar yardımcı olan bir araç olarak sık sorulan sorular (SSS) listesi oluşturun. Bu örnek SSS soru/yanıt çiftleri önceden varolan açık sona erdi sorguları eşleştirmek için çeşitli etkili makine öğrenme yöntemlerini gösterir. Bu örnek, Azure Machine Learning çalışma ekranı kullanarak çözüm oluşturmak için bir kolay geliştirme sürecini gösterir. 
@@ -38,7 +39,7 @@ Bu çözümü sağlamak için gerekli anahtar adımlar aşağıdaki gibidir:
 4. Metin sınıflandırma modelleri eğitme ve model performansını değerlendirmek.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
@@ -83,12 +84,12 @@ Veri şeması ve üç veri kümelerini, doğrudan indirme bağlantıları aşağ
 | ----------|------------|------------|--------
 | [Sorular](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Kimlik | Dize | Benzersiz soru kimliği (birincil anahtar)
 |  | AnswerId | Dize | Soru her benzersiz yanıt kimliği
-|  | Text0 | Dize | Sorusunun başlık ve gövde dahil olmak üzere ham metin verileri
-|  | CreationDate | zaman damgası | Sorunun ne zaman istedi, zaman damgası
+|  | text0 | Dize | Sorusunun başlık ve gövde dahil olmak üzere ham metin verileri
+|  | CreationDate | Zaman damgası | Sorunun ne zaman istedi, zaman damgası
 | [yinelenenler](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Kimlik | Dize | Benzersiz çoğaltma kimliği (birincil anahtar)
 |  | AnswerId | Dize | Çoğaltma ile ilişkili yanıt kimliği
-|  | Text0 | Dize | Çoğaltma 's başlık ve gövde dahil olmak üzere ham metin verileri
-|  | CreationDate | zaman damgası | Çoğaltma zaman istedi, zaman damgası
+|  | text0 | Dize | Çoğaltma 's başlık ve gövde dahil olmak üzere ham metin verileri
+|  | CreationDate | Zaman damgası | Çoğaltma zaman istedi, zaman damgası
 | [yanıtlar](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Kimlik | Dize | Benzersiz yanıt kimliği (birincil anahtar)
 |  | text0 | Dize | Yanıt ham metin verileri
 
@@ -99,7 +100,7 @@ Soru- cevap eşleşen örnek dosyaları üç tür sunulur. İlk tür, tüm iş a
 
 Bu örnekte dosyaları şu şekilde düzenlenmiştir.
 
-| Dosya adı | Tür | Açıklama
+| Dosya Adı | Tür | Açıklama
 | ----------|------------|--------
 | `Image` | Klasör | Görüntüler için Benioku dosyasını kaydetmek için kullanılan klasörü
 | `notebooks` | Klasör | Jupyter not defterleri klasörü

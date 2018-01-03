@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-reporting-with-engagement-on-android"></a>Gelişmiş Android katılım ile raporlama
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 
 Bu konuda, Android uygulamanızdaki ek raporlama senaryolar açıklanmaktadır. Bu seçenekler oluşturduğunuz uygulama uygulayabileceğiniz [Başlarken](mobile-engagement-android-get-started.md) Öğreticisi.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 Tamamlandı öğretici kasıtlı olarak doğrudan ve basit ancak Gelişmiş seçebileceğiniz seçenekleri.

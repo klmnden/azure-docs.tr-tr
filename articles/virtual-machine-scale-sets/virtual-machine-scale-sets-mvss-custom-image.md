@@ -4,7 +4,7 @@ description: "Özel görüntü mevcut bir Azure sanal makine ölçek kümesi şa
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Bir Azure ölçek kümesi şablonuna özel bir görüntü ekleme
 
@@ -27,13 +27,13 @@ Bu makalede nasıl değiştirileceğini gösterir [minimum uygun ölçek kümesi
 
 ## <a name="change-the-template-definition"></a>Şablon tanımını değiştirin
 
-Bizim minimum uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve ölçek dağıtma özel bir görüntüden ayarlamak için bizim şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set custom-image`) tarafından parça parça:
+En düşük uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve özel bir görüntüden kümesi ölçek dağıtmak için şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set custom-image`) tarafından parça parça:
 
 ### <a name="creating-a-managed-disk-image"></a>Yönetilen disk görüntüsü oluşturma
 
 Bir özel yönetilen disk görüntüsü zaten varsa (bir kaynak türü `Microsoft.Compute/images`), sonra da bu bölümü atlayabilirsiniz.
 
-İlk olarak, eklediğimiz bir `sourceImageVhdUri` dağıtım yapmak özel görüntüsünü içeren Azure depolama alanında genelleştirilmiş blob URI'si olan parametre.
+İlk olarak, ekleyin bir `sourceImageVhdUri` dağıtım yapmak özel görüntüsünü içeren Azure depolama alanında genelleştirilmiş blob URI'si olan parametre.
 
 
 ```diff
@@ -51,7 +51,7 @@ Bir özel yönetilen disk görüntüsü zaten varsa (bir kaynak türü `Microsof
    "variables": {},
 ```
 
-Ardından, bir kaynak türü eklediğimiz `Microsoft.Compute/images`, yönetilen disk görüntüyü URI'da bulunan genelleştirilmiş blob dayalı olduğu `sourceImageVhdUri`. Bu görüntü kullandığı ölçek kümesi ile aynı bölgede olması gerekir. Görüntü özelliklerinde biz işletim sistemi türü, blob konumunu belirtin (gelen `sourceImageVhdUri` parametresi) ve depolama hesabı türü:
+Ardından, bir kaynak türü ekleyin `Microsoft.Compute/images`, yönetilen disk görüntüyü URI'da bulunan genelleştirilmiş blob dayalı olduğu `sourceImageVhdUri`. Bu görüntü kullandığı ölçek kümesi ile aynı bölgede olması gerekir. Görüntü özelliklerinde işletim sistemi türü, blob konumunu belirtin (gelen `sourceImageVhdUri` parametresi) ve depolama hesabı türü:
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ Ardından, bir kaynak türü eklediğimiz `Microsoft.Compute/images`, yönetilen
 
 ```
 
-Eklediğimiz kaynak, Ölçek kümesindeki bir `dependsOn` ölçek kümesi bu görüntüden dağıtmayı denemeden önce görüntünün emin olmak için özel görüntü başvuran yan tümcesi oluşturulmuş:
+Ekleme, kaynak ölçek kümesindeki bir `dependsOn` ölçek kümesi bu görüntüden dağıtmayı denemeden önce görüntünün emin olmak için özel görüntü başvuran yan tümcesi oluşturulmuş:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -95,7 +95,7 @@ Eklediğimiz kaynak, Ölçek kümesindeki bir `dependsOn` ölçek kümesi bu gö
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Ölçeğin değiştirilmesi yönetilen disk görüntüsü kullanmak için özelliklerini ayarlama
 
-İçinde `imageReference` ölçeğini ayarlama `storageProfile`, yayımcı, teklif, sku ve platform görüntüsü belirtmek yerine, biz belirtin `id` , `Microsoft.Compute/images` kaynak:
+İçinde `imageReference` ölçeğini ayarlama `storageProfile`, yayımcı belirtmek yerine, sku, sunan ve platform görüntüsü sürümünü belirtin `id` , `Microsoft.Compute/images` kaynak:
 
 ```diff
          "virtualMachineProfile": {
@@ -111,7 +111,7 @@ Eklediğimiz kaynak, Ölçek kümesindeki bir `dependsOn` ölçek kümesi bu gö
            "osProfile": {
 ```
 
-Bu örnekte, kullandığımız `resourceId` aynı şablonunda oluşturulan görüntü kaynak kimliği almak için işlevi. Yönetilen disk görüntüsü önceden oluşturduysanız, bunun yerine, görüntü kimliğini sağlamalıdır. Bu kimliği biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+Bu örnekte kullanmak `resourceId` aynı şablonunda oluşturulan görüntü kaynak kimliği almak için işlevi. Yönetilen disk görüntüsü önceden oluşturduysanız, bunun yerine, görüntü Kimliğini sağlamalıdır. Bu kimliği biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar

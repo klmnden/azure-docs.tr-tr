@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
 ms.openlocfilehash: fd90c63baaf254f5086cbc99a2a22d61587ee365
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>AES-128 dinamik şifreleme ve anahtar teslim hizmeti kullanma
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ ms.lasthandoff: 12/18/2017
 > 
 
 > [!NOTE]
-> Java SDK'ın en son sürümünü alın ve Java ile geliştirmeye başlamak için bkz: [Media Services için Java istemcisi SDK ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Media Services için en yeni PHP SDK'yi karşıdan yüklemek için sürümünde 0.5.7 Microsoft/WindowAzure paket Ara [Packagist depo](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Java SDK'ın en son sürümünü almak ve Java ile geliştirmeye başlamak için bkz. [Media Services için Java istemcisi SDK’sı ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Media Services için en yeni PHP SDK'sını indirmek üzere, [Packagist deposunda](https://packagist.org/packages/microsoft/windowsazure#v0.5.7) Microsoft/WindowAzure paketinin 0.5.7 sürümünü arayın.  
 
 ## <a name="overview"></a>Genel Bakış
 > [!NOTE]

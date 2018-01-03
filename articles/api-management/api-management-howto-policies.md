@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management ilkeleri
 
@@ -74,7 +74,7 @@ Bkz: [ilkesi örnekleri](policy-samples.md) daha fazla kod örnekleri için.
 
 ## <a name="examples"></a>Örnekler
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>Farklı kapsamların belirtilen Appliy ilkeleri
+### <a name="apply-policies-specified-at-different-scopes"></a>Farklı kapsamların belirtilen ilkelerini uygula
 
 Genel düzeyinde ve bir API için yapılandırılmış bir ilke bir ilke varsa, her iki ilkeyi API'nin kullanıldığında uygulanır. API Management belirleyici temel öğe aracılığıyla birleşik İlkesi deyimlerinin sıralama için sağlar. 
 

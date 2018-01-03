@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Ekleme, güncelleştirme veya Azure için kredi veya ATM kartı kaldırma
 
@@ -77,7 +77,7 @@ Kredi kartınız diğer etkin Microsoft aboneliği ile ilişkili ise, Azure hesa
 
 Aboneliğiniz devre dışı ya da iptal sonra biz aboneliğinizi kalıcı olarak silmeden önce 90 gün bekleyin. Abonelik yeniden etkinleştirmek istediğiniz durumda biz saklama süresi boyunca ödeme yönteminizi dosyada tutun. Bundan sonra abonelik tamamen silinir.
 
-90 günlük tutma süresi dolmadan önce kredi veya ATM kartı kaldırmanız gerekirse [Azure desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+90 günlük tutma süresi dolmadan önce kredi veya ATM kartı kaldırmanız gerekirse [aboneliğinizi yeniden etkinleştirmek](billing-subscription-become-disable.md). Yeniden etkinleştiremezsiniz, [Azure desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Neden sürekli "oturumunuzun süresi doldu. alıyorum Lütfen tekrar oturum açmak için burayı tıklatın"?
 
@@ -96,6 +96,10 @@ Kullanıcısıysanız [fatura ile ödeme](billing-how-to-pay-by-invoice.md), öd
 ### <a name="how-do-i-make-a-one-time-payment"></a>Bir kerelik ödeme nasıl sağlarım?
 
 Ne yazık ki, Azure kredi veya ATM kartı için şu anda tek seferlik ödemeler desteklemiyor. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Vergi numarası nasıl değişiyor?
+
+Vergi numarası güncelleştirmek ya da eklemek için ziyaret edin [ **profil** Azure hesap Merkezi'nde](https://account.azure.com/Profile)seçeneğini belirleyip **Vergi kaydı**. Bu vergi numarası vergi muafiyet hesaplamaları için kullanılır ve fatura üzerinde görünür.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 

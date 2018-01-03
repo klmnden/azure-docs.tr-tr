@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
 ms.openlocfilehash: e8a8a84153a950f2d1bc002b34c83dc5ed8a5eb8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Veri ambarı geçiş yardımcı programı (Önizleme)
 > [!div class="op_single_selector"]

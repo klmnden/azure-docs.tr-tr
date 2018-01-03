@@ -1,24 +1,16 @@
 ---
-title: "Hyper-V çoğaltma Azure Site Recovery ile azure'a mimarisi gözden | Microsoft Docs"
+title: "Hyper-V için Azure Site kurtarma Azure çoğaltma mimarisi | Microsoft Docs"
 description: "Bu makalede, Azure Site Recovery hizmeti ile şirket içi Hyper-V VM'leri Azure'a çoğaltma işleminde kullanılan bileşenlere ve mimariye ilişkin genel bir bakış sunulmaktadır."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 737cd30b-3994-4b18-9bd4-78c723601310
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa27d75c5a1efe3971cabfe2b6a39433c772a40a
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V çoğaltma Azure Mimarisi
 
@@ -149,6 +141,7 @@ Bir çoğaltma hatası meydana gelirse, yerleşik yeniden deneme işlevi vardır
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme için destek matrisi Hyper-V için Azure çoğaltmayı etkinleştirmek için bu öğreticiyi izleyin.
-Bir yük devretme ve yeniden çalıştırın.
+
+İzleyin [Bu öğretici](tutorial-prepare-azure.md) Hyper-V ile Azure çoğaltma başlamak için.
+
 

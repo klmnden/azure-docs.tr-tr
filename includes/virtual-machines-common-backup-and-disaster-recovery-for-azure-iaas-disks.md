@@ -19,7 +19,7 @@ Bölgesel olağanüstü durum kurtarma için farklı bir bölgeye Iaas VM diskle
 
 ### <a name="azure-iaas-resiliency"></a>Azure Iaas dayanıklılık
 
-*Dayanıklılık* donanım bileşenleri ortaya normal hata toleransı başvuruyor. Dayanıklılık, arızalardan kurtarmak ve çalışmaya devam yeteneğidir. Hataları önleme, ancak hataları kapalı kalma süresi veya veri kaybı önler şekilde yanıt verme hakkında değil. Uygulamaya bir hatasının ardından tam çalışır bir duruma geri dönmek için dayanıklılık belirtilir. Azure sanal makineleri ve diskleri için genel donanım hataları dayanıklı olacak şekilde tasarlanmıştır. Azure Iaas platform bu dayanıklılık nasıl sağladığını konumundaki bakalım.
+*Dayanıklılık* donanım bileşenleri ortaya normal hata toleransı başvuruyor. Dayanıklılık, arızalardan kurtarmak ve çalışmaya devam yeteneğidir. Hataları önleme, ancak hataları kapalı kalma süresi veya veri kaybı önler şekilde yanıt verme hakkında değil. Dayanıklılığın hedefi, bir hatanın ardından uygulamayı tam çalışır duruma geri döndürmektir. Azure sanal makineleri ve diskleri için genel donanım hataları dayanıklı olacak şekilde tasarlanmıştır. Azure Iaas platform bu dayanıklılık nasıl sağladığını konumundaki bakalım.
 
 Bir sanal makine çoğunlukla iki bölümden oluşur: bir işlem sunucusu ve kalıcı diskler. Her ikisi de bir sanal makinenin hata toleransı etkiler.
 
@@ -138,7 +138,7 @@ Vm'leriniz yedeklerini kullanarak etkinleştirmek için aşağıdaki adımları 
 
 4.  Backup Aracısı VM üzerinde yüklü olduğundan emin olun. Bir Azure galerisinde görüntüsünü kullanarak VM oluşturduysanız, Yedekleme aracısı zaten yüklüdür. (Diğer bir deyişle, özel bir görüntü kullanırsanız) Aksi durumda, yönergeleri kullanın [VM Aracısı sanal makineye yükleme](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  VM yedekleme hizmetinin çalışması için ağ bağlantısı verdiğinden emin olun. Yönergeleri izleyin [ağ bağlantınızı](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  VM yedekleme hizmetinin çalışması için ağ bağlantısı verdiğinden emin olun. Yönergeleri izleyin [ağ bağlantınızı](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  Önceki adımları tamamladıktan sonra yedekleme İlkesi belirtildiği gibi düzenli aralıklarla yedekleme çalıştırır. Gerekirse ilk yedekleme Azure portalındaki kasa Panosu el ile tetikleyebilirsiniz.
 
@@ -211,11 +211,11 @@ Artımlı anlık DR için verimli bir şekilde kopyalamak için yönergeleri gö
 
 ### <a name="recovery-from-snapshots"></a>Anlık görüntüler kurtarma
 
-Bir anlık görüntü almak için yeni blob yapmak üzere kopyalayın. Anlık görüntü birincil hesabından kopyalıyorsanız, anlık görüntü üzerinde anlık görüntü temel blob kopyalayabilirsiniz. Bu işlem, anlık görüntü diske geri döner. Bu işlem, anlık görüntü yükseltme olarak bilinir. Bir okuma erişimli coğrafi olarak yedekli depolama hesabı söz konusu olduğunda ikincil bir hesaptan anlık görüntü yedekleme kopyalıyorsanız birincil hesabına kopyalamanız gerekir. Anlık görüntü tarafından kopyalayabilirsiniz [PowerShell kullanarak](../articles/storage/common/storage-powershell-guide-full.md) veya AzCopy yardımcı programını kullanarak. Daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy).
+Bir anlık görüntü almak için yeni blob yapmak üzere kopyalayın. Anlık görüntü birincil hesabından kopyalıyorsanız, anlık görüntü üzerinde anlık görüntü temel blob kopyalayabilirsiniz. Bu işlem, anlık görüntü diske geri döner. Bu işlem, anlık görüntü yükseltme olarak bilinir. Bir okuma erişimli coğrafi olarak yedekli depolama hesabı söz konusu olduğunda ikincil bir hesaptan anlık görüntü yedekleme kopyalıyorsanız birincil hesabına kopyalamanız gerekir. Anlık görüntü tarafından kopyalayabilirsiniz [PowerShell kullanarak](../articles/storage/common/storage-powershell-guide-full.md) veya AzCopy yardımcı programını kullanarak. Daha fazla bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
 Birden çok diske sahip VM'ler için aynı Eşgüdümlü geri yükleme noktası parçası olan tüm anlık görüntüleri kopyalamanız gerekir. Anlık görüntüler için yazılabilir VHD bloblarının kopyaladıktan sonra VM için VM şablonu kullanarak yeniden oluşturmak için BLOB'ları kullanabilirsiniz.
 
-## <a name="other-options"></a>Diğer seçenekleri
+## <a name="other-options"></a>Diğer seçenekler
 
 ### <a name="sql-server"></a>SQL Server
 

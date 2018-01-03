@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2017
 ms.author: cherylmc
 ms.openlocfilehash: 1e7a7af26fbfb728aa5a6b8a0d63b71f678256bf
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet bağlantı (Klasik) yapılandırma
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 Bu makalede, sanal ağlar arasında VPN ağ geçidi bağlantısının nasıl oluşturulduğu gösterilir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Bu makaledeki adımları Klasik dağıtım modeli ve Azure portalı için geçerlidir. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure portalı](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -164,7 +164,7 @@ Her sanal ağ, bir sanal ağ geçidi olmalıdır. Sanal ağ geçidi yönlendirir
 3. Ağ geçidi alt ağ adı gerekli 'GatewaySubnet' adıyla otomatik olarak doldurulur. **Adres aralığı** VPN ağ geçidi Hizmetleri için ayrılan IP adreslerini içerir. Bazı yapılandırmalar bir ağ geçidi alt ağı /29 izin ver, ancak daha fazla IP adresi için Ağ Geçidi Hizmetleri gerektirebilir gelecekteki yapılandırmalarını karşılamak için/28 ya da /27 kullanmak en iyisidir. Bizim örnek ayarlarında 10.11.1.0/27 kullanırız. Adres alanı ayarlamanız ve ardından **Tamam**.
 4. Yapılandırma **ağ geçidi boyutu**. Bu ayar başvurduğu [ağ geçidi SKU'su](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 5. Yapılandırma **yönlendirme türü**. Bu yapılandırmayı olmalıdır için türü yönlendirme **dinamik**. Ağ geçidi kesmeden ve yeni bir tane oluşturun sürece yönlendirme türü daha sonra değiştiremezsiniz.
-6. **Tamam** düğmesine tıklayın.
+6. **Tamam**’a tıklayın.
 7. Üzerinde **yeni VPN bağlantısı** sayfasında, **Tamam** sanal ağ geçidi oluşturmaya başlamak için. Bir ağ geçidinin oluşturulması, seçili ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir.
 
 ## <a name="vnet4settings"></a>5. adım - TestVNet4 ayarlarını yapılandırma

@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: 82e17e575cdb227af2fabf94f01e94df22994aac
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda dağıtma
 > [!div class="op_single_selector"]

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
 ms.openlocfilehash: a82481c4995bfb078e88d7096dff37b52312a296
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="scaling-media-processing-overview"></a>Ölçeklendirme medyayı işleme genel bakış
 Bu sayfa hakkında genel bakış ve medya işleme ölçeklendirmek neden sağlar. 
@@ -66,8 +66,8 @@ Bu teknolojiler biriyle ölçeklendirme medya işleme görevi elde:
 > 
 
 > [!NOTE]
-> Java SDK'ın en son sürümünü alın ve Java ile geliştirmeye başlamak için bkz: [Media Services için Java istemcisi SDK ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Media Services için en yeni PHP SDK'yi karşıdan yüklemek için sürümünde 0.5.7 Microsoft/WindowAzure paket Ara [Packagist depo](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Java SDK'ın en son sürümünü almak ve Java ile geliştirmeye başlamak için bkz. [Media Services için Java istemcisi SDK’sı ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Media Services için en yeni PHP SDK'sını indirmek üzere, [Packagist deposunda](https://packagist.org/packages/microsoft/windowsazure#v0.5.7) Microsoft/WindowAzure paketinin 0.5.7 sürümünü arayın.  
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

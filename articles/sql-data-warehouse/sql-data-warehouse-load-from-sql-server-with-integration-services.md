@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 03/30/2017
 ms.author: cakarst;douglasl;barbkess
 ms.openlocfilehash: 6c9cebdd715b6997d0633bc725a3945ba9e0c357
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>SQL Server'dan Azure SQL veri ambarı (SSIS) içine veri yükleme
 > [!div class="op_single_selector"]

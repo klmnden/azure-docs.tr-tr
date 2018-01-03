@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Azure Media Services’ta Widevine lisansları vermek için castLabs kullanma
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Hem castLabs hem de AMS lisans yetkilendirmek için kullanılan (JSON Web belirt
 ### <a name="jwt-token-in-ams"></a>AMS JWT belirteci
 Aşağıdaki tabloda AMS JWT belirteci açıklanmaktadır. 
 
-| Veren | Seçilen veren dizeden güvenli belirteç hizmeti (STS) |
+| Veren: | Seçilen veren dizeden güvenli belirteç hizmeti (STS) |
 | --- | --- |
 | Hedef kitle |Kullanılan STS dizeden hedef kitle |
 | Talepler |Talepler kümesi |

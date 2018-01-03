@@ -4,15 +4,17 @@ description: "Bu senaryo Azure Machine Learning çalışma ekranı kullanarak hy
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak hyperparameters ayarlama dağıtılmış
 
@@ -26,30 +28,32 @@ Genel GitHub depo bağlantısını aşağıdadır:
 ## <a name="use-case-overview"></a>Kullanım örneği'ne genel bakış
 
 Birçok machine learning algoritmaları hyperparameters adlı bir veya daha fazla düğmelerini sahip. Kullanıcı tarafından belirtilen ölçümleri göre ölçülen gelecekteki veriler üzerinde kendi performansını iyileştirmek için algoritmalarının ayarlama bu düğmelerini izin ver (örneğin, doğruluk, AUC, RMSE). Veri Bilimcisi bir model eğitim verileri üzerinden ve gelecekteki test verileri görmesini önce oluştururken hyperparameters değerlerini sağlaması gerekir. Model iyi bir performans bilinmeyen sınama verilerinde sahip olması bilinen eğitim veri can nasıl göre hyperparameters değerleri ayarlarız? 
-
+    
 Hyperparameters ayarlama yaygın olarak kullanılan bir tekniktir bir *kılavuz arama* birlikte *çapraz doğrulama*. Çapraz doğrulama ne kadar iyi test küme üzerinde bir eğitim kümesinde eğitilmiş bir modeli tahmin değerlendirir bir tekniktir. Bu teknik kullanılarak, biz ilk veri kümesi K Katlama ayırın ve bir hepsini şekilde algoritması K kez eğitmek. Tüm bunu ancak Katlama birini "tutulan çıkış Katlama" denir. Biz K modelleri ölçümleri, ortalama değerini K tutulan çıkış Katlama işlem. Adlı bu ortalama değer *arası doğrulanmış performans tahmin*, K modelleri oluşturulurken kullanılan hyperparameters değerlerine bağlıdır. Hyperparameters ayarlama, biz çapraz doğrulama performansı en iyi duruma olanları tahmin bulmak için aday hyperparameter değerleri alanı arayın. Kılavuz arama ortak bir arama tekniktir. Kılavuz aramada çapraz ürün tek tek hyperparameters adayı değerlerinin kümelerinin birden çok hyperparameters adayı değerlerini alanıdır. 
 
 Çapraz doğrulama kullanarak kılavuz arama zaman alıcı olabilir. Bir algoritma beş hyperparameters her beş adayı değerlerle varsa, K = 5 Katlama kullanırız. Biz ardından göre kılavuz arama tamamlayın 5 eğitim<sup>6</sup>15625 modelleri =. Neyse ki, kılavuz arama çapraz doğrulama kullanmaktır utandırıcı derecede paralel bir yordam ve bu modeller paralel olarak Eğitilecek.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir).
 * Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md) aşağıdaki [yükleme ve hızlı başlangıç oluşturma](./quickstart-installation.md) çalışma ekranı yükleyip hesapları oluşturun.
 * Bu senaryo, Azure ML çalışma ekranı Windows 10 veya MacOS yerel olarak yüklenmiş Docker altyapısıyla çalıştığını varsayar. 
-* Senaryo ile uzak bir Docker kapsayıcısı çalıştırmak için Ubuntu veri bilimi sanal makine (DSVM) izleyerek sağlamak [yönergeleri](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). En az 8 çekirdek ve bellek 28 Gb ile bir sanal makine kullanmanızı öneririz. Sanal makineler D4 örneklerini böyle kapasiteye sahip. 
-* Bu senaryo bir Spark kümesiyle çalıştırmak için sağlama Azure Hdınsight kümesi bu izleyerek [yönergeleri](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). İle bir kümede en az olması öneririz 
-- altı çalışan düğümleri
-- sekiz Çekirdeği
-- Üstbilgi ve çalışan düğümleri bellekte 28 Gb. Sanal makineler D4 örneklerini böyle kapasiteye sahip. Kümenin performansını en üst düzeye çıkarmak için aşağıdaki parametreleri değiştirme öneririz.
-- Spark.Executor.instances
-- Spark.Executor.cores
-- Spark.Executor.Memory 
+* Senaryo ile uzak bir Docker kapsayıcısı çalıştırmak için Ubuntu veri bilimi sanal makine (DSVM) izleyerek sağlamak [yönergeleri](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). En az 8 çekirdek ve bellek 28 Gb ile bir sanal makine kullanmanızı öneririz. Sanal makineler D4 örneklerini böyle kapasiteye sahip. 
+* Bu senaryo bir Spark kümesiyle çalıştırmak için sağlama Azure Hdınsight kümesi bu izleyerek [yönergeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+İle bir kümede en az olması önerilir:
+    - altı çalışan düğümleri
+    - sekiz Çekirdeği
+    - Üstbilgi ve çalışan düğümleri bellekte 28 Gb. Sanal makineler D4 örneklerini böyle kapasiteye sahip.       
+    - Kümenin performansını en üst düzeye çıkarmak için aşağıdaki parametreleri değiştirme öneririz:
+        - Spark.Executor.instances
+        - Spark.Executor.cores
+        - Spark.Executor.Memory 
 
-Bu takip edebilirsiniz [yönergeleri](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) ve "özel spark varsayılan olarak" bölümündeki tanımları düzenleyin.
+Bu takip edebilirsiniz [yönergeleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) ve "özel spark varsayılan olarak" bölümündeki tanımları düzenleyin.
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Veri kümesi depolamak için kullanılan bir Azure depolama hesabı oluşturun. İzleyin [yönergeleri](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) bir depolama hesabı oluşturmak için.
+* Veri kümesi depolamak için kullanılan bir Azure depolama hesabı oluşturun. İzleyin [yönergeleri](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) bir depolama hesabı oluşturmak için.
 
 ## <a name="data-description"></a>Veri açıklaması
 

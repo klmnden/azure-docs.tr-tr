@@ -1,24 +1,16 @@
 ---
-title: "Azure'da VMware çoğaltma işlemini mimarisi gözden | Microsoft Docs"
+title: "Azure Site Recovery Azure çoğaltma mimarisinde VMware | Microsoft Docs"
 description: "Bu makalede, bileşenleri ve Azure Site Recovery hizmeti ile şirket içi VMware Vm'lerini Azure'a çoğaltırken kullanılan mimariye genel bakış sağlar"
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: d03d2dd3-2455-4ca8-a942-a342030ee6ce
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: ac1151d15a88650f5845cb879cd210e9f7cba0fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1c991298d8f59c7f161b965541571b4c8ac3d8f9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware Azure çoğaltma mimarisi
 
@@ -85,5 +77,4 @@ Birincil şirket içi siteniz yeniden kullanılabilir olduğunda siteyi yeniden 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme için destek matrisi VMware Azure çoğaltmayı etkinleştirmek için öğreticiyi izleyin.
-Bir yük devretme ve yeniden çalıştırın.
+İzleyin [Bu öğretici](tutorial-vmware-to-azure.md) VMware Azure çoğaltmayı etkinleştirmek için.

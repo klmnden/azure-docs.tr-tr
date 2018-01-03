@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Azure IOT kenar çalışma zamanı ve mimarisini anlama - Önizleme
 
@@ -21,13 +21,13 @@ IOT kenar çalışma zamanı cihazı IOT sınır cihazı kabul edilebilmesi içi
 
 IOT kenar çalışma zamanı IOT kenar cihazlarda aşağıdaki işlevleri gerçekleştirir:
 
-* Yükler ve iş yükleri cihazda güncelleştirir.
-* Azure IOT kenar güvenlik standartları cihazda tutar.
+* Cihazda iş yüklerini yükler ve güncelleştirir.
+* Cihazda Azure IoT Edge güvenlik standartlarını korur.
 * Sağlar [IOT kenar modülleri][lnk-modülleri] her zaman çalışması.
-* Uzaktan izleme buluta Modül durumu raporları.
-* Aşağı Akış yaprak aygıtlar ve IOT sınır cihazı arasındaki iletişimi kolaylaştırır.
-* IOT sınır cihazı modülleri arasındaki iletişimi kolaylaştırır.
-* IOT sınır cihazı ve bulut arasındaki iletişimi kolaylaştırır.
+* Uzaktan izleme için modül durumunu buluta bildirir.
+* Aşağı akış yaprak cihazlarıyla IoT Edge cihazı arasındaki iletişimi kolaylaştırır.
+* IoT Edge cihazında bulunan modüller arasındaki iletişimi kolaylaştırır.
+* IoT Edge cihazıyla bulut arasındaki iletişimi kolaylaştırır.
 
 ![IOT kenar çalışma zamanı Öngörüler ve IOT Hub'ına Modül durumu iletişim kurar][1]
 
@@ -89,7 +89,7 @@ Modülleri sözlükteki her öğe bir modül hakkında belirli bilgiler içerir 
 * **Settings.image** – kapsayıcı görüntünün modülü başlatmak için sınır Aracısı'nı kullanır. Görüntünün bir parolayla korunuyorsa kenar Aracısı kapsayıcı kayıt defteri için kimlik bilgileri ile yapılandırılması gerekir. Edge aracısını yapılandırmak için aşağıdaki komutu kullanın:`azure-iot-edge-runtime-ctl.py –configure`
 * **settings.createOptions** – doğrudan Docker daemon bir modülün kapsayıcısı başlatılırken geçirilen bir dize. Bu özellik Docker seçenekleri ekleme iletme veya bir modülün kapsayıcıya birimleri bağlama bağlantı noktası gibi gelişmiş seçenekler sağlar.  
 * **Durum** – kenar Aracısı Modülü yerleştirir durumu. Bu değer genellikle ayarlamak *çalıştıran* tüm modülleri cihazda hemen başlatmak için sınır Aracısı çoğu kişi istediğiniz şekilde. Ancak, bir modül başlatmak için sınır Aracısı bildirmek gelecekteki bir süre bekleyin ve durdurulması bir modül ilk durumunu belirtebilirsiniz. Edge Aracısı her modül durumunu bildirilen özelliklerinde buluta geri raporlar. İstenen özelliği ve bildirilen özelliği arasında bir fark bir gösterge veya hatalı davranan bir aygıtı değil. Desteklenen durumlar şunlardır:
-   * İndirme
+   * İndiriliyor
    * Çalışıyor
    * İyi durumda değil
    * Başarısız
@@ -99,7 +99,15 @@ Modülleri sözlükteki her öğe bir modül hakkında belirli bilgiler içerir 
    * onFailure - modülü çökerse, kenar Aracısı'nı yeniden başlatır. Modül düzgün bir şekilde kapanırsa, kenar Aracısı, yeniden başlatmaz.
    * Modül çöküyor veya sağlıksız - sağlıksız kabul edilip kenar aracıyı yeniden başlatır.
    * Modül kilitlenmeler, sağlıksız kabul edilir veya herhangi bir şekilde kapanır, her zaman - Edge Aracısı'nı yeniden başlatır. 
-   
+
+IOT kenar aracısı çalışma zamanı yanıt IOT Hub'ına gönderir. Olası yanıt listesi aşağıdadır:
+  * 200 - TAMAM
+  * 400 - dağıtım yapılandırması hatalı biçimlendirilmiş veya geçersiz olur.
+  * 417 - aygıtın bir dağıtım yapılandırma kümesi yok.
+  * 412 - dağıtım yapılandırmasının şema sürümü geçersiz.
+  * 406 - çevrimdışı olan veya olmayan gönderen durum raporları edge aygıttır.
+  * 500 - edge çalışma zamanı'nda bir hata oluştu.
+
 ### <a name="security"></a>Güvenlik
 
 IOT kenar Aracısı'nı bir IOT uç cihazın güvenliği kritik rol oynar. Örneğin, bir modülün görüntü başlatmadan önce doğrulama gibi işlemleri gerçekleştirir. Bu özellikler V2 özellikleri genel kullanılabilirliğine eklenir. 

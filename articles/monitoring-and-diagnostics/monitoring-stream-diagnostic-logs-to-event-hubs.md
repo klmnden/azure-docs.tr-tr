@@ -1,6 +1,6 @@
 ---
-title: "Akış bir olay hub'ları Namespace Azure tanılama günlüklerine | Microsoft Docs"
-description: "Bir olay hub'ları ad alanı için Azure tanılama günlüklerini akış öğrenin."
+title: "Olay hub'ına Azure tanılama günlükleri akış | Microsoft Docs"
+description: "Bir olay hub'ına Azure tanılama günlüklerini akış öğrenin."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcb9fcb2371217e7082d96ddbba4a095e6d9a00f
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>Akış bir olay hub'ları Namespace için Azure tanılama günlükleri
-**[Azure tanılama günlüklerini](monitoring-overview-of-diagnostic-logs.md)**  portalında veya Azure PowerShell cmdlet'leri aracılığıyla tanılama ayarında Service Bus kural kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için yakın gerçek zamanlı akış veya Azure CLI.
+# <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Bir olay hub'ına akış Azure tanılama günlükleri
+**[Azure tanılama günlüklerini](monitoring-overview-of-diagnostic-logs.md)**  portalında veya Azure aracılığıyla tanılama ayarında olay hub'ı yetkilendirme kuralı kimliği etkinleştirerek yerleşik "Dışarı aktarmak için Event Hubs" seçeneğini kullanarak herhangi bir uygulama için yakın gerçek zamanlı akış PowerShell cmdlet'lerini veya Azure CLI.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Tanılama günlüklerini ve olay hub'ları ile yapabilecekleriniz
 Tanılama günlüklerini akış özelliği kullanabilir birkaç yollar şunlardır:
 
-* **Akış günlükleri için 3. taraf günlüğe kaydetme ve telemetri sistemi** – zaman içinde olay hub'ları akış için üçüncü taraf Sıem'lerden, tanılama günlüklerinize kanal ve analiz çözümleri oturum mekanizması olur.
+* **Akış günlükleri için 3. taraf günlüğe kaydetme ve telemetri sistemi** – tüm tanılama günlüklerinize kanal günlük verileri bir üçüncü taraf SIEM veya günlük analizi aracı için tek bir olay hub'ına akış.
 * **Powerbı "etkin yolunuzda" veri akışı tarafından hizmet durumu görüntülemek** – olay hub'ı kullanarak, akış analizi ve Powerbı, kolayca dönüştürme tanılama verilerinizi Azure hizmetlerinizi üzerinde gerçek zamanlı Öngörüler yakınında için. [Bu belge makalesi nasıl olay hub'ları ayarlamak, akış Analizi ile verileri işlemek ve Powerbı çıkış olarak kullanmak iyi bir genel bakış sağlayan](../stream-analytics/stream-analytics-power-bi-dashboard.md). Aşağıda, tanılama günlükleri ile ayarlanan için birkaç ipucu verilmiştir:
   
   * Portal seçeneğinde denetlemek veya olay hub'ı ile başlayan ad alanında adıyla seçmek istediğiniz şekilde PowerShell aracılığıyla etkinleştirmek bir event hub'tanılama günlükleri kategorisi için otomatik olarak oluşturulan **ınsights -**.
@@ -52,7 +52,7 @@ Tanılama günlüklerini portalı yoluyla programlı olarak akış veya kullanar
 > 
 > 
 
-Hizmet veri yolu veya olay hub'ları ad alanı, her iki aboneliğin uygun RBAC erişimi ayarı yapılandıran kullanıcının sahip olduğu sürece günlükleri yayma kaynak ile aynı abonelikte olması yok.
+Her iki aboneliğin uygun RBAC erişimi ayarı yapılandıran kullanıcının sahip olduğu sürece günlükleri yayma kaynak ile aynı abonelikte olması olay hub'ları ad alanı yok.
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Portalı kullanarak akış tanılama günlükleri
 1. Portal, Azure izleyicisine gidin ve tıklayın **tanılama ayarları**
@@ -73,11 +73,11 @@ Hizmet veri yolu veya olay hub'ları ad alanı, her iki aboneliğin uygun RBAC e
    
    ![Tanılama ayarını ayarlar varolan - Ekle](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-configure.png)
     
-   Seçili ad alanı, olay hub'ı (Bu, ilk zaman akış tanılama günlükleri varsa) oluşturulur veya için akışı olacaktır (olup olmadığını zaten bu ad alanına günlük kategoriye akış kaynakları), ve izinleri ilkeyi tanımlar, Akış mekanizması vardır. Bugün, olay hub'ına akış yönetme, gönderme ve dinleme izinleri gerektirir. Oluşturun veya olay hub'ları ad alanı paylaşılan erişim ilkeleri Yapılandır sekmesi altında portalında ad alanınız için değiştirin. Bu tanılama ayarları birini güncelleştirmek için istemci olay hub'ları yetkilendirme kuralı ListKey izni olmalıdır.
+   Seçili ad alanı, olay hub'ı (Bu, ilk zaman akış tanılama günlükleri varsa) oluşturulur veya için akışı olacaktır (olup olmadığını zaten bu ad alanına günlük kategoriye akış kaynakları), ve izinleri ilkeyi tanımlar, Akış mekanizması vardır. Bugün, olay hub'ına akış yönetme, gönderme ve dinleme izinleri gerektirir. Oluşturun veya olay hub'ları ad alanı paylaşılan erişim ilkeleri Yapılandır sekmesi altında portalında ad alanınız için değiştirin. Bu tanılama ayarları birini güncelleştirmek için istemci olay hub'ları yetkilendirme kuralı ListKey izni olmalıdır. Ayrıca isteğe bağlı olarak, bir olay hub'ı adı belirtebilirsiniz. Bir olay hub'ı adı belirtirseniz, günlükleri, olay hub'ına yerine her günlük kategori yeni oluşturulan olay hub'ına yönlendirilir.
 
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
-Birkaç dakika sonra yeni bir ayar bu kaynak için ayarları listesi görüntülenir ve yeni olay verilerini oluşturulan hemen bu depolama hesabına tanılama günlüklerini akışı.
+Birkaç dakika sonra yeni ayar, bu kaynak için ayarları listesi görüntülenir ve yeni olay verilerini oluşturulan hemen tanılama günlükleri, olay hub'ına akışa alınır.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
 Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri](insights-powershell-samples.md), kullanabileceğiniz `Set-AzureRmDiagnosticSetting` Bu parametreler cmdlet'iyle:
@@ -86,7 +86,7 @@ Aracılığıyla akışını etkinleştirmek için [Azure PowerShell cmdlet'leri
 Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -ServiceBusRuleId [your Service Bus rule ID] -Enabled $true
 ```
 
-Hizmet veri yolu kural kimliği bu biçiminde bir dizedir: `{Service Bus resource ID}/authorizationrules/{key name}`, örneğin, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`.
+Hizmet veri yolu kural kimliği bu biçiminde bir dizedir: `{Service Bus resource ID}/authorizationrules/{key name}`, örneğin, `/subscriptions/{subscription ID}/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/{Service Bus namespace}/authorizationrules/RootManageSharedAccessKey`. PowerShell ile belirli bir olay hub'ı adı şu anda seçemezsiniz.
 
 ### <a name="via-azure-cli"></a>Azure CLI
 Aracılığıyla akışını etkinleştirmek için [Azure CLI](insights-cli-samples.md), kullanabileceğiniz `insights diagnostic set` komut şöyle:
@@ -95,7 +95,7 @@ Aracılığıyla akışını etkinleştirmek için [Azure CLI](insights-cli-samp
 azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serviceBusRuleID> --enabled true
 ```
 
-Aynı biçimde Service Bus kural kimliği için PowerShell cmdlet'i için açıklandığı gibi kullanın.
+Aynı biçimde Service Bus kural kimliği için PowerShell cmdlet'i için açıklandığı gibi kullanın. Şu anda Azure CLI belirli bir olay hub'ı adıyla seçemezsiniz.
 
 ## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>Olay hub'ları günlük verilerini nasıl kullanabilir?
 Olay hub'ları örnek çıktı verilerini şöyledir:
@@ -163,12 +163,12 @@ Olay hub'ları örnek çıktı verilerini şöyledir:
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| kayıtları |Bu yük tüm günlük olaylar dizisi. |
+| kayıt |Bu yük tüm günlük olaylar dizisi. |
 | time |Olayın gerçekleştiği süre. |
 | category |Bu olay günlüğü kategori. |
 | resourceId |Bu olayı oluşturan kaynağının kaynak kimliği. |
 | operationName |İşlemin adı. |
-| düzeyi |İsteğe bağlı. Günlük olayı düzeyini gösterir. |
+| düzey |İsteğe bağlı. Günlük olayı düzeyini gösterir. |
 | properties |Olay Özellikleri. |
 
 Event Hubs'a akış destekleyen tüm kaynak sağlayıcılarının bir listesini görüntüleyebileceğiniz [burada](monitoring-overview-of-diagnostic-logs.md).

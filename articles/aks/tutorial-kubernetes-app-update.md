@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5399fa40542fd9a1163654d5619cb94029bc3c6f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Bir uygulamayı Azure kapsayıcı hizmeti (AKS) güncelleştir
 
@@ -33,7 +33,7 @@ Sonraki öğreticilerde Kubernetes küme izlemek için Operations Management Sui
 
 Önceki eğitimlerine bir uygulama bir kapsayıcı görüntü, Azure kapsayıcı kayıt defterine yüklenen görüntü ve oluşturulan Kubernetes küme paketlenmiştir. Uygulama sonra Kubernetes kümede çalıştırıldı. 
 
-Bir uygulama havuzu da uygulamanın kaynak koduna ve Bu öğreticide kullanılan önceden oluşturulmuş bir Docker Compose dosya içeren kopyalandı. Depodaki bir kopyasını oluşturduktan ve kopyalanan dizine dizinleri değiştirilmediğini doğrulayın. İç olan adlı bir dizin `azure-vote` ve adlı bir dosya `docker-compose.yml`.
+Bir uygulama havuzu da uygulamanın kaynak koduna ve Bu öğreticide kullanılan önceden oluşturulmuş bir Docker Compose dosya içeren kopyalandı. Depodaki bir kopyasını oluşturduktan ve kopyalanan dizine dizinleri değiştirilmediğini doğrulayın. İç olan adlı bir dizin `azure-vote` ve adlı bir dosya `docker-compose.yaml`.
 
 Bu adımları tamamladıysanız henüz ve izlemek istediğiniz dönmek [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app]. 
 

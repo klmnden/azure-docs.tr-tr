@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması için hata iletileri NPS uzantı çözümleyin
 
@@ -106,9 +106,10 @@ Kullanıcılarınız varsa [iki aşamalı doğrulamayı sorununuz](./end-user/mu
 
 Ek Yardım gerekirse, aracılığıyla destek uzmanına başvurun [Azure çok faktörlü kimlik doğrulama sunucusu desteği](https://support.microsoft.com/oas/default.aspx?prid=14947). Sorununuzu mümkün olduğunca hakkında kadar bilgi dahil ederseniz bize kurulurken yardımcı olur. Sağladığınız bilgiler içerir, özel hata kodu hatanın nerede gördüğünüzü sayfa belirli bir oturum kimliği, gördüğünüz hata ve hata ayıklama günlüklerini kullanıcının kimliği.
 
-Destek Tanılama için hata ayıklama günlüklerini toplamak için aşağıdaki adımları kullanın: 
+Destek Tanılama için hata ayıklama günlüklerini toplamak için NPS sunucusunda aşağıdaki adımları kullanın:
 
-1. Bir yönetici komut istemi açın ve şu komutları çalıştırın:
+1. Kayıt Defteri Düzenleyicisi'ni açın ve Gözat HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa kümesine **VERBOSE_LOG** için **TRUE**
+2. Bir yönetici komut istemi açın ve şu komutları çalıştırın:
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ Destek Tanılama için hata ayıklama günlüklerini toplamak için aşağıdaki
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Sorunu yeniden oluşturun
+3. Sorunu yeniden oluşturun
 
-3. Bu komutlar İzlemeyi Durdur:
+4. Bu komutlar İzlemeyi Durdur:
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ Destek Tanılama için hata ayıklama günlüklerini toplamak için aşağıdaki
    Start .
    ```
 
-4. C:\NPS klasörünün içeriğini zip ve sıkıştırılmış dosya için destek talebi ekleyin.
+5. Kayıt Defteri Düzenleyicisi'ni açın ve Gözat HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa kümesine **VERBOSE_LOG** için **FALSE**
+6. C:\NPS klasörünün içeriğini zip ve sıkıştırılmış dosya için destek talebi ekleyin.
 
 

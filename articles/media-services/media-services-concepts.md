@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: bb02aaf541d2d2f4b1206136847af2b46621501d
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services kavramları
 Bu konu en önemli Media Services kavramları hakkında genel bakış sağlar.
 
-## <a id="assets"></a>Varlıklar ve depolama
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>Varlıklar ve depolama
 ### <a name="assets"></a>Varlıklar
 Bir [varlık](https://docs.microsoft.com/rest/api/media/operations/asset) dijital dosyaları (video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları dahil) ve bu dosyalar hakkındaki meta verileri içerir. Dijital dosyalar bir varlığa karşıya yükledikten sonra medya kodlama ve iş akışları akış Hizmetleri'nde kullanılabilir.
 
@@ -57,7 +57,7 @@ Media Services, içeriğinizi teslim etmek istediğiniz nasıl bilmesi için dep
 
 **EnvelopeEncryptionProtected** – korumak (veya zaten korumalı karşıya yüklemek) istiyorsanız bu seçeneği kullanın HTTP canlı akışı (Gelişmiş Şifreleme Standardı (AES ile) şifrelenmiş HLS). Zaten AES ile şifrelenmiş HLS yüklüyorsanız bu Transform Manager tarafından şifrelenmiş gerekir.
 
-### <a name="access-policy"></a>Erişim İlkesi
+### <a name="access-policy"></a>Erişim ilkesi
 Bir [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy) (örneğin, okuma, yazma ve liste) izinler ve erişim süresi bir varlık için tanımlar. Genellikle, bir varlıkta bulunan dosyalara erişmek için kullanılacak bir Bulucu için AccessPolicy nesneyi geçip geçmeyeceğini.
 
 >[!NOTE]
@@ -71,7 +71,7 @@ Bir blob kapsayıcı BLOB'lar kümesinin bir gruplandırma sağlar. BLOB kapsay�
 > 
 > 
 
-### <a id="locators"></a>Belirleyicileri
+### <a name="a-idlocatorslocators"></a><a id="locators"/>Belirleyicileri
 [Bulucu](https://docs.microsoft.com/rest/api/media/operations/locator)s bir varlıkta bulunan dosyalara erişmek için bir giriş noktası sağlar. Bir erişim ilkesi izinleri ve bir istemci belirli bir varlık erişimi olduğunu süresini tanımlamak için kullanılır. Farklı bulucular farklı başlangıç zamanlarını ve bağlantı türleri farklı istemcilere tüm kullanırken aynı izni ve süresi ayarları sağlayabilir, bulucular çoğa bir ilişki bir erişim ilkesi ile olabilir; Ancak, Azure storage services tarafından ayarlanan bir paylaşılan erişim ilkesi kısıtlama nedeniyle, aynı anda belirli bir varlıkla ilişkilendirilen beşten fazla benzersiz bulucular sahip olamaz. 
 
 Media Services iki tür Bulucuyu destekler: karşıya yükleme veya indirme medya dosyaları to\from Azure depolama için kullanılan OnDemandOrigin bulucuları ve medya (örneğin, MPEG DASH, HLS veya kesintisiz akış) akışla aktarmak veya aşamalı medya ve SAS URL bulucular indirmek için kullanılır. 
@@ -83,7 +83,7 @@ Media Services iki tür Bulucuyu destekler: karşıya yükleme veya indirme medy
 Tüm Azure Storage erişimi bir depolama hesabıyla yapılır. Bir ortam hizmet hesabı bir veya daha fazla depolama hesapları ile ilişkilendirebilirsiniz. Altında 500 TB depolama hesabı başına toplam kendi boyuttur sürece bir hesapta sınırsız sayıda kapsayıcı, olabilir.  Media Services birden çok depolama hesaplarını yönetebilir ve Yük Dengelemesi varlıklarınızı dağıtım bu hesaplar için karşıya yükleme sırasında ölçümleri veya rastgele dağıtım göre izin vermek için SDK düzeyi araçları sağlar. Daha fazla bilgi için bkz. Working with [Azure Storage](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>İşler ve görevler
-A [iş](https://docs.microsoft.com/en-us/rest/api/media/operations/job) genelde kullanılan işleme (örneğin, dizin veya kodlamak) bir ses/video sunu. Birden çok videolar işleme varsa, her video kodlanması için bir iş oluşturun.
+A [iş](https://docs.microsoft.com/rest/api/media/operations/job) genelde kullanılan işleme (örneğin, dizin veya kodlamak) bir ses/video sunu. Birden çok videolar işleme varsa, her video kodlanması için bir iş oluşturun.
 
 Bir işi gerçekleştirilecek işlenmesi hakkındaki meta veriler içeriyor. Her işi bir veya daha fazla içeren [görev](https://docs.microsoft.com/rest/api/media/operations/task)giriş varlıklarını bir atomik işlem görevi belirtin s çıktı varlıklar, medya işlemcisi ve ilişkili ayarları. Bir iş içindeki görevlerin zincirleme yapılabilir birlikte, burada bir görevin çıkış varlığına verilen giriş varlık sonraki görev. Bu şekilde bir iş tüm medya sunumu için gerekli işlemleri içerebilir.
 
@@ -156,7 +156,7 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 - [PlayReady/Widevine ile koruma](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Teslim etme
-### <a id="dynamic_packaging"></a>Dinamik paketleme
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Dinamik paketleme
 Media Services ile çalışırken, Uyarlamalı bit hızlı MP4 kümesi mezzanine dosyalarınızı kodlamak ve ardından istenen biçim kullanmaya kümesi dönüştürmek için önerilir [dinamik paketleme](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>Akış uç noktası

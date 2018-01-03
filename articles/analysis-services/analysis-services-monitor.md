@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: owend
-ms.openlocfilehash: f9b32029f0a7065fff73ddb6417fc5c1c7e658a5
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d19f2d29673364c50cb481e375f2c1b5e027467
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="monitor-server-metrics"></a>İzleyici Sunucusu ölçümleri
 
@@ -38,6 +38,7 @@ Daha fazla ayrıntılı tanılama işlemleri gerçekleştirmek için performans,
 
     ![İzleyici grafik](./media/analysis-services-monitor/aas-monitor-chart.png)
 
+<a id="#server-metrics"></a>
 ## <a name="server-metrics"></a>Sunucu ölçümleri
 Hangi ölçümleri izleme senaryonuz için en iyi olduğunu belirlemek için bu tabloyu kullanın. Yalnızca aynı birimi ölçümlerini aynı grafikte gösterilebilir.
 

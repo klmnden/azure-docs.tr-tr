@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff900ef2064c077fe75228c191e580e7531a9aa2
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
 Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve hizmetlere atanmış aşağıdaki yerleşik rolleri ile birlikte gelir. Yerleşik rol tanımlarını değiştiremezsiniz. Ancak, oluşturabileceğiniz [Azure rbac'de özel roller](role-based-access-control-custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
@@ -43,7 +43,7 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [API Management hizmeti katkıda bulunan](#api-management-service-contributor) |API Management hizmeti ve API'leri Yönet |
 | [API Management hizmet işleci rolü](#api-management-service-operator-role) | API Management hizmeti, ancak API kendilerini yönetebilirsiniz. |
 | [API Management hizmet okuyucu rolü](#api-management-service-reader-role) | API Management hizmeti ve API'ler için salt okunur erişim |
-| [Uygulama Öngörüler bileşen katkıda bulunan](#application-insights-component-contributor) |Application Insights bileşenlerini yönetebilirsiniz |
+| [Uygulama Öngörüler bileşen katkıda bulunan](#application-insights-component-contributor) |Application Insights bileşenlerini yönetebilir |
 | [Automation operatörü](#automation-operator) |Başlatma, durdurma, askıya alma ve işlerini sürdürmek için |
 | [Yedekleme katkıda bulunan](#backup-contributor) | Kurtarma Hizmetleri kasasına yedekleme yönetebilirsiniz. |
 | [Yedekleme işletmeni](#backup-operator) | Kurtarma Hizmetleri kasasına yedekleme kaldırma dışında yedekleme yönetebilirsiniz. |
@@ -57,8 +57,8 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [DNS bölgesi katkıda bulunan](#dns-zone-contributor) |DNS bölgeleri ve kayıtları yönetebilir |
 | [DocumentDB hesabı katkıda bulunan](#documentdb-account-contributor) |Azure Cosmos DB hesaplarını yönetme |
 | [Akıllı sistemler hesap katkıda bulunan](#intelligent-systems-account-contributor) |Akıllı sistemler hesaplarını yönetme |
-| Mantığı uygulamasını katkıda bulunan | Bir mantıksal uygulama tüm yönlerini yönetmek, ancak yeni bir tane oluşturun değil. |
-| Mantıksal uygulama işleci |Başlangıç ve bir mantıksal uygulama içinde tanımlanan iş akışlarını durdurun kullanabilirsiniz. |
+| Mantıksal Uygulama Katkıda Bulunanı | Bir mantıksal uygulama tüm yönlerini yönetmek, ancak yeni bir tane oluşturun değil. |
+| Mantıksal Uygulama Operatörü |Başlangıç ve bir mantıksal uygulama içinde tanımlanan iş akışlarını durdurun kullanabilirsiniz. |
 | [Okuyucu izleme](#monitoring-reader) |Tüm izleme verileri okuyabilir |
 | [Katkıda bulunan izleme](#monitoring-contributor) |İzleme verileri okuyabilir ve izleme ayarlarını Düzenle |
 | [Ağ Katılımcısı](#network-contributor) |Tüm ağ kaynakları yönetebilir |
@@ -101,7 +101,7 @@ API Management Hizmetleri yönetebilir.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="api-management-service-operator-role"></a>API Management hizmet işleci rolü
+### <a name="api-management-service-operator-role"></a>API Management Hizmet Operatörü Rolü
 API Management Hizmetleri yönetebilir.
 
 | **Eylemler** |  |
@@ -121,7 +121,7 @@ API Management Hizmetleri yönetebilir.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="api-management-service-reader-role"></a>API Management hizmet okuyucu rolü
+### <a name="api-management-service-reader-role"></a>API Management Hizmet Okuyucusu Rolü
 API Management Hizmetleri yönetebilir.
 
 | **Eylemler** |  |
@@ -136,7 +136,7 @@ API Management Hizmetleri yönetebilir.
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
 ### <a name="application-insights-component-contributor"></a>Application Insights Bileşeni Katılımcısı
-Application Insights bileşenlerini yönetebilirsiniz
+Application Insights bileşenlerini yönetebilir
 
 | **Eylemler** |  |
 | --- | --- |
@@ -173,7 +173,7 @@ Başlatma, durdurma, askıya alma ve işlerini sürdürmek için
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="backup-contributor"></a>Yedekleme katkıda bulunan
+### <a name="backup-contributor"></a>Yedekleme Katılımcısı
 Kurtarma Hizmetleri kasası oluşturmaya ve erişim başkalarına verip dışındaki tüm yedekleme yönetimi eylemleri yönetebilirsiniz
 
 | **Eylemler** | |
@@ -200,7 +200,7 @@ Kurtarma Hizmetleri kasası oluşturmaya ve erişim başkalarına verip dışın
 | Microsoft.Storage/storageAccounts/read | Depolama hesapları okuma |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="backup-operator"></a>Yedekleme işletmeni
+### <a name="backup-operator"></a>Yedekleme İşleci
 Yedekleme ve vermiş erişim başkalarına kaldırma kasalarını oluşturma dışındaki tüm yedekleme yönetimi eylemleri yönetebilirsiniz
 
 | **Eylemler** | |
@@ -238,7 +238,7 @@ Yedekleme ve vermiş erişim başkalarına kaldırma kasalarını oluşturma dı
 | Microsoft.Storage/storageAccounts/read | Depolama hesapları okuma |
 | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="backup-reader"></a>Yedekleme okuyucusu
+### <a name="backup-reader"></a>Yedekleme Okuyucusu
 Kurtarma Hizmetleri kasasına yedekleme yönetimini izleyebilirsiniz
 
 | **Eylemler** | |
@@ -265,7 +265,7 @@ Kurtarma Hizmetleri kasasına yedekleme yönetimini izleyebilirsiniz
 | Microsoft.RecoveryServices/Vaults/registeredIdentities/read  | Kasa, kayıtlı öğeleri okuma |
 | Microsoft.RecoveryServices/Vaults/usages/read  |  Kurtarma Hizmetleri kasası kullanımını okuma |
 
-### <a name="billing-reader"></a>Faturalama okuyucusu
+### <a name="billing-reader"></a>Faturalandırma Okuyucusu
 Tüm faturalama bilgileri görüntüleyebilirsiniz
 
 | **Eylemler** |  |
@@ -358,7 +358,7 @@ Her şeyi görüntüleyebilir ve bağlanmak, Başlat, yeniden başlatma ve kapat
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Storage/storageAccounts/listKeys/action |Depolama hesabı anahtarlarını Listele |
 
-### <a name="dns-zone-contributor"></a>DNS bölgesi katkıda bulunan
+### <a name="dns-zone-contributor"></a>DNS Bölgesi Katkıda Bulunanı
 DNS bölgeleri ve kayıtları yönetebilirsiniz.
 
 | **Eylemler** |  |
@@ -397,7 +397,7 @@ Akıllı sistemler hesaplarını yönetme
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="monitoring-reader"></a>Okuyucu izleme
+### <a name="monitoring-reader"></a>İzleme Okuyucusu
 Tüm izleme verilerini (ölçümleri, günlükleri, vb.) okuyabilir. Ayrıca bkz. [rolleri, izinleri ve güvenlik Azure İzleyicisi ile başlayın](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Eylemler** |  |
@@ -406,7 +406,7 @@ Tüm izleme verilerini (ölçümleri, günlükleri, vb.) okuyabilir. Ayrıca bkz
 | Microsoft.OperationalInsights/workspaces/search/action |Günlük analizi veri arama |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="monitoring-contributor"></a>Katkıda bulunan izleme
+### <a name="monitoring-contributor"></a>İzleme Katkıda Bulunanı
 Tüm izleme verileri okuyabilir ve izleme ayarlarını düzenleyin. Ayrıca bkz. [rolleri, izinleri ve güvenlik Azure İzleyicisi ile başlayın](/monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles).
 
 | **Eylemler** |  |
@@ -467,7 +467,7 @@ Her şeyi görüntüleyebilir ancak değişiklik yapamaz
 | --- | --- |
 | * / Okuma |Gizli dışındaki tüm türlerinin kaynakları okuyun. |
 
-### <a name="redis-cache-contributor"></a>Redis Önbelleği Katılımcısı
+### <a name="redis-cache-contributor"></a>Redis Cache Katılımcısı
 Redis önbellekleri yönetebilirsiniz.
 
 | **Eylemler** |  |
@@ -480,7 +480,7 @@ Redis önbellekleri yönetebilirsiniz.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Kaynak gruplarını oku |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="scheduler-job-collections-contributor"></a>Zamanlayıcı İşi Koleksiyonları Katılımcısı
+### <a name="scheduler-job-collections-contributor"></a>Zamanlayıcı İş Koleksiyonları Katılımcısı
 Zamanlayıcı İş koleksiyonları yönetebilir
 
 | **Eylemler** |  |
@@ -522,7 +522,7 @@ Güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilirsiniz
 | Microsoft.Security/* |Güvenlik bileşenleri ve ilkeleri oluşturma ve yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="site-recovery-contributor"></a>Site kurtarma katkıda bulunan
+### <a name="site-recovery-contributor"></a>Site Recovery Katkıda Bulunanı
 Kurtarma Hizmetleri kasası oluşturma ve diğer kullanıcılara erişim hakları atama hariç tüm Site Recovery yönetim eylemleri, yönetebilirsiniz
 
 | **Eylemler** | |
@@ -552,7 +552,7 @@ Kurtarma Hizmetleri kasası oluşturma ve diğer kullanıcılara erişim haklar�
 | Microsoft.Storage/storageAccounts/read | Depolama hesapları okuma |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="site-recovery-operator"></a>Site kurtarma işleci
+### <a name="site-recovery-operator"></a>Site Recovery Operatörü
 Yük devretme ve yeniden çalışma ancak diğer Site Recovery yönetim eylemleri gerçekleştirmek veya diğer kullanıcılara erişimi atayın
 
 | **Eylemler** | |
@@ -612,7 +612,7 @@ Yük devretme ve yeniden çalışma ancak diğer Site Recovery yönetim eylemler
 | Microsoft.Storage/storageAccounts/read | Depolama hesapları okuma |
 | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="site-recovery-reader"></a>Site kurtarma okuyucusu
+### <a name="site-recovery-reader"></a>Site Recovery Okuyucusu
 Kurtarma Hizmetleri kasası Site kurtarma durumunu izleyebilir ve Destek biletlerini Yükselt
 
 | **Eylemler** | |
@@ -703,7 +703,7 @@ SQL sunucuları ve veritabanları ancak değil güvenlikle ilgili ilkelerini yö
 
 | **Eylemler** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Yetkilendirme okuma |
+| Microsoft.Authorization/*/read |Okuma rolleri ve rol atamaları |
 | Microsoft.Insights/alertRules/* |Oluşturma ve Öngörüler uyarı kurallarını yönetme |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Kaynakların durumunu okuma |
 | Microsoft.Resources/deployments/* |Oluşturma ve kaynak grubu dağıtımı yönetme |
@@ -751,7 +751,7 @@ Depolama hesaplarını yönetme, ancak onlara erişimi yok.
 | Microsoft.Storage/storageAccounts/* |Depolama hesapları oluşturma ve yönetme |
 | Microsoft.Support/* |Oluşturma ve Destek biletlerini yönetme |
 
-### <a name="support-request-contributor"></a>Destek isteği katkıda bulunan
+### <a name="support-request-contributor"></a>Destek İsteğine Katkıda Bulunan
 Oluşturabilir ve abonelik kapsamında destek biletlerini yönetme
 
 | **Eylemler** |  |

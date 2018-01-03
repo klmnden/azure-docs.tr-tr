@@ -14,24 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins Linux uygulamaları geliştirmek ve dağıtmak için kullanın
 Jenkins, uygulamanızın sürekli tümleştirme ve dağıtımı için yaygın olarak kullanılan bir araçtır. Jenkins kullanarak Azure Service Fabric uygulamanızı derleme ve dağıtma işlemi aşağıda açıklanmaktadır.
 
 ## <a name="general-prerequisites"></a>Genel önkoşullar
 - Git’i yerel olarak yükleyin. İşletim sisteminize uygun Git sürümünü, [Git indirme sayfasından](https://git-scm.com/downloads) yükleyebilirsiniz. Yeni bir Git kullanıcısıysanız, daha fazla bilgi almak için [Git belgelerine](https://git-scm.com/docs) bakın.
-- Service Fabric için kullanışlı Jenkins eklentisini edinin. Eklentiyi [Service Fabric indirmeleri](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi) sayfasından indirebilirsiniz. Edge tarayıcı yeniden adlandırma .hpi için indirilen dosyasından .zip uzantısını kullanıyorsanız.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Jenkins’i bir Service Fabric kümesi içinde ayarlama
 
 Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirsiniz. Aşağıdaki bölümlerde, bir küme içinde kapsayıcı örneğinin durumunu kaydetmek için Azure storage hesabı kullanırken nasıl ayarlanacağını gösterir.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 1. Bir Service Fabric Linux kümesini hazır bulundurun. Azure portalından oluşturulmuş bir Service Fabric kümesinde Docker zaten yüklüdür. Kümeyi yerel olarak çalıştırıyorsanız, ``docker info`` komutunu kullanarak Docker’ın yüklü olup olmadığını denetleyin. Yüklü değilse, aşağıdaki komutları kullanarak yükleyin:
 
   ```sh
@@ -118,7 +117,7 @@ ssh user@PublicIPorFQDN -p [port]
 
 Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirsiniz. Aşağıdaki bölümlerde, kümenin dışında nasıl ayarlandığı gösterilmektedir.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Docker’ın yüklü olması gerekir. Terminalden Docker yüklemek için aşağıdaki komutlar kullanılabilir:
 
   ```sh
@@ -129,8 +128,8 @@ Docker’ın yüklü olması gerekir. Terminalden Docker yüklemek için aşağ�
 Şimdi terminalde ``docker info`` çalıştırdığınızda, çıktıda Docker hizmetinin çalıştığını göreceksiniz.
 
 ### <a name="steps"></a>Adımlar
-  1. Service Fabric Jenkins kapsayıcı görüntüsünü çekin: ``docker pull rapatchi/jenkins:v9``
-  2. Kapsayıcı görüntüsünü çalıştırın:``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+  1. Service Fabric Jenkins kapsayıcı görüntü çekme: ``docker pull rapatchi/jenkins:v10``. Bu görüntü, önceden yüklenmiş Service Fabric Jenkins eklentisi ile birlikte gelir.
+  2. Kapsayıcı görüntüsünü çalıştırın:``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Kapsayıcı görüntüsü örneğinin kimliğini alın. ``docker ps –a`` komutuyla tüm Docker kapsayıcılarını listeleyebilirsiniz
   4. Aşağıdaki adımları kullanarak Jenkins portalında oturum açın:
 
@@ -151,11 +150,6 @@ Docker’ın yüklü olması gerekir. Terminalden Docker yüklemek için aşağ�
 
 Jenkins kapsayıcı görüntüsünün barındırıldığı küme veya makinede genel kullanıma yönelik bir IP bulunduğundan emin olun. Bunun olması, Jenkins örneğinin GitHub'dan bildirimler almasını sağlar.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Portaldan Service Fabric Jenkins eklentisini yükleme
-
-1. Şuraya gidin: ``http://PublicIPorFQDN:8081``
-2. Jenkins panosundan **Jenkins’i Yönet** > **Eklentileri Yönet** > **Gelişmiş**’i seçin.
-Burada, bir eklentiyi karşıya yükleyebilirsiniz. Seçin **dosya**ve ardından **serviceFabric.hpi** , Önkoşullar altında indirilen dosya veya indirebilirsiniz [burada](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). **Karşıya Yükle**’yi seçtiğinizde Jenkins, eklentiyi otomatik olarak yükler. Yeniden başlatma isteniyorsa izin verin.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Bir Jenkins işi oluşturma ve yapılandırma
 

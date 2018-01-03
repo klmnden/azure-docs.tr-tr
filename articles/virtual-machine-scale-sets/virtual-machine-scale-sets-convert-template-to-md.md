@@ -5,7 +5,7 @@ keywords: "Sanal makine ölçekleme kümeleri"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 760e30f5c6f4ecaff299bae1725548a6a7c5184c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Ölçek kümesi şablon yönetilen disk ölçek kümesi şablona dönüştürme
 
-Yönetilen disk kullanmayan bir ölçek kümesi oluşturmak için Resource Manager şablonu ile müşteriler, yönetilen disk kullanacak şekilde değiştirmek isteyebilirsiniz. Bu makalede, örnek olarak bir çekme isteğinden kullanarak bunu gösterilmektedir [Azure hızlı başlangıç şablonlarını](https://github.com/Azure/azure-quickstart-templates), örnek Resource Manager şablonları için topluluk odaklı bir depo. Tam çekme isteği burada görülebilir: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), ve açıklamalarının yanı sıra bazı aşağıda fark ilgili bölümleri:
+Yönetilen disk kullanmayan bir ölçek kümesi oluşturmak için Resource Manager şablonu ile müşteriler, yönetilen disk kullanacak şekilde değiştirmek isteyebilirsiniz. Bu makalede örnek olarak bir çekme isteğinden kullanarak yönetilen diskleri kullanmayı gösterir [Azure hızlı başlangıç şablonlarını](https://github.com/Azure/azure-quickstart-templates), örnek Resource Manager şablonları için topluluk odaklı bir depo. Tam çekme isteği burada görülebilir: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), ve açıklamalarının yanı sıra bazı aşağıda fark ilgili bölümleri:
 
 ## <a name="making-the-os-disks-managed"></a>Yönetilen işletim sistemi diskleri yapma
 
-Depolama hesabı ve disk özelliklerine ilgili çeşitli değişkenler kaldırdınız aşağıdaki fark görebiliriz. Depolama hesabı türü gereklidir artık (Standard_LRS varsayılan değerdir), ancak biz istediğinizde, biz yine da belirtebilirsiniz. Yalnızca Standard_LRS ve Premium_LRS yönetilen disk ile desteklenir. Yeni depolama hesabı soneki, benzersiz bir dize dizisi ve sa sayısı eski şablonunda depolama hesabı adları oluşturmak için kullanılmıştır. Yönetilen disk depolama hesapları müşterinin adına otomatik olarak oluşturur. çünkü bu değişkenleri artık yeni şablona gerekli değildir. Yönetilen disk otomatik olarak adları temel alınan depolama blob kapsayıcıları ve diskleri olduğundan benzer şekilde, vhd kapsayıcı adı ve işletim sistemi disk adı artık gerekli değildir.
+İçinde aşağıdaki fark, depolama hesabı ve disk özelliklerine ilgili çeşitli değişkenler kaldırılır. Depolama hesabı türü gereklidir artık (Standard_LRS varsayılan değerdir), ancak isterseniz belirtebilirsiniz. Yalnızca Standard_LRS ve Premium_LRS yönetilen disk ile desteklenir. Yeni depolama hesabı soneki, benzersiz bir dize dizisi ve sa sayısı eski şablonunda depolama hesabı adları oluşturmak için kullanılmıştır. Yönetilen disk depolama hesapları müşterinin adına otomatik olarak oluşturur. çünkü bu değişkenleri artık yeni şablona gerekli değildir. Yönetilen disk otomatik olarak adları temel alınan depolama blob kapsayıcıları ve diskleri olduğundan benzer şekilde, vhd kapsayıcı adı ve işletim sistemi disk adı artık gerekli değildir.
 
 ```diff
    "variables": {
@@ -52,7 +52,7 @@ Depolama hesabı ve disk özelliklerine ilgili çeşitli değişkenler kaldırd�
 ```
 
 
-Aşağıdaki fark biz işlem güncelleştirilmiş görebiliriz 2016-04-30-ölçek kümesi ile yönetilen disk desteği için gerekli en erken sürümü olan önizlemeye API sürümü. Biz yine yönetilmeyen diskleri eski sözdizimi yeni API sürümüyle isterseniz kullanabilirsiniz olduğunu unutmayın. Diğer bir deyişle, biz yalnızca işlem güncelleştirirseniz API sürümü ve başka bir şey değişmez, şablon önceki gibi çalışmaya devam etmelidir.
+Aşağıdaki fark içinde API sürümü 2016-04-30-Önizleme için ölçek kümesi ile yönetilen disk desteği için gerekli en erken sürümü olduğu güncelleştirilir işlem. İsterseniz, yeni API sürümünde eski sözdizimi ile yönetilmeyen diskleri kullanabilirsiniz. Yalnızca işlem API sürümü güncelleştirmek ve başka bir şey değişmez, şablon önceki gibi çalışmaya devam etmelidir.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -66,7 +66,7 @@ Aşağıdaki fark biz işlem güncelleştirilmiş görebiliriz 2016-04-30-ölçe
    },
 ```
 
-Aşağıdaki fark biz depolama hesabı kaynağı kaynakları diziden tamamen kaldırdığınızı görebilirsiniz. Yönetilen disk bunları otomatik olarak bizim adımıza oluşturduğundan artık bunları ihtiyacımız var.
+İçinde aşağıdaki fark, depolama hesabı kaynağı kaynakları diziden tamamen kaldırılır. Yönetilen disk bunları otomatik olarak kaynak artık gerekli değildir.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -91,7 +91,7 @@ Aşağıdaki fark biz depolama hesabı kaynağı kaynakları diziden tamamen kal
        "location": "[resourceGroup().location]",
 ```
 
-Aşağıdaki fark biz kaldırma görebiliriz depolama hesapları oluşturma döngü ayarlamak ölçekten başvuran yan tümcesi bağlıdır. Eski şablonunda, bu depolama hesapları ölçek kümesi oluşturma başladı, ancak bu yan tümcesi artık yönetilen diskle gereklidir önce oluşturulan sağlama. Bu özellikler otomatik olarak başlık altında yönetilen disk tarafından işlenen olarak biz de vhd kapsayıcıları özelliği ve işletim sistemi disk adı özelliği kaldırın. Biz onlardan varsa, eklediğimiz `"managedDisk": { "storageAccountType": "Premium_LRS" }` biz premium OS diskleri istediyseniz "osDisk" yapılandırma. Yalnızca bir büyük harf olan VM'ler veya küçük'ın ' VM'yi sku premium diskleri kullanabilirsiniz.
+İçinde aşağıdaki fark, biz kaldırma görebiliriz depolama hesapları oluşturma döngü ayarlamak ölçekten başvuran yan tümcesi bağlıdır. Eski şablonunda, bu depolama hesapları ölçek kümesi oluşturma başladı, ancak bu yan tümcesi artık yönetilen diskle gereklidir önce oluşturulan sağlama. Bu özellikler otomatik olarak başlık altında yönetilen disk tarafından işlenen olarak vhd kapsayıcıları özelliği de, işletim sistemi disk adı özelliği birlikte kaldırılır. Ekleyebilirsiniz `"managedDisk": { "storageAccountType": "Premium_LRS" }` premium OS diskleri istediyseniz "osDisk" yapılandırma. Yalnızca bir büyük harf olan VM'ler veya küçük'ın ' VM'yi sku premium diskleri kullanabilirsiniz.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -137,7 +137,7 @@ Yukarıdaki değişikliklerle ölçek kümesi kullanan yönetilen diskler işlet
 ]
 ```
 
-Belirtirseniz `n` diskleri bu dizideki her VM ölçek kümesi alır `n` veri diski. Ancak, bu veri diskleri ham aygıtların olduğunu unutmayın. Bunlar biçimlendirilmemiş. Bu, paritition, ekleme ve kullanmadan önce diskleri biçimlendirin müşteriye kadar olur. Biz de isteğe bağlı olarak, belirtebilirsiniz `"managedDisk": { "storageAccountType": "Premium_LRS" }` her veri diski nesnesinde bir premium veri diski gerektiğini belirtin. Yalnızca bir büyük harf olan VM'ler veya küçük'ın ' VM'yi sku premium diskleri kullanabilirsiniz.
+Belirtirseniz `n` diskleri bu dizideki her VM ölçek kümesi alır `n` veri diski. Ancak, bu veri diskleri ham aygıtların olduğunu unutmayın. Bunlar biçimlendirilmemiş. Bu, bölüm ekleyin ve kullanmadan önce diskleri biçimlendirin müşteriye kadar olur. İsteğe bağlı olarak, aynı zamanda belirlediğiniz `"managedDisk": { "storageAccountType": "Premium_LRS" }` her veri diski nesnesinde bir premium veri diski gerektiğini belirtin. Yalnızca bir büyük harf olan VM'ler veya küçük'ın ' VM'yi sku premium diskleri kullanabilirsiniz.
 
 Veri diskleri ölçek kümeleri ile kullanma hakkında daha fazla bilgi için bkz: [bu makalede](./virtual-machine-scale-sets-attached-disks.md).
 

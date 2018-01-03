@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 36de5ed0cfd0e2b41c9725efe69936e0c985e01a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
 
@@ -41,7 +42,7 @@ Sunucuları üzerindeki iş yükünü tahmin kendi altyapısını yönetmek tekn
 Bu senaryoda, her makine (veya sunucu) için iş yükü tahmini odaklanır. Özellikle, oturum verilerini her bir sunucuda sunucu iş yükü sınıfının gelecekte tahmin etmek için kullanın. Her sunucu yükü düşük, Orta ve yüksek sınıfları rastgele orman sınıflandırıcıda kullanarak sınıflandırdığınız [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). Makine öğrenimi teknikleri ve iş akışı bu örnekte, benzer diğer sorunlar için kolayca genişletilebilir. 
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 

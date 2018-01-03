@@ -3,8 +3,8 @@ title: "Azure sanal makine ölçek kümeleri dikey olarak ölçeklendirmek | Mic
 description: "Azure Otomasyonu uyarılarla izleme yanıt dikey olarak bir sanal makine ölçeklendirme"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: madhana
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: guybo
-ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: negat
+ms.openlocfilehash: 6e4733e023d1dc27fb099216f9afea07fe07446c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri ile dikey otomatik ölçeklendirme
-Bu makalede Azure dikey olarak ölçeklendirmek nasıl [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/) ile veya sağlama işleminin olmadan. Dikey Ölçek kümelerinde olmayan vm'lere ölçekleme için bkz [Azure Automation ile Azure sanal makine dikey olarak ölçeklendirmek](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Sanal makine ölçek ile dikey otomatik ölçeklendirme ayarlar
+Bu makalede Azure dikey olarak ölçeklendirmek nasıl [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/) ile veya sağlama işleminin olmadan. Dikey Ölçek kümelerinde olmayan VM'ler, ölçekleme için bkz [Azure Automation ile Azure sanal makine dikey olarak ölçeklendirmek](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Dikey olarak da bilinen ölçeklendirme, *ölçeği* ve *ölçeklendirmeyi azaltın*, artan veya azalan yanıt olarak bir iş yükü sanal makine (VM) boyutları anlamına gelir. Bu karşılaştırma [yatay ölçekleme](virtual-machine-scale-sets-autoscale-overview.md), de denilen *ölçeğini* ve *içinde ölçeklendirmek*, VM'lerin sayısını iş yüküne bağlı olarak burada değiştirilemez.
+Dikey olarak da bilinen ölçeklendirme, *ölçeği* ve *ölçeklendirmeyi azaltın*, artan veya azalan yanıt olarak bir iş yükü sanal makine (VM) boyutları anlamına gelir. Bu davranışı ile karşılaştırmak [yatay ölçekleme](virtual-machine-scale-sets-autoscale-overview.md), de denilen *ölçeğini* ve *içinde ölçeklendirmek*, VM'lerin sayısını iş yüküne bağlı olarak burada değiştirilemez.
 
-Sağlama işleminin, mevcut bir VM'yi kaldırarak ve yeni bir tane ile değiştirerek anlamına gelir. Artırma veya VM ölçek kümesindeki sanal makineleri boyutunu azaltma, bazı durumlarda, var olan sanal makineleri yeniden boyutlandırma ve diğer durumlarda, yeni boyutu, yeni sanal makineleri dağıtmak gerekirken, verilerinizi korumak istediğiniz. Bu belge her iki durumda da kapsar.
+Sağlama işleminin, mevcut bir VM'yi kaldırarak ve yeni bir tane ile değiştirerek anlamına gelir. Ne zaman artırmak veya azaltmak bir sanal makine ölçek VM'ler boyutunda, var olan sanal makineleri yeniden boyutlandırma ve diğer durumlarda, yeni boyutu, yeni sanal makineleri dağıtmak gerekirken, verilerinizi korumak istediğiniz bazı durumlarda ayarlayın. Bu belge her iki durumda da kapsar.
 
 Dikey ölçekleme durumlarda yararlı olabilir:
 
 * Sanal makineler üzerinde oluşturulmuş bir (örneğin sonları) altında kullanılan hizmetidir. VM boyutunu küçültmeyi aylık maliyetlerini azaltabilir.
 * Ek sanal makineleri oluşturmadan büyük taleple başa çıkacak şekilde VM boyutunu artırma.
 
-Dikey ölçeklendirmeyi Tetiklenmiş göre ölçüm dayalı uyarılar, VM ölçek kümesi'den olacak şekilde ayarlayabilirsiniz. Uyarı etkinleştirildiğinde, bir Web Kancası Yukarı veya aşağı, Ölçek ölçeklenebilen bir runbook ayarlamak bu Tetikleyicileri tetikler. Dikey ölçeklendirme, aşağıdaki adımları izleyerek yapılandırılabilir:
+Dikey ölçeklendirme, sanal makine ölçek kümesinden Tetiklenmiş göre ölçüm dayalı uyarılar olacak şekilde ayarlayabilirsiniz. Uyarı etkinleştirildiğinde, bir Web Kancası Yukarı veya aşağı, Ölçek ölçeklenebilen bir runbook ayarlar bu Tetikleyicileri ateşlenir. Dikey ölçeklendirme, aşağıdaki adımları izleyerek yapılandırılabilir:
 
 1. Çalıştır özelliğine sahip bir Azure Otomasyonu hesabı oluşturun.
-2. Azure Otomasyonu dikey ölçek runbook'ları VM ölçek kümesi için aboneliğinizi alın.
+2. Sanal makine ölçek kümeleri için Azure Automation dikey ölçek runbook'ları aboneliğinizi alın.
 3. Bir Web kancası runbook'a ekleyin.
-4. Bir uyarı, VM ölçek bir Web kancası bildirim kullanarak kümesine ekleyin.
+4. Bir uyarı, bir Web kancası bildirim kullanarak ayarlayın, sanal makine ölçek ekleyin.
 
 > [!NOTE]
 > Dikey otomatik ölçeklendirmeyi yalnızca belirli aralıklarında VM boyutları gerçekleşebilir. Başka bir ölçeklendirme karar vermeden önce her boyutu belirtimleri karşılaştırma (daha yüksek sayı her zaman belirtmez büyük VM boyutu). Aşağıdaki boyutları çiftleri ölçeklendirmek seçebilirsiniz:
@@ -55,12 +55,12 @@ Dikey ölçeklendirmeyi Tetiklenmiş göre ölçüm dayalı uyarılar, VM ölçe
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Çalıştır özelliğine sahip Azure Automation hesabı oluşturma
-Yapmanız gereken ilk şey VM ölçek kümesi örneklerinin ölçeklendirmek için kullanılan runbook'ları barındıracak bir Azure Otomasyonu hesabı oluşturmaktır. Yakın zamanda [Azure Otomasyonu](https://azure.microsoft.com/services/automation/) otomatik olarak çalışan runbook'ları bir kullanıcı adına çok kolay için ayarı yukarı hizmet sorumlusu kılan "Farklı Çalıştır hesabı" özellik sunulmuştur. Daha fazla bilgiyi bu konuda aşağıdaki makalede:
+Yapmanız gereken ilk şey, sanal makine ölçek kümesi örneklerinin ölçeklendirmek için kullanılan runbook'ları barındıran bir Azure Otomasyonu hesabı oluşturmaktır. Yakın zamanda [Azure Otomasyonu](https://azure.microsoft.com/services/automation/) runbook'ları bir kullanıcı adına otomatik olarak çalıştırmak için ayar yukarı hizmet sorumlusu getirir "Farklı Çalıştır hesabı" özellik sunulmuştur. Daha fazla bilgi için bkz.
 
 * [Azure Farklı Çalıştır hesabıyla Runbook Kimlik Doğrulaması](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Aboneliğinizi Azure Otomasyon dikey ölçek runbook'ları alma
-VM ölçek kümesi dikey olarak ölçeklendirmek için gereken runbook'ları, Azure Automation Runbook Galerisi zaten yayımlanır. İçeri aktarmak için bunları aboneliğinizi bu makaledeki adımları izleyin:
+Sanal makine ölçek kümeleri dikey olarak ölçeklendirmek için gereken runbook'ları, Azure Automation Runbook Galerisi zaten yayımlanır. İçeri aktarmak için bunları aboneliğinizi bu makaledeki adımları izleyin:
 
 * [Azure Otomasyonu Runbook ve modül galerileri](../automation/automation-runbook-gallery.md)
 
@@ -73,17 +73,17 @@ Runbook'ları menüsünden Gözat galeri seçenek belirleyin:
 ![Runbook Galerisi][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Bir Web kancası runbook'a ekleyin
-Alınan sonra gerekir runbook'ları VM ölçek kümesi bir uyarıdan tarafından tetiklenebilir için bir Web kancası runbook'a ekleyin. Runbook için bir Web kancası oluşturma ayrıntılarını bu makalede açıklanan:
+Runbook'ları içe sonra bir sanal makine ölçek kümesindeki bir uyarı tarafından tetiklenebilir için bir Web kancası runbook'a ekleyin. Runbook için bir Web kancası oluşturma ayrıntılarını bu makalede açıklanan:
 
 * [Azure Otomasyonu Web kancası](../automation/automation-webhooks.md)
 
 > [!NOTE]
-> Bu sonraki bölümde ihtiyaç duyacağınız Web kancası iletişim kutusunu kapatmadan önce Web kancası URI kopyaladığınızdan emin olun.
+> Sonraki bölümde bu adresi ihtiyaç duyacağınız Web kancası iletişim kutusunu kapatmadan önce Web kancası URI kopyaladığınızdan emin olun.
 > 
 > 
 
-## <a name="add-an-alert-to-your-vm-scale-set"></a>Bir uyarı, VM ölçek kümesi'ne Ekle
-Bir VM ölçek kümesi için bir uyarı ekleme gösteren bir PowerShell Betiği aşağıdadır. Hakkında uyarı tetiklenecek ölçüm adı almak için aşağıdaki makaleye bakın: [Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Bir uyarı, sanal makine ölçek kümesi Ekle
+Aşağıda bir uyarı için bir sanal makine ölçek eklemek nasıl oluşturulduğunu gösteren bir PowerShell Betiği ayarlanır. Hakkında uyarı tetiklenecek ölçüm adı almak için aşağıdaki makaleye bakın: [Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
 
 ```
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail user@contoso.com

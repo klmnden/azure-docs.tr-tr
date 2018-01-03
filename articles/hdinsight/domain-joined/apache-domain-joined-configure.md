@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/12/2017
+ms.date: 12/15/2017
 ms.author: saurinsh
-ms.openlocfilehash: 345017d4a15f63e12940a8b2d9e55ee777c0e22a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Etki alanına katılmış Hdınsight sandbox ortamını yapılandırma
 
@@ -138,9 +138,9 @@ Bu bölümde, öğreticinin önceki bölümlerinde Resource Manager şablonu kul
     Özel yapılandırma seçeneğini kullanarak altı bölümleri vardır: temelleri, depolama, uygulama, küme boyutu, Gelişmiş ayarları ve özeti.
 5. İçinde **Temelleri** bölümü:
 
-    - Küme türü: seçin **PREMIUM**. Şu anda yalnızca premium küme aşağıdaki küme türleriyle oluşturabilirsiniz: Hadoop, etkileşimli sorgu ve Spark.
+    - Küme türü: seçin **Kurumsal güvenlik paketi**. Şu anda Kurumsal güvenlik paketi yalnızca aşağıdaki küme türleri için etkin hale getirilebilir: Hadoop, etkileşimli sorgu ve Spark.
 
-        ![Premium Hdınsight etki alanına katılmış](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-cluster-premium.png)
+        ![Hdınsight etki alanına katılmış Kurumsal güvenlik paketi](./media/apache-domain-joined-configure/hdinsight-creation-enterprise-security-package.png)
     - Oturum açma kullanıcı küme: Hadoop HTTP kullanıcı budur. Bu hesap, etki alanı yönetici hesabıyla farklıdır.
     - Kaynak grubu: daha önce Resource Manager şablonunu kullanarak oluşturduğunuz kaynak grubunu seçin.
     - Konumu: Konumu sanal ağ oluştururken kullandığınız adla aynı olması ve Resource Manager şablonu kullanarak DC'leri gerekir.

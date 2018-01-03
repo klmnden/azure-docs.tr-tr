@@ -14,19 +14,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 1eaa5982703c31485c7b73eae780a62a0c5d672a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb2487ec854260bacf98789bd1be482172ead6a7
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Çalışan Azure Hdınsight'ta Apache Spark işleri hata ayıklama
 
 Bu makalede, izlemek ve YARN kullanıcı Arabiriminde, Spark UI ve Spark geçmişi Server kullanarak Hdınsight kümelerinde çalışan Spark işleri hata ayıklama öğrenin. Bu makalede, biz Spark kümesi ile kullanılabilir bir Not Defteri kullanarak Spark işi Başlat **Machine learning: Yemek İnceleme verileri Mllib'i kullanarak Tahmine dayalı analiz**. Örneğin, gönderilen tüm diğer yaklaşımı de kullanarak bir uygulama izlemek için aşağıdaki adımları kullanabilirsiniz **spark gönderme**.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Aşağıdakilere sahip olmanız gerekir:
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

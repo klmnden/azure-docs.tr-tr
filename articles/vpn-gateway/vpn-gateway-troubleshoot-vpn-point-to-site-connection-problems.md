@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 12/14/2017
 ms.author: genli
-ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69d363b5ff0b94884cf6d13ae0260f3747e4e69a
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Giderme: Azure noktadan siteye bağlantı sorunlarını
 
@@ -89,7 +89,7 @@ VPN istemcisi kullanarak bir Azure sanal ağa bağlanmaya çalıştığında aş
     | Azuregateway -*GUID*. cloudapp.net  | Geçerli User\Trusted kök sertifika yetkilileri|
     | AzureGateway -*GUID*. cloudapp.net, AzureRoot.cer    | Yerel bilgisayar/güvenilen kök sertifika yetkilileri|
 
-2. Sertifikaları konumu zaten varsa, sertifikaları silin ve yeniden deneyin. **Azuregateway -*GUID*. Azure portalından indirdiğiniz VPN istemcisi yapılandırma paketini cloudapp.net** sertifika konusu. Dosya archivers paketinden dosyaları ayıklayın için kullanabilirsiniz.
+2. Sertifikaları konumu zaten varsa, sertifikaları silin ve yeniden deneyin.  **Azuregateway -*GUID*. Azure portalından indirdiğiniz VPN istemcisi yapılandırma paketini cloudapp.net** sertifika konusu. Dosya archivers paketinden dosyaları ayıklayın için kullanabilirsiniz.
 
 ## <a name="file-download-error-target-uri-is-not-specified"></a>Dosya indirme hatası: hedef URI belirtilmedi
 
@@ -263,3 +263,52 @@ Noktadan siteye VPN bağlantısını kaldırın ve VPN istemcisi yeniden yükley
 ### <a name="solution"></a>Çözüm
 
 Sorunu gidermek için eski VPN istemci yapılandırma dosyalarını silin **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections**, ve ardından VPN istemcisi yükleyicisini çalıştırın.
+
+## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Noktadan siteye VPN istemcisi yerel etki alanındaki kaynaklara FQDN'si çözümlenemiyor.
+
+### <a name="symptom"></a>Belirti
+
+İstemci, noktadan siteye VPN bağlantısı kullanarak Azure'a bağlandığında, yerel etki alanındaki kaynaklara FQND çözümlenemiyor.
+
+### <a name="cause"></a>Nedeni
+
+Noktadan siteye VPN istemcisi Azure sanal ağında yapılandırılmış Azure DNS sunucularını kullanır. Azure DNS sunucularını tüm DNS sorgularını Azure DNS sunucularına gönderilir, böylece istemcisi yapılandırılmış olan yerel DNS sunucularını daha önceliklidir. Azure DNS sunucularını yerel kaynakları için kayıtlar yoksa, sorgu başarısız olur.
+
+### <a name="solution"></a>Çözüm
+
+Sorunu gidermek için Azure DNS sunucuları, Azure sanal ağda kullanılan emin olmak için yerel kaynakları için DNS kayıtlarını çözebilirsiniz. Bunu yapmak için DNS ileticileri veya koşullu ileticileri kullanabilirsiniz. Daha fazla bilgi için bkz: [kendi DNS sunucu kullanılarak ad çözümleme](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+
+## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>Noktadan siteye VPN bağlantısı kuruldu, ancak Azure kaynaklarına hala bağlanamıyor 
+
+### <a name="cause"></a>Nedeni
+
+VPN istemcisi Azure VPN ağ geçidi'nden yolları almazsa Bu sorun ortaya çıkabilir.
+
+### <a name="solution"></a>Çözüm
+
+Bu sorunu gidermek için [Azure VPN gateway sıfırlama](vpn-gateway-resetgw-classic.md).
+
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Hata: "İptal işlevi iptal sunucu çevrimdışı olduğundan iptal denetleyemedi. (Hata 0x80092013)"
+
+### <a name="causes"></a>Neden olur.
+İstemci http://crl3.digicert.com/ssca-sha2-g1.crl ve http://crl4.digicert.com/ssca-sha2-g1.cr erişemiyorsanız, bu hata iletisi oluşur.  Bu iki site erişimi iptal denetimi gerektirir.  Bu sorun genellikle yapılandırılan proxy sunucusu olan istemcide olur. Bazı ortamlarda isteklerin proxy sunucu üzerinden değil kullanacaksanız, sınır güvenlik duvarında reddedilir.
+
+### <a name="solution"></a>Çözüm
+
+Proxy sunucu ayarlarını denetleyin, istemci http://crl3.digicert.com/ssca-sha2-g1.crl ve http://crl4.digicert.com/ssca-sha2-g1.cr erişebildiğinden emin olun.
+
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN istemci hatası: RAS/VPN sunucunuzda yapılandırılan bir ilkesi nedeniyle bağlantı engellendi. (Hata 812)
+
+### <a name="cause"></a>Nedeni
+
+VPN istemci kimlik doğrulaması için kullanılan RADIUS sunucusu ayarları yanlış varsa, bu hata oluşur. 
+
+### <a name="solution"></a>Çözüm
+
+RADIUS sunucusu doğru şekilde yapılandırıldığından emin olun. Daha fazla bilgi için bkz: [Azure multi-Factor Authentication sunucusu ile tümleştirmek RADIUS kimlik doğrulaması](../multi-factor-authentication/multi-factor-authentication-get-started-server-radius.md).
+
+## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>"Hatası 405" ne zaman karşıdan kök sertifikası VPN ağ geçidi'nden
+
+### <a name="cause"></a>Nedeni
+
+Kök sertifika yüklenmişse değil. İstemcinin içinde kök sertifika yüklü **güvenilen Sertifikalar** depolar.

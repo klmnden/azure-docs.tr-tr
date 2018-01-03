@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="combine-columns-by-example-transformation"></a>Örnek dönüştürme tarafından sütunu birleştirme
 Bu dönüşümü yeni bir sütun birden çok sütun değerlerinden birleştirerek eklemesine izin verir. Kullanıcı bir ayırıcı belirtin veya bu dönüştürme gerçekleştirmek için birleştirilmiş değer örnekleri sağlayın. Kullanıcı örnekleri birleşimi sağladığında, dönüşüm aynı tarafından işlenir **örnek tarafından** kullanılan altyapısı **türetilen sütun örneğe göre** Dönüştür.
@@ -70,6 +70,6 @@ Değer **kalın** örnek olarak sağlandı.
 |12|Kas|2016|14|22|44|12 Kas 2016 15:01:44 saati|
 |23|Kas|2016|01|52|45|23 Kas 2016 15:01:45 saati|
 |16|Oca|2017|22|34|56|16 Ocak 2016 15:01:56 saati|
-|23|Mart|2017|01|55|25|23 Mar 2016 15:01:25 saati|
-|16|Apr|2017|11|34|36|16 Apr 2016 15:01:36 saati|
+|23|Mar|2017|01|55|25|23 Mar 2016 15:01:25 saati|
+|16|Nis|2017|11|34|36|16 Apr 2016 15:01:36 saati|
 

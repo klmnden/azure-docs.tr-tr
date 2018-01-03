@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Yerelleştirilmiş son dakika haberleri göndermek için Notification Hubs kullanma
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Bu senaryo iki bölümü vardır:
 * Windows mağazası uygulaması istemci aygıtlar bir dil belirtin ve farklı son dakika haberleri kategorilere abone olmak için sağlar;
 * arka uç kullanarak bildirimleri yayınlar **etiketi** ve **şablonu** Azure bildirim hub'larını feautres.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Önceden tamamlamış olmalıdır [son dakika haberleri göndermek için Notification Hubs kullanma] öğretici ve bu öğreticinin bu kodu doğrudan derlemeler için kullanılabilir, koda sahip.
 
 Ayrıca Visual Studio 2012 veya üzeri gerekir.

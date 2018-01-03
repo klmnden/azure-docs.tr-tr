@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 69150acf483d776e8ecad6e5076a54675bff7439
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -57,10 +57,10 @@ Var olan bir dosya sunucusu uç noktası bir eşitleme grubuna sahip bir sunucu 
 Bulut uç noktasına bir eşitleme grubunun parçası olan bir Azure dosya paylaşımıdır. Tüm Azure dosya paylaşımı eşitlemeler ve Azure dosya paylaşımının yalnızca bir bulut uç noktası üyesi olabilir. Bu nedenle, Azure dosya paylaşımının yalnızca bir eşitleme grubunun bir üyesi olabilir. Dosyaları var olan bir bulut uç noktasına bir eşitleme grubuna sahip bir Azure dosya paylaşımı eklerseniz, var olan dosyaları eşitleme grubundaki diğer uç nokta zaten bulunan diğer dosyaları ile birleştirilir.
 
 > [!Important]  
-> Azure dosya eşitleme değişiklikleri Azure dosya paylaşımına doğrudan destekler. Ancak, Azure dosya paylaşımında yapılan değişiklikler ilk Azure dosya eşitleme değişiklik algılama işi tarafından bulunması gerekir. Bir değişiklik algılama işi yalnızca bir kez her 24 saatte bir bulut uç noktası için başlatılır. Daha fazla bilgi için bkz: [Azure sık sorulan sorular dosyaları](storage-files-faq.md#afs-change-detection).
+> Azure dosya eşitleme değişiklikleri Azure dosya paylaşımına doğrudan destekler. Ancak, Azure dosya paylaşımında yapılan değişiklikler ilk Azure dosya eşitleme değişiklik algılama işi tarafından bulunması gerekir. Bir değişiklik algılama işi yalnızca bir kez her 24 saatte bir bulut uç noktası için başlatılır. Ayrıca, bir Azure dosya paylaşımına REST protokolü üzerinden yapılan değişiklikler son değişiklik zamanını SMB güncelleştirilmez ve değişiklik olarak eşitlemeden görünmez. Daha fazla bilgi için bkz: [Azure sık sorulan sorular dosyaları](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Bulut katmanlaması 
-Bulut katmanlama Azure dosya içinde sık kullanılan veya erişilen dosyalar katmanlı Azure dosyaları eşitleme isteğe bağlı bir özellik değil. Bir dosya katmanlı, Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasını yerel olarak bir işaretçi veya yeniden ayrıştırma noktası ile değiştirir. Yeniden ayrıştırma noktası Azure dosyaları dosyaya bir URL temsil eder. Bir katmanlı dosyası üçüncü taraf uygulamalar katmanlı dosyaları tanımlayabilmeniz NTFS "Çevrimdışı" özniteliği vardır. Bir kullanıcı bir katmanlı dosya açıldığında, Azure dosya eşitleme sorunsuz bir şekilde Azure dosyaları dosya verilerinden kullanıcının dosya sisteminde yerel olarak depolanmaz bilmenize gerek olmadan geri çeker. Bu işlev hiyerarşik Depolama Yönetimi (HSM) de denir.
+Bulut katmanlandırma isteğe bağlı özellik Azure dosya eşitleme, sık kullanılan ya da dosya boyutu 64 KiB Azure dosyaları katmanlı büyük erişilebilir. Bir dosya katmanlı, Azure dosya eşitleme dosya sistemi filtresi (StorageSync.sys) dosyasını yerel olarak bir işaretçi veya yeniden ayrıştırma noktası ile değiştirir. Yeniden ayrıştırma noktası Azure dosyaları dosyaya bir URL temsil eder. Bir katmanlı dosyası üçüncü taraf uygulamalar katmanlı dosyaları tanımlayabilmeniz NTFS "Çevrimdışı" özniteliği vardır. Bir kullanıcı bir katmanlı dosya açıldığında, Azure dosya eşitleme sorunsuz bir şekilde Azure dosyaları dosya verilerinden kullanıcının dosya sisteminde yerel olarak depolanmaz bilmenize gerek olmadan geri çeker. Bu işlev hiyerarşik Depolama Yönetimi (HSM) de denir.
 
 > [!Important]  
 > Bulut katmanlandırma desteklenmiyor Windows sistemi birimlerinde sunucu uç noktalar için.

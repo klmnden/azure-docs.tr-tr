@@ -1,6 +1,6 @@
 ---
-title: "Azure Media Services için kimlik doğrulama belirtecin geçip | Microsoft Docs"
-description: "Kimlik doğrulama belirteçleri istemciden Azure Media Services anahtar teslim hizmetine göndermek öğrenin"
+title: "Azure Media Services için kimlik doğrulama belirteçleri geçirmek | Microsoft Docs"
+description: "Kimlik doğrulama belirteçleri istemciden Azure Media Services anahtar teslim hizmete göndermek öğrenin"
 services: media-services
 keywords: "İçerik koruma, DRM, belirteç kimlik doğrulama"
 documentationcenter: 
@@ -15,44 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: dwgeo
-ms.openlocfilehash: 0e56726266898e5738dd797a8a019987d457170e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 7d143242231444b8557a303d1b504d5311693f1a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="how-clients-pass-tokens-to-azure-media-services-key-delivery-service"></a>İstemcileri belirteçleri için Azure Media Services anahtar teslim hizmeti nasıl geçirin
-Biz sürekli bir oynatıcı doğrulandı bizim anahtar teslim hizmetleri için nasıl belirteci geçirebilirdiniz geçici soruları almak ve player anahtarı edinir. Basit Web Token (SWT) ve JSON Web Token (JWT) bu iki belirteç biçimleri destekliyoruz. Belirteç kimlik doğrulama anahtarı herhangi bir türde uygulanabilir – bakılmaksızın sistemde ortak şifreleme veya AES zarfı şifrelemesi yapma.
+# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>İstemcileri belirteçleri Azure Media Services anahtar teslim hizmete nasıl geçirmek öğrenin
+Müşteriler genellikle player anahtarı edinebilirsiniz şekilde nasıl bir oynatıcı belirteçleri doğrulama için Azure Media Services anahtar teslim hizmeti geçirebilirsiniz isteyin. JSON Web Token (JWT) biçimleri ve Media Services basit web token (SWT) destekler. Belirteç kimlik doğrulama anahtarı, ortak şifreleme veya Gelişmiş Şifreleme Standardı (AES) Zarf şifreleme sistemde kullansanız bağımsız olarak her türlü uygulanır.
 
-Bu belirteç player ile geçirebilirdiniz aşağıdaki yöntemlerle, player ve platformu, hedeflediğiniz bağlıdır:
+ Player ve hedef platformu bağlı olarak, aşağıdaki yollarla player ile belirteç geçirebilirsiniz:
+
 - HTTP Authorization Üstbilgisi.
-> [!NOTE]
-> "Bearer" öneki OAuth 2.0 belirtimlerin beklenir unutmayın. Azure Media Player barındırılan belirteci yapılandırmasına sahip bir örnek oynatıcı yoktur [gösteri sayfası](http://ampdemo.azureedge.net/). Lütfen AES (JWT belirteci) veya AES (SWT belirteç) video kaynağı ayarlamak için seçin. Belirteç Authorization Üstbilgisi geçirilir.
+    > [!NOTE]
+    > "Bearer" öneki OAuth 2.0 belirtimlerin beklenir. Belirteç yapılandırma ile bir örnek oynatıcı üzerinde Azure Media Player barındırılan [gösteri sayfası](http://ampdemo.azureedge.net/). Video kaynağı ayarlamak için seçin **AES (JWT belirteci)** veya **AES (SWT belirteci)**. Belirteç Authorization Üstbilgisi geçirilir.
 
-- Url sorgu parametresi ile ekleyerek aracılığıyla "token tokenvalue =".  
-> [!NOTE]
-> "Bearer" önek beklenir unutmayın. Simge bir URL aracılığıyla gönderilir olduğundan, belirteç dizesini koruma sağlamak gerekir. Bunun nasıl yapılacağı C# örnek kod şöyledir:
+- Bir URL eklenmesi sorgu parametresi ile "token tokenvalue =."  
+    > [!NOTE]
+    > "Bearer" öneki beklenen değil. Belirtecin bir URL yoluyla gönderildiğinden, belirteç dizesini koruma sağlamak gerekir. Nasıl yapılacağını gösteren bir C# örnek kod aşağıda verilmiştir:
 
-```csharp
+    ```csharp
     string armoredAuthToken = System.Web.HttpUtility.UrlEncode(authToken);
     string uriWithTokenParameter = string.Format("{0}&token={1}", keyDeliveryServiceUri.AbsoluteUri, armoredAuthToken);
     Uri keyDeliveryUrlWithTokenParameter = new Uri(uriWithTokenParameter);
-```
+    ```
 
-- CustomData alanı.
-İçin PlayReady lisans edinme yalnızca, PlayReady lisans edinme sınama CustomData alan. Bu durumda, belirteç aşağıda açıklanan xml belgesi içinde olması gerekir.
+- CustomData alan.
+Bu seçenek yalnızca, PlayReady lisans edinme PlayReady lisans edinme sınama CustomData alan kullanılır. Bu durumda, belirteç içinde XML belgesi burada açıklandığı gibi olmalıdır:
 
-```xml
+    ```xml
     <?xml version="1.0"?>
     <CustomData xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyCustomData/v1"> 
         <Token></Token> 
     </CustomData>
-```
-Kimlik doğrulama belirteci içine <Token> öğesi.
+    ```
+    Kimlik doğrulama belirteci belirteci öğesinde yerleştirin.
 
-- Bir alternatif HLS çalma listesi. AES + HLS için belirteci kimlik doğrulamasını yapılandırmak gereken kayıttan yürütme iOS/Safari üzerinde doğrudan gönderdiğiniz belirteçte bir yolu yoktur. Lütfen bu bakın [blog gönderisi](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) bu senaryoyu etkinleştirmek için çalma alternatif konusunda.
+- Alternatif bir HTTP canlı akışı (HLS) çalma. AES + HLS belirteci kimlik doğrulamasını yapılandırmak gereken kayıttan yürütme iOS/üzerinde Safari, belirteçte doğrudan gönderebileceğiniz bir yolu yoktur. Bu senaryoyu etkinleştirmek için çalma alternatif hakkında daha fazla bilgi için bkz [blog gönderisi](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Media Services öğrenme yollarını gözden geçirin.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
