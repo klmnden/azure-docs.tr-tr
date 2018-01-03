@@ -3,7 +3,7 @@ title: "DevTest Labs sanal makineniz için özel yapılar oluşturma | Microsoft
 description: "Azure DevTest Labs ile kullanmak üzere kendi yapıları Yazar öğrenin."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: tarcher
-ms.openlocfilehash: 679819618452d65847c6163569e04945ba8a414d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 7766227d66df94eca72072f52ff02928f8ee277b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs sanal makineniz için özel yapılar oluşturma
 
@@ -55,7 +55,7 @@ Aşağıdaki örnek, bir tanım dosyasını temel yapınızı oluşturan bölüm
 | Öğe adı | Gerekli mi? | Açıklama |
 | --- | --- | --- |
 | $schema |Hayır |JSON şema dosyası konumu. JSON şema dosyası tanım dosyasının geçerliliğini sınamak yardımcı olabilir. |
-| Başlık |Evet |Laboratuar ortamında görüntülenen yapı adı. |
+| başlık |Evet |Laboratuar ortamında görüntülenen yapı adı. |
 | açıklama |Evet |Laboratuar ortamında görüntülenen yapı açıklaması. |
 | iconUri |Hayır |Laboratuar ortamında görüntülenen simge URI'si. |
 | targetOsType |Evet |İşletim sistemi yapı yüklendiği VM. Windows ve Linux bunun desteklenen seçeneklerdir. |

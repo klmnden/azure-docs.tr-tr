@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-nsgs-using-the-portal"></a>Nsg'ler Portalı'nı kullanarak yönetme
 
@@ -98,7 +98,7 @@ Hangi kaynakları görüntülemek için **NSG ön uç** NSG ilişkilendirmek, a�
 
 3. İçinde **ayarları** sekmesini tıklatın, **ağ arabirimleri** NIC'ler NSG'yi ilişkili nelerdir görüntülemek için.
 
-## <a name="manage-rules"></a>Kuralları yönetme
+## <a name="manage-rules"></a>Kuralları yönet
 Varolan bir NSG kuralları ekleme, mevcut kuralları düzenlemek ve kuralları kaldırın.
 
 ### <a name="add-a-rule"></a>Kural ekleme

@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/22/2017
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 97c1fc602ba27472fed2f11fd634e617ae9c636f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 286e2b8eddc87a5132fa13468b0cef1b499c3993
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Storage belgelerde dizin oluşturma
 Bu makalede Azure Search dizini belgeler için kullanma gösterilmektedir (PDF gibi Microsoft Office belgelerini ve diğer birçok ortak biçimleri) Azure Blob depolama alanına depolanır. İlk olarak, ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, derin keşif davranışı sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -31,7 +31,7 @@ Blob dizin oluşturucu metin aşağıdaki belge biçimlerinden ayıklayabilirsin
 ## <a name="setting-up-blob-indexing"></a>BLOB dizin oluşturmayı ayarlama
 Azure Blob Storage bir kullanarak dizin oluşturucu ayarlayabilirsiniz:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Azure portalı](https://ms.portal.azure.com)
 * Azure arama [REST API'si](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure arama [.NET SDK'sı](https://aka.ms/search-sdk)
 
@@ -225,28 +225,6 @@ Belirli dosya adı uzantılarına sahip BLOB'lar kullanarak dizin dışlayabilir
 
 Her iki `indexedFileNameExtensions` ve `excludedFileNameExtensions` parametreleri, ilk Azure Search bakar adresindeki `indexedFileNameExtensions`, sonra en `excludedFileNameExtensions`. Bu, aynı dosya uzantısını hem listelerinde varsa, bu dizine almasını dışlanıp olduğunu anlamına gelir.
 
-### <a name="dealing-with-unsupported-content-types"></a>Desteklenmeyen içerik türleriyle ele alma
-
-Blob desteklenmeyen bir içerik türüyle (örneğin, bir görüntü) karşılaştığında hemen varsayılan olarak, blob dizin oluşturucu durdurur. Elbette kullanabilirsiniz `excludedFileNameExtensions` belirli içerik türlerini atlamak için parametre. Ancak, tüm olası içerik türleri önceden bilmeden dizin BLOB'lar için gerekebilir. Desteklenmeyen içerik türü karşılaşıldığında dizin oluşturmaya devam etmek için ayarlama `failOnUnsupportedContentType` yapılandırma parametresi `false`:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
-    }
-
-### <a name="ignoring-parsing-errors"></a>Ayrıştırma hataları yoksayma
-
-Azure arama belge ayıklama mantığı kusursuz değildir ve bazen gibi desteklenen bir içerik türüne belgelerinin ayrıştırmak başarısız olur. DOCX veya. PDF. Bu gibi durumlarda dizin oluşturma işlemi kesintiye, ayarlamak, istemiyorsanız, `maxFailedItems` ve `maxFailedItemsPerBatch` makul bazı değerler yapılandırma parametreleri. Örneğin:
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
-    }
-
 <a name="PartsOfBlobToIndex"></a>
 ## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Blob hangi kısımlarının dizine denetleme
 
@@ -275,6 +253,31 @@ Yukarıda açıklanan yapılandırma parametreleri tüm BLOB'lar için geçerlid
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |Blob tamamen atlamak için blob dizin oluşturucu bildirir. Meta veri ne içerik ayıklama denenir. Bu, belirli bir blob art arda başarısız olur ve dizin oluşturma işlemi kesintiye uğratır durumunda faydalı olur. |
 | AzureSearch_SkipContent |"true" |Bu, eşdeğerdir `"dataToExtract" : "allMetadata"` açıklanan ayarı [yukarıda](#PartsOfBlobToIndex) belirli bir blobu kapsamlı. |
+
+<a name="DealingWithErrors"></a>
+## <a name="dealing-with-errors"></a>Hataları ele alma
+
+Blob desteklenmeyen bir içerik türüyle (örneğin, bir görüntü) karşılaştığında hemen varsayılan olarak, blob dizin oluşturucu durdurur. Elbette kullanabilirsiniz `excludedFileNameExtensions` belirli içerik türlerini atlamak için parametre. Ancak, tüm olası içerik türleri önceden bilmeden dizin BLOB'lar için gerekebilir. Desteklenmeyen içerik türü karşılaşıldığında dizin oluşturmaya devam etmek için ayarlama `failOnUnsupportedContentType` yapılandırma parametresi `false`:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    }
+
+Bazı BLOB'lar için Azure Search içerik türü belirlenemiyor veya bir belgenin işlenemiyor Aksi halde içerik türü desteklenmiyor. Bu hata modu yoksayacak şekilde ayarlamak `failOnUnprocessableDocument` yapılandırma parametresi yanlış:
+
+      "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+
+Hataları işleme, BLOB'ları ayrıştırılırken ya da belgeler için bir dizin ekleme sırasında herhangi bir noktada görülüyorsa dizin oluşturma da devam edebilirsiniz. Hataları belirli sayıda yoksaymak için ayarlanmış `maxFailedItems` ve `maxFailedItemsPerBatch` istenen değerleri yapılandırma parametreleri. Örneğin:
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+    }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Artımlı dizin oluşturma ve silme algılama
 Bir zamanlamaya göre çalıştırmak için bir blob dizin oluşturucu ayarladığınızda, blob'un tarafından belirlendiği şekilde yalnızca değiştirilen BLOB'lar aşağıdaki yeniden dizinler `LastModified` zaman damgası.

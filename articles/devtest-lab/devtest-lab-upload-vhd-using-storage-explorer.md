@@ -3,7 +3,7 @@ title: "Microsoft Azure Storage Gezgini kullanarak Azure DevTest Labs için VHD 
 description: "Microsoft Azure Storage Gezgini kullanarak Laboratuvar ait depolama hesabı için VHD dosyasını karşıya yükle"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
-ms.author: tarcher
-ms.openlocfilehash: 502e2536fb0fd2e9dfc4c7b85a6fb4e18202f38f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 25675aae77fbe2610fe416210de9a306c1c09f3d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Gezgini kullanarak Laboratuvar ait depolama hesabı için VHD dosyasını karşıya yükle
 
@@ -100,13 +100,13 @@ Aşağıdaki adımlar bir VHD dosyası aracılığıyla karşıya yükleme DevTe
 
     1. Depolama Gezgini sağ bölmede, BLOB'ları listesini görmelisiniz **yükler** Laboratuvar ait depolama hesabının blob kapsayıcısı. Blob Düzenleyicisi araç çubuğunda seçin **karşıya yükle** 
         
-        ![Düğme karşıya yükle][6]
+        ![Karşıya yükle düğmesi][6]
     
     1. Gelen **karşıya** açılır menüsünde, select **dosyaları karşıya yükleme...** .
     
     1. Üzerinde **dosyaları karşıya yükleme** iletişim kutusunda, üç nokta seçin.
         
-        ![Dosya seçin][8]  
+        ![Dosya seç][8]  
 
     1. Üzerinde **karşıya yüklemek için dosyaları seçin** iletişim kutusunda, istenen VHD dosyasına göz atın, onu seçin ve ardından **açık**.
     
@@ -114,7 +114,7 @@ Aşağıdaki adımlar bir VHD dosyası aracılığıyla karşıya yükleme DevTe
     
     1. **Karşıya Yükle**’yi seçin.
 
-        ![Dosya seçin][9]  
+        ![Dosya seç][9]  
     
     1. Depolama Gezgini **etkinlik günlüğü** bölmesi (birlikte karşıya yüklemeyi iptal etmek için bağlantılar) yükleme durumunu gösterir. VHD dosyasını karşıya yükleme işlemi VHD dosyasını ve bağlantı hızı boyutuna bağlı olarak uzun olabilir. 
 

@@ -3,7 +3,7 @@ title: "Sanal makineleri oluşturmak için Azure DevTest Labs formüller yönetm
 description: "Güncelleştirme ve Azure DevTest Labs formüller kaldırma hakkında bilgi edinin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 841dd95a-657f-4d80-ba26-59a9b5104fe4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: tarcher
+ms.author: v-craic
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdab5def50158f9b764bbb1e50c2624cc6d5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dcd285761774c3cd1050976894f1f15db61b52c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs formüller yönetme
 
@@ -64,7 +64,7 @@ Aşağıdaki adımlar bir formül özel bir görüntü, Market görüntüsü ya 
     * **Parola** - girin - veya aşağı açılır listeden seçin - belirtilen kullanıcı için kullanmak istediğiniz gizliliği (parola) ile ilişkili olan bir değer. Gizli anahtarları hakkında daha fazla bilgi için bkz: [Azure DevTest Labs: Kişisel gizli depolama](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
     * **Sanal makine disk türü** - iki HDD (sabit disk sürücüsü) belirtin veya bu temel görüntü kullanılarak sağlanan sanal makineler için hangi depolama disk türünü belirtmek için (katı hal sürücüsü) SSD izin verilir.
     * ** Sanal makine boyutu ** - işlemci çekirdeği, RAM boyutu ve sabit sürücü boyutu oluşturmak için VM belirtin önceden tanımlanmış öğeleri birini seçin. 
-    * **Yapıları** - açmak için Select **yapıları eklemek** dikey penceresinde, seçin ve temel görüntü eklemek istediğiniz yapıları yapılandırın. Yapılar hakkında daha fazla bilgi için bkz: [Azure DevTest Labs yönetmek VM yapıları](./devtest-lab-add-vm-with-artifacts.md).
+    * **Yapıları** - açmak için Select **yapıları eklemek** dikey penceresinde, seçin ve temel görüntü eklemek istediğiniz yapıları yapılandırın. Yapılar hakkında daha fazla bilgi için bkz: [Azure DevTest Labs sanal makineniz için özel yapılar oluşturma](devtest-lab-artifact-author.md).
     * **Gelişmiş ayarlar** - açmak için Select **Gelişmiş** aşağıdaki ayarları yapılandırdığınız dikey penceresinde:
         * **Sanal ağ** -istenen sanal ağ belirtin.
         * **Alt ağ** -istenen alt ağ belirtin.    
@@ -135,5 +135,5 @@ Formül silmek için aşağıdaki adımları izleyin:
 * [Özel resimler veya formüller?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir VM oluştururken kullanmak için bir formül oluşturduktan sonra sıradaki adım olacak [Laboratuvarınızı için bir VM eklemek](devtest-lab-add-vm-with-artifacts.md).
+Bir VM oluştururken kullanmak için bir formül oluşturduktan sonra sıradaki adım olacak [Laboratuvarınızı için bir VM eklemek](devtest-lab-add-vm.md).
 

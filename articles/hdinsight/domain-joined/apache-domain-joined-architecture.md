@@ -14,73 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 12/14/2017
 ms.author: saurinsh
-ms.openlocfilehash: 9deb5e4dbd925c4fdc523d8d21afbcfbf85947b8
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: eca019fa5e7866ed6281e8cfee105ba1d99249bc
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Azure etki alanına katılmış Hadoop kümeleri planlama
 
-Geleneksel Hadoop tek kullanıcılı bir kümedir. Büyük veri iş yükleri oluşturan küçük uygulama ekiplerine sahip çoğu şirket için uygundur. Hadoop'un popülerliği arttıkça çoğu kurum, kümelerin BT ekipleri tarafından yönetildiği ve birden çok uygulama ekibinin ortak kümelerde çalıştığı bir modele geçiş yapıyor. Bu nedenle çok kullanıcılı kümeler gibi işlevler, en çok talep gören Azure HDInsight işlevlerinden biri.
+Standart Hdınsight kümesi bir tek kullanıcı kümedir. Büyük veri iş yükleri oluşturan küçük uygulama ekiplerine sahip çoğu şirket için uygundur. Hadoop elde edilen popülerliği gibi pek çok kurum kümeleri BT ekipleri tarafından yönetilir ve birden çok uygulama paylaşımı kümeleri ekipleri model doğru taşıma başlatıldı. Bu nedenle çok kullanıcılı kümeler gibi işlevler, en çok talep gören Azure HDInsight işlevlerinden biri.
 
-Kendi çok kullanıcılı kimlik doğrulama ve yetkilendirme oluşturmak yerine, Hdınsight en popüler kimlik sağlayıcısı--Active Directory (AD) kullanır. AD güçlü güvenlik işlevindeki hdınsight'ta çok kullanıcılı yetkilendirmeyi yönetmek için kullanılabilir. Hdınsight AD ile tümleştirme, AD kimlik bilgilerinizi kullanarak kümeleriyle iletişim kurabilir. Hdınsight Hdınsight üzerinde çalışan tüm hizmetleri yerel bir Hadoop kullanıcı için bir AD kullanıcısının eşler (Ambari, sunucu, bırakabilmenizi, Spark thrift Hive sunucu ve diğerleri) kimliği doğrulanmış kullanıcı için sorunsuz bir şekilde çalışır.
+Kendi çok kullanıcılı kimlik doğrulama ve yetkilendirme oluşturmak yerine, Hdınsight en popüler kimlik sağlayıcısı--Active Directory (AD) kullanır. AD güçlü güvenlik işlevindeki hdınsight'ta çok kullanıcılı kimlik doğrulamasını yönetmek için kullanılabilir. Hdınsight AD ile tümleştirme, AD kimlik bilgilerinizi kullanarak kümeleriyle iletişim kurabilir. Hdınsight'ta VM'ler için AD etki alanına katılan ve Hdınsight bir AD kullanıcısının yerel bir Hadoop kullanıcıya Hdınsight üzerinde çalışan tüm hizmetleri nasıl eşlendiğini (Ambari, sunucu, bırakabilmenizi, Spark thrift Hive sunucu ve diğerleri) kimliği doğrulanmış kullanıcı için sorunsuz bir şekilde çalışır. Yöneticiler, daha sonra hdınsight'ta kaynaklar için rol tabanlı erişim denetimi sağlamak için Apache bırakabilmenizi kullanarak güçlü yetkilendirme ilkeleri oluşturabilirsiniz.
+
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>HDInsight’ı Active Directory ile tümleştirin
 
-Hdınsight Active Directory ile tümleştirildiğinde, AD etki alanı için etki alanına katılan Hdınsight küme düğümleri. Hdınsight küme üzerinde çalışan Hadoop Hizmetleri için hizmet asıl adı oluşturur ve bunları etki alanında belirtilen kuruluş birimi (OU) içinde yerleştirir. Hdınsight geriye doğru DNS eşlemelerini etki alanına katılan düğümlerin IP adresleri etki alanında da oluşturur.
+Hdınsight Active Directory ile tümleştirme, AD etki alanı için etki alanına katılan Hdınsight küme düğümleri. Kerberos güvenlik küme üzerinde Hadoop bileşenleri için yapılandırılır. Her Hadoop bileşenleri için bir hizmet sorumlusu üzerinde Active Directory oluşturulur. Asıl karşılık gelen bir makine etki alanına katılan her makine için de oluşturulur. Bu hizmet asıl adı ve makine ilkeleri, Active Directory daraltabilir. Sonuç olarak, bir kuruluş birimi (OU) Active Directory'de bu ilkeleri yerleştirildiği, sağlamak için gereklidir. 
 
-Active Directory için iki dağıtım seçenekleri şunlardır:
-* **[Azure Active Directory etki alanı Hizmetleri](../../active-directory-domain-services/active-directory-ds-overview.md):** bu hizmet, Windows Server Active Directory ile tamamen uyumlu olan yönetilen Active Directory etki alanı sağlar. Microsoft, geçen yönetme, düzeltme eki uygulama ve AD etki alanı izleme dikkat edin. Etki alanı denetleyicilerinin bakımını yapmak hakkında endişelenmeden kümenizi dağıtabilirsiniz. Kullanıcılar, gruplar ve parolalar, Azure Active Directory'den şirket kimlik bilgilerini kullanarak kümeye oturum açmalarını etkinleştirme eşitlenir.
+Özetlemek için bir ortam ayarlamanız:
 
-* **Azure Iaas Vm'leri üzerinde Windows Server Active Directory etki alanı:** Bu seçenekte, dağıtma ve Azure Iaas Vm'leri kendi Windows Server Active Directory etki alanında yönetme. 
+- Bir Active Directory etki alanı denetleyicisi ile yapılandırılmış LDAPS.
+- Active Directory etki alanı denetleyicinizi Hdınsight'ın sanal ağ bağlantısını.
+- Bir kuruluş Active Directory'de oluşturulan birimi.
+- İçin izinlere sahip bir hizmet hesabı:
 
-Bu kuruluma birden fazla mimari kullanarak ulaşabilirsiniz. Aşağıdaki mimarilerin arasından seçim yapabilirsiniz.
+    - Hizmet sorumluları OU'da oluşturun.
+    - Makine etki alanına katın ve OU'da makine ilkeleri oluşturun.
 
+Aşağıdaki ekran görüntüsünde contoso.com oluşturulan bir OU gösterir. Bazı hizmet asıl adı ve makine sorumluları ekran görüntüsünde gösterilir.
 
-### <a name="hdinsight-integrated-with-an-azure-ad-domain-services-managed-ad-domain"></a>Bir Azure AD etki alanı Hizmetleri ile tümleşik Hdınsight AD etki alanı yönetilen
-Dağıtabilmeniz için bir [Azure Active Directory etki alanı Hizmetleri](../../active-directory-domain-services/active-directory-ds-overview.md) (Azure AD DS) yönetilen etki alanı. Azure AD DS yönetilen bir AD etki alanı yönetilen, güncelleştirilen ve Microsoft tarafından izlenen Azure sağlar. Yüksek kullanılabilirlik için iki etki alanı denetleyicisi oluşturur ve DNS hizmetleri içerir. Bu gibi durumlarda, Hdınsight kümesi sonra bu yönetilen etki alanı ile tümleştirebilirsiniz. Bu dağıtım seçeneği ile yönetme, düzeltme eki uygulama, güncelleştirme ve etki alanı denetleyicisinin izlenmesini hakkında endişelenmeniz gerekmez.
+![Ou etki alanına katılmış Hdınsight kümeleri](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-![HDInsight küme topolojisini etki alanına katma](./media/apache-domain-joined-architecture/hdinsight-domain-joined-architecture_2.png)
+### <a name="three-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Kendi Active Directory etki alanı denetleyicileri getiren üç yolu
 
-Azure AD etki alanı Hizmetleri ile tümleştirme için Önkoşullar:
+Etki alanına katılmış Hdınsight kümeleri oluşturmak için Active Directory etki alanı denetleyicileri getirebilirsiniz üç yolu vardır. 
 
-* [Azure AD etki alanı hizmetleri sağlama yönetilen etki alanı](../../active-directory-domain-services/active-directory-ds-getting-started.md).
-* Oluşturma bir [kuruluş birimi](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md), içinde Hdınsight kümesi VM'ler yerleştirin ve küme tarafından kullanılan hizmet asıl adı.
-* Kurulum [LDAPS](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md), Azure AD DS yapılandırdığınızda. LDAPS ayarlamak için kullanılan sertifikanın bir genel sertifika yetkilisi (otomatik imzalı bir sertifika değil) tarafından verilmiş olması gerekir.
-* Geriye doğru DNS bölgeleri Hdınsight alt ağ (örneğin, önceki resimde 10.2.0.0/24) IP adres aralığı yönetilen etki alanını oluşturun.
-* Yapılandırma [NTLM ve Kerberos kimlik doğrulaması için gerekli parola karma eşitlemesi](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) Azure AD DS yönetilen etki alanı için Azure AD'den.
-* Hizmet hesabı veya kullanıcı hesabı gereklidir. Bu hesabı HDInsight kümesini oluşturmak için kullanın. Bu hesap aşağıdaki izinlere sahip olmalıdır:
+- **Azure Active Directory etki alanı Hizmetleri**: Bu hizmet, Windows Server Active Directory ile tamamen uyumlu olan bir yönetilen Active Directory etki alanı sağlar. Microsoft, geçen yönetme, düzeltme eki uygulama ve AD etki alanı izleme dikkat edin. Etki alanı denetleyicilerinin bakımını yapmak hakkında endişelenmeden kümenizi dağıtabilirsiniz. Kullanıcılar, gruplar ve parolalar, Azure Active Directory'den şirket kimlik bilgilerini kullanarak kümeye oturum açmalarını etkinleştirme eşitlenir. Daha fazla bilgi için bkz: [Azure Active Directory etki alanı Hizmetleri kullanarak yapılandırma etki alanına katılmış Hdınsight kümelerini](./apache-domain-joined-configure-using-azure-adds.md).
 
-    - Kuruluş birimi içerisinde hizmet sorumlusu nesneleri ve makine nesneleri oluşturma izinleri
-    - Ters DNS proxy kuralları oluşturma izinleri
-    - Makineleri Azure AD etki alanına katma izinleri
+- **Azure Iaas Vm'leri üzerinde Active Directory**: Bu seçenekte, dağıtma ve Azure Iaas Vm'leri kendi Windows Server Active Directory etki alanında yönetme. Daha fazla bilgi için bkz: [yapılandırma etki alanına katılmış korumalı alan ortamıdır](./apache-domain-joined-configure.md).
 
-
-### <a name="hdinsight-integrated-with-windows-server-ad-running-on-azure-iaas"></a>Hdınsight ile Windows Server AD tümleşik Azure Iaas'da çalışan
-
-Bir (veya birden çok) sanal makinelerle (VM'ler) Windows Server Active Directory etki alanı Hizmetleri rolünü dağıtmak ve bunları etki alanı denetleyicileri olarak yükseltin. Hdınsight kümesi olarak aynı sanal ağda resource manager dağıtım modelini kullanarak bu etki alanı denetleyicisi VM'ler dağıtılabilir. Etki alanı denetleyicileri farklı bir sanal ağ dağıttıysanız kullanarak bu sanal ağlar arası ihtiyacınız [VNet-VNet eşlemesi](../../virtual-network/virtual-network-create-peering.md). 
-
-[Daha fazla bilgi - Windows Server Active Directory Azure vm'lerinde dağıtma](../../active-directory/virtual-networks-windows-server-active-directory-virtual-machines.md)
-
-![HDInsight küme topolojisini etki alanına katma](./media/apache-domain-joined-architecture/hdinsight-domain-joined-architecture_1.png)
-
-> [!NOTE]
-> Bu mimaride, Azure Data Lake Store'u HDInsight kümesi ile kullanamazsınız.
-
-
-Azure vm'lerinde Windows Server Active Directory ile tümleştirme için Önkoşullar:
-
-* HDInsight kümesi VM'lerini ve küme tarafından kullanılan hizmet sorumlularını yerleştireceğiniz bir [kuruluş birimi](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) oluşturulmalıdır.
-* [Hafif Dizin Erişim protokolleri](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md) (LDAPs) ayarlanmalıdır AD ile iletişim kurmak için. LDAPS kurulumu için kullanılan sertifika gerçek bir sertifika (otomatik olarak imzalanan sertifika değil) olmalıdır.
-* HDInsight alt ağının IP adresi aralığı için etki alanında ters DNS bölgeleri oluşturulmalıdır (örneğin, bir önceki resimde 10.2.0.0/24).
-* Hizmet hesabı veya kullanıcı hesabı gereklidir. Bu hesabı HDInsight kümesini oluşturmak için kullanın. Bu hesap aşağıdaki izinlere sahip olmalıdır:
-
-    - Kuruluş birimi içerisinde hizmet sorumlusu nesneleri ve makine nesneleri oluşturma izinleri
-    - Ters DNS proxy kuralları oluşturma izinleri
-    - Makineleri Active Directory etki alanına katma izinleri
+- **Şirket içi Active Directory**: Bu seçenekte, şirket içi Active Directory etki alanı denetleyicisiyle Hdınsight tümleştirin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

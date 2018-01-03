@@ -3,7 +3,7 @@ title: "Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kay
 description: "Çoklu VM ortamları ve PaaS kaynaklarına Azure DevTest Labs'de bir Azure Resource Manager şablonu oluşturma hakkında bilgi edinin"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
-ms.author: tarcher
-ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 3fd0f15c695bcd22a51233846ace8711a4fcd635
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Çoklu VM ortamları ve PaaS kaynaklarına Azure Resource Manager şablonları ile oluşturma
 
-[Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) kolayca sağlar [oluşturmak ve bir VM'yi laboratuvara ekleme](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Bu da aynı anda bir VM oluşturmak için çalışır. Ortamında birden çok VM içeriyorsa, ancak her VM tek tek oluşturulması gerekir. Çok katmanlı Web uygulaması veya bir SharePoint grubu gibi senaryolar için bir mekanizma, tek bir adımda birden çok VM oluşturulmasına izin vermek için gereklidir. Azure Resource Manager şablonları kullanarak şimdi altyapısı ve Azure çözümünüzü yapılandırmasını tanımlayın ve sürekli olarak tutarlı bir durumda birden çok VM dağıtın. Bu özellik, aşağıdaki avantajları sağlar:
+[Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) kolayca sağlar [oluşturmak ve bir VM'yi laboratuvara ekleme](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Bu da aynı anda bir VM oluşturmak için çalışır. Ortamında birden çok VM içeriyorsa, ancak her VM tek tek oluşturulması gerekir. Çok katmanlı Web uygulaması veya bir SharePoint grubu gibi senaryolar için bir mekanizma, tek bir adımda birden çok VM oluşturulmasına izin vermek için gereklidir. Azure Resource Manager şablonları kullanarak şimdi altyapısı ve Azure çözümünüzü yapılandırmasını tanımlayın ve sürekli olarak tutarlı bir durumda birden çok VM dağıtın. Bu özellik, aşağıdaki avantajları sağlar:
 
 - Azure Resource Manager şablonları doğrudan, kaynak denetim deposundan (GitHub veya Team Services Git) yüklenir.
 - Yapılandırdıktan sonra kullanıcılarınızın bir ortam diğer türleri ile ne yapabileceklerini olarak Azure portalından bir Azure Resource Manager şablonu seçerek oluşturabilirsiniz [VM tabanları](./devtest-lab-comparing-vm-base-image-types.md).

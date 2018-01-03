@@ -6,34 +6,34 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 9667a5b840d6c1fab5087cfcf3ede34a732fbe01
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4205b47dc67920021812c1e573a98de64ad198ec
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri dağıtma
 
 Azure kapsayıcı kayıt defteri Docker kapsayıcısı görüntüleri için bir Azure tabanlı, özel kayıt defteri ' dir. Bu makalede, Azure kapsayıcı örneklerine Azure kapsayıcı kayıt defterinde depolanan kapsayıcı yansımalarını dağıtmak alınmaktadır.
 
-## <a name="using-the-azure-cli"></a>Azure CLI kullanma
+## <a name="deploy-with-azure-cli"></a>Azure CLI ile dağıtma
 
-Azure CLI oluşturmak ve Azure kapsayıcı örnekleri kapsayıcılarında yönetmek için komutlar içerir. Özel bir görüntüde belirtirseniz `create` komutu, kapsayıcı kayıt defteri ile kimlik doğrulaması için gerekli görüntü kayıt defteri parola da belirtebilirsiniz.
+Azure CLI oluşturmak ve Azure kapsayıcı örnekleri kapsayıcılarında yönetmek için komutlar içerir. Özel bir görüntüde belirtirseniz [az kapsayıcı oluşturmak] [ az-container-create] komutu, kapsayıcı kayıt defteri ile kimlik doğrulaması için gerekli görüntü kayıt defteri parola da belirtebilirsiniz.
 
 ```azurecli-interactive
-az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword --resource-group myresourcegroup
+az container create --resource-group myResourceGroup --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword
 ```
 
-`create` Komutu de destekler belirtme `registry-login-server` ve `registry-username`. Ancak, Azure kapsayıcı kayıt için oturum açma sunucusu her zaman olduğu *registryname*. azurecr.io ve varsayılan kullanıcı adı *registryname*, bu değerler görüntü adı yoksa algılanır açıkça sağlanır.
+[Az kapsayıcı oluşturmak] [ az-container-create] komutu de destekler belirtme `--registry-login-server` ve `--registry-username`. Ancak, Azure kapsayıcı kayıt için oturum açma sunucusu her zaman olduğu *registryname*. azurecr.io ve varsayılan kullanıcı adı *registryname*, bu değerler görüntü adı yoksa algılanır açıkça sağlanır.
 
-## <a name="using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak
+## <a name="deploy-with-azure-resource-manager-template"></a>Azure Resource Manager şablonu ile dağıtma
 
 Ekleyerek bir Azure Resource Manager şablonu Azure kapsayıcı kaydınız özelliklerini belirtebilirsiniz `imageRegistryCredentials` kapsayıcısı Grup tanımında özelliği:
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "imageRegistryLoginServer",
@@ -45,27 +45,21 @@ Ekleyerek bir Azure Resource Manager şablonu Azure kapsayıcı kaydınız özel
 
 Doğrudan şablonunda kapsayıcı kayıt defteri parolanızı depolamak önlemek için onu bir gizli olarak saklamanızı öneririz [Azure anahtar kasası](../key-vault/key-vault-manage-with-cli2.md) ve şablonu kullanarak referans [Azure arasında yerel tümleştirme Resource Manager ve anahtar kasası](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-## <a name="using-the-azure-portal"></a>Azure portalını kullanma
+## <a name="deploy-with-azure-portal"></a>Azure portalı ile dağıtma
 
 Azure kapsayıcı kayıt defteri kapsayıcı görüntülerinde bulunduruyorsanız, Azure kapsayıcı örnekleri Azure portalını kullanarak bir kapsayıcı kolayca oluşturabilirsiniz.
 
 1. Azure portalında kapsayıcı kayıt defterine gidin.
 
-2. Depoları seçin.
+2. Seçin **depoları**, seçin, dağıtmak istediğiniz depo sağ dağıtmak ve seçmek için kapsayıcı görüntü etiketi **örneği Çalıştır**.
 
-    ![Azure portalında Azure kapsayıcı kayıt defteri menüsü][acr-menu]
+    !["Örnek Azure portalında Azure kapsayıcı kayıt defterinde Çalıştır"][acr-runinstance-contextmenu]
 
-3. Dağıtım yapmak istediğiniz depo seçin.
-
-4. Dağıtmak istediğiniz kapsayıcı görüntü etiketi sağ tıklayın.
-
-    ![Kapsayıcı Azure kapsayıcı örnekleri ile başlatmak için bağlam menüsü][acr-runinstance-contextmenu]
-
-5. Kapsayıcı için bir ad ve kaynak grubu için bir ad girin. İsterseniz, varsayılan değerleri de değiştirebilirsiniz.
+3. Kapsayıcı için bir ad ve kaynak grubu için bir ad girin. İsterseniz, varsayılan değerleri de değiştirebilirsiniz.
 
     ![Azure kapsayıcı örnekleri için menü oluşturma][acr-create-deeplink]
 
-6. Dağıtım tamamlandıktan sonra kapsayıcı grubu için IP adresini ve diğer özellikleri bulmak için bildirimler bölmesinden gidebilirsiniz.
+4. Dağıtım tamamlandıktan sonra kapsayıcı grubu için IP adresini ve diğer özellikleri bulmak için bildirimler bölmesinden gidebilirsiniz.
 
     ![Azure kapsayıcı örnekleri kapsayıcı grubu için ayrıntıları görüntüle][aci-detailsview]
 
@@ -74,10 +68,9 @@ Azure kapsayıcı kayıt defteri kapsayıcı görüntülerinde bulunduruyorsanı
 Kapsayıcılar oluşturmak, bunları özel kapsayıcı kayıt defterine gönderme ve Azure kapsayıcı örnekleri tarafından dağıtmak öğrenin [öğreticiyi tamamlamak](container-instances-tutorial-prepare-app.md).
 
 <!-- IMAGES -->
-[acr-menu]: ./media/container-instances-using-azure-container-registry/acr-menu.png
-
+[acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
+[aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
 [acr-runinstance-contextmenu]: ./media/container-instances-using-azure-container-registry/acr-runinstance-contextmenu.png
 
-[acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
-
-[aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create

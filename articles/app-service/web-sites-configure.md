@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
+
 Bu konuda, bir web uygulamasını kullanarak yapılandırmak açıklanmaktadır [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -33,7 +34,7 @@ Bu konuda, bir web uygulamasını kullanarak yapılandırmak açıklanmaktadır 
 
 **Uygulama ayarları** dikey birkaç kategoriler altında gruplanmış ayarlara sahip.
 
-### <a name="general-settings"></a>Genel ayarları
+### <a name="general-settings"></a>Genel ayarlar
 **Framework sürümlerini**. Uygulamanız herhangi bu çerçeveleri kullanıyorsa bu seçenekleri ayarlayın: 
 
 * **.NET framework**: .NET framework sürümünü ayarlayın. 
@@ -45,6 +46,8 @@ Teknik nedenlerle .NET, PHP ve Python seçenekleri uygulamanız için Java'yı e
 
 <a name="platform"></a>
 **Platform**. Web uygulamanızı 32 bit veya 64-bit bir ortamda çalışır olup olmadığını belirler. 64 bit ortamı temel veya standart modu gerektirir. Ücretsiz ve paylaşılan modları her zaman bir 32 bit ortamda çalıştırılabilir.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Web yuvaları**. Ayarlama **ON** WebSocket Protokolü; etkinleştirmek için web uygulamanızın kullanıyorsa, örneğin, [ASP.NET SignalR] veya [Socket.IO](https://socket.io/).
 
@@ -116,11 +119,11 @@ Günlük dosyalarını görüntülemek için FTP kimlik bilgileri, şu şekilde 
 1. Web uygulamanız için dikey penceresinde tıklayın **tüm ayarları**.
 2. Tıklatın **dağıtım kimlik bilgileri**.
 3. Bir kullanıcı adı ve parola girin.
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 ![Dağıtım kimlik bilgilerini ayarlama][configure03]
 
-Tam FTP kullanıcı adı "app\username" olduğu *uygulama* web uygulamanızın adıdır. Kullanıcı adı web uygulaması dikey penceresinde altında listelenen **Essentials**.  
+Tam FTP kullanıcı adı "app\username" olduğu *uygulama* web uygulamanızın adıdır. Kullanıcı adı web uygulaması dikey penceresinde altında listelenen **Essentials**.
 
 ![FTP dağıtımı kimlik bilgileri][configure02]
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Tehdit modelleme aracı özelliğine genel bakış
 
@@ -29,13 +29,13 @@ Tehdit modelleme aracı gereksinimlerini modelleme, tehdidin yardımcı olabilir
 
 Boş bir sayfa açmak için seçin **bir modeli oluşturma**.
 
-![Boş bir sayfa](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Boş bir sayfa](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 Aracı şu anda kullanılabilen özellikleri görmek için bizim ekibi tarafından oluşturulan tehdit modeli kullanın [başlama](./azure-security-threat-modeling-tool-getting-started.md) örnek.
 
-![Temel tehdit modeli](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Temel tehdit modeli](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-## <a name="navigation"></a>Gezinme
+## <a name="navigation"></a>Gezinti
 
 Şimdi yerleşik özellikleri aşağıdakiler ele önce aracında bulunan ana bileşenlerini gözden geçirin.
 
@@ -43,7 +43,7 @@ Aracı şu anda kullanılabilen özellikleri görmek için bizim ekibi tarafınd
 
 Diğer Microsoft ürünleri için benzer bir deneyim yaşanır. Şimdi en üst düzey menü öğeleri gözden geçirin.
 
-![Menü öğeleri](./media/azure-security-threat-modeling-tool/menuitems.png)
+![Menü öğeleri](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Etiket                               | Ayrıntılar      |
 | --------------------------------------- | ------------ |
@@ -75,11 +75,11 @@ Tuvale yere sürükleyin ve öğeleri bırakma bir alandır. Sürükle ve bırak
 
 #### <a name="drop-the-stencil-on-the-canvas"></a>Tuvalde şablon bırak
 
-![Tuvale bırakma](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![Tuvale bırakma](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>Bir şablon seçin
 
-![Öğe özellikleri](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![Öğe özellikleri](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>Şablonlar
 
@@ -120,15 +120,15 @@ Uygulamasını açın, gördüğünüz **Hoş Geldiniz** ekran.
 
 Üzerine gelerek **açık bir modeli** iki seçenek ortaya çıkarmak için: **açık bu bilgisayarı** ve **gelen açık OneDrive**. İlk seçeneği açılır **Dosya Aç** ekran. İkinci seçenek OneDrive oturum açma işlemini alır. Başarılı kimlik doğrulamasından sonra dosya ve klasörleri seçebilirsiniz.
 
-![Açık modeli](./media/azure-security-threat-modeling-tool/openmodel.png)
+![Açık modeli](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Bilgisayardan veya OneDrive Aç](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![Bilgisayardan veya OneDrive Aç](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>Geri bildirim, öneriler ve sorunları
 
 Seçtiğinizde, **geri bildirim, öneriler ve sorunları**, MSDN Forumu için SDL araçları gidin. Geçici çözümler ve yeni fikirleri dahil olmak üzere aracı hakkında başkalarının ne dediğini okuyabilir.
 
-![Geri Bildirim](./media/azure-security-threat-modeling-tool/feedback.png)
+![Geri Bildirim](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Tasarım görünümü
 
@@ -154,17 +154,17 @@ Açtığınızda veya yeni bir model oluşturmak **tasarım** görüntülemek a�
 
 #### <a name="before"></a>Önce
 
-![Önce](./media/azure-security-threat-modeling-tool/properties1.png)
+![Önce](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>Sonra
 
-![Sonra](./media/azure-security-threat-modeling-tool/properties2.png)
+![Sonra](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>İletiler
 
 Bir tehdit modeli oluşturmak ve veri akışları öğelere bağlanmak unutursanız, bir bildirim alırsınız. Bu iletiyi yoksayabilirsiniz veya sorunu düzeltmek için yönergeleri izleyin. 
 
-![İletiler](./media/azure-security-threat-modeling-tool/messages.png)
+![İletiler](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Notlar
 
@@ -174,7 +174,7 @@ Notlar, diyagrama eklemek için geçmenize **iletileri** için sekme **notları*
 
 Diyagram oluşturma sonra seçin **analiz** geçmek için kısayolları araç çubuğunda simge (Büyüteç) **analiz** görünümü.
 
-![Analiz görünümü](./media/azure-security-threat-modeling-tool/analysisview.png)
+![Analiz görünümü](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>Oluşturulan tehdit seçimi
 
@@ -182,27 +182,27 @@ Bir tehdit seçtiğinizde, üç ayrı işlev kullanabilirsiniz:
 
 | Özellik                               | Bilgi      |
 | --------------------------------------- | ------------ |
-| **Okuma göstergesi** | <p>Tehdit gözden öğeleri izlemenize yardımcı olan okundu olarak işaretlenir.</p><p>![Okuma/okunmamış göstergesi](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Etkileşim odak** | <p>Etkileşim için bir tehdit ait diyagramda vurgulanır.</p><p>![Etkileşim odak](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **İş parçacığı özellikleri** | <p>Tehdit hakkında ek bilgi görünür **tehdit özellikleri** penceresi.</p><p>![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Okuma göstergesi** | <p>Tehdit gözden öğeleri izlemenize yardımcı olan okundu olarak işaretlenir.</p><p>![Okuma/okunmamış göstergesi](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Etkileşim odak** | <p>Etkileşim için bir tehdit ait diyagramda vurgulanır.</p><p>![Etkileşim odak](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **İş parçacığı özellikleri** | <p>Tehdit hakkında ek bilgi görünür **tehdit özellikleri** penceresi.</p><p>![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Öncelik değiştirme
 
 Oluşturulan her tehdit öncelik düzeyini değiştirebilirsiniz. Farklı renk yüksek, Orta ve düşük öncelikli tehditleri tanımlamak kolaylaştırır.
 
-![Öncelik değiştirme](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![Öncelik değiştirme](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>Tehdit özellikleri düzenlenebilir alanları
 
 Önceki görüntüde görüldüğü gibi aracı tarafından oluşturulan bilgileri değiştirebilirsiniz. Düzeltme gibi bazı alanları bilgileri ekleyebilirsiniz. Bu alanların şablon tarafından üretilir. Her tehdit için daha fazla bilgiye ihtiyacınız varsa, değişiklikler yapabilirsiniz.
 
-![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![İş parçacığı özellikleri](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Reports
 
 Önceliklerini değiştirmek ve oluşturulan her tehdit durumunu güncelleştirme tamamladıktan sonra siz dosyayı kaydedin veya bir raporu yazdırın. Git **rapor** > **tam rapor oluşturma**. Rapor adı ve aşağıdaki görüntüye benzer bir şey görmeniz gerekir:
 
-![Rapor](./media/azure-security-threat-modeling-tool/report.png)
+![Rapor](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

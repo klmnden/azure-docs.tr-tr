@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Windows sanal makineler için planlı işleme bakım bildirimleri
 
@@ -56,9 +56,7 @@ Aşağıdaki yönergeler, bu özelliği kullanın ve gerekir bakım kendi zamand
 
 Kendi kendine bakım, kullanarak dağıtımları için önerilmez **kullanılabilirlik kümeleri** bu yüksek oranda kullanılabilir ayarlar, herhangi bir anda yalnızca tek bir güncelleştirme etki alanı burada etkilenir olduğundan. 
     - Azure tetikleyici bakım sağlar, ancak güncelleştirme etki alanları etkilenip sırasını mutlaka sıralı olarak gerçekleşmez olduğunu ve 30 dakikalık Duraklat güncelleştirme etki alanları arasında olduğunu unutmayın.
-    - Kapasite (1/güncelleştirme etki alanı sayısı) bazıları geçici kaybı önemliyse, kolayca için bakım süresi boyunca ek örneklerini ayırarak dengelenebilmesi. 
-
-**Verme** kendi kendine bakım aşağıdaki senaryolarda kullanın: 
+    - Kapasite (1/güncelleştirme etki alanı sayısı) bazıları geçici kaybı önemliyse, kolayca için bakım süresi boyunca ek örneklerini ayırarak dengelenebilmesi **yok** kendi kendine bakım aşağıdaki kullanın senaryolar: 
     - Vm'leriniz sık kapatırsanız da el ile otomatik kapatma kullanarak veya izleyen bir zamanlama DevTest labs kullanarak bunu bakım durumu dönmek ve bu nedenle ek kesinti süresine neden.
     - Hangi bakım wave bitişinden önce silinecek bildiğiniz kısa süreli Vm'lerinde. 
     - Güncelleştirme sırasında sürdürülebilmesi için istenen yerel (kısa ömürlü) disk depolanan büyük durumuna sahip iş yükleri için. 
@@ -93,8 +91,8 @@ Aşağıdaki özellikleri altında MaintenanceRedeployStatus döndürülür:
 | IsCustomerInitiatedMaintenanceAllowed | Bakım VM üzerinde şu anda başlatabilirsiniz olup olmadığını gösterir ||
 | PreMaintenanceWindowStartTime         | VM üzerinde bakım başlatabilir, bakım Self Servis penceresi başlangıcı ||
 | PreMaintenanceWindowEndTime           | VM üzerinde bakım başlatabilir, bakım Self Servis penceresi sonu ||
-| MaintenanceWindowStartTime            | VM üzerinde bakım başlatabilir, bakım zamanlanmış penceresi başlangıcı ||
-| MaintenanceWindowEndTime              | VM üzerinde bakım başlatabilir, bakım zamanlanmış penceresi sonu ||
+| MaintenanceWindowStartTime            | Azure VM'nizi bakım başlatan zamanlanmış bakım başlangıcı ||
+| MaintenanceWindowEndTime              | Azure VM'nizi bakım başlatır zamanlanmış bakım penceresi sonu ||
 | LastOperationResultCode               | Son VM bakım başlatma girişimi sonucu ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -184,7 +183,7 @@ Yüksek kullanılabilirlik hakkında daha fazla bilgi için bkz: [bölgeler ve A
 
 **S: ne kadar süreyle sanal Makinem yeniden başlatılmasını sürer?**
 
-**Y:** VM boyutuna bağlı olarak, yeniden başlatma için birkaç dakika sürebilir. Bulut Hizmetleri (Web/çalışan rolü), sanal makine ölçek ayarlar ya da kullanılabilirlik kümeleri kullanmanız durumunda, her grup, sanal makineleri (UD) arasında 30 dakika verilen unutmayın. 
+**Y:** VM boyutuna bağlı olarak, yeniden başlatma için Self Servis bakım penceresi sırasında birkaç dakika sürebilir. Azure sırasında zamanlanmış bakım penceresi, yeniden başlatma typicall Al yeniden başlatılmasıyla ilgili 25 dakika başlattı. Bulut Hizmetleri (Web/çalışan rolü), sanal makine ölçek ayarlar ya da kullanılabilirlik kümeleri kullanmanız durumunda, 30 dakika arasında her grup, sanal makineleri (UD) zamanlanmış bakım penceresi sırasında verilen unutmayın. 
 
 **S: deneyimi bulut Hizmetleri (Web/çalışan rolü), Service Fabric ve sanal makine ölçek kümeleri söz konusu olduğunda nedir?**
 
@@ -215,6 +214,6 @@ Yüksek kullanılabilirlik hakkında daha fazla bilgi için bkz: [bölgeler ve A
 **Y:** bir kullanılabilirlik kümesinde kısa art arda birden çok örneği güncelleştirmeye tıklarsanız, Azure bu istekleri sıraya alacağı ve aynı anda yalnızca tek bir güncelleştirme etki alanında (UD) sanal makineleri güncelleştirmek başlatır. Ancak, olabileceğinden güncelleştirme etki alanları arasında bir duraklama, güncelleştirmeyi daha uzun sürer görünebilir. Güncelleştirme sıra 60 dakikadan uzun sürerse, bazı örnekleri gösterilir **atlandı** başarıyla güncelleştirildi olsa bile belirtin. Yanlış bu durumu önlemek için yalnızca bir kullanılabilirlik örneğinde tıklayarak, kullanılabilirlik kümelerini güncelleştirme ayarlayın ve farklı bir güncelleştirme etki alanındaki sonraki VM'de tıklatmadan önce tamamlamak için bu VM'de güncelleştirilmesini bekleyin.
 
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 VM kullanarak içinde bakım olaylarından ne kaydolabilirsiniz öğrenin [zamanlanmış olayları](scheduled-events.md).

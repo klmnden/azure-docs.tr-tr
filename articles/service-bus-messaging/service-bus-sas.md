@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus kimlik doğrulaması
 
@@ -48,8 +48,8 @@ SAS hakkında anlamak için bir önemli bir ilkeyle başlatır şeydir. Her ilke
 Bir ilke kullanılabilir izinlerini büyük ölçüde kendinden açıklamalıdır şunlardır:
 
 * Gönder
-* Dinleme
-* Yönet
+* Dinle
+* Yönetme
 
 İlke oluşturduktan sonra atanan bir *birincil anahtar* ve *ikincil anahtar*. Şifreleme açısından güçlü anahtarları şunlardır. Bunlar kaybolur veya bunları sızıntısı yok - bunlar her zaman kullanılabilir olması [Azure portal][Azure portal]. Oluşturulan anahtarları birini kullanabilirsiniz ve her zaman yeniden oluşturabilirsiniz. Ancak, yeniden oluşturmak veya ilke birincil anahtarda değiştirirseniz tüm paylaşılan erişim imzaları oluşturulan geçersiz kılınır.
 
@@ -317,44 +317,44 @@ Aşağıdaki tabloda Service Bus kaynaklarını üzerinde çeşitli işlemler i�
 | İşlem | Gerekli talep | Talep kapsamı |
 | --- | --- | --- |
 | **Namespace** | | |
-| Yetkilendirme kuralı üzerinde bir ad alanı yapılandırma |Yönet |Herhangi bir ad alanı adresi |
+| Yetkilendirme kuralı üzerinde bir ad alanı yapılandırma |Yönetme |Herhangi bir ad alanı adresi |
 | **Hizmet kayıt defteri** | | |
-| Özel ilkeler listeleme |Yönet |Herhangi bir ad alanı adresi |
-| Bir ad alanı üzerinde dinleme yapmaya başlamasını |Dinleme |Herhangi bir ad alanı adresi |
+| Özel ilkeler listeleme |Yönetme |Herhangi bir ad alanı adresi |
+| Bir ad alanı üzerinde dinleme yapmaya başlamasını |Dinle |Herhangi bir ad alanı adresi |
 | Bir ad alanı konumundaki bir dinleyici iletileri gönder |Gönder |Herhangi bir ad alanı adresi |
 | **Sırası** | | |
-| Bir kuyruk oluşturma |Yönet |Herhangi bir ad alanı adresi |
-| Bir kuyruk silme |Yönet |Herhangi bir geçerli sıra adresi |
-| Kuyruklar listeleme |Yönet |$ Kaynakları/sıraları |
-| Al sıra açıklaması |Yönet |Herhangi bir geçerli sıra adresi |
-| Sıra için yetkilendirme kuralı yapılandırma |Yönet |Herhangi bir geçerli sıra adresi |
+| Bir kuyruk oluşturma |Yönetme |Herhangi bir ad alanı adresi |
+| Bir kuyruk silme |Yönetme |Herhangi bir geçerli sıra adresi |
+| Kuyruklar listeleme |Yönetme |$ Kaynakları/sıraları |
+| Al sıra açıklaması |Yönetme |Herhangi bir geçerli sıra adresi |
+| Sıra için yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir geçerli sıra adresi |
 | İçine kuyruğa gönderme |Gönder |Herhangi bir geçerli sıra adresi |
-| Kuyruktan ileti alma |Dinleme |Herhangi bir geçerli sıra adresi |
-| Abandon veya gözlem kilidinin modunda iletiyi aldıktan sonra tamamlandı iletileri |Dinleme |Herhangi bir geçerli sıra adresi |
-| Sonraki alınması için bir ileti erteleme |Dinleme |Herhangi bir geçerli sıra adresi |
-| Sahipsiz bir ileti |Dinleme |Herhangi bir geçerli sıra adresi |
-| Bir ileti sırası oturumla ilişkili durumunu Al |Dinleme |Herhangi bir geçerli sıra adresi |
-| Bir ileti sırası oturumla ilişkili durumunu ayarlama |Dinleme |Herhangi bir geçerli sıra adresi |
+| Kuyruktan ileti alma |Dinle |Herhangi bir geçerli sıra adresi |
+| Abandon veya gözlem kilidinin modunda iletiyi aldıktan sonra tamamlandı iletileri |Dinle |Herhangi bir geçerli sıra adresi |
+| Sonraki alınması için bir ileti erteleme |Dinle |Herhangi bir geçerli sıra adresi |
+| Sahipsiz bir ileti |Dinle |Herhangi bir geçerli sıra adresi |
+| Bir ileti sırası oturumla ilişkili durumunu Al |Dinle |Herhangi bir geçerli sıra adresi |
+| Bir ileti sırası oturumla ilişkili durumunu ayarlama |Dinle |Herhangi bir geçerli sıra adresi |
 | **Konu** | | |
-| Konu başlığı oluşturma |Yönet |Herhangi bir ad alanı adresi |
-| Bir konu Sil |Yönet |Herhangi bir geçerli konu adresi |
-| Konular listeleme |Yönet |$ Kaynakları/konuları |
-| Al konu açıklaması |Yönet |Herhangi bir geçerli konu adresi |
-| Bir konu için yetkilendirme kuralı yapılandırma |Yönet |Herhangi bir geçerli konu adresi |
+| Konu başlığı oluşturma |Yönetme |Herhangi bir ad alanı adresi |
+| Bir konu Sil |Yönetme |Herhangi bir geçerli konu adresi |
+| Konular listeleme |Yönetme |$ Kaynakları/konuları |
+| Al konu açıklaması |Yönetme |Herhangi bir geçerli konu adresi |
+| Bir konu için yetkilendirme kuralı yapılandırma |Yönetme |Herhangi bir geçerli konu adresi |
 | Konuya Gönder |Gönder |Herhangi bir geçerli konu adresi |
 | **Abonelik** | | |
-| Abonelik oluşturma |Yönet |Herhangi bir ad alanı adresi |
-| Aboneliği silme |Yönet |../myTopic/Subscriptions/mySubscription |
-| Aboneliklerini listeleme |Yönet |../ myTopic/abonelikleri |
-| Al abonelik açıklaması |Yönet |../myTopic/Subscriptions/mySubscription |
-| Abandon veya gözlem kilidinin modunda iletiyi aldıktan sonra tamamlandı iletileri |Dinleme |../myTopic/Subscriptions/mySubscription |
-| Sonraki alınması için bir ileti erteleme |Dinleme |../myTopic/Subscriptions/mySubscription |
-| Sahipsiz bir ileti |Dinleme |../myTopic/Subscriptions/mySubscription |
-| Bir konu oturumla ilişkili durumunu Al |Dinleme |../myTopic/Subscriptions/mySubscription |
-| Bir konu oturumla ilişkili durumunu ayarlama |Dinleme |../myTopic/Subscriptions/mySubscription |
+| Abonelik oluşturma |Yönetme |Herhangi bir ad alanı adresi |
+| Aboneliği silin |Yönetme |../myTopic/Subscriptions/mySubscription |
+| Aboneliklerini listeleme |Yönetme |../ myTopic/abonelikleri |
+| Al abonelik açıklaması |Yönetme |../myTopic/Subscriptions/mySubscription |
+| Abandon veya gözlem kilidinin modunda iletiyi aldıktan sonra tamamlandı iletileri |Dinle |../myTopic/Subscriptions/mySubscription |
+| Sonraki alınması için bir ileti erteleme |Dinle |../myTopic/Subscriptions/mySubscription |
+| Sahipsiz bir ileti |Dinle |../myTopic/Subscriptions/mySubscription |
+| Bir konu oturumla ilişkili durumunu Al |Dinle |../myTopic/Subscriptions/mySubscription |
+| Bir konu oturumla ilişkili durumunu ayarlama |Dinle |../myTopic/Subscriptions/mySubscription |
 | **Kuralları** | | |
-| Bir kural oluşturun |Yönet |../myTopic/Subscriptions/mySubscription |
-| Kural silme |Yönet |../myTopic/Subscriptions/mySubscription |
+| Bir kural oluşturun |Yönetme |../myTopic/Subscriptions/mySubscription |
+| Kural silme |Yönetme |../myTopic/Subscriptions/mySubscription |
 | Kuralları listeleme |Dinlemek veya yönetme |../myTopic/Subscriptions/mySubscription/Rules 
 
 ## <a name="next-steps"></a>Sonraki adımlar

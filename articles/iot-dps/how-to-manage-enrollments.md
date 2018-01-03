@@ -1,5 +1,5 @@
 ---
-title: "Azure IOT Hub cihaz kayıtlarını yönetme | Microsoft Docs"
+title: "Azure portal ile cihaz kayıtlarını yönetme | Microsoft Docs"
 description: "Azure Portalı'nda DPS hizmetiniz için cihaz kayıtlarını yönetme"
 services: iot-dps
 keywords: 
@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c230e73f83d8acd0f142e037f70a80c9e0e4107e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1d4e1e54d945c6edb0054da7b465b31de8c82a1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="how-to-manage-device-enrollments-in-the-iot-hub-device-provisioning-service"></a>IOT Hub cihaz sağlama hizmet cihaz kayıtlarını yönetme
+# <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure Portal ile cihaz kayıtlarını yönetme
 
 A *cihaz kaydı* tek bir cihazı veya grubun belirli bir noktada Azure IOT Hub cihaz sağlama Hizmeti'ne kaydedebilir cihazların bir kayıt oluşturur. İlk istenen yapılandırma istenen IOT hub'ı dahil, kaydın parçası olarak aygıt kaydı içerir. Bu makalede sağlama hizmetiniz için cihaz kayıtlarını yönetme gösterilmektedir.
 
@@ -27,35 +27,35 @@ A *cihaz kaydı* tek bir cihazı veya grubun belirli bir noktada Azure IOT Hub c
 
 Aygıtlarınızı sağlama hizmeti ile kaydetmek için iki yolu vardır:
 
-1. Bir **kayıt grup** X.509 sertifikaları aynı kök CA tarafından imzalanmış bir ortak kanıtlama mekanizması paylaşan aygıtları bir grup için bir giriş. Çok sayıda istenen ilk yapılandırmasını paylaşan cihazlar için veya cihazlar için bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz. Yalnızca X.509 kanıtlama mekanizması olarak kullanan cihazları kaydedebilmeniz için Not *kayıt grupları*. 
+* Bir **kayıt grup** olabilen aynı imzalama sertifikası tarafından imzalanmış X.509 sertifikalarının ortak bir kanıtlama mekanizması paylaşan aygıtları bir grup için bir giriş [kök sertifika](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) veya [ara sertifika](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), fiziksel aygıttaki aygıt sertifika üretmek için kullanılan. Çok sayıda istenen ilk yapılandırmasını paylaşan cihazlar için veya cihazlar için bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz. Yalnızca X.509 kanıtlama mekanizması olarak kullanan cihazları kaydedebilmeniz için Not *kayıt grupları*. 
 
-    Portalında aşağıdaki adımları kullanarak cihazları bir grup için bir kayıt grubu oluşturabilirsiniz.
+    Portalında aşağıdaki adımları kullanarak cihazları bir grup için bir kayıt grubu oluşturun:
 
     1. Azure portalında oturum açın ve tıklatın **tüm kaynakları** sol taraftaki menüden.
     2. Cihazınızı için kaynaklar listesi kaydetmek istediğiniz cihaz sağlamayı hizmete tıklayın.
     3. Sağlama hizmetinizi tıklatın **kayıtlarını yönetme**seçeneğini belirleyip **kayıt grupları** sekmesi.
     4. Tıklatın **Ekle** düğmesini en üstte ve kayıt liste girdisi için gereken bilgileri girin. Cihaz grubu için kök sertifikasını yükleyin. 
-    5. **Kaydet** düğmesine tıklayın. Üzerinde başarılı oluşturma kayıt grubunuzun altında göründüğünü grup adını görmeniz gerekir **kayıt grupları** sekmesi. 
+    5. **Kaydet**’e tıklayın. Üzerinde başarılı oluşturma kayıt grubunuzun altında göründüğünü grup adını görmeniz gerekir **kayıt grupları** sekmesi. 
 
         ![Portal kayıt grubunda](./media/how-to-manage-enrollments/group-enrollment.png)
 
     
-2. Bir **tek tek kayıt** kaydedebilir tek bir cihaz için bir giriş. Tek tek kayıtları ya da x509 kullanabilir sertifikalar veya SAS belirteçleri (gerçek veya sanal TPM'de) kanıtlama mekanizmaları. Benzersiz başlangıç yapılandırmasını gerektiren cihazlar için veya yalnızca TPM ya da sanal TPM aracılığıyla SAS belirteci kanıtlama mekanizması olarak kullanabileceğiniz cihazlar için tek tek kayıtları kullanmanızı öneririz. Tek tek kayıtları, belirtilen istenen IOT hub cihaz kimliği olabilir.
+* Bir **tek tek kayıt** kaydedebilir tek bir cihaz için bir giriş. Tek tek kayıtları ya da x509 kullanabilir sertifikalar veya SAS belirteçleri (gerçek veya sanal TPM'de) kanıtlama mekanizmaları. Benzersiz başlangıç yapılandırmasını gerektiren cihazlar için veya yalnızca TPM ya da sanal TPM aracılığıyla SAS belirteci kanıtlama mekanizması olarak kullanabileceğiniz cihazlar için tek tek kayıtları kullanmanızı öneririz. Tek tek kayıtları, belirtilen istenen IOT hub cihaz kimliği olabilir.
 
-    Tek bir kayıt portalında aşağıdaki adımları kullanarak oluşturabilirsiniz. 
+    Aşağıdaki adımları kullanarak portalda tek tek bir kayıt oluşturabilirsiniz:
 
     1. Azure portalında oturum açın ve tıklatın **tüm kaynakları** sol taraftaki menüden.
     2. Cihazınızı için kaynaklar listesi kaydetmek istediğiniz cihaz sağlamayı hizmete tıklayın.
     3. Sağlama hizmetinizi tıklatın **kayıtlarını yönetme**seçeneğini belirleyip **tek tek kayıtları** sekmesi.
     4. Tıklatın **Ekle** üstündeki düğmesi. 
     5. Cihaz için güvenlik mekanizması seçin ve kayıt liste girdisi için gereken bilgileri girin. Cihazınızı X.509 uyguluyorsa imzalı bir sertifika yükleyin. 
-    6. **Kaydet** düğmesine tıklayın. Üzerinde başarılı oluşturma kayıt grubunuzun altında göründüğünü Cihazınızı görmeniz gerekir **tek tek kayıtları** sekmesi. 
+    6. **Kaydet**’e tıklayın. Üzerinde başarılı oluşturma kayıt grubunuzun altında göründüğünü Cihazınızı görmeniz gerekir **tek tek kayıtları** sekmesi. 
 
         ![Tek tek kayıt Portalı'nda](./media/how-to-manage-enrollments/individual-enrollment.png)
 
 
 ## <a name="update-an-enrollment-entry"></a>Güncelleştirme kayıt girişi
-Varolan bir kayıt girişi portalında aşağıdaki adımları kullanarak güncelleştirebilirsiniz.
+Varolan bir kayıt girişi portalında aşağıdaki adımları kullanarak güncelleştirebilirsiniz:
 
 1. Azure portalında hizmeti cihaz sağlama açın ve tıklatın **kayıtlarını yönetme**. 
 2. Değişiklik yapmak istediğiniz kayıt girişine gidin. Cihaz kaydı ile ilgili özet bilgiler açar girdiyi tıklatın. 
@@ -66,7 +66,7 @@ Varolan bir kayıt girişi portalında aşağıdaki adımları kullanarak günce
 
 
 ## <a name="remove-a-device-enrollment"></a>Cihaz kaydı Kaldır
-Burada aygıtlarınızın tüm IOT hub'ına sağlanması gerekmez durumlarda, ilgili kayıt girişi portalında aşağıdaki adımları kullanarak kaldırabilirsiniz.
+Burada aygıtlarınızın tüm IOT hub'ına sağlanması gerekmez durumlarda, ilgili kayıt girişi portalında aşağıdaki adımları kullanarak kaldırabilirsiniz:
 
 1. Azure portalında hizmeti cihaz sağlama açın ve tıklatın **kayıtlarını yönetme**. 
 2. Gidin ve kaldırmak istediğiniz kayıt girişi seçin. 

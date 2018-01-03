@@ -14,35 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: f52252aca0ce89d6a86e620a97e749461181016f
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: efcafa40c3d47ebfdd4520f98b65ad2c05b03c57
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure Tanıtımı
 Microsoft Azure Microsoft'un uygulama için genel bulut platformudur.  Bu makalede bulut ilgili herhangi bir şey tanımadığınız olsa bile bir temel Azure, temelleri anlamak için size hedefidir bilgi işlem.
 
 **Bu makaleyi okuyun nasıl**
 
-Aşırı yüklenmiş kolaydır azure her zaman artıyor.  Bu makalede ilk listelenir ve ek hizmetler gidin temel Hizmetleri ile başlatın. Tek başına ek hizmetler kullanamaz, ancak Azure'da çalışan bir uygulama çekirdek temel Hizmetleri oluşturan anlamına gelmez.
+Aşırı yüklenmiş kolaydır azure her zaman artıyor.  Bu makalede ilk listelenir ve ek hizmetler gidin temel Hizmetleri ile başlatın. Bu, tek başına ek hizmetler kullanamazsınız anlamına gelmez. Ancak temel Hizmetleri Çekirdek Azure'da çalışan bir uygulama oluşturur.
 
 **Geri bildirim gönderin**
 
 Görüşleriniz önemlidir. Bu makalede Azure etkili genel bakış vermesi gerekir. Yoksa, sayfanın sonundaki açıklamalar bölümünde bize bildirin. Görmeyi beklediğiniz ve makale iyileştirmek nasıl bazı ayrıntı sağlayacaktır.  
 
 ## <a name="the-components-of-azure"></a>Azure bileşenleri
-Azure Yönetim Portalı'nda ve gibi çeşitli görsel yardımlar kategorilere Hizmetleri grupları [Azure bilgi grafiği nedir](https://azure.microsoft.com/documentation/infographics/azure/) . Yönetim Portalı'nı yönetmek için kullandığınız olduğundan çoğu (ancak tüm) Hizmetleri.
+Azure Hizmetleri Azure portalında ve gibi çeşitli görsel yardımlar kategorilere grupları [Azure bilgi grafiği nedir](https://azure.microsoft.com/documentation/infographics/azure/). [Azure portal](http://portal.azure.com) Azure hizmetleri yönetmek için kullanın.
 
-Bu makalede kullanacağı bir **farklı Kuruluş** benzer işlevine bağlı hizmetleri hakkında konuşun ve büyük olanları parçası olan önemli alt hizmetlerini çağırın.  
+Bu makalede kullanan bir **farklı Kuruluş** benzer işlevine bağlı hizmetleri hakkında konuşun ve büyük olanları parçası olan önemli alt hizmetlerini çağırın.  
 
 ![Azure bileşenleri](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
  *Şekil: Azure Azure veri merkezlerinde çalışan Internet'ten erişilebilen uygulama hizmetleri sağlar.*
 
-## <a name="management-portal"></a>Yönetim Portalı
-Azure adında bir web arabirimi olan [Yönetim Portalı](http://manage.windowsazure.com) erişmek ve çoğu, ancak tüm Azure özelliklerini yönetmek yöneticilerin sağlar.  Microsoft, beta yeni UI portalında genellikle daha eski bir devre dışı bırakmadan önce yayımlar. Daha yeni bir adlı ["Azure Portal"](https://portal.azure.com/).
-
-Aynı zamanda hem portalları etkin olduğunda genellikle uzun bir çakışma yoktur. Çekirdek Hizmetleri her iki portallarında görünür, ancak tüm işlevselliği hem de kullanılabilir. Daha yeni hizmetleri yeni portalı ilk ve eski Hizmetleri'nde gösterebilir ve işlevselliği, yalnızca daha eski bir mevcut olabilir.  Burada eski Portalı'nda, bir değer bulamazsanız, daha yeni bir tam tersini denetleyip iletisidir.
+## <a name="azure-portal"></a>Azure portalına
+Azure adında bir web arabirimi olan [Azure portal](http://portal.azure.com) erişmek ve Azure özelliklerini ve hizmetlerini yönetmek yöneticilerin sağlar.  
 
 ## <a name="compute"></a>İşlem
 Bulut platformu mu en temel şeyler uygulamalarını yürütmek biridir. Her Azure işlem modellerin yürütmek için kendi rolü vardır.
@@ -75,7 +73,7 @@ Bulut için bu oldukça genel yaklaşım, birçok farklı sorunu gidermek için 
 
 Web siteleri ve web uygulamalarını bulutta kişiler yapmak en yaygın özelliklerinden biri çalıştırılır. Azure sanal makineleri bu sağlar, ancak hala, bir veya daha fazla sanal makineleri ve temel işletim sistemlerini yönetme ile ilgili sorumluluk bırakır. Bulut Hizmetleri web rolleri bunu ancak dağıtma ve bunların Bakımı yönetimsel iş hala alır.  Ne yalnızca bir Web sitesi başka bir kişiye burada istediğiniz sizin için yönetimsel iş ilgilenir?
 
-Bu, tam olarak Web Apps sağladıkları olur. Bu işlem modeli API'leri yanı sıra Azure yönetim portalını kullanarak bir yönetilen web ortamı sunar. Var olan bir Web sitesi uygulamasını Web uygulamalarına değişmeden taşıyabilir veya doğrudan bulutta yeni bir tane oluşturabilirsiniz. Bir Web sitesi çalışmaya başladıktan sonra ekleme ya da Yük Dengeleme isteklerini arasında gezinmek için Azure Web Apps güvenmek örneklerini dinamik olarak kaldırın. Azure uygulamaları, Web sitenizin bir sanal makinedeki diğer sitelerle çalıştığı, paylaşılan bir seçeneği ve kendi VM çalıştırmak bir site sağlayan standart bir seçenek sunar. Standart seçeneği ayrıca, gerekirse (güç bilgisayar) örneklerinizi boyutunu artırın olanak tanır.
+Bu, tam olarak Web Apps sağladıkları olur. Bu işlem modeli API'leri yanı sıra Azure portal kullanarak bir yönetilen web ortamı sunar. Var olan bir Web sitesi uygulamasını Web uygulamalarına değişmeden taşıyabilir veya doğrudan bulutta yeni bir tane oluşturabilirsiniz. Bir Web sitesi çalışmaya başladıktan sonra ekleme ya da Yük Dengeleme isteklerini arasında gezinmek için Azure Web Apps güvenmek örneklerini dinamik olarak kaldırın. Azure uygulamaları, Web sitenizin bir sanal makinedeki diğer sitelerle çalıştığı, paylaşılan bir seçeneği ve kendi VM çalıştırmak bir site sağlayan standart bir seçenek sunar. Standart seçeneği (güç bilgisayar) örneklerinizi boyutunu artırın sağlar.
 
 Geliştirme için Web Apps .NET, PHP, Node.js, Java ve Python birlikte SQL Database ve Azure veritabanı için MySQL ilişkisel depolama için destekler. WordPress, Joomla ve Drupal gibi çeşitli popüler uygulamalar için yerleşik destek de sağlar. Hedef, genel bulut ortamında Web siteleri ve web uygulamaları oluşturmak için düşük maliyetli, ölçeklenebilir ve kapsamlı ve kullanışlı bir platform sağlamaktır.
 
@@ -87,9 +85,9 @@ Web uygulamaları, şirketler, geliştiriciler ve web tasarımı kurumları içi
 ![Azure bulut hizmeti](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png)   
 *Şekil: Azure bulut hizmetlerine bir hizmet (PaaS) ortamı olarak bir Platform üzerinde yüksek düzeyde ölçeklenebilir özel kodu çalıştırmak için bir yer sağlar.*
 
-Çok sayıda eşzamanlı kullanıcıyı desteklemek, çok yönetim gerektirmez ve hiçbir zaman arıza bir bulut uygulaması oluşturmak istediğinizi varsayalım. Bir yerleşik yazılım satıcısı olabilir örneğin, karar yazılım (SaaS) hizmet olarak kapsayacak şekilde bulut uygulamalarınızda birinin sürümünü oluşturarak. Veya hızlı büyüyecektir beklediğiniz bir tüketici uygulaması oluşturma başlangıç olabilir. Azure üzerinde oluşturuyorsanız, hangi yürütme modeli kullanmalısınız?
+Çok sayıda eşzamanlı kullanıcıyı desteklemek, çok yönetim gerektirmez ve hiçbir zaman arıza bir bulut uygulaması oluşturmak istediğinizi varsayalım. Bir yerleşik yazılım satıcısı olabilir örneğin, karar yazılım (SaaS) hizmet olarak kapsayacak şekilde bulut uygulamalarınızda birinin sürümünü oluşturarak. Veya, hızlı büyümesine beklediğiniz bir tüketici uygulaması oluşturma başlangıç olabilir. Azure üzerinde oluşturuyorsanız, hangi yürütme modeli kullanmalısınız?
 
-Bu tür bir web uygulaması oluşturma Azure Web Apps verir, ancak bazı kısıtlamalar vardır. İsteğe bağlı yazılımlar yükleyemezsiniz anlamına gelen yönetim erişimi, örneğin, sahip değilsiniz. Azure sanal makineleri size esneklik, yönetimsel erişim dahil olmak üzere çok sayıda ve kesinlikle bunu çok ölçeklenebilir bir uygulama oluşturmak için kullanabilirsiniz, ancak kendiniz güvenilirlik ve yönetim pek çok görünüşünün işlemeye sahip olacaksınız. Ne istiyorsunuz gerekir, ancak aynı zamanda güvenilirlik ve Yönetim için gereken işlerin çoğunu işleyen denetimi sunan bir seçenektir.
+Bu tür bir web uygulaması oluşturma Azure Web Apps verir, ancak bazı kısıtlamalar vardır. İsteğe bağlı yazılımlar yükleyemezsiniz anlamına gelen yönetim erişimi, örneğin, sahip değilsiniz. Azure sanal makineleri esneklik, yönetimsel erişim dahil olmak üzere çok sayıda sağlar. Çok ölçeklenebilir bir uygulama oluşturmak için kullanabilirsiniz. Ancak güvenilirlik ve yönetim pek çok görünüşünün kendiniz işlemeye sahip. Ne istiyorsunuz gerekir, ancak aynı zamanda güvenilirlik ve Yönetim için gereken işlerin çoğunu işleyen denetimi sunan bir seçenektir.
 
 Bu, tam olarak Azure bulut Hizmetleri tarafından sağlanan olur. Bu teknoloji açıkça ölçeklenebilir, güvenilir desteklemek için tasarlanmıştır ve düşük Yönetim uygulamaları ve kullanıcının ne sık (PaaS) hizmet olarak Platform çağırdı örneği. Kullanmak için C#, Java, PHP, Python, Node.js veya başka bir şey gibi seçin teknolojisini kullanan bir uygulama oluşturun. Kodunuzu sonra sanal makinelerde (örnek adlandırılır) yürüten bir Windows Server sürümünü çalıştırıyor.
 
@@ -211,7 +209,7 @@ ExpressRoute hakkında daha fazla bilgi için bkz: [ExpressRoute teknik genel ba
 
 Azure uygulamanız birden çok veri merkezlerinde çalıştığından, kullanıcılardan gelen istekleri akıllıca uygulama örneklerinde yönlendirmek için Azure trafik Yöneticisi'ni kullanabilirsiniz. Ayrıca, Internet'ten erişilebilir olduğu sürece Azure üzerinde çalışmayan hizmetlerine trafiğini yönlendirebilir.  
 
-Yalnızca tek bir parça dünya kullanıcıların bir Azure uygulamasıyla yalnızca bir Azure veri merkezinde çalıştırabilirsiniz. Bir uygulama dünya genelinde dağılmış kullanıcılarla ancak, birden çok veri merkezlerinde, tüm hatta belki de çalıştırmak daha yüksektir. Bu ikinci durumda, bir sorun yüz: nasıl, akıllıca doğrudan uygulama örnekleri kullanıcılara? Çoğu zaman, büyük olasılıkla bunu büyük olasılıkla her en iyi yanıt süresi verecektir bu yana kendisine, en yakın veri merkezine erişmek için her bir kullanıcı istersiniz. Ancak ne uygulama örneğini aşırı yüklenmiş veya kullanılamaz olur? Bu durumda, kendi isteği otomatik olarak başka bir veri merkezine doğrudan iyi olacaktır. Bu, tam olarak hangi Azure trafik Yöneticisi tarafından yapılır olur.
+Yalnızca tek bir parça dünya kullanıcıların bir Azure uygulamasıyla yalnızca bir Azure veri merkezinde çalıştırabilirsiniz. Bir uygulama dünya genelinde dağılmış kullanıcılarla ancak, birden çok veri merkezlerinde, tüm hatta belki de çalıştırmak daha yüksektir. Bu ikinci durumda, bir sorun yüz: nasıl, akıllıca doğrudan uygulama örnekleri kullanıcılara? Çoğu zaman, büyük olasılıkla, en iyi yanıt süresi sağlandığından, en yakın veri merkezinin erişmek için her bir kullanıcı istersiniz. Ancak ne uygulama örneğini aşırı yüklenmiş veya kullanılamaz olur? Bu durumda, kendi isteği otomatik olarak başka bir veri merkezine doğrudan iyi olacaktır. Bu, tam olarak hangi Azure trafik Yöneticisi tarafından yapılır olur.
 
 Bir uygulama sahibi kullanıcıların isteklerini veri merkezlerini nasıl yönlendirilmesi gerektiğini belirten kuralları tanımlar ve ardından bu kurallar taşımak için trafik Yöneticisi'üzerinde kullanır. Örneğin, kullanıcılar en yakın Azure veri merkezi normalde yönlendirilebilir, ancak diğer veri merkezleri yanıt saati kendi varsayılan veri merkezi yanıt saati aştığında, başka birine gönderilen. Çok sayıda kullanıcı içeren genel dağıtılmış uygulamalar için bu gibi sorunları işlemek için yerleşik bir hizmet olması yararlı olacaktır.
 
@@ -234,7 +232,7 @@ Visual Studio Team Services, Azure uygulamaları geliştirmek için yardımcı o
 
 Sürüm denetimi ve iş öğesi izleme sunar Team Foundation Service adlı bir barındırılan kaynak denetim sistemi içermez.  Tercih ederseniz, Git sürüm denetimi için bile kullanabilirsiniz. Ve project tarafından kullandığınız kaynak denetim sistemi değişebilir. Sınırsız özel takım projeleri erişilebilen herhangi bir yere dünyada oluşturabilirsiniz.  
 
-Visual Studio Team Services yük test etme hizmeti sağlar. Visual Studio bulut vm'lerinde oluşturulan yük testlerini çalıştırabilirsiniz. Yük testi ile istediğiniz kullanıcıların toplam sayısını belirtin ve Visual Studio Team Services, otomatik olarak gereken sanal makineleri Döndür ve yük testleri yürütün kaç aracıları gereklidir belirler. MSDN abone değilseniz, her ay sınama yük boş kullanıcı dakika binlerce alın.
+Visual Studio Team Services yük test etme hizmeti sağlar. Visual Studio bulut vm'lerinde oluşturulan yük testlerini çalıştırabilirsiniz. Gerekli sanal makineleri Döndür ve yük testleri yürütün kaç aracıları gereklidir ile test ve Visual Studio Team Services otomatik olarak yüklenmesini istediğiniz kullanıcıları toplam sayısını belirler belirtin. MSDN abone değilseniz, her ay sınama yük boş kullanıcı dakika binlerce alın.
 
 Visual Studio Team Services aynı zamanda sürekli tümleştirme derlemeler gibi özellikleri, Kanban panolarına ve sanal takım odaları Çevik Geliştirme desteği sağlar.
 
@@ -281,9 +279,9 @@ Azure API Management API'leri ortakları, çalışanlar ve üçüncü taraf geli
 
 **API yönetim senaryoları**
 
-Şirketinizin sahip bir cihaz kümesi düşünelim tüm aygıtları her kamyon yola sahip bir sevkiyat şirket verileri--Örneğin, merkezi bir hizmete geri arama gerekiyor.  Kesinlikle şirket, güvenilir bir şekilde tahmin etmek ve teslimat saatleri güncelleştirme verebilmesi kendi kamyonlar izlemek için bir sistemi ayarlamak isteyebilirsiniz. Bu, sahip kaç kamyonlar bilmeniz ve uygun şekilde planlamanız.  Her kamyon, konumlandırma ve hız veriler ve belki de daha fazla ile merkezi bir konuma geri çağıran bir aygıtı gerekir.
+Şirketinizin sahip bir cihaz kümesi düşünelim tüm aygıtları her kamyon yola sahip bir sevkiyat şirket verileri--Örneğin, merkezi bir hizmete geri arama gerekiyor.  Kesinlikle şirket, güvenilir bir şekilde tahmin etmek ve teslimat saatleri güncelleştirme verebilmesi kendi kamyonlar izlemek için bir sistemi ayarlamak istiyor. Bu, sahip kaç kamyonlar bilmeniz ve uygun şekilde planlamanız.  Her kamyon, konumlandırma ve hız veriler ve belki de daha fazla ile merkezi bir konuma geri çağıran bir aygıt gereklidir.
 
-Bir müşteri sevkiyat şirketin olur konumlandırma bu veri alma de yararlanabilir.  Müşteri bu ürünleri ne kadar seyahat, burada bunlar, ne kadar bunlar (ne bunlar dağıtmayı Ücretli ile birleştirilmiş varsa) belirli yollar ödeme takılı zorunda öğrenmek için kullanabilirsiniz. Nakliye şirketi zaten bu veriler toplar, birçok müşteri için ödeme.  Ancak müşteriler veri vermek için bir yol sağlamak üzere Nakliye şirketi gerekiyor. Erişim müşterilere sağladıkları sonra verileri ne sıklıkla sorgulanan üzerinde denetim olmayabilir. Bunlar, hangi verilerin erişebilecek kişileri hakkında kurallar vermeniz gerekir. Bu kuralların hepsi, kendi API'nin oluşturulması gerekir. API Management burada yardımcı olabilecek budur.  
+Bir müşteri sevkiyat şirketin olur konumlandırma bu veri alma de yararlanabilir.  Müşteri bu ürünleri ne kadar seyahat, burada bunlar, ne kadar bunlar (ne bunlar dağıtmayı Ücretli ile birleştirilmiş varsa) belirli yollar ödeme takılı zorunda öğrenmek için kullanabilirsiniz. Nakliye şirketi zaten bu veriler toplar, birçok müşteri için ödeme.  Ancak müşteriler veri vermek için bir yol sağlamak üzere Nakliye şirketi gerekiyor. Erişim müşterilere sağladıkları sonra verileri ne sıklıkla sorgulanan üzerinde denetim olmayabilir. Hangi verilerin erişebilecek kişileri hakkında kurallarını sağlaması gerekir. Bu kuralların hepsi, kendi API'nin oluşturulması gerekir. API Management burada yardımcı olabilecek budur.  
 
 ## <a name="identity-and-access"></a>Kimlik ve Erişim
 Kimliğine sahip çalışan çoğu uygulamayı bir parçasıdır. Kimin bir kullanıcı bilerek bu kullanıcı ile nasıl etkileşim kurması gerektiğine karar bir uygulama sağlar. Azure kimlik yanı sıra zaten kullanıyor olabileceğiniz kimlik depolarına ile tümleştirmek izlenmesine yardımcı olmak için hizmetleri sağlar.
@@ -380,7 +378,7 @@ Ne yapmakta olduğu olsun, kod sık diğer kodu ile etkileşimde olmalıdır.  B
 
 Queuing olan basit bir fikir: bir uygulama bir ileti sıraya koyar ve bu iletiyi sonunda başka bir uygulama tarafından okunur. Uygulamanızı basit bu hizmet gerekiyorsa, Azure kuyrukları en iyi seçim olabilir.
 
-Zaman içinde Azure büyüdü yöntemi nedeniyle, Azure depolama kuyruklar ve hizmet veri yolu kuyrukları benzer sıraya alma hizmetleri sağlar. Neden diğer üzerinde kullanmak istediğiniz nedenleri oldukça teknik yazıda kapsanan [Azure kuyruklar ve hizmet veri yolu kuyrukları karşılaştırılan ve Contrasted -](http://msdn.microsoft.com/library/azure/hh767287.aspx).  Birçok senaryoda ya da çalışır.
+Zaman içinde Azure büyüdü yöntemi nedeniyle, Azure depolama kuyruklar ve hizmet veri yolu kuyrukları benzer sıraya alma hizmetleri sağlar. Neden diğer üzerinde kullanmak istediğiniz nedenleri oldukça teknik yazıda kapsanan [Azure kuyruklar ve hizmet veri yolu kuyrukları karşılaştırılan ve Contrasted -](http://msdn.microsoft.com/library/azure/hh767287.aspx).  Birçok senaryolarında ya da çalışır.
 
 **Sıra senaryoları**
 
@@ -461,7 +459,7 @@ Azure'nın veri yönetimi hizmetlerini SQL Database, tablolar veya BLOB hiçbiri
 
 Bulut Hizmetleri uygulama verileri bu önbellekte depolamak sonra kalıcı depolama alanına erişmek gerek kalmadan alma. Önbellek uygulamanızın VM'ler içinde sürdürülebilir veya yalnızca önbelleğe alma için ayrılmış VM'ler tarafından sağlanması. Her iki durumda da önbellek dağıtılabilir, verilerle bir Azure veri merkezinde birden çok VM üzerinden yayılan içeriyor.
 
-Azure zamanla gölgeye farklı önbellek teknolojileri sayısına sahip. Bunlar sunuldu sırayla yoktur paylaşılan, rol yönetilen ve Redis önbelleği. Paylaşılan önbelleğe alma eski bir teknolojidir ve yeni uygulamalar ile oluşturmamalısınız. Yönetilen önbellek rol içi önbelleği, ancak Azure Yönetim Portalı dışında yönetilen hizmet olarak aynı özelliklere sahiptir. Redis önbelleği önizlemede değil. Redis uygulama özelliklerin en büyük sayı olan ve yeni önbelleğe alma kodu yazarken önerilir.
+Azure zamanla gölgeye farklı önbellek teknolojileri sayısına sahip. Bunlar sunuldu sırayla yoktur paylaşılan, rol yönetilen ve Redis önbelleği. Paylaşılan önbelleğe alma eski bir teknolojidir ve yeni uygulamalar ile oluşturmamalısınız. Yönetilen önbellek rol içi önbelleği, ancak Azure portal dışında yönetilen hizmet olarak aynı özelliklere sahiptir. Redis uygulama özelliklerin en büyük sayı olan ve yeni önbelleğe alma kodu yazarken önerilir.
 
 **Azure önbelleği senaryoları**
 
@@ -527,7 +525,7 @@ Hizmet olarak yazılım neden uygulamaları nasıl oluşturuyoruz dönüştürme
 ![Azure ticaret](./media/fundamentals-introduction-to-azure/CommerceIntroNew.png)   
  **Şekil: Azure Market ve Azure depolama bulmanıza ve Azure uygulamalarını ve ticari veri kümeleri satın alın ve bunları Azure uygulamalarınızı bir parçası olarak kullanın olanak tanır.**
 
-İkisi arasındaki farkı Market dışında Azure Yönetim Portalı olduğu, ancak mağazası portalı içinde erişilebilir olduğunu. Olası müşteriler kendi gereksinimlerini karşılayacak Azure uygulamalarını bulmak için arama yapabilirsiniz. Müşteriler, demografik veriler, finansal verileri, coğrafi veriler ve benzeri ticari veri kümeleri için de arayabilirsiniz. Bunlar bir şey istedikleri bulduğunuzda, bunlar, ya da satıcıdan doğrudan Market veya deposu web konumu veya bazı durumlarda Yönetim Portalı'ndan erişebilir. Uygulamaları, web arama sonuçlarını erişim onların Market üzerinden Bing arama API de kullanabilirsiniz.
+İkisi arasındaki farkı Market dışında Azure portal olduğu, ancak mağazası portalı içinde erişilebilir olduğunu. Olası müşteriler kendi gereksinimlerini karşılayacak Azure uygulamalarını bulmak için arama yapabilirsiniz. Müşteriler, demografik veriler, finansal verileri, coğrafi veriler ve benzeri ticari veri kümeleri için de arayabilirsiniz. Bunlar bir şey istedikleri bulduğunuzda, bunlar, ya da satıcıdan doğrudan Market veya deposu web konumu veya bazı durumlarda Azure portalından erişebilir. Uygulamaları, web arama sonuçlarını erişim onların Market üzerinden Bing arama API de kullanabilirsiniz.
 
 **Ticaret senaryoları**
 

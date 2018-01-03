@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cb998caf35a9a55ea737cc1a24fbce38aac8abc4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 3f61f0bf8234e747ae38146d1a5ea030e3163fa3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Ortak sorunlar ve çözümleri için Azure IOT kenar
 
@@ -24,7 +24,7 @@ Azure IOT kenar ortamınızda çalışan sorunlarla karşılaşırsanız, sorun 
 
 Bir sorunla karşılaştığınızda, kapsayıcı günlükleri ve ve aygıttan geçirmek iletilerini gözden geçirerek IOT kenar Cihazınızı durumu hakkında daha fazla bilgi. Araçlar ve komutlar bilgileri toplamak için bu bölümdeki kullanın. 
 
-* Sorunları algılamak için docker kapsayıcıların günlüklerine bakın. Dağıtılan kapsayıcılarını ile başlayın, ardından IOT kenar çalışma zamanı yapmak kapsayıcıları bakın: kenar aracısı ve kenar Hub. Edge aracı günlüklerini genellikle her kapsayıcı lifecylce üzerinde bilgilerinizi sağlayın. Edge Hub günlükleri, Mesajlaşma ve yönlendirme bilgileri sağlar. 
+* Sorunları algılamak için docker kapsayıcıların günlüklerine bakın. Dağıtılan kapsayıcılarını ile başlayın, ardından IOT kenar çalışma zamanı yapmak kapsayıcıları bakın: kenar aracısı ve kenar Hub. Edge Aracısı günlükleri, genellikle her kapsayıcı yaşam döngüsü hakkında bilgi sağlar. Edge Hub günlükleri, Mesajlaşma ve yönlendirme bilgileri sağlar. 
 
    ```cmd
    docker logs <container name>
@@ -69,7 +69,7 @@ Ağ yapılandırmasının konak ağ, ağ ulaşmasını kenar Aracısı engelliyo
 İletişim için her modül için bir ağ IOT kenar çalışma zamanı ayarlar. Linux üzerinde bu ağ köprüsü ağdır. İsteğe bağlı olarak, Windows NAT kullanır Bu sorunu NAT ağı kullanmak Windows kapsayıcıları kullanma Windows cihazlarda daha yaygın bir durumdur. 
 
 ### <a name="resolution"></a>Çözüm
-İnternet bu köprüsü/NAT ağa atanan IP adresleri için bir yol olduğundan emin olun. Burada IOT kenar ağ ana bilgisayarda VPN yapılandırması geçersiz kılar durumlarda olmuştur. 
+İnternet bu köprüsü/NAT ağa atanan IP adresleri için bir yol olduğundan emin olun. Bazen ana bilgisayarda VPN yapılandırması IOT kenar ağ geçersiz kılar. 
 
 ## <a name="edge-hub-fails-to-start"></a>Edge Hub başlatılamıyor
 

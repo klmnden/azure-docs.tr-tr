@@ -11,51 +11,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: c6441d2119518e89a869ee52e5f0b80450ae2bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="message-sessions--first-in-first-out-fifo"></a>Oturumları iletisi / ilk giren ilk çıkar (FIFO) 
+# <a name="message-sessions-first-in-first-out-fifo"></a>İleti oturumları: ilk çıkar (FIFO) ilk olarak, 
 
-Hizmet veri yolu oturumları ilgili iletiler ve sınırsız dizilerini birleşik ve sıralı işlenmesi etkinleştirin. Service Bus içinde FIFO garantisi hayata geçirmek için oturumları kullanmanız gerekir. Hizmet veri yolu iletileri arasındaki ilişkiyi doğası hakkında Düzenleyici değil ve ayrıca burada bir ileti sırası başlangıç veya bitiş belirlemek için belirli bir model tanımlamıyor.
+Microsoft Azure Service Bus oturumları ilgili iletiler ve sınırsız dizilerini birleşik ve sıralı işlenmesi etkinleştirin. Service Bus içinde FIFO garantisi hayata geçirmek için oturumları kullanın. Hizmet veri yolu iletileri arasındaki ilişkiyi doğası hakkında Düzenleyici değil ve ayrıca burada bir ileti sırası başlangıç veya bitiş belirlemek için belirli bir model tanımlamıyor.
 
-Gönderen zaman gönderme iletileri bir konu veya sıra içine ayarlayarak bir oturumu oluşturabilirsiniz [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) Aracısı oturuma benzersiz bazı uygulama tanımlı bir tanımlayıcı özellik. Bu değer eşlendiği AMQP 1.0 protokol düzeyinde *Grup Kimliği* özelliği.
+Gönderen zaman gönderme iletileri bir konu veya sıra içine ayarlayarak bir oturumu oluşturabilirsiniz [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) oturuma benzersiz bazı uygulama tanımlı bir tanımlayıcı özellik. Bu değer eşlendiği AMQP 1.0 protokol düzeyinde *Grup Kimliği* özelliği.
 
 Oturumun ile en az bir ileti olduğunda oturum algılayan sıraları ya da abonelik üzerinde oturumları varlığı gelen [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId). Bir oturumu var olduğunda, tanımlı zaman veya yoktur API ne zaman oturum süresi veya kaybolur. Teorik olarak, bir ileti bir oturum için bugün, bir yılın zaman sıradaki ilk iletiye alınabilir ve **SessionID** eşleşir, Service Bus açısından aynı oturumdur.
 
-Genellikle, Bununla birlikte, bir uygulama burada ilgili iletiler kümesini başlar ve biter düz bir kavram vardır; ancak Service Bus herhangi belirli kurallar ayarlı değil.
+Genellikle, ancak, bir uygulama burada ilgili iletiler kümesini başlar ve biter düz bir kavram vardır. Hizmet veri yolu, herhangi bir özel kuralın ayarlı değil.
 
-Bir dosya aktarma ayarlamak için bir dizi ayırmak nasıl bir örnek **etiket** özelliği ilk iletinin için **Başlat**, Ara iletileri için **içerik**, ve son iletiye **son**. İçerik iletileri göreli konumunu geçerli iletinin hesaplanabilir *SequenceNumber* delta **Başlat** iletinin *SequenceNumber*.
+Bir dosya aktarma ayarlamak için bir dizi ayırmak nasıl bir örnek **etiket** özelliği ilk iletinin için **Başlat**, Ara iletileri için **içerik**, ve son iletiye **son**. İçerik iletileri göreli konumunu geçerli iletisi olarak hesaplanabilir *SequenceNumber* delta **Başlat** ileti *SequenceNumber*.
 
 Belirli bir alma işlemi, biçiminde Service Bus etkinleştirir oturum özelliğinde [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) C# ve Java API. Ayarlayarak özelliği etkinleştirmek [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) sıra veya abonelik aracılığıyla Azure Resource Manager veya portalda bayrağını ayarlayarak özelliği. İlgili API işlemleri kullanmaya çalışmadan önce bu gereklidir.
 
-Portalda, aşağıdaki onay kutusuyla bayrağı ayarlanır:
+Portalda, aşağıdaki onay kutusunu bayrağıyla ayarlayın:
 
 ![][2]
 
-API oturumları için kuyruk ve abonelik istemcilerde mevcut. Burada denetim oturumları ve iletileri alındığında kesinlik temelli bir modeli ve bir işleyici tabanlı modeli benzer *Onmessageoptions*alma yönetme karmaşıklığını gizler döngü,.
+API oturumları için kuyruk ve abonelik istemcilerde mevcut. Oturumlar ve iletileri alındığında denetimleri kesinlik temelli bir model ve bir işleyici tabanlı modeli benzer *Onmessageoptions*alma yönetme karmaşıklığını gizler döngü,.
 
 ## <a name="session-features"></a>Oturum özellikleri
 
-Oturumları eşzamanlı araya eklemeli ileti akışları koruma ve sıralı teslim güvence altına almak azaltma sağlar.
+Oturumları eşzamanlı araya eklemeli ileti akışları koruma ve sıralı teslim güvence altına almak XML'deki çoğullama sağlar.
 
 ![][1]
 
-A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) alıcı, bir oturum kabul istemci tarafından oluşturulur. İmperatively, istemci çağrılarını [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) veya [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) C#. Reaktif geri çağırma modelinde, bunu daha sonra açıklandığı gibi oturum işleyici kaydeder.
+A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) alıcı, bir oturum kabul istemci tarafından oluşturulur. İstemci çağrılarını [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) veya [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) C#. Reaktif geri çağırma modelinde, bunu daha sonra açıklandığı gibi oturum işleyici kaydeder.
 
-Zaman [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) kabul edilir ve istemci tarafından tutulan karşın, istemci o oturumunun sahip tüm iletiler üzerinde özel bir Kilit tutan [SessionID](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) kuyruk veya abonelik ve aynı zamanda mevcut tüm iletileri, ile **SessionID** , hala gelmesini oturum kilitli durumdayken.
+Zaman [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) nesnesi tarafından kabul edilir ve istemci tarafından tutulan karşın, istemci o oturumunun sahip tüm iletiler üzerinde özel bir Kilit tutan [SessionID](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) sıra veya abonelik, mevcut ve Ayrıca, sahip tüm iletiler üzerinde **SessionID** , hala gelmesini oturum kilitli durumdayken.
 
-Kilidi serbest zaman **Kapat** veya **CloseAsync** olarak da bilinen veya kilidi uygulama olduğu yapamıyor durumlarda süresi dolduğunda. Oturum kilidi uygulama, artık gerekli ve/veya herhangi başka ileti beklemiyor hemen oturumunu kapatmalısınız anlamına gelen bir özel kullanım kilidi gibi bir dosya değerlendirilmelidir.
+Kilidi serbest zaman **kapatmak** veya **CloseAsync** olarak da bilinen veya kilidi uygulama olduğu kapatma işlemini gerçekleştiremiyor durumlarda süresi dolduğunda. Oturum kilidi uygulama, artık gerekli ve/veya herhangi başka ileti beklemiyor hemen oturumunu kapatmalısınız anlamına gelen bir özel kullanım kilidi gibi bir dosya değerlendirilmelidir.
 
 Birden çok eşzamanlı alıcıları sıradan çıkarmak, belirli bir oturuma ait iletileri şu anda bu oturum için kilidi tutan belirli bir alıcının gönderilir. Bu işlem ile bir sıra veya abonelik bulunan bir araya eklemeli ileti akışı düzgün bir şekilde farklı alıcıya içermiyordu çoğaltıldı ve Kilit Yönetimi içinde Hizmet tarafı yapıldığından bu alıcılar farklı istemci bilgisayarlarında de canlı Hizmet veri yolu.
 
 Bir kuyruk, ancak hala bir sıra olup: rastgele erişimi yoktur. Bir oturum alıcı talep kadar belirli oturumları kabul etmek veya belirli oturumları iletilerden bekleyin için birden çok eşzamanlı alıcıları bekleyin ve bir ileti alıcı yok henüz istemiş durumda bir oturuma ait olan bir sıra üstündeki ise teslimler tutun oturumu.
 
-Önceki çizimde tümü etkin ilerleme her alıcı için sırasından ileti almalıdır üç eşzamanlı oturum alıcıları gösterilmektedir. Önceki oturumla *SessionID*= 4, bu iletiyi duruma kadar hiçbir ileti herkese teslim edilir anlamına gelir hiçbir etkin, sahibi olan istemci sahip bir yeni oluşturulan tarafından oturum alıcı yapamaz.
+Önceki çizimde tümü etkin ilerleme her alıcı için sırasından ileti almalıdır üç eşzamanlı oturum alıcıları gösterilmektedir. Önceki oturumla `SessionId` = 4, bu iletiyi duruma kadar hiçbir ileti herkese teslim edilir anlamına gelir hiçbir etkin, sahibi olan istemci sahip bir yeni oluşturulan tarafından oturum alıcı yapamaz.
 
 Sınırlama olması görünebilir, ancak özellikle kesinlikle zaman uyumsuz kod ile yazılan, tek alıcı işlem fazla eşzamanlı oturum kolayca işleyebilir; birkaç düzine eşzamanlı oturum dengede geri çağırma modeliyle etkili bir şekilde otomatik olarak yapılır.
 
@@ -79,7 +79,7 @@ Oturum durumu bir sıraya veya bir abonelik bu varlığın depolama kotası doğ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Tam bir örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/BasicSessionSendReceiveUsingQueueClient) hizmet yolundan oturum tabanlı ileti alma ve gönderme, kuyruklar .NET standart kitaplığını kullanarak.
+- [Tam bir örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) hizmet yolundan oturum tabanlı ileti alma ve gönderme, kuyruklar .NET standart kitaplığını kullanarak.
 - [Bir örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) , .NET Framework istemci oturumu algılayan iletileri işlemek için kullanır. 
 
 Service Bus Mesajlaşma hizmeti hakkında daha fazla bilgi için aşağıdaki konulara bakın:

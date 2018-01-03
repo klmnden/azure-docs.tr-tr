@@ -6,33 +6,33 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 568a99d44a5a32339d438ed1025670d12ecce791
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure kapsayıcı durumlarda kapsayıcı grupları
 
-Azure kapsayıcı durumlarda en üst düzey kaynak bir kapsayıcı grubudur. Bu makalede, kapsayıcı grupları nedir ve ne tür senaryoların bunlar etkinleştirmek açıklanmaktadır.
+Azure kapsayıcı durumlarda en üst düzey kaynak *kapsayıcı grubu*. Bu makalede, kapsayıcı grupları nelerdir ve bunlar etkinleştirme senaryoları türleri açıklanmaktadır.
 
 ## <a name="how-a-container-group-works"></a>Kapsayıcı grubu nasıl çalışır?
 
-Kapsayıcı grubu, aynı ana bilgisayar makinesinde zamanlanmış ve bir yaşam döngüsü, yerel ağ ve depolama birimleri paylaşan kapsayıcıları koleksiyonudur. Kavramı, benzer bir *pod* içinde [Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/) ve [DC/OS](https://dcos.io/docs/1.9/deploying-services/pods/).
+Kapsayıcı grubu, aynı ana bilgisayar makinesinde zamanlanmış kapsayıcıları koleksiyonudur. Kapsayıcı grubu kapsayıcılarında bir yaşam döngüsü, yerel ağ ve depolama birimleri paylaşır. Kavramı, benzer bir *pod* içinde [Kubernetes] [ kubernetes-pod] ve [DC/OS][dcos-pod].
 
 Aşağıdaki diyagramda, birden çok kapsayıcı içeren bir kapsayıcı grubu örneği gösterilmektedir.
 
-![Kapsayıcı grupları örneği][container-groups-example]
+![Kapsayıcı grupları diyagramı][container-groups-example]
 
-Şunlara dikkat edin:
+Bu örnek kapsayıcı grubu:
 
-- Grubun tek ana makinede zamanlandı.
-- Grubun tek bir ortak IP adresi, bir kullanıma sunulan bağlantı noktası ile kullanıma sunar.
-- Grup iki kapsayıcıları için yapılır. Bağlantı noktası 80 sırasında diğer dinlediği bağlantı noktası 5000 bir kapsayıcı dinler.
-- İki Azure dosya paylaşımları birim başlatmalar olarak grubu içerir ve her kapsayıcı paylaşımları yerel olarak birini bağlar.
+* Tek ana makinede zamanlandı.
+* Tek bir ortak IP adresi, bir kullanıma sunulan bağlantı noktası ile kullanıma sunar.
+* İki kapsayıcıları için oluşur. Bağlantı noktası 80 sırasında diğer dinlediği bağlantı noktası 5000 bir kapsayıcı dinler.
+* İki içeren Azure dosya paylaşımları birim başlatmalar ve her kapsayıcı paylaşımları yerel olarak birini bağlar.
 
 ### <a name="networking"></a>Ağ
 
@@ -44,16 +44,21 @@ Kapsayıcı grupları, bir IP adresi ve bağlantı noktası ad alanı, IP adresi
 
 ## <a name="common-scenarios"></a>Genel senaryolar
 
-Birden çok kapsayıcı grupları tek bir işlev görev farklı ekip tarafından alınabilir ve ayrı kaynak gereksinimlerini kapsayıcı görüntüleri az sayıda içine bölmek istediğiniz durumlarda kullanışlıdır. Örnek Kullanım dahil olabilir:
+Birden çok kapsayıcı grupları tek bir işlev görev farklı ekip tarafından alınabilir ve ayrı kaynak gereksinimlerini kapsayıcı görüntüleri az sayıda içine bölmek istediğiniz durumlarda kullanışlıdır.
 
-- Bir uygulama kapsayıcısı ve günlüğe kaydetme kapsayıcı. Günlüğe kaydetme kapsayıcısı ana uygulama tarafından çıktısı günlükler ve ölçümleri toplar ve uzun vadeli depolama için yazar.
-- Bir uygulama ve izleme kapsayıcı. İzleme kapsayıcı düzenli aralıklarla çalıştığını ve düzgün yanıt ve değilse bir uyarı başlatır emin olmak için uygulamaya istekte bulunur.
-- Bir web uygulaması hizmet veren bir kapsayıcı ve en yeni içerik kaynak denetiminden çekme kapsayıcı.
+Örnek Kullanım dahil olabilir:
+
+* Bir uygulama kapsayıcısı ve günlüğe kaydetme kapsayıcı. Günlüğe kaydetme kapsayıcısı ana uygulama tarafından çıktısı günlükler ve ölçümleri toplar ve uzun vadeli depolama için yazar.
+* Bir uygulama ve izleme kapsayıcı. İzleme kapsayıcı düzenli aralıklarla bu çalıştığını ve düzgün yanıt ve değilse bir uyarı başlatır emin olmak için uygulamaya istekte bulunur.
+* Bir web uygulaması hizmet veren bir kapsayıcı ve en yeni içerik kaynak denetiminden çekme kapsayıcı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bilgi nasıl [çok kapsayıcı grubu dağıtma](container-instances-multi-container-group.md) bir Azure Resource Manager şablonu ile.
 
 <!-- IMAGES -->
-
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png
+
+<!-- LINKS - External -->
+[dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
+[kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

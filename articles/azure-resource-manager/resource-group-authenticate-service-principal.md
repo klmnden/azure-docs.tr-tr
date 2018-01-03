@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/28/2017
 ms.author: tomfitz
-ms.openlocfilehash: 57eec4277e584c3c2828e0fe029b9db10428934e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 9431483293bcc252b79d02ba2d655a3aa86aaa4a
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-to-access-resources"></a>Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma
 
@@ -27,10 +27,10 @@ Bir uygulama ya da kaynaklara erişmek için gereken komut dosyası varsa, uygul
 * Kendi izinlerinizi farklı uygulama kimliği için izinleri atayın. Genellikle, bu izinleri tam olarak hangi uygulama yapması gereken için kısıtlanır.
 * Sertifika kimlik doğrulaması için Katılımsız betik yürütülürken kullanın.
 
-Bu konuda nasıl kullanılacağını gösterir [Azure PowerShell](/powershell/azure/overview) kendi kimlik bilgilerini ve kimlik altında çalıştırmak bir uygulama için gereksinim duyduğunuz her şeyi ayarlamak için.
+Bu makalede nasıl kullanılacağı gösterilmektedir [Azure PowerShell](/powershell/azure/overview) kendi kimlik bilgilerini ve kimlik altında çalıştırmak bir uygulama için gereksinim duyduğunuz her şeyi ayarlamak için.
 
 ## <a name="required-permissions"></a>Gerekli izinler
-Bu konuda tamamlamak için Azure Active Directory ve Azure aboneliğinize yeterli izniniz olması gerekir. Özellikle, Azure Active Directory'de bir uygulama oluşturun ve hizmet sorumlusu rol atama mümkün olması gerekir. 
+Bu makalede tamamlamak için Azure Active Directory ve Azure aboneliğinize yeterli izniniz olması gerekir. Özellikle, Azure Active Directory'de bir uygulama oluşturun ve hizmet sorumlusu rol atama mümkün olması gerekir. 
 
 Hesabınızın yeterli izinlere sahip olup olmadığını denetlemenin en kolay yolu portalı kullanmaktır. Bkz: [gerekli izni denetleyin](resource-group-create-service-principal-portal.md#required-permissions).
 
@@ -105,9 +105,10 @@ Param (
     $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
  }
 
+ $SecurePassword = convertto-securestring $Password -asplaintext -force
  
  # Create Service Principal for the AD app
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+ $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $SecurePassword
  Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
 
  $NewRole = $null
@@ -377,7 +378,7 @@ Bir parola eklemek için kullanın:
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
 ```
 
-Bir sertifika değer eklemek için bu konudaki gösterildiği gibi otomatik olarak imzalanan bir sertifika oluşturun. Ardından, kullanın:
+Bir sertifika değer eklemek için bu makaledeki gösterildiği gibi otomatik olarak imzalanan bir sertifika oluşturun. Ardından, kullanın:
 
 ```powershell
 New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore

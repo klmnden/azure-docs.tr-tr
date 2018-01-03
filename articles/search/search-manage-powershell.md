@@ -16,10 +16,10 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>PowerShell ile Azure Search hizmetinizi yönetme
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 Bu konu Azure arama hizmetleri için yönetim görevlerinin çoğunu gerçekleştirmek için PowerShell komutlarını açıklar. Bir arama hizmeti oluşturma, ölçeklendirme ve API anahtarını yönetme size yol gösterir.
 Bu komutlar kullanılabilir yönetim seçenekleri paralel [Azure Search Yönetimi REST API'si](http://msdn.microsoft.com/library/dn832684.aspx).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Azure PowerShell 1.0 veya daha büyük olmalıdır. Yönergeler için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview).
 * Aşağıda açıklandığı gibi PowerShell'de Azure aboneliğinizde oturum açmanız gerekir.
 

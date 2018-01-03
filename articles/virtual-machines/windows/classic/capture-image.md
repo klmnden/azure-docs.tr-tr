@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 6fa6d3099d8427a186e6095fdcbbc327d1acab7f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 66a7cef250890f1b6940f7bc7f3c5ae0ec6340f0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Klasik dağıtım modeliyle oluşturulan bir Azure Windows sanal makinesinin bir görüntüsünü yakalama
 > [!IMPORTANT]
@@ -42,7 +42,7 @@ Bu adımlarda, bir Azure sanal makinesi oluşturulur ve yapılandırılmış ola
 >
 >
 
-Bir Azure sanal makinesi görüntüsünü yapılandırmadan önce hedef sanal makine yedeklenebilir önerilir. Azure sanal makineleri Azure Yedekleme kullanılarak yedeklenebilir. Ayrıntılar için bkz. [Azure sanal makinelerini yedekleme](../../../backup/backup-azure-vms.md). Sertifikalı iş ortaklarının sunduğu başka çözümler vardır. Şu anda hangi çözümlerin kullanılabilir olduğunu öğrenmek için Azure Market’te arama yapın.
+Bir Azure sanal makinesi görüntüsünü yapılandırmadan önce hedef sanal makine yedeklenebilir önerilir. Azure sanal makineleri Azure Yedekleme kullanılarak yedeklenebilir. Ayrıntılar için bkz. [Azure sanal makinelerini yedekleme](../../../backup/backup-azure-arm-vms.md). Sertifikalı iş ortaklarının sunduğu başka çözümler vardır. Şu anda hangi çözümlerin kullanılabilir olduğunu öğrenmek için Azure Market’te arama yapın.
 
 ## <a name="capture-the-virtual-machine"></a>Sanal makine yakalanamadı
 1. İçinde [Azure portal](http://portal.azure.com), **Bağlan** sanal makineye. Yönergeler için bkz: [Windows Server çalıştıran bir sanal makine için oturum açma][How to sign in to a virtual machine running Windows Server].
@@ -52,7 +52,7 @@ Bir Azure sanal makinesi görüntüsünü yapılandırmadan önce hedef sanal ma
 
    * İçinde **sistem temizleme eylemi**seçin **girin sistem Out-of-Box deneyimi (OOBE)** emin olun **Generalize** denetlenir. Sysprep kullanma hakkında daha fazla bilgi için bkz: [kullanım Sysprep nasıl: Giriş][How to Use Sysprep: An Introduction].
    * İçinde **kapatma seçenekleri**seçin **kapatma**.
-   * **Tamam** düğmesine tıklayın.
+   * **Tamam**’a tıklayın.
 
    ![Sysprep'i çalıştırın](./media/capture-image/SysprepGeneral.png)
 5. Azure portalında sanal makinenin durumunu değiştiren sanal makine, Sysprep kapandıktan **durduruldu**.

@@ -1,6 +1,6 @@
 ---
 title: "Azure geçiş özel durumlar ve bunların nasıl çözüleceği | Microsoft Docs"
-description: "Azure geçiş özel durumlar ve bunları çözmenize yardımcı olacak önerilen eylemleri listesini alın."
+description: "Azure geçiş özel durumlar ve bunları çözmenize yardımcı olacak önerilen eylemleri listesi."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-exceptions"></a>Azure geçiş özel durumlar
 
@@ -65,7 +65,7 @@ Geçiş için bu özel durumun sarmalar [System.ServiceModel.QuotaExceededExcept
 ## <a name="timeoutexception"></a>TimeoutException
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) kullanıcı tarafından başlatılan bir işlem işlem zaman aşımından daha uzun sürüyor gösterir. 
 
-Değerini denetleyin [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) özelliği. Bu sınır basarsa ayrıca neden olabilecek bir [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
+Değerini denetleyin [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) özelliği. Bu sınıra ulaşması ayrıca neden olabilecek bir [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 Geçiş için geçiş gönderen bağlantısı ilk açtığınızda, zaman aşımı özel durumları alabilirsiniz. Bu özel durumun iki yaygın nedenleri şunlardır:
 

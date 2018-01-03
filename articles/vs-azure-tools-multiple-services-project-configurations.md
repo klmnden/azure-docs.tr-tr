@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Birden çok hizmet yapılandırması kullanmak için Visual Studio'da Azure projenizi yapılandırma
 
@@ -77,7 +77,7 @@ Yeni veya var olan bağlantı dizeleri için seçin **...** * sağ tarafındaki 
 
 1. Altında **bağlanırken**, seçin **aboneliğinizi** seçeneği bir abonelikten bir depolama hesabı seçin. Visual Studio sonra depolama hesabı kimlik bilgileri otomatik olarak alır `.publishsettings` dosya.
 1. Seçme **kimlik bilgileri'el ile girilen** hesap adını belirtin ve doğrudan Azure portalından bilgileri kullanarak anahtar sağlar. Hesap anahtarı kopyalamak için: bir. Azure portal ve select depolama hesabına gidin **anahtarları Yönet**.
-    2. Üzerinde **anahtarları erişimi Yönet** sayfasında, birincil erişim anahtarını metni seçin ve kopyalamak için Ctrl + C tuşlarına basın.
+    2. Hesap anahtarı kopyalamak için depolama hesabı seçin Azure Portal'da gidin **ayarlar > erişim anahtarları**, birincil erişim anahtarını panoya kopyalamak için Kopyala düğmesini kullanın.
 1. Bağlantı seçeneklerden birini seçin. **Özel uç noktaları belirtin** kuyruklar ve BLOB'lar, tablolar için belirli URL'leri belirtmenizi ister. Özel uç noktaları kullanmanıza izin [özel etki alanlarını](storage/blobs/storage-custom-domain-name.md) ve erişim daha kesin olarak denetlemek için. Bkz: [Azure Storage bağlantı dizelerini yapılandırma](./storage/common/storage-configure-connection-string.md).
 1. Seçin **Tamam**, ardından **Dosya > Kaydet** yeni bağlantı dizesi ile yapılandırmasını güncelleştirmek için.
 

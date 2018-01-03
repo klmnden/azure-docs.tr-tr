@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.openlocfilehash: 1a4c52babe76e59eacb30e8be91ed934cdbe305b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows AzCopy ile veri aktarımı
-AzCopy en uygun performans ile basit komutları kullanarak Microsoft Azure Blob, dosya ve tablo depolama gelen ve giden veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Verileri bir nesneden diğerine depolama hesabınızda veya depolama hesapları arasında kopyalayabilirsiniz.
+AzCopy, en iyi performans için tasarlanmış basit komutlarını kullanarak denetleyicisinden Microsoft Azure Blob, dosya ve tablo depolama, veri kopyalamak için tasarlanmış bir komut satırı yardımcı programıdır. Veri depolama hesapları arasında veya bir dosya sistemi ve depolama hesabı arasında kopyalayabilirsiniz.  
 
 İndirebilirsiniz AzCopy iki sürümü vardır. AzCopy Windows .NET Framework ile oluşturulur ve Windows stili komut satırı seçenekleri sunar. [Linux üzerinde AzCopy](storage-use-azcopy-linux.md) çekirdek, POSIX stili komut satırı seçenekleri sunan Linux platformlar hedefler ile .NET Framework yerleşik olarak bulunur. Bu makalede Windows AzCopy kapsar.
 

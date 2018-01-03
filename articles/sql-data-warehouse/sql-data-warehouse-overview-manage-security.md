@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: security
-ms.date: 10/31/2016
+ms.date: 12/14/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 36f990dd16a3c6b65d16bab4b945ec56a1bb1000
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: aa0d6cb03196167ec077b0ed4bbbb9d118951219
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>SQL veri ambarı veritabanında güvenli
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Bu makalede, Azure SQL Data Warehouse veritabanınızın güvenliğini sağlama 
 ## <a name="connection-security"></a>Bağlantı güvenliği
 Bağlantı Güvenliği, veritabanı bağlantılarını güvenlik duvarı kuralları ve bağlantı şifrelemesi kullanarak kısıtlamayı ve bu bağlantıların güvenliğini sağlamayı kapsar.
 
-Güvenlik duvarı kuralları hem sunucu hem de veritabanı tarafından açık olarak beyaz listeye eklenmeyen IP adreslerinden gelen bağlantıları reddetmek için kullanılır. Uygulamanızı veya istemci makinenin ortak IP adresi bağlantılara izin vermek için ilk Azure portalı, REST API veya PowerShell kullanarak bir sunucu düzeyinde güvenlik duvarı kuralı oluşturmanız gerekir. En iyi uygulama olarak sunucu güvenlik duvarınızdan geçmesine izin verilen IP adresi aralıklarını mümkün olduğunca sınırlı tutmanız gerekir.  Azure SQL Data Warehouse, yerel bilgisayarınızdan erişmek için ağ ve yerel bilgisayar güvenlik duvarının TCP bağlantı noktası 1433 giden iletişim kurmasına olanak tanıyan emin olun.  Daha fazla bilgi için bkz: [Azure SQL veritabanı Güvenlik Duvarı][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule], ve [sp_set_database_ firewall_rule][sp_set_database_firewall_rule].
+Güvenlik duvarı kuralları hem sunucu hem de veritabanı tarafından açık olarak beyaz listeye eklenmeyen IP adreslerinden gelen bağlantıları reddetmek için kullanılır. Uygulamanızı veya istemci makinenin ortak IP adresi bağlantılara izin vermek için ilk Azure portalı, REST API veya PowerShell kullanarak bir sunucu düzeyinde güvenlik duvarı kuralı oluşturmanız gerekir. En iyi uygulama olarak sunucu güvenlik duvarınızdan geçmesine izin verilen IP adresi aralıklarını mümkün olduğunca sınırlı tutmanız gerekir.  Azure SQL Data Warehouse, yerel bilgisayarınızdan erişmek için ağ ve yerel bilgisayar güvenlik duvarının TCP bağlantı noktası 1433 giden iletişim kurmasına olanak tanıyan emin olun.  Daha fazla bilgi için bkz: [Azure SQL veritabanı Güvenlik Duvarı][Azure SQL Database firewall], [sp_set_firewall_rule][sp_set_firewall_rule].
 
 SQL veri ambarı için bağlantıları varsayılan olarak şifrelenir.  Şifreleme devre dışı bırakmak için bağlantı ayarlarını değiştirme göz ardı edilir.
 
@@ -73,11 +73,17 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Bağlantı kurmak için kullandığınız sunucu yöneticisi hesabı, veritabanında tüm işlemleri gerçekleştirme yetkisi olan db_owner rolünün üyesidir. Bu hesabı şema yükseltmeleri ve diğer yönetimsel işlemlerde kullanmak üzere saklayın. Uygulamanızdan veritabanına, uygulamanızın ihtiyaç duyduğu en düşük ayrıcalıklarla bağlanmak için daha sınırlı izinlere sahip olan "ApplicationUser" hesabını kullanın.
 
-Bir kullanıcının Azure SQL Veritabanında yapabileceklerini sınırlamak için kullanabileceğiniz başka yöntemler de mevcuttur:
+Bir kullanıcı Azure SQL Data Warehouse ile neler yapabileceğinizi daha fazla sınırlamak için yol vardır:
 
-* Ayrıntılı [izinleri] [ Permissions] denetim yapabileceğiniz işlemleri ayrı ayrı sütunlarda tablolar, görünümler, yordamlar ve veritabanındaki diğer nesneleri sağlar. Çoğu denetimi yoktur ve gerekli minimum izinleri vermek için ayrıntılı izinleri kullanın. Ayrıntılı izin sistemi biraz karmaşıktır ve etkili bir şekilde kullanmak için bazı incelemesi gerektirir.
+* Ayrıntılı [izinleri] [ Permissions] denetim yapabileceğiniz işlemleri ayrı ayrı sütunlarda tabloları, görünümleri, şemaları, yordamlar ve veritabanındaki diğer nesneleri sağlar. Çoğu denetimi yoktur ve gerekli minimum izinleri vermek için ayrıntılı izinleri kullanın. Ayrıntılı izin sistemi biraz karmaşıktır ve etkili bir şekilde kullanmak için bazı incelemesi gerektirir.
 * [Veritabanı rolleri] [ Database roles] dışında db_datareader ve db_datawriter daha güçlü uygulama kullanıcı hesaplarını veya daha az güçlü yönetim hesaplarını oluşturmak için kullanılabilir. Yerleşik sabit veritabanı rollerinin izinlerini vermek için kolay bir yol sağlar, ancak gerekenden daha fazla izin verme neden olabilir.
 * [Saklı yordamlar] [ Stored procedures] veritabanı üzerinde gerçekleştirilecek eylemler sınırlamak için kullanılabilir.
+
+Kullanıcı tanımlı bir şeması okuma erişimi verme örneği aşağıdadır.
+```sql
+--CREATE SCHEMA Test
+GRANT SELECT ON SCHEMA::Test to ApplicationUser
+```
 
 Veritabanları ve mantıksal sunucuları Azure portalından yönetmek veya Azure Resource Manager API'sini kullanarak portal kullanıcı hesabınızın rol atamalarını tarafından denetlenir. Bu konu hakkında daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi][Role-based access control in Azure Portal].
 

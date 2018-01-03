@@ -16,11 +16,11 @@ ms.date: 10/20/2016
 ms.workload: Inactive
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 55f73c30db96d91a642daee98832b1e1c9a38035
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 73c2cbe978c980cbe1269b34cdb9f5ff86113e61
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Olağanüstü durum kurtarma ayrıntıya gerçekleştirme
 Kurtarma iş akışı için uygulama hazırlık doğrulanması düzenli aralıklarla gerçekleştirilen önerilir. Uygulama davranışına ve etkileri doğrulama veri kaybına ve/veya kesintisi Bu yük devretme içerir iyi bir mühendislik uygulamadır. Ayrıca, çoğu endüstri standartlarına göre gerekli iş sürekliliği sertifika kapsamında değildir.
@@ -37,7 +37,7 @@ Nasıl bağlı olarak, [uygulamanız iş sürekliliği için tasarlanmış](sql-
 Bir olağanüstü durum kurtarma ayrıntıya yürütülürken olası veri kaybını önlemek için üretim ortamında bir kopyasını oluşturarak ve uygulamanın yük devretme iş akışı doğrulamak için kullanılarak bir test ortamı kullanarak ayrıntıya gerçekleştirin.
 
 #### <a name="outage-simulation"></a>Kesinti benzetimi
-Kesinti benzetimini yapmak için silebilir veya kaynak veritabanını yeniden adlandırın. Bu uygulama bağlantısı hataları neden olur.
+Kesinti benzetimini yapmak için kaynak veritabanı yeniden adlandırabilirsiniz. Bu uygulama bağlantısı hataları neden olur.
 
 #### <a name="recovery"></a>Kurtarma
 * Açıklandığı gibi farklı bir sunucu veritabanının coğrafi geri yükleme gerçekleştirmek [burada](sql-database-disaster-recovery.md).

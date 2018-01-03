@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Günlük analizi, uyarıları anlama
 
@@ -80,13 +80,13 @@ Bazı durumlarda, bir olay olmaması durumunda bir uyarı oluşturmak isteyebili
 
     
 
-İşlemci üzerinde belirli bir zaman penceresi için % 90 ortalaması olduğunda uyarır istiyorsanız, bir sorgu kullanarak kullanırsınız [ölçmek komutu](log-analytics-search-reference.md#commands) uyarı kuralı için eşik ile aşağıdaki gibi **0'dan büyük**.
+İşlemci üzerinde belirli bir zaman penceresi için % 90 ortalaması olduğunda uyarır istiyorsanız, aşağıdaki gibi bir sorgu ile eşiği için uyarı kuralı kullanırsınız **0'dan büyük**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
     
 >[!NOTE]
-> Çalışma alanınız Henüz için değil yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), yukarıdaki sorguları aşağıdakiler için değişeceğinden sonra:`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> Çalışma alanınız Henüz için değil yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), yukarıdaki sorguları ikinci kullanarak aşağıdaki değişeceğinden sonra [ölçmek komutu](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
@@ -113,8 +113,8 @@ Burada herhangi bir bilgisayar işlemci kullanımı % 90'ın üç kez üzerinde 
 **Sorgu:** Perf | burada ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" == | AggregatedValue özetlemek bin (TimeGenerated, 5 m), bilgisayar tarafından avg(CounterValue) =<br>
 **Zaman penceresi:** 30 dakika<br>
 **Uyarı sıklığı:** 5 dakika<br>
-**Toplam değer:** 90'dan büyük<br>
-**Tetikleyici uyarı temel alarak:** toplam ihlal 5'ten büyük<br>
+**Toplam değer:** 90 büyüktür<br>
+**Tetikleyici uyarı temel alarak:** toplam ihlal 2'den büyük<br>
 
 Sorgu her bilgisayar için bir ortalama değer 5 dakika aralıklarla oluşturursunuz.  Bu sorguyu her 5 dakikada bir toplanan veriler için önceki 30 dakika boyunca çalışır.  Örnek verileri varsayılan olarak, üç bilgisayarlar için aşağıda gösterilmiştir.
 

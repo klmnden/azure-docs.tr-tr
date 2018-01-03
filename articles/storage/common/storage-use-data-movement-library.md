@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage veri hareketi kitaplığı ile veri aktarımı
 
@@ -27,7 +27,7 @@ Microsoft Azure Storage veri hareketi kitaplığı karşıya yükleme, indirme v
 
 Bu kitaplık ayrıca .NET uygulamaları için Windows, Linux ve macOS oluştururken kullanabileceğiniz anlamına gelir .NET Core kullanır. .NET Core hakkında daha fazla bilgi için bkz [.NET Core belgeleri](https://dotnet.github.io/). Bu kitaplık, geleneksel .NET Framework uygulamaları için Windows için de çalışır. 
 
-Bu belge, Windows, Linux ve macOS üzerinde çalışır ve aşağıdaki senaryolarda gerçekleştiren bir .NET Core konsol uygulaması oluşturmak nasıl gösterir:
+Bu belge, Windows, Linux ve macOS üzerinde çalışır ve aşağıdaki senaryolarda gerçekleştiren .NET Core konsol uygulamasının nasıl oluşturulacağını gösterir:
 
 - Dosyalar ve dizinler Blob depolama alanına karşıya yükleyin.
 - Paralel işlem sayısı, veri aktarırken tanımlayın.

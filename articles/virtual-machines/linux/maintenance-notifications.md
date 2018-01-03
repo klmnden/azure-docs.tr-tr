@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: bb231b4a5210019b36bb4bb123795b4762374c66
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Linux sanal makineleri için işleme planlı bakım bildirimleri
 
@@ -30,9 +30,9 @@ Azure güvenilirliği, performansı ve sanal makineler için konak altyapısın�
 - Bakım bir yeniden başlatma gerektirirse, ne zaman bunu planlı bakım, bir bildirim alın. Bu durumlarda, burada başlatabilirsiniz bakım kendiniz bir zaman penceresi verilir ne zaman çalıştığını sizin için.
 
 
-Bir yeniden başlatma gerektiren planlı bakım içinde Dalgalar zamanlandı. Her wave farklı bir kapsam (bölge) sahiptir.
+Yeniden başlatma gerektiren bir planlı bakım Dalgalar zamanlanır. Her wave farklı bir kapsam (bölge) sahiptir.
 
-- Bir bildirim müşterilere bir wave başlar. Varsayılan olarak, abonelik sahibi ve ikincil sahipler bildirim gönderilir. Daha fazla alıcı ve e-posta, SMS ve Web Kancalarını, gibi Mesajlaşma seçenekleri için Azure kullanarak bildirimleri ekleyebileceğiniz [etkinlik günlüğü uyarıları](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- Bir bildirim müşterilere bir wave başlar. Varsayılan olarak, abonelik sahibi ve ikincil sahipler bildirim gönderilir. Daha fazla alıcı ve e-posta, SMS ve Web kancalarını, gibi Mesajlaşma seçenekleri için Azure kullanarak bildirimleri ekleyebileceğiniz [etkinlik günlüğü uyarıları](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
 - Bildirim zamanında bir *Self Servis penceresi* kullanılabilir hale getirilir. Bu penceresi sırasında sanal makinelerinizin bu wave içerdiği bulmak ve önleyici bakım zamanlama kendi gereksinimlerine göre başlatın.
 - Self Servis penceresinde sonra bir *zamanlanmış bakım penceresi* başlar. Bu pencereyi sırasında bir noktada Azure zamanlar ve gerekli bakım, sanal makine için geçerlidir. 
 
@@ -92,8 +92,8 @@ Aşağıdaki değerleri MaintenanceRedeployStatus altında döndürülür:
 | IsCustomerInitiatedMaintenanceAllowed | Bakım VM üzerinde şu anda başlatabilirsiniz olup olmadığını gösterir ||
 | PreMaintenanceWindowStartTime         | VM üzerinde bakım başlatabilir, bakım Self Servis penceresi başlangıcı ||
 | PreMaintenanceWindowEndTime           | VM üzerinde bakım başlatabilir, bakım Self Servis penceresi sonu ||
-| MaintenanceWindowStartTime            | VM üzerinde bakım başlatabilir, bakım zamanlanmış penceresi başlangıcı ||
-| MaintenanceWindowEndTime              | VM üzerinde bakım başlatabilir, bakım zamanlanmış penceresi sonu ||
+| MaintenanceWindowStartTime            | Azure VM'nizi bakım başlatır zamanlanmış bakım penceresi başlangıcı ||
+| MaintenanceWindowEndTime              | Azure VM'nizi bakım başlatır zamanlanmış bakım penceresi sonu ||
 | LastOperationResultCode               | Son VM bakım başlatma girişimi sonucu ||
 
 
@@ -159,7 +159,7 @@ Yüksek kullanılabilirlik hakkında daha fazla bilgi için bkz: [bölgeler ve A
 
 **S: ne kadar süreyle sanal Makinem yeniden başlatılmasını sürer?**
 
-**Y:** VM boyutuna bağlı olarak, yeniden başlatma için birkaç dakika sürebilir. Bulut Hizmetleri (Web/çalışan rolü), sanal makine ölçek ayarlar ya da kullanılabilirlik kümeleri kullanmanız durumunda, her grup, sanal makineleri (UD) arasında 30 dakika verilen unutmayın. 
+**Y:** VM boyutuna bağlı olarak, yeniden başlatma için Self Servis bakım penceresi sırasında birkaç dakika sürebilir. Yeniden başlatma sırasında Azure başlatan zamanlanmış bakım penceresinde yeniden başlatma genellikle yaklaşık 25 dakika sürer. Bulut Hizmetleri (Web/çalışan rolü), sanal makine ölçek ayarlar ya da kullanılabilirlik kümeleri kullanmanız durumunda, 30 dakika arasında her grup, sanal makineleri (UD) zamanlanmış bakım penceresi sırasında verilen unutmayın.
 
 **S: deneyimi bulut Hizmetleri (Web/çalışan rolü), Service Fabric ve sanal makine ölçek kümeleri söz konusu olduğunda nedir?**
 

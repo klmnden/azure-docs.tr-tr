@@ -3,7 +3,7 @@ title: "Bir Azure DevTest Labs sanal makinede yapı hataları tanılamak | Micro
 description: "Azure DevTest Labs de yapı hataları giderme öğrenin."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 115e0086-3293-4adf-8738-9f639f31f918
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
-ms.author: tarcher
-ms.openlocfilehash: 9a79e50902e8e99e94148f8ef534e6745e31809a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 6c03ce8f91ec688e32e379f1284767db9a45920c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Laboratuvara yapı hataları tanılama 
 Bir yapı oluşturduktan sonra başarılı veya başarısız olup olmadığını görmek için kontrol edebilirsiniz. Azure DevTest Labs yapı günlükleri, bir yapı sorunu tanılamak için kullanabileceğiniz bilgileri sağlar. Yapı günlük bilgilerini bir Windows VM için görüntüleme seçeneklerini birkaç vardır:

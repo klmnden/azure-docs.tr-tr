@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 26b9a468684cda344a6ab1b5a2e467d2735f4f71
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 
@@ -41,14 +41,14 @@ Varsayılan olarak, bir HTTP tetikleyicisi bir HTTP 200 Tamam durum kodu ve boş
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#trigger---c-example)
-* [C# betiği](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# betik (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi önceden derlenmiş](functions-dotnet-class-library.md) , arar bir `name` parametresi sorgu dizesi veya HTTP istek gövdesi.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , arar bir `name` parametresi sorgu dizesi veya HTTP istek gövdesi.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -235,14 +235,14 @@ module.exports = function(context, req) {
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#webhook---c-example)
-* [C# betiği](#webhook---c-script-example)
+* [C#](#webhook---c-example)
+* [C# betik (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Web kancası - C# örnek
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi önceden derlenmiş](functions-dotnet-class-library.md) genel bir JSON isteğine yanıt olarak bir HTTP 200 gönderir.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) genel bir JSON isteğine yanıt olarak bir HTTP 200 gönderir.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) NuGet paketi tanımlanan özniteliği [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) NuGet paketi tanımlanan özniteliği [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 Web kancası türü ve rota şablonu için özelliklerin vardır ve düzeyi ve izin verilen HTTP yöntemleri özniteliği Oluşturucusu parametreler yetkilendirme ayarlayabilirsiniz. Bu ayarlar hakkında daha fazla bilgi için bkz: [tetikleyici - yapılandırma](#trigger---configuration). Burada bir `HttpTrigger` bir yöntem imzası özniteliğinde:
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Tam bir örnek için bkz: [tetikleyici - önceden derlenmiş C# örnek](#trigger---c-example).
+Tam bir örnek için bkz: [tetikleyici - C# örnek](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Tetikleyici - yapılandırma
 
@@ -406,7 +406,7 @@ GitHub Web kancası için yanıt vermek için önce bir HTTP tetikleyicisi ile i
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-Bir örnek için bkz: [GitHub Web kancası tarafından tetiklenen bir işlev oluşturun](functions-create-github-webhook-triggered-function.md).
+Bir örnek için, bkz. [GitHub web kancası tarafından tetiklenen bir işlev oluşturma](functions-create-github-webhook-triggered-function.md).
 
 ### <a name="slack-webhooks"></a>Slack Web kancaları
 
@@ -540,7 +540,7 @@ HTTP isteği gönderene yanıt bağlama HTTP çıkış kullanın. Bu bağlamanı
 
 ## <a name="output---configuration"></a>Çıktı - yapılandırma
 
-Önceden derlenmiş C# için hiçbir çıkış özel bağlama yapılandırma özellikleri vardır. Bir HTTP yanıtının göndermek için dönüş türü işlevi olun `HttpResponseMessage` veya `Task<HttpResponseMessage>`.
+C# sınıfı kitaplıklar için hiçbir çıkış özel bağlama yapılandırma özellikleri vardır. Bir HTTP yanıtının göndermek için dönüş türü işlevi olun `HttpResponseMessage` veya `Task<HttpResponseMessage>`.
 
 Diğer diller için bir HTTP bağlaması çıktı bir JSON nesnesi olarak tanımlanan `bindings` aşağıdaki örnekte gösterildiği gibi function.json dizisi:
 

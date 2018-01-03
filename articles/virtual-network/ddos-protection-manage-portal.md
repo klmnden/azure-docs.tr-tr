@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 019d4ba9124173a7de555c46d32881ecf639a34c
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 958533079c0e0864ff0e561ad865114ef2a415a8
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Azure DDoS koruması Azure portalını kullanarak standart yönetme
 
@@ -31,21 +31,21 @@ Etkinleştirme ve dağıtılmış engelleme (DDoS) hizmeti koruma devre dışı 
 ## <a name="enable-ddos-protection-standard---new-virtual-network"></a>DDoS koruması standart - yeni bir sanal ağ etkinleştir
 
 1. http://portal.azure.com sayfasından Azure portalda oturum açın. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-2. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+2. Tıklatın **kaynak oluşturma** Azure portalının sol üst köşesindeki.
 3. Seçin **ağ**ve ardından **sanal ağ**.
-4. Seçilen ayarlarla bir sanal ağ oluşturun. Sanal ağlar oluşturma hakkında daha fazla bilgi için bkz: [bir sanal ağ oluşturma](virtual-networks-create-vnet-arm-pportal.md). Altında *DDoS koruması*, tıklatın **etkin**ve ardından **oluşturma**.
+4. Seçilen ayarlarla bir sanal ağ oluşturun. Sanal ağlar oluşturma hakkında daha fazla bilgi için bkz: [bir sanal ağ oluşturma](virtual-networks-create-vnet-arm-pportal.md). Altında **DDoS koruması**, tıklatın **etkin**ve ardından **oluşturma**. Görmüyorsanız, **DDoS koruması**, aboneliğinizi özelliği için kayıtlı değil bir nedeni olması. Tamamlamanız gereken [kayıt](http://aka.ms/ddosprotection), aboneliğinizi özelliği için önce etkinleştirildi bildirim alıp **DDoS koruması** görüntülenir.
 
     ![Sanal ağ oluşturma](./media/ddos-protection-manage-portal/ddos-create-vnet.png)   
 
     > [!WARNING]
-    > Bir bölge seçerken, desteklenen bir bölge listesinden seçin [Azure DDoS koruması standart genel bakış](ddos-protection-overview.md).
+    > Bir bölge seçerken, desteklenen bir bölge listesinden seçin [Azure DDoS koruması standart genel bakış](ddos-protection-overview.md). Desteklenen bir bölge seçmezseniz, sanal ağ oluşturma başarısız olur.
 
     DDoS koruması etkinleştirme ücretler uygulanan bir uyarı bildirir. DDoS koruması için hiçbir ücret Önizleme sırasında ücrete. Genel kullanılabilirliğine ücret uygulanabilir. Ücretleri ve genel Kullanılabilirlik başlangıcı önce 30 günlük bildirimi alırsınız.
 
 ## <a name="enable-ddos-protection-standard---existing-virtual-network"></a>DDoS koruması standart - var olan sanal ağ etkinleştir 
 
 1. Tıklatın **sanal ağlar** Azure portal menüsünde ve sanal ağınızı seçin.
-2. Tıklatın **DDoS koruması**, tıklatın **etkin** üzerinde *DDoS koruması* ekran ve ardından **kaydetmek**. 
+2. Tıklatın **DDoS koruması**, tıklatın **etkin** üzerinde *DDoS koruması* ekran ve ardından **kaydetmek**. Görmüyorsanız, **DDoS koruması**, aboneliğinizi özelliği için kayıtlı değil bir nedeni olması. Tamamlamanız gereken [kayıt](http://aka.ms/ddosprotection), aboneliğinizi özelliği için önce etkinleştirildi bildirim alıp **DDoS koruması** görüntülenir. 
 
     > [!WARNING]
     > Sanal ağ, desteklenen bir bölgede bulunmalıdır. Desteklenen bölgelerin bir listesi için bkz: [Azure DDoS koruması standart genel bakış](ddos-protection-overview.md).

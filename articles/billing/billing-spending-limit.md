@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure harcama sınırı ve nasıl kaldırılacağı anlama
 
@@ -48,8 +48,10 @@ Harcama limitini kaldırmak için şu adımları izleyin:
 
 1. Oturum [hesap Merkezi'nde](https://account.windowsazure.com/Subscriptions).
 1. Bir abonelik seçin.
-1. Aboneliğin harcama sınırına ulaşıldı nedeniyle devre dışıysa, bu bildirime tıklayın: "Abonelik harcama sınırına ulaştı ve Ücret oluşmasını önlemek için devre dışı bırakıldı." Aksi takdirde tıklatın **harcama sınırı Kaldır** içinde **ABONELİK durumunu** alanı.
+. Aboneliğin harcama sınırına ulaşıldı nedeniyle devre dışıysa, bu bildirime tıklayın: "Abonelik harcama sınırına ulaştı ve Ücret oluşmasını önlemek için devre dışı bırakıldı." Aksi takdirde tıklatın **harcama sınırı Kaldır** içinde **ABONELİK durumunu** alanı.
 1. Size uygun bir seçenek belirleyin.
+
+![Harcama sınırı kaldırmak için bir seçenek seçme](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Seçenek|Etki|
 |-------|-----|
@@ -80,8 +82,10 @@ Size özel sınırları bugün harcamanız yok. Ancak, siz de seçebilirsiniz [d
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Harcama sınırını azure'dan tüm ücret oluşmasını önlemek mu?
 
-Bazı [Microsoft Hizmetleri ve üçüncü taraf markalı Hizmetler](billing-understand-your-azure-marketplace-charges.md) bir harcama sınırına ayarlanmış olsa bile, ödeme yöntemini altında bir ücrete tabi. Örnekler Visual Studio lisansları, Azure Active Directory premium, destek planları ve Hizmetleri markalı çoğu üçüncü taraf aracılığıyla satılan [Azure Marketi](https://azure.microsoft.com/marketplace/).
+[Bazı dış hizmetler Azure Marketi'nde yayımlanan](billing-understand-your-azure-marketplace-charges.md) abonelik kredinizi kullanılamaz ve hatta harcama limitine ayarlandığında ayrı bir ücrete tabi. Visual Studio lisansları, Azure Active Directory premium, destek planları ve Hizmetleri markalı çoğu üçüncü taraf örnek verilebilir. Yeni bir dış hizmet sağladığınızda Hizmetleri ayrı ayrı faturalandırılır size bildirmek için bir uyarı gösterilir:
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
+![Market satın uyarı](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 
 Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.

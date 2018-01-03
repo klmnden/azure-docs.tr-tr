@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: sdanie
-ms.openlocfilehash: 761c0d808eb787517473036e53992ff5e49b17fe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 22cdf9f596d8a6057a2c847ea5bb4fc485db8637
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>İçeri ve dışarı aktarma veri Azure Redis önbelleği
 İçeri/dışarı aktarma veri Azure Redis önbelleğine alma veya içeri aktarma ve Redis önbelleği veritabanı'nı (RDB) anlık görüntü premium önbellekten bir Azure blob verme Azure Redis Önbelleği'nden veri verme olanak tanıyan bir Azure Redis önbelleği veri yönetimi, bir işlemdir Depolama hesabı. 
@@ -77,7 +77,7 @@ Dışarı aktarma, Azure Redis uyumlu RDB dosyaları Redis için önbellekte dep
 2. Tıklatın **depolama kapsayıcısı seçin** ve istenen depolama hesabını seçin. Depolama hesabı aynı abonelikte ve bölgede olarak önbelleğinizin olması gerekir.
 
    > [!IMPORTANT]
-   > Klasik ve Resource Manager depolama hesapları tarafından desteklenir, ancak tarafından desteklenmeyen sayfa bloblarını çalışır verme [Blob storage hesapları](../storage/blobs/storage-account-options.md#blob-storage-accounts) şu anda.
+   > Klasik ve Resource Manager depolama hesapları tarafından desteklenir, ancak tarafından desteklenmeyen sayfa bloblarını çalışır verme [Blob storage hesapları](../storage/common/storage-account-options.md#blob-storage-accounts) şu anda.
    >
    >
 
@@ -155,7 +155,7 @@ Evet, yönergeler için PowerShell bkz [Redis önbelleği almak için](cache-how
 Bunu çözmek için içe aktarmayı başlatmak veya dışarı aktarma işlemi 15 dakika önce geçti.
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Verilerimi Azure Blob depolama alanına dışarı aktarılırken bir hata ile aldım. Ne oldu?
-Sayfa blobları depolanan dosyalarla yalnızca RDB verme çalışır. Diğer blob türleri şu anda, blob storage hesapları sık erişimli ve seyrek katmanları dahil olmak üzere desteklenmez. Daha fazla bilgi için bkz: [Blob storage hesapları](../storage/blobs/storage-account-options.md#blob-storage-accounts).
+Sayfa blobları depolanan dosyalarla yalnızca RDB verme çalışır. Diğer blob türleri şu anda, blob storage hesapları sık erişimli ve seyrek katmanları dahil olmak üzere desteklenmez. Daha fazla bilgi için bkz: [Blob storage hesapları](../storage/common/storage-account-options.md#blob-storage-accounts).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla premium önbellek özelliklerinin nasıl kullanılacağını öğrenin.

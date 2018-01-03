@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure içindeki uyarıları nedir?
 Bu makalede, Microsoft Azure, nelerdir uyarı çeşitli kaynaklardan bu uyarıları, faydaları ve bunları kullanmaya başlamak nasıl amacıyla açıklanır. Özellikle Azure İzleyicisi uygulanır ancak diğer hizmetlerin işaretçiler de uyarılar sağlar. Uyarıları verilerinde koşulları yapılandırın ve son izleme verilerini koşullara uyan bildirim hale olanak tanıyan Azure'da izleme, bir yöntem sunar.
+
 
 ## <a name="taxonomy-of-azure-alerts"></a>Azure uyarıları sınıflandırma
 Azure uyarıları ve bunların işlevlerini açıklamak için aşağıdaki koşulları'nı kullanır:
@@ -32,8 +33,13 @@ Azure uyarıları ve bunların işlevlerini açıklamak için aşağıdaki koşu
 * **Bildirim** - etkin hale uyarı dışına tabanlı gerçekleştirilecek eylem.
 * **Eylem** -bir alıcı (örneğin, bir adresi e-postayla gönderme veya bir Web kancası URL'si nakil) bir bildirim gönderilmesini belirli bir çağrı. Bildirimleri genellikle birden çok eylem tetikleyebilir.
 
+    > [!NOTE]
+    > Azure uyarıları evrimi bir parçası olarak, yeni bir birleşik deneyim Önizleme'de kullanılabilir. Yeni uyarılar (Önizleme) deneyimi farklı bir sınıflandırma kullanır. Daha fazla bilgi edinmek [uyarıları (Önizleme)](monitoring-overview-unified-alerts.md). 
+    >
+
 ## <a name="alerts-in-different-azure-services"></a>Farklı Azure Hizmetleri uyarıları
 Uyarıları hizmetlerini izleme birkaç Azure kullanılabilir. Hakkında bilgi edinmek ve bu hizmetleri kullanıldığı durumlar için [bu makaleye bakın](./monitoring-overview.md). Azure üzerinde kullanılabilir uyarı türlerini dökümünü şöyledir:
+
 
 | Hizmet | Uyarı türü | Desteklenen hizmetler | Açıklama |
 |---|---|---|---|
@@ -50,10 +56,10 @@ Azure izleyiciden--yakın gerçek zamanlı ölçüm uyarıları (Önizleme) öl�
 * **Ölçüm uyarıları** -belirtilen bir ölçüm değerini atadığınız bir eşik kestiği bu uyarı tetikler. Uyarı, uyarının "(eşiği aşıldığında ve uyarı koşulu karşılanır olduğunda) etkinleştirildiğinde" yanı sıra, "(eşiği yeniden çapraz ve koşulu artık karşılanmıyor olduğunda) çözümlendiğinde" bir bildirim oluşturur. Azure İzleyici tarafından desteklenen kullanılabilir ölçümler büyüyen bir listesi için bkz [Azure monitörde desteklenen ölçüm listesine](monitoring-supported-metrics.md).
 * **Yakın gerçek zamanlı ölçüm uyarıları (Önizleme)** - Bu uyarılar için ölçüm uyarıları benzer, ancak bazı farklar. Adı da anlaşılacağı gibi ilk olarak, bu uyarılar de yakın gerçek zamanlı (kadar hızlı 1 dak) tetikleyebilir. Ayrıca birden çok (şu anda iki) ölçümleri izleme destekler.  Uyarı uyarı "(her ölçümü için eşikler aynı anda taşları ve uyarı koşulu karşılanır olduğunda) etkinleştirildiğinde" yanı sıra, "çözümlendiğinde" bir bildirim oluşturur (zaman en az bir ölçüm kestiği eşiği yeniden ve koşul yok artık karşılanmış).
 
-> [!NOTE]
-> Gerçek zamanlı ölçüm uyarılar şu anda genel önizlemede. İşlevsellik ve kullanıcı deneyimi değiştirilebilir ' dir.
->
->
+    > [!NOTE]
+    > Gerçek zamanlı ölçüm uyarılar şu anda genel önizlemede. İşlevsellik ve kullanıcı deneyimi değiştirilebilir ' dir.
+    >
+    >
 
 * **Etkinlik günlüğü uyarıları** -filtre atadığınız ölçütleri eşleşen bir etkinlik günlüğü olay oluşturulduğunda tetikleyen bir akış günlük uyarı. Bu uyarılar yalnızca bir duruma sahip "uyarı altyapısı, filtre ölçütünü yalnızca herhangi bir yeni olay uygulanır. bu yana, etkinleştirildi". Bu uyarılar yeni bir hizmet durumu olay gerçekleştiğinde veya bir kullanıcı veya uygulama "sanal makineyi silin.", aboneliğinizde, örneğin, bir işlem gerçekleştirdiğinde bildirim hale için kullanılabilir
 
@@ -91,3 +97,4 @@ Uyarı kuralları ve bunları kullanarak yapılandırma hakkında bilgi alın:
 * Daha fazla bilgi edinmek [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md)
 * Daha fazla bilgi edinmek [hizmet bildirimleri](monitoring-service-notifications.md)
 * Daha fazla bilgi edinmek [Eylem grupları](monitoring-action-groups.md)
+* Yapılandırma [uyarıları (Önizleme) uyarıları](monitor-alerts-unified-usage.md)

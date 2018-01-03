@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 035f51d9f12e887d2017b058f0b0471870f411f7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlüğe kaydetme ve denetleme
 ## <a name="introduction"></a>Giriş
@@ -67,13 +67,13 @@ Aşağıdaki tabloda Azure içinde kullanılabilir günlük en önemli türünü
 
 | Günlük kategorisi | Günlük türü | Kullanımları | Tümleştirme |
 | ------------ | -------- | ------ | ----------- |
-|[Etkinlik günlükleri](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Azure Resource Manager kaynaklarını denetim düzlemi olayları| Aboneliğinizi kaynaklarında gerçekleştirilen işlemler hakkında bilgi sağlar.| REST API & [Azure İzleyicisi](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
-|[Azure tanılama günlükleri](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Azure Resource Manager kaynaklarını Abonelikteki işlemi hakkında sık veriler|   Operations kaynağınız kendisini gerçekleştirilen bir anlayış sağlayın| Azure İzleyici [akış](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
-|[AAD raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal)|Günlüklerini ve raporları|Kullanıcı oturum açma etkinliklerini & kullanıcı ve Grup Yönetimi hakkında sistem etkinlik bilgileri|[Grafik API'si](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Sanal makine ve bulut Hizmetleri](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows olay günlüğü & Linux Syslog|  Sistem verileri ve sanal makinelerde günlük verilerini yakalar ve bu verileri tercih ettiğiniz bir depolama hesabına aktarır.|   Windows kullanarak [WAD](https://docs.microsoft.com/en-us/azure/azure-diagnostics) (Windows Azure Diagnostics depolama) ve Linux Azure İzleyicisi|
-|[Depolama Analizi](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|Depolama günlüğe kaydetme ve ölçüm verileri için bir depolama hesabı sağlar|Insight sağlar trace istekleri, kullanım eğilimlerini çözümleme ve depolama hesabınız ile ilgili sorunları tanılamak.|  REST API veya [istemci kitaplığı](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
-|[NSG (ağ güvenlik grubu) akış günlükleri](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON biçimi ve bir kural başına temelinde giden ve gelen akışları gösterir|Giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntüleyin|[Ağ İzleyicisi](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Uygulama Insight](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)|Günlükleri, özel durumlar ve özel tanılama|  Uygulama performansı Yönetimi (APM) hizmeti birden çok platformdaki web geliştiricileri için.| REST API [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
+|[Etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Azure Resource Manager kaynaklarını denetim düzlemi olayları|   Aboneliğinizi kaynaklarında gerçekleştirilen işlemler hakkında bilgi sağlar.| REST API & [Azure İzleyicisi](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
+|[Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Azure Resource Manager kaynaklarını Abonelikteki işlemi hakkında sık veriler| Operations kaynağınız kendisini gerçekleştirilen bir anlayış sağlayın| Azure İzleyici [akış](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
+|[AAD raporlama](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Günlüklerini ve raporları|Kullanıcı oturum açma etkinliklerini & kullanıcı ve Grup Yönetimi hakkında sistem etkinlik bilgileri|[Graph API'si](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
+|[Sanal makine ve bulut Hizmetleri](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows olay günlüğü & Linux Syslog|    Sistem verileri ve sanal makinelerde günlük verilerini yakalar ve bu verileri tercih ettiğiniz bir depolama hesabına aktarır.|   Windows kullanarak [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics depolama) ve Linux Azure İzleyicisi|
+|[Depolama Analizi](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Depolama günlüğe kaydetme ve ölçüm verileri için bir depolama hesabı sağlar|Insight sağlar trace istekleri, kullanım eğilimlerini çözümleme ve depolama hesabınız ile ilgili sorunları tanılamak.|    REST API veya [istemci kitaplığı](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
+|[NSG (ağ güvenlik grubu) akış günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON biçimi ve bir kural başına temelinde giden ve gelen akışları gösterir|Giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntüleyin|[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
+|[Uygulama Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Günlükleri, özel durumlar ve özel tanılama|    Uygulama performansı Yönetimi (APM) hizmeti birden çok platformdaki web geliştiricileri için.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Veri işleme / Güvenlik Uyarısı| Azure Güvenlik Merkezi uyarı, OMS Uyarısı| Güvenlik bilgileri ve Uyarıları.|   REST API'leri, JSON|
 
 ### <a name="activity-log"></a>Etkinlik Günlüğü
@@ -121,29 +121,29 @@ Azure tanılama günlükleri, birden çok olan yapılandırma seçenekleri, Powe
 
 | Hizmet | Şema & belgeleri | Kaynak Türü | Kategori |
 | ------- | ------------- | ------------- | -------- |
-|Load Balancer| [Azure yük dengeleyici (Önizleme) için günlük analizi](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|  LoadBalancerAlertEvent|
+|Load Balancer| [Azure yük dengeleyici (Önizleme) için günlük analizi](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
-|Ağ Güvenlik Grupları|[Ağ güvenlik grupları (NSG’ler) için Log Analytics](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
+|Ağ Güvenlik Grupları|[Ağ güvenlik grupları (NSG’ler) için Log Analytics](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
-|Application Gatewayler|[Uygulama ağ geçidi için tanılama günlükleri](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
+|Application Gatewayler|[Uygulama ağ geçidi için tanılama günlükleri](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|
-|Anahtar Kasası|[Azure Anahtar Kasası Günlüğü](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
-|Azure Search|[Etkinleştirme ve arama trafiği Analytics kullanma](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
-|Data Lake Store|[Azure Data Lake Store için tanılama günlüklerine erişme](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Denetim|
-|Data Lake Analytics|[Azure Data Lake Analytics’te tanılama günlüklerine erişim](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Denetim|
+|Anahtar Kasası|[Azure Anahtar Kasası Günlüğü](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
+|Azure Search|[Etkinleştirme ve arama trafiği Analytics kullanma](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
+|Data Lake Store|[Azure Data Lake Store için tanılama günlüklerine erişme](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Denetim|
+|Data Lake Analytics|[Azure Data Lake Analytics’te tanılama günlüklerine erişim](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Denetim|
 |||Microsoft.DataLakeAnalytics/accounts|İstekler|
 |||Microsoft.DataLakeStore/accounts|İstekler|
-|Logic Apps|[Logic Apps B2B özel izleme şeması](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|İş akışı WorkflowRuntime|
+|Logic Apps|[Logic Apps B2B özel izleme şeması](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|İş akışı WorkflowRuntime|
 |||Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|
-|Azure Batch|[Azure Batch Tanılama Günlüğü](https://docs.microsoft.com/en-us/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Azure Otomasyonu|[Azure otomasyonu için günlük analizi](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
+|Azure Batch|[Azure Batch Tanılama Günlüğü](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
+|Azure Otomasyonu|[Azure otomasyonu için günlük analizi](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
 |||Microsoft.Automation/automationAccounts|JobStreams|
-|Event Hubs|[Azure Event Hubs tanılama günlükleri](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
+|Event Hubs|[Azure Event Hubs tanılama günlükleri](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
-|Akış Analizi|[İş tanılama günlükleri](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Yürütme|
+|Akış Analizi|[İş tanılama günlükleri](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Yürütme|
 |||Microsoft.StreamAnalytics/streamingjobs|Yazma|
-|Service Bus|[Azure Service Bus tanılama günlükleri](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
+|Service Bus|[Azure Service Bus tanılama günlükleri](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Azure Active Directory raporlama
 Azure Active Directory (Azure AD), dizininize yönelik güvenlik, etkinlik ve denetim raporlarını içerir. [Azure Active Directory denetim raporu](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) , müşterilerin kendi Azure Active Directory'de oluştu ayrıcalıklı Eylemler tanımlamak için yardımcı olur. Ayrıcalıklı Eylemler ayrıcalık değişiklikler (örneğin, rolü oluşturma veya parola sıfırlama), değişen ilke yapılandırmaları (örneğin, parola ilkelerinin) veya dizin yapılandırması (örneğin, etki alanı Federasyon ayarlarında yapılan değişiklikler) değişiklikleri içerir.
@@ -300,17 +300,17 @@ Geliştirme takımına yönelik olan Application Insights, uygulamanızın perfo
 
 | Tümleştirme senaryolarına | Açıklama |
 | --------------------- | :---------- |
-|[Uygulama eşlemesi](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-app-map)|Uygulamanızın bileşenlerinin yanı sıra önemli ölçüm ve uyarılar.||
-|[Tanılama arama örneği için veri](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-diagnostic-search)| İstekler, özel durumlar, bağımlılık çağrıları, günlük izlemeleri ve sayfa görüntülemeleri gibi olaylarda arama yapın ve bunları filtreleyin.||
-|[Toplanan veriler için ölçüm Gezgini](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-metrics-explorer)|İstek, hata ve özel durum oranları; yanıt süreleri, sayfa yükleme süreleri gibi toplu verileri keşfedin, filtreleyin ve bölümlere ayırın.||
-|[Panolar](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-dashboards#dashboards)|Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir.||
-|[Canlı ölçümleri akış](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-live-stream)|Yeni bir derleme dağıttığınızda, her şeyin beklendiği gibi çalıştığından emin olmak için bu neredeyse gerçek zamanlı performans göstergelerini izleyin.||
-|[Analizler](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)|Bu güçlü sorgulama dilini kullanarak uygulamanızın performansı ve kullanımıyla ilgili zor soruları yanıtlayın.||
-|[Otomatik ve el ile uyarıları](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-alerts)|Otomatik uyarılar, uygulamanızın normal telemetri desenlerine uyum sağlar ve normal desenin dışında bir durum gelişirse tetiklenir. Belirli özel veya standart ölçüm düzeylerinde de uyarılar ayarlayabilirsiniz.||
-|[Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-visual-studio)|Koddaki performans verilerini görün. Yığın izlemelerinden koda gidin.||
-|[Power BI](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-power-bi)|Kullanım ölçümlerini diğer iş zekası verileriyle tümleştirin.||
+|[Uygulama eşlemesi](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Uygulamanızın bileşenlerinin yanı sıra önemli ölçüm ve uyarılar.||
+|[Tanılama arama örneği için veri](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| İstekler, özel durumlar, bağımlılık çağrıları, günlük izlemeleri ve sayfa görüntülemeleri gibi olaylarda arama yapın ve bunları filtreleyin.||
+|[Toplanan veriler için ölçüm Gezgini](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|İstek, hata ve özel durum oranları; yanıt süreleri, sayfa yükleme süreleri gibi toplu verileri keşfedin, filtreleyin ve bölümlere ayırın.||
+|[Panolar](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir.||
+|[Canlı ölçümleri akış](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|Yeni bir derleme dağıttığınızda, her şeyin beklendiği gibi çalıştığından emin olmak için bu neredeyse gerçek zamanlı performans göstergelerini izleyin.||
+|[Analizler](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Bu güçlü sorgulama dilini kullanarak uygulamanızın performansı ve kullanımıyla ilgili zor soruları yanıtlayın.||
+|[Otomatik ve el ile uyarıları](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Otomatik uyarılar, uygulamanızın normal telemetri desenlerine uyum sağlar ve normal desenin dışında bir durum gelişirse tetiklenir. Belirli özel veya standart ölçüm düzeylerinde de uyarılar ayarlayabilirsiniz.||
+|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Koddaki performans verilerini görün. Yığın izlemelerinden koda gidin.||
+|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Kullanım ölçümlerini diğer iş zekası verileriyle tümleştirin.||
 |[REST API](https://dev.applicationinsights.io/)|Ölçümleriniz ve ham verileriniz üzerinde sorgu çalıştırmak için kod yazın.||
-|[Sürekli dışarı aktarma](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-telemetry)|Ham verileri, geldiğinde, depolama toplu verme.||
+|[Sürekli dışarı aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Ham verileri, geldiğinde, depolama toplu verme.||
 
 ### <a name="azure-security-center-alerts"></a>Azure Güvenlik Merkezi uyarıları
 [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro) otomatik olarak toplar, analiz eder ve Azure kaynaklarınızı, ağ ve gerçek tehditleri algılamak ve hatalı pozitif sonuçları azaltmak için güvenlik duvarı ve endpoint protection çözümleri gibi bağlı iş ortağı çözümlerinden günlük verilerini tümleştirir. Öncelikli güvenlik uyarıları listesi, sorunu hızlıca araştırmanız gereken bilgiler ve saldırıyı düzeltme hakkındaki önerilerle birlikte Güvenlik Merkezi'nde gösterilir.
@@ -354,25 +354,25 @@ Dört farklı yolu vardır [günlüklerini ve Azure Hizmetleri için ölçümler
 
 | Hizmet | Kaynak Türü | Günlükler | Ölçümler | Çözüm |
 | :------ | :------------ | :--- | :------ | :------- |
-|Uygulama ağ geçitleri|  Microsoft.Network/<br>applicationGateways|  Tanılama|Tanılama|    [Azure uygulama](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [ağ geçidi analizi](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Uygulama ağ geçitleri|  Microsoft.Network/<br>applicationGateways|  Tanılama|Tanılama|    [Azure uygulama](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [ağ geçidi analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application ınsights||     Bağlayıcı|  Bağlayıcı|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Bağlayıcısı (Önizleme)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
-|Automation hesapları|   Microsoft.Automation/<br>AutomationAccounts|    Tanılama||       [Daha fazla bilgi](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
-|Toplu hesaplar|    Microsoft.Batch/<br>batchAccounts|  Tanılama|    Tanılama||
-|Klasik bulut Hizmetleri||       Depolama||       [Daha fazla bilgi](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
+|Automation hesapları|   Microsoft.Automation/<br>AutomationAccounts|    Tanılama||       [Daha fazla bilgi](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
+|Batch hesapları|    Microsoft.Batch/<br>batchAccounts|  Tanılama|    Tanılama||
+|Klasik bulut Hizmetleri||       Depolama||       [Daha fazla bilgi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
 |Bilişsel Hizmetler|    Microsoft.CognitiveServices/<br>accounts|       Tanılama|||
 |Data Lake analizi|   Microsoft.DataLakeAnalytics/<br>accounts|   Tanılama|||
 |Veri Gölü deposu|   Microsoft.DataLakeStore/<br>accounts|   Tanılama|||
 |Olay Hub'ı ad alanı|   Microsoft.EventHub/<br>ad alanları|  Tanılama|    Tanılama||
-|IOT hub'ları|  Microsoft.Devices/<br>IotHubs||     Tanılama||
-|Anahtar Kasası| Microsoft.KeyVault/<br>kasaları|  Tanılama  || [KeyVault analizi](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
+|IoT Hub|  Microsoft.Devices/<br>IotHubs||     Tanılama||
+|Anahtar Kasası| Microsoft.KeyVault/<br>kasaları|  Tanılama  || [KeyVault analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Yük Dengeleyiciler|    Microsoft.Network/<br>loadBalancers|    Tanılama|||
 |Logic Apps|    Microsoft.Logic/<br>İş akışları|  Tanılama|    Tanılama||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Ağ Güvenlik Grupları|   Microsoft.Network/<br>networksecuritygroups|Tanılama||   [Azure ağ güvenlik grubu analizi](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Ağ Güvenlik Grupları|   Microsoft.Network/<br>networksecuritygroups|Tanılama||   [Azure ağ güvenlik grubu analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Kurtarma kasaları|   Microsoft.RecoveryServices/<br>kasaları|||[Analytics (Önizleme) Azure kurtarma Hizmetleri](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Hizmet ara|   Microsoft.Search/<br>searchServices|    Tanılama|    Tanılama||
 |Service Bus ad alanı| Microsoft.ServiceBus/<br>ad alanları|    Tanılama|Tanılama|    [Hizmet veri yolu Analytics (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||       Depolama||    [Service Fabric Analytics (Önizleme)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
+|Service Fabric||       Depolama||    [Service Fabric Analytics (Önizleme)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>sunucuları /<br>veritabanları||       Tanılama||
 ||Microsoft.Sql/<br>sunucuları /<br>elasticPools||||
 |Depolama|||         Betik| [Azure depolama çözümlemeleri (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
@@ -381,7 +381,7 @@ Dört farklı yolu vardır [günlüklerini ve Azure Hizmetleri için ölçümler
 |Sanal makine ölçek kümeleri|   Microsoft.Compute/<br>virtualMachines    ||Tanılama||
 ||Microsoft.Compute/<br>virtualMachineScaleSets /<br>virtualMachines||||
 |Web sunucu grupları|Microsoft.Web/<br>ServerFarm öğesine verilir||   Tanılama
-|Web Siteleri| Microsoft.Web/<br>siteleri ||      Tanılama|    [Daha fazla bilgi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|Web Siteleri| Microsoft.Web/<br>siteler ||      Tanılama|    [Daha fazla bilgi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>siteleri /<br>yuvaları|||||
 
 

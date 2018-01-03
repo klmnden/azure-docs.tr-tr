@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 664c900bae580f4eb7421e3dffdfef8c9a29b720
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 713e9ad7a76c15cbde912954e00991a80b995683
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Saklı yordam etkinliği Azure Data Factory kullanarak bir SSIS paketi çağırma
 Bu makalede, bir saklı yordam etkinliğini kullanarak bir Azure Data Factory işlem hattı SSIS paketinden çağrılacak açıklar. 
@@ -25,7 +25,7 @@ Bu makalede, bir saklı yordam etkinliğini kullanarak bir Azure Data Factory i�
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [saklı yordam etkinliği sürüm 1 kullanılarak çağırma SSIS paketleri](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 Bu makaledeki Kılavuzu SSIS katalog barındıran Azure SQL veritabanını kullanır. Bir Azure SQL yönetilen örneği (özel olarak incelenmektedir) de kullanabilirsiniz.
@@ -34,7 +34,7 @@ Bu makaledeki Kılavuzu SSIS katalog barındıran Azure SQL veritabanını kulla
 Adım adım yönergeleri izleyerek yoksa, bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma [Öğreticisi: dağıtmak SSIS paketleri](tutorial-deploy-ssis-packages-azure.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Aşağıdaki yönergeler en son Azure PowerShell modülleri yüklemek [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/install-azurerm-ps). 
+[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin. 
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 Azure SSIS IR sahip aynı veri fabrikası kullanın veya ayrı veri fabrikası oluşturun. Aşağıdaki yordam, bir data factory oluşturmak için adımları sağlar. Bu veri fabrikasında bir saklı yordam etkinliği ile işlem hattı oluşturun. Saklı yordam etkinliği bir saklı yordam SSIS paketi çalıştırmak için SSISDB veritabanı yürütür. 
@@ -80,10 +80,10 @@ Aşağıdaki noktalara dikkat edin:
 ### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Veritabanı bağlı hizmeti oluşturma
 Azure SQL veritabanınızı barındıran bağlamak için bağlı hizmet, veri fabrikası SSIS kataloğa oluşturun. Veri Fabrikası SSISDB veritabanına bağlanmak için bu bağlı hizmetin bilgileri kullanır ve bir SSIS paketi çalıştırmak için bir saklı yordam yürütür. 
 
-1. Adlı bir JSON dosyası oluşturun **AzureSqlDatabaseLinkedService.json** içinde **C:\ADF\RunSSISPackage** klasöründe aşağıdaki içeriğe sahip: (zaten yoksa, ADFv2TutorialBulkCopy klasörü oluşturun.)
+1. Adlı bir JSON dosyası oluşturun **AzureSqlDatabaseLinkedService.json** içinde **C:\ADF\RunSSISPackage** klasöründe aşağıdaki içeriğe sahip: 
 
     > [!IMPORTANT]
-    > Değiştir &lt;servername&gt;, &lt;databasename&gt;, &lt;kullanıcıadı&gt;,&lt;servername&gt;, ve &lt;parola&gt; ile dosyayı kaydetmeden önce Azure SQL veritabanınıza değerleri.
+    > Değiştir &lt;servername&gt;, &lt;kullanıcıadı&gt;, ve &lt;parola&gt; dosyayı kaydetmeden önce Azure SQL veritabanınıza değerlere sahip.
 
     ```json
     {
@@ -93,7 +93,7 @@ Azure SQL veritabanınızı barındıran bağlamak için bağlı hizmet, veri fa
             "typeProperties": {
                 "connectionString": {
                     "type": "SecureString",
-                    "value": "Server=tcp:<AZURE SQL SERVER NAME>.database.windows.net,1433;Database=SSISDB;User ID=<USER ID>;Password=<PASSWORD>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
                 }
             }
         }
@@ -163,7 +163,7 @@ Bu adımda, bir saklı yordam etkinliği ile işlem hattı oluşturun. SSIS pake
 Kullanım **Invoke-AzureRmDataFactoryV2Pipeline** ardışık düzen cmdlet'ini. Cmdlet, gelecekte izlemek üzere işlem hattı çalıştırma kimliğini döndürür.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
+$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name
 ```
 
 ## <a name="monitor-the-pipeline-run"></a>İşlem hattı çalıştırmasını izleme
@@ -217,17 +217,17 @@ while ($True) {
     }    
     ```
 2. İçinde **Azure PowerShell**, geçiş **C:\ADF\RunSSISPackage** klasör.
-3. Çalıştırma **kümesi AzureRmDataFactoryV2LinkedService** tetikleyici oluşturmak için cmdlet'i. 
+3. Çalıştırma **kümesi AzureRmDataFactoryV2Trigger** tetikleyici oluşturmak için cmdlet'i. 
 
     ```powershell
     Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. Varsayılan olarak, tetikleyici durdurulmuş durumda. Tetikleyici başlangıç AzureRmDataFactoryV2Trigger cmdlet'ini çalıştırarak başlayın. 
+4. Varsayılan olarak, tetikleyici durdurulmuş durumda. Tetikleyici çalıştırırsınız **başlangıç AzureRmDataFactoryV2Trigger** cmdlet'i. 
 
     ```powershell
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -Name "MyTrigger" 
     ```
-5. Get-AzureRmDataFactoryV2TriggerRun cmdlet'ini çalıştırarak, tetikleyici başlatıldığını onaylayın. 
+5. Çalıştırarak, tetikleyici başlatıldığını onaylayın **Get-AzureRmDataFactoryV2Trigger** cmdlet'i. 
 
     ```powershell
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"     
