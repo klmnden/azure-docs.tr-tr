@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: d997c291e487e27b7e12c015e34ad839ac020151
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web uygulamaları için uygulama performansı ile ilgili SSS
 
@@ -174,7 +174,7 @@ Bu sorun Kestrel sürüm 1.0.2 düzeltilmiştir. Bu sürüm bulunur ASP.NET Core
 
 Uygulama hizmeti, yerel önbellek özelliğini kullanırsanız, uygulama hizmet örneğiniz LogFiles ve veri klasörünün klasör yapısını etkilenir. Yerel önbelleği kullanıldığında, alt klasörler depolama LogFiles ve veri klasörleri oluşturulur. Alt klasörleri adlandırma deseni "benzersiz tanımlayıcı" + zaman damgası kullanın. Her alt web uygulaması çalıştıran veya çalışan bir VM örneğine karşılık gelir.
 
-Yerel önbelleği kullanarak olup olmadığını belirlemek için uygulama hizmetiniz denetleyin **uygulama ayarları** sekmesi. Uygulama ayarı yerel önbelleği kullanılıyorsa, `WEBSITE_LOCAL_CACHE_OPTION` ayarlanır `Always`. 
+Yerel önbelleği kullanarak olup olmadığını belirlemek için uygulama hizmetiniz denetleyin **uygulama ayarları** sekmesi. Uygulama ayarı yerel önbelleği kullanılıyorsa, `WEBSITE_LOCAL_CACHE_OPTION` ayarlanır `Always`.
 
 Yerel önbelleği kullanmıyorsanız ve bu sorunu yaşıyorsanız, bir destek isteği gönderin.
 

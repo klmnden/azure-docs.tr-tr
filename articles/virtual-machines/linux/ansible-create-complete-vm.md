@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 8f0e2fff8ea32874729cf9c4645d547df2449089
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 88e1f17184be07ec8499ad3049f7210b56fdfc15
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Ansible ile azure'da eksiksiz bir Linux sanal makine ortamı oluşturma
 Ansible dağıtma ve yapılandırmanın ortamınızdaki kaynakların otomatikleştirmenizi sağlar. Azure, aynı herhangi bir kaynağa olduğu gibi sanal makineleri (VM'ler) yönetmek için Ansible kullanabilirsiniz. Bu makalede eksiksiz bir Linux ortamı ve Ansible kaynaklarla destekleme nasıl oluşturulacağı gösterilmektedir. Ayrıca öğrenebilirsiniz nasıl [Ansible ile temel bir VM oluşturma](ansible-create-vm.md).
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Ansible ile Azure kaynaklarınızı yönetmek için aşağıdakiler gerekir:
 
 - Ansible ve ana bilgisayar sisteminizde yüklü Azure Python SDK'sını modüller.
@@ -105,7 +105,7 @@ Bir sanal ağ arabirim kartı (NIC), VM verilen sanal ağ, genel IP adresi ve a�
 
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
-Son adım, bir VM oluşturun ve oluşturulan tüm kaynakları kullanmaktır. Adlı bir VM'den Ansible playbook aşağıdaki bölümde oluşturur *myVM* ve adlı bir sanal NIC ekler *myNIC*. Kendi ortak anahtar verilerde *key_data* gibi eşleştirin:
+Son adım, bir VM oluşturun ve oluşturulan tüm kaynakları kullanmaktır. Adlı bir VM'den Ansible playbook aşağıdaki bölümde oluşturur *myVM* ve adlı bir sanal NIC ekler *myNIC*. Kendi tam genel anahtar verilerde *key_data* gibi eşleştirin:
 
 ```yaml
 - name: Create VM
@@ -127,7 +127,7 @@ Son adım, bir VM oluşturun ve oluşturulan tüm kaynakları kullanmaktır. Adl
 ```
 
 ## <a name="complete-ansible-playbook"></a>Tam Ansible playbook
-Bu bölümler araya getirmek için adlı bir Ansible playbook oluşturma *azure_create_complete_vm.yml* ve aşağıdaki içeriği yapıştırın:
+Bu bölümler araya getirmek için adlı bir Ansible playbook oluşturma *azure_create_complete_vm.yml* ve aşağıdaki içeriğini yapıştırın. Kendi tam genel anahtar verilerde *key_data* çifti:
 
 ```yaml
 - name: Create Azure VM

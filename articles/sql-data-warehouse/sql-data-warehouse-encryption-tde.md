@@ -16,10 +16,10 @@ ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 ms.openlocfilehash: b1db3bdfdfb54bda325c9b971cfcb4dd5efa333a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>İle saydam veri şifreleme (TDE) SQL veri ambarı kullanmaya başlama
 > [!div class="op_single_selector"]

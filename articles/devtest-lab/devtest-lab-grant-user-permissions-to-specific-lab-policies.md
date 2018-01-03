@@ -3,7 +3,7 @@ title: "Belirli Laboratuvar ilkeleri için kullanıcı izinleri verin | Microsof
 description: "DevTest Labs her kullanıcının ihtiyaçlarına göre belirli Laboratuvar ilkeleri kullanıcı izinleri öğrenin"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 5ca829f0-eb69-40a1-ae26-03a629db1d7e
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
-ms.author: tarcher
-ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: f92ad5e991bdb066bb9680b4865501076d43f450
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Belirli Laboratuvar ilkeleri kullanıcı izinleri
 ## <a name="overview"></a>Genel Bakış
@@ -87,9 +87,9 @@ Bulduktan sonra **objectID** kullanıcı ve özel rol adı için kullanıcı bu 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir kez dikkate alınması gereken bazı sonraki adımlar şunlardır belirli Laboratuvar ilkeleri için kullanıcı izinleri verilen:
 
-* [Bir laboratuvar güvenli erişim](devtest-lab-add-devtest-user.md)
-* [Laboratuvar ilkeleri ayarlarsanız](devtest-lab-set-lab-policy.md)
+* [Laboratuvara erişimin güvenliğini sağlama](devtest-lab-add-devtest-user.md)
+* [Laboratuvar ilkeleri belirleme](devtest-lab-set-lab-policy.md)
 * [Laboratuvar şablonu oluşturma](devtest-lab-create-template.md)
-* [Vm'leriniz için özel yapılar oluşturma](devtest-lab-artifact-author.md)
-* [Bir VM'yi laboratuvara ekleme](devtest-lab-add-vm.md)
+* [VM'leriniz için özel yapıtlar oluşturma](devtest-lab-artifact-author.md)
+* [VM'yi bir laboratuvara ekleme](devtest-lab-add-vm.md)
 

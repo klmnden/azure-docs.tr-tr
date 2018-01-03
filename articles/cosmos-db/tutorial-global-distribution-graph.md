@@ -13,24 +13,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 12e1ab5f57d217537ba14183500efb099985ff1e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Grafik API'sini kullanarak Azure Cosmos DB genel dağıtım ayarlama
 
-Bu makalede, Kurulum Azure Cosmos DB genel dağıtım için Azure Portalı'nı kullanın ve ardından (Önizleme) grafik API'sini kullanarak bağlanmak nasıl gösterir.
+Bu makalede, Azure portalında Azure Cosmos DB genel dağıtım kurulumu ve grafik API'sini kullanarak bağlanmak için nasıl kullanılacağını gösterir.
 
 Bu makalede aşağıdaki görevleri içerir: 
 
 > [!div class="checklist"]
 > * Azure portalını kullanarak genel dağıtım yapılandırma
-> * Genel dağıtım kullanarak yapılandırma [Graph API](graph-introduction.md) (Önizleme)
+> * Genel dağıtım kullanarak yapılandırma [Graph API](graph-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
@@ -43,10 +43,10 @@ Anlamıyla yararlanabilmek için [genel dağıtım](distribute-data-globally.md)
 
 Bu tercih listesi SDK'ları kullanarak bağlantı başlatırken belirtilir. SDK'ları isteğe bağlı bir parametre "PreferredLocations" kabul Azure bölgeleri diğer bir deyişle sıralı bir listesi.
 
-* **Yazar**: SDK, geçerli tüm yazma işlemlerini yazma bölge otomatik olarak gönderir.
-* **Okur**: tüm okuma PreferredLocations listedeki ilk kullanılabilir bölge gönderilir. İstek başarısız olursa, istemci listeyi sonraki bölgeyi başarısız ve benzeri. SDK'ları yalnızca PreferredLocations içinde belirtilen bölgeler okuma dener. Bu nedenle, örneğin, Cosmos DB hesabı üç bölgelerde kullanılabilir, ancak PreferredLocations için iki yazma olmayan bölgeleri yalnızca istemci belirtir, sonra okuma yazma bölge, yük devretme durumunda bile dışında sunulacak.
+* **Yazar**: SDK geçerli yazma bölge için otomatik olarak tüm yazma işlemlerini gönderir.
+* **Okur**: tüm okuma PreferredLocations listedeki ilk kullanılabilir bölge gönderilir. İstek başarısız olursa, istemcinin sonraki bölgeyi vb. için listede aşağı başarısız olur. SDK'ları yalnızca PreferredLocations içinde belirtilen bölgelerinden okuma girişimi. Bu nedenle, örneğin, Cosmos DB hesabı üç bölgelerde kullanılabilir, ancak istemci yalnızca iki belirtir PreferredLocations sonra okuma yazma olmayan bölgelerini yük devretme durumunda bile yazma bölgesi dışında sunulur.
 
-Uygulama, geçerli yazma uç noktası doğrulayın ve WriteEndpoint ve ReadEndpoint, SDK sürümü 1.8 ve üzeri kullanılabilir iki özelliklerini denetleyerek SDK tarafından seçilen endpoint okuyun. PreferredLocations özellik ayarlanmamışsa, tüm istekleri geçerli yazma bölgesinden sunulacak.
+Uygulama, geçerli yazma uç noktası doğrulayın ve WriteEndpoint ve ReadEndpoint, SDK sürümü 1.8 ve üzeri kullanılabilir iki özelliklerini denetleyerek SDK tarafından seçilen endpoint okuyun. PreferredLocations özellik ayarlanmamışsa, tüm istekleri geçerli yazma bölgesinden sunulur.
 
 ### <a name="using-the-sdk"></a>SDK'sını kullanarak
 

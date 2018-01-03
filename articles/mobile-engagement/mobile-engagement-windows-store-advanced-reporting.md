@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: feac309db1ffce0945012e293bfc1df417aed876
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-reporting-with-the-windows-universal-apps-engagement-sdk"></a>Gelişmiş Windows Evrensel uygulamaları Engagement SDK'sı raporlama
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 
 Bu konu Windows Evrensel uygulamanız ek raporlama senaryolarda açıklar. Bu senaryolar, oluşturduğunuz uygulama uygulamak için seçebileceğiniz seçenekleriniz [Başlarken](mobile-engagement-windows-store-dotnet-get-started.md) Öğreticisi.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
 Bu öğreticiye başlamadan önce ilk tamamlamalısınız [Başlarken](mobile-engagement-windows-store-dotnet-get-started.md) kasıtlı olarak doğrudan ve basit öğretici. Bu öğretici aralarından seçim yapabileceğiniz ek seçenekler ele alınmaktadır.

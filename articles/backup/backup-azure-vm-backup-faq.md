@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Yedeklemesi hizmetiyle ilgili sorular
 Bu makalede Azure VM Yedeklemesi bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -29,7 +29,7 @@ Bu makalede Azure VM Yedeklemesi bileşenlerini kısa süre içinde anlamanıza 
 Kurtarma Hizmetleri kasaları iki modeli de destekler.  Klasik portalda oluşturulan bir klasik VM’yi ya da Azure portalında oluşturulan bir Resource Manager VM’sini bir Kurtarma Hizmetleri kasasına yedekleyebilirsiniz.
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Hangi yapılandırmaları Azure VM yedekleme tarafından desteklenmez?
-Git üzerinden [desteklenen işletim sistemleri](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) ve [sınırlamalar, VM yedekleme](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Git üzerinden [desteklenen işletim sistemleri](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) ve [sınırlamalar, VM yedekleme](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Yedeklemeyi yapılandırma sihirbazında sanal makinemi neden göremiyorum?
 Yapılandırma Yedekleme Sihirbazı'nda, Azure Backup yalnızca olan VM'ler listeler:

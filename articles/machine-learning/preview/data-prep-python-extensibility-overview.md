@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 53771c407fedc53f27a38ec3fe9b381d6b8c0dad
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="data-preparations-python-extensions"></a>Veriler hazırlıkları Python uzantıları
 Yerleşik özellikleri arasında işlevselliği aralıklar doldurma bir yolu olarak Azure Machine Learning veriler hazırlıkları birçok düzeyde genişletilebilirlik içerir. Bu belgede, Python komut dosyası aracılığıyla genişletilebilirlik verilmiştir. 
@@ -38,7 +38,7 @@ Bu adımların her biri için iki kod bloğunun türü destekliyoruz. İlk olara
 
 Örneğin, aşağıdaki iki yolla başka bir sütuna günlük hesaplar yeni bir sütun ekleyebilirsiniz:
 
-ifade 
+İfade 
 
 ```python    
     math.log(row["Score"])
@@ -155,7 +155,7 @@ Bu dataframe aşağıdaki sütunları içerir:
 - AuthenticationValue: None ya da kullanılacak belirteci içerir.
 
 ### <a name="syntax"></a>Sözdizimi 
-ifade 
+İfade 
 
 ```python
     paths = df['Path'].tolist()  
@@ -185,7 +185,7 @@ Yazıcı uzantı noktası denetimi bir veri akışından veri yazma işleminin t
 Bu uzantı noktası yazma veri akışı (komut) blok kullanarak ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsü.
 
 ### <a name="syntax"></a>Sözdizimi 
-ifade
+İfade
 
 ```python
     df.to_csv('c:\\temp\\output.csv')
@@ -210,7 +210,7 @@ Sütun Ekle uzantı noktası yeni bir sütun hesaplamak için Python yazmanızı
 Sütun Ekle (komut) blok kullanarak bu uzantı noktası ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsünde, üzerinde de olarak **sütun** bağlam menüsü. 
 
 ### <a name="syntax"></a>Sözdizimi
-ifade
+İfade
 
 ```python
     math.log(row["Score"])
@@ -233,7 +233,7 @@ Gelişmiş Filtre (komut) blok kullanarak bu uzantı noktası ekleyebilirsiniz. 
 
 ### <a name="syntax"></a>Sözdizimi
 
-ifade
+İfade
 
 ```python
     row["Score"] > 95
@@ -260,7 +260,7 @@ Veri akışı dönüştürme uzantı noktası tamamen veri akışı dönüştür
 Dönüştürme veri akışı (komut) blok kullanarak bu uzantı noktası ekleyebilirsiniz. Üst düzey üzerinde kullanılabilir **dönüşümleri** menüsü. 
 ### <a name="syntax"></a>Sözdizimi 
 
-ifade
+İfade
 
 ```python
     df['index-column'] = range(1, len(df) + 1)  
@@ -291,7 +291,7 @@ Dönüştürme bölüm (komut) blok kullanarak bu uzantı noktası ekleyebilirsi
 
 ### <a name="syntax"></a>Sözdizimi 
 
-ifade 
+İfade 
 
 ```python
     df['partition-id'] = index  
@@ -337,7 +337,7 @@ DataPrepError({
 Python önceki oluşturma yöntemini kullanarak DataPrepErrors dönüş değeri olarak oluşturmak için bir uzantı noktada çalıştığında mümkündür. Bir uzantı noktada veri işlendiğinde DataPrepErrors karşılaşılan çok daha yüksektir. Bu noktada, DataPrepError geçerli bir veri türü olarak işlemek özel Python kodu gerekir.
 
 #### <a name="syntax"></a>Sözdizimi 
-ifade 
+İfade 
 ```python 
     if (isinstance(row["Score"], DataPrepError)): 
         row["Score"].originalValue 

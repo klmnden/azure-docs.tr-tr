@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
 ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Ölçüm uyarılar Azure İzleyicisi'nde Azure Hizmetleri - PowerShell oluşturabilir.
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabili
 
 Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
 
-* [Azure portal](insights-alerts-portal.md)
+* [Azure portalı](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [komut satırı arabirimi (CLI)](insights-alerts-command-line-interface.md)
 * [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)

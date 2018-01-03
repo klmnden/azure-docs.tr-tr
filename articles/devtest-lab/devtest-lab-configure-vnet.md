@@ -3,7 +3,7 @@ title: "Azure DevTest Labs'de sanal ağ yapılandırma | Microsoft Docs"
 description: "Bir varolan sanal ağ ve alt yapılandırmak ve bir VM'de Azure DevTest Labs kullanılacakları hakkında bilgi edinin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 6cda99c2-b87e-4047-90a0-5df10d8e9e14
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
-ms.author: tarcher
-ms.openlocfilehash: 7048d5d1054906d712ac0422dacfe1ccca97fcc0
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.author: v-craic
+ms.openlocfilehash: 21daa8ff756ee30c6d454d49af7db20afe488c47
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs'de sanal ağ yapılandırma
 Makalesinde açıklandığı gibi [bir VM'yi laboratuvara ekleme](devtest-lab-add-vm.md), bir laboratuar ortamında bir VM oluştururken yapılandırılmış bir sanal ağ belirtin. Örneğin, ExpressRoute veya siteden siteye VPN ile yapılandırılmış sanal ağını kullanarak, Vm'lerde, corpnet kaynaklarına gerekebilir.
@@ -58,12 +58,12 @@ Aşağıdaki adımlar, böylece aynı laboratuar ortamında bir VM oluştururken
 1. Seçin **Tamam** Laboratuvar alt bölmesini kapatın.
 1. Seçin **kaydetmek** sanal ağ bölmesini kapatın.
 
-Sanal ağ yapılandırıldıysa, bir VM oluşturulurken seçilebilir. Bir VM oluşturma ve bir sanal ağ belirtin, makalesine başvurun görmek için [yapı içeren bir VM'yi laboratuvara ekleme](devtest-lab-add-vm-with-artifacts.md). 
+Sanal ağ yapılandırıldıysa, bir VM oluşturulurken seçilebilir. Bir VM oluşturma ve bir sanal ağ belirtin, makalesine başvurun görmek için [bir VM'yi laboratuvara ekleme](devtest-lab-add-vm.md). 
 
 Azure'nın [sanal ağ belgeleri](https://docs.microsoft.com/azure/virtual-network) ayarlamak ve VNet yönetmek ve şirket içi ağınıza bağlanmak nasıl dahil olmak üzere sanal ağlar kullanma hakkında daha fazla bilgi sağlar.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Laboratuvarınız için istenen sanal ağ ekledikten sonra sıradaki adım olacak [Laboratuvarınızı için bir VM eklemek](devtest-lab-add-vm-with-artifacts.md).
+Laboratuvarınız için istenen sanal ağ ekledikten sonra sıradaki adım olacak [Laboratuvarınızı için bir VM eklemek](devtest-lab-add-vm.md).
 

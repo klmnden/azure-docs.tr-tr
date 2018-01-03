@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Ölçüm uyarılar için Azure services - Azure İzleyicisi'nde, platformlar arası CLI oluşturabilir.
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabili
 
 Yapılandırma ve kullanma ölçüm uyarı kuralları hakkında bilgi alın
 
-* [Azure portal](insights-alerts-portal.md)
+* [Azure portalı](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [komut satırı arabirimi (CLI)](insights-alerts-command-line-interface.md)
 * [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)

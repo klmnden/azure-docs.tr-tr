@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 6a185d96447c2e1b0b463439dd062081e783da5f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a>Azure SQL Data warehouse'da (PowerShell) işlem güç yönetimi
 > [!div class="op_single_selector"]

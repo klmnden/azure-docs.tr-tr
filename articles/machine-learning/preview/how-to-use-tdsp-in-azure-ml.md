@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Takım veri bilimi işlem şablonu ile yapısı projeleri
 
 Bu belge, takım veri bilimi işlem (TDSP) şablonları ile Azure Machine Learning ile veri bilimi projeleri oluşturma hakkında yönergeler sağlar. Bu şablonlar yapısı projelerde işbirliği ve yeniden Üretilebilirlik yardımcı olur. 
 
 
-## <a name="what-is-the-team-data-science-process"></a>Takım veri bilimi işlemi nedir?
+## <a name="what-is-the-team-data-science-process"></a>Team Data Science Process nedir?
 TDSP yürütme ve Gelişmiş analiz çözümleri teslim etmek için bir Çevik, yinelemeli, veri bilimi işlemidir. İşbirliği ve büyük kuruluşlar, veri bilimi ekipleri verimliliğini artırmak için tasarlanmıştır. Dört anahtar bileşenleri ile bu amaçları destekler:
 
    * Standart bir [veri bilimi yaşam döngüsü](../team-data-science-process/lifecycle.md) tanımı.
@@ -61,7 +62,7 @@ TDSP yapısı ve belgeleri şablonları ile yeni bir proje oluşturmak için aş
 ### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 Yeni bir proje oluşturmak için Azure Machine Learning açın. Altında **projeleri** sol bölmesinde, artı işaretini seçin (**+**) ve ardından **yeni proje**.
 
-![Yeni Proje](./media/how-to-use-tdsp-in-azure-ml/instantiation-1.png)
+![Yeni proje](./media/how-to-use-tdsp-in-azure-ml/instantiation-1.png)
 
 
 ### <a name="create-a-new-tdsp-structured-project"></a>TDSP yapılandırılmış yeni bir proje oluşturun

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 4121f94e15d9ba938d90d72e70d7bcb49a6c1ed5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6f1085a8b434aca18499e17ba1c1d086edfc302e
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Azure Active Directory'de bir kullanıcı için profil bilgileri ekleme veya değiştirme
 Bu makalede bir profil resmi veya telefon gibi kullanıcı profili bilgilerini ve e-posta kimlik bilgileri, Azure Active Directory (Azure AD) nasıl ekleneceği açıklanmaktadır. Kuruluşunuzdaki yeni kullanıcı ekleme hakkında daha fazla bilgi için bkz: [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-users-create-azure-portal.md).
@@ -42,5 +42,4 @@ Bu makalede bir profil resmi veya telefon gibi kullanıcı profili bilgilerini v
 * [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-users-create-azure-portal.md)
 * [Azure Active Directory'de bir kullanıcı parolasını sıfırlama](active-directory-users-reset-password-azure-portal.md)
 * [Kullanıcı Azure Active Directory'de yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md)
-* [Azure Active Directory'de bir kullanıcı için profil bilgileri ekleme veya değiştirme](active-directory-users-work-info-azure-portal.md)
 * [Bir kullanıcı Azure Active Directory'de bir dizinden silin](active-directory-users-delete-user-azure-portal.md)

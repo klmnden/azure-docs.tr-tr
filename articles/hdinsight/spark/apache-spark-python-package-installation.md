@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: c2921c6d7a0f46322fc4e0b3c84b743ee98e4a4d
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Hdınsight'ta Apache Spark kümeleri Jupyter not defterleri için dış Python paketlerini yüklemek için betik eylemi kullanın
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Arama yapabilirsiniz [paket dizini](https://pypi.python.org/pypi) kullanılabili
 
 Bu makalede, nasıl yükleneceğini öğreneceksiniz [TensorFlow](https://www.tensorflow.org/) kümenizde betik eylemi kullanarak paketini ve Jupyter not defteri kullanın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Aşağıdakilere sahip olmanız gerekir:
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

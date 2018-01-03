@@ -17,22 +17,22 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: Jejiang
-ms.openlocfilehash: 6ed5ddab021006da633b30cafc4e1988a064ab92
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Azure Depolama Gezgini (Önizleme) Azure Cosmos DB yönetme
 
-Azure Storage Gezgini Azure Cosmos DB kullanarak kullanıcıların Azure Cosmos DB varlıkları yönetme, verileri işlemek, saklı yordamları ve Tetikleyicileri depolama bloblar ve kuyruklarda olduğu gibi Azure diğer varlıklar yanı sıra güncelleştirme olanak tanır. Şimdi tek bir yerde farklı Azure varlıklarınızı yönetmek için aynı aracı kullanabilirsiniz. Şu anda Azure Storage Gezgini SQL ve MongoDB hesaplarını destekler. Azure Storage Gezgini Azure Cosmos DB yerel öykünücü ile çalışmaz. 
+Azure Storage Gezgini Azure Cosmos DB kullanarak kullanıcıların Azure Cosmos DB varlıkları yönetme, verileri işlemek, saklı yordamları ve Tetikleyicileri depolama bloblar ve kuyruklarda olduğu gibi Azure diğer varlıklar yanı sıra güncelleştirme olanak tanır. Şimdi tek bir yerde farklı Azure varlıklarınızı yönetmek için aynı aracı kullanabilirsiniz. Şu anda Azure Storage Gezgini SQL destekler <!--and MongoDB--> hesaplar. Azure Storage Gezgini Azure Cosmos DB yerel öykünücü ile çalışmaz. 
 
 Bu makalede, Depolama Gezgini Azure Cosmos DB yönetmek için nasıl kullanılacağını öğrenebilirsiniz.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-MongoDB API ve SQL API'yi için bir Azure Cosmos DB hesap. Bir hesabınız yoksa, bir Azure Portalı'nda açıklandığı gibi oluşturabilirsiniz [Azure Cosmos DB: .NET ve Azure portal ile bir SQL API web uygulaması oluşturma](create-sql-api-dotnet.md).
+Bir Azure Cosmos DB hesabı SQL API için <!--or MongoDB API-->. Bir hesabınız yoksa, bir Azure Portalı'nda açıklandığı gibi oluşturabilirsiniz [Azure Cosmos DB: .NET ve Azure portal ile bir SQL API web uygulaması oluşturma](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Yükleme
 
@@ -70,7 +70,7 @@ Bir Azure Cosmos DB bağlayan alternatif bir yolu, bir bağlantı dizesi kullanm
 
     ![Bağlantı dizesi tarafından Azure Cosmos Veritabanına bağlanın](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Uygun seçin **varsayılan deneyimi** hesap türünüz için ya da **DocumentDB** veya **MongoDB**, yapıştırın, **bağlantı dizesi**ve ardından **Tamam** Azure Cosmos DB hesap bağlanmak için. Bağlantı dizesi alma hakkında daha fazla bilgi için bkz: [bağlantı dizesini almak](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Uygun seçin **varsayılan deneyimi** hesap türünüz için <!--either--> **DocumentDB** <!--or **MongoDB**-->, yapıştırın, **bağlantı dizesi**ve ardından tıklatın **Tamam** Azure Cosmos DB hesap bağlanmak için. Bağlantı dizesi alma hakkında daha fazla bilgi için bkz: [bağlantı dizesini almak](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![bağlantı dizesi](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 

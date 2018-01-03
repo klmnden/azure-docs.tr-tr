@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4d4b9a0223fe6e48eb5ea9be089239d729aa1ab7
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Azure kapsayıcı hizmeti (AKS) uygulamaları çalıştırma
 
@@ -32,7 +32,7 @@ Bu öğretici Kubernetes kavramlar, Kubernetes bakın hakkında ayrıntılı bil
 
 Önceki öğreticileri, bir uygulama bir kapsayıcı görüntüsüne paketlenmiş ve bu görüntüyü Azure kapsayıcı kayıt defterine karşıya Kubernetes küme oluşturuldu. 
 
-Bu öğreticiyi tamamlamak için önceden oluşturulmuş gerekir `azure-vote-all-in-one-redis.yml` Kubernetes bildirim dosyası. Bu dosya uygulama kaynak koduna bir önceki öğreticide yüklendi. Depoyu kopyalanmış ve kopyalanan deposu dizinleri değiştirilmediğini doğrulayın.
+Bu öğreticiyi tamamlamak için önceden oluşturulmuş gerekir `azure-vote-all-in-one-redis.yaml` Kubernetes bildirim dosyası. Bu dosya uygulama kaynak koduna bir önceki öğreticide yüklendi. Depoyu kopyalanmış ve kopyalanan deposu dizinleri değiştirilmediğini doğrulayın.
 
 Bu adımları yapmadıysanız ve izlemek istediğiniz, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri][aks-tutorial-prepare-app].
 
@@ -49,7 +49,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Bildirim dosyası bir oturum açma sunucusu adı ile önceden oluşturulmuş `microsoft`. Dosyayı herhangi bir metin düzenleyicisinde açın. Bu örnekte, dosya içeren açıldıktan `vi`.
 
 ```console
-vi azure-vote-all-in-one-redis.yml
+vi azure-vote-all-in-one-redis.yaml
 ```
 
 Değiştir `microsoft` ACR oturum açma sunucu adına sahip. Bu değer satırına bulundu **47** bildirim dosyasının.
@@ -67,7 +67,7 @@ Dosyasını kaydedin ve kapatın.
 Kullanım [kubectl oluşturma] [ kubectl-create] uygulamayı çalıştırmak için komutu. Bu komut, bildirim dosyası ayrıştırır ve tanımlanmış Kubernetes nesneleri oluşturur.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
 Çıktı:
@@ -95,7 +95,7 @@ Başlangıçta *azure-vote-front* için *EXTERNAL-IP* durumu *pending* olarak g�
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Bir kez *dış IP* adresi değiştiğini *bekleyen* için bir *IP adresi*, kullanın `CTRL-C` kubectl izleme işlemi durdurmak için. 
+*EXTERNAL-IP* adresi *pending* durumundan *IP address* değerine değiştiğinde kubectl izleme işlemini durdurmak için `CTRL-C` komutunu kullanın. 
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m

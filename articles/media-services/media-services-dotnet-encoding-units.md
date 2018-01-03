@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
 ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK ile kodlama ölçeklendirme
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 12/18/2017
 > 
 
 > [!NOTE]
-> Java SDK'ın en son sürümünü alın ve Java ile geliştirmeye başlamak için bkz: [Media Services için Java istemcisi SDK ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Media Services için en yeni PHP SDK'yi karşıdan yüklemek için sürümünde 0.5.7 Microsoft/WindowAzure paket Ara [Packagist depo](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Java SDK'ın en son sürümünü almak ve Java ile geliştirmeye başlamak için bkz. [Media Services için Java istemcisi SDK’sı ile çalışmaya başlama](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Media Services için en yeni PHP SDK'sını indirmek üzere, [Packagist deposunda](https://packagist.org/packages/microsoft/windowsazure#v0.5.7) Microsoft/WindowAzure paketinin 0.5.7 sürümünü arayın.  
 
 ## <a name="overview"></a>Genel Bakış
 > [!IMPORTANT]

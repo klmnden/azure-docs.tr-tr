@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Takım veri bilimi işlem (TDSP) proje ile gelir sınıflandırma
 
@@ -47,7 +48,7 @@ Bkz: [ekip veri bilimi işlem (TDSP) yaşam döngüsü](https://github.com/Azure
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 ### <a name="required-subscription-hardware-software"></a>Gerekli: Abonelik, donanım, yazılım
 1. Bir Azure [abonelik](https://azure.microsoft.com). Alabileceğiniz bir [ücretsiz abonelik](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) Bu örnek ayrıca yürütülecek.
 2. Bir [Azure veri bilimi sanal makine (DSVM) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (VM boyutu: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)4 sanal CPU ve 14 Gb RAM). Bir Azure DSVM test karşın, herhangi bir Windows 10 makinede çalışması olasıdır.

@@ -7,6 +7,7 @@ author: anta
 manager: ireiter
 editor: anta
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 1d1e6dc7899a9f3367c8aa05d862a863f1f88135
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 17903df93e11b8d1a5b9c6fbe5fd8e53302f45f4
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Enerji talep zaman serisi tahmin
 
@@ -51,7 +52,7 @@ Bu senaryo, bir enerji kılavuz gelecekteki yükü tahmin etmek için hedef oldu
 
 Bu senaryo bir machine learning çözüm tahmin enerji talep yapımı ayrıntılarını verir. Çözüm, ortak bir veri kümesinden alınan üzerinde eğitildi [New York bağımsız sistem işleci (NYISO)](http://www3.dps.ny.gov/W/PSCWeb.nsf/All/298372E2CE4764E885257687006F39DF?OpenDocument), New York durumu için güç kılavuz çalışır. Veri kümesi, beş yıl döneminde saatlik New York şehrinde güç talep verilerini içerir. Saatlik aynı saat diliminde New York şehrinde hava koşulları içeren ek bir veri kümesini alındığı [darksky.net](https://darksky.net).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Bir [Azure hesabı](https://azure.microsoft.com/free/) (ücretsiz deneme kullanılabilir).
 - Yüklü bir kopyasını [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md) aşağıdaki [hızlı başlangıç Yükleme Kılavuzu](./quickstart-installation.md) programı yüklemek ve bir çalışma alanı oluşturmak için.
@@ -96,7 +97,7 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 | --- | --- | --- |
 | 2012-01-01 00:00:00 | 0.0 | 46.13 |
 | 2012-01-01 01:00:00 | 0.01 | 45.89 |
-| 2012-01-01 02:00:00 | 0.05 | 45.04 |
+| 2012-01-01 02:00:00 | 0,05 | 45.04 |
 | 2012-01-01 03:00:00 | 0.02 | 45.03 |
 
 *precip* precipitation düzeyini yüzde ölçüsüdür. *Temp* (sıcaklık) değerleri boyutlandırılan sağlayacak şekilde tüm değerler [0, 100] aralığındaki ayrılır.

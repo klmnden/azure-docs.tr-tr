@@ -14,14 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: f961ef253fd090d3f064c9da5950d5eab6547e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Connect Health düzenli olarak güncelleştirir. Bu makalede, çıkarılan özellikleri ve sürümleri listelenmektedir.
+
+## <a name="december-2017"></a>Aralık 2017
+**Aracı güncelleştirmesi:**
+
+*   AD DS (sürüm 3.0.145.0) için Azure AD Connect Health Aracısı
+  1. Aracı kullanılabilirlik iyileştirmeleri 
+  2. Yeni eklenen Aracısı sorun giderme komutları
+  3. Hata düzeltmeleri ve genel iyileştirmeler
+*   AD FS (sürüm 3.0.145.0) için Azure AD Connect Health Aracısı
+  1. Yeni eklenen Aracısı sorun giderme komutları
+  2. Aracı kullanılabilirlik iyileştirmeleri 
+  3. Hata düzeltmeleri ve genel iyileştirmeler
+
+## <a name="july-2017"></a>Temmuz 2017
+**Aracı güncelleştirmesi:**
+
+*   AD DS (sürüm 3.0.68.0) için Azure AD Connect Health Aracısı
+  1. Hata düzeltmeleri ve genel iyileştirmeler
+  2. Sovereign bulut desteği
+*   AD FS (sürüm 3.0.68.0) için Azure AD Connect Health Aracısı
+  1. Hata düzeltmeleri ve genel iyileştirmeler
+  2. Sovereign bulut desteği
+
+## <a name="april-2017"></a>Nisan 2017      
+**Aracı güncelleştirmesi:**
+
+*   AD FS (sürüm 3.0.12.0) için Azure AD Connect Health Aracısı
+  1. Hata düzeltmeleri ve genel iyileştirmeler
+*   AD DS (sürüm 3.0.12.0) için Azure AD Connect Health Aracısı
+  1. Performans sayaçları geliştirmeleri karşıya yükle
+  2. Hata düzeltmeleri ve genel iyileştirmeler
 
 ## <a name="october-2016"></a>Ekim 2016
 **Aracı güncelleştirmesi:**

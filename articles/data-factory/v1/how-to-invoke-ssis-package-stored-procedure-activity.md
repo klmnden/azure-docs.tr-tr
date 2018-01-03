@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ff0d1e5d644926864641ceb3e3c3a102167c1fd2
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 8aabe45a1627b1a897ca9fe4bda581c7a3f6bc03
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Saklı yordam etkinliği Azure Data Factory kullanarak bir SSIS paketi çağırma
 Bu makalede, bir saklı yordam etkinliğini kullanarak bir Azure Data Factory işlem hattı SSIS paketinden çağrılacak açıklar. 
@@ -25,7 +25,7 @@ Bu makalede, bir saklı yordam etkinliğini kullanarak bir Azure Data Factory i�
 > [!NOTE]
 > Bu makale, genel olarak kullanılabilir olduğu veri fabrikası 1 sürümü için geçerlidir. Genel önizlemede olan Data Factory hizmeti 2 sürümünü kullanıyorsanız bkz [sürüm 2 saklı yordam etkinliği kullanarak çağırma SSIS paketleri](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
 Bu makaledeki Kılavuzu SSIS katalog barındıran Azure SQL veritabanını kullanır. Bir Azure SQL yönetilen örneği (özel olarak incelenmektedir) de kullanabilirsiniz.
@@ -34,7 +34,7 @@ Bu makaledeki Kılavuzu SSIS katalog barındıran Azure SQL veritabanını kulla
 Adım adım yönergeleri izleyerek yoksa, bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma [Öğreticisi: dağıtmak SSIS paketleri](../tutorial-deploy-ssis-packages-azure.md). Veri Fabrikası Azure SSIS tümleştirmesi çalışma zamanı oluşturmak için 2 sürümünün oluşturmanız gerekir. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Aşağıdaki yönergeler en son Azure PowerShell modülleri yüklemek [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/install-azurerm-ps).
+[Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) konusundaki yönergeleri izleyerek en güncel Azure PowerShell modüllerini yükleyin.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 Aşağıdaki yordam, bir data factory oluşturmak için adımları sağlar. Bu veri fabrikasında bir saklı yordam etkinliği ile işlem hattı oluşturun. Saklı yordam etkinliği bir saklı yordam SSIS paketi çalıştırmak için SSISDB veritabanı yürütür.
@@ -65,7 +65,6 @@ Aşağıdaki yordam, bir data factory oluşturmak için adımları sağlar. Bu v
     
     ```powershell       
     $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
-    $df 
     ```
 
 Aşağıdaki noktalara dikkat edin:
@@ -76,15 +75,14 @@ Aşağıdaki noktalara dikkat edin:
     The specified Data Factory name 'ADFTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır.
-* Data Factory sürüm 2 şu anda Doğu ABD, Doğu ABD2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Veritabanı bağlı hizmeti oluşturma
 Azure SQL veritabanınızı barındıran bağlamak için bağlı hizmet, veri fabrikası SSIS kataloğa oluşturun. Veri Fabrikası SSISDB veritabanına bağlanmak için bu bağlı hizmetin bilgileri kullanır ve bir SSIS paketi çalıştırmak için bir saklı yordam yürütür. 
 
-1. Adlı bir JSON dosyası oluşturun **AzureSqlDatabaseLinkedService.json** içinde **C:\ADF\RunSSISPackage** klasöründe aşağıdaki içeriğe sahip: (zaten yoksa, ADFv2TutorialBulkCopy klasörü oluşturun.)
+1. Adlı bir JSON dosyası oluşturun **AzureSqlDatabaseLinkedService.json** içinde **C:\ADF\RunSSISPackage** klasöründe aşağıdaki içeriğe sahip: 
 
     > [!IMPORTANT]
-    > &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; ve &lt;password&gt; sözcüklerini Azure SQL Veritabanınızın değerleriyle değiştirin.
+    > Değiştir &lt;servername&gt;, &lt;kullanıcıadı&gt;@&lt;servername&gt; ve &lt;parola&gt; önce Azure SQL veritabanınızın değerlerle dosyayı kaydetme.
 
     ```json
     {
@@ -92,7 +90,7 @@ Azure SQL veritabanınızı barındıran bağlamak için bağlı hizmet, veri fa
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": "Server=tcp:<AZURE SQL SERVER NAME>.database.windows.net,1433;Database=SSISDB;User ID=<USERNAME>;Password=<PASSWORD>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=SSISDB;User ID=<username>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
         }
@@ -135,7 +133,7 @@ Bu adımda, bir saklı yordam etkinliği ile işlem hattı oluşturun. SSIS pake
 1. Adlı bir JSON dosyası oluşturun **MyPipeline.json** içinde **C:\ADF\RunSSISPackage** klasöründe aşağıdaki içeriğe sahip:
 
     > [!IMPORTANT]
-    > Değiştir &lt;klasör adı&gt;, &lt;proje adı&gt;, &lt;paket adı&gt; klasörü, proje ve dosyayı kaydetmeden önce SSIS katalog paketinde adlarıyla. 
+    > Değiştir &lt;klasör adı&gt;, &lt;proje adı&gt;, &lt;paket adı&gt; klasörü, proje ve dosyayı kaydetmeden önce SSIS katalog paketinde adlarıyla.
 
     ```json
     {
@@ -147,7 +145,7 @@ Bu adımda, bir saklı yordam etkinliği ile işlem hattı oluşturun. SSIS pake
                 "typeProperties": {
                     "storedProcedureName": "sp_executesql",
                     "storedProcedureParameters": {
-                        "stmt": "DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'SsisAdfTest', @project_name=N'MyProject', @package_name=N'Package.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END"
+                        "stmt": "DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<folder name>', @project_name=N'<project name>', @package_name=N'<package name>', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END"
                     }
                 },
                 "outputs": [{
@@ -165,18 +163,11 @@ Bu adımda, bir saklı yordam etkinliği ile işlem hattı oluşturun. SSIS pake
     }    
     ```
 
-2. Ardışık düzen oluşturmak için: **RunSSISPackagePipeline**, çalışma **kümesi AzureRmDataFactoryPipeline** cmdlet'i.
+2. Ardışık düzen oluşturmak için: **RunSSISPackagePipeline**, çalışma **yeni AzureRmDataFactoryPipeline** cmdlet'i.
 
     ```powershell
     $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
-
-## <a name="create-a-pipeline-run"></a>İşlem hattı çalıştırması oluşturma
-Kullanım **Invoke-AzureRmDataFactoryPipeline** ardışık düzen cmdlet'ini. Cmdlet, gelecekte izlemek üzere işlem hattı çalıştırma kimliğini döndürür.
-
-```powershell
-$RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
-```
 
 ## <a name="monitor-the-pipeline-run"></a>İşlem hattı çalıştırmasını izleme
 
@@ -192,7 +183,7 @@ $RunId = New-AzureRmDataFactoryPipeline $df -File ".\MyPipeline.json"
     Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
-    Dilimi **Hazır** durumunda veya **Başarısız** durumunda görene kadar bu cmdlet’i çalışır halde tutun. Dilim Hazır durumunda olduğunda, çıktı verileri için blob depolamanızın **adfgetstarted** klasöründe **partitioneddata** klasörünü denetleyin.  İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır.
+    Dilimi **Hazır** durumunda veya **Başarısız** durumunda görene kadar bu cmdlet’i çalışır halde tutun. 
 
     Yürütülen paket doğrulamak için Azure SQL Server'da SSISDB veritabanında şu sorguyu çalıştırabilirsiniz. 
 

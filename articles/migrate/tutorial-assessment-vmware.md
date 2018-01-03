@@ -4,13 +4,13 @@ description: "Bulmak ve şirket içi VMware VM'ler Azure geçiş hizmetini kulla
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/12/2017
+ms.date: 12/20/2017
 ms.author: raynew
-ms.openlocfilehash: c090605619afbaa1302932cbf9e73dbe52f5573b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Bul ve şirket içi VMware sanal makineleri geçiş için Azure değerlendirin
 
@@ -27,7 +27,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) oluşturun.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **VMware**: geçirmeyi planladığınız sanal makineleri bir vCenter Server çalışan sürümü ile 5.5, 6.0 veya 6.5 yönetilmelidir. Ayrıca, bir ESXi ana bilgisayar çalışan sürüm 5.0 veya daha yüksek toplayıcısı VM dağıtmak için gerekir. 
  
@@ -44,10 +44,10 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="create-a-project"></a>Proje oluştur
 
 1. Azure portalında tıklatın **kaynak oluşturma**.
-2. Arama **Azure geçirmek**ve hizmeti seçin (**Azure geçirme (Önizleme)** arama sonuçlarında. Sonra **Oluştur**’a tıklayın.
+2. Arama **Azure geçirmek**ve hizmeti seçin **Azure geçirme (Önizleme)** arama sonuçlarında. Sonra **Oluştur**’a tıklayın.
 3. Bir proje adı ve proje için Azure aboneliği belirtin.
 4. Yeni bir kaynak grubu oluşturun.
-5. Projeyi oluşturmak ve ardından edileceği bölge belirtin **oluşturma**. Şirket içi Vm'lerden toplanan meta verileri bu bölgede depolanır. Bu önizleme için Batı Orta ABD bölgede bir Azure geçirmek proje yalnızca oluşturabilirsiniz. Ancak, geçişiniz herhangi hedef Azure konumu için hala planlayabilirsiniz. 
+5. Projeyi oluşturmak ve ardından konumu belirtin **oluşturma**. Bu önizleme için Batı Orta ABD bölgede bir Azure geçirmek proje yalnızca oluşturabilirsiniz. Ancak, geçişiniz herhangi hedef Azure konumu için hala planlayabilirsiniz. Proje için belirtilen konum, yalnızca şirket içi Vm'lerden toplanan meta verileri depolamak için kullanılır. 
 
     ![Azure Geçişi](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -108,19 +108,24 @@ Denetleyin. Dağıtmadan önce OVA dosyası güvenlidir.
 1. VSphere istemci konsolunda VM'ye sağ tıklayın > **açık Konsolu**.
 2. Dil ve saat dilimi Gereci parola tercihlerini sağlar.
 3. Masaüstünde **Toplayıcı çalıştırmak** kısayol.
-4. Azure geçirmek Toplayıcı ' açık **önkoşulları ayarlamak**.
+4. Azure geçirmek Toplayıcı ' açık **önkoşulları ayarlama**.
     - Lisans koşullarını kabul edin ve üçüncü taraf bilgileri okuyun.
     - Toplayıcı VM Internet erişimi olduğunu denetler.
     - VM Internet proxy üzerinden erişirse, tıklatın **Proxy ayarlarını**, proxy adresi ve dinleme bağlantı noktasını belirtin. Proxy kimlik doğrulaması gerektiriyorsa kimlik bilgilerini belirtin.
-    - Toplayıcı, Windows profil oluşturucu hizmetinin çalıştığını denetler. Hizmeti toplayıcısı VM üzerinde varsayılan olarak yüklenir.
+
+    > [!NOTE]
+    > Proxy adresi form http://ProxyIPAddress veya http://ProxyFQDN girilmesi gerekir. Yalnızca HTTP proxy desteklenir.
+
+    - Toplayıcı collectorservice çalıştığını denetler. Hizmeti toplayıcısı VM üzerinde varsayılan olarak yüklenir.
     - VMware Powerclı yükleyip yeniden açın.
-. İçinde **Bul makineler**, aşağıdakileri yapın:
+
+5. İçinde **vCenter sunucusu ayrıntılarını belirtin**, aşağıdakileri yapın:
     - Adı (FQDN) veya vCenter sunucusunun IP adresini belirtin.
     - İçinde **kullanıcı adı** ve **parola**, Toplayıcı vCenter sunucusu üzerinde sanal makineleri bulmak için kullanacağı salt okunur hesap kimlik bilgilerini belirtin.
     - İçinde **koleksiyonu kapsam**, VM keşfi için kapsamı seçin. Toplayıcı, yalnızca sanal makineleri için belirtilen kapsamda bulabilir. Kapsamı belirli klasör, veri merkezi veya küme ayarlayabilirsiniz. 1000'den fazla VMs içermemelidir. 
     - İçinde **gruplandırma için etiket kategorisi**seçin **hiçbiri**.
-1. İçinde **seçin proje**portalından kopyalandığından anahtarı ve Azure geçirmek proje kimliği belirtin. Siz bunları kopyalayın, Toplayıcı VM Azure Portalı'nı açın. Projedeki **genel bakış** sayfasında, **Bul makineler**ve değerlerini kopyalayın.  
-2. İçinde **tam bulma**izlemek bulma ve VM'lerin toplanan meta verilerin kapsamında olduğunu denetleyin. Toplayıcı bir yaklaşık bulma süresi sağlar.
+6. İçinde **belirt geçiş proje**portalından kopyalandığından anahtarı ve Azure geçirmek proje kimliği belirtin. Siz bunları kopyalayın, Toplayıcı VM Azure Portalı'nı açın. Projedeki **genel bakış** sayfasında, **Bul makineler**ve değerlerini kopyalayın.  
+7. İçinde **koleksiyonu ilerlemeyi görüntüleme**izlemek bulma ve VM'lerin toplanan meta verilerin kapsamında olduğunu denetleyin. Toplayıcı bir yaklaşık bulma süresi sağlar.
 
 > [!NOTE]
 > Toplayıcı, yalnızca işletim sistemi dilini ve Toplayıcı arabirimi olarak "İngilizce (ABD)" destekler. Daha fazla dil desteği yakında geliyor.
@@ -152,7 +157,7 @@ Burada, örnek değerlendirme raporu verilmiştir. Sanal makineleri Azure ve ayl
 
 ![Değerlendirme raporu](./media/tutorial-assessment-vmware/assessment-report.png)
 
-#### <a name="azure-readiness"></a>Azure Hazırlık
+#### <a name="azure-readiness"></a>Azure için hazır olma 
 
 Bu görünüm, her makine için hazırlık durumu gösterir.
 
@@ -162,7 +167,7 @@ Bu görünüm, her makine için hazırlık durumu gösterir.
 
   ![Değerlendirme Hazırlık](./media/tutorial-assessment-vmware/assessment-suitability.png)  
 
-#### <a name="monthly-cost-estimate"></a>Aylık maliyeti tahmin
+#### <a name="monthly-cost-estimate"></a>Aylık maliyet tahmini
 
 Bu görünüm, toplam işlem ve depolama maliyeti ayrıntıları her makine için birlikte çalışan Azure Vm'lerinin gösterir. Maliyet tahminleri bir makine ve kendi diskleri ve değerlendirme özellikleri için performans tabanlı boyutu önerileri kullanarak hesaplanır. 
 
@@ -179,6 +184,6 @@ Belirli bir makine için ayrıntılara bakın için ayrıntıya inebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bilgi](how-to-scale-assessment.md) çok sayıda şirket içi makineler için bir değerlendirme kurulur.
-- Kullanarak daha ayrıntılı değerlendirme grupları oluşturma hakkında bilgi edinin [makine bağımlılık eşleme](how-to-create-group-machine-dependencies.md)
+- [Bilgi](how-to-scale-assessment.md) bulma ve büyük bir VMware ortamı değerlendirin.
+- Kullanarak Yüksek Güvenilirlikli değerlendirme grupları oluşturma hakkında bilgi edinin [makine bağımlılık eşleme](how-to-create-group-machine-dependencies.md)
 - [Daha fazla bilgi edinin](concepts-assessment-calculation.md) değerlendirmelerinin nasıl hesaplandığını hakkında.

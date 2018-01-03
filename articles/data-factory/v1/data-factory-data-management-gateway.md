@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a1b5346b590081c703ccdc5197e08f35bcaf76e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -68,7 +68,7 @@ Kopya veri ağ geçidi ile adımları özetini ve üst düzey veri akışı içi
 * Yapmanız gerekenler **ağ geçidini kullanmak** veri deposu bulutta üzerinde olsa bile bir **Azure Iaas sanal**.
 
 ## <a name="installation"></a>Yükleme
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Desteklenen **işletim sistemi** sürümleri Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Veri Yönetimi ağ geçidi etki alanı denetleyicisinde yükleme şu anda desteklenmiyor.
 * .NET framework 4.5.1 veya üzeri gereklidir. Windows 7 makinede ağ geçidi yüklüyorsanız, .NET Framework 4.5 veya üstünü yükleyin. Bkz: [.NET Framework sistem gereksinimleri](https://msdn.microsoft.com/library/8z6watww.aspx) Ayrıntılar için.
 * Önerilen **yapılandırma** ağ geçidi için en az 2 GHz, 4 çekirdek, 8 GB RAM ve 80 GB disk makinesidir.
@@ -323,6 +323,9 @@ Ayarlar sayfasını aşağıdaki işlemleri yapmanıza olanak sağlar:
 * **Durum** bitiş noktası
 * Görünüm **SSL sertifikası** veri kaynakları için kimlik bilgilerini ayarlamak için portal ve ağ geçidi arasında SSL iletişimi için kullanılır.  
 
+### <a name="remote-access-from-intranet"></a>İntranet uzaktan erişim  
+Bu işlev gelecekte etkinleştirilecek. Gelecek güncelleştirmelerde (v3.4 veya sonrası) biz, etkinleştirmek / kimlik bilgilerini şifrelemek için PowerShell veya kimlik bilgileri Yöneticisi uygulamasını kullanırken bağlantı noktası (yukarıdaki bölümüne bakın) 8050 kullanarak bugün gerçekleşen tüm uzak bağlantısını devre dışı olanak tanır. 
+
 ### <a name="diagnostics-page"></a>Tanılama sayfası
 Tanılama sayfası aşağıdaki işlemleri yapmanıza olanak sağlar:
 
@@ -374,9 +377,9 @@ Durum  | Yorumlar/senaryoları
 :------- | :------------------
 Çevrimiçi | Düğümü, veri fabrikası hizmetine bağlı.
 Çevrimdışı | Çevrimdışı düğümdür.
-Yükseltme | Düğüm, otomatik olarak güncelleştirilir.
+Yükseltiliyor | Düğüm, otomatik olarak güncelleştirilir.
 Sınırlı | Bağlantı sorunundan kaynaklanıyor. HTTP bağlantı noktası 8050 sorunu, hizmet veri yolu bağlantı sorunu veya kimlik bilgisi eşitleme sorunu nedeniyle olabilir. 
-Etkin olmayan | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
+Devre dışı | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
 
 
 Aşağıdaki tabloda, olası durumlar sağlayan bir **mantıksal ağ geçidi**. Ağ geçidi durumu üzerinde ağ geçidi düğümleri durumlar değişir. 

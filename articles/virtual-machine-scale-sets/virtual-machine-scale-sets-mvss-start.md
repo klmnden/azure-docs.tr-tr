@@ -4,7 +4,7 @@ description: "Sanal makine ölçek kümeleri için minimum uygun ölçek kümesi
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 65f02c4675eb752dcc82e9a1d1c7f6c2c193fc32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5cd495d1332c71d7eae775f933b73d98826f10e4
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Sanal makine ölçek kümesi şablonları hakkında bilgi edinin
 [Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici serisi minimum uygun ölçek kümesi şablonunun nasıl oluşturulacağını ve çeşitli senaryoları uyacak şekilde bu şablonu nasıl değiştireceğiniz gösterilir. Tüm örnekler öğesinden gelen [GitHub deposunu](https://github.com/gatneil/mvss). 
@@ -30,12 +30,12 @@ Bu şablon, basit olması amaçlanmıştır. Ölçek daha kapsamlı örnekleri i
 
 ## <a name="review-the-template"></a>Şablon gözden geçirin
 
-Bizim minimum uygun ölçek kümesi şablon gözden geçirmek için GitHub kullanın [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
+En düşük uygun ölçek kümesi şablon gözden geçirmek için GitHub kullanın [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
 
-Bu öğreticide, fark inceleyeceğiz (`git diff master minimum-viable-scale-set`) en düşük uygun ölçek oluşturmak için şablon tarafından parça parça ayarlayın.
+Bu öğreticide, fark inceleyelim (`git diff master minimum-viable-scale-set`) en düşük uygun ölçek oluşturmak için şablon tarafından parça parça ayarlayın.
 
 ## <a name="define-schema-and-contentversion"></a>$Schema ve contentVersion tanımlayın
-İlk olarak, tanımlarız `$schema` ve `contentVersion` şablondaki. `$schema` Öğesi şablonu dil sürümünü tanımlar ve Visual Studio söz dizimi vurgulama ve benzer doğrulama özellikleri için kullanılır. `contentVersion` Öğesi Azure tarafından kullanılmaz. Bunun yerine, şablonu sürümü izlemenize yardımcı olur.
+Öncelikle, tanımlamanız `$schema` ve `contentVersion` şablondaki. `$schema` Öğesi şablonu dil sürümünü tanımlar ve Visual Studio söz dizimi vurgulama ve benzer doğrulama özellikleri için kullanılır. `contentVersion` Öğesi Azure tarafından kullanılmaz. Bunun yerine, şablonu sürümü izlemenize yardımcı olur.
 
 ```json
 {
@@ -43,7 +43,7 @@ Bu öğreticide, fark inceleyeceğiz (`git diff master minimum-viable-scale-set`
   "contentVersion": "1.0.0.0",
 ```
 ## <a name="define-parameters"></a>parametrelerini tanımlayın
-Ardından, iki parametre tanımlarız `adminUsername` ve `adminPassword`. Parametreleri, dağıtım sırasında belirttiğiniz değerleridir. `adminUsername` Parametredir yalnızca bir `string` türü, ancak çünkü `adminPassword` bir parolası türü sunuyoruz `securestring`. Daha sonra bu parametreler ölçek kümesi yapılandırmaya geçirilir.
+Ardından, iki parametre tanımlayın `adminUsername` ve `adminPassword`. Parametreleri, dağıtım sırasında belirttiğiniz değerleridir. `adminUsername` Parametredir yalnızca bir `string` türü, ancak çünkü `adminPassword` yazın gizli, bir verin olduğu `securestring`. Daha sonra bu parametreler ölçek kümesi yapılandırmaya geçirilir.
 
 ```json
   "parameters": {
@@ -56,7 +56,7 @@ Ardından, iki parametre tanımlarız `adminUsername` ve `adminPassword`. Parame
   },
 ```
 ## <a name="define-variables"></a>Değişkenleri tanımlama
-Resource Manager şablonları aynı zamanda, daha sonra şablonunda kullanılacak değişkenler tanımlamanıza olanak sağlar. Biz JSON nesnesi boş sol şekilde örneğimizde herhangi bir değişkeni kullanmaz.
+Resource Manager şablonları aynı zamanda, daha sonra şablonunda kullanılacak değişkenler tanımlamanıza olanak sağlar. JSON nesnesi boş olması için örnek herhangi bir değişkeni kullanmaz.
 
 ```json
   "variables": {},
@@ -79,14 +79,14 @@ Tüm kaynak gerektiren `type`, `name`, `apiVersion`, ve `location` özellikleri.
 ```
 
 ## <a name="specify-location"></a>Konumu belirtin
-Sanal ağ konumunu belirtmek için kullanıyoruz bir [Resource Manager şablonu işlevi](../azure-resource-manager/resource-group-template-functions.md). Bu işlev teklifleri ve bu gibi köşeli ayraçlar içinde alınmalıdır: `"[<template-function>]"`. Bu durumda, kullandığımız `resourceGroup` işlevi. İçinde bağımsız değişken almayan ve bu dağıtım dağıtıldığı kaynak grubu hakkındaki meta verileri içeren bir JSON nesnesi döndürür. Kaynak grubu dağıtım zamanında kullanıcı tarafından ayarlanır. Biz sonra bu JSON nesnesinin ile dizine `.location` JSON nesnesinden konumunu almak için.
+Sanal ağ konumunu belirtmek için kullanın bir [Resource Manager şablonu işlevi](../azure-resource-manager/resource-group-template-functions.md). Bu işlev teklifleri ve bu gibi köşeli ayraçlar içinde alınmalıdır: `"[<template-function>]"`. Bu durumda, kullanarak `resourceGroup` işlevi. İçinde bağımsız değişken almayan ve bu dağıtım dağıtıldığı kaynak grubu hakkındaki meta verileri içeren bir JSON nesnesi döndürür. Kaynak grubu dağıtım zamanında kullanıcı tarafından ayarlanır. Bu değer daha sonra bu JSON nesnesinin ile içine dizine `.location` JSON nesnesinden konumunu almak için.
 
 ```json
        "location": "[resourceGroup().location]",
 ```
 
 ## <a name="specify-virtual-network-properties"></a>Sanal ağ özelliklerini belirtin
-Her bir Resource Manager kaynak kendi sahip `properties` kaynağa özgü yapılandırmalar için bölüm. Bu durumda, sanal ağ özel IP adres aralığını kullanarak tek bir alt ağda olması gerektiğini belirtin `10.0.0.0/16`. Ölçek kümesi her zaman bir alt ağ içinde yer alır. Alt ağlar yayılamaz.
+Her bir Resource Manager kaynak kendi sahip `properties` kaynağa özgü yapılandırmalar için bölüm. Bu durumda, sanal ağ özel IP adres aralığını kullanarak tek bir alt ağda olması gerektiğini belirtirseniz `10.0.0.0/16`. Ölçek kümesi her zaman bir alt ağ içinde yer alır. Alt ağlar yayılamaz.
 
 ```json
        "properties": {
@@ -110,7 +110,7 @@ Her bir Resource Manager kaynak kendi sahip `properties` kaynağa özgü yapıla
 ## <a name="add-dependson-list"></a>DependsOn listeye ekleyin
 Ek olarak gerekli `type`, `name`, `apiVersion`, ve `location` özellikleri, her bir kaynağın isteğe bağlı bir olabilir `dependsOn` dize listesi. Bu liste, bu kaynak dağıtmadan önce bu dağıtım diğer kaynaklardan bitmesi gereken belirtir.
 
-Bu durumda, var. yalnızca tek bir öğe listesinde, önceki örnekten sanal ağ Tüm sanal makineleri oluşturmadan önce mevcut ağa ölçek kümesinin çünkü Biz bu bağımlılık belirtin. Bu şekilde, Ölçek kümesi Ağ Özellikleri'nde daha önce belirtilen IP adresi aralığından bu VM'ler özel IP adreslerini verin. DependsOn listedeki her dize biçimi `<type>/<name>`. Aynı `type` ve `name` sanal ağ kaynak tanımı'nda önceden kullanılmış.
+Bu durumda, var. yalnızca tek bir öğe listesinde, önceki örnekten sanal ağ Tüm sanal makineleri oluşturmadan önce mevcut ağa ölçek kümesinin çünkü bu bağımlılık belirtin. Bu şekilde, Ölçek kümesi Ağ Özellikleri'nde daha önce belirtilen IP adresi aralığından bu VM'ler özel IP adreslerini verin. DependsOn listedeki her dize biçimi `<type>/<name>`. Aynı `type` ve `name` sanal ağ kaynak tanımı'nda önceden kullanılmış.
 
 ```json
      {
@@ -123,7 +123,7 @@ Bu durumda, var. yalnızca tek bir öğe listesinde, önceki örnekten sanal ağ
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Ölçek kümesi özelliklerini belirtin
-Ölçek kümesi VM ölçek kümesindeki özelleştirmek için birçok özelliği vardır. Bu özelliklerin tam listesi için bkz: [ölçek kümesi REST API belgeleri](https://docs.microsoft.com/en-us/rest/api/virtualmachinescalesets/create-or-update-a-set). Bu öğreticide, biz yalnızca birkaç yaygın olarak kullanılan özellikleri ayarlayın.
+Ölçek kümesi VM ölçek kümesindeki özelleştirmek için birçok özelliği vardır. Bu özelliklerin tam listesi için bkz: [ölçek kümesi REST API belgeleri](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). Bu öğretici için yalnızca birkaç yaygın olarak kullanılan özellikler ayarlanır.
 ### <a name="supply-vm-size-and-capacity"></a>VM boyutu ve kapasite sağlayın
 Ölçek kümesi boyutu ("sku adı") oluşturmak için VM bilmeniz gerekir ve bu tür kaç VM'ler ("sku kapasitesi") oluşturun. Hangi VM boyutları kullanılabilir olduğunu görmek için bkz: [VM boyutları belgelerine](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 
@@ -145,7 +145,7 @@ Ayrıca ölçek ölçek kümesindeki güncelleştirmelerin nasıl ele alınacağ
 ```
 
 ### <a name="choose-vm-operating-system"></a>VM işletim sistemini seçin
-Ölçek sanal makinelerin koymak için hangi işletim sistemi bilmeniz gereksinimlerini ayarlayın. Burada, sanal makineleri bir tam olarak düzeltme eki Ubuntu 16.04 LTS görüntüsüyle oluşturuyoruz.
+Ölçek sanal makinelerin koymak için hangi işletim sistemi bilmeniz gereksinimlerini ayarlayın. Burada, sanal makineleri bir tam olarak düzeltme eki Ubuntu 16.04 LTS görüntüsüyle oluşturun.
 
 ```json
          "virtualMachineProfile": {
@@ -160,9 +160,9 @@ Ayrıca ölçek ölçek kümesindeki güncelleştirmelerin nasıl ele alınacağ
 ```
 
 ### <a name="specify-computernameprefix"></a>ComputerNamePrefix belirtin
-Birden çok VM ölçek kümesi dağıtır. Her bir VM adı belirtmek yerine, biz belirtin `computerNamePrefix`. Formun VM adlara sahip şekilde ölçek kümesini dizin ön eki her bir VM ekler `<computerNamePrefix>_<auto-generated-index>`.
+Birden çok VM ölçek kümesi dağıtır. Her bir VM adı belirtmek yerine belirtin `computerNamePrefix`. Formun VM adlara sahip şekilde ölçek kümesini dizin ön eki her bir VM ekler `<computerNamePrefix>_<auto-generated-index>`.
 
-Aşağıdaki kod parçacığında, Ölçek kümesindeki tüm VM'ler için yönetici kullanıcı adı ve parolayı ayarlamak için önce parametrelerini kullanın. Biz bunu ile `parameters` şablon işlevi. Bu işlev başvurmak için hangi parametresi belirtir ve bu parametre için değer çıkaran bir dize olarak alır.
+Aşağıdaki kod parçacığında, Parametreler önce ölçek kümesindeki tüm VM'ler için yönetici kullanıcı adı ve parolayı ayarlamak için kullanın. Bu işlem kullanır `parameters` şablon işlevi. Bu işlev başvurmak için hangi parametresi belirtir ve bu parametre için değer çıkaran bir dize olarak alır.
 
 ```json
            "osProfile": {
@@ -173,11 +173,11 @@ Aşağıdaki kod parçacığında, Ölçek kümesindeki tüm VM'ler için yönet
 ```
 
 ### <a name="specify-vm-network-configuration"></a>VM ağ yapılandırması belirtin
-Son olarak, biz ölçek kümesindeki sanal makineleri için ağ yapılandırmasının belirtmeniz gerekir. Bu durumda, biz yalnızca daha önce oluşturduğunuz alt ağ kimliği belirtmeniz gerekir. Bu alt ağda ağ arabirimleri yerleştirilecek kümesini söyler.
+Son olarak, Ölçek kümesindeki sanal makineleri için ağ yapılandırması belirtin. Bu durumda, yalnızca daha önce oluşturduğunuz alt ağ kimliği belirtmeniz gerekir. Bu alt ağda ağ arabirimleri yerleştirilecek kümesini söyler.
 
 Alt ağ kullanarak içeren sanal ağ kimliği alabilirsiniz `resourceId` şablon işlevi. Bu işlev türü ve kaynağın adını alır ve bu kaynağın tam tanımlayıcısını döndürür. Bu kimliği biçime sahiptir:`/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
 
-Ancak, sanal ağ tanıtıcısı yeterli değildir. Ölçek VM'ler kümesi belirli alt bulunmalıdır belirtmeniz gerekir. Bunu yapmak için birleştirme `/subnets/mySubnet` sanal ağ kimliği. Sonuç, alt ağın tam kimliğidir. Bu birleştirme ile yapmak `concat` dizeleri bir dizi alır ve kendi birleştirme döndüren işlev.
+Ancak, sanal ağ tanıtıcısı yeterli değildir. Ölçek VM'ler kümesi belirli alt olması gerektiğini belirtin. Bunu yapmak için birleştirme `/subnets/mySubnet` sanal ağ kimliği. Sonuç, alt ağın tam kimliğidir. Bu birleştirme ile yapmak `concat` dizeleri bir dizi alır ve kendi birleştirme döndüren işlev.
 
 ```json
            "networkProfile": {

@@ -15,10 +15,10 @@ ms.workload: backup-recovery
 ms.date: 11/23/2017
 ms.author: bsiva
 ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Hedef (VMware Azure için) hazırlama
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/18/2017
 
 Bu makalede, VMware sanal makinelerini Azure'a çoğaltma başlatmak üzere Azure ortamınızı hazırlamak açıklar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Makaleyi varsayılır:
 - VMware sanal makineleri korumak için bir kurtarma Hizmetleri kasası oluşturdunuz. Kurtarma Hizmetleri Kasası'nı oluşturabilirsiniz [Azure portal](http://portal.azure.com "Azure portal").

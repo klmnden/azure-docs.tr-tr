@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Yükleme ve Azure sanal makineleri yönetmek için Ansible yapılandırma
 Bu makalede Ansible ve gerekli Azure Python SDK'sını modüllerini bazı yaygın Linux distro'lar için yükleme ayrıntılarını verir. Yüklü paketler belirli platformunuz uyacak şekilde ayarlayarak diğer distro'lar üzerinde Ansible yükleyebilirsiniz. Azure kaynaklarını güvenli bir şekilde oluşturmak için de oluşturmak ve kullanmak Ansible için kimlik bilgilerini tanımlamak nasıl öğrenin. 
@@ -34,7 +34,7 @@ Daha fazla yükleme seçenekleri ve ek platformlar için adımları için bkz: [
 az group create --name myResourceGroupAnsible --location eastus
 ```
 
-Şimdi bir VM oluşturun ve aşağıdaki distro'lar biri için Ansible yükleyin:
+Şimdi, bir VM oluşturmak ve tercih ettiğiniz aşağıdaki distro'lar biri için Ansible yükleyin:
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
@@ -43,7 +43,7 @@ az group create --name myResourceGroupAnsible --location eastus
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 [az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -74,7 +74,7 @@ pip install ansible[azure]
 ### <a name="centos-73"></a>CentOS 7.3
 [az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -106,7 +106,7 @@ sudo pip install ansible[azure]
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 [az vm create](/cli/azure/vm#create) ile bir VM oluşturun. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -125,11 +125,14 @@ VM, Azure Python SDK'sını modülleri ve Ansible gerekli paketleri gibi yükley
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel libtool python-pip python-setuptools
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+    python-devel libopenssl-devel libtool python-pip python-setuptools
 
 ## Install Ansible and Azure SDKs via pip
 sudo pip install ansible[azure]
+
+# Remove conflicting Python cryptography package
+sudo pip uninstall -y cryptography
 ```
 
 Şimdi oturum taşıma [oluşturma Azure kimlik bilgilerini](#create-azure-credentials).
@@ -138,26 +141,26 @@ sudo pip install ansible[azure]
 ## <a name="create-azure-credentials"></a>Azure kimlik bilgileri oluşturun
 Ansible bir kullanıcı adı ve parola veya bir hizmet sorumlusu kullanarak Azure ile iletişim kurar. Bir Azure hizmet sorumlusu uygulamaları, hizmetleri ve Ansible gibi Otomasyon araçları ile birlikte kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hizmet sorumlusu Azure'da gerçekleştirebilirsiniz ne gibi işlemler için izinler tanımlar. Yalnızca bir kullanıcı adı ve parola sağlayarak üzerinden güvenliğini artırmak için bu örnek temel bir hizmet sorumlusu oluşturur.
 
-Bir hizmet sorumlusu ile oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac) ve Ansible gereken kimlik bilgilerini çıktı:
+Ana bilgisayar ile bir hizmet sorumlusu oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac) ve Ansible gereken kimlik bilgilerini çıktı:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
 ```
 
 Çıkış örneği önceki komutlarındaki aşağıdaki gibidir:
 
 ```json
-[
-  "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "72f988bf-86f1-41af-91ab-2d7cd011db47"
-]
+{
+  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 Azure için kimlik doğrulaması için Azure abonelik Kimliğinizi elde etmeniz [az hesabı Göster](/cli/azure/account#show):
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 Sonraki adımda bu iki komut çıktısı kullanın.
@@ -173,7 +176,7 @@ mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-*Kimlik bilgileri* dosyasının kendisini abonelik kimliği bir hizmet sorumlusu oluşturma çıkış ile birleştirir. Önceki sürümden çıktı [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac) komuttur aynı sırada için gerektiği şekilde *client_id*, *gizli*, ve *Kiracı*. Aşağıdaki örnek *kimlik bilgileri* dosyasını önceki çıkış eşleşen bu değerleri gösterir. Aşağıdaki gibi kendi değerlerinizi girin:
+*Kimlik bilgileri* dosyasının kendisini abonelik kimliği bir hizmet sorumlusu oluşturma çıkış ile birleştirir. Önceki sürümden çıktı [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac) komutu aynıdır için gerektiği şekilde *client_id*, *gizli*, ve *Kiracı*. Aşağıdaki örnek *kimlik bilgileri* dosyasını önceki çıkış eşleşen bu değerleri gösterir. Aşağıdaki gibi kendi değerlerinizi girin:
 
 ```bash
 [default]

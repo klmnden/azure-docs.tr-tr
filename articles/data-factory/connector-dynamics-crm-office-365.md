@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 12/21/2017
 ms.author: jingwang
-ms.openlocfilehash: ec1b9868ca94392cd00875ef2913d4c14a608110
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Veri kopyalama/Dynamics 365 / Dynamics CRM Azure Data Factory kullanma
 
@@ -328,22 +328,22 @@ Veri kümesi yapısında, Dynamics veri kaynağına göre karşılık gelen Data
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | Uzun | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boole | ✓ | ✓ |
-| AttributeType.Customer | GUID | ✓ |  |
+| AttributeType.Customer | Guid | ✓ |  |
 | AttributeType.DateTime | Tarih saat | ✓ | ✓ |
 | AttributeType.Decimal | Ondalık | ✓ | ✓ |
 | AttributeType.Double | Çift | ✓ | ✓ |
 | AttributeType.EntityName | Dize | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ |  |
+| AttributeType.Lookup | Guid | ✓ |  |
 | AttributeType.ManagedProperty | Boole | ✓ |  |
 | AttributeType.Memo | Dize | ✓ | ✓ |
-| AttributeType.Money | Ondalık | ✓ |  |
-| AttributeType.Owner | GUID | ✓ | |
+| AttributeType.Money | Ondalık | ✓ | ✓ |
+| AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
-| AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
+| AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
 | AttributeType.String | Dize | ✓ | ✓ |
-| AttributeType.State | Int32 | ✓ |  |
-| AttributeType.Status | Int32 | ✓ |  |
+| AttributeType.State | Int32 | ✓ | ✓ |
+| AttributeType.Status | Int32 | ✓ | ✓ |
 
 
 > [!NOTE]

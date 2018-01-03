@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 5797d8db5f82d1c7edbb67f8e2335a5c0be21882
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0bc0551259e47cdbd74d323d8d9877c74dd64c4b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -38,7 +38,7 @@ Bir DocumentDB API hesabı önce olsaydı, artık bir SQL API hesabıyla fatura 
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Bir hizmet olarak Azure DocumentDB ne?
 
-Azure DocumentDB hizmeti artık Azure Cosmos DB hizmetin bir parçası ve SQL API'yi biçiminde ortaya çıkmaktadır. Azure Documentdb'de oluşturulan uygulamaların hiçbir değişiklik yapmadan Azure Cosmos DB SQL API karşı çalışır. Ayrıca, Azure Cosmos DB grafik API'si (Önizleme), tablo API, API MongoDB ve Cassandra API (Önizleme) destekler.
+Azure DocumentDB hizmeti artık Azure Cosmos DB hizmetin bir parçası ve SQL API'yi biçiminde ortaya çıkmaktadır. Azure Documentdb'de oluşturulan uygulamaların hiçbir değişiklik yapmadan Azure Cosmos DB SQL API karşı çalışır. Ayrıca, Azure Cosmos DB grafik API'si, tablo API, API MongoDB ve Cassandra API (Önizleme) destekler.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Azure Cosmos DB için genel kullanım örnekleri nelerdir?
 Azure Cosmos DB yeni web, mobil, oyun için iyi bir seçenektir ve IOT uygulamaları burada otomatik ölçeğin, tahmin edilebilir performans, hızlı sırası milisaniye yanıt sürelerinin ve sorgulama şemasız verilerde önemlidir. Azure Cosmos DB kendisi, uygulama veri modellerinin sürekli yinelenmesini destekleme ve hızlı geliştirme için uygundur. Kullanıcı tarafından oluşturulan içeriği ve verileri yöneten uygulamalar [ortak kullanım durumları için Azure Cosmos DB](use-cases.md). 
@@ -95,7 +95,7 @@ Aşağıdaki koşullar deneyin Azure Cosmos DB abonelikler için geçerlidir:
 
 ## <a name="set-up-azure-cosmos-db"></a>Azure Cosmos DB'yi yedekleyin ayarlayın
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Nasıl Azure Cosmos DB kaydolabilirim?
-Azure portalında Azure Cosmos DB kullanılabilir. İlk olarak, Azure aboneliği için kaydolun. Oturum açtığınız sonra Azure aboneliğinize SQL API, grafik API'si (Önizleme), tablo API, API MongoDB veya Cassandra API hesabı ekleyebilirsiniz.
+Azure portalında Azure Cosmos DB kullanılabilir. İlk olarak, Azure aboneliği için kaydolun. Oturum açtığınız sonra Azure aboneliğinize SQL API, grafik API'si, tablo API, API MongoDB veya Cassandra API hesabı ekleyebilirsiniz.
 
 ### <a name="what-is-a-master-key"></a>Ana anahtar nedir?
 Ana anahtar, bir hesaptaki tüm kaynaklara erişmeyi sağlayan bir güvenlik belirtecidir. Anahtara sahip kişiler okuma ve yazma erişimi veritabanı hesabındaki tüm kaynaklara. Ana anahtarları dağıtırken dikkatli olun. Birincil ana anahtar ve ikincil ana anahtar kullanılabilir **anahtarları** dikey [Azure portal][azure-portal]. Anahtarlar hakkında daha fazla bilgi için bkz: [görüntüleme, kopyalama ve yeniden oluşturma erişim tuşları](manage-account.md#keys).
@@ -208,7 +208,7 @@ REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen u�
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /? restype =service@comp= özellikleri| [Tablo hizmeti özelliklerini ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) ve [tablo hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Bu uç noktaya CORS kuralları, depolama Analizi Yapılandırması ve günlüğe kaydetme ayarlarını belirlemek için kullanılır. CORS şu anda desteklenmiyor ve analizi ve günlüğe kaydetme Azure Cosmos veritabanı Azure depolama tabloları daha farklı bir şekilde ele |
 | SEÇENEKLER | / < Tablo-resource-adı > | [Ön uçuş CORS tablo isteği](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Bu, Azure Cosmos DB şu anda desteklemediği CORS parçasıdır. |
-| AL | /? restype =service@compİstatistiği = | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
+| GET | /? restype =service@compİstatistiği = | [Tablo hizmeti istatistiklerini alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil kopya arasında veri çoğaltmak ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
 | GET, PUT | /myTable? comp acl = | [Tablo ACL alma](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ve [tablo ACL ayarlayın](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Bu alır ve paylaşılan erişim imzaları (SAS) yönetmek için kullanılan depolanmış erişim ilkeleri ayarlar. SAS desteklenmesine karşın, bunların ayarlayın ve farklı şekilde yönetilir. |
 
 Ayrıca Azure Cosmos DB tablo API, yalnızca değil ATOM JSON biçimini destekler.
@@ -414,14 +414,14 @@ Hataların çoğu aynı olacak şekilde azure Table storage ve Azure Cosmos DB t
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Tabloları miktarda birbiri ardından tablo API oluşturmak çalıştığınızda neden ı kısıtlanan?
 Azure Cosmos DB gecikme süresi, performans, kullanılabilirlik ve tutarlılık sağlayan bir SLA tabanlı bir sistemdir. Sağlanan sistem olduğundan, bu gereksinimleri güvence altına almak için kaynakları ayırır. Tabloları oluşturulmasını hızlı oranını algıladı ve daraltma. Tablo oluşturma hızında arayın ve az 5 dakika başına alt öneririz. Tablo API sağlanan sistem olduğunu unutmayın. Şu anda bunu sağlamak için ödeme başlar. 
 
-## <a name="develop-against-the-graph-api-preview"></a>Grafik API'si (Önizleme) karşı geliştirin
-### <a name="how-can-i-apply-the-functionality-of-graph-api-preview-to-azure-cosmos-db"></a>Nasıl ı grafik API'si (Önizleme) işlevselliğini Azure Cosmos DB uygulayabilir mi?
-Grafik API'si (Önizleme) işlevselliğini uygulamak için bir uzantı kitaplığını kullanabilirsiniz. Bu kitaplık Microsoft Azure grafikleri denir ve NuGet üzerinde kullanılabilir. 
+## <a name="develop-against-the-graph-api"></a>Grafik API'si karşı geliştirin
+### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Nasıl ı grafik API'si işlevselliğini Azure Cosmos DB uygulayabilir mi?
+Grafik API'si işlevselliğini uygulamak için bir uzantı kitaplığını kullanabilirsiniz. Bu kitaplık Microsoft Azure grafikleri denir ve NuGet üzerinde kullanılabilir. 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Gremlin grafik geçişi dil desteği gibi görünüyor. Daha fazla form sorgusunun eklemek planlıyor musunuz?
 Evet, diğer mekanizmaları sorgu için gelecekte ekleme planlıyoruz. 
 
-### <a name="how-can-i-use-the-new-graph-api-preview-offering"></a>Grafik API'si (Önizleme) yenilik nasıl kullanabilir miyim? 
+### <a name="how-can-i-use-the-new-graph-api-offering"></a>Grafik API'si yenilik nasıl kullanabilir miyim? 
 Başlamak için tamamlamak [grafik API'si](../cosmos-db/create-graph-dotnet.md) hızlı başlangıç makalesi.
 
 <a id="cassandra"></a> 

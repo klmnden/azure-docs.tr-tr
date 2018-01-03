@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: 3b39e87946f3787c71872c7b98db419f1f239e7a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Bir Azure SQL veri ambarı (PowerShell) geri yükleme
 > [!div class="op_single_selector"]

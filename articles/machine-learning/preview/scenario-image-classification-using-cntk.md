@@ -5,15 +5,17 @@ services: machine-learning
 documentationcenter: 
 author: PatrickBue
 ms.author: pabuehle
-ms.reviewer: mawah, marhamil, mldocs
+manager: mwinkle
+ms.reviewer: mawah, marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 2410ed152674637cb1b287db55da67b8d5f5f072
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 53d182d84c8f28c7b4055780a5b41df00fdc8583
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak görüntü sınıflandırma
 
@@ -42,7 +44,7 @@ Bu öğretici, üç bölüme ayrılır:
 Machine learning ve CNTK önceki deneyimiyle gerekli olmamasına karşın, temel alınan ilkeleri anlamak için faydalıdır. Eğitim zaman, öğreticide bildirilen vb. doğruluğu, yalnızca başvuru numaralarıdır ve kod çalıştırırken gerçek değerler hemen kesinlikle farklılık gösterir.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
@@ -73,7 +75,7 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturmak için:
 2.  Üzerinde **projeleri** sayfasında,  **+**  oturum ve seçin **yeni proje**.
 3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun.
 4.  İçinde **arama proje şablonları** arama kutusu, "sınıflandırma görüntü" yazın ve şablonu seçin.
-5.  **Oluştur**'a tıklayın.
+5.  **Oluştur**’a tıklayın.
 
 Bu adımları gerçekleştiren aşağıda gösterilen Proje yapısı oluşturur. Proje dizinine, Azure Machine Learning çalışma ekranı (çalıştırma geçmişini etkinleştirmek için) her çalıştırmayı sonra bu klasör bir kopyasını oluşturduğundan MBayt'ı 25'ten az olacak şekilde sınırlıdır. Bu nedenle, tüm görüntü ve geçici dosyalar için ve dizinden kaydedilmiş *~/Desktop/imgClassificationUsingCntk_data* (olarak adlandırılan *DATA_DIR* bu belgedeki).
 

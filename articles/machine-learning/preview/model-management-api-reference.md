@@ -6,16 +6,17 @@ author: chhavib
 ms.author: chhavib
 manager: neerajkh
 editor: jasonwhowell
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 03e51ab298a08386f0094d6d0290aa1ec85d337f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 134971e4a663baefa4e1051f087038d3debcb969
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning modeli yönetim hesabı API'si başvurusu
 
@@ -30,7 +31,7 @@ Azure Machine Learning modeli yönetim hesabı API'si aşağıdaki işlemleri ge
 
 Bu görüntü, yerel veya uzak bir Azure kapsayıcı hizmeti kümesi ya da tercih ettiğiniz başka bir Docker desteklenen ortamını üzerinde bir web hizmeti oluşturmak için kullanabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Yükleme adımlarını gitti olduğundan emin olun [yükleyin ve hızlı başlangıç oluşturmak](quickstart-installation.md) belge.
 
 Devam etmeden önce aşağıdakiler gereklidir:
@@ -78,11 +79,11 @@ Bir model kaydeder.
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 | model | body | Bir model kaydetmek için kullanılan yükü. | Evet | [Modeli](#model) |
 
 
@@ -104,15 +105,15 @@ Bir hesap modellerinde listesini sorgular. Sonuç listesi etiketi ve adına gör
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
-| ad | sorgu | Nesne adı. | Hayır | Dize |
-| Etiket | sorgu | Model etiketi. | Hayır | Dize |
-| sayı | sorgu | Bir sayfa almak için öğe sayısı. | Hayır | Dize |
-| $skipToken | sorgu | Sonraki sayfaya almak için devamlılık belirteci. | Hayır | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
+| ad | sorgu | Nesne adı. | Hayır | string |
+| Etiket | sorgu | Model etiketi. | Hayır | string |
+| sayı | sorgu | Bir sayfa almak için öğe sayısı. | Hayır | string |
+| $skipToken | sorgu | Sonraki sayfaya almak için devamlılık belirteci. | Hayır | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -133,12 +134,12 @@ Kimliğe göre bir modeli alır
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | Nesne Kimliği | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | Nesne Kimliği | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -159,11 +160,11 @@ Bir bildirim kayıtlı modeli ve tüm bağımlılıklarını kaydeder.
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 | manifestRequest | body | Bir bildirim kaydetmek için kullanılan yükü. | Evet | [Bildirimi](#manifest) |
 
 ### <a name="responses"></a>Yanıtlar
@@ -185,15 +186,15 @@ Bir hesap bildirimleri listesini sorgular. Model kimliği sonuç listeyi filtrel
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
-| modelId | sorgu | Model kimliği | Hayır | Dize |
-| ManifestName | sorgu | Bildirim adı. | Hayır | Dize |
-| sayı | sorgu | Bir sayfa almak için öğe sayısı. | Hayır | Dize |
-| $skipToken | sorgu | Sonraki sayfaya almak için devamlılık belirteci. | Hayır | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
+| modelId | sorgu | Model kimliği | Hayır | string |
+| ManifestName | sorgu | Bildirim adı. | Hayır | string |
+| sayı | sorgu | Bir sayfa almak için öğe sayısı. | Hayır | string |
+| $skipToken | sorgu | Sonraki sayfaya almak için devamlılık belirteci. | Hayır | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -214,12 +215,12 @@ Kimliğe göre bildirimini alır
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | Nesne Kimliği | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | Nesne Kimliği | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -240,15 +241,15 @@ Bir görüntü, Azure kapsayıcı kayıt defterinde Docker görüntü olarak olu
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 | imageRequest | body | Bir görüntü oluşturmak için kullanılan yükü. | Evet | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Yanıtlar
-| Kod | Açıklama | Üst bilgiler | Şema |
+| Kod | Açıklama | Üst Bilgiler | Şema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Zaman uyumsuz işlemi konum URL'si. GET çağrı görüntü oluşturma görevinin durumunu gösterir. | İşlemi konumu |
 | varsayılan | İşlemi neden başarısız olduğunu belirten hata yanıtı. | [ErrorResponse](#errorresponse) |
@@ -266,15 +267,15 @@ Bir hesap görüntülerinde listesini sorgular. Sonuç listesi bildirim kimliği
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
-| Bildirim kimliği | sorgu | Bildirim kimliği. | Hayır | Dize |
-| ManifestName | sorgu | Bildirim adı. | Hayır | Dize |
-| sayı | sorgu | Bir sayfa almak için öğe sayısı. | Hayır | Dize |
-| $skipToken | sorgu | Sonraki sayfaya almak için devamlılık belirteci. | Hayır | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
+| Bildirim kimliği | sorgu | Bildirim kimliği. | Hayır | string |
+| ManifestName | sorgu | Bildirim adı. | Hayır | string |
+| sayı | sorgu | Bir sayfa almak için öğe sayısı. | Hayır | string |
+| $skipToken | sorgu | Sonraki sayfaya almak için devamlılık belirteci. | Hayır | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -295,12 +296,12 @@ Kimliğe göre bir görüntü alır
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | Görüntü Kimliği | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | Görüntü Kimliği | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -322,15 +323,15 @@ Bir hizmeti bir görüntüden oluşturur.
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 | Servicerequest'te | body | Bir hizmet oluşturmak için kullanılan yükü. | Evet | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Yanıtlar
-| Kod | Açıklama | Üst bilgiler | Şema |
+| Kod | Açıklama | Üst Bilgiler | Şema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Zaman uyumsuz işlemi konum URL'si. GET çağrı hizmet oluşturma görevinin durumunu gösterir. | İşlemi konumu |
 | 409 | Belirtilen ada sahip bir hizmet zaten var. |
@@ -349,20 +350,20 @@ Bir hesap hizmetlerin listesini sorgular. Model adı/kimliği, bildirim ad/kimli
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
-| ServiceName | sorgu | Hizmet adı. | Hayır | Dize |
-| modelId | sorgu | Model adı. | Hayır | Dize |
-| modelName | sorgu | Model kimliği | Hayır | Dize |
-| Bildirim kimliği | sorgu | Bildirim kimliği. | Hayır | Dize |
-| ManifestName | sorgu | Bildirim adı. | Hayır | Dize |
-| imageId | sorgu | Görüntü Kimliği | Hayır | Dize |
-| computeResourceId | sorgu | Machine Learning işlem kaynak kimliği | Hayır | Dize |
-| sayı | sorgu | Bir sayfa almak için öğe sayısı. | Hayır | Dize |
-| $skipToken | sorgu | Sonraki sayfaya almak için devamlılık belirteci. | Hayır | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
+| ServiceName | sorgu | Hizmet adı. | Hayır | string |
+| modelId | sorgu | Model adı. | Hayır | string |
+| modelName | sorgu | Model kimliği | Hayır | string |
+| Bildirim kimliği | sorgu | Bildirim kimliği. | Hayır | string |
+| ManifestName | sorgu | Bildirim adı. | Hayır | string |
+| imageId | sorgu | Görüntü Kimliği | Hayır | string |
+| computeResourceId | sorgu | Machine Learning işlem kaynak kimliği | Hayır | string |
+| sayı | sorgu | Bir sayfa almak için öğe sayısı. | Hayır | string |
+| $skipToken | sorgu | Sonraki sayfaya almak için devamlılık belirteci. | Hayır | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -383,12 +384,12 @@ Kimliğe göre bir hizmetini alır
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | Nesne Kimliği | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | Nesne Kimliği | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -409,16 +410,16 @@ Var olan bir hizmeti güncelleştirir.
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | Nesne Kimliği | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | Nesne Kimliği | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 | serviceUpdateRequest | body | Var olan bir hizmeti güncelleştirmek için kullanılan yükü. | Evet |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Yanıtlar
-| Kod | Açıklama | Üst bilgiler | Şema |
+| Kod | Açıklama | Üst Bilgiler | Şema |
 |--------------------|--------------------|--------------------|--------------------|
 | 202 | Zaman uyumsuz işlemi konum URL'si. GET çağrı güncelleştirme hizmeti görevin durumunu gösterir. | İşlemi konumu |
 | 404 | Belirtilen Kimliğe sahip hizmet yok. |
@@ -437,12 +438,12 @@ Bir hizmet siler.
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | Nesne Kimliği | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | Nesne Kimliği | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -464,12 +465,12 @@ Hizmet anahtarları alır.
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | Hizmet kimliği | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | Hizmet kimliği | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -490,12 +491,12 @@ Hizmet anahtarlarını yeniden oluşturur ve bunları döndürür.
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | Hizmet kimliği | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | Hizmet kimliği | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 | regenerateKeyRequest | body | Var olan bir hizmeti güncelleştirmek için kullanılan yükü. | Evet | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Yanıtlar
@@ -517,12 +518,12 @@ Bir hesapta dağıtımlarını listesini sorgular. Sonuç listesi belirli bir hi
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
-| ServiceId | sorgu | Hizmet kimliği | Hayır | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
+| ServiceId | sorgu | Hizmet kimliği | Hayır | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -543,12 +544,12 @@ Kimliği dağıtılmasının alır
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | Dağıtım kimliği | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | Dağıtım kimliği | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -569,12 +570,12 @@ Kimliği dağıtılmasının alır
 ### <a name="parameters"></a>Parametreler
 | Ad | Konum: | Açıklama | Gerekli | Şema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | yol | Azure abonelik kimliği | Evet | Dize |
-| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | Dize |
-| accountName | yol | Model yönetim hesabının adı. | Evet | Dize |
-| id | yol | İşlem kimliği. | Evet | Dize |
-| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | Dize |
-| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | Dize |
+| subscriptionId | yol | Azure abonelik kimliği | Evet | string |
+| resourceGroupName | yol | Model yönetim hesabının bulunduğu kaynak grubunun adı. | Evet | string |
+| accountName | yol | Model yönetim hesabının adı. | Evet | string |
+| id | yol | İşlem kimliği. | Evet | string |
+| API sürümü | sorgu | Microsoft.Machine.Learning kaynak Sağlayıcısı'nı kullanmak için API sürümü. | Evet | string |
+| Yetkilendirme | üst bilgi | Yetkilendirme belirteci. "Bearer XXXXXX." şöyle olmalıdır | Evet | string |
 
 ### <a name="responses"></a>Yanıtlar
 | Kod | Açıklama | Şema |
@@ -594,10 +595,10 @@ Docker görüntü oluşturma sırasında gerekli varlık nesnesi.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**Kimliği**  <br>*İsteğe bağlı*|Varlık Kimliği|Dize|
-|**mime türü**  <br>*İsteğe bağlı*|Model içeriğin MIME türü. MIME türü hakkında daha fazla bilgi için bkz: [IANA medya türleri listesini](https://www.iana.org/assignments/media-types/media-types.xhtml).|Dize|
+|**Kimliği**  <br>*İsteğe bağlı*|Varlık Kimliği|string|
+|**mime türü**  <br>*İsteğe bağlı*|Model içeriğin MIME türü. MIME türü hakkında daha fazla bilgi için bkz: [IANA medya türleri listesini](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
 |**paketini açma**  <br>*İsteğe bağlı*|Burada Docker görüntü oluşturma sırasında içerik paketinden ihtiyacımız gösterir.|boole|
-|**URL**  <br>*İsteğe bağlı*|Varlık konum URL'si.|Dize|
+|**URL**  <br>*İsteğe bağlı*|Varlık konum URL'si.|string|
 
 
 <a name="asyncoperationstate"></a>
@@ -617,9 +618,9 @@ Zaman uyumsuz işlem durumu.
 |**createdTime**  <br>*İsteğe bağlı*  <br>*salt okunur*|Zaman uyumsuz işlemi oluşturma saati (UTC).|dize (tarih)|
 |**endTime**  <br>*İsteğe bağlı*  <br>*salt okunur*|Zaman uyumsuz işlemi bitiş zamanı (UTC).|dize (tarih)|
 |**hata**  <br>*İsteğe bağlı*||[ErrorResponse](#errorresponse)|
-|**Kimliği**  <br>*İsteğe bağlı*|Zaman uyumsuz işlem kimliği|Dize|
+|**Kimliği**  <br>*İsteğe bağlı*|Zaman uyumsuz işlem kimliği|string|
 |**operationType**  <br>*İsteğe bağlı*|Zaman uyumsuz işlem türü.|Enum (görüntüsü, hizmet)|
-|**resourceLocation**  <br>*İsteğe bağlı*|Kaynak veya zaman uyumsuz işlemin güncelleştirilemedi.|Dize|
+|**resourceLocation**  <br>*İsteğe bağlı*|Kaynak veya zaman uyumsuz işlemin güncelleştirilemedi.|string|
 |**durumu**  <br>*İsteğe bağlı*||[AsyncOperationState](#asyncoperationstate)|
 
 
@@ -630,8 +631,8 @@ Bir hizmet için kimlik doğrulama anahtarları.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**primaryKey**  <br>*İsteğe bağlı*|Birincil anahtar.|Dize|
-|**secondaryKey**  <br>*İsteğe bağlı*|İkincil anahtar.|Dize|
+|**primaryKey**  <br>*İsteğe bağlı*|Birincil anahtar.|string|
+|**secondaryKey**  <br>*İsteğe bağlı*|İkincil anahtar.|string|
 
 
 <a name="autoscaler"></a>
@@ -655,7 +656,7 @@ Machine Learning işlem kaynağı.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**Kimliği**  <br>*İsteğe bağlı*|Kaynak Kimliği|Dize|
+|**Kimliği**  <br>*İsteğe bağlı*|Kaynak Kimliği|string|
 |**türü**  <br>*İsteğe bağlı*|Kaynak türü.|Enum (küme)|
 
 
@@ -666,8 +667,8 @@ Kaynaklar küme içindeki bir kapsayıcı için ayrılacak yapılandırması.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**CPU**  <br>*İsteğe bağlı*|CPU ayırma belirtir. Kubernetes biçimi: bkz [anlamı, CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|Dize|
-|**bellek**  <br>*İsteğe bağlı*|Bellek ayırma belirtir. Kubernetes biçimi: bkz [bellek anlamını](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|Dize|
+|**CPU**  <br>*İsteğe bağlı*|CPU ayırma belirtir. Kubernetes biçimi: bkz [anlamı, CPU](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu).|string|
+|**bellek**  <br>*İsteğe bağlı*|Bellek ayırma belirtir. Kubernetes biçimi: bkz [bellek anlamını](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory).|string|
 
 
 <a name="deployment"></a>
@@ -679,10 +680,10 @@ Bir Azure Machine Learning dağıtımının bir örneği.
 |---|---|---|
 |**createdAt**  <br>*İsteğe bağlı*  <br>*salt okunur*|Dağıtım oluşturma zamanı (UTC).|dize (tarih)|
 |**expiredAt**  <br>*İsteğe bağlı*  <br>*salt okunur*|Dağıtım süresi saat (UTC).|dize (tarih)|
-|**Kimliği**  <br>*İsteğe bağlı*|Dağıtım kimliği|Dize|
-|**imageId**  <br>*İsteğe bağlı*|Bu dağıtım ile ilişkili resim kimliği.|Dize|
-|**serviceName**  <br>*İsteğe bağlı*|Hizmet adı.|Dize|
-|**durumu**  <br>*İsteğe bağlı*|Geçerli dağıtım durumu.|Dize|
+|**Kimliği**  <br>*İsteğe bağlı*|Dağıtım kimliği|string|
+|**imageId**  <br>*İsteğe bağlı*|Bu dağıtım ile ilişkili resim kimliği.|string|
+|**serviceName**  <br>*İsteğe bağlı*|Hizmet adı.|string|
+|**durumu**  <br>*İsteğe bağlı*|Geçerli dağıtım durumu.|string|
 
 
 <a name="deploymentlist"></a>
@@ -699,8 +700,8 @@ Yönetim Hizmeti hata ayrıntısı model.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**kod**  <br>*Gerekli*|Hata kodu.|Dize|
-|**İleti**  <br>*Gerekli*|Hata iletisi.|Dize|
+|**kod**  <br>*Gerekli*|Hata kodu.|string|
+|**İleti**  <br>*Gerekli*|Hata iletisi.|string|
 
 
 <a name="errorresponse"></a>
@@ -710,9 +711,9 @@ Model yönetim hizmeti hata nesnesi.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**kod**  <br>*Gerekli*|Hata kodu.|Dize|
+|**kod**  <br>*Gerekli*|Hata kodu.|string|
 |**Ayrıntıları**  <br>*İsteğe bağlı*|Hata ayrıntı nesneler dizisi.|<[ErrorDetail](#errordetail)> dizisi|
-|**İleti**  <br>*Gerekli*|Hata iletisi.|Dize|
+|**İleti**  <br>*Gerekli*|Hata iletisi.|string|
 |**statusCode**  <br>*İsteğe bağlı*|HTTP durum kodu.|integer|
 
 
@@ -723,17 +724,17 @@ Azure Machine Learning resim.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**computeResourceId**  <br>*İsteğe bağlı*|Machine Learning işlem kaynak oluşturulan ortam kimliği.|Dize|
+|**computeResourceId**  <br>*İsteğe bağlı*|Machine Learning işlem kaynak oluşturulan ortam kimliği.|string|
 |**createdTime**  <br>*İsteğe bağlı*|Görüntü oluşturma zamanı (UTC).|dize (tarih)|
 |**creationState**  <br>*İsteğe bağlı*||[AsyncOperationState](#asyncoperationstate)|
-|**Açıklama**  <br>*İsteğe bağlı*|Görüntü açıklama metni.|Dize|
+|**Açıklama**  <br>*İsteğe bağlı*|Görüntü açıklama metni.|string|
 |**hata**  <br>*İsteğe bağlı*||[ErrorResponse](#errorresponse)|
-|**Kimliği**  <br>*İsteğe bağlı*|Görüntü Kimliği|Dize|
-|**imageBuildLogUri**  <br>*İsteğe bağlı*|Karşıya yüklediğiniz günlükler görüntü yapıdan URI'si.|Dize|
-|**ImageLocation**  <br>*İsteğe bağlı*|Oluşturulan görüntüyü Azure kapsayıcı kayıt defteri konumu dizesi.|Dize|
+|**Kimliği**  <br>*İsteğe bağlı*|Görüntü Kimliği|string|
+|**imageBuildLogUri**  <br>*İsteğe bağlı*|Karşıya yüklediğiniz günlükler görüntü yapıdan URI'si.|string|
+|**ImageLocation**  <br>*İsteğe bağlı*|Oluşturulan görüntüyü Azure kapsayıcı kayıt defteri konumu dizesi.|string|
 |**imageType**  <br>*İsteğe bağlı*||[ImageType](#imagetype)|
 |**bildirimi**  <br>*İsteğe bağlı*||[Bildirimi](#manifest)|
-|**adı**  <br>*İsteğe bağlı*|Görüntü adı.|Dize|
+|**adı**  <br>*İsteğe bağlı*|Görüntü adı.|string|
 |**Sürüm**  <br>*İsteğe bağlı*|Model yönetim hizmeti tarafından kümesi görüntü sürümü.|integer|
 
 
@@ -744,11 +745,11 @@ Azure Machine Learning görüntü oluşturma isteği.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**computeResourceId**  <br>*Gerekli*|Machine Learning işlem kaynak oluşturulan ortam kimliği.|Dize|
-|**Açıklama**  <br>*İsteğe bağlı*|Görüntü açıklama metni.|Dize|
+|**computeResourceId**  <br>*Gerekli*|Machine Learning işlem kaynak oluşturulan ortam kimliği.|string|
+|**Açıklama**  <br>*İsteğe bağlı*|Görüntü açıklama metni.|string|
 |**imageType**  <br>*Gerekli*||[ImageType](#imagetype)|
-|**Bildirim kimliği**  <br>*Gerekli*|Görüntü oluşturulacak bildirimi kimliği.|Dize|
-|**adı**  <br>*Gerekli*|Görüntü adı.|Dize|
+|**Bildirim kimliği**  <br>*Gerekli*|Görüntü oluşturulacak bildirimi kimliği.|string|
+|**adı**  <br>*Gerekli*|Görüntü adı.|string|
 
 
 <a name="imagetype"></a>
@@ -767,12 +768,12 @@ Azure Machine Learning bildirimi.
 |---|---|---|
 |**varlıklar**  <br>*Gerekli*|Varlıklar listesi.|<[Varlık](#asset)> dizisi|
 |**createdTime**  <br>*İsteğe bağlı*  <br>*salt okunur*|Bildirim oluşturma zamanı (UTC).|dize (tarih)|
-|**Açıklama**  <br>*İsteğe bağlı*|Açıklama metin bildirimi.|Dize|
-|**driverProgram**  <br>*Gerekli*|Sürücü program bildiriminin.|Dize|
-|**Kimliği**  <br>*İsteğe bağlı*|Bildirim kimliği.|Dize|
+|**Açıklama**  <br>*İsteğe bağlı*|Açıklama metin bildirimi.|string|
+|**driverProgram**  <br>*Gerekli*|Sürücü program bildiriminin.|string|
+|**Kimliği**  <br>*İsteğe bağlı*|Bildirim kimliği.|string|
 |**modelIds**  <br>*İsteğe bağlı*|Model kimliklerini kayıtlı modellerin listesi. Dahil edilen modellerinden herhangi biri kaydettirilmedi isteği başarısız olur.|<string>dizi|
 |**modelType**  <br>*İsteğe bağlı*|Modeller, Model yönetim hizmetiyle zaten kayıtlı belirtir.|Enum (kayıtlı)|
-|**adı**  <br>*Gerekli*|Bildirim adı.|Dize|
+|**adı**  <br>*Gerekli*|Bildirim adı.|string|
 |**targetRuntime**  <br>*Gerekli*||[TargetRuntime](#targetruntime)|
 |**Sürüm**  <br>*İsteğe bağlı*  <br>*salt okunur*|Model yönetim hizmeti tarafından atanan bildirim sürüm.|integer|
 |**webserviceType**  <br>*İsteğe bağlı*|Bildirimden oluşturulacak web hizmeti istenen türünü belirtir.|Enum (gerçek zamanlı)|
@@ -786,13 +787,13 @@ Bir Azure Machine Learning model örneği.
 |Ad|Açıklama|Şema|
 |---|---|---|
 |**createdAt**  <br>*İsteğe bağlı*  <br>*salt okunur*|Model oluşturma zamanı (UTC).|dize (tarih)|
-|**Açıklama**  <br>*İsteğe bağlı*|Açıklama metnini model.|Dize|
-|**Kimliği**  <br>*İsteğe bağlı*  <br>*salt okunur*|Model kimliği|Dize|
-|**mime türü**  <br>*Gerekli*|Model içeriğin MIME türü. MIME türü hakkında daha fazla bilgi için bkz: [IANA medya türleri listesini](https://www.iana.org/assignments/media-types/media-types.xhtml).|Dize|
-|**adı**  <br>*Gerekli*|Model adı.|Dize|
+|**Açıklama**  <br>*İsteğe bağlı*|Açıklama metnini model.|string|
+|**Kimliği**  <br>*İsteğe bağlı*  <br>*salt okunur*|Model kimliği|string|
+|**mime türü**  <br>*Gerekli*|Model içeriğin MIME türü. MIME türü hakkında daha fazla bilgi için bkz: [IANA medya türleri listesini](https://www.iana.org/assignments/media-types/media-types.xhtml).|string|
+|**adı**  <br>*Gerekli*|Model adı.|string|
 |**etiketler**  <br>*İsteğe bağlı*|Model etiketi listesi.|<string>dizi|
 |**paketini açma**  <br>*İsteğe bağlı*|Docker görüntü oluşturma sırasında model paketten ihtiyacımız olup olmadığını gösterir.|boole|
-|**URL**  <br>*Gerekli*|Model URL'si. Genellikle biz bir paylaşılan erişim imzası URL'SİNİN buraya yerleştirin.|Dize|
+|**URL**  <br>*Gerekli*|Model URL'si. Genellikle biz bir paylaşılan erişim imzası URL'SİNİN buraya yerleştirin.|string|
 |**Sürüm**  <br>*İsteğe bağlı*  <br>*salt okunur*|Model yönetim hizmeti tarafından atanan model sürüm.|integer|
 
 
@@ -814,7 +815,7 @@ Numaralı listesini görüntüler.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**nextLink**  <br>*İsteğe bağlı*|Sonuç listesindeki bir sonraki sayfaya devamlılık bağlantısı (mutlak URI).|Dize|
+|**nextLink**  <br>*İsteğe bağlı*|Sonuç listesindeki bir sonraki sayfaya devamlılık bağlantısı (mutlak URI).|string|
 |**değer**  <br>*İsteğe bağlı*|Model nesneleri dizisi.|<[Görüntü](#image)> dizisi|
 
 
@@ -825,7 +826,7 @@ Bildirimleri numaralı bir listesi.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**nextLink**  <br>*İsteğe bağlı*|Sonuç listesindeki bir sonraki sayfaya devamlılık bağlantısı (mutlak URI).|Dize|
+|**nextLink**  <br>*İsteğe bağlı*|Sonuç listesindeki bir sonraki sayfaya devamlılık bağlantısı (mutlak URI).|string|
 |**değer**  <br>*İsteğe bağlı*|Bildirim nesneler dizisi.|<[Bildirim](#manifest)> dizisi|
 
 
@@ -836,7 +837,7 @@ Modelleri numaralı bir listesi.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**nextLink**  <br>*İsteğe bağlı*|Sonuç listesindeki bir sonraki sayfaya devamlılık bağlantısı (mutlak URI).|Dize|
+|**nextLink**  <br>*İsteğe bağlı*|Sonuç listesindeki bir sonraki sayfaya devamlılık bağlantısı (mutlak URI).|string|
 |**değer**  <br>*İsteğe bağlı*|Model nesneleri dizisi.|<[Model](#model)> dizisi|
 
 
@@ -847,7 +848,7 @@ Hizmetleri numaralı bir listesi.
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**nextLink**  <br>*İsteğe bağlı*|Sonuç listesindeki bir sonraki sayfaya devamlılık bağlantısı (mutlak URI).|Dize|
+|**nextLink**  <br>*İsteğe bağlı*|Sonuç listesindeki bir sonraki sayfaya devamlılık bağlantısı (mutlak URI).|string|
 |**değer**  <br>*İsteğe bağlı*|Hizmet nesneler dizisi.|<[ServiceResponse](#serviceresponse)> dizisi|
 
 
@@ -863,9 +864,9 @@ Bir hizmet oluşturma isteği.
 |**computeResource**  <br>*Gerekli*||[ComputeResource](#computeresource)|
 |**containerResourceReservation**  <br>*İsteğe bağlı*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*İsteğe bağlı*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*Gerekli*|Bir hizmet oluşturmak için resim.|Dize|
+|**imageId**  <br>*Gerekli*|Bir hizmet oluşturmak için resim.|string|
 |**maxConcurrentRequestsPerContainer**  <br>*İsteğe bağlı*|Maksimum eşzamanlı istek sayısı.  <br>**En düşük değer**:`1`|integer|
-|**adı**  <br>*Gerekli*|Hizmet adı.|Dize|
+|**adı**  <br>*Gerekli*|Hizmet adı.|string|
 |**numReplicas**  <br>*İsteğe bağlı*|Herhangi bir zamanda çalıştıran pod çoğaltmaların sayısı. Autoscaler etkin olup olmadığını belirtilemez.  <br>**En düşük değer**:`0`|integer|
 
 
@@ -887,12 +888,12 @@ Hizmet ayrıntılı durumu.
 |Ad|Açıklama|Şema|
 |---|---|---|
 |**createdAt**  <br>*İsteğe bağlı*|Hizmet oluşturma zamanı (UTC).|dize (tarih)|
-|**ID**  <br>*İsteğe bağlı*|Hizmet kimliği|Dize|
+|**ID**  <br>*İsteğe bağlı*|Hizmet kimliği|string|
 |**Görüntü**  <br>*İsteğe bağlı*||[Görüntü](#image)|
 |**bildirimi**  <br>*İsteğe bağlı*||[Bildirimi](#manifest)|
 |**modelleri**  <br>*İsteğe bağlı*|Model listesi.|<[Model](#model)> dizisi|
-|**adı**  <br>*İsteğe bağlı*|Hizmet adı.|Dize|
-|**scoringUri**  <br>*İsteğe bağlı*|Hizmet Puanlama için URI.|Dize|
+|**adı**  <br>*İsteğe bağlı*|Hizmet adı.|string|
+|**scoringUri**  <br>*İsteğe bağlı*|Hizmet Puanlama için URI.|string|
 |**durumu**  <br>*İsteğe bağlı*||[AsyncOperationState](#asyncoperationstate)|
 |**updatedAt**  <br>*İsteğe bağlı*|Son saat (UTC) güncelleştirin.|dize (tarih)|
 |**appInsightsEnabled**  <br>*İsteğe bağlı*|Bir hizmet için Application ınsights etkinleştirin.|boole|
@@ -916,7 +917,7 @@ Bir hizmeti güncelleştirmek için bir istek.
 |**autoScaler**  <br>*İsteğe bağlı*||[AutoScaler](#autoscaler)|
 |**containerResourceReservation**  <br>*İsteğe bağlı*||[ContainerResourceReservation](#containerresourcereservation)|
 |**dataCollection**  <br>*İsteğe bağlı*||[ModelDataCollection](#modeldatacollection)|
-|**imageId**  <br>*İsteğe bağlı*|Bir hizmet oluşturmak için resim.|Dize|
+|**imageId**  <br>*İsteğe bağlı*|Bir hizmet oluşturmak için resim.|string|
 |**maxConcurrentRequestsPerContainer**  <br>*İsteğe bağlı*|Maksimum eşzamanlı istek sayısı.  <br>**En düşük değer**:`1`|integer|
 |**numReplicas**  <br>*İsteğe bağlı*|Herhangi bir zamanda çalıştıran pod çoğaltmaların sayısı. Autoscaler etkin olup olmadığını belirtilemez.  <br>**En düşük değer**:`0`|integer|
 

@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 21f8f66d8b78c2b536792bc96e9233d5739fde81
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 7de3a30e477fcec66ce703b6c3fec7d17d79d3ab
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Takım veri bilimi işlem (TDSP) şablonu kullanarak biomedical varlık tanıma
 
@@ -89,7 +90,7 @@ Aşağıdaki kodu içeren gerçek senaryosunun genel GitHub depo bağlantıdır 
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 * Bir Azure [abonelik](https://azure.microsoft.com/free/)
 * Azure Machine Learning çalışma ekranı. Bkz: [Yükleme Kılavuzu](quickstart-installation.md). Şu anda Azure Machine Learning çalışma ekranı yalnızca aşağıdaki işletim sistemlerinde yüklenebilir: 

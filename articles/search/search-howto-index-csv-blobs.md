@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2016
+ms.date: 12/28/2017
 ms.author: eugenesh
-ms.openlocfilehash: 60ca696a6fa8f277a13875c39b44577c4b38c92a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 40b7f1f4f75d389a64329e7d8fd3c7feb79d5e55
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Dizin oluşturma CSV BLOB'lar ile Azure Search blob dizin oluşturucu
 Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-azure-blob-storage.md) ayrıştırıyor sınırlandırılmış metin BLOB'ları tek bir metin öbek. Ancak, CSV verileri içeren BLOB'lar ile genellikle her satır ayrı bir belge olarak blob'daki kabul istersiniz. Örneğin, aşağıdaki sınırlandırılmış metin verilen: 
@@ -32,7 +32,7 @@ Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-
 Bu makalede, CSV BLOB'lar bir Azure Search blob dizin oluşturucu ile ayrıştırmak öğreneceksiniz. 
 
 > [!IMPORTANT]
-> Bu işlevsellik şu anda önizlemede değil. Yalnızca sürüm kullanarak REST API içinde kullanılabilir **2015-02-28-Önizleme**. Lütfen unutmayın, Önizleme API'leri sınama ve değerlendirme için tasarlanmıştır ve üretim ortamlarında kullanılmamalıdır. 
+> Bu işlev şu anda önizleme aşamasındadır. Yalnızca sürüm kullanarak REST API içinde kullanılabilir **2015-02-28-Önizleme**. Lütfen unutmayın, Önizleme API'leri sınama ve değerlendirme için tasarlanmıştır ve üretim ortamlarında kullanılmamalıdır. 
 > 
 > 
 
@@ -52,7 +52,12 @@ BLOB'ları ilk başlık satırı içermiyorsa, üstbilgileri dizin oluşturucu y
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Şu anda yalnızca UTF-8 kodlaması desteklenir. Ayrıca, yalnızca virgülle `','` karakter ayırıcısı desteklenir. Diğer Kodlamalar veya sınırlayıcıları için destek gerekiyorsa, lütfen bize bilmeniz [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).
+Ayırıcı karakter kullanarak özelleştirebileceğiniz `delimitedTextDelimiter` yapılandırma ayarı. Örneğin:
+
+    "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
+
+> [!NOTE]
+> Şu anda yalnızca UTF-8 kodlaması desteklenir. Diğer kodlamaları için destek gerekiyorsa, lütfen bize bilmeniz [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
 > Mod ayrıştırma sınırlandırılmış metin kullandığınızda, Azure Search, veri kaynağındaki tüm BLOB'lar CSV olacağını varsayar. Aynı veri kaynağında bir karışımını CSV ve CSV olmayan BLOB desteklemeniz gerekiyorsa, lütfen bize bilmeniz [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).

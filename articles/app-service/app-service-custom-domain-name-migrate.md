@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Etkin bir DNS adı Azure App Service'e geçirme
 
@@ -29,7 +29,7 @@ Uygulama hizmeti için Canlı bir site ve DNS etki alanı adını geçirdiğiniz
 
 Kapalı kalma süresi DNS çözümlemesi ile ilgili endişeleniyoruz değil, bkz: [Azure Web uygulamaları için var olan bir özel DNS ad eşleme](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu yöntem tamamlamak için:
 
@@ -39,7 +39,7 @@ Bu yöntem tamamlamak için:
 
 Özel bir etki alanı erken önlem bağladığınızda, hem de DNS kayıtlarınızı herhangi bir değişiklik yapmadan önce aşağıdakileri gerçekleştirirsiniz:
 
-- Etki alanı sahipliğini doğrulayın
+- Etki alanı sahipliğini doğrulama
 - Uygulamanız için etki alanı adını etkinleştir
 
 Son olarak, özel DNS ad eski siteden App Service uygulaması geçirdiğinizde, DNS çözümlemesi kapalı kalma süresi olacaktır.
@@ -50,7 +50,7 @@ Son olarak, özel DNS ad eski siteden App Service uygulaması geçirdiğinizde, 
 
 Etki alanı sahipliği doğrulamak için bir TXT kaydı ekleyin. TXT kaydı gelen eşler _awverify.&lt; alt etki alanı >_ için  _&lt;uygulamaadı >. azurewebsites.net_. 
 
-Gereksinim duyduğunuz TXT kaydı geçirmek istediğiniz DNS kaydını bağlıdır. Örnekler için aşağıdaki tabloya bakın (`@` genellikle kök etki alanını temsil eder):  
+Gereksinim duyduğunuz TXT kaydı geçirmek istediğiniz DNS kaydını bağlıdır. Örnekler için aşağıdaki tabloya bakın (`@` genellikle kök etki alanını temsil eder):
 
 | DNS kaydı örneği | TXT ana bilgisayar | TXT değeri |
 | - | - | - |

@@ -4,20 +4,21 @@ description: "Çoklu oturum açma Azure Active Directory ile Pluralsight arasın
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 12/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 2722794bd10c79ab081040173e091e452a1b024d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 62d148d78d9f98b6a3ddf1259177936b3976aeab
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Öğretici: Azure Active Directory Tümleştirme Pluralsight ile
 
@@ -25,13 +26,13 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile Pluralsight tümleştirme
 
 Pluralsight Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Pluralsight erişimi, Azure AD'de kontrol edebilirsiniz
-- Otomatik olarak için Pluralsight (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Pluralsight erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak için Pluralsight (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Pluralsight ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -44,7 +45,7 @@ Azure AD tümleştirme Pluralsight ile yapılandırmak için aşağıdaki öğel
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -59,25 +60,22 @@ Azure AD Pluralsight tümleştirilmesi yapılandırmak için yönetilen SaaS uyg
 
 1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Pluralsight**.
+4. Arama kutusuna **Pluralsight**seçin **Pluralsight** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_search.png)
+    ![Sonuçlar listesinde Pluralsight](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addfromgallery.png)
 
-5. Sonuçlar panelinde seçin **Pluralsight**ve ardından **Ekle** uygulama eklemek için düğmesi.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Pluralsight sınayın.
 
 Tekli çalışmaya oturum için Azure AD Pluralsight karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Pluralsight ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
@@ -86,13 +84,13 @@ Pluralsight içinde değerini atayın **kullanıcı adı** değeri olarak Azure 
 
 Yapılandırma ve Azure AD çoklu oturum açma Pluralsight ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Pluralsight test kullanıcısı oluşturma](#creating-a-pluralsight-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Pluralsight sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Pluralsight test kullanıcısı oluşturma](#create-a-pluralsight-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Pluralsight sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Pluralsight uygulamanızda yapılandırın.
 
@@ -100,26 +98,28 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 1. Azure portalında üzerinde **Pluralsight** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_samlbase.png)
+    ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_samlbase.png)
 
-3. Üzerinde **Pluralsight etki alanı ve URL'leri** bölümünde, aşağıdaki işlemi gerçekleştirin:
+3. Üzerinde **Pluralsight etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
+    ![Pluralsight etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<instance name>.pluralsight.com/sso/<company name>`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<instancename>.pluralsight.com/sso/<companyname>`
 
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`www.pluralsight.com`
+
+    c. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<instancename>.pluralsight.com/sp/ACS.saml2`
+     
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Pluralsight istemci destek ekibi](mailto:support@pluralsight.com) bu değeri alınamıyor. 
- 
-
+    > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Pluralsight istemci destek ekibi](mailto:support@pluralsight.com) bu değerleri almak için. 
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_certificate.png) 
 
 5. Azure AD çoklu oturum açma Azure portalında etkinleştirmek ve Pluralsight uygulamada SSO yapılandırmak için bu bölümün amacı olur.
 
@@ -138,7 +138,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    | Soyadı |User.surname |
    | E-posta |User.Mail |
    
-   a. Tıklatın **kullanıcı özniteliği eklemek** açmak için **ekleme kullanıcı Attribure** iletişim.
+   a. Tıklatın **kullanıcı özniteliği eklemek** açmak için **kullanıcı özniteliği eklemek** iletişim.
     
      ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_addattribute.png)
   
@@ -156,48 +156,48 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
-![Azure AD Kullanıcı oluşturma][100]
+   ![Bir Azure AD test kullanıcısı oluşturma][100]
 
 **Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_01.png)
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_02.png) 
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_02.png)
+
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+
+    ![Ekle düğmesi](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_03.png)
+
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_04.png)
+
+    a. İçinde **adı** kutusuna **BrittaSimon**.
+
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
+
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
+
+    d. **Oluştur**’a tıklayın.
  
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_03.png) 
+### <a name="create-a-pluralsight-test-user"></a>Pluralsight test kullanıcısı oluşturma
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_04.png) 
+Bu bölümün amacı Britta Simon içinde Pluralsight adlı bir kullanıcı oluşturmaktır. Lütfen çalışmak [Pluralsight istemci destek ekibi](mailto:support@pluralsight.com) Pluralsight hesabında kullanıcıları eklemek için.
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
-
-    d. **Oluştur**'a tıklayın.
- 
-### <a name="creating-a-pluralsight-test-user"></a>Pluralsight test kullanıcısı oluşturma
-
-Bu bölümün amacı Britta Simon içinde Pluralsight adlı bir kullanıcı oluşturmaktır. Lütfen çalışmak [Pluralsight istemci destek ekibi](mailto:support@pluralsight.com) Pluralsight hesabında kullanıcıları eklemek için. 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Britta Pluralsight için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı atama][200] 
+![Kullanıcı rolü atayın][200] 
 
 **Pluralsight için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -207,15 +207,15 @@ Bu bölümde, Britta Pluralsight için erişim vererek, Azure çoklu oturum açm
 
 2. Uygulamalar listesinde **Pluralsight**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_app.png) 
+    ![Uygulamalar listesinde Pluralsight bağlantı](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Kullanıcı atama][203]
+    ![Ekleme atama bölmesi][203]
 
 5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
@@ -223,18 +223,17 @@ Bu bölümde, Britta Pluralsight için erişim vererek, Azure çoklu oturum açm
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
     
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
+### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Pluralsight parçasında tıklattığınızda, otomatik olarak Pluralsight uygulamanıza açan. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
+Erişim paneli Pluralsight parçasında tıklattığınızda, otomatik olarak Pluralsight uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

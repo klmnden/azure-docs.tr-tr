@@ -4,7 +4,7 @@ description: "Bir sanal ağ mevcut bir Azure sanal makine ölçek kümesi şablo
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: negat
-ms.openlocfilehash: 28117d467b491704aed8d45e5eba42530579dfa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb35975de5864e129f97b614a61487456dd972ef
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Bir Azure ölçek kümesi şablonda mevcut bir sanal ağı başvuru ekleyin
 
@@ -27,9 +27,9 @@ Bu makalede nasıl değiştirileceğini gösterir [minimum uygun ölçek kümesi
 
 ## <a name="change-the-template-definition"></a>Şablon tanımını değiştirin
 
-Bizim minimum uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve mevcut bir sanal ağı kümesini dağıtmak için bizim şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set existing-vnet`) tarafından parça parça:
+En düşük uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve mevcut bir sanal ağı kümesini dağıtmak için şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set existing-vnet`) tarafından parça parça:
 
-İlk olarak, eklediğimiz bir `subnetId` parametresi. Bu dize, ölçeği sanal makinelerine dağıtmak için önceden oluşturulmuş alt ağı tanımlamak için Ayarla izin vererek ölçek kümesi yapılandırması içine geçirilir. Bu dize biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Örneği için ölçek dağıtmak için mevcut sanal ağda adıyla ayarlayın `myvnet`, alt ağ `mysubnet`, kaynak grubu `myrg`ve abonelik `00000000-0000-0000-0000-000000000000`, subnetId olacaktır: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+İlk olarak, ekleyin bir `subnetId` parametresi. Bu dize, ölçeği sanal makinelerine dağıtmak için önceden oluşturulmuş alt ağı tanımlamak için Ayarla izin vererek ölçek kümesi yapılandırması içine geçirilir. Bu dize biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Örneği için ölçek dağıtmak için mevcut sanal ağda adıyla ayarlayın `myvnet`, alt ağ `mysubnet`, kaynak grubu `myrg`ve abonelik `00000000-0000-0000-0000-000000000000`, subnetId olacaktır: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -42,7 +42,7 @@ Bizim minimum uygun ölçek kümesi şablon görülebilir [burada](https://raw.g
    },
 ```
 
-Ardından, biz sanal ağ kaynak silebilirsiniz `resources` dizi varolan bir sanal ağı kullanıyor ve yeni bir tane dağıtmanız gerekmez.
+Ardından, sanal ağ kaynak grubundan silme `resources` dizisi olarak var olan bir sanal ağ kullanın ve yeni bir tane dağıtmanız gerekmez.
 
 ```diff
    "variables": {},
@@ -70,7 +70,7 @@ Ardından, biz sanal ağ kaynak silebilirsiniz `resources` dizi varolan bir sana
 -    },
 ```
 
-Şablon dağıtılmadan önce bu yüzden sanal ağa kümesini from dependsOn yan tümcesi belirtmenize gerek yoktur sanal ağ zaten mevcut. Bu nedenle, bu satırları sil:
+Şablon dağıtılmadan önce bu yüzden sanal ağa kümesini from dependsOn yan tümcesi belirtmenize gerek yoktur sanal ağ zaten mevcut. Aşağıdaki satırları sil:
 
 ```diff
      {
@@ -86,7 +86,7 @@ Ardından, biz sanal ağ kaynak silebilirsiniz `resources` dizi varolan bir sana
          "capacity": 2
 ```
 
-Son olarak, biz geçirin `subnetId` parametresi kullanıcı tarafından ayarlanan (kullanmak yerine `resourceId` ne minimum uygun ölçek şablon kümesi olduğu aynı dağıtımda bir vnet kimliğini almak için değil).
+Son olarak, geçirin `subnetId` parametresi kullanıcı tarafından ayarlanan (kullanmak yerine `resourceId` ne minimum uygun ölçek şablon kümesi olduğu aynı dağıtımda bir vnet Kimliğini almak için değil).
 
 ```diff
                        "name": "myIpConfig",

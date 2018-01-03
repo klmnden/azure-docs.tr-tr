@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 12/14/2017
 ms.author: barbkess
 ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda genel bakış
 > [!div class="op_single_selector"]
