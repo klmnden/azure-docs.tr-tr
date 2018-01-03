@@ -4,6 +4,16 @@
   items:
     - name: Azure Stack nedir?
       href: azure-stack-poc.md
+    - name: Sürüm notları
+      items:
+        - name: Geliştirme Seti sürüm notları
+          href: azure-stack-asdk-release-notes.md
+        - name: Tümleşik sistemleri sürüm notları
+          items:
+            - name: 1711 güncelleştirme
+              href: azure-stack-update-1711.md
+            - name: 1710 güncelleştirme
+              href: azure-stack-update-1710.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -23,16 +33,6 @@
       href: azure-stack-planning-considerations.md
     - name: Hizmet ilkesi
       href: azure-stack-servicing-policy.md
-    - name: Sürüm notları
-      items:
-        - name: Geliştirme Seti sürüm notları
-          href: azure-stack-asdk-release-notes.md
-        - name: Tümleşik sistemleri sürüm notları
-          items:
-            - name: 1711 güncelleştirme
-              href: azure-stack-update-1711.md
-            - name: 1710 güncelleştirme
-              href: azure-stack-update-1710.md
     - name: Önemli özellikler ve kavramlar
       href: azure-stack-key-features.md
     - name: Geliştirme Seti mimarisi
@@ -43,7 +43,7 @@
   items:
     - name: Dağıtma
       items:
-        - name: Ön koşullar
+        - name: Önkoşullar
           href: azure-stack-deploy.md
         - name: Telemetri
           href: azure-stack-telemetry.md
@@ -71,7 +71,7 @@
           href: azure-stack-integrate-monitor.md
         - name: Güvenlik
           href: azure-stack-integrate-security.md
-    - name: Yönet
+    - name: Yönetme
       items:
         - name: Bölge yönetimi
           href: azure-stack-region-management.md
@@ -107,6 +107,8 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Depolama kaynaklarını yönetme
           href: azure-stack-manage-storage-accounts.md
+        - name: Depolama kapasitesi yönetme
+          href: azure-stack-manage-storage-shares.md
         - name: Windows Azure Paketi VM’lerini yönetme
           href: azure-stack-manage-windows-azure-pack.md
         - name: Donanım değiştirme
@@ -119,6 +121,21 @@
               href: azure-stack-replace-disk.md
             - name: Bileşeni Değiştir
               href: azure-stack-replace-component.md
+        - name: Azure yığınına yedekleyin
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: Yedekleme için Azure yığın yönetim konsolundan etkinleştirme
+              href: azure-stack-backup-enable-backup-console.md
+            - name: PowerShell ile Azure yığınının yedeklemeyi etkinleştirme
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Azure yığınına yedekleyin
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: Geri dönülemez veri kaybına karşı Kurtar
+              href: azure-stack-backup-recover-data.md
+            - name: Yedekleme en iyi uygulamalar
+              href: azure-stack-backup-best-practices.md
+            - name: Yedekleme başvurusu
+              href: azure-stack-backup-reference.md
     - name: 'Güvenlik, uyumluluk ve kimlik'
       items:
         - name: Güvenliğe genel bakış
@@ -193,6 +210,8 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: Market yayımlama aracını kullanın
               href: azure-stack-marketplace-publisher.md
+            - name: Azure yığını için desteklenen konuk işletim sistemleri
+              href: azure-stack-supported-os.md
             - name: Özel bir sanal makine görüntüsü ekleme
               href: azure-stack-add-vm-image.md
             - name: Sanal makine ölçek kümeleri ekleme
