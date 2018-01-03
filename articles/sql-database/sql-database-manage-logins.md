@@ -17,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/23/2017
 ms.author: rickbyh
-ms.openlocfilehash: 0e66eec6c1843df49d3dc323cd109fb9eeb708c3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 78c26ee46ea7847cf78a7f3829c0f5b7a931f2d7
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Denetleme ve veritabanına erişim izni verme
 
-Güvenlik duvarı kuralları yapılandırıldığında kullanıcılar, bir SQL Veritabanına yönetici hesaplarından biriyle, veritabanının sahibi olarak veya veritabanı kullanıcısı olarak bağlanabilir.  
+Güvenlik duvarı kuralları yapılandırdıktan sonra kişilerin yönetici hesapları biri olarak, veritabanı sahibi veya veritabanındaki bir veritabanı kullanıcısı olarak bir SQL veritabanına bağlanabilir.  
 
 >  [!NOTE]  
 >  Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. 

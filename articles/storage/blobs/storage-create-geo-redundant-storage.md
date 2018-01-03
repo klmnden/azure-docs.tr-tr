@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 286013aaa5335689206514027bef80b250643be1
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Uygulama verilerinizi Azure storage ile yüksek oranda kullanılabilir yap
 
@@ -32,7 +32,7 @@ Bölümünde bir dizi öğrenin nasıl yapılır:
 > * Bağlantı dizesi ayarlama
 > * Konsol uygulamasını çalıştırın
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -83,7 +83,7 @@ Extract (sıkıştırmasını açın) storage-dotnet-circuit-breaker-pattern-ha-
 
 ## <a name="set-the-connection-string"></a>Bağlantı dizesi ayarlama
 
-Uygulamada, depolama hesabınız için bağlantı dizesi belirtmeniz gerekir. Bu bağlantı dizesi bir ortam değişkeni içinde uygulamayı çalıştıran yerel makinede depolamanız önerilir. Örnekler ortam değişkeni oluşturmak için işletim sistemine bağlı olarak birini izleyin.
+Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bu bağlantı dizesi bir ortam değişkeni içinde uygulamayı çalıştıran yerel makinede depolamanız önerilir. Örnekler ortam değişkeni oluşturmak için işletim sistemine bağlı olarak birini izleyin.
 
 Azure Portal'da depolama hesabınıza gidin. Seçin **erişim anahtarları** altında **ayarları** depolama hesabınızdaki. Kopya **bağlantı dizesi** birincil veya ikincil anahtarı. Değiştir \<yourconnectionstring\> gerçek bağlantınızla aşağıdaki komutlardan birini çalıştırarak dize tabanlıdır, işletim sisteminde. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Windows, ortam değişkeni yeniden kadar kullanılamaz **komut istemi** veya kullanmakta olduğunuz Kabuğu'nu. Değiştir  **\<storageConnectionString\>**  aşağıdaki örnekteki:
 
@@ -113,7 +113,7 @@ Bir konsol penceresi açılır ve uygulama başlar çalışıyor. Uygulamayı y�
 
 ### <a name="retry-event-handler"></a>Olay işleyicisi yeniden deneyin
 
-`OperationContextRetrying` Olay işleyicisi çağrılır görüntü yükleme başarısız olur ve çok rety ayarlayın. Uygulama içinde tanımlanan yeniden deneme sayısı üst sınırına, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) isteği değiştirilir `SecondaryOnly`. Bu ayar, ikincil uç noktasından görüntü indirmeye uygulamaya zorlar. Bu yapılandırma, birincil endpoint süresiz olarak denenmez gibi görüntü istemek için harcanan süre azaltır.
+`OperationContextRetrying` Olay işleyicisi görüntü yükleme başarısız olur ve yeniden denemek için ayarlanmış olduğunda çağrılır. Uygulama içinde tanımlanan yeniden deneme sayısı üst sınırına, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) isteği değiştirilir `SecondaryOnly`. Bu ayar, ikincil uç noktasından görüntü indirmeye uygulamaya zorlar. Bu yapılandırma, birincil endpoint süresiz olarak denenmez gibi görüntü istemek için harcanan süre azaltır.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)

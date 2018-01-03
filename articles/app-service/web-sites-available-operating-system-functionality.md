@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service'te işletim sistemi işlevi
 Bu makalede çalışan tüm uygulamaları için kullanılabilir ortak temel işletim sistemi işlevselliğini [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Bu işlevsellik, dosya, ağ ve kayıt defteri erişimi ve tanılama günlüklerini ve olayları içerir. 
@@ -27,6 +27,8 @@ Bu makalede çalışan tüm uygulamaları için kullanılabilir ortak temel işl
 
 ## <a name="app-service-plan-tiers"></a>Uygulama hizmeti planı katmanları
 Uygulama hizmeti çok kiracılı bir barındırma ortamında müşteri uygulamalar çalışır. Uygulamaları dağıtılan **serbest** ve **paylaşılan** katmanları uygulamaları dağıtılmış sırada bu çalışan işlemleri içinde paylaşılan sanal makinelerde çalıştırma **standart** ve **Premium** katmanları özellikle tek bir müşteri ile ilişkili uygulamalar için ayrılmış sanal makineleri üzerinde çalışır.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Uygulama hizmeti farklı katmanlar arasında sorunsuz ölçeklendirme bir deneyim desteklediğinden, uygulama hizmeti uygulamalarınız için zorunlu güvenlik yapılandırması aynı kalır. Bu uygulamalar aniden farklı şekilde, uygulama hizmeti planı bir katmandan diğerine geçtiğinde beklenmeyen şekilde başarısız davrandığını yok sağlar.
 

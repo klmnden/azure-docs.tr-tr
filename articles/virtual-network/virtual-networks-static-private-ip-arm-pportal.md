@@ -17,15 +17,15 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir sanal makine için özel IP adreslerini yapılandırın
 
 > [!div class="op_single_selector"]
-> * [Azure portal](virtual-networks-static-private-ip-arm-pportal.md)
+> * [Azure portalı](virtual-networks-static-private-ip-arm-pportal.md)
 > * [PowerShell](virtual-networks-static-private-ip-arm-ps.md)
 > * [Azure CLI](virtual-networks-static-private-ip-arm-cli.md)
 > * [Azure portal (Klasik)](virtual-networks-static-private-ip-classic-pportal.md)

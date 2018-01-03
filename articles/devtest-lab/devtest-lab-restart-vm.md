@@ -3,7 +3,7 @@ title: Azure DevTest Labs laboratuvarda VM yeniden | Microsoft Docs
 description: "Azure DevTest Labs'de bir sanal makine yeniden öğrenin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 8460f09e-482f-48ba-a57a-c95fe8afa001
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: tarcher
-ms.openlocfilehash: 4e46a7b21c8c9900ba61e9cf41000b341645133c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: v-craic
+ms.openlocfilehash: ffa669e2d07a93e9e5071ac8aab81ec14ea24eab
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Bir VM Azure DevTest Labs laboratuvarda yeniden başlatın
 Hızla ve kolayca bir sanal makine DevTest Labs'de bu makaledeki adımları izleyerek yeniden başlatabilirsiniz. Bir VM yeniden başlatmadan önce aşağıdakileri dikkate alın:

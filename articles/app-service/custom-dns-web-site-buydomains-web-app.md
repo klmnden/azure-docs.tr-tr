@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Azure Web uygulamaları için özel etki alanı adı satın alma
 
@@ -26,7 +26,7 @@ Uygulama hizmeti etki alanları (Önizleme) doğrudan Azure içinde yönetilen e
 
 Bu makalede Azure uygulama hizmeti (Web Apps, API Apps, Mobile Apps, Logic Apps) içindir. Azure VM veya Azure Storage için bkz: [atamak uygulama hizmeti etki alanı Azure VM veya Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Bulut Hizmetleri için bkz: [bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -34,6 +34,8 @@ Bu öğreticiyi tamamlamak için:
 * [Aboneliğiniz harcama sınırını kaldırmak](../billing/billing-spending-limit.md#remove). Uygulama hizmeti etki alanları ücretsiz abonelik KREDİLERİ ile satın alamıyor.
 
 ## <a name="prepare-the-app"></a>Uygulamayı hazırlayın
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Azure Web uygulamaları, web uygulaması'nın özel etki alanlarında kullanılacak [uygulama hizmeti planı](https://azure.microsoft.com/pricing/details/app-service/) Ücretli katmanı olmalıdır (**paylaşılan**, **temel**, **standart**, veya **Premium**). Bu adımda, web uygulaması desteklenen fiyatlandırma katmanı olduğundan emin emin olun.
 
@@ -112,7 +114,7 @@ Ardından, etki alanınız için istediğiniz seçenekleri seçin. Açıklamalar
 | Ayar | Önerilen Değer | Açıklama |
 |-|-|-|
 |Gizlilik koruması | Etkinleştirme | "Satın alma fiyatına dahil Gizlilik Koruması" kabul _ücretsiz_. Bazı üst düzey etki alanları gizlilik korumasını desteklemeyen kaydedicilerin tarafından yönetilir ve üzerinde listelenen **Gizlilik Koruması** sayfası. |
-| Varsayılan ana bilgisayar adları atama | **www** ve**@** | İstenen konak adı bağlamaları isterseniz seçin. Etki alanı satın alma işlemi tamamlandığında, web uygulamanızı sırasında seçilen ana bilgisayar adları erişilebilir. Web uygulamasının arkasında ise [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), kök etki alanının atama seçeneğiniz görmüyorum (@), çünkü destek A kayıtlarını trafik Yöneticisi yapar. Etki alanı satın alma işlemi tamamlandıktan sonra ana bilgisayar adı atamaları değişiklik yapabilirsiniz. |
+| Varsayılan konak adları atayın | **www** ve**@** | İstenen konak adı bağlamaları isterseniz seçin. Etki alanı satın alma işlemi tamamlandığında, web uygulamanızı sırasında seçilen ana bilgisayar adları erişilebilir. Web uygulamasının arkasında ise [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), kök etki alanının atama seçeneğiniz görmüyorum (@), çünkü destek A kayıtlarını trafik Yöneticisi yapar. Etki alanı satın alma işlemi tamamlandıktan sonra ana bilgisayar adı atamaları değişiklik yapabilirsiniz. |
 
 ### <a name="accept-terms-and-purchase"></a>Koşulları kabul etmek ve satın alma
 

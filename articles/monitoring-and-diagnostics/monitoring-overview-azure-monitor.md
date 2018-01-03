@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Azure İzleyicisi'ne genel bakış
 Bu makalede, Microsoft Azure Azure İzleyici hizmetinde genel bir bakış sağlar. Hangi Azure İzleyici yapar ve Azure İzleyicisi'ni kullanma hakkında ek bilgi işaretçiler sağlar açıklanır.  Bir tanıtım tercih ederseniz, bu makalenin sonundaki sonraki adımları bağlantılara bakın. 
@@ -43,7 +43,7 @@ Sayfa Gezinti devreye alma dahil olmak üzere için bir başlangıç noktasıdı
 
 Sayfasını açtığınızda, okuma erişimi olan abonelikleri arasından seçim yapabilirsiniz. Seçilen bir abonelik için görebilirsiniz:
 
-- **Tetiklenen uyarıları ve uyarı kaynakları** - Bu tablo Özet sayılarını, uyarı kaynakları gösterir ve seçilen süre için tetiklenen uyarıları kaç kez. Ölçüm ve etkinlik günlüğü uyarıları geçerlidir.
+- **Tetiklenen uyarıları ve uyarı kaynakları** - Bu tablo Özet sayılarını, uyarı kaynakları gösterir ve seçilen süre için tetiklenen uyarıları kaç kez. Ölçüm ve etkinlik günlüğü uyarıları geçerlidir. *< Düzenle: da tüm uyarılar için - olayları, ölçümleri ve günlükleri gösterilen birleşik deneyim (Önizleme) uyarılarla >*
 - **Etkinlik günlüğü hatalarını** -Azure kaynaklarınızı hiçbirini hata düzeyi önem derecesine sahip olayları oturum açarsanız, bir üst düzey sayısı görüntülemek ve aracılığıyla her olay araştırmak için etkinlik günlüğü sayfasında'ı tıklatın.
 - **Azure hizmet durumu** -hizmet sistem durumu hizmeti sorunları, planlı bakım etkinliği ve sistem durumu danışma sayısını görebilirsiniz. Azure hizmet durumu hizmetlerinizi Azure altyapı sorunlarını etkisi kişiselleştirilmiş bilgileri sağlar.  Bkz: [Azure hizmet durumu](../service-health/service-health-overview.md) daha fazla bilgi için.  
 - **Application Insights** -her Appınsights'dan kaynağın geçerli abonelikte KPI'ler bakın. KPI'ları, ASP.NET web uygulamaları, Java, düğüm ve genel uygulama türleri izleme sunucu tarafı uygulama için en iyi duruma getirilir. KPI'ları istek hızı, yanıt süresi, hata oranı ve kullanılabilirlik % ölçümlerini içerir. 
@@ -55,6 +55,7 @@ Günlük analizi veya Application Insights dahil edilmiş değil veya geçerli a
 ## <a name="azure-monitor-sources---compute-subset"></a>Azure İzleyici kaynakları - işlem alt
 
 ![İzleme ve tanılama işlem dışı kaynakları modeli](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+
 
 Burada işlem hizmetleri içerir 
 - Cloud Services 
@@ -141,7 +142,10 @@ Birkaç görselleştirme yöntemler şunlardır:
 
 
 ### <a name="automate"></a>Otomatikleştirme
-Tetikleyici uyarıları veya hatta tüm işlemler için izleme verilerini kullanabilirsiniz. Örneklere şunlar dahildir:
+> [!NOTE]
+> Uyarıları Microsoft Azure üzerinde devam eden evrimi bir parçası olarak, artık uyarı verme birleşik bir deneyim önizlemesi. Daha fazla ayrıntı [Azure Uyarıları'ni (Önizleme)](monitoring-overview-unified-alerts.md)
+
+Standart Azure Uyarıları'nda, tetikleyici uyarıları veya hatta tüm işlemler için izleme verilerini kullanabilirsiniz. Örneklere şunlar dahildir:
 
 * Otomatik ölçeklendirme işlem örnekleri için verileri, uygulama yüküne göre yukarı veya aşağı kullanın.
 * Ölçüm önceden belirlenmiş bir eşik kestiği olduğunda e-postalar gönderin.
@@ -151,7 +155,7 @@ Tetikleyici uyarıları veya hatta tüm işlemler için izleme verilerini kullan
 ## <a name="methods-of-accessing-azure-monitor"></a>Azure İzleyicisi'ne erişim yöntemleri
 Genel olarak, veri izleme, Yönlendirme ve aşağıdaki yöntemlerden birini kullanarak alma yönetebilirsiniz. Tüm yöntemler, tüm eylemler veya veri türleri için kullanılabilir.
 
-* [Azure portal](https://portal.azure.com)
+* [Azure portalı](https://portal.azure.com)
 * [PowerShell](insights-powershell-samples.md)  
 * [Platformlar arası komut satırı arabirimi (CLI)](insights-cli-samples.md)
 * [REST API](https://docs.microsoft.com/rest/api/monitor/)

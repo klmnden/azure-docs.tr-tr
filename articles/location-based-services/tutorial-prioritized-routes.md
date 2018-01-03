@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7d8eb900bdc90a391d4121b7bfb863fc274fc564
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Farklı Azure konum tabanlı Hizmetleri kullanarak seyahat modu yolları Bul
 
@@ -26,7 +26,7 @@ Bu öğretici Azure konum tabanlı Hizmetleri hesabınızı ve rota hizmeti SDK'
 > * Rota hizmeti sorgunuzu yapılandırın
 > * Seyahat modu tarafından öncelik yollar oluşturma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Devam etmeden önce emin olun [Azure konum tabanlı Hizmetleri hesabınızı oluşturmak](./tutorial-search-location.md#createaccount), ve [hesabınız için abonelik anahtarı alma](./tutorial-search-location.md#getkey). Harita denetiminin ve arama hizmeti API'leri öğreticide anlatıldığı gibi nasıl kullanılacağını da gözlemleyebilirsiniz [arama ilgi çekici Azure konum tabanlı Hizmetleri kullanarak yakındaki](./tutorial-search-location.md), yanı sıra temel rota hizmeti API'ları kullanımını öğrenin öğreticide ele alınan [Azure konum tabanlı Hizmetleri kullanarak ilgi rotaya](./tutorial-route-location.md).
 
@@ -209,9 +209,9 @@ Bu bölümde Azure konum tabanlı hizmetlerin rota hizmeti API'si, aktarım modu
     ```
     Bu kod parçacığını oluşturur bir [XMLHttpRequest](https://xhr.spec.whatwg.org/), ve gelen yanıtı ayrıştırılamadı olay işleyicisi ekler. Başarılı bir yanıt için bu koordinatları döndürülen yol için bir dizi oluşturur ve haritanın ekler `truckRouteLayerName` katmanı. 
     
-    Bu kod parçacığını yol için belirtilen başlangıç ve bitiş noktası hesabınızın abonelik anahtarı için rota almak için hizmet ayrıca sorgusu gönderir. Aşağıdaki isteğe bağlı parametreleri ağır kamyon için yol göstermek için kullanılır:-parametresi `travelMode=truck` seyahat modunu belirtir *kamyon*. Diğer modlar desteklenen seyahat *ücreti*, *veri yolu*, *van*, *motosikletinizin*ve varsayılan *araba* . 
-        -Parametreleri `vehicleWidth`, `vehicleHeight`, ve `vehicleLength` metre araç boyutları belirtmek ve yalnızca seyahat modunda olup olmadığını dikkate *kamyon*. 
-        - `vehicleLoadType` Kargo tehlikeli ve bazı yollar üzerinde kısıtlı olarak sınıflandırır. Bu da şu anda yalnızca değerlendirilir *kamyon* modu. 
+    Bu kod parçacığını yol için belirtilen başlangıç ve bitiş noktası hesabınızın abonelik anahtarı için rota almak için hizmet ayrıca sorgusu gönderir. Aşağıdaki isteğe bağlı parametreleri ağır kamyon için yol göstermek için kullanılır:-parametresi `travelMode=truck` seyahat modunu belirtir *kamyon*. Diğer modlar desteklenen seyahat *ücreti*, *veri yolu*, *van*, *motosikletinizin*ve varsayılan *araba* .  
+        -Parametreleri `vehicleWidth`, `vehicleHeight`, ve `vehicleLength` metre araç boyutları belirtmek ve yalnızca seyahat modunda olup olmadığını dikkate *kamyon*.  
+        - `vehicleLoadType` Kargo tehlikeli ve bazı yollar üzerinde kısıtlı olarak sınıflandırır. Bu da şu anda yalnızca değerlendirilir *kamyon* modu.  
 
 2. Rota hizmetini kullanarak bir araba için rota almak için aşağıdaki JavaScript kodu ekleyin:
 

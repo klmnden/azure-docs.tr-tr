@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure uygulama hizmeti planı genel bakış
 
-Bir uygulamayı App Service'te çalışan bir _uygulama hizmeti planı_. Bir uygulama hizmeti planı çalıştırmak bir web uygulaması için işlem kaynaklarını kümesini tanımlar. Bu kaynaklar benzer işlem [ _sunucu grubu_ ](https://wikipedia.org/wiki/Server_farm) geleneksel web barındırma. Bir veya daha fazla uygulama aynı bilgi işlem kaynakları (veya, aynı uygulama hizmeti planındaki) çalıştırmak için yapılandırılabilir. 
+Bir uygulamayı App Service'te çalışan bir _uygulama hizmeti planı_. Bir uygulama hizmeti planı çalıştırmak bir web uygulaması için işlem kaynaklarını kümesini tanımlar. Bu kaynaklar benzer işlem [ _sunucu grubu_ ](https://wikipedia.org/wiki/Server_farm) geleneksel web barındırma. Bir veya daha fazla uygulama aynı bilgi işlem kaynakları (veya, aynı uygulama hizmeti planındaki) çalıştırmak için yapılandırılabilir.
 
 (Örneğin, Batı Avrupa) belirli bir bölgede bir uygulama hizmeti planı oluşturduğunuzda, bir işlem kaynak grubu bu bölgede Bu plan için oluşturulur. Uygulama hizmeti planınızı tarafından tanımlandığı şekilde işlem kaynaklarını hangi uygulamaları, bunları çalıştırmak bu uygulama hizmeti planı yerleştirin. Her uygulama hizmeti planı tanımlar:
 
@@ -38,6 +38,8 @@ _Fiyatlandırma katmanı_ size hangi uygulama hizmeti özellikleri ve plan için
 - **Adanmış bir işlem**: **temel**, **standart**, **Premium**, ve **PremiumV2** katmanları ayrılmış Azure üzerinde uygulamaları çalıştırma VM'ler. Yalnızca aynı uygulama hizmeti planındaki uygulamaları aynı işlem kaynakları paylaşır. Daha yüksek katman daha fazla VM örnekleri genişleme için kullanılabilir.
 - **Yalıtılmış**: Bu katmanı ayrılmış Azure sanal ağlarda ağ yalıtımı işlem yalıtım uygulamalarınızı en üstünde sağlayan, ayrılmış Azure sanal makineleri çalıştırır. En büyük genişletme yetenekleri sağlar.
 - **Tüketim**: Bu katmanda yalnızca kullanılabilir [işlev uygulamaları](../azure-functions/functions-overview.md). İşlevlerini iş yükü dinamik olarak bağlı olarak ölçeklendirir. Daha fazla bilgi için bkz: [Azure işlevleri barındırma planları karşılaştırma](../azure-functions/functions-scale.md).
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Her katman, belirli bir alt kümesini App Service özellikleri de sağlar. Bu özellikler, özel etki alanları ve SSL sertifikaları, otomatik ölçeklendirmeyi, dağıtım yuvaları, yedeklemeler, trafik Yöneticisi tümleştirme ve daha fazla bilgi içerir. Daha yüksek katman daha fazla özelliği kullanılabilir. Her fiyatlandırma katmanının hangi özelliklerin desteklendiği bulmak için bkz: [uygulama hizmeti plan ayrıntılarını](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

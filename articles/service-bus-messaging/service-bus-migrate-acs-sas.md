@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Paylaşılan erişim imzası yetkilendirme için Azure Active Directory erişim denetimi Hizmeti'nden geçirme
 
-Hizmet veri yolu uygulamaları geçmişte iki farklı yetkilendirme modeli kullanılarak seçimini vardı: [paylaşılan erişim imzası (SAS)](service-bus-sas.md) doğrudan Service Bus tarafından sağlanan belirteç modeli ve bir Federasyon modeli burada Yönetimi Yetkilendirme kuralları yönetilir içinde [Azure Active Directory](/azure/active-directory/) erişim denetimi Hizmeti'nden (ACS) ve ACS elde belirteçleri geçirilir Service Bus istenen özelliklere erişim yetkisi vermek için.
+Hizmet veri yolu uygulamaları iki farklı yetkilendirme modeli kullanılarak seçimini daha önce sahip: [paylaşılan erişim imzası (SAS)](service-bus-sas.md) doğrudan Service Bus tarafından sağlanan belirteç modeli ve bir Federasyon modeli burada Yönetimi Yetkilendirme kuralları yönetilir içinde [Azure Active Directory](/azure/active-directory/) erişim denetimi Hizmeti'nden (ACS) ve ACS elde belirteçleri geçirilir Service Bus istenen özelliklere erişim yetkisi vermek için.
 
 ACS yetkilendirme modelini uzun almıştır [SAS yetkilendirme](service-bus-authentication-and-authorization.md) tercih edilen modeldir ve tüm belgeleri olarak yönergeler ve örnekler yalnızca SAS bugün kullanın. Ayrıca, artık ACS ile eşleştirilmiş yeni hizmet veri yolu ad alanları oluşturmak mümkündür.
 

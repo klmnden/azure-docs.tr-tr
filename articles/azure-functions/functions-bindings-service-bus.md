@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: 6d59b26fa4ab17c17827a8e3450e808e40e5c2dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 2df003d47291570b31e1091f34994e4023000981
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -36,14 +36,14 @@ Hizmet veri yolu kuyruğu ya da konu iletilerine yanıt için Service Bus tetikl
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#trigger---c-example)
-* [C# betiği](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# betik (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi önceden derlenmiş](functions-dotnet-class-library.md) , hizmet veri yolu kuyruğu iletiyi günlüğe kaydeder.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , hizmet veri yolu kuyruğu iletiyi günlüğe kaydeder.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -146,7 +146,7 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
 
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) İşlevler, Service Bus tetikleyiciyi yapılandırmak için aşağıdaki öznitelikler kullanın:
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), Service Bus tetikleyici yapılandırmak için aşağıdaki öznitelikler kullanın:
 
 * [ServiceBusTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -173,7 +173,7 @@ module.exports = function(context, myQueueItem) {
   }
   ```
 
-  Tam bir örnek için bkz: [tetikleyici - önceden derlenmiş C# örnek](#trigger---c-example).
+  Tam bir örnek için bkz: [tetikleyici - C# örnek](#trigger---c-example).
 
 * [ServiceBusAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus)
 
@@ -250,14 +250,14 @@ Kuyruk veya konu iletileri göndermek için Azure Service Bus çıkış bağlama
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#output---c-example)
-* [C# betiği](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# betik (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Çıktı - C# örnek
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi önceden derlenmiş](functions-dotnet-class-library.md) Service Bus kuyruğu ileti gönderir:
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) Service Bus kuyruğu ileti gönderir:
 
 ```cs
 [FunctionName("ServiceBusOutput")]
@@ -411,7 +411,7 @@ module.exports = function (context, myTimer) {
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
 
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
 Özniteliğin Oluşturucusu kuyruk veya konu ve abonelik adını alır. Bağlantının erişim hakları de belirtebilirsiniz. Erişim hakları ayarlama seçme açıklandığı [çıktı - yapılandırma](#output---configuration) bölümü. Aşağıda, işlevin dönüş değeri için uygulanan öznitelik gösteren bir örnek verilmiştir:
 
@@ -435,9 +435,9 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 }
 ```
 
-Tam bir örnek için bkz: [çıktısı - önceden derlenmiş C# örnek](#output---c-example).
+Tam bir örnek için bkz: [çıktısı - C# örnek](#output---c-example).
 
-Kullanabileceğiniz `ServiceBusAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde kullanılacak hizmet veri yolu hesabını belirtin.  Daha fazla bilgi için bkz: [tetikleyici - öznitelikleri](#trigger---attributes-for-precompiled-c).
+Kullanabileceğiniz `ServiceBusAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde kullanılacak hizmet veri yolu hesabını belirtin.  Daha fazla bilgi için bkz: [tetikleyici - öznitelikleri](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Çıktı - yapılandırma
 

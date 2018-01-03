@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Azure yığın 1711 güncelleştirme
 
@@ -35,7 +35,7 @@ Azure yığın 1711 güncelleştirme yapı numarası **171201.3**.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 
 Azure yığın yüklemelisiniz [1710 güncelleştirme](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1710) bu güncelleştirmeyi uygulamadan önce.
 
@@ -51,6 +51,7 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 - Kullanıcılar artık Windows sanal makineleri otomatik olarak etkinleştirebilir
 - Eklenen ayrıcalıklı uç noktası bekletme amacıyla BitLocker kurtarma anahtarlarını almak için PowerShell cmdlet
 - Altyapı güncelleştirirken çevrimdışı görüntülerini güncelleştirme desteği
+- Yedekleme hizmetini etkinleştir ile altyapı yedeklemeyi etkinleştirme
 
 #### <a name="fixes"></a>Düzeltmeler
 
@@ -138,6 +139,17 @@ Azure Active Directory Federasyon Hizmetleri (ADFS içinde) ortamlarında, dağ�
 
 > [!IMPORTANT]
 > Olsa bile **azurestack\cloudadmin** hesabıdır dağıtılan ADFS ortamlarda varsayılan sağlayıcı aboneliğin sahibi, konak RDP için izinleri yok. Kullanmaya devam **azurestack\azurestackadmin** hesabı veya oturum açma, erişim ve gerektiğinde konak yönetmek için yerel yönetici hesabı.
+
+#### <a name="infrastructure-backup-sevice"></a>Altyapı yedekleme hizmeti
+<!-- 1974890-->
+
+- **Bulut kurtarma için öncesi 1711 yedeklemeler desteklenmez.**  
+  Öncesi 1711 yedeklemeleri bulut Kurtarma ile uyumlu değildir. 1711 için ilk güncelleştirin ve yedeklemeleri etkinleştirmek gerekir. Yedeklemeleri etkinleştirilirse, 1711 için güncelleştirdikten sonra yedekleyin emin olun. Öncesi 1711 yedeklemeleri silinmesi gerekir.
+
+- **Etkinleştirme altyapı ASDK üzerinde yalnızca sınama amacıyla yedeğidir.**  
+  Altyapı yedeklemeleri çok düğümlü çözümleri geri yüklemek için kullanılabilir. ASDK altyapı yedekleme etkinleştirebilirsiniz, ancak kurtarma test etmek için bir yolu yoktur.
+
+Daha fazla bilgi için bkz: [altyapı Backup hizmeti ile Azure yığını için yedekleme ve veri kurtarma](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Güncelleştirme karşıdan yükle
 

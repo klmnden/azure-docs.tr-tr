@@ -16,10 +16,10 @@ ms.custom: security
 ms.date: 08/21/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Denetimi kullanıyorsanız onay denetim ayarlamadan önce bir ["Alt düzey istem
 5. Tıklatın **Tamam** depolama ayrıntıları yapılandırmayı kaydetmek için düğmesi.
 6. Altında **tarafından olay günlüğü**, tıklatın **başarı** ve **hatası** tüm olayları günlüğe kaydedin veya bireysel olay kategorilerini seçin.
 7. Bir veritabanı için Denetim yapılandırıyorsanız, verileri denetleme doğru yakalanır emin olmak için istemci bağlantı dizesi alter gerekebilir. Denetleme [bağlantı dizesinde değişiklik sunucu FDQN](sql-data-warehouse-auditing-downlevel-clients.md) alt düzey istemci bağlantıları için konu.
-8. **Tamam** düğmesine tıklayın.
+8. **Tamam**’a tıklayın.
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz eder.
 Denetim günlüklerini toplanan deposu tablolarla koleksiyonunda bir **SQLDBAuditLogs** Kurulum sırasında seçtiğiniz Azure depolama hesabındaki öneki. Bir aracı gibi kullanarak günlük dosyalarını görüntüleyebilirsiniz <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Azure Storage Gezgini</a>.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-faqs"></a>Azure geçiş SSS
 
@@ -32,7 +32,7 @@ Bu makalede hakkında bazı sık sorulan sorular (SSS) yanıtları [Azure geçi�
 A [ad alanı](relay-create-namespace-portal.md) uygulamanızdaki adresi geçiş kaynakları için kullanabileceğiniz kapsanan bir kapsayıcıdır. Geçiş kullanmak için bir ad alanı oluşturmanız gerekir. Bu, Başlarken ilk adımlar biridir.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Service Bus geçişi hizmetini ne oldu?
-Daha önce adlandırılmış Service Bus geçişi hizmetini şimdi WCF geçiş adı verilir. Bu hizmet normal şekilde kullanmaya devam edebilirsiniz. Karma bağlantılar, Azure BizTalk Services transplanted bir hizmeti güncelleştirilmiş bir sürümünü özelliğidir. WCF geçiş ve karma bağlantılar desteklenmeye devam edilir.
+Daha önce adlandırılmış Service Bus geçişi hizmetini şimdi adlı [WCF geçiş](relay-wcf-dotnet-get-started.md). Bu hizmet normal şekilde kullanmaya devam edebilirsiniz. Karma bağlantılar, Azure BizTalk Services transplanted bir hizmeti güncelleştirilmiş bir sürümünü özelliğidir. WCF geçiş ve karma bağlantılar desteklenmeye devam edilir.
 
 ## <a name="pricing"></a>Fiyatlandırma
 Bu bölümde fiyatlandırma yapısına geçiş hakkında sık sorulan bazı sorular yanıtlanmaktadır. Ayrıca bkz [Azure desteği ile ilgili SSS](http://go.microsoft.com/fwlink/?LinkID=185083) genel Azure fiyatlandırma bilgileri için. Geçiş fiyatlandırma hakkında tam bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları][Pricing overview].

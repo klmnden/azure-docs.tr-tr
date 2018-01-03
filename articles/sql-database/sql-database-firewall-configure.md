@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: e18645667cfb126ae2f2f9c8074fdcff5a6ade1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL veritabanı sunucusu ve veritabanı düzeyi güvenlik duvarı kuralları 
 
@@ -45,6 +45,10 @@ Azure SQL sunucunuzdaki veritabanlarından yalnızca birine seçmeli olarak eri�
 * **Veritabanı düzeyi güvenlik duvarı kuralları:** aynı mantıksal sunucu içinde (güvenli) belirli veritabanlarına erişmek istemciler bu kuralları etkinleştirin. Her veritabanı için bu kurallar oluşturabilirsiniz (de dahil olmak üzere **ana** veritabanı) ve tek tek veritabanlarında depolanır. Ana ve kullanıcı veritabanları için veritabanı düzeyinde güvenlik duvarı kuralları yalnızca oluşturulur ve Transact-SQL deyimi kullanarak ve yalnızca ilk sunucu düzeyinde Güvenlik Duvarı'nı yapılandırdıktan sonra yönetilir. Veritabanı düzeyinde güvenlik kuralı için, sunucu düzeyinde güvenlik duvarı kuralında belirtilen aralığın dışındaki bir IP adresi aralığını belirtirseniz, yalnızca veritabanı düzeyi aralığındaki IP adreslerine sahip istemciler veritabanına erişebilir. Bir veritabanı için en fazla 128 veritabanı düzeyinde güvenlik duvarı kuralınız olabilir. Makale ve bakın örnekte daha sonra bu veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için bkz [sp_set_database_firewall_rule (Azure SQL veritabanları)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Öneri:** Microsoft, güvenliği artırmak ve veritabanınızı daha taşınabilir hale getirmek açısından, mümkün olan durumlarda veritabanı düzeyinde güvenlik duvarı kurallarının kullanılmasını önerir. Aynı erişim gereksinimlerine sahip birçok veritabanınız varsa ve her veritabanını ayrı ayrı yapılandırmaya zaman harcamak istemiyorsanız sunucu düzeyinde güvenlik duvarı kurallarını yöneticiler için kullanabilirsiniz.
+
+> [!Important]
+> Windows Azure SQL veritabanı en fazla 128 güvenlik duvarı kurallarını destekler.
+>
 
 > [!Note]
 > İş sürekliliği bağlamında taşınabilir veritabanları hakkında bilgi edinmek için bkz. [Olağanüstü durum kurtarma için kimlik doğrulama gereksinimleri](sql-database-geo-replication-security-config.md).

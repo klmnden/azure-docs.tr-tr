@@ -4,7 +4,7 @@ description: "Sanal makine ölçek kümeleri hakkında sık sorulan soruların y
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 1d7d6200196eee96186dc5e597abc84fa0aa86c5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek SSS ayarlar
 
@@ -185,7 +185,7 @@ Dahil **osProfile** şablonunuzda:
 }
 ```
  
-Bu JSON bloğu kullanılan [101 vm sshkey GitHub Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Bu JSON bloğu kullanılan [101 vm sshkey GitHub hızlı başlatma şablonunu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
 İşletim sistemi profili de kullanılan [grelayhost.json GitHub hızlı başlatma şablonunu](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
@@ -222,7 +222,7 @@ SSH | Hayır | Koleksiyon | Linux işletim sistemi SSH anahtar yapılandırması
 yol | Evet | Dize | Burada SSH anahtarlarını veya sertifika yerleştirilmelidir Linux dosya yolunu belirtir
 anahtar verileri | Evet | Dize | Bir base64 ile kodlanmış SSH ortak anahtarını belirtir
 
-Bir örnek için bkz: [101 vm sshkey GitHub Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Bir örnek için bkz: [101 vm sshkey GitHub hızlı başlatma şablonunu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
  
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>I çalıştırdığınızda `Update-AzureRmVmss` birden fazla sertifika aynı anahtar Kasası'nı ekledikten sonra ı aşağıdaki iletiyi görürsünüz:
@@ -257,7 +257,7 @@ Yanlış kaynak kasa kimliği geçerli anahtar kasası URL'si ancak sağlarsanı
  
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Varolan bir t gizli eklerseniz, sanal makine ölçek ayarlayın, var olan sanal makineleri veya yenilerini yalnızca içine eklenen gizli olan? 
 
-Sertifikaları bile olanları önceden var olan tüm Vm'leriniz için eklenir. UpgradePolicy özelliği, sanal makine ölçek kümesi ayarlanırsa **el ile**, el ile güncelleştirme VM gerçekleştirdiğinizde sertifika VM'ye eklenir.
+Sertifikaları bile önceden var olanları tüm Vm'leriniz için eklenir. UpgradePolicy özelliği, sanal makine ölçek kümesi ayarlanırsa **el ile**, el ile güncelleştirme VM gerçekleştirdiğinizde sertifika VM'ye eklenir.
  
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Linux VM'ler için burada sertifikaları put?
 
@@ -281,7 +281,7 @@ Bir VM yeniden görüntü oluşturma sertifikaları silinir. Siler tüm işletim
  
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>Anahtar Kasası'nı bir sertifika silersem ne olur?
 
-Gizli anahtar Kasası'nı silinir ve ardından çalıştırdığınız `stop deallocate` tüm VM'ler için ve sonra yeniden başlatın, bir hatayla karşılaşırsınız. Gizli anahtar Kasası'nı almak CRP gerekiyor, ancak bu işlem gerçekleştirilemiyor hata oluşur. Bu senaryoda, sanal makine ölçek kümesi modelden sertifikaları silebilirsiniz. 
+Gizli anahtar Kasası'nı silinir ve ardından çalıştırdığınız `stop deallocate` tüm VM'ler için ve sonra yeniden başlatın, bir hatası karşılaşmadan. Gizli anahtar Kasası'nı almak CRP gerekiyor, ancak bu işlem gerçekleştirilemiyor hata oluşur. Bu senaryoda, sanal makine ölçek kümesi modelden sertifikaları silebilirsiniz. 
 
 CRP bileşen müşteri gizli kalmaz. Çalıştırırsanız `stop deallocate` sanal makine ölçek kümesindeki tüm VM'ler için önbellek silinir. Bu senaryoda, gizli anahtar Kasası'nı alınır.
 
@@ -293,7 +293,7 @@ Azure anahtar kasası belgelerine sürüm belirtilmezse, parolanın en son sür�
  
 Yöntem | URL
 --- | ---
-AL | https://mykeyvault.Vault.Azure.NET/Secrets/ {gizli-adı} / {gizli-version}? api-version = {api-version}
+GET | https://mykeyvault.Vault.Azure.NET/Secrets/ {gizli-adı} / {gizli-version}? api-version = {api-version}
 
 Yerine {*gizli anahtarı adı*} adı ile değiştirin {*gizli sürüm*} almak istediğiniz gizli sürümüyle. Parolanın sürümünü dışarıda. Bu durumda, geçerli sürümü alınır.
   
@@ -337,7 +337,7 @@ Uyumluluk açısından bakıldığında, sanal makine ölçek kümeleri Azure i�
 
 Daha fazla bilgi için bkz. [Microsoft Güven Merkezi](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-vm-scale-sets"></a>Mu [Azure yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/msi-overview) VM ölçek kümesi ile çalışır?
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Mu [Azure yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/msi-overview) sanal makine ölçek kümeleri ile çalışma?
 
 Evet. Bazı örnek MSI şablonları Azure hızlı başlangıç şablonlarında görebilirsiniz. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -371,28 +371,28 @@ Sanal makine ölçek kümeleri uzantısı sıralaması hakkında bilgi için bkz
 
 Ölçek kümesinde VM'ler için parolayı değiştirmek için başlıca iki yolu vardır.
 
-1. VMSS modelini doğrudan değiştirin. İle işlem API 2017-12-01 ve daha sonra kullanılabilir.
+- Sanal makine ölçek kümesi modelini doğrudan değiştirin. İle işlem API 2017-12-01 ve daha sonra kullanılabilir.
 
-Doğrudan (örneğin Azure kaynak Gezgini, PowerShell veya CLI kullanarak) ölçek kümesi model yönetici kimlik bilgilerini güncelleştirin. Ölçek kümesini sonra güncelleştirilmiş, tüm yeni sanal makineleri yeni kimlik bilgilerine sahip olmaz. Bunlar yeniden değilse var olan sanal makineleri yalnızca yeni kimlik bilgileri gerekir. 
+    Doğrudan (örneğin Azure kaynak Gezgini, PowerShell veya CLI kullanarak) ölçek kümesi model yönetici kimlik bilgilerini güncelleştirin. Ölçek kümesini sonra güncelleştirilmiş, tüm yeni sanal makineleri yeni kimlik bilgilerine sahip. Bunlar yeniden var olan sanal makineleri yalnızca yeni kimlik bilgileri varsa. 
 
-2. VM erişim uzantıları kullanarak parola sıfırlama.
+- VM erişim uzantıları kullanarak parola sıfırlama.
 
-Aşağıdaki PowerShell örneğini kullanın:
+    Aşağıdaki PowerShell örneğini kullanın:
+    
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+     
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
-```powershell
-$vmssName = "myvmss"
-$vmssResourceGroup = "myvmssrg"
-$publicConfig = @{"UserName" = "newuser"}
-$privateConfig = @{"Password" = "********"}
- 
-$extName = "VMAccessAgent"
-$publisher = "Microsoft.Compute"
-$vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-$vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-```
- 
- 
+
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Nasıl bir uzantı için tüm sanal makineleri my sanal makine ölçek kümesindeki ekleyebilirim?
 
 Güncelleştirme ilkesi ayarlanmışsa **otomatik**, yeni uzantısı özellikleri şablonla dağıtarak, tüm VM'ler güncelleştirir.
@@ -467,7 +467,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ## <a name="networking"></a>Ağ
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>Kümedeki tüm VM NIC'ler için geçerli olacak şekilde bir ölçek kümesi için ağ güvenlik grubu (NSG) atamak mümkün mü?
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Böylece kümedeki tüm VM NIC'ler uygulandığı bir ölçek kümesi için ağ güvenlik grubu (NSG) atamak mümkün mü?
 
 Evet. Bir ağ güvenlik grubunu doğrudan bir ölçeği ağ profili Networkınterfaceconfiguration bölümünde başvurarak Ayarla uygulanabilir. Örnek:
 
@@ -523,11 +523,11 @@ Bir sanal makine ölçek kümesini mevcut bir Azure sanal ağa dağıtmak için 
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Şablon çıktısı için ayarlanmış bir sanal makine ölçek ilk VM IP adresini nasıl ekleyebilirim?
 
-Şablon çıktısı için ayarlanmış bir sanal makine ölçek ilk VM IP adresini eklemek için bkz: [ARM: Get VMSS'ın özel IP](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Şablon çıktısı için ayarlanmış bir sanal makine ölçek ilk VM IP adresini eklemek için bkz: [Azure Resource Manager: Get sanal makine ölçek ayarlar özel IP](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Ölçek kümesi ağ hızlandırılmış kullanabilir miyim?
 
-Evet. Hızlandırılmış ağı kullanmak için enableAcceleratedNetworking true olarak kümenin Networkınterfaceconfiguration ayarları, Ölçek ayarlayın. Örneğin
+Evet. Hızlandırılmış ağı kullanmak için enableAcceleratedNetworking true olarak kümenin Networkınterfaceconfiguration ayarları, Ölçek ayarlayın. Örneğin:
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -549,7 +549,7 @@ Evet. Hızlandırılmış ağı kullanmak için enableAcceleratedNetworking true
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Ölçek kümesi tarafından kullanılan DNS sunucularının nasıl yapılandırabilir miyim?
 
-Bir VM ölçek ile özel DNS yapılandırma kümesi oluşturmak için bir dnsSettings JSON paket ölçek kümesi Networkınterfaceconfiguration bölümüne ekleyin. Örnek:
+Bir sanal makine ölçek ile özel DNS yapılandırma kümesi oluşturmak için bir dnsSettings JSON paket ölçek kümesi Networkınterfaceconfiguration bölümüne ekleyin. Örnek:
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -558,7 +558,7 @@ Bir VM ölçek ile özel DNS yapılandırma kümesi oluşturmak için bir dnsSet
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Her VM için bir ortak IP adresi atamak için ayarlanmış bir ölçek nasıl yapılandırabilir miyim?
 
-Her VM için bir ortak IP adresi atar VM ölçek kümesi oluşturmak için Microsoft.Compute/virtualMAchineScaleSets kaynak API sürümü 2017-03-30 olduğundan emin olun ve Ekle bir _publicipaddressconfiguration_ JSON paket ölçeğe Ipconfigurations bölüm ayarlayın. Örnek:
+Her VM için bir ortak IP adresi atar bir sanal makine ölçek kümesi oluşturmak için Microsoft.Compute/virtualMAchineScaleSets kaynak API sürümü 2017-03-30 olduğundan emin olun ve Ekle bir _publicipaddressconfiguration_ JSON Paket ölçeğe Ipconfigurations bölümünde ayarlayın. Örnek:
 
 ```json
     "publicipaddressconfiguration": {
@@ -583,7 +583,7 @@ Bir sanal makineyi ölçeği ikiden VM'ler ile Ayarla oluşturabilirsiniz başka
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesindeki VM'lerin sayısını nasıl değişiyor?
 
-Azure portalında kümesi bir sanal makine ölçek VM'ler sayısını değiştirmek için VM ölçek özellikler bölümü ayarlamak, "Ölçeklendirme" dikey penceresinde'ı tıklatın ve kaydırıcı çubuğu'nu kullanın. Örnek sayısı değiştirmek diğer yolları için bkz: [bir sanal makine ölçek kümesi örnek sayısını değiştirme](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Azure portalında kümesi bir sanal makine ölçek VM'ler sayısını değiştirmek için sanal makine ölçek özellikler bölümü ayarlamak, "Ölçeklendirme" dikey penceresinde'ı tıklatın ve kaydırıcı çubuğu'nu kullanın. Örnek sayısı değiştirmek diğer yolları için bkz: [bir sanal makine ölçek kümesi örnek sayısını değiştirme](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Belirli eşikleri dolduğunda özel uyarılar nasıl tanımlamak?
 
@@ -657,7 +657,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 Gerekli Workspaceıd ve workspaceKey OMS portalında bulabilirsiniz. Genel bakış sayfasında, ayarları kutucuğa tıklayın. Üst bağlı kaynaklar sekmesini tıklatın.
 
-Not:, Ölçek ayarlarsanız _upgradePolicy_ ayarlanmış manuel olarak yükseltme üzerlerinde çağırarak uzantısı tüm sanal makineleri kümedeki uygulamak gerekir. CLI içinde bu olacaktır _az vmss güncelleştirme-örnekleri_.
+Not:, Ölçek ayarlarsanız _upgradePolicy_ ayarlanmış manuel olarak yükseltme üzerlerinde çağırarak kümesindeki tüm VM'ler için uzantı uygulamanız gerekir. CLI içinde bu olacaktır _az vmss güncelleştirme-örnekleri_.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

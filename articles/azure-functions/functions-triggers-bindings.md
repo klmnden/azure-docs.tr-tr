@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 Azure işlevleri aracılığıyla Azure ve diğer hizmetleri olaylara yanıt kodu yazmanızı sağlar *Tetikleyicileri* ve *bağlamaları*. Bu makalede Tetikleyicileri kavramsal genel bakış olduğundan ve tüm bağlamaları desteklenen programlama dilleri. Tüm bağlamaları için ortak olan özellikleri aşağıda açıklanmıştır.
@@ -409,6 +409,10 @@ module.exports = function (context, info) {
 ## <a name="configuring-binding-data-at-runtime"></a>Çalışma zamanında veri bağlama yapılandırma
 
 C# ve diğer .NET dilleri bildirim temelli bağlamaları aksine bir kesinlik temelli bağlama desen kullanabilirsiniz *function.json*. Kesinlik temelli bağlama bağlama parametreleri tasarım yerine çalışma zamanında hesaplanması gerektiğinde kullanışlıdır. Daha fazla bilgi için bkz: [kesinlik temelli bağlamaları aracılığıyla çalışma zamanında bağlama](functions-reference-csharp.md#imperative-bindings) C# Geliştirici Başvurusu.
+
+## <a name="functionjson-file-schema"></a>Function.JSON dosyası şeması
+
+*Function.json* dosyası şeması şu adreste [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Belirli bir bağlama hakkında daha fazla bilgi için aşağıdaki makalelere bakın:

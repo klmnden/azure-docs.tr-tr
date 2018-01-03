@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 9d9680b22864e95c5953ddac50f2179b147b1e21
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -58,7 +58,7 @@ Microsoft'tan aşağıdaki bulut uygulamaları için bir koşullu erişim ilkesi
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint (OneDrive iş içerir) çevrimiçi
+- Microsoft Office 365 SharePoint (OneDrive iş ve Project Online içerir) çevrimiçi
 
 - Microsoft Power BI 
 

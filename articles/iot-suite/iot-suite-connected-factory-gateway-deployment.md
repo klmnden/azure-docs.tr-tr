@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/11/2017
 ms.author: dobett
-ms.openlocfilehash: af49a31061152cf44d3818b79b9ed7ba586f8418
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1506488193638400af7c71b3ecd00e99512daa62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Bir sınır ağ geçidi Windows veya Linux bağlı Fabrika önceden yapılandırılmış çözümü dağıtma
 
@@ -142,7 +142,7 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 OPC Proxy yüklemek için komut isteminde aşağıdaki komutu çalıştırın:
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
 ```
 
 Yalnızca yükleme bir sistemde bir kez çalıştırmanız gerekir.
@@ -150,7 +150,7 @@ Yalnızca yükleme bir sistemde bir kez çalıştırmanız gerekir.
 OPC Proxy çalıştırmak için aşağıdaki komutu kullanın:
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> Microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
 ```
 
 OPC Proxy bağlantı dizesi yükleme sırasında kaydeder. Sonraki çalışır bir güvenlik riski oluşturduğundan bağlantı dizesi atlayın.

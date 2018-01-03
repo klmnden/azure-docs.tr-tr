@@ -137,7 +137,7 @@ Evet, yük devretme yönetilen diskleri olan bir VM için seçebilirsiniz.
 
 **Geçiş için Azure Azure çoğaltma Azure Site Kurtarma (ASR) tarafından korunan Azure vm'lerinde herhangi bir etki var mı?**
 
-Evet. ASR Azure için Azure koruması yönetilen diskleri olan VM'ler için desteklenmez. CY2018 ucu tarafından desteklenmesi zordur. 
+Evet. ASR Azure için Azure koruması yönetilen diskleri olan VM'ler için desteklenmez. S1 CY2018 ucu tarafından desteklenmesi zordur. 
 
 **Sanal makineleri veya yönetilen diskleri daha önce şifrelenmiş depolama hesaplarında yer alan yönetilmeyen disklerle geçişini sağlayabilir miyim?**
 

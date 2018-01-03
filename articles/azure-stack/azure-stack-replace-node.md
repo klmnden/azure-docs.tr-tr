@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Bir Azure tümleşik yığını sistemi bir ölçek birimi düğümünde değiştirin
 
@@ -51,6 +51,10 @@ Bir ölçek birimi düğümü kapalı ise, aşağıdaki tüm kritik uyarılar al
 Aşağıdaki adımlar, bir üst düzey genel bakış ölçek birimi düğümü değiştirme işlemini sağlanır. Sisteme özgü ayrıntılı adımlar için OEM donanım satıcısının FRU belgelerine bakın. OEM tarafından sağlanan belgelerinize bakarak olmadan adımları izlemeyin.
 
 1. Kullanım [boşaltma](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi düğümü bakım moduna eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
+
+   > [!NOTE]
+   > Herhangi bir durumda, yalnızca bir düğüm boşaltmış veya aynı anda (depolama alanları doğrudan) SSD bozmadan kapalı.
+
 2. Düğüme hala açık olduğundan kullanırsanız [kapatmak](azure-stack-node-actions.md#scale-unit-node-actions) eylem. Bu eylem donanım fiziksel koşula göre gerekli olmayabilir.
  
    > [!NOTE]

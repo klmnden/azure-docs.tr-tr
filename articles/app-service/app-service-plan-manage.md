@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure uygulama hizmeti planında yönetme
 
-Bir [uygulama hizmeti planı](azure-web-sites-web-hosting-plans-in-depth-overview.md) bir uygulama hizmeti uygulamanın ihtiyacı çalıştırmak için kaynaklar sağlar. Nasıl yapılır bu kılavuz, bir uygulama hizmeti planı yönetme gösterir. 
+Bir [uygulama hizmeti planı](azure-web-sites-web-hosting-plans-in-depth-overview.md) bir uygulama hizmeti uygulamanın ihtiyacı çalıştırmak için kaynaklar sağlar. Nasıl yapılır bu kılavuz, bir uygulama hizmeti planı yönetme gösterir.
 
 ## <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 
@@ -68,6 +68,8 @@ Seçin **değişiklik uygulama hizmeti planı** işlemini başlatmak için.
 > 
 
 ![Uygulama hizmeti planı Seçici.][change]
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Her plan kendi fiyatlandırma katmanı vardır. Örneğin, bir siteden taşıma bir **serbest** için katman bir **standart** katmanı, özellikleri ve kaynakları kullanmak için atanmış tüm uygulamalar sağlayan **standart** katmanı. Ancak, bir uygulama daha yüksek katmanlı bir plandan daha düşük bir katmanlı plana taşıma artık belirli özellikleri erişimi olduğu anlamına gelir. Hedef plan kullanılabilir olmayan bir özellik uygulamanızı kullanıyorsa, hangi özelliği kullanılabilir değil kullanımda olduğunu gösterir bir hata alıyorsunuz. Örneğin, uygulamalarınızın SSL sertifikalarını kullanıyorsa, hata iletisi görebilirsiniz: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`fiyatlandırma katmanı için hedef planın ölçeklendirin gerek bu durumda, **temel** veya daha yüksek veya tüm SSL bağlantıları için kaldırmanız gerekir Hedef plan uygulama taşımadan önce uygulamanızın.
 

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d134359cd986d654ad411586302d01634914325e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60e0feb1e45ac5d9f35eac9667eaf9004d77e86a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-application-for-azure-container-service-aks"></a>Uygulama Azure kapsayıcı hizmeti (AKS) için hazırlama
 
@@ -60,7 +60,7 @@ Dizini içinde uygulama kaynak koduna, önceden oluşturulmuş bir Docker compos
 
 [Docker Compose] [ docker-compose] yapı kapsayıcı görüntüler ve birden çok kapsayıcı uygulamalarının dağıtımını otomatik hale getirmek için kullanılabilir.
 
-Çalıştırma `docker-compose.yml` kapsayıcı görüntü oluşturma, Redis görüntüsünü karşıdan yüklemek ve uygulamayı başlatmak için dosya.
+Çalıştırma `docker-compose.yaml` kapsayıcı görüntü oluşturma, Redis görüntüsünü karşıdan yüklemek ve uygulamayı başlatmak için dosya.
 
 ```console
 docker-compose up -d

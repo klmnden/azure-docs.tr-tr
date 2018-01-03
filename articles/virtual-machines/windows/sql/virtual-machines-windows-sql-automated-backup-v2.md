@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 04/05/2017
 ms.author: jroth
 ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>SQL Server 2016 Azure sanal makineleri için (Resource Manager) yedekleme v2 otomatik
 
@@ -31,7 +31,7 @@ Otomatik yedekleme v2 otomatik olarak yapılandırır [yönetilen Microsoft Azur
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Otomatik yedekleme v2 kullanmak için aşağıdaki önkoşulları gözden geçirin:
 
 **İşletim sistemi**:
@@ -64,7 +64,7 @@ Otomatik yedekleme v2 kullanmak için aşağıdaki önkoşulları gözden geçir
 ## <a name="settings"></a>Ayarlar
 Aşağıdaki tabloda otomatik yedekleme v2 için yapılandırılabilir seçenekler açıklanmaktadır. Gerçek yapılandırma adımları Azure portalında veya Azure Windows PowerShell komutlarını kullanmadığınıza bağlı olarak farklılık gösterir.
 
-### <a name="basic-settings"></a>Temel ayarlar
+### <a name="basic-settings"></a>Temel Ayarlar
 
 | Ayar | Aralık (varsayılan) | Açıklama |
 | --- | --- | --- |

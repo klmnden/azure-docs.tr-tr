@@ -8,11 +8,11 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Azure kapsayıcı durumlarda kapsayıcılı görevi çalıştırma
 
@@ -20,7 +20,7 @@ Azure kapsayıcı örnekleri kapsayıcılarında dağıtma hızı ve kolaylığ�
 
 Bir yapılandırılabilir yeniden başlatma ilkesi, süreçlerinin tamamlandığında kapsayıcılarınızı durdurulur belirtebilirsiniz. Kapsayıcı örnekleri ikinciye faturalandırılır olduğundan, yalnızca görev yürütme kapsayıcı çalışırken kullanılan işlem kaynakları için ücret ödersiniz.
 
-Örnekler, bu makalede kullanımda Azure CLI sunulmuştur. Azure CLI Sürüm 2.0.21 olmalıdır veya daha büyük [yerel olarak yüklenmiş](/cli/azure/install-azure-cli), veya CLI kullanın [Azure bulut Kabuk](../cloud-shell/overview.md).
+Örnekler, bu makalede kullanımda Azure CLI sunulmuştur. Azure CLI Sürüm 2.0.21 olmalıdır veya daha büyük [yerel olarak yüklenmiş][azure-cli-install], veya CLI kullanın [Azure bulut Kabuk](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Kapsayıcı yeniden başlatma ilkesi
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Tamamlama örneği çalıştırma
 
-Eylem yeniden başlatma ilkesi görmek için bir kapsayıcı örneğinden oluşturma [aci/microsoft-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) görüntü ve belirtin `OnFailure` İlkesi yeniden başlatın. Bu örnek kapsayıcı, varsayılan olarak, Shakespeare'nın metin çözümleyen bir Python betiği çalıştıran [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)10 en sık kullanılan sözcük STDOUT yazar ve ardından çıkar.
+Eylem yeniden başlatma ilkesi görmek için bir kapsayıcı örneğinden oluşturma [aci/microsoft-wordcount] [ aci-wordcount-image] görüntü ve belirtin `OnFailure` İlkesi yeniden başlatın. Bu örnek kapsayıcı, varsayılan olarak, Shakespeare'nın metin çözümleyen bir Python betiği çalıştıran [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)10 en sık kullanılan sözcük STDOUT yazar ve ardından çıkar.
 
 Örnek kapsayıcı ile aşağıdaki komutu çalıştırarak [az kapsayıcı oluşturmak] [ az-container-create] komutu:
 
@@ -168,7 +168,11 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 
 Tamamlanıncaya kadar çalışabilmesi kapsayıcılarınızı çıktısını kalıcı hakkında ayrıntılar için bkz: [Azure kapsayıcı örnekleri ile Azure dosya paylaşımının takma](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-cli-install]: /cli/azure/install-azure-cli

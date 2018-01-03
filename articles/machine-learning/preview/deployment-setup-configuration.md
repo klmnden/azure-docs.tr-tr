@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: fe03a24b0d9f5ef6d0f20dac15ea980a8663a7b2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="model-management-setup"></a>Model Yönetimi Kurulumu
 
@@ -84,10 +84,12 @@ Ortam Kurulumu tamamlanırken:
 - Kimlik doğrulama işlemi sırasında kimlik doğrulaması yapmak bir hesap istenir. Önemli: geçerli bir Azure aboneliğinizin ve kaynakları hesabı oluşturmak için yeterli izinlere sahip bir hesap seçin - oturum aç tamamlandığında, abonelik bilgilerinizi sunulur ve devam etmek istiyor olup olmadığını istenir Seçilen hesap.
 
 ### <a name="environment-setup"></a>Ortam Kurulumu
-Kurulum işlemi başlatmak için aşağıdaki komutu girerek ortamı sağlayıcısı kaydetmeniz gerekir:
+Kurulum işlemi başlatmak için aşağıdaki komutları girerek birkaç ortam sağlayıcıları kaydetmeniz gerekir:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Yerel dağıtım
 Dağıtma ve web hizmetinizi yerel makine üzerinde test etmek için aşağıdaki komutu kullanarak yerel bir ortamı ayarlayın. Kaynak grubu adı isteğe bağlıdır.

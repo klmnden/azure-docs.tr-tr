@@ -8,3 +8,4 @@
 | Uç nokta boyutu | 4 Tıb | Hayır |
 | Dosya sistemi nesneleri (dizinler ve dosyalar) her eşitleme grubu | 6 milyon nesneleri | Hayır |
 | Dosya boyutu | 100 Gib'den | Hayır |
+| Katmanlı bir dosya için en düşük dosya boyutu | 64 KiB | Evet |

@@ -3,7 +3,7 @@ title: "Azure DevTest Labs'de sahipleri ve kullanıcılar ekleme | Microsoft Doc
 description: "Azure portal veya PowerShell kullanarak Azure DevTest Labs içinde sahipleri ve kullanıcılar ekleme"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahipleri ve kullanıcılar ekleme
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -31,7 +31,7 @@ Azure DevTest Labs Access'te tarafından denetlenir [Azure rol tabanlı erişim 
 Bir kullanıcı atayabilirsiniz üç ana rol vardır:
 
 * Sahip
-* DevTest Labs kullanıcı
+* DevTest Labs Kullanıcısı
 * Katılımcı
 
 Aşağıdaki tabloda bu rollerin her biri bulunan kullanıcılar tarafından gerçekleştirilen eylemler gösterilmektedir:
@@ -39,7 +39,7 @@ Aşağıdaki tabloda bu rollerin her biri bulunan kullanıcılar tarafından ger
 | **Bu roldeki kullanıcılar eylemleri gerçekleştirebilirsiniz** | **DevTest Labs kullanıcı** | **Sahibi** | **Katkıda bulunan** |
 | --- | --- | --- | --- |
 | **Laboratuvar görevleri** | | | |
-| Kullanıcılar bir laboratuvara ekleme |Hayır |Yes |Hayır |
+| Kullanıcılar bir laboratuvara ekleme |Hayır |Evet |Hayır |
 | Maliyet ayarlarını güncelleştirme |Hayır |Evet |Evet |
 | **VM temel görevleri** | | | |
 | Özel resimler ekleyip |Hayır |Evet |Evet |

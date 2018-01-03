@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>PowerShell ile Azure diskleri yönetme
 
@@ -81,7 +81,7 @@ Standart Depolama, HDD’ler ile desteklenir ve yüksek performans sunarken uygu
 
 ### <a name="premium-disk"></a>Premium disk
 
-Premium diskler, SSD tabanlı yüksek performanslı, düşük gecikme süreli disk tarafından desteklenir. Üretim iş yükü çalıştıran VM'ler için mükemmel. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi ve FS-serisi VM'ler. Premium diskleri üç türde (P10, P20, P30, P40, P50) gelir, disk türü disk boyutunu belirler. Disk boyutu değeri seçerken, sonraki türü yuvarlanır. Boyutu 128 GB'ın altında Örneğin, disk türünü P10, 129 512 P20, 512 P30, 2 TB ve P50 P40 arasındaki olur 4TB. 
+Premium diskler, SSD tabanlı yüksek performanslı, düşük gecikme süreli disk tarafından desteklenir. Üretim iş yükü çalıştıran VM'ler için mükemmel. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi ve FS-serisi VM'ler. Premium diskleri beş türlerinde (P10, P20, P30, P40, P50) gelir, disk türü disk boyutunu belirler. Disk boyutu değeri seçerken, sonraki türü yuvarlanır. Boyutu 128 GB'ın altında Örneğin, disk türünü P10, 129 512 P20, 512 P30, 2 TB ve P50 P40 arasındaki olur 4TB. 
 
 ### <a name="premium-disk-performance"></a>Premium disk performansı
 

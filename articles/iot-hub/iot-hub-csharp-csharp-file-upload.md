@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: acc599c1fbe13b2739fc5480d6204f90e59b0242
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 4362512121ca426fcae6716c74e1f8effa0986f1
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Cihazınızı dosyalarından buluta IOT Hub .NET kullanarak karşıya yükle
 
@@ -180,7 +180,7 @@ Bu öğreticide, dosya yüklemelerini basitleştirmek için IOT hub'ı dosya kar
 
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 
 <!-- Images. -->
 
@@ -192,7 +192,7 @@ Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 [Azure portal]: https://portal.azure.com/
 
-[Azure IOT Geliştirme Merkezi]: http://www.azure.com/develop/iot
+[Azure IOT Geliştirme Merkezi]: http://azure.microsoft.com/develop/iot
 
 [geçici hata işleme]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure IOT hizmeti SDK'sı NuGet paketi]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

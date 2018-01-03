@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure Resource Manager şablonu kullanarak Service Bus ad alanı oluşturma | Microsoft Docs"
-description: "Bir hizmet veri yolu ad alanı oluşturmak için Azure Resource Manager şablonu kullanın"
+title: "Azure Resource Manager şablonu kullanarak Service Bus Mesajlaşma hizmeti ad oluşturma | Microsoft Docs"
+description: "Service Bus Mesajlaşma hizmeti ad alanı oluşturmak için Azure Resource Manager şablonu kullanın"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 12/21/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir hizmet veri yolu ad alanı oluşturma
 
@@ -41,6 +41,7 @@ Tam şablon için bkz: [hizmet veri yolu ad alanı şablonu] [ Service Bus names
 > 
 
 ## <a name="what-will-you-deploy"></a>Ne dağıtacaksınız?
+
 Bu şablonla dağıttığınız bir hizmet veri yolu ad alanı ile bir [standart veya Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıklayın:
@@ -48,11 +49,13 @@ Dağıtımı otomatik olarak çalıştırmak için aşağıdaki düğmeye tıkla
 [![Azure’a dağıtma](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametreler
+
 Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon adlı bir bölüm içerir `Parameters` , tüm parametre değerlerini içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
 
 Bu şablon, aşağıdaki parametreleri tanımlar:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 Oluşturmak için hizmet veri yolu ad alanı adı.
 
 ```json
@@ -65,6 +68,7 @@ Oluşturmak için hizmet veri yolu ad alanı adı.
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
+
 Hizmet veri yolu adı [SKU](https://azure.microsoft.com/pricing/details/service-bus/) oluşturmak için.
 
 ```json
@@ -86,6 +90,7 @@ Hizmet veri yolu adı [SKU](https://azure.microsoft.com/pricing/details/service-
 Hizmet veri yolu fiyatlandırma hakkında daha fazla bilgi için bkz: [Service fiyatlandırma ve faturalama Bus][Service Bus pricing and billing].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 Şablon hizmet veri yolu API'sini sürümü.
 
 ```json
@@ -98,7 +103,9 @@ Hizmet veri yolu fiyatlandırma hakkında daha fazla bilgi için bkz: [Service f
 ```
 
 ## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
-### <a name="service-bus-namespace"></a>Hizmet veri yolu ad alanı
+
+### <a name="service-bus-namespace"></a>Service Bus ad alanı
+
 Standart bir hizmet veri yolu ad alanı türü oluşturur **ileti**.
 
 ```json
@@ -120,15 +127,18 @@ Standart bir hizmet veri yolu ad alanı türü oluşturur **ileti**.
 ```
 
 ## <a name="commands-to-run-deployment"></a>Dağıtımı çalıştırma komutları
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json

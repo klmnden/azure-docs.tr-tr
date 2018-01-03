@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8ddfd5e2ee57d79fecacdc648af9264b6c95240
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 1d6991d40b9bb8543898bbbdc9d7c905dfe11536
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>SAP HANA üzerinde Azure işlemler Kılavuzu
 Bu belgede işletim Azure yerel sanal makinelerde (VM'ler) dağıtılan SAP HANA sistemleri için yönergeler sağlanmaktadır. Bu belge aşağıdaki içeriği içerir standart SAP belgeleri değiştirmek üzere tasarlanmamıştır:
@@ -29,7 +29,7 @@ Bu belgede işletim Azure yerel sanal makinelerde (VM'ler) dağıtılan SAP HANA
 - [SAP yükleme kılavuzları](https://service.sap.com/instguides)
 - [SAP notları](https://sservice.sap.com/notes)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu kılavuzu kullanmak için aşağıdaki Azure bileşenlerin temel bilgi gerekir:
 
 - [Azure sanal makineleri](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
@@ -80,16 +80,23 @@ Azure Premium diskleri /hana/data ve /hana/log birimleri için önerilir. Bir LV
 
 Aşağıdaki tabloda müşteriler sık kullandığınız VM türleri bir ana bilgisayara SAP HANA Azure vm'lerinde gösterir:
 
-| VM SKU | RAM | / hana/veri ve/hana/günlük<br /> LVM veya MDADM şeritli | / hana/paylaşılan | / root birim | / usr/sap | hana/yedekleme |
-| --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
-| E32v3 | 256 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| GS5 | 448 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1 TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
-| M64ms | 1.7 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128ms | 3.8 TB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 5 x S30 |
+| VM SKU | RAM | En çok, VM G/Ç<br /> Aktarım hızı | / hana/veri ve/hana/günlük<br /> LVM veya MDADM şeritli | / hana/paylaşılan | / root birim | / usr/sap | hana/yedekleme |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| E16v3 | 128 GiB | 384 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E32v3 | 256 Gib'den | 768 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443 Gib'den | 1200 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| GS5 | 448 Gib'den | 2000 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M64s | 1000 Gib'den | 1000 GB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64ms | 1750 Gib'den | 1000 GB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | 2000 Gib'den | 2000 GB |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
+| M128ms | 3800 Gib'den | 2000 GB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
+
+
+> [!NOTE]
+> Daha küçük VM ile 3 x P20 oversize birimleri ayarına göre alan önerileri ilgili türleri için önerilen disk [SAP TDI depolama teknik](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Ancak tabloda gösterilen seçimi SAP HANA için yeterli disk verimliliği sağlayın çalışıldı. Küçük g/ç işleme gerekiyorsa, Premium depolama diskleri /hana/data ve /hana/log seçimine göre ayarlayabilirsiniz. Aynı, iki kez bellek birim temsil yedeklemeleri tutmak için boyutta /hana/backup birimi boyutlandırma için geçerlidir. Ardından daha az alan gerekiyorsa, ayarlayabilirsiniz. Ayrıca genel VM g/ç işleme boyutlandırma veya bir VM için karar aklınızda bulundurun. VM verimlilik makalesinde genel belgelenen [bellek için iyileştirilmiş sanal makine boyutları](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)  
+
+> [!NOTE]
+> Yararlı istiyorsanız [Azure sanal makine tek bir VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) Premium Storage (Pxx) için standart depolama (Sxx) olarak listelenen tüm VHD'leri değiştirmeniz gerekir. 
 
 
 ### <a name="set-up-azure-virtual-networks"></a>Azure sanal ağları ayarlayın

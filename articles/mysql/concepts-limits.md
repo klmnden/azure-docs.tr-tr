@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 12/09/2017
-ms.openlocfilehash: 65dc158a3a8c88a02d66bff7abe34d457cfef10a
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanındaki sınırlamaları
 MySQL hizmeti için Azure veritabanı genel önizlemede değil. Aşağıdaki bölümlerde, kapasite, depolama altyapısı desteği, ayrıcalık desteği, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz. [genel sınırlamaları](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
@@ -44,11 +44,11 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 
 ## <a name="storage-engine-support"></a>Depolama altyapısı desteği
 
-### <a name="supported"></a>Destekleniyor
+### <a name="supported"></a>Desteklenen
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
 - [BELLEK](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
-### <a name="unsupported"></a>Desteklenmeyen
+### <a name="unsupported"></a>Desteklenmiyor
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
 - [KARA DELİK](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
 - [ARŞİV](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
@@ -56,15 +56,16 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 
 ## <a name="privilege-support"></a>Ayrıcalık desteği
 
-### <a name="unsupported"></a>Desteklenmeyen
-- [Süper ayrıcalık](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)
+### <a name="unsupported"></a>Desteklenmiyor
+- DBA rolünün birçok parametreleri sever ve ayarları, yanlışlıkla sunucu performansı düşebilir veya DBMS ACID özelliklerini negate. Bu nedenle, bizim hizmet bütünlüğü ve ürün düzeyinde SLA korumak için biz müşterilere DBA rolünün gösterme. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı yönetilen veritabanı örneğinde DDL ve DML deyimleri çoğunu gerçekleştirmek müşterilerin olanak tanır. 
+- Süper ayrıcalık benzer şekilde [Süper ayrıcalık](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) de sınırlıdır.
 
 ## <a name="data-manipulation-statement-support"></a>Veri işleme ifadesi desteği
 
-### <a name="supported"></a>Destekleniyor
+### <a name="supported"></a>Desteklenen
 - Yük veri GİRİŞDOSYASI - desteklenir, ancak bir UNC yolu (Azure depolama XSMB bağlanan) yönlendirildiği [Yerel] parametresini belirtmeniz gerekir.
 
-### <a name="unsupported"></a>Desteklenmeyen
+### <a name="unsupported"></a>Desteklenmiyor
 - SEÇİN... ÇIKIŞDOSYASI
 
 ## <a name="preview-functional-limitations"></a>Önizleme işlevsel sınırlamaları
@@ -83,8 +84,11 @@ En fazla sayı bulunmadığını bağlantıları, işlem birimleri ve depolama h
 
 ## <a name="functional-limitations"></a>İşlev sınırlamaları
 
-### <a name="subscription-management"></a>Abonelik Yönetimi
+### <a name="subscription-management"></a>Abonelik yönetimi
 - Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
+
+## <a name="current-known-issues"></a>Geçerli bilinen sorunlar:
+- Bağlantı kurulduktan sonra MySQL server örneği yanlış sunucu sürümünü görüntüler. Doğru sunucu örneği sürüm almak için select version() kullanın; MySQL isteminde komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Her hizmet katmanında nelerin kullanılabildiğini](concepts-service-tiers.md)

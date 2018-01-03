@@ -16,10 +16,10 @@ ms.date: 11/03/2017
 ms.devlang: na
 ms.author: delhan
 ms.openlocfilehash: bed5da25042d29983bad9a80cd44bdd7df261c2e
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Yeniden başlatmadan veya mevcut bir Windows sanal makine azure'da yeniden boyutlandırma Klasik dağıtım sorunlarını giderme
 > [!div class="op_single_selector"]

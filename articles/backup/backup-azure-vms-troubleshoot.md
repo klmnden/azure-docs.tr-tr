@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 96aa4aa303f2322733a8383e5abc377ff873a926
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında oluşan hatalar giderebilirsiniz.
@@ -75,7 +75,7 @@ Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](h
 | İptal bu iş türü için desteklenmeyen - iş tamamlanana kadar bekleyin. |None |
 | İş iptal edilebilen bir durumda değil - iş tamamlanana kadar bekleyin. <br>OR<br> Seçilen işin iptal edilebilen bir durumda değil - işi tamamlamak lütfen bekleyin. |Tüm olasılığını içinde iş neredeyse tamamlandı. İş tamamlanana kadar bekleyin.|
 | İş sürüyor değil - iptal yalnızca sürmekte olan işleri için desteklenen olduğundan iptal edilemez. Lütfen girişimi iptal bir sürüyor işi. |Bu hatanın nedeni geçici bir durum nedeniyle oluşur. Bir dakika bekleyin ve İptal işlemi yeniden deneyin. |
-| Başarısız işi iptal-işi tamamlanana kadar bekleyin. |None |
+| Başarısız işi iptal-işi tamamlanana kadar bekleyin. |Hiçbiri |
 
 ## <a name="restore"></a>Geri Yükleme
 | Hata ayrıntıları | Geçici çözüm |
@@ -83,13 +83,13 @@ Azure Backup disk boyutları şu anda desteklememektedir [1023 GB'den büyük](h
 | Geri yükleme bulut iç hata vererek başarısız oldu |<ol><li>Bulut hizmeti geri yüklemeye çalıştığınız DNS ayarlarıyla yapılandırılır. Kontrol edebilirsiniz <br>$deployment get-AzureDeployment - ServiceName "ServiceName" =-yuvası "Üretim" Get-AzureDns - DnsSettings $deployment. DnsSettings<br>Yapılandırılmış adresi varsa, bu DNS ayarlarının yapılandırıldığını anlamına gelir.<br> <li>Bulut hizmeti olduğu için geri yüklemeye çalıştığınız ReservedIP ile yapılandırıldığından ve bulut hizmetindeki VM'ler durdurulmuş durumda.<br>Bir bulut hizmeti powershell cmdlet'lerini kullanarak IP ayrılmış denetleyebilirsiniz:<br>$deployment get-AzureDeployment - ServiceName "servicename" =-yuvası "Üretim" $DEP Reservedıpname <br><li>Aşağıdaki özel ağ yapılandırmaları bir sanal makineyle aynı bulut hizmetine geri yüklemeye çalıştığınız. <br>-Sanal makineler yük dengeleyici yapılandırması (dahili ve harici)<br>-Sanal makinelerle birden çok ayrılmış IP<br>-Birden çok NIC içeren sanal makinelere<br>Lütfen yeni bir bulut hizmeti kullanıcı Arabiriminde seçin veya lütfen [konuları geri](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) özel ağ yapılandırmaları olan VM'ler için.</ol> |
 | Seçili DNS adı zaten alınmış - Lütfen farklı bir DNS adı belirtin ve yeniden deneyin. |Bulut hizmeti adı için DNS adını buraya başvuruyor (genellikle ile biten. cloudapp.net). Bu, benzersiz olması gerekir. Bu hatayla karşılaşırsanız, geri yükleme sırasında farklı bir VM adı seçmeniz gerekir. <br><br> Bu hata yalnızca Azure portalında kullanıcılara gösterilir. Yalnızca diskleri geri yükler ve VM oluşturma değil çünkü PowerShell aracılığıyla geri yükleme işlemi başarılı olur. Disk geri yükledikten sonra işlemi VM açıkça sizin tarafınızdan oluşturulduğunda hata karşılaştığı. |
 | Belirtilen sanal ağ yapılandırması doğru değil - Lütfen farklı bir sanal ağ yapılandırması belirtin ve yeniden deneyin. |None |
-| Belirtilen bulut hizmeti değil geri yüklenen sanal makine yapılandırmasıyla eşleşen - Lütfen ayrılmış IP kullanarak değil, farklı bir bulut hizmeti belirtin veya geri yüklemek için başka bir kurtarma noktası seçin bir ayrılmış IP kullanıyor. |None |
-| Bulut hizmeti giriş uç noktası sayısı sınırına - mevcut bir uç noktası kullanarak veya farklı bir bulut hizmeti belirterek işlemi yeniden deneyin. |None |
-| Yedekleme kasası ve hedef depolama hesabı olan iki farklı bölgelerde - geri yükleme işleminde belirtilen depolama hesabı aynı Azure bölgesinde yedekleme kasası olarak olduğundan emin olun. |None |
-| Bir geri yükleme işlem için belirtilen depolama hesabına desteklenen - yalnızca temel/standart depolama hesapları ile yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarları desteklenir. Lütfen desteklenen depolama hesabı seçin |None |
+| Belirtilen bulut hizmeti değil geri yüklenen sanal makine yapılandırmasıyla eşleşen - Lütfen ayrılmış IP kullanarak değil, farklı bir bulut hizmeti belirtin veya geri yüklemek için başka bir kurtarma noktası seçin bir ayrılmış IP kullanıyor. |Hiçbiri |
+| Bulut hizmeti giriş uç noktası sayısı sınırına - mevcut bir uç noktası kullanarak veya farklı bir bulut hizmeti belirterek işlemi yeniden deneyin. |Hiçbiri |
+| Yedekleme kasası ve hedef depolama hesabı olan iki farklı bölgelerde - geri yükleme işleminde belirtilen depolama hesabı aynı Azure bölgesinde yedekleme kasası olarak olduğundan emin olun. |Hiçbiri |
+| Bir geri yükleme işlem için belirtilen depolama hesabına desteklenen - yalnızca temel/standart depolama hesapları ile yerel olarak yedekli veya coğrafi olarak yedekli çoğaltma ayarları desteklenir. Lütfen desteklenen depolama hesabı seçin |Hiçbiri |
 | Geri yükleme işlemi için belirtilen depolama hesabı türü çevrimiçi değil - geri yükleme işleminde belirtilen depolama hesabı çevrimiçi olduğundan emin olun |Azure Storage veya kesinti nedeniyle geçici bir hata nedeniyle gerçekleşebilir. Lütfen başka bir depolama hesabı seçin. |
 | Kaynak grubu kotasına ulaşıldı - Lütfen Azure Portalı'ndan bazı kaynak gruplarını silin veya sınırları artırmak için Azure desteğine başvurun. |None |
-| Seçilen alt ağ yok - Lütfen var olan bir alt ağ seçin |None |
+| Seçilen alt ağ yok - Lütfen var olan bir alt ağ seçin |Hiçbiri |
 | Yedekleme Hizmeti'nin aboneliğinizdeki kaynaklara erişme yetkisi yok. |Bu, ilk geri yükleme bölümünde belirtilen adımları kullanarak diskleri sorunu çözmek için **yedeklenmiş diskleri geri yükleme** içinde [VM seçerek geri yükleme yapılandırmasını](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Bundan sonra belirtilen PowerShell adımları kullanın [geri yüklenen disklerden bir VM oluşturmak](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) geri yüklenen disklerden tam VM oluşturmak için. |
 
 ## <a name="backup-or-restore-taking-time"></a>Yedekleme veya geri yükleme sürüyor
@@ -131,7 +131,7 @@ Windows vm'lerde VM Aracısı'nın sürümünü denetlemek nasıl:
 VM yedekleme anlık görüntü komutları için temel alınan depolama veren kullanır. Depolama veya gecikmeleri erişimi bir anlık görüntü görev yürütme olmaması, yedekleme işi başarısız olmasına neden olabilir. Aşağıdaki anlık görüntü görev başarısız olmasına neden olabilir.
 
 1. NSG kullanılarak depolamaya ağ erişimi engellendi<br>
-    Nasıl konusunda daha fazla bilgi edinin [ağ erişimini etkinleştir](backup-azure-arm-vms-prepare.md#network-connectivity) ya da uygulamaları güvenilir listeye almayı IP kullanarak depolama alanına veya proxy sunucu üzerinden.
+    Nasıl konusunda daha fazla bilgi edinin [ağ erişimini etkinleştir](backup-azure-arm-vms-prepare.md#establish-network-connectivity) ya da uygulamaları güvenilir listeye almayı IP kullanarak depolama alanına veya proxy sunucu üzerinden.
 2. Yapılandırılan Sql Server Yedekleme ile VM anlık görüntü görev gecikmeye neden olabilir <br>
    Varsayılan VM yedekleme sorunları VSS tam yedekleme ile Windows sanal makineleri üzerinde. Sql sunucuları ve Sql Server Yedekleme yapılandırılıp yapılandırılmadığını çalıştırmakta olan VM'ler üzerinde bu anlık görüntü yürütme gecikmesi neden olabilir. Lütfen yedekleme hataları nedeniyle anlık görüntü sorunları yaşıyorsanız, aşağıdaki kayıt defteri anahtarını ayarlayın.
 
@@ -163,7 +163,7 @@ Ad çözümlemesi doğru yaptıktan sonra Azure IP'leri erişimi de sağlanmalı
    * IP'leri kullanarak engellemesini [yeni NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet'i. Azure VM dahilinde bu cmdlet'i yükseltilmiş bir PowerShell penceresi (yönetici olarak çalıştır) çalıştırın.
    * (Bir yerinde yoksa) kuralları NSG'yi IP'leri erişmesine izin vermek için ekleyin.
 2. Akış HTTP trafiği için bir yol oluşturma
-   * Varsa bazı ağ kısıtlaması yerde (bir ağ güvenlik grubu, örneğin) trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın. Bir HTTP Proxy sunucusu dağıtmak için adımları bulunan [burada](backup-azure-arm-vms-prepare.md#network-connectivity).
+   * Varsa bazı ağ kısıtlaması yerde (bir ağ güvenlik grubu, örneğin) trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın. Bir HTTP Proxy sunucusu dağıtmak için adımları bulunan [burada](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    * (Bir yerinde yoksa) kuralları NSG'yi HTTP Proxy sunucudan INTERNET'e erişim izni ekleyin.
 
 > [!NOTE]

@@ -12,13 +12,13 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 108ae4a66d2c13906cd0892b6c8ee5b20c3ca605
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Azure IOT Hub cihaz sağlama hizmeti (Önizleme) ile hazırlama cihazları
+# <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama hizmeti ile hazırlama cihazları
 Microsoft Azure tümleşik genel bulut Hizmetleri tüm IOT çözüm ihtiyaçlarınız için zengin bir dizi sağlar. IOT Hub cihaz hizmeti sağlama IOT zero touch, yalnızca zaman sağ IOT hub'ına insan etkileşimi gerektirmeden sağlama etkinleştiren müşteriler sağlamak için milyonlarca aygıtların güvenli ve ölçeklenebilir etkinleştirme Hub için bir yardımcı hizmetidir şekilde.
 
 ## <a name="when-to-use-device-provisioning-service"></a>Cihaz sağlama hizmeti kullanmak ne zaman
@@ -111,12 +111,12 @@ Biz % 99,9 korumak aygıt hizmeti sağlama ve hizmet düzeyi sözleşmesi için 
 ## <a name="quotas"></a>Kotalar
 Her Azure aboneliği IOT çözümünüzün kapsamını etkileyebilir yerinde varsayılan kota sınırları vardır. Geçerli bir abonelik başına temelinde sağlama 10 cihaz Hizmetleri abonelik başına sınırlıdır.
 
-Kota sınırları hakkında daha fazla ayrıntı için:
+Kota sınırları hakkındaki diğer ayrıntılar için:
 
-* [Azure aboneliği hizmet sınırları](../azure-subscription-service-limits.md)
+* [Azure Aboneliği Hizmet Sınırları](../azure-subscription-service-limits.md)
 
-## <a name="related-azure-components"></a>İlişkili Azure bileşenleri
-Cihaz sağlama hizmeti ile Azure IOT Hub cihaz sağlamayı otomatikleştirir. Daha fazla bilgi edinmek [IOT hub'ı](https://docs.microsoft.com/en-us/azure/iot-hub/).
+## <a name="related-azure-components"></a>İlgili Azure bileşenleri
+Cihaz sağlama hizmeti ile Azure IOT Hub cihaz sağlamayı otomatikleştirir. Daha fazla bilgi edinmek [IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık Azure IOT cihazları hazırlamaya genel bakış var. Sonraki adım, bir uçtan uca bir IOT senaryosu denemektir.

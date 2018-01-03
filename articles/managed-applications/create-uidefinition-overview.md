@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Yönetilen uygulamanız için Azure portal kullanıcı arabirimi oluşturma
 Bu belge createUiDefinition.json dosyasının temel kavramları tanıtır. Azure portal, yönetilen bir uygulama oluşturmak için kullanılan kullanıcı arabirimi oluşturmak için bu dosyayı kullanır.
@@ -38,7 +38,7 @@ Bu belge createUiDefinition.json dosyasının temel kavramları tanıtır. Azure
 Bir CreateUiDefinition her zaman üç özellikleri içerir: 
 
 * işleyici
-* Sürüm
+* sürüm
 * parametreler
 
 Yönetilen uygulamalar için işleyici her zaman olmalıdır `Microsoft.Compute.MultiVm`, ve en son desteklenen sürümünü `0.1.2-preview`.
@@ -55,8 +55,20 @@ Bir öğenin davranışı kullanıcının abonelik, kaynak grubu veya konum bağ
 ## <a name="steps"></a>Adımlar
 Adımları özelliği her biri bir veya daha fazla öğe içeren temel bilgileri sonra görüntülemek için sıfır veya daha fazla ek adımlar içerebilir. Rol veya dağıtılan uygulama katmanı başına adımları eklemeyi düşünün. Örneğin, bir adım ana düğüm girdileri için ve çalışan düğümleri için bir adım bir kümede ekleyin.
 
-## <a name="outputs"></a>Çıkışları
+## <a name="outputs"></a>Çıkışlar
 Azure Portalı'nı kullanan `outputs` öğelerinden eşlemek için özellik `basics` ve `steps` Azure Resource Manager dağıtım şablonu parametreleri. Bu sözlüğün anahtarlarını şablon parametrelerinin adları ve değerleri başvurulan öğelerin çıkış nesnelerden özellikleridir.
+
+Yönetilen uygulama kaynağı adı ayarlamak için adlı bir değeri içermelidir `applicationResourceName` çıkışları özelliğinde. Bu değer ayarlanmazsa, uygulama adı için bir GUID atar. Kullanıcıdan bir ad isteklerini kullanıcı arabiriminde bir metin kutusu içerebilir.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
 
 ## <a name="functions"></a>İşlevler
 Şablon işlevleri Azure Kaynak Yöneticisi'nde (hem sözdizimi ve işlevselliğinde) benzeyen, CreateUiDefinition işlevleri öğeleri girişleri ve çıkışları yanı koşulları gibi özellikler ile çalışmak için sağlar.
@@ -67,6 +79,6 @@ CreateUiDefinition.json dosya basit bir şeması vardır. Gerçek derinliği tü
 - [Öğeleri](create-uidefinition-elements.md)
 - [İşlevler](create-uidefinition-functions.md)
 
-CreateUiDefinition için geçerli bir JSON şeması burada bulunur: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+CreateUiDefinition için geçerli bir JSON şeması burada bulunur: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Sonraki sürümlerinde aynı konumda kullanılabilir. Değiştir `0.1.2-preview` URL'sinin ve `version` kullanmayı düşündüğünüz sürüm tanıtıcısını değerle. Şu anda desteklenen sürüm tanımlayıcılardır `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview`, ve `0.1.2-preview`.
+Bir örnek kullanıcı arabirimi dosyası için bkz: [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

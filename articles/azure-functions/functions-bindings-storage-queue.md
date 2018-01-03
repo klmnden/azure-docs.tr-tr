@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
-ms.openlocfilehash: 0aae58fa52f9f7f64b08e1701b7688a90c56e6ed
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 258393884c156b2cff00559d3cedfde1380c6c28
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -35,13 +35,13 @@ Yeni bir öğe üzerinde bir sıra alındığında bir işlev başlatmak için s
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#trigger---c-example)
-* [C# betiği](#trigger---c-script-example)
+* [C#](#trigger---c-example)
+* [C# betik (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Tetikleyici - C# örnek
 
-Aşağıdaki örnekte gösterildiği [C# önceden derlenmiş](functions-dotnet-class-library.md) yoklar kod `myqueue-items` sıraya ve Kuyruk öğesi işlenir her zaman bir günlüğe yazar.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , yoklar `myqueue-items` sıraya ve Kuyruk öğesi işlenir her zaman bir günlüğe yazar.
 
 ```csharp
 public static class QueueFunctions
@@ -58,7 +58,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Tetikleyici - C# kod örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [C# betik](functions-reference-csharp.md) bağlama kullanan kod. İşlev yoklamalar `myqueue-items` sıraya ve Kuyruk öğesi işlenir her zaman bir günlüğe yazar.
+Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [C# betik (.csx)](functions-reference-csharp.md) bağlama kullanan kod. İşlev yoklamalar `myqueue-items` sıraya ve Kuyruk öğesi işlenir her zaman bir günlüğe yazar.
 
 Burada *function.json* dosyası:
 
@@ -153,7 +153,7 @@ module.exports = function (context) {
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
  
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevleri, bir sıra tetikleyiciyi yapılandırmak için aşağıdaki öznitelikler kullanın:
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), bir sıra tetikleyici yapılandırmak için aşağıdaki öznitelikler kullanın:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -181,7 +181,7 @@ module.exports = function (context) {
   }
   ```
  
-  Tam bir örnek için bkz: [tetikleyici - önceden derlenmiş C# örnek](#trigger---c-example).
+  Tam bir örnek için bkz: [tetikleyici - C# örnek](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), NuGet paketi tanımlı [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
 
@@ -266,13 +266,13 @@ Kuyruğa ileti yazmak için bağlama Azure kuyruk depolama çıkış kullanın.
 
 Dile özgü örneğe bakın:
 
-* [Önceden derlenmiş C#](#output---c-example)
-* [C# betiği](#output---c-script-example)
+* [C#](#output---c-example)
+* [C# betik (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Çıktı - C# örnek
 
-Aşağıdaki örnekte gösterildiği [C# önceden derlenmiş](functions-dotnet-class-library.md) alınan her HTTP isteği için bir kuyruk iletisi oluşturur kodu.
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) alınan her HTTP isteği için bir kuyruk iletisi oluşturur.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -290,7 +290,7 @@ public static class QueueFunctions
 
 ### <a name="output---c-script-example"></a>Çıktı - C# kod örneği
 
-Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [C# betik](functions-reference-csharp.md) bağlama kullanan kod. İşlev alınan her HTTP isteği için bir POCO yükü Kuyruk öğesi oluşturur.
+Aşağıdaki örnek, bağlama blob tetikleyici gösterir bir *function.json* dosya ve [C# betik (.csx)](functions-reference-csharp.md) bağlama kullanan kod. İşlev alınan her HTTP isteği için bir POCO yükü Kuyruk öğesi oluşturur.
 
 Burada *function.json* dosyası:
 
@@ -401,7 +401,7 @@ module.exports = function(context) {
 
 ## <a name="output---attributes"></a>Çıktı - öznitelikleri
  
-İçin [C# önceden derlenmiş](functions-dotnet-class-library.md) işlevlerini kullanmak [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), NuGet paketi tanımlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
 Öznitelik uygulandığı bir `out` parametresi veya işlevin dönüş değeri. Özniteliğin Oluşturucusu sırasının adı aşağıdaki örnekte gösterildiği gibi alır:
 
@@ -425,9 +425,9 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 }
 ```
 
-Tam bir örnek için bkz: [çıktısı - önceden derlenmiş C# örnek](#output---c-example).
+Tam bir örnek için bkz: [çıktısı - C# örnek](#output---c-example).
 
-Kullanabileceğiniz `StorageAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde depolama hesabı belirtin. Daha fazla bilgi için bkz: [tetikleyici - öznitelikleri](#trigger---attributes-for-precompiled-c).
+Kullanabileceğiniz `StorageAccount` öznitelik sınıfı, yöntemi veya parametre düzeyinde depolama hesabı belirtin. Daha fazla bilgi için bkz: [tetikleyici - öznitelikleri](#trigger---attribute).
 
 ## <a name="output---configuration"></a>Çıktı - yapılandırma
 

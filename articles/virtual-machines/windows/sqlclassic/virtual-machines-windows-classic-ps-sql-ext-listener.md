@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 8e506be42aea4fb3c48c29b771a78dcf694f4518
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Always On kullanılabilirlik grupları için dış dinleyici Azure'da yapılandırın
 > [!div class="op_single_selector"]

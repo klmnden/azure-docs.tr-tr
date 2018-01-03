@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Operations Management Suite hizmet Haritası çözümde kullanın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz şekilde sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine bağlı sistemler. Bir aracı yüklemesini dışındaki bağlantı noktaları üzerinden tüm TCP bağlı mimarisi herhangi bir yapılandırma gerekli ve hizmet eşlemesi sunucuları, işlemleri arasındaki bağlantıları gösterir.
@@ -49,7 +49,7 @@ Hizmet eşlemesi aracıları, yüklü sunucu üzerindeki tüm TCP bağlı işlem
 
 ![Hizmet eşlemesi'ne genel bakış](media/oms-service-map/service-map-overview.png)
 
-Seçilen zaman aralığı içinde çalışan işlemler etkin ağ bağlantıları göstermek için eşlemesindeki makineler genişletilebilir. İşlem ayrıntıları göstermek için bir hizmet Haritası Aracısı ile uzak makineye genişletildiğinde odak makineyle iletişim kuran işlemler gösterilir. Odağı makinesine bağlanma aracısız ön uç makineler sayısı bağlandıkları işlemleri sol tarafında belirtilir. Odak makine aracı olan bir arka uç makineye bağlantı değiştirirken, aynı bağlantı noktası numarası için diğer bağlantılar ile birlikte bir sunucu bağlantı noktası grubu arka uç sunucu bulunmaktadır.
+Makineler çalışmasını göstermek için eşlemesinde Genişletilebilir işlem grupları ve etkin ağ bağlantıları işlemlerle seçilen zaman aralığı içinde. İşlem ayrıntıları göstermek için bir hizmet Haritası Aracısı ile uzak makineye genişletildiğinde odak makineyle iletişim kuran işlemler gösterilir. Odağı makinesine bağlanma aracısız ön uç makineler sayısı bağlandıkları işlemleri sol tarafında belirtilir. Odak makine aracı olan bir arka uç makineye bağlantı değiştirirken, aynı bağlantı noktası numarası için diğer bağlantılar ile birlikte bir sunucu bağlantı noktası grubu arka uç sunucu bulunmaktadır.
 
 Varsayılan olarak, hizmet Haritası eşlemeleri son 30 dakika bağımlılık bilgi gösterir. Sol üst zamanı denetimlerini kullanarak geçmiş zaman aralıkları (örneğin, bir olay sırasında veya bir değişiklik oluşmadan önce) bağımlılıkları geçmişte nasıl Aranan göstermek için bir saat için maps sorgulayabilirsiniz. Hizmet eşlemesi veri Ücretli çalışma alanlarında 30 gün ve ücretsiz çalışma alanlarında 7 gün için depolanır.
 
@@ -59,6 +59,9 @@ Eşlemesindeki her sunucunun altındaki server hakkındaki durum bilgilerini say
 Durum rozetleri önem derecesine bağlı olarak, makine düğümünü kenarlık renkli kırmızı (kritik), sarı (uyarı) olması veya (bilgilendirme) mavi. Renk herhangi birinin durumu rozetleri en ciddi durumunu temsil eder. Gri kenarlık hiç durum göstergesi olan bir düğüm gösterir.
 
 ![Durum rozetleri](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>İşlem grupları
+İşlem gruplarının bir işlem gruba bir ortak ürün veya hizmet ile ilişkili işlemler birleştirin.  Bir makine düğüm genişletildiğinde tek başına işlemler işlem gruplarının birlikte görüntüler.  Tüm gelen ve giden bağlantılara bir işlem grubundaki bir işlem başarısız oldu, ardından bağlantı için bütün işlem grubu başarısız olarak gösterilir.
 
 ## <a name="machine-groups"></a>Makine grupları
 Makine gruplar, sunucular, yalnızca bir tek eşleminde çok katmanlı uygulama veya sunucu kümesinin tüm üyelerinin görebilmeleri kümesi kalmaz eşlemeleri görmenize olanak sağlar.
@@ -70,7 +73,7 @@ Kullanıcıların hangi sunucuların birlikte bir gruba ait ve grup için bir ad
 ### <a name="creating-a-machine-group"></a>Makine grubu oluşturma
 Bir grup oluşturmak için makine ya da makinelerinizde listelemek ve'ı tıklatın, istediğiniz makineleri seçin **gruba Ekle**.
 
-![Grup oluşturma](media/oms-service-map/machine-groups-create.png)
+![Grup Oluştur](media/oms-service-map/machine-groups-create.png)
 
 Burada, seçebileceğiniz **Yeni Oluştur** ve grubuna bir ad verin.
 
@@ -191,7 +194,7 @@ Hizmet eşlemesi seçilen zaman aralığı içinde seçili sunucu için Mazotlu 
 - Bilgisayar tarafından bir yan tümcesi grubuna ekleyin (örneğin, **bilgisayar aralığı 1 dakika**).
 - Uyarı için ölçüm Ölçümde göre seçin.
 
-![Uyarı yapılandırma](media/oms-service-map/alert-configuration.png)
+![Uyarı yapılandırması](media/oms-service-map/alert-configuration.png)
 
 
 ## <a name="operations-management-suite-log-events-integration"></a>Operations Management Suite günlük olayları tümleştirme
@@ -323,7 +326,7 @@ Bir tür kayıtlarıyla *ServiceMapProcess_CL* hizmet Haritası aracılarıyla s
 | CommandLine_s | Komut satırı |
 | ExecutablePath _Yanları | Yürütülebilir dosya yolu |
 | WorkingDirectory_s | Çalışma dizini |
-| Kullanıcı adı | Hesabın altında işlemi yürütülüyor |
+| UserName | Hesabın altında işlemi yürütülüyor |
 | UserDomain | Etki alanı altında işlemi yürütülüyor |
 
 

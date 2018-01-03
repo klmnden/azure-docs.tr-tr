@@ -4,7 +4,7 @@ description: "Her kod tamamlama Github'dan çeker ve uygulamanızı çalıştır
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52408184c8cff53f8bb7006fa940b0db4b900db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Jenkins, GitHub ve Docker ile azure'da bir Linux VM üzerinde bir geliştirme altyapısı oluşturma
 Uygulama geliştirme, derleme ve test aşaması otomatikleştirmek için sürekli tümleştirme ve dağıtım (CI/CD) ardışık düzen kullanabilirsiniz. Bu öğreticide, Azure VM temelinde CI/CD işlem hattı oluşturmak için nasıl dahil:
@@ -36,12 +36,12 @@ Uygulama geliştirme, derleme ve test aşaması otomatikleştirmek için sürekl
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.22 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-jenkins-instance"></a>Jenkins örneği oluşturma
 Önceki bir öğretici içinde [Linux sanal bir makinede ilk önyükleme özelleştirmek nasıl](tutorial-automate-vm-deployment.md), bulut init VM özelleştirmesiyle otomatikleştirmek öğrendiniz. Bu öğretici bir bulut init dosya Jenkins ve Docker bir VM yüklemek için kullanır. Jenkins sürekli tümleştirme (CI) ve kesintisiz teslim (CD) etkinleştirmek için Azure ile sorunsuz bir şekilde tümleşen bir popüler açık kaynak Otomasyon sunucusudur. Jenkins kullanma hakkında daha fazla öğretici için bkz: [Jenkins Azure hub'ında](https://docs.microsoft.com/azure/jenkins/).
 
-Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init.txt* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. Girin `sensible-editor cloud-init-jenkins.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+Geçerli kabuğunuzu adlı bir dosya oluşturun *bulut init jenkins.txt* ve aşağıdaki yapılandırma yapıştırın. Örneğin, yerel makinenizde olmayan bulut kabuğunda dosyası oluşturun. Girin `sensible-editor cloud-init-jenkins.txt` dosyası oluşturun ve kullanılabilir düzenleyicileri listesini görmek için. Tüm bulut init dosyanın doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
 
 ```yaml
 #cloud-config
@@ -117,11 +117,10 @@ Dosya henüz kullanılabilir durumda değilse, Jenkins ve Docker yüklemeyi tama
 
 Şimdi bir web tarayıcısı açın ve gidin `http://<publicIps>:8080`. İlk Jenkins Kurulum aşağıdaki gibi tamamlayın:
 
-- Girin *initialAdminPassword* VM önceki adımda elde.
-- Seçin **yüklemek için eklentileri seçin**
-- Arama *GitHub* üstte metin kutusunda seçin *GitHub eklentisi*seçeneğini belirleyip **yükleyin**
-- Jenkins kullanıcı hesabı oluşturmak için istediğiniz gibi formu doldurun. Güvenlik açısından bakıldığında, varsayılan yönetici hesabıyla etmeden yerine bu ilk Jenkins kullanıcı oluşturmanız gerekir.
-- Tamamlandığında, seçin **Jenkins kullanmaya başlama**
+- Kullanıcı adı girin **yönetici**, ardından sağlayın *initialAdminPassword* VM önceki adımda elde.
+- Seçin **yönetmek Jenkins**, ardından **eklentileri yönetme**.
+- Seçin **kullanılabilir**, ardından arama *GitHub* üstte metin kutusuna. Onay kutusunu için *GitHub eklentisi*seçeneğini belirleyip **şimdi yükleyip yeniden başlatma sonrasında**.
+- Onay kutusunu için **yeniden yükleme tamamlandığında ve herhangi bir iş çalışmadığı zaman Jenkins**, eklenti yükleyene kadar işlem bekleme tamamlandıktan sonra.
 
 
 ## <a name="create-github-webhook"></a>GitHub Web kancası oluşturma
@@ -168,7 +167,7 @@ Jenkins içinde altında yeni bir yapı başlatır **yapı geçmiş** iş sayfan
 ## <a name="define-docker-build-image"></a>Docker derleme görüntüyü tanımlayın
 GitHub yürütme üzerinde göre çalışan Node.js uygulaması görmenizi sağlar uygulamayı çalıştırmak için Docker görüntüsünü oluşturabilirsiniz. Görüntü uygulamanın çalıştığı kapsayıcı yapılandırma tanımlayan bir Dockerfile yerleşik olarak bulunur. 
 
-Bir önceki adımda oluşturduğunuz iş sonra adlı Jenkins çalışma dizini için VM SSH bağlantısı değiştirin. Bizim örneğimizde, adlandırılması *HelloWorld*.
+Bir önceki adımda oluşturduğunuz iş sonra adlı Jenkins çalışma dizini için VM SSH bağlantısı değiştirin. Bu örnekte, adlandırılması *HelloWorld*.
 
 ```bash
 cd /var/lib/jenkins/workspace/HelloWorld

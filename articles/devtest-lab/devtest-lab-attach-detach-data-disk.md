@@ -3,7 +3,7 @@ title: "Ekleyebilir veya Azure DevTest Labs içindeki bir sanal makineye bir ver
 description: "Ekleme veya Azure DevTest Labs içindeki bir sanal makineye bir veri diskini öğrenin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 9616bf38-7db8-4915-a32a-e4f40a7a56ad
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Ekleme veya Azure DevTest Labs içindeki bir sanal makineye bir veri diskini ayırma
-[Azure yönetilen diskleri](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) sanal makine veri diski ile ilişkilendirilmiş depolama hesaplarını yönetir. Yeni bir veri diski bir VM için bir kullanıcı ekler, gerekli olan disk boyutunu ve türünü belirtir ve Azure oluşturur ve disk otomatik olarak yönetir. Veri diski sanal makineden sonra ayrılabilir ve ya da aynı VM sonraki ya da aynı kullanıcıya ait farklı bir VM ekli yeniden.
+[Azure yönetilen diskleri](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sanal makine veri diski ile ilişkilendirilmiş depolama hesaplarını yönetir. Yeni bir veri diski bir VM için bir kullanıcı ekler, gerekli olan disk boyutunu ve türünü belirtir ve Azure oluşturur ve disk otomatik olarak yönetir. Veri diski sanal makineden sonra ayrılabilir ve ya da aynı VM sonraki ya da aynı kullanıcıya ait farklı bir VM ekli yeniden.
 
 Bu işlevsellik, depolama veya her bir sanal makine dışında yazılım yönetmek için kullanışlıdır. İçinde bir veri diski depolama veya yazılım zaten varsa, kolayca bağlı, ayrılmış ve bu veri diski sahip kullanıcıya ait VM yeniden.
 
 ## <a name="attach-a-data-disk"></a>Veri diski ekleme
 Bir VM için bir veri diski eklemeden önce bu ipuçlarını gözden geçirin:
 
-- VM boyutu, iliştirebilirsiniz kaç tane veri diskleri denetler. Ayrıntılar için bkz [sanal makineler için Boyutlar](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+- VM boyutu, iliştirebilirsiniz kaç tane veri diskleri denetler. Ayrıntılar için bkz [sanal makineler için Boyutlar](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 - Bu gibi durumlarda, bir veri diski yalnızca çalışmakta olan bir VM ekleyebilirsiniz. Bir veri diskini denemeden önce VM'nin çalıştığından emin olun.
 
 ### <a name="attach-a-new-disk"></a>Yeni bir diski kullanıma açın
