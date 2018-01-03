@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Güncelleştirme kaynağı etkinliğini kullanarak Azure Machine Learning modellerini güncelleştir
 Bu makalede ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı işlem hatlarını oluşturmak](transform-data-using-machine-learning.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
@@ -86,33 +86,6 @@ Bir modeli ve güncelleştirme Tahmine dayalı Web hizmetleri yeniden eğitme fa
 2. Bir Azure Machine Learning Tahmine dayalı web hizmeti güncelleştirme kaynağı uç noktasına bağlı. Bu bağlı hizmetin yukarıdaki adım döndürülen iLearner dosyasını kullanarak Tahmine dayalı web hizmetini güncelleştirmek için kaynak güncelleştirme etkinliği tarafından kullanılır. 
 
 Azure Machine Learning Web hizmetinizi Klasik Web hizmeti veya yeni bir Web hizmeti için ikinci Azure Machine Learning bağlantılı hizmeti, yapılandırma farklı olur. Farkları ayrı olarak aşağıdaki bölümlerde ele alınmıştır. 
-
-## <a name="web-service-is-a-classic-web-service"></a>Klasik web hizmeti Web hizmetidir
-Tahmin web hizmeti ise bir **Klasik web hizmeti**, ikinci oluşturma **varsayılan olmayan ve güncelleştirilebilir endpoint** Azure portalını kullanarak. Bkz [uç noktalar oluşturmak](../machine-learning/machine-learning-create-endpoint.md) adımları makalesinde bulabilirsiniz. Varsayılan olmayan güncelleştirilebilir uç nokta oluşturduktan sonra aşağıdaki adımları uygulayın:
-
-* Tıklatın **toplu iş yürütme** URI değeri almak için **mlEndpoint** JSON özelliği.
-* Tıklatın **güncelleştirme kaynağı** URI değeri almak için bağlantı **updateResourceEndpoint** JSON özelliği. Uç nokta sayfasında kendisini (sağ alt köşedeki) API anahtardır.
-
-![güncelleştirilebilir uç noktası](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Bundan sonra yeni bir Azure Machine Learning oluşturmak için aşağıdaki bağlantılı hizmet örneği'ni kullanarak hizmet bağlı. Bağlantılı hizmet apikey ile yapılan kimlik doğrulaması için kullanır.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Yeni Azure Resource Manager web hizmeti Web hizmetidir 
 

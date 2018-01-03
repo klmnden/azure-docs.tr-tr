@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 12/14/2017
 ms.author: raiye
-ms.openlocfilehash: 435aca91fa7b46fd47d5031290028b93bfadde48
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 27ab6b97610ab27500cbef703120e2c67cd07183
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güvenlik Yanıt Merkezi (MSRC) güncelleştirmelerinin gösterir. Belirli bir güncelleştirme Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeleri her zaman taşımak İleri için belirli [ailesi] [ family-explain] de tanıtılan.
@@ -28,13 +28,14 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | --- | --- | --- | --- | --- |
 | İlişki 17-10 | [4048953] |Windows 10 güncelleştirmeleri |5.13 |14 Kasım 2017 |
 | İlişki 17-10 | [4048960], [4048962], [4048961] |Yalnızca Windows güvenliği |2.68, 3.55, 4.48 |14 Kasım 2017 |
-| İlişki 17-10 | [4047206] |Internet explorer |2.68, 3.55, 4.48 |14 Kasım 2017 |
+| İlişki 17-10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 Kasım 2017 |
 | İlişki 17-10 | [4048951] |Flash |3.55, 4.48, 5.13 |14 Kasım 2017 |
 | Yok | [4041681] |Ekim güvenlikle ilgili olmayan dökümü |2.67 |10 Ekim 2017 |
 | Yok | [4041690] |Ekim güvenlikle ilgili olmayan dökümü |3.55 |10 Ekim 2017 |
 | Yok | [4041693] |Ekim güvenlikle ilgili olmayan dökümü |4.48 |10 Ekim 2017 |
-| Yok | [3191565] |Windows Management Framework 5.1 güncelleştirmesi  |3.55 |12 Eylül 2017 |
-| Yok | [3191564] |Windows Management Framework 5.1 güncelleştirmesi  |4.48 |12 Eylül 2017 |
+| Yok | [3191566] |Windows Management Framework 5.1 güncelleştirmesi  |2.68 |14 Kasım 2017 |
+| Yok | [3191565] |Windows Management Framework 5.1 güncelleştirmesi  |3.55 |14 Kasım 2017 |
+| Yok | [3191564] |Windows Management Framework 5.1 güncelleştirmesi  |4.48 |14 Kasım 2017 |
 
 ## <a name="october-guest-os"></a>Ekim konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -571,6 +572,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 [4041681]: http://support.microsoft.com/kb/4041681
 [4041693]: http://support.microsoft.com/kb/4041693
 [4041690]: http://support.microsoft.com/kb/4041690
+[3191566]: http://support.microsoft.com/kb/3191566
 [3191565]: http://support.microsoft.com/kb/3191565
 [3191564]: http://support.microsoft.com/kb/3191564
 

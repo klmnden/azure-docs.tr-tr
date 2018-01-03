@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Logic Apps Döngüleri, Kapsamları ve Ayırma
   
@@ -26,9 +26,9 @@ Logic Apps, çeşitli yollarla dizilerle, koleksiyonlar, toplu işlemler, iş sa
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach döngüsü ve diziler
   
-Logic Apps, bir veri kümesi üzerinde döngü ve her öğe için bir eylem gerçekleştirmek sağlar.  Bu aracılığıyla mümkündür `foreach` eylem.  Eklenecek belirtebilirsiniz Tasarımcısı'nda bir her döngü için.  Üzerinden yinelemek istediğiniz dizi seçtikten sonra Eylemler eklemeye başlayabilirsiniz.  Foreach döngüsü başına birden çok eylem ekleyebilirsiniz.  Bir kez döngü içinde dizinin her değerinde gerçekleşmesi gerektiğini belirtmek başlayabilirsiniz.
+Logic Apps, bir veri kümesi üzerinde döngü ve her öğe için bir eylem gerçekleştirmek sağlar.  Bir koleksiyon döngü aracılığıyla olası `foreach` eylem.  Tasarımcıda eklediğiniz bir her döngü için.  Üzerinden yinelemek istediğiniz dizi seçtikten sonra Eylemler eklemeye başlayabilirsiniz.  Foreach döngüsü başına birden çok eylem ekleyebilirsiniz.  Bir kez döngü içinde dizinin her değerinde gerçekleşmesi gerektiğini belirtmek başlayabilirsiniz.
 
-Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir aşağıdaki gibi her bir döngü için.  Bu örneği olan bir 'microsoft.com' içeren her bir e-posta adresi için bir e-posta gönderir her bir döngü için:
+  Bu örnek için 'microsoft.com' içeren her bir e-posta adresine bir e-posta gönderir. Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir aşağıdaki örnekteki gibi her bir döngü için:
 
 ``` json
 {
@@ -66,7 +66,7 @@ Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir aşağıdaki gi
 }
 ```
   
-  A `foreach` Eylem yineleme üzerinden dizi en çok 5000 satır.  Her yineleme paralel olarak varsayılan olarak yürütülür.  
+  A `foreach` eylem binlerce varlığın ile diziler üzerinden yineleme.  Yineleme paralel olarak varsayılan olarak yürütün.  Bkz: [sınırlarını ve yapılandırmasını](logic-apps-limits-and-config.md) dizi ve eşzamanlılık sınırları hakkında ayrıntılı bilgi için.
 
 ### <a name="sequential-foreach-loops"></a>Sıralı ForEach döngüsü
 
@@ -83,13 +83,15 @@ Sırayla yürütmek foreach döngüsü etkinleştirmek için `Sequential` işlem
   
 ## <a name="until-loop"></a>Döngü kadar
   
-  Bir koşul yerine getirilene kadar bir eylem veya dizi eylem gerçekleştirebilir.  Aradığınız yanıt elde edene kadar Bunun en yaygın senaryo bir uç nokta çağırıyor.  Eklenecek belirtebilirsiniz Tasarımcısı'nda bir döngü kadar.  Döngü içinde eylemler eklendikten sonra çıkış koşulu olarak döngü ayarlayabileceğiniz sınırlar.  Döngü döngüleri arasında 1 dakikalık bir gecikmeyle yoktur.
+  Bir koşul yerine getirilene kadar bir eylem veya dizi eylem gerçekleştirebilir.  Kullanmak için en yaygın senaryo bir aradığınız yanıt elde edene kadar döngü bir uç nokta çağırmak kadar.  Eklenecek belirtebilirsiniz Tasarımcısı'nda bir döngü kadar.  Döngü içinde eylemler eklendikten sonra çıkış koşulu olarak döngü ayarlayabileceğiniz sınırlar.
   
-  Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir döngü ister aşağıda kadar.  Bu yanıt gövdesi 'Tamamlandı' değerine sahip kadar bir HTTP uç noktası çağrılmadan bir örnektir.  Ne zaman tamamlanır ya da 
+  Yanıt gövdesi 'Tamamlandı' değerine sahip kadar bu örnek bir HTTP uç noktası çağırır.  Ne zaman tamamlar ya da: 
   
   * HTTP yanıtı 'Tamamlandı' durumuna sahip
-  * 1 saat boyunca çalıştı
+  * Bir saat için çalıştı
   * 100 kez döngüye
+  
+  Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir döngü aşağıdaki örnekteki gibi kadar:
   
   ``` json
   {
@@ -117,9 +119,9 @@ Sırayla yürütmek foreach döngüsü etkinleştirmek için `Sequential` işlem
   
 ## <a name="spliton-and-debatching"></a>SplitOn ve debatching
 
-Bazen bir tetikleyici bir dizi debatch ve bir iş akışı öğesi başına başlatmak istediğiniz öğeleri alabilirsiniz.  Bu aracılığıyla gerçekleştirilebilir `spliton` komutu.  Varsayılan olarak, tetikleyici swagger bir dizi bir yükü belirtiyorsa, bir `spliton` eklenir ve bir çalışma öğesi başına başlatın.  SplitOn yalnızca bir tetikleyiciye eklenebilir.  Bu el ile yapılandırılabildiğinden veya tanımı kod görünümünde geçersiz kılındı.  Şu anda SplitOn debatch en fazla 5000 öğeleri dizi.  Sahip olamaz bir `spliton` ve ayrıca zaman uyumlu yanıt desenini uygular.  Adında herhangi bir iş akışının sahip bir `response` ek olarak eylem `spliton` zaman uyumsuz olarak çalışacak ve hemen gönder `202 Accepted` yanıt.  
+Bazen bir tetikleyici bir dizi debatch ve bir iş akışı öğesi başına başlatmak istediğiniz öğeleri alabilirsiniz.  Bu debatching aracılığıyla gerçekleştirilebilir `spliton` komutu.  Varsayılan olarak, tetikleyici swagger bir dizi bir yükü belirtiyorsa, bir `spliton` eklenir. `spliton` Komut dizideki her öğe bir farklı çalıştır başlatır.  SplitOn yalnızca el ile yapılandırılmış veya geçersiz bir tetikleyici eklenebilir. Sahip olamaz bir `spliton` ve ayrıca zaman uyumlu yanıt desenini uygular.  Adında herhangi bir iş akışının sahip bir `response` ek olarak eylem `spliton` zaman uyumsuz olarak çalışır ve hemen gönderir `202 Accepted` yanıt.  
 
-SplitOn kod görünümünde aşağıdaki örnek olarak belirtilebilir.  Bu öğeleri dizisini alır ve her satırda debatches.
+  Bu örnek öğeleri dizisini alır ve her satırda debatches. SplitOn kod görünümünde aşağıdaki örnek olarak belirtilebilir:
 
 ```
 {
@@ -139,7 +141,7 @@ SplitOn kod görünümünde aşağıdaki örnek olarak belirtilebilir.  Bu öğe
 
 ## <a name="scopes"></a>Kapsamlar
 
-Bir dizi eylem birlikte bir kapsamı kullanarak Grup mümkündür.  Özel durum işleme uygulamak için özellikle yararlıdır.  Tasarımcıda yeni bir kapsam ekleyin ve onu içinde herhangi bir eylem eklemeye başlamak.  Aşağıdaki gibi kod görünümünde kapsamları tanımlayabilirsiniz:
+Bir dizi eylem birlikte bir kapsamı kullanarak Grup mümkündür.  Kapsam, özel durum işleme uygulamak için faydalıdır.  Tasarımcıda yeni bir kapsam ekleyin ve onu içinde herhangi bir eylem eklemeye başlamak.  Aşağıdaki örneğe benzer kod görünümünde kapsamları tanımlayabilirsiniz:
 
 
 ```

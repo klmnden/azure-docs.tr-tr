@@ -36,7 +36,7 @@ Geçiş sırasında kaynaklar klasikten Resource Manager’a dönüşür. Bu ned
 
 <a name="vault">Klasik</a> VM kurtarma noktaları bir yedekleme kasasına yok otomatik olarak geçirmek için bir kurtarma Hizmetleri kasası, VM Klasikten Resource Manager moduna geçtiğinizde. VM yedeklerinizi aktarmak için bu adımları izleyin:
 
-1. Backup kasasında **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
+1. Backup kasasında **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
 2. Yedekleme/anlık görüntü uzantısını VM'den silin.
 3. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makineye karşılık gelen depolama ve ağ bilgilerinin de Resource Manager moduna geçirildiğinden emin olun.
 4. Bir Kurtarma Hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Yedekle** eylemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. Bir VM’yi Kurtarma Hizmetleri kasasına yedekleme hakkında ayrıntılı bilgi için [Azure VM’leri bir Kurtarma Hizmetleri kasasıyla koruma](../articles/backup/backup-azure-vms-first-look-arm.md) başlıklı makaleye bakın.

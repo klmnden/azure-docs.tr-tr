@@ -5,30 +5,30 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 93acec3bada30364b6e3338e037b442d7e6cd309
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 248cbcfe35db646a8bc71c6f825dcaa8a4661e91
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>Bu sürüm için desteklenen Matrisi 
 Ne zaman Azure Machine Learning veri kaynakları veya Azure Machine Learning veri ya da bir Pandas alma hazırlıklar, kullanarak verileri kodunuzu yükler veya Spark dataframe, deneme aşağıdaki birleşimlerini işlem ortamlarını ve veri konumlar desteklenir:
 
 |     |Yerel dosyaları  |Azure Blob depolama  |SQL Server veritabanı ***  |
 |---------|---------|---------|---------|---------|
-|Yerel Python    |     Destekleniyor    |Desteklenmiyor         | Desteklenmiyor        |         |
+|Yerel Python    |     Desteklenen    |Desteklenmiyor         | Desteklenmiyor        |         |
 |Docker (Linux VM) Python     |Yalnızca proje dosyalarında desteklenen *         | Desteklenmiyor        |        Desteklenmiyor |         |
-|Docker (Linux VM) PySpark     |Yalnızca proje dosyalarında desteklenen *     |Destekleniyor         | Destekleniyor**        |         |
+|Docker (Linux VM) PySpark     |Yalnızca proje dosyalarında desteklenen *     |Desteklenen         | Destekleniyor**        |         |
 |Azure veri bilimi sanal makine Python     |Yalnızca proje dosyalarında desteklenen *         |Desteklenmiyor         |Desteklenmiyor         |         |
 |Azure veri bilimi sanal makine PySPark     | Yalnızca proje dosyalarında desteklenen *        |Desteklenmiyor         |Desteklenmiyor         |         |
-|Azure Hdınsight PySpark     | Desteklenmiyor        |Destekleniyor         |Destekleniyor**         |         |
+|Azure Hdınsight PySpark     | Desteklenmiyor        |Desteklenen         |Destekleniyor**         |         |
 |Azure Hdınsight Python     | Desteklenmiyor        | Desteklenmiyor        | Desteklenmiyor        |         |
 
 Azure Data Lake Store için herhangi bir işlem hedef şu anda desteklenmiyor.

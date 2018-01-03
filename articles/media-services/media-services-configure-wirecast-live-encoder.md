@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: c4df14f24650ce431dfb31cc774cab6d3cf3aef0
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Tek bit hızlı bir canlı akışı göndermek için Wirecast Kodlayıcı kullanın
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Bu konuda nasıl yapılandırılacağını göstermektedir [Telestream Wirecast]
 
 Bu öğretici, Azure Media Services Gezgini (AMSE) aracı ile Azure Media Services (AMS) yönetmek gösterilmiştir. Bu araç, yalnızca bir Windows Bilgisayarına çalışır. Mac veya Linux varsa, oluşturmak için Azure portalını kullanın [kanalları](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) ve [programlar](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * [Bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md)
 * Çalıştıran bir akış uç olduğundan emin olun. Daha fazla bilgi için bkz: [akış uç noktalarını yönetme Media Services hesabı](media-services-portal-manage-streaming-endpoints.md)
 * En son sürümünü yüklemek [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) aracı.
@@ -91,7 +91,7 @@ Bu öğreticide aşağıdaki çıkış ayarları kullanılır. Bu bölümün ger
 2. Çıktı giderek yapılandırmak **çıkış** sekmesi ve seçerek **çıktı ayarları...** .
 
     Emin olun **Çıkış hedefini** ayarlanır **RTMP sunucusu**.
-3. **Tamam** düğmesine tıklayın.
+3. **Tamam**’a tıklayın.
 4. Ayarlar sayfasında ayarlamak **hedef** olmasını alan **Azure Media Services**.
 
     Kodlama profili için önceden seçilmiş **Azure H.264 720 p 16:9 (1280 x 720)**. Bu ayarları özelleştirmek için aşağı açılan sağındaki dişli simgesini seçin ve ardından **yeni önceden**.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385e2703c5b21fb78d058dc71f66a6c98c1e227f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory risk olayları
 
@@ -141,7 +141,7 @@ Anonim IP adreslerini kullanmakta oldukları olmadığını doğrulamak için ku
 Mümkün olmayan seyahat genellikle, bir bilgisayar korsanının başarıyla oturum açma için iyi bir göstergesidir. Ancak, bir kullanıcı yeni bir cihaz veya genellikle kuruluşunuzdaki diğer kullanıcılar tarafından kullanılmayan bir VPN kullanarak dolaşırken yanlış pozitif sonuç ortaya çıkabilir. Yanlış sunucusu IP'leri görünümü verebilir IP'leri istemci olarak geçirmek uygulamaları yanlış pozitifler başka bir kaynağıdır oturum açma işlemleri burada bu uygulamayı arka uç veri merkezi alma yerden barındırılan (Microsoft veri merkezleri, bunlar genellikle, Görünüm verebilir oturum açma işlemleri Microsoft'tan gerçekleşmesini ait IP adresleri). Bu riski olay risk düzeyi bu yanlış pozitifler sonucunda olan **orta**.
 
 > [!TIP]
-> Yapılandırarak bu risk olay türü için bildirilen false positves miktarını azaltabilirsiniz [konumları adlı](active-directory-named-locations.md). 
+> Yapılandırarak bu risk olay türü için bildirilen yanlış pozitif sonuç miktarını azaltabilirsiniz [konumları adlı](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Tanınmayan konumlardan oturum aç
 

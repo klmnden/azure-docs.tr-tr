@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 8558efffa354cc4bb93820c837077ee997924c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b2c1b2fdd9bf70775e5fd4369d1633258ae2a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="validate-xml-for-enterprise-integration"></a>XML için Kurumsal tümleştirme doğrula
 
@@ -30,29 +30,29 @@ Genellikle B2B senaryolarda anlaşmanın ortakları veri işleme başlamadan ön
 
 2. Ekleme bir **isteği - olduğunda bir HTTP isteği alındığında** mantıksal uygulamanızı tetikleyiciye.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
 
 3. Eklemek için **XML doğrulama** eylemi seçin **Eylem Ekle**.
 
 4. Filtre uygulamak istediğiniz bir tüm eylemler için girin *xml* arama kutusuna. Seçin **XML doğrulama**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-2.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
 
 5. Doğrulamak istediğiniz XML içeriği belirtmek için işaretleyin **içerik**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-1-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
 
 6. Gövde etiketi doğrulamak istediğiniz içeriği seçin.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-3.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
 
 7. Önceki doğrulamak için kullanmak istediğiniz şema belirtmek için *içerik* giriş, seçin **şema adı**.
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-4.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
 
 8. Çalışmanızı kaydedin  
 
-    ![](./media/logic-apps-enterprise-integration-xml/xml-5.png)
+    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
 
 Şimdi, doğrulama Bağlayıcısı'nı ayarlama ile yapılır. Gerçek dünya uygulamada SalesForce gibi bir satır iş kolu (LOB) uygulamasının doğrulanmış verilerini depolamak isteyebilirsiniz. Salesforce doğrulanmış çıkış göndermek için bir eylem ekleyin.
 

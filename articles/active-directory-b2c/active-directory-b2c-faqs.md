@@ -1,12 +1,11 @@
 ---
-title: "Sık sorulan sorular (SSS) - Azure AD B2C | Microsoft Docs"
-description: "Azure Active Directory B2C hakkında sık sorulan sorular"
+title: "Sık sorulan sorular - Azure Active Directory B2C"
+description: "Azure Active Directory B2C hakkında sık sorulan sorular (SSS)"
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
+author: PatAltimore
 manager: mtillman
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -64,9 +63,9 @@ Kullanabileceğiniz [şirket markası özelliğini](../active-directory/customiz
 
     ![Özelleştirilmiş doğrulama e-posta ekran görüntüsü](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-E-posta imza B2C Kiracı ilk oluşturduğunuzda belirttiğiniz B2C kiracının adını içerir. Bu yönergeleri kullanarak adı değiştirebilirsiniz:
+E-posta imza Azure AD B2C kiracısı ilk oluşturduğunuzda belirttiğiniz Azure AD B2C kiracının adını içerir. Bu yönergeleri kullanarak adı değiştirebilirsiniz:
 
-1. Oturum [Azure portal](https://portal.azure.com/) Abonelik Yöneticisi olarak.
+1. Oturum [Azure portal](https://portal.azure.com/) genel yönetici olarak.
 1. Açık **Azure Active Directory** dikey.
 1. Tıklatın **özellikleri** sekmesi.
 1. Değişiklik **adı** alan.
@@ -113,15 +112,15 @@ Azure AD B2C kiracınızın silmek için aşağıdaki adımları izleyin:
 
 1. Aşağıdaki adımları izleyin [Azure AD B2C ayarlarına gidin](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) Azure portalındaki.
 1. Gidin **uygulamaları**, **kimlik sağlayıcıları**, ve **tüm ilkeler** ve bunların her birini tüm girişleri silin.
-1. Şimdi oturum [Klasik Azure portalı](https://manage.windowsazure.com/) Abonelik Yöneticisi olarak. (Aynı iş veya Okul hesabı veya Azure'a kaydolmak için kullandığınız aynı Microsoft hesabı kullanın.)
-1. Soldaki Active Directory uzantısına gidin ve B2C kiracısına tıklayın.
-1. Tıklatın **kullanıcılar** sekmesi.
-1. Her kullanıcı Aç (dışlamak, şu anda olarak oturum açtınız Abonelik Yöneticisi kullanıcı) seçin. Tıklatın **silmek** tıklatın ve sayfanın altındaki **Evet** istendiğinde.
-1. Tıklatın **uygulamaları** sekmesi.
-1. Seçin **Şirketimin sahip olduğu uygulamalar** içinde **Göster** onay işareti açılan alan ve'ı tıklatın.
-1. Bir uygulama olarak adlandırılan **b2c uzantıları uygulaması**. Tıklatın **silmek** tıklatın ve sayfanın altındaki **Evet** istendiğinde.
-1. Active Directory uzantısını tekrar gidin ve B2C kiracınızın seçin.
-1. Tıklatın **silmek** sayfanın sonundaki. İşlemi tamamlamak için ekrandaki yönergeleri izleyin.
+1. Şimdi oturum [Azure portal](https://portal.azure.com/) Abonelik Yöneticisi olarak. (Aynı iş veya Okul hesabı veya Azure'a kaydolmak için kullandığınız aynı Microsoft hesabı kullanın.)
+1. Anahtar, silmek istediğiniz Azure AD B2C kiracısı.
+2. Soldaki Active Directory menüsüne gidin.
+3. Seçin **kullanıcılar ve gruplar**.
+4. Her kullanıcı Aç (dışlamak, şu anda olarak oturum açtınız Abonelik Yöneticisi kullanıcı) seçin. Tıklatın **silmek** tıklatın ve sayfanın altındaki **Evet** istendiğinde.
+5. Tıklatın **uygulama kayıtlar**.
+6. Adlı uygulama seçin **b2c uzantıları uygulaması**. Tıklatın **silmek** tıklatıp **Evet** istendiğinde.
+7. Seçin **genel bakış**.
+8. Tıklatın **Delete directory**. İşlemi tamamlamak için ekrandaki yönergeleri izleyin.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Azure AD B2C Enterprise Mobility Suite'in parçası olarak alabilir miyim?
 Hayır, Azure AD B2C Kullandıkça Öde Azure hizmeti ve Enterprise Mobility Suite'in parçası değil.

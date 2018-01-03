@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notları değişikliklerden önceki sürümlerden ve bilinen sorunlar özetler.
@@ -28,8 +28,9 @@ Bu sürüm notları değişikliklerden önceki sürümlerden ve bilinen sorunlar
 > 
 > 
 
-## <a id="issues"></a>Şu anda bilinen sorunlar
-### <a id="general_issues"></a>Media Services genel sorunları
+## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Şu anda bilinen sorunlar
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services genel sorunları
+
 | Sorun | Açıklama |
 | --- | --- |
 | REST API birkaç ortak HTTP üst bilgilerini sağlanmadı. |REST API kullanarak Media Services uygulamalar geliştiriyorsanız, bazı ortak HTTP üstbilgi alanları Bul (CLIENT-REQUEST-ID dahil olmak üzere istek kimliği ve RETURN-CLIENT-REQUEST-ID) desteklenmez. Üstbilgileri gelecek bir güncelleştirmede eklenir. |
@@ -41,7 +42,7 @@ Bu sürüm notları değişikliklerden önceki sürümlerden ve bilinen sorunlar
 | Azure Media Services .NET SDK'sı nesneleri seri hale getirilemez ve sonuç olarak Azure önbelleğe alma ile çalışmaz. |Azure önbelleği için eklemek için SDK AssetCollection nesneyi serileştirmek çalışırsanız, bir özel durum oluşur. |
 
 
-## <a id="rest_version_history"></a>REST API sürümü geçmişi
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API sürümü geçmişi
 Media Services REST API sürümü geçmişi hakkında daha fazla bilgi için bkz: [Azure Media Services REST API Başvurusu].
 
 ## <a name="october-2017-release"></a>Ekim 2017 sürüm
@@ -58,7 +59,7 @@ Media Services REST API sürümü geçmişi hakkında daha fazla bilgi için bkz
 2.  İOS11 veya GoPro kahramanı 6 kullanılarak yakalanan görüntü gibi H.265(HEVC) video codec ile kodlanmış kaynak video varsa bu videolarınızı kodlamak için Premium Kodlayıcı veya standart Kodlayıcı şimdi kullanabilirsiniz. Lütfen [çevrimiçi Hizmet Koşulları'nı](https://azure.microsoft.com/support/legal/) patent lisansları hakkında önemli bir not için.
 3.  Ardından dil değerler doğru (örneğin, ISO MP4) karşılık gelen dosya biçimi belirtimlerine göre etiketlenir sürece içeren birden çok dil ses izleri, ardından içeriğiniz varsa, bu içerik için kodlanması için standart kodlayıcı kullanabilirsiniz Akış. Sonuç akış Bulucusu kullanılabilir ses dilleri listeler.
 4.  Standart Kodlayıcı şimdi iki yeni salt ses sistem önayarlarını, "AAC ses" ve "AAC iyi kaliteli ses" destekler. Her ikisi de sırasıyla 128 Kb/sn ve 192 kbps bit hızlarında stereo AAC çıktı üretir.
-5.  Görüntü codec birini olduğu sürece Premium Kodlayıcı QuickTime/MOV dosya biçimlerini artık giriş olarak destekler. [Apple ProRes özellikleri listelenen burada](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), ve ses AAC ya da PCM değil.
+5.  Görüntü codec birini olduğu sürece Premium Kodlayıcı QuickTime/MOV dosya biçimlerini artık giriş olarak destekler. [Apple ProRes özellikleri listelenen burada](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), ve ses AAC ya da PCM değil.
 
 > [!NOTE]
 > Premium Kodlayıcı, örneğin, giriş olarak QuickTime/MOV dosyalarında Sarmalanan DVC/DVCPro videosunu desteklemiyor.  Ancak, standart Kodlayıcı bu görüntü codec bileşenleri destekler.
@@ -89,7 +90,6 @@ Artık Azure medya standart kullanabilirsiniz [bit hızı Merdiveni otomatik olu
 
 Artık Azure medya standart veya Medya Kodlayıcısı Premium akışına kullanabilir [fMP4 öbekleri oluşturan bir kodlama görev oluşturma](media-services-generate-fmp4-chunks.md). 
 
-
 ## <a name="february-2017-release"></a>Şubat 2017 sürüm
 
 1 Nisan 2017’den itibaren, hesabınızdaki 90 günden eski olan tüm İş kayıtları, toplam kayıt sayısı üst kota sınırının altında olsa bile ilişkili Görev kayıtlarıyla birlikte otomatik olarak silinecektir. İş/görev bilgilerini arşivlemeniz gerekiyorsa, [burada](media-services-dotnet-manage-entities.md) açıklanan kodu kullanabilirsiniz.
@@ -102,9 +102,9 @@ Ayrıca, 2,15 sürümünden başlayarak, Azure Media Services aşağıdaki özel
 
 ## <a name="december-2016-release"></a>Aralık 2016 sürüm
 
-Azure Media Services şimdi hizmetlerinin telemetri/ölçümleri verilerine erişmek etkinleştirir. AMS geçerli sürümü, Canlı kanal, StreamingEndpoint, telemetri verilerini toplamak ve Arşiv varlıklar Canlı sağlar. Daha fazla bilgi için bkz: [bu](media-services-telemetry-overview.md) makalesi.
+Azure Media Services şimdi hizmetlerinin telemetri/ölçümleri verilerine erişmek etkinleştirir. AMS geçerli sürümü, Canlı kanal, StreamingEndpoint, telemetri verilerini toplamak ve Arşiv varlıklar Canlı sağlar. Daha fazla bilgi için [bu makaleye](media-services-telemetry-overview.md) bakın.
 
-## <a id="july_changes16"></a>Temmuz 2016 sürüm
+## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Temmuz 2016 sürüm
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Bildirim dosyası için güncelleştirmeleri (*. ISM) oluşturulan görevleri kodlama
 Bir kodlama görev Medya Kodlayıcısı standart veya Azure medya Kodlayıcı gönderildiğinde kodlama görev oluşturur bir [akış bildirim dosyası](media-services-deliver-content-overview.md) (* .ism) çıktı dosyasında varlık. En son hizmet sürümle birlikte, bu akış bildirim dosyasının söz dizimi güncelleştirildi.
 
@@ -323,13 +323,6 @@ Media Services REST meta veri sürümü 2.7 sunulmuştur. En son KALAN güncelle
 ### <a id="sept_14_breaking_changes"></a>Yeni değişiklikler
 * **Kaynak** yeniden adlandırıldı [StreamingEndpoint].
 * Kullanırken varsayılan davranış değişikliği **Azure portal** kodlamak ve MP4 dosyaları yayımlayın.
-
-Daha önce ne zaman tek dosya MP4 varlığı bir SAS URL'si yayımlamak için Klasik Azure Portalı'nı kullanarak oluşturulacaktır (SAS URL'leri izin, bir blob depolama alanından video indirmek). Şu anda, kodlama ve tek dosya MP4 varlığı yayımlamak için Klasik Azure Portalı'nı kullandığınızda, oluşturulan URL akış uç noktası bir Azure Media Services işaret eder.  Bu değişiklik, doğrudan Media Services'e ve Azure Media Services tarafından kodlanmış olmadan yayımlanan MP4 videolar etkilemez.
-
-Şu anda, sorunu çözmek için aşağıdaki iki seçeneğiniz vardır.
-
-* Akış birimleri etkinleştirin ve dinamik paketleme kesintisiz akış sunu olarak .mp4 varlığı akışla aktarmak için kullanın.
-* .mp4 indirin (veya aşamalı olarak yürütmek için) bir SAS URL'si oluşturun. Bir SAS Bulucu oluşturma hakkında daha fazla bilgi için bkz: [teslim içerik].
 
 ### <a id="sept_14_GA_changes"></a>Yeni özellikler/GA sürümü parçası olan senaryolar
 * **Dizin Oluşturucu medya işlemcisi**. Daha fazla bilgi için bkz: [ortam dosyalarıyla dizin Azure Media Indexer].
@@ -561,7 +554,7 @@ Aşağıdaki işlevleri SDK Kasım sürümündeki yeni.
 [Media Services fiyatlandırma ayrıntıları]: http://azure.microsoft.com/pricing/details/media-services/
 [giriş meta veri]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [çıkış meta veri]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[teslim içerik]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [ortam dosyalarıyla dizin Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [Azure Media Services canlı akış ile çalışma]: http://msdn.microsoft.com/library/azure/dn783466.aspx

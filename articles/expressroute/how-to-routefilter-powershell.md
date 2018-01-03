@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
 ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft eşliği için rota filtrelerini yapılandırın: PowerShell
 > [!div class="op_single_selector"]

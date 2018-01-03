@@ -5,23 +5,23 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Denetçiler Azure Machine Learning veri hazırlık önizlemesi için desteklenen
 Bu belgede, bu Önizleme'de kullanılabilen denetçiler kümesi özetlenmektedir.
 
-## <a name="the-halo-effect"></a>Hale efekti 
+## <a name="the-halo-effect"></a>Halo etkisi 
 Bazı denetçiler hale efekti destekler. Bu etkiyi hemen değişikliği görsel olarak bir dönüşüm göstermek için iki farklı renk kullanır. Gri son dönüştürme önce değerini temsil eder ve mavi geçerli değeri gösterir. Bu etkiyi etkin ve seçenekleri devre dışı.
 
 ## <a name="graphical-filtering"></a>Grafik filtreleme 

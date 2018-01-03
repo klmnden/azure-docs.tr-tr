@@ -1,4 +1,4 @@
-Trafik Yöneticisi tarafından dengelendiği Azure App Service web uygulamasında ayar özel etki alanı adı yalnızca için kullanılabilir **standart** modu Web siteleri. Ücretsiz uygulama hizmeti planı moddan paylaşılan, temel veya standart modunda bir web uygulaması değiştirmeden önce ilk harcama caps yerinde uygulama hizmeti aboneliğiniz için kaldırmanız gerekir. 
+Özel etki alanı trafik Yöneticisi ile tümleşik bir web uygulaması ayarı yalnızca için kullanılabilir **standart** fiyatlandırma katmanı.  
 
-Sitenizin modunu değiştirmek de dahil olmak üzere uygulama hizmeti planı modları hakkında daha fazla bilgi için bkz: [web sitelerini ölçeklendirmek nasıl](../articles/app-service/web-sites-scale.md).
+Fiyatlandırma katmanlarına uygulama hizmeti hakkında daha fazla bilgi için uygulamanızın değiştirmek de dahil olmak üzere fiyatlandırma katmanı kullanıcının bkz [Azure bir uygulamada ölçeklendirin](../articles/app-service/web-sites-scale.md).
 

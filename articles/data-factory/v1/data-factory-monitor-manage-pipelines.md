@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>İzleme ve Azure portalı ve PowerShell kullanarak Azure Data Factory işlem hatlarını yönetme
 > [!div class="op_single_selector"]
@@ -134,10 +134,10 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan biri olabilir:
 <td>Hazır</td><td>-</td><td>Dilim kullanıma hazır.</td>
 </tr>
 <tr>
-<td>Atlandı</td><td>None</td><td>Dilimin işlenmekte olan değil.</td>
+<td>Atlandı</td><td>Hiçbiri</td><td>Dilimin işlenmekte olan değil.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Bir dilim farklı bir durum ile var olmuş ancak sıfırlandı.</td>
+<td>Hiçbiri</td><td>-</td><td>Bir dilim farklı bir durum ile var olmuş ancak sıfırlandı.</td>
 </tr>
 </table>
 

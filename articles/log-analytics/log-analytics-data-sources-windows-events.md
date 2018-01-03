@@ -1,6 +1,6 @@
 ---
-title: "Toplamak ve OMS günlük analizi, Windows olay günlüklerini analiz edin | Microsoft Docs"
-description: "Windows olay günlüklerini günlük analizi tarafından kullanılan en yaygın veri kaynaklarının biridir.  Bu makalede Windows olay günlüklerini koleksiyonunu ve OMS depoya oluşturdukları kayıtları ayrıntılarını nasıl yapılandırılacağı açıklanmaktadır."
+title: "Toplamak ve Azure günlük analizi, Windows olay günlüklerini analiz edin | Microsoft Docs"
+description: "Windows olay günlüklerini günlük analizi tarafından kullanılan en yaygın veri kaynaklarının biridir.  Bu makalede Windows olay günlüklerini koleksiyonunu ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanmaktadır."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows olay günlüğü veri kaynaklarında, günlük analizi
 Windows olay günlüklerini en yaygın biri olan [veri kaynakları](log-analytics-data-sources.md) birçok uygulama Windows olay günlüğüne yazma beri Windows aracıları kullanarak veri toplama için.  İzlemeniz gereken uygulamaları tarafından oluşturulan herhangi bir özel günlük belirtmeye ek sistem ve uygulama gibi standart günlüklerindeki olayları toplayabilir.
@@ -59,7 +59,7 @@ Windows olay kayıtlarını sahip bir tür **olay** ve aşağıdaki tabloda öze
 | Kaynak |Olay kaynağı. |
 | SourceSystem |Olay toplandığı aracı türü. <br> OpsManager – Windows aracı, ya da doğrudan bağlanın veya Operations Manager yönetilen <br> Linux – tüm Linux aracıları  <br> AzureStorage – Azure tanılama |
 | TimeGenerated |Tarih ve saat Windows olay oluşturuldu. |
-| Kullanıcı adı |Olayın günlüğe hesabının kullanıcı adı. |
+| UserName |Olayın günlüğe hesabının kullanıcı adı. |
 
 ## <a name="log-searches-with-windows-events"></a>Windows olay günlüğü aramalar
 Aşağıdaki tabloda, Windows olay kayıtlarını almak günlük arama farklı örnekleri sağlar.

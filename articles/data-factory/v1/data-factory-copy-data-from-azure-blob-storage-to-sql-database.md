@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: c3a2d4b126d43017ec004bde82deb190584455c4
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Öğretici: verileri Blob depolama alanından Data Factory kullanarak SQL veritabanına kopyalamak
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Hesap adı ve bu öğreticinin yapmak için Azure depolama hesabınızın hesap 
 5. Tıklatın **kopyalama** (görüntü) düğmesini yanındaki **depolama hesabı adı** metin kutusuna ve kaydetme/bunu herhangi bir yerde Yapıştır (örneğin: bir metin dosyasındaki).
 6. Kopyalama veya aşağı not için önceki adımı yineleyin **key1**.
 
-    ![Depolama erişim tuşu](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    ![Depolama erişim anahtarı](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Tıklayarak tüm dikey pencereleri kapatmak **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, veritabanı, kullanıcı adları Topla

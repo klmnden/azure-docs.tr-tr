@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory kopyalama etkinliği
 
@@ -39,7 +39,7 @@ Kopyalama Etkinliği yürütüldüğünde bir [tümleştirmesi çalışma zaman�
 * Veriler arasında veri kopyalama hem de genel olarak erişilebilir depoladığında kopyalama etkinliği tarafından yetkilendirilmiş **Azure tümleştirmesi çalışma zamanı**, güvenli, güvenilir ve ölçeklenebilir ve [genel olarak kullanılabilir](concepts-integration-runtime.md#integration-runtime-location).
 * Bulunan şirket içi veri kopyalama/veri depolarına veya ayarlamak gereken erişim denetimi (örneğin, Azure sanal ağı) içeren bir ağda olduğunda bir **tümleşik çalışma zamanı'kendi kendini barındıran** veri kopyalama güçlendirmeniz.
 
-Tümleştirme çalışma zamanı, her kaynak ve havuz veri deposuyla ilişkilendirilmiş olması gerekir. Ayrıntılı bilgi kopyalama etkinliğini [kullanmak için hangi IR belirler](concepts-integration-runtime.md#determining-which-ir-to-use).
+Tümleştirme çalışma zamanı her kaynak ve havuz veri deposuyla ilişkilendirilmiş olması gerekir. Ayrıntılı bilgi kopyalama etkinliğini [kullanmak için hangi IR belirler](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 Kopya etkinliği bir havuz için bir kaynaktan verileri kopyalamak için aşağıdaki aşamaları geçer. Kopyalama etkinliği'nın temelini oluşturan hizmeti:
 
@@ -192,6 +192,12 @@ Varsayılan olarak, kopyalama etkinliği veri kopyalama durdurur ve kaynak ve ha
 ## <a name="performance-and-tuning"></a>Performans ve ayar
 
 Bkz: [kopyalama etkinliği performans ve ayarlama Kılavuzu](copy-activity-performance.md), Azure Data factory'de veri taşımayı (kopyalama etkinliği) performansını etkileyen önemli faktör açıklar. Ayrıca, iç test sırasında gözlemlenen performans listeler ve kopyalama etkinliği performansını iyileştirmek için çeşitli yollar ele alınmaktadır.
+
+## <a name="incremental-copy"></a>Artımlı kopya 
+Veri Fabrikası sürüm 2, artımlı olarak delta veri kaynağına veri deposundan hedef veri deposuna kopyalamak için senaryolarını destekler. Bkz: [Öğreticisi: artımlı olarak veri kopyalama](tutorial-incremental-copy-overview.md). 
+
+## <a name="read-and-write-partitioned-data"></a>Bölümlenmiş verilerini okuma ve yazma
+Sürüm 1'de, Azure Data Factory veri okunurken veya bölümlenmiş SliceStart/SliceEnd/WindowStart/WindowEnd sistem değişkenleri kullanılarak yazılırken desteklenir. Sürüm 2'de, ardışık düzen parametre ve tetikleyici başlangıç saati ve zamanlanan saat parametresinin değeri kullanarak bu davranışı elde edebilirsiniz. Daha fazla bilgi için bkz: [veri okumak veya yazmak nasıl bölümlenmiş](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki quickstarts, öğreticiler ve örnekleri bakın:
