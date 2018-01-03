@@ -18,7 +18,7 @@ ms.date: 09/12/2017
 ms.author: rickbyh
 ms.openlocfilehash: b6a7a1d6e7c9f8a921dc73bb3bf629de71f85acf
 ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2017
 ---

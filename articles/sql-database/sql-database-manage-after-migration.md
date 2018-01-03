@@ -20,7 +20,7 @@ ms.prod_service: sql-database
 ms.component: migration
 ms.openlocfilehash: e562c33cabc7d39d1f6a911c21343f85da205c0b
 ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
 ---

@@ -15,7 +15,7 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
 ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/01/2017
 ---

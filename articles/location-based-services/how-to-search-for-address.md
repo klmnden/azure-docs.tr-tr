@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: location-based-services
 ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
 ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
 ---

@@ -44,7 +44,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Container Registry coğrafi çoğaltma (önizleme)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure Container Instances ile Container Registry</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure Container Instances’a sahip Container Registry</a>
           - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Azure Container Service (AKS) ile Container Registry</a>
           - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Service Fabric ile Container Registry</a>
   - title: Başvuru
@@ -55,5 +55,7 @@ sections:
         items:
           - title: Komut Satırı
             html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+          - title: Diller
+            html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
           - title: REST
-            html: <p><a href="/rest/api/containerregistry">REST API başvurusu</a></p>
+            html: <p><a href="/rest/api/containerregistry">REST API başvurusu</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Resource Manager Şablonu</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Web kancası şeması</a></p>

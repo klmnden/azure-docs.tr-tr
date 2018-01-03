@@ -17,7 +17,7 @@ ms.author: daveba
 ms.reviewer: luleon
 ms.openlocfilehash: 65727ee9330a1a6650eb54595ebc93a7a693923c
 ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/02/2017
 ---

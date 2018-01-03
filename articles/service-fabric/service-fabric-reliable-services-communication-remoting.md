@@ -16,7 +16,7 @@ ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
 ---

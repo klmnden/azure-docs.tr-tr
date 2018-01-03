@@ -17,7 +17,7 @@ ms.date:
 ms.author: haroldw
 ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
 ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/11/2017
 ---

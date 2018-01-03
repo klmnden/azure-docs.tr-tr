@@ -16,7 +16,7 @@ ms.date: 09/25/2017
 ms.author: yoelh
 ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
 ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/21/2017
 ---

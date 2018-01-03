@@ -15,7 +15,7 @@ ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
 ms.openlocfilehash: 8340ae1231b7f40f739d7bbb63cee1bf0f095ab5
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

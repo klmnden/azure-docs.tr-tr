@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 00fd153384616c08b63689e15e96be91c73893a5
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Öğretici: Azure Active Directory Tümleştirme Cezanne ik yazılımıyla
 
@@ -125,25 +125,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Cezanne ik yazılım yapılandırma** 'yi tıklatın **Cezanne ik yazılımı Yapılandır** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Cezanne ik yazılım yapılandırma** 'yi tıklatın **Cezanne ik yazılımı Yapılandır** açmak için **yapılandırma oturum açma** penceresi.
 
-    ![Cezanne HR yazılım yapılandırma](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Cezanne HR yazılım yapılandırma](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. Farklı web tarayıcısı penceresinde Cezanne ik yazılım kiracınız yönetici olarak oturum.
+7. Ekranı aşağı kaydırarak **hızlı başvuru** bölümü. Kopya **SAML çoklu oturum açma hizmet URL'si ve SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
 
-8. Sol gezinti bölmesinde tıklatın **sistem kurulumu**. Git **güvenlik ayarlarını**. Ardından gidin **tek oturum açma yapılandırması**.
+    ![Cezanne HR yazılım yapılandırma](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. Farklı web tarayıcısı penceresinde Cezanne ik yazılım kiracınız yönetici olarak oturum.
+
+9. Sol gezinti bölmesinde tıklatın **sistem kurulumu**. Git **güvenlik ayarlarını**. Ardından gidin **tek oturum açma yapılandırması**.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. İçinde **kullanıcıların aşağıdaki çoklu oturum açma (SSO) hizmet kullanarak oturum açmasına izin** paneli, onay **SAML 2.0** kutusunda ve seçin **Gelişmiş Yapılandırma** seçeneği.
+10. İçinde **kullanıcıların aşağıdaki çoklu oturum açma (SSO) hizmet kullanarak oturum açmasına izin** paneli, onay **SAML 2.0** kutusunda ve seçin **Gelişmiş Yapılandırma** seçeneği.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Tıklatın **yeni Ekle** düğmesi.
+11. Tıklatın **yeni Ekle** düğmesi.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. Aşağıdaki adımları gerçekleştirin **SAML 2.0 kimlik SAĞLAYICISI** bölümü.
+12. Aşağıdaki adımları gerçekleştirin **SAML 2.0 kimlik SAĞLAYICISI** bölümü.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     g. **Tamam** düğmesine tıklayın. 
 
-12. Tıklatın **kaydetmek** düğmesi.
+13. Tıklatın **kaydetmek** düğmesi.
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 

@@ -18,7 +18,7 @@ ms.author: rasquill
 "\"/": 
 ms.openlocfilehash: 31efab60690b54faf7992251fcd01e307c4464f2
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

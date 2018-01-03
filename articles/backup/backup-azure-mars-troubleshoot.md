@@ -16,7 +16,7 @@ ms.date: 12/4/2017
 ms.author: saurse;markgal;
 ms.openlocfilehash: da297177ca56822f7d50dbe06ec022640bf5d0cb
 ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2017
 ---

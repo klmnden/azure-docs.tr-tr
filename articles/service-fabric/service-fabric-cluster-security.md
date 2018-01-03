@@ -16,7 +16,7 @@ ms.date: 06/28/2017
 ms.author: chackdan
 ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

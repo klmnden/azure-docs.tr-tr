@@ -17,7 +17,7 @@ ms.date: 07/31/2017
 ms.author: davidmu
 ms.openlocfilehash: 9d3732d538f3ed9ecb87247f378a3736692025ca
 ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/15/2017
 ---

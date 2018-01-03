@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
 ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2017
 ---

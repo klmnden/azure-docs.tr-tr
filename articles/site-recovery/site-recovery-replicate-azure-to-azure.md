@@ -16,7 +16,7 @@ ms.date: 11/21/2017
 ms.author: asgang
 ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
 ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/22/2017
 ---

@@ -17,7 +17,7 @@ ms.date: 09/14/2017
 ms.author: tonguyen
 ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

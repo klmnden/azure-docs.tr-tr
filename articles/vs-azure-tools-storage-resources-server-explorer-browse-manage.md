@@ -16,7 +16,7 @@ ms.date: 8/24/2017
 ms.author: kraigb
 ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
 ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
 ---

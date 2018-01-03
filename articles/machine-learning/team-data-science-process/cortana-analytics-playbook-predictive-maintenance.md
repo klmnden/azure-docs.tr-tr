@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.openlocfilehash: aafa395f8c0593d9597f74cd5cd2a41f26897c6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cortana Intelligence çözüm şablonu Playbook Havacılık ve diğer işletmelerin Tahmine dayalı bakım
 ## <a name="executive-summary"></a>Özet
@@ -97,7 +97,7 @@ Uçak motorları ekipman çok hassas ve pahalı parçası ve altyapısı bölüm
 ##### <a name="business-value-of-the-predictive-model"></a>Tahmine dayalı bir model iş değeri
 Birden çok sınıf sınıflandırma modeli, bir sonraki ay içinde belirli bir bileşeni nedeniyle bir hata olasılığını tahmin oluşturuldu. Bu çözümlerin mimarisi kullanarak airlines bileşen onarım maliyetleri azaltmak, bileşen stok kullanılabilirliğini artırın, ilgili varlıklar stok düzeylerini küçültmek ve Bakım planlama geliştirmek.
 
-### <a name="utilities"></a>Yardımcı programlar
+### <a name="utilities"></a>Altyapı hizmetleri
 #### <a name="use-case-1-atm-cash-dispense-failure"></a>Kullanım örneği 1: ATM nakit hatası etiket.
 ##### <a name="business-problem-and-data-sources"></a>*İş sorun ve veri kaynakları*
 İşlerini birincil işletimsel risk varlıklarına beklenmeyen hatalarının olduğunu Yöneticiler varlık yoğun sektörlerde genellikle durum içinde. Örnek olarak, endüstri bankacılık içinde makineler ATM gibi başarısızlığını sıklıkla ortaya çok yaygın bir sorundur. Bu tür sorunları gibi makine işleçler için Tahmine dayalı bakım çözüm çok istenen olun. Bu kullanım örneğinde tahmin ATM nakit mevzuatı işlem nakit dağıtıcısının kağıt sıkıştı gibi bir hata veya bir bölümü hatası nedeniyle kesintiye uğrarsa olasılık hesaplamak için sorunudur. Ana veri bu durumda nakit notları dispensed sırada ölçümleri toplamak sensör okumaları ve aynı zamanda bakım kayıtları toplanan zamanla kaynaklarıdır. Tamamlanan her işlem başına sensör okumaları ve ayrıca sensör okumaları dispensed her Not başına algılayıcı verilerini dahil. Notlar, kalınlığı arasındaki boşlukları gibi algılayıcı sağlanan okumalar ölçümleri varış uzaklığı vb. unutmayın. Bakım veri, hata kodları ve onarım bilgileri dahil. Bunlar, hata durumlarını tanımlamak için kullanılmıştır.
@@ -165,7 +165,7 @@ Bu olası ve genellikle özel hata kodları veya yedek parça sipariş tarihleri
 
 Bazı veri öğeleri yukarıda kullanım örneklerinden örnekler:
 
-Hata geçmiş: gecikme tarihleri, uçak bileşen hatası tarihleri ve türleri, ATM nakit mevzuatı işlem hataları, tren/fırsatınızdır kapı hataları, Fren disk değiştirme sipariş tarihleri, Rüzgar Türbin hatası tarihleri ve devre kesici komutu hataları mücadele.
+Hata geçmiş: uçuş gecikme tarihleri, uçak bileşen hatası tarihleri ve türleri, ATM nakit mevzuatı işlem hataları, tren/fırsatınızdır kapı hataları, Fren disk değiştirme sipariş tarihleri, Rüzgar Türbin hatası tarihleri ve devre kesici komutu hataları.
 
 Bakım geçmişi: uçuş hata günlükleri, ATM işlem hata günlüklerini, eğitmek bakım türü, kısa bir açıklama vb. ve devre kesici bakım kayıtları dahil olmak üzere bakım kaydeder.
 

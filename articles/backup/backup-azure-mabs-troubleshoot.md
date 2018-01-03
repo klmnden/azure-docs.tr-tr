@@ -16,7 +16,7 @@ ms.date: 11/24/2017
 ms.author: pullabhk;markgal;
 ms.openlocfilehash: 696f86f616575364bb65021260daf0c8458fc4e9
 ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
 ---

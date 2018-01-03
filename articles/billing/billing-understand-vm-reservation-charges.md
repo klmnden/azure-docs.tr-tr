@@ -15,7 +15,7 @@ ms.date: 11/10/2017
 ms.author: vikdesai
 ms.openlocfilehash: 3fd12bd3c51eeef57c896da030a83e447dc3e8ff
 ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
 ---

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: da1f2c3170aba9dc13d77a8729a98e7b655edea8
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.custom: mvc
+ms.openlocfilehash: 722a3f0f428bb972b2835df65a67707bf4d8e7d7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>API Management Service Fabric ile dağıtma
 Bu öğretici dört serinin bir parçasıdır.  Azure API Management Service Fabric ile dağıtma Gelişmiş bir senaryodur.  API Management, arka uç Service Fabric hizmetleriniz için yönlendirme kurallarını zengin bir dizi API yayımlamak gereken yararlıdır. Bulut uygulamalarını genellikle kullanıcılar, aygıtlar veya diğer uygulamalar için tek bir giriş noktası sağlamak için bir ön uç ağ geçidi gerekir. Service Fabric bir ağ geçidi APP.NET çekirdek uygulama, olay hub'ları, IOT hub'ı veya Azure API Management gibi trafik giriş için tasarlanmış herhangi bir durum bilgisiz hizmeti olabilir. 

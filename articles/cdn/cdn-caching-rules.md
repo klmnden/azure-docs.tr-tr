@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: f0d33f7671cad7e5c5ef9c2320fcca19b4c89b24
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Denetim Azure içerik teslim ağı kuralları önbelleğe alma ile önbelleğe alma davranışı
 
@@ -40,13 +40,18 @@ Varsayılan önbelleğe alma davranışını etkinleştirmek ve yönerge üstbil
 CDN önbelleğe alma nasıl ayarlanacağı kuralları:
 
 1. Azure Portalı'nı açın, bir CDN profili seçin ve sonra bir uç nokta seçin.
-2. Sol bölmede ayarları altında tıklatın **önbellek**.
-3. Genel bir önbellek kuralı gibi oluşturun:
+2. Sol bölmede ayarları altında tıklatın **kuralları önbelleğe alma**.
+
+   ![Kuralları düğmesini CDN önbelleğe alma](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. Genel bir önbellek kuralı gibi oluşturun:
    1. Altında **genel kurallar önbelleğe alma**ayarlayın **sorgu dizesini önbelleğe alma davranışı** için **sorgu dizelerini yoksayabilir**.
    2. Ayarlama **önbelleğe alma davranışı** için **eksikse ayarlamak**.
    3. İçin **önbelleğe sona erme süresi**, 10 girin **gün** alan.
 
        Genel önbellek kuralını uç nokta için tüm istekleri etkiler. Varsa, bu kural kaynak önbellek yönergesi üstbilgileri geliştirir (`Cache-Control` veya `Expires`); Aksi halde, bunlar belirtilmezse, önbellek 10 gün olarak ayarlar. 
+
+     ![Genel önbelleğe alma kuralları](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Özel bir önbellek kuralı gibi oluşturun:
     1. Altında **özel kurallar önbelleğe alma**ayarlayın **eşleşen koşulu** için **yolu** ve **eşleşen değeri** için `/images/*.jpg`.
@@ -54,7 +59,7 @@ CDN önbelleğe alma nasıl ayarlanacağı kuralları:
        
        Bu özel önbellek kuralını herhangi bir önbellek süre olan 30 günden ayarlar `.jpg` görüntü dosyaları `/images` uç noktanızı klasörü. Tüm geçersiz kılmaları `Cache-Control` veya `Expires` kaynak sunucu tarafından gönderilen HTTP üstbilgileri.
 
-  ![Önbelleğe alma kuralları iletişim kutusu](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![Özel kurallar önbelleğe alma](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > Bir kural değişiklikten önce önbelleğe alınan dosyalar kendi kaynak önbellek süresi ayarı koruyun. Önbellek süreler sıfırlamak için şunları yapmalısınız [dosya temizleme](cdn-purge-endpoint.md). İçin **verizon'dan Azure CDN** uç noktaları, onu etkili olması için kuralları önbelleği 90 dakika sürebilir.

@@ -12,7 +12,7 @@ ms.topic: tutorial
 manager: carmonm
 ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

@@ -18,7 +18,7 @@ ms.date: 11/10/2017
 ms.author: sstein
 ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
 ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
 ---

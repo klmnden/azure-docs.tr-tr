@@ -16,7 +16,7 @@ ms.date: 09/28/2017
 ms.author: kumud
 ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
 ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2017
 ---

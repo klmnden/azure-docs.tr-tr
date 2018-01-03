@@ -16,7 +16,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1547b5c3a5c629b85ff5fa9de6b39b25531d9ec9
 ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/03/2017
 ---

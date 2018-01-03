@@ -15,7 +15,7 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.openlocfilehash: c002387c6d2c8ec83610398c337dc504e7253028
 ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/06/2017
 ---

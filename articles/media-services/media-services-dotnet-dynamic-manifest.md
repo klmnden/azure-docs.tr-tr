@@ -16,7 +16,7 @@ ms.date: 07/21/2017
 ms.author: juliako;cenkdin
 ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

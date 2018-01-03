@@ -17,7 +17,7 @@ ms.date: 06/19/2017
 ms.author: ronmat; ronitr
 ms.openlocfilehash: 647bd11fe305e255ab492939586241e28557ead8
 ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/31/2017
 ---

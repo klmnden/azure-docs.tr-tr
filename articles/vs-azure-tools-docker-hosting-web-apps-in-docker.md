@@ -16,7 +16,7 @@ ms.date: 06/08/2016
 ms.author: mlearned
 ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

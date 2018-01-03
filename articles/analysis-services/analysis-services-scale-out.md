@@ -16,7 +16,7 @@ ms.date: 11/06/2017
 ms.author: owend
 ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
 ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
 ---

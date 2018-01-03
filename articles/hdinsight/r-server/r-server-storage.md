@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: aafcc818af4c6e5d141d3633b31b913802a21752
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 863277294fc0462e9221edffab1dd4e2001d7493
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>Hdınsight'ta R Server için Azure depolama çözümleri
 
@@ -43,19 +43,25 @@ Senaryonuz için kullanmak için en uygun depolama seçeneği ile ilgili yönerg
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>R Server ile Azure Blob storage hesapları kullanın
 
-Gerekirse, birden çok Azure depolama hesapları veya kapsayıcıları HDI kümenizle erişebilirsiniz. Bunu yapmak için Küme oluşturduğunuzda ve ardından R Server ile kullanmak için aşağıdaki adımları izleyin ek depolama hesapları kullanıcı Arabiriminde belirtmeniz gerekir.
+R Server kümenizi oluştururken birden fazla depolama hesabı belirtilmişse, aşağıdaki yönergeleri veri erişimi ve işlemleri R Server için ikincil bir hesabı kullanacak şekilde açıklanmaktadır. Aşağıdaki depolama hesapları ve kapsayıcı varsayalım: **storage1** ve varsayılan kapsayıcı adlı **container1**, ve **storage2**.
 
 > [!WARNING]
 > Performans nedeniyle, belirttiğiniz birincil depolama hesabıyla aynı veri merkezinde Hdınsight kümesi oluşturulur. Hdınsight kümesi farklı bir konumda bir depolama hesabıyla desteklenmiyor.
 
-1. Bir depolama hesabı adı ile bir Hdınsight kümesi oluşturmayı **storage1** ve varsayılan kapsayıcı adlı **container1**.
-2. Adlı bir ek depolama alanı hesabı belirtin **storage2**.  
-3. Mycsv.csv dosyasını /share dizinine kopyalayın ve bu dosyada analiz gerçekleştirin.  
+1. Bir SSH İstemcisi'ni kullanarak kümenizi kenar düğümüne remoteuser bağlayın.  
+
+  + Azure portalında > HDI Küme hizmeti sayfasına > genel bakış, tıklatın **güvenli Kabuk (SSH)**.
+  + Ana bilgisayar adı, kenar düğümü seçin (içerdiği *ed-ssh.azurehdinsight.net* adında).
+  + Ana bilgisayar adını kopyalayın.
+  + PutTY veya SmartTY gibi bir SSH istemcisi açın ve ana bilgisayar adı girin.
+  + Remoteuser tarafından küme parolasını ve ardından kullanıcı adı girin.
+  
+2. Mycsv.csv dosyasını /share dizinine kopyalayın. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal myscsv.scv /share  
 
-4. R kodda adı düğüm kümesi **varsayılan,** ve işlemek için dosya ve dizin ayarlayın.  
+3. Geçiş R Studio veya başka bir R konsol ve R kodu adı düğümü ayarlamak için yazma **varsayılan** ve erişmek istediğiniz dosyanın konumu.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -64,7 +70,7 @@ Gerekirse, birden çok Azure depolama hesapları veya kapsayıcıları HDI küme
         bigDataDirRoot <- "/share"  
 
         #Define Spark compute context:
-        mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(nameNode=myNameNode, consoleOutput=TRUE)
 
         #Set compute context:
         rxSetComputeContext(mySparkCluster)

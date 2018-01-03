@@ -17,7 +17,7 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 933d251903f4ca74902e984e7a1581a75345ee7f
 ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/26/2017
 ---

@@ -17,7 +17,7 @@ ms.date: 03/06/2017
 ms.author: samacha
 ms.openlocfilehash: f17225d92fc35a6da9f6aa3cb0397569665e95e7
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

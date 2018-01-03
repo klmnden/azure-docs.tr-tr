@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/06/2017
 ms.author: raynew
-ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 448dda89623ca2a1e8de86773c1d6a50e708c151
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Bul ve şirket içi VMware sanal makineleri geçiş için Azure değerlendirin
 
@@ -175,7 +175,7 @@ Bu görünüm, her makine için hazırlık durumu gösterir.
 Bu görünüm, toplam işlem ve depolama maliyeti ayrıntıları her makine için birlikte çalışan Azure Vm'lerinin gösterir. Maliyet tahminleri bir makine ve kendi diskleri ve değerlendirme özellikleri için performans tabanlı boyutu önerileri kullanarak hesaplanır. 
 
 > [!NOTE]
-> Azure geçiş tarafından sağlanan maliyet tahmini olarak Azure altyapı (ıaas) sanal makineleri şirket içi sanal makineleri çalıştırmaya yöneliktir. Herhangi bir Platform (PaaS) hizmet olarak ya da hizmet (SaaS) maliyetleri olarak yazılım dikkate almaz. 
+> Azure geçiş tarafından sağlanan maliyet tahmini olarak Azure altyapı (ıaas) sanal makineleri şirket içi sanal makineleri çalıştırmaya yöneliktir. Azure geçirme, herhangi bir Platform (PaaS) hizmet olarak ya da hizmet (SaaS) maliyetleri olarak yazılım dikkate almaz. 
 
 Tahmini aylık maliyetlerini hesaplama ve depolama grubundaki tüm VM'ler için toplanır. 
 

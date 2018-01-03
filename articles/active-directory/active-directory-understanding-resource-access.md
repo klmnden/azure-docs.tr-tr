@@ -16,7 +16,7 @@ ms.author: curtand
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
 ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2017
 ---

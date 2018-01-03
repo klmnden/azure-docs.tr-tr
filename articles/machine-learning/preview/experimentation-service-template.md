@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
 ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
 ---

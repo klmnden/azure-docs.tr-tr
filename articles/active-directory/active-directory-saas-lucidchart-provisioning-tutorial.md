@@ -16,7 +16,7 @@ ms.date: 07/14/2017
 ms.author: asmalser-msft
 ms.openlocfilehash: 1f9344a5e750360e21ed7dc8e3ed013c2c2e1a45
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

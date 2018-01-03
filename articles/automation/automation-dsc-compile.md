@@ -15,7 +15,7 @@ ms.date: 02/07/2017
 ms.author: magoedte; eslesar
 ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
 ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2017
 ---

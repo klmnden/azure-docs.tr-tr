@@ -16,7 +16,7 @@ ms.date: 11/14/2017
 ms.author: dastrock
 ms.openlocfilehash: e32cac7feda929a63c4a80fc0078b221117eb2b5
 ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/18/2017
 ---

@@ -15,7 +15,7 @@ ms.author: mimig
 ms.custom: cda
 ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

@@ -20,7 +20,7 @@ ms.date: 09/18/2017
 ms.author: mcollier
 ms.openlocfilehash: ab522b444c234e1159acfea1780bae1801c4d047
 ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/17/2017
 ---

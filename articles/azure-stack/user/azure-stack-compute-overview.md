@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure yığın sanal makineleri giriş
 
@@ -121,8 +121,8 @@ Aşağıdaki tabloda, bir VM hakkında bilgi edinebilirsiniz yollardan bazılar�
 |Yöntem|Açıklama|
 |---------|---------|
 |Azure yığın portalı|Hub menüsünde, sanal makineleri tıklayın ve ardından VM listeden seçin. VM için sayfada genel bakış bilgileri için değerleri ayarlama ve ölçümleri izleme erişebilirsiniz.|
-|Azure PowerShell|Sanal makineleri yönetme, Azure ve Azure yığın benzer. PowerShell'i kullanma hakkında daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[Oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|İstemci SDK'ları|Sanal makineleri yönetmek için C# kullanarak Azure ve Azure yığın benzer. Daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[Oluşturma ve C# kullanarak azure'da Windows sanal makineleri yönetme](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Sanal makineleri yönetme, Azure ve Azure yığın benzer. PowerShell'i kullanma hakkında daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[Oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|İstemci SDK'ları|Sanal makineleri yönetmek için C# kullanarak Azure ve Azure yığın benzer. Daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[Oluşturma ve C# kullanarak azure'da Windows sanal makineleri yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>VM’ye bağlanma
 

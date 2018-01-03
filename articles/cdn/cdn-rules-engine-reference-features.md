@@ -16,7 +16,7 @@ ms.date: 01/23/2017
 ms.author: rli
 ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
 ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/01/2017
 ---

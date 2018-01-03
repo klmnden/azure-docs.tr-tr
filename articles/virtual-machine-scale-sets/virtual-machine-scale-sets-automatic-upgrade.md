@@ -17,7 +17,7 @@ ms.date: 11/01/2017
 ms.author: guybo
 ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
 ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/03/2017
 ---

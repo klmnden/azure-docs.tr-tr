@@ -203,6 +203,8 @@
       items:
         - name: SaaS tasarım desenleri
           href: saas-tenancy-app-design-patterns.md
+        - name: SaaS video dizinleyicisi
+          href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
         - name: SaaS uygulama güvenliği
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Veritabanlarını geliştirme

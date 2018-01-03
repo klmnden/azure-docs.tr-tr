@@ -18,7 +18,7 @@ ms.date: 11/12/2017
 ms.author: billgib
 ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
 ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/14/2017
 ---

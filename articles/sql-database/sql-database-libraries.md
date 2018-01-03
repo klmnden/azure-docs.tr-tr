@@ -17,7 +17,7 @@ ms.date: 11/29/2017
 ms.author: genemi
 ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
 ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/30/2017
 ---

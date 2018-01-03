@@ -17,7 +17,7 @@ ms.date: 11/08/2017
 ms.author: jonbeck
 ms.openlocfilehash: 30574be2d0a803aa162ca225b5c2a66c65cc1eaa
 ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/17/2017
 ---

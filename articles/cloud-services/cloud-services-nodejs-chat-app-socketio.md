@@ -1,5 +1,5 @@
 ---
-title: "Socket.IO kullanarak Node.js uygulaması | Microsoft Docs"
+title: "Socket.IO - Azure kullanarak Node.js uygulaması"
 description: "Azure üzerinde barındırılan bir node.js uygulamasında Socket.IO kullanmayı öğrenin."
 services: cloud-services
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bir Azure bulut hizmeti Socket.IO ile bir Node.js sohbet uygulaması oluşturma
-Socket.IO node.js sunucunuz ve istemcileriniz arasında arasında gerçek zamanlı iletişim sağlar. Bu öğretici bir yuva barındırma aracılığıyla yol gösterir. G/ç Azure sohbet uygulamaya dayalı. Socket.IO ile ilgili daha fazla bilgi için bkz: <http://socket.io/>.
+
+Socket.IO node.js sunucunuz ve istemcileriniz arasında gerçek zamanlı iletişim sağlar. Bu öğreticide, bir yuva barındırma aracılığıyla açıklanmaktadır. G/ç Azure sohbet uygulamaya dayalı. Socket.IO ile ilgili daha fazla bilgi için bkz: [Socket.IO](http://socket.io).
 
 Tamamlanmış uygulamanın bir ekran görüntüsü aşağıda verilmiştir:
 

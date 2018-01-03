@@ -14,7 +14,7 @@ ms.date: 10/16/2017
 ms.author: ramach
 ms.openlocfilehash: 66ea24cfe9dd03ed62c06daa76ee043886ad7bcc
 ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/26/2017
 ---

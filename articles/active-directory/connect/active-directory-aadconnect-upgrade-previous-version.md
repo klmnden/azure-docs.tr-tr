@@ -16,7 +16,7 @@ ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
 ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/08/2017
 ---

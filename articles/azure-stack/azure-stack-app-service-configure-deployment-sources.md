@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 82b6002557431f87de8fd206b4d7f4a07dec08b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-deployment-sources"></a>Dağıtım kaynaklarını yapılandırma
 
@@ -152,4 +152,4 @@ Bu görevi tamamlamak için Microsoft OneDrive hesabınıza bağlı Account olma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanıcılar artık kullanabilir dağıtım kaynakları şeyler ister için [sürekli dağıtım](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-continuous-deployment), [yerel Git dağıtımı](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-local-git), ve [bulut klasör eşitleme](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-content-sync).
+Kullanıcılar artık kullanabilir dağıtım kaynakları şeyler ister için [sürekli dağıtım](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [yerel Git dağıtımı](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), ve [bulut klasör eşitleme](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).

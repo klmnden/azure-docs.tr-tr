@@ -14,7 +14,7 @@ ms.technology:
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 ms.openlocfilehash: f67f81aeee0775ea8d90e4459f2c46266a774786
 ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
 ---

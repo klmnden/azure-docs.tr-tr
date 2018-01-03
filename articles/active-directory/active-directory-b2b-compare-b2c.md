@@ -17,7 +17,7 @@ ms.date: 03/15/2017
 ms.author: sasubram
 ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---

@@ -13,7 +13,7 @@ ms.author: revitalb
 manager: jlembicz
 ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
 ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
 ---

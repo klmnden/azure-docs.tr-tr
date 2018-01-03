@@ -13,7 +13,7 @@ ms.date: 09/15/2017
 ms.author: adhurwit
 ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
 ---
