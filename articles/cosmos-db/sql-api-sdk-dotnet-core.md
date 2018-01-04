@@ -15,9 +15,15 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+<<<<<<< HEAD:articles/cosmos-db/documentdb-sdk-dotnet-core.md
+ms.openlocfilehash: 835956f185b4ecdcbfa0b486223dd9bc2d0377cb
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.translationtype: HT
+=======
 ms.openlocfilehash: f8e3e0e8868c05188d9d6cb26fe6c2bd2891c17d
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3:articles/cosmos-db/sql-api-sdk-dotnet-core.md
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2017
 ---

@@ -15,9 +15,15 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: cca2434a7af381eaa8ee7bc803a102a7781c7639
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: HT
+=======
 ms.openlocfilehash: bfc9dc5defa5644c5ede0acab1d4eae4d93edc94
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

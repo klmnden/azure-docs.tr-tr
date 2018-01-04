@@ -14,11 +14,19 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+<<<<<<< HEAD
+ms.date: 11/10/2017
+ms.author: sstein
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.translationtype: HT
+=======
 ms.date: 12/07/2017
 ms.author: genemi
 ms.openlocfilehash: 5342b5290fab9826a2b38cd7ada63a6736c77601
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

@@ -14,9 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
+<<<<<<< HEAD
+ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.translationtype: HT
+=======
 ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

@@ -15,11 +15,19 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: 8b8d7b026973de9dee6c834404f2ed80b2c9ad21
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/07/2017
+=======
 ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
 ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/15/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Azure'da Java ve MySQL bir web uygulaması oluşturma
 

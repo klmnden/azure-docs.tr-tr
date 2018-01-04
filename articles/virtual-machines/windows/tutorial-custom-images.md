@@ -16,9 +16,15 @@ ms.workload: infrastructure
 ms.date: 12/07/2017
 ms.author: cynthn
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: cee283268057a407003a38f8db5af8cac151439f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 7001e5df235d65c531b9102f879bde9693c4f853
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

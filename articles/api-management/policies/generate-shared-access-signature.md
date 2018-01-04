@@ -13,9 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
+<<<<<<< HEAD
+ms.openlocfilehash: e1f17f9f4e17a3eebb55e4ec1905aec19a2165a5
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 9b0d37e4f7930389d3399e51de905db2b2ce8c27
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

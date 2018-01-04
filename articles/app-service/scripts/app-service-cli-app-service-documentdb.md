@@ -16,9 +16,15 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: b581f8d5a4e924e0aa88bf614839c917345eb570
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 67f5f392e360c03c231e0657d453a1df33ffee52
 ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/12/2017
 ---

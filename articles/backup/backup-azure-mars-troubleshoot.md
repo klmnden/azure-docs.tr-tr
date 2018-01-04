@@ -14,9 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: saurse;markgal;
+<<<<<<< HEAD
+ms.openlocfilehash: da297177ca56822f7d50dbe06ec022640bf5d0cb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 52a32d61dd69110ace560fd1e52389140f322678
 ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2017
 ---

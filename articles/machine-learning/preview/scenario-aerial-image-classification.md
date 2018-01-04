@@ -8,11 +8,18 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
+<<<<<<< HEAD
+ms.date: 10/27/2017
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: HT
+=======
 ms.workload: data-services
 ms.date: 12/13/2017
 ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/02/2018
 ---

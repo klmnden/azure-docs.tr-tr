@@ -15,9 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: anzaman,cherylmc
+<<<<<<< HEAD
+ms.openlocfilehash: 0ea696e796ec3a943bc028f56da417978b728b82
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.openlocfilehash: fa55cbad9fca799faff4e4cef87f9eedb8d2023f
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
 ---

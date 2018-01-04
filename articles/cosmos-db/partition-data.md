@@ -15,11 +15,19 @@ ms.topic: article
 ms.date: 01/02/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
+<<<<<<< HEAD
+ms.openlocfilehash: e19ea08823575a535b7bc3e18a97902f72e802eb
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/07/2017
+=======
 ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
 ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/03/2018
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölüm ve ölçek Azure Cosmos veritabanı
 

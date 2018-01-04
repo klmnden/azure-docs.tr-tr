@@ -14,9 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
+<<<<<<< HEAD
+ms.openlocfilehash: a0a4558da0b308799a153b300b098891e933712b
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+=======
 ms.openlocfilehash: ebfe23ea1e07e7578e8bd352a482ecb1016829de
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2017
 ---

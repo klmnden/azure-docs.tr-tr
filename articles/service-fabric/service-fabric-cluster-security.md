@@ -14,9 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2017
 ms.author: chackdan
+<<<<<<< HEAD
+ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

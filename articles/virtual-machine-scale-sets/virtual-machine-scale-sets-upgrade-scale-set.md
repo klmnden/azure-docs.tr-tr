@@ -14,10 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
+<<<<<<< HEAD
+ms.author: guybo
+ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.author: gunegatybo
 ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
 ---

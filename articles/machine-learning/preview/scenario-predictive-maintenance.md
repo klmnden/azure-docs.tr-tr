@@ -11,9 +11,15 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
+<<<<<<< HEAD
+ms.openlocfilehash: 2687eb022bce0b71c217f0be611c8fabdfb66040
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
+=======
 ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
 ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
 ---

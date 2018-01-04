@@ -13,9 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
+<<<<<<< HEAD
+ms.openlocfilehash: 72f887b18daef27ff7e6ccea5bb30b55c86c7b98
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.translationtype: HT
+=======
 ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

@@ -16,11 +16,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
+<<<<<<< HEAD
+ms.openlocfilehash: 812b6f323e2ddaee9095a7bdf221d6a8ebd69fd2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/07/2017
+=======
 ms.openlocfilehash: 309f997174211e1a1a2d0eeea2b9b445c8b37e4d
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Azure portalını kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -63,6 +71,14 @@ Azure portalı küme özelliklerinin çoğu kullanıma sunar. Azure Resource Man
         > 
         > 
         
+<<<<<<< HEAD
+        * **İşletim Sistemi**: **Linux** seçeneğini belirleyin.
+        
+        * **Sürüm**: Neyi seçeceğinizi bilmiyorsanız varsayılan sürümü kullanın. Daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
+        
+
+=======
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
     * İçin **küme oturum açma kullanıcı** ve **küme oturum açma parolasını**, yönetici kullanıcı için kullanıcı adı ve parola sağlayın.
 
     * Girin bir **SSH kullanıcı adı** ve daha önce belirtilen yönetici parolasına aynı, select SSH parolası sahip olmak istiyorsanız **küme oturum açma aynı parolayı kullanın** onay kutusu. Değilse, ya da sağlayan bir **parola** veya **ortak anahtar**, SSH kullanıcısının kimliğini doğrulayacak. Ortak anahtar kullanılması önerilen yaklaşımdır. Alt kısımdaki **Seç**’e tıklayarak kimlik bilgileri yapılandırmasını kaydedin.

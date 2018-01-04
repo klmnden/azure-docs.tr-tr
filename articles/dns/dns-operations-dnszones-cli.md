@@ -12,10 +12,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
+<<<<<<< HEAD
+ms.author: gwallace
+ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.author: kumud
 ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
 ---

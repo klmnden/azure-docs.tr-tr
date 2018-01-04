@@ -15,9 +15,15 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 12/14/2017
 ms.author: cakarst;barbkess
+<<<<<<< HEAD
+ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.openlocfilehash: a2a7d15eb51374b828d1d641e0e6754115f7aaf6
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/15/2017
 ---

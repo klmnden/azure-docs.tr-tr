@@ -14,9 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
+<<<<<<< HEAD
+ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.translationtype: HT
+=======
 ms.openlocfilehash: c5e85ac6eec1b8b0a5a78f552b190ce3f3c55c38
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
 ---

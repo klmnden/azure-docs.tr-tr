@@ -13,9 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: vikdesai
+<<<<<<< HEAD
+ms.openlocfilehash: 3fd12bd3c51eeef57c896da030a83e447dc3e8ff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.translationtype: HT
+=======
 ms.openlocfilehash: d476380fa841617f7eb914167ebd7d5b8aa611c2
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

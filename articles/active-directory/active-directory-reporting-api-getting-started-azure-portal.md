@@ -15,9 +15,15 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
+<<<<<<< HEAD
+ms.openlocfilehash: c94a52b8a34100f22b627e291cb0becd3501fd55
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 9c858b8f2d5a4a348bc0b4443ddbe0000a5b62f4
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

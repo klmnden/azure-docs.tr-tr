@@ -15,9 +15,15 @@ ms.workload: identity
 ms.date: 12/06/2017
 ms.author: curtand
 ms.reviewer: dhanyahk
+<<<<<<< HEAD
+ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

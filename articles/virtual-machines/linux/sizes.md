@@ -15,9 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
+<<<<<<< HEAD
+ms.openlocfilehash: 79ca33c7b1cf55782911cbe9a27fd47547c41c0e
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 568048c6117d81ec351d5057505dafeec58d7b5a
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/16/2017
 ---

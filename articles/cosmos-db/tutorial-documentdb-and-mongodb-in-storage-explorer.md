@@ -16,10 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
+<<<<<<< HEAD
+ms.author: Jiaj-Li
+ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.translationtype: HT
+=======
 ms.author: Jejiang
 ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
 ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
 ---

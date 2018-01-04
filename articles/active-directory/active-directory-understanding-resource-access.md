@@ -13,10 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: curtand
+<<<<<<< HEAD
+ms.custom: oldportal;it-pro;
+ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.translationtype: HT
+=======
 ms.custom: it-pro;
 ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

@@ -13,9 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
+<<<<<<< HEAD
+ms.openlocfilehash: e470071ca0ff45fce0a410b18ea9a91e1925af4b
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

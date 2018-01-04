@@ -13,10 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
+<<<<<<< HEAD
+ms.author: tarcher
+ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.author: v-craic
 ms.openlocfilehash: 3fd0f15c695bcd22a51233846ace8711a4fcd635
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/02/2018
 ---

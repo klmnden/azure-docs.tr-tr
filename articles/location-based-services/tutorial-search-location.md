@@ -12,9 +12,15 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: 15afdead60d4c1ee3c7e3c079d43e0651b262ec8
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.translationtype: HT
+=======
 ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/14/2017
 ---

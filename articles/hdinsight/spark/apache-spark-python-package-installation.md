@@ -16,9 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: nitinme
+<<<<<<< HEAD
+ms.openlocfilehash: ab1d48188d4e0ef1274eb175b49bafd1d63b8480
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.translationtype: HT
+=======
 ms.openlocfilehash: c2921c6d7a0f46322fc4e0b3c84b743ee98e4a4d
 ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
 ---

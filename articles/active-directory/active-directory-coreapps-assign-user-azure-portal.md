@@ -15,9 +15,15 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: daveba
 ms.reviewer: luleon
+<<<<<<< HEAD
+ms.openlocfilehash: 65727ee9330a1a6650eb54595ebc93a7a693923c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 827d5c8669eb54630adbaba0306e73b5de6a7137
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

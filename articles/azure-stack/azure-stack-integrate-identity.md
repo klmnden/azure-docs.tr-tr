@@ -8,9 +8,15 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: mabrigg
 keywords: 
+<<<<<<< HEAD
+ms.openlocfilehash: e43b9c7a854bc7150247a2b92d2d37ad6d74c705
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
 ---

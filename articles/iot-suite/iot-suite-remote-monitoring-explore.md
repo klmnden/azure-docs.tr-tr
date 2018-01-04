@@ -12,9 +12,15 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
+<<<<<<< HEAD
+ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.translationtype: HT
+=======
 ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
 ---

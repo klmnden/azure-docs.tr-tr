@@ -4,7 +4,11 @@ description: "Çoklu oturum açma Azure Active Directory ile FactSet arasında y
 services: active-directory
 documentationCenter: na
 author: jeevansd
+<<<<<<< HEAD
+manager: femila
+=======
 manager: mtillman
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.reviewer: joflore
 ms.assetid: f41072d1-b2a4-4c4d-9deb-101b52e29096
 ms.service: active-directory
@@ -14,11 +18,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
+<<<<<<< HEAD
+ms.openlocfilehash: c99b62f01792e874f8bb584d0cdbe514a232906b
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/07/2017
+=======
 ms.openlocfilehash: 5d39de5aebf5578ff9970146d36ac3cc724b3a87
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Öğretici: Azure Active Directory Tümleştirme FactSet ile
 

@@ -12,9 +12,15 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: 2608e0e0c87df1e7c6d034cf0977ed0e16b128cf
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
 ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/22/2017
 ---

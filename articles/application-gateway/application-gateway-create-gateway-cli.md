@@ -15,9 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
+<<<<<<< HEAD
+ms.openlocfilehash: 9d3732d538f3ed9ecb87247f378a3736692025ca
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.translationtype: HT
+=======
 ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2017
 ---

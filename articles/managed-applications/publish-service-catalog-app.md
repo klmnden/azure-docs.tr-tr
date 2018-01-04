@@ -10,11 +10,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
+<<<<<<< HEAD
+ms.openlocfilehash: 7f00fe304cc4a9de7727882bb2c38f85713bd521
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/07/2017
+=======
 ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
 ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Dahili tüketim için yönetilen bir uygulama yayımlama
 
@@ -245,4 +253,8 @@ Dağıtım tamamlandıktan sonra yönetilen uygulama applicationGroup adlı bir 
 
 * Yönetilen uygulamalara giriş için [Yönetilen uygulamalara genel bakış](overview.md) konusunu inceleyin.
 * Projeleri, örneğin bkz [Azure örnek projelerine yönetilen uygulamaları](sample-projects.md).
+<<<<<<< HEAD
 * Yönetilen bir uygulamaya ait bir kullanıcı arabirimi tanım dosyası oluşturma hakkında bilgi için [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md) konusunu inceleyin.
+=======
+* Yönetilen bir uygulamaya ait bir kullanıcı arabirimi tanım dosyası oluşturma hakkında bilgi için [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md) konusunu inceleyin.
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3

@@ -15,10 +15,17 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
+<<<<<<< HEAD
+ms.custom: aaddev;it-pro;oldportal
+ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.custom: aaddev;it-pro
 ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
 ---

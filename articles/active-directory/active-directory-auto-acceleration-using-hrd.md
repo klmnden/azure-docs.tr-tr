@@ -12,9 +12,15 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
 ms.author: billmath
+<<<<<<< HEAD
+ms.openlocfilehash: b1f0e5da09ef1d6acd234b72878cc71d66bb551e
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.translationtype: HT
+=======
 ms.openlocfilehash: e2e6e5c40dc4a9f67f94c45f8394512db3f777f5
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

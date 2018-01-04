@@ -12,9 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: ramach
+<<<<<<< HEAD
+ms.openlocfilehash: 66ea24cfe9dd03ed62c06daa76ee043886ad7bcc
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 57a4cb560825e0c05ac49df26ac12ee52da52c3c
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

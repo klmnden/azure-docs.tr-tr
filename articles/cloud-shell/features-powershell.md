@@ -14,9 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: damaerte
+<<<<<<< HEAD
+ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 16c17bd5635a6f61077e52196fdb8efe901f8050
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/15/2017
 ---

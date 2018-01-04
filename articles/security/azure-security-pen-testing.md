@@ -14,9 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/08/2017
 ms.author: yurid
+<<<<<<< HEAD
+ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.translationtype: HT
+=======
 ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

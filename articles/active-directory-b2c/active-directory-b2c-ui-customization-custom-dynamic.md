@@ -14,9 +14,15 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
+<<<<<<< HEAD
+ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

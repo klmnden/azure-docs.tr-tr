@@ -16,11 +16,19 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 12/14/2017
 ms.author: janeng
+<<<<<<< HEAD
+ms.openlocfilehash: 123e6c4f0f4fdde46199d80fdbc2db9c78f69f5f
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/07/2017
+=======
 ms.openlocfilehash: 70dcac2449b18e7afef3f96817593128ca1ab315
 ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/15/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>İzleme ve tek bir SQL veritabanı ölçeklendirmek için PowerShell kullanma
 

@@ -10,9 +10,15 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/10/2017
+<<<<<<< HEAD
+ms.openlocfilehash: 60db74535edd09841a1b660c2bf832af65fbfcad
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.translationtype: HT
+=======
 ms.openlocfilehash: f83e4b17a3209adeb655723362e6882e38bfaf49
 ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2017
 ---

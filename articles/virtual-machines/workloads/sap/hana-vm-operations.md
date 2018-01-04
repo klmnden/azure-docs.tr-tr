@@ -16,9 +16,15 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
+<<<<<<< HEAD
+ms.openlocfilehash: 0328bdc40429e1e82a76f290f5bde39089db0a9d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 1d6991d40b9bb8543898bbbdc9d7c905dfe11536
 ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/02/2018
 ---

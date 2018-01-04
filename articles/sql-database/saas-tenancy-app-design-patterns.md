@@ -16,9 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
+<<<<<<< HEAD
+ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

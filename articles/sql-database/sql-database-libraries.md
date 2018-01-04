@@ -15,9 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
+<<<<<<< HEAD
+ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 012acd2b53fc9205511530d3cc30803dceef88a0
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

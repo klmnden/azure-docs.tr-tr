@@ -13,11 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+<<<<<<< HEAD
+ms.date: 11/01/2017
+ms.author: guybo
+ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.translationtype: HT
+=======
 ms.date: 12/07/2017
 ms.author: negat
 ms.openlocfilehash: 60468860a8fe7d10bf0f25b92f4313aaa2614db3
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
 ---

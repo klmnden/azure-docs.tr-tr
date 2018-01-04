@@ -14,9 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
+<<<<<<< HEAD
+ms.openlocfilehash: 91b632c0c4bab2f0ac71b662cf1b73f5d37881ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

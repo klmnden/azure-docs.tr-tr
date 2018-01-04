@@ -4,11 +4,19 @@ hide_bc: True
 title: Microsoft Azure Belgeleri
 description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 featureFlags: clicktale
+<<<<<<< HEAD
+ms.openlocfilehash: a29b9dcc1c31cb577306fb544013a89b2d958fee
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/07/2017
+=======
 ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -994,7 +1002,11 @@ ms.lasthandoff: 12/20/2017
                                             </a>
                                         </li>
                                         <li>
+<<<<<<< HEAD
+                                            <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+=======
                                             <a href="https://docs.microsoft.com/azure/location-based-services/">
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
                                                 <p>Azure Konum Tabanlı Hizmetler</p>
                                             </a>
@@ -2860,7 +2872,11 @@ Yerleşik HTTP yük dengelemesi ve teslimat kontrolü ile Katman 7 Yük Dengeley
                                 </a>
                             </li>
                             <li>
+<<<<<<< HEAD
+                                <a href="https://docs.microsoft.com/en-us/azure/location-based-services/">
+=======
                                 <a href="https://docs.microsoft.com/azure/location-based-services/">
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

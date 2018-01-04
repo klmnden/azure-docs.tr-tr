@@ -15,9 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
+<<<<<<< HEAD
+ms.openlocfilehash: 208dfa14d5d18e106d654539cd80bafdeb90cdf8
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 71929b449f2a0fa55327fd3f9741208506859e85
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/14/2017
 ---

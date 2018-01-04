@@ -16,9 +16,15 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
+<<<<<<< HEAD
+ms.openlocfilehash: 408d030a7c26fea47669a690b0487e0868fbc2c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.openlocfilehash: b170d942cd1c165db4cb5a563a2d149b13483d6b
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

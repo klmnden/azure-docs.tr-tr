@@ -14,11 +14,17 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: a-crradu
+<<<<<<< HEAD
+ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.translationtype: HT
+=======
 ms.reviewer: skwan
 ms.custom: it-pro
 ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

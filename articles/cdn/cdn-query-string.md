@@ -15,10 +15,17 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
 ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
+<<<<<<< HEAD
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/07/2017
+=======
 ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2017
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Denetim Azure içerik teslim ağı önbelleğe alma davranışını sorgu dizeleriyle etkinleştirmek
 > [!div class="op_single_selector"]

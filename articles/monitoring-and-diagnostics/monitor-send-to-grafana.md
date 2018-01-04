@@ -8,9 +8,15 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
+<<<<<<< HEAD
+ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.translationtype: HT
+=======
 ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

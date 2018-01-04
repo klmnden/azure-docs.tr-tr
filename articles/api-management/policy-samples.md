@@ -13,10 +13,16 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
+<<<<<<< HEAD
+ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.translationtype: HT
+=======
 ms.custom: mvc
 ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
 ---

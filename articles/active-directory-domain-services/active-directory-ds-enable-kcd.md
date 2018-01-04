@@ -14,9 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: maheshu
+<<<<<<< HEAD
+ms.openlocfilehash: 0235944ef89cab7af152664651711edd5e80e632
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.translationtype: HT
+=======
 ms.openlocfilehash: b09c725609fe866b0c9ba2f5b5789e00f808b1ab
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

@@ -15,9 +15,15 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
+<<<<<<< HEAD
+ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

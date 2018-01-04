@@ -14,9 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
+<<<<<<< HEAD
+ms.openlocfilehash: e32cac7feda929a63c4a80fc0078b221117eb2b5
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.translationtype: HT
+=======
 ms.openlocfilehash: f3de9016fe29a51ab2c7fb9e93fcd33af0f0e871
 ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/14/2017
 ---

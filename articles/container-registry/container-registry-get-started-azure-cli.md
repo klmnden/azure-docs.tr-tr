@@ -9,9 +9,15 @@ ms.topic: quicksart
 ms.date: 12/07/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
+<<<<<<< HEAD
+ms.openlocfilehash: 5cddf0ffea256ed6d1c51d48a61ac8176d08b9cc
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
+=======
 ms.openlocfilehash: f31f4e5e2b3fe5db85873894a7f2fa9c415392c1
 ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
 ---

@@ -13,9 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
+<<<<<<< HEAD
+ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---

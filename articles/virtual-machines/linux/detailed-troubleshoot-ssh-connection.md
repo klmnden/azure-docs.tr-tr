@@ -16,9 +16,15 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 12/13/2017
 ms.author: iainfou
+<<<<<<< HEAD
+ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 5908c9572901bfb68ce03d7e6ccb08f84f38e567
 ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/14/2017
 ---

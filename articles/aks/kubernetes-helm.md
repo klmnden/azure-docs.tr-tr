@@ -9,9 +9,15 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
+<<<<<<< HEAD
+ms.openlocfilehash: 7065ceaf87f0cb5ebf46c53c71c6df4b069b2deb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.translationtype: HT
+=======
 ms.openlocfilehash: 39c6de1ce2443cf027d7cde067281355ea0b7207
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
+>>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
 ---
