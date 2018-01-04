@@ -23,10 +23,10 @@ Yeni ağ geçidi SKU'ları, ağ geçitlerinde sunulan özellik kümeleri açıs�
 | **SKU**| **Özellikler**|
 | ---    | ---         |
 |**Temel**   | **Rota tabanlı VPN**: P2S 10 tünelleri; P2S için; RADIUS kimlik doğrulaması P2S için hiçbir Ikev2<br>**İlke tabanlı VPN** (IKEv1): 1 tünel; P2S yok|
-| **VpnGw1, VpnGw2 ve VpnGw3** | **Rol tabanlı VPN**: 30 tünele kadar (*), P2S, BGP, etkin-etkin, özel IPsec/IKE ilkesi, ExpressRoute/VPN birlikte kullanımı |
+| **VpnGw1, VpnGw2 ve VpnGw3** | **Rol tabanlı VPN**: 30 tünele kadar ( * ), P2S, BGP, etkin-etkin, özel IPsec/IKE ilkesi, ExpressRoute/VPN birlikte kullanımı |
 |        |             |
 
-(*) Rota tabanlı bir VPN ağ geçidini (VpnGw1, VpnGw2, VpnGw3) şirket içi ilke tabanlı birden fazla güvenlik duvarı cihazına bağlamak için "PolicyBasedTrafficSelectors" yapılandırması gerçekleştirebilirsiniz. Ayrıntılı bilgi için bkz. [PowerShell kullanarak VPN ağ geçitlerini şirket içi ilke tabanlı birden fazla VPN cihazına bağlama](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+( * ) Rota tabanlı bir VPN ağ geçidini (VpnGw1, VpnGw2, VpnGw3) şirket içi ilke tabanlı birden fazla güvenlik duvarı cihazına bağlamak için "PolicyBasedTrafficSelectors" yapılandırması gerçekleştirebilirsiniz. Ayrıntılı bilgi için bkz. [PowerShell kullanarak VPN ağ geçitlerini şirket içi ilke tabanlı birden fazla VPN cihazına bağlama](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ###  <a name="resize"></a>Ağ geçidi SKU'larını yeniden boyutlandırma
 
