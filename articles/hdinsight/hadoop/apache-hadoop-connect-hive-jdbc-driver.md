@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: larryfr
-ms.openlocfilehash: da6ea4bff5a45125f11776f161fef38e39a74cdd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7da4a7e0a60fd1e5c78f53b0a8e7ab333c5d2465
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Hdınsight'ta JDBC sürücüsü aracılığıyla Hive sorgusu
 
@@ -30,7 +30,7 @@ Azure hdınsight'ta Hadoop Hive sorguları göndermek için bir Java uygulaması
 
 Hive JDBC arabirimi hakkında daha fazla bilgi için bkz: [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Hdınsight kümesi Hadoop'ta. Linux tabanlı veya Windows tabanlı kümeler çalışır.
 
@@ -197,6 +197,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 JDBC Hive ile çalışmak için nasıl kullanılacağını öğrendiniz, Azure Hdınsight ile çalışmak için diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın.
 
 * [Microsoft Power BI'ı Azure hdınsight'ta Hive görselleştirmek](apache-hadoop-connect-hive-power-bi.md).
+* [Etkileşimli sorgu Hive verileri Azure hdınsight'ta Power BI ile görselleştirme](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın](./../hdinsight-connect-hive-zeppelin.md).
 * [Excel'i Microsoft Hive ODBC sürücüsü ile Hdınsight bağlama](apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Excel'i Power Query kullanarak Hadoop için bağlama](apache-hadoop-connect-excel-power-query.md).

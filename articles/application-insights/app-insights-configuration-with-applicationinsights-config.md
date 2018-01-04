@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e59df358f25663c742b0da09cf27b974787536dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 87eed377528db60724ba2f37bc22d916dfd7c0eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
 Application Insights .NET SDK'sı bir NuGet paketlerini oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights telemetri göndermek için API sağlar. [Ek paket](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcıları* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bazıları için parametreleri ayarlayın.
 
-Yapılandırma dosyası adlı `ApplicationInsights.config` veya `ApplicationInsights.xml`, uygulamanın türüne bağlı olarak. Projenize otomatik olarak eklenen olduğunda, [SDK çoğu sürümlerini yüklemek][start]. Ayrıca bir web uygulamasına tarafından eklenir [Durum İzleyicisi bir IIS sunucusundaki][redfield], veya Appplication Öngörüler seçtiğinizde [bir Azure Web sitesine veya VM uzantısı](app-insights-azure-web-apps.md).
+Yapılandırma dosyası adlı `ApplicationInsights.config` veya `ApplicationInsights.xml`, uygulamanın türüne bağlı olarak. Projenize otomatik olarak eklenen olduğunda, [SDK çoğu sürümlerini yüklemek][start]. Ayrıca bir web uygulamasına tarafından eklenir [Durum İzleyicisi bir IIS sunucusundaki][redfield], veya Application Insights'ı seçtiğinizde [bir Azure Web sitesine veya VM uzantısı](app-insights-azure-web-apps.md).
 
 Denetim eşdeğer bir dosyaya hiç [SDK, bir web sayfasındaki][client].
 
@@ -125,7 +125,6 @@ Standart başlatıcıları tüm Web veya Windows Server NuGet paketleri tarafın
 * `SyntheticTelemetryInitializer`veya `SyntheticUserAgentTelemetryInitializer` güncelleştirmeleri `User`, `Session` ve `Operation` kullanılabilirlik test veya arama motoru bot gibi yapay bir kaynaktan bir isteği işlerken tüm telemetri öğelerinin bağlamları özellikleri izlenir. Varsayılan olarak, [ölçüm Gezgini](app-insights-metrics-explorer.md) yapay telemetri görüntülemez.
 
     `<Filters>` İsteklerinin özelliklerini tanımlayan ayarlayın.
-* `UserAgentTelemetryInitializer`güncelleştirmeleri `UserAgent` özelliği `User` tüm telemetri öğeleri bağlamında temel alarak `User-Agent` isteğin HTTP üstbilgisi.
 * `UserTelemetryInitializer`güncelleştirmeleri `Id` ve `AcquisitionDate` özelliklerini `User` ayıklanan değerlere sahip tüm telemetri öğeleri bağlamının `ai_user` tanımlama bilgisi kullanıcının içinde çalışan uygulama Insights JavaScript araçları kodu tarafından oluşturulan Tarayıcı.
 * `WebTestTelemetryInitializer`Bu geliyor HTTP istekleri için kullanıcı kimliği ve oturum kimliği yapay kaynağı özellikleri ayarlar [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md).
   `<Filters>` İsteklerinin özelliklerini tanımlayan ayarlayın.

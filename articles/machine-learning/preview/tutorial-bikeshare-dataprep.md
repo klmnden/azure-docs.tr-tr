@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: e71680887c4e81eba831ab0b7af9fa2cceed74a0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: HT
+ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Bisiklet paylaşımı öğreticisi: Azure Machine Learning Workbench ile gelişmiş veri hazırlama
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
@@ -33,7 +33,7 @@ Bu öğreticide Azure Machine Learning hizmetlerini (önizleme) kullanarak aşa�
 >
 > Hazırlanan verileri, kendi tahmin modellerinizi eğitmek için kullanabilirsiniz. Örneğin, 2 saatlik bir zaman aralığındaki bisiklet talebini tahmin etmeye yönelik bir model oluşturabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Azure Machine Learning Workbench’in yerel olarak yüklü olması gerekir. Daha fazla bilgi için [Yükleme Hızlı Başlangıç](quickstart-installation.md) makalesindeki yönergeleri izleyin.
 * Workbench’te yeni proje oluşturma bilgisi.
 

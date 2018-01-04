@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 8ffa1c6dd4794cbea6b2c1904e08557ba2a68ba2
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Öğretici: komut satırı arabirimi kullanarak Iris sınıflandırma
 Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve genişmiş analiz çözümüdür.
@@ -23,14 +23,14 @@ Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ö
 Bu öğreticide, Azure Machine Learning Önizleme özellikleri için komut satırı arabirimi (CLI) araçlarını kullanmayı öğrenin: 
 > [!div class="checklist"]
 > * Bir deneme hesabı ayarlamanız ve bir çalışma alanı oluşturma
-> * Proje oluşturma
+> * Proje oluştur
 > * Birden çok işlem hedefi için bir deneme gönderme
 > * Yükseltme ve eğitilen model kaydetme
 > * Yeni veri Puanlama amacıyla bir web hizmetini dağıtma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - Bir Azure aboneliği ve kaynaklar bu abonelikte oluşturma izni erişmeniz gerekir. 
 - İzleyerek Azure makine Learing çalışma ekranı uygulamayı yüklemek gereken [yükleme ve hızlı başlangıç oluşturma](quickstart-installation.md). 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performansı ve ölçeği dayanıklı işlevlerinde (Azure işlevleri)
 
@@ -34,9 +34,9 @@ Geçmiş tablosu tüm orchestration örnekleri için geçmiş olaylarını içer
 
 Orchestrator işlevler ve etkinlik işlevleri hem işlevi uygulamanın varsayılan depolama hesabı iç sıralarda tarafından tetiklenir. Dayanıklı işlevleri kuyruklarda iki tür vardır: **denetim sırası** ve **çalışma öğesi kuyruk**.
 
-### <a name="the-work-item-queue"></a>Çalışma öğesi sırası
+### <a name="the-work-item-queue"></a>İş öğesi sırası
 
-Bir çalışma öğesi kuyruk dayanıklı işlevleri görev hub başına yoktur. Bu temel bir sıra ve diğer benzer şekilde davranır `queueTrigger` Azure işlevlerinde sırası. Bu sıra durum bilgisiz tetiklemek için kullanılan *etkinlik işlevleri*. Ne zaman dayanıklı işlevleri uygulama çıkışı birden çok VM, tüm iş öğesi sırasından iş edinmeye rekabet bu VM'ler için ölçeklendirir.
+Bir iş öğesi kuyruk dayanıklı işlevleri görev hub başına yoktur. Bu temel bir sıra ve diğer benzer şekilde davranır `queueTrigger` Azure işlevlerinde sırası. Bu sıra durum bilgisiz tetiklemek için kullanılan *etkinlik işlevleri*. Ne zaman dayanıklı işlevleri uygulama çıkışı birden çok VM, tüm iş öğesi sırasından iş edinmeye rekabet bu VM'ler için ölçeklendirir.
 
 ### <a name="control-queues"></a>Denetim kuyrukların
 
@@ -59,13 +59,13 @@ Gördüğünüz gibi tüm VM'ler iletileri iş öğesi sırasına rekabet. Ancak
 Orchestration'ın örnek kimliği karşı bir dahili karma işlevi çalıştırarak denetim sıra örneklerinde dağıtılmış Orchestration örnekleri Örnek kimlikleri otomatik olarak oluşturulan ve rastgele varsayılan örnekleri tüm kullanılabilir denetim kuyrukta dengelendiğini sağlar. Geçerli desteklenen denetim sıra bölümleri varsayılan sayısıdır **4**.
 
 > [!NOTE]
-> Bölüm sayısı Azure işlevlerinde yapılandırmak şu anda olası değil. [Bu yapılandırma seçeneği desteklemek üzere iş izlenen](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> Azure işlevleri denetim sıra bölüm sayısı yapılandırmak şu anda olası değil. [Bu yapılandırma seçeneği desteklemek üzere iş izlenen](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 Genel olarak, orchestrator işlevleri basit olacak şekilde tasarlanmıştır ve bilgi işlem gücü çok gerekli değildir. Bu nedenle, çok sayıda büyük verimi almak için Denetim sıra bölüm oluşturmak gerekli değildir. Bunun yerine, en ağır iş sonsuz Genişletilebilir durum bilgisiz etkinlik işlevlerde yapılır.
 
 ## <a name="auto-scale"></a>Otomatik Ölçeklendirme
 
-Tüm Azure tüketim planda çalışan işlevlerine ile dayanıklı işlevleri otomatik ölçek aracılığıyla destek gibi [Azure işlevlerini ölçeklendirme-denetleyicisi](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Ölçek denetleyicisi ekleme veya VM kaynakları uygun şekilde kaldırma iş öğesi sırası uzunluğu ve her denetim sıraların izler. Denetim sırası uzunlukları zaman içerisinde arttığını, Ölçek denetleyicisi denetim sıra bölüm sayısı ulaşana kadar örnekleri ekleme devam eder. Çalışma öğesi kuyruk uzunluğu zaman içerisinde arttığını, Ölçek denetleyicisi denetim sıra bölüm sayısı bağımsız olarak yük eşleştirebilirsiniz kadar VM kaynakları ekleme devam eder.
+Tüm Azure tüketim planda çalışan işlevlerine ile dayanıklı işlevleri otomatik ölçek aracılığıyla destek gibi [Azure işlevleri ölçek denetleyicisi](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Ölçek denetleyicisi ekleme veya VM örnekleri uygun şekilde kaldırma iş öğesi sırası uzunluğu ve her denetim sıraların izler. Denetim sırası uzunlukları zaman içerisinde arttığını, Ölçek denetleyicisi denetim sıra bölüm sayısı ulaşana kadar VM örnekleri ekleme devam eder. İş öğesi sıra uzunlukları zaman içerisinde arttığını, Ölçek denetleyicisi denetim sıra bölüm sayısı bağımsız olarak yük eşleştirebilirsiniz kadar VM örnekleri ekleme devam eder.
 
 ## <a name="thread-usage"></a>İş parçacığı kullanımı
 

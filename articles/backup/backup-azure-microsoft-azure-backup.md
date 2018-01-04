@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/20/2017
-ms.author: masaran;trinadhk;pullabhk;markgal
-ms.openlocfilehash: c54468d71e0b383916e49847576a98303d659d38
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.author: masaran;trinadhk;pullabhk;markgal;adigan
+ms.openlocfilehash: addb4312ce1eb57ce86afae449eb3d31d0037418
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure Backup Sunucusu kullanarak iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -57,6 +57,7 @@ Temel sunucu Azure'da çalışması istemiyorsanız, bir Hyper-V VM, bir VMware 
 
 | İşletim Sistemi | Platform | SKU |
 |:--- | --- |:--- |
+| Windows Server 2016 ve en son Sp'ler |64 bit |Standard, Datacenter, Essentials'ı (veya sonraki sürümleri MABS v2) |
 | Windows Server 2012 R2 ve en son SP'ler |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 ve en son SP'ler |64 bit |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 ve en son SP'ler |64 bit |Standard, Workgroup |
@@ -79,7 +80,7 @@ Azure'a yedekleme verileri göndermek ya da yerel olarak tutmak isteyip yazılı
 
 Kurtarma hizmetleri kasası oluşturmak için:
 
-1. [Azure portalında](https://portal.azure.com/) oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
@@ -96,7 +97,7 @@ Kurtarma hizmetleri kasası oluşturmak için:
 5. Kullanılabilir abonelik listesini görmek için **Abonelik** seçeneğine tıklayın. Hangi aboneliğin kullanılacağından emin değilseniz varsayılan (veya önerilen) aboneliği kullanın. Yalnızca kuruluş hesabınızın birden çok Azure aboneliği ile ilişkili olması durumunda birden çok seçenek olur.
 6. Kullanılabilir Kaynak grubu listesini görmek için **Kaynak grubu** seçeneğine, yeni bir Kaynak grubu oluşturmak için de **Yeni** seçeneğine tıklayın. Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md)
 7. Kasa için coğrafi bölgeyi seçmek üzere **Konum**'a tıklayın.
-8. **Oluştur**'a tıklayın. Kurtarma Hizmetleri kasasının oluşturulması biraz zaman alabilir. Portalda sağ üst alandaki durum bildirimlerini izleyin.
+8. **Oluştur**’a tıklayın. Kurtarma Hizmetleri kasasının oluşturulması biraz zaman alabilir. Portalda sağ üst alandaki durum bildirimlerini izleyin.
    Kasanız oluşturulduktan sonra portalda açılır.
 
 ### <a name="set-storage-replication"></a>Depolama Çoğaltmayı Ayarlama
@@ -239,9 +240,9 @@ Azure bağlantı ve Azure abonelik durumu öğrendikten sonra sunulan yedekleme/
 
 | Bağlantı durumu | Azure Aboneliği | Azure'a yedekleme | Diske yedekleme | Azure'dan geri yükleme | Disk, geri yükleme |
 | --- | --- | --- | --- | --- | --- |
-| Bağlanıldı |Etkin |İzin verildi |İzin verildi |İzin verildi |İzin verildi |
-| Bağlanıldı |Süresi Doldu |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
-| Bağlanıldı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
+| Bağlı |Etkin |İzin verildi |İzin verildi |İzin verildi |İzin verildi |
+| Bağlı |Süresi Doldu |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
+| Bağlı |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |
 | Kayıp bağlantısı > 15 gün |Etkin |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
 | Kayıp bağlantısı > 15 gün |Süresi Doldu |Durduruldu |Durduruldu |İzin verildi |İzin verildi |
 | Kayıp bağlantısı > 15 gün |Yetki Kaldırıldı |Durduruldu |Durduruldu |Silinen durduruldu ve Azure kurtarma noktaları |Durduruldu |

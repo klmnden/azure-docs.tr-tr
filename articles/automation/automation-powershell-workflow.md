@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 90a8229b3d4974b8385039c7d85f916a168947d8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Otomasyon runbook'ları için temel Windows PowerShell iş akışı kavramları öğrenme 
 Azure Otomasyonu runbook'ları Windows PowerShell iş akışları olarak uygulanır.  Bir Windows PowerShell iş akışı, bir Windows PowerShell komut dosyası için benzer ancak yeni bir kullanıcıya kafa karıştırıcı olabilir önemli bazı farklar vardır.  Bu makale, PowerShell iş akışı kullanarak runbook'ları yazmanıza yardımcı olmak için tasarlanmıştır, ancak denetim noktaları gerekmedikçe PowerShell kullanarak runbook'ları yazma öneririz.  PowerShell iş akışı runbook'ları yazarken birkaç söz dizimi farkları yüklenir ve bu farklılıklar etkin iş akışları yazmak için biraz daha fazla iş gerektirmez.  
@@ -198,8 +198,8 @@ Aşağıdaki örnek, paralel olarak dosyaları kopyalanıyor önceki örneğe be
 > Bu güvenilir olmayan sonuçlar vermek için göstermiştir bu yana çalışan alt runbook'ları paralel olarak önermiyoruz.  Bazen alt runbook'tan çıkış gösterilmez ve bir alt runbook ayarlarında diğer paralel alt runbook'lar etkileyebilir
 >
 
-## <a name="checkpoints"></a>Denetim Noktaları
-A *denetim noktası* değişkenlerin geçerli değerlerini ve bu noktaya kadar üretilen çıktıyı içerir iş akışının geçerli durumuna anlık görüntüsüdür. Bir iş akışı hata sona erer veya askıya alındı, ardından İleri çalıştırıldığında, akışı başlangıcı yerine en son denetim noktasından başlayacaktır.  İle bir iş akışında bir denetim noktası ayarlayabilirsiniz **Checkpoint-Workflow** etkinlik.
+## <a name="checkpoints"></a>Kontrol noktaları
+A *denetim noktası* değişkenlerin geçerli değerlerini ve bu noktaya kadar üretilen çıktıyı içerir iş akışının geçerli durumuna anlık görüntüsüdür. Bir iş akışı hata sona erer veya askıya alındı, ardından İleri çalıştırıldığında, iş akışının başlangıç yerine en son denetim noktasından başlayacaktır.  İle bir iş akışında bir denetim noktası ayarlayabilirsiniz **Checkpoint-Workflow** etkinlik.
 
 Aşağıdaki örnek kodda bir özel durum activity2 sonrasında sona erdirmek iş akışı neden olur. İş akışını yeniden çalıştırdığınızda, yalnızca son denetim noktasının ayarlandığı sonra bu yana Activity2 çalıştırarak başlatır.
 
@@ -209,7 +209,7 @@ Aşağıdaki örnek kodda bir özel durum activity2 sonrasında sona erdirmek i�
     <Exception>
     <Activity3>
 
-Özel durum olabilecek ve gereken etkinliklerin iş akışı devam ettirildiğinde tekrarlanmaması sonra bir iş akışında denetim noktaları ayarlamanız gerekir. Örneğin, iş akışınızı bir sanal makine oluşturabilir. Önce ve sonra sanal makine oluşturma komutlarının bir denetim noktası ayarlayabilirsiniz. Oluşturma başarısız olursa, iş akışını yeniden başlatılırsa, komutlar tekrarlar. Oluşturma başarılı olduktan sonra akışı başarısız olursa, iş akışı sürdürüldüğünde sonra sanal makineyi yeniden oluşturulmaz.
+Özel durum olabilecek ve gereken etkinliklerin iş akışı devam ettirildiğinde tekrarlanmaması sonra bir iş akışında denetim noktaları ayarlamanız gerekir. Örneğin, iş akışınızı bir sanal makine oluşturabilir. Önce ve sonra sanal makine oluşturma komutlarının bir denetim noktası ayarlayabilirsiniz. Oluşturma başarısız olursa, iş akışını yeniden başlatılırsa, komutlar tekrarlar. İş akışı oluşturma başarılı olduktan sonra başarısız olursa, iş akışı sürdürüldüğünde sonra sanal makineyi yeniden oluşturulmaz.
 
 Aşağıdaki örnek, birden çok dosyalarını bir ağ konumuna kopyalar ve sonra her bir dosyanın bir denetim noktası ayarlar.  Ağ konumu kaybolursa, iş akışı hata sona erer.  Yeniden başlatıldığında, önceden kopyaladığınız dosyalar atlanır anlamı son denetim noktası devam eder.
 

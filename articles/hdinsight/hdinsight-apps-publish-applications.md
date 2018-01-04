@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Bir Hdınsight uygulamasının Azure Marketi'nde yayımlama
 Linux tabanlı Hdınsight kümesinde bir Azure Hdınsight uygulamayı yükleyebilir. Bu makalede bir Hdınsight uygulamasının Azure Marketi'nde yayımlama öğrenin. Azure Marketi'nde yayımlama hakkında genel bilgi için bkz: [bir teklifi Azure Marketi'nde yayımlama](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -32,7 +32,7 @@ Daha fazla bilgi için uygulama ile ilgili bu Hdınsight makalelere bakın:
 * [Hdınsight uygulamaları yükleme](hdinsight-apps-install-applications.md). Hdınsight uygulaması yükleme, kümelerinde öğrenin.
 * [Özel Hdınsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md). Yükleme ve özel Hdınsight uygulamaları test etme hakkında bilgi edinin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Market, ilk olarak, özel, uygulamanızda göndermek için [oluşturun ve özel uygulamanızı test](hdinsight-apps-install-custom-applications.md).
 
 Ayrıca Geliştirici hesabınızı kaydetmeniz gerekir. Daha fazla bilgi için bkz: [bir teklifi Azure Marketi'nde yayımlama](../marketplace-publishing/marketplace-publishing-getting-started.md) ve [Microsoft Developer hesabı oluşturma](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
@@ -46,8 +46,7 @@ Ayrıca Geliştirici hesabınızı kaydetmeniz gerekir. Daha fazla bilgi için b
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Storm", "Spark"],
-        "tiers": ["Standard", "Premium"],
-        "versions": ["3.4"]
+        "versions": ["3.6"]
     }
 }
 ```
@@ -55,7 +54,6 @@ Ayrıca Geliştirici hesabınızı kaydetmeniz gerekir. Daha fazla bilgi için b
 | Alan | Açıklama | Olası değerler |
 | --- | --- | --- |
 | types |Uygulamanın uyumlu olduğu küme türleri. |Hadoop, HBase, Storm, Spark (veya bunların herhangi bir birleşimini) |
-| tiers |Uygulamanın uyumlu olduğu küme katmanları. |Standart, Premium (veya her ikisi de) |
 | versions |Uygulamanın uyumlu olduğu HDInsight küme türleri. |3.4 |
 
 ## <a name="application-installation-script"></a>Uygulama yükleme betiği

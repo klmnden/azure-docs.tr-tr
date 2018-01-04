@@ -1,10 +1,10 @@
 ---
-title: "Web uygulaması kapsayıcıları için özel bir Docker hub'a görüntü çalıştırmak | Microsoft Docs"
-description: "Kapsayıcıları için Web uygulaması için özel bir Docker görüntü kullanma"
-keywords: "Azure uygulama hizmeti, web uygulaması, linux, docker, kapsayıcı"
+title: "Azure Kapsayıcılar için Web App’te özel Docker Hub görüntüsü çalıştırma | Microsoft Docs"
+description: "Azure Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma"
+keywords: "azure app service, web uygulaması, linux, docker, kapsayıcı"
 services: app-service
 documentationcenter: 
-author: naziml
+author: cephalin
 manager: cfowler
 editor: 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -13,18 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/05/2017
-ms.author: wesmc
+ms.date: 11/02/2017
+ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: c85f79cc14cdcecd2a05fc0ff91c4864b9fba277
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a95a8435e4ecef201ad0f6d9ecda68e94f06ea80
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>Web uygulaması kapsayıcıları için özel bir Docker hub'a görüntü çalıştırın
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Azure Kapsayıcılar için Web App’te özel Docker Hub görüntüsü çalıştırma
 
-Uygulama hizmeti önceden tanımlanmış uygulama yığınları PHP 7.0 ve Node.js 4.5 gibi belirli sürümleri için destek ile Linux'ta sağlar. Özel bir Docker görüntü, Azure içinde tanımlı değil bir uygulama yığınını web uygulamanızı dağıtmak için de kullanabilirsiniz. Bu hızlı başlangıç web uygulaması oluşturma ve temel bir Python dağıtma gösterilmektedir Docker görüntüye. Web uygulamasını kullanarak oluşturduğunuz [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+App Service, Linux’ta PHP 7.0 ve Node.js 4.5 gibi belirli sürümleri destekleyen önceden tanımlı uygulama yığınları sağlar. Ayrıca web uygulamanızı Azure’da zaten tanımlı olmayan bir uygulama yığınında çalıştırmak için özel bir Docker görüntüsü de kullanabilirsiniz. Bu hızlı başlangıçta bir web uygulaması oluşturma ve [resmi Nginx Docker görüntüsünü](https://hub.docker.com/r/_/nginx/) bu uygulamaya dağıtma gösterilmektedir. Web uygulamasını [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak oluşturursunuz.
+
+![Azure'da çalışan örnek uygulama](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -34,17 +36,17 @@ Uygulama hizmeti önceden tanımlanmış uygulama yığınları PHP 7.0 ve Node.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-for-container"></a>Bir Web uygulaması için kapsayıcı oluşturma
+## <a name="create-a-web-app-for-container"></a>Kapsayıcılar için Web Uygulaması oluşturma
 
-[az webapp create](/cli/azure/webapp#create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../app-service-web-overview.md) oluşturun. Değiştirmeyi unutmayın `<app name>` benzersiz bir uygulama adına sahip.
+[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../app-service-web-overview.md) oluşturun. `<app name>` değerini benzersiz bir uygulama adıyla değiştirmeyi unutmayın.
 
 ```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx
 ```
 
-Önceki komutta `--deployment-container-image-name` ortak Docker hub'a görüntüye işaret eden [https://hub.docker.com/r/elnably/dockerimagetest/](https://hub.docker.com/r/elnably/dockerimagetest/). Kendi içerik inceleyebilirsiniz [https://github.com/ahmedelnably/dockerimagetest](https://github.com/ahmedelnably/dockerimagetest).
+Önceki komutta, `--deployment-container-image-name` genel Docker Hub görüntüsüne işaret eder [https://hub.docker.com/r/_/nginx/](https://hub.docker.com/r/_/nginx/).
 
-Web uygulaması oluşturduğunuzda Azure CLI çıktı aşağıdaki örneğe benzer şekilde gösterir:
+Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gibi bilgiler gösterir:
 
 ```json
 {
@@ -63,7 +65,7 @@ Web uygulaması oluşturduğunuzda Azure CLI çıktı aşağıdaki örneğe benz
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
-Web tarayıcınızı kullanarak aşağıdaki URL'ye gidin.
+Web tarayıcınızı kullanarak aşağıdaki URL’ye gidin.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -71,9 +73,9 @@ http://<app_name>.azurewebsites.net
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
-**Tebrikler!** Kapsayıcıları için Web uygulaması için özel bir Docker görüntü dağıttıktan sonra.
+**Tebrikler!** Kapsayıcılar için Web App’e bir özel Docker görüntüsü dağıttınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure'da Docker Python ve PostgreSQL bir web uygulaması oluşturma](tutorial-docker-python-postgresql-app.md)
+> [Özel Docker görüntüsü kullanma](tutorial-custom-docker-image.md)

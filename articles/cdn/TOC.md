@@ -4,11 +4,13 @@
 # Başlarken
 ## [Azure CDN'yi etkinleştirme](cdn-create-new-endpoint.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Tümleştirme
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Depolama](cdn-create-a-storage-account-with-cdn.md)
+### Depolama
+#### [Depolama hesabı tümleştirme](cdn-create-a-storage-account-with-cdn.md)
+#### [SAS depolama desteği](cdn-sas-storage-support.md)
 ### [Çıkış noktaları arası kaynak paylaşımı](cdn-cors.md)
 ### [CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md)
 ### [Özel etki alanı üzerinde HTTPS'yi yapılandırma](cdn-custom-ssl.md)
@@ -18,7 +20,7 @@
 ####[Medya akışını iyileştirme](cdn-media-streaming-optimization.md)
 ####[Dinamik site hızlandırma](cdn-dynamic-site-acceleration.md)
  
-## Yönet
+## Yönetme
 ### [Azure PowerShell ile Yönetme](cdn-manage-powershell.md)
 ### [Ülkeye göre erişimi kısıtlama](cdn-restrict-access-by-country.md)
 ### [Dosyaları sıkıştırarak performansı geliştirme](cdn-improve-performance.md)

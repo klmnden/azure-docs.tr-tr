@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 76415de270ddd6eef0100263e5c8db8e69ff500f
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -48,7 +48,7 @@ Bir geliştirme önerilen izni altında açıklanan bölüm değiştirdiğinden 
 - Azure AD Connect eski bir sürümden izni 1.1.654.0 (veya sonra), yükselten müşterilerin için değişiklikleri firmalarda geriye dönük yükseltmeden önce oluşturulan mevcut AD DS hesaplarına uygulanmaz. Bunlar yalnızca yükseltme işleminden sonra oluşturulan yeni AD DS hesaplara uygulanır. Bu durum, Azure AD ile eşitlenecek yeni AD ormanına eklemekte olduğunuz oluşur.
 
 >[!NOTE]
->Bu sürüm yalnızca hizmet hesabı yükleme işleminin oluşturulduğu Azure AD Connect yeni yüklemeler için güvenlik açığı kaldırır. Var olan yüklemeler için ya da hesap kendiniz verdiğiniz durumlarda, sould olun bu güvenlik açığı yok.
+>Bu sürüm yalnızca hizmet hesabı yükleme işleminin oluşturulduğu Azure AD Connect yeni yüklemeler için güvenlik açığı kaldırır. Var olan yüklemeler için ya da hesap kendiniz verdiğiniz durumlarda bu güvenlik açığı yok emin olmalısınız.
 
 #### <a name="lock"></a>AD DS hesabı için erişim kilitleme
 Şirket içi aşağıdaki izin değişiklikleri uygulayarak AD DS hesabı için erişim kilitleme AD:  
@@ -564,7 +564,7 @@ Doğrudan Kimlik Doğrulama
 * Azure AD Connect Sihirbazı aracılığıyla kimlik doğrulaması geçirmek seçildiğinde ancak kendi bağlayıcı kaydı başarısız olursa başarısız olmasına neden olan bir sorun düzeltilmiştir.
 * Hangi nedenler Masaüstü SSO özelliği etkinleştirilmişse, seçili oturum açma yöntemi üzerinde Doğrulamayı atla için Azure AD Connect Sihirbazı'nı denetler bir sorun düzeltilmiştir.
 
-Parola sıfırlama
+Parola Sıfırlama
 * Azure AAD Connect sunucunun bağlantı bir güvenlik duvarı veya proxy tarafından sonlandırıldı, yeniden bağlanmayı denemek değil neden olabilecek bir sorun düzeltilmiştir.
 
 **Yeni özellikler/iyileştirmeleri:**
@@ -579,7 +579,7 @@ AD FS Yönetimi
 * Şimdi, AD FS yükleme sırasında mevcut gMSA (Grup yönetilen hizmet hesabı) belirtebilirsiniz.
 * Azure AD bağlı olan taraf güveni imza karma algoritma olarak SHA-256 artık yapılandırabilirsiniz.
 
-Parola sıfırlama
+Parola Sıfırlama
 * Ürün işlevi için daha katı güvenlik duvarı kuralları ile ortamlarda izin vermek için sunulan geliştirmeleri.
 * Azure Service Bus güvenilirlik geliştirilmiş bağlantı.
 

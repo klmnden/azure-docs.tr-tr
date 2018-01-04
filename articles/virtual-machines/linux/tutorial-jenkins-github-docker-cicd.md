@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d73599164589d672d6d6cde57e4a5b40774aca19
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 1426b7331b320397184805a6642fe6a57ca6ccb1
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Jenkins, GitHub ve Docker ile azure'da bir Linux VM üzerinde bir geliştirme altyapısı oluşturma
 Uygulama geliştirme, derleme ve test aşaması otomatikleştirmek için sürekli tümleştirme ve dağıtım (CI/CD) ardışık düzen kullanabilirsiniz. Bu öğreticide, Azure VM temelinde CI/CD işlem hattı oluşturmak için nasıl dahil:
@@ -146,7 +146,7 @@ Jenkins sitenizi seçin **yeni işleri oluşturmak** giriş sayfasından:
 - Altında **genel** bölümünde, select **GitHub** proje ve çatallanmış depodaki URL'nizi girin *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - Altında **kaynak kodu Yönetimi** bölümünde, select **Git**, forked depodaki girin *.git* URL gibi *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - Altında **yapı tetikleyicileri** bölümünde, select **GITscm yoklama için GitHub kanca tetikleyici**.
-- Altında **yapı** bölümünde, seçin **Ekle derleme adımı**. Seçin **Kabuk yürütme**, enter `echo "Testing"` içinde komut penceresine.
+- Altında **yapı** bölümünde, seçin **Ekle derleme adımı**. Seçin **Kabuk yürütme**, enter `echo "Testing"` komut penceresinde.
 - Seçin **kaydetmek** işleri pencerenin altındaki.
 
 
@@ -161,7 +161,7 @@ response.end("Hello World!");
 
 Değişikliklerinizi uygulamak için seçin **değişiklikleri** altındaki düğmesini.
 
-Jenkins içinde altında yeni bir yapı başlatır **yapı geçmiş** iş sayfanızı sol alt köşesindeki bölümü. Yapı numarası bağlantısına seçip **konsol çıkış** sol boyutu. Jenkins alan, kodunuzun Github'dan çekildiğinde adımları görüntüleyebilir ve yapı eylemi ileti çıkaran `Testing` Konsolu'na. Github'da, her bir işleme yapıldığında Web kancası için Jenkins ulaştığında ve bu şekilde yeni bir derlemeyi tetiklemeyi.
+Jenkins içinde altında yeni bir yapı başlatır **yapı geçmiş** iş sayfanızı sol alt köşesindeki bölümü. Yapı numarası bağlantısına seçip **konsol çıkış** sol taraftaki. Jenkins alan, kodunuzun Github'dan çekildiğinde adımları görüntüleyebilir ve yapı eylemi ileti çıkaran `Testing` Konsolu'na. Github'da, her bir işleme yapıldığında Web kancası için Jenkins ulaştığında ve bu şekilde yeni bir derleme tetikler.
 
 
 ## <a name="define-docker-build-image"></a>Docker derleme görüntüyü tanımlayın
@@ -173,7 +173,7 @@ Bir önceki adımda oluşturduğunuz iş sonra adlı Jenkins çalışma dizini i
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-Bu çalışma alanı dizindeki bir dosya oluşturmak `sudo sensible-editor Dockerfile` ve aşağıdaki içeriğini yapıştırın. Tüm Dockerfile doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
+Bu çalışma alanı dizindeki bir dosya oluşturun `sudo sensible-editor Dockerfile` ve aşağıdaki içeriğini yapıştırın. Tüm Dockerfile doğru şekilde kopyalandığından emin olun özellikle ilk satırı:
 
 ```yaml
 FROM node:alpine

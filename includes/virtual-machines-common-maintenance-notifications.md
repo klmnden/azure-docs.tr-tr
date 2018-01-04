@@ -19,10 +19,9 @@ Azure Portalı'nı kullanın ve bakım için zamanlanmış VM'ler arayın.
       |-------|-------------|
       | Şimdi başlayın | VM bakım başlatmak imkan tanıyan Self Servis bakım penceresinde kendiniz'dir. Nasıl bakım, VM başlatmak aşağıya bakın | 
       | Zamanlanmış | VM bakım başlatmasını seçeneği ile bakım için zamanlandı. Bu görünümde otomatik zamanlanmış penceresini seçerek veya VM tıklatarak bakım penceresi öğrenin | 
-      | tamamlandı | Başarıyla başlatıldı ve VM üzerinde bakım tamamlandı. | 
-      | Atlandı| Bakım hiçbir başarı ile başlatmak için seçtiniz. Azure VM için bakım iptal etti ve daha sonraki bir zaman yeniden | 
-      | Daha sonra yeniden deneyin| Bakım başlatmak için seçmiş olduğunuz ve Azure, isteği gerçekleştirmek mümkün değildi. Bu durumda, bir süre sonra yeniden deneyebilirsiniz. | 
-   
+      | Tamamlandı | Başarıyla başlatıldı ve VM üzerinde bakım tamamlandı. | 
+      | Atlandı| Bakım hiçbir başarı ile başlatmak için seçtiniz. Self Servis Bakım seçeneğini kullanmanız mümkün olmaz. VM, Azure tarafından zamanlanmış bakım aşamasında başlatılması gerekir. | 
+
    **Bakım profesyonel etkin** -Vm'leriniz kendi kendine Bakımı başlatabilirsiniz zaman penceresini gösterir.
    
    **Bakım zamanlanmış** -Azure VM'yi bakım tamamlamak için yeniden başlattığınızda zaman penceresini gösterir. 

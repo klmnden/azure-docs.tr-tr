@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1e7b5d4409b3e53db9313cf353894d5818837588
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olayları ve ölçümleri için Application Insights API'si
 
@@ -900,7 +900,7 @@ SDK'dan gelen gönderilmeden önce telemetri işlemek üzere kod yazabilirsiniz.
 
 [Özellikler ekleme](app-insights-api-filtering-sampling.md#add-properties) uygulayarak telemetri için `ITelemetryInitializer`. Örneğin, diğer özelliklerinden sürüm numaraları veya hesaplanan değerler ekleyebilirsiniz.
 
-[Filtreleme](app-insights-api-filtering-sampling.md#filtering) değiştirebilir veya SDK'dan gelen uygulayarak gönderilmeden önce telemetri atmak `ITelemetryProcesor`. Ne gönderildiğinde veya atılan denetlemek, ancak ölçümlerinizi etkisi hesaba sahip. Öğeler atılsın nasıl bağlı olarak, ilgili öğeleri arasında gezinme becerisini kaybedebilirsiniz.
+[Filtreleme](app-insights-api-filtering-sampling.md#filtering) değiştirebilir veya SDK'dan gelen uygulayarak gönderilmeden önce telemetri atmak `ITelemetryProcessor`. Ne gönderildiğinde veya atılan denetlemek, ancak ölçümlerinizi etkisi hesaba sahip. Öğeler atılsın nasıl bağlı olarak, ilgili öğeleri arasında gezinme becerisini kaybedebilirsiniz.
 
 [Örnekleme](app-insights-api-filtering-sampling.md) uygulamanızdan portala gönderilen verilerin hacmi azaltmak için paketlenmiş bir çözümdür. Bunu görüntülenen ölçümlerin etkilemeden yapar. Ve bunu özel durumlar, istekleri ve sayfa görünümleri gibi ilgili öğeleri arasında gezinme tarafından sorunları tanılama yeteneğinizi etkilemeden yapar.
 

@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
 ## <a name="overview"></a>Genel Bakış
@@ -110,6 +110,8 @@ Azure App Service, eski IIS6 uygulamalarını geçirme ile ilişkili altyapı ma
 * WordPress gibi popüler Web uygulamalarını hızlı bir şekilde kurmak için Uygulama Galerisini kullanma.
 * Gerektikçe uygulamanıza başka Azure hizmetleri ve özellikleri ekleme.
 * Web uygulamanızı HTTPS ile güvenli hale getirme.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a id="designer"></a> Web veya grafik tasarımcısıyım ve müşterilerim için Web siteleri tasarlamak ve oluşturmak istiyorum
 Web geliştiricileri ve tasarımcıları için Azure App Service çeşitli çerçeve ve araçlarla kolayca tümleşir, Git ve FTP için dağıtım desteği içerir ve ayrıca Visual Studio ve SQL Veritabanı gibi araç ve hizmetlerle sıkı tümleştirme sağlar. App Service ile yapabilecekleriniz:

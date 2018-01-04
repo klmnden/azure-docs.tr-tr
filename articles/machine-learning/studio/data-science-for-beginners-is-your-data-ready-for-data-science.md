@@ -1,6 +1,6 @@
 ---
 title: "Verileriniz veri bilimi için hazır mı? Veri değerlendirmesi - Azure Machine Learning | Microsoft Docs"
-description: "Veri bilimi için hazır olmasını veriler için 4 ölçüt öğrenin. Veri bilimi video 2 yeni başlayanlar için temel veri değerlendirme ile yardımcı olmak için somut örnekler vardır."
+description: "Dört ölçüt verilerinizi veri bilimi için hazır olmasını gereksinimlerini karşılamak için. Bu görüntü ile temel veri değerlendirme yardımcı olmak için somut örnekler vardır."
 keywords: "ilgili verileri verileri değerlendirmek, verileri, veri ölçütlerini, veri hazır hazırlayın"
 services: machine-learning
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 9b5cf776981af0dff57195d5c7f1923b8d9a3862
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Verileriniz veri bilimi için hazır mı?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Veri bilimi yeni başlayanlar seri için
@@ -52,7 +52,7 @@ Bu nedenle, veri bilimi durumunda birlikte çıkarmak için ihtiyacımız bazı 
 Verileri ihtiyacımız var:
 
 * İlgili
-* bağlı
+* Bağlı
 * Doğru
 * Yeterli çalışmak için
 
@@ -85,11 +85,11 @@ Ancak sağ taraftaki tablo dolu olduğunda ve tamamlandı - bağlı veri örneğ
 
 ![Doğru verileri yanlış data - veri ölçütlerini karşılaştırması](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Sağ üst hedef bakın. Biz sağ hedef merkezi etrafında sıkı bir gruplandırma açıyor. Doğal olarak, doğru olur. Arasında veri bilimi dilde altındaki hedef sağdaki bizim performans da doğru olarak değerlendirilir.
+Sağ üst hedef bakın. Biz sağ hedefe tam isabet etmiş göz etrafında sıkı bir gruplandırma açıyor. Doğal olarak, doğru olur. Arasında veri bilimi dilde altındaki hedef sağdaki bizim performans da doğru olarak değerlendirilir.
 
-Bu okları merkezi eşlemek için olsaydı, bu çok hedef merkezi yakın olduğunu görürsünüz. Oklar, tüm hedef geçici kesin olmayan kabul ancak doğru kabul şekilde hedef merkezi ortalanmış yayılır.
+Bu okları merkezi eşlemek için olsaydı, bu çok hedefe tam isabet etmiş göz yakın olduğunu görürsünüz. Oklar, tüm hedef geçici kesin olmayan kabul ancak doğru kabul şekilde hedefe tam isabet etmiş göz ortalanmış yayılır.
 
-Artık sol üst hedefe arayın. Burada bizim okları çok birbirine sıkı bir gruplandırma ulaştı. Kesin, ancak merkezi şekilde hedef merkezi devre dışı olduğundan, bunlar yanlış. Ve Elbette, sol alt hedef okları yanlış ve kesin. Bu archer daha fazla uygulama gerekir.
+Artık sol üst hedefe arayın. Burada bizim okları çok birbirine sıkı bir gruplandırma ulaştı. Kesin, ancak merkezi şekilde hedefe tam isabet etmiş göz devre dışı olduğundan, bunlar yanlış. Ve Elbette, sol alt hedef okları yanlış ve kesin. Bu archer daha fazla uygulama gerekir.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Çalışmak için yeterli veri var mı?
 Son olarak, malzeme #4 - biz yeterli veri olması gerekir.

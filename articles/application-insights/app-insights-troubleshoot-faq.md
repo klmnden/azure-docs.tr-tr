@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık sorulan sorular
 
@@ -242,7 +242,7 @@ Bu, Application Insights kaynağınıza burada barındırılan bağımlı değil
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Application Insights portala telemetri gönderebilir miyim?
 
-Bizim SDK'ları kullanın ve (app-insights-api-custom-events-metrics.md) SDK API kullanan öneririz. Çeşitli için SDK'sı çeşitlemelerini vardır [platformları](app-insights-platforms.md). Bu SDK'ları arabelleğe alma, sıkıştırma, azaltma, yeniden deneme ve benzeri işler. Ancak, [alım şema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) ve [endpoint Protokolü](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) ortaktır.
+Bizim SDK'ları kullanın ve kullanmak öneririz [SDK API'si](app-insights-api-custom-events-metrics.md). Çeşitli için SDK'sı çeşitlemelerini vardır [platformları](app-insights-platforms.md). Bu SDK'ları arabelleğe alma, sıkıştırma, azaltma, yeniden deneme ve benzeri işler. Ancak, [alım şema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) ve [endpoint Protokolü](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) ortaktır.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Bir intranet web sunucusuna izleyebilir mi?
 

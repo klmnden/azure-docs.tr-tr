@@ -1,6 +1,6 @@
 ---
 title: "Başkalarının veri bilimi örnekler – Azure Machine Learning kopyalama | Microsoft Docs"
-description: "Veri bilimi, ticari sır: çalışmanızı bunu başkalarına alın. Machine learning örnekler Cortana Analytics Galerisi'nden alın."
+description: "Veri bilimi, ticari sır: çalışmanızı bunu başkalarına alın. Machine learning örnekler Azure AI Galerisi'nden alın."
 keywords: "Veri bilimi örnekler, algoritma örnek kümeleme algoritması, kümeleme machine learning örnek"
 services: machine-learning
 documentationcenter: na
@@ -13,17 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 1c767a3fc6605c3e2400bda637d91031393360a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7cc0deabf6ce19e7a2b90a474e6c890fa5b76ae
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Yeni başlayanlar seri için veri bilimi
-Veri bilimi, ticari sır birini iş yaptığınız için diğer kişileri almaktır. Cortana Analytics galerisinde kendi makine öğrenimi denemesinin için kullanılacak bir kümeleme algoritması örnek bulun.
+Veri bilimi, ticari sır birini iş yaptığınız için diğer kişileri almaktır. Kendi makine öğrenimi denemesinin için kullanılacak Azure AI Galerisi'ndeki kümeleme algoritması örnek bulun.
+
+> [!IMPORTANT]
+> Cortana Intelligence Galerisi adlandırıldı **Azure AI galeri**. Sonuç olarak, metin ve görüntüler bu dökümü biraz eski adı kullanan video farklı.
+>
 
 Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#other-videos-in-this-series)
 <br>
@@ -48,14 +52,13 @@ Bu tek bir yerde, gelen bir başlangıç noktası olarak kendi iş için kullan�
 
 Veri bilimi, ticari sır birini iş yaptığınız için diğer kişileri almaktır.
 
-## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi'nde örnekleri Bul
-Microsoft adlı bulut tabanlı bir hizmete sahip [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ücretsiz deneyin Hoş Geldiniz. Bu, bir çalışma alanıyla farklı machine learning algoritmaları ile deneyebilirsiniz ve yerdir, çalışılan çözümünüzün var olduğunda sağlar, web hizmeti olarak başlatın.
+## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Azure AI Intelligence Galerisi'nde örnekleri Bul
 
-Bu hizmetin parçası olan bir şey adlı  **[Cortana Intelligence Galerisi](http://aka.ms/CortanaIntelligenceGallery)**. Azure Machine Learning denemeleri veya kişiler yerleşik ve diğerleri için kullanılacak katkıda modelleri koleksiyonu gibi kaynakları içerir. Bu denemeler düşünce ve diğer kendi çözümlerini başlamanıza yardımcı olmak için sabit iş yararlanmak için harika bir yoludur.
+Microsoft adlı bulut tabanlı bir hizmete sahip [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) ücretsiz deneyin Hoş Geldiniz. Bu, bir çalışma alanıyla farklı machine learning algoritmaları ile deneyebilirsiniz ve yerdir, çalışılan çözümünüzün var olduğunda sağlar, web hizmeti olarak başlatın.
 
-' Daki galeri bulabilirsiniz [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Herkes üzerinden Gözat Hoş Geldiniz.
+Bu hizmetin parçası olan bir şey adlı  **[Azure AI galeri](https://gallery.cortanaintelligence.com/)**. Azure Machine Learning denemeleri veya kişiler yerleşik ve diğerleri için kullanılacak katkıda modelleri koleksiyonu gibi kaynakları içerir. Bu denemeler düşünce ve diğer kendi çözümlerini başlamanıza yardımcı olmak için sabit iş yararlanmak için harika bir yoludur. Herkes üzerinden Gözat Hoş Geldiniz.
 
-![Cortana Intelligence Galerisi](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
+![Azure AI Galerisi](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Tıklatırsanız **denemeler** en üstte en son ve popüler denemeler galerideki sayısı görürsünüz. Tıklatarak denemeler kullanılmadıkları arayabilirsiniz **tümüne Gözat** ekranın üstünde ve orada girdiğiniz arama terimleri ve arama filtrelerini seçin.
 
@@ -83,11 +86,11 @@ Bildirim bağlantısını **Studio'da Aç**.
 Ve bir başlangıç noktası şimdi sahibim. I için kendi verilerini takas ve kendi modelini uyguladıkça yapın. Bu bana bir çalışan başlangıç verir ve bana bilen gerçekten ne yaptıklarını kişilerin çalışmalarını yapı olanak tanır.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Machine learning teknikleri göstermek denemeler Bul
-Diğer denemeler vardır [Cortana Intelligence Galerisi](http://aka.ms/CortanaIntelligenceGallery) , katkıda bulunan özellikle veri bilimi yeni kişiler için nasıl yapılır örnekler sağlamak için. Örneğin, bir deneme eksik değerleri nasıl ele alınacağını gösteren galerisinde yoktur ([eksik değerleri işlemek için yöntemleri](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Boş değerleri değiştirerek 15 farklı yöntemler size yol gösterir ve her yöntem ve ne zaman kullanılmalı avantajları hakkında ettiği.
+Diğer denemeler vardır [Azure AI galeri](https://gallery.cortanaintelligence.com) , katkıda bulunan özellikle veri bilimi yeni kişiler için nasıl yapılır örnekler sağlamak için. Örneğin, bir deneme eksik değerleri nasıl ele alınacağını gösteren galerisinde yoktur ([eksik değerleri işlemek için yöntemleri](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Boş değerleri değiştirerek 15 farklı yöntemler size yol gösterir ve her yöntem ve ne zaman kullanılmalı avantajları hakkında ettiği.
 
 ![Machine Learning Studio'da - eksik değerleri için yöntemleri galeri denemeler açın](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana Intelligence Galerisi](http://aka.ms/CortanaIntelligenceGallery) kendi çözümleri için bir başlangıç noktası olarak kullanabileceğiniz çalışma denemeleri bulmak için bir yerdir.
+[Azure AI galeri](https://gallery.cortanaintelligence.com) kendi çözümleri için bir başlangıç noktası olarak kullanabileceğiniz çalışma denemeleri bulmak için bir yerdir.
 
 "Veri bilimi için yeni başlayanlar" Microsoft Azure Machine learning'in diğer videoları kullanıma emin olun.
 

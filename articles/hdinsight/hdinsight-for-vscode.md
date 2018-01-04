@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: d6ca3bcb91261a863444bc331c78adf44844be56
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 89e83dc02f32f6f2a781cf2e35040b29cc3d3c06
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure Hdınsight araçları Visual Studio kodunu kullanın
 
 Azure Hdınsight araçları Visual Studio kodunu (VS Code) oluşturun ve Hive toplu işleri, etkileşimli Hive sorguları ve pySpark betikleri göndermek için nasıl kullanılacağını öğrenin. Azure Hdınsight araçları, VS kodu tarafından desteklenen platformlarda yüklenebilir. Bunlar, Windows, Linux ve macOS içerir. Farklı platformlar için Önkoşullar bulabilirsiniz.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdaki öğeler, bu makaledeki adımları tamamlamak için gereklidir:
 
@@ -285,7 +285,8 @@ Hdınsight VS Code için aşağıdaki özellikleri destekler:
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Microsoft Power BI'ı Azure hdınsight'ta Hive verileri görselleştirin](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Azure HDInsight’ta Microsoft Power BI ile Hive verileri görselleştirme](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Etkileşimli sorgu Hive verileri Azure hdınsight'ta Power BI ile görselleştirme](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Visual Studio kodunu PySpark etkileşimli ortamını ayarlama](set-up-pyspark-interactive-environment.md)
 * [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın](./hdinsight-connect-hive-zeppelin.md)
 

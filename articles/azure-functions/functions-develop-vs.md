@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 099ff4c9748244ddaf9c12f5eb39657bf59c063b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Visual Studio için Azure işlevleri araçları  
 
@@ -36,7 +36,7 @@ Bu konu Azure işlevleri araçları Visual Studio 2017 için C# işlevlerinizi g
 > [!IMPORTANT]
 > Yerel geliştirme aynı işlev uygulaması portal geliştirme ile bir arada kullanmayın. Dağıtım işlemi, bir işlev uygulaması için bir yerel projeden yayımladığınızda, portalda geliştirilen işlevleri üzerine yazar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure işlevleri araçları Azure geliştirme iş yükü dahil [Visual Studio 2017 sürüm 15.4](https://www.visualstudio.com/vs/), veya sonraki bir sürümü. Eklediğinizden emin olun **Azure geliştirme** Visual Studio 2017 yüklemenizdeki iş yükü:
 
@@ -68,7 +68,7 @@ Azure işlevleri şablonunu kullanarak yeni bir proje oluşturduğunuzda, aşağ
 
 1. Visual Studio'da açın **Cloud Explorer**, genişletin **depolama hesabı** > **depolama hesabınız**seçeneğini belirleyip **özellikleri** ve kopyalama **birincil bağlantı dizesi** değeri.   
 
-2. Projenizdeki local.settings.json proje dosyasını açın ve değeri ayarlayın **AzureWebJobsStorage** anahtar bağlantı dizesine kopyalanır.
+2. Projenizdeki local.settings.json dosyasını açın ve değerini ayarlama **AzureWebJobsStorage** anahtar bağlantı dizesine kopyalanır.
 
 3. Benzersiz anahtarlara eklemek için önceki adımı yineleyin **değerleri** dizi işlevlerinizi tarafından gereken diğer bağlantılar için.  
 
@@ -106,7 +106,7 @@ Azure işlevleri şablonunu kullanarak yeni bir proje oluşturduğunuzda, aşağ
     } 
     ````
  
-    Bağlama özgü öznitelik giriş noktası yönteme sağlanan her bağlama parametresi uygulanır. Öznitelik parametre olarak bağlama bilgilerini alır. Önceki örnekte, ilk parametresine sahip bir **QueueTrigger** tetiklenen sıra işlevini belirten uygulanan, öznitelik. Kuyruk adı ve bağlantı dizesi ayarı adı parametre olarak geçirilir.  
+    Bağlama özgü öznitelik giriş noktası yönteme sağlanan her bağlama parametresi uygulanır. Öznitelik parametre olarak bağlama bilgilerini alır. Önceki örnekte, ilk parametresine sahip bir **QueueTrigger** tetiklenen sıra işlevini belirten uygulanan, öznitelik. Kuyruk adı ve bağlantı dizesi ayarı adı için parametre olarak geçirilen **QueueTrigger** özniteliği.
 
 ## <a name="testing-functions"></a>İşlevleri test etme
 

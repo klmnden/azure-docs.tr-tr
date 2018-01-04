@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure depolama tablo Tasarım Kılavuzu: Ölçeklenebilir tasarlama ve kullanıcı tabloları
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -41,7 +41,7 @@ Aşağıdaki örnek, çalışan ve departman varlıkları depolamak için bir ba
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>zaman damgası</th>
+<th>Zaman damgası</th>
 <th></th>
 </tr>
 <tr>
@@ -91,7 +91,7 @@ Aşağıdaki örnek, çalışan ve departman varlıkları depolamak için bir ba
 <td>
 <table>
 <tr>
-<th>departmentName</th>
+<th>Bölüm adı</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -251,7 +251,7 @@ Tablo hizmeti otomatik olarak kullanarak, varlıklarınızı dizinler **Partitio
 Çoğu tasarımları birden çok ölçüte dayalı varlıkların aramasını etkinleştirmek için gereksinimleri karşılaması gerekir. Örneğin, e-postalar, temel çalışan varlıkları bulma çalışan kimliği ya da son adı. Bölümünde aşağıdaki desenleri [tablo Tasarım desenleri](#table-design-patterns) gereksinim bu tür adres ve tablo hizmetinde ikincil dizinler sağlamaz olgu çözümüne yolları açıklanmaktadır:  
 
 * [İçi bölüm ikincil dizin düzeni](#intra-partition-secondary-index-pattern) -her varlık kullanan birden çok kopyalarını farklı depolama **RowKey** değerleri (aynı bölüm) etkinleştir hızlı ve verimli aramalarını kullanarak diğer sıralamalar farklı **RowKey** değerleri.  
-* [İkincil dizin arası bölüm düzeni](#inter-partition-secondary-index-pattern) - hızlı etkinleştirmek için ayrı bölümlere veya ayrı tablolarda farklı RowKey değerleri kullanarak her bir varlık birden çok kopyasını depolamak ve verimli aramaları ve diğer sıralama siparişleri farklı kullanarak **RowKey** değerleri.  
+* [İkincil dizin arası bölüm düzeni](#inter-partition-secondary-index-pattern) -her varlık kullanan birden çok kopyalarını farklı depolama **RowKey** değerleri de, bölümler ayrı veya içinde hızlı ve verimli aramaları ve diğer sıralama etkinleştirmek için tabloları ayırın farklı kullanarak siparişleri **RowKey** değerleri.  
 * [Dizin varlıkları düzeni](#index-entities-pattern) -varlıklar listesi Döndür verimli aramalar etkinleştirmek için dizin varlıkları korumak.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Tablo hizmetinde verileri sıralama
@@ -1107,7 +1107,7 @@ Tablo hizmeti bir *şema daha az* tasarımınızda büyük esneklik sağlayan bi
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>zaman damgası</th>
+<th>Zaman damgası</th>
 <th></th>
 </tr>
 <tr>
@@ -1157,7 +1157,7 @@ Tablo hizmeti bir *şema daha az* tasarımınızda büyük esneklik sağlayan bi
 <td>
 <table>
 <tr>
-<th>departmentName</th>
+<th>Bölüm adı</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>
@@ -1199,7 +1199,7 @@ Her varlığın hala olmalıdır Not **PartitionKey**, **RowKey**, ve **zaman da
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>zaman damgası</th>
+<th>Zaman damgası</th>
 <th></th>
 </tr>
 <tr>
@@ -1254,7 +1254,7 @@ Her varlığın hala olmalıdır Not **PartitionKey**, **RowKey**, ve **zaman da
 <table>
 <tr>
 <th>EntityType</th>
-<th>departmentName</th>
+<th>Bölüm adı</th>
 <th>EmployeeCount</th>
 </tr>
 <tr>

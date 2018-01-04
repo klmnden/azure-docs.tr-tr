@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure Blob Depolama işlemleri
 
@@ -40,7 +40,7 @@ Bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektir
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-BLOB'ları bir kapsayıcıya her zaman yüklenir. Kapsayıcılar, bilgisayarınızda dosyalarınızı klasörlerde düzenleme gibi gruplar kapsayıcılarında BLOB düzenlemek sağlayarak, bilgisayarınızdaki dizinleri benzerdir. Bir depolama hesabı herhangi bir sayıda kapsayıcı olabilir; yalnızca depolama hesabında kapladığı alanı miktarıyla sınırlıdır (500 TB'ye kadar). 
+Bloblar her zaman bir kapsayıcıya yüklenir. Kapsayıcılar, bilgisayarınızda dosyalarınızı klasörlerde düzenleme gibi gruplar kapsayıcılarında BLOB düzenlemek sağlayarak, bilgisayarınızdaki dizinleri benzerdir. Bir depolama hesabı herhangi bir sayıda kapsayıcı olabilir; yalnızca depolama hesabında kapladığı alanı miktarıyla sınırlıdır (500 TB'ye kadar). 
 
 Bir kapsayıcı oluşturduğunuzda, bu kapsayıcıdaki blobları erişebilecek kişileri tanımlamasına yardımcı olur erişim düzeyi ayarlayabilirsiniz. Örneğin, bunlar özel olabilir (erişim düzeyi = `Off`), hiç kimsenin anlamı erişebilmeniz paylaşılan erişim imzası veya depolama hesabı için erişim anahtarları olmadan. Kapsayıcı oluşturduğunuzda, erişim düzeyi belirtmezseniz, özel varsayar.
 
@@ -57,9 +57,9 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-into-a-container"></a>BLOB'ları bir kapsayıcıya karşıya yükle
 
-Azure Blob Storage blok blobları destekler, blobları ve sayfa bloblarını Ekle.  Sayfa blobları Iaas sanal makineleri yedeklemek için kullanılan VHD dosyalarını var. Ekleme blobları gibi bir dosyaya yazmak ve daha fazla bilgi ekleme tutmak istediğiniz günlük için kullanılır. BLOB storage'da depolanan çoğu blok blobları dosyalarıdır. 
+Azure Blob Storage blok blobları destekler, blobları ve sayfa bloblarını Ekle.  IaaS VM’lerini yedeklemek için kullanılan VHD dosyaları sayfa bloblarıdır. Ekleme blobları, bir dosyaya yazıp daha sonradan daha fazla bilgi eklemek istediğiniz durumlarda günlüğe kaydetme için kullanılır. Blob depolamada depolanan çoğu dosya blok blobudur. 
 
-Bir dosyayı bir blok blobuna yüklemek için bir kapsayıcı başvurusu alın ve sonra bu kapsayıcıda blok blob başvurusu alın. Blob başvurusu edindiğinizde, veri kendisine kullanarak karşıya yükleyebilirsiniz [kümesi AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Bu işlem yok veya zaten mevcut değilse bu raporun üzerine blob oluşturur.
+Bir dosyayı bir blok blobuna yüklemek için, bir kapsayıcı başvurusu alın ve bu kapsayıcıdaki blok blobuna bir başvuru alın. Blob başvurusunu aldıktan sonra, [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) kullanarak verileri karşıya yükleyebilirsiniz. Bu işlem yok veya zaten mevcut değilse bu raporun üzerine blob oluşturur.
 
 Bir kapsayıcıya bir blob karşıya nasıl yükleneceğini gösterir. İlk olarak, burada dosyaları bulunur ve karşıya yüklenecek dosyasının adı için bir değişken ayarlamak yerel makinede dizine işaret değişkenleri ayarlayın. Bu, aynı işlemi art arda gerçekleştirmek istediğinizde yararlıdır. Birden çok giriş BLOB kapsayıcısında listelerken görebilmek için birkaç dosyaları karşıya yükleyin.
 
@@ -87,7 +87,7 @@ Set-AzureStorageBlobContent -File $localFile `
   -Context $ctx
 ```
 
-Devam etmeden önce istediğiniz sayıda dosyaları karşıya yükleme.
+Devam etmeden önce istediğiniz sayıda dosyayı karşıya yükleyin.
 
 ## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
 
@@ -99,7 +99,7 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>Blob’ları indirme
 
-BLOB'ları yerel diskinize indirin. İlk olarak, blobları yüklemek istediğiniz yerel klasöre işaret eden bir değişken ayarlayın. Sonra her blob indirilmesi çağrısı ve adını ayarlayın [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) blob indirmek için.
+Blobları yerel diskinize indirin. İlk olarak, blobları yüklemek istediğiniz yerel klasöre işaret eden bir değişken ayarlayın. Sonra her blob indirilmesi çağrısı ve adını ayarlayın [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) blob indirmek için.
 
 Bu örnek BLOB D: kopyalar\\yerel diskteki _TestImages\Downloads. 
 
@@ -152,7 +152,7 @@ Bir blob ayrı depolama alanına kopyalanmaya isteyebilirsiniz. Bunu yapmak içi
 İkinci bir depolama hesabı ayarlamanız, bağlamı alma, bir kapsayıcıda bu depolama hesabı ayarlama ve kopya gerçekleştirin. Komut dosyasının bu bölümü, ilk yerine ikinci depolama hesabıyla dışında betik neredeyse aynıdır.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `
@@ -380,7 +380,7 @@ Bu öğreticide, temel Blob Depolama Yönetimi için nasıl gibi hakkında öğr
 > * Paylaşılan erişim imzaları kullanarak güvenliği yönetme
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell depolama cmdlet'leri
-* [Depolama PowerShell cmdlet'leri](/powershell/module/azurerm.storage#storage)
+* [Depolama PowerShell cmdlet’leri](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Depolama Gezgini
 * [Microsoft Azure Depolama Gezgini](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.

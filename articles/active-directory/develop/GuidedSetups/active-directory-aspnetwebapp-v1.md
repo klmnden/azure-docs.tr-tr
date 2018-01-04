@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/08/2017
 ms.author: andret
-ms.openlocfilehash: 7708304dd49535d6881641fcafdbfdcb791f9fdf
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
@@ -42,7 +42,7 @@ Bu kılavuzun sonunda uygulamanız kabul edecekse, Azure Active Directory ile t�
 Bu kılavuz, bir oturum açma düğmesi kimlik doğrulaması için bir kullanıcı isteyen burada bir tarayıcı bir ASP.NET web sitesine erişen senaryosunda temel alır. Bu senaryoda, işlerin çoğunu web sayfasını işlemek için sunucu tarafında gerçekleşir.
 
 > [!NOTE]
-> Bu Destekli Kurulum oturum açma boş bir şablondan başlangıç ASP.NET Web uygulaması kullanıcılar ve ayrıca bazı kavramları açıklayan sırasında bir oturum düğmesi ve her denetleyici ve yöntemleri ekleme gibi adımlar içerir gösterir. Alternativelly, Azure Active Directory oturum açmak için bir proje de oluşturabilirsiniz kullanarak kullanıcılar (iş ve Okul hesapları) [Visual Studio web şablonu](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) ve seçerek *Kurumsal hesaplar* ve sonra bulut seçeneklerden - bu seçenek daha zengin bir şablon ek denetleyicileri, yöntemleri ve görünümler ile kullanır.
+> Bu Destekli Kurulum oturum açma boş bir şablondan başlangıç ASP.NET Web uygulaması kullanıcılar ve ayrıca bazı kavramları açıklayan sırasında bir oturum düğmesi ve her denetleyici ve yöntemleri ekleme gibi adımlar içerir gösterir. Alternatif olarak, ayrıca Azure Active Directory oturum açmak için bir proje oluşturabilirsiniz kullanarak kullanıcılar (iş ve Okul hesapları) [Visual Studio web şablonu](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) ve seçerek *Kurumsal hesaplar* ve ardından bir ek denetleyicileri, yöntemleri ve görünümler ile bulut seçenekleri - bu seçenek daha zengin bir şablonu kullanır.
 
 ## <a name="libraries"></a>Kitaplıkları
 

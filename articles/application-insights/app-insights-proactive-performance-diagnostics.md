@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anormalliklerini
 
@@ -157,7 +157,7 @@ Size bildirir dikkat edin:
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Yavaş gerçekleştirme desenleri akıllı algılama 
 
-Application Insights, kullanıcılarınızın kısmı etkiler veya yalnızca bazı durumlarda kullanıcıları etkileyen performans sorunlarını bulur. Örneğin, sayfa yükleme hakkında tarayıcı diğer türler tarayıcıların, bir tür slowler bildirimidir veya istekleri daha yavaş belirli bir sunucudan hizmet alır. Belirli bir işletim sistemi kullanan istemciler için bir coğrafi alanda yavaş sayfa yükler gibi özellikleri bileşimleri ile ilgili sorunları da bulabilir.  
+Application Insights, kullanıcılarınızın kısmı etkiler veya yalnızca bazı durumlarda kullanıcıları etkileyen performans sorunlarını bulur. Örneğin, sayfaları yük hakkında bildirim bir tür diğer türler tarayıcıların, tarayıcı yavaştır veya istekleri daha yavaş belirli bir sunucudan hizmet alır. Belirli bir işletim sistemi kullanan istemciler için bir coğrafi alanda yavaş sayfa yükler gibi özellikleri bileşimleri ile ilgili sorunları da bulabilir.  
 
 Bu gibi bozukluklar veri inceleyerek algılamak çok zor ancak düşündüğünüzden daha yaygın. Çoğunlukla bunlar müşterilerinizin şikayetçi olduğunda yalnızca yüzey. O zamana dek çok geç: Etkilenen kullanıcılar zaten rakiplerinizin için geçiş!
 

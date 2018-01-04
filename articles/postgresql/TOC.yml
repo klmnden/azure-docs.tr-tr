@@ -95,6 +95,8 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: İçeri ve dışarı aktarma
           href: howto-migrate-using-export-and-import.md
+        - name: En düşük kapalı kalma süresiyle geçiş
+          href: howto-migrate-online.md
     - name: Sunucu parametrelerini yapılandırma
       items:
         - name: Azure portalına

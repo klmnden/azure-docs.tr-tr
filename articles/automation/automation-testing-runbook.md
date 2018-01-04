@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: df675dbf915d0fe08905a83b7874fdd95deed42d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49e8dfa341940386f15932ec4346c8811effbf0b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>Azure Otomasyonu runbook'u test etme
 Bir runbook'u test ettiğinizde [taslak sürüm](automation-creating-importing-runbook.md#publishing-a-runbook) yürütülür ve gerçekleştirdiği tüm işlemler tamamlanır. Hiçbir iş geçmişi oluşturulmaz, ancak [çıkış](automation-runbook-output-and-messages.md#output-stream) ve [uyarı ve hata](automation-runbook-output-and-messages.md#message-streams) akışları Test görüntülenen bölmesinde çıktı. İletileri için [ayrıntılı akış](automation-runbook-output-and-messages.md#message-streams) çıkış bölmesi eksikse görüntülenen [$VerbosePreference değişkeni](automation-runbook-output-and-messages.md#preference-variables) devam et ayarlanır.
@@ -42,5 +42,5 @@ Tüm iş [runbook türü](automation-runbook-types.md) Azure portalında.
 * Oluşturma veya bir runbook'u içeri bilgi edinmek için [oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma](automation-creating-importing-runbook.md)
 * Grafik Yazma hakkında daha fazla bilgi için bkz. [Azure Automation’da grafik yazma](automation-graphical-authoring-intro.md)
 * PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
-* Durum iletilerini ve hataları döndürülecek runboks yapılandırma hakkında daha fazla bilgi edinmek için de dahil olmak üzere önerilen uygulamalar, bkz: [Runbook çıkışı ve iletileri Azure Automation](automation-runbook-output-and-messages.md)
+* Durum iletilerini ve hataları dönmek için runbook'ları yapılandırma hakkında daha fazla bilgi edinmek için de dahil olmak üzere önerilen uygulamalar, bkz: [Runbook çıkışı ve iletileri Azure Automation](automation-runbook-output-and-messages.md)
 

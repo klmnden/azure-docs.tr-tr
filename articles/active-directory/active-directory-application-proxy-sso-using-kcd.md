@@ -15,11 +15,11 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: d93dcdd1d6ae8de262c08ba095ca773795f0dec3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f2d3072e52c35cc9632ed3204634f67506b9bf4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos Kısıtlanmış temsilci seçimi için çoklu oturum açma uygulamalarınızı uygulama proxy'si ile uygulama
 
@@ -41,7 +41,7 @@ Bir kullanıcı IWA kullanan şirket içi uygulamaya erişmeyi denediğinde Bu d
 7. Bağlayıcı ilk istek AD'den alınan Kerberos belirteci kullanarak uygulama sunucusuna gönderir.
 8. Uygulama için uygulama proxy'si hizmeti daha sonra döndürülen bağlayıcı yanıta gönderir ve son kullanıcıya.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 IWA uygulamalar için çoklu oturum açmayı ile çalışmaya başlamadan önce ortamınızın aşağıdaki ayarları ve yapılandırmaları hazır olduğundan emin olun:
 
 * SharePoint Web uygulamaları gibi uygulamalar, tümleşik Windows kimlik doğrulaması kullanacak şekilde ayarlanır. Daha fazla bilgi için bkz: [Kerberos kimlik doğrulaması için desteği etkinleştirme](https://technet.microsoft.com/library/dd759186.aspx), veya SharePoint bakın [Plan SharePoint 2013'te Kerberos kimlik doğrulaması için](https://technet.microsoft.com/library/ee806870.aspx).
@@ -91,7 +91,7 @@ Kerberos hakkında daha fazla bilgi için bkz: [tüm Kerberos Kısıtlı temsilc
 Windows olmayan uygulamalar genellikle kullanıcı kullanıcı adlarını veya etki alanı yerine SAM hesap adlarını e-posta adresleri. Bu durum, uygulamalarınız için geçerliyse, bulut kimliklerinizi uygulama kimliklerinizi bağlanmak için yetkilendirilmiş oturum açma kimlik alanı yapılandırmanız gerekir. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Şirket içi ve bulut kimlikleri ile çalışma
-Uygulama proxy'si, kullanıcıların bulutta ve şirket içi tam olarak aynı kimliğe sahip olduğunu varsayar. Bu durumda değilse, hala KCD çoklu oturum açma için kullanabileceğiniz. Yapılandırma bir **oturum açma kimlik temsilcisi** hangi kimlik, çoklu oturum açma gerçekleştirirken kullanılması gerektiğini belirlemek her bir uygulama için.  
+Uygulama proxy'si, kullanıcıların bulutta ve şirket içi tam olarak aynı kimliğe sahip olduğunu varsayar. Bu durumda değilse, çoklu oturum açma için hala KCD kullanabilirsiniz. Yapılandırma bir **oturum açma kimlik temsilcisi** hangi kimlik, çoklu oturum açma gerçekleştirirken kullanılması gerektiğini belirlemek her bir uygulama için.  
 
 Bu özellik şirket içi ve bulut kimlikleri SSO buluttan farklı kullanıcı adları ve parolalar girmesini gerek kalmadan şirket içi uygulamalara sahip olan birçok kuruluş sağlar. Bu kuruluşların içerir:
 

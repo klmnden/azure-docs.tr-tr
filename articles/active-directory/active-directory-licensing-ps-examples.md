@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: cbc432c411e80c7fc49daecd727d8e1969faede5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Grup tabanlı Azure AD'de lisans için PowerShell örnekleri
 
@@ -141,7 +141,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Tüm kullanıcıların Lisans hatalarla bir grupta alın.
 
-Bazı içeren bir grup verilen ilgili hatalar lisans, bu hataları tarafından etkilenen tüm kullanıcılar artık listeleyebilirsiniz. Bir jser diğer grupları hatalardan çok olabilir. Ancak, hesabınıza sınır sonuçları yalnızca söz konusu gruba ilgili hataları kontrol ederek bu örnekte **ReferencedObjectId** her özellik **IndirectLicenseError** kullanıcı girişi.
+Bazı içeren bir grup verilen ilgili hatalar lisans, bu hataları tarafından etkilenen tüm kullanıcılar artık listeleyebilirsiniz. Bir kullanıcının diğer grupları hatalardan çok olabilir. Ancak, hesabınıza sınır sonuçları yalnızca söz konusu gruba ilgili hataları kontrol ederek bu örnekte **ReferencedObjectId** her özellik **IndirectLicenseError** kullanıcı girişi.
 
 ```
 #a sample group with errors

@@ -1,5 +1,9 @@
 - name: Site Recovery Belgeleri
   href: index.yml
+- name: Şirket içi makinelerin ve Azure VM’lerinin geçişi
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Azure’dan Azure’a olağanüstü durum kurtarma
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Genel Bakış
   items:
     - name: Site Recovery nedir?
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: Şirket içi-Azure arası destek matrisi
       href: site-recovery-support-matrix-to-azure.md
+    - name: Hyper-V’den Azure’a destek matrisi
+      href: support-matrix-hyper-v-to-azure.md
     - name: Şirket içi-ikincil site arası destek matrisi
       href: site-recovery-support-matrix-to-sec-site.md
     - name: İş yükleri için olağanüstü durum kurtarma
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Olağanüstü durum kurtarma
       items:
+        - name: Azure'a çoğaltma için Hyper-V hazırlığı
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Hyper-V VM’lerinden Azure’a
           href: tutorial-hyper-v-to-azure.md
+        - name: VMM bulutlarındaki Hyper-V VM’lerini Azure’a geçirme
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Fiziksel sunucuları Azure'a
           href: tutorial-physical-to-azure.md
         - name: Hyper-V VM’lerinden ikincil siteye
@@ -235,7 +245,7 @@
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Diğer iş yükleri
           href: 'site-recovery-workload.md#workload-summary'
-    - name: Yönet
+    - name: Yönetme
       items:
         - name: Kurtarma Hizmetleri kasasına yükseltme
           href: upgrade-site-recovery-vaults.md

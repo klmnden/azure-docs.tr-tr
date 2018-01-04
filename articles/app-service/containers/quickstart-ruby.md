@@ -1,7 +1,7 @@
 ---
-title: "Bir Ruby uygulaması oluşturma ve Linux uygulama hizmetine dağıtma | Microsoft Docs"
-description: "Uygulama hizmeti Linux'ta ile Söyleniş uygulamaları oluşturmayı öğrenin."
-keywords: Azure uygulama hizmeti, linux, oss, ruby
+title: "Ruby Uygulaması oluşturma ve Linux’ta App Service’e dağıtma | Microsoft Docs"
+description: "Linux’ta App Service ile Ruby uygulamaları oluşturmayı öğrenin."
+keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: 
 author: SyntaxC4
@@ -16,28 +16,28 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a54ef1ae40ba6ea9ad604a29c67e41228c0d5946
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: MT
+ms.openlocfilehash: 29c2f897cbc5affcd6b2a70ec95a1a8855a5db69
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux üzerinde App Service'te bir Ruby uygulaması oluşturma
+# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux’ta App Service’te Ruby Uygulaması oluşturma
 
-[Uygulama hizmeti Linux'ta](app-service-linux-intro.md) düzeyde ölçeklenebilir, otomatik olarak düzeltme eki uygulama web barındırma hizmeti sağlar. Bu Hızlı Başlangıç, temel bir Ruby oluşturmayı gösteren rayları uygulaması, Azure için Linux üzerinde bir Web uygulaması olarak dağıtırsınız.
+[Linux’ta App Service](app-service-linux-intro.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu hızlı başlangıçta, basit bir uygulaması oluşturup Linux’ta bir Web App olarak Azure’a nasıl dağıtabileceğiniz açıklanır.
 
-![Merhaba Dünya](./media/quickstart-ruby/hello-world-updated.png)
+![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.4.1 yüklemek veya üzeri</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Ruby 2.4.1 veya üzerini yükleyin</a>
 * <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-Bir terminal penceresi örnek uygulama depoyu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın:
+Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın:
 
 ```bash
 git clone https://github.com/Azure-Samples/ruby-docs-hello-world
@@ -45,20 +45,20 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>Uygulamayı yerel olarak çalıştırma
 
-Uygulamanın çalışması sırayla rayları sunucunun çalıştırın. Değiştirin *Merhaba Dünya* dizini ve `rails server` komut sunucu başlatır.
+Uygulamanın çalışması için Rails sunucusunu çalıştırın. *Hello-world* dizinine geçin; `rails server` komutu sunucuyu başlatır.
 
 ```bash
 cd hello-world\bin
 rails server
 ```
 
-Web tarayıcınız üzerinden gidin `http://localhost:3000` uygulama yerel olarak test etmek için.
+Web tarayıcınızı kullanarak uygulamayı yerel olarak test etmek için `http://localhost:3000` yoluna gidin.
 
-![Merhaba Dünya](./media/quickstart-ruby/hello-world.png)
+![Hello-world](./media/quickstart-ruby/hello-world.png)
 
-## <a name="modify-app-to-display-welcome-message"></a>Hoş Geldiniz iletisi görüntülenecek uygulama değiştirme
+## <a name="modify-app-to-display-welcome-message"></a>Uygulamayı karşılama iletisi görüntüleyecek şekilde değiştirme
 
-Hoş Geldiniz iletisi görüntüler için uygulama değiştirin. İlk olarak değiştirerek bir rota kurmanız gerekir *~/workspace/ruby-docs-hello-world/config/routes.rb* adlı bir rota eklenecek dosyası `hello`.
+Uygulamayı bir karşılama iletisi görüntüleyecek şekilde değiştirin. İlk olarak *~/workspace/ruby-docs-hello-world/config/routes.rb* dosyasını `hello` adlı bir rota içerecek şekilde değiştirerek bir rota ayarlamanız gerekir.
 
   ```ruby
   Rails.application.routes.draw do
@@ -67,9 +67,9 @@ Hoş Geldiniz iletisi görüntüler için uygulama değiştirin. İlk olarak de�
   end
   ```
 
-Bu iletiyi HTML olarak tarayıcıya döndürecek şekilde uygulamanın denetleyicisini değiştirin. 
+Uygulamanın denetleyicisini, iletiyi tarayıcıya HTML olarak döndürecek şekilde değiştirin. 
 
-Açık *~/workspace/hello-world/app/controllers/application_controller.rb* düzenlemek için. Değiştirme `ApplicationController` aramak için sınıf gibi aşağıdaki kod örneği:
+*~/workspace/hello-world/app/controllers/application_controller.rb* dosyasını düzenlemek üzere açın. `ApplicationController` sınıfını şu kod örneğinde görülen şekilde değiştirin:
 
   ```ruby
   class ApplicationController > ActionController :: base
@@ -80,49 +80,49 @@ Açık *~/workspace/hello-world/app/controllers/application_controller.rb* düze
   end
   ```
 
-Uygulamanız şimdi yapılandırıldı. Web tarayıcınız üzerinden gidin `http://localhost:3000` kök giriş sayfası onaylamak için.
+Uygulamanız artık yapılandırılmıştır. Kök giriş sayfasını doğrulamak için web tarayıcınızı kullanarak `http://localhost:3000` yoluna gidin.
 
-![Yapılandırılmış Merhaba Dünya](./media/quickstart-ruby/hello-world-configured.png)
+![Hello World yapılandırıldı](./media/quickstart-ruby/hello-world-configured.png)
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Azure üzerinde bir Söyleniş web uygulaması oluşturma
+## <a name="create-a-ruby-web-app-on-azure"></a>Azure’da Ruby web uygulaması oluşturma
 
-Bir kaynak grubu web uygulamanız için gereken varlıklar içermesi gerekir. Bir kaynak grubu oluşturmak için kullanın [az grubu oluşturma]() komutu.
+Web uygulamanız için gerekli varlıkları içeren bir kaynak grubu gerekir. Kaynak grubu oluşturmak için [az group create]() komutunu kullanın.
 
 ```azurecli-interactive
 az group create --location westeurope --name myResourceGroup
 ```
 
-Kullanım [az uygulama hizmeti planı oluşturma](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) web uygulamanız için bir app service planı oluşturmak için komutu.
+[az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) komutunu kullanarak web uygulamanız için bir uygulama hizmeti planı oluşturun.
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
 ```
 
-Ardından, sorun [az webapp oluşturmak](https://docs.microsoft.com/cli/azure/webapp) yeni oluşturulan hizmet planını kullanan web uygulaması oluşturmak için komutu. Çalışma zamanı kümesine bildirimi `ruby|2.3`. Değiştirmeyi unutmayın `<app name>` benzersiz bir uygulama adına sahip.
+Sonra, [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutunu uygulayarak yeni oluşturulan hizmet planını kullanan web uygulamasını oluşturun. Çalışma zamanının `ruby|2.3` olarak ayarlandığına dikkat edin. `<app name>` değerini benzersiz bir uygulama adıyla değiştirmeyi unutmayın.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
 --runtime "ruby|2.3" --deployment-local-git
 ```
 
-Komut çıktısı dağıtım URL'si yanı sıra yeni oluşturulan web uygulaması hakkında bilgi gösterir. Aşağıdaki örneğe benzemelidir. Bu öğreticide daha sonra kullanmak için URL'yi kopyalayın.
+Komut çıktısı, yeni oluşturulan web uygulamasıyla ilgili bilgilerin yanı sıra dağıtım URL’sini gösterir. Aşağıda yer alan örnekteki gibi görünmelidir. Bu öğreticide daha sonra kullanmak üzere URL’yi kopyalayın.
 
 ```bash
 https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
 ```
 
-Web uygulaması oluşturulduktan sonra bir **genel bakış** sayfasını görüntülemek kullanılabilir. Kendisine gidin. Aşağıdaki karşılama sayfası görüntülenir:
+Web uygulaması oluşturulduğunda bir **Genel Bakış** sayfası görüntülenebilir. Bu sayfaya gidin. Aşağıdaki karşılama sayfası görüntülenir:
 
-![Giriş sayfası](./media/quickstart-ruby/splash-page.png)
+![Karşılama sayfası](./media/quickstart-ruby/splash-page.png)
 
 
-## <a name="deploy-your-application"></a>Uygulamanızı dağıtmak
+## <a name="deploy-your-application"></a>Uygulamanızı dağıtma
 
-Azure Web sitenizi yerel uygulamayı dağıtmak için aşağıdaki komutları çalıştırın:
+Yerel uygulamayı Azure web sitenize dağıtmak için aşağıdaki komutları çalıştırın:
 
 ```bash
 git remote add azure <Git deployment URL from above>
@@ -131,7 +131,7 @@ git commit -m "Initial deployment commit"
 git push azure master
 ```
 
-Uzaktan dağıtım işlemlerini Başarı Raporu onaylayın. Komutları, aşağıdakine benzer bir çıktı üretir:
+Uzaktan dağıtım işlemlerinin başarılı olarak bildirildiğini doğrulayın. Komutlar aşağıdaki metne benzer bir çıktı oluşturur:
 
 ```bash
 remote: Using sass-rails 5.0.6
@@ -147,26 +147,26 @@ To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
 myuser@ubuntu1234:~workspace/<app name>$
 ```
 
-Dağıtım tamamlandıktan sonra web uygulamanızı kullanarak etkili olması için dağıtım için yeniden [az webapp yeniden](https://docs.microsoft.com/cli/azure/webapp#az_webapp_restart) aşağıda gösterildiği gibi komut:
+Dağıtım tamamlandığında, dağıtımın etkili olması için burada gösterildiği gibi [az webapp restart](/cli/azure/webapp?view=azure-cli-latest#az_webapp_restart) komutunu kullanarak web uygulamanızı yeniden başlatın:
 
 ```azurecli-interactive
 az webapp restart --name <app name> --resource-group myResourceGroup
 ```
 
-Sitenize gidin ve sonuçlar doğrulayın.
+Sitenize gidin ve sonuçları doğrulayın.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
-![güncelleştirilmiş web uygulaması](./media/quickstart-ruby/hello-world-updated.png)
+![güncelleştirilen web uygulaması](./media/quickstart-ruby/hello-world-updated.png)
 
 > [!NOTE]
-> Uygulama yeniden başlatılırken bir HTTP durum kodu site sonuçlarında göz atmaya çalışırken `Error 503 Server unavailable`. Tam olarak yeniden başlatmak için birkaç dakika sürebilir.
+> Uygulama yeniden başlatıldığı sırada siteye göz atmaya çalışılması, `Error 503 Server unavailable` şeklinde bir HTTP durum koduna yol açar. Tamamen yeniden başlatılması birkaç dakika sürebilir.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure uygulama hizmeti Linux SSS](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
+[Linux’ta Azure App Service hakkında SSS](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq)

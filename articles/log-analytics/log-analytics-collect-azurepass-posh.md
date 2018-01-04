@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 7bae18e151fbdccf95f3fe5f569041d6dd9c42eb
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Günlük analizi ile Azure PaaS kaynak ölçümleri koleksiyonunu yapılandırma
 
@@ -26,7 +26,7 @@ Azure SQL ve Web siteleri (Web uygulamaları) gibi bir hizmet (PaaS) kaynaklar o
 
 Bugün, ölçümleri kaynakları Azure portalı üzerinden PaaS için günlüğü etkinleştirmek için bir yolu yoktur. Bu nedenle, bir PowerShell betiğini kullanmanız gerekir. Günlük analizi izleme, yanı sıra bu yerel ölçümleri günlüğe kaydetme özelliğine ölçekte Azure kaynaklarını izlemenize olanak tanır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Devam etmeden önce bilgisayarınızda yüklü aşağıdaki Azure Resource Manager modüllerini doğrulayın:
 
 - AzureRM.Insights
@@ -37,7 +37,7 @@ Devam etmeden önce bilgisayarınızda yüklü aşağıdaki Azure Resource Manag
 >[!NOTE]
 >Tüm Azure Resource Manager modüllerini Powershell'den Azure Resource Manager komutları çalıştırdığınızda uyumluluğundan emin olmak için aynı sürüme sahip öneririz.
 >
-Bilgisayarınıza Azure Resource Manager modüllerini en son sürümünü yüklemek için bkz: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+Bilgisayarınıza Azure Resource Manager modüllerini en son sürümünü yüklemek için bkz: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## <a name="enable-azure-diagnostics"></a>Azure tanılama etkinleştir  
 Azure tanılama PaaS kaynaklar için yapılandırma gerçekleştirilir betik yürüterek **etkinleştir AzureRMDiagnostics.ps1**, kullanılabilir olduğu [PowerShell Galerisi](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  Komut dosyası aşağıdaki senaryoları destekler:

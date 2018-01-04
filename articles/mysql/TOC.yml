@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: İçeri ve dışarı aktarma
           href: concepts-migrate-import-export.md
+        - name: En düşük kapalı kalma süresiyle geçiş
+          href: howto-migrate-online.md
     - name: Uygulamaları bağlama
       items:
         - name: Kullanıcı oluşturma

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: jgao
-ms.openlocfilehash: 9d9d9556c37cfa5a1a740569b4c7fd4fd07a467a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 80e96e6bb727e6d5c1331580fad328d570b21494
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Hdınsight ile etkileşimli sorgu kullanma
 Etkileşimli sorgu (Hive LLAP olarak da bilinir veya [Canlı uzun ve işlem](https://cwiki.apache.org/confluence/display/Hive/LLAP)) bir Azure Hdınsight olan [küme türü](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Etkileşimli sorgu bellek içi önbelleğe alma, hangi Hive sorguları daha hızlı ve daha fazla etkileşimli yapar destekler.
@@ -43,8 +43,8 @@ Hive sorgularını yürütmek için aşağıdaki seçenekleriniz vardır:
 
 * Power BI kullanın
 
-    Bkz: [Azure hdınsight'ta Power BI ile büyük veri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-
+    Bkz: [Power BI Azure hdınsight'ta Hive etkileşimli sorgu görselleştirmek verilerle](./apache-hadoop-connect-hive-power-bi-directquery.md) bkz [Azure hdınsight'ta Power BI ile büyük veri görselleştirme](../hadoop/apache-hadoop-connect-hive-power-bi.md).
+ 
 * Zeppelin kullanma
 
     Bkz: [kullanım Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin ](../hdinsight-connect-hive-zeppelin.md).

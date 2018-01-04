@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/03/2018
 ms.author: dobett
-ms.openlocfilehash: cec5d9c2e81e6311514536f7605777d48d1f1c46
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 7cfa6dd93c6db7477e03ff966b2ac8af15de3614
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Uzaktan izleme önceden yapılandırılmış çözümü (C) Raspberry Pi'yi Cihazınızı bağlama
 
@@ -47,9 +47,11 @@ Komut satırı Raspberry Pi'yi üzerinde uzaktan erişim sağlamak için Masaüs
 
 ### <a name="required-raspberry-pi-software"></a>Gerekli Raspberry Pi'yi yazılım
 
+Bu makalede, en son sürümünü yüklediğinizden varsayılmaktadır [Raspbian işletim sisteminde Raspberry Pi'yi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
+
 Aşağıdaki adımlar, Raspberry Pi'yi önceden yapılandırılmış çözümü bağlayan bir C uygulaması oluşturmak için hazırlamak nasıl gösterir:
 
-1. Kullanarak Raspberry Pi'yi bağlanmak `ssh`. Daha fazla bilgi için bkz: [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) üzerinde [Raspberry Pi'yi Web sitesi](https://www.raspberrypi.org/).
+1. Kullanarak Raspberry Pi'yi bağlanmak **ssh**. Daha fazla bilgi için bkz: [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) üzerinde [Raspberry Pi'yi Web sitesi](https://www.raspberrypi.org/).
 
 1. Raspberry Pi'yi güncelleştirmek için aşağıdaki komutu kullanın:
 
@@ -60,31 +62,27 @@ Aşağıdaki adımlar, Raspberry Pi'yi önceden yapılandırılmış çözümü 
 1. Gerekli geliştirme araçları ve kitaplıkları, Raspberry Pi'yi eklemek için aşağıdaki komutu kullanın:
 
     ```sh
-    sudo apt-get install g++ make cmake gcc git
+    sudo apt-get purge libssl-dev
+    sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
-1. IOT Hub istemci kitaplıkları yüklemek için aşağıdaki komutları kullanın:
-
-    ```sh
-    grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-    sudo apt-get update
-    sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-    ```
-
-1. Aşağıdaki komutları kullanarak, Raspberry Pi'yi Parson JSON ayrıştırıcıya kopyalama:
+1. Karşıdan yükle, yapı ve IOT Hub istemci kitaplıkları, Raspberry Pi'yi yüklemek için aşağıdaki komutları kullanın:
 
     ```sh
     cd ~
-    git clone https://github.com/kgabis/parson.git
+    git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c/build_all/linux
+    ./build.sh --no-make
+    cd ../../cmake/iotsdk_linux
+    make
+    sudo make install
     ```
 
 ## <a name="create-a-project"></a>Proje oluştur
 
-Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
+Kullanarak aşağıdaki adımları tamamlayın **ssh** Raspberry Pi'yi bağlantı:
 
-1. Adlı bir klasör oluşturun `remote_monitoring` Raspberry Pi'yi, ev klasöründedir. Komut satırında bu klasöre gidin:
+1. Adlı bir klasör oluşturun `remote_monitoring` Raspberry Pi'yi, ev klasöründedir. Kabuğunuzu bu klasöre gidin:
 
     ```sh
     cd ~
@@ -92,13 +90,9 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
     cd remote_monitoring
     ```
 
-1. Dört dosyaları oluşturma `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, ve `CMakeLists.txt` içinde `remote_monitoring` klasör.
+1. Dört dosyaları oluşturma **main.c**, **remote_monitoring.c**, **remote_monitoring.h**, ve **CMakeLists.txt** içinde `remote_monitoring` klasör.
 
-1. Adlı bir klasör oluşturun `parson` içinde `remote_monitoring` klasör.
-
-1. Dosyaları kopyalamak `parson.c` ve `parson.h` Parson depoya yerel kopyasından `remote_monitoring/parson` klasör.
-
-1. Bir metin düzenleyicisinde açın `remote_monitoring.c` dosya. Ya da kullanmak Raspberry Pi'yi üzerinde `nano` veya `vi` metin düzenleyici. Aşağıdaki `#include` deyimlerini ekleyin:
+1. Bir metin düzenleyicisinde açın **remote_monitoring.c** dosya. Ya da kullanmak Raspberry Pi'yi üzerinde **nano** veya **VI** metin düzenleyici. Aşağıdaki `#include` deyimlerini ekleyin:
 
     ```c
     #include "iothubtransportmqtt.h"
@@ -113,15 +107,19 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantı:
 
 [!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
 
+Kaydet **remote_monitoring.c** dosya ve düzenleyiciden çıkın.
+
 ## <a name="add-code-to-run-the-app"></a>Uygulamayı çalıştırmak için kod ekleme
 
-Bir metin düzenleyicisinde açın `remote_monitoring.h` dosya. Aşağıdaki kodu ekleyin:
+Bir metin düzenleyicisinde açın **remote_monitoring.h** dosya. Aşağıdaki kodu ekleyin:
 
 ```c
 void remote_monitoring_run(void);
 ```
 
-Bir metin düzenleyicisinde açın `main.c` dosya. Aşağıdaki kodu ekleyin:
+Kaydet **remote_monitoring.h** dosya ve düzenleyiciden çıkın.
+
+Bir metin düzenleyicisinde açın **main.c** dosya. Aşağıdaki kodu ekleyin:
 
 ```c
 #include "remote_monitoring.h"
@@ -133,6 +131,8 @@ int main(void)
   return 0;
 }
 ```
+
+Kaydet **main.c** dosya ve düzenleyiciden çıkın.
 
 ## <a name="build-and-run-the-application"></a>Uygulamayı derleme ve çalıştırma
 
@@ -158,18 +158,16 @@ Aşağıdaki adımlar nasıl kullanılacağını açıklamaktadır *CMake* istem
     cmake_minimum_required(VERSION 2.8.11)
     compileAsC99()
 
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
+    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "/usr/local/include/azureiot")
 
     include_directories(${AZUREIOT_INC_FOLDER})
 
     set(sample_application_c_files
-        ./parson/parson.c
         ./remote_monitoring.c
         ./main.c
     )
 
     set(sample_application_h_files
-        ./parson/parson.h
         ./remote_monitoring.h
     )
 
@@ -188,6 +186,8 @@ Aşağıdaki adımlar nasıl kullanılacağını açıklamaktadır *CMake* istem
         m
     )
     ```
+
+1. Kaydet **CMakeLists.txt** dosya ve düzenleyiciden çıkın.
 
 1. İçinde `remote_monitoring` klasörünü depolamak için bir klasör oluşturun *olun* CMake oluşturur dosyaları. Ardından çalıştırın **cmake** ve **olun** gibi komutlar:
 

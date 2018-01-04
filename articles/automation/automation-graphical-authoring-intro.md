@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5cf9ef392a5a4e33f6413495e1c81e969d50dcad
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafik Azure Otomasyonu'nda yazma
 ## <a name="introduction"></a>Giriş
@@ -122,7 +122,7 @@ Bir parametre için değer belirttiğinizde, değeri belirtilen nasıl belirleme
 | Sertifika varlığı |Bir Otomasyon sertifikası giriş olarak seçin. |
 | Bağlantı varlığı |Otomasyon bağlantısı giriş olarak seçin. |
 | PowerShell ifadesi |Basit belirtin [PowerShell ifadesi](#powershell-expressions).  İfade, etkinlik ve parametre değeri olarak kullanılan sonuç önce değerlendirilir.  Bir etkinlik veya runbook giriş parametresi çıkışına başvurmak için değişkenleri kullanabilirsiniz. |
-| Yapılandırılmamış |Önceden yapılandırılmış herhangi bir değer temizler. |
+| Yapılandırılmadı |Önceden yapılandırılmış herhangi bir değer temizler. |
 
 #### <a name="optional-additional-parameters"></a>İsteğe bağlı ek parametreler
 Tüm cmdlet'ler ek parametreleri sağlamak amacıyla seçeneğiniz.  Bunlar, PowerShell genel parametreleri veya diğer özel parametreler olan.  PowerShell sözdizimini kullanarak parametreler burada sağlayabilir içeren bir metin kutusu sunulur.  Örneğin, kullanılacak **ayrıntılı** ortak parametresi belirtirsiniz **"-Verbose: $True"**.
@@ -198,7 +198,7 @@ Ardışık Düzen bağlantısına için tek bir nesne için bir koşul belirtin 
     $ActivityOutput['Get Azure VMs'].Name -match "Group1"
 
 Tüm nesneleri çıktı ve kaynak etkinliğinden içeren tek bir dizi döndürdü beri dizisi bağlantı için koşulu yalnızca bir kez değerlendirilir.  Bu nedenle, bir dizi bağlantı gibi bir ardışık düzen bağlantısına filtreleme için kullanılamaz, ancak yalnızca bir sonraki etkinlik çalıştırılır olup olmadığını belirler. Örneğin aşağıdaki etkinlikler kümesini bizim VM Başlat runbook'ta ele alın.<br> ![Dizileri ile koşullu bağlantı](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
-Değerleri belirlemek için sanal makine adını ve kaynak grubu adı temsil eden iki runbook giriş parametreleri yapılacak - uygun eylemi olan sağlandı doğrulama üç farklı sıra bağlantı tek bir VM başlatmak için tüm VM'ler kaynağa Başlat vardır Grup veya bir Abonelikteki tüm VM'ler.  Azure Connect ve Get tek VM arasındaki dizisi bağlantı için koşul mantığı şöyledir:
+Değerleri belirlemek için sanal makine adını ve kaynak grubu adı temsil eden iki runbook giriş parametreleri yapılacak - uygun eylemi olan sağlandı doğrulama üç farklı sıra bağlantı tek bir VM başlatmak için kaynak tüm sanal makineleri Başlat vardır Grup veya bir Abonelikteki tüm VM'ler.  Azure Connect ve Get tek VM arasındaki dizisi bağlantı için koşul mantığı şöyledir:
 
     <# 
     Both VMName and ResourceGroupName runbook input parameters have values 
@@ -245,7 +245,7 @@ Bir etkinlik çıktısı da alabilir bir **PowerShell ifadesi** veri kaynağı v
     $ActivityOutput['Activity Label']
     $ActivityOutput['Activity Label'].PropertyName 
 
-### <a name="checkpoints"></a>Denetim Noktaları
+### <a name="checkpoints"></a>Kontrol noktaları
 Ayarlayabileceğiniz [kontrol noktaları](automation-powershell-workflow.md#checkpoints) seçerek bir grafik PowerShell iş akışı runbook'ta *denetim noktası runbook* herhangi bir etkinlik üzerinde.  Bu etkinliğin çalıştıktan sonra ayarlamak bir denetim noktası neden olur.
 
 ![Kontrol noktası](media/automation-graphical-authoring-intro/set-checkpoint.png)

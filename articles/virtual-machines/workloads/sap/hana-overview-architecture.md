@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>SAP HANA (büyük örnekler) genel bakış ve Azure üzerinde mimarisi
 
@@ -36,16 +36,18 @@ Altyapı damga içindeki müşteri yalıtımı, kiracılar, ayrıntılı benzer 
 
 Bu tam sunucu birimleri, SAP HANA yalnızca çalıştırmak için desteklenir. SAP uygulama katmanı veya iş yükü donanımlar orta katman Microsoft Azure sanal makinelerde çalışan. SAP HANA Azure (büyük örneği) birimler üzerinde çalışan altyapı Damgalar SAP HANA Azure (büyük örneği) birimlerdeki ve Azure sanal makineler arasında düşük gecikme süresi bağlantısı sağlanan Azure ağ omurgalarında için bu nedenle, bağlı.
 
-Bu belgede Azure (büyük örneği) üzerinde SAP HANA konuda beş belgeleri biridir. Bu belgede, temel mimari, sorumlulukları, sağlanan hizmetlere ve çözüm özelliklerini aracılığıyla üst düzey gidin. Alanlar, ağ ve bağlantısı gibi birçok ilgili diğer dört belge ayrıntıları kapsayan ve listeleri ayrıntıya gidin. SAP HANA Azure (büyük örneği) ile ilgili belgelere SAP NetWeaver yükleme yönlerini ve Azure vm'lerinde SAP NetWeaver dağıtımları kapsamaz. Bu konu, aynı belgelerine kapsayıcıda bulunan ayrı belgelerinde ele alınmıştır. 
+Bu belge, Azure (büyük örneği) üzerinde SAP HANA kapak birden çok belge biridir. Bu belgede, temel mimari, sorumlulukları, sağlanan hizmetlere ve çözüm özelliklerini aracılığıyla üst düzey gidin. Alanlar, ağ ve bağlantısı gibi birçok ilgili diğer dört belge ayrıntıları kapsayan ve listeleri ayrıntıya gidin. SAP HANA Azure (büyük örneği) ile ilgili belgelere SAP NetWeaver yükleme yönlerini ve Azure vm'lerinde SAP NetWeaver dağıtımları kapsamaz. SAP NetWeaver Azure üzerinde aynı Azure belgelerine kapsayıcıda bulunan ayrı belgelerinde ele alınmıştır. 
 
 
-Bu kılavuzun beş bölümü aşağıdaki konuları içerir:
+Farklı belgeler HANA büyük örneği kılavuzunun aşağıdaki alanlarda kapsar:
 
 - [SAP HANA (büyük örneği) genel bakış ve Azure üzerinde mimarisi](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (büyük örnekler) altyapısı ve Azure ile ilgili bağlantı](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırma](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (büyük örnekler) yüksek kullanılabilirlik ve olağanüstü durum kurtarma Azure ile ilgili](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (büyük örnekler) sorun giderme ve Azure üzerinde izleme](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Yüksek kullanılabilirlik STONITH kullanarak SUSE içinde ayarlama](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [İşletim sistemi yedekleme ve geri yükleme türü II SKU'ları için](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## <a name="definitions"></a>Tanımlar
 
@@ -67,7 +69,7 @@ Birkaç ortak tanımları mimari ve teknik dağıtım kılavuzu yaygın olarak k
     - **Tür II sınıfı:** S384, S384m, S384xm, S576, S768 ve S960
 
 
-Çeşitli Microsoft Azure genel bulut SAP iş yükünü dağıtma konusunda yayımlanan ek kaynaklar vardır. Herkes planlama ve SAP HANA dağıtımını Azure'da yürütme deneyimli ve Azure Iaas ilkeleri ve Azure Iaas iş yükünü SAP dağıtımının önerilir. Aşağıdaki kaynaklar, daha fazla bilgi sağlayın ve devam etmeden önce başvurulan:
+Çeşitli Microsoft Azure genel bulut SAP iş yüküne dağıtmayı yayımlanan ek kaynaklar vardır. Herkes planlama ve SAP HANA dağıtımını Azure'da yürütme deneyimli ve Azure Iaas ilkeleri ve Azure Iaas iş yükünü SAP dağıtımının önerilir. Aşağıdaki kaynaklar, daha fazla bilgi sağlayın ve devam etmeden önce başvurulan:
 
 
 - [Microsoft Azure sanal makinelerde SAP çözümleri kullanma](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -357,7 +359,7 @@ Bu boyutlar biraz dağıtım ve birimlerinin aramak için kullanılan araçlar g
 
 Bir müşteri olabilir gibi daha fazla depolama alanı için gerekir, 1 TB birimler ek depolama alanı satın almak için depolama alanı eklemek için olanağına sahip olursunuz. Bu ek depolama alanı ek bir birim eklenebilir veya bir veya daha fazla var olan birimler genişletmek için kullanılabilir. İlk olarak dağıtılan ve genellikle yukarıdaki tablo tarafından belgelenen şekilde birimlerin boyutunu azaltmak mümkün değildir. Ayrıca birimleri adlarını değiştirmek veya adları bağlama mümkün değil. Yukarıda açıklandığı gibi depolama birimleri HANA büyük örneği birimleri NFS4 birimler olarak eklenir.
 
-Bir müşteri olarak yedekleme/geri yükleme ve olağanüstü durum kurtarma amacıyla depolama anlık görüntüleri kullanmayı seçebilirsiniz. Bu konu hakkında daha fazla ayrıntı ayrıntıları [SAP HANA (büyük örnekler) yüksek kullanılabilirlik ve olağanüstü durum kurtarma Azure üzerinde](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Bir müşteri olarak yedekleme/geri yükleme ve olağanüstü durum kurtarma amacıyla depolama anlık görüntüleri kullanmayı seçebilirsiniz. Daha fazla ayrıntı ayrıntıları [SAP HANA (büyük örnekler) yüksek kullanılabilirlik ve olağanüstü durum kurtarma Azure üzerinde](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ### <a name="encryption-of-data-at-rest"></a>Bekleyen verilerin şifrelenmesi
 Disklerde depolanan gibi HANA büyük örnekleri için kullanılan depolama, veri saydam bir şifreleme sağlar. HANA büyük örneği birim dağıtım sırasında bu tür bir şifreleme etkin olmasını seçeneğiniz vardır. Şifrelenmiş birimlere zaten dağıtımdan sonra değiştirmek seçebilirsiniz. Şifrelenmemiş taşımak şifrelenmiş birimler için saydamdır ve bir kapalı kalma süresi gerektirmez. 
@@ -464,14 +466,18 @@ Yukarıda gösterildiği gibi birden fazla Azure Vnet üzerinde SAP uygulama kat
 
 ### <a name="routing-in-azure"></a>Azure'da yönlendirme
 
-SAP HANA azure'da (büyük örnekler) için iki önemli ağ yönlendirme noktalar vardır:
+SAP HANA azure'da (büyük örnekler) için üç önemli ağ yönlendirme noktalar vardır:
 
-1. SAP HANA (büyük örnekler) azure'da ayrılmış ExpressRoute bağlantı yalnızca Azure VM'ler tarafından erişilebilir; doğrudan şirket içinden. Bazı yönetim istemcileri ve SAP çözüm şirket içi, çalışan Yöneticisi gibi doğrudan erişim gerektiren herhangi bir uygulama SAP HANA veritabanına bağlanamıyor.
+1. SAP HANA Azure (büyük örnekler) üzerinde yalnızca adanmış ExpressRoute bağlantı ve Azure Vm'leri aracılığıyla erişilebilir; doğrudan şirket içinden. Şirket içinden HANA büyük örneği birimlerine doğrudan erişim, Microsoft tarafından size sunulan gibi SAP HANA büyük örnekleri için kullanılan geçerli Azure ağ mimarisinin geçici yönlendirme kısıtlamaları nedeniyle hemen mümkün değildir. Bazı yönetim istemcileri ve SAP çözüm şirket içi, çalışan Yöneticisi gibi doğrudan erişim gerektiren herhangi bir uygulama SAP HANA veritabanına bağlanamıyor.
 
-2. SAP HANA Azure (büyük örnekler) birimlerine sahip gönderilen müşteri olarak aralık atanan IP adresini sunucu IP havuzu adresinden (bkz [SAP HANA (büyük örnekler) altyapısı ve Azure ile ilgili bağlantı](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Ayrıntılar için).  Bu IP adresi, Azure abonelikleri ve Azure (büyük örnekler) üzerinde HANA Azure Vnet bağlandığı ExpressRoute aracılığıyla erişilebilir. Bu sunucu IP adresi aralığı donanım birimine doğrudan atanır ve NAT'ed artık bu değil havuzu dışında atanan IP adresi bu çözüm ilk dağıtımları durumda oluştu. 
+2. İki farklı Azure bölgelerinde olağanüstü durum kurtarma amacıyla dağıtılan HANA büyük örneği birim varsa, aynı geçici yönlendirme kısıtlamaları geçerli olur. Veya diğer bir deyişle, IP adresleri (örneğin BİZE Batı) bir bölgede HANA büyük örneği biriminin (örneğin BİZE Doğu) başka bir bölgede dağıttığınız HANA büyük örneği birimine yönlendirilmez. Bu bölgeler arasında veya HANA büyük örneği birimleri Azure sanal ağlara bağlanma ExpressRoute bağlantı hatları bağlanma çapraz Azure ağ eşlemesi kullanım bağımsızdır. Gösterildiği biraz daha aşağı bu belgeleri. Dağıtılan mimarisiyle gelir, bu kısıtlama, olağanüstü durum kurtarma işlevi HANA sistem çoğaltma hemen kullanımı engelleyecek.
+
+3. SAP HANA Azure (büyük örnekler) birimlerine sahip gönderilen müşteri olarak aralık atanan IP adresini sunucu IP havuzu adresinden (bkz [SAP HANA (büyük örnekler) altyapısı ve Azure ile ilgili bağlantı](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Ayrıntılar için).  Bu IP adresi, Azure abonelikleri ve Azure (büyük örnekler) üzerinde HANA Azure Vnet bağlandığı ExpressRoute aracılığıyla erişilebilir. Bu sunucu IP adresi aralığı donanım birimine doğrudan atanır ve NAT'ed artık bu değil havuzu dışında atanan IP adresi bu çözüm ilk dağıtımları durumda oluştu. 
 
 > [!NOTE] 
-> SAP HANA azure'da (büyük örnekler) bağlanmak, gerekirse bir _veri ambarı_ senaryosu, uygulamaları ve/veya son kullanıcıların gereken yeri bağlanmak için başka bir ağ bileşeni (doğrudan çalıştıran) SAP HANA veritabanına kullanılmalıdır: bir Ters ve ondan veri yönlendirmek için proxy. Örneğin, F5 BIG-IP, NGINX ile trafik, Yöneticisi Azure sanal güvenlik duvarı/trafik yönlendirme çözümü olarak dağıtılabilir.
+> İlk iki liste öğeleri yukarıda açıklandığı gibi geçici akışındaki kısıtlama üstesinden gerekiyorsa, yönlendirme için ek bileşenleri kullanmak gerekir. Kısıtlama üstesinden gelmek için kullanılabilir bileşenleri olabilir: rota verilerini, gelen ve giden için ters proxy. Örneğin, F5 BIG-IP, NGINX ile trafik, Yöneticisi Azure sanal güvenlik duvarı/trafik yönlendirme çözümü olarak dağıtılabilir.
+> Kullanarak [IPTables kuralları](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) HANA büyük örneği birimleri farklı bölgelerde veya şirket içi konumlar ve HANA büyük örneği birimleri arasında yönlendirme etkinleştirmek için bir Linux VM.
+> Uygulama ve üçüncü taraf ağ uygulamaları veya IPTables içeren özel çözümler için destek değil, Microsoft tarafından sağlanır unutmayın. Destek kullanılan bileşenin satıcısına veya Tümleştirici tarafından sağlanmalıdır. 
 
 ### <a name="internet-connectivity-of-hana-large-instances"></a>Internet bağlantısı HANA büyük örnekleri
 HANA büyük örnekleri doğrudan internet bağlantısı yok. Bu örneğin işletim sistemi görüntüsü doğrudan işletim sistemi satıcı ile kaydetmek için yeteneklerini kısıtlıyor. Bu nedenle yerel SLES SMT sunucu veya RHEL Abonelik Yöneticisi ile çalışması gerekebilir

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/22/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: add96267f8afe6dcaf43e163f9d18bd7fb57682e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Curl ile hdınsight'ta Hadoop ile Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -29,7 +29,7 @@ Hdınsight Hadoop kümesinde Sqoop işlerini çalıştırmak için Curl kullanma
 
 Curl çalıştırmak, izlemek ve Sqoop işleri sonuçları almak için ham HTTP isteklerini kullanarak Hdınsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır. Bu, WebHCat REST (önceki adıyla Templeton da bilinir), Hdınsight küme tarafından sağlanan API'sini kullanarak çalışır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir:
 
 * Tam [hdınsight'ta Hadoop ile Sqoop kullanma](hdinsight-use-sqoop.md#create-cluster-and-sql-database) bir Hdınsight kümesi ve bir Azure SQL veritabanı bir ortamda yapılandırmak için.

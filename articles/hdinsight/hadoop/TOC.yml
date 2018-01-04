@@ -19,7 +19,7 @@
     - name: Küme kapasitesi planlama
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Küme depolama alanını kullanma
       items:
@@ -121,6 +121,9 @@
       items:
         - name: Power Query kullanarak çözümleme
           href: apache-hadoop-connect-excel-power-query.md
+        - name: Power BI’ı Interactive Query’ye Bağlama
+          href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+          maintainContext: true
         - name: Power BI’ı Hadoop’a Bağlama
           href: apache-hadoop-connect-hive-power-bi.md
         - name: Excel'i Hadoop'a bağlama
@@ -201,7 +204,7 @@
         - name: Kullanıcıları Ambari Views için yetkilendirme
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-    - name: Yönet
+    - name: Yönetme
       items:
         - name: Linux kümeleri oluşturma
           href: ../hdinsight-hadoop-provision-linux-clusters.md

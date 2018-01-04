@@ -4,7 +4,7 @@ description: "Çoklu oturum açma Azure Active Directory ile GoToMeeting arasın
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
 ms.service: active-directory
@@ -12,19 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
-<<<<<<< HEAD
-ms.openlocfilehash: e8871ea9c3aa9f962bf961a8b44b748392a56ba7
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 1c3ea5175b02e35e7c624ce936d59fd82163b0fc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e3dadac0bcec3242804e90b1c0fa68d25bb9ffa4
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Öğretici: Azure Active Directory Tümleştirme GoToMeeting ile
 
@@ -38,7 +32,7 @@ GoToMeeting Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme GoToMeeting ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,24 +104,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. Üzerinde **GoToMeeting etki alanı ve URL'leri** 'yi tıklatın **Göster Gelişmiş URL ayarları** ve aşağıdaki işlemleri - gerçekleştirin
+3. Üzerinde **GoToMeeting etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![GoToMeeting etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+    ![GoToMeeting etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://authentication.logmeininc.com/saml/sp`
-
-    b. İçinde **yanıt URL'si** metin kutusuna, URL'yi yazın:`https://authentication.logmeininc.com/saml/acs`
-
-    c. İçinde **geçiş durumunu** metin kutusuna, aşağıdaki URL'lerden birini yazın:
-
-    **GoToMeeting için**:`https://global.gotomeeting.com`
-    
-    **GoToTraining için**:`https://global.gototraining.com`
-
-    **GoToWebinar için**:`https://global.gotowebinar.com`
-
-    **GoToAssist için**:`https://app.gotoassist.com`
-
+    İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://login.citrixonline.com/saml/sp`
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -161,7 +142,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![GoToMeeting yapılandırma](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. Farklı bir tarayıcı penceresinde oturum açın, [GoToMeeting kuruluş Merkezi](https://account.citrixonline.com/organization/administration/)
+8. Farklı bir tarayıcı penceresinde oturum açın, [GoToMeeting kuruluş Merkezi](https://organization.logmeininc.com/)
 
 9. Altında **kimlik sağlayıcısı** sekmesinde ya da tarafından oluşturulan sağlayan Azure ayarları yapılandırabilir **meta veri URL'sini** veya indirilen **meta veri dosyası** veya **El ile**.
 
@@ -173,7 +154,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. Yapıştır **meta veri URL'sini**, bir önceki adımda oluşturulan **meta veri URL'sini** metin kutusu.
 
-    c. **Kaydet** düğmesine tıklayın.
+    c. **Kaydet**’e tıklayın.
 
 11. İçin **meta veri dosyası** aşağıdaki adımları gerçekleştirin:
 
@@ -183,7 +164,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. İndirilen meta veri dosyanızı karşıya yüklemek için tıklayın **karşıya yükleme meta veri dosyası**.
 
-    c. **Kaydet** düğmesine tıklayın.
+    c. **Kaydet**’e tıklayın.
 
 12. İçin **el ile** aşağıdaki adımları gerçekleştirin:
 
@@ -197,7 +178,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     d. X509Certificate indirilen meta veri dosyasından ayıklayıp tıklayarak bu sertifikayı karşıya **karşıya yükleme sertifika**.
 
-    e. **Kaydet** düğmesine tıklayın.
+    e. **Kaydet**’e tıklayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -233,7 +214,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-gotomeeting-test-user"></a>GoToMeeting test kullanıcısı oluşturma
 
@@ -285,7 +266,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-* [Kullanıcı sağlamayı Yapılandır](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+* [Kullanıcı sağlamayı Yapılandır](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
 
 
 <!--Image references-->
